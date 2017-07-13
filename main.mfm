@@ -1099,6 +1099,7 @@ object mainfo: tmainfo
     E3FFDB01CFFCD510D6FBD502
   }
   oncreate = oncreateform
+  oncreated = oncreatedform
   ondestroy = dodestroy
   moduleclassname = 'tmainform'
   object tdockpanel1: tdockpanel

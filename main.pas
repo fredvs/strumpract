@@ -205,6 +205,7 @@ type
    procedure doquit(const sender: TObject);
     procedure ChangePlugSetSoundTouch(const Sender: TObject);
    procedure onreset(const sender: TObject);
+   procedure oncreatedform(const sender: TObject);
   end;
  
 const
@@ -230,6 +231,7 @@ var
  plugindex1, PluginIndex2: integer;
  drum_beats: array[0..3] of string; 
  posi, InputIndex1, OutputIndex1, Inputlength: integer; 
+ ordir : string;
  
 implementation
 uses
@@ -609,7 +611,7 @@ procedure tmainfo.oncreateform(const sender: TObject);
 var
 ax : integer;
 spcx, spcy, posx, posy, i  : integer;
-ordir, lib1, lib2, lib3, lib4 : string;
+ lib1, lib2, lib3, lib4 : string;
 begin
         visible := false;
      //   mainfo.width := 1;
@@ -1004,9 +1006,6 @@ aguitar[9] := ordir + 'sound' + directoryseparator +  'bass' + directoryseparato
 
  posi := 1;
  
-// songdir.value := gINI.ReadString('songfilename', 'files', ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3');
- 
-songdir.hint := songdir.value;
  
 // songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
  
@@ -1458,6 +1457,16 @@ end;
 procedure tmainfo.onreset(const sender: TObject);
 begin
 edtempo.value := 1;
+end;
+
+procedure tmainfo.oncreatedform(const sender: TObject);
+begin
+ if songdir.value = '' then
+ 
+ songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
+ 
+songdir.hint := songdir.value;
+
 end;
  
 end.
