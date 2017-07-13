@@ -7,7 +7,7 @@ uses
  msesimplewidgets,msedataedits,mseedit,msestatfile,msestrings,SysUtils,Classes,
  msegraphedits, uos_flat, aboutform, infos, msebitmap,mseimage,msefiledialog,
  msesys,mseificomp,mseificompglob,mseifiglob,msemenus,msescrollbar,mseact,
- msestream,msedragglob;
+ msestream,msedragglob,msedatanodes,msegrids,mselistbrowser;
 
 type
  talab =  array[0..15] of tlabel;
@@ -166,11 +166,8 @@ type
    loop_start: tbutton;
    tdockpanel3: tdockpanel;
    timage2: timage;
-   tbutton4: tbutton;
-   tbutton12: tbutton;
    label5: tlabel;
    tlabel25: tlabel;
-   edittempo: tintegeredit;
    tdockpanel2: tdockpanel;
    timage3: timage;
    label4: tlabel;
@@ -181,6 +178,8 @@ type
    btinfos: tbutton;
    loopguit: tbooleanedit;
    loopbass: tbooleanedit;
+   edittempo: trealspinedit;
+   historyfn: thistoryedit;
    procedure oncreateform(const sender: TObject);
    procedure dostart(const sender: TObject);
    procedure ontimertick(const Sender: TObject);
@@ -210,10 +209,12 @@ type
    procedure onreset(const sender: TObject);
    procedure oncreatedform(const sender: TObject);
    procedure onfinfos(const sender: TObject);
+   procedure sethistoryfn(const sender: TObject; var avalue: msestring;
+                   var accept: Boolean);
   end;
  
 const
- versiontext = '1.0';
+ versiontext = '1.1';
  
 var
  mainfo: tmainfo;
@@ -247,7 +248,7 @@ uses
   var
     tempo, rate: cfloat;
   begin
-         if (trim(Pchar(AnsiString(songdir.value))) <> '') and fileexists(AnsiString(songdir.value)) then
+         if (trim(Pchar(AnsiString(historyfn.value))) <> '') and fileexists(AnsiString(historyfn.value)) then
   begin
  
   //   label6.caption := 'Tempo: ' + floattostrf(tempo, ffFixed, 15, 1);
@@ -1093,7 +1094,7 @@ end;
 
 procedure tmainfo.onchangetempo(const sender: TObject);
 begin
-TimerTick.Interval := edittempo.value * 1000;
+TimerTick.Interval := trunc(edittempo.value * 1000);
 label5.caption :=  inttostr(trunc(1000/edittempo.value*60/4)) + ' BPM' ;
 end;
 
@@ -1213,7 +1214,7 @@ begin
 aboutfo.caption := 'About StrumPract' ;
 aboutfo.about_text.frame.colorclient := $DFFFB2;
 aboutfo.about_text.value := c_linefeed+  c_linefeed +
- 'StrumPract version: '+ versiontext + ' Host: '+ platformtext+  c_linefeed+
+ 'StrumPract '+ versiontext + ' for '+ platformtext+  c_linefeed+
  c_linefeed + 'Compiled with FPC 3.0.2.' + c_linefeed +  c_linefeed +
  'Graphic widget: MSEgui '+mseguiversiontext + '.' + c_linefeed+
             
@@ -1233,7 +1234,7 @@ procedure tmainfo.dodestroy(const sender: TObject);
 begin
 // gINI.writeString('songfilename', 'files', songdir.value);
 uos_free;
-sleep(100);
+sleep(150);
 end;
 
 procedure tmainfo.doguitarstring(const sender: TObject);
@@ -1324,9 +1325,9 @@ var
    
      samformat := 0;
      
-     songdir.hint := songdir.value;
+   //  songdir.hint := songdir.value;
      
-        
+    
     // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
     // If PlayerIndex exists already, it will be overwritten...
 
@@ -1335,7 +1336,7 @@ var
     //// PlayerIndex : from 0 to what your computer can do !
     //// If PlayerIndex exists already, it will be overwriten...
       
-     InputIndex1 := uos_AddFromFile(theplayer, pchar(AnsiString(songdir.value)), -1, samformat, -1);
+     InputIndex1 := uos_AddFromFile(theplayer, pchar(AnsiString(historyfn.value)), -1, samformat, -1);
      
     //// add input from audio file with custom parameters
     ////////// FileName : filename of audio file
@@ -1465,11 +1466,12 @@ var
      btnpause.Enabled := true;
     end;
     cbloop.enabled := false; 
-    songdir.hint := songdir.value;
+    songdir.value := historyfn.value;
+    historyfn.hint := historyfn.value;
     Timerwait.Enabled := true;
     end else 
     begin
-     showmessage( songdir.value + ' does not exist...');
+     showmessage( historyfn.value + ' does not exist...');
     end;
 end;
 
@@ -1528,10 +1530,20 @@ begin
  if songdir.value = '' then
  songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
  
-  songdir.hint := songdir.value;
+// if historyfn.value = '' then
+// historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
+
+ 
+ historyfn.value := songdir.value ;
+ 
+  caption := 'StrumPract ' + versiontext ;
    
    tdockpanel1.left := 4; // this to prevent new size on new release.
    tdockpanel1.top := 6;  // this to prevent new size on new release.
+   
+   tdockpanel1.width := 446; // this to prevent new size on new release.
+   tdockpanel1.height := 236;  // this to prevent new size on new release.
+    
    width := 454;    // this to prevent new size on new release.
    height := 434;   // this to prevent new size on new release.
    
@@ -1552,7 +1564,7 @@ uos_Stop(theplayerinfo) ;
     //// PlayerIndex : from 0 to what your computer can do !
     //// If PlayerIndex exists already, it will be overwriten...
       
-  if uos_AddFromFile(theplayerinfo, pchar(AnsiString(songdir.value)), -1, 0, -1) > -1 then
+  if uos_AddFromFile(theplayerinfo, pchar(AnsiString(historyfn.value)), -1, 0, -1) > -1 then
   begin
   
  inputlength := uos_InputLength(theplayer, InputIndex1);
@@ -1563,7 +1575,7 @@ uos_Stop(theplayerinfo) ;
 
    DecodeTime(temptimeinfo, ho, mi, se, ms);
     
-infosfo.infofile.caption := 'File: ' + extractfilename(songdir.value);
+infosfo.infofile.caption := 'File: ' + extractfilename(historyfn.value);
 infosfo.infoname.caption := 'Title: ' + AnsiToUtf8(uos_InputGetTagTitle(theplayerinfo, 0));
 infosfo.infoartist.caption := 'Artist: ' + AnsiToUtf8(uos_InputGetTagArtist(theplayerinfo, 0));
 infosfo.infoalbum.caption := 'Album: ' + AnsiToUtf8(uos_InputGetTagAlbum(theplayerinfo, 0));
@@ -1590,6 +1602,12 @@ infosfo.width := maxwidth + 42 ;
 // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
 infosfo.show(true);
 end;
+end;
+
+procedure tmainfo.sethistoryfn(const sender: TObject; var avalue: msestring;
+               var accept: Boolean);
+begin
+ songdir.value := historyfn.value  ;
 end;
  
 end.

@@ -101,7 +101,7 @@ type
  end;
 
 const
- defaulthistorymaxcount = 20;
+ defaulthistorymaxcount = 50;
  
 type
  filedialogoptionty = (fdo_filtercasesensitive,    //flvo_maskcasesensitive
@@ -512,6 +512,7 @@ type
    procedure backexe(const sender: TObject);
    procedure forwardexe(const sender: TObject);
    procedure buttonshowhint(const sender: TObject; var ainfo: hintinfoty);
+   
   private
    fselectednames: filenamearty;
    finit: boolean;
@@ -576,7 +577,7 @@ procedure updatefileinfo(const item: tlistitem; const info: fileinfoty;
 
 implementation
 uses
- msefiledialog_mfm,msebits,mseactions,
+ msefiledialog_mfm,msebits,mseactions, main,
  msestringenter,msefiledialogres,msekeyboard,
  msestockobjects,msesysintf,msearrayutils;
 
@@ -1478,7 +1479,17 @@ var
  int1: integer;
  str1: filenamety;
 begin
+
+
+
 // if filename.checkvalue then begin
+ // filename.dropdown.valuelist.asarray:= history^;
+ //  mainfo.historyfn.historymaxcount:= historymaxcount;
+   
+   mainfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
+
+mainfo.historyfn.value := dir.value + filename.value;
+
   if (filename.value <> '') or (fdo_acceptempty in dialogoptions) then begin
    if fdo_directory in dialogoptions then begin
     str1:= quotefilename(listview.directory);
@@ -1669,6 +1680,7 @@ begin
                                      '('+encodeshortcutname(shortcut)+')';
  end;
 end;
+
 
 { tfiledialogcontroller }
 

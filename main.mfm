@@ -1,8 +1,8 @@
 object mainfo: tmainfo
-  color = 9154703
+  color = 13421772
   visible = False
-  bounds_x = 661
-  bounds_y = 177
+  bounds_x = 642
+  bounds_y = 137
   bounds_cx = 454
   bounds_cy = 434
   container.frame.localprops = []
@@ -1881,7 +1881,7 @@ object mainfo: tmainfo
       reffontheight = 15
     end
     object tdockpanel4: tdockpanel
-      color = 13431495
+      color = 10406050
       frame.framewidth = 1
       frame.colorframe = -1610612733
       frame.localprops = [frl_framewidth, frl_colorframe]
@@ -1889,7 +1889,7 @@ object mainfo: tmainfo
       frame.grip_size = 0
       taborder = 93
       bounds_x = 0
-      bounds_y = 150
+      bounds_y = 155
       bounds_cx = 446
       bounds_cy = 81
       object timage1: timage
@@ -3066,7 +3066,7 @@ object mainfo: tmainfo
         object timage2: timage
           frame.localprops = []
           frame.localprops1 = []
-          taborder = 5
+          taborder = 2
           bounds_x = 0
           bounds_y = 0
           bounds_cx = 74
@@ -3376,73 +3376,48 @@ object mainfo: tmainfo
             9FC99A01A2C89E0A
           }
         end
-        object tbutton4: tbutton
-          Tag = 1
-          frame.optionsskin = [fso_flat]
-          frame.localprops = [frl_optionsskin]
-          frame.localprops1 = []
-          taborder = 1
-          hint = ' Interval - 1 '
-          bounds_x = 46
-          bounds_y = 40
-          bounds_cx = 26
-          bounds_cy = 11
-          state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-          caption = '-'
-          imagenr = 27
-          focusrectdist = 0
-        end
-        object tbutton12: tbutton
-          frame.optionsskin = [fso_flat]
-          frame.localprops = [frl_optionsskin]
-          frame.localprops1 = []
-          hint = ' Interval + 1 '
-          bounds_x = 46
-          bounds_y = 29
-          bounds_cx = 26
-          bounds_cy = 11
-          state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-          caption = '+'
-          imagenr = 27
-          focusrectdist = 0
-        end
         object label5: tlabel
-          taborder = 2
           bounds_x = 12
-          bounds_y = 49
+          bounds_y = 51
           bounds_cx = 53
           bounds_cy = 15
           caption = '150 BPM'
           reffontheight = 15
         end
         object tlabel25: tlabel
-          taborder = 3
+          taborder = 1
           bounds_x = 14
-          bounds_y = 15
+          bounds_y = 13
           bounds_cx = 46
           bounds_cy = 15
           caption = 'Interval'
           reffontheight = 15
         end
-        object edittempo: tintegeredit
-          optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        object edittempo: trealspinedit
           frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+          frame.framei_left = 1
+          frame.framei_top = 1
+          frame.framei_right = 1
+          frame.framei_bottom = 1
           frame.localprops = [frl_hiddenedges]
           frame.localprops1 = []
-          taborder = 4
-          hint = ' Interval between 2 ticks in milli-second. (1000 = 1 second) '
-          bounds_x = 6
-          bounds_y = 29
-          bounds_cx = 38
-          statfile = tstatfile1
-          font.name = 'stf_default'
-          font.localprops = [flp_gloss_color, flp_height]
-          textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
-          textflagsactive = [tf_xcentered, tf_ycentered]
+          taborder = 3
+          hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
+          bounds_x = 13
+          bounds_y = 28
+          bounds_cx = 46
+          bounds_cy = 23
           onchange = onchangetempo
           value = 100
+          valuedefault = 100
+          valuerange = 1
+          valuestart = 0
           min = 40
           max = 200
+          step = 1
+          stepctrlfact = 0
+          stepshiftfact = 0
+          wheelsensitivity = 1
           reffontheight = 15
         end
       end
@@ -3842,9 +3817,9 @@ object mainfo: tmainfo
     frame.grip_size = 0
     taborder = 4
     bounds_x = 4
-    bounds_y = 245
+    bounds_y = 246
     bounds_cx = 446
-    bounds_cy = 111
+    bounds_cy = 110
     object tlabel28: tlabel
       taborder = 7
       bounds_x = 34
@@ -3924,9 +3899,9 @@ object mainfo: tmainfo
       frame.button.imagenr = 17
       taborder = 3
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
-      bounds_x = 57
-      bounds_y = 4
-      bounds_cx = 382
+      bounds_x = 60
+      bounds_y = 5
+      bounds_cx = 22
       bounds_cy = 22
       statfile = tstatfile1
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
@@ -4151,6 +4126,35 @@ object mainfo: tmainfo
       imagenr = 27
       focusrectdist = 0
       onexecute = onfinfos
+    end
+    object historyfn: thistoryedit
+      frame.captionpos = cp_lefttop
+      frame.captiondist = 0
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+        end>
+      taborder = 17
+      hint = ' History of files '
+      bounds_x = 83
+      bounds_y = 5
+      bounds_cx = 355
+      bounds_cy = 22
+      statfile = tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
+      optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+      onsetvalue = sethistoryfn
+      dropdown.options = [deo_keydropdown, deo_cliphint]
+      dropdown.dropdownrowcount = 10
+      dropdown.cols.count = 1
+      dropdown.cols.items = <      
+        item
+          textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+        end>
+      dropdown.historymaxcount = 50
+      reffontheight = 15
     end
   end
   object buttonicons: timagelist

@@ -335,8 +335,8 @@ imagelisteditor=25
  visible=1
 colordialog=5
  [colordialogfo]
- x=873
- y=261
+ x=145
+ y=343
  cx=338
  cy=298
 compnamedialog=5
@@ -619,25 +619,28 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=4
+modulenames=5
  ABOUT_FORM
  INFOSFO
  MAINFO
  SIMPLE_PLAYER
-moduletypes=4
+ FILEDIALOGFO
+moduletypes=5
  TABOUTFO
  TINFOSFO
  TMAINFO
  TMAINFO
-modulefiles=4
+ TFILEDIALOGFO
+modulefiles=5
  /home/fred/strumpract/aboutform.mfm
  /home/fred/strumpract/infos.mfm
  /home/fred/strumpract/main.mfm
  /home/fred/uos/examples/mainmse_sp.mfm
+ /home/fred/strumpract/msefiledialog.mfm
 befcommandon=0
 makeoptionson=7
  4095
- 1
+ 0
  192
  226
  254
@@ -953,8 +956,13 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=destroy
+finddtext=historymaxcount
 findhistory=20
+ historymaxcount
+ songdir
+ filename.
+ changehis
+ implementation
  destroy
  ho, mi,
  timer
@@ -970,13 +978,8 @@ findhistory=20
  lib3
  constructor
  create
- timerw
- drums pra
- drumspra
- drums
- caption
 findoptions=1
-editpos=15
+editpos=16
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -984,13 +987,14 @@ editpos=15
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,1214
+ 19,171
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,17
- 0,11
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1007,7 +1011,8 @@ bookmarks11=0
 bookmarks12=0
 bookmarks13=0
 bookmarks14=0
-sourcefiles=15
+bookmarks15=0
+sourcefiles=16
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/define.inc
  ${PROJECTDIR}/mainmse_sp.pas
@@ -1022,8 +1027,9 @@ sourcefiles=15
  ${PROJECTDIR}/uos_soundtouch.pas
  ${PROJECTDIR}/infos.pas
  ${PROJECTDIR}/aboutform.pas
- /usr/share/fpcsrc/3.0.2/rtl/inc/ustringh.inc
-relpaths=15
+ ${PROJECTDIR}/msefiledialog.pas
+ ${PROJECTDIR}/main_mfm.pas
+relpaths=16
  main.pas
  define.inc
  uos/examples/mainmse_sp.pas
@@ -1038,8 +1044,9 @@ relpaths=15
  uos_soundtouch.pas
  infos.pas
  aboutform.pas
- usr/share/fpcsrc/3.0.2/rtl/inc/ustringh.inc
-ismoduletexts=15
+ msefiledialog.pas
+ main_mfm.pas
+ismoduletexts=16
  0
  0
  0
@@ -1055,32 +1062,37 @@ ismoduletexts=15
  0
  0
  0
-modules=5
+ 0
+modules=6
  /home/fred/uos/examples/mainmse_sp.mfm
  /home/fred/strumpract/msefiledialogres.mfm
  /home/fred/strumpract/main.mfm
  /home/fred/strumpract/infos.mfm
  /home/fred/strumpract/aboutform.mfm
-moduleoptions=5
+ /home/fred/strumpract/msefiledialog.mfm
+moduleoptions=6
  0
  0
  0
  0
  0
-visiblemodules=5
+ 0
+visiblemodules=6
  0
  0
  -1
  -1
  -1
-nomenumodules=5
+ -1
+nomenumodules=6
  0
  -1
+ 0
  0
  0
  0
 [sourcefo.files_tab]
-order=15
+order=16
  0
  1
  2
@@ -1090,6 +1102,7 @@ order=15
  6
  7
  14
+ 15
  12
  13
  8
@@ -1099,7 +1112,7 @@ order=15
 firsttab=5
 index=7
 [layout]
-windowlayout=621
+windowlayout=640
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1125,8 +1138,8 @@ windowlayout=621
  ny=0
  ncx=0
  ncy=0
- x=141
- y=120
+ x=226
+ y=49
  cx=939
  cy=621
  rcx=0
@@ -1344,27 +1357,27 @@ windowlayout=621
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=_mse_mainfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=266
- y=126
+ x=51
+ y=177
  cx=498
  cy=484
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
- propcolwidthref=473
- width0=349
+ propcolwidthref=488
+ width0=361
  sortdescend0=0
- width1=118
+ width1=121
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1541,7 +1554,7 @@ windowlayout=621
  active=0
  visible=0
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=2
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -1594,7 +1607,7 @@ windowlayout=621
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_filedialogres_mse_
+ stackedunder=_mse_simple_player_mse_
  parent=
  mdistate=0
  nx=0
@@ -1629,7 +1642,7 @@ windowlayout=621
  [_mse_simple_player_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=
+ stackedunder=_mse_filedialogres_mse_
  parent=
  mdistate=0
  nx=0
@@ -1648,7 +1661,7 @@ windowlayout=621
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_about_form_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1667,15 +1680,15 @@ windowlayout=621
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=661
- y=177
+ x=642
+ y=137
  cx=464
  cy=434
  rcx=0
@@ -1686,7 +1699,7 @@ windowlayout=621
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_about_form_mse_
  parent=
  mdistate=0
  nx=0
@@ -1705,7 +1718,7 @@ windowlayout=621
  [_mse_about_form_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_infosfo_mse_
+ stackedunder=_mse_filedialogfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1716,6 +1729,25 @@ windowlayout=621
  y=260
  cx=382
  cy=267
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_filedialogfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=mainfo
+ parent=
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=423
+ y=256
+ cx=564
+ cy=316
  rcx=0
  rcy=0
  wsize=0
