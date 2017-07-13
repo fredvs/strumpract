@@ -3,10 +3,11 @@ unit main;
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
- msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,fpg_iniutils_ideu,
- msedock,msesimplewidgets,msedataedits,mseedit,msestatfile,msestrings,SysUtils,
- Classes,msegraphedits, uos_flat, aboutform, msebitmap,mseimage,msefiledialog,
- msesys;
+ ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,
+ msedock,msesimplewidgets,msedataedits,mseedit,msestatfile,
+ msestrings,SysUtils,Classes,msegraphedits, uos_flat, aboutform, msebitmap,
+ mseimage,msefiledialog,msesys,mseificomp,mseificompglob,mseifiglob,msemenus,
+ msescrollbar,mseact,msestream,msedragglob;
 
 type
  talab =  array[0..15] of tlabel;
@@ -106,17 +107,6 @@ type
    labd: tlabel;
    buttonicons: timagelist;
    labpat: tlabel;
-   tdockpanel4: tdockpanel;
-   tbooleaneditradio8: tbooleaneditradio;
-   tbooleaneditradio7: tbooleaneditradio;
-   tbooleaneditradio6: tbooleaneditradio;
-   tbooleaneditradio5: tbooleaneditradio;
-   tbooleaneditradio2: tbooleaneditradio;
-   tbooleaneditradio4: tbooleaneditradio;
-   tbooleaneditradio3: tbooleaneditradio;
-   tbooleaneditradio1: tbooleaneditradio;
-   tlabel22: tlabel;
-   tlabel21: tlabel;
    and1: tlabel;
    and2: tlabel;
    and3: tlabel;
@@ -135,12 +125,8 @@ type
    tbutton14: tbutton;
    tbutton15: tbutton;
    tbutton16: tbutton;
-   noanim: tbooleanedit;
-   noand: tbooleanedit;
-   novoice: tbooleanedit;
    tdockpanel7: tdockpanel;
    tbutton2: tbutton;
-   nodrums: tbooleanedit;
    tstatfile1: tstatfile;
    tdockpanel8: tdockpanel;
    btnPause: tbutton;
@@ -150,30 +136,48 @@ type
    btnStop: tbutton;
    llength: tlabel;
    lposition: tlabel;
-   cbloop: tbooleanedit;
-   tbutton10: tbutton;
-   tbutton11: tbutton;
    tlabel28: tlabel;
-   edvol: tintegeredit;
    trackbar1: tslider;
    tbutton17: tbutton;
+   cbtempo: tbooleanedit;
+   label6: tlabel;
+   tlabel27: tlabel;
+   cbloop: tbooleanedit;
+   button1: tbutton;
+   tdockpanel4: tdockpanel;
+   timage1: timage;
+   tlabel26: tlabel;
+   tbooleaneditradio8: tbooleaneditradio;
+   tbooleaneditradio7: tbooleaneditradio;
+   tbooleaneditradio6: tbooleaneditradio;
+   tbooleaneditradio5: tbooleaneditradio;
+   tbooleaneditradio2: tbooleaneditradio;
+   tbooleaneditradio4: tbooleaneditradio;
+   tbooleaneditradio3: tbooleaneditradio;
+   tbooleaneditradio1: tbooleaneditradio;
+   tlabel22: tlabel;
+   tlabel21: tlabel;
+   noanim: tbooleanedit;
+   noand: tbooleanedit;
+   novoice: tbooleanedit;
+   nodrums: tbooleanedit;
    loop_stop: tbutton;
    loop_resume: tbutton;
    loop_start: tbutton;
-   timage1: timage;
-   tlabel26: tlabel;
-   tdockpanel2: tdockpanel;
-   label2: tlabel;
-   label4: tlabel;
-   label3: tlabel;
    tdockpanel3: tdockpanel;
+   timage2: timage;
    tbutton4: tbutton;
    tbutton12: tbutton;
    label5: tlabel;
    tlabel25: tlabel;
    edittempo: tintegeredit;
-   timage2: timage;
+   tdockpanel2: tdockpanel;
    timage3: timage;
+   label4: tlabel;
+   label3: tlabel;
+   label2: tlabel;
+   edtempo: trealspinedit;
+   edvol: trealspinedit;
    procedure oncreateform(const sender: TObject);
    procedure dostart(const sender: TObject);
    procedure ontimertick(const Sender: TObject);
@@ -181,7 +185,6 @@ type
    procedure dostop(const sender: TObject);
    procedure doresume(const sender: TObject);
    procedure onchangetempo(const sender: TObject);
-   procedure oninc(const sender: TObject);
    procedure dopatern(const sender: TObject);
    procedure onabout(const sender: TObject);
    procedure dodestroy(const sender: TObject);
@@ -197,9 +200,11 @@ type
    procedure changepos(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
    procedure changevolume(const sender: TObject);
-   procedure incvol(const sender: TObject);
+  
    procedure doentertrackbar(const sender: TObject);
    procedure doquit(const sender: TObject);
+    procedure ChangePlugSetSoundTouch(const Sender: TObject);
+   procedure onreset(const sender: TObject);
   end;
  
 const
@@ -217,16 +222,33 @@ var
  stopit :boolean = false;
  channels : cardinal = 2 ; // stereo output
  allok : boolean = false;
+ plugsoundtouch : boolean = false;
  adrums: array[0..8] of string;
  aguitar : array[0..9] of string;
  ams :  array[0..8] of Tmemorystream; 
  theplayer : integer = 20;
+ plugindex1, PluginIndex2: integer;
  drum_beats: array[0..3] of string; 
  posi, InputIndex1, OutputIndex1, Inputlength: integer; 
  
 implementation
 uses
  main_mfm;
+ 
+ procedure tmainfo.ChangePlugSetSoundTouch(const Sender: TObject);
+  var
+    tempo, rate: cfloat;
+  begin
+         if (trim(Pchar(AnsiString(songdir.value))) <> '') and fileexists(AnsiString(songdir.value)) then
+  begin
+ 
+  //   label6.caption := 'Tempo: ' + floattostrf(tempo, ffFixed, 15, 1);
+   
+       uos_SetPluginSoundTouch(theplayer, PluginIndex2, edtempo.value, 1, cbtempo.value);
+ 
+    end;
+  end;
+ 
   
 procedure Tmainfo.ClosePlayer1;
   begin
@@ -587,7 +609,7 @@ procedure tmainfo.oncreateform(const sender: TObject);
 var
 ax : integer;
 spcx, spcy, posx, posy, i  : integer;
-ordir, lib1, lib2, lib3 : string;
+ordir, lib1, lib2, lib3, lib4 : string;
 begin
         visible := false;
      //   mainfo.width := 1;
@@ -899,11 +921,14 @@ end;
         lib1 := ordir + 'lib\Windows\64bit\LibPortaudio-64.dll';
         lib2 := ordir + 'lib\Windows\64bit\LibSndFile-64.dll'; 
         lib3 := ordir + 'lib\Windows\64bit\LibMpg123-64.dll';
+        lib4 := ordir + 'lib\Windows\64bit\LibSoundTouch-64.dll';
+
         
          {$else}
         lib1 := ordir + 'lib\Windows\32bit\LibPortaudio-32.dll';
         lib2 := ordir + 'lib\Windows\32bit\LibSndFile-32.dll';
         lib3 := ordir + 'lib\Windows\32bit\LibMpg123-32.dll';
+        lib4 := ordir + 'lib\Windows\32bit\LibSoundTouch-32.dll';
          {$endif}
      {$ENDIF}
 
@@ -912,10 +937,13 @@ end;
        lib1 :=  ordir + 'lib/Linux/64bit/LibPortaudio-64.so'    ;
        lib2 := ordir + 'lib/Linux/64bit/LibSndFile-64.so'   ;
        lib3 := ordir + 'lib/Linux/64bit/LibMpg123-64.so';
+       lib4 := ordir + 'lib/Linux/64bit/LibSoundTouch-64.so';
+  
         {$else}
         lib1 := ordir + 'lib/Linux/32bit/LibPortaudio-32.so';
          lib2 := ordir + 'lib/Linux/32bit/LibSndFile-32.so'   ;
          lib3 := ordir + 'lib/Linux/32bit/LibMpg123-32.so';
+         lib4 := ordir + 'lib/Linux/32bit/LibSoundTouch-32.so';
         {$endif}
       {$ENDIF}
 
@@ -924,16 +952,31 @@ end;
          lib1 :=  ordir + 'lib/FreeBSD/64bit/libportaudio-64.so'    ;
          lib2 := ordir + 'lib/FreeBSD/64bit/libsndfile-64.so'   ;
          lib3 := ordir + 'lib/FreeBSD/64bit/libmpg123-64.so';
+         lib4 := '' ;
         {$else}
         lib1 := ordir + 'lib/FreeBSD/32bit/libportaudio-32.so';
         lib2 := ordir + 'lib/FreeBSD/32bit/libsndfile-32.so'   ;
         lib3 := ordir + 'lib/FreeBSD/32bit/libmpg123-32.so';
+        lib4 := '' ;
         {$endif}
       {$ENDIF}
    
 if uos_LoadLib(Pchar(lib1),  Pchar(lib2), Pchar(lib3), nil, nil,nil) = 0 then
 
 begin
+
+  if (uos_LoadPlugin('soundtouch', Pchar(lib4)) = 0) then
+       begin
+     plugsoundtouch := true;
+       end
+         else
+         begin
+       plugsoundtouch := false;
+         edtempo.enabled := false;
+       cbtempo.enabled := false;
+       Button1.enabled := false;
+       label6.enabled := false;
+         end;    
 
 adrums[0] := ordir + 'sound' + directoryseparator +  'drums' + directoryseparator + 'HH.ogg';
 adrums[1] := ordir + 'sound' + directoryseparator +  'drums' + directoryseparator + 'OH.ogg'; 
@@ -961,7 +1004,7 @@ aguitar[9] := ordir + 'sound' + directoryseparator +  'bass' + directoryseparato
 
  posi := 1;
  
-songdir.value := gINI.ReadString('songfilename', 'files', ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3');
+// songdir.value := gINI.ReadString('songfilename', 'files', ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3');
  
 songdir.hint := songdir.value;
  
@@ -1011,7 +1054,7 @@ for i := 0 to 8 do
    timage3.bitmap := timage2.bitmap;
     
    width := 456;
-   height := 378;
+   height := 434;
    visible := true;
   
    end else  application.terminate;  
@@ -1048,13 +1091,6 @@ TimerTick.Interval := edittempo.value * 1000;
 label5.caption :=  inttostr(trunc(1000/edittempo.value*60/4)) + ' BPM' ;
 end;
 
-procedure tmainfo.oninc(const sender: TObject);
-begin
-if  Tbutton(Sender).tag = 0 then
-edittempo.value := edittempo.value +1 else
-edittempo.value := edittempo.value -1 ;
-onchangetempo(sender);
-end;
 
 procedure tmainfo.dopatern(const sender: TObject);
  var
@@ -1189,7 +1225,7 @@ end;
 
 procedure tmainfo.dodestroy(const sender: TObject);
 begin
-gINI.writeString('songfilename', 'files', songdir.value);
+// gINI.writeString('songfilename', 'files', songdir.value);
 uos_free;
 sleep(100);
 end;
@@ -1325,17 +1361,17 @@ var
    uos_SetPluginbs2b(PlayerIndex1, PluginIndex1, -1 , -1, -1, chkst2b.value);
   end; 
   
+  
+  }
   /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
   /// SoundTouch plugin should be the last added.
     if plugsoundtouch = true then
   begin
-    PlugInIndex2 := uos_AddPlugin(PlayerIndex1, 'soundtouch', 
-    uos_InputGetSampleRate(PlayerIndex1, InputIndex1) , -1);
+    PlugInIndex2 := uos_AddPlugin(theplayer, 'soundtouch', 
+    uos_InputGetSampleRate(theplayer, InputIndex1) , -1);
     ChangePlugSetSoundTouch(self); //// custom procedure to Change plugin settings
    end;    
- 
- }
-       
+        
    inputlength := uos_InputLength(theplayer, InputIndex1);
     ////// Length of Input in samples
 
@@ -1409,20 +1445,6 @@ begin
    edvol.value/100, edvol.value/100, True);
 end;
 
-procedure tmainfo.incvol(const sender: TObject);
-begin
-if  Tbutton(Sender).tag = 0 then
-begin
-if edvol.value < 100 then
-edvol.value := edvol.value +1 ;
-end else
-begin
-if edvol.value > 0 then
-edvol.value := edvol.value -1 ;
-end;
-changevolume(sender);
-end;
-
 procedure tmainfo.doentertrackbar(const sender: TObject);
 begin
 trackbar1.tag := 1;
@@ -1431,6 +1453,11 @@ end;
 procedure tmainfo.doquit(const sender: TObject);
 begin
 application.terminate;
+end;
+
+procedure tmainfo.onreset(const sender: TObject);
+begin
+edtempo.value := 1;
 end;
  
 end.

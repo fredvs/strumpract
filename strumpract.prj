@@ -613,14 +613,11 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
- MAINFO
+modulenames=1
  SIMPLE_PLAYER
-moduletypes=2
+moduletypes=1
  TMAINFO
- TMAINFO
-modulefiles=2
- /home/fred/strumpract/main.mfm
+modulefiles=1
  /home/fred/uos/examples/mainmse_sp.mfm
 befcommandon=0
 makeoptionson=7
@@ -934,8 +931,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=constructor
+finddtext=lib3
 findhistory=20
+ lib3
  constructor
  create
  timerw
@@ -955,19 +953,17 @@ findhistory=20
  showhidden
  filename.frame
  setfilename
- tfiledialogcontroller
 findoptions=1
-editpos=10
+editpos=9
  0,-1073741823
  0,-1073741823
  0,263
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,1436
- 18,8216
+ 0,0
+ 0,108
+ 0,1227
+ 0,21
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -977,8 +973,7 @@ bookmarks5=0
 bookmarks6=0
 bookmarks7=0
 bookmarks8=0
-bookmarks9=0
-sourcefiles=10
+sourcefiles=9
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/define.inc
  /home/fred/uos/examples/mainmse_sp.pas
@@ -987,9 +982,8 @@ sourcefiles=10
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/uos.pas
-relpaths=10
+ ${PROJECTDIR}/define.inc
+relpaths=9
  main.pas
  define.inc
  uos/examples/mainmse_sp.pas
@@ -998,9 +992,8 @@ relpaths=10
  strumpract.pas
  uos_flat.pas
  main.pas
- main.pas
- uos.pas
-ismoduletexts=10
+ define.inc
+ismoduletexts=9
  0
  0
  0
@@ -1010,39 +1003,33 @@ ismoduletexts=10
  0
  0
  0
- 0
-modules=3
- /home/fred/strumpract/main.mfm
+modules=2
  /home/fred/uos/examples/mainmse_sp.mfm
  /home/fred/strumpract/msefiledialogres.mfm
-moduleoptions=3
+moduleoptions=2
  0
  0
- 0
-visiblemodules=3
- -1
+visiblemodules=2
  0
  0
-nomenumodules=3
- 0
+nomenumodules=2
  0
  -1
 [sourcefo.files_tab]
-order=10
+order=9
  0
  1
  2
  3
  4
  6
- 9
- 7
+ 11
+ 10
  5
- 8
 firsttab=5
-index=6
+index=7
 [layout]
-windowlayout=583
+windowlayout=564
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1055,8 +1042,8 @@ windowlayout=583
  ncy=0
  x=0
  y=0
- cx=929
- cy=585
+ cx=1356
+ cy=694
  rcx=0
  rcy=0
  [mainfo]
@@ -1068,16 +1055,16 @@ windowlayout=583
  ny=0
  ncx=0
  ncy=0
- x=231
- y=53
+ x=153
+ y=77
  cx=939
  cy=621
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,929,585
+  basedock,0,0,1356,694
  focusedchild=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [targetconsolefo]
@@ -1119,7 +1106,7 @@ windowlayout=583
  [memoryfo]
  splitdir=0
  useroptions=805322875
- stackedunder=about_form
+ stackedunder=dialogfilesfo
  parent=
  mdistate=0
  nx=0
@@ -1191,7 +1178,7 @@ windowlayout=583
  x=0
  y=0
  cx=159
- cy=428
+ cy=508
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1287,27 +1274,27 @@ windowlayout=583
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=670
- y=179
+ x=266
+ y=115
  cx=316
  cy=484
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [objectinspectorfo.grid]
  propcolwidthref=306
- width0=73
+ width0=90
  sortdescend0=0
- width1=227
+ width1=210
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1396,9 +1383,9 @@ windowlayout=583
  ncx=0
  ncy=0
  x=0
- y=485
- cx=929
- cy=100
+ y=575
+ cx=1356
+ cy=119
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1467,7 +1454,7 @@ windowlayout=583
  [componentpalettefo]
  splitdir=0
  useroptions=805331051
- stackedunder=
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -1482,9 +1469,9 @@ windowlayout=583
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=1
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -1497,8 +1484,8 @@ windowlayout=583
  ncy=0
  x=0
  y=0
- cx=929
- cy=51
+ cx=1356
+ cy=61
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1513,8 +1500,8 @@ windowlayout=583
  ncy=2
  x=0
  y=0
- cx=929
- cy=51
+ cx=1356
+ cy=61
  rcx=0
  rcy=0
  [sourcefo]
@@ -1529,8 +1516,8 @@ windowlayout=583
  ncy=0
  x=162
  y=0
- cx=767
- cy=428
+ cx=1194
+ cy=508
  rcx=0
  rcy=0
  [cpuc86_64fo]
@@ -1553,25 +1540,22 @@ windowlayout=583
  wsize=0
  active=0
  visible=0
- [_mse_mainfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=mainfo
- parent=
+ [mainfo.panel1]
+ splitdir=1
+ useroptions=838958571
+ parent=mainfo.basedock
+ visible=1
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=385
- y=214
- cx=464
- cy=378
+ x=0
+ y=64
+ cx=1356
+ cy=508
  rcx=0
  rcy=0
- wsize=0
- active=0
- visible=1
  [_mse_simple_player_mse_]
  splitdir=0
  useroptions=805322875
@@ -1594,7 +1578,7 @@ windowlayout=583
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_mainfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=0
  nx=0
@@ -1610,22 +1594,6 @@ windowlayout=583
  wsize=0
  active=0
  visible=0
- [mainfo.panel1]
- splitdir=1
- useroptions=838958571
- parent=mainfo.basedock
- visible=1
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=54
- cx=929
- cy=428
- rcx=0
- rcy=0
 [targetconsole]
 finddtext=
 findhistory=0

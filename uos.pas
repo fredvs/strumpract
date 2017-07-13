@@ -8286,7 +8286,8 @@ begin
   sleep(100);
 end;
   {$endif}
-// if assigned(Data.MemoryStream) then freeandnil(Data.MemoryStream);
+ if assigned(Data.MemoryStream) then
+   freeandnil(Data.MemoryStream);
  
   if length(DSP) > 0 then
   for x := 0 to high(DSP) do
