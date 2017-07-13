@@ -1,19 +1,21 @@
-object about_form: taboutfo
+object infosfo: tinfosfo
+  color = 16449489
   visible = False
-  bounds_x = 664
-  bounds_y = 260
-  bounds_cx = 372
-  bounds_cy = 267
+  bounds_x = 685
+  bounds_y = 257
+  bounds_cx = 354
+  bounds_cy = 216
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
-    372
-    267
+    354
+    216
   )
   optionswindow = [wo_dialog]
-  options = [fo_screencentered, fo_cancelonesc, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  caption = 'Infos of song'
   icon.origformat = 'jpeg'
   icon.image = {
     0000000000000000620000007000000098860000000000000000000000000000
@@ -1097,20 +1099,75 @@ object about_form: taboutfo
     E3FFDB01CFFCD510D6FBD502
   }
   moduleclassname = 'tmseform'
-  object about_text: tmemoedit
-    frame.colorclient = 13431495
-    frame.localprops = [frl_colorclient]
-    frame.localprops1 = []
-    frame.sbhorz.pagesize = 1
-    frame.sbvert.pagesize = 1
-    bounds_x = 7
-    bounds_y = 0
-    bounds_cx = 357
-    bounds_cy = 259
-    optionsedit = [oe_readonly, oe_closequery, oe_checkmrcancel, oe_linebreak, oe_eatreturn, oe_resetselectonexit, oe_nofirstarrownavig, oe_focusrectonreadonly]
-    textflags = [tf_xcentered, tf_wordbreak, tf_noselect]
-    textflagsactive = [tf_xcentered, tf_wordbreak]
-    value = 'Drums Pract version 1.0.'
+  object infoname: tlabel
+    bounds_x = 19
+    bounds_y = 49
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
+    reffontheight = 15
+  end
+  object infoartist: tlabel
+    taborder = 1
+    bounds_x = 19
+    bounds_y = 71
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel2'
+    reffontheight = 15
+  end
+  object infoalbum: tlabel
+    taborder = 2
+    bounds_x = 19
+    bounds_y = 92
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel3'
+    reffontheight = 15
+  end
+  object infoyear: tlabel
+    taborder = 3
+    bounds_x = 19
+    bounds_y = 115
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
+    reffontheight = 15
+  end
+  object infolength: tlabel
+    taborder = 4
+    bounds_x = 19
+    bounds_y = 183
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
+    reffontheight = 15
+  end
+  object infotag: tlabel
+    taborder = 5
+    bounds_x = 19
+    bounds_y = 157
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
+    reffontheight = 15
+  end
+  object infocom: tlabel
+    taborder = 6
+    bounds_x = 19
+    bounds_y = 136
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
+    reffontheight = 15
+  end
+  object infofile: tlabel
+    taborder = 7
+    bounds_x = 20
+    bounds_y = 15
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
     reffontheight = 15
   end
 end

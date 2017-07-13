@@ -1889,7 +1889,7 @@ object mainfo: tmainfo
       frame.grip_size = 0
       taborder = 93
       bounds_x = 0
-      bounds_y = 152
+      bounds_y = 150
       bounds_cx = 446
       bounds_cy = 81
       object timage1: timage
@@ -3527,13 +3527,13 @@ object mainfo: tmainfo
     frame.localprops1 = []
     frame.grip_size = 0
     taborder = 1
-    bounds_x = 3
+    bounds_x = 4
     bounds_y = 360
     bounds_cx = 446
     bounds_cy = 32
     object tlabel23: tlabel
-      bounds_x = 6
-      bounds_y = 8
+      bounds_x = 7
+      bounds_y = 1
       bounds_cx = 82
       bounds_cy = 15
       caption = 'Guitar strings'
@@ -3549,11 +3549,11 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 6
-      hint = ' Tuned guitar string '
-      bounds_x = 379
+      hint = ' Tuned guitar string. If loop enabled, click again to stop. '
+      bounds_x = 383
       bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '1 Mi/E'
       imagenr = 27
@@ -3567,11 +3567,11 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 5
-      hint = ' Tuned guitar string '
+      hint = ' Tuned guitar string. If loop enabled, click again to stop. '
       bounds_x = 325
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '2 Si/B'
       imagenr = 27
@@ -3585,11 +3585,11 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 4
-      hint = ' Tuned guitar string '
+      hint = ' Tuned guitar string. If loop enabled, click again to stop. '
       bounds_x = 267
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '3 Sol/G'
       imagenr = 27
@@ -3603,11 +3603,11 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 3
-      hint = ' Tuned guitar string '
+      hint = ' Tuned guitar string. If loop enabled, click again to stop. '
       bounds_x = 210
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '4 Re/D'
       imagenr = 27
@@ -3621,11 +3621,11 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 2
-      hint = ' Tuned guitar string '
+      hint = ' Tuned guitar string. If loop enabled, click again to stop. '
       bounds_x = 153
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '5 La/A'
       imagenr = 27
@@ -3639,16 +3639,35 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 1
-      hint = ' Tuned guitar string '
+      hint = ' Tuned guitar string. If loop enabled, click again to stop. '
       bounds_x = 96
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '6 Mi/E'
       imagenr = 27
       focusrectdist = 0
       onexecute = doguitarstring
+    end
+    object loopguit: tbooleanedit
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.caption = 'Loop'
+      frame.captiondist = 2
+      frame.localprops = [frl_hiddenedges]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        3
+        33
+        3
+      )
+      taborder = 7
+      hint = ' Enable looping the string. '
+      bounds_x = 20
+      bounds_y = 14
+      bounds_cx = 49
+      bounds_cy = 17
     end
   end
   object tdockpanel6: tdockpanel
@@ -3664,8 +3683,8 @@ object mainfo: tmainfo
     bounds_cx = 331
     bounds_cy = 32
     object tlabel24: tlabel
-      bounds_x = 6
-      bounds_y = 8
+      bounds_x = 10
+      bounds_y = 1
       bounds_cx = 72
       bounds_cy = 15
       caption = 'Bass strings'
@@ -3681,11 +3700,11 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 4
-      hint = ' Tuned bass guitar string '
+      hint = ' Tuned bass guitar string. . If loop enabled, click again to stop. '
       bounds_x = 267
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '1 Sol/G'
       imagenr = 27
@@ -3699,11 +3718,11 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 3
-      hint = ' Tuned bass guitar string '
+      hint = ' Tuned bass guitar string. . If loop enabled, click again to stop. '
       bounds_x = 210
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '2 Re/D'
       imagenr = 27
@@ -3717,11 +3736,11 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 2
-      hint = ' Tuned bass guitar string '
+      hint = ' Tuned bass guitar string. . If loop enabled, click again to stop. '
       bounds_x = 153
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '3 La/A'
       imagenr = 27
@@ -3735,16 +3754,35 @@ object mainfo: tmainfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 1
-      hint = ' Tuned bass guitar string '
+      hint = ' Tuned bass guitar string. . If loop enabled, click again to stop. '
       bounds_x = 96
-      bounds_y = 7
+      bounds_y = 8
       bounds_cx = 54
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '4 Mi/E'
       imagenr = 27
       focusrectdist = 0
       onexecute = doguitarstring
+    end
+    object loopbass: tbooleanedit
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.caption = 'Loop'
+      frame.captiondist = 2
+      frame.localprops = [frl_hiddenedges]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        3
+        33
+        3
+      )
+      taborder = 5
+      hint = ' Enable looping the string. '
+      bounds_x = 20
+      bounds_y = 14
+      bounds_cx = 49
+      bounds_cy = 17
     end
   end
   object tdockpanel7: tdockpanel
@@ -3757,7 +3795,7 @@ object mainfo: tmainfo
     taborder = 3
     bounds_x = 340
     bounds_y = 397
-    bounds_cx = 109
+    bounds_cx = 110
     bounds_cy = 32
     object tbutton2: tbutton
       Tag = 1
@@ -3796,7 +3834,7 @@ object mainfo: tmainfo
     end
   end
   object tdockpanel8: tdockpanel
-    color = 12766671
+    color = 14673582
     frame.framewidth = 1
     frame.colorframe = -1610612733
     frame.localprops = [frl_framewidth, frl_colorframe]
@@ -3804,13 +3842,13 @@ object mainfo: tmainfo
     frame.grip_size = 0
     taborder = 4
     bounds_x = 4
-    bounds_y = 246
+    bounds_y = 245
     bounds_cx = 446
     bounds_cy = 111
     object tlabel28: tlabel
       taborder = 7
-      bounds_x = 35
-      bounds_y = 27
+      bounds_x = 34
+      bounds_y = 31
       bounds_cx = 71
       bounds_cy = 15
       caption = 'Song Player'
@@ -3821,8 +3859,8 @@ object mainfo: tmainfo
     end
     object tlabel27: tlabel
       taborder = 11
-      bounds_x = 190
-      bounds_y = 29
+      bounds_x = 148
+      bounds_y = 32
       bounds_cx = 45
       bounds_cy = 15
       caption = 'Volume'
@@ -3886,9 +3924,10 @@ object mainfo: tmainfo
       frame.button.imagenr = 17
       taborder = 3
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
-      bounds_x = 6
-      bounds_y = 5
-      bounds_cx = 433
+      bounds_x = 57
+      bounds_y = 4
+      bounds_cx = 382
+      bounds_cy = 22
       statfile = tstatfile1
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
       controller.filterlist.data = (
@@ -3935,8 +3974,8 @@ object mainfo: tmainfo
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 5
       hint = ' Length of sound '
-      bounds_x = 350
-      bounds_y = 90
+      bounds_x = 353
+      bounds_y = 92
       bounds_cx = 86
       bounds_cy = 15
       caption = '00:00:00.000'
@@ -3947,8 +3986,8 @@ object mainfo: tmainfo
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 6
       hint = ' Position of sound '
-      bounds_x = 350
-      bounds_y = 75
+      bounds_x = 353
+      bounds_y = 77
       bounds_cx = 86
       bounds_cy = 15
       caption = '00:00:00.000'
@@ -3977,27 +4016,27 @@ object mainfo: tmainfo
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.caption = 'Stretch'
       frame.captionpos = cp_top
-      frame.captiondist = 0
+      frame.captiondist = 3
       frame.localprops = [frl_hiddenedges]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         17
-        17
+        20
         17
         0
       )
       taborder = 9
       hint = ' Enable stretching (changing temo) '
-      bounds_x = 270
-      bounds_y = 38
+      bounds_x = 273
+      bounds_y = 37
       bounds_cx = 47
-      bounds_cy = 29
+      bounds_cy = 32
       onchange = ChangePlugSetSoundTouch
     end
     object label6: tlabel
       taborder = 10
-      bounds_x = 317
-      bounds_y = 29
+      bounds_x = 330
+      bounds_y = 32
       bounds_cx = 41
       bounds_cy = 15
       caption = 'Tempo'
@@ -4007,32 +4046,32 @@ object mainfo: tmainfo
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.caption = 'Loop'
       frame.captionpos = cp_top
-      frame.captiondist = 0
+      frame.captiondist = 3
       frame.localprops = [frl_hiddenedges]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         9
-        17
+        20
         9
         0
       )
       taborder = 12
       hint = ' Enable looping the song '
-      bounds_x = 133
-      bounds_y = 40
+      bounds_x = 222
+      bounds_y = 37
       bounds_cx = 31
-      bounds_cy = 29
+      bounds_cy = 32
     end
     object button1: tbutton
       Tag = 1
-      color = -1610612732
+      color = 12962971
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       taborder = 13
       hint = ' Reset to tempo original '
-      bounds_x = 383
-      bounds_y = 43
+      bounds_x = 388
+      bounds_y = 46
       bounds_cx = 41
       bounds_cy = 21
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -4051,8 +4090,8 @@ object mainfo: tmainfo
       frame.localprops1 = []
       taborder = 14
       hint = ' Change tempo of song '
-      bounds_x = 321
-      bounds_y = 46
+      bounds_x = 332
+      bounds_y = 48
       bounds_cx = 46
       bounds_cy = 23
       onchange = ChangePlugSetSoundTouch
@@ -4078,8 +4117,8 @@ object mainfo: tmainfo
       frame.localprops1 = []
       taborder = 15
       hint = ' Change volume of song '
-      bounds_x = 191
-      bounds_y = 46
+      bounds_x = 149
+      bounds_y = 48
       bounds_cx = 46
       bounds_cy = 23
       onchange = changevolume
@@ -4095,14 +4134,32 @@ object mainfo: tmainfo
       wheelsensitivity = 1
       reffontheight = 15
     end
+    object btinfos: tbutton
+      Tag = 1
+      color = 12962971
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      taborder = 16
+      hint = ' Show infos of the song '
+      bounds_x = 8
+      bounds_y = 6
+      bounds_cx = 41
+      bounds_cy = 20
+      state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Infos'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = onfinfos
+    end
   end
   object buttonicons: timagelist
     width = 24
     height = 24
     options = [bmo_masked, bmo_colormask]
     count = 33
-    left = 294
-    top = 134
+    left = 297
+    top = 138
     image = {
       00000000060000009000000090000000F0940000000000000000000000000000
       0000000000000000000000000000000000000000C0C0C018D0D0D048F8FCF818

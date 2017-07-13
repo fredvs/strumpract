@@ -3,11 +3,11 @@ unit main;
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
- ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,
- msedock,msesimplewidgets,msedataedits,mseedit,msestatfile,
- msestrings,SysUtils,Classes,msegraphedits, uos_flat, aboutform, msebitmap,
- mseimage,msefiledialog,msesys,mseificomp,mseificompglob,mseifiglob,msemenus,
- msescrollbar,mseact,msestream,msedragglob;
+ ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,
+ msesimplewidgets,msedataedits,mseedit,msestatfile,msestrings,SysUtils,Classes,
+ msegraphedits, uos_flat, aboutform, infos, msebitmap,mseimage,msefiledialog,
+ msesys,mseificomp,mseificompglob,mseifiglob,msemenus,msescrollbar,mseact,
+ msestream,msedragglob;
 
 type
  talab =  array[0..15] of tlabel;
@@ -178,6 +178,9 @@ type
    label2: tlabel;
    edtempo: trealspinedit;
    edvol: trealspinedit;
+   btinfos: tbutton;
+   loopguit: tbooleanedit;
+   loopbass: tbooleanedit;
    procedure oncreateform(const sender: TObject);
    procedure dostart(const sender: TObject);
    procedure ontimertick(const Sender: TObject);
@@ -206,6 +209,7 @@ type
     procedure ChangePlugSetSoundTouch(const Sender: TObject);
    procedure onreset(const sender: TObject);
    procedure oncreatedform(const sender: TObject);
+   procedure onfinfos(const sender: TObject);
   end;
  
 const
@@ -226,8 +230,10 @@ var
  plugsoundtouch : boolean = false;
  adrums: array[0..8] of string;
  aguitar : array[0..9] of string;
+ aguitarisplaying : array[0..9] of boolean;
  ams :  array[0..8] of Tmemorystream; 
  theplayer : integer = 20;
+ theplayerinfo : integer = 21;
  plugindex1, PluginIndex2: integer;
  drum_beats: array[0..3] of string; 
  posi, InputIndex1, OutputIndex1, Inputlength: integer; 
@@ -623,7 +629,7 @@ begin
         Timertick.ontimer := @ontimertick;
         
         Timerwait := ttimer.Create(nil);
-        Timerwait.interval := 150000;
+        Timerwait.interval := 100000;
         Timertick.tag := 0;
         Timerwait.Enabled := False;
         Timerwait.ontimer := @ontimerwait;
@@ -1010,6 +1016,9 @@ aguitar[9] := ordir + 'sound' + directoryseparator +  'bass' + directoryseparato
 // songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
  
   allok := true;
+  
+for i := 0 to 9 do  aguitarisplaying[i]  := false;
+  
  
 for i := 0 to 8 do   
  begin
@@ -1052,9 +1061,7 @@ for i := 0 to 8 do
    
    timage3.bitmap := timage2.bitmap;
     
-   width := 456;
-   height := 434;
-   visible := true;
+//   visible := true;
   
    end else  application.terminate;  
    
@@ -1205,7 +1212,7 @@ procedure tmainfo.onabout(const sender: TObject);
 begin
 aboutfo.caption := 'About StrumPract' ;
 aboutfo.about_text.frame.colorclient := $DFFFB2;
-aboutfo.about_text.value := c_linefeed+
+aboutfo.about_text.value := c_linefeed+  c_linefeed +
  'StrumPract version: '+ versiontext + ' Host: '+ platformtext+  c_linefeed+
  c_linefeed + 'Compiled with FPC 3.0.2.' + c_linefeed +  c_linefeed +
  'Graphic widget: MSEgui '+mseguiversiontext + '.' + c_linefeed+
@@ -1231,10 +1238,64 @@ end;
 
 procedure tmainfo.doguitarstring(const sender: TObject);
 begin
+  begin
+ if Tbutton(Sender).tag < 7 then // guitar
+ begin
+  if loopguit.value = false then 
+  begin
  if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
  if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
  if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
-    uos_Play(Tbutton(Sender).tag + 9);
+ uos_Play(Tbutton(Sender).tag + 9);
+    end else
+ begin
+ if aguitarisplaying[Tbutton(Sender).tag -1 ]  = false then
+ begin
+ if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
+ if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
+ if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
+ begin   uos_Play(Tbutton(Sender).tag + 9, -1);
+   aguitarisplaying[Tbutton(Sender).tag -1 ]  := true;
+ end;
+ end else
+ begin
+  aguitarisplaying[Tbutton(Sender).tag -1 ]  := false;
+  
+  uos_Stop(Tbutton(Sender).tag + 9);
+ end;
+  
+ end;   
+    
+    
+ end else // bass
+ begin
+  if loopbass.value = false then 
+  begin
+ if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
+ if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
+ if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
+ uos_Play(Tbutton(Sender).tag + 9);
+    end else
+ begin
+ if aguitarisplaying[Tbutton(Sender).tag -1 ]  = false then
+ begin
+ if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
+ if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
+ if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
+ begin   uos_Play(Tbutton(Sender).tag + 9, -1);
+   aguitarisplaying[Tbutton(Sender).tag -1 ]  := true;
+ end;
+ end else
+ begin
+  aguitarisplaying[Tbutton(Sender).tag -1 ]  := false;
+  
+  uos_Stop(Tbutton(Sender).tag + 9);
+ end;
+  
+ end;   
+    
+  end;  
+ end;  
 end;
 
 procedure tmainfo.LoopProcPlayer1;
@@ -1386,7 +1447,9 @@ var
     ///// Assign the procedure of object to execute at end
     //////////// PlayerIndex : Index of a existing Player
     //////////// ClosePlayer1 : procedure of object to execute inside the general loop
-
+    
+    btinfos.Enabled := True;
+    
     trackbar1.value := 0;
     trackbar1.Enabled := True;
     btnStop.Enabled := True;
@@ -1461,12 +1524,72 @@ end;
 
 procedure tmainfo.oncreatedform(const sender: TObject);
 begin
+//visible := false ;
  if songdir.value = '' then
- 
  songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
  
-songdir.hint := songdir.value;
+  songdir.hint := songdir.value;
+   
+   tdockpanel1.left := 4; // this to prevent new size on new release.
+   tdockpanel1.top := 6;  // this to prevent new size on new release.
+   width := 454;    // this to prevent new size on new release.
+   height := 434;   // this to prevent new size on new release.
+   
+visible := true ;   
 
+end;
+
+procedure tmainfo.onfinfos(const sender: TObject);
+var
+maxwidth : integer;
+temptimeinfo : ttime;
+ ho, mi, se, ms: word;
+begin
+uos_Stop(theplayerinfo) ;
+
+ if uos_CreatePlayer(theplayerinfo) then
+    //// Create the player.
+    //// PlayerIndex : from 0 to what your computer can do !
+    //// If PlayerIndex exists already, it will be overwriten...
+      
+  if uos_AddFromFile(theplayerinfo, pchar(AnsiString(songdir.value)), -1, 0, -1) > -1 then
+  begin
+  
+ inputlength := uos_InputLength(theplayer, InputIndex1);
+    ////// Length of Input in samples
+
+   temptimeinfo := uos_InputLengthTime(theplayerinfo, 0);
+    ////// Length of input in time
+
+   DecodeTime(temptimeinfo, ho, mi, se, ms);
+    
+infosfo.infofile.caption := 'File: ' + extractfilename(songdir.value);
+infosfo.infoname.caption := 'Title: ' + AnsiToUtf8(uos_InputGetTagTitle(theplayerinfo, 0));
+infosfo.infoartist.caption := 'Artist: ' + AnsiToUtf8(uos_InputGetTagArtist(theplayerinfo, 0));
+infosfo.infoalbum.caption := 'Album: ' + AnsiToUtf8(uos_InputGetTagAlbum(theplayerinfo, 0));
+infosfo.infoyear.caption := 'Date: ' + AnsiToUtf8(uos_InputGetTagDate(theplayerinfo, 0));
+infosfo.infocom.caption := 'Comment: ' + AnsiToUtf8(uos_InputGetTagComment(theplayerinfo, 0));
+infosfo.infotag.caption := 'Tag: ' + AnsiToUtf8(uos_InputGetTagTag(theplayerinfo, 0));
+infosfo.infolength.caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]) ;
+
+
+uos_play(theplayerinfo) ;
+uos_Stop(theplayerinfo) ;
+
+maxwidth := infosfo.infofile.width ;
+
+if maxwidth < infosfo.infoname.width then maxwidth := infosfo.infoname.width;
+if maxwidth < infosfo.infoartist.width then maxwidth := infosfo.infoartist.width;
+if maxwidth < infosfo.infoalbum.width then maxwidth := infosfo.infoalbum.width;
+if maxwidth < infosfo.infoyear.width then maxwidth := infosfo.infoyear.width;
+if maxwidth < infosfo.infocom.width then maxwidth := infosfo.infocom.width;
+if maxwidth < infosfo.infotag.width then maxwidth := infosfo.infotag.width;
+if maxwidth < infosfo.infolength.width then maxwidth := infosfo.infolength.width;
+
+infosfo.width := maxwidth + 42 ; 
+// infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
+infosfo.show(true);
+end;
 end;
  
 end.
