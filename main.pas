@@ -1528,11 +1528,10 @@ procedure tmainfo.oncreatedform(const sender: TObject);
 begin
 //visible := false ;
  if songdir.value = '' then
- songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
+ songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.ogg';
  
 // if historyfn.value = '' then
 // historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
-
  
  historyfn.value := songdir.value ;
  
@@ -1557,7 +1556,7 @@ maxwidth : integer;
 temptimeinfo : ttime;
  ho, mi, se, ms: word;
 begin
-uos_Stop(theplayerinfo) ;
+  uos_Stop(theplayerinfo) ;
 
  if uos_CreatePlayer(theplayerinfo) then
     //// Create the player.
@@ -1576,14 +1575,13 @@ uos_Stop(theplayerinfo) ;
    DecodeTime(temptimeinfo, ho, mi, se, ms);
     
 infosfo.infofile.caption := 'File: ' + extractfilename(historyfn.value);
-infosfo.infoname.caption := 'Title: ' + AnsiToUtf8(uos_InputGetTagTitle(theplayerinfo, 0));
-infosfo.infoartist.caption := 'Artist: ' + AnsiToUtf8(uos_InputGetTagArtist(theplayerinfo, 0));
-infosfo.infoalbum.caption := 'Album: ' + AnsiToUtf8(uos_InputGetTagAlbum(theplayerinfo, 0));
-infosfo.infoyear.caption := 'Date: ' + AnsiToUtf8(uos_InputGetTagDate(theplayerinfo, 0));
-infosfo.infocom.caption := 'Comment: ' + AnsiToUtf8(uos_InputGetTagComment(theplayerinfo, 0));
-infosfo.infotag.caption := 'Tag: ' + AnsiToUtf8(uos_InputGetTagTag(theplayerinfo, 0));
+infosfo.infoname.caption := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(theplayerinfo, 0)));
+infosfo.infoartist.caption := 'Artist: ' + msestring(ansistring(uos_InputGetTagArtist(theplayerinfo, 0)));
+infosfo.infoalbum.caption := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(theplayerinfo, 0)));
+infosfo.infoyear.caption := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(theplayerinfo, 0)));
+infosfo.infocom.caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayerinfo, 0)));
+infosfo.infotag.caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayerinfo, 0)));
 infosfo.infolength.caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]) ;
-
 
 uos_play(theplayerinfo) ;
 uos_Stop(theplayerinfo) ;
