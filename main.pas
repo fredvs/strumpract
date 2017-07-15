@@ -7,7 +7,7 @@ uses
  msesimplewidgets,msedataedits,mseedit,msestatfile,msestrings,SysUtils,Classes,
  msegraphedits, uos_flat, aboutform, infos, msebitmap,mseimage,msefiledialog,
  msesys,mseificomp,mseificompglob,mseifiglob,msemenus,msescrollbar,mseact,
- msestream,msedragglob,msedatanodes,msegrids,mselistbrowser;
+ mseevent,msestream,msedragglob,msedatanodes,msegrids,mselistbrowser;
 
 type
  talab =  array[0..15] of tlabel;
@@ -146,7 +146,6 @@ type
    button1: tbutton;
    tdockpanel4: tdockpanel;
    timage1: timage;
-   tlabel26: tlabel;
    tbooleaneditradio8: tbooleaneditradio;
    tbooleaneditradio7: tbooleaneditradio;
    tbooleaneditradio6: tbooleaneditradio;
@@ -165,7 +164,6 @@ type
    loop_resume: tbutton;
    loop_start: tbutton;
    tdockpanel3: tdockpanel;
-   timage2: timage;
    label5: tlabel;
    tlabel25: tlabel;
    tdockpanel2: tdockpanel;
@@ -180,6 +178,7 @@ type
    loopbass: tbooleanedit;
    edittempo: trealspinedit;
    historyfn: thistoryedit;
+   tlabel26: tlabel;
    procedure oncreateform(const sender: TObject);
    procedure dostart(const sender: TObject);
    procedure ontimertick(const Sender: TObject);
@@ -211,6 +210,10 @@ type
    procedure onfinfos(const sender: TObject);
    procedure sethistoryfn(const sender: TObject; var avalue: msestring;
                    var accept: Boolean);
+   procedure onmouseslider(const sender: twidget; var ainfo: mouseeventinfoty);
+   procedure onsliderkeydown(const sender: twidget; var ainfo: keyeventinfoty);
+   procedure onsliderkeyup(const sender: twidget; var ainfo: keyeventinfoty);
+   procedure onsliderchange(const sender: TObject);
   end;
  
 const
@@ -220,7 +223,7 @@ var
  mainfo: tmainfo;
  Timertick: Ttimer;
  Timerwait: Ttimer;
- temptime: ttime;
+ tottime: ttime;
  alab : talab;
  alab2 : talab2;
  alaband : talab2;
@@ -1060,7 +1063,7 @@ for i := 0 to 8 do
  if allok = false then
   application.terminate;
    
-   timage3.bitmap := timage2.bitmap;
+ //  timage3.bitmap := timage2.bitmap;
     
 //   visible := true;
   
@@ -1436,10 +1439,10 @@ var
    inputlength := uos_InputLength(theplayer, InputIndex1);
     ////// Length of Input in samples
 
-   temptime := uos_InputLengthTime(theplayer, InputIndex1);
+   tottime := uos_InputLengthTime(theplayer, InputIndex1);
     ////// Length of input in time
 
-   DecodeTime(temptime, ho, mi, se, ms);
+   DecodeTime(tottime, ho, mi, se, ms);
     
    llength.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
    
@@ -1542,6 +1545,13 @@ begin
    
    tdockpanel1.width := 446; // this to prevent new size on new release.
    tdockpanel1.height := 236;  // this to prevent new size on new release.
+   
+   tdockpanel4.left := 0; // this to prevent new size on new release.
+   tdockpanel4.top := 151;  // this to prevent new size on new release.
+   
+   tdockpanel4.width := 446; // this to prevent new size on new release.
+   tdockpanel4.height := 85;  // this to prevent new size on new release.
+    
     
    width := 454;    // this to prevent new size on new release.
    height := 434;   // this to prevent new size on new release.
@@ -1606,6 +1616,39 @@ procedure tmainfo.sethistoryfn(const sender: TObject; var avalue: msestring;
                var accept: Boolean);
 begin
  songdir.value := historyfn.value  ;
+end;
+
+procedure tmainfo.onmouseslider(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+if ainfo.eventkind = ek_buttonpress then trackbar1.tag := 1 else
+if ainfo.eventkind =  ek_buttonrelease then trackbar1.tag := 0 ;
+end;
+
+procedure tmainfo.onsliderkeydown(const sender: twidget;
+               var ainfo: keyeventinfoty);
+begin
+ trackbar1.tag := 1 ;
+end;
+
+procedure tmainfo.onsliderkeyup(const sender: twidget;
+               var ainfo: keyeventinfoty);
+begin
+ trackbar1.tag := 0 ;
+end;
+
+procedure tmainfo.onsliderchange(const sender: TObject);
+ var
+    temptime: ttime;
+    ho, mi, se, ms: word;
+begin
+if (trackbar1.tag = 1) and (inputlength > 0) then
+begin
+        temptime := tottime *  TrackBar1.value / inputlength;
+        DecodeTime(temptime, ho, mi, se, ms);
+        lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+         lposition.caption := 'hello';
+ end;
 end;
  
 end.
