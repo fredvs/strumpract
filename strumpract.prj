@@ -969,18 +969,28 @@ findhistory=20
  .Execute
  Execute
 findoptions=1
-editpos=2
+editpos=4
  0,-1073741823
- 60,10
+ 0,5
+ 0,20
+ 0,19
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+bookmarks3=0
+sourcefiles=4
  ${PROJECTDIR}/strumpract.pas
- /home/fred/strumpract/define.inc
-relpaths=2
+ ${PROJECTDIR}/define.inc
+ ${PROJECTDIR}/uos.pas
+ ${PROJECTDIR}/uos_flat.pas
+relpaths=4
  strumpract.pas
  define.inc
-ismoduletexts=2
+ uos.pas
+ uos_flat.pas
+ismoduletexts=4
+ 0
+ 0
  0
  0
 modules=1
@@ -993,7 +1003,7 @@ nomenumodules=1
  -1
 [sourcefo.files_tab]
 firsttab=0
-index=1
+index=2
 [layout]
 windowlayout=545
  [mainfo.basedock]
@@ -1525,7 +1535,7 @@ windowlayout=545
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
