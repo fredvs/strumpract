@@ -577,8 +577,7 @@ procedure updatefileinfo(const item: tlistitem; const info: fileinfoty;
 
 implementation
 uses
- msefiledialog_mfm,msebits,mseactions, main,
- msestringenter,msefiledialogres,msekeyboard,
+ main, msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
  msestockobjects,msesysintf,msearrayutils;
 
 type
@@ -666,7 +665,7 @@ begin
   end;
   defaultext:= adefaultext;
  // caption:= acaption;
-  caption := 'Choose a audio file (wav, ogg, flac or mp3)';
+  caption := 'Select a audio file (wav, ogg, flac or mp3)';
   listview.includeattrib:= includeattrib;
   listview.excludeattrib:= excludeattrib;
   listview.itemlist.imagelist:= imagelist;
@@ -1480,16 +1479,9 @@ var
  str1: filenamety;
 begin
 
-
-
-// if filename.checkvalue then begin
- // filename.dropdown.valuelist.asarray:= history^;
- //  mainfo.historyfn.historymaxcount:= historymaxcount;
-   
-   mainfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-
+mainfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 mainfo.historyfn.value := dir.value + filename.value;
-
+  
   if (filename.value <> '') or (fdo_acceptempty in dialogoptions) then begin
    if fdo_directory in dialogoptions then begin
     str1:= quotefilename(listview.directory);
@@ -1590,7 +1582,7 @@ begin
 //  showhidden.frame.caption:= captions[sc_show_hidden_fileshk];
   ok.caption:= modalresulttext[mr_ok];
   cancel.caption:= modalresulttext[mr_cancel];
-  caption := 'Choose a audio file (wav, ogg, flac or mp3)';
+  caption := 'Select a audio file (wav, ogg, flac or mp3)';
  end;
  back.tag:= ord(sc_back);
  forward.tag:= ord(sc_forward);

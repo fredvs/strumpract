@@ -1,5 +1,8 @@
 unit main;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
+
+{$I define.inc}
+
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
@@ -214,6 +217,7 @@ type
    procedure onsliderkeydown(const sender: twidget; var ainfo: keyeventinfoty);
    procedure onsliderkeyup(const sender: twidget; var ainfo: keyeventinfoty);
    procedure onsliderchange(const sender: TObject);
+  
   end;
  
 const
@@ -246,7 +250,7 @@ var
 implementation
 uses
  main_mfm;
- 
+   
  procedure tmainfo.ChangePlugSetSoundTouch(const Sender: TObject);
   var
     tempo, rate: cfloat;
@@ -729,9 +733,6 @@ height := 16;
   end;
   end;
 // }  
-
-
-
  alab[0] := tlabel5;
  alab[1] := tlabel6;
  alab[2] := tlabel7;
@@ -1023,7 +1024,8 @@ aguitar[9] := ordir + 'sound' + directoryseparator +  'bass' + directoryseparato
   
 for i := 0 to 9 do  aguitarisplaying[i]  := false;
   
- 
+// {
+
 for i := 0 to 8 do   
  begin
 // {
@@ -1035,19 +1037,19 @@ for i := 0 to 8 do
    // Create a memory buffer from a audio file
  //  thebuffer[i] := uos_File2Buffer(pchar(sound[i]), 0, thebuffer[i], thebufferinfos[i]);
  
- if uos_CreatePlayer(i) then
-
- if uos_SetGlobalEvent(i, true) then
+ if uos_CreatePlayer(i) then 
+ begin
+ if uos_SetGlobalEvent(i, true) then else caption := '1';
   // This set events (like pause/replay thread) to global.
   //One event (for example replay) will have impact on all players.  
 
   // using memorystream
- if uos_AddFromMemoryStream(i,ams[i],0,-1,2,512) > -1 then
+ if uos_AddFromMemoryStream(i,ams[i],0,-1,2,512) > -1 then else caption := caption +'2' ;
  
  // using memorybuffer
 // if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
   
- if uos_AddFromEndlessMuted(i, channels, 512) > -1 then 
+ if uos_AddFromEndlessMuted(i, channels, 512) > -1 then else caption := caption + '3'; 
   // this for a dummy endless input, must be last input 
   
  if uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512) > -1 then // stereo output
@@ -1055,14 +1057,18 @@ for i := 0 to 8 do
   if i < 8 then 
   begin
   uos_PlayNoFree(i);
-  if i < 4 then sleep(200) else sleep(300) ;
+  if i < 4 then sleep(250) else sleep(350) ;
   end;
   end else allok := false; 
+  
+  end else application.terminate;
  end;
 
  if allok = false then
   application.terminate;
-   
+//  } 
+  
+ // uos_CreatePlayer(0) ;
  //  timage3.bitmap := timage2.bitmap;
     
 //   visible := true;
@@ -1247,6 +1253,7 @@ begin
  begin
   if loopguit.value = false then 
   begin
+  uos_stop(Tbutton(Sender).tag + 9 );
  if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
  if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
  if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
@@ -1255,6 +1262,7 @@ begin
  begin
  if aguitarisplaying[Tbutton(Sender).tag -1 ]  = false then
  begin
+ uos_stop(Tbutton(Sender).tag + 9 );
  if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
  if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
  if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
@@ -1333,6 +1341,8 @@ var
     
     // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
     // If PlayerIndex exists already, it will be overwritten...
+    
+     uos_Stop(theplayer) ;
 
     if uos_CreatePlayer(theplayer) then
     //// Create the player.
@@ -1380,6 +1390,7 @@ var
                           // 1 => calcul position.
 
    uos_LoopProcIn(theplayer, InputIndex1, @LoopProcPlayer1);
+ 
     ///// Assign the procedure of object to execute inside the loop
     //////////// PlayerIndex : Index of a existing Player
     //////////// InputIndex1 : Index of a existing Input
@@ -1446,9 +1457,14 @@ var
     
    llength.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
    
+  {$IF DEFINED(mse)}
+  uos_EndProc(theplayer, @ClosePlayer1);
+  {$else}
+  uos_EndProc(theplayer, @ClosePlayer1);
+  {$endif}
+  
     /////// procedure to execute when stream is terminated
-    uos_EndProc(theplayer, @ClosePlayer1);
-    ///// Assign the procedure of object to execute at end
+     ///// Assign the procedure of object to execute at end
     //////////// PlayerIndex : Index of a existing Player
     //////////// ClosePlayer1 : procedure of object to execute inside the general loop
     
@@ -1502,8 +1518,9 @@ end;
 procedure tmainfo.changepos(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
+ if TrackBar1.Tag = 0 then
    uos_InputSeek(theplayer, InputIndex1, trunc(avalue * inputlength));
-   TrackBar1.Tag := 0;
+ //  TrackBar1.Tag := 0;
 end;
 
 procedure tmainfo.changevolume(const sender: TObject);
@@ -1538,7 +1555,7 @@ begin
  
  historyfn.value := songdir.value ;
  
-  caption := 'StrumPract ' + versiontext ;
+ // caption := 'StrumPract ' + versiontext ;
    
    tdockpanel1.left := 4; // this to prevent new size on new release.
    tdockpanel1.top := 6;  // this to prevent new size on new release.
@@ -1644,10 +1661,10 @@ procedure tmainfo.onsliderchange(const sender: TObject);
 begin
 if (trackbar1.tag = 1) and (inputlength > 0) then
 begin
-        temptime := tottime *  TrackBar1.value / inputlength;
+        temptime := tottime *  TrackBar1.value;
         DecodeTime(temptime, ho, mi, se, ms);
         lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
-         lposition.caption := 'hello';
+       
  end;
 end;
  
