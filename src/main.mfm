@@ -3825,7 +3825,7 @@ object mainfo: tmainfo
     end
     object tlabel27: tlabel
       taborder = 11
-      bounds_x = 188
+      bounds_x = 187
       bounds_y = 27
       bounds_cx = 45
       bounds_cy = 15
@@ -3996,8 +3996,8 @@ object mainfo: tmainfo
       )
       taborder = 9
       hint = ' Enable stretching (changing temo) '
-      bounds_x = 269
-      bounds_y = 38
+      bounds_x = 263
+      bounds_y = 37
       bounds_cx = 47
       bounds_cy = 32
       onchange = ChangePlugSetSoundTouch
@@ -4026,8 +4026,8 @@ object mainfo: tmainfo
       )
       taborder = 12
       hint = ' Enable looping the song '
-      bounds_x = 135
-      bounds_y = 38
+      bounds_x = 138
+      bounds_y = 37
       bounds_cx = 31
       bounds_cy = 32
     end
@@ -4060,9 +4060,9 @@ object mainfo: tmainfo
       frame.buttonsize = 30
       taborder = 14
       hint = ' Change tempo of song '
-      bounds_x = 318
+      bounds_x = 316
       bounds_y = 42
-      bounds_cx = 60
+      bounds_cx = 62
       bounds_cy = 32
       onchange = ChangePlugSetSoundTouch
       value = 1
@@ -4088,7 +4088,7 @@ object mainfo: tmainfo
       frame.buttonsize = 30
       taborder = 15
       hint = ' Change volume of song '
-      bounds_x = 188
+      bounds_x = 187
       bounds_y = 42
       bounds_cx = 62
       bounds_cy = 32
@@ -4134,8 +4134,8 @@ object mainfo: tmainfo
         end>
       taborder = 17
       hint = ' History of files '
-      bounds_x = 82
-      bounds_y = 4
+      bounds_x = 84
+      bounds_y = 5
       bounds_cx = 355
       bounds_cy = 22
       statfile = tstatfile1
@@ -4152,23 +4152,23 @@ object mainfo: tmainfo
       dropdown.historymaxcount = 50
       reffontheight = 15
     end
-    object vuRight: tdockpanel
-      color = 976914
-      taborder = 18
-      visible = False
-      bounds_x = 254
-      bounds_y = 30
-      bounds_cx = 8
-      bounds_cy = 46
-    end
     object vuLeft: tdockpanel
       color = 976914
       taborder = 19
       visible = False
-      bounds_x = 175
+      bounds_x = 177
       bounds_y = 31
       bounds_cx = 8
-      bounds_cy = 46
+      bounds_cy = 44
+    end
+    object vuRight: tdockpanel
+      color = 976914
+      taborder = 18
+      visible = False
+      bounds_x = 250
+      bounds_y = 31
+      bounds_cx = 8
+      bounds_cy = 44
     end
   end
   object buttonicons: timagelist

@@ -620,12 +620,12 @@ end;
   
     vuLeft.Visible := True;
     vuRight.Visible := True;
-    if trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 46) >= 0 then
-      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 46);
-    if trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 46) >= 0 then
-      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 46);
-    vuLeft.top := 76 - vuLeft.Height;
-    vuRight.top := 76 - vuRight.Height;
+    if trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 44) >= 0 then
+      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 44);
+    if trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 44) >= 0 then
+      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 44);
+    vuLeft.top := 75 - vuLeft.Height;
+    vuRight.top := 75 - vuRight.Height;
    
   end;  
  

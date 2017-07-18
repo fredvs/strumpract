@@ -952,8 +952,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=timerpause
+finddtext=showlev
 findhistory=20
+ showlev
  timerpause
  showposi
  showlevel
@@ -973,14 +974,14 @@ findhistory=20
  todo
  .execute
  execute
- .start
 findoptions=1
-editpos=6
+editpos=7
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,2081
- 31,295
+ 0,-1073741823
+ 0,627
+ 0,-1073741823
  0,0
 bookmarks0=0
 bookmarks1=0
@@ -988,21 +989,25 @@ bookmarks2=0
 bookmarks3=0
 bookmarks4=0
 bookmarks5=0
-sourcefiles=6
+bookmarks6=0
+sourcefiles=7
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/define.inc
  ${PROJECTDIR}/uos.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/msefiledialogres.pas
-relpaths=6
+ ${PROJECTDIR}/msefiledialogres.pas
+relpaths=7
  strumpract.pas
  define.inc
  uos.pas
  uos_flat.pas
  main.pas
  msefiledialogres.pas
-ismoduletexts=6
+ msefiledialogres.pas
+ismoduletexts=7
+ 0
  0
  0
  0
@@ -1022,15 +1027,16 @@ nomenumodules=2
  0
  0
 [sourcefo.files_tab]
-order=6
+order=7
  0
- 5
- 6
  1
  2
  3
+ 4
+ 6
+ 5
 firsttab=0
-index=1
+index=4
 [layout]
 windowlayout=564
  [mainfo.basedock]
@@ -1295,9 +1301,9 @@ windowlayout=564
  visible=1
  [objectinspectorfo.grid]
  propcolwidthref=306
- width0=73
+ width0=187
  sortdescend0=0
- width1=227
+ width1=113
  sortdescend1=0
  [symbolfo]
  splitdir=0
