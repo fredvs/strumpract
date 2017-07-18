@@ -67,8 +67,8 @@ order14=0
 order15=0
 order16=0
 [projectoptions]
-projectdir=/home/fred/strumpract
-projectfilename=/home/fred/strumpract/strumpract.prj
+projectdir=/home/fred/strumpract/src
+projectfilename=/home/fred/strumpract/src/strumpract.prj
 findinfiledialog=46
  [findinfileadialogfo.subdirs]
  value=1
@@ -617,9 +617,15 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=0
-moduletypes=0
-modulefiles=0
+modulenames=2
+ MAINFO
+ FILEDIALOGRES
+moduletypes=2
+ TMAINFO
+ TFILEDIALOGRES
+modulefiles=2
+ /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/msefiledialogres.mfm
 befcommandon=0
 makeoptionson=7
  4095
@@ -946,8 +952,14 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=ExecuteLoop
+finddtext=timerpause
 findhistory=20
+ timerpause
+ showposi
+ showlevel
+ vuLeft
+ pause
+ close
  ExecuteLoop
  constructor
  hasstarted
@@ -962,50 +974,65 @@ findhistory=20
  .execute
  execute
  .start
- begin
- msethread
- mesthread
- IF DEFINED(mse)
- .Execute
- Execute
 findoptions=1
-editpos=4
+editpos=6
  0,-1073741823
- 0,5
- 0,20
- 0,19
+ 0,-1073741823
+ 0,-1073741823
+ 0,2081
+ 31,295
+ 0,0
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
-sourcefiles=4
+bookmarks4=0
+bookmarks5=0
+sourcefiles=6
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/define.inc
  ${PROJECTDIR}/uos.pas
  ${PROJECTDIR}/uos_flat.pas
-relpaths=4
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/msefiledialogres.pas
+relpaths=6
  strumpract.pas
  define.inc
  uos.pas
  uos_flat.pas
-ismoduletexts=4
+ main.pas
+ msefiledialogres.pas
+ismoduletexts=6
  0
  0
  0
  0
-modules=1
- /home/fred/strumpract/msefiledialogres.mfm
-moduleoptions=1
  0
-visiblemodules=1
  0
-nomenumodules=1
+modules=2
+ /home/fred/strumpract/src/msefiledialogres.mfm
+ /home/fred/strumpract/src/main.mfm
+moduleoptions=2
+ 0
+ 0
+visiblemodules=2
  -1
+ -1
+nomenumodules=2
+ 0
+ 0
 [sourcefo.files_tab]
+order=6
+ 0
+ 5
+ 6
+ 1
+ 2
+ 3
 firsttab=0
-index=2
+index=1
 [layout]
-windowlayout=545
+windowlayout=564
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1018,8 +1045,8 @@ windowlayout=545
  ncy=0
  x=0
  y=0
- cx=1083
- cy=604
+ cx=1356
+ cy=694
  rcx=0
  rcy=0
  [mainfo]
@@ -1031,16 +1058,16 @@ windowlayout=545
  ny=0
  ncx=0
  ncy=0
- x=125
- y=58
+ x=136
+ y=73
  cx=1093
  cy=621
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1083,604
+  basedock,0,0,1356,694
  focusedchild=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [targetconsolefo]
@@ -1154,7 +1181,7 @@ windowlayout=545
  x=0
  y=0
  cx=159
- cy=442
+ cy=508
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1250,22 +1277,22 @@ windowlayout=545
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=670
- y=179
+ x=1047
+ y=90
  cx=316
  cy=484
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [objectinspectorfo.grid]
  propcolwidthref=306
  width0=73
@@ -1359,9 +1386,9 @@ windowlayout=545
  ncx=0
  ncy=0
  x=0
- y=501
- cx=1083
- cy=103
+ y=575
+ cx=1356
+ cy=119
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1460,8 +1487,8 @@ windowlayout=545
  ncy=0
  x=0
  y=0
- cx=1083
- cy=53
+ cx=1356
+ cy=61
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1476,8 +1503,8 @@ windowlayout=545
  ncy=51
  x=0
  y=0
- cx=1083
- cy=53
+ cx=1356
+ cy=61
  rcx=0
  rcy=0
  [sourcefo]
@@ -1492,8 +1519,8 @@ windowlayout=545
  ncy=0
  x=162
  y=0
- cx=921
- cy=442
+ cx=1194
+ cy=508
  rcx=0
  rcy=0
  [cpuc86_64fo]
@@ -1527,15 +1554,15 @@ windowlayout=545
  ncx=0
  ncy=0
  x=0
- y=56
- cx=1083
- cy=442
+ y=64
+ cx=1356
+ cy=508
  rcx=0
  rcy=0
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1550,7 +1577,26 @@ windowlayout=545
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
+ [_mse_mainfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=490
+ y=143
+ cx=464
+ cy=434
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0

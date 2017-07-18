@@ -182,10 +182,13 @@ type
    edittempo: trealspinedit;
    historyfn: thistoryedit;
    tlabel26: tlabel;
+   vuRight: tdockpanel;
+   vuLeft: tdockpanel;
    procedure oncreateform(const sender: TObject);
    procedure dostart(const sender: TObject);
    procedure ontimertick(const Sender: TObject);
    procedure ontimerwait(const Sender: TObject);
+   procedure ontimerpause(const Sender: TObject);
    procedure dostop(const sender: TObject);
    procedure doresume(const sender: TObject);
    procedure onchangetempo(const sender: TObject);
@@ -199,6 +202,7 @@ type
    procedure doplayerstop(const sender: TObject);
    procedure ClosePlayer1;
    procedure showposition;
+   procedure showlevel;
    procedure LoopProcPlayer1;
    
    procedure changepos(const sender: TObject; var avalue: realty;
@@ -227,6 +231,7 @@ var
  mainfo: tmainfo;
  Timertick: Ttimer;
  Timerwait: Ttimer;
+ Timerpause: Ttimer;
  tottime: ttime;
  alab : talab;
  alab2 : talab2;
@@ -272,11 +277,12 @@ procedure Tmainfo.ClosePlayer1;
     radiobutton1.Enabled := True;
     radiobutton2.Enabled := True;
     radiobutton3.Enabled := True;
-     vuLeft.Visible := False;
+    } 
+    
+   vuright.Height := 0;
+    vuleft.Height := 0;
+    vuLeft.Visible := False;
      vuRight.Visible := False;
-     vuright.Height := 0;
-     vuleft.Height := 0;
-  } 
     btnStart.Enabled := True;
     btnStop.Enabled := False;
     btnPause.Enabled := False;
@@ -287,6 +293,14 @@ procedure Tmainfo.ClosePlayer1;
     lposition.caption := '00:00:00.000';
   end;
   
+ procedure Tmainfo.ontimerpause(const Sender: TObject);
+var
+i : integer;
+begin 
+Timerpause.Enabled := False;
+for i:=0 to 8 do uos_pause(i);
+end;
+
   procedure Tmainfo.ontimerwait(const Sender: TObject);
 begin 
 timerwait.enabled := false;
@@ -599,7 +613,21 @@ posi := posi + 1;
 // }
  end;
   
-end;    
+end;  
+
+   procedure tmainfo.ShowLevel;
+  begin
+  
+    vuLeft.Visible := True;
+    vuRight.Visible := True;
+    if trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 46) >= 0 then
+      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 46);
+    if trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 46) >= 0 then
+      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 46);
+    vuLeft.top := 76 - vuLeft.Height;
+    vuRight.top := 76 - vuRight.Height;
+   
+  end;  
  
  procedure tmainfo.ShowPosition;
   var
@@ -620,6 +648,44 @@ end;
     end;
   
   end;  
+  
+procedure createdrumsplayers;
+var
+i : integer;
+begin 
+
+for i := 0 to 8 do   
+ begin
+ uos_Stop(i);
+ 
+// {
+// if assigned( ams[i]) then ams[i].free; 
+//ams[i] := TMemoryStream.Create; 
+// ams[i].LoadFromFile(pchar(adrums[i]));  
+// ams[i].Position:= 0;
+ // }
+   // Create a memory buffer from a audio file
+ //  thebuffer[i] := uos_File2Buffer(pchar(sound[i]), 0, thebuffer[i], thebufferinfos[i]);
+ 
+ if uos_CreatePlayer(i) then 
+
+ if uos_SetGlobalEvent(i, true) then 
+  // This set events (like pause/replay thread) to global.
+  //One event (for example replay) will have impact on all players.  
+
+  // using memorystream
+ if uos_AddFromMemoryStream(i,ams[i],0,-1,2,512) > -1 then 
+ 
+ // using memorybuffer
+// if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
+  
+ if uos_AddFromEndlessMuted(i, channels, 512) > -1 then 
+  // this for a dummy endless input, must be last input 
+  
+ uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512)  ;
+ 
+end;
+end;  
  
 procedure tmainfo.oncreateform(const sender: TObject);
 var
@@ -628,8 +694,6 @@ spcx, spcy, posx, posy, i  : integer;
  lib1, lib2, lib3, lib4 : string;
 begin
         visible := false;
-     //   mainfo.width := 1;
-     //   mainfo.height := 1;
         Timertick := ttimer.Create(nil);
         Timertick.interval := 100000;
         Timertick.tag := 0;
@@ -641,6 +705,12 @@ begin
         Timertick.tag := 0;
         Timerwait.Enabled := False;
         Timerwait.ontimer := @ontimerwait;
+        
+        Timerpause := ttimer.Create(nil);
+        Timerpause.interval := 30000000;
+        Timertick.tag := 0;
+        Timerpause.Enabled := False;
+        Timerpause.ontimer := @ontimerpause;
         
   drum_beats[0] := 'x0x0x0x0x0x0x000'; // closed hat
   drum_beats[1] := '00000000000000x0'; // opened hat
@@ -1026,60 +1096,35 @@ for i := 0 to 9 do  aguitarisplaying[i]  := false;
   
 // {
 
-for i := 0 to 8 do   
- begin
-// {
+// if assigned( ams[i]) then ams[i].free; 
+for i := 0 to 8 do
+begin
  ams[i] := TMemoryStream.Create; 
  ams[i].LoadFromFile(pchar(adrums[i]));  
  ams[i].Position:= 0;
- // }
- 
-   // Create a memory buffer from a audio file
- //  thebuffer[i] := uos_File2Buffer(pchar(sound[i]), 0, thebuffer[i], thebufferinfos[i]);
- 
- if uos_CreatePlayer(i) then 
- begin
- if uos_SetGlobalEvent(i, true) then else caption := '1';
-  // This set events (like pause/replay thread) to global.
-  //One event (for example replay) will have impact on all players.  
+end;
 
-  // using memorystream
- if uos_AddFromMemoryStream(i,ams[i],0,-1,2,512) > -1 then else caption := caption +'2' ;
+createdrumsplayers ;
+
+
+for i := 0 to 7 do 
  
- // using memorybuffer
-// if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
-  
- if uos_AddFromEndlessMuted(i, channels, 512) > -1 then else caption := caption + '3'; 
-  // this for a dummy endless input, must be last input 
-  
- if uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512) > -1 then // stereo output
  begin
-  if i < 8 then 
-  begin
-  uos_PlayNoFree(i);
-  if i < 4 then sleep(250) else sleep(350) ;
+   uos_Playnofree(i);
+  if i < 4 then sleep(250) else sleep(300) ;
   end;
-  end else allok := false; 
-  
-  end else application.terminate;
- end;
 
- if allok = false then
-  application.terminate;
-//  } 
-  
- // uos_CreatePlayer(0) ;
- //  timage3.bitmap := timage2.bitmap;
-    
-//   visible := true;
-  
+ // for i := 0 to 7 do  uos_stop(i); 
+
    end else  application.terminate;  
    
 end;
 
 procedure tmainfo.dostart(const sender: TObject);
 begin
+  //createdrumsplayers ;
   stopit := false;
+  Timerpause.Enabled := False;
   posi := 1;
   loop_resume.Enabled := false; 
   TimerTick.Enabled := true; 
@@ -1087,15 +1132,21 @@ begin
 end;
 
 procedure tmainfo.dostop(const sender: TObject);
+var
+i : integer;
 begin
  loop_stop.Enabled := false; 
  loop_resume.Enabled := true; 
- stopit := true;  
+ stopit := true; 
+ Timerpause.Enabled := true; 
+ 
 end;
 
 procedure tmainfo.doresume(const sender: TObject);
 begin
+ //createdrumsplayers ;
  stopit := false;
+ Timerpause.Enabled := False;
  loop_resume.Enabled := false;
  loop_stop.Enabled := true; 
  TimerTick.Enabled := true; 
@@ -1248,40 +1299,9 @@ end;
 
 procedure tmainfo.doguitarstring(const sender: TObject);
 begin
-  begin
- if Tbutton(Sender).tag < 7 then // guitar
- begin
-  if loopguit.value = false then 
-  begin
-  uos_stop(Tbutton(Sender).tag + 9 );
- if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
- if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
- if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
- uos_Play(Tbutton(Sender).tag + 9);
-    end else
- begin
- if aguitarisplaying[Tbutton(Sender).tag -1 ]  = false then
- begin
- uos_stop(Tbutton(Sender).tag + 9 );
- if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
- if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
- if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
- begin   uos_Play(Tbutton(Sender).tag + 9, -1);
-   aguitarisplaying[Tbutton(Sender).tag -1 ]  := true;
- end;
- end else
- begin
-  aguitarisplaying[Tbutton(Sender).tag -1 ]  := false;
-  
-  uos_Stop(Tbutton(Sender).tag + 9);
- end;
-  
- end;   
-    
-    
- end else // bass
- begin
-  if loopbass.value = false then 
+ uos_Stop(Tbutton(Sender).tag + 9); 
+  if ((loopguit.value = false) and (Tbutton(Sender).tag < 7)) or
+  ((loopbass.value = false) and (Tbutton(Sender).tag > 6))  then 
   begin
  if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
  if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
@@ -1289,31 +1309,32 @@ begin
  uos_Play(Tbutton(Sender).tag + 9);
     end else
  begin
- if aguitarisplaying[Tbutton(Sender).tag -1 ]  = false then
+ if (aguitarisplaying[Tbutton(Sender).tag -1 ]  = false) 
+    then
  begin
- if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
+ Tbutton(Sender).color := cl_ltgreen ;
+  if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
  if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
  if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
- begin   uos_Play(Tbutton(Sender).tag + 9, -1);
+ begin
+   uos_Play(Tbutton(Sender).tag + 9, -1);
    aguitarisplaying[Tbutton(Sender).tag -1 ]  := true;
  end;
  end else
  begin
+ Tbutton(Sender).color := $C9BDA5 ;
   aguitarisplaying[Tbutton(Sender).tag -1 ]  := false;
-  
-  uos_Stop(Tbutton(Sender).tag + 9);
  end;
   
  end;   
     
-  end;  
- end;  
-end;
+ end;   
+
 
 procedure tmainfo.LoopProcPlayer1;
 begin
  ShowPosition;
- //ShowLevel ;
+ ShowLevel ;
 end;
 
 procedure tmainfo.doplayerstart(const sender: TObject);
@@ -1342,7 +1363,7 @@ var
     // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
     // If PlayerIndex exists already, it will be overwritten...
     
-     uos_Stop(theplayer) ;
+     uos_Stop(theplayer) ; // done by  uos_CreatePlayer() but faster if already done before (no check)
 
     if uos_CreatePlayer(theplayer) then
     //// Create the player.
@@ -1457,12 +1478,8 @@ var
     
    llength.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
    
-  {$IF DEFINED(mse)}
-  uos_EndProc(theplayer, @ClosePlayer1);
-  {$else}
-  uos_EndProc(theplayer, @ClosePlayer1);
-  {$endif}
-  
+   uos_EndProc(theplayer, @ClosePlayer1);
+ 
     /////// procedure to execute when stream is terminated
      ///// Assign the procedure of object to execute at end
     //////////// PlayerIndex : Index of a existing Player
@@ -1504,6 +1521,10 @@ end;
 
 procedure tmainfo.doplayerpause(const sender: TObject);
 begin
+    vuLeft.Visible := False;
+    vuRight.Visible := False;
+    vuright.Height := 0;
+    vuleft.Height := 0;
     btnStop.Enabled := True;
     btnPause.Enabled := False;
     btnresume.Enabled := True;

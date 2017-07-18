@@ -3825,8 +3825,8 @@ object mainfo: tmainfo
     end
     object tlabel27: tlabel
       taborder = 11
-      bounds_x = 187
-      bounds_y = 25
+      bounds_x = 188
+      bounds_y = 27
       bounds_cx = 45
       bounds_cy = 15
       caption = 'Volume'
@@ -3996,7 +3996,7 @@ object mainfo: tmainfo
       )
       taborder = 9
       hint = ' Enable stretching (changing temo) '
-      bounds_x = 260
+      bounds_x = 269
       bounds_y = 38
       bounds_cx = 47
       bounds_cy = 32
@@ -4004,8 +4004,8 @@ object mainfo: tmainfo
     end
     object label6: tlabel
       taborder = 10
-      bounds_x = 312
-      bounds_y = 25
+      bounds_x = 320
+      bounds_y = 27
       bounds_cx = 41
       bounds_cy = 15
       caption = 'Tempo'
@@ -4060,9 +4060,9 @@ object mainfo: tmainfo
       frame.buttonsize = 30
       taborder = 14
       hint = ' Change tempo of song '
-      bounds_x = 310
+      bounds_x = 318
       bounds_y = 42
-      bounds_cx = 63
+      bounds_cx = 60
       bounds_cy = 32
       onchange = ChangePlugSetSoundTouch
       value = 1
@@ -4088,9 +4088,9 @@ object mainfo: tmainfo
       frame.buttonsize = 30
       taborder = 15
       hint = ' Change volume of song '
-      bounds_x = 181
+      bounds_x = 188
       bounds_y = 42
-      bounds_cx = 59
+      bounds_cx = 62
       bounds_cy = 32
       onchange = changevolume
       value = 100
@@ -4151,6 +4151,24 @@ object mainfo: tmainfo
         end>
       dropdown.historymaxcount = 50
       reffontheight = 15
+    end
+    object vuRight: tdockpanel
+      color = 976914
+      taborder = 18
+      visible = False
+      bounds_x = 254
+      bounds_y = 30
+      bounds_cx = 8
+      bounds_cy = 46
+    end
+    object vuLeft: tdockpanel
+      color = 976914
+      taborder = 19
+      visible = False
+      bounds_x = 175
+      bounds_y = 31
+      bounds_cx = 8
+      bounds_cy = 46
     end
   end
   object buttonicons: timagelist
