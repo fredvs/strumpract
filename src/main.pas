@@ -1,6 +1,5 @@
 unit main;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
-
 {$I define.inc}
 
 interface
@@ -11,7 +10,7 @@ uses
  msegraphedits, uos_flat, aboutform, infos, msebitmap,mseimage,msefiledialog,
  msesys,mseificomp,mseificompglob,mseifiglob,msemenus,msescrollbar,mseact,
  mseevent,msestream,msedragglob,msedatanodes,msegrids,mselistbrowser;
-
+ 
 type
  talab =  array[0..15] of tlabel;
  talab2 =  array[0..3] of tlabel;
@@ -954,7 +953,7 @@ abd[12] := tbooleanedit61;
 abd[13] := tbooleanedit62;
 abd[14] := tbooleanedit63;
 abd[15] := tbooleanedit64;
- 
+
  for ax := 0 to 15 do
   begin
   with abd[ax] do
@@ -1303,12 +1302,6 @@ begin
  freeandnil(Timerwait) ;
  freeandnil(Timerpause) ;
  
- for i := 0 to 8 do
-begin
-//if ams[i] <> nil then  freeandnil(ams[i]);
-end;
-
- 
  for i := 0 to 3 do
 begin
   freeandnil(alab2[i]);
@@ -1324,10 +1317,12 @@ begin
   freeandnil(abd[i]);
 end;
 
-sleep(30);      
+sleep(50);      
 uos_free;
 sleep(150);
+
 end;
+
 
 procedure tmainfo.doguitarstring(const sender: TObject);
 begin

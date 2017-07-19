@@ -8,34 +8,20 @@
 
 unit uos_libsndfile;
 
-{$IFDEF FPC}
-  {$MODE objfpc}
-  {$PACKENUM 4}(* use 4-byte enums *)
-  {$PACKRECORDS C}(* C/C++-compatible record packing *)
-  {$MACRO ON}//don't know whatfor !
-{$ELSE}
-  {$MINENUMSIZE 4}(* use 4-byte enums *)
-{** MINENUMSIZE is equivalent to Z+}
-{$ENDIF}
 
-{$LONGSTRINGS ON}
-{** LONGSTRINGS is equivalent to H+}
+  {$mode objfpc}{$H+}
+  {$PACKRECORDS C}
+
 
 interface
 
 uses
   dynlibs, classes,
   {$IFDEF UNIX}
-    {$IFDEF UseCThreads}
-  cthreads,
-    {$ENDIF}
-  unixtype,
+   unixtype,
   {$ENDIF}
-  {$IFDEF FPC}
-  ctypes;
+   ctypes;
 
-  {$ENDIF}
-  
 type   
 PMemoryStream = ^TMemoryStream;
  

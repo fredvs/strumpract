@@ -17,7 +17,7 @@ interface
 
 {$LONGSTRINGS ON}
 uses
- ctypes, dynlibs;
+SysUtils, ctypes, dynlibs;
 
 type
   Tmpg123_handle = Pointer;

@@ -15,7 +15,7 @@ unit uos_soundtouch;
 interface
 
 uses
- ctypes, DynLibs;
+SysUtils, ctypes, DynLibs;
 
 {$IF not DEFINED(windows)}
 type

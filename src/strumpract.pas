@@ -8,7 +8,7 @@ program strumpract;
 {$endif}
 uses
  {$ifdef FPC}{$ifdef unix}cthreads,{$endif}{$endif} 
- msegui,main, aboutform, infos;
+ msegui, main, aboutform, infos;
 begin
   application.createform(tmainfo,mainfo);
   application.createform(taboutfo,aboutfo);

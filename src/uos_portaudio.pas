@@ -14,7 +14,7 @@ unit uos_portaudio;
 interface
 
 uses
-  dynlibs, CTypes;
+ SysUtils, dynlibs, CTypes;
 
 type
   PaError = CInt32;

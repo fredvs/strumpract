@@ -5505,6 +5505,7 @@ var
   {$IF DEFINED(mpg123)}
   mpinfo: Tmpg123_frameinfo;
   mpid3v1: PPmpg123_id3v1;
+  mpid3v12: Pmpg123_id3v1;
   refmpid3v1: Tmpg123_id3v1;
   mpid3v2: Tmpg123_id3v2;
   {$endif}
@@ -5660,13 +5661,14 @@ begin
   SetLength(StreamIn[x].Data.Buffer, StreamIn[x].Data.Wantframes*StreamIn[x].Data.Channels);
 
   mpg123_info(StreamIn[x].Data.HandleSt, MPinfo);
+  
   mpg123_id3(StreamIn[x].Data.HandleSt, mpid3v1, @mpid3v2);
   // to do : add id2v2
-  
-  if (mpid3v1 <> nil) and  (mpid3v1^ <> nil)  then
-  begin
-  
-  refmpid3v1 := mpid3v1^^;
+
+ if (assigned(mpid3v1)) and (assigned(mpid3v1^)) then 
+   begin
+ 
+ refmpid3v1 := mpid3v1^^;
   
   StreamIn[x].Data.title := trim(refmpid3v1.title);
   StreamIn[x].Data.artist := refmpid3v1.artist;
@@ -5675,7 +5677,9 @@ begin
   StreamIn[x].Data.comment := refmpid3v1.comment;
   StreamIn[x].Data.tag := refmpid3v1.tag;
   StreamIn[x].Data.genre := refmpid3v1.genre;
+
   end;
+  
   StreamIn[x].Data.samplerateroot :=  StreamIn[x].Data.samplerate ;
   StreamIn[x].Data.hdformat := MPinfo.layer;
   StreamIn[x].Data.frames := MPinfo.framesize;
@@ -5687,6 +5691,7 @@ begin
   StreamIn[x].Data.LibOpen := -1;
   end;
   end;
+
   {$endif}
   
   {$IF DEFINED(opus)}
@@ -7844,11 +7849,10 @@ begin
  {$endif}  
  
  {$IF DEFINED(mse)} 
- thethread.terminate();
- freeandnil(self);
+
   {$else}
-  FreeOnTerminate:=True;
-  terminate();
+ // FreeOnTerminate:=True;
+ // terminate();
   end;
  {$endif}
 end;
@@ -8424,6 +8428,16 @@ destructor Tuos_Player.Destroy;
 var
   x: cint32;
 begin
+
+if thethread <> nil then begin
+   {$ifdef mse}
+    thethread.terminate();
+   application.waitforthread(thethread);
+    //calls unlockall()/relockall in order to avoid possible deadlock
+    thethread.destroy();
+  {$endif}
+    
+  end;
 
   if assigned(evPause) then RTLeventdestroy(evPause);
 
