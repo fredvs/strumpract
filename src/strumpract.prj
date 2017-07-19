@@ -69,7 +69,7 @@ order16=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
-findinfiledialog=46
+findinfiledialog=53
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -90,20 +90,27 @@ findinfiledialog=46
   "*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/msegui/
+  /usr/share/fpcsrc/
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
- filehistory=2
+ filehistory=4
+  /usr/share/fpcsrc/
   /home/fred/msegui/
+  /home/fred/designer_ext/
   /home/fred/msegui/apps/ide/
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=threadprocty
- history=6
+ value=Thread.Execute
+ history=11
+  Thread.Execute
+  parent
+  getparent
+  theparent
+  queue
   threadprocty
   tthreadcomp
   tlabel
@@ -125,14 +132,20 @@ finddialog=8
  y=205
  cx=312
  cy=114
-replacedialog=25
+replacedialog=31
  [replacedialogfo.promptonreplace]
  value=1
  [replacedialogfo.selectedonly]
  value=0
  [replacedialogfo.replacetext]
- value= 
- history=12
+ value=thethread
+ history=18
+  thethread
+  thethread,
+  thethread.synchronize(thethread,
+  thethread.queue(thethread,
+  thethread.queue(
+  thethread.queue
    
   value
   cl_ltgreen
@@ -388,17 +401,19 @@ objpref=-Fo
 targpref=-o
 befcommand=0
 aftcommand=0
-makeoptions=7
+makeoptions=8
   -l -Mobjfpc -Sh -Fcutf8
- -gl -O-
+ -ghl
+ -FE.
  -WG
  -B
  -O4 -XX -Xs -CX
  -vewinh
  -FUunits
-makeoptpurpose=7
+makeoptpurpose=8
  Define Object Pascal
  Debug infos
+ Memory leak
  For Windows gui
  Re-build all
  Optimizations
@@ -617,21 +632,19 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
+modulenames=1
  MAINFO
- FILEDIALOGRES
-moduletypes=2
+moduletypes=1
  TMAINFO
- TFILEDIALOGRES
-modulefiles=2
+modulefiles=1
  /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/msefiledialogres.mfm
 befcommandon=0
-makeoptionson=7
+makeoptionson=8
  4095
- 1
+ 3
+ 2
  192
- 98
+ 96
  254
  4095
  4095
@@ -666,12 +679,12 @@ compilerusedon=29
  0
  0
 debuggerusedon=6
- 3840
+ 3842
  0
  0
  0
  0
- 255
+ 253
 exeusedon=14
  3903
  0
@@ -844,7 +857,7 @@ stoponexception=0
 valuehints=1
 activateonbreak=1
 raiseonbreak=1
-showconsole=0
+showconsole=1
 externalconsole=0
 settty=1
 gdbdownload=0
@@ -906,9 +919,9 @@ line=3
  6389
  7495
 address=3
- 4588030
- 7146657
- 7158335
+ 4569457
+ 6878330
+ 6886711
 addbkpt=3
  0
  0
@@ -952,37 +965,37 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=showlev
+finddtext=dodes
 findhistory=20
- showlev
- timerpause
- showposi
- showlevel
- vuLeft
- pause
+ dodes
+ ondestroy
  close
- ExecuteLoop
- constructor
- hasstarted
- executeloop
- Tuos_Player.Create
- ExecuteLoo
- uos_CreatePlayer
- addfromfi
- .destroy
- PlayEx
- todo
+ create
+ destroy
+ uos_Free
  .execute
+ DEFINED(mse)
+ .create(true
+ .create(false
+ thethread.thethread
+ thethread,(
+ synchronize
+ thethread
+ destruc
+ createdrumsplayers
+ PlayEx
+ theparent
+ constructor
  execute
 findoptions=1
 editpos=7
+ 0,14
+ 0,3
  0,-1073741823
  0,-1073741823
+ 0,1327
  0,-1073741823
- 0,-1073741823
- 0,627
- 0,-1073741823
- 0,0
+ 0,6700
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -996,16 +1009,16 @@ sourcefiles=7
  ${PROJECTDIR}/uos.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/msefiledialogres.pas
- ${PROJECTDIR}/msefiledialogres.pas
+ /usr/share/fpcsrc/3.0.2/rtl/objpas/classes/classes.inc
+ /home/fred/msegui/lib/common/kernel/linux/mseguiintf.pas
 relpaths=7
  strumpract.pas
  define.inc
  uos.pas
  uos_flat.pas
  main.pas
- msefiledialogres.pas
- msefiledialogres.pas
+ usr/share/fpcsrc/3.0.2/rtl/objpas/classes/classes.inc
+ ../msegui/lib/common/kernel/linux/mseguiintf.pas
 ismoduletexts=7
  0
  0
@@ -1014,31 +1027,27 @@ ismoduletexts=7
  0
  0
  0
-modules=2
- /home/fred/strumpract/src/msefiledialogres.mfm
+modules=1
  /home/fred/strumpract/src/main.mfm
-moduleoptions=2
+moduleoptions=1
  0
- 0
-visiblemodules=2
+visiblemodules=1
  -1
- -1
-nomenumodules=2
- 0
+nomenumodules=1
  0
 [sourcefo.files_tab]
 order=7
  0
  1
  2
+ 5
  3
  4
  6
- 5
 firsttab=0
-index=4
+index=0
 [layout]
-windowlayout=564
+windowlayout=545
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1052,7 +1061,7 @@ windowlayout=564
  x=0
  y=0
  cx=1356
- cy=694
+ cy=675
  rcx=0
  rcy=0
  [mainfo]
@@ -1064,14 +1073,14 @@ windowlayout=564
  ny=0
  ncx=0
  ncy=0
- x=136
- y=73
+ x=231
+ y=53
  cx=1093
  cy=621
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1356,694
+  basedock,0,0,1356,675
  focusedchild=0
  wsize=6
  active=1
@@ -1087,13 +1096,13 @@ windowlayout=564
  ncy=0
  x=493
  y=171
- cx=497
+ cx=768
  cy=314
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=805322857
@@ -1115,7 +1124,7 @@ windowlayout=564
  [memoryfo]
  splitdir=0
  useroptions=805322875
- stackedunder=dialogfilesfo
+ stackedunder=about_form
  parent=
  mdistate=0
  nx=0
@@ -1187,7 +1196,7 @@ windowlayout=564
  x=0
  y=0
  cx=159
- cy=508
+ cy=494
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1237,7 +1246,7 @@ windowlayout=564
  active=0
  visible=0
  [watchpointsfo.grid]
- propcolwidthref=352
+ propcolwidthref=332
  sortdescend0=0
  values1=1
   0
@@ -1246,7 +1255,7 @@ windowlayout=564
  sortdescend1=0
  values2=1
   pinteger(0x126c6b4)^
- width2=158
+ width2=149
  sortdescend2=0
  width4=34
  sortdescend4=0
@@ -1257,7 +1266,7 @@ windowlayout=564
  sortdescend5=0
  values6=1
   
- width6=184
+ width6=172
  sortdescend6=0
  [breakpointsfo]
  splitdir=0
@@ -1283,27 +1292,27 @@ windowlayout=564
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=1047
- y=90
+ x=670
+ y=179
  cx=316
  cy=484
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=306
- width0=187
+ width0=73
  sortdescend0=0
- width1=113
+ width1=227
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1392,9 +1401,9 @@ windowlayout=564
  ncx=0
  ncy=0
  x=0
- y=575
+ y=559
  cx=1356
- cy=119
+ cy=116
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1494,7 +1503,7 @@ windowlayout=564
  x=0
  y=0
  cx=1356
- cy=61
+ cy=59
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1510,7 +1519,7 @@ windowlayout=564
  x=0
  y=0
  cx=1356
- cy=61
+ cy=59
  rcx=0
  rcy=0
  [sourcefo]
@@ -1526,14 +1535,14 @@ windowlayout=564
  x=162
  y=0
  cx=1194
- cy=508
+ cy=494
  rcx=0
  rcy=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_filedialogres_mse_
+ stackedunder=threadsfo
  parent=
  mdistate=0
  nx=0
@@ -1549,6 +1558,25 @@ windowlayout=564
  wsize=0
  active=0
  visible=0
+ [_mse_mainfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=453
+ y=89
+ cx=464
+ cy=434
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
  [mainfo.panel1]
  splitdir=1
  useroptions=838958571
@@ -1560,49 +1588,11 @@ windowlayout=564
  ncx=0
  ncy=0
  x=0
- y=64
+ y=62
  cx=1356
- cy=508
+ cy=494
  rcx=0
  rcy=0
- [_mse_filedialogres_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=_mse_mainfo_mse_
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=93
- y=396
- cx=245
- cy=117
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_mainfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=objectinspectorfo
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=490
- y=143
- cx=464
- cy=434
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
 [targetconsole]
 finddtext=
 findhistory=0

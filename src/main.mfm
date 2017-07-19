@@ -1,8 +1,8 @@
 object mainfo: tmainfo
   color = 13421772
   visible = False
-  bounds_x = 490
-  bounds_y = 143
+  bounds_x = 453
+  bounds_y = 89
   bounds_cx = 454
   bounds_cy = 434
   container.frame.localprops = []

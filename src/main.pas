@@ -658,7 +658,7 @@ for i := 0 to 8 do
  begin
  uos_Stop(i);
  
-// {
+ // {
 // if assigned( ams[i]) then ams[i].free; 
 //ams[i] := TMemoryStream.Create; 
 // ams[i].LoadFromFile(pchar(adrums[i]));  
@@ -683,7 +683,7 @@ for i := 0 to 8 do
   // this for a dummy endless input, must be last input 
   
  uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512)  ;
- 
+  
 end;
 end;  
  
@@ -1110,7 +1110,7 @@ createdrumsplayers ;
 for i := 0 to 7 do 
  
  begin
-   uos_Playnofree(i);
+  uos_Playnofree(i);
   if i < 4 then sleep(250) else sleep(300) ;
   end;
 
@@ -1291,8 +1291,40 @@ aboutfo.show(true);
 end;
 
 procedure tmainfo.dodestroy(const sender: TObject);
+var
+i : integer;
 begin
 // gINI.writeString('songfilename', 'files', songdir.value);
+//freeandnil(aboutfo);
+//freeandnil(infosfo);
+// if assigned(aboutfo) then aboutfo.destroy;
+
+ freeandnil(Timertick) ;
+ freeandnil(Timerwait) ;
+ freeandnil(Timerpause) ;
+ 
+ for i := 0 to 8 do
+begin
+//if ams[i] <> nil then  freeandnil(ams[i]);
+end;
+
+ 
+ for i := 0 to 3 do
+begin
+  freeandnil(alab2[i]);
+  freeandnil(alaband[i]);
+end;
+
+ for i := 0 to 15 do
+begin
+  freeandnil(alab[i]);
+  freeandnil(aoh[i]);
+  freeandnil(ach[i]);
+  freeandnil(asd[i]);
+  freeandnil(abd[i]);
+end;
+
+sleep(30);      
 uos_free;
 sleep(150);
 end;
