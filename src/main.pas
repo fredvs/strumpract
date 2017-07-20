@@ -371,7 +371,7 @@ end;
 if (posi = 1) then
  label2.font.color := cl_red
   else
- label2.font.color := $4E574E;
+ label2.font.color := $40733D;
  
   alaband[0].color := cl_ltgray;
   alaband[1].color := cl_ltgray;

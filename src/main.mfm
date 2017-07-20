@@ -1,8 +1,8 @@
 object mainfo: tmainfo
   color = 13421772
   visible = False
-  bounds_x = 453
-  bounds_y = 89
+  bounds_x = 595
+  bounds_y = 168
   bounds_cx = 454
   bounds_cy = 434
   container.frame.localprops = []
@@ -2748,9 +2748,10 @@ object mainfo: tmainfo
         Tag = 5
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = '1'
         frame.captiondist = 6
-        frame.localprops = [frl_framewidth, frl_hiddenedges]
+        frame.localprops = [frl_framewidth, frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
@@ -2773,9 +2774,10 @@ object mainfo: tmainfo
         Tag = 6
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = '2'
         frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
@@ -2795,9 +2797,10 @@ object mainfo: tmainfo
         Tag = 7
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = '3'
         frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
@@ -2817,9 +2820,10 @@ object mainfo: tmainfo
         Tag = 8
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = '4'
         frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
@@ -2839,9 +2843,10 @@ object mainfo: tmainfo
         Tag = 4
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = '4'
         frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
@@ -2861,9 +2866,10 @@ object mainfo: tmainfo
         Tag = 3
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = '3'
         frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
@@ -2883,9 +2889,10 @@ object mainfo: tmainfo
         Tag = 2
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = '2'
         frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
@@ -2905,9 +2912,10 @@ object mainfo: tmainfo
         Tag = 1
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = '1'
         frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
@@ -2942,8 +2950,9 @@ object mainfo: tmainfo
       end
       object noanim: tbooleanedit
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = 'no anim'
-        frame.localprops = [frl_hiddenedges]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
         frame.outerframe = (
           0
@@ -2960,6 +2969,7 @@ object mainfo: tmainfo
       end
       object noand: tbooleanedit
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = 'no "and"'
         frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
@@ -2979,6 +2989,7 @@ object mainfo: tmainfo
       end
       object novoice: tbooleanedit
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = 'no voice'
         frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
@@ -2998,6 +3009,7 @@ object mainfo: tmainfo
       end
       object nodrums: tbooleanedit
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
         frame.caption = 'no drums'
         frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
@@ -3064,6 +3076,62 @@ object mainfo: tmainfo
         imagenr = 27
         focusrectdist = 0
         onexecute = dostart
+      end
+      object tdockpanel3: tdockpanel
+        color = 12446914
+        taborder = 19
+        bounds_x = 107
+        bounds_y = 2
+        bounds_cx = 74
+        bounds_cy = 80
+        object label5: tlabel
+          color = -2147483645
+          bounds_x = 9
+          bounds_y = 62
+          bounds_cx = 53
+          bounds_cy = 15
+          caption = '150 BPM'
+          reffontheight = 15
+        end
+        object tlabel25: tlabel
+          color = -2147483645
+          taborder = 1
+          bounds_x = 13
+          bounds_y = 2
+          bounds_cx = 46
+          bounds_cy = 15
+          caption = 'Interval'
+          reffontheight = 15
+        end
+        object edittempo: trealspinedit
+          frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+          frame.colorclient = 15923187
+          frame.framei_left = 1
+          frame.framei_top = 1
+          frame.framei_right = 1
+          frame.framei_bottom = 1
+          frame.localprops = [frl_hiddenedges, frl_colorclient]
+          frame.localprops1 = []
+          frame.buttonsize = 30
+          taborder = 2
+          hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
+          bounds_x = 7
+          bounds_y = 18
+          bounds_cx = 59
+          bounds_cy = 40
+          onchange = onchangetempo
+          value = 100
+          valuedefault = 100
+          valuerange = 1
+          valuestart = 0
+          min = 40
+          max = 200
+          step = 1
+          stepctrlfact = 0
+          stepshiftfact = 0
+          wheelsensitivity = 1
+          reffontheight = 15
+        end
       end
       object tdockpanel2: tdockpanel
         color = 12446914
@@ -3412,75 +3480,22 @@ object mainfo: tmainfo
         end
         object label2: tlabel
           color = -2147483645
-          bounds_x = 21
+          bounds_x = 19
           bounds_y = 12
           bounds_cx = 32
           bounds_cy = 59
           caption = '0'
-          font.color = 5134158
+          font.color = 4223805
+          font.shadow_color = 0
           font.gloss_color = 16777215
           font.grayed_shiftx = 2
           font.grayed_shifty = 2
           font.height = 50
           font.name = 'stf_default'
-          font.localprops = [flp_color, flp_gloss_color, flp_gloss_shiftx, flp_gloss_shifty, flp_grayed_color, flp_grayed_shiftx, flp_grayed_shifty, flp_height]
+          font.options = [foo_script, foo_antialiased2]
+          font.localprops = [flp_color, flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_gloss_color, flp_gloss_shiftx, flp_gloss_shifty, flp_grayed_color, flp_grayed_shiftx, flp_grayed_shifty, flp_style, flp_height, flp_options]
           textflags = [tf_xcentered, tf_ycentered]
           reffontheight = 59
-        end
-      end
-      object tdockpanel3: tdockpanel
-        color = 12446914
-        taborder = 19
-        bounds_x = 107
-        bounds_y = 2
-        bounds_cx = 74
-        bounds_cy = 80
-        object label5: tlabel
-          color = -2147483645
-          bounds_x = 9
-          bounds_y = 62
-          bounds_cx = 53
-          bounds_cy = 15
-          caption = '150 BPM'
-          reffontheight = 15
-        end
-        object tlabel25: tlabel
-          color = -2147483645
-          taborder = 1
-          bounds_x = 13
-          bounds_y = 2
-          bounds_cx = 46
-          bounds_cy = 15
-          caption = 'Interval'
-          reffontheight = 15
-        end
-        object edittempo: trealspinedit
-          frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-          frame.framei_left = 1
-          frame.framei_top = 1
-          frame.framei_right = 1
-          frame.framei_bottom = 1
-          frame.localprops = [frl_hiddenedges]
-          frame.localprops1 = []
-          frame.buttonsize = 30
-          taborder = 2
-          hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
-          bounds_x = 7
-          bounds_y = 18
-          bounds_cx = 59
-          bounds_cy = 40
-          onchange = onchangetempo
-          value = 100
-          valuedefault = 100
-          valuerange = 1
-          valuestart = 0
-          min = 40
-          max = 200
-          step = 1
-          stepctrlfact = 0
-          stepshiftfact = 0
-          wheelsensitivity = 1
-          reffontheight = 15
         end
       end
     end
@@ -3618,9 +3633,10 @@ object mainfo: tmainfo
     end
     object loopguit: tbooleanedit
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16774627
       frame.caption = 'Loop'
       frame.captiondist = 2
-      frame.localprops = [frl_hiddenedges]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
@@ -3733,9 +3749,10 @@ object mainfo: tmainfo
     end
     object loopbass: tbooleanedit
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16774627
       frame.caption = 'Loop'
       frame.captiondist = 2
-      frame.localprops = [frl_hiddenedges]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
@@ -3983,10 +4000,11 @@ object mainfo: tmainfo
     end
     object cbtempo: tbooleanedit
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
       frame.caption = 'Stretch'
       frame.captionpos = cp_top
       frame.captiondist = 3
-      frame.localprops = [frl_hiddenedges]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         17
@@ -4013,10 +4031,11 @@ object mainfo: tmainfo
     end
     object cbloop: tbooleanedit
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
       frame.caption = 'Loop'
       frame.captionpos = cp_top
       frame.captiondist = 3
-      frame.localprops = [frl_hiddenedges]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         9
@@ -4051,11 +4070,12 @@ object mainfo: tmainfo
     end
     object edtempo: trealspinedit
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16515040
       frame.framei_left = 1
       frame.framei_top = 1
       frame.framei_right = 1
       frame.framei_bottom = 1
-      frame.localprops = [frl_hiddenedges]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.buttonsize = 30
       taborder = 14
@@ -4079,11 +4099,12 @@ object mainfo: tmainfo
     end
     object edvol: trealspinedit
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16515040
       frame.framei_left = 1
       frame.framei_top = 1
       frame.framei_right = 1
       frame.framei_bottom = 1
-      frame.localprops = [frl_hiddenedges]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.buttonsize = 30
       taborder = 15
