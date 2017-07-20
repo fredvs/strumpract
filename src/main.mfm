@@ -3480,7 +3480,8 @@ object mainfo: tmainfo
         end
         object label2: tlabel
           color = -2147483645
-          bounds_x = 19
+          enabled = False
+          bounds_x = 21
           bounds_y = 12
           bounds_cx = 32
           bounds_cy = 59

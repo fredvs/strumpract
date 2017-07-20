@@ -224,7 +224,7 @@ type
   end;
  
 const
- versiontext = '1.1';
+ versiontext = '1.2';
  
 var
  mainfo: tmainfo;
@@ -297,6 +297,7 @@ var
 i : integer;
 begin 
 Timerpause.Enabled := False;
+label2.caption := '0';
 for i:=0 to 8 do uos_pause(i);
 end;
 
@@ -319,8 +320,7 @@ procedure Tmainfo.ontimertick(const Sender: TObject);
  
 begin
 
-// Timertick.Enabled := false;
- 
+// Timertick.Enabled := false; 
 if stopit = false then
  begin
   
@@ -1123,6 +1123,7 @@ procedure tmainfo.dostart(const sender: TObject);
 begin
   //createdrumsplayers ;
   stopit := false;
+  label2.enabled := true;
   Timerpause.Enabled := False;
   posi := 1;
   loop_resume.Enabled := false; 
@@ -1134,6 +1135,7 @@ procedure tmainfo.dostop(const sender: TObject);
 var
 i : integer;
 begin
+ label2.enabled := false;
  loop_stop.Enabled := false; 
  loop_resume.Enabled := true; 
  stopit := true; 
@@ -1144,6 +1146,7 @@ end;
 procedure tmainfo.doresume(const sender: TObject);
 begin
  //createdrumsplayers ;
+ label2.enabled := false;
  stopit := false;
  Timerpause.Enabled := False;
  loop_resume.Enabled := false;
@@ -1595,6 +1598,8 @@ end;
 procedure tmainfo.oncreatedform(const sender: TObject);
 begin
 //visible := false ;
+
+caption := 'StrumPract ' + versiontext;
  if songdir.value = '' then
  songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.ogg';
  
