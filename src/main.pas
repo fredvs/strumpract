@@ -147,7 +147,6 @@ type
    cbloop: tbooleanedit;
    button1: tbutton;
    tdockpanel4: tdockpanel;
-   timage1: timage;
    tbooleaneditradio8: tbooleaneditradio;
    tbooleaneditradio7: tbooleaneditradio;
    tbooleaneditradio6: tbooleaneditradio;
@@ -165,24 +164,21 @@ type
    loop_stop: tbutton;
    loop_resume: tbutton;
    loop_start: tbutton;
-   tdockpanel3: tdockpanel;
-   label5: tlabel;
-   tlabel25: tlabel;
-   tdockpanel2: tdockpanel;
-   timage3: timage;
-   label4: tlabel;
-   label3: tlabel;
-   label2: tlabel;
    edtempo: trealspinedit;
    edvol: trealspinedit;
    btinfos: tbutton;
    loopguit: tbooleanedit;
    loopbass: tbooleanedit;
-   edittempo: trealspinedit;
    historyfn: thistoryedit;
-   tlabel26: tlabel;
    vuRight: tdockpanel;
    vuLeft: tdockpanel;
+   label4: tlabel;
+   label2: tlabel;
+   label3: tlabel;
+   label5: tlabel;
+   edittempo: trealspinedit;
+   tlabel25: tlabel;
+   tlabel26: tlabel;
    procedure oncreateform(const sender: TObject);
    procedure dostart(const sender: TObject);
    procedure ontimertick(const Sender: TObject);
@@ -319,11 +315,10 @@ procedure Tmainfo.ontimertick(const Sender: TObject);
   ax : integer;
  
 begin
-
 // Timertick.Enabled := false; 
 if stopit = false then
  begin
-  
+ application.lock();
 if novoice.value = false then 
 begin
 if (posi = 1) then
@@ -353,8 +348,34 @@ if (posi = 15) and (noand.value = false) then
 uos_PlaynofreePaused(8);
 end;
 
-if noanim.value = false then
+ if nodrums.value = false then 
 begin
+
+ if  ach[posi-1].value = true then uos_PlaynofreePaused(0) ;
+ if  aoh[posi-1].value = true then uos_PlaynofreePaused(1) ;
+ if  asd[posi-1].value = true then uos_PlaynofreePaused(2) ;
+ if  abd[posi-1].value = true then uos_PlaynofreePaused(3) ;
+   
+   // uos_SetGlobalEvent(true) was executed --> This set events (like pause/replay threads) to global.
+    // One event (for example uos_replay) will have impact on all players.
+    
+ if (ach[posi-1].value = true) then
+  uos_RePlay(0)  // A uos_replay() of each player will have impact on all players.
+ else  
+ if (aoh[posi-1].value = true) then
+  uos_RePlay(1) // A uos_replay() of each player will have impact on all players.
+ else  
+ if (asd[posi-1].value = true) then
+  uos_RePlay(2)  // A uos_replay() of each player will have impact on all players.
+  else  
+ if (abd[posi-1].value = true) then
+  uos_RePlay(3) // A uos_replay() of each player will have impact on all players.
+ 
+ end;
+ 
+ if noanim.value = false then
+begin
+
 label2.visible := true;
 
 if (posi = 1) or (posi = 9) then
@@ -556,6 +577,7 @@ abd[ax].frame.colorclient := cl_white;
 end;
 
 alab[ax].color := cl_ltgray;
+
 end;
 Lach.color := cl_ltgray;
 Laoh.color := cl_ltgray;
@@ -565,33 +587,8 @@ Labd.color := cl_ltgray;
 label3.visible := false;
 label4.visible := false;
 label2.visible := false;
+
 end;
- 
- if nodrums.value = false then 
-begin
-
- if  ach[posi-1].value = true then uos_PlaynofreePaused(0) ;
- if  aoh[posi-1].value = true then uos_PlaynofreePaused(1) ;
- if  asd[posi-1].value = true then uos_PlaynofreePaused(2) ;
- if  abd[posi-1].value = true then uos_PlaynofreePaused(3) ;
-   
-   // uos_SetGlobalEvent(true) was executed --> This set events (like pause/replay threads) to global.
-    // One event (for example uos_replay) will have impact on all players.
-    
- if (ach[posi-1].value = true) then
-  uos_RePlay(0)  // A uos_replay() of each player will have impact on all players.
- else  
- if (aoh[posi-1].value = true) then
-  uos_RePlay(1) // A uos_replay() of each player will have impact on all players.
- else  
- if (asd[posi-1].value = true) then
-  uos_RePlay(2)  // A uos_replay() of each player will have impact on all players.
-  else  
- if (abd[posi-1].value = true) then
-  uos_RePlay(3) // A uos_replay() of each player will have impact on all players.
- 
- end;
-
 
 posi := posi + 1;
 
@@ -599,19 +596,15 @@ posi := posi + 1;
  
 // Timertick.Enabled := true;
   Timertick.tag := 0 ;
+  
+    application.unlock();
  end else 
  begin
  Timertick.Enabled := false;
  Timertick.tag := 1 ;
- {
-// sleep(200);
-  for ax := 0 to 8 do   
- begin
- uos_pause(ax);
- end;
-// }
- end;
-  
+
+  end;
+ 
 end;  
 
    procedure tmainfo.ShowLevel;
@@ -1342,7 +1335,8 @@ begin
  if (aguitarisplaying[Tbutton(Sender).tag -1 ]  = false) 
     then
  begin
- Tbutton(Sender).color := cl_ltgreen ;
+  Tbutton(Sender).face.fade_direction := gd_up;
+  Tbutton(Sender).face.fade_color.items[1] := cl_ltgreen;
   if uos_CreatePlayer(Tbutton(Sender).tag + 9 ) then
  if uos_AddFromFile(Tbutton(Sender).tag + 9,(pchar(aguitar[Tbutton(Sender).tag-1]))) > -1 then
  if uos_AddIntoDevOut(Tbutton(Sender).tag + 9) > -1 then
@@ -1352,7 +1346,8 @@ begin
  end;
  end else
  begin
- Tbutton(Sender).color := $C9BDA5 ;
+  Tbutton(Sender).face.fade_direction := gd_down;
+  Tbutton(Sender).face.fade_color.items[1] := $B0A590;
   aguitarisplaying[Tbutton(Sender).tag -1 ]  := false;
  end;
   
@@ -1363,8 +1358,10 @@ begin
 
 procedure tmainfo.LoopProcPlayer1;
 begin
+ application.lock();
  ShowPosition;
  ShowLevel ;
+  application.unlock();
 end;
 
 procedure tmainfo.doplayerstart(const sender: TObject);
