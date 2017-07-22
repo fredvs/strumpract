@@ -220,7 +220,7 @@ type
   end;
  
 const
- versiontext = '1.2';
+ versiontext = '1.3';
  
 var
  mainfo: tmainfo;
@@ -318,7 +318,6 @@ begin
 // Timertick.Enabled := false; 
 if stopit = false then
  begin
- application.lock();
 if novoice.value = false then 
 begin
 if (posi = 1) then
@@ -375,7 +374,7 @@ begin
  
  if noanim.value = false then
 begin
-
+ application.lock();
 label2.visible := true;
 
 if (posi = 1) or (posi = 9) then
