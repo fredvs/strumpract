@@ -13,17 +13,17 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 595
-  bounds_y = 168
+  bounds_x = 646
+  bounds_y = 194
   bounds_cx = 454
-  bounds_cy = 434
+  bounds_cy = 433
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     454
-    434
+    433
   )
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   statfile = tstatfile1
@@ -2987,7 +2987,7 @@ object mainfo: tmainfo
       color = -2147483645
       taborder = 7
       bounds_x = 34
-      bounds_y = 31
+      bounds_y = 30
       bounds_cx = 71
       bounds_cy = 15
       caption = 'Song Player'
@@ -3101,7 +3101,7 @@ object mainfo: tmainfo
       taborder = 3
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
       bounds_x = 60
-      bounds_y = 5
+      bounds_y = 4
       bounds_cx = 22
       bounds_cy = 22
       statfile = tstatfile1
@@ -3199,6 +3199,13 @@ object mainfo: tmainfo
       value = 0
       scrollbar.buttonendlength = 11
       scrollbar.face.localprops = []
+      scrollbar.face.template = tfacecomp1
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp1
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp1
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp2
       onsetvalue = changepos
       onkeydown = onsliderkeydown
       onkeyup = onsliderkeyup
@@ -3411,10 +3418,12 @@ object mainfo: tmainfo
       frame.buttons.items = <      
         item
         end>
+      face.localprops = []
+      face.template = tfacecomp3
       taborder = 17
       hint = ' History of files '
       bounds_x = 84
-      bounds_y = 5
+      bounds_y = 4
       bounds_cx = 355
       bounds_cy = 22
       statfile = tstatfile1
@@ -3430,27 +3439,6 @@ object mainfo: tmainfo
         end>
       dropdown.historymaxcount = 50
       reffontheight = 15
-    end
-    object vuRight: tdockpanel
-      color = 976914
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        8585109
-        38403
-      )
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      taborder = 18
-      visible = False
-      bounds_x = 250
-      bounds_y = 31
-      bounds_cx = 6
-      bounds_cy = 44
     end
     object vuLeft: tdockpanel
       color = 976914
@@ -3470,6 +3458,27 @@ object mainfo: tmainfo
       visible = False
       bounds_x = 178
       bounds_y = 32
+      bounds_cx = 6
+      bounds_cy = 44
+    end
+    object vuRight: tdockpanel
+      color = 976914
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        8585109
+        38403
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 18
+      visible = False
+      bounds_x = 250
+      bounds_y = 31
       bounds_cx = 6
       bounds_cy = 44
     end
@@ -5356,5 +5365,50 @@ object mainfo: tmainfo
     filename = 'status.sta'
     left = 166
     top = 97
+  end
+  object tfacecomp1: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      15791803
+      11251846
+    )
+    template.fade_direction = gd_down
+    left = 198
+    top = 120
+  end
+  object tfacecomp2: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      15791803
+      11251846
+    )
+    template.fade_direction = gd_up
+    left = 310
+    top = 125
+  end
+  object tfacecomp3: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      -1610612730
+      14015399
+    )
+    template.fade_direction = gd_down
+    left = 201
+    top = 28
   end
 end

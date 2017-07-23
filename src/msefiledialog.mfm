@@ -1123,11 +1123,22 @@ object filedialogfo: Tfiledialogfo
     optionswidget = [ow_mousefocus, ow_arrowfocus, ow_focusbackonesc, ow_mousewheel, ow_destroywidgets]
     frame.localprops = []
     frame.localprops1 = []
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      -1610612730
+      10592673
+    )
+    face.localprops = [fal_fadirection]
     taborder = 1
     bounds_x = 0
     bounds_y = 43
     bounds_cx = 554
-    bounds_cy = 231
+    bounds_cy = 233
     anchors = [an_top]
     onkeydown = listviewonkeydown
     datarowlinecolor = -1610612731
@@ -1149,9 +1160,9 @@ object filedialogfo: Tfiledialogfo
   object tlayouter2: tlayouter
     optionswidget = [ow_tabfocus, ow_parenttabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_destroywidgets]
     bounds_x = 1
-    bounds_y = 276
+    bounds_y = 278
     bounds_cx = 551
-    bounds_cy = 40
+    bounds_cy = 38
     anchors = [an_left, an_right, an_bottom]
     optionsscale = [osc_expandy, osc_shrinky, osc_expandshrinkx, osc_expandshrinky]
     linktop = listview
@@ -1278,6 +1289,9 @@ object filedialogfo: Tfiledialogfo
       optionswidget1 = [ow1_autowidth, ow1_autoheight]
       optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
       color = 15132390
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1291,10 +1305,10 @@ object filedialogfo: Tfiledialogfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       taborder = 2
-      bounds_x = 452
+      bounds_x = 454
       bounds_y = 19
-      bounds_cx = 50
-      bounds_cy = 21
+      bounds_cx = 48
+      bounds_cy = 19
       bounds_cxmin = 35
       anchors = [an_top, an_right]
       state = [as_localcaption, as_localcolor]
@@ -1306,6 +1320,9 @@ object filedialogfo: Tfiledialogfo
       optionswidget1 = [ow1_autowidth, ow1_autoheight]
       optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
       color = 15132390
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1322,7 +1339,7 @@ object filedialogfo: Tfiledialogfo
       bounds_x = 506
       bounds_y = 18
       bounds_cx = 35
-      bounds_cy = 21
+      bounds_cy = 19
       bounds_cxmin = 35
       anchors = [an_top, an_right]
       state = [as_default, as_localdefault, as_localcaption, as_localcolor, as_localonexecute]
@@ -1406,6 +1423,9 @@ object filedialogfo: Tfiledialogfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
     optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
     color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -1420,9 +1440,9 @@ object filedialogfo: Tfiledialogfo
     face.localprops = [fal_fadirection]
     taborder = 3
     hint = ' Home directory '
-    bounds_x = 504
+    bounds_x = 506
     bounds_y = 13
-    bounds_cx = 45
+    bounds_cx = 43
     bounds_cy = 24
     bounds_cxmin = 35
     anchors = [an_top, an_right]
@@ -1436,6 +1456,9 @@ object filedialogfo: Tfiledialogfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
     optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
     color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -1450,9 +1473,9 @@ object filedialogfo: Tfiledialogfo
     face.localprops = [fal_fadirection]
     taborder = 4
     hint = ' Create directory '
-    bounds_x = 446
+    bounds_x = 448
     bounds_y = 13
-    bounds_cx = 56
+    bounds_cx = 54
     bounds_cy = 24
     bounds_cxmin = 35
     anchors = [an_top, an_right]
@@ -1466,6 +1489,9 @@ object filedialogfo: Tfiledialogfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
     optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
     color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -1500,6 +1526,9 @@ object filedialogfo: Tfiledialogfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
     optionswidget = [ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_disabledhint]
     color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -1533,6 +1562,9 @@ object filedialogfo: Tfiledialogfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
     optionswidget = [ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_disabledhint]
     color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0

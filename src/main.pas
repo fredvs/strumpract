@@ -179,6 +179,9 @@ type
    edittempo: trealspinedit;
    tlabel25: tlabel;
    tlabel26: tlabel;
+   tfacecomp1: tfacecomp;
+   tfacecomp2: tfacecomp;
+   tfacecomp3: tfacecomp;
    procedure oncreateform(const sender: TObject);
    procedure dostart(const sender: TObject);
    procedure ontimertick(const Sender: TObject);
