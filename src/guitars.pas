@@ -35,6 +35,7 @@ var
  guitarsfo: tguitarsfo;
  aguitar : array[0..9] of string;
  aguitarisplaying : array[0..9] of boolean;
+ initguit : integer = 1;
  
 implementation
 uses
@@ -84,8 +85,12 @@ end;
 
 procedure tguitarsfo.ondockguit(const sender: TObject);
 begin
+//if initguit = 0 then mainfo.procshowguitars(sender);
+
+if hasinit = 0 then begin
 height := 74;
 mainfo.height := mainfo.height + 74;
+end;
 end;
 
 procedure tguitarsfo.oncloseguit(const sender: TObject);

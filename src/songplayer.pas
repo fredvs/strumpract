@@ -2,12 +2,12 @@ unit songplayer;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
-ctypes, uos_flat, infos, msetimer,
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
- msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
- msefiledialog,msegrids,mseificomp,mseificompglob,mseifiglob,mselistbrowser,
- msestatfile,msestream,msestrings,msesys,sysutils,msegraphedits,msescrollbar;
+ ctypes, uos_flat, infos, msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
+ mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,
+ mseclasses,mseforms,msedock,msedragglob,msesimplewidgets,msewidgets,mseact,
+ msebitmap,msedataedits,msedatanodes,mseedit,msefiledialog,msegrids,mseificomp,
+ mseificompglob,mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,
+ msesys,sysutils,msegraphedits,msescrollbar;
 
 type
  tsongplayerfo = class(tdockform)
@@ -64,6 +64,7 @@ type
  end;
 var
  songplayerfo: tsongplayerfo;
+ initplay : integer = 1;
   theplayer : integer = 20;
  theplayerinfo : integer = 21;
  plugindex1, PluginIndex2: integer; InputIndex1, OutputIndex1, Inputlength: integer; 
@@ -127,10 +128,9 @@ procedure tsongplayerfo.ClosePlayer1;
     lposition.caption := '00:00:00.000';
      end;
      
-   procedure tsongplayerfo.ShowLevel;
+  procedure tsongplayerfo.ShowLevel;
   begin
-   with songplayerfo do begin
-    vuLeft.Visible := True;
+      vuLeft.Visible := True;
     vuRight.Visible := True;
     if trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 44) >= 0 then
       vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 44);
@@ -138,16 +138,14 @@ procedure tsongplayerfo.ClosePlayer1;
       vuRight.Height := trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 44);
     vuLeft.top := 75 - vuLeft.Height;
     vuRight.top := 75 - vuRight.Height;
-   end;
-  end;  
+   end;  
  
  procedure tsongplayerfo.ShowPosition;
   var
     temptime: ttime;
     ho, mi, se, ms: word;
   begin
-   with songplayerfo do begin
-    if (TrackBar1.Tag = 0) then
+     if (TrackBar1.Tag = 0) then
     begin
       if uos_InputPosition(theplayer, InputIndex1) > 0 then
       begin
@@ -158,15 +156,14 @@ procedure tsongplayerfo.ClosePlayer1;
         lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
       end;
     end;
-  end;
-  end; 
+    end; 
   
-  procedure tsongplayerfo.LoopProcPlayer1;
+ procedure tsongplayerfo.LoopProcPlayer1;
 begin
  application.lock();
  ShowPosition;
  ShowLevel ;
-  application.unlock();
+ application.unlock();
 end;
 
 procedure tsongplayerfo.doplayerstart(const sender: TObject);
@@ -479,8 +476,12 @@ end;
 
 procedure tsongplayerfo.ondockplay(const sender: TObject);
 begin
+// if initplay = 0 then mainfo.procshowpllayer(sender);
+
+if hasinit = 0 then begin
 height := 114;
 mainfo.height := mainfo.height + 114;
+end;
 end;
 
 procedure tsongplayerfo.oncloseplayer(const sender: TObject);

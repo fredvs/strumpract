@@ -153,6 +153,7 @@ type
 var
  drumsfo: tdrumsfo;
   posi :integer = 1;
+  initdrum : integer = 1;
   adrums: array[0..8] of string;
  drum_beats: array[0..3] of string; 
  ams :  array[0..8] of Tmemorystream; 
@@ -630,8 +631,12 @@ end;
 
 procedure tdrumsfo.ondockdrums(const sender: TObject);
 begin
+//if initdrum = 0 then mainfo.procshowdrums(sender);
+
+if hasinit = 0 then begin
 height := 238;
 mainfo.height := mainfo.height + 238;
+end;
 end;
 
 procedure tdrumsfo.onclosedrums(const sender: TObject);

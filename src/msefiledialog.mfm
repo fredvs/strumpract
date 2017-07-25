@@ -13,8 +13,8 @@ object filedialogfo: Tfiledialogfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 402
-  bounds_y = 200
+  bounds_x = 463
+  bounds_y = 210
   bounds_cx = 554
   bounds_cy = 316
   bounds_cxmin = 360
@@ -1218,12 +1218,13 @@ object filedialogfo: Tfiledialogfo
       onpastefromclipboard = pastefromclip
       onsetvalue = filenamesetvalue
       dropdown.options = [deo_keydropdown, deo_cliphint]
-      dropdown.dropdownrowcount = 10
+      dropdown.dropdownrowcount = 20
       dropdown.cols.count = 1
       dropdown.cols.items = <      
         item
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
         end>
+      dropdown.historymaxcount = 50
       reffontheight = 15
     end
     object filter: tdropdownlistedit

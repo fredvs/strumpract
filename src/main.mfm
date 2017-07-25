@@ -3016,10 +3016,6 @@ object mainfo: tmainfo
       000000DE
     }
   end
-  object tstatfile1: tstatfile
-    filename = 'status.sta'
-    left = 78
-  end
   object tfacecomp1: tfacecomp
     template.fade_pos.count = 2
     template.fade_pos.items = (
@@ -3046,7 +3042,8 @@ object mainfo: tmainfo
       11251846
     )
     template.fade_direction = gd_up
-    left = 33
+    left = 40
+    top = 52
   end
   object tfacecomp3: tfacecomp
     template.fade_pos.count = 2
@@ -3115,5 +3112,11 @@ object mainfo: tmainfo
     )
     template.fade_direction = gd_down
     left = 223
+  end
+  object tstatfile1: tstatfile
+    filename = 'status.sta'
+    options = [sfo_transaction, sfo_autowritestat, sfo_activatorread, sfo_activatorwrite]
+    left = 134
+    top = 139
   end
 end

@@ -36,7 +36,6 @@ object drumsfo: tdrumsfo
   dragdock.onfloat = onfloatdrums
   dragdock.ondock = ondockdrums
   options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
-  statfile = mainfo.tstatfile1
   icon.origformat = 'jpeg'
   icon.image = {
     00000000000000002000000020000000E80E0000000000000000000000000000

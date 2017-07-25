@@ -15,13 +15,13 @@ uses
 type
   tmainfo = class(tmainform)
    buttonicons: timagelist;
-   tstatfile1: tstatfile;
    tfacecomp1: tfacecomp;
    tfacecomp2: tfacecomp;
    tfacecomp3: tfacecomp;
    basedock: tdockpanel;
    tmainmenu1: tmainmenu;
    tfacecomp4: tfacecomp;
+   tstatfile1: tstatfile;
    procedure oncreateform(const sender: TObject);
    procedure onabout(const sender: TObject);
    procedure dodestroy(const sender: TObject);
@@ -32,8 +32,11 @@ type
     //               var accept: Boolean);
   
    procedure showdrums(const sender: TObject);
+   procedure procshowdrums(const sender: TObject);
    procedure showpllayer(const sender: TObject);
+   procedure procshowpllayer(const sender: TObject);
    procedure showguitars(const sender: TObject);
+   procedure procshowguitars(const sender: TObject);
    procedure onclosemain(const sender: TObject);
    procedure befclose(const sender: tcustommseform;
                    var amodalresult: modalresultty);
@@ -52,6 +55,7 @@ var
  allok : boolean = false;
  plugsoundtouch : boolean = false;
  ordir : string;
+ hasinit : integer = 0;
  
 implementation
 uses
@@ -130,46 +134,10 @@ end;
 procedure tmainfo.oncreatedform(const sender: TObject);
 begin
 caption := 'StrumPract ' + versiontext;
-{
-if (((songplayerfo.visible = false) and (songplayerfo.parentwidget <> nil))  and 
-((guitarsfo.visible = false)  and (guitarsfo.parentwidget <> nil))) or 
- ((songplayerfo.parentwidget = nil) and (guitarsfo.parentwidget = nil)) then 
-height := 260;
-
-if (((songplayerfo.visible = false) and (songplayerfo.parentwidget <> nil))  and 
-((guitarsfo.visible = true)  and (guitarsfo.parentwidget <> nil))) or 
- ((songplayerfo.parentwidget = nil) and ((guitarsfo.parentwidget <> nil) and
-  (guitarsfo.visible = true))) then 
-height := 260 + 74 ;
-
-if (((songplayerfo.visible = true) and (songplayerfo.parentwidget <> nil))  and 
-((guitarsfo.visible = false)  and (guitarsfo.parentwidget <> nil))) or 
- ((guitarsfo.parentwidget = nil) and ((songplayerfo.parentwidget <> nil) and
-  (songplayerfo.visible = true)  )) then 
-height := 260 + 114 ;
-
-if (((songplayerfo.visible = true) and (songplayerfo.parentwidget <> nil))  and 
-((guitarsfo.visible = true)  and (guitarsfo.parentwidget <> nil)))
- then 
-height := 260 + 74 + 114;
-width := 456 ;
-
-guitarsfo.height := 74;
-guitarsfo.width := 458;
-
-songplayerfo.height := 114;
-songplayerfo.width := 458;
-
-drumsfo.height := 238;
-drumsfo.width := 458;
-
-sleep(100);
-}
 ondockall(sender);
-
 end;
 
-procedure tmainfo.showdrums(const sender: TObject);
+procedure tmainfo.procshowdrums(const sender: TObject);
 var
 i,x : integer;
 apos: pointty;
@@ -188,10 +156,6 @@ if songplayerfo.visible = true then isplayvisible := true ;
 if drumsfo.parentwidget <> nil then isdrumdock := true ;
 if guitarsfo.parentwidget <> nil then isguitdock := true ;
 if songplayerfo.parentwidget <> nil then isplaydock := true ;
-
-
-if isdrumvisible = false then 
-begin
 tmainmenu1.menu[0].caption := ' &Drums-hide ' ;
 
 drumsfo.height := 238;
@@ -343,17 +307,19 @@ end;
 
 end;
 end;
-end else
+end;
+
+procedure tmainfo.showdrums(const sender: TObject);
 begin
+if drumsfo.visible = false then procshowdrums(sender)
+else begin
+tmainmenu1.menu[0].caption := ' &Drums-show ' ;
  drumsfo.close; 
-// tmainmenu1.menu[0].caption := ' &Drums-show ' ;
-// height := height - 238 ;
-// if mainfo.height < 30 then mainfo.height := 30;
- end;
+end;
 if height < 40 then  height :=40 ;
 end;
 
-procedure tmainfo.showpllayer(const sender: TObject);
+procedure tmainfo.procshowpllayer(const sender: TObject);
 var
 i,x : integer;
 apos: pointty;
@@ -364,7 +330,6 @@ isguitdock : boolean = false;
 isdrumvisible : boolean = false;
 isdrumdock : boolean = false;
 begin
-
 if drumsfo.visible = true then isdrumvisible := true ;
 if guitarsfo.visible = true then isguitvisible := true ;
 if songplayerfo.visible = true then isplayvisible := true ;
@@ -372,10 +337,6 @@ if songplayerfo.visible = true then isplayvisible := true ;
 if drumsfo.parentwidget <> nil then isdrumdock := true ;
 if guitarsfo.parentwidget <> nil then isguitdock := true ;
 if songplayerfo.parentwidget <> nil then isplaydock := true ;
-
-
-if isplayvisible = false then 
-begin
 tmainmenu1.menu[1].caption := ' &Player-hide ' ;
 
 drumsfo.height := 238;
@@ -528,17 +489,21 @@ end;
 
 end;
 end;
-end else
+end;
+
+procedure tmainfo.showpllayer(const sender: TObject);
 begin
+if songplayerfo.visible = false then 
+procshowpllayer(sender)
+else
+begin
+tmainmenu1.menu[1].caption := ' &Player-show ' ;
  songplayerfo.close; 
- //tmainmenu1.menu[1].caption := ' &Player-show ' ;
-// height := height - 238 ;
-// if mainfo.height < 30 then mainfo.height := 30;
- end;
+end;
 if height < 40 then  height :=40 ;
 end;
 
-procedure tmainfo.showguitars(const sender: TObject);
+procedure tmainfo.procshowguitars(const sender: TObject);
 var
 i,x : integer;
 apos: pointty;
@@ -549,7 +514,6 @@ isguitdock : boolean = false;
 isdrumvisible : boolean = false;
 isdrumdock : boolean = false;
 begin
-
 if drumsfo.visible = true then isdrumvisible := true ;
 if guitarsfo.visible = true then isguitvisible := true ;
 if songplayerfo.visible = true then isplayvisible := true ;
@@ -557,10 +521,6 @@ if songplayerfo.visible = true then isplayvisible := true ;
 if drumsfo.parentwidget <> nil then isdrumdock := true ;
 if guitarsfo.parentwidget <> nil then isguitdock := true ;
 if songplayerfo.parentwidget <> nil then isplaydock := true ;
-
-
-if isguitvisible = false then 
-begin
 tmainmenu1.menu[2].caption := ' &Guitar-hide ' ;
 
 drumsfo.height := 238;
@@ -713,13 +673,17 @@ end;
 
 end;
 end;
-end else
+end;
+
+
+procedure tmainfo.showguitars(const sender: TObject);
 begin
+if guitarsfo.visible = false then 
+procshowguitars(sender)
+else begin
+tmainmenu1.menu[2].caption := ' &Guitar-show ' ;
  guitarsfo.close; 
-// tmainmenu1.menu[2].caption := ' &Guitar-show ' ;
-// height := height - 238 ;
-// if mainfo.height < 30 then mainfo.height := 30;
- end;
+end;
 if height < 40 then  height :=40 ;
 end;
 
@@ -731,6 +695,7 @@ end;
 procedure tmainfo.befclose(const sender: tcustommseform;
                var amodalresult: modalresultty);
 begin
+ondockall(sender);
 visible := false;
 end;
 
@@ -740,11 +705,14 @@ drumsfo.activate;
 songplayerfo.activate;
 guitarsfo.activate;
 
-drumsfo.dragdock.float();
-songplayerfo.dragdock.float();
-guitarsfo.dragdock.float();
+if drumsfo.parentwidget <> nil then drumsfo.dragdock.float();
+if songplayerfo.parentwidget <> nil then songplayerfo.dragdock.float();
+if guitarsfo.parentwidget <> nil then guitarsfo.dragdock.float();
 
 height := 40;
+drumsfo.top := top + height + 30 ;
+songplayerfo.top := drumsfo.top + drumsfo.height + 30 ;
+guitarsfo.top := songplayerfo.top + songplayerfo.height + 30 ;
 
 end;
 
@@ -753,9 +721,12 @@ var
 x, y : integer;
 apos: pointty;
 begin
+
 drumsfo.activate;
 songplayerfo.activate;
 guitarsfo.activate;
+
+width := 458 ;
 
 // ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));  
 //if fileexists( ordir+'status.sta') then y := 0 else y := 1;
@@ -763,9 +734,8 @@ guitarsfo.activate;
 
 for x:=0 to 1 do // ones is sometimes not enough
 begin
-height := 25;
-width := 458 ;
-// 
+
+height := 25 ;
 apos.x := 0 ;
 apos.y := 0 ;
 drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
@@ -773,10 +743,10 @@ apos.y := drumsfo.height + 2;
 songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
 apos.y := drumsfo.height + guitarsfo.height + 2 ;
 guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-sleep(10);
-end;
-//height := guitarsfo.height + drumsfo.height + guitarsfo.height + 4 ;
 
+end;
+
+// height := songplayerfo.height + drumsfo.height + guitarsfo.height + 26 ;
 //activate;
 
 end;

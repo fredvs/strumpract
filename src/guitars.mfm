@@ -36,7 +36,6 @@ object guitarsfo: tguitarsfo
   dragdock.onfloat = onfloatguit
   dragdock.ondock = ondockguit
   options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
-  statfile = mainfo.tstatfile1
   caption = 'Guitar and Bass tuned strings'
   icon.origformat = 'jpeg'
   icon.image = {
