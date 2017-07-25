@@ -577,7 +577,7 @@ procedure updatefileinfo(const item: tlistitem; const info: fileinfoty;
 
 implementation
 uses
- main, msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
+ songplayer, msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
  msestockobjects,msesysintf,msearrayutils;
 
 type
@@ -1479,8 +1479,8 @@ var
  str1: filenamety;
 begin
 
-mainfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-mainfo.historyfn.value := dir.value + filename.value;
+songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
+songplayerfo.historyfn.value := dir.value + filename.value;
   
   if (filename.value <> '') or (fdo_acceptempty in dialogoptions) then begin
    if fdo_directory in dialogoptions then begin

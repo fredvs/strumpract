@@ -1,0 +1,1524 @@
+object drumsfo: tdrumsfo
+  frame.localprops = []
+  frame.localprops1 = []
+  frame.grip_size = 8
+  frame.grip_grip = stb_default
+  frame.grip_face.localprops = []
+  frame.grip_face.template = mainfo.tfacecomp4
+  frame.grip_faceactive.fade_pos.count = 2
+  frame.grip_faceactive.fade_pos.items = (
+    0
+    1
+  )
+  frame.grip_faceactive.fade_color.count = 2
+  frame.grip_faceactive.fade_color.items = (
+    15790320
+    9418113
+  )
+  frame.grip_faceactive.fade_direction = gd_down
+  frame.grip_faceactive.localprops = []
+  visible = False
+  bounds_x = 610
+  bounds_y = 236
+  bounds_cx = 457
+  bounds_cy = 238
+  anchors = [an_left, an_top, an_right, an_bottom]
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    449
+    238
+  )
+  dragdock.caption = ' Use this to Drag Drop the Drums Set window '
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
+  dragdock.onfloat = onfloatdrums
+  dragdock.ondock = ondockdrums
+  options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  statfile = mainfo.tstatfile1
+  icon.origformat = 'jpeg'
+  icon.image = {
+    00000000000000002000000020000000E80E0000000000000000000000000000
+    0000000000000000000000000000000000000000FFFEFE01FEFEFE01FAFCFD01
+    FCFEFF01FCFEFE01FFFFFE01FDFCF801FFFDF801FFFCF701FFFFFE01FDFFFF01
+    FBFBFB01FFFFFE01FEFCFB01FFFFFF01F8FBFF01FDFDFD01FFFEFE01F7F5F501
+    FFFFFF01FFFEFE01FEFCFC01FFFEFE02FFFFFE01F5F6F401FEFFFD01FEFEFE01
+    FFFFFF01FDFDFD01FEFEFE01FFFFFF01FCFCFC01FDFDFD01FFFFFF01FBFDFD01
+    F9FBFC01F4F8F901FAFFFF01F0F6FB01EEF4FB01EDF4FD01F0F7FF01F8FEFF01
+    FDFFFF01FFFFFE01FCFAF901FFFDFC01FEFEFE01FFFFFF02FDFDFD01FBFBFB01
+    FEFDFF01FFFEFF02F4F6F601FDFFFF01FBFDFD01FFFFFF01FBFBFB01FFFFFF01
+    FCFCFC02FDFEFF01F8F7F901FCFCFC01FDFDFD01F9FDFE01F2F9FF0193A0AE01
+    8393A4017E8FA2017C8DA00194A4B5016D7A8801D6DDE601FBFEFF01FCFAF901
+    FFFDF801FBFBFB01FFFFFF01F9FBFB01FDFFFF01F5F9FA01F8FBFF01FBFEFF01
+    91969901FBFEFF01F9FCFF01FBFFFF01FDFFFF01F9FBFB01FCFCFC01FFFFFF02
+    F7FAFE01FDFFFF01FFFFFE01F8F6F501FBFEFF019FABB701859AB0018BA5C301
+    879CB7018EA2BB017789A0018899AE0169798A01828B9801FAFFFF01FAFBF901
+    FDFFFF02F8FAFB01FBFFFF01E6EBEE01DFE3E801D4DADF014C525701B7BBC001
+    B2B6BB01C3C8CB01CED1D501FDFFFF02F7F7F701FFFFFE01FBFEFF01FBFAFC01
+    FEFCFB01FFFFFE01F7FAFE01909BA901889EB70186A2C101879CB20140536801
+    394C61018A9FB501697E99016C819701808D9B01F6FCFF01FBFDFD02FDFFFF01
+    EFF3F401CCD1D401C5C9CE01B3B9BE019AA0A50182868B01A9ADB201D3D8DB01
+    FBFEFF01F6F8F901F5F7F701FFFFFF01FFFFFE01FDFFFF01FFFFFF01FFFEFD02
+    FBFFFF01AEB8C201A0B1C4018FA6C001A1B2C5018E9EAE0195A5B60192A9BF01
+    738DAB0145607B015C6D8001DEE7F001FBFBFB01FCFCFC01FDFFFF02F3F7F801
+    FBFEFF02FAFFFF0192959901989B9F015E626301C3C5C601DADCDC01FFFFFF02
+    FAFAFA01FFFFFF01FFFDFC01FFFFFE02F4F6F701F8FEFF01A4B0BC01A6B5C501
+    9BACBF0175849401A9B8C801869BB10154708F014B6583015C6C7D01E5EBF001
+    FFFFFF02F6F6F601FFFFFF01FDFDFD01FDFCFE02DEDDDF01ECEEEE01D3D5D501
+    A6A8A801FFFFFF01F5F5F501FAFAFA01FFFFFF01FDFDFD01FFFFFE01FEFCFB01
+    FFFEFD01FFFFFE01FCFEFE01FAFFFF01F6FEFF01D5DEE7019FB2C70192A2B301
+    A2B2C2018398AE013B57750149617D01B6C3D101FDFFFF01FBFBFB01FFFFFF02
+    FAF8F801FFFFFF02FCFAFA01FFFFFF01FFFDFC01D3D4D201D1D2D001F9F9F901
+    FFFFFF01FBFBFB01FFFFFF01FDFDFD01FFFFFF02F8F8F801FFFFFF03FDFDFD02
+    DBDFD401F8F2FF01E0DDEC01CDD4D101C8D0D001F3F7F801FFFFFB01FFFCFF01
+    FAFDFB01FDFFFF01FDFEFA01FEFFFB01FFFFFE01FEFFFB01FDFBFF01FCF6FF01
+    FEFEFE01E8E8E801F2F2F201FFFFFF01FDFDFD01FBFBFB01FFFFFF02FAFAFA01
+    FFFFFF02F6F6F601FFFFFF01FBFBFB01F8F8F801FFFFFE01D9DBDB01F6F8F801
+    FBFAFF01F7FBFF01F7FFFA01F1F7FC01FDFAFF01FBFCF301F9FCF301FDFFFB01
+    F7F7FF01F4F7FC01F8FFF801F3F4F801FFFEFF01FFFFF701FDFDFD01E7E7E701
+    8E8E8E01F6F6F601FDFDFD01FFFFFF01F9F9F901FBFBFB01FFFEFF01F9F8FA01
+    FFFEFF01FDFDFD01FAFAFA01FCFDFB01F9FAF801A5A6A401F8FFF601FDFFF801
+    F5F4F801A5A5B30144475C0145407301564E8B01514F7301BAB4B901B7B0BF01
+    56478001483A7C013B2A73013F335D01F5F7E301FFF7F701E1E1E101A7A7A701
+    B8B8B801F5F5F501FEFEFE02FBFBFB01FFFFFF01FCFBFF01FFFEFF03FAFAFA01
+    FFFFFF01FFFFFE01B5B6B401EBEFEA01EEE8F301999496013D3B4101433B6A01
+    60599C019F9ED6014648780154527601272E49011C166F01343A7B018C9CC001
+    24255F01575E6D01B0B7B001CBCBCB019E9E9E0192929201ADADAD01C5C5C501
+    E6E6E601FFFFFF01FAFAFA01FFFEFF02FBFAFC01FFFEFF01FAFAFA01FCFCFC01
+    E5E5E501EDEDED0192958601DED7DC017D767B0151485C01392970012D1A8101
+    3D309201392D8D015A487D01564B7D01291775012E247E013B2D8B012C1F6301
+    3F413B01C0AECB01F2F2F2015D5D5D0185858501A6A6A601FFFFFF03F8F8F801
+    FEFDFF01FFFEFF01F9F8FA01F7F6F801FFFEFF01FAF9FB01B4B3B501E1E0E201
+    C3BAC701F9F1FC01B1A7BE013A33540133325A01444186014D48970140437601
+    695780016E6782014F437D0162648201848F930176718E01534A5701FAEFF101
+    DFDFDF01A2A2A201ABABAB01FDFDFD01D0D0D001FFFFFF01F9F9F901FFFFFF02
+    F9F9F901FFFFFF01FFFEFF01F6F5F701FCFBFF01E0DFE301AFAEB201999C9301
+    8E8F8B0141424C01A9B3BD01758A8C01788AA101606C90016D7C8C0156667301
+    7C8DA0015467820163789401697B9A017D8F9A0155695D01ADB8BC0172727201
+    7C7C7C0192929201EFEFEF01FCFCFC01FFFFFF01FCFCFC02FFFFFE02FDFDFD01
+    FFFEFF02F1F0F401EEECF2015D5B61017870950149397901241D560167729201
+    7286A5017086A201879CB1016C799301A09FA80185849401504F630175738901
+    333341015F5D6301B5ADB701C6BEBE01AFAFAF01A1A1A101B4B4B401F4F4F401
+    FFFFFF01FCFCFC01FDFDFD01FFFFFF01FDFCFE01FDFFFE01FDFFFB01FFFDFF01
+    FFFBFF01F9FFEE01FAFFFE01635D94016D768A013217850121026F012F1D6401
+    302F560151547A01B2C1C4018B979D01A9ACBA017577820163656F015E606801
+    605F63016A676901ABA9A901BEBAB9019F9C9E019E9B9D0198979901FAF9FB01
+    FEFEFE02FAFBF901FFFFFE01FEFDFF01FBFEFC01FCFFFA01FAF9FD01FFFBFF01
+    FFFFF701DBE0E1016C639C01747998014A3893011A0066013421720114094D01
+    353165013421820156557D015F616B013538400115171F0117171D013D3E4201
+    5F5E60012B292901BFBDBD019C9B9F019D9CA0019E9DA101F3F2F401FFFEFF01
+    FFFFFF01FFFFFE01F5F6F401FFFEFF01FDFFFF01FCFFFA01FFFFFF01FAF6FC01
+    FDFDF701CED0D8016258940155558301210878011D036F01362B69013E386F01
+    322A6B01301A8001222932010B0E12014C4E4F01595B5C01141617012B2D2E01
+    111012014A494B01F1F0F201E3E0E901ADAAB30197959B01FDFCFF01FFFEFF01
+    F3F3F301FFFFFE02FFFCFF01F9F8FC01FDFFFB01F9FAF601FEFAFF01FFFFFE01
+    B9B7C301564B8301524797011D0179011F0C61012A1C6401493B89012F256701
+    293235010E1316011D1E1C016D6E6C019D9E9C01919191014D4F500114161701
+    111314014E4F5301D0CEDA019C9BA501726F7801EDECF001FBFAFC01FFFFFF01
+    FBFCFA01FCFDFB01FFFEFF01FDFBFF01FDFFFC01FFFFFB01FFFDFF01FBF8FA01
+    E0DFE9014E457001524D80012B0D7E0111014801433877012B157B014E3E9201
+    080F0C010F0F150114151101080905010D0E0C0111121001101010010E101101
+    07090A01121415019C9CA8017D7E88015B5B6101BFBEC201FCFAFA01FCFCFC01
+    F7F7F701FDFFFF01FFFFFE01FBF8FF01FDFFFE01F1F6ED01FEFAFF01FFFEFF01
+    E0DFE1019D9AB001787295017D739D015F5E6E015D508E01341C8801383D4C01
+    121716011C1A1A01161715011D1E1C0110110F01121311011515150116161601
+    191919010C0C0C0161636D01A2A4AC0130313501F6F6F601D7D5D501FFFDFC01
+    FFFFFF01F5F7F701FFFEF901FFFCFF01FDFFFF01FDFFFB01FFFDFF01FFFEFF01
+    E3E3DD01EFF0F401A19FA501FBF7FF01FDFFFF019693AC018C88B1010E190F01
+    11101901171C0001151416010C0B0D0116161601151515021112100117181601
+    1A181701494F560194989D014B4D4E01C2C0BF01A19F9E01FFFFFE01FFFFFF01
+    FAFCFD01FFFFF901FFFCFF01FCFEFF01F9FDF701FFFCFF01FEF9FA0190928601
+    E7EAE101827C8101D4D1CD01F9FCF3019B98AE01888F98010F12210114131C01
+    1D1320010E0F130116151901141315011B1A1C01161616011A18170214130F01
+    40494D018E9396016062620183818001CDCCC801D4D2D101FBFBFB01FDFFFF01
+    FBFBFB01FFFFFF03E3E3E301CACACA01E0E0E001C8C8C801B0AFB101AAA9AD01
+    E1DFE501CDCBD1017D7B81012C2A30011312160119181A01151515011A1A1A01
+    171717021B1B1B011010100119191901161616016C6B7501B1B1B70194969701
+    A0A19F0197989601ADABAA01FFFEFE01FDFAFC01FFFFFF01F6F6F601FDFDFD01
+    D5D5D501C6C6C602E9E9E901AFAFAF01A9A8AA01D6D5D701A9A8AC01DDDBE101
+    7D7B81015E5D61012C2B2D012A292B012C2C2C01212121012A2A2A012E2E2E01
+    1F1F1F012B2B2B021C1C1C0182818A01ACACB201ABAAAC0140404001FFFFFE01
+    B5B6B401F1EFEF01FFFEFF01F9F9F901FEFEFE01BEBEBE01ECECEC01FFFFFF01
+    87878701F2F2F201D9D9D90195959501E2E1E3017F7E8001D3D2D401B0AFB101
+    BBBABC01343335012F2F2F013638390127292A01303233012E30310135373801
+    2D2F3001303233017D7F800166666C018B8A8E01DCDBDD0190909001F6F7F501
+    FFFFFF016A6A6A01FEFBFD01FFFFFF01A7A7A701FEFEFE01FFFFFF01FEFEFE01
+    EBEBEB01FDFDFD01FBFBFB01F1F1F101FBFBFB01C1C1C101A3A3A301C4C4C401
+    F9F9F901DCDCDC01373737012F3132013B3D3E013234350237393A012C2E2F01
+    8F919201BABCBD01EAE9ED01BFBEC201F4F3F501FCFCFC01FEFFFD01FFFFFF01
+    6D6D6D015D5C5E01BEBEBE01ABABAB01F3F3F301FFFFFF02F7F7F701FFFFFF05
+    A9A9A901BBBBBB01D4D4D401FFFFFF01E3E3E3017F8182014648490145474801
+    4648490167696A01CCCECF01F7F9FA0142444501FFFEFF016C6B6D01FFFFFF02
+    FAFAFA01FDFDFD01FFFFFF04FEFEFE01F9F9F901FBFBFB01FFFFFF02FDFDFD01
+    FFFEFF01F8F8F801FFFFFF0195969401DCDDDB018C8C8C01FFFFFF01FFFEFF01
+    F0F2F301FCFEFF01F0F2F301FDFFFF02F7F9FA01FBFDFE01BABCBD01FEFCFC01
+    F2F2F201FDFDFD01FEFEFE01FFFFFF01F9F9F901FDFDFD01FBFDFD01FCFCFC01
+    FDFDFD01FFFFFF04F7F7F701FEFEFE01FEFDFF01FFFEFF01FAFAFA02FFFFFF01
+    FAFAFA01FEFDFF01FFFEFF01FFFFFF04FDFDFD01FFFFFF01FCFCFC02FFFEFE01
+    FFFFFF01FDFDFD01FFFFFF01FAFAFA01FFFFFF01FDFFFF02FFFFFF03FBFBFB01
+    FFFFFF04FFFEFF02FEFEFE01FFFFFF01FBFBFB02FFFEFF01FBFAFE01FBFBFB01
+    FFFFFF01FDFDFD01FCFCFC01FFFFFF01F9F9F901FFFFFF01FAFAFA01FFFEFD01
+    FFFFFE01FFFFFF01FCFCFC01FFFFFF01FDFFFF01F9FBFB01FDFFFF01
+  }
+  oncreate = oncreatedrums
+  oncreated = oncreateddrums
+  onclose = onclosedrums
+  moduleclassname = 'tdockform'
+  object tdockpanel1: tdockpanel
+    color = 13431495
+    frame.framewidth = 1
+    frame.colorframe = 9737364
+    frame.localprops = [frl_framewidth, frl_colorframe]
+    frame.localprops1 = []
+    frame.grip_size = 0
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      14086353
+      8368232
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 446
+    bounds_cy = 236
+    dragdock.caption = ' Use this to drag dock the window '
+    dragdock.optionsdock = [od_savepos, od_savezorder, od_fixsize, od_captionhint, od_childicons]
+    object tlabel20: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      bounds_x = 169
+      bounds_y = 65
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel19: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 1
+      bounds_x = 169
+      bounds_y = 65
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel18: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 2
+      bounds_x = 169
+      bounds_y = 65
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel17: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 3
+      bounds_x = 169
+      bounds_y = 67
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel16: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 4
+      bounds_x = 89
+      bounds_y = 161
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel15: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 5
+      bounds_x = 89
+      bounds_y = 161
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel14: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 6
+      bounds_x = 89
+      bounds_y = 161
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel13: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 7
+      bounds_x = 89
+      bounds_y = 161
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel12: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 8
+      bounds_x = 89
+      bounds_y = 121
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel11: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 9
+      bounds_x = 89
+      bounds_y = 121
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel10: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 10
+      bounds_x = 89
+      bounds_y = 121
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel9: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 11
+      bounds_x = 89
+      bounds_y = 121
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel8: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 12
+      bounds_x = 89
+      bounds_y = 89
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel7: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 13
+      bounds_x = 97
+      bounds_y = 57
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel6: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 14
+      bounds_x = 97
+      bounds_y = 73
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel5: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 15
+      bounds_x = 89
+      bounds_y = 89
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tbooleanedit64: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 16
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit63: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 17
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit62: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 18
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit61: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 19
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit60: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 20
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit59: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 21
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit58: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 22
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit57: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 23
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit56: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 24
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit55: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 25
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit54: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 26
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit53: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 27
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit52: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 28
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit51: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 29
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit50: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 30
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit49: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 31
+      bounds_x = -31
+      bounds_y = 145
+    end
+    object tbooleanedit48: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 32
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit47: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 33
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit46: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 34
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit45: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 35
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit44: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 36
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit43: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 37
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit42: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 38
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit41: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 39
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit40: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 40
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit39: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 41
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit38: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 42
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit37: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 43
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit36: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 44
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit35: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 45
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit34: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 46
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit33: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 47
+      bounds_x = -111
+      bounds_y = 145
+    end
+    object tbooleanedit32: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 48
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit31: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 49
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit30: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 50
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit29: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 51
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit28: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 52
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit27: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 53
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit26: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 54
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit25: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 55
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit24: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 56
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit23: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 57
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit22: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 58
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit21: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 59
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit20: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 60
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit19: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 61
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit18: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 62
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tbooleanedit17: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 63
+      bounds_x = -71
+      bounds_y = 65
+    end
+    object tlabel4: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 64
+      bounds_x = 49
+      bounds_y = 33
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel3: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 65
+      bounds_x = 49
+      bounds_y = 33
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel2: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 66
+      bounds_x = 49
+      bounds_y = 33
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel1: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 67
+      bounds_x = 121
+      bounds_y = 25
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tbooleanedit16: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 68
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit15: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 69
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit14: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 70
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit13: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 71
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit12: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 72
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit11: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 73
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit10: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 74
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit9: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 75
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit8: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 76
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit7: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 77
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit6: tbooleanedit
+      frame.colorclient = 16758968
+      frame.localprops = [frl_colorclient]
+      frame.localprops1 = []
+      taborder = 78
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit5: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 79
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit4: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 80
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit3: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 81
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit2: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 82
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object tbooleanedit1: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 83
+      bounds_x = -151
+      bounds_y = 57
+    end
+    object lach: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 84
+      bounds_x = 7
+      bounds_y = 54
+      bounds_cx = 55
+      bounds_cy = 15
+      caption = 'Close H'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object laoh: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 85
+      bounds_x = 7
+      bounds_y = 77
+      bounds_cx = 55
+      bounds_cy = 15
+      caption = 'Open H'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object lasd: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 86
+      bounds_x = 7
+      bounds_y = 101
+      bounds_cx = 55
+      bounds_cy = 15
+      caption = 'Snare'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object labd: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 87
+      bounds_x = 7
+      bounds_y = 124
+      bounds_cx = 55
+      bounds_cy = 15
+      caption = 'Bass'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object labpat: tlabel
+      color = -2147483645
+      taborder = 88
+      bounds_x = 5
+      bounds_y = 15
+      bounds_cx = 51
+      bounds_cy = 15
+      caption = 'Patern 1'
+      reffontheight = 15
+    end
+    object and1: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 89
+      bounds_x = 305
+      bounds_y = 20
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object and2: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 90
+      bounds_x = 302
+      bounds_y = 46
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object and3: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 91
+      bounds_x = 316
+      bounds_y = 66
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object and4: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 92
+      bounds_x = 313
+      bounds_y = 94
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tdockpanel4: tdockpanel
+      color = 12446914
+      frame.framewidth = 1
+      frame.colorframe = -1610612733
+      frame.localprops = [frl_framewidth, frl_colorframe]
+      frame.localprops1 = []
+      frame.grip_size = 0
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        14086353
+        9422709
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 93
+      bounds_x = 0
+      bounds_y = 151
+      bounds_cx = 446
+      bounds_cy = 85
+      object tbooleaneditradio8: tbooleaneditradio
+        Tag = 5
+        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = '1'
+        frame.captiondist = 6
+        frame.localprops = [frl_framewidth, frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          16
+          2
+        )
+        face.localprops = []
+        taborder = 2
+        hint = ' Drums Patern 1 '
+        bounds_x = 323
+        bounds_y = 16
+        bounds_cx = 30
+        bounds_cy = 17
+        onchange = dopatern
+        options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_nodefaultframeactive]
+        value = True
+      end
+      object tbooleaneditradio7: tbooleaneditradio
+        Tag = 6
+        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = '2'
+        frame.captiondist = 6
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          16
+          2
+        )
+        taborder = 3
+        hint = ' Drums Patern 2 '
+        bounds_x = 323
+        bounds_y = 32
+        bounds_cx = 30
+        bounds_cy = 17
+        onchange = dopatern
+      end
+      object tbooleaneditradio6: tbooleaneditradio
+        Tag = 7
+        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = '3'
+        frame.captiondist = 6
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          16
+          2
+        )
+        taborder = 4
+        hint = ' Drums Patern 3 '
+        bounds_x = 323
+        bounds_y = 48
+        bounds_cx = 30
+        bounds_cy = 17
+        onchange = dopatern
+      end
+      object tbooleaneditradio5: tbooleaneditradio
+        Tag = 8
+        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = '4'
+        frame.captiondist = 6
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          16
+          2
+        )
+        taborder = 5
+        hint = ' Drums Patern 4 '
+        bounds_x = 323
+        bounds_y = 64
+        bounds_cx = 30
+        bounds_cy = 17
+        onchange = dopatern
+      end
+      object tbooleaneditradio2: tbooleaneditradio
+        Tag = 4
+        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = '4'
+        frame.captiondist = 6
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          16
+          2
+        )
+        taborder = 6
+        hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
+        bounds_x = 277
+        bounds_y = 64
+        bounds_cx = 30
+        bounds_cy = 17
+        onchange = dopatern
+      end
+      object tbooleaneditradio4: tbooleaneditradio
+        Tag = 3
+        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = '3'
+        frame.captiondist = 6
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          16
+          2
+        )
+        taborder = 7
+        hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
+        bounds_x = 277
+        bounds_y = 48
+        bounds_cx = 30
+        bounds_cy = 17
+        onchange = dopatern
+      end
+      object tbooleaneditradio3: tbooleaneditradio
+        Tag = 2
+        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = '2'
+        frame.captiondist = 6
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          16
+          2
+        )
+        taborder = 8
+        hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
+        bounds_x = 277
+        bounds_y = 32
+        bounds_cx = 30
+        bounds_cy = 17
+        onchange = dopatern
+      end
+      object tbooleaneditradio1: tbooleaneditradio
+        Tag = 1
+        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = '1'
+        frame.captiondist = 6
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          16
+          2
+        )
+        taborder = 9
+        hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
+        bounds_x = 277
+        bounds_y = 16
+        bounds_cx = 30
+        bounds_cy = 17
+        onchange = dopatern
+      end
+      object tlabel22: tlabel
+        color = -2147483645
+        taborder = 1
+        bounds_x = 318
+        bounds_y = 3
+        bounds_cx = 39
+        bounds_cy = 15
+        caption = 'Patern'
+        font.color = 5197647
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
+        reffontheight = 15
+      end
+      object tlabel21: tlabel
+        color = -2147483645
+        bounds_x = 270
+        bounds_y = 3
+        bounds_cx = 41
+        bounds_cy = 15
+        caption = 'Lesson'
+        font.color = 5197647
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
+        reffontheight = 15
+      end
+      object noanim: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = 'no anim'
+        frame.font.color = 1710618
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = []
+        frame.outerframe = (
+          0
+          2
+          52
+          2
+        )
+        taborder = 10
+        hint = ' No graphic animation. '
+        bounds_x = 365
+        bounds_y = 59
+        bounds_cx = 65
+        bounds_cy = 17
+      end
+      object noand: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = 'no "and"'
+        frame.font.color = 1710618
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = []
+        frame.outerframe = (
+          0
+          2
+          57
+          2
+        )
+        taborder = 11
+        hint = ' No "and" between 2 numbers. '
+        bounds_x = 365
+        bounds_y = 26
+        bounds_cx = 70
+        bounds_cy = 17
+        value = True
+      end
+      object novoice: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = 'no voice'
+        frame.font.color = 1710618
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = []
+        frame.outerframe = (
+          0
+          2
+          53
+          2
+        )
+        taborder = 12
+        hint = ' No counting voice '
+        bounds_x = 365
+        bounds_y = 10
+        bounds_cx = 66
+        bounds_cy = 17
+        value = True
+      end
+      object nodrums: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16250871
+        frame.caption = 'no drums'
+        frame.font.color = 1710618
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = []
+        frame.outerframe = (
+          0
+          2
+          61
+          2
+        )
+        taborder = 13
+        hint = ' No drums sound.  '
+        bounds_x = 365
+        bounds_y = 42
+        bounds_cx = 74
+        bounds_cy = 17
+      end
+      object loop_stop: tbutton
+        color = -1610612731
+        frame.localprops = [frl_optionsskin]
+        frame.localprops1 = []
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612730
+          6857570
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+        taborder = 14
+        hint = ' Stop loop '
+        bounds_x = 76
+        bounds_y = 39
+        bounds_cx = 30
+        bounds_cy = 30
+        state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+        imagelist = mainfo.buttonicons
+        imagenr = 1
+        focusrectdist = 0
+        onexecute = dostop
+      end
+      object loop_resume: tbutton
+        color = -1610612731
+        frame.localprops = [frl_optionsskin]
+        frame.localprops1 = []
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612730
+          6857570
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+        taborder = 15
+        hint = ' Resume loop '
+        bounds_x = 45
+        bounds_y = 39
+        bounds_cx = 30
+        bounds_cy = 30
+        state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+        imagelist = mainfo.buttonicons
+        imagenr = 28
+        focusrectdist = 0
+        onexecute = doresume
+      end
+      object loop_start: tbutton
+        color = -1610612731
+        frame.localprops = [frl_optionsskin]
+        frame.localprops1 = []
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612730
+          6857570
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+        taborder = 16
+        hint = ' Start loop '
+        bounds_x = 14
+        bounds_y = 39
+        bounds_cx = 30
+        bounds_cy = 30
+        state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+        imagelist = mainfo.buttonicons
+        imagenr = 27
+        focusrectdist = 0
+        onexecute = dostart
+      end
+      object label4: tlabel
+        optionswidget1 = [ow1_fontglyphheight]
+        color = -2147483645
+        taborder = 17
+        visible = False
+        bounds_x = 234
+        bounds_y = 26
+        bounds_cx = 18
+        bounds_cy = 44
+        caption = '/'
+        font.color = 7690558
+        font.colorbackground = -2147483645
+        font.shadow_color = 0
+        font.gloss_color = -1610612730
+        font.height = 50
+        font.name = 'stf_default'
+        font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 59
+      end
+      object label2: tlabel
+        color = -2147483645
+        taborder = 18
+        enabled = False
+        bounds_x = 208
+        bounds_y = 18
+        bounds_cx = 32
+        bounds_cy = 59
+        caption = '0'
+        font.color = 4223805
+        font.shadow_color = 0
+        font.gloss_color = 16777215
+        font.grayed_shiftx = 2
+        font.grayed_shifty = 2
+        font.height = 50
+        font.name = 'stf_default'
+        font.options = [foo_script, foo_antialiased2]
+        font.localprops = [flp_color, flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_gloss_color, flp_gloss_shiftx, flp_gloss_shifty, flp_grayed_color, flp_grayed_shiftx, flp_grayed_shifty, flp_style, flp_height, flp_options]
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 59
+      end
+      object label3: tlabel
+        optionswidget1 = [ow1_fontglyphheight]
+        color = -2147483645
+        taborder = 19
+        visible = False
+        bounds_x = 198
+        bounds_y = 26
+        bounds_cx = 18
+        bounds_cy = 44
+        caption = '\'
+        font.color = 7690558
+        font.colorbackground = -2147483645
+        font.shadow_color = 0
+        font.gloss_color = -1610612730
+        font.height = 50
+        font.name = 'stf_default'
+        font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 59
+      end
+      object label5: tlabel
+        color = -2147483645
+        taborder = 20
+        bounds_x = 124
+        bounds_y = 65
+        bounds_cx = 53
+        bounds_cy = 15
+        caption = '150 BPM'
+        font.color = 657930
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
+        reffontheight = 15
+      end
+      object edittempo: trealspinedit
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 15923187
+        frame.framei_left = 1
+        frame.framei_top = 1
+        frame.framei_right = 1
+        frame.framei_bottom = 1
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = []
+        frame.buttonface.fade_pos.count = 2
+        frame.buttonface.fade_pos.items = (
+          0
+          1
+        )
+        frame.buttonface.fade_color.count = 2
+        frame.buttonface.fade_color.items = (
+          14284243
+          7906148
+        )
+        frame.buttonface.fade_direction = gd_down
+        frame.buttonface.localprops = [fal_fadirection]
+        frame.buttonsize = 30
+        taborder = 21
+        hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
+        bounds_x = 122
+        bounds_y = 21
+        bounds_cx = 59
+        bounds_cy = 40
+        onchange = onchangetempo
+        value = 100
+        valuedefault = 100
+        valuerange = 1
+        valuestart = 0
+        min = 40
+        max = 200
+        step = 1
+        stepctrlfact = 0
+        stepshiftfact = 0
+        wheelsensitivity = 1
+        reffontheight = 15
+      end
+      object tlabel25: tlabel
+        color = -2147483645
+        taborder = 22
+        bounds_x = 128
+        bounds_y = 5
+        bounds_cx = 46
+        bounds_cy = 15
+        caption = 'Interval'
+        font.color = 5197647
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
+        reffontheight = 15
+      end
+      object tlabel26: tlabel
+        color = -2147483645
+        taborder = 23
+        bounds_x = 29
+        bounds_y = 19
+        bounds_cx = 64
+        bounds_cy = 15
+        caption = 'Drums Set'
+        font.color = 4210752
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
+        reffontheight = 15
+      end
+    end
+  end
+end

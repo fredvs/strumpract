@@ -1,0 +1,549 @@
+object guitarsfo: tguitarsfo
+  frame.localprops = []
+  frame.localprops1 = []
+  frame.grip_size = 8
+  frame.grip_grip = stb_dens0
+  frame.grip_face.localprops = []
+  frame.grip_face.template = mainfo.tfacecomp4
+  frame.grip_faceactive.fade_pos.count = 2
+  frame.grip_faceactive.fade_pos.items = (
+    0
+    1
+  )
+  frame.grip_faceactive.fade_color.count = 2
+  frame.grip_faceactive.fade_color.items = (
+    15790320
+    14928017
+  )
+  frame.grip_faceactive.fade_direction = gd_down
+  frame.grip_faceactive.localprops = []
+  visible = False
+  bounds_x = 652
+  bounds_y = 290
+  bounds_cx = 458
+  bounds_cy = 72
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    450
+    72
+  )
+  dragdock.splitter_size = 5
+  dragdock.caption = ' Use this to Drag Drop the Guitars window '
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_proportional, od_fixsize]
+  dragdock.onfloat = onfloatguit
+  dragdock.ondock = ondockguit
+  options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  statfile = mainfo.tstatfile1
+  caption = 'Guitar and Bass tuned strings'
+  icon.origformat = 'jpeg'
+  icon.image = {
+    00000000000000002000000020000000D00B0000000000000000000000000000
+    0000000000000000000000000000000000000000A9ABB501D7D0D501D8CED401
+    D0CDD601CCCCCC01DBD7CC01DBD5CE01CACAD001CCD1D001CED3D401CDD0D401
+    CDCDCD01D3D0CC01D5D0CD01CFCFCF01CBCED201D0D0D008D2D2D201D0D0D001
+    CFCFCF01CECECE01CFCFCF01D1D1D101D4D4D401ADADAD01D2D1D301FDFEF501
+    FFFFF801F6FFFF01ECFBFF01EEF9FF01F2FDFB01F8FFF901F8FBF901FCFEFE01
+    FCFEFF01FDFCFE01FFFFFE02FEFEFE01FDFFFF01FDFDFD08FEFEFE01FDFDFD04
+    FEFEFE02D7D7D701D5D0D201FBFFFB01EEFFF601C8E3ED01A3C5E9019CBEEC01
+    BAD9EE01ECFFFB01FDFCF801FFFDFC01FDFDFD01FCFEFF01FDFFFF01FEFEFE01
+    FBFCFA01FEFFFD01FFFFFF0EFEFEFE01D5D5D501DAD3DA01F4FDFF01C7E1F201
+    9FC6ED017FB3F6017FB5FF0194C3F701BFDFF601FFFFFC01FFFFFE01FFFFFF01
+    FDFFFF01FBFEFF01FBFFFF01FEFFFD01FFFFFB01FFFFFF0EFEFEFE01D5D5D501
+    D5D6D401F1FBFF01ADCBF40187BAF9017AB9FF0181C1FF0189BDF90192BDEE01
+    F8FDFF01FDFDFD01FEFCFB01FDFDFD01FBFEFF01FAFFFF01FDFFFF01FFFFFB01
+    FFFFFF0DFEFEFE02D5D5D501D0D7CA01F3FFFF01AACBF20181BBFC0180BFFB01
+    83B7DF0197C5EE018BC0F901E7F5FF01F6FCFF01FFFEFD01FFFDFC01FDFEFF01
+    FAFEFF01FBFDFE01FFFFFB01FFFFFF0FD7D7D701D1D2CE01F5FAF801B6D4ED01
+    8DC5FF0199CAFC018199AD01A2BED60184BDF501CFE7FD01ECF8FF01FFFFFE01
+    FFFFFB01FFFFFF01FBFEFF01FCFDFF01FFFFFE01FEFEFE0BFDFDFD04D5D5D501
+    D7D0DF01FFFDFE01CCE4FA018EC1FF018CABE2014F4B5E018891A50170A7E401
+    B0D0ED01DAEBF801FDFEFC01FFFEF701FFFCFB01FBFBFF01FDFEFF01FFFEFF01
+    FFFFFF0EFDFDFD01D5D5D501D0D5DE01EEE6DF01ECE3DF019BABC8017EA8E301
+    6698DA018BBCFA0192C4FF01739DC701698DB5018ABDDE01AEDAF701E0E4FC01
+    F6F4FA01F4FFF401FEFFEF01FFF6FE01F4FFF901F6FFFB01FFFEFF01F8FDFE01
+    FFFFFA01FFFFFC01F4FDFF01FFFFFF03FEFEFE02FFFFFF02D4D4D401CDCECC01
+    DFDEDA01C9C9C901B4BDCA01B3CFF20190BEF40193C5FF0192C2F601A3B4DF01
+    A2BAE80185B0D7018DBBDA0190B7DD018CC2EB01B9E7F901FBF8F001FDFCFF01
+    FBFFFC01F8FCF601FCFEFF01FBFEFF01FFFEF901FFFFFC01F8FEFF01FFFFFF03
+    FEFEFE02FFFFFF02D4D4D401DBD6CD01D3D8DB01C4CACF01CFD0CE01F3FEFF01
+    A4C6EA0199C8FB0192BEED014F594D017998AD0182B3E1017D9ECB017886A201
+    7293A7017DA8C901AAC0F001CAE5F301FEFDFF01FFFFFC01F8FDFE01F9FCFF01
+    FFFFFC02FAFDFF01FFFFFF03FEFEFE02FFFFFF02D4D4D401D7D4CC01E7ECEF01
+    CFD4D701E1DED901F8F8F201DCECF901ACCEF2017CA6D501547394016F99BE01
+    82AFE20197B1E701898FA6019BA69E0181A1A6017DA8D30194C9DE01F9F6FF01
+    FFFDFE01F7FFFF01FAFBFF01FFFFFC02FDFCFF01FFFFFF03FEFEFE02FFFFFF02
+    D4D4D401D7D8DC01FDFAFC01F8F7F901FCFEFF01D8D5D101C5C3C2019EADC001
+    86A9D50185A7F3018CC4FF0181BEF60191BBEA015C718C0155636F016E89A301
+    89B6E90190D0EF01F3F6FF01FFF8F901FAFFFF01FDFEFF01FFFDFC01FDFEFA01
+    FFFEFF01FFFFFF03FEFEFE02FFFFFF02D4D4D401D4D5DF01FFFFFE01FFFEFF01
+    F5F9FE01D1D0D201DCD4CD01D9DCE101C4D9F801AAC4EC0186C0F4019ACEFC01
+    7A8FA4016A778D015B6EA1017E9EDF0171A1D5018EC8F201E6F7FF01FFFAFB01
+    FDFFFF01FCFCFF01FFFCFD01FFFFFB01FFFFFF04FEFEFE02FFFFFF02D4D4D401
+    D2D1D301FFFFFF01F7F9FA01FBFFFF01CFD1D101D5D6D401DEDEDE01F2F5F901
+    C1D9F501A8CAF801929CC4013A3844017389A501749CE4017098D3018FBFC501
+    83ACE301CBEBFF01EBF5F501FFFFFF01FBFBFF01FFFFFF01FFFFFE01FDFFFF01
+    FFFFFF03FEFEFE02FFFFFF02D4D4D401DAD4CF01FAFFFF01F5FCFF01FBFDF701
+    F5F9F401E4EDF101EDF0EE01ECE0CE01D9E1D60197B3DC016E8ED5017EA9DC01
+    77B0D7018CB0EC017489CD0173A2D50189A6E301A9D5EC01C7DCDA01FFFAFB01
+    FBFEFF01FCFEFF01FFFDFD01FAFFFE01FFFFFF03FEFEFE02FFFFFF02D4D4D402
+    FFFFFF03FBFBFB01FFFFFF01F6F6F601D2D2D201C8CCDF01C4C4BE01A1C1DE01
+    85BDFF018DBAFE017BADE701699CDB017F94C7017797BA01536975015F646301
+    A19AA101EAE9F301F6FDFF01F9FFFB01FDFFFE01FDFDFD01FCFCFC01FFFFFF01
+    F8F9F701FEFFFD01FFFFFE02D5D6D401D6D6D601FEFEFE01FDFDFD01FFFFFF01
+    FEFEFE01FFFFFF01F7F7F701D4D4D401CBCEDC01CAD0D701E2ECF301A9C6ED01
+    96C2FD01A2B6CF015B5B61016470920192B1E401496076016C7676013A3C3D01
+    494C5001BCC4C301FBFFFF01FAF8FE01FCFCFC01FFFFFF01FAFAFA01FFFFFF01
+    FFFFFE01FCFDFB01FEFFFD01D3D4D201D6D6D601FEFEFE01FDFDFD01FFFFFF01
+    FEFEFE01FFFFFF01FAFAFA01E3E3E301DCD8D301E0E4EF01FEFBFD01D0E0F001
+    94C3F7017B97C001444F6B015D85C0016E88C40152678301525E6201262B2A01
+    43494801383F3A0191959601FCF5FF01F7F6F801FFFEFF01FEFEFE01FFFFFF01
+    FBFBFB01FAFBF901FFFFFE01D2D3D101D5D5D501FFFFFF03FBFBFB01FCFCFC01
+    FFFFFF01F9F9F901FFFFF501F1EDF201D1D4E201B6C6CD017E99B301709ADB01
+    70A3F30179AEED018999C4017B899B01394043013F4344014044450131383501
+    54585901706E7A01EEEFF301FAFCFD01F5F7F801FDFFFF01FAFCFC01FFFFFF02
+    D5D6D401D5D5D501FFFFFF03FCFCFC01FBFBFB01FFFFFF02FAFFFF01F5EEF101
+    CFD1DC01D1D8D501E2E0D501C5D4F4018CACE101ADBCCC01EEF2FD01FBFFFF01
+    D2D3D101544F580126252F01454A4901444B4801383C41013C3F4401B3B6BA01
+    FDFEFF01F9FBFC01FBFDFE01FEFEFE01FBFBFB01D5D6D401D5D5D501FFFFFF01
+    FBFBFB01FFFFFF02FEFEFE01FFFFFF01FEFEFE01F1FBFF01F2F1F501E3DFDE01
+    D5D2CD01DBD8D001FEFCFC01FCFCFF01FBFCFA01FEFBF301FFFFF601FFFEF901
+    EBE5F00176727E0146484801484D4B01282D300153565B013B3E43018D909501
+    F6F7FB01F6F8F901FFFFFF02D5D5D502FFFFFF01FBFBFB01FEFEFE01FFFFFF03
+    FCFCFC01FFFEFF01F8FDFF01E9E8E401EDE8E701EBF0F901F3F9FE01FCFEFE01
+    FAFDFF01FFFFFC01F7F8EE01FDFFFB01FDFDFF01F2F1F501959791013D3E3A01
+    4546500130333B01474A52014A4D5201474A4E01DADCDD01F8F7F901FEFEFE01
+    CDCDCD01D3D3D301FFFFFF01FEFEFE03FDFDFD01FFFFFF02FFFFF701F8FFFF02
+    FFF8F401FFFEFF01F1FEFF01F2FCFC01FFFFF601F7F6FF01FAFFFF01F0FCF601
+    F8FFFF01FDFFFC01FFFFF601B3B1B0015B546301262931014C4F57013E414601
+    3B3E430135363A01ACABAD01FDFDFD01D5D5D502FEFEFE01FFFFFF04FEFEFE01
+    FDFDFD01FFFFFF09F9F9F901FFFFFF02FCFCFC01FFFFFF01F5F5F501CCCCCC01
+    5E636601484D5001494E51015D62650151555A014E5159017A7C8701BDBDC901
+    D4D4D401FDFDFD02FEFEFE02FFFFFF01FEFEFE01FFFFFF01FEFEFE08FFFFFF01
+    FDFDFD01FFFFFF02FAFAFA01FFFFFF02F4F4F401F0F4F501737778012D313201
+    404546012C313401575A62013B3D47013A3C4701D8D8D801FFFFFF0FFEFEFE01
+    FCFCFC01FFFFFF02FCFCFC02FFFFFF02FDFFFF01F7F9F9018C919001474C4B01
+    565B5C01363B3E01393C44013F424A01D7D7D701FFFFFF02FEFEFE02FFFFFF0C
+    FEFEFE01FFFFFF03FEFEFE01FCFCFC01FFFFFF02FEFEFE01FBFEFC01AFB2B001
+    5358570132373801474C4F011B212601D6D6D601FEFEFE01FFFFFF10FDFDFD01
+    FCFCFC01FFFFFF05FAFBF901FFFFFE01FBFEFC01D9DEDC015D6261012B303101
+    4C515401D4D4D401FDFDFD01FEFEFE01FFFFFF0DFCFCFC01FFFFFF01FEFEFE01
+    FCFCFC01FEFEFE01FFFFFF01FDFDFD01FEFEFE01FFFFFF01FDFDFD01F9FAF801
+    FFFFFE01F8FBF901E5E7E7017A7E7F0146494D01D5D5D501FDFDFD04FEFEFE02
+    FFFFFF01FDFDFD09FFFFFF04FDFDFD03F6F5F701FAFAFA01FCFCFC01FDFEFC01
+    FBFBFB01FFFFFF01FDFFFF017B7C8001ADADAD01D4D4D401D2D2D201D1D1D101
+    CFCFCF01D0D0D002D1D1D109D3D3D301CECECE01CDCDCD01D0D0D001CFCFCF01
+    CECECE01D1D1D101D3D3D301CFD1D201D0CFD101CFCFCF01D0D0D003D2D1D301
+    AEADB101
+  }
+  oncreate = oncreateguit
+  onclose = oncloseguit
+  moduleclassname = 'tdockform'
+  object tdockpanel5: tdockpanel
+    color = 14734008
+    frame.framewidth = 1
+    frame.colorframe = -1610612733
+    frame.localprops = [frl_framewidth, frl_colorframe]
+    frame.localprops1 = []
+    frame.grip_size = 0
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16774627
+      12235686
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 1
+    bounds_x = 0
+    bounds_y = 4
+    bounds_cx = 446
+    bounds_cy = 32
+    object tlabel23: tlabel
+      color = -2147483645
+      bounds_x = 7
+      bounds_y = 1
+      bounds_cx = 82
+      bounds_cy = 15
+      caption = 'Guitar strings'
+      font.color = 4210752
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
+      reffontheight = 15
+    end
+    object tbutton3: tbutton
+      Tag = 1
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 6
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 383
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '1 Mi/E'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton5: tbutton
+      Tag = 2
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 5
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 325
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '2 Si/B'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton6: tbutton
+      Tag = 3
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 4
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 267
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '3 Sol/G'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton7: tbutton
+      Tag = 4
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 3
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 210
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '4 Re/D'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton8: tbutton
+      Tag = 5
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 2
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 153
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '5 La/A'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton9: tbutton
+      Tag = 6
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 1
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 96
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '6 Mi/E'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object loopguit: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16774627
+      frame.caption = 'Loop'
+      frame.captiondist = 2
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        3
+        33
+        3
+      )
+      taborder = 7
+      hint = ' Enable looping the string. '
+      bounds_x = 20
+      bounds_y = 14
+      bounds_cx = 49
+      bounds_cy = 17
+    end
+  end
+  object tdockpanel6: tdockpanel
+    color = 14734008
+    frame.framewidth = 1
+    frame.colorframe = -1610612733
+    frame.localprops = [frl_framewidth, frl_colorframe]
+    frame.localprops1 = []
+    frame.grip_size = 0
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16774627
+      12235686
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    bounds_x = 0
+    bounds_y = 38
+    bounds_cx = 446
+    bounds_cy = 32
+    object tlabel24: tlabel
+      color = -2147483645
+      bounds_x = 10
+      bounds_y = 1
+      bounds_cx = 72
+      bounds_cy = 15
+      caption = 'Bass strings'
+      font.color = 4210752
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
+      reffontheight = 15
+    end
+    object tbutton13: tbutton
+      Tag = 7
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 4
+      hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 323
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '1 Sol/G'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton14: tbutton
+      Tag = 8
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 3
+      hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 266
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '2 Re/D'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton15: tbutton
+      Tag = 9
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 2
+      hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 209
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '3 La/A'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton16: tbutton
+      Tag = 10
+      color = 13221285
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612730
+        11576720
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 1
+      hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 152
+      bounds_y = 8
+      bounds_cx = 54
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '4 Mi/E'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object loopbass: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16774627
+      frame.caption = 'Loop'
+      frame.captiondist = 2
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        3
+        33
+        3
+      )
+      taborder = 5
+      hint = ' Enable looping the string. '
+      bounds_x = 20
+      bounds_y = 14
+      bounds_cx = 49
+      bounds_cy = 17
+    end
+  end
+end
