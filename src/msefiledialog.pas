@@ -575,6 +575,9 @@ procedure getfileicon(const info: fileinfoty; var imagelist: timagelist;
 procedure updatefileinfo(const item: tlistitem; const info: fileinfoty;
                    const withicon: boolean);
 
+// var
+// thefo : tfiledialogfo;
+
 implementation
 uses
  songplayer, msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
@@ -583,6 +586,8 @@ uses
 type
  tdirtreefo1 = class(tdirtreefo);
  tcomponent1 = class(tcomponent);
+ 
+
  
 procedure getfileicon(const info: fileinfoty; var imagelist: timagelist;
                       out imagenr: integer);
@@ -1478,7 +1483,7 @@ var
  int1: integer;
  str1: filenamety;
 begin
-
+application.lock();
 songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 songplayerfo.historyfn.value := dir.value + filename.value;
   
@@ -1532,7 +1537,9 @@ songplayerfo.historyfn.value := dir.value + filename.value;
      end;
     end;
    end;
+  // visible := false;
    window.modalresult:= mr_ok;
+   application.unlock();
   end
   else begin
    filename.setfocus;

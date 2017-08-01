@@ -149,6 +149,7 @@ type
    procedure onclosedrums(const sender: TObject);
    procedure oncreatedrums(const sender: TObject);
    procedure oncreateddrums(const sender: TObject);
+   procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
  end;
 var
  drumsfo: tdrumsfo;
@@ -1095,6 +1096,18 @@ begin
 height := 238;
 width := 458;
 caption := 'Drums set';
+end;
+
+procedure tdrumsfo.onmousewindow(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+with ainfo do
+  if (eventkind = ek_buttonpress) then
+  begin
+if mainfo.issomeplaying = false then dragdock.optionsdock := [od_savepos,od_savezorder,od_canmove,od_canfloat,od_candock,od_proportional,od_fixsize,od_captionhint]
+else
+dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
+end;
 end;
  
 end.

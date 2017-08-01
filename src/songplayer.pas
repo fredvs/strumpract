@@ -61,9 +61,11 @@ type
    procedure ondockplay(const sender: TObject);
    procedure oncloseplayer(const sender: TObject);
    procedure onplayercreate(const sender: TObject);
+   procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
  end;
 var
  songplayerfo: tsongplayerfo;
+ thedialogform : tfiledialogfo;
  initplay : integer = 1;
   theplayer : integer = 20;
  theplayerinfo : integer = 21;
@@ -160,10 +162,8 @@ procedure tsongplayerfo.ClosePlayer1;
   
  procedure tsongplayerfo.LoopProcPlayer1;
 begin
- application.lock();
  ShowPosition;
  ShowLevel ;
- application.unlock();
 end;
 
 procedure tsongplayerfo.doplayerstart(const sender: TObject);
@@ -511,6 +511,9 @@ caption := 'Song Player';
        Button1.enabled := false;
        label6.enabled := false;
        end;
+       
+   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+     
  if songdir.value = '' then
  songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.ogg';
  
@@ -519,5 +522,18 @@ caption := 'Song Player';
  
  songplayerfo.historyfn.value := songplayerfo.songdir.value ;         
         
+end;
+
+procedure tsongplayerfo.onmousewindow(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+ with ainfo do
+  if (eventkind = ek_buttonpress) then
+  begin
+if mainfo.issomeplaying = false then dragdock.optionsdock := [od_savepos,od_savezorder,od_canmove,od_canfloat,od_candock,od_proportional,od_fixsize,od_captionhint]
+else
+dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
+end;
+
 end;
 end.

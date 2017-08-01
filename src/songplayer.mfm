@@ -18,8 +18,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.fade_direction = gd_down
   frame.grip_faceactive.localprops = []
   visible = False
-  bounds_x = 544
-  bounds_y = 329
+  bounds_x = 566
+  bounds_y = 326
   bounds_cx = 457
   bounds_cy = 114
   container.frame.localprops = []
@@ -92,6 +92,7 @@ object songplayerfo: tsongplayerfo
   }
   oncreate = onplayercreate
   onclose = oncloseplayer
+  onmouseevent = onmousewindow
   moduleclassname = 'tdockform'
   object tdockpanel8: tdockpanel
     color = 14673582

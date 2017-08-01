@@ -13,8 +13,8 @@ object filedialogfo: Tfiledialogfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 463
-  bounds_y = 210
+  bounds_x = 468
+  bounds_y = 393
   bounds_cx = 554
   bounds_cy = 316
   bounds_cxmin = 360
@@ -1136,9 +1136,9 @@ object filedialogfo: Tfiledialogfo
     face.localprops = [fal_fadirection]
     taborder = 1
     bounds_x = 0
-    bounds_y = 43
+    bounds_y = 39
     bounds_cx = 554
-    bounds_cy = 233
+    bounds_cy = 239
     anchors = [an_top]
     onkeydown = listviewonkeydown
     datarowlinecolor = -1610612731
@@ -1159,8 +1159,8 @@ object filedialogfo: Tfiledialogfo
   end
   object tlayouter2: tlayouter
     optionswidget = [ow_tabfocus, ow_parenttabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_destroywidgets]
-    bounds_x = 1
-    bounds_y = 278
+    bounds_x = 2
+    bounds_y = 280
     bounds_cx = 551
     bounds_cy = 38
     anchors = [an_left, an_right, an_bottom]

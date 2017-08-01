@@ -32,7 +32,7 @@ object drumsfo: tdrumsfo
     238
   )
   dragdock.caption = ' Use this to Drag Drop the Drums Set window '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_captionhint]
   dragdock.onfloat = onfloatdrums
   dragdock.ondock = ondockdrums
   options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -163,6 +163,7 @@ object drumsfo: tdrumsfo
   oncreate = oncreatedrums
   oncreated = oncreateddrums
   onclose = onclosedrums
+  onmouseevent = onmousewindow
   moduleclassname = 'tdockform'
   object tdockpanel1: tdockpanel
     color = 13431495
@@ -188,7 +189,7 @@ object drumsfo: tdrumsfo
     bounds_cx = 446
     bounds_cy = 236
     dragdock.caption = ' Use this to drag dock the window '
-    dragdock.optionsdock = [od_savepos, od_savezorder, od_fixsize, od_captionhint, od_childicons]
+    dragdock.optionsdock = [od_savepos, od_savezorder, od_proportional, od_fixsize, od_captionhint, od_childicons]
     object tlabel20: tlabel
       optionswidget1 = [ow1_fontglyphheight]
       bounds_x = 169

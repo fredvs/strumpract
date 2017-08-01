@@ -17,6 +17,7 @@ object guitarsfo: tguitarsfo
   )
   frame.grip_faceactive.fade_direction = gd_down
   frame.grip_faceactive.localprops = []
+  hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
   bounds_x = 652
   bounds_y = 290
@@ -32,7 +33,7 @@ object guitarsfo: tguitarsfo
   )
   dragdock.splitter_size = 5
   dragdock.caption = ' Use this to Drag Drop the Guitars window '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_proportional, od_fixsize]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_proportional, od_fixsize, od_captionhint]
   dragdock.onfloat = onfloatguit
   dragdock.ondock = ondockguit
   options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -139,6 +140,7 @@ object guitarsfo: tguitarsfo
   }
   oncreate = oncreateguit
   onclose = oncloseguit
+  onmouseevent = onmousewindow
   moduleclassname = 'tdockform'
   object tdockpanel5: tdockpanel
     color = 14734008
@@ -161,7 +163,7 @@ object guitarsfo: tguitarsfo
     face.localprops = [fal_fadirection]
     taborder = 1
     bounds_x = 0
-    bounds_y = 4
+    bounds_y = 3
     bounds_cx = 446
     bounds_cy = 32
     object tlabel23: tlabel

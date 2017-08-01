@@ -4636,8 +4636,9 @@ function Tuos_Player.AddFromMemoryBuffer(MemoryBuffer: TDArFloat; Bufferinfos: T
   // example : InputIndex1 := AddFromMemoryBuffer(mybuffer, buffinfos,-1,1024);
 var
   x,i : cint32; 
+  {$IF DEFINED(debug)}
   st: string;
- 
+   {$endif}  
   begin
   
  result := -1 ;

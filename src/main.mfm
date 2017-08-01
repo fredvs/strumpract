@@ -3078,12 +3078,12 @@ object mainfo: tmainfo
         onexecute = showguitars
       end    
       item
-        caption = ' Dock '
+        caption = ' D&ock '
         state = [as_localcaption, as_localonexecute]
         onexecute = ondockall
       end    
       item
-        caption = ' Float '
+        caption = ' &Float '
         state = [as_localcaption, as_localonexecute]
         onexecute = onfloatall
       end    

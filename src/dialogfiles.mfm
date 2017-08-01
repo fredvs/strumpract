@@ -1,0 +1,295 @@
+object dialogfilesfo: tdialogfilesfo
+  optionswidget = [ow_arrowfocus, ow_subfocus, ow_destroywidgets, ow_hinton]
+  face.localprops = []
+  bounds_x = 676
+  bounds_y = 319
+  bounds_cx = 453
+  bounds_cy = 414
+  container.optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_mousetransparent, ow_destroywidgets]
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    453
+    414
+  )
+  options = [fo_screencentered, fo_closeonenter, fo_closeonf10, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savestate]
+  caption = 'Load a Syntax Definition File'
+  icon.origformat = 'bmp'
+  icon.image = {
+    0000000000000000100000001000000050020000000000000000000000000000
+    0000000000000000000000000000000000000000FFFFFF04D6FFFF01C6FFFF01
+    CEFFFF01D6FFFF01E7FFFF04FFFFFF0873FFFF0131FFFF014AFFFF016BFFFF01
+    A5FFFF01B5FFFF01A5FFFF01B5FFFF01FFFFFF07EFFFEF016BFFF70131FFFF01
+    52FFFF017BFFFF01B5FFFF01C6FFFF01A5FFFF02EFFFEF01FFFFFF05A5FFA501
+    08EF080118FFAD0139FFFF015AFFFF018CFFFF01C6FFFF01D6FFFF01A5FFFF01
+    5AFFB50129FF2901ADFFAD01FFFFFF0431EF310108EF080118FFAD0142FFFF01
+    6BFFFF01A5FFFF01E7FFFF01DEFFFF01A5FFFF0152FFB50129FF290142FF4201
+    FFFFFF0431EF310108EF080118FF5A0142FFF7017BFFFF01C6FFFF01FFFFFF01
+    EFFFFF01A5FFFF014AFF840129FF290139F73901FFFFFF0431EF310108EF0801
+    18FF21014AFFCE0194FFFF01DEFFFF01FFFFFF01EFFFFF019CFFE70142FF4A01
+    21FF210139F73901FFFFFF0431EF310108EF080118FF180152FF6B01DEFFFF01
+    F7FFFF01FFFFFF01F7FFFF0194FFA50142FF420121FF210139F73901FFFFFF04
+    31EF310108E7080110F7100139F73901DEF7DE01FFFFFF02DEF7DE015AFF5A01
+    21FF210110F7100131EF3101FFFFFF0431EF310100E7000208E7080173EF7301
+    FFFFFF0273EF730110E7100100E7000231EF3101FFFFFF0431EF310100E70003
+    10E7100129DE290210E7100100E7000331EF3101FFFFFF0431EF310100E70002
+    00DE000500E7000331EF3101FFFFFF0431EF310100E7000A31EF3101FFFFFF04
+    31EF310100E7000A31EF3101FFFFFF0484F7840100E7000900DE000184F78401
+    FFFFFF04F7FFFF0173EF730100DE000100E7000500DE000273EF7301F7FFFF01
+    FFFFFF02
+  }
+  oncreate = docreated
+  oncreated = docreated
+  moduleclassname = 'tmseform'
+  object tbutton1: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 1
+    bounds_x = 334
+    bounds_y = 22
+    bounds_cx = 46
+    bounds_cy = 21
+    anchors = [an_top, an_right]
+    state = [as_localcaption, as_localonexecute]
+    caption = '&OK'
+    onexecute = butok
+  end
+  object tbutton2: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 2
+    bounds_x = 388
+    bounds_y = 22
+    bounds_cx = 55
+    bounds_cy = 21
+    anchors = [an_top, an_right]
+    state = [as_localcaption, as_localonexecute]
+    caption = '&Cancel'
+    onexecute = butcancel
+  end
+  object selected_file: tedit
+    optionswidget1 = [ow1_fontglyphheight]
+    frame.caption = 'Selected Syntax Definition File'
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.outerframe = (
+      0
+      18
+      0
+      0
+    )
+    bounds_x = 6
+    bounds_y = 2
+    bounds_cx = 320
+    bounds_cy = 39
+    anchors = [an_left, an_top, an_right]
+    optionsedit = [oe_readonly, oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly]
+    reffontheight = 15
+  end
+  object dir: tdirdropdownedit
+    optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
+    frame.caption = '&Directory'
+    frame.captionpos = cp_top
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.button.face.fade_pos.count = 2
+    frame.button.face.fade_pos.items = (
+      0
+      1
+    )
+    frame.button.face.fade_color.count = 2
+    frame.button.face.fade_color.items = (
+      15461355
+      11053224
+    )
+    frame.button.face.fade_direction = gd_down
+    frame.button.face.localprops = [fal_fadirection]
+    frame.buttons.count = 1
+    frame.buttons.items = <    
+      item
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          15461355
+          11053224
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+      end>
+    frame.outerframe = (
+      0
+      18
+      0
+      0
+    )
+    taborder = 3
+    bounds_x = 23
+    bounds_y = 47
+    bounds_cx = 399
+    bounds_cy = 39
+    anchors = [an_left, an_top, an_right]
+    textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+    onchange = onchangedir
+    dropdown.options = [deo_selectonly, deo_keydropdown]
+    reffontheight = 15
+  end
+  object filter: tdropdownlistedit
+    frame.caption = '&Filter'
+    frame.captionpos = cp_top
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.button.face.fade_pos.count = 2
+    frame.button.face.fade_pos.items = (
+      0
+      1
+    )
+    frame.button.face.fade_color.count = 2
+    frame.button.face.fade_color.items = (
+      15461355
+      11053224
+    )
+    frame.button.face.fade_direction = gd_down
+    frame.button.face.localprops = [fal_fadirection]
+    frame.buttons.count = 1
+    frame.buttons.items = <    
+      item
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          15461355
+          11053224
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+      end>
+    frame.outerframe = (
+      0
+      18
+      0
+      0
+    )
+    taborder = 4
+    bounds_x = 302
+    bounds_y = 350
+    bounds_cx = 146
+    bounds_cy = 38
+    anchors = [an_left, an_top, an_right]
+    dropdown.options = [deo_keydropdown, deo_cliphint]
+    dropdown.cols.count = 2
+    dropdown.cols.items = <    
+      item
+      end    
+      item
+        options = [co_readonly, co_invisible, co_focusselect, co_fill]
+      end>
+    dropdown.valuecol = 1
+    reffontheight = 15
+  end
+  object filename: thistoryedit
+    frame.caption = '&Name (history of files in drop list)'
+    frame.captionpos = cp_top
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.button.face.fade_pos.count = 2
+    frame.button.face.fade_pos.items = (
+      0
+      1
+    )
+    frame.button.face.fade_color.count = 2
+    frame.button.face.fade_color.items = (
+      15461355
+      11053224
+    )
+    frame.button.face.fade_direction = gd_down
+    frame.button.face.localprops = [fal_fadirection]
+    frame.buttons.count = 1
+    frame.buttons.items = <    
+      item
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          15461355
+          11053224
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+      end>
+    frame.outerframe = (
+      0
+      18
+      0
+      0
+    )
+    taborder = 5
+    hint = ' Click button on right corner to show the history of files. '
+    bounds_x = 3
+    bounds_y = 351
+    bounds_cx = 293
+    bounds_cy = 38
+    optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
+    optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+    dropdown.options = [deo_keydropdown, deo_cliphint]
+    dropdown.dropdownrowcount = 20
+    dropdown.cols.count = 1
+    dropdown.cols.items = <    
+      item
+        textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+      end>
+    dropdown.historymaxcount = 50
+    reffontheight = 15
+  end
+  object list_files: tfilelistview
+    optionswidget = [ow_mousefocus, ow_arrowfocus, ow_focusbackonesc, ow_mousewheel, ow_destroywidgets]
+    frame.localprops = []
+    frame.localprops1 = []
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      -1610612730
+      10592673
+    )
+    face.localprops = [fal_fadirection]
+    taborder = 6
+    bounds_x = 0
+    bounds_y = 99
+    bounds_cx = 453
+    bounds_cy = 239
+    anchors = [an_top]
+    datarowlinecolor = -1610612731
+    datacollinecolor = -1610612731
+    cellwidth = 174
+    cellheight = 15
+    optionsgrid = [og_colsizing, og_focuscellonenter, og_mousescrollcol]
+    options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_hintclippedtext]
+    itemlist.imagelist = filedialogres.images
+    itemlist.imagewidth = 16
+    itemlist.imageheight = 16
+    cellwidthmin = 50
+    filelist.options = [flo_sortname, flo_sorttype]
+    reffontheight = 15
+  end
+end

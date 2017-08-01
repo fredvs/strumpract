@@ -30,6 +30,7 @@ type
    procedure ondockguit(const sender: TObject);
    procedure oncloseguit(const sender: TObject);
    procedure oncreateguit(const sender: TObject);
+   procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
  end;
 var
  guitarsfo: tguitarsfo;
@@ -126,6 +127,18 @@ aguitar[9] := ordir + 'sound' + directoryseparator +  'bass' + directoryseparato
 
 for i := 0 to 9 do  aguitarisplaying[i]  := false;
 
+end;
+
+procedure tguitarsfo.onmousewindow(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+with ainfo do
+  if (eventkind = ek_buttonpress) then
+  begin
+if mainfo.issomeplaying = false then dragdock.optionsdock := [od_savepos,od_savezorder,od_canmove,od_canfloat,od_candock,od_proportional,od_fixsize,od_captionhint]
+else
+dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
+end;
 end;
    
 end.

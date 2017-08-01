@@ -42,6 +42,7 @@ type
                    var amodalresult: modalresultty);
    procedure onfloatall(const sender: TObject);
    procedure ondockall(const sender: TObject);
+   function issomeplaying : boolean;
   end;
  
 const
@@ -699,8 +700,23 @@ ondockall(sender);
 visible := false;
 end;
 
+function tmainfo.issomeplaying : boolean;
+var
+x : integer;
+isplay : boolean = false;
+begin
+result := isplay;
+for x:=9 to 21 do
+if uos_GetStatus(x) = 1 then isplay := true;
+if drumsfo.timertick.enabled = true then isplay := true;
+result := isplay;
+end;
+
 procedure tmainfo.onfloatall(const sender: TObject);
 begin
+if issomeplaying = false then
+begin
+application.lock();
 drumsfo.activate;
 songplayerfo.activate;
 guitarsfo.activate;
@@ -713,15 +729,19 @@ height := 40;
 drumsfo.top := top + height + 30 ;
 songplayerfo.top := drumsfo.top + drumsfo.height + 30 ;
 guitarsfo.top := songplayerfo.top + songplayerfo.height + 30 ;
-
+application.unlock();
+end;
 end;
 
 procedure tmainfo.ondockall(const sender: TObject);
 var
-x, y : integer;
+x : integer;
 apos: pointty;
 begin
 
+if issomeplaying = false then
+begin
+application.lock();
 drumsfo.activate;
 songplayerfo.activate;
 guitarsfo.activate;
@@ -734,7 +754,6 @@ width := 458 ;
 
 for x:=0 to 1 do // ones is sometimes not enough
 begin
-
 height := 25 ;
 apos.x := 0 ;
 apos.y := 0 ;
@@ -743,12 +762,12 @@ apos.y := drumsfo.height + 2;
 songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
 apos.y := drumsfo.height + guitarsfo.height + 2 ;
 guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-
 end;
-
+application.unlock()
 // height := songplayerfo.height + drumsfo.height + guitarsfo.height + 26 ;
 //activate;
 
+end;
 end;
  
 end.
