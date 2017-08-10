@@ -6,11 +6,11 @@ interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
  ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,drums,
- songplayer, guitars,msesimplewidgets,msedataedits,mseedit,msestatfile,
- msestrings,SysUtils,Classes,msegraphedits, uos_flat, aboutform, infos,
- msebitmap,mseimage,msefiledialog,msesys,mseificomp,mseificompglob,mseifiglob,
- msemenus,msescrollbar,mseact,mseevent,msestream,msedragglob,msedatanodes,
- msegrids,mselistbrowser,msemenuwidgets;
+ songplayer, guitars,msedataedits,mseedit,msestatfile,
+ SysUtils,Classes, uos_flat, aboutform, 
+ msebitmap, msesys,
+ msemenus,msestream,
+ msegrids,mselistbrowser;
  
 type
   tmainfo = class(tmainform)
@@ -66,10 +66,7 @@ uses
 procedure tmainfo.oncreateform(const sender: TObject);
 
 begin
- 
- visible := false;
- 
-  
+// visible := false;
 end;
 
 
@@ -80,7 +77,7 @@ aboutfo.caption := 'About StrumPract' ;
 aboutfo.about_text.frame.colorclient := $DFFFB2;
 aboutfo.about_text.value := c_linefeed+  c_linefeed +
  'StrumPract '+ versiontext + ' for '+ platformtext+  c_linefeed+
- c_linefeed + 'Compiled with FPC 3.0.2.' + c_linefeed +  c_linefeed +
+ c_linefeed + 'Compiled with FPC 3.0.3.' + c_linefeed +  c_linefeed +
  'Graphic widget: MSEgui '+mseguiversiontext + '.' + c_linefeed+
             
              'http://sourceforge.net/projects/mseide-msegui/'+
@@ -729,6 +726,7 @@ height := 40;
 drumsfo.top := top + height + 30 ;
 songplayerfo.top := drumsfo.top + drumsfo.height + 30 ;
 guitarsfo.top := songplayerfo.top + songplayerfo.height + 30 ;
+visible := true;
 application.unlock();
 end;
 end;
@@ -742,6 +740,8 @@ begin
 if issomeplaying = false then
 begin
 application.lock();
+//visible := false;
+//sleep(10);
 drumsfo.activate;
 songplayerfo.activate;
 guitarsfo.activate;
@@ -754,16 +754,18 @@ width := 458 ;
 
 for x:=0 to 1 do // ones is sometimes not enough
 begin
-height := 25 ;
+height := 26 ;
 apos.x := 0 ;
-apos.y := 0 ;
+apos.y := 10 ;
 drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-apos.y := drumsfo.height + 2;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-apos.y := drumsfo.height + guitarsfo.height + 2 ;
+apos.y := drumsfo.height + 10;
 guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
+apos.y := drumsfo.height + guitarsfo.height + 10 ;
+songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
+//apos.y := drumsfo.height + 10;
 end;
-application.unlock()
+//visible := true;
+application.unlock();
 // height := songplayerfo.height + drumsfo.height + guitarsfo.height + 26 ;
 //activate;
 

@@ -2,10 +2,10 @@ unit guitars;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
- msesimplewidgets,msewidgets,msegraphedits,mseificomp,mseificompglob,mseifiglob,
- msescrollbar, sysutils;
+ mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msesimplewidgets,msewidgets,msegraphedits,
+ sysutils;
 
 type
  tguitarsfo = class(tdockform)

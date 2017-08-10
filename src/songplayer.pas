@@ -4,10 +4,10 @@ interface
 uses
  ctypes, uos_flat, infos, msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
  mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,
- mseclasses,mseforms,msedock,msedragglob,msesimplewidgets,msewidgets,mseact,
- msebitmap,msedataedits,msedatanodes,mseedit,msefiledialog,msegrids,mseificomp,
- mseificompglob,mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,
- msesys,sysutils,msegraphedits,msescrollbar;
+ mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
+ msedataedits,msefiledialog,msegrids,
+ mselistbrowser,
+ msesys,sysutils,msegraphedits;
 
 type
  tsongplayerfo = class(tdockform)
@@ -187,7 +187,7 @@ var
     //// PlayerIndex : from 0 to what your computer can do !
     //// If PlayerIndex exists already, it will be overwriten...
       
-     InputIndex1 := uos_AddFromFile(theplayer, pchar(AnsiString(historyfn.value)), -1, samformat, -1);
+     InputIndex1 := uos_AddFromFile(theplayer, pchar(AnsiString(historyfn.value)), -1, samformat, 1024);
      
     //// add input from audio file with custom parameters
     ////////// FileName : filename of audio file
@@ -202,7 +202,7 @@ var
       // OutputIndex1 := uos_AddIntoDevOut(PlayerIndex1) ;
     //// add a Output into device with default parameters
     OutputIndex1 := uos_AddIntoDevOut(theplayer, -1, -1, uos_InputGetSampleRate(theplayer, InputIndex1),
-     uos_InputGetChannels(theplayer, InputIndex1), samformat, -1);
+     uos_InputGetChannels(theplayer, InputIndex1), samformat, 1024);
     //// add a Output into device with custom parameters
     //////////// PlayerIndex : Index of a existing Player
     //////////// Device ( -1 is default Output device )

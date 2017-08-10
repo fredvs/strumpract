@@ -33,10 +33,10 @@ object guitarsfo: tguitarsfo
   )
   dragdock.splitter_size = 5
   dragdock.caption = ' Use this to Drag Drop the Guitars window '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_proportional, od_fixsize, od_captionhint]
+  dragdock.optionsdock = [od_canmove, od_canfloat, od_candock, od_proportional, od_fixsize, od_captionhint]
   dragdock.onfloat = onfloatguit
   dragdock.ondock = ondockguit
-  options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  options = [fo_screencentered, fo_savestate]
   caption = 'Guitar and Bass tuned strings'
   icon.origformat = 'jpeg'
   icon.image = {

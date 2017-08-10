@@ -2,11 +2,10 @@ unit drums;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
- msetypes,mseglob, msetimer, mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
- msesimplewidgets,msewidgets,msegraphedits,mseificomp,mseificompglob,mseifiglob,
- msescrollbar,mseact,msedataedits,mseedit,msestatfile,msestream,msestrings,
- SysUtils,Classes;
+ mseglob, msetimer, mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msesimplewidgets,msewidgets,msegraphedits,
+ msedataedits, SysUtils,Classes;
 
 type
  talab =  array[0..15] of tlabel;
@@ -144,12 +143,17 @@ type
    procedure onchangetempo(const sender: TObject);
    procedure dopatern(const sender: TObject);
    procedure createdrumsplayers;
+   procedure createvoiceplayers;
+   procedure stopvoiceplayers;
    procedure onfloatdrums(const sender: TObject);
    procedure ondockdrums(const sender: TObject);
    procedure onclosedrums(const sender: TObject);
    procedure oncreatedrums(const sender: TObject);
    procedure oncreateddrums(const sender: TObject);
+   
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
+   procedure onsetnovoice(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
  end;
 var
  drumsfo: tdrumsfo;
@@ -527,7 +531,7 @@ begin
   drum_beats[1] := '0000000000000000'; // opened hat
   drum_beats[2] := '0000000000000000'; // snare
   drum_beats[3] := '0000000000000000'; // kick
-  novoice.value := false;
+ // novoice.value := false;
 end else
 if tbooleaneditradio(Sender).tag = 2 then
 begin
@@ -538,7 +542,7 @@ begin
   drum_beats[1] := '0000000000000000'; // opened hat
   drum_beats[2] := '0000000000000000'; // snare
   drum_beats[3] := 'x000000000000000'; // kick
-  novoice.value := false;
+ //  novoice.value := false;
 end else
 if tbooleaneditradio(Sender).tag = 3 then
 begin
@@ -549,7 +553,7 @@ begin
   drum_beats[1] := '0000000000000000'; // opened hat
   drum_beats[2] := '00000000x0000000'; // snare
   drum_beats[3] := 'x000000000000000'; // kick
-  novoice.value := false;
+ // novoice.value := false;
 end else
 if tbooleaneditradio(Sender).tag = 4 then
 begin
@@ -560,7 +564,7 @@ begin
   drum_beats[1] := '0000000000000000'; // opened hat
   drum_beats[2] := '00000000x0000000'; // snare
   drum_beats[3] := 'x000x00000000000'; // kick
-  novoice.value := false;
+ // novoice.value := false;
 end else
 if tbooleaneditradio(Sender).tag = 5 then
 begin
@@ -571,7 +575,7 @@ begin
   drum_beats[1] := '00000000000000x0'; // opened hat
   drum_beats[2] := '0000x0000000x000'; // snare
   drum_beats[3] := 'x0000000x0x00000'; // kick
-  novoice.value := true;
+ // novoice.value := true;
 end else
 if tbooleaneditradio(Sender).tag = 6 then
 begin
@@ -582,7 +586,7 @@ begin
   drum_beats[1] := '000000x000000000'; // opened hat
   drum_beats[2] := '00x0x0000000x000'; // snare
   drum_beats[3] := 'x0000000x0x00000'; // kick
-  novoice.value := true;
+ // novoice.value := true;
 end else
 if tbooleaneditradio(Sender).tag = 7 then
 begin
@@ -593,7 +597,7 @@ begin
   drum_beats[1] := '00x00000x00000x0'; // opened hat
   drum_beats[2] := '0000x0000000x000'; // snare
   drum_beats[3] := 'x00000x0x0x000x0'; // kick
-  novoice.value := true;
+ // novoice.value := true;
 end else
 if tbooleaneditradio(Sender).tag = 8 then
 begin
@@ -604,7 +608,7 @@ begin
   drum_beats[1] := '00x000x000x000x0'; // opened hat
   drum_beats[2] := '0000x0000000x000'; // snare
   drum_beats[3] := 'x0x00000x00000x0'; // kick
-  novoice.value := true;
+ // novoice.value := true;
 end;
   
   for ax := 0 to 15 do
@@ -654,10 +658,13 @@ var
 i : integer;
 begin 
 
-for i := 0 to 8 do   
+for i := 0 to 3 do   
  begin
  uos_Stop(i);
  
+ ams[i] := TMemoryStream.Create; 
+ ams[i].LoadFromFile(pchar(adrums[i]));  
+ ams[i].Position:= 0;
  // {
 // if assigned( ams[i]) then ams[i].free; 
 //ams[i] := TMemoryStream.Create; 
@@ -687,6 +694,59 @@ for i := 0 to 8 do
 end;
 end;   
 
+procedure tdrumsfo.stopvoiceplayers;
+var
+i : integer;
+begin 
+{
+for i := 4 to 8 do   
+ begin
+ uos_Stop(i);
+ end;
+}
+ end;
+
+procedure tdrumsfo.createvoiceplayers;
+var
+i : integer;
+timerisenabled : boolean = false; 
+begin 
+
+if timertick.enabled = true then timerisenabled := true;
+timertick.enabled := false;
+if tag = 0 then
+for i := 4 to 8 do   
+ begin
+ uos_Stop(i);
+// uos_freeplayer(i);
+  
+ ams[i] := TMemoryStream.Create; 
+ ams[i].LoadFromFile(pchar(adrums[i]));  
+ ams[i].Position:= 0;
+ 
+ if uos_CreatePlayer(i) then 
+
+ if uos_SetGlobalEvent(i, true) then 
+  // This set events (like pause/replay thread) to global.
+  //One event (for example replay) will have impact on all players.  
+
+  // using memorystream
+ if uos_AddFromMemoryStream(i,ams[i],0,-1,2,512) > -1 then 
+ 
+ // using memorybuffer
+// if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
+  
+ if uos_AddFromEndlessMuted(i, channels, 512) > -1 then 
+  // this for a dummy endless input, must be last input 
+  
+ uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512)  ;
+  
+end;
+tag := 1;
+if timerisenabled = true then timertick.enabled := true; 
+
+end;   
+
 
 procedure tdrumsfo.oncreatedrums(const sender: TObject);
 var
@@ -712,23 +772,26 @@ begin
         lib4 := ordir + 'lib\Windows\32bit\LibSoundTouch-32.dll';
          {$endif}
      {$ENDIF}
-
-     {$IFDEF linux}
-        {$if defined(cpu64)}
-       lib1 :=  ordir + 'lib/Linux/64bit/LibPortaudio-64.so'    ;
-       lib2 := ordir + 'lib/Linux/64bit/LibSndFile-64.so'   ;
-       lib3 := ordir + 'lib/Linux/64bit/LibMpg123-64.so';
-       lib4 := ordir + 'lib/Linux/64bit/LibSoundTouch-64.so';
-  
-        {$else}
-        lib1 := ordir + 'lib/Linux/32bit/LibPortaudio-32.so';
-         lib2 := ordir + 'lib/Linux/32bit/LibSndFile-32.so'   ;
-         lib3 := ordir + 'lib/Linux/32bit/LibMpg123-32.so';
-         lib4 := ordir + 'lib/Linux/32bit/LibSoundTouch-32.so';
-        {$endif}
-      {$ENDIF}
-
-     {$IFDEF freebsd}
+      
+         {$if defined(cpu64) and defined(linux) }
+   lib1 := ordir + 'lib/Linux/64bit/LibPortaudio-64.so';
+  lib2 := ordir + 'lib/Linux/64bit/LibSndFile-64.so';
+  lib3 := ordir + 'lib/Linux/64bit/LibMpg123-64.so';
+  lib4 := ordir + 'lib/Linux/64bit/LibSoundTouch-64.so';
+     {$ENDIF}
+  {$if defined(cpu86) and defined(linux)}
+  lib1 := ordir + 'lib/Linux/32bit/LibPortaudio-32.so';
+  lib2 := ordir + 'lib/Linux/32bit/LibSndFile-32.so';
+   lib3 := ordir + 'lib/Linux/32bit/LibMpg123-32.so';
+   lib4 := ordir + 'lib/Linux/32bit/LibSoundTouch-32.so';
+  {$ENDIF}
+   {$if defined(linux) and defined(cpuarm)}
+  lib1 := ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so';
+  lib2 := ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so';
+  lib3 := ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so';
+  {$ENDIF}
+ 
+      {$IFDEF freebsd}
         {$if defined(cpu64)}
          lib1 :=  ordir + 'lib/FreeBSD/64bit/libportaudio-64.so'    ;
          lib2 := ordir + 'lib/FreeBSD/64bit/libsndfile-64.so'   ;
@@ -750,9 +813,8 @@ begin
         plugsoundtouch := true
          else
         plugsoundtouch := false;
-       
-
-// songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
+        
+   // songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
  
   allok := true;
   
@@ -1069,25 +1131,19 @@ adrums[8] := ordir + 'sound' + directoryseparator +  'voice' + directoryseparato
  
  
 // if assigned( ams[i]) then ams[i].free; 
-for i := 0 to 8 do
-begin
- ams[i] := TMemoryStream.Create; 
- ams[i].LoadFromFile(pchar(adrums[i]));  
- ams[i].Position:= 0;
-end;
 
 createdrumsplayers ;
 
  posi := 1;
  
-
-for i := 0 to 7 do 
+{
+for i := 0 to 3 do 
  
  begin
   uos_Playnofree(i);
   if i < 4 then sleep(250) else sleep(300) ;
   end; 
-  
+}  
         
 end;
 
@@ -1108,6 +1164,18 @@ if mainfo.issomeplaying = false then dragdock.optionsdock := [od_savepos,od_save
 else
 dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
 end;
+end;
+
+procedure tdrumsfo.onsetnovoice(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+
+begin
+
+
+if (avalue = false) and (tag = 0) then
+createvoiceplayers;
+// else stopvoiceplayers;
+
 end;
  
 end.
