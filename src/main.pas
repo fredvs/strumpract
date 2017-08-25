@@ -67,6 +67,7 @@ procedure tmainfo.oncreateform(const sender: TObject);
 
 begin
 // visible := false;
+tstatfile1.filename :=  IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +  'status.sta';
 end;
 
 
