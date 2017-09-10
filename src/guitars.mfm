@@ -173,13 +173,13 @@ object guitarsfo: tguitarsfo
       color = -2147483645
       bounds_x = 7
       bounds_y = 1
-      bounds_cx = 85
-      bounds_cy = 14
+      bounds_cx = 82
+      bounds_cy = 15
       caption = 'Guitar strings'
       font.color = 4210752
       font.name = 'stf_default'
       font.localprops = [flp_color]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tbutton3: tbutton
       Tag = 1
@@ -365,16 +365,17 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        2
-        34
+        3
+        33
         3
       )
       taborder = 7
       hint = ' Enable looping the string. '
       bounds_x = 20
-      bounds_y = 15
-      bounds_cx = 50
-      bounds_cy = 16
+      bounds_y = 14
+      bounds_cx = 49
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
     end
   end
   object tdockpanel6: tdockpanel
@@ -404,13 +405,13 @@ object guitarsfo: tguitarsfo
       color = -2147483645
       bounds_x = 10
       bounds_y = 1
-      bounds_cx = 77
-      bounds_cy = 14
+      bounds_cx = 72
+      bounds_cy = 15
       caption = 'Bass strings'
       font.color = 4210752
       font.name = 'stf_default'
       font.localprops = [flp_color]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tbutton13: tbutton
       Tag = 7
@@ -538,16 +539,17 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        2
-        34
+        3
+        33
         3
       )
       taborder = 5
       hint = ' Enable looping the string. '
       bounds_x = 20
-      bounds_y = 15
-      bounds_cx = 50
-      bounds_cy = 16
+      bounds_y = 14
+      bounds_cx = 49
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
     end
   end
 end

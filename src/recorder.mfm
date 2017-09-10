@@ -38,7 +38,6 @@ object recorderfo: trecorderfo
   dragdock.caption = ' Use this to Drag Drop the Song Player window '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   options = [fo_savepos, fo_savezorder, fo_savestate]
-  statfile = mainfo.tstatfile1
   icon.options = [bmo_masked]
   icon.origformat = 'png'
   icon.image = {
