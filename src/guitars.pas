@@ -26,9 +26,9 @@ type
    tbutton9: tbutton;
    loopguit: tbooleanedit;
    procedure doguitarstring(const sender: TObject);
-   procedure onfloatguit(const sender: TObject);
-   procedure ondockguit(const sender: TObject);
-   procedure oncloseguit(const sender: TObject);
+//   procedure onfloatguit(const sender: TObject);
+//   procedure ondockguit(const sender: TObject);
+   procedure onvisiblechangeev(const sender: TObject);
    procedure oncreateguit(const sender: TObject);
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
  end;
@@ -76,7 +76,7 @@ begin
   
  end;   
  end;   
-
+{
 procedure tguitarsfo.onfloatguit(const sender: TObject);
 begin
 height := 74;
@@ -93,14 +93,18 @@ height := 74;
 mainfo.height := mainfo.height + 74;
 end;
 end;
-
-procedure tguitarsfo.oncloseguit(const sender: TObject);
+}
+procedure tguitarsfo.onvisiblechangeev(const sender: TObject);
 begin
-if parentwidget <> nil then begin
-mainfo.height := mainfo.height - 74;
-if mainfo.height < 40 then mainfo.height := 40;
-mainfo.tmainmenu1.menu[2].caption := ' &Guitar-show ' ;
-end;
+{
+ if visible then begin
+  mainfo.tmainmenu1.menu[2].caption := ' &Guitar-hide ' ;
+ end
+ else begin
+  mainfo.tmainmenu1.menu[2].caption := ' &Guitar-show ' ;
+ end;
+ }
+ mainfo.updatelayout();
 end;
 
 procedure tguitarsfo.oncreateguit(const sender: TObject);
@@ -132,6 +136,7 @@ end;
 procedure tguitarsfo.onmousewindow(const sender: twidget;
                var ainfo: mouseeventinfoty);
 begin
+{
 with ainfo do
   if (eventkind = ek_buttonpress) then
   begin
@@ -139,6 +144,7 @@ if mainfo.issomeplaying = false then dragdock.optionsdock := [od_savepos,od_save
 else
 dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
 end;
+}
 end;
    
 end.

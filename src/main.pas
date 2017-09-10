@@ -5,7 +5,7 @@ unit main;
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
- ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,drums,
+ ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,drums, recorder,
  songplayer, guitars,msedataedits,mseedit,msestatfile,
  SysUtils,Classes, uos_flat, aboutform, 
  msebitmap, msesys,
@@ -32,21 +32,28 @@ type
     //               var accept: Boolean);
   
    procedure showdrums(const sender: TObject);
-   procedure procshowdrums(const sender: TObject);
-   procedure showpllayer(const sender: TObject);
-   procedure procshowpllayer(const sender: TObject);
+   procedure showrecorder(const sender: TObject);
+   procedure showplayer(const sender: TObject);
    procedure showguitars(const sender: TObject);
-   procedure procshowguitars(const sender: TObject);
    procedure onclosemain(const sender: TObject);
    procedure befclose(const sender: tcustommseform;
                    var amodalresult: modalresultty);
    procedure onfloatall(const sender: TObject);
    procedure ondockall(const sender: TObject);
    function issomeplaying : boolean;
+   procedure updatedockev(const sender: TObject; const awidget: twidget);
+   procedure onshowrecorder(const sender: TObject);
+   private
+    flayoutlock: int32;
+   protected
+    procedure beginlayout();
+    procedure endlayout();
+   public
+    procedure updatelayout();
   end;
  
 const
- versiontext = '1.3';
+ versiontext = '1.4';
  
 var
  mainfo: tmainfo;
@@ -69,8 +76,6 @@ begin
 // visible := false;
 tstatfile1.filename :=  IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +  'status.sta';
 end;
-
-
 
 procedure tmainfo.onabout(const sender: TObject);
 begin
@@ -97,30 +102,7 @@ procedure tmainfo.dodestroy(const sender: TObject);
 var
 i : integer;
 begin
-
-// freeandnil(Timerwait) ;
- {
- freeandnil(drumsfo.Timerpause) ;
- freeandnil(drumsfo.Timertick) ;
- for i := 0 to 3 do
-begin
-  freeandnil(drumsfo.alab2[i]);
-  freeandnil(drumsfo.alaband[i]);
-end;
-
- for i := 0 to 15 do
-begin
-  freeandnil(drumsfo.alab[i]);
-  freeandnil(drumsfo.aoh[i]);
-  freeandnil(drumsfo.ach[i]);
-  freeandnil(drumsfo.asd[i]);
-  freeandnil(drumsfo.abd[i]);
-end;
-}
-sleep(50);      
 uos_free;
-sleep(150);
-
 end;
 
 procedure tmainfo.doquit(const sender: TObject);
@@ -136,554 +118,25 @@ caption := 'StrumPract ' + versiontext;
 ondockall(sender);
 end;
 
-procedure tmainfo.procshowdrums(const sender: TObject);
-var
-i,x : integer;
-apos: pointty;
-isplayvisible : boolean = false;
-isplaydock : boolean = false;
-isguitvisible : boolean = false;
-isguitdock : boolean = false;
-isdrumvisible : boolean = false;
-isdrumdock : boolean = false;
+
+procedure tmainfo.showguitars(const sender: TObject);
 begin
-
-if drumsfo.visible = true then isdrumvisible := true ;
-if guitarsfo.visible = true then isguitvisible := true ;
-if songplayerfo.visible = true then isplayvisible := true ;
-
-if drumsfo.parentwidget <> nil then isdrumdock := true ;
-if guitarsfo.parentwidget <> nil then isguitdock := true ;
-if songplayerfo.parentwidget <> nil then isplaydock := true ;
-tmainmenu1.menu[0].caption := ' &Drums-hide ' ;
-
-drumsfo.height := 238;
-drumsfo.width := 458;
-
-guitarsfo.height := 74;
-guitarsfo.width := 458;
-
-songplayerfo.height := 114;
-songplayerfo.width := 458;
-drumsfo.activate;
-
-//onfloatall(sender);
-// 
-
-if (isplayvisible = false) and 
-(isguitvisible = false) then 
-begin
-if isdrumdock then
-begin
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-begin
-height := 40;
-width := 458 ;
-end;
+ guitarsfo.visible:= not guitarsfo.visible
 end;
 
-if (isplayvisible = false) and 
-(isguitvisible = true) then 
+procedure tmainfo.showrecorder(const sender: TObject);
 begin
-if isdrumdock then
-begin
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if  isguitdock = true then
-begin
-apos.y := drumsfo.height + 2 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-if  isguitdock = true then
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end;
-
-if (isguitvisible = false) and  
-(isplayvisible = true)  then 
-begin
-if isdrumdock then
-begin
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if isplaydock = true then begin
-apos.y := songplayerfo.height + 2 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-if isplaydock = true then
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end;
-
-if (isguitvisible = true) and
-(isplayvisible = true) then 
-begin
-if isdrumdock then
-begin
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if isplaydock = true then
- begin
-apos.y := drumsfo.height + 2;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if isguitdock = true then
- begin
-apos.y := drumsfo.height + songplayerfo.height + 2 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-if isguitdock = true then
- begin
-apos.y := drumsfo.height  + 2 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-if isplaydock = true then
- begin
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if isguitdock = true then
- begin
-apos.y := songplayerfo.height + 2 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-if isguitdock = true then
- begin
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-
-end;
-end;
+ recorderfo.visible:= not recorderfo.visible
 end;
 
 procedure tmainfo.showdrums(const sender: TObject);
 begin
-if drumsfo.visible = false then procshowdrums(sender)
-else begin
-tmainmenu1.menu[0].caption := ' &Drums-show ' ;
- drumsfo.close; 
-end;
-if height < 40 then  height :=40 ;
+ drumsfo.visible:= not drumsfo.visible
 end;
 
-procedure tmainfo.procshowpllayer(const sender: TObject);
-var
-i,x : integer;
-apos: pointty;
-isplayvisible : boolean = false;
-isplaydock : boolean = false;
-isguitvisible : boolean = false;
-isguitdock : boolean = false;
-isdrumvisible : boolean = false;
-isdrumdock : boolean = false;
+procedure tmainfo.showplayer(const sender: TObject);
 begin
-if drumsfo.visible = true then isdrumvisible := true ;
-if guitarsfo.visible = true then isguitvisible := true ;
-if songplayerfo.visible = true then isplayvisible := true ;
-
-if drumsfo.parentwidget <> nil then isdrumdock := true ;
-if guitarsfo.parentwidget <> nil then isguitdock := true ;
-if songplayerfo.parentwidget <> nil then isplaydock := true ;
-tmainmenu1.menu[1].caption := ' &Player-hide ' ;
-
-drumsfo.height := 238;
-drumsfo.width := 458;
-
-guitarsfo.height := 74;
-guitarsfo.width := 458;
-
-songplayerfo.height := 114;
-songplayerfo.width := 458;
-
-songplayerfo.activate;
-
-//onfloatall(sender);
-// 
-
-if (isdrumvisible = false) and 
-(isguitvisible = false) then 
-begin
-if isplaydock then
-begin
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-begin
-height := 40;
-width := 458 ;
-end;
-end;
-
-if (isdrumvisible = false) and 
-(isguitvisible = true) then 
-begin
-if isplaydock then
-begin
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if  isguitdock = true then
-begin
-apos.y := songplayerfo.height + 2 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-if  isguitdock = true then
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end;
-
-if (isdrumvisible = true) and 
-(isguitvisible = false) then 
-begin
-if isplaydock then
-begin
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-if isdrumdock = true then begin
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-apos.y := drumsfo.height + 2 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-if isdrumdock = true then
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end;
-
-if (isdrumvisible = true) and 
-(isguitvisible = true) then 
-begin
-if isplaydock then
-begin
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-if isdrumdock = true then
- begin
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-apos.y := drumsfo.height + 2;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos); 
-if isguitdock = true then
- begin
- apos.y := drumsfo.height + songplayerfo.height + 2 ;
- guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-if isguitdock = true then
- begin
-apos.y := songplayerfo.height  + 2 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-if isdrumdock = true then
- begin
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if isguitdock = true then
- begin
-apos.y := drumsfo.height + 2 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-if isguitdock = true then
- begin
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-
-end;
-end;
-end;
-
-procedure tmainfo.showpllayer(const sender: TObject);
-begin
-if songplayerfo.visible = false then 
-procshowpllayer(sender)
-else
-begin
-tmainmenu1.menu[1].caption := ' &Player-show ' ;
- songplayerfo.close; 
-end;
-if height < 40 then  height :=40 ;
-end;
-
-procedure tmainfo.procshowguitars(const sender: TObject);
-var
-i,x : integer;
-apos: pointty;
-isplayvisible : boolean = false;
-isplaydock : boolean = false;
-isguitvisible : boolean = false;
-isguitdock : boolean = false;
-isdrumvisible : boolean = false;
-isdrumdock : boolean = false;
-begin
-if drumsfo.visible = true then isdrumvisible := true ;
-if guitarsfo.visible = true then isguitvisible := true ;
-if songplayerfo.visible = true then isplayvisible := true ;
-
-if drumsfo.parentwidget <> nil then isdrumdock := true ;
-if guitarsfo.parentwidget <> nil then isguitdock := true ;
-if songplayerfo.parentwidget <> nil then isplaydock := true ;
-tmainmenu1.menu[2].caption := ' &Guitar-hide ' ;
-
-drumsfo.height := 238;
-drumsfo.width := 458;
-
-guitarsfo.height := 74;
-guitarsfo.width := 458;
-
-songplayerfo.height := 114;
-songplayerfo.width := 458;
-
-guitarsfo.activate;
-
-//onfloatall(sender);
-// 
-
-if (isdrumvisible = false) and 
-(isplayvisible = false) then 
-begin
-if isguitdock then
-begin
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-begin
-height := 40;
-width := 458 ;
-end;
-end;
-
-if (isdrumvisible = false) and 
-(isplayvisible = true) then
-begin
-if isguitdock then
-begin
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if  isplaydock = true then
-begin
-apos.y := guitarsfo.height + 2 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-if  isplaydock = true then
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end;
-
-if (isdrumvisible = true) and 
-(isplayvisible = false) then 
-begin
-if isguitdock then
-begin
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-if isdrumdock = true then begin
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-apos.y := drumsfo.height + 2 ;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-if isdrumdock = true then
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end;
-
-if (isdrumvisible = true) and 
-(isplayvisible = true) then 
-begin
-if isguitdock then
-begin
-for x:=0 to 1 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-if isdrumdock = true then
- begin
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-apos.y := drumsfo.height + 2;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos); 
-if isplaydock = true then
- begin
- apos.y := drumsfo.height + songplayerfo.height + 2 ;
- songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-if isplaydock = true then
- begin
-apos.y := songplayerfo.height  + 2 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-end else
-begin
-for x:=0 to 0 do
-begin
-height := 25;
-width := 458 ;
-apos.x := 0 ;
-apos.y := 0 ;
-if isdrumdock = true then
- begin
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-if isplaydock = true then
- begin
-apos.y := drumsfo.height + 2 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end else
-if isplaydock = true then
- begin
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-end;
-end;
-
-end;
-end;
-end;
-
-
-procedure tmainfo.showguitars(const sender: TObject);
-begin
-if guitarsfo.visible = false then 
-procshowguitars(sender)
-else begin
-tmainmenu1.menu[2].caption := ' &Guitar-show ' ;
- guitarsfo.close; 
-end;
-if height < 40 then  height :=40 ;
+ songplayerfo.visible:= not songplayerfo.visible
 end;
 
 procedure tmainfo.onclosemain(const sender: TObject);
@@ -710,67 +163,135 @@ if drumsfo.timertick.enabled = true then isplay := true;
 result := isplay;
 end;
 
-procedure tmainfo.onfloatall(const sender: TObject);
+procedure tmainfo.beginlayout();
 begin
-if issomeplaying = false then
-begin
-application.lock();
-drumsfo.activate;
-songplayerfo.activate;
-guitarsfo.activate;
-
-if drumsfo.parentwidget <> nil then drumsfo.dragdock.float();
-if songplayerfo.parentwidget <> nil then songplayerfo.dragdock.float();
-if guitarsfo.parentwidget <> nil then guitarsfo.dragdock.float();
-
-height := 40;
-drumsfo.top := top + height + 30 ;
-songplayerfo.top := drumsfo.top + drumsfo.height + 30 ;
-guitarsfo.top := songplayerfo.top + songplayerfo.height + 30 ;
-visible := true;
-application.unlock();
+ inc(flayoutlock);
+ basedock.dragdock.beginplacement();
 end;
+
+procedure tmainfo.endlayout();
+begin
+ dec(flayoutlock);
+ basedock.dragdock.endplacement();
+ if flayoutlock = 0 then begin
+  updatelayout();
+ end;
+end;
+
+const
+ emptyheight = 80;
+
+procedure tmainfo.updatelayout();
+var
+ maxwidth: int32;
+ totheight: int32;
+ visiblecount: int32;
+ children1: widgetarty;
+ heights: integerarty;
+ i1: int32;
+ si1,si2: sizety;
+begin
+ if flayoutlock <= 0 then begin
+  children1:= basedock.dragdock.getitems();
+  setlength(heights,length(children1));
+  visiblecount:= 0;
+  maxwidth:= 0;
+  totheight:= 0;
+  for i1:= 0 to high(children1) do begin
+   with children1[i1] do begin
+    si1:= container.minscrollsize(); //minimal clientarea
+    addsize1(si1,framedim());        //add space for frame
+    heights[i1]:= si1.cy;
+    if visible then begin
+     if si1.cx > maxwidth then begin
+      maxwidth:= si1.cx;
+     end;
+     totheight:= totheight + si1.cy;
+     inc(visiblecount);
+    end;
+   end;
+  end;
+  if visiblecount = 0 then begin
+   height:= emptyheight;
+  end
+  else begin
+   i1:= 0;
+   repeat
+    si1:= subsize(size,basedock.paintsize); //padding before update
+    si2.cx:= maxwidth + si1.cx;
+    si2.cy:= totheight + (visiblecount-1) * basedock.dragdock.splitter_size + 
+                                                                        si1.cy;
+    size:= si2;
+    si2:= subsize(size,basedock.paintsize); //padding after update
+    inc(i1);
+   until (si1.cx = si2.cx) and (si1.cy = si2.cy) or      //padding stable
+                                             (i1 > 8);  //emergency brake
+  end;
+ end;
+ for i1:= 0 to high(children1) do begin
+  with children1[i1] do begin
+   height:= heights[i1];
+  end;
+ end;
+end;
+
+procedure tmainfo.updatedockev(const sender: TObject; const awidget: twidget);
+begin
+ updatelayout();
+end;
+ 
+procedure tmainfo.onfloatall(const sender: TObject);
+var
+ rect1,rect2: rectty;
+ decorationheight: int32;
+begin
+ decorationheight:= window.decoratedbounds_cy - height;
+ 
+ beginlayout();
+ drumsfo.dragdock.float();
+ guitarsfo.dragdock.float();
+ songplayerfo.dragdock.float();
+ recorderfo.dragdock.float();
+ endlayout();
+
+ drumsfo.show();
+ guitarsfo.show();
+ songplayerfo.show();
+ recorderfo.show();
+ drumsfo.top:= top + height + decorationheight;
+ guitarsfo.top:= drumsfo.top + drumsfo.height + decorationheight;
+ songplayerfo.top:= guitarsfo.top + guitarsfo.height + decorationheight;
+ recorderfo.top:= songplayerfo.top + songplayerfo.height + decorationheight;
+ 
 end;
 
 procedure tmainfo.ondockall(const sender: TObject);
 var
-x : integer;
-apos: pointty;
+ pt1: pointty;
 begin
+ beginlayout();
+ drumsfo.parentwidget:= basedock;
+ guitarsfo.parentwidget:= basedock;
+ songplayerfo.parentwidget:= basedock;
+ recorderfo.parentwidget:= basedock;
+ pt1:= nullpoint;
+ drumsfo.pos:= pt1;
+ pt1.y:= pt1.y + drumsfo.height;
+ guitarsfo.pos:= pt1;
+ pt1.y:= pt1.y + guitarsfo.height;
+ songplayerfo.pos:= pt1;
+ pt1.y:= pt1.y + songplayerfo.height;
+ recorderfo.pos:= pt1;
 
-if issomeplaying = false then
+ drumsfo.show();
+ songplayerfo.show();
+ guitarsfo.show();
+ recorderfo.show();
+ endlayout();
+end;
+
+procedure tmainfo.onshowrecorder(const sender: TObject);
 begin
-application.lock();
-//visible := false;
-//sleep(10);
-drumsfo.activate;
-songplayerfo.activate;
-guitarsfo.activate;
-
-width := 458 ;
-
-// ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));  
-//if fileexists( ordir+'status.sta') then y := 0 else y := 1;
-//visible := false;
-
-for x:=0 to 1 do // ones is sometimes not enough
-begin
-height := 26 ;
-apos.x := 0 ;
-apos.y := 10 ;
-drumsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-apos.y := drumsfo.height + 10;
-guitarsfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-apos.y := drumsfo.height + guitarsfo.height + 10 ;
-songplayerfo.dragdock.dockto(mainfo.basedock.dragdock,apos);
-//apos.y := drumsfo.height + 10;
 end;
-//visible := true;
-application.unlock();
-// height := songplayerfo.height + drumsfo.height + guitarsfo.height + 26 ;
-//activate;
 
-end;
-end;
- 
 end.

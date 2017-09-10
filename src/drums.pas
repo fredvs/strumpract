@@ -145,9 +145,9 @@ type
    procedure createdrumsplayers;
    procedure createvoiceplayers;
    procedure stopvoiceplayers;
-   procedure onfloatdrums(const sender: TObject);
-   procedure ondockdrums(const sender: TObject);
-   procedure onclosedrums(const sender: TObject);
+//   procedure onfloatdrums(const sender: TObject);
+//   procedure ondockdrums(const sender: TObject);
+   procedure visiblechangeev(const sender: TObject);
    procedure oncreatedrums(const sender: TObject);
    procedure oncreateddrums(const sender: TObject);
    
@@ -626,7 +626,7 @@ end;
   abd[ax].value := true else  abd[ax].value := false;
   end;  
  end; 
-
+{
 procedure tdrumsfo.onfloatdrums(const sender: TObject);
 begin
 height := 238;
@@ -643,14 +643,18 @@ height := 238;
 mainfo.height := mainfo.height + 238;
 end;
 end;
-
-procedure tdrumsfo.onclosedrums(const sender: TObject);
+}
+procedure tdrumsfo.visiblechangeev(const sender: TObject);
 begin
-if parentwidget <> nil then begin
-mainfo.height := mainfo.height - 238;
-if mainfo.height < 40 then mainfo.height := 40; 
-mainfo.tmainmenu1.menu[0].caption := ' &Drums-show ' ;
-end;
+{
+ if visible then begin
+  mainfo.tmainmenu1.menu[0].caption := ' &Drums-hide ' ;
+ end
+ else begin
+  mainfo.tmainmenu1.menu[0].caption := ' &Drums-show ' ;
+ end;
+ }
+ mainfo.updatelayout();
 end;
 
 procedure tdrumsfo.createdrumsplayers;
@@ -1157,6 +1161,7 @@ end;
 procedure tdrumsfo.onmousewindow(const sender: twidget;
                var ainfo: mouseeventinfoty);
 begin
+{
 with ainfo do
   if (eventkind = ek_buttonpress) then
   begin
@@ -1164,6 +1169,7 @@ if mainfo.issomeplaying = false then dragdock.optionsdock := [od_savepos,od_save
 else
 dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
 end;
+}
 end;
 
 procedure tdrumsfo.onsetnovoice(const sender: TObject; var avalue: Boolean;

@@ -1,0 +1,80 @@
+[mainfo]
+stackedunder=
+x=514
+y=24
+cx=454
+cy=558
+wsize=0
+active=0
+visible=0
+[recorderfo]
+splitdir=0
+useroptions=805339259
+parent=mainfo.basedock
+visible=1
+mdistate=0
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=0
+y=427
+cx=454
+cy=112
+rcx=0
+rcy=0
+[recorderfo.songdir]
+filenames=1
+ /home/fred/strumpract/src/sound/song/test.ogg
+filecolwidth=0
+x=0
+y=0
+cx=0
+cy=0
+lastdir=/home/fred/strumpract/src/sound/song/
+filehistory=0
+filefilterindex=0
+filefilter="*.mp3" "*.wav" "*.ogg" "*.flac"
+[recorderfo.cbloop]
+value=0
+[recorderfo.edvol]
+value=100
+[recorderfo.historyfn]
+value=/home/fred/strumpract/src/sound/song/test.ogg
+history=0
+[songplayerfo]
+splitdir=0
+useroptions=805339259
+parent=mainfo.basedock
+visible=1
+mdistate=0
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=0
+y=312
+cx=454
+cy=112
+rcx=0
+rcy=0
+[songplayerfo.songdir]
+filenames=1
+ /home/fred/mp3/11 inch/Anita Ward - ring my bell (disco version).mp3
+filecolwidth=174
+x=0
+y=0
+cx=0
+cy=0
+lastdir=/home/fred/mp3/11 inch/
+filehistory=1
+ /home/fred/mp3/11 inch/Anita Ward - ring my bell (disco version).mp3
+filefilterindex=0
+filefilter="*.mp3" "*.wav" "*.ogg" "*.flac"
+[songplayerfo.cbloop]
+value=1
+[songplayerfo.edvol]
+value=100
+[songplayerfo.historyfn]
+value=/home/fred/mp3/11 inch/Anita Ward - ring my bell (disco version).mp3
+history=0

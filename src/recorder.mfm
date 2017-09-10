@@ -1,4 +1,4 @@
-object songplayerfo: tsongplayerfo
+object recorderfo: trecorderfo
   frame.localprops = []
   frame.localprops1 = []
   frame.grip_size = 8
@@ -18,8 +18,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.fade_direction = gd_down
   frame.grip_faceactive.localprops = []
   visible = False
-  bounds_x = 566
-  bounds_y = 326
+  bounds_x = 507
+  bounds_y = 308
   bounds_cx = 457
   bounds_cy = 114
   container.frame.framei_left = 0
@@ -104,18 +104,9 @@ object songplayerfo: tsongplayerfo
     frame.localprops = [frl_framewidth, frl_colorframe]
     frame.localprops1 = []
     frame.grip_size = 0
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      15989438
-      11054468
-    )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
+    face.template = tfacecomp1
     bounds_x = 0
     bounds_y = 2
     bounds_cx = 446
@@ -125,42 +116,33 @@ object songplayerfo: tsongplayerfo
       taborder = 7
       bounds_x = 34
       bounds_y = 30
-      bounds_cx = 74
-      bounds_cy = 14
+      bounds_cx = 71
+      bounds_cy = 15
       caption = 'Song Player'
       font.color = 4210752
       font.name = 'stf_default'
       font.localprops = [flp_color]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel27: tlabel
       color = -2147483645
       taborder = 11
       bounds_x = 193
       bounds_y = 27
-      bounds_cx = 46
-      bounds_cy = 14
+      bounds_cx = 45
+      bounds_cy = 15
       caption = 'Volume'
       font.color = 4013373
       font.name = 'stf_default'
       font.localprops = [flp_color]
-      reffontheight = 14
+      reffontheight = 15
     end
     object btnPause: tbutton
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        10462076
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
       hint = ' Pause player '
       bounds_x = 72
       bounds_y = 46
@@ -175,18 +157,9 @@ object songplayerfo: tsongplayerfo
     object btnResume: tbutton
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        10462076
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
       taborder = 1
       hint = ' Resume player '
       bounds_x = 41
@@ -202,18 +175,9 @@ object songplayerfo: tsongplayerfo
     object btnStart: tbutton
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        10462076
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
       taborder = 2
       hint = ' Start player '
       bounds_x = 10
@@ -232,15 +196,19 @@ object songplayerfo: tsongplayerfo
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
+          face.localprops = []
+          face.template = tfacecomp1
           imagenr = 17
         end>
+      frame.button.face.localprops = []
+      frame.button.face.template = tfacecomp1
       frame.button.imagenr = 17
       taborder = 3
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
       bounds_x = 60
       bounds_y = 4
       bounds_cx = 22
-      bounds_cy = 21
+      bounds_cy = 22
       statfile = mainfo.tstatfile1
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
       controller.filterlist.data = (
@@ -265,23 +233,14 @@ object songplayerfo: tsongplayerfo
           '"*.mp3" "*.wav" "*.ogg" "*.flac"'
         )
       )
-      reffontheight = 14
+      reffontheight = 15
     end
     object btnStop: tbutton
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        10462076
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
       taborder = 4
       hint = ' Stop player '
       bounds_x = 103
@@ -305,7 +264,7 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 15
       caption = '00:00:00.000'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object lposition: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -318,10 +277,10 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 15
       caption = '00:00:00.000'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object trackbar1: tslider
-      color = 13357471
+      color = 14406110
       frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = []
       taborder = 8
@@ -334,33 +293,16 @@ object songplayerfo: tsongplayerfo
       enabled = False
       value = 0
       scrollbar.buttonendlength = 11
-      scrollbar.face.fade_pos.count = 2
-      scrollbar.face.fade_pos.items = (
-        0
-        1
-      )
-      scrollbar.face.fade_color.count = 2
-      scrollbar.face.fade_color.items = (
-        15792060
-        11580810
-      )
       scrollbar.face.fade_direction = gd_down
       scrollbar.face.localprops = [fal_fadirection]
-      scrollbar.face1.fade_pos.count = 2
-      scrollbar.face1.fade_pos.items = (
-        0
-        1
-      )
-      scrollbar.face1.fade_color.count = 2
-      scrollbar.face1.fade_color.items = (
-        15792060
-        11581066
-      )
+      scrollbar.face.template = tfacecomp1
       scrollbar.face1.fade_direction = gd_down
       scrollbar.face1.localprops = [fal_fadirection]
+      scrollbar.face1.template = tfacecomp1
       scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp1
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfacecomp2
+      scrollbar.facebutton.template = tfacecomp1
       onsetvalue = changepos
     end
     object cbtempo: tbooleanedit
@@ -374,16 +316,16 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         17
-        19
-        18
+        20
+        17
         0
       )
       taborder = 9
       hint = ' Enable stretching (changing temo) '
       bounds_x = 263
-      bounds_y = 38
-      bounds_cx = 48
-      bounds_cy = 31
+      bounds_y = 37
+      bounds_cx = 47
+      bounds_cy = 32
       onchange = ChangePlugSetSoundTouch
     end
     object label6: tlabel
@@ -391,13 +333,13 @@ object songplayerfo: tsongplayerfo
       taborder = 10
       bounds_x = 320
       bounds_y = 27
-      bounds_cx = 42
-      bounds_cy = 14
+      bounds_cx = 41
+      bounds_cy = 15
       caption = 'Tempo'
       font.color = 4013373
       font.name = 'stf_default'
       font.localprops = [flp_color]
-      reffontheight = 14
+      reffontheight = 15
     end
     object cbloop: tbooleanedit
       color = -2147483645
@@ -410,16 +352,16 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         9
-        19
-        10
+        20
+        9
         0
       )
       taborder = 12
       hint = ' Enable looping the song '
       bounds_x = 138
-      bounds_y = 38
-      bounds_cx = 32
-      bounds_cy = 31
+      bounds_y = 37
+      bounds_cx = 31
+      bounds_cy = 32
       statfile = mainfo.tstatfile1
     end
     object button1: tbutton
@@ -427,18 +369,9 @@ object songplayerfo: tsongplayerfo
       color = 11647116
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        15989438
-        11054468
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
       taborder = 13
       hint = ' Reset to tempo original '
       bounds_x = 383
@@ -460,25 +393,16 @@ object songplayerfo: tsongplayerfo
       frame.framei_bottom = 1
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
-      frame.buttonface.fade_pos.count = 2
-      frame.buttonface.fade_pos.items = (
-        0
-        1
-      )
-      frame.buttonface.fade_color.count = 2
-      frame.buttonface.fade_color.items = (
-        15989438
-        10133112
-      )
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = tfacecomp1
       frame.buttonsize = 30
       taborder = 14
       hint = ' Change tempo of song '
       bounds_x = 316
       bounds_y = 42
       bounds_cx = 62
-      bounds_cy = 31
+      bounds_cy = 32
       onchange = ChangePlugSetSoundTouch
       value = 1
       valuedefault = 1
@@ -490,7 +414,7 @@ object songplayerfo: tsongplayerfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object edvol: trealspinedit
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -501,25 +425,16 @@ object songplayerfo: tsongplayerfo
       frame.framei_bottom = 1
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
-      frame.buttonface.fade_pos.count = 2
-      frame.buttonface.fade_pos.items = (
-        0
-        1
-      )
-      frame.buttonface.fade_color.count = 2
-      frame.buttonface.fade_color.items = (
-        15989438
-        10133112
-      )
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = tfacecomp1
       frame.buttonsize = 30
       taborder = 15
       hint = ' Change volume of song '
       bounds_x = 187
       bounds_y = 42
       bounds_cx = 62
-      bounds_cy = 31
+      bounds_cy = 32
       statfile = mainfo.tstatfile1
       onchange = changevolume
       value = 100
@@ -532,25 +447,16 @@ object songplayerfo: tsongplayerfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object btinfos: tbutton
       Tag = 1
       color = 11647116
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        15989438
-        11054468
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
       taborder = 16
       hint = ' Show infos of the song '
       bounds_x = 8
@@ -568,31 +474,27 @@ object songplayerfo: tsongplayerfo
       frame.captiondist = 0
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
+      frame.button.face.localprops = []
+      frame.button.face.template = tfacecomp1
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
+          face.localprops = []
+          face.template = tfacecomp1
         end>
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        16777215
-        14870707
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
       taborder = 17
       hint = ' History of files '
       bounds_x = 84
       bounds_y = 4
       bounds_cx = 355
-      bounds_cy = 21
+      bounds_cy = 22
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+      dropdown.facetemplate = tfacecomp1
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
@@ -601,7 +503,7 @@ object songplayerfo: tsongplayerfo
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
         end>
       dropdown.historymaxcount = 50
-      reffontheight = 14
+      reffontheight = 15
     end
     object vuLeft: tdockpanel
       color = 976914
@@ -645,5 +547,20 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 6
       bounds_cy = 44
     end
+  end
+  object tfacecomp1: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      14406110
+      11772600
+    )
+    template.fade_direction = gd_down
+    left = 141
+    top = 30
   end
 end

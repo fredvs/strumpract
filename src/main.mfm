@@ -18,14 +18,14 @@ object mainfo: tmainfo
   bounds_x = 502
   bounds_y = 215
   bounds_cx = 449
-  bounds_cy = 46
+  bounds_cy = 233
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     17
     449
-    29
+    216
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1129,14 +1129,16 @@ object mainfo: tmainfo
     frame.grip_face.template = tfacecomp4
     bounds_x = 0
     bounds_y = 2
-    bounds_cx = 434
-    bounds_cy = 166
+    bounds_cx = 449
+    bounds_cy = 214
     anchors = [an_left, an_top, an_right, an_bottom]
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
     dragdock.caption = 'Dock any window on this area.'
-    dragdock.optionsdock = [od_savepos, od_savezorder, od_acceptsdock, od_splithorz, od_proportional, od_background]
+    dragdock.optionsdock = [od_savepos, od_savezorder, od_acceptsdock, od_splithorz, od_background]
+    dragdock.onchilddock = updatedockev
+    dragdock.onchildfloat = updatedockev
     dockingareacaption = 'Drag the window into this Dock Area...'
   end
   object buttonicons: timagelist
@@ -3043,7 +3045,7 @@ object mainfo: tmainfo
     )
     template.fade_direction = gd_up
     left = 40
-    top = 52
+    top = 44
   end
   object tfacecomp3: tfacecomp
     template.fade_pos.count = 2
@@ -3060,22 +3062,27 @@ object mainfo: tmainfo
     left = 185
   end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 7
+    menu.submenu.count = 8
     menu.submenu.items = <    
       item
-        caption = ' &Drums-hide '
+        caption = ' &Drums '
         state = [as_localcaption, as_localonexecute]
         onexecute = showdrums
       end    
       item
-        caption = ' &Player-hide '
+        caption = ' &Player '
         state = [as_localcaption, as_localonexecute]
-        onexecute = showpllayer
+        onexecute = showplayer
       end    
       item
-        caption = ' &Guitars-hide '
+        caption = ' &Guitars '
         state = [as_localcaption, as_localonexecute]
         onexecute = showguitars
+      end    
+      item
+        caption = ' &Recorder '
+        state = [as_localcaption, as_localonexecute]
+        onexecute = showrecorder
       end    
       item
         caption = ' D&ock '
@@ -3116,7 +3123,7 @@ object mainfo: tmainfo
   object tstatfile1: tstatfile
     filename = 'status.sta'
     options = [sfo_transaction, sfo_autowritestat, sfo_activatorread, sfo_activatorwrite]
-    left = 134
-    top = 139
+    left = 214
+    top = 43
   end
 end

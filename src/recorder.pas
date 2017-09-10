@@ -1,16 +1,14 @@
-unit songplayer;
+unit recorder;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
  ctypes, uos_flat, infos, msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
  mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,
- mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
- msedataedits,msefiledialog,msegrids,
- mselistbrowser,
- msesys,sysutils,msegraphedits;
+ mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
+ msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits;
 
 type
- tsongplayerfo = class(tdockform)
+ trecorderfo = class(tdockform)
    tdockpanel8: tdockpanel;
    tlabel28: tlabel;
    tlabel27: tlabel;
@@ -34,6 +32,7 @@ type
    vuRight: tdockpanel;
    Timerwait: Ttimer;
    
+   tfacecomp1: tfacecomp;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -64,7 +63,7 @@ type
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
  end;
 var
- songplayerfo: tsongplayerfo;
+ recorderfo: trecorderfo;
  thedialogform : tfiledialogfo;
  initplay : integer = 1;
   theplayer : integer = 20;
@@ -75,9 +74,9 @@ var
 implementation
 uses
 main,
- songplayer_mfm;
+ recorder_mfm;
  
- procedure tsongplayerfo.ontimerwait(const Sender: TObject);
+ procedure trecorderfo.ontimerwait(const Sender: TObject);
 begin 
 timerwait.enabled := false;
  btnStart.Enabled := True;
@@ -91,12 +90,12 @@ timerwait.enabled := false;
 
 end;
  
- procedure tsongplayerfo.ChangePlugSetSoundTouch(const Sender: TObject);
+ procedure trecorderfo.ChangePlugSetSoundTouch(const Sender: TObject);
   var
     tempo, rate: cfloat;
   begin
-         if (trim(Pchar(AnsiString(songplayerfo.historyfn.value))) <> '') 
-         and fileexists(AnsiString(songplayerfo.historyfn.value)) then
+         if (trim(Pchar(AnsiString(recorderfo.historyfn.value))) <> '') 
+         and fileexists(AnsiString(recorderfo.historyfn.value)) then
   begin
  
   //   label6.caption := 'Tempo: ' + floattostrf(tempo, ffFixed, 15, 1);
@@ -107,7 +106,7 @@ end;
   end;
  
   
-procedure tsongplayerfo.ClosePlayer1;
+procedure trecorderfo.ClosePlayer1;
   begin
   {
     radiobutton1.Enabled := True;
@@ -130,7 +129,7 @@ procedure tsongplayerfo.ClosePlayer1;
     lposition.caption := '00:00:00.000';
      end;
      
-  procedure tsongplayerfo.ShowLevel;
+  procedure trecorderfo.ShowLevel;
   begin
       vuLeft.Visible := True;
     vuRight.Visible := True;
@@ -142,7 +141,7 @@ procedure tsongplayerfo.ClosePlayer1;
     vuRight.top := 75 - vuRight.Height;
    end;  
  
- procedure tsongplayerfo.ShowPosition;
+ procedure trecorderfo.ShowPosition;
   var
     temptime: ttime;
     ho, mi, se, ms: word;
@@ -162,13 +161,13 @@ procedure tsongplayerfo.ClosePlayer1;
    
     end; 
   
- procedure tsongplayerfo.LoopProcPlayer1;
+ procedure trecorderfo.LoopProcPlayer1;
 begin
  ShowPosition;
  ShowLevel ;
 end;
 
-procedure tsongplayerfo.doplayerstart(const sender: TObject);
+procedure trecorderfo.doplayerstart(const sender: TObject);
 var
     samformat: shortint;
        ho, mi, se, ms: word;
@@ -330,7 +329,7 @@ var
     end;
 end;
 
-procedure tsongplayerfo.doplayeresume(const sender: TObject);
+procedure trecorderfo.doplayeresume(const sender: TObject);
 begin
   btnStop.Enabled := True;
   btnPause.Enabled := True;
@@ -338,7 +337,7 @@ begin
   uos_RePlay(theplayer);
 end;
 
-procedure tsongplayerfo.doplayerpause(const sender: TObject);
+procedure trecorderfo.doplayerpause(const sender: TObject);
 begin
     vuLeft.Visible := False;
     vuRight.Visible := False;
@@ -350,12 +349,12 @@ begin
     uos_Pause(theplayer);
 end;
 
-procedure tsongplayerfo.doplayerstop(const sender: TObject);
+procedure trecorderfo.doplayerstop(const sender: TObject);
 begin
  uos_Stop(theplayer);
 end;
 
-procedure tsongplayerfo.changepos(const sender: TObject; var avalue: realty;
+procedure trecorderfo.changepos(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
  if TrackBar1.Tag = 0 then
@@ -364,24 +363,24 @@ begin
 
 end;
 
-procedure tsongplayerfo.changevolume(const sender: TObject);
+procedure trecorderfo.changevolume(const sender: TObject);
 begin
    uos_InputSetDSPVolume(theplayer, InputIndex1,
    edvol.value/100, edvol.value/100, True);
 
 end;
 
-procedure tsongplayerfo.doentertrackbar(const sender: TObject);
+procedure trecorderfo.doentertrackbar(const sender: TObject);
 begin
-songplayerfo.trackbar1.tag := 1;
+recorderfo.trackbar1.tag := 1;
 end;
 
-procedure tsongplayerfo.onreset(const sender: TObject);
+procedure trecorderfo.onreset(const sender: TObject);
 begin
-songplayerfo.edtempo.value := 1;
+recorderfo.edtempo.value := 1;
 end;
 
-procedure tsongplayerfo.onfinfos(const sender: TObject);
+procedure trecorderfo.onfinfos(const sender: TObject);
 var
 maxwidth : integer;
 temptimeinfo : ttime;
@@ -434,7 +433,7 @@ end;
 end;
 
 
-procedure tsongplayerfo.onmouseslider(const sender: twidget;
+procedure trecorderfo.onmouseslider(const sender: twidget;
                var ainfo: mouseeventinfoty);
 begin
 if ainfo.eventkind = ek_buttonpress then trackbar1.tag := 1 else
@@ -442,19 +441,19 @@ if ainfo.eventkind =  ek_buttonrelease then trackbar1.tag := 0 ;
 end;
 
 
-procedure tsongplayerfo.onsliderkeydown(const sender: twidget;
+procedure trecorderfo.onsliderkeydown(const sender: twidget;
                var ainfo: keyeventinfoty);
 begin
 trackbar1.tag := 1 ;
 end;
 
-procedure tsongplayerfo.onsliderkeyup(const sender: twidget;
+procedure trecorderfo.onsliderkeyup(const sender: twidget;
                var ainfo: keyeventinfoty);
 begin
 trackbar1.tag := 0 ;
 end;
 
-procedure tsongplayerfo.onsliderchange(const sender: TObject);
+procedure trecorderfo.onsliderchange(const sender: TObject);
  var
     temptime: ttime;
     ho, mi, se, ms: word;
@@ -469,7 +468,7 @@ begin
 
 end;
 
-procedure tsongplayerfo.onfloatplay(const sender: TObject);
+procedure trecorderfo.onfloatplay(const sender: TObject);
 begin
 {
 height := 114;
@@ -478,7 +477,7 @@ if mainfo.height < 40 then mainfo.height := 40;
 }
 end;
 
-procedure tsongplayerfo.ondockplay(const sender: TObject);
+procedure trecorderfo.ondockplay(const sender: TObject);
 begin
 // if initplay = 0 then mainfo.procshowpllayer(sender);
 
@@ -488,7 +487,7 @@ mainfo.height := mainfo.height + 114;
 end;
 end;
 
-procedure tsongplayerfo.visiblechangeev(const sender: TObject);
+procedure trecorderfo.visiblechangeev(const sender: TObject);
 begin
 {
  if visible then begin
@@ -501,7 +500,7 @@ begin
  mainfo.updatelayout();
 end;
 
-procedure tsongplayerfo.onplayercreate(const sender: TObject);
+procedure trecorderfo.onplayercreate(const sender: TObject);
 var
 ordir : string;
 begin
@@ -528,11 +527,11 @@ caption := 'Song Player';
 // if historyfn.value = '' then
 // historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
  
- songplayerfo.historyfn.value := songplayerfo.songdir.value ;         
+ recorderfo.historyfn.value := recorderfo.songdir.value ;         
         
 end;
 
-procedure tsongplayerfo.onmousewindow(const sender: twidget;
+procedure trecorderfo.onmousewindow(const sender: twidget;
                var ainfo: mouseeventinfoty);
 begin
 {
