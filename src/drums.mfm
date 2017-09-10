@@ -21,7 +21,7 @@ object drumsfo: tdrumsfo
   bounds_x = 610
   bounds_y = 236
   bounds_cx = 457
-  bounds_cy = 238
+  bounds_cy = 236
   anchors = [an_left, an_top, an_right, an_bottom]
   container.frame.framei_left = 0
   container.frame.framei_top = 0
@@ -33,7 +33,7 @@ object drumsfo: tdrumsfo
     0
     0
     449
-    238
+    236
   )
   dragdock.caption = ' Use this to Drag Drop the Drums Set window '
   dragdock.optionsdock = [od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]

@@ -22,7 +22,7 @@ object guitarsfo: tguitarsfo
   bounds_x = 652
   bounds_y = 290
   bounds_cx = 458
-  bounds_cy = 72
+  bounds_cy = 66
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -33,7 +33,7 @@ object guitarsfo: tguitarsfo
     0
     0
     450
-    72
+    66
   )
   dragdock.splitter_size = 5
   dragdock.caption = ' Use this to Drag Drop the Guitars window '
@@ -167,7 +167,7 @@ object guitarsfo: tguitarsfo
     taborder = 1
     hint = ' Guitar Strings '
     bounds_x = 0
-    bounds_y = 3
+    bounds_y = 0
     bounds_cx = 446
     bounds_cy = 32
     object tlabel23: tlabel
@@ -400,7 +400,7 @@ object guitarsfo: tguitarsfo
     face.localprops = [fal_fadirection]
     hint = ' Bass Strings'
     bounds_x = 0
-    bounds_y = 38
+    bounds_y = 34
     bounds_cx = 446
     bounds_cy = 32
     object tlabel24: tlabel

@@ -261,7 +261,7 @@ begin
  recorderfo.dragdock.float();
  endlayout();
  height := 40;
- drumsfo.height := 238;
+ drumsfo.height := 236;
  drumsfo.show();
  guitarsfo.show();
  songplayerfo.show();

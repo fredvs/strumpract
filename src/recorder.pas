@@ -3,7 +3,7 @@ unit recorder;
 interface
 uses
  ctypes, uos_flat, infos, msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
- mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,
+ mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent, 
  mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
  msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits,mseificomp,
  mseificompglob,mseifiglob,msescrollbar;
@@ -148,8 +148,8 @@ procedure trecorderfo.ClosePlayer1;
       vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer3, InputIndex3) * 44);
     if trunc(uos_InputGetLevelRight(theplayer3, InputIndex3) * 44) >= 0 then
       vuRight.Height := trunc(uos_InputGetLevelRight(theplayer3, InputIndex3) * 44);
-    vuLeft.top := 120 - vuLeft.Height;
-    vuRight.top := 120 - vuRight.Height;
+    vuLeft.top := 96 - vuLeft.Height;
+    vuRight.top := 96 - vuRight.Height;
    end;  
  
  procedure trecorderfo.ShowPosition;
@@ -183,7 +183,8 @@ var
     samformat: shortint;
        ho, mi, se, ms: word;
   begin
-  
+  if fileexists(pchar(AnsiString(historyfn.value))) then
+  begin
      samformat := 0;
      
    //  songdir.hint := songdir.value;
@@ -338,7 +339,8 @@ var
     end else 
     begin
      showmessage( historyfn.value + ' does not exist...');
-    end;
+    end; end else showmessage( historyfn.value + ' does not exist...');
+    
 end;
 
 procedure trecorderfo.doplayeresume(const sender: TObject);

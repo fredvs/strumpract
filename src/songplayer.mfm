@@ -21,7 +21,7 @@ object songplayerfo: tsongplayerfo
   bounds_x = 518
   bounds_y = 319
   bounds_cx = 457
-  bounds_cy = 114
+  bounds_cy = 110
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -32,7 +32,7 @@ object songplayerfo: tsongplayerfo
     0
     0
     449
-    114
+    110
   )
   dragdock.splitter_size = 5
   dragdock.caption = ' Use this to Drag Drop the Song Player window '
@@ -117,7 +117,7 @@ object songplayerfo: tsongplayerfo
     face.localprops = [fal_fadirection]
     hint = ' Player 1 '
     bounds_x = 0
-    bounds_y = 2
+    bounds_y = 0
     bounds_cx = 446
     bounds_cy = 110
     object tlabel28: tlabel

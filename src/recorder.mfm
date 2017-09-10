@@ -11,7 +11,7 @@ object recorderfo: trecorderfo
   bounds_x = 459
   bounds_y = 352
   bounds_cx = 457
-  bounds_cy = 158
+  bounds_cy = 128
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -22,7 +22,7 @@ object recorderfo: trecorderfo
     0
     0
     449
-    158
+    128
   )
   dragdock.splitter_size = 5
   dragdock.caption = ' Use this to Drag Drop the Song Player window '
@@ -99,14 +99,14 @@ object recorderfo: trecorderfo
     face.template = tfacecomp1
     hint = ' Recorder '
     bounds_x = 0
-    bounds_y = 2
+    bounds_y = 0
     bounds_cx = 446
-    bounds_cy = 155
+    bounds_cy = 128
     object tlabel27: tlabel
       color = -2147483645
       taborder = 10
-      bounds_x = 200
-      bounds_y = 69
+      bounds_x = 197
+      bounds_y = 49
       bounds_cx = 45
       bounds_cy = 15
       caption = 'Volume'
@@ -122,8 +122,8 @@ object recorderfo: trecorderfo
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
       hint = ' Pause player '
-      bounds_x = 76
-      bounds_y = 90
+      bounds_x = 73
+      bounds_y = 67
       bounds_cx = 30
       bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -140,8 +140,8 @@ object recorderfo: trecorderfo
       face.template = tfacecomp1
       taborder = 1
       hint = ' Resume player '
-      bounds_x = 45
-      bounds_y = 90
+      bounds_x = 42
+      bounds_y = 67
       bounds_cx = 30
       bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -158,8 +158,8 @@ object recorderfo: trecorderfo
       face.template = tfacecomp1
       taborder = 2
       hint = ' Start player '
-      bounds_x = 14
-      bounds_y = 90
+      bounds_x = 11
+      bounds_y = 67
       bounds_cx = 30
       bounds_cy = 30
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -222,8 +222,8 @@ object recorderfo: trecorderfo
       face.template = tfacecomp1
       taborder = 4
       hint = ' Stop player '
-      bounds_x = 107
-      bounds_y = 90
+      bounds_x = 104
+      bounds_y = 67
       bounds_cx = 30
       bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -237,8 +237,8 @@ object recorderfo: trecorderfo
       color = -2147483645
       taborder = 5
       hint = ' Length of sound '
-      bounds_x = 357
-      bounds_y = 136
+      bounds_x = 355
+      bounds_y = 108
       bounds_cx = 86
       bounds_cy = 15
       caption = '00:00:00.000'
@@ -250,8 +250,8 @@ object recorderfo: trecorderfo
       color = -2147483645
       taborder = 6
       hint = ' Position of sound '
-      bounds_x = 357
-      bounds_y = 121
+      bounds_x = 355
+      bounds_y = 93
       bounds_cx = 86
       bounds_cy = 15
       caption = '00:00:00.000'
@@ -264,8 +264,8 @@ object recorderfo: trecorderfo
       frame.localprops1 = []
       taborder = 7
       hint = ' Position of sound '
-      bounds_x = 13
-      bounds_y = 126
+      bounds_x = 11
+      bounds_y = 100
       bounds_cx = 336
       bounds_cy = 22
       onchange = onsliderchange
@@ -301,8 +301,8 @@ object recorderfo: trecorderfo
       )
       taborder = 8
       hint = ' Enable stretching (changing temo) '
-      bounds_x = 267
-      bounds_y = 81
+      bounds_x = 264
+      bounds_y = 58
       bounds_cx = 47
       bounds_cy = 32
       onchange = ChangePlugSetSoundTouch
@@ -310,8 +310,8 @@ object recorderfo: trecorderfo
     object label6: tlabel
       color = -2147483645
       taborder = 9
-      bounds_x = 324
-      bounds_y = 71
+      bounds_x = 321
+      bounds_y = 49
       bounds_cx = 41
       bounds_cy = 15
       caption = 'Tempo'
@@ -326,21 +326,20 @@ object recorderfo: trecorderfo
       frame.colorclient = 16580582
       frame.caption = 'Loop'
       frame.captionpos = cp_top
-      frame.captiondist = 3
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         9
-        20
+        18
         9
         0
       )
       taborder = 11
       hint = ' Enable looping the song '
-      bounds_x = 142
-      bounds_y = 81
+      bounds_x = 140
+      bounds_y = 64
       bounds_cx = 31
-      bounds_cy = 32
+      bounds_cy = 30
       statfile = mainfo.tstatfile1
     end
     object button1: tbutton
@@ -353,8 +352,8 @@ object recorderfo: trecorderfo
       face.template = tfacecomp1
       taborder = 12
       hint = ' Reset to tempo original '
-      bounds_x = 387
-      bounds_y = 90
+      bounds_x = 384
+      bounds_y = 67
       bounds_cx = 46
       bounds_cy = 21
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -378,10 +377,10 @@ object recorderfo: trecorderfo
       frame.buttonsize = 30
       taborder = 13
       hint = ' Change tempo of song '
-      bounds_x = 320
-      bounds_y = 86
+      bounds_x = 317
+      bounds_y = 63
       bounds_cx = 62
-      bounds_cy = 32
+      bounds_cy = 28
       onchange = ChangePlugSetSoundTouch
       value = 1
       valuedefault = 1
@@ -410,8 +409,8 @@ object recorderfo: trecorderfo
       frame.buttonsize = 30
       taborder = 14
       hint = ' Change volume of song '
-      bounds_x = 191
-      bounds_y = 86
+      bounds_x = 188
+      bounds_y = 63
       bounds_cx = 62
       bounds_cy = 32
       statfile = mainfo.tstatfile1
@@ -461,11 +460,20 @@ object recorderfo: trecorderfo
           face.localprops = []
           face.template = tfacecomp1
         end>
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16777215
+        16770019
+      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
       taborder = 16
-      hint = ' History of files '
+      hint = ' Choose a filename for saving  '
       bounds_x = 84
       bounds_y = 4
       bounds_cx = 355
@@ -484,27 +492,6 @@ object recorderfo: trecorderfo
       dropdown.historymaxcount = 50
       reffontheight = 15
     end
-    object vuRight: tdockpanel
-      color = 976914
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        8585109
-        38403
-      )
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      taborder = 17
-      visible = False
-      bounds_x = 254
-      bounds_y = 75
-      bounds_cx = 6
-      bounds_cy = 44
-    end
     object bsavetofile: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -521,8 +508,8 @@ object recorderfo: trecorderfo
       )
       taborder = 19
       hint = ' Save recording to file '
-      bounds_x = 175
-      bounds_y = 43
+      bounds_x = 185
+      bounds_y = 30
       bounds_cx = 84
       bounds_cy = 17
       statfile = mainfo.tstatfile1
@@ -543,9 +530,9 @@ object recorderfo: trecorderfo
         3
       )
       taborder = 20
-      hint = ' WARNING: Uses headphones or set volume output low. '
-      bounds_x = 281
-      bounds_y = 43
+      hint = '  Listen to the input while recording. WARNING: Uses headphones or set volume output low. '
+      bounds_x = 299
+      bounds_y = 30
       bounds_cx = 107
       bounds_cy = 17
       statfile = mainfo.tstatfile1
@@ -559,8 +546,8 @@ object recorderfo: trecorderfo
       face.template = tfacecomp1
       taborder = 21
       hint = ' Stop player '
-      bounds_x = 118
-      bounds_y = 36
+      bounds_x = 127
+      bounds_y = 29
       bounds_cx = 30
       bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -577,8 +564,8 @@ object recorderfo: trecorderfo
       face.template = tfacecomp1
       taborder = 22
       hint = ' Start Recording  '
-      bounds_x = 84
-      bounds_y = 36
+      bounds_x = 93
+      bounds_y = 29
       bounds_cx = 30
       bounds_cy = 30
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -586,6 +573,32 @@ object recorderfo: trecorderfo
       imagenr = 33
       focusrectdist = 0
       onexecute = dorecorderstart
+    end
+    object tlabel28: tlabel
+      color = -2147483645
+      taborder = 23
+      bounds_x = 13
+      bounds_y = 49
+      bounds_cx = 24
+      bounds_cy = 15
+      caption = 'Play'
+      font.color = 4210752
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
+      reffontheight = 15
+    end
+    object tlabel2: tlabel
+      color = -2147483645
+      taborder = 24
+      bounds_x = 48
+      bounds_y = 31
+      bounds_cx = 42
+      bounds_cy = 15
+      caption = 'Record'
+      font.color = 4210752
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
+      reffontheight = 15
     end
     object vuLeft: tdockpanel
       color = 976914
@@ -603,36 +616,31 @@ object recorderfo: trecorderfo
       face.localprops = [fal_fadirection]
       taborder = 18
       visible = False
-      bounds_x = 182
-      bounds_y = 76
+      bounds_x = 179
+      bounds_y = 53
       bounds_cx = 6
       bounds_cy = 44
     end
-    object tlabel28: tlabel
-      color = -2147483645
-      taborder = 23
-      bounds_x = 42
-      bounds_y = 71
-      bounds_cx = 70
-      bounds_cy = 15
-      caption = 'Play Record'
-      font.color = 4210752
-      font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
-    end
-    object tlabel2: tlabel
-      color = -2147483645
-      taborder = 24
-      bounds_x = 33
-      bounds_y = 44
-      bounds_cx = 42
-      bounds_cy = 15
-      caption = 'Record'
-      font.color = 4210752
-      font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
+    object vuRight: tdockpanel
+      color = 976914
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        8585109
+        38403
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 17
+      visible = False
+      bounds_x = 251
+      bounds_y = 52
+      bounds_cx = 6
+      bounds_cy = 44
     end
   end
   object tfacecomp1: tfacecomp
@@ -647,7 +655,6 @@ object recorderfo: trecorderfo
       14063254
     )
     template.fade_direction = gd_down
-    left = 124
-    top = 6
+    left = 185
   end
 end
