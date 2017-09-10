@@ -490,14 +490,14 @@ end;
 
 procedure tsongplayerfo.visiblechangeev(const sender: TObject);
 begin
-{
+
  if visible then begin
-  mainfo.tmainmenu1.menu[1].caption := ' &Player-hide ' ;
+  mainfo.tmainmenu1.menu[1].hint := ' Hide Player 1 ' ;
  end
  else begin
-  mainfo.tmainmenu1.menu[1].caption := ' &Player-show ' ;
+  mainfo.tmainmenu1.menu[1].hint := ' Show Player 1 ' ;
  end;
- }
+
  mainfo.updatelayout();
 end;
 
@@ -506,7 +506,7 @@ var
 ordir : string;
 begin
 
-caption := 'Song Player';
+caption := 'Song Player 1';
       Timerwait := ttimer.Create(nil);
         Timerwait.interval := 100000;
         Timerwait.Enabled := False;

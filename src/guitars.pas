@@ -96,14 +96,12 @@ end;
 }
 procedure tguitarsfo.onvisiblechangeev(const sender: TObject);
 begin
-{
- if visible then begin
-  mainfo.tmainmenu1.menu[2].caption := ' &Guitar-hide ' ;
+if visible then begin
+  mainfo.tmainmenu1.menu[3].hint := ' Hide Guitars ' ;
  end
  else begin
-  mainfo.tmainmenu1.menu[2].caption := ' &Guitar-show ' ;
+  mainfo.tmainmenu1.menu[3].hint := ' Show Guitars ' ;
  end;
- }
  mainfo.updatelayout();
 end;
 

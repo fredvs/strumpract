@@ -6,7 +6,7 @@ interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
  ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,drums, recorder,
- songplayer, guitars,msedataedits,mseedit,msestatfile,
+ songplayer, songplayer2, guitars,msedataedits,mseedit,msestatfile,
  SysUtils,Classes, uos_flat, aboutform, 
  msebitmap, msesys,
  msemenus,msestream,
@@ -34,6 +34,7 @@ type
    procedure showdrums(const sender: TObject);
    procedure showrecorder(const sender: TObject);
    procedure showplayer(const sender: TObject);
+   procedure showplayer2(const sender: TObject);
    procedure showguitars(const sender: TObject);
    procedure onclosemain(const sender: TObject);
    procedure befclose(const sender: tcustommseform;
@@ -137,6 +138,11 @@ end;
 procedure tmainfo.showplayer(const sender: TObject);
 begin
  songplayerfo.visible:= not songplayerfo.visible
+end;
+
+procedure tmainfo.showplayer2(const sender: TObject);
+begin
+ songplayer2fo.visible:= not songplayer2fo.visible
 end;
 
 procedure tmainfo.onclosemain(const sender: TObject);
@@ -251,6 +257,7 @@ begin
  drumsfo.dragdock.float();
  guitarsfo.dragdock.float();
  songplayerfo.dragdock.float();
+  songplayer2fo.dragdock.float();
  recorderfo.dragdock.float();
  endlayout();
 
@@ -261,7 +268,8 @@ begin
  drumsfo.top:= top + height + decorationheight;
  guitarsfo.top:= drumsfo.top + drumsfo.height + decorationheight;
  songplayerfo.top:= guitarsfo.top + guitarsfo.height + decorationheight;
- recorderfo.top:= songplayerfo.top + songplayerfo.height + decorationheight;
+  songplayer2fo.top:= songplayerfo.top + songplayerfo.height + decorationheight;
+ recorderfo.top:= songplayer2fo.top + songplayer2fo.height + decorationheight;
  
 end;
 
@@ -273,6 +281,7 @@ begin
  drumsfo.parentwidget:= basedock;
  guitarsfo.parentwidget:= basedock;
  songplayerfo.parentwidget:= basedock;
+ songplayer2fo.parentwidget:= basedock;
  recorderfo.parentwidget:= basedock;
  pt1:= nullpoint;
  drumsfo.pos:= pt1;
@@ -280,11 +289,14 @@ begin
  guitarsfo.pos:= pt1;
  pt1.y:= pt1.y + guitarsfo.height;
  songplayerfo.pos:= pt1;
- pt1.y:= pt1.y + songplayerfo.height;
+  pt1.y:= pt1.y + songplayerfo.height;
+ songplayer2fo.pos:= pt1;
+ pt1.y:= pt1.y + songplayer2fo.height;
  recorderfo.pos:= pt1;
 
  drumsfo.show();
  songplayerfo.show();
+ songplayer2fo.show();
  guitarsfo.show();
  recorderfo.show();
  endlayout();

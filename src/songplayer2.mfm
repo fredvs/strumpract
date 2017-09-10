@@ -1,4 +1,4 @@
-object songplayerfo: tsongplayerfo
+object songplayer2fo: tsongplayer2fo
   frame.localprops = []
   frame.localprops1 = []
   frame.grip_size = 8
@@ -127,7 +127,7 @@ object songplayerfo: tsongplayerfo
       bounds_y = 30
       bounds_cx = 83
       bounds_cy = 15
-      caption = 'Song Player 1'
+      caption = 'Song Player 2'
       font.color = 4210752
       font.name = 'stf_default'
       font.localprops = [flp_color]

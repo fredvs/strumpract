@@ -3070,9 +3070,14 @@ object mainfo: tmainfo
         onexecute = showdrums
       end    
       item
-        caption = ' &Player '
+        caption = ' &Player1 '
         state = [as_localcaption, as_localonexecute]
         onexecute = showplayer
+      end    
+      item
+        caption = ' P&layer2 '
+        state = [as_localcaption, as_localonexecute]
+        onexecute = showplayer2
       end    
       item
         caption = ' &Guitars '
@@ -3098,11 +3103,6 @@ object mainfo: tmainfo
         caption = ' &About '
         state = [as_localcaption, as_localonexecute]
         onexecute = onabout
-      end    
-      item
-        caption = ' &Quit '
-        state = [as_localcaption, as_localonexecute]
-        onexecute = doquit
       end>
     left = 103
   end
