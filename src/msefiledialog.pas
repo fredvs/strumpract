@@ -575,12 +575,12 @@ procedure getfileicon(const info: fileinfoty; var imagelist: timagelist;
 procedure updatefileinfo(const item: tlistitem; const info: fileinfoty;
                    const withicon: boolean);
 
-// var
-// thefo : tfiledialogfo;
+var
+ thesender : integer;
 
 implementation
 uses
- songplayer, msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
+ songplayer, songplayer2, recorder,msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
  msestockobjects,msesysintf,msearrayutils;
 
 type
@@ -1484,8 +1484,24 @@ var
  str1: filenamety;
 begin
 application.lock();
+
+if thesender = 0 then
+begin
 songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 songplayerfo.historyfn.value := dir.value + filename.value;
+end;
+
+if thesender = 1 then
+begin
+songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
+songplayer2fo.historyfn.value := dir.value + filename.value;
+end;
+
+if thesender = 2 then
+begin
+recorderfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
+recorderfo.historyfn.value := dir.value + filename.value;
+end;
   
   if (filename.value <> '') or (fdo_acceptempty in dialogoptions) then begin
    if fdo_directory in dialogoptions then begin

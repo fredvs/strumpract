@@ -165,6 +165,7 @@ object guitarsfo: tguitarsfo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 1
+    hint = ' Guitar Strings '
     bounds_x = 0
     bounds_y = 3
     bounds_cx = 446
@@ -397,6 +398,7 @@ object guitarsfo: tguitarsfo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
+    hint = ' Bass Strings'
     bounds_x = 0
     bounds_y = 38
     bounds_cx = 446

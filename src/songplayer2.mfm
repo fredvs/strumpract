@@ -18,7 +18,7 @@ object songplayer2fo: tsongplayer2fo
   frame.grip_faceactive.fade_direction = gd_down
   frame.grip_faceactive.localprops = []
   visible = False
-  bounds_x = 566
+  bounds_x = 565
   bounds_y = 326
   bounds_cx = 457
   bounds_cy = 114
@@ -115,10 +115,12 @@ object songplayer2fo: tsongplayer2fo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
+    hint = ' Player 2 '
     bounds_x = 0
     bounds_y = 2
     bounds_cx = 446
     bounds_cy = 110
+    statfile = mainfo.tstatfile1
     object tlabel28: tlabel
       color = -2147483645
       taborder = 7
@@ -264,6 +266,7 @@ object songplayer2fo: tsongplayer2fo
           '"*.mp3" "*.wav" "*.ogg" "*.flac"'
         )
       )
+      controller.onbeforeexecute = whosent
       reffontheight = 15
     end
     object btnStop: tbutton

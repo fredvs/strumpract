@@ -257,10 +257,11 @@ begin
  drumsfo.dragdock.float();
  guitarsfo.dragdock.float();
  songplayerfo.dragdock.float();
-  songplayer2fo.dragdock.float();
+ songplayer2fo.dragdock.float();
  recorderfo.dragdock.float();
  endlayout();
-
+ height := 40;
+ drumsfo.height := 238;
  drumsfo.show();
  guitarsfo.show();
  songplayerfo.show();

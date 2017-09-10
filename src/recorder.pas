@@ -5,12 +5,12 @@ uses
  ctypes, uos_flat, infos, msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
  mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,
  mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
- msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits;
+ msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits,mseificomp,
+ mseificompglob,mseifiglob,msescrollbar;
 
 type
  trecorderfo = class(tdockform)
    tdockpanel8: tdockpanel;
-   tlabel28: tlabel;
    tlabel27: tlabel;
    btnPause: tbutton;
    btnResume: tbutton;
@@ -33,6 +33,12 @@ type
    Timerwait: Ttimer;
    
    tfacecomp1: tfacecomp;
+   bsavetofile: tbooleanedit;
+   blistenin: tbooleanedit;
+   tbutton2: tbutton;
+   tbutton3: tbutton;
+   tlabel28: tlabel;
+   tlabel2: tlabel;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -61,6 +67,10 @@ type
    procedure visiblechangeev(const sender: TObject);
    procedure onplayercreate(const sender: TObject);
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
+   procedure dorecorderstart(const sender: TObject);
+   procedure whosent(const sender: tfiledialogcontroller;
+                   var dialogkind: filedialogkindty;
+                   var aresult: modalresultty);
  end;
 var
  recorderfo: trecorderfo;
@@ -68,7 +78,7 @@ var
  initplay : integer = 1;
   theplayer3 : integer = 24;
  theplayer3info : integer = 25;
- plugindex1, PluginIndex2: integer; InputIndex1, OutputIndex1, Inputlength: integer; 
+ plugIndex3, PluginIndex2: integer; InputIndex3, OutputIndex3, Inputlength: integer; 
  
  
 implementation
@@ -113,7 +123,8 @@ procedure trecorderfo.ClosePlayer1;
     radiobutton2.Enabled := True;
     radiobutton3.Enabled := True;
     } 
-    
+     tbutton2.enabled := false;
+      tbutton3.enabled := true;
     
    vuright.Height := 0;
     vuleft.Height := 0;
@@ -133,12 +144,12 @@ procedure trecorderfo.ClosePlayer1;
   begin
       vuLeft.Visible := True;
     vuRight.Visible := True;
-    if trunc(uos_InputGetLevelLeft(theplayer3, InputIndex1) * 44) >= 0 then
-      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer3, InputIndex1) * 44);
-    if trunc(uos_InputGetLevelRight(theplayer3, InputIndex1) * 44) >= 0 then
-      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer3, InputIndex1) * 44);
-    vuLeft.top := 75 - vuLeft.Height;
-    vuRight.top := 75 - vuRight.Height;
+    if trunc(uos_InputGetLevelLeft(theplayer3, InputIndex3) * 44) >= 0 then
+      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer3, InputIndex3) * 44);
+    if trunc(uos_InputGetLevelRight(theplayer3, InputIndex3) * 44) >= 0 then
+      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer3, InputIndex3) * 44);
+    vuLeft.top := 120 - vuLeft.Height;
+    vuRight.top := 120 - vuRight.Height;
    end;  
  
  procedure trecorderfo.ShowPosition;
@@ -149,10 +160,10 @@ procedure trecorderfo.ClosePlayer1;
  
      if (TrackBar1.Tag = 0) then
     begin
-      if uos_InputPosition(theplayer3, InputIndex1) > 0 then
+      if uos_InputPosition(theplayer3, InputIndex3) > 0 then
       begin
-        TrackBar1.value := uos_InputPosition(theplayer3, InputIndex1) / inputlength;
-        temptime := uos_InputPositionTime(theplayer3, InputIndex1);
+        TrackBar1.value := uos_InputPosition(theplayer3, InputIndex3) / inputlength;
+        temptime := uos_InputPositionTime(theplayer3, InputIndex3);
         ////// Length of input in time
         DecodeTime(temptime, ho, mi, se, ms);
         lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
@@ -187,8 +198,9 @@ var
     //// Create the player.
     //// PlayerIndex : from 0 to what your computer can do !
     //// If PlayerIndex exists already, it will be overwriten...
-      
-     InputIndex1 := uos_AddFromFile(theplayer3, pchar(AnsiString(historyfn.value)), -1, samformat, 1024);
+     tbutton3.enabled := false; 
+         
+     InputIndex3 := uos_AddFromFile(theplayer3, pchar(AnsiString(historyfn.value)), -1, samformat, 1024);
      
     //// add input from audio file with custom parameters
     ////////// FileName : filename of audio file
@@ -198,12 +210,12 @@ var
     //////////// FramesCount : default : -1 (65536 div channels)
     //  result : -1 nothing created, otherwise Input Index in array
 
-    if InputIndex1 > -1 then
+    if InputIndex3 > -1 then
      begin
-      // OutputIndex1 := uos_AddIntoDevOut(PlayerIndex1) ;
+      // OutputIndex3 := uos_AddIntoDevOut(PlayerIndex3) ;
     //// add a Output into device with default parameters
-    OutputIndex1 := uos_AddIntoDevOut(theplayer3, -1, -1, uos_InputGetSampleRate(theplayer3, InputIndex1),
-     uos_InputGetChannels(theplayer3, InputIndex1), samformat, 1024);
+    OutputIndex3 := uos_AddIntoDevOut(theplayer3, -1, -1, uos_InputGetSampleRate(theplayer3, InputIndex3),
+     uos_InputGetChannels(theplayer3, InputIndex3), samformat, 1024);
     //// add a Output into device with custom parameters
     //////////// PlayerIndex : Index of a existing Player
     //////////// Device ( -1 is default Output device )
@@ -214,7 +226,7 @@ var
     //////////// FramesCount : default : -1 (65536)
     //  result : -1 nothing created, otherwise Output Index in array
   
-   uos_InputSetLevelEnable(theplayer3, InputIndex1, 2) ;
+   uos_InputSetLevelEnable(theplayer3, InputIndex3, 2) ;
      ///// set calculation of level/volume (usefull for showvolume procedure)
                        ///////// set level calculation (default is 0)
                           // 0 => no calcul
@@ -222,57 +234,57 @@ var
                           // 2 => calcul after all DSP procedures.
                           // 3 => calcul before and after all DSP procedures.
 
-   uos_InputSetPositionEnable(theplayer3, InputIndex1, 1) ;
+   uos_InputSetPositionEnable(theplayer3, InputIndex3, 1) ;
      ///// set calculation of position (usefull for positions procedure)
                        ///////// set position calculation (default is 0)
                           // 0 => no calcul
                           // 1 => calcul position.
 
-   uos_LoopProcIn(theplayer3, InputIndex1, @LoopProcPlayer1);
+   uos_LoopProcIn(theplayer3, InputIndex3, @LoopProcPlayer1);
  
     ///// Assign the procedure of object to execute inside the loop
     //////////// PlayerIndex : Index of a existing Player
-    //////////// InputIndex1 : Index of a existing Input
+    //////////// InputIndex3 : Index of a existing Input
     //////////// LoopProcPlayer1 : procedure of object to execute inside the loop
    
-   uos_InputAddDSPVolume(theplayer3, InputIndex1, 1, 1);
+   uos_InputAddDSPVolume(theplayer3, InputIndex3, 1, 1);
     ///// DSP Volume changer
-    ////////// PlayerIndex1 : Index of a existing Player
-    ////////// InputIndex1 : Index of a existing input
+    ////////// PlayerIndex3 : Index of a existing Player
+    ////////// InputIndex3 : Index of a existing input
     ////////// VolLeft : Left volume
     ////////// VolRight : Right volume
 
-    uos_InputSetDSPVolume(theplayer3, InputIndex1, edvol.value/100, edvol.value/100, True);
+    uos_InputSetDSPVolume(theplayer3, InputIndex3, edvol.value/100, edvol.value/100, True);
      /// Set volume
-    ////////// PlayerIndex1 : Index of a existing Player
-    ////////// InputIndex1 : InputIndex of a existing Input
+    ////////// PlayerIndex3 : Index of a existing Player
+    ////////// InputIndex3 : InputIndex of a existing Input
     ////////// VolLeft : Left volume
     ////////// VolRight : Right volume
     ////////// Enable : Enabled
     
      {
-   DSPIndex1 := uos_InputAddDSP(PlayerIndex1, InputIndex1, @DSPReverseBefore,   @DSPReverseAfter, nil, nil);
+   DSPIndex3 := uos_InputAddDSP(PlayerIndex3, InputIndex3, @DSPReverseBefore,   @DSPReverseAfter, nil, nil);
       ///// add a custom DSP procedure for input
-    ////////// PlayerIndex1 : Index of a existing Player
-    ////////// InputIndex1: InputIndex of existing input
+    ////////// PlayerIndex3 : Index of a existing Player
+    ////////// InputIndex3: InputIndex of existing input
     ////////// BeforeFunc : function to do before the buffer is filled
     ////////// AfterFunc : function to do after the buffer is filled
     ////////// EndedFunc : function to do at end of thread
     ////////// LoopProc : external procedure to do after the buffer is filled
    
    //// set the parameters of custom DSP
-   uos_InputSetDSP(PlayerIndex1, InputIndex1, DSPIndex1, checkbox1.value);
+   uos_InputSetDSP(PlayerIndex3, InputIndex3, DSPIndex3, checkbox1.value);
     
    // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)  
-   DSPIndex2 := uos_InputAddDSP(PlayerIndex1, InputIndex1, nil, @DSPStereo2Mono, nil, nil);
-    uos_InputSetDSP(PlayerIndex1, InputIndex1, DSPIndex2, chkstereo2mono.value); 
+   DSPIndex2 := uos_InputAddDSP(PlayerIndex3, InputIndex3, nil, @DSPStereo2Mono, nil, nil);
+    uos_InputSetDSP(PlayerIndex3, InputIndex3, DSPIndex2, chkstereo2mono.value); 
    
    ///// add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
   begin
-   PlugInIndex1 := uos_AddPlugin(PlayerIndex1, 'bs2b',
-   uos_InputGetSampleRate(PlayerIndex1, InputIndex1) , -1);
-   uos_SetPluginbs2b(PlayerIndex1, PluginIndex1, -1 , -1, -1, chkst2b.value);
+   PlugInIndex3 := uos_AddPlugin(PlayerIndex3, 'bs2b',
+   uos_InputGetSampleRate(PlayerIndex3, InputIndex3) , -1);
+   uos_SetPluginbs2b(PlayerIndex3, PluginIndex3, -1 , -1, -1, chkst2b.value);
   end; 
   
   
@@ -282,14 +294,14 @@ var
     if plugsoundtouch = true then
   begin
     PlugInIndex2 := uos_AddPlugin(theplayer3, 'soundtouch', 
-    uos_InputGetSampleRate(theplayer3, InputIndex1) , -1);
+    uos_InputGetSampleRate(theplayer3, InputIndex3) , -1);
     ChangePlugSetSoundTouch(self); //// custom procedure to Change plugin settings
    end;    
         
-   inputlength := uos_InputLength(theplayer3, InputIndex1);
+   inputlength := uos_InputLength(theplayer3, InputIndex3);
     ////// Length of Input in samples
 
-   tottime := uos_InputLengthTime(theplayer3, InputIndex1);
+   tottime := uos_InputLengthTime(theplayer3, InputIndex3);
     ////// Length of input in time
 
    DecodeTime(tottime, ho, mi, se, ms);
@@ -358,14 +370,14 @@ procedure trecorderfo.changepos(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
  if TrackBar1.Tag = 0 then
-   uos_InputSeek(theplayer3, InputIndex1, trunc(avalue * inputlength));
+   uos_InputSeek(theplayer3, InputIndex3, trunc(avalue * inputlength));
  //  TrackBar1.Tag := 0;
 
 end;
 
 procedure trecorderfo.changevolume(const sender: TObject);
 begin
-   uos_InputSetDSPVolume(theplayer3, InputIndex1,
+   uos_InputSetDSPVolume(theplayer3, InputIndex3,
    edvol.value/100, edvol.value/100, True);
 
 end;
@@ -396,7 +408,7 @@ begin
   if uos_AddFromFile(theplayer3info, pchar(AnsiString(historyfn.value)), -1, 0, -1) > -1 then
   begin
   
- inputlength := uos_InputLength(theplayer3, InputIndex1);
+ inputlength := uos_InputLength(theplayer3, InputIndex3);
     ////// Length of Input in samples
 
    temptimeinfo := uos_InputLengthTime(theplayer3info, 0);
@@ -482,8 +494,8 @@ begin
 // if initplay = 0 then mainfo.procshowpllayer(sender);
 
 if hasinit = 0 then begin
-height := 114;
-mainfo.height := mainfo.height + 114;
+height := 158;
+mainfo.height := mainfo.height + 158;
 end;
 end;
 
@@ -520,7 +532,7 @@ caption := 'Recorder';
    ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
      
  if songdir.value = '' then
- songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.ogg';
+ songdir.value :=  ordir + 'sound' + directoryseparator +  'record' + directoryseparator + 'record.wav';
  
 // if historyfn.value = '' then
 // historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
@@ -542,4 +554,86 @@ dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_
 end;
 }
 end;
+
+procedure trecorderfo.dorecorderstart(const sender: TObject);
+var
+    samformat: shortint;
+       ho, mi, se, ms: word;
+  begin
+ if (bsavetofile.value = True) or (blistenin.value = True) then
+    begin
+    
+     uos_Stop(theplayer3) ; // done by  uos_CreatePlayer() but faster if already done before (no check)
+
+    if uos_CreatePlayer(theplayer3) then
+   begin
+   tbutton2.enabled := true;
+    tbutton3.enabled := false;
+     btnStart.Enabled := false;
+   
+   uos_AddIntoFile(theplayer3, pchar(AnsiString(historyfn.value)));
+   //  if checkbox1.Checked then
+     OutputIndex3 := uos_AddIntoDevOut(theplayer3);
+     uos_outputsetenable(theplayer3,OutputIndex3,blistenin.value);
+   
+   
+   InputIndex3 := uos_AddFromDevIn(theplayer3);
+   /// add Input from mic/aux into IN device with default parameters
+    
+   //    In1Index := uos_AddFromDevIn(0, -1, -1, -1, -1, 1, -1);   
+    /// add Input from mic/aux into IN device with custom parameters
+    //////////// PlayerIndex : Index of a existing Player
+    //////////// Device ( -1 is default Input device )
+    //////////// Latency  ( -1 is latency suggested ) )
+    //////////// SampleRate : delault : -1 (44100)
+    //////////// OutputIndex : OutputIndex of existing Output // -1 : all output, -2: no output, other integer : existing output)
+    //////////// SampleFormat : -1 default : Int16 : (0: Float32, 1:Int32, 2:Int16)
+    //////////// FramesCount : -1 default : 4096   ( > = safer, < =  better latency )
+    
+    uos_InputAddDSP1ChanTo2Chan(theplayer3, InputIndex3);
+   /////  Convert mono one channel channel to stereo two channels.
+    //// If the input is stereo, original buffer is keeped.
+    ////////// InputIndex : InputIndex of a existing Input       
+    //  result :  index of DSPIn in array
+    ////////// example  DSPIndex3 := uos_InputAddDSP1ChanTo2Chan(PlayerIndex3, InputIndex3);
+    uos_InputSetLevelEnable(theplayer3, InputIndex3, 2) ;
+ 
+    uos_InputAddDSPVolume(theplayer3, InputIndex3, 1, 1);
+    ///// DSP Volume changer
+    //////////// PlayerIndex : Index of a existing Player
+    ////////// In1Index : InputIndex of a existing input
+    ////////// VolLeft : Left volume
+    ////////// VolRight : Right volume
+    
+     uos_LoopProcIn(theplayer3, InputIndex3, @LoopProcPlayer1);
+
+    uos_InputSetDSPVolume(theplayer3, InputIndex3, edvol.value/100, edvol.value/100, True);
+  
+   /////// procedure to execute when stream is terminated
+     uos_EndProc(theplayer3, @ClosePlayer1);
+   ///// Assign the procedure of object to execute at end
+   //////////// PlayerIndex : Index of a existing Player
+   //////////// ClosePlayer1 : procedure of object to execute inside the loop
+
+    uos_Play(theplayer3);  /////// everything is ready to play...
+      
+     {
+      CheckBox2.Enabled := false;
+      btnStart.Enabled := False;
+      btnStop.Enabled := True;
+      button5.Enabled := False;
+      button4.Enabled := False;
+    }
+    end;
+
+  end;
+end;
+
+procedure trecorderfo.whosent(const sender: tfiledialogcontroller;
+               var dialogkind: filedialogkindty; var aresult: modalresultty);
+begin
+thesender := 2;
+end;
+
+
 end.

@@ -62,6 +62,9 @@ type
    procedure visiblechangeev(const sender: TObject);
    procedure onplayercreate(const sender: TObject);
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
+   procedure whosent(const sender: tfiledialogcontroller;
+                   var dialogkind: filedialogkindty;
+                   var aresult: modalresultty);
  end;
 var
  songplayer2fo: tsongplayer2fo;
@@ -542,5 +545,11 @@ else
 dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
 end;
 }
+end;
+
+procedure tsongplayer2fo.whosent(const sender: tfiledialogcontroller;
+               var dialogkind: filedialogkindty; var aresult: modalresultty);
+begin
+thesender := 1;
 end;
 end.
