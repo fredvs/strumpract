@@ -118,7 +118,7 @@ end;
 procedure tmainfo.oncreatedform(const sender: TObject);
 begin
 caption := 'StrumPract ' + versiontext;
-//ondockall(sender);
+if not fileexists(tstatfile1.filename) then ondockall(sender);
 end;
 
 
