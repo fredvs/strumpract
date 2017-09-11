@@ -536,9 +536,6 @@ caption := 'Recorder';
  if songdir.value = '' then
  songdir.value :=  ordir + 'sound' + directoryseparator +  'record' + directoryseparator + 'record.wav';
  
-// if historyfn.value = '' then
-// historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
- 
  recorderfo.historyfn.value := recorderfo.songdir.value ;         
         
 end;

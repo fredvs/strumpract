@@ -44,6 +44,8 @@ type
    function issomeplaying : boolean;
    procedure updatedockev(const sender: TObject; const awidget: twidget);
    procedure onshowrecorder(const sender: TObject);
+   procedure beforereadev(const sender: TObject);
+   procedure afterreadev(const sender: TObject);
    private
     flayoutlock: int32;
    protected
@@ -116,7 +118,7 @@ end;
 procedure tmainfo.oncreatedform(const sender: TObject);
 begin
 caption := 'StrumPract ' + versiontext;
-ondockall(sender);
+//ondockall(sender);
 end;
 
 
@@ -153,8 +155,8 @@ end;
 procedure tmainfo.befclose(const sender: tcustommseform;
                var amodalresult: modalresultty);
 begin
-ondockall(sender);
-visible := false;
+//ondockall(sender);
+//visible := false;
 end;
 
 function tmainfo.issomeplaying : boolean;
@@ -305,6 +307,16 @@ end;
 
 procedure tmainfo.onshowrecorder(const sender: TObject);
 begin
+end;
+
+procedure tmainfo.beforereadev(const sender: TObject);
+begin
+ beginlayout();
+end;
+
+procedure tmainfo.afterreadev(const sender: TObject);
+begin
+ endlayout();
 end;
 
 end.

@@ -37,8 +37,8 @@ object guitarsfo: tguitarsfo
   )
   dragdock.splitter_size = 5
   dragdock.caption = ' Use this to Drag Drop the Guitars window '
-  dragdock.optionsdock = [od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
-  options = [fo_savestate]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  statfile = mainfo.tstatfile1
   caption = 'Guitar and Bass tuned strings'
   icon.origformat = 'jpeg'
   icon.image = {
@@ -174,13 +174,13 @@ object guitarsfo: tguitarsfo
       color = -2147483645
       bounds_x = 7
       bounds_y = 1
-      bounds_cx = 82
-      bounds_cy = 15
+      bounds_cx = 85
+      bounds_cy = 14
       caption = 'Guitar strings'
       font.color = 4210752
       font.name = 'stf_default'
       font.localprops = [flp_color]
-      reffontheight = 15
+      reffontheight = 14
     end
     object tbutton3: tbutton
       Tag = 1
@@ -366,16 +366,16 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        3
-        33
+        2
+        34
         3
       )
       taborder = 7
       hint = ' Enable looping the string. '
       bounds_x = 20
-      bounds_y = 14
-      bounds_cx = 49
-      bounds_cy = 17
+      bounds_y = 15
+      bounds_cx = 50
+      bounds_cy = 16
       statfile = mainfo.tstatfile1
     end
   end
@@ -407,13 +407,13 @@ object guitarsfo: tguitarsfo
       color = -2147483645
       bounds_x = 10
       bounds_y = 1
-      bounds_cx = 72
-      bounds_cy = 15
+      bounds_cx = 77
+      bounds_cy = 14
       caption = 'Bass strings'
       font.color = 4210752
       font.name = 'stf_default'
       font.localprops = [flp_color]
-      reffontheight = 15
+      reffontheight = 14
     end
     object tbutton13: tbutton
       Tag = 7
@@ -541,16 +541,16 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        3
-        33
+        2
+        34
         3
       )
       taborder = 5
       hint = ' Enable looping the string. '
       bounds_x = 20
-      bounds_y = 14
-      bounds_cx = 49
-      bounds_cy = 17
+      bounds_y = 15
+      bounds_cx = 50
+      bounds_cy = 16
       statfile = mainfo.tstatfile1
     end
   end

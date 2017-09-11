@@ -261,7 +261,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=3
+ index=2
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=769
  width0=47
@@ -714,7 +714,7 @@ makeoptionson=9
  0
  0
  192
- 98
+ 226
  0
  255
  4095
@@ -1087,15 +1087,15 @@ panels=1
  panel1
 units=
  (
- a=0,4132,6,Pascal Units
+ a=0,8228,6,Pascal Units
  )
 cmodules=
  (
- a=0,4132,6,C Modules
+ a=0,8228,6,C Modules
  )
 files=
  (
- a=0,4132,6,Text Files
+ a=0,8228,6,Text Files
  )
 [componentstore]
 storedir=/home/fred/msegui/apps/ide/compstore/
@@ -1137,7 +1137,7 @@ findhistory=20
  width
  drumsfo.height
 findoptions=1
-editpos=31
+editpos=32
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1156,16 +1156,17 @@ editpos=31
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
- 0,2
- 0,-1073741823
- 0,142
+ 21,22
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,1
- 0,0
- 0,259
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1200,7 +1201,8 @@ bookmarks27=0
 bookmarks28=0
 bookmarks29=0
 bookmarks30=0
-sourcefiles=31
+bookmarks31=0
+sourcefiles=32
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/songplayer.pas
@@ -1232,7 +1234,8 @@ sourcefiles=31
  ${PROJECTDIR}/dialogfiles.pas
  ${PROJECTDIR}/msefiledialogres.pas
  ${PROJECTDIR}/msefiledialog.pas
-relpaths=31
+ ${PROJECTDIR}/msefiledialog.pas
+relpaths=32
  strumpract.pas
  drums.pas
  songplayer.pas
@@ -1264,7 +1267,8 @@ relpaths=31
  dialogfiles.pas
  msefiledialogres.pas
  msefiledialog.pas
-ismoduletexts=31
+ msefiledialog.pas
+ismoduletexts=32
  0
  0
  0
@@ -1283,6 +1287,7 @@ ismoduletexts=31
  0
  0
  -1
+ 0
  0
  0
  0
@@ -1345,7 +1350,7 @@ nomenumodules=11
  0
  0
 [sourcefo.files_tab]
-order=31
+order=32
  20
  0
  1
@@ -1371,6 +1376,7 @@ order=31
  26
  18
  21
+ 31
  28
  29
  30
@@ -1378,7 +1384,7 @@ order=31
  24
  22
 firsttab=20
-index=24
+index=23
 [layout]
 windowlayout=735
  [mainfo.basedock]
@@ -1416,7 +1422,7 @@ windowlayout=735
   basedock,0,0,1356,694
  focusedchild=0
  wsize=6
- active=0
+ active=1
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1434,7 +1440,7 @@ windowlayout=735
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
  [threadsfo]
  splitdir=0
@@ -1625,7 +1631,7 @@ windowlayout=735
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1640,7 +1646,7 @@ windowlayout=735
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=306
  width0=137
@@ -1848,7 +1854,7 @@ windowlayout=735
  nx=0
  ny=0
  ncx=1356
- ncy=61
+ ncy=69
  x=0
  y=0
  cx=1356
@@ -1929,7 +1935,7 @@ windowlayout=735
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_dialogfilesfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1948,7 +1954,7 @@ windowlayout=735
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1967,7 +1973,7 @@ windowlayout=735
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2005,7 +2011,7 @@ windowlayout=735
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2024,7 +2030,7 @@ windowlayout=735
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2043,7 +2049,7 @@ windowlayout=735
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_dialogfilesfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2100,7 +2106,7 @@ windowlayout=735
  [_mse_filedialogfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0

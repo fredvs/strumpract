@@ -23,9 +23,9 @@ object mainfo: tmainfo
   container.frame.localprops1 = []
   container.bounds = (
     0
-    17
+    16
     449
-    216
+    217
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1130,15 +1130,16 @@ object mainfo: tmainfo
     bounds_x = 0
     bounds_y = 2
     bounds_cx = 449
-    bounds_cy = 214
+    bounds_cy = 215
     anchors = [an_left, an_top, an_right, an_bottom]
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
     dragdock.caption = 'Dock any window on this area.'
-    dragdock.optionsdock = [od_savepos, od_savezorder, od_acceptsdock, od_splithorz, od_background]
+    dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_tabed, od_fixsize, od_background]
     dragdock.onchilddock = updatedockev
     dragdock.onchildfloat = updatedockev
+    statfile = tstatfile1
     dockingareacaption = 'Drag the window into this Dock Area...'
   end
   object buttonicons: timagelist
@@ -1146,7 +1147,7 @@ object mainfo: tmainfo
     height = 24
     options = [bmo_masked, bmo_colormask]
     count = 34
-    left = 303
+    left = 215
     image = {
       00000000060000009000000090000000F8980000000000000000000000000000
       0000000000000000000000000000000000000000C0C0C018D0D0D048F8FCF818
@@ -3086,7 +3087,7 @@ object mainfo: tmainfo
       11251846
     )
     template.fade_direction = gd_down
-    left = 217
+    left = 113
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -3100,8 +3101,8 @@ object mainfo: tmainfo
       11251846
     )
     template.fade_direction = gd_up
-    left = 40
-    top = 44
+    left = 113
+    top = 12
   end
   object tfacecomp3: tfacecomp
     template.fade_pos.count = 2
@@ -3115,7 +3116,8 @@ object mainfo: tmainfo
       14015399
     )
     template.fade_direction = gd_down
-    left = 185
+    left = 113
+    top = 24
   end
   object tmainmenu1: tmainmenu
     menu.submenu.count = 8
@@ -3160,7 +3162,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localonexecute]
         onexecute = onabout
       end>
-    left = 103
+    left = 7
   end
   object tfacecomp4: tfacecomp
     template.fade_pos.count = 2
@@ -3174,12 +3176,15 @@ object mainfo: tmainfo
       12566463
     )
     template.fade_direction = gd_down
-    left = 223
+    left = 113
+    top = 36
   end
   object tstatfile1: tstatfile
     filename = 'status.sta'
     options = [sfo_transaction, sfo_autowritestat, sfo_activatorread, sfo_activatorwrite]
-    left = 214
-    top = 43
+    onstatbeforeread = beforereadev
+    onstatafterread = afterreadev
+    left = 7
+    top = 23
   end
 end
