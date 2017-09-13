@@ -1136,6 +1136,7 @@ object mainfo: tmainfo
     font.xscale = 1
     font.localprops = [flp_xscale]
     dragdock.tab_face = tfacecomp5
+    dragdock.tab_frametab = tframecomp1
     dragdock.tab_facetab = tfacecomp4
     dragdock.tab_size = 24
     dragdock.tab_sizemin = 24
