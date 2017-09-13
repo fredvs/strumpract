@@ -4,10 +4,8 @@ interface
 uses
  ctypes, uos_flat, infos, msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
  mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,
- mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
- msedataedits,msefiledialog,msegrids,
- mselistbrowser,
- msesys,sysutils,msegraphedits;
+ mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
+ msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits;
 
 type
  tsongplayerfo = class(tdockform)
@@ -34,6 +32,7 @@ type
    vuRight: tdockpanel;
    Timerwait: Ttimer;
    
+   tfaceplayer: tfacecomp;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -95,16 +94,12 @@ timerwait.enabled := false;
 end;
  
  procedure tsongplayerfo.ChangePlugSetSoundTouch(const Sender: TObject);
-  var
-    tempo, rate: cfloat;
-  begin
+   begin
          if (trim(Pchar(AnsiString(songplayerfo.historyfn.value))) <> '') 
          and fileexists(AnsiString(songplayerfo.historyfn.value)) then
   begin
  
-  //   label6.caption := 'Tempo: ' + floattostrf(tempo, ffFixed, 15, 1);
-   
-       uos_SetPluginSoundTouch(theplayer, PluginIndex2, edtempo.value, 1, cbtempo.value);
+         uos_SetPluginSoundTouch(theplayer, PluginIndex2, edtempo.value, 1, cbtempo.value);
  
     end;
   end;

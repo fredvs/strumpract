@@ -2,10 +2,9 @@ unit drums;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
- mseglob, msetimer, mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
- msesimplewidgets,msewidgets,msegraphedits,
- msedataedits, SysUtils,Classes;
+ mseglob, msetimer, mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
+ msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msesimplewidgets,msewidgets,msegraphedits,msedataedits, SysUtils,Classes;
 
 type
  talab =  array[0..15] of tlabel;
@@ -135,6 +134,7 @@ type
    tlabel26: tlabel;
    Timertick: Ttimer;
    Timerpause: Ttimer;
+   tfacedrums: tfacecomp;
    procedure ontimertick(const Sender: TObject);
    procedure ontimerpause(const Sender: TObject);
    procedure dostart(const sender: TObject);
@@ -487,10 +487,7 @@ begin
 end;
 
 procedure tdrumsfo.dostop(const sender: TObject);
-var
-i : integer;
 begin
-
  label2.enabled := false;
  loop_stop.Enabled := false; 
  loop_resume.Enabled := true; 
@@ -697,8 +694,8 @@ end;
 end;   
 
 procedure tdrumsfo.stopvoiceplayers;
-var
-i : integer;
+//var
+//i : integer;
 begin 
 {
 for i := 4 to 8 do   
@@ -753,7 +750,7 @@ end;
 procedure tdrumsfo.oncreatedrums(const sender: TObject);
 var
 ordir : string;
-spcx, spcy, posx, posy, i, ax  : integer;
+spcx, spcy, posx, posy, ax  : integer;
 lib1, lib2, lib3, lib4 : string;
 begin
 // visible := false;

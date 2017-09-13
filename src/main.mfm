@@ -15,17 +15,17 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 502
-  bounds_y = 215
-  bounds_cx = 449
-  bounds_cy = 233
+  bounds_x = 435
+  bounds_y = 239
+  bounds_cx = 471
+  bounds_cy = 64
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
-    16
-    449
-    217
+    17
+    471
+    47
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1116,7 +1116,6 @@ object mainfo: tmainfo
   oncreate = oncreateform
   oncreated = oncreatedform
   ondestroy = dodestroy
-  onbeforeclosequery = befclose
   moduleclassname = 'tmainform'
   object basedock: tdockpanel
     optionswidget1 = [ow1_autoscale, ow1_noparentheightextend]
@@ -1125,18 +1124,24 @@ object mainfo: tmainfo
     frame.localprops1 = []
     frame.grip_size = 0
     frame.grip_grip = stb_default
+    frame.grip_options = [go_closebutton, go_buttonhints, go_showsplitcaption]
     frame.grip_face.localprops = []
     frame.grip_face.template = tfacecomp4
     bounds_x = 0
-    bounds_y = 2
-    bounds_cx = 449
-    bounds_cy = 215
+    bounds_y = 0
+    bounds_cx = 471
+    bounds_cy = 45
     anchors = [an_left, an_top, an_right, an_bottom]
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
+    dragdock.tab_face = tfacecomp5
+    dragdock.tab_facetab = tfacecomp4
+    dragdock.tab_size = 24
+    dragdock.tab_sizemin = 24
     dragdock.caption = 'Dock any window on this area.'
-    dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_tabed, od_fixsize, od_background]
+    dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_fixsize, od_background]
+    dragdock.onlayoutchanged = onchangelayout
     dragdock.onchilddock = updatedockev
     dragdock.onchildfloat = updatedockev
     statfile = tstatfile1
@@ -3101,8 +3106,8 @@ object mainfo: tmainfo
       11251846
     )
     template.fade_direction = gd_up
-    left = 113
-    top = 12
+    left = 235
+    top = 13
   end
   object tfacecomp3: tfacecomp
     template.fade_pos.count = 2
@@ -3116,11 +3121,11 @@ object mainfo: tmainfo
       14015399
     )
     template.fade_direction = gd_down
-    left = 113
-    top = 24
+    left = 297
+    top = 5
   end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 8
+    menu.submenu.count = 9
     menu.submenu.items = <    
       item
         caption = ' &Drums '
@@ -3158,6 +3163,11 @@ object mainfo: tmainfo
         onexecute = onfloatall
       end    
       item
+        caption = ' &Tab '
+        state = [as_localcaption, as_localonexecute]
+        onexecute = ontab
+      end    
+      item
         caption = ' &About '
         state = [as_localcaption, as_localonexecute]
         onexecute = onabout
@@ -3172,19 +3182,80 @@ object mainfo: tmainfo
     )
     template.fade_color.count = 2
     template.fade_color.items = (
-      15790320
-      12566463
+      12237498
+      14408667
     )
     template.fade_direction = gd_down
-    left = 113
-    top = 36
+    left = 172
+    top = 12
   end
   object tstatfile1: tstatfile
     filename = 'status.sta'
     options = [sfo_transaction, sfo_autowritestat, sfo_activatorread, sfo_activatorwrite]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev
-    left = 7
-    top = 23
+    left = 307
+    top = 1
+  end
+  object timagelist2: timagelist
+    width = 4
+    height = 4
+    count = 8
+    cornermask_topleft = #2#1
+    cornermask_bottomleft = #2#1
+    cornermask_bottomright = #2#1
+    cornermask_topright = #2#1
+    left = 63
+    top = 6
+    image = {
+      00000000020000000C0000000C00000000010000000000000000000000000000
+      000000000000000000000000000000000000000000000002A5A5A50300000003
+      A5A5A5010000000486868601DCDCDC01FFFFFF01A5A5A50100000003A5A5A501
+      000000037C7C7C0100000003A5A5A50100000003A5A5A50100000003A5A5A501
+      00000003A5A5A50100000003A5A5A5010000000AA5A5A50100000003A5A5A501
+      00000006E8E8E801A5A5A50100000002E8E8E801A5A5A50100000006E5E5E501
+      A5A5A50100000002E5E5E501A5A5A50100000005DCDCDC0100000001A5A5A501
+      00000001DCDCDC0100000001A5A5A503CCCCCC0100000001A5A5A50400000004
+      FFFFFF01DCDCDC019494940100000004FFFFFF0100000005FFFFFF0100000001
+      8C8C8C010000000ADCDCDC01A5A5A501000000081C0100001E01000011010000
+      1101000080080000C00C0000C00C0000A00A0000F7000000870000000A000000
+      0C000000
+    }
+  end
+  object tframecomp1: tframecomp
+    template.colorframe = -2147483642
+    template.colorframeactive = -2147483642
+    template.colorframedisabled = -2147483642
+    template.colorframeclicked = -2147483642
+    template.colorframedefault = -2147483642
+    template.frameimage_list = timagelist2
+    template.frameimage_left = -4
+    template.frameimage_top = -4
+    template.frameimage_right = -4
+    template.frameimage_bottom = -4
+    template.colordkshadow = -2147483642
+    template.colorshadow = -2147483642
+    template.colorlight = -2147483642
+    template.colorhighlight = -2147483642
+    template.colordkwidth = 0
+    template.colorhlwidth = 0
+    template.hiddenedges = [edg_right, edg_bottom]
+    template.optionsskin = [fso_flat]
+    left = 352
+    top = 7
+  end
+  object tfacecomp5: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      13421772
+      15461355
+    )
+    template.fade_direction = gd_down
+    left = 164
   end
 end

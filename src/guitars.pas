@@ -4,8 +4,7 @@ interface
 uses
  mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
- msesimplewidgets,msewidgets,msegraphedits,
- sysutils;
+ msesimplewidgets,msewidgets,msegraphedits,sysutils;
 
 type
  tguitarsfo = class(tdockform)
@@ -25,6 +24,7 @@ type
    tbutton8: tbutton;
    tbutton9: tbutton;
    loopguit: tbooleanedit;
+   tfaceguitars: tfacecomp;
    procedure doguitarstring(const sender: TObject);
 //   procedure onfloatguit(const sender: TObject);
 //   procedure ondockguit(const sender: TObject);

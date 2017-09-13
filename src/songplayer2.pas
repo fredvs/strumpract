@@ -95,15 +95,11 @@ timerwait.enabled := false;
 end;
  
  procedure tsongplayer2fo.ChangePlugSetSoundTouch(const Sender: TObject);
-  var
-    tempo, rate: cfloat;
-  begin
+   begin
          if (trim(Pchar(AnsiString(songplayer2fo.historyfn.value))) <> '') 
          and fileexists(AnsiString(songplayer2fo.historyfn.value)) then
   begin
  
-  //   label6.caption := 'Tempo: ' + floattostrf(tempo, ffFixed, 15, 1);
-   
        uos_SetPluginSoundTouch(theplayer2, PluginIndex2, edtempo.value, 1, cbtempo.value);
  
     end;

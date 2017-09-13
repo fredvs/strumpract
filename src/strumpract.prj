@@ -69,7 +69,7 @@ order16=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
-findinfiledialog=61
+findinfiledialog=64
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -79,34 +79,37 @@ findinfiledialog=61
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.inprojectdir]
- value=1
+ value=0
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.indirectories]
- value=0
+ value=1
  [findinfileadialogfo.mask]
- value="*.pas" "*.pp" "*.inc"
- history=1
+ value="*.pas" "*.pp" "*.inc" "*.mfm"
+ history=2
+  "*.pas" "*.pp" "*.inc" "*.mfm"
   "*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/ideu/
+  /home/fred/msegui/
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
  filehistory=5
+  /home/fred/msegui/
   /home/fred/ideu/
   /usr/share/fpcsrc/
-  /home/fred/msegui/
   /home/fred/designer_ext/
   /home/fred/msegui/apps/ide/
  filefilterindex=0
- filefilter="*.pas" "*.pp" "*.inc"
+ filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=-hide
- history=18
+ value=sd_tabed
+ history=20
+  sd_tabed
+  use this to
   -hide
   songplayerfo
   createdrums
@@ -146,8 +149,9 @@ replacedialog=33
  [replacedialogfo.selectedonly]
  value=0
  [replacedialogfo.replacetext]
- value=Index3
+ value=therecplayer
  history=20
+  therecplayer
   Index3
   player
   showplayer
@@ -167,7 +171,6 @@ replacedialog=33
   cl_lime
   cl_yellow
   color
-  cl_ltgray
  [replacedialogfo]
  stackedunder=
  x=142
@@ -392,17 +395,18 @@ compnamedialog=5
  y=266
  cx=300
  cy=203
-bmpfiledialog=27
+bmpfiledialog=28
  [filedialog]
  filenames=1
-  /home/fred/Images/guitico.jpg
+  /home/fred/Documents/record.png
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
- lastdir=/home/fred/Images/
- filehistory=15
+ lastdir=/home/fred/Documents/
+ filehistory=16
+  /home/fred/Documents/record.png
   /home/fred/Images/guitico.jpg
   /home/fred/Images/drumsico.jpg
   /home/fred/Images/exaile.png
@@ -672,39 +676,30 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=11
+modulenames=8
  ABOUT_FORM
- DIALOGFILESFO
  DRUMSFO
  GUITARSFO
  MAINFO
  SIMPLE_PLAYER
- FILEDIALOGFO
- FILEDIALOGRES
  RECORDERFO
  SONGPLAYERFO
  SONGPLAYER2FO
-moduletypes=11
+moduletypes=8
  TABOUTFO
- TDIALOGFILESFO
  TDRUMSFO
  TGUITARSFO
  TMAINFO
  TMAINFO
- TFILEDIALOGFO
- TFILEDIALOGRES
  TRECORDERFO
  TSONGPLAYERFO
  TSONGPLAYER2FO
-modulefiles=11
+modulefiles=8
  /home/fred/strumpract/src/aboutform.mfm
- /home/fred/strumpract/src/dialogfiles.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/uos/examples/mainmse_sp.mfm
- /home/fred/strumpract/src/msefiledialog.mfm
- /home/fred/strumpract/src/msefiledialogres.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/songplayer2.mfm
@@ -1003,10 +998,10 @@ path=14
  /home/fred/strumpract_dock/src/main.pas
  /home/fred/strumpract_dock/src/main.pas
  /home/fred/strumpract_dock/src/main.pas
- /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/msefiledialog.pas
  /home/fred/strumpract/src/strumpract.pas
  /home/fred/strumpract/src/strumpract.pas
+ /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/main.pas
 line=14
  553
@@ -1018,11 +1013,11 @@ line=14
  65
  137
  343
- 157
  579
  11
  30
- 37
+ 33
+ 373
 address=14
  4569486
  6888448
@@ -1114,8 +1109,13 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=Index1
+finddtext=theplayer3
 findhistory=20
+ theplayer3
+ therecplayer
+ doquit
+ currentsplitdir
+ beginlayout
  Index1
  recorderfo.h
  tmainmenu
@@ -1131,13 +1131,8 @@ findhistory=20
  songplayerfo
  DYNLOAD
  ord(
- {$ifdef FPC}
- fred
- showdru
- width
- drumsfo.height
 findoptions=1
-editpos=32
+editpos=37
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1156,7 +1151,6 @@ editpos=32
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,7
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1165,10 +1159,16 @@ editpos=32
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 4,101
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 4,619
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1202,7 +1202,12 @@ bookmarks28=0
 bookmarks29=0
 bookmarks30=0
 bookmarks31=0
-sourcefiles=32
+bookmarks32=0
+bookmarks33=0
+bookmarks34=0
+bookmarks35=0
+bookmarks36=0
+sourcefiles=37
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/songplayer.pas
@@ -1210,8 +1215,7 @@ sourcefiles=32
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/guitars_mfm.pas
  /home/fred/msegui/lib/common/kernel/mseguiglob.pas
- /home/fred/msegui/lib/common/kernel/mseevent.pas
- ${PROJECTDIR}/settaborderform.pas
+ ${PROJECTDIR}/dialogfiles.mfm
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/uos.pas
@@ -1220,7 +1224,6 @@ sourcefiles=32
  ${PROJECTDIR}/aboutform.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/recorder.mfm
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/recorder_mfm.pas
@@ -1232,10 +1235,17 @@ sourcefiles=32
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/dialogfiles.pas
- ${PROJECTDIR}/msefiledialogres.pas
  ${PROJECTDIR}/msefiledialog.pas
  ${PROJECTDIR}/msefiledialog.pas
-relpaths=32
+ ${PROJECTDIR}/drums.pas
+ ${PROJECTDIR}/recorder.pas
+ ${PROJECTDIR}/main.mfm
+ ${PROJECTDIR}/drums.pas
+ ${PROJECTDIR}/drums.pas
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/recorder.pas
+ ${PROJECTDIR}/songplayer2.pas
+relpaths=37
  strumpract.pas
  drums.pas
  songplayer.pas
@@ -1243,8 +1253,7 @@ relpaths=32
  main.pas
  guitars_mfm.pas
  msegui/lib/common/kernel/mseguiglob.pas
- msegui/lib/common/kernel/mseevent.pas
- ideu/src/settaborderform.pas
+ dialogfiles.mfm
  guitars.pas
  uos_flat.pas
  uos.pas
@@ -1253,7 +1262,6 @@ relpaths=32
  aboutform.pas
  main.pas
  strumpract.pas
- recorder.mfm
  songplayer.pas
  guitars.pas
  recorder_mfm.pas
@@ -1265,10 +1273,31 @@ relpaths=32
  songplayer2.pas
  main.pas
  dialogfiles.pas
- msefiledialogres.pas
  msefiledialog.pas
  msefiledialog.pas
-ismoduletexts=32
+ drums.pas
+ recorder.pas
+ main.mfm
+ drums.pas
+ drums.pas
+ songplayer.pas
+ recorder.pas
+ songplayer2.pas
+ismoduletexts=37
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
  0
  0
  0
@@ -1292,28 +1321,16 @@ ismoduletexts=32
  0
  0
  0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=11
+modules=8
  /home/fred/uos/examples/mainmse_sp.mfm
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/guitars.mfm
- /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/aboutform.mfm
- /home/fred/strumpract/src/recorder.mfm
+ /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/drums.mfm
+ /home/fred/strumpract/src/guitars.mfm
+ /home/fred/strumpract/src/recorder.mfm
+ /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/songplayer2.mfm
- /home/fred/strumpract/src/dialogfiles.mfm
- /home/fred/strumpract/src/msefiledialogres.mfm
- /home/fred/strumpract/src/msefiledialog.mfm
-moduleoptions=11
+moduleoptions=8
  0
  0
  0
@@ -1322,14 +1339,8 @@ moduleoptions=11
  0
  0
  0
+visiblemodules=8
  0
- 0
- 0
-visiblemodules=11
- -1
- -1
- -1
- -1
  0
  -1
  -1
@@ -1337,10 +1348,7 @@ visiblemodules=11
  -1
  -1
  -1
-nomenumodules=11
- 0
- 0
- 0
+nomenumodules=8
  0
  0
  0
@@ -1350,13 +1358,18 @@ nomenumodules=11
  0
  0
 [sourcefo.files_tab]
-order=32
- 20
+order=37
  0
  1
  2
  3
  4
+ 33
+ 34
+ 35
+ 36
+ 32
+ 31
  5
  6
  7
@@ -1364,29 +1377,29 @@ order=32
  9
  10
  11
+ 30
  12
- 23
  13
  14
  15
  16
  17
+ 18
  19
+ 20
+ 21
+ 22
+ 23
+ 24
  25
  26
- 18
- 21
- 31
+ 27
  28
  29
- 30
- 27
- 24
- 22
-firsttab=20
-index=29
+firsttab=4
+index=7
 [layout]
-windowlayout=735
+windowlayout=678
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1412,8 +1425,8 @@ windowlayout=735
  ny=0
  ncx=0
  ncy=0
- x=3
- y=24
+ x=85
+ y=32
  cx=1123
  cy=621
  rcx=0
@@ -1441,7 +1454,7 @@ windowlayout=735
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=805322857
@@ -1631,16 +1644,16 @@ windowlayout=735
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=targetconsolefo
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=995
- y=189
- cx=316
+ x=131
+ y=184
+ cx=553
  cy=484
  rcx=0
  rcy=0
@@ -1648,10 +1661,10 @@ windowlayout=735
  active=0
  visible=1
  [objectinspectorfo.grid]
- propcolwidthref=306
- width0=137
+ propcolwidthref=543
+ width0=314
  sortdescend0=0
- width1=163
+ width1=223
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1828,7 +1841,7 @@ windowlayout=735
  active=0
  visible=0
  [componentpalettefo.componentpages]
- activetab=1
+ activetab=3
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -1881,7 +1894,7 @@ windowlayout=735
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_about_form_mse_
+ stackedunder=_mse_simple_player_mse_
  parent=
  mdistate=0
  nx=0
@@ -1916,7 +1929,7 @@ windowlayout=735
  [_mse_simple_player_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_about_form_mse_
  parent=
  mdistate=0
  nx=0
@@ -1931,68 +1944,11 @@ windowlayout=735
  rcy=0
  wsize=0
  active=0
- visible=1
- [_mse_mainfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=objectinspectorfo
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=502
- y=215
- cx=459
- cy=233
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_guitarsfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=652
- y=290
- cx=468
- cy=66
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_songplayerfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=518
- y=319
- cx=467
- cy=110
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
+ visible=0
  [_mse_about_form_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_simple_player_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2008,7 +1964,7 @@ windowlayout=735
  wsize=0
  active=0
  visible=0
- [_mse_recorderfo_mse_]
+ [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
  stackedunder=_mse_drumsfo_mse_
@@ -2018,8 +1974,65 @@ windowlayout=735
  ny=0
  ncx=0
  ncy=0
- x=459
- y=352
+ x=435
+ y=239
+ cx=481
+ cy=64
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_drumsfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=_mse_guitarsfo_mse_
+ parent=
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=457
+ y=184
+ cx=467
+ cy=236
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_guitarsfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=_mse_songplayerfo_mse_
+ parent=
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=895
+ y=268
+ cx=468
+ cy=66
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_recorderfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=174
+ y=377
  cx=467
  cy=128
  rcx=0
@@ -2027,7 +2040,7 @@ windowlayout=735
  wsize=0
  active=0
  visible=1
- [_mse_drumsfo_mse_]
+ [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
  stackedunder=_mse_songplayer2fo_mse_
@@ -2037,10 +2050,10 @@ windowlayout=735
  ny=0
  ncx=0
  ncy=0
- x=610
- y=236
- cx=467
- cy=236
+ x=285
+ y=227
+ cx=468
+ cy=110
  rcx=0
  rcy=0
  wsize=0
@@ -2049,7 +2062,7 @@ windowlayout=735
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_dialogfilesfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2060,63 +2073,6 @@ windowlayout=735
  y=326
  cx=467
  cy=110
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_dialogfilesfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=_mse_filedialogres_mse_
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=528
- y=109
- cx=463
- cy=414
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_filedialogres_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=_mse_filedialogfo_mse_
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=136
- y=575
- cx=245
- cy=117
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_filedialogfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=_mse_mainfo_mse_
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=452
- y=315
- cx=564
- cy=332
  rcx=0
  rcy=0
  wsize=0
