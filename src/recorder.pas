@@ -10,7 +10,7 @@ uses
 
 type
  trecorderfo = class(tdockform)
-   tdockpanel8: tdockpanel;
+   tdockrecorder: tdockpanel;
    tlabel27: tlabel;
    btnPause: tbutton;
    btnResume: tbutton;

@@ -17,6 +17,7 @@ object songplayerfo: tsongplayerfo
   )
   frame.grip_faceactive.fade_direction = gd_down
   frame.grip_faceactive.localprops = []
+  frame.grip_hint = ' Use that grip panel to drag/drop Player 1 form. '
   visible = False
   bounds_x = 285
   bounds_y = 227

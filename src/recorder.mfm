@@ -7,9 +7,10 @@ object recorderfo: trecorderfo
   frame.grip_face.template = mainfo.tfacecomp4
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = tfacecomp1
+  frame.grip_hint = ' Use that grip panel to drag/drop Recorder form. '
   visible = False
   bounds_x = 174
-  bounds_y = 377
+  bounds_y = 378
   bounds_cx = 457
   bounds_cy = 128
   container.frame.framei_left = 0
@@ -119,7 +120,7 @@ object recorderfo: trecorderfo
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
-  object tdockpanel8: tdockpanel
+  object tdockrecorder: tdockpanel
     color = -2147483645
     frame.framewidth = 1
     frame.colorframe = -1610612733

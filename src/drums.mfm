@@ -17,6 +17,7 @@ object drumsfo: tdrumsfo
   )
   frame.grip_faceactive.fade_direction = gd_down
   frame.grip_faceactive.localprops = []
+  frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
   bounds_x = 457
   bounds_y = 184
