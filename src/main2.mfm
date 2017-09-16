@@ -1,7 +1,0 @@
-object main2fo: tmain2fo
-  bounds_x = 100
-  bounds_y = 100
-  bounds_cx = 445
-  bounds_cy = 354
-  moduleclassname = 'tdockform'
-end

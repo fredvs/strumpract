@@ -1150,7 +1150,6 @@ editpos=39
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,312
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1180,9 +1179,10 @@ editpos=39
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 27,11
- 0,0
  0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 4,3
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1422,7 +1422,7 @@ order=39
  28
  29
 firsttab=4
-index=8
+index=10
 [layout]
 windowlayout=678
  [mainfo.basedock]
@@ -1460,7 +1460,7 @@ windowlayout=678
   basedock,0,0,1113,604
  focusedchild=0
  wsize=0
- active=1
+ active=0
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1478,8 +1478,8 @@ windowlayout=678
  rcx=0
  rcy=0
  wsize=0
- active=0
- visible=0
+ active=1
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=805322857
