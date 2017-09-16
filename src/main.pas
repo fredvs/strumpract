@@ -20,9 +20,9 @@ type
    tmainmenu1: tmainmenu;
    tfacecomp4: tfacecomp;
    tstatfile1: tstatfile;
-   timagelist2: timagelist;
    tframecomp1: tframecomp;
    tfacecomp5: tfacecomp;
+   timagelist3: timagelist;
    procedure oncreateform(const sender: TObject);
    procedure oncreatedform(const sender: TObject);
    procedure dodestroy(const sender: TObject);
