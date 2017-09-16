@@ -40,6 +40,7 @@ type
    procedure ontab(const sender: TObject);
    procedure onchangelayout(const sender: tdockcontroller);
    function issomeplaying : boolean;
+   procedure showall(const sender: TObject);
    private
     flayoutlock: int32;
    protected
@@ -50,7 +51,7 @@ type
   end;
  
 const
- versiontext = '1.4';
+ versiontext = '1.5';
  emptyheight = 40;
  drumsfoheight = 236;
  guitarsfoheight = 66;
@@ -104,10 +105,9 @@ begin
 end; 
    
 procedure tmainfo.oncreateform(const sender: TObject);
-var
-x : integer;
+// var x : integer;
 begin
- for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
+// for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
 tstatfile1.filename :=  IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +  'status.sta';
 end;
 
@@ -140,7 +140,11 @@ end;
 procedure tmainfo.oncreatedform(const sender: TObject);
 begin
 caption := 'StrumPract ' + versiontext;
-if not fileexists(tstatfile1.filename) then ondockall(sender);
+if not fileexists(tstatfile1.filename) then
+ begin
+ showall(sender);
+ ondockall(sender);
+ end;
 end;
 
 procedure tmainfo.showguitars(const sender: TObject);
@@ -267,32 +271,52 @@ var
  decorationheight:= window.decoratedbounds_cy - height;
  
  beginlayout();
+  if drumsfo.visible then
  drumsfo.dragdock.float();
- guitarsfo.dragdock.float();
- songplayerfo.dragdock.float();
- songplayer2fo.dragdock.float();
- recorderfo.dragdock.float();
- endlayout();
- height := emptyheight;
- width := fowidth;
  
+  if guitarsfo.visible then
+ guitarsfo.dragdock.float();
+ 
+  if songplayerfo.visible then
+ songplayerfo.dragdock.float();
+ 
+  if songplayer2fo.visible then
+ songplayer2fo.dragdock.float();
+ 
+  if recorderfo.visible then
+ recorderfo.dragdock.float();
+ 
+ endlayout();
+
+ 
+  if drumsfo.visible then
  drumsfo.left := left;
+ 
+  if guitarsfo.visible then
  guitarsfo.left := left;
+ 
+  if songplayerfo.visible then
  songplayerfo.left := left;
+ 
+  if songplayer2fo.visible then
  songplayer2fo.left := left;
+ 
+  if recorderfo.visible then
  recorderfo.left := left;
  
  resizeall();
  
- drumsfo.show();
- guitarsfo.show();
- songplayerfo.show();
- recorderfo.show();
+ // showall(sender);
+  
+ height := emptyheight;
+ width := fowidth;
+   
  drumsfo.top:= top + height + decorationheight;
- guitarsfo.top:= drumsfo.top + drumsfo.height + decorationheight;
- songplayerfo.top:= guitarsfo.top + guitarsfo.height + decorationheight;
- songplayer2fo.top:= songplayerfo.top + songplayerfo.height + decorationheight;
- recorderfo.top:= songplayer2fo.top + songplayer2fo.height + decorationheight;
+ songplayerfo.top:= drumsfo.top + drumsfoheight + decorationheight;
+ songplayer2fo.top:= songplayerfo.top + songplayerfoheight + decorationheight;
+ guitarsfo.top:= songplayer2fo.top + songplayerfoheight + decorationheight;
+ recorderfo.top:= guitarsfo.top + guitarsfoheight + decorationheight;
+ 
 end;
 
 procedure tmainfo.ondockall(const sender: TObject);
@@ -300,8 +324,10 @@ var
  pt1: pointty;
 begin
 
- basedock.dragdock.currentsplitdir:= sd_horz; 
+// showall(sender);
 
+ basedock.dragdock.currentsplitdir:= sd_horz; 
+ 
  beginlayout();
   
  resizeall();
@@ -322,14 +348,8 @@ begin
  songplayer2fo.pos:= pt1;
  pt1.y:= pt1.y + songplayer2fo.height;
  recorderfo.pos:= pt1;
+endlayout();  
 
- drumsfo.show();
- songplayerfo.show();
- songplayer2fo.show();
- guitarsfo.show();
- recorderfo.show();
- 
- endlayout();
 end;
 
 procedure tmainfo.beforereadev(const sender: TObject);
@@ -344,22 +364,30 @@ end;
 
 procedure tmainfo.ontab(const sender: TObject);
 begin
+ondockall(sender);
+
 basedock.dragdock.currentsplitdir:= sd_tabed; 
 
  resizealltab();
  
+ if songplayerfo.visible then
  songplayerfo.parentwidget:= basedock;
+ 
+  if songplayer2fo.visible then
  songplayer2fo.parentwidget:= basedock;
+ 
+  if recorderfo.visible then
  recorderfo.parentwidget:= basedock;
+ 
+  if guitarsfo.visible then
  guitarsfo.parentwidget:= basedock;
+ 
+  if drumsfo.visible then
  drumsfo.parentwidget:= basedock;
  
- drumsfo.show();
- songplayerfo.show();
- songplayer2fo.show();
- guitarsfo.show();
- recorderfo.show();
-end;
+// showall(sender);
+ end;
+ 
 
 procedure tmainfo.onchangelayout(const sender: tdockcontroller);
 begin
@@ -389,6 +417,15 @@ height := recorderfoheight + tabheight;
 basedock.dragdock.tab_faceactivetab := recorderfo.tfacerecorder;
 end;
 end;
+end;
+
+procedure tmainfo.showall(const sender: TObject);
+begin
+drumsfo.show();
+ songplayerfo.show();
+ songplayer2fo.show();
+ guitarsfo.show();
+ recorderfo.show();
 end;
 
 end.

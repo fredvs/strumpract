@@ -489,12 +489,14 @@ end;
 
 procedure tsongplayer2fo.visiblechangeev(const sender: TObject);
 begin
+{
 if visible then begin
   mainfo.tmainmenu1.menu[2].hint := ' Hide Player 2 ' ;
  end
  else begin
   mainfo.tmainmenu1.menu[2].hint := ' Show Player 2 ' ;
  end;
+ }
  mainfo.updatelayout();
 end;
 

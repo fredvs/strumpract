@@ -18,14 +18,14 @@ object mainfo: tmainfo
   bounds_x = 579
   bounds_y = 221
   bounds_cx = 471
-  bounds_cy = 64
+  bounds_cy = 70
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     17
     471
-    47
+    53
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1130,7 +1130,7 @@ object mainfo: tmainfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 471
-    bounds_cy = 45
+    bounds_cy = 51
     anchors = [an_left, an_top, an_right, an_bottom]
     font.name = 'stf_default'
     font.xscale = 1
@@ -3126,51 +3126,36 @@ object mainfo: tmainfo
     top = 5
   end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 9
+    menu.submenu.count = 5
     menu.submenu.items = <    
       item
-        caption = ' &Drums '
-        state = [as_localcaption, as_localonexecute]
-        onexecute = showdrums
-      end    
-      item
-        caption = ' &Player1 '
-        state = [as_localcaption, as_localonexecute]
-        onexecute = showplayer
-      end    
-      item
-        caption = ' P&layer2 '
-        state = [as_localcaption, as_localonexecute]
-        onexecute = showplayer2
-      end    
-      item
-        caption = ' &Guitars '
-        state = [as_localcaption, as_localonexecute]
-        onexecute = showguitars
-      end    
-      item
-        caption = ' &Recorder '
-        state = [as_localcaption, as_localonexecute]
-        onexecute = showrecorder
-      end    
-      item
         caption = ' D&ock '
-        state = [as_localcaption, as_localonexecute]
+        hint = ' Dock windows in one form '
+        state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ondockall
       end    
       item
         caption = ' &Float '
-        state = [as_localcaption, as_localonexecute]
+        hint = ' Float windows in independent forms '
+        state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onfloatall
       end    
       item
         caption = ' &Tab '
-        state = [as_localcaption, as_localonexecute]
+        hint = ' Make windows tabed in one form '
+        state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ontab
       end    
       item
+        caption = ' &Show '
+        hint = ' Show all windows '
+        state = [as_localcaption, as_localhint, as_localonexecute]
+        onexecute = showall
+      end    
+      item
         caption = ' &About '
-        state = [as_localcaption, as_localonexecute]
+        hint = ' About StrumPract '
+        state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onabout
       end>
     left = 7
