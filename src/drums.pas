@@ -6,6 +6,11 @@ uses
  msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msesimplewidgets,msewidgets,msegraphedits,msedataedits, SysUtils,Classes;
 
+const
+ drumsfoheight = 236;
+ fowidth = 456;
+ tabheight = 39;
+
 type
  talab =  array[0..15] of tlabel;
  talab2 =  array[0..3] of tlabel;
@@ -145,8 +150,6 @@ type
    procedure createdrumsplayers;
    procedure createvoiceplayers;
    procedure stopvoiceplayers;
-//   procedure onfloatdrums(const sender: TObject);
-//   procedure ondockdrums(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure oncreatedrums(const sender: TObject);
    procedure oncreateddrums(const sender: TObject);
@@ -643,6 +646,7 @@ end;
 }
 procedure tdrumsfo.visiblechangeev(const sender: TObject);
 begin
+if visible then else dostop(sender);
 {
 if visible then begin
   mainfo.tmainmenu1.menu[0].hint := ' Hide Drums ' ;

@@ -986,7 +986,7 @@ sigsettings=27
  30,30,T,F
 defaultmake=1
 [breakpoints]
-on=14
+on=15
  0
  0
  0
@@ -1001,7 +1001,8 @@ on=14
  0
  0
  0
-path=14
+ 0
+path=15
  /home/fred/drumspract/main.pas
  /home/fred/strumpract/uos.pas
  /home/fred/strumpract/uos.pas
@@ -1016,7 +1017,8 @@ path=14
  /home/fred/strumpract/src/strumpract.pas
  /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/main.pas
-line=14
+ /home/fred/strumpract/src/songplayer.pas
+line=15
  553
  6389
  7495
@@ -1031,7 +1033,8 @@ line=14
  30
  33
  401
-address=14
+ 481
+address=15
  4569486
  6888448
  6898245
@@ -1046,7 +1049,8 @@ address=14
  0
  0
  0
-addbkpt=14
+ 0
+addbkpt=15
  0
  0
  0
@@ -1061,7 +1065,8 @@ addbkpt=14
  0
  0
  0
-ignore=14
+ 0
+ignore=15
  0
  0
  0
@@ -1076,7 +1081,9 @@ ignore=14
  0
  0
  0
-condition=14
+ 0
+condition=15
+ 
  
  
  
@@ -1122,8 +1129,13 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=showall
+finddtext=Timerwait
 findhistory=20
+ Timerwait
+ ontimerwait
+ ondockplay
+ visiblech
+ TrackBar1.Tag
  showall
  theplayer3
  therecplayer
@@ -1139,17 +1151,17 @@ findhistory=20
  onfloatplay
  tmainmenu1.menu
  showplayer
- showpllayer
- procshowplayer
- procshowpllayer
- songplayerfo
- DYNLOAD
 findoptions=1
 editpos=39
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,60
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,9
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1173,16 +1185,11 @@ editpos=39
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 4,3
+ 0,152
+ 0,638
+ 0,461
+ 0,623
+ 0,86
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1366,10 +1373,10 @@ visiblemodules=8
  0
  0
  -1
- 0
- 0
  -1
  0
+ -1
+ -1
  -1
 nomenumodules=8
  0
@@ -1421,8 +1428,8 @@ order=39
  27
  28
  29
-firsttab=4
-index=10
+firsttab=7
+index=8
 [layout]
 windowlayout=678
  [mainfo.basedock]
@@ -1450,8 +1457,8 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=139
- y=24
+ x=173
+ y=50
  cx=1123
  cy=621
  rcx=0
@@ -1460,7 +1467,7 @@ windowlayout=678
   basedock,0,0,1113,604
  focusedchild=0
  wsize=0
- active=0
+ active=1
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1478,7 +1485,7 @@ windowlayout=678
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
  [threadsfo]
  splitdir=0
@@ -1583,8 +1590,8 @@ windowlayout=678
  width1=82
  sortdescend1=0
  sorted=0
- col=0
- row=0
+ col=1
+ row=2
  rowheight=17
  [stackfo]
  splitdir=0
@@ -1669,7 +1676,7 @@ windowlayout=678
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -1684,12 +1691,12 @@ windowlayout=678
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [objectinspectorfo.grid]
- propcolwidthref=569
- width0=218
+ propcolwidthref=554
+ width0=212
  sortdescend0=0
- width1=345
+ width1=336
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1973,7 +1980,7 @@ windowlayout=678
  [_mse_about_form_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2011,7 +2018,7 @@ windowlayout=678
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2026,11 +2033,11 @@ windowlayout=678
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2049,7 +2056,7 @@ windowlayout=678
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2068,7 +2075,7 @@ windowlayout=678
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2083,11 +2090,11 @@ windowlayout=678
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0

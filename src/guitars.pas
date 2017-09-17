@@ -6,6 +6,12 @@ uses
  msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msesimplewidgets,msewidgets,msegraphedits,sysutils;
 
+const
+ guitarsfoheight = 66;
+ songplayerfoheight = 110;
+ fowidth = 456;
+ tabheight = 39;
+
 type
  tguitarsfo = class(tdockform)
    tdockpanel6: tdockpanel;

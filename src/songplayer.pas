@@ -7,6 +7,11 @@ uses
  mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
  msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits;
 
+const
+ songplayerfoheight = 110;
+ fowidth = 456;
+ tabheight = 39;
+
 type
  tsongplayerfo = class(tdockform)
    tdockpanel8: tdockpanel;
@@ -55,15 +60,13 @@ type
    procedure onsliderkeyup(const sender: twidget; var ainfo: keyeventinfoty);
    procedure onsliderchange(const sender: TObject);
    procedure ontimerwait(const Sender: TObject);
- 
-   procedure onfloatplay(const sender: TObject);
-   procedure ondockplay(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure onplayercreate(const sender: TObject);
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
    procedure whosent(const sender: tfiledialogcontroller;
                    var dialogkind: filedialogkindty;
                    var aresult: modalresultty);
+ 
  end;
 var
  songplayerfo: tsongplayerfo;
@@ -146,8 +149,11 @@ procedure tsongplayerfo.ClosePlayer1;
     ho, mi, se, ms: word;
   begin
  
-     if (TrackBar1.Tag = 0) then
+  //   if (TrackBar1.Tag = 0) then
+     if not TrackBar1.clicked then 
     begin
+    //TrackBar1.scrollbar.options := [sbo_thumbtrack,sbo_moveauto,sbo_showauto,sbo_valuekeys];
+   
       if uos_InputPosition(theplayer, InputIndex1) > 0 then
       begin
         TrackBar1.value := uos_InputPosition(theplayer, InputIndex1) / inputlength;
@@ -157,6 +163,7 @@ procedure tsongplayerfo.ClosePlayer1;
         lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
       end;
     end;
+    // else TrackBar1.scrollbar.options := [sbo_thumbtrack,sbo_moveauto,sbo_showauto,sbo_valuekeys];
    
     end; 
   
@@ -356,9 +363,26 @@ end;
 procedure tsongplayerfo.changepos(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
- if TrackBar1.Tag = 0 then
-   uos_InputSeek(theplayer, InputIndex1, trunc(avalue * inputlength));
- //  TrackBar1.Tag := 0;
+//accept := false;
+onsliderchange(sender);
+
+ // if TrackBar1.Tag = 0 then
+ if not TrackBar1.clicked then 
+  uos_InputSeek(theplayer, InputIndex1, trunc(avalue * inputlength));
+end;
+
+procedure tsongplayerfo.onsliderchange(const sender: TObject);
+ var
+    temptime: ttime;
+    ho, mi, se, ms: word;
+begin
+//if (trackbar1.tag = 1) and (inputlength > 0) then
+if trackbar1.clicked then 
+begin
+        temptime := tottime *  TrackBar1.value;
+        DecodeTime(temptime, ho, mi, se, ms);
+        lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+end;
 
 end;
 
@@ -371,12 +395,12 @@ end;
 
 procedure tsongplayerfo.doentertrackbar(const sender: TObject);
 begin
-songplayerfo.trackbar1.tag := 1;
+trackbar1.tag := 1;
 end;
 
 procedure tsongplayerfo.onreset(const sender: TObject);
 begin
-songplayerfo.edtempo.value := 1;
+edtempo.value := 1;
 end;
 
 procedure tsongplayerfo.onfinfos(const sender: TObject);
@@ -452,42 +476,9 @@ begin
 trackbar1.tag := 0 ;
 end;
 
-procedure tsongplayerfo.onsliderchange(const sender: TObject);
- var
-    temptime: ttime;
-    ho, mi, se, ms: word;
-begin
-if (trackbar1.tag = 1) and (inputlength > 0) then
-begin
-        temptime := tottime *  TrackBar1.value;
-        DecodeTime(temptime, ho, mi, se, ms);
-        lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
-       
- end;
-
-end;
-
-procedure tsongplayerfo.onfloatplay(const sender: TObject);
-begin
-{
-height := 114;
-mainfo.height := mainfo.height - 114;
-if mainfo.height < 40 then mainfo.height := 40;
-}
-end;
-
-procedure tsongplayerfo.ondockplay(const sender: TObject);
-begin
-// if initplay = 0 then mainfo.procshowpllayer(sender);
-
-if hasinit = 0 then begin
-height := 114;
-mainfo.height := mainfo.height + 114;
-end;
-end;
-
 procedure tsongplayerfo.visiblechangeev(const sender: TObject);
 begin
+if visible then else doplayerstop(sender);
 {
  if visible then begin
   mainfo.tmainmenu1.menu[1].hint := ' Hide Player 1 ' ;
@@ -497,6 +488,7 @@ begin
  end;
 }
  mainfo.updatelayout();
+ 
 end;
 
 procedure tsongplayerfo.onplayercreate(const sender: TObject);

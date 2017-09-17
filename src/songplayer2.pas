@@ -8,6 +8,11 @@ uses
  msedataedits,msefiledialog,msegrids,
  mselistbrowser,
  msesys,sysutils,msegraphedits;
+ 
+ const
+ songplayerfoheight = 110;
+ fowidth = 456;
+ tabheight = 39;
 
 type
  tsongplayer2fo = class(tdockform)
@@ -56,9 +61,6 @@ type
    procedure onsliderkeyup(const sender: twidget; var ainfo: keyeventinfoty);
    procedure onsliderchange(const sender: TObject);
    procedure ontimerwait(const Sender: TObject);
- 
-   procedure onfloatplay(const sender: TObject);
-   procedure ondockplay(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure onplayercreate(const sender: TObject);
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
@@ -468,27 +470,9 @@ begin
 
 end;
 
-procedure tsongplayer2fo.onfloatplay(const sender: TObject);
-begin
-{
-height := 114;
-mainfo.height := mainfo.height - 114;
-if mainfo.height < 40 then mainfo.height := 40;
-}
-end;
-
-procedure tsongplayer2fo.ondockplay(const sender: TObject);
-begin
-// if initplay = 0 then mainfo.procshowpllayer(sender);
-
-if hasinit = 0 then begin
-height := 114;
-mainfo.height := mainfo.height + 114;
-end;
-end;
-
 procedure tsongplayer2fo.visiblechangeev(const sender: TObject);
 begin
+if visible then else doplayerstop(sender);
 {
 if visible then begin
   mainfo.tmainmenu1.menu[2].hint := ' Hide Player 2 ' ;

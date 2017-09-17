@@ -503,6 +503,7 @@ end;
 
 procedure trecorderfo.visiblechangeev(const sender: TObject);
 begin
+if visible then else doplayerstop(sender);
 {
 if visible then begin
   mainfo.tmainmenu1.menu[4].hint := ' Hide Recorder ' ;
