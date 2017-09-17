@@ -1188,7 +1188,7 @@ editpos=41
  0,-1073741823
  0,-1073741823
  0,2
- 0,0
+ 0,8
  0,10
 bookmarks0=0
 bookmarks1=0
@@ -1441,7 +1441,7 @@ order=41
  36
  37
 firsttab=0
-index=5
+index=3
 [layout]
 windowlayout=697
  [mainfo.basedock]
