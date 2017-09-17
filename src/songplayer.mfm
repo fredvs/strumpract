@@ -23,6 +23,10 @@ object songplayerfo: tsongplayerfo
   bounds_y = 227
   bounds_cx = 458
   bounds_cy = 110
+  bounds_cxmin = 458
+  bounds_cymin = 110
+  bounds_cxmax = 458
+  bounds_cymax = 110
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0

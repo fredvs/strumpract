@@ -3177,16 +3177,15 @@ object mainfo: tmainfo
   end
   object tstatfile1: tstatfile
     filename = 'status.sta'
-    options = [sfo_transaction, sfo_autowritestat, sfo_activatorread, sfo_activatorwrite]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev
     left = 307
     top = 1
   end
   object tframecomp1: tframecomp
-    template.framei_left = 17
+    template.framei_left = 10
     template.framei_top = 2
-    template.framei_right = 17
+    template.framei_right = 10
     template.framei_bottom = 2
     template.frameo_left = 1
     template.frameo_right = 1

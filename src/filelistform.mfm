@@ -1,0 +1,129 @@
+object filelistfo: tfilelistfo
+  frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+  frame.localprops1 = []
+  frame.grip_size = 8
+  frame.grip_grip = stb_dens0
+  frame.grip_face.localprops = []
+  frame.grip_face.template = mainfo.tfacecomp4
+  visible = False
+  bounds_x = 679
+  bounds_y = 250
+  bounds_cx = 458
+  bounds_cy = 119
+  bounds_cxmin = 458
+  bounds_cymin = 119
+  bounds_cxmax = 458
+  bounds_cymax = 119
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    450
+    119
+  )
+  dragdock.splitter_size = 5
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  statfile = mainfo.tstatfile1
+  caption = 'Files'
+  oncreated = formcreated
+  onshow = visiblechangeev
+  onhide = visiblechangeev
+  moduleclassname = 'tdockform'
+  object list_files: tfilelistview
+    frame.localprops = []
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = mainfo.tfacecomp4
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 448
+    bounds_cy = 93
+    cellwidth = 174
+    cellheight = 17
+    optionsgrid = [og_colsizing, og_focuscellonenter, og_mousescrollcol]
+    options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
+    cellwidthmin = 50
+    statfile = mainfo.tstatfile1
+    onselectionchanged = selctchanged
+    reffontheight = 15
+  end
+  object tbutton1: tbutton
+    face.localprops = []
+    face.template = mainfo.tfacecomp1
+    taborder = 1
+    bounds_x = 186
+    bounds_y = 97
+    bounds_cx = 115
+    bounds_cy = 20
+    state = [as_localcaption, as_localonexecute]
+    caption = 'Sent to Player 1'
+    onexecute = onsent
+  end
+  object tbutton2: tbutton
+    Tag = 1
+    face.localprops = []
+    face.template = mainfo.tfacecomp1
+    taborder = 2
+    bounds_x = 320
+    bounds_y = 97
+    bounds_cx = 115
+    bounds_cy = 20
+    state = [as_localcaption, as_localonexecute]
+    caption = 'Sent to Player 2'
+    onexecute = onsent
+  end
+  object dir: tdirdropdownedit
+    optionswidget = [ow_mousefocus, ow_arrowfocus, ow_destroywidgets]
+    frame.caption = '&Dir'
+    frame.captionpos = cp_left
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.button.face.fade_pos.count = 2
+    frame.button.face.fade_pos.items = (
+      0
+      1
+    )
+    frame.button.face.fade_color.count = 2
+    frame.button.face.fade_color.items = (
+      15461355
+      11053224
+    )
+    frame.button.face.fade_direction = gd_down
+    frame.button.face.localprops = [fal_fadirection]
+    frame.buttons.count = 1
+    frame.buttons.items = <    
+      item
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          15461355
+          11053224
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+      end>
+    frame.outerframe = (
+      20
+      0
+      0
+      0
+    )
+    face.localprops = []
+    face.template = mainfo.tfacecomp1
+    taborder = 3
+    bounds_x = 5
+    bounds_y = 97
+    bounds_cx = 161
+    anchors = [an_left, an_top, an_right]
+    statfile = mainfo.tstatfile1
+    textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+    onchange = onchangpath
+    dropdown.options = [deo_selectonly, deo_keydropdown]
+    reffontheight = 15
+  end
+end

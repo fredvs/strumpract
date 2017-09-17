@@ -580,7 +580,7 @@ var
 
 implementation
 uses
- songplayer, songplayer2, recorder,msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
+filelistform, songplayer, songplayer2, recorder,msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
  msestockobjects,msesysintf,msearrayutils;
 
 type
@@ -1484,6 +1484,16 @@ var
  str1: filenamety;
 begin
 application.lock();
+
+{
+filelistfo.list_files.path  := dir.value ;
+
+if thesender = 5 then 
+begin
+hide;
+exit;
+end;
+}
 
 if thesender = 0 then
 begin

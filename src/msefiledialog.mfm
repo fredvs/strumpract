@@ -13,8 +13,8 @@ object filedialogfo: Tfiledialogfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 453
-  bounds_y = 314
+  bounds_x = 799
+  bounds_y = 57
   bounds_cx = 554
   bounds_cy = 332
   bounds_cxmin = 360

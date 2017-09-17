@@ -7,9 +7,11 @@ program strumpract;
  {$R dp.res}
 {$endif}
 uses
- {$ifdef FPC}{$ifdef unix}cthreads,{$endif}{$endif} 
- msegui, main, aboutform, drums, songplayer, songplayer2, guitars, recorder,infos;
+ {$ifdef FPC}{$ifdef unix}cmem, cthreads,{$endif}{$endif} 
+filelistform, msegui, main, aboutform, drums, songplayer, songplayer2, guitars, recorder,infos;
 begin
+
+  application.createform(tfilelistfo,filelistfo);
   application.createform(tdrumsfo,drumsfo);
   application.createform(tsongplayerfo,songplayerfo);
   application.createform(tsongplayer2fo,songplayer2fo);

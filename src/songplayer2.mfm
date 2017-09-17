@@ -20,9 +20,13 @@ object songplayer2fo: tsongplayer2fo
   frame.grip_hint = ' Use that grip panel to drag/drop Player 2 form. '
   visible = False
   bounds_x = 565
-  bounds_y = 326
-  bounds_cx = 457
+  bounds_y = 327
+  bounds_cx = 458
   bounds_cy = 110
+  bounds_cxmin = 458
+  bounds_cymin = 110
+  bounds_cxmax = 458
+  bounds_cymax = 110
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -32,7 +36,7 @@ object songplayer2fo: tsongplayer2fo
   container.bounds = (
     0
     0
-    449
+    450
     110
   )
   dragdock.splitter_size = 5

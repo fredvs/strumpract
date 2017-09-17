@@ -6,11 +6,6 @@ uses
  msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msesimplewidgets,msewidgets,msegraphedits,msedataedits, SysUtils,Classes;
 
-const
- drumsfoheight = 236;
- fowidth = 456;
- tabheight = 39;
-
 type
  talab =  array[0..15] of tlabel;
  talab2 =  array[0..3] of tlabel;
@@ -112,7 +107,7 @@ type
    and2: tlabel;
    and3: tlabel;
    and4: tlabel;
-   tdockpanel4: tdockpanel;
+   panel1: tgroupbox;
    tbooleaneditradio8: tbooleaneditradio;
    tbooleaneditradio7: tbooleaneditradio;
    tbooleaneditradio6: tbooleaneditradio;
@@ -150,6 +145,8 @@ type
    procedure createdrumsplayers;
    procedure createvoiceplayers;
    procedure stopvoiceplayers;
+//   procedure onfloatdrums(const sender: TObject);
+//   procedure ondockdrums(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure oncreatedrums(const sender: TObject);
    procedure oncreateddrums(const sender: TObject);
@@ -247,7 +244,7 @@ begin
  
  if noanim.value = false then
 begin
- application.lock();
+ application.lock();    
 label2.visible := true;
 
 if (posi = 1) or (posi = 9) then
@@ -646,7 +643,6 @@ end;
 }
 procedure tdrumsfo.visiblechangeev(const sender: TObject);
 begin
-if visible then else dostop(sender);
 {
 if visible then begin
   mainfo.tmainmenu1.menu[0].hint := ' Hide Drums ' ;
@@ -758,6 +754,7 @@ var
 ordir : string;
 spcx, spcy, posx, posy, ax  : integer;
 lib1, lib2, lib3, lib4 : string;
+ i1: int32;
 begin
 // visible := false;
        
@@ -850,6 +847,9 @@ begin
  alab2[1] := tlabel2;
  alab2[2] := tlabel3;
  alab2[3] := tlabel4;
+ for i1:= 0 to high(alab2) do begin
+  alab2[i1].createfont();
+ end;
 
  for ax := 0 to 3 do
   begin
@@ -1137,7 +1137,7 @@ adrums[8] := ordir + 'sound' + directoryseparator +  'voice' + directoryseparato
  
 // if assigned( ams[i]) then ams[i].free; 
 
-createdrumsplayers ;
+ createdrumsplayers ;
 
  posi := 1;
  

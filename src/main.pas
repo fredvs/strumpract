@@ -6,7 +6,7 @@ interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
  ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,drums,
- recorder,songplayer, songplayer2, guitars,msedataedits,mseedit,msestatfile,
+ recorder,songplayer, songplayer2, filelistform, guitars,msedataedits,mseedit,msestatfile,
  SysUtils,Classes, uos_flat, aboutform,msebitmap, msesys,msemenus,msestream,
  msegrids,mselistbrowser;
  
@@ -54,11 +54,14 @@ const
  versiontext = '1.5';
  emptyheight = 40;
  drumsfoheight = 236;
+ filelistfoheight = 119;
  guitarsfoheight = 66;
  songplayerfoheight = 110;
  recorderfoheight = 128;
- fowidth = 456;
+ fowidth = 458;
  tabheight = 39;
+ maxheightfo = 600; 
+ scrollwidth = 20;
  
 var
  mainfo: tmainfo;
@@ -76,32 +79,40 @@ uses
  
 procedure resizeall();
 begin
+
+ mainfo.width := fowidth;
+
  drumsfo.height := drumsfoheight;
  guitarsfo.height := guitarsfoheight;
  songplayerfo.height := songplayerfoheight;
  songplayer2fo.height := songplayerfoheight;
  recorderfo.height := recorderfoheight;
+ filelistfo.height := filelistfoheight;
  
  drumsfo.width := fowidth;
  guitarsfo.width := fowidth;
  songplayerfo.width := fowidth;
  songplayer2fo.width := fowidth;
  recorderfo.width := fowidth;
+ filelistfo.width := fowidth;
 end; 
 
 procedure resizealltab();
 begin
+ mainfo.width := fowidth ;
  drumsfo.height := drumsfoheight + tabheight;
  guitarsfo.height := guitarsfoheight + tabheight;
  songplayerfo.height := songplayerfoheight + tabheight;
  songplayer2fo.height := songplayerfoheight + tabheight;
  recorderfo.height := recorderfoheight + tabheight;
+ filelistfo.height := filelistfoheight + tabheight;;
  
  drumsfo.width := fowidth;
  guitarsfo.width := fowidth;
  songplayerfo.width := fowidth;
  songplayer2fo.width := fowidth;
  recorderfo.width := fowidth;
+ filelistfo.width := fowidth;
 end; 
    
 procedure tmainfo.oncreateform(const sender: TObject);
@@ -203,19 +214,23 @@ procedure tmainfo.updatelayout();
 var
  maxwidth: int32;
  totheight: int32;
+ totchildheight: int32;
  visiblecount: int32;
  children1: widgetarty;
  heights: integerarty;
  i1: int32;
  si1,si2: sizety;
+ isbig : boolean = false;
 begin
 if basedock.dragdock.currentsplitdir <> sd_tabed then begin
  if flayoutlock <= 0 then begin
+  width := fowidth;
   children1:= basedock.dragdock.getitems();
   setlength(heights,length(children1));
   visiblecount:= 0;
   maxwidth:= 0;
   totheight:= 0;
+  totchildheight := 0;
   for i1:= 0 to high(children1) do begin
    with children1[i1] do begin
     si1:= container.minscrollsize(); //minimal clientarea
@@ -225,7 +240,12 @@ if basedock.dragdock.currentsplitdir <> sd_tabed then begin
      if si1.cx > maxwidth then begin
       maxwidth:= si1.cx;
      end;
-     totheight:= totheight + si1.cy;
+      totchildheight := totchildheight + si1.cy;
+     if totheight + si1.cy < maxheightfo then
+     totheight:= totheight + si1.cy else
+     begin
+       isbig := true;   //totheight := maxheightfo;
+     end;
      inc(visiblecount);
     end;
    end;
@@ -235,6 +255,7 @@ if basedock.dragdock.currentsplitdir <> sd_tabed then begin
   end
   else begin
    i1:= 0;
+   if isbig then maxwidth := maxwidth + scrollwidth;
    repeat
     si1:= subsize(size,basedock.paintsize); //padding before update
     si2.cx:= maxwidth + si1.cx;
@@ -244,7 +265,8 @@ if basedock.dragdock.currentsplitdir <> sd_tabed then begin
     si2:= subsize(size,basedock.paintsize); //padding after update
     inc(i1);
    until (si1.cx = si2.cx) and (si1.cy = si2.cy) or      //padding stable
-                                             (i1 > 8);  //emergency brake
+                                                (i1 > 8);  //emergency brake
+ 
   end;
  end;
  for i1:= 0 to high(children1) do begin
@@ -286,6 +308,9 @@ var
   if recorderfo.visible then
  recorderfo.dragdock.float();
  
+  if filelistfo.visible then
+ filelistfo.dragdock.float();
+ 
  endlayout();
 
  
@@ -303,6 +328,8 @@ var
  
   if recorderfo.visible then
  recorderfo.left := left;
+  if filelistfo.visible then
+ filelistfo.left := left;
  
  resizeall();
  
@@ -331,23 +358,39 @@ begin
  beginlayout();
   
  resizeall();
-
+if drumsfo.visible then
  drumsfo.parentwidget:= basedock;
+
+if guitarsfo.visible then
  guitarsfo.parentwidget:= basedock;
+if filelistfo.visible then
+ filelistfo.parentwidget:= basedock;
+if songplayerfo.visible then
  songplayerfo.parentwidget:= basedock;
+if songplayer2fo.visible then
  songplayer2fo.parentwidget:= basedock;
+if recorderfo.visible then
  recorderfo.parentwidget:= basedock;
   
  pt1:= nullpoint;
+ 
  drumsfo.pos:= pt1;
  pt1.y:= pt1.y + drumsfo.height;
- guitarsfo.pos:= pt1;
- pt1.y:= pt1.y + guitarsfo.height;
+ 
+ filelistfo.pos:= pt1;
+ pt1.y:= pt1.y + filelistfo.height;
+
  songplayerfo.pos:= pt1;
  pt1.y:= pt1.y + songplayerfo.height;
+ 
  songplayer2fo.pos:= pt1;
  pt1.y:= pt1.y + songplayer2fo.height;
+
  recorderfo.pos:= pt1;
+ pt1.y:= pt1.y + recorderfo.height;
+  
+ guitarsfo.pos:= pt1; 
+ 
 endlayout();  
 
 end;
@@ -364,7 +407,7 @@ end;
 
 procedure tmainfo.ontab(const sender: TObject);
 begin
-ondockall(sender);
+//ondockall(sender);
 
 basedock.dragdock.currentsplitdir:= sd_tabed; 
 
@@ -375,6 +418,9 @@ basedock.dragdock.currentsplitdir:= sd_tabed;
  
   if songplayer2fo.visible then
  songplayer2fo.parentwidget:= basedock;
+ 
+  if filelistfo.visible then
+ filelistfo.parentwidget:= basedock;
  
   if recorderfo.visible then
  recorderfo.parentwidget:= basedock;
@@ -415,17 +461,24 @@ if basedock.dragdock.activewidget = recorderfo then
 begin
 height := recorderfoheight + tabheight;
 basedock.dragdock.tab_faceactivetab := recorderfo.tfacerecorder;
+end
+else
+if basedock.dragdock.activewidget = filelistfo then 
+begin
+height := filelistfoheight + tabheight;
+basedock.dragdock.tab_faceactivetab := songplayerfo.tfaceplayer;
 end;
 end;
 end;
 
 procedure tmainfo.showall(const sender: TObject);
 begin
-drumsfo.show();
+ drumsfo.show();
  songplayerfo.show();
  songplayer2fo.show();
  guitarsfo.show();
  recorderfo.show();
+ filelistfo.show();
 end;
 
 end.

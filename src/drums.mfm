@@ -20,10 +20,13 @@ object drumsfo: tdrumsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
   bounds_x = 457
-  bounds_y = 184
-  bounds_cx = 457
+  bounds_y = 183
+  bounds_cx = 458
   bounds_cy = 236
-  anchors = [an_left, an_top, an_right, an_bottom]
+  bounds_cxmin = 458
+  bounds_cymin = 236
+  bounds_cxmax = 458
+  bounds_cymax = 236
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -33,7 +36,7 @@ object drumsfo: tdrumsfo
   container.bounds = (
     0
     0
-    449
+    450
     236
   )
   dragdock.caption = ' Drums '
@@ -189,7 +192,7 @@ object drumsfo: tdrumsfo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     hint = ' Drums set '
-    bounds_x = 0
+    bounds_x = 1
     bounds_y = 0
     bounds_cx = 446
     bounds_cy = 236
@@ -961,13 +964,12 @@ object drumsfo: tdrumsfo
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
-    object tdockpanel4: tdockpanel
+    object panel1: tgroupbox
       color = 12446914
       frame.framewidth = 1
       frame.colorframe = -1610612733
       frame.localprops = [frl_framewidth, frl_colorframe]
       frame.localprops1 = []
-      frame.grip_size = 0
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
