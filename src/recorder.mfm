@@ -9,8 +9,8 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder form. '
   visible = False
-  bounds_x = 174
-  bounds_y = 378
+  bounds_x = 185
+  bounds_y = 239
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -124,51 +124,418 @@ object recorderfo: trecorderfo
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
-  object tdockrecorder: tdockpanel
-    color = -2147483645
-    frame.framewidth = 1
-    frame.colorframe = -1610612733
-    frame.localprops = [frl_framewidth, frl_colorframe]
+  object tgroupbox1: tgroupbox
+    frame.leveli = 0
+    frame.colordkwidth = 0
+    frame.colorhlwidth = 0
+    frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth]
     frame.localprops1 = []
-    frame.grip_size = 0
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    face.template = tfacecomp1
-    hint = ' Recorder '
+    face.localprops = []
+    face.template = tfacecomp2
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 446
+    bounds_cx = 450
     bounds_cy = 128
-    statfile = mainfo.tstatfile1
-    object tlabel27: tlabel
+    object vuRight: tdockpanel
+      color = 976914
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        8585109
+        38403
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      visible = False
+      bounds_x = 254
+      bounds_y = 51
+      bounds_cx = 6
+      bounds_cy = 44
+    end
+    object vuLeft: tdockpanel
+      color = 976914
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        8585109
+        38403
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 1
+      visible = False
+      bounds_x = 182
+      bounds_y = 52
+      bounds_cx = 6
+      bounds_cy = 44
+    end
+    object tlabel2: tlabel
       color = -2147483645
-      taborder = 10
-      bounds_x = 197
-      bounds_y = 49
-      bounds_cx = 45
+      taborder = 2
+      bounds_x = 51
+      bounds_y = 30
+      bounds_cx = 42
       bounds_cy = 15
-      caption = 'Volume'
-      font.color = 4013373
+      caption = 'Record'
+      font.color = 4210752
       font.name = 'stf_default'
       font.localprops = [flp_color]
       reffontheight = 15
     end
-    object btnPause: tbutton
+    object tlabel28: tlabel
+      color = -2147483645
+      taborder = 3
+      bounds_x = 16
+      bounds_y = 48
+      bounds_cx = 24
+      bounds_cy = 15
+      caption = 'Play'
+      font.color = 4210752
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
+      reffontheight = 15
+    end
+    object tbutton3: tbutton
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
-      hint = ' Pause player '
-      bounds_x = 73
-      bounds_y = 67
+      taborder = 4
+      hint = ' Start Recording  '
+      bounds_x = 96
+      bounds_y = 30
+      bounds_cx = 30
+      bounds_cy = 30
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 33
+      focusrectdist = 0
+      onexecute = dorecorderstart
+    end
+    object tbutton2: tbutton
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
+      taborder = 5
+      hint = ' Stop player '
+      bounds_x = 130
+      bounds_y = 30
       bounds_cx = 30
       bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
-      imagenr = 1
+      imagenr = 2
       focusrectdist = 0
-      onexecute = doplayerpause
+      onexecute = doplayerstop
+    end
+    object blistenin: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Listen to Input'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        94
+        3
+      )
+      taborder = 6
+      hint = ' Listen to the input while recording. WARNING: Use headphones or set volume output low. '
+      bounds_x = 302
+      bounds_y = 29
+      bounds_cx = 107
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      onchange = onlistenin
+      value = True
+    end
+    object bsavetofile: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Save to file'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        71
+        3
+      )
+      taborder = 7
+      hint = ' Save recording to file '
+      bounds_x = 188
+      bounds_y = 29
+      bounds_cx = 84
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      value = True
+    end
+    object btinfos: tbutton
+      Tag = 1
+      color = 11647116
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
+      taborder = 8
+      hint = ' Show infos of the song '
+      bounds_x = 11
+      bounds_y = 5
+      bounds_cx = 41
+      bounds_cy = 20
+      state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Infos'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = onfinfos
+    end
+    object edvol: trealspinedit
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16515040
+      frame.framei_left = 1
+      frame.framei_top = 1
+      frame.framei_right = 1
+      frame.framei_bottom = 1
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = tfacecomp1
+      frame.buttonsize = 30
+      taborder = 9
+      hint = ' Change volume of song '
+      bounds_x = 191
+      bounds_y = 62
+      bounds_cx = 62
+      bounds_cy = 32
+      statfile = mainfo.tstatfile1
+      onchange = changevolume
+      value = 100
+      valuedefault = 100
+      valuerange = 1
+      valuestart = 0
+      min = 0
+      max = 100
+      step = 1
+      stepctrlfact = 0
+      stepshiftfact = 0
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+    object edtempo: trealspinedit
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16515040
+      frame.framei_left = 1
+      frame.framei_top = 1
+      frame.framei_right = 1
+      frame.framei_bottom = 1
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = tfacecomp1
+      frame.buttonsize = 30
+      taborder = 10
+      hint = ' Change tempo of song '
+      bounds_x = 320
+      bounds_y = 62
+      bounds_cx = 62
+      bounds_cy = 28
+      onchange = ChangePlugSetSoundTouch
+      value = 1
+      valuedefault = 1
+      valuerange = 1
+      valuestart = 0
+      min = 0
+      max = 10
+      step = 0.05
+      stepctrlfact = 0
+      stepshiftfact = 0
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+    object button1: tbutton
+      Tag = 1
+      color = 11647116
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
+      taborder = 11
+      hint = ' Reset to tempo original '
+      bounds_x = 387
+      bounds_y = 66
+      bounds_cx = 46
+      bounds_cy = 21
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Reset'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = onreset
+    end
+    object cbloop: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Loop'
+      frame.captionpos = cp_top
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        9
+        18
+        9
+        0
+      )
+      taborder = 12
+      hint = ' Enable looping the song '
+      bounds_x = 143
+      bounds_y = 63
+      bounds_cx = 31
+      bounds_cy = 30
+      statfile = mainfo.tstatfile1
+    end
+    object label6: tlabel
+      color = -2147483645
+      taborder = 13
+      bounds_x = 324
+      bounds_y = 48
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'Tempo'
+      font.color = 4013373
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
+      reffontheight = 15
+    end
+    object cbtempo: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Stretch'
+      frame.captionpos = cp_top
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        17
+        20
+        17
+        0
+      )
+      taborder = 14
+      hint = ' Enable stretching (changing temo) '
+      bounds_x = 267
+      bounds_y = 57
+      bounds_cx = 47
+      bounds_cy = 32
+      onchange = ChangePlugSetSoundTouch
+    end
+    object trackbar1: tslider
+      color = 14406110
+      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = []
+      taborder = 15
+      hint = ' Position of sound '
+      bounds_x = 14
+      bounds_y = 99
+      bounds_cx = 336
+      bounds_cy = 22
+      onchange = onsliderchange
+      enabled = False
+      value = 0
+      scrollbar.buttonendlength = 11
+      scrollbar.face.fade_direction = gd_down
+      scrollbar.face.localprops = [fal_fadirection]
+      scrollbar.face.template = tfacecomp1
+      scrollbar.face1.fade_direction = gd_down
+      scrollbar.face1.localprops = [fal_fadirection]
+      scrollbar.face1.template = tfacecomp1
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp1
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp1
+      onsetvalue = changepos
+    end
+    object lposition: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      color = -2147483645
+      taborder = 16
+      hint = ' Position of sound '
+      bounds_x = 358
+      bounds_y = 92
+      bounds_cx = 86
+      bounds_cy = 15
+      caption = '00:00:00.000'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object llength: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      color = -2147483645
+      taborder = 17
+      hint = ' Length of sound '
+      bounds_x = 358
+      bounds_y = 107
+      bounds_cx = 86
+      bounds_cy = 15
+      caption = '00:00:00.000'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object btnStop: tbutton
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
+      taborder = 18
+      hint = ' Stop player '
+      bounds_x = 107
+      bounds_y = 66
+      bounds_cx = 30
+      bounds_cy = 30
+      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 2
+      focusrectdist = 0
+      onexecute = doplayerstop
+    end
+    object btnStart: tbutton
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfacecomp1
+      taborder = 19
+      hint = ' Start player '
+      bounds_x = 14
+      bounds_y = 66
+      bounds_cx = 30
+      bounds_cy = 30
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doplayerstart
     end
     object btnResume: tbutton
       frame.localprops = [frl_optionsskin]
@@ -176,10 +543,10 @@ object recorderfo: trecorderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
-      taborder = 1
+      taborder = 20
       hint = ' Resume player '
-      bounds_x = 42
-      bounds_y = 67
+      bounds_x = 45
+      bounds_y = 66
       bounds_cx = 30
       bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -188,23 +555,81 @@ object recorderfo: trecorderfo
       focusrectdist = 0
       onexecute = doplayeresume
     end
-    object btnStart: tbutton
+    object btnPause: tbutton
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
-      taborder = 2
-      hint = ' Start player '
-      bounds_x = 11
-      bounds_y = 67
+      taborder = 21
+      hint = ' Pause player '
+      bounds_x = 76
+      bounds_y = 66
       bounds_cx = 30
       bounds_cy = 30
-      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
-      imagenr = 27
+      imagenr = 1
       focusrectdist = 0
-      onexecute = doplayerstart
+      onexecute = doplayerpause
+    end
+    object tlabel27: tlabel
+      color = -2147483645
+      taborder = 22
+      bounds_x = 200
+      bounds_y = 48
+      bounds_cx = 45
+      bounds_cy = 15
+      caption = 'Volume'
+      font.color = 4013373
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
+      reffontheight = 15
+    end
+    object historyfn: thistoryedit
+      frame.captionpos = cp_lefttop
+      frame.captiondist = 0
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.button.face.localprops = []
+      frame.button.face.template = tfacecomp1
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          face.localprops = []
+          face.template = tfacecomp1
+        end>
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16777215
+        16770019
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      taborder = 23
+      hint = ' Choose a filename for saving  '
+      bounds_x = 82
+      bounds_y = 4
+      bounds_cx = 355
+      bounds_cy = 22
+      statfile = mainfo.tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
+      optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+      dropdown.facetemplate = tfacecomp1
+      dropdown.options = [deo_keydropdown, deo_cliphint]
+      dropdown.dropdownrowcount = 10
+      dropdown.cols.count = 1
+      dropdown.cols.items = <      
+        item
+          textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+        end>
+      dropdown.historymaxcount = 50
+      reffontheight = 15
     end
     object songdir: tfilenameedit
       frame.localprops = []
@@ -219,9 +644,9 @@ object recorderfo: trecorderfo
       frame.button.face.localprops = []
       frame.button.face.template = tfacecomp1
       frame.button.imagenr = 17
-      taborder = 3
+      taborder = 24
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
-      bounds_x = 60
+      bounds_x = 58
       bounds_y = 4
       bounds_cx = 22
       bounds_cy = 22
@@ -252,435 +677,6 @@ object recorderfo: trecorderfo
       controller.onbeforeexecute = whosent
       reffontheight = 15
     end
-    object btnStop: tbutton
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
-      taborder = 4
-      hint = ' Stop player '
-      bounds_x = 104
-      bounds_y = 67
-      bounds_cx = 30
-      bounds_cy = 30
-      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 2
-      focusrectdist = 0
-      onexecute = doplayerstop
-    end
-    object llength: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      color = -2147483645
-      taborder = 5
-      hint = ' Length of sound '
-      bounds_x = 355
-      bounds_y = 108
-      bounds_cx = 86
-      bounds_cy = 15
-      caption = '00:00:00.000'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object lposition: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      color = -2147483645
-      taborder = 6
-      hint = ' Position of sound '
-      bounds_x = 355
-      bounds_y = 93
-      bounds_cx = 86
-      bounds_cy = 15
-      caption = '00:00:00.000'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object trackbar1: tslider
-      color = 14406110
-      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = []
-      taborder = 7
-      hint = ' Position of sound '
-      bounds_x = 11
-      bounds_y = 100
-      bounds_cx = 336
-      bounds_cy = 22
-      onchange = onsliderchange
-      enabled = False
-      value = 0
-      scrollbar.buttonendlength = 11
-      scrollbar.face.fade_direction = gd_down
-      scrollbar.face.localprops = [fal_fadirection]
-      scrollbar.face.template = tfacecomp1
-      scrollbar.face1.fade_direction = gd_down
-      scrollbar.face1.localprops = [fal_fadirection]
-      scrollbar.face1.template = tfacecomp1
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = tfacecomp1
-      scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = tfacecomp1
-      onsetvalue = changepos
-    end
-    object cbtempo: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Stretch'
-      frame.captionpos = cp_top
-      frame.captiondist = 3
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        17
-        20
-        17
-        0
-      )
-      taborder = 8
-      hint = ' Enable stretching (changing temo) '
-      bounds_x = 264
-      bounds_y = 58
-      bounds_cx = 47
-      bounds_cy = 32
-      onchange = ChangePlugSetSoundTouch
-    end
-    object label6: tlabel
-      color = -2147483645
-      taborder = 9
-      bounds_x = 321
-      bounds_y = 49
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'Tempo'
-      font.color = 4013373
-      font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
-    end
-    object cbloop: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Loop'
-      frame.captionpos = cp_top
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        9
-        18
-        9
-        0
-      )
-      taborder = 11
-      hint = ' Enable looping the song '
-      bounds_x = 140
-      bounds_y = 64
-      bounds_cx = 31
-      bounds_cy = 30
-      statfile = mainfo.tstatfile1
-    end
-    object button1: tbutton
-      Tag = 1
-      color = 11647116
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
-      taborder = 12
-      hint = ' Reset to tempo original '
-      bounds_x = 384
-      bounds_y = 67
-      bounds_cx = 46
-      bounds_cy = 21
-      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = 'Reset'
-      imagenr = 27
-      focusrectdist = 0
-      onexecute = onreset
-    end
-    object edtempo: trealspinedit
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16515040
-      frame.framei_left = 1
-      frame.framei_top = 1
-      frame.framei_right = 1
-      frame.framei_bottom = 1
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = []
-      frame.buttonface.fade_direction = gd_down
-      frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = tfacecomp1
-      frame.buttonsize = 30
-      taborder = 13
-      hint = ' Change tempo of song '
-      bounds_x = 317
-      bounds_y = 63
-      bounds_cx = 62
-      bounds_cy = 28
-      onchange = ChangePlugSetSoundTouch
-      value = 1
-      valuedefault = 1
-      valuerange = 1
-      valuestart = 0
-      min = 0
-      max = 10
-      step = 0.05
-      stepctrlfact = 0
-      stepshiftfact = 0
-      wheelsensitivity = 1
-      reffontheight = 15
-    end
-    object edvol: trealspinedit
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16515040
-      frame.framei_left = 1
-      frame.framei_top = 1
-      frame.framei_right = 1
-      frame.framei_bottom = 1
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = []
-      frame.buttonface.fade_direction = gd_down
-      frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = tfacecomp1
-      frame.buttonsize = 30
-      taborder = 14
-      hint = ' Change volume of song '
-      bounds_x = 188
-      bounds_y = 63
-      bounds_cx = 62
-      bounds_cy = 32
-      statfile = mainfo.tstatfile1
-      onchange = changevolume
-      value = 100
-      valuedefault = 100
-      valuerange = 1
-      valuestart = 0
-      min = 0
-      max = 100
-      step = 1
-      stepctrlfact = 0
-      stepshiftfact = 0
-      wheelsensitivity = 1
-      reffontheight = 15
-    end
-    object btinfos: tbutton
-      Tag = 1
-      color = 11647116
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
-      taborder = 15
-      hint = ' Show infos of the song '
-      bounds_x = 8
-      bounds_y = 6
-      bounds_cx = 41
-      bounds_cy = 20
-      state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = 'Infos'
-      imagenr = 27
-      focusrectdist = 0
-      onexecute = onfinfos
-    end
-    object historyfn: thistoryedit
-      frame.captionpos = cp_lefttop
-      frame.captiondist = 0
-      frame.localprops = []
-      frame.localprops1 = [frl1_captiondist]
-      frame.button.face.localprops = []
-      frame.button.face.template = tfacecomp1
-      frame.buttons.count = 1
-      frame.buttons.items = <      
-        item
-          face.localprops = []
-          face.template = tfacecomp1
-        end>
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        16777215
-        16770019
-      )
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      taborder = 16
-      hint = ' Choose a filename for saving  '
-      bounds_x = 84
-      bounds_y = 4
-      bounds_cx = 355
-      bounds_cy = 22
-      statfile = mainfo.tstatfile1
-      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
-      optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
-      dropdown.facetemplate = tfacecomp1
-      dropdown.options = [deo_keydropdown, deo_cliphint]
-      dropdown.dropdownrowcount = 10
-      dropdown.cols.count = 1
-      dropdown.cols.items = <      
-        item
-          textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
-        end>
-      dropdown.historymaxcount = 50
-      reffontheight = 15
-    end
-    object bsavetofile: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Save to file'
-      frame.captiondist = 3
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        0
-        2
-        71
-        3
-      )
-      taborder = 19
-      hint = ' Save recording to file '
-      bounds_x = 185
-      bounds_y = 30
-      bounds_cx = 84
-      bounds_cy = 17
-      statfile = mainfo.tstatfile1
-      value = True
-    end
-    object blistenin: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Listen to Input'
-      frame.captiondist = 3
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        0
-        2
-        94
-        3
-      )
-      taborder = 20
-      hint = ' Listen to the input while recording. WARNING: Use headphones or set volume output low. '
-      bounds_x = 299
-      bounds_y = 30
-      bounds_cx = 107
-      bounds_cy = 17
-      statfile = mainfo.tstatfile1
-      onchange = onlistenin
-      value = True
-    end
-    object tbutton2: tbutton
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
-      taborder = 21
-      hint = ' Stop player '
-      bounds_x = 127
-      bounds_y = 29
-      bounds_cx = 30
-      bounds_cy = 30
-      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 2
-      focusrectdist = 0
-      onexecute = doplayerstop
-    end
-    object tbutton3: tbutton
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
-      taborder = 22
-      hint = ' Start Recording  '
-      bounds_x = 93
-      bounds_y = 29
-      bounds_cx = 30
-      bounds_cy = 30
-      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 33
-      focusrectdist = 0
-      onexecute = dorecorderstart
-    end
-    object tlabel28: tlabel
-      color = -2147483645
-      taborder = 23
-      bounds_x = 13
-      bounds_y = 49
-      bounds_cx = 24
-      bounds_cy = 15
-      caption = 'Play'
-      font.color = 4210752
-      font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
-    end
-    object tlabel2: tlabel
-      color = -2147483645
-      taborder = 24
-      bounds_x = 48
-      bounds_y = 31
-      bounds_cx = 42
-      bounds_cy = 15
-      caption = 'Record'
-      font.color = 4210752
-      font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
-    end
-    object vuLeft: tdockpanel
-      color = 976914
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        8585109
-        38403
-      )
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      taborder = 18
-      visible = False
-      bounds_x = 179
-      bounds_y = 53
-      bounds_cx = 6
-      bounds_cy = 44
-    end
-    object vuRight: tdockpanel
-      color = 976914
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        8585109
-        38403
-      )
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      taborder = 17
-      visible = False
-      bounds_x = 251
-      bounds_y = 52
-      bounds_cx = 6
-      bounds_cy = 44
-    end
   end
   object tfacecomp1: tfacecomp
     template.fade_pos.count = 2
@@ -694,7 +690,8 @@ object recorderfo: trecorderfo
       14063254
     )
     template.fade_direction = gd_down
-    left = 185
+    left = 215
+    top = 12
   end
   object tfacerecorder: tfacecomp
     template.fade_pos.count = 2
@@ -708,7 +705,22 @@ object recorderfo: trecorderfo
       16770019
     )
     template.fade_direction = gd_down
-    left = 278
-    top = 40
+    left = 252
+    top = 10
+  end
+  object tfacecomp2: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16770019
+      14327197
+    )
+    template.fade_direction = gd_down
+    left = 98
+    top = 14
   end
 end

@@ -4,27 +4,29 @@ interface
 uses
  mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
- msesimplewidgets,msewidgets,msegraphedits,sysutils;
+ msesimplewidgets,msewidgets,msegraphedits,sysutils,mseificomp,mseificompglob,
+ mseifiglob,msescrollbar,msetypes;
 
 type
  tguitarsfo = class(tdockform)
-   tdockpanel6: tdockpanel;
-   tlabel24: tlabel;
-   tbutton13: tbutton;
-   tbutton14: tbutton;
-   tbutton15: tbutton;
-   tbutton16: tbutton;
-   loopbass: tbooleanedit;
-   tdockpanel5: tdockpanel;
-   tlabel23: tlabel;
-   tbutton3: tbutton;
-   tbutton5: tbutton;
-   tbutton6: tbutton;
-   tbutton7: tbutton;
-   tbutton8: tbutton;
-   tbutton9: tbutton;
-   loopguit: tbooleanedit;
    tfaceguitars: tfacecomp;
+   tgroupbox1: tgroupbox;
+   tfacecomp2: tfacecomp;
+   tgroupbox2: tgroupbox;
+   tbutton16: tbutton;
+   tbutton15: tbutton;
+   tbutton14: tbutton;
+   tbutton13: tbutton;
+   loopbass: tbooleanedit;
+   tlabel24: tlabel;
+   tbutton9: tbutton;
+   tbutton8: tbutton;
+   tbutton7: tbutton;
+   tbutton6: tbutton;
+   tbutton5: tbutton;
+   tbutton3: tbutton;
+   loopguit: tbooleanedit;
+   tlabel23: tlabel;
    procedure doguitarstring(const sender: TObject);
 //   procedure onfloatguit(const sender: TObject);
 //   procedure ondockguit(const sender: TObject);

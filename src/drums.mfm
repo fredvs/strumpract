@@ -19,8 +19,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 457
-  bounds_y = 183
+  bounds_x = 644
+  bounds_y = 420
   bounds_cx = 458
   bounds_cy = 236
   bounds_cxmin = 458
@@ -172,825 +172,315 @@ object drumsfo: tdrumsfo
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
-  object tdockpanel1: tdockpanel
-    color = 13431495
-    frame.framewidth = 1
-    frame.colorframe = 9737364
-    frame.localprops = [frl_framewidth, frl_colorframe]
+  object tdockpanel1: tgroupbox
+    frame.leveli = 0
+    frame.colordkwidth = 0
+    frame.colorhlwidth = 0
+    frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth]
     frame.localprops1 = []
-    frame.grip_size = 0
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      14086353
-      8368232
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
+    face.localprops = []
+    face.template = tfacedrums
     hint = ' Drums set '
     bounds_x = 1
-    bounds_y = 0
-    bounds_cx = 446
-    bounds_cy = 236
-    dragdock.caption = ' Use this to drag dock the window '
-    dragdock.optionsdock = [od_savepos, od_savezorder, od_propsize, od_captionhint, od_childicons]
-    object tlabel20: tlabel
+    bounds_y = 2
+    bounds_cx = 449
+    bounds_cy = 234
+    object and4: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      bounds_x = 169
-      bounds_y = 65
+      bounds_x = 415
+      bounds_y = 117
       bounds_cx = 41
       bounds_cy = 15
-      caption = 'tlabel1'
+      caption = 'tlabel4'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
-    object tlabel19: tlabel
+    object and3: tlabel
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 1
-      bounds_x = 169
-      bounds_y = 65
+      bounds_x = 417
+      bounds_y = 90
       bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel2'
+      bounds_cy = 17
+      caption = 'tlabel1'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
-    object tlabel18: tlabel
+    object and2: tlabel
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 2
-      bounds_x = 169
-      bounds_y = 65
+      bounds_x = 404
+      bounds_y = 69
       bounds_cx = 41
       bounds_cy = 15
-      caption = 'tlabel3'
+      caption = 'tlabel2'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
-    object tlabel17: tlabel
+    object and1: tlabel
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 3
-      bounds_x = 169
-      bounds_y = 67
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel4'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel16: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 4
-      bounds_x = 89
-      bounds_y = 161
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel1'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel15: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 5
-      bounds_x = 89
-      bounds_y = 161
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel2'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel14: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 6
-      bounds_x = 89
-      bounds_y = 161
+      bounds_x = 407
+      bounds_y = 43
       bounds_cx = 41
       bounds_cy = 15
       caption = 'tlabel3'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel13: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 7
-      bounds_x = 89
-      bounds_y = 161
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel4'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel12: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 8
-      bounds_x = 89
-      bounds_y = 121
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel1'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel11: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 9
-      bounds_x = 89
-      bounds_y = 121
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel2'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel10: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 10
-      bounds_x = 89
-      bounds_y = 121
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel3'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel9: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 11
-      bounds_x = 89
-      bounds_y = 121
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel4'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel8: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 12
-      bounds_x = 89
-      bounds_y = 89
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel1'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel7: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 13
-      bounds_x = 97
-      bounds_y = 57
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel2'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel6: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 14
-      bounds_x = 97
-      bounds_y = 73
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel3'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel5: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 15
-      bounds_x = 89
-      bounds_y = 89
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel4'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tbooleanedit64: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 16
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit63: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 17
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit62: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 18
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit61: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 19
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit60: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 20
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit59: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 21
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit58: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 22
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit57: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 23
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit56: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 24
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit55: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 25
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit54: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 26
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit53: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 27
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit52: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 28
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit51: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 29
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit50: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 30
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit49: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 31
-      bounds_x = -31
-      bounds_y = 145
-    end
-    object tbooleanedit48: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 32
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit47: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 33
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit46: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 34
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit45: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 35
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit44: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 36
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit43: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 37
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit42: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 38
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit41: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 39
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit40: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 40
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit39: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 41
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit38: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 42
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit37: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 43
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit36: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 44
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit35: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 45
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit34: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 46
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit33: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 47
-      bounds_x = -111
-      bounds_y = 145
-    end
-    object tbooleanedit32: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 48
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit31: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 49
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit30: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 50
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit29: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 51
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit28: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 52
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit27: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 53
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit26: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 54
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit25: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 55
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit24: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 56
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit23: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 57
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit22: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 58
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit21: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 59
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit20: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 60
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit19: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 61
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit18: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 62
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tbooleanedit17: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 63
-      bounds_x = -71
-      bounds_y = 65
-    end
-    object tlabel4: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 64
-      bounds_x = 49
-      bounds_y = 33
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel4'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel3: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 65
-      bounds_x = 49
-      bounds_y = 33
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel3'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel2: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 66
-      bounds_x = 49
-      bounds_y = 33
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel2'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tlabel1: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 67
-      bounds_x = 121
-      bounds_y = 25
-      bounds_cx = 41
-      bounds_cy = 15
-      caption = 'tlabel1'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object tbooleanedit16: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 68
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit15: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 69
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit14: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 70
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit13: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 71
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit12: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 72
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit11: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 73
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit10: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 74
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit9: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 75
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit8: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 76
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit7: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 77
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit6: tbooleanedit
-      frame.colorclient = 16758968
-      frame.localprops = [frl_colorclient]
-      frame.localprops1 = []
-      taborder = 78
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit5: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 79
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit4: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 80
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit3: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 81
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit2: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 82
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object tbooleanedit1: tbooleanedit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 83
-      bounds_x = -151
-      bounds_y = 57
-    end
-    object lach: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 84
-      bounds_x = 7
-      bounds_y = 54
-      bounds_cx = 55
-      bounds_cy = 15
-      caption = 'Close H'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object laoh: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 85
-      bounds_x = 7
-      bounds_y = 77
-      bounds_cx = 55
-      bounds_cy = 15
-      caption = 'Open H'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object lasd: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      taborder = 86
-      bounds_x = 7
-      bounds_y = 101
-      bounds_cx = 55
-      bounds_cy = 15
-      caption = 'Snare'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
     object labd: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 87
-      bounds_x = 7
-      bounds_y = 124
+      taborder = 4
+      bounds_x = 4
+      bounds_y = 120
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Bass'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
-    object labpat: tlabel
-      color = -2147483645
-      taborder = 88
-      bounds_x = 5
-      bounds_y = 15
-      bounds_cx = 51
-      bounds_cy = 15
-      caption = 'Patern 1'
-      reffontheight = 15
-    end
-    object and1: tlabel
+    object lasd: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 89
-      bounds_x = 305
-      bounds_y = 20
-      bounds_cx = 41
+      taborder = 5
+      bounds_x = 4
+      bounds_y = 97
+      bounds_cx = 55
       bounds_cy = 15
-      caption = 'tlabel3'
+      caption = 'Snare'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
-    object and2: tlabel
+    object laoh: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 90
-      bounds_x = 302
-      bounds_y = 46
-      bounds_cx = 41
+      taborder = 6
+      bounds_x = 4
+      bounds_y = 73
+      bounds_cx = 55
       bounds_cy = 15
-      caption = 'tlabel2'
+      caption = 'Open H'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
-    object and3: tlabel
+    object lach: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 91
-      bounds_x = 316
-      bounds_y = 66
+      taborder = 7
+      bounds_x = 4
+      bounds_y = 50
+      bounds_cx = 55
+      bounds_cy = 15
+      caption = 'Close H'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel1: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 8
+      bounds_x = 117
+      bounds_y = 1
       bounds_cx = 41
       bounds_cy = 15
       caption = 'tlabel1'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
-    object and4: tlabel
+    object tlabel2: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 92
-      bounds_x = 313
-      bounds_y = 94
+      taborder = 9
+      bounds_x = 45
+      bounds_y = 9
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel3: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 10
+      bounds_x = 45
+      bounds_y = 9
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel4: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 11
+      bounds_x = 153
+      bounds_y = 16
       bounds_cx = 41
       bounds_cy = 15
       caption = 'tlabel4'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
+    object tlabel5: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 12
+      bounds_x = 85
+      bounds_y = 65
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel6: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 13
+      bounds_x = 93
+      bounds_y = 49
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel7: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 14
+      bounds_x = 93
+      bounds_y = 33
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel8: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 15
+      bounds_x = 85
+      bounds_y = 65
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel9: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 16
+      bounds_x = 85
+      bounds_y = 97
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel10: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 17
+      bounds_x = 85
+      bounds_y = 97
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel11: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 18
+      bounds_x = 85
+      bounds_y = 97
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel12: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 19
+      bounds_x = 85
+      bounds_y = 97
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel17: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 20
+      bounds_x = 165
+      bounds_y = 43
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel18: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 21
+      bounds_x = 165
+      bounds_y = 41
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel19: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 22
+      bounds_x = 165
+      bounds_y = 41
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel20: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 23
+      bounds_x = 165
+      bounds_y = 41
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object labpat: tlabel
+      color = -2147483645
+      taborder = 24
+      bounds_x = 5
+      bounds_y = 11
+      bounds_cx = 51
+      bounds_cy = 15
+      caption = 'Patern 1'
+      reffontheight = 15
+    end
     object panel1: tgroupbox
       color = 12446914
-      frame.framewidth = 1
-      frame.colorframe = -1610612733
-      frame.localprops = [frl_framewidth, frl_colorframe]
+      frame.leveli = 0
+      frame.colordkwidth = 0
+      frame.colorhlwidth = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
+      frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        14086353
-        9422709
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 93
+      face.template = tfacecomp2
+      taborder = 25
       bounds_x = 0
-      bounds_y = 151
-      bounds_cx = 446
+      bounds_y = 150
+      bounds_cx = 449
       bounds_cy = 85
       object tbooleaneditradio8: tbooleaneditradio
         Tag = 5
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
+        color = -1610612732
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.colorclient = 16250871
         frame.caption = '1'
@@ -1006,8 +496,8 @@ object drumsfo: tdrumsfo
         face.localprops = []
         taborder = 2
         hint = ' Drums Patern 1 '
-        bounds_x = 323
-        bounds_y = 16
+        bounds_x = 319
+        bounds_y = 12
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -1032,8 +522,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 3
         hint = ' Drums Patern 2 '
-        bounds_x = 323
-        bounds_y = 32
+        bounds_x = 319
+        bounds_y = 28
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -1056,8 +546,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 4
         hint = ' Drums Patern 3 '
-        bounds_x = 323
-        bounds_y = 48
+        bounds_x = 319
+        bounds_y = 44
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -1080,8 +570,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 5
         hint = ' Drums Patern 4 '
-        bounds_x = 323
-        bounds_y = 64
+        bounds_x = 319
+        bounds_y = 60
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -1104,8 +594,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 6
         hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
-        bounds_x = 277
-        bounds_y = 64
+        bounds_x = 273
+        bounds_y = 60
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -1128,8 +618,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 7
         hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
-        bounds_x = 277
-        bounds_y = 48
+        bounds_x = 273
+        bounds_y = 44
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -1152,8 +642,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 8
         hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
-        bounds_x = 277
-        bounds_y = 32
+        bounds_x = 273
+        bounds_y = 28
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -1176,8 +666,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 9
         hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
-        bounds_x = 277
-        bounds_y = 16
+        bounds_x = 273
+        bounds_y = 12
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -1185,8 +675,8 @@ object drumsfo: tdrumsfo
       object tlabel22: tlabel
         color = -2147483645
         taborder = 1
-        bounds_x = 318
-        bounds_y = 3
+        bounds_x = 314
+        bounds_y = -1
         bounds_cx = 39
         bounds_cy = 15
         caption = 'Patern'
@@ -1197,8 +687,8 @@ object drumsfo: tdrumsfo
       end
       object tlabel21: tlabel
         color = -2147483645
-        bounds_x = 270
-        bounds_y = 3
+        bounds_x = 266
+        bounds_y = -1
         bounds_cx = 41
         bounds_cy = 15
         caption = 'Lesson'
@@ -1225,8 +715,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 10
         hint = ' No graphic animation. '
-        bounds_x = 365
-        bounds_y = 59
+        bounds_x = 361
+        bounds_y = 55
         bounds_cx = 65
         bounds_cy = 17
       end
@@ -1248,8 +738,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 11
         hint = ' No "and" between 2 numbers. '
-        bounds_x = 365
-        bounds_y = 26
+        bounds_x = 361
+        bounds_y = 22
         bounds_cx = 70
         bounds_cy = 17
         value = True
@@ -1272,8 +762,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 12
         hint = ' No counting voice '
-        bounds_x = 365
-        bounds_y = 10
+        bounds_x = 361
+        bounds_y = 6
         bounds_cx = 66
         bounds_cy = 17
         onsetvalue = onsetnovoice
@@ -1297,8 +787,8 @@ object drumsfo: tdrumsfo
         )
         taborder = 13
         hint = ' No drums sound.  '
-        bounds_x = 365
-        bounds_y = 42
+        bounds_x = 361
+        bounds_y = 38
         bounds_cx = 74
         bounds_cy = 17
       end
@@ -1320,8 +810,8 @@ object drumsfo: tdrumsfo
         face.localprops = [fal_fadirection]
         taborder = 14
         hint = ' Stop loop '
-        bounds_x = 76
-        bounds_y = 39
+        bounds_x = 72
+        bounds_y = 35
         bounds_cx = 30
         bounds_cy = 30
         state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -1348,8 +838,8 @@ object drumsfo: tdrumsfo
         face.localprops = [fal_fadirection]
         taborder = 15
         hint = ' Resume loop '
-        bounds_x = 45
-        bounds_y = 39
+        bounds_x = 41
+        bounds_y = 35
         bounds_cx = 30
         bounds_cy = 30
         state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -1376,8 +866,8 @@ object drumsfo: tdrumsfo
         face.localprops = [fal_fadirection]
         taborder = 16
         hint = ' Start loop '
-        bounds_x = 14
-        bounds_y = 39
+        bounds_x = 10
+        bounds_y = 35
         bounds_cx = 30
         bounds_cy = 30
         state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -1391,8 +881,8 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 17
         visible = False
-        bounds_x = 234
-        bounds_y = 26
+        bounds_x = 230
+        bounds_y = 22
         bounds_cx = 18
         bounds_cy = 44
         caption = '/'
@@ -1410,8 +900,8 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 18
         enabled = False
-        bounds_x = 208
-        bounds_y = 18
+        bounds_x = 204
+        bounds_y = 14
         bounds_cx = 32
         bounds_cy = 59
         caption = '0'
@@ -1432,8 +922,8 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 19
         visible = False
-        bounds_x = 198
-        bounds_y = 26
+        bounds_x = 194
+        bounds_y = 22
         bounds_cx = 18
         bounds_cy = 44
         caption = '\'
@@ -1450,8 +940,8 @@ object drumsfo: tdrumsfo
       object label5: tlabel
         color = -2147483645
         taborder = 20
-        bounds_x = 124
-        bounds_y = 65
+        bounds_x = 120
+        bounds_y = 61
         bounds_cx = 53
         bounds_cy = 15
         caption = '150 BPM'
@@ -1484,8 +974,8 @@ object drumsfo: tdrumsfo
         frame.buttonsize = 30
         taborder = 21
         hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
-        bounds_x = 122
-        bounds_y = 21
+        bounds_x = 118
+        bounds_y = 17
         bounds_cx = 59
         bounds_cy = 40
         onchange = onchangetempo
@@ -1504,8 +994,8 @@ object drumsfo: tdrumsfo
       object tlabel25: tlabel
         color = -2147483645
         taborder = 22
-        bounds_x = 128
-        bounds_y = 5
+        bounds_x = 124
+        bounds_y = 1
         bounds_cx = 46
         bounds_cy = 15
         caption = 'Interval'
@@ -1517,8 +1007,8 @@ object drumsfo: tdrumsfo
       object tlabel26: tlabel
         color = -2147483645
         taborder = 23
-        bounds_x = 29
-        bounds_y = 19
+        bounds_x = 25
+        bounds_y = 15
         bounds_cx = 64
         bounds_cy = 15
         caption = 'Drums Set'
@@ -1527,6 +1017,499 @@ object drumsfo: tdrumsfo
         font.localprops = [flp_color]
         reffontheight = 15
       end
+    end
+    object tlabel13: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 26
+      bounds_x = 246
+      bounds_y = 58
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel4'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel14: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 27
+      bounds_x = 250
+      bounds_y = 57
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel3'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel15: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 28
+      bounds_x = 250
+      bounds_y = 57
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel2'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tlabel16: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      taborder = 29
+      bounds_x = 250
+      bounds_y = 57
+      bounds_cx = 41
+      bounds_cy = 15
+      caption = 'tlabel1'
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object tbooleanedit1: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 30
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit2: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 31
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit3: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 32
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit4: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 33
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit5: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 34
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit6: tbooleanedit
+      frame.colorclient = 16758968
+      frame.localprops = [frl_colorclient]
+      frame.localprops1 = []
+      taborder = 35
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit7: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 36
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit8: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 37
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit9: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 38
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit10: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 39
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit11: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 40
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit12: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 41
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit13: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 42
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit14: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 43
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit15: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 44
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit16: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 45
+      bounds_x = 297
+      bounds_y = 24
+    end
+    object tbooleanedit17: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 46
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit18: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 47
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit19: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 48
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit20: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 49
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit21: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 50
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit22: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 51
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit23: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 52
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit24: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 53
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit25: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 54
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit26: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 55
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit27: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 56
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit28: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 57
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit29: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 58
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit30: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 59
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit31: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 60
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit32: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 61
+      bounds_x = 217
+      bounds_y = 32
+    end
+    object tbooleanedit33: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 62
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit34: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 63
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit35: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 64
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit36: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 65
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit37: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 66
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit38: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 67
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit39: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 68
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit40: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 69
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit41: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 70
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit42: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 71
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit43: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 72
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit44: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 73
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit45: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 74
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit46: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 75
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit47: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 76
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit48: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 77
+      bounds_x = 257
+      bounds_y = 112
+    end
+    object tbooleanedit49: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 78
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit50: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 79
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit51: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 80
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit52: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 81
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit53: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 82
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit54: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 83
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit55: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 84
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit56: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 85
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit57: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 86
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit58: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 87
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit59: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 88
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit60: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 89
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit61: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 90
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit62: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 91
+      bounds_x = 166
+      bounds_y = 112
+    end
+    object tbooleanedit63: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 92
+      bounds_x = 177
+      bounds_y = 112
+    end
+    object tbooleanedit64: tbooleanedit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 93
+      bounds_x = 177
+      bounds_y = 112
     end
   end
   object tfacedrums: tfacecomp
@@ -1541,7 +1524,22 @@ object drumsfo: tdrumsfo
       14086353
     )
     template.fade_direction = gd_down
-    left = 247
-    top = 89
+    left = 177
+    top = 81
+  end
+  object tfacecomp2: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      14086353
+      10268569
+    )
+    template.fade_direction = gd_down
+    left = 305
+    top = 101
   end
 end

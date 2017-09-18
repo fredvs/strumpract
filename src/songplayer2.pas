@@ -4,36 +4,38 @@ interface
 uses
  ctypes, uos_flat, infos, msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
  mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,
- mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
- msedataedits,msefiledialog,msegrids,
- mselistbrowser,
- msesys,sysutils,msegraphedits;
+ mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
+ msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits,
+ msedragglob,mseact,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
+ msestream,msestrings,msescrollbar,msebitmap,msedatanodes;
 
 type
  tsongplayer2fo = class(tdockform)
-   tdockpanel8: tdockpanel;
-   tlabel28: tlabel;
-   tlabel27: tlabel;
-   btnPause: tbutton;
-   btnResume: tbutton;
-   btnStart: tbutton;
-   songdir: tfilenameedit;
+   Timerwait: Ttimer;
+   
+   tfaceplayer: tfacecomp;
+   tgroupbox1: tgroupbox;
+   tfacecomp2: tfacecomp;
+   vuRight: tdockpanel;
+   vuLeft: tdockpanel;
+   edvol: trealspinedit;
+   edtempo: trealspinedit;
+   button1: tbutton;
+   cbloop: tbooleanedit;
+   label6: tlabel;
+   cbtempo: tbooleanedit;
    btnStop: tbutton;
+   btnStart: tbutton;
+   btnResume: tbutton;
+   btnPause: tbutton;
+   tlabel27: tlabel;
+   tlabel28: tlabel;
    llength: tlabel;
    lposition: tlabel;
    trackbar1: tslider;
-   cbtempo: tbooleanedit;
-   label6: tlabel;
-   cbloop: tbooleanedit;
-   button1: tbutton;
-   edtempo: trealspinedit;
-   edvol: trealspinedit;
-   btinfos: tbutton;
    historyfn: thistoryedit;
-   vuLeft: tdockpanel;
-   vuRight: tdockpanel;
-   Timerwait: Ttimer;
-   
+   songdir: tfilenameedit;
+   btinfos: tbutton;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -70,8 +72,8 @@ var
  songplayer2fo: tsongplayer2fo;
  thedialogform : tfiledialogfo;
  initplay : integer = 1;
-  theplayer2 : integer = 22;
- theplayer2info : integer = 23;
+  theplayer : integer = 20;
+ theplayerinfo : integer = 21;
  plugindex1, PluginIndex2: integer; InputIndex1, OutputIndex1, Inputlength: integer; 
  
  
@@ -100,7 +102,7 @@ end;
          and fileexists(AnsiString(songplayer2fo.historyfn.value)) then
   begin
  
-       uos_SetPluginSoundTouch(theplayer2, PluginIndex2, edtempo.value, 1, cbtempo.value);
+         uos_SetPluginSoundTouch(theplayer, PluginIndex2, edtempo.value, 1, cbtempo.value);
  
     end;
   end;
@@ -133,10 +135,10 @@ procedure tsongplayer2fo.ClosePlayer1;
   begin
       vuLeft.Visible := True;
     vuRight.Visible := True;
-    if trunc(uos_InputGetLevelLeft(theplayer2, InputIndex1) * 44) >= 0 then
-      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer2, InputIndex1) * 44);
-    if trunc(uos_InputGetLevelRight(theplayer2, InputIndex1) * 44) >= 0 then
-      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer2, InputIndex1) * 44);
+    if trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 44) >= 0 then
+      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer, InputIndex1) * 44);
+    if trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 44) >= 0 then
+      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer, InputIndex1) * 44);
     vuLeft.top := 75 - vuLeft.Height;
     vuRight.top := 75 - vuRight.Height;
    end;  
@@ -149,10 +151,10 @@ procedure tsongplayer2fo.ClosePlayer1;
  
      if (TrackBar1.Tag = 0) then
     begin
-      if uos_InputPosition(theplayer2, InputIndex1) > 0 then
+      if uos_InputPosition(theplayer, InputIndex1) > 0 then
       begin
-        TrackBar1.value := uos_InputPosition(theplayer2, InputIndex1) / inputlength;
-        temptime := uos_InputPositionTime(theplayer2, InputIndex1);
+        TrackBar1.value := uos_InputPosition(theplayer, InputIndex1) / inputlength;
+        temptime := uos_InputPositionTime(theplayer, InputIndex1);
         ////// Length of input in time
         DecodeTime(temptime, ho, mi, se, ms);
         lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
@@ -181,14 +183,14 @@ var
     // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
     // If PlayerIndex exists already, it will be overwritten...
     
-     uos_Stop(theplayer2) ; // done by  uos_CreatePlayer() but faster if already done before (no check)
+     uos_Stop(theplayer) ; // done by  uos_CreatePlayer() but faster if already done before (no check)
 
-    if uos_CreatePlayer(theplayer2) then
+    if uos_CreatePlayer(theplayer) then
     //// Create the player.
     //// PlayerIndex : from 0 to what your computer can do !
     //// If PlayerIndex exists already, it will be overwriten...
       
-     InputIndex1 := uos_AddFromFile(theplayer2, pchar(AnsiString(historyfn.value)), -1, samformat, 1024);
+     InputIndex1 := uos_AddFromFile(theplayer, pchar(AnsiString(historyfn.value)), -1, samformat, 1024);
      
     //// add input from audio file with custom parameters
     ////////// FileName : filename of audio file
@@ -202,8 +204,8 @@ var
      begin
       // OutputIndex1 := uos_AddIntoDevOut(PlayerIndex1) ;
     //// add a Output into device with default parameters
-    OutputIndex1 := uos_AddIntoDevOut(theplayer2, -1, -1, uos_InputGetSampleRate(theplayer2, InputIndex1),
-     uos_InputGetChannels(theplayer2, InputIndex1), samformat, 1024);
+    OutputIndex1 := uos_AddIntoDevOut(theplayer, -1, -1, uos_InputGetSampleRate(theplayer, InputIndex1),
+     uos_InputGetChannels(theplayer, InputIndex1), samformat, 1024);
     //// add a Output into device with custom parameters
     //////////// PlayerIndex : Index of a existing Player
     //////////// Device ( -1 is default Output device )
@@ -214,7 +216,7 @@ var
     //////////// FramesCount : default : -1 (65536)
     //  result : -1 nothing created, otherwise Output Index in array
   
-   uos_InputSetLevelEnable(theplayer2, InputIndex1, 2) ;
+   uos_InputSetLevelEnable(theplayer, InputIndex1, 2) ;
      ///// set calculation of level/volume (usefull for showvolume procedure)
                        ///////// set level calculation (default is 0)
                           // 0 => no calcul
@@ -222,27 +224,27 @@ var
                           // 2 => calcul after all DSP procedures.
                           // 3 => calcul before and after all DSP procedures.
 
-   uos_InputSetPositionEnable(theplayer2, InputIndex1, 1) ;
+   uos_InputSetPositionEnable(theplayer, InputIndex1, 1) ;
      ///// set calculation of position (usefull for positions procedure)
                        ///////// set position calculation (default is 0)
                           // 0 => no calcul
                           // 1 => calcul position.
 
-   uos_LoopProcIn(theplayer2, InputIndex1, @LoopProcPlayer1);
+   uos_LoopProcIn(theplayer, InputIndex1, @LoopProcPlayer1);
  
     ///// Assign the procedure of object to execute inside the loop
     //////////// PlayerIndex : Index of a existing Player
     //////////// InputIndex1 : Index of a existing Input
     //////////// LoopProcPlayer1 : procedure of object to execute inside the loop
    
-   uos_InputAddDSPVolume(theplayer2, InputIndex1, 1, 1);
+   uos_InputAddDSPVolume(theplayer, InputIndex1, 1, 1);
     ///// DSP Volume changer
     ////////// PlayerIndex1 : Index of a existing Player
     ////////// InputIndex1 : Index of a existing input
     ////////// VolLeft : Left volume
     ////////// VolRight : Right volume
 
-    uos_InputSetDSPVolume(theplayer2, InputIndex1, edvol.value/100, edvol.value/100, True);
+    uos_InputSetDSPVolume(theplayer, InputIndex1, edvol.value/100, edvol.value/100, True);
      /// Set volume
     ////////// PlayerIndex1 : Index of a existing Player
     ////////// InputIndex1 : InputIndex of a existing Input
@@ -281,22 +283,22 @@ var
   /// SoundTouch plugin should be the last added.
     if plugsoundtouch = true then
   begin
-    PlugInIndex2 := uos_AddPlugin(theplayer2, 'soundtouch', 
-    uos_InputGetSampleRate(theplayer2, InputIndex1) , -1);
+    PlugInIndex2 := uos_AddPlugin(theplayer, 'soundtouch', 
+    uos_InputGetSampleRate(theplayer, InputIndex1) , -1);
     ChangePlugSetSoundTouch(self); //// custom procedure to Change plugin settings
    end;    
         
-   inputlength := uos_InputLength(theplayer2, InputIndex1);
+   inputlength := uos_InputLength(theplayer, InputIndex1);
     ////// Length of Input in samples
 
-   tottime := uos_InputLengthTime(theplayer2, InputIndex1);
+   tottime := uos_InputLengthTime(theplayer, InputIndex1);
     ////// Length of input in time
 
    DecodeTime(tottime, ho, mi, se, ms);
     
    llength.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
    
-   uos_EndProc(theplayer2, @ClosePlayer1);
+   uos_EndProc(theplayer, @ClosePlayer1);
  
     /////// procedure to execute when stream is terminated
      ///// Assign the procedure of object to execute at end
@@ -311,12 +313,12 @@ var
     btnresume.Enabled := False;
     if cbloop.value = true then
     begin
-    uos_Play(theplayer2,-1) ;
+    uos_Play(theplayer,-1) ;
     btnpause.Enabled := false;
     end
      else
      begin
-     uos_Play(theplayer2) ;  /////// everything is ready, here we are, lets play it...
+     uos_Play(theplayer) ;  /////// everything is ready, here we are, lets play it...
      btnpause.Enabled := true;
     end;
     cbloop.enabled := false; 
@@ -334,7 +336,7 @@ begin
   btnStop.Enabled := True;
   btnPause.Enabled := True;
   btnresume.Enabled := False;
-  uos_RePlay(theplayer2);
+  uos_RePlay(theplayer);
 end;
 
 procedure tsongplayer2fo.doplayerpause(const sender: TObject);
@@ -346,26 +348,26 @@ begin
     btnStop.Enabled := True;
     btnPause.Enabled := False;
     btnresume.Enabled := True;
-    uos_Pause(theplayer2);
+    uos_Pause(theplayer);
 end;
 
 procedure tsongplayer2fo.doplayerstop(const sender: TObject);
 begin
- uos_Stop(theplayer2);
+ uos_Stop(theplayer);
 end;
 
 procedure tsongplayer2fo.changepos(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
  if TrackBar1.Tag = 0 then
-   uos_InputSeek(theplayer2, InputIndex1, trunc(avalue * inputlength));
+   uos_InputSeek(theplayer, InputIndex1, trunc(avalue * inputlength));
  //  TrackBar1.Tag := 0;
 
 end;
 
 procedure tsongplayer2fo.changevolume(const sender: TObject);
 begin
-   uos_InputSetDSPVolume(theplayer2, InputIndex1,
+   uos_InputSetDSPVolume(theplayer, InputIndex1,
    edvol.value/100, edvol.value/100, True);
 
 end;
@@ -386,35 +388,35 @@ maxwidth : integer;
 temptimeinfo : ttime;
  ho, mi, se, ms: word;
 begin
-  uos_Stop(theplayer2info) ;
+  uos_Stop(theplayerinfo) ;
 
- if uos_CreatePlayer(theplayer2info) then
+ if uos_CreatePlayer(theplayerinfo) then
     //// Create the player.
     //// PlayerIndex : from 0 to what your computer can do !
     //// If PlayerIndex exists already, it will be overwriten...
       
-  if uos_AddFromFile(theplayer2info, pchar(AnsiString(historyfn.value)), -1, 0, -1) > -1 then
+  if uos_AddFromFile(theplayerinfo, pchar(AnsiString(historyfn.value)), -1, 0, -1) > -1 then
   begin
   
- inputlength := uos_InputLength(theplayer2, InputIndex1);
+ inputlength := uos_InputLength(theplayer, InputIndex1);
     ////// Length of Input in samples
 
-   temptimeinfo := uos_InputLengthTime(theplayer2info, 0);
+   temptimeinfo := uos_InputLengthTime(theplayerinfo, 0);
     ////// Length of input in time
 
    DecodeTime(temptimeinfo, ho, mi, se, ms);
     
 infosfo.infofile.caption := 'File: ' + extractfilename(historyfn.value);
-infosfo.infoname.caption := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(theplayer2info, 0)));
-infosfo.infoartist.caption := 'Artist: ' + msestring(ansistring(uos_InputGetTagArtist(theplayer2info, 0)));
-infosfo.infoalbum.caption := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(theplayer2info, 0)));
-infosfo.infoyear.caption := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(theplayer2info, 0)));
-infosfo.infocom.caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayer2info, 0)));
-infosfo.infotag.caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayer2info, 0)));
+infosfo.infoname.caption := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(theplayerinfo, 0)));
+infosfo.infoartist.caption := 'Artist: ' + msestring(ansistring(uos_InputGetTagArtist(theplayerinfo, 0)));
+infosfo.infoalbum.caption := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(theplayerinfo, 0)));
+infosfo.infoyear.caption := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(theplayerinfo, 0)));
+infosfo.infocom.caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayerinfo, 0)));
+infosfo.infotag.caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayerinfo, 0)));
 infosfo.infolength.caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]) ;
 
-uos_play(theplayer2info) ;
-uos_Stop(theplayer2info) ;
+uos_play(theplayerinfo) ;
+uos_Stop(theplayerinfo) ;
 
 maxwidth := infosfo.infofile.width ;
 
@@ -490,13 +492,13 @@ end;
 procedure tsongplayer2fo.visiblechangeev(const sender: TObject);
 begin
 {
-if visible then begin
-  mainfo.tmainmenu1.menu[2].hint := ' Hide Player 2 ' ;
+ if visible then begin
+  mainfo.tmainmenu1.menu[1].hint := ' Hide Player 1 ' ;
  end
  else begin
-  mainfo.tmainmenu1.menu[2].hint := ' Show Player 2 ' ;
+  mainfo.tmainmenu1.menu[1].hint := ' Show Player 1 ' ;
  end;
- }
+}
  mainfo.updatelayout();
 end;
 
@@ -550,4 +552,6 @@ procedure tsongplayer2fo.whosent(const sender: tfiledialogcontroller;
 begin
 thesender := 1;
 end;
+
+
 end.

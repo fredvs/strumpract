@@ -1,7 +1,5 @@
 object mainfo: tmainfo
   color = 13421772
-  frame.localprops = []
-  frame.localprops1 = []
   face.fade_pos.count = 2
   face.fade_pos.items = (
     0
@@ -19,8 +17,27 @@ object mainfo: tmainfo
   bounds_y = 221
   bounds_cx = 471
   bounds_cy = 70
-  container.frame.localprops = []
+  container.frame.hiddenedges = [edg_bottom]
+  container.frame.framei_left = 10
+  container.frame.framei_right = 10
+  container.frame.frameo_left = 1
+  container.frame.frameo_right = 1
+  container.frame.frameimage_list = timagelist3
+  container.frame.frameimage_left = -8
+  container.frame.frameimage_top = -8
+  container.frame.frameimage_right = -8
+  container.frame.frameimage_bottom = -8
+  container.frame.optionsskin = [fso_flat]
+  container.frame.localprops = [frl_frameimagelist]
   container.frame.localprops1 = []
+  container.frame.sbhorz.width = 12
+  container.frame.sbhorz.face.localprops = []
+  container.frame.sbhorz.face.template = tfacecomp4
+  container.frame.sbvert.width = 12
+  container.frame.sbvert.face.localprops = []
+  container.frame.sbvert.face.template = tfacecomp4
+  container.frame.sbvert.facebutton.localprops = []
+  container.frame.sbvert.facebutton.template = tfacecomp4
   container.bounds = (
     0
     17
@@ -1120,7 +1137,9 @@ object mainfo: tmainfo
   object basedock: tdockpanel
     optionswidget1 = [ow1_autoscale, ow1_noparentheightextend]
     optionswidget = [ow_background, ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_destroywidgets]
-    frame.localprops = []
+    frame.colordkwidth = 0
+    frame.colorhlwidth = 0
+    frame.localprops = [frl_colordkwidth, frl_colorhlwidth]
     frame.localprops1 = []
     frame.grip_size = 0
     frame.grip_grip = stb_default
@@ -3183,9 +3202,9 @@ object mainfo: tmainfo
     top = 1
   end
   object tframecomp1: tframecomp
-    template.framei_left = 10
+    template.framei_left = 11
     template.framei_top = 2
-    template.framei_right = 10
+    template.framei_right = 11
     template.framei_bottom = 2
     template.frameo_left = 1
     template.frameo_right = 1
@@ -3196,8 +3215,8 @@ object mainfo: tmainfo
     template.frameimage_bottom = -8
     template.hiddenedges = [edg_bottom]
     template.optionsskin = [fso_flat]
-    left = 352
-    top = 7
+    left = 346
+    top = 11
   end
   object tfacecomp5: tfacecomp
     template.fade_pos.count = 2

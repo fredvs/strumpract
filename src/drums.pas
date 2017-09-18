@@ -4,7 +4,9 @@ interface
 uses
  mseglob, msetimer, mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
  msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
- msesimplewidgets,msewidgets,msegraphedits,msedataedits, SysUtils,Classes;
+ msesimplewidgets,msewidgets,msegraphedits,msedataedits, SysUtils,Classes,
+ msedragglob,mseificomp,mseificompglob,mseifiglob,msescrollbar,msetypes,mseact,
+ mseedit,msestatfile,msestream,msestrings;
 
 type
  talab =  array[0..15] of tlabel;
@@ -13,100 +15,35 @@ type
 
 type
  tdrumsfo = class(tdockform)
-   tdockpanel1: tdockpanel;
-   tlabel20: tlabel;
-   tlabel19: tlabel;
-   tlabel18: tlabel;
-   tlabel17: tlabel;
-   tlabel16: tlabel;
-   tlabel15: tlabel;
-   tlabel14: tlabel;
-   tlabel13: tlabel;
-   tlabel12: tlabel;
-   tlabel11: tlabel;
-   tlabel10: tlabel;
-   tlabel9: tlabel;
-   tlabel8: tlabel;
-   tlabel7: tlabel;
-   tlabel6: tlabel;
-   tlabel5: tlabel;
-   tbooleanedit64: tbooleanedit;
-   tbooleanedit63: tbooleanedit;
-   tbooleanedit62: tbooleanedit;
-   tbooleanedit61: tbooleanedit;
-   tbooleanedit60: tbooleanedit;
-   tbooleanedit59: tbooleanedit;
-   tbooleanedit58: tbooleanedit;
-   tbooleanedit57: tbooleanedit;
-   tbooleanedit56: tbooleanedit;
-   tbooleanedit55: tbooleanedit;
-   tbooleanedit54: tbooleanedit;
-   tbooleanedit53: tbooleanedit;
-   tbooleanedit52: tbooleanedit;
-   tbooleanedit51: tbooleanedit;
-   tbooleanedit50: tbooleanedit;
-   tbooleanedit49: tbooleanedit;
-   tbooleanedit48: tbooleanedit;
-   tbooleanedit47: tbooleanedit;
-   tbooleanedit46: tbooleanedit;
-   tbooleanedit45: tbooleanedit;
-   tbooleanedit44: tbooleanedit;
-   tbooleanedit43: tbooleanedit;
-   tbooleanedit42: tbooleanedit;
-   tbooleanedit41: tbooleanedit;
-   tbooleanedit40: tbooleanedit;
-   tbooleanedit39: tbooleanedit;
-   tbooleanedit38: tbooleanedit;
-   tbooleanedit37: tbooleanedit;
-   tbooleanedit36: tbooleanedit;
-   tbooleanedit35: tbooleanedit;
-   tbooleanedit34: tbooleanedit;
-   tbooleanedit33: tbooleanedit;
-   tbooleanedit32: tbooleanedit;
-   tbooleanedit31: tbooleanedit;
-   tbooleanedit30: tbooleanedit;
-   tbooleanedit29: tbooleanedit;
-   tbooleanedit28: tbooleanedit;
-   tbooleanedit27: tbooleanedit;
-   tbooleanedit26: tbooleanedit;
-   tbooleanedit25: tbooleanedit;
-   tbooleanedit24: tbooleanedit;
-   tbooleanedit23: tbooleanedit;
-   tbooleanedit22: tbooleanedit;
-   tbooleanedit21: tbooleanedit;
-   tbooleanedit20: tbooleanedit;
-   tbooleanedit19: tbooleanedit;
-   tbooleanedit18: tbooleanedit;
-   tbooleanedit17: tbooleanedit;
-   tlabel4: tlabel;
-   tlabel3: tlabel;
-   tlabel2: tlabel;
-   tlabel1: tlabel;
-   tbooleanedit16: tbooleanedit;
-   tbooleanedit15: tbooleanedit;
-   tbooleanedit14: tbooleanedit;
-   tbooleanedit13: tbooleanedit;
-   tbooleanedit12: tbooleanedit;
-   tbooleanedit11: tbooleanedit;
-   tbooleanedit10: tbooleanedit;
-   tbooleanedit9: tbooleanedit;
-   tbooleanedit8: tbooleanedit;
-   tbooleanedit7: tbooleanedit;
-   tbooleanedit6: tbooleanedit;
-   tbooleanedit5: tbooleanedit;
-   tbooleanedit4: tbooleanedit;
-   tbooleanedit3: tbooleanedit;
-   tbooleanedit2: tbooleanedit;
-   tbooleanedit1: tbooleanedit;
-   lach: tlabel;
-   laoh: tlabel;
-   lasd: tlabel;
-   labd: tlabel;
-   labpat: tlabel;
-   and1: tlabel;
-   and2: tlabel;
-   and3: tlabel;
+   Timertick: Ttimer;
+   Timerpause: Ttimer;
+   tfacedrums: tfacecomp;
+   tdockpanel1: tgroupbox;
    and4: tlabel;
+   and3: tlabel;
+   and2: tlabel;
+   and1: tlabel;
+   labd: tlabel;
+   lasd: tlabel;
+   laoh: tlabel;
+   lach: tlabel;
+   tlabel1: tlabel;
+   tlabel2: tlabel;
+   tlabel3: tlabel;
+   tlabel4: tlabel;
+   tlabel5: tlabel;
+   tlabel6: tlabel;
+   tlabel7: tlabel;
+   tlabel8: tlabel;
+   tlabel9: tlabel;
+   tlabel10: tlabel;
+   tlabel11: tlabel;
+   tlabel12: tlabel;
+   tlabel17: tlabel;
+   tlabel18: tlabel;
+   tlabel19: tlabel;
+   tlabel20: tlabel;
+   labpat: tlabel;
    panel1: tgroupbox;
    tbooleaneditradio8: tbooleaneditradio;
    tbooleaneditradio7: tbooleaneditradio;
@@ -132,9 +69,75 @@ type
    edittempo: trealspinedit;
    tlabel25: tlabel;
    tlabel26: tlabel;
-   Timertick: Ttimer;
-   Timerpause: Ttimer;
-   tfacedrums: tfacecomp;
+   tlabel13: tlabel;
+   tlabel14: tlabel;
+   tlabel15: tlabel;
+   tlabel16: tlabel;
+   tbooleanedit1: tbooleanedit;
+   tbooleanedit2: tbooleanedit;
+   tbooleanedit3: tbooleanedit;
+   tbooleanedit4: tbooleanedit;
+   tbooleanedit5: tbooleanedit;
+   tbooleanedit6: tbooleanedit;
+   tbooleanedit7: tbooleanedit;
+   tbooleanedit8: tbooleanedit;
+   tbooleanedit9: tbooleanedit;
+   tbooleanedit10: tbooleanedit;
+   tbooleanedit11: tbooleanedit;
+   tbooleanedit12: tbooleanedit;
+   tbooleanedit13: tbooleanedit;
+   tbooleanedit14: tbooleanedit;
+   tbooleanedit15: tbooleanedit;
+   tbooleanedit16: tbooleanedit;
+   tbooleanedit17: tbooleanedit;
+   tbooleanedit18: tbooleanedit;
+   tbooleanedit19: tbooleanedit;
+   tbooleanedit20: tbooleanedit;
+   tbooleanedit21: tbooleanedit;
+   tbooleanedit22: tbooleanedit;
+   tbooleanedit23: tbooleanedit;
+   tbooleanedit24: tbooleanedit;
+   tbooleanedit25: tbooleanedit;
+   tbooleanedit26: tbooleanedit;
+   tbooleanedit27: tbooleanedit;
+   tbooleanedit28: tbooleanedit;
+   tbooleanedit29: tbooleanedit;
+   tbooleanedit30: tbooleanedit;
+   tbooleanedit31: tbooleanedit;
+   tbooleanedit32: tbooleanedit;
+   tbooleanedit33: tbooleanedit;
+   tbooleanedit34: tbooleanedit;
+   tbooleanedit35: tbooleanedit;
+   tbooleanedit36: tbooleanedit;
+   tbooleanedit37: tbooleanedit;
+   tbooleanedit38: tbooleanedit;
+   tbooleanedit39: tbooleanedit;
+   tbooleanedit40: tbooleanedit;
+   tbooleanedit41: tbooleanedit;
+   tbooleanedit42: tbooleanedit;
+   tbooleanedit43: tbooleanedit;
+   tbooleanedit44: tbooleanedit;
+   tbooleanedit45: tbooleanedit;
+   tbooleanedit46: tbooleanedit;
+   tbooleanedit47: tbooleanedit;
+   tbooleanedit48: tbooleanedit;
+   tbooleanedit49: tbooleanedit;
+   tbooleanedit50: tbooleanedit;
+   tbooleanedit51: tbooleanedit;
+   tbooleanedit52: tbooleanedit;
+   tbooleanedit53: tbooleanedit;
+   tbooleanedit54: tbooleanedit;
+   tbooleanedit55: tbooleanedit;
+   tbooleanedit56: tbooleanedit;
+   tbooleanedit57: tbooleanedit;
+   tbooleanedit58: tbooleanedit;
+   tbooleanedit59: tbooleanedit;
+   tbooleanedit60: tbooleanedit;
+   tbooleanedit61: tbooleanedit;
+   tbooleanedit62: tbooleanedit;
+   tbooleanedit63: tbooleanedit;
+   tbooleanedit64: tbooleanedit;
+   tfacecomp2: tfacecomp;
    procedure ontimertick(const Sender: TObject);
    procedure ontimerpause(const Sender: TObject);
    procedure dostart(const sender: TObject);
@@ -145,8 +148,6 @@ type
    procedure createdrumsplayers;
    procedure createvoiceplayers;
    procedure stopvoiceplayers;
-//   procedure onfloatdrums(const sender: TObject);
-//   procedure ondockdrums(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure oncreatedrums(const sender: TObject);
    procedure oncreateddrums(const sender: TObject);
@@ -623,24 +624,7 @@ end;
   abd[ax].value := true else  abd[ax].value := false;
   end;  
  end; 
-{
-procedure tdrumsfo.onfloatdrums(const sender: TObject);
-begin
-height := 238;
-mainfo.height := mainfo.height - 238;
-if mainfo.height < 40 then mainfo.height := 40; 
-end;
 
-procedure tdrumsfo.ondockdrums(const sender: TObject);
-begin
-//if initdrum = 0 then mainfo.procshowdrums(sender);
-
-if hasinit = 0 then begin
-height := 238;
-mainfo.height := mainfo.height + 238;
-end;
-end;
-}
 procedure tdrumsfo.visiblechangeev(const sender: TObject);
 begin
 {
@@ -841,7 +825,7 @@ begin
   spcx := 24;
   spcy := 24;
   posx := - 26;
-  posy := 4;
+  posy := 6;
 
  alab2[0] := tlabel1;
  alab2[1] := tlabel2;
@@ -1154,8 +1138,8 @@ end;
 
 procedure tdrumsfo.oncreateddrums(const sender: TObject);
 begin
-height := 238;
-width := 458;
+//height := 238;
+//width := 458;
 caption := 'Drums set';
 end;
 

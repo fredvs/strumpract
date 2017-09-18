@@ -6,40 +6,42 @@ uses
  mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,
  mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
  msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits,mseificomp,
- mseificompglob,mseifiglob,msescrollbar;
+ mseificompglob,mseifiglob,msescrollbar,msedragglob,mseact,mseedit,msestatfile,
+ msestream,msestrings,msebitmap,msedatanodes;
 
 type
  trecorderfo = class(tdockform)
-   tdockrecorder: tdockpanel;
-   tlabel27: tlabel;
-   btnPause: tbutton;
-   btnResume: tbutton;
-   btnStart: tbutton;
-   songdir: tfilenameedit;
-   btnStop: tbutton;
-   llength: tlabel;
-   lposition: tlabel;
-   trackbar1: tslider;
-   cbtempo: tbooleanedit;
-   label6: tlabel;
-   cbloop: tbooleanedit;
-   button1: tbutton;
-   edtempo: trealspinedit;
-   edvol: trealspinedit;
-   btinfos: tbutton;
-   historyfn: thistoryedit;
-   vuLeft: tdockpanel;
-   vuRight: tdockpanel;
    Timerwait: Ttimer;
    
    tfacecomp1: tfacecomp;
-   bsavetofile: tbooleanedit;
-   blistenin: tbooleanedit;
-   tbutton2: tbutton;
-   tbutton3: tbutton;
-   tlabel28: tlabel;
-   tlabel2: tlabel;
    tfacerecorder: tfacecomp;
+   tgroupbox1: tgroupbox;
+   tfacecomp2: tfacecomp;
+   vuRight: tdockpanel;
+   vuLeft: tdockpanel;
+   tlabel2: tlabel;
+   tlabel28: tlabel;
+   tbutton3: tbutton;
+   tbutton2: tbutton;
+   blistenin: tbooleanedit;
+   bsavetofile: tbooleanedit;
+   btinfos: tbutton;
+   edvol: trealspinedit;
+   edtempo: trealspinedit;
+   button1: tbutton;
+   cbloop: tbooleanedit;
+   label6: tlabel;
+   cbtempo: tbooleanedit;
+   trackbar1: tslider;
+   lposition: tlabel;
+   llength: tlabel;
+   btnStop: tbutton;
+   btnStart: tbutton;
+   btnResume: tbutton;
+   btnPause: tbutton;
+   tlabel27: tlabel;
+   historyfn: thistoryedit;
+   songdir: tfilenameedit;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
