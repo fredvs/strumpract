@@ -12,8 +12,8 @@ object filelistfo: tfilelistfo
   bounds_cy = 119
   bounds_cxmin = 458
   bounds_cymin = 119
-  bounds_cxmax = 458
-  bounds_cymax = 119
+  bounds_cxmax = 1024
+  bounds_cymax = 800
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
@@ -39,11 +39,12 @@ object filelistfo: tfilelistfo
     bounds_y = 0
     bounds_cx = 448
     bounds_cy = 93
-    cellwidth = 174
+    anchors = [an_left, an_top, an_right, an_bottom]
+    cellwidth = 446
     cellheight = 17
-    optionsgrid = [og_colsizing, og_focuscellonenter, og_mousescrollcol]
+    optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
     options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
-    cellwidthmin = 50
+    cellwidthmin = 446
     statfile = mainfo.tstatfile1
     onselectionchanged = selctchanged
     reffontheight = 15
@@ -56,6 +57,7 @@ object filelistfo: tfilelistfo
     bounds_y = 97
     bounds_cx = 115
     bounds_cy = 20
+    anchors = [an_right, an_bottom]
     state = [as_localcaption, as_localonexecute]
     caption = 'Sent to Player 1'
     onexecute = onsent
@@ -65,10 +67,11 @@ object filelistfo: tfilelistfo
     face.localprops = []
     face.template = mainfo.tfacecomp1
     taborder = 2
-    bounds_x = 320
+    bounds_x = 313
     bounds_y = 97
     bounds_cx = 115
     bounds_cy = 20
+    anchors = [an_right, an_bottom]
     state = [as_localcaption, as_localonexecute]
     caption = 'Sent to Player 2'
     onexecute = onsent
@@ -119,7 +122,7 @@ object filelistfo: tfilelistfo
     bounds_x = 5
     bounds_y = 97
     bounds_cx = 161
-    anchors = [an_left, an_top, an_right]
+    anchors = [an_left, an_right, an_bottom]
     statfile = mainfo.tstatfile1
     textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
     onchange = onchangpath

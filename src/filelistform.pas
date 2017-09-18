@@ -87,6 +87,7 @@ end;
 
 procedure tfilelistfo.onchangpath(const sender: TObject);
 begin
+list_files.mask:= '*.mp3';
 list_files.path := dir.value;
 end;
 

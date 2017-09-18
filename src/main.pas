@@ -276,8 +276,9 @@ if basedock.dragdock.currentsplitdir <> sd_tabed then begin
   height:= heights[i1];
   end;
  end;
- }
+// }
 //height := totchildheight ;
+
   if isbig then width := fowidth + scrollwidth else width := fowidth +2 ;
  
  end;
@@ -293,7 +294,8 @@ end;
 procedure tmainfo.onfloatall(const sender: TObject);
 var
  rect1,rect2: rectty;
- decorationheight: int32;
+ decorationheight, posi: int32;
+  si1: sizety;
  begin
  decorationheight:= window.decoratedbounds_cy - height;
  
@@ -342,12 +344,48 @@ var
   
  height := emptyheight;
  width := fowidth;
-   
+ 
+ if drumsfo.visible then 
+ begin 
  drumsfo.top:= top + height + decorationheight;
- songplayerfo.top:= drumsfo.top + drumsfoheight + decorationheight;
- songplayer2fo.top:= songplayerfo.top + songplayerfoheight + decorationheight;
- guitarsfo.top:= songplayer2fo.top + songplayerfoheight + decorationheight;
- recorderfo.top:= guitarsfo.top + guitarsfoheight + decorationheight;
+ posi := drumsfo.top + drumsfoheight + decorationheight;
+ end
+ else posi := top + height + decorationheight;
+ 
+ 
+ if filelistfo.visible then 
+ begin 
+ filelistfo.top:= posi;
+ posi := filelistfo.top + filelistfoheight + decorationheight;
+ end;
+ 
+ if songplayerfo.visible then 
+ begin 
+ songplayerfo.top:= posi;
+ posi := songplayerfo.top + songplayerfoheight + decorationheight;
+ end;
+ 
+ if songplayer2fo.visible then 
+ begin 
+ songplayer2fo.top:= posi;
+ posi := songplayer2fo.top + songplayerfoheight + decorationheight;
+ end;
+ 
+ if guitarsfo.visible then 
+ begin 
+ guitarsfo.top:= posi;
+ posi := guitarsfo.top + guitarsfoheight + decorationheight;
+ end;
+ 
+ if recorderfo.visible then 
+ begin 
+ recorderfo.top:= posi;
+ posi := recorderfo.top + recorderfoheight + decorationheight;
+ end;
+ 
+filelistfo.bounds_cxmax := 1024 ;
+filelistfo.bounds_cymax := 700;
+
  
 end;
 
@@ -359,6 +397,9 @@ begin
 // showall(sender);
  
 // width := width +4;
+
+filelistfo.bounds_cxmax := fowidth ;
+filelistfo.bounds_cymax := filelistfoheight;
 
 
  basedock.dragdock.currentsplitdir:= sd_horz; 

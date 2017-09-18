@@ -19,8 +19,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 644
-  bounds_y = 420
+  bounds_x = 437
+  bounds_y = 189
   bounds_cx = 458
   bounds_cy = 236
   bounds_cxmin = 458
@@ -232,7 +232,7 @@ object drumsfo: tdrumsfo
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 4
       bounds_x = 4
-      bounds_y = 120
+      bounds_y = 126
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Bass'
@@ -243,7 +243,7 @@ object drumsfo: tdrumsfo
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 5
       bounds_x = 4
-      bounds_y = 97
+      bounds_y = 102
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Snare'
@@ -254,7 +254,7 @@ object drumsfo: tdrumsfo
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 6
       bounds_x = 4
-      bounds_y = 73
+      bounds_y = 78
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Open H'
@@ -265,7 +265,7 @@ object drumsfo: tdrumsfo
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 7
       bounds_x = 4
-      bounds_y = 50
+      bounds_y = 54
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Close H'
@@ -497,7 +497,7 @@ object drumsfo: tdrumsfo
         taborder = 2
         hint = ' Drums Patern 1 '
         bounds_x = 319
-        bounds_y = 12
+        bounds_y = 16
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -523,7 +523,7 @@ object drumsfo: tdrumsfo
         taborder = 3
         hint = ' Drums Patern 2 '
         bounds_x = 319
-        bounds_y = 28
+        bounds_y = 32
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -547,7 +547,7 @@ object drumsfo: tdrumsfo
         taborder = 4
         hint = ' Drums Patern 3 '
         bounds_x = 319
-        bounds_y = 44
+        bounds_y = 48
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -571,7 +571,7 @@ object drumsfo: tdrumsfo
         taborder = 5
         hint = ' Drums Patern 4 '
         bounds_x = 319
-        bounds_y = 60
+        bounds_y = 64
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -595,7 +595,7 @@ object drumsfo: tdrumsfo
         taborder = 6
         hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
         bounds_x = 273
-        bounds_y = 60
+        bounds_y = 64
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -619,7 +619,7 @@ object drumsfo: tdrumsfo
         taborder = 7
         hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
         bounds_x = 273
-        bounds_y = 44
+        bounds_y = 48
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -643,7 +643,7 @@ object drumsfo: tdrumsfo
         taborder = 8
         hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
         bounds_x = 273
-        bounds_y = 28
+        bounds_y = 32
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -667,7 +667,7 @@ object drumsfo: tdrumsfo
         taborder = 9
         hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
         bounds_x = 273
-        bounds_y = 12
+        bounds_y = 16
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -676,7 +676,7 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 1
         bounds_x = 314
-        bounds_y = -1
+        bounds_y = 3
         bounds_cx = 39
         bounds_cy = 15
         caption = 'Patern'
@@ -688,7 +688,7 @@ object drumsfo: tdrumsfo
       object tlabel21: tlabel
         color = -2147483645
         bounds_x = 266
-        bounds_y = -1
+        bounds_y = 3
         bounds_cx = 41
         bounds_cy = 15
         caption = 'Lesson'
@@ -716,7 +716,7 @@ object drumsfo: tdrumsfo
         taborder = 10
         hint = ' No graphic animation. '
         bounds_x = 361
-        bounds_y = 55
+        bounds_y = 59
         bounds_cx = 65
         bounds_cy = 17
       end
@@ -739,7 +739,7 @@ object drumsfo: tdrumsfo
         taborder = 11
         hint = ' No "and" between 2 numbers. '
         bounds_x = 361
-        bounds_y = 22
+        bounds_y = 26
         bounds_cx = 70
         bounds_cy = 17
         value = True
@@ -763,7 +763,7 @@ object drumsfo: tdrumsfo
         taborder = 12
         hint = ' No counting voice '
         bounds_x = 361
-        bounds_y = 6
+        bounds_y = 10
         bounds_cx = 66
         bounds_cy = 17
         onsetvalue = onsetnovoice
@@ -788,7 +788,7 @@ object drumsfo: tdrumsfo
         taborder = 13
         hint = ' No drums sound.  '
         bounds_x = 361
-        bounds_y = 38
+        bounds_y = 42
         bounds_cx = 74
         bounds_cy = 17
       end
@@ -882,7 +882,7 @@ object drumsfo: tdrumsfo
         taborder = 17
         visible = False
         bounds_x = 230
-        bounds_y = 22
+        bounds_y = 26
         bounds_cx = 18
         bounds_cy = 44
         caption = '/'
@@ -901,7 +901,7 @@ object drumsfo: tdrumsfo
         taborder = 18
         enabled = False
         bounds_x = 204
-        bounds_y = 14
+        bounds_y = 18
         bounds_cx = 32
         bounds_cy = 59
         caption = '0'
@@ -923,7 +923,7 @@ object drumsfo: tdrumsfo
         taborder = 19
         visible = False
         bounds_x = 194
-        bounds_y = 22
+        bounds_y = 26
         bounds_cx = 18
         bounds_cy = 44
         caption = '\'
@@ -941,7 +941,7 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 20
         bounds_x = 120
-        bounds_y = 61
+        bounds_y = 65
         bounds_cx = 53
         bounds_cy = 15
         caption = '150 BPM'
@@ -975,7 +975,7 @@ object drumsfo: tdrumsfo
         taborder = 21
         hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
         bounds_x = 118
-        bounds_y = 17
+        bounds_y = 21
         bounds_cx = 59
         bounds_cy = 40
         onchange = onchangetempo
@@ -995,7 +995,7 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 22
         bounds_x = 124
-        bounds_y = 1
+        bounds_y = 3
         bounds_cx = 46
         bounds_cy = 15
         caption = 'Interval'
