@@ -408,24 +408,26 @@ compnamedialog=5
  y=266
  cx=300
  cy=203
-bmpfiledialog=28
+bmpfiledialog=30
  [filedialog]
  filenames=1
-  /home/fred/Documents/record.png
+  /home/fred/uos/uos.png
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
- lastdir=/home/fred/Documents/
- filehistory=16
+ lastdir=/home/fred/uos/
+ filehistory=18
+  /home/fred/uos/uos.png
+  /home/fred/uos/uos.jpg
+  /home/fred/uos/uos.bmp
   /home/fred/Documents/record.png
   /home/fred/Images/guitico.jpg
   /home/fred/Images/drumsico.jpg
   /home/fred/Images/exaile.png
   /home/fred/Images/guitico.png
   /home/fred/Images/drumsico.png
-  /home/fred/uos/uos.jpg
   /home/fred/Images/uos4.jpg
   /home/fred/Images/circlenew4.jpg
   /home/fred/drumspract/uos.jpg
@@ -1156,12 +1158,10 @@ findhistory=20
 findoptions=1
 editpos=45
  0,-1073741823
- 0,2
- 0,19
- 0,-1073741823
- 39,370
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 0,370
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1193,13 +1193,15 @@ editpos=45
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,11
- 0,395
  0,-1073741823
- 0,77
  0,-1073741823
- 0,152
- 0,2274
+ 0,1
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1335,8 +1337,8 @@ relpaths=45
  recorder.pas
  msefiledialog.pas
  msefiledialogres.pas
- ../msegui/lib/common/widgets/mseforms.pas
- ../msegui/lib/common/kernel/msegui.pas
+ msegui/lib/common/widgets/mseforms.pas
+ msegui/lib/common/kernel/msegui.pas
 ismoduletexts=45
  0
  0
@@ -1479,7 +1481,7 @@ order=45
  36
  37
 firsttab=0
-index=5
+index=7
 [layout]
 windowlayout=735
  [mainfo.basedock]
@@ -1517,7 +1519,7 @@ windowlayout=735
   basedock,0,0,1356,694
  focusedchild=0
  wsize=6
- active=1
+ active=0
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1536,7 +1538,7 @@ windowlayout=735
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=805322857
@@ -1726,7 +1728,7 @@ windowlayout=735
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=_mse_mainfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
@@ -1976,7 +1978,7 @@ windowlayout=735
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_about_form_mse_
+ stackedunder=_mse_simple_player_mse_
  parent=
  mdistate=0
  nx=0
@@ -2011,7 +2013,7 @@ windowlayout=735
  [_mse_simple_player_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=
+ stackedunder=_mse_about_form_mse_
  parent=
  mdistate=0
  nx=0
@@ -2030,7 +2032,7 @@ windowlayout=735
  [_mse_about_form_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2049,7 +2051,7 @@ windowlayout=735
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2087,7 +2089,7 @@ windowlayout=735
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2106,7 +2108,7 @@ windowlayout=735
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2125,7 +2127,7 @@ windowlayout=735
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=stackfo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2163,7 +2165,7 @@ windowlayout=735
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filedialogres_mse_
+ stackedunder=_mse_filedialogfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2182,7 +2184,7 @@ windowlayout=735
  [_mse_filedialogfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_filedialogres_mse_
  parent=
  mdistate=0
  nx=0
@@ -2201,7 +2203,7 @@ windowlayout=735
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filedialogfo_mse_
+ stackedunder=stackfo
  parent=
  mdistate=0
  nx=0
