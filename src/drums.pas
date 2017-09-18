@@ -155,6 +155,7 @@ type
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
    procedure onsetnovoice(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
+   procedure ondestroi(const sender: TObject);
  end;
 var
  drumsfo: tdrumsfo;
@@ -790,7 +791,7 @@ begin
         lib4 := '' ;
         {$endif}
       {$ENDIF}
-   
+  
 if uos_LoadLib(Pchar(lib1),  Pchar(lib2), Pchar(lib3), nil, nil,nil) = 0 then
 
 begin
@@ -1167,6 +1168,12 @@ if (avalue = false) and (tag = 0) then
 createvoiceplayers;
 // else stopvoiceplayers;
 
+end;
+
+procedure tdrumsfo.ondestroi(const sender: TObject);
+begin
+Timerpause.free;
+Timertick.free;
 end;
  
 end.

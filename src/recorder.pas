@@ -75,6 +75,7 @@ type
                    var dialogkind: filedialogkindty;
                    var aresult: modalresultty);
    procedure onlistenin(const sender: TObject);
+   procedure ondest(const sender: TObject);
  end;
 var
  recorderfo: trecorderfo;
@@ -632,6 +633,11 @@ end;
 procedure trecorderfo.onlistenin(const sender: TObject);
 begin
  uos_outputsetenable(therecplayer,OutputIndex3,blistenin.value);
+end;
+
+procedure trecorderfo.ondest(const sender: TObject);
+begin
+Timerwait.free;
 end;
 
 

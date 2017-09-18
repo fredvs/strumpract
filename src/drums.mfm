@@ -168,6 +168,7 @@ object drumsfo: tdrumsfo
   }
   oncreate = oncreatedrums
   oncreated = oncreateddrums
+  ondestroy = ondestroi
   onmouseevent = onmousewindow
   onshow = visiblechangeev
   onhide = visiblechangeev

@@ -67,6 +67,7 @@ type
    procedure whosent(const sender: tfiledialogcontroller;
                    var dialogkind: filedialogkindty;
                    var aresult: modalresultty);
+   procedure ondestr(const sender: TObject);
  end;
 var
  songplayerfo: tsongplayerfo;
@@ -551,6 +552,11 @@ procedure tsongplayerfo.whosent(const sender: tfiledialogcontroller;
                var dialogkind: filedialogkindty; var aresult: modalresultty);
 begin
 thesender := 0;
+end;
+
+procedure tsongplayerfo.ondestr(const sender: TObject);
+begin
+Timerwait.free;
 end;
 
 

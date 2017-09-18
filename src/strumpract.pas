@@ -7,7 +7,7 @@ program strumpract;
  {$R dp.res}
 {$endif}
 uses
- {$ifdef FPC}{$ifdef unix}cmem, cthreads,{$endif}{$endif} 
+ {$ifdef FPC}{$ifdef unix} cthreads,{$endif}{$endif} 
 filelistform, msegui, main, aboutform, drums, songplayer, songplayer2, guitars, recorder,infos;
 begin
 

@@ -120,6 +120,7 @@ object recorderfo: trecorderfo
     000000000000000000000000000000000000000000000000
   }
   oncreate = onplayercreate
+  ondestroy = ondest
   onmouseevent = onmousewindow
   onshow = visiblechangeev
   onhide = visiblechangeev

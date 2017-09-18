@@ -1106,8 +1106,11 @@ function uos_loadlib(PortAudioFileName, SndFileFileName, Mpg123FileName, Mp4ffFi
   // Mpg123 => needed for dealing with mp* audio-files
   // Mp4ff and Faad => needed for dealing with acc, m4a audio-files
   // opusfile => needed for dealing with opus audio-files
-
-  // If some libraries are not needed, replace it by "nil", for example : uos_loadlib(PortAudioFileName, SndFileFileName, nil, nil, nil, nil, nil)
+  
+  // If you want to load libraries from system, replace it by "'system'"
+  // If some libraries are not needed, replace it by "nil", 
+ 
+  // for example : uos_loadlib('system', SndFileFileName, 'system', nil, nil, nil, OpusFileFileName)
 
 procedure uos_unloadlib();
   // Unload all libraries... Do not forget to call it before close application...
@@ -2808,7 +2811,7 @@ end;
 function uos_DSPVolume(Data: Tuos_Data; fft: Tuos_FFT): TDArFloat;
 var
   x, ratio: cint32;
-  vleft, vright: double;
+  vleft, vright: cfloat;
   
  // volumearray : array of double;
 
@@ -2834,8 +2837,8 @@ begin
   ps^[x] := trunc(ps^[x] * vleft);
   end;
   // This to avoid distortion
-  if ps^[x] < (-32760) then ps^[x] := -32760 ;
-  if ps^[x] > (32760) then ps^[x] := 32760 ;
+  // if ps^[x] < (-32760) then ps^[x] := -32760 ;
+  // if ps^[x] > (32760) then ps^[x] := 32760 ;
 
   end;
 
@@ -2854,8 +2857,8 @@ begin
   end;
 
   // This to avoid distortion
-  if pl^[x] < (-2147000000) then pl^[x] := -2147000000 ;
-  if pl^[x] > (2147000000) then pl^[x] := 2147000000 ;
+  // if pl^[x] < (-2147000000) then pl^[x] := -2147000000 ;
+  // if pl^[x] > (2147000000) then pl^[x] := 2147000000 ;
 
   end;
 
@@ -2871,7 +2874,8 @@ begin
   end;
 
   pf := @Data.Buffer;
-  for x := 0 to (Data.OutFrames div ratio) do
+   
+  for x := 0 to (Data.OutFrames div ratio) -1 do
   begin
   if (Data.VLeft <> 1)  or (Data.Vright <> 1) then
   begin
@@ -2880,9 +2884,10 @@ begin
   else
   pf^[x] := pf^[x] * vleft;
   end;
+
   // This to avoid distortion
-  if pf^[x] < (-1) then pf^[x] := -1 ;
-  if pf^[x] > 1 then pf^[x] := 1 ;
+  // if pf^[x] < -1 then pf^[x] := -1;
+  // if pf^[x] > 1 then pf^[x] := 1 ;
 
   end;
 
@@ -4636,9 +4641,8 @@ function Tuos_Player.AddFromMemoryBuffer(MemoryBuffer: TDArFloat; Bufferinfos: T
   // example : InputIndex1 := AddFromMemoryBuffer(mybuffer, buffinfos,-1,1024);
 var
   x,i : cint32; 
-  {$IF DEFINED(debug)}
   st: string;
-   {$endif}  
+ 
   begin
   
  result := -1 ;
@@ -5663,7 +5667,9 @@ begin
 
   mpg123_info(StreamIn[x].Data.HandleSt, MPinfo);
   
-  mpg123_id3(StreamIn[x].Data.HandleSt, mpid3v1, @mpid3v2);
+//  mpid3v1^ := nil;
+    
+  mpg123_id3(StreamIn[x].Data.HandleSt, @mpid3v1, @mpid3v2);
   // to do : add id2v2
 
  if (assigned(mpid3v1)) and (assigned(mpid3v1^)) then 
@@ -7946,9 +7952,7 @@ begin
   {$IF DEFINED(portaudio)}
   if (PA_FileName <>  nil) and (PA_FileName <>  '') then
   begin
-  if not fileexists(PA_FileName) then
-  uosLoadResult.PAloadERROR := 1
-  else
+  if PA_FileName =  'system' then PA_FileName :=  '' ;
   if Pa_Load(PA_FileName) then
   begin
   Result := 0;
@@ -7967,12 +7971,7 @@ begin
   {$IF DEFINED(sndfile)}
   if (SF_FileName <> nil) and (SF_FileName <>  '') then
   begin
-  if not fileexists(SF_FileName) then
-  begin
-  Result := -1;
-  uosLoadResult.SFloadERROR := 1;
-  end
-  else
+  if Sf_FileName =  'system' then sf_FileName :=  '' ;
   if Sf_Load(SF_FileName) then
   begin
   uosLoadResult.SFloadERROR := 0;
@@ -7992,13 +7991,7 @@ begin
   {$IF DEFINED(mpg123)}
   if (MP_FileName <> nil) and (MP_FileName <>  '') then
   begin
-  if not fileexists(MP_FileName) then
-  begin
-  Result := -1;
-  uosLoadResult.MPloadERROR := 1;
-  end
-  else
-  begin
+  if mp_FileName =  'system' then mp_FileName :=  '' ;
   if mp_Load(Mp_FileName) then
   begin
   uosLoadResult.MPloadERROR := 0;
@@ -8010,7 +8003,6 @@ begin
   uosLoadResult.MPloadERROR := 2;
   Result := -1;
   end;
-  end;
   end
   else
   uosLoadResult.MPloadERROR := -1;
@@ -8019,13 +8011,9 @@ begin
   {$IF DEFINED(neaac)}
   if (AA_FileName <> nil) and (AA_FileName <>  '') and (M4_FileName <> nil) and (M4_FileName <>  '') then
   begin
-  if (not fileexists(AA_FileName)) or (not fileexists(M4_FileName)) then
-  begin
-  Result := -1;
-  uosLoadResult.AAloadERROR := 1;
-  end
-  else
-  begin
+  if m4_FileName =  'system' then m4_FileName :=  '' ;
+  if aa_FileName =  'system' then aa_FileName :=  '' ;
+  
   if aa_load(UTF8String(M4_FileName), UTF8String(AA_FileName)) then
   begin
   uosLoadResult.AAloadERROR := 0;
@@ -8038,7 +8026,6 @@ begin
   uosLoadResult.AAloadERROR := 2;
   Result := -1;
   end;
-  end;
   end
   else
   uosLoadResult.AAloadERROR := -1;
@@ -8047,14 +8034,7 @@ begin
   {$IF DEFINED(opus)}
   if (OF_FileName <> nil) and (OF_FileName <>  '') then
   begin
-  if (not fileexists(OF_FileName)) then
-  begin
-  Result := -1;
-  uosLoadResult.OPloadERROR := 1;
-  end
-  else
-  begin
-  //  if (op_load(AnsiString(OP_FileName))) and
+  if of_FileName =  'system' then of_FileName :=  '' ;
   if (of_load(UTF8String(OF_FileName)))  then
   begin
   uosLoadResult.OPloadERROR := 0;
@@ -8067,7 +8047,6 @@ begin
   begin
   uosLoadResult.OPloadERROR := 2;
   Result := -1;
-  end;
   end;
   end
   else
@@ -8085,12 +8064,7 @@ function uos_loadPlugin(PluginName, PluginFilename: PChar) : cint32;
   {$IF DEFINED(soundtouch)}
   if (lowercase(PluginName) = 'soundtouch') and (PluginFileName <> nil) and (PluginFileName <>  '')  then
   begin
-  if not fileexists(PluginFileName) then
-  begin
-  Result := -1;
-  uosLoadResult.STloadERROR := 1;
-  end
-  else
+  if PluginFileName =  'system' then PluginFileName :=  '' ;
   if ST_Load(PluginFileName) then
   begin
   Result := 0;
@@ -8102,20 +8076,14 @@ function uos_loadPlugin(PluginName, PluginFilename: PChar) : cint32;
   uosLoadResult.STloadERROR := 2;
   Result := -1;
   end;
-  end
-  else
-  uosLoadResult.STloadERROR := -1;
+  end;
+  
   {$endif}
   
   {$IF DEFINED(bs2b)}
   if (lowercase(PluginName) = 'bs2b') and (PluginFileName <> nil) and (PluginFileName <>  '') then
   begin
-  if not fileexists(PluginFileName) then
-  begin
-  Result := -1;
-  uosLoadResult.BSloadERROR := 1;
-  end
-  else
+  if PluginFileName =  'system' then PluginFileName :=  '' ;
   if BS_Load(PluginFileName) then
   begin
   Result := 0;
@@ -8127,12 +8095,10 @@ function uos_loadPlugin(PluginName, PluginFilename: PChar) : cint32;
   uosLoadResult.BSloadERROR := 2;
   Result := -1;
   end;
-  end
-  else
-  uosLoadResult.BSloadERROR := -1;
+  end;
   {$endif}
-  
-end;
+  end;
+
 
 {$IF DEFINED(shout)}
 function uos_LoadServerLib(ShoutFileName, OpusFileName : PChar) : cint32; 

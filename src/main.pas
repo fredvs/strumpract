@@ -145,7 +145,7 @@ end;
 
 procedure tmainfo.dodestroy(const sender: TObject);
 begin
-uos_free();
+ uos_free();
 end;
 
 procedure tmainfo.oncreatedform(const sender: TObject);

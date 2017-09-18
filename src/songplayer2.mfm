@@ -97,6 +97,7 @@ object songplayer2fo: tsongplayer2fo
     F0FF1F00C0FF070000000000
   }
   oncreate = onplayercreate
+  ondestroy = ondestr
   onmouseevent = onmousewindow
   onshow = visiblechangeev
   onhide = visiblechangeev
