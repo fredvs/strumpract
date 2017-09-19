@@ -13,8 +13,8 @@ object filedialogfo: Tfiledialogfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 574
-  bounds_y = 70
+  bounds_x = 494
+  bounds_y = 281
   bounds_cx = 554
   bounds_cy = 332
   bounds_cxmin = 360
@@ -1209,9 +1209,9 @@ object filedialogfo: Tfiledialogfo
       )
       hint = ' Click button on right corner to show the history of files. '
       bounds_x = 1
-      bounds_y = 0
+      bounds_y = -2
       bounds_cx = 293
-      bounds_cy = 38
+      bounds_cy = 40
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
       oncopytoclipboard = copytoclip
@@ -1367,6 +1367,19 @@ object filedialogfo: Tfiledialogfo
       anchors = [an_top, an_right]
       onsetvalue = showhiddenonsetvalue
     end
+    object tlabel1: tlabel
+      taborder = 5
+      visible = False
+      bounds_x = 13
+      bounds_y = 5
+      bounds_cx = 158
+      bounds_cy = 19
+      caption = 'The directory name'
+      font.height = 16
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      reffontheight = 19
+    end
   end
   object dir: tdirdropdownedit
     optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
@@ -1410,12 +1423,13 @@ object filedialogfo: Tfiledialogfo
     )
     taborder = 2
     onshowhint = dirshowhint
-    bounds_x = 1
-    bounds_y = 0
+    bounds_x = 2
+    bounds_y = -2
     bounds_cx = 384
     bounds_cy = 39
     anchors = [an_left, an_top, an_right]
     textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+    onchange = onchangedir
     dropdown.options = [deo_selectonly, deo_keydropdown]
     onsetvalue = dironsetvalue
     reffontheight = 15

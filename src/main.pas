@@ -153,10 +153,12 @@ begin
 caption := 'StrumPract ' + versiontext;
 if not fileexists(tstatfile1.filename) then
  begin
+ hide;
  showall(sender);
  ondockall(sender);
- sleep(50);
+  sleep(100);
   ondockall(sender); /// otherwise size of dock is not ok
+ show;
  end;
 end;
 
@@ -207,9 +209,9 @@ procedure tmainfo.endlayout();
 begin
  dec(flayoutlock);
  basedock.dragdock.endplacement();
- if flayoutlock = 0 then begin
+ if flayoutlock = 0 then
   updatelayout();
- end;
+ 
 end;
 
 procedure tmainfo.updatelayout();
@@ -223,9 +225,12 @@ var
  i1: int32;
  si1,si2: sizety;
  isbig : boolean = false;
+ rect1: rectty;
 begin
 if basedock.dragdock.currentsplitdir <> sd_tabed then begin
  if flayoutlock <= 0 then begin
+ // resizeall;
+  rect1:= application.workarea();
   children1:= basedock.dragdock.getitems();
   setlength(heights,length(children1));
   visiblecount:= 0;
@@ -234,27 +239,31 @@ if basedock.dragdock.currentsplitdir <> sd_tabed then begin
   totchildheight := 0;
   for i1:= 0 to high(children1) do begin
    with children1[i1] do begin
-    si1:= container.minscrollsize(); //minimal clientarea
-    addsize1(si1,framedim());        //add space for frame
-    heights[i1]:= si1.cy;
-    if visible then begin
-     if si1.cx > maxwidth then begin
-      maxwidth:= si1.cx;
-     end;
-     
-      if totheight + si1.cy < maxheightfo then
-     totchildheight := totchildheight + si1.cy else isbig := true;   //totheight := maxheightfo;
-        
-     totheight:= totheight + si1.cy;
     
+    si1:= container.minscrollsize(); //minimal clientarea
+   // si1.cy:= height; //minimal clientarea
+   // si1.cx:= width;
+    addsize1(si1,framedim());        //add space for frame
+   
+    heights[i1]:= si1.cy;
+   
+   if visible then begin
+   
+     if si1.cx > maxwidth then maxwidth:= si1.cx;
+      
+      totheight:= totheight + si1.cy;
+          
      inc(visiblecount);
-    end;
+    end else heights[i1]:= 0;
    end;
   end;
+  
+    
   if visiblecount = 0 then begin
    height:= emptyheight;
   end
   else begin
+  
    i1:= 0;
  //  if isbig then maxwidth := maxwidth + scrollwidth;
    repeat
@@ -267,19 +276,34 @@ if basedock.dragdock.currentsplitdir <> sd_tabed then begin
     inc(i1);
    until (si1.cx = si2.cx) and (si1.cy = si2.cy) or      //padding stable
                                                 (i1 > 8);  //emergency brake
- 
-  end;
+  
  end;
- {
+ end;
+ 
+ 
+// {
  for i1:= 0 to high(children1) do begin
   with children1[i1] do begin
   height:= heights[i1];
   end;
  end;
 // }
-//height := totchildheight ;
 
-  if isbig then width := fowidth + scrollwidth else width := fowidth +2 ;
+// maxheightfo
+// height := ScreenHeight ;
+
+ if (si2.cy + 40  > rect1.cy) then else height:= height + 4;
+
+   if (si2.cy +40  > rect1.cy) 
+   or ((filelistfo.visible = true) and (filelistfo.parentwidget = basedock)) then
+   width := fowidth + scrollwidth else width := fowidth ;
+   
+ // container.height := height;
+ // basedock.height := totheight;
+ // if container.frame.sbvert <> nil then  width := fowidth + scrollwidth else width := fowidth +2 ;
+ si1 :=   basedock.paintsize;
+ si1.cy :=   height;
+ //basedock.paintsize := si1;
  
  end;
    
@@ -297,6 +321,11 @@ var
  decorationheight, posi: int32;
   si1: sizety;
  begin
+ 
+ filelistfo.bounds_cxmax := 1024 ;
+ filelistfo.bounds_cymax := 700;
+ 
+ 
  decorationheight:= window.decoratedbounds_cy - height;
  
  beginlayout();
@@ -382,16 +411,13 @@ var
  recorderfo.top:= posi;
  posi := recorderfo.top + recorderfoheight + decorationheight;
  end;
- 
-filelistfo.bounds_cxmax := 1024 ;
-filelistfo.bounds_cymax := 700;
 
- 
 end;
 
 procedure tmainfo.ondockall(const sender: TObject);
 var
  pt1: pointty;
+  decorationheight : integer = 5;
 begin
 
 // showall(sender);
@@ -400,12 +426,12 @@ begin
 
 filelistfo.bounds_cxmax := fowidth ;
 filelistfo.bounds_cymax := filelistfoheight;
+//filelistfo.bounds_cymax := 700;
 
+  resizeall();
 
  basedock.dragdock.currentsplitdir:= sd_horz; 
  
-  resizeall();
-  
    beginlayout();
 
 if drumsfo.visible then
@@ -421,24 +447,40 @@ if recorderfo.visible then
 if guitarsfo.visible then
  guitarsfo.parentwidget:= basedock; 
  
-// {  
+ // {  
  pt1:= nullpoint;
  
+ if drumsfo.visible then
+ begin
  drumsfo.pos:= pt1;
- pt1.y:= pt1.y + drumsfo.height;
+ pt1.y:= pt1.y + drumsfo.height + decorationheight;
+ end;
  
+ if filelistfo.visible then
+ begin
  filelistfo.pos:= pt1;
- pt1.y:= pt1.y + filelistfo.height;
-
- songplayerfo.pos:= pt1;
- pt1.y:= pt1.y + songplayerfo.height;
+ pt1.y:= pt1.y + filelistfo.height  + decorationheight;
+ end;
  
+ if songplayerfo.visible then
+ begin
+ songplayerfo.pos:= pt1;
+ pt1.y:= pt1.y + songplayerfo.height + decorationheight;
+ end;
+ 
+ if songplayer2fo.visible then
+ begin
  songplayer2fo.pos:= pt1;
- pt1.y:= pt1.y + songplayer2fo.height;
-
- recorderfo.pos:= pt1;
- pt1.y:= pt1.y + recorderfo.height;
+ pt1.y:= pt1.y + songplayer2fo.height + decorationheight;
+  end;
   
+ if recorderfo.visible then
+ begin
+ recorderfo.pos:= pt1;
+ pt1.y:= pt1.y + recorderfo.height + decorationheight;
+ end;
+ 
+ if guitarsfo.visible then
  guitarsfo.pos:= pt1; 
 //} 
   endlayout(); 
@@ -457,6 +499,7 @@ end;
 
 procedure tmainfo.ontab(const sender: TObject);
 begin
+
 ondockall(sender); // otherwise the close button are hidden
 
 basedock.dragdock.currentsplitdir:= sd_tabed; 
@@ -483,6 +526,7 @@ basedock.dragdock.currentsplitdir:= sd_tabed;
  
  width := width +2;
 // showall(sender);
+
  end;
  
 
@@ -492,6 +536,7 @@ begin
 if (basedock.dragdock.currentsplitdir = sd_tabed) and
 (basedock.dragdock.activewidget <> nil) then 
 begin
+
 if basedock.dragdock.activewidget = drumsfo then 
 begin
 basedock.dragdock.tab_faceactivetab := drumsfo.tfacedrums;

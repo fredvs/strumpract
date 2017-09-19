@@ -481,7 +481,7 @@ object drumsfo: tdrumsfo
       object tbooleaneditradio8: tbooleaneditradio
         Tag = 5
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -1610612732
+        color = -2147483645
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.colorclient = 16250871
         frame.caption = '1'

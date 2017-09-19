@@ -486,6 +486,7 @@ type
    up: tstockglyphbutton;
    back: tstockglyphbutton;
    forward: tstockglyphbutton;
+   tlabel1: tlabel;
    procedure createdironexecute(const sender: TObject);
    procedure listviewselectionchanged(const sender: tcustomlistview);
    procedure listviewitemevent(const sender: tcustomlistview;
@@ -513,6 +514,7 @@ type
    procedure forwardexe(const sender: TObject);
    procedure buttonshowhint(const sender: TObject; var ainfo: hintinfoty);
    
+   procedure onchangedir(const sender: TObject);
   private
    fselectednames: filenamearty;
    finit: boolean;
@@ -670,7 +672,7 @@ begin
   end;
   defaultext:= adefaultext;
  // caption:= acaption;
-  caption := 'Select a audio file (wav, ogg, flac or mp3)';
+ // caption := 'Select a audio file (wav, ogg, flac or mp3)';
   listview.includeattrib:= includeattrib;
   listview.excludeattrib:= excludeattrib;
   listview.itemlist.imagelist:= imagelist;
@@ -1439,6 +1441,7 @@ begin
 //
  accept:= tryreadlist(avalue,true);
  if accept then begin
+ tlabel1.caption := avalue;
   course(avalue);
  end;
 // listview.directory:= avalue;
@@ -1485,15 +1488,13 @@ var
 begin
 application.lock();
 
-{
-filelistfo.list_files.path  := dir.value ;
-
-if thesender = 5 then 
+if thesender = 5 then
 begin
-hide;
-exit;
+filelistfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
+filelistfo.historyfn.value := dir.value;
+//filelistfo.dir.value := dir.value;
+filelistfo.list_files.path := dir.value;
 end;
-}
 
 if thesender = 0 then
 begin
@@ -1615,7 +1616,31 @@ begin
 //  showhidden.frame.caption:= captions[sc_show_hidden_fileshk];
   ok.caption:= modalresulttext[mr_ok];
   cancel.caption:= modalresulttext[mr_cancel];
-  caption := 'Select a audio file (wav, ogg, flac or mp3)';
+  
+  if thesender = 5 then
+  begin
+  filename.visible := false;
+  filter.visible := false;
+  showhidden.visible := false;
+  tlabel1.top := 0;
+  tlabel1.visible := true;
+  cancel.top := 0 ;
+   ok.top := 0 ;
+  caption := 'Select a audio directory';
+   end else
+   
+   begin
+   tlabel1.visible := false;
+   cancel.top := 19 ;
+   ok.top := 19 ;
+    showhidden.visible := true;
+    filename.visible := true;
+    filter.visible := true;
+    caption := 'Select a audio file (wav, ogg, flac or mp3)';
+   end;
+ 
+ 
+ 
  end;
  back.tag:= ord(sc_back);
  forward.tag:= ord(sc_forward);
@@ -1704,6 +1729,12 @@ begin
   ainfo.caption:= sc(stockcaptionty(tag))+' '+
                                      '('+encodeshortcutname(shortcut)+')';
  end;
+end;
+
+procedure tfiledialogfo.onchangedir(const sender: TObject);
+begin
+ if thesender = 5 then
+     tlabel1.caption := dir.value;
 end;
 
 
@@ -2181,7 +2212,8 @@ begin
 // foptionsedit:= defaultfiledialogoptionsedit;
  foptionsedit1:= defaultfiledialogoptionsedit1;
  fcontroller:= tfiledialogcontroller.create(nil);
- inherited;
+ 
+  inherited;
 end;
 
 destructor tfiledialog.destroy;

@@ -15,8 +15,9 @@ object mainfo: tmainfo
   visible = False
   bounds_x = 577
   bounds_y = 222
-  bounds_cx = 471
-  bounds_cy = 70
+  bounds_cx = 469
+  bounds_cy = 79
+  bounds_cxmin = 458
   container.frame.framei_left = 10
   container.frame.framei_right = 10
   container.frame.frameo_left = 1
@@ -32,11 +33,13 @@ object mainfo: tmainfo
   container.frame.sbvert.face.template = tfacecomp4
   container.frame.sbvert.facebutton.localprops = []
   container.frame.sbvert.facebutton.template = tfacecomp4
+  container.frame.sbvert.frameendbutton1.localprops = []
+  container.frame.sbvert.frameendbutton1.localprops1 = []
   container.bounds = (
     0
     17
-    471
-    53
+    469
+    62
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1129,8 +1132,6 @@ object mainfo: tmainfo
   ondestroy = dodestroy
   moduleclassname = 'tmainform'
   object basedock: tdockpanel
-    optionswidget1 = [ow1_autoscale, ow1_noparentheightextend]
-    optionswidget = [ow_background, ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_destroywidgets]
     frame.colordkwidth = 0
     frame.colorhlwidth = 0
     frame.localprops = [frl_colordkwidth, frl_colorhlwidth]
@@ -1142,19 +1143,23 @@ object mainfo: tmainfo
     frame.grip_face.template = tfacecomp4
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 471
-    bounds_cy = 51
+    bounds_cx = 469
+    bounds_cy = 60
     anchors = [an_left, an_top, an_right, an_bottom]
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
+    dragdock.splitter_size = 4
+    dragdock.splitter_grip = stb_dens50
+    dragdock.splitter_color = 16119285
+    dragdock.splitter_colorgrip = 11053224
     dragdock.tab_face = tfacecomp5
     dragdock.tab_frametab = tframecomp1
     dragdock.tab_facetab = tfacecomp4
     dragdock.tab_size = 24
     dragdock.tab_sizemin = 24
     dragdock.caption = 'Dock any window on this area.'
-    dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_fixsize, od_background]
+    dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_captionhint]
     dragdock.onlayoutchanged = onchangelayout
     dragdock.onchilddock = updatedockev
     dragdock.onchildfloat = updatedockev

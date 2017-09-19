@@ -628,14 +628,15 @@ end;
 
 procedure tdrumsfo.visiblechangeev(const sender: TObject);
 begin
-{
+
 if visible then begin
-  mainfo.tmainmenu1.menu[0].hint := ' Hide Drums ' ;
+//  mainfo.tmainmenu1.menu[0].hint := ' Hide Drums ' ;
  end
  else begin
-  mainfo.tmainmenu1.menu[0].hint := ' Show Drums ' ;
+  dostop(sender);
+  // mainfo.tmainmenu1.menu[0].hint := ' Show Drums ' ;
  end;
- }
+
  mainfo.updatelayout();
 end;
 

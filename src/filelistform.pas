@@ -13,7 +13,8 @@ type
    list_files: tfilelistview;
    tbutton1: tbutton;
    tbutton2: tbutton;
-   dir: tdirdropdownedit;
+   songdir: tfilenameedit;
+   historyfn: thistoryedit;
    procedure formcreated(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure selctchanged(const sender: tcustomlistview);
@@ -22,6 +23,8 @@ type
                    var dialogkind: filedialogkindty;
                    var aresult: modalresultty);
    procedure onchangpath(const sender: TObject);
+   procedure onafterdialog(const sender: tfiledialogcontroller;
+                   var aresult: modalresultty);
  end;
 var
  filelistfo: tfilelistfo;
@@ -88,7 +91,14 @@ end;
 procedure tfilelistfo.onchangpath(const sender: TObject);
 begin
 list_files.mask:= '*.mp3';
-list_files.path := dir.value;
+list_files.path := historyfn.value;
+end;
+
+procedure tfilelistfo.onafterdialog(const sender: tfiledialogcontroller;
+               var aresult: modalresultty);
+begin
+//list_files.path := dir.value;
+
 end;
 
 end.

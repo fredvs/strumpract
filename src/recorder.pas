@@ -506,14 +506,15 @@ end;
 
 procedure trecorderfo.visiblechangeev(const sender: TObject);
 begin
-{
+
 if visible then begin
-  mainfo.tmainmenu1.menu[4].hint := ' Hide Recorder ' ;
+ // mainfo.tmainmenu1.menu[4].hint := ' Hide Recorder ' ;
  end
  else begin
-  mainfo.tmainmenu1.menu[4].hint := ' Show Recorder ' ;
+ // mainfo.tmainmenu1.menu[4].hint := ' Show Recorder ' ;
+  uos_Stop(therecplayer);
  end;
- }
+
  mainfo.updatelayout();
 end;
 
