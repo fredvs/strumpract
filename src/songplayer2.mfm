@@ -17,16 +17,16 @@ object songplayer2fo: tsongplayer2fo
   )
   frame.grip_faceactive.fade_direction = gd_down
   frame.grip_faceactive.localprops = []
-  frame.grip_hint = ' Use that grip panel to drag/drop Player 1 form. '
+  frame.grip_hint = ' Use that grip panel to drag/drop Player 2. '
   visible = False
-  bounds_x = 358
-  bounds_y = 230
+  bounds_x = 814
+  bounds_y = 187
   bounds_cx = 458
-  bounds_cy = 110
+  bounds_cy = 130
   bounds_cxmin = 458
-  bounds_cymin = 110
+  bounds_cymin = 130
   bounds_cxmax = 458
-  bounds_cymax = 110
+  bounds_cymax = 130
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -37,7 +37,7 @@ object songplayer2fo: tsongplayer2fo
     0
     0
     450
-    110
+    130
   )
   dragdock.splitter_size = 5
   dragdock.caption = ' Player 2 '
@@ -109,7 +109,7 @@ object songplayer2fo: tsongplayer2fo
     frame.localprops1 = []
     face.localprops = []
     face.template = tfacecomp2
-    hint = ' Player 1 '
+    hint = ' Player 2 '
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 450
@@ -177,6 +177,8 @@ object songplayer2fo: tsongplayer2fo
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonsize = 30
+      face.localprops = []
+      face.template = tfaceplayer
       taborder = 2
       hint = ' Change volume of song '
       bounds_x = 189
@@ -219,6 +221,8 @@ object songplayer2fo: tsongplayer2fo
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonsize = 30
+      face.localprops = []
+      face.template = tfaceplayer
       taborder = 3
       hint = ' Change tempo of song '
       bounds_x = 318
@@ -282,6 +286,8 @@ object songplayer2fo: tsongplayer2fo
         9
         0
       )
+      face.localprops = []
+      face.template = tfacecomp3
       taborder = 5
       hint = ' Enable looping the song '
       bounds_x = 140
@@ -318,6 +324,8 @@ object songplayer2fo: tsongplayer2fo
         17
         0
       )
+      face.localprops = []
+      face.template = tfacecomp3
       taborder = 7
       hint = ' Enable stretching (changing temo) '
       bounds_x = 265
@@ -460,37 +468,11 @@ object songplayer2fo: tsongplayer2fo
       font.localprops = [flp_color]
       reffontheight = 15
     end
-    object llength: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      color = -2147483645
-      taborder = 14
-      hint = ' Length of sound '
-      bounds_x = 354
-      bounds_y = 92
-      bounds_cx = 86
-      bounds_cy = 15
-      caption = '00:00:00.000'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
-    object lposition: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      color = -2147483645
-      taborder = 15
-      hint = ' Position of sound '
-      bounds_x = 354
-      bounds_y = 77
-      bounds_cx = 86
-      bounds_cy = 15
-      caption = '00:00:00.000'
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
-    end
     object trackbar1: tslider
       color = 13357471
       frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = []
-      taborder = 16
+      taborder = 14
       hint = ' Position of sound '
       bounds_x = 10
       bounds_y = 82
@@ -545,12 +527,12 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_color.count = 2
       face.fade_color.items = (
-        16777215
-        14870707
+        16646123
+        14146471
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 17
+      taborder = 15
       hint = ' History of files '
       bounds_x = 85
       bounds_y = 4
@@ -578,7 +560,7 @@ object songplayer2fo: tsongplayer2fo
           imagenr = 17
         end>
       frame.button.imagenr = 17
-      taborder = 18
+      taborder = 16
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
       bounds_x = 61
       bounds_y = 4
@@ -628,7 +610,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 19
+      taborder = 17
       hint = ' Show infos of the song '
       bounds_x = 9
       bounds_y = 6
@@ -640,6 +622,48 @@ object songplayer2fo: tsongplayer2fo
       focusrectdist = 0
       onexecute = onfinfos
     end
+    object llength: tstringdisp
+      frame.localprops = []
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = tfacecomp4
+      taborder = 18
+      hint = ' Lenght of sound '
+      bounds_x = 351
+      bounds_y = 93
+      bounds_cx = 90
+      bounds_cy = 15
+      textflags = [tf_xcentered, tf_ycentered]
+      value = '00:00:00.000'
+      reffontheight = 15
+    end
+    object lposition: tstringdisp
+      frame.localprops = []
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = tfacecomp4
+      taborder = 19
+      hint = ' Position of sound '
+      bounds_x = 351
+      bounds_y = 78
+      bounds_cx = 90
+      bounds_cy = 15
+      textflags = [tf_xcentered, tf_ycentered]
+      value = '00:00:00.000'
+      reffontheight = 15
+    end
+  end
+  object tstringdisp1: tstringdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = tfacecomp2
+    taborder = 1
+    bounds_x = 0
+    bounds_y = 110
+    bounds_cx = 450
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 15
   end
   object tfaceplayer: tfacecomp
     template.fade_pos.count = 2
@@ -653,8 +677,8 @@ object songplayer2fo: tsongplayer2fo
       15989438
     )
     template.fade_direction = gd_down
-    left = 263
-    top = 5
+    left = 215
+    top = 8
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -668,7 +692,82 @@ object songplayer2fo: tsongplayer2fo
       11120261
     )
     template.fade_direction = gd_down
-    left = 117
-    top = 9
+    left = 111
+    top = 6
+  end
+  object tfacegreen: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      12779422
+      7255365
+    )
+    template.fade_direction = gd_down
+    left = 299
+    top = 14
+  end
+  object tfacered: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16762052
+      16742520
+    )
+    template.fade_direction = gd_down
+    left = 314
+    top = 29
+  end
+  object tfacecomp3: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16580584
+      14870704
+    )
+    template.fade_direction = gd_down
+    left = 8
+    top = 32
+  end
+  object tfacecomp4: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      14870704
+      11843724
+    )
+    template.fade_direction = gd_down
+    left = 122
+    top = 8
+  end
+  object tfacecomp5: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16646123
+      14146471
+    )
+    template.fade_direction = gd_down
+    left = 171
+    top = 74
   end
 end

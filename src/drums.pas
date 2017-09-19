@@ -138,6 +138,7 @@ type
    tbooleanedit63: tbooleanedit;
    tbooleanedit64: tbooleanedit;
    tfacecomp2: tfacecomp;
+   tfacecomp3: tfacecomp;
    procedure ontimertick(const Sender: TObject);
    procedure ontimerpause(const Sender: TObject);
    procedure dostart(const sender: TObject);

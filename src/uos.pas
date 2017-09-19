@@ -5669,7 +5669,7 @@ begin
   
 //  mpid3v1^ := nil;
     
-  mpg123_id3(StreamIn[x].Data.HandleSt, @mpid3v1, @mpid3v2);
+  mpg123_id3(StreamIn[x].Data.HandleSt, mpid3v1, @mpid3v2);
   // to do : add id2v2
 
  if (assigned(mpid3v1)) and (assigned(mpid3v1^)) then 

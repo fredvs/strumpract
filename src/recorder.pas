@@ -7,7 +7,7 @@ uses
  mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
  msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits,mseificomp,
  mseificompglob,mseifiglob,msescrollbar,msedragglob,mseact,mseedit,msestatfile,
- msestream,msestrings,msebitmap,msedatanodes;
+ msestream,msestrings,msebitmap,msedatanodes,msedispwidgets,mserichstring;
 
 type
  trecorderfo = class(tdockform)
@@ -33,8 +33,6 @@ type
    label6: tlabel;
    cbtempo: tbooleanedit;
    trackbar1: tslider;
-   lposition: tlabel;
-   llength: tlabel;
    btnStop: tbutton;
    btnStart: tbutton;
    btnResume: tbutton;
@@ -42,6 +40,10 @@ type
    tlabel27: tlabel;
    historyfn: thistoryedit;
    songdir: tfilenameedit;
+   tfacecomp3: tfacecomp;
+   llength: tstringdisp;
+   lposition: tstringdisp;
+   tfacecomp4: tfacecomp;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -140,7 +142,9 @@ procedure trecorderfo.ClosePlayer1;
     trackbar1.value := 0;
     trackbar1.enabled := false;
     bsavetofile.Enabled := true;
-    lposition.caption := '00:00:00.000';
+    lposition.value := '00:00:00.000';
+    lposition.face.template := tfacecomp1;
+    
      end;
      
   procedure trecorderfo.ShowLevel;
@@ -169,7 +173,7 @@ procedure trecorderfo.ClosePlayer1;
         temptime := uos_InputPositionTime(therecplayer, InputIndex3);
         ////// Length of input in time
         DecodeTime(temptime, ho, mi, se, ms);
-        lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+        lposition.value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
       end;
     end;
    
@@ -310,7 +314,7 @@ var
 
    DecodeTime(tottime, ho, mi, se, ms);
     
-   llength.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+   llength.value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
    
    uos_EndProc(therecplayer, @ClosePlayer1);
  
@@ -335,6 +339,7 @@ var
      uos_Play(therecplayer) ;  /////// everything is ready, here we are, lets play it...
      btnpause.Enabled := true;
     end;
+    lposition.face.template := tfacecomp4;
     cbloop.enabled := false; 
     songdir.value := historyfn.value;
     historyfn.hint := historyfn.value;
@@ -479,7 +484,7 @@ if (trackbar1.tag = 1) and (inputlength > 0) then
 begin
         temptime := tottime *  TrackBar1.value;
         DecodeTime(temptime, ho, mi, se, ms);
-        lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+        lposition.value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
        
  end;
 

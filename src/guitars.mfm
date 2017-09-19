@@ -346,6 +346,8 @@ object guitarsfo: tguitarsfo
         33
         3
       )
+      face.localprops = []
+      face.template = tfacecomp3
       taborder = 6
       hint = ' Enable looping the string. '
       bounds_x = 22
@@ -507,6 +509,8 @@ object guitarsfo: tguitarsfo
         33
         3
       )
+      face.localprops = []
+      face.template = tfacecomp3
       taborder = 4
       hint = ' Enable looping the string. '
       bounds_x = 22
@@ -558,5 +562,20 @@ object guitarsfo: tguitarsfo
     template.fade_direction = gd_down
     left = 118
     top = 17
+  end
+  object tfacecomp3: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16776439
+      14603461
+    )
+    template.fade_direction = gd_down
+    left = 128
+    top = 13
   end
 end

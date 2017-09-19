@@ -495,6 +495,7 @@ object drumsfo: tdrumsfo
           2
         )
         face.localprops = []
+        face.template = tfacecomp3
         taborder = 2
         hint = ' Drums Patern 1 '
         bounds_x = 319
@@ -521,6 +522,8 @@ object drumsfo: tdrumsfo
           16
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 3
         hint = ' Drums Patern 2 '
         bounds_x = 319
@@ -545,6 +548,8 @@ object drumsfo: tdrumsfo
           16
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 4
         hint = ' Drums Patern 3 '
         bounds_x = 319
@@ -569,6 +574,8 @@ object drumsfo: tdrumsfo
           16
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 5
         hint = ' Drums Patern 4 '
         bounds_x = 319
@@ -593,6 +600,8 @@ object drumsfo: tdrumsfo
           16
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 6
         hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
         bounds_x = 273
@@ -617,6 +626,8 @@ object drumsfo: tdrumsfo
           16
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 7
         hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
         bounds_x = 273
@@ -641,6 +652,8 @@ object drumsfo: tdrumsfo
           16
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 8
         hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
         bounds_x = 273
@@ -665,6 +678,8 @@ object drumsfo: tdrumsfo
           16
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 9
         hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
         bounds_x = 273
@@ -714,6 +729,8 @@ object drumsfo: tdrumsfo
           52
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 10
         hint = ' No graphic animation. '
         bounds_x = 361
@@ -737,6 +754,8 @@ object drumsfo: tdrumsfo
           57
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 11
         hint = ' No "and" between 2 numbers. '
         bounds_x = 361
@@ -761,6 +780,8 @@ object drumsfo: tdrumsfo
           53
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 12
         hint = ' No counting voice '
         bounds_x = 361
@@ -786,6 +807,8 @@ object drumsfo: tdrumsfo
           61
           2
         )
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 13
         hint = ' No drums sound.  '
         bounds_x = 361
@@ -973,6 +996,8 @@ object drumsfo: tdrumsfo
         frame.buttonface.fade_direction = gd_down
         frame.buttonface.localprops = [fal_fadirection]
         frame.buttonsize = 30
+        face.localprops = []
+        face.template = tfacecomp3
         taborder = 21
         hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
         bounds_x = 118
@@ -1542,5 +1567,20 @@ object drumsfo: tdrumsfo
     template.fade_direction = gd_down
     left = 305
     top = 101
+  end
+  object tfacecomp3: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16383991
+      12375224
+    )
+    template.fade_direction = gd_down
+    left = 324
+    top = 55
   end
 end

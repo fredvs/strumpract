@@ -7,11 +7,13 @@ uses
  mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
  msefiledialog,msegrids,mselistbrowser,msesys,sysutils,msegraphedits,
  msedragglob,mseact,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
- msestream,msestrings,msescrollbar,msebitmap,msedatanodes;
+ msestream,msestrings,msescrollbar,msebitmap,msedatanodes,msedispwidgets,
+ mserichstring;
 
 type
  tsongplayer2fo = class(tdockform)
    Timerwait: Ttimer;
+   Timersent: Ttimer;
    
    tfaceplayer: tfacecomp;
    tgroupbox1: tgroupbox;
@@ -30,12 +32,18 @@ type
    btnPause: tbutton;
    tlabel27: tlabel;
    tlabel28: tlabel;
-   llength: tlabel;
-   lposition: tlabel;
    trackbar1: tslider;
    historyfn: thistoryedit;
    songdir: tfilenameedit;
    btinfos: tbutton;
+   tstringdisp1: tstringdisp;
+   tfacegreen: tfacecomp;
+   tfacered: tfacecomp;
+   tfacecomp3: tfacecomp;
+   llength: tstringdisp;
+   lposition: tstringdisp;
+   tfacecomp4: tfacecomp;
+   tfacecomp5: tfacecomp;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -58,9 +66,7 @@ type
    procedure onsliderkeyup(const sender: twidget; var ainfo: keyeventinfoty);
    procedure onsliderchange(const sender: TObject);
    procedure ontimerwait(const Sender: TObject);
- 
-   procedure onfloatplay(const sender: TObject);
-   procedure ondockplay(const sender: TObject);
+   procedure ontimersent(const Sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure onplayercreate(const sender: TObject);
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
@@ -75,14 +81,20 @@ var
  initplay : integer = 1;
   theplayer2 : integer = 22;
  theplayer2info : integer = 23;
- plugindex2, PluginIndex3: integer;
-  Inputindex2, Outputindex2, Inputlength2: integer; 
+ theplaying2 : string;
+ plugindex2, PluginIndex3: integer; Inputindex2, Outputindex2, Inputlength2: integer; 
  
  
 implementation
 uses
 main,
  songplayer2_mfm;
+ 
+  procedure tsongplayer2fo.ontimersent(const Sender: TObject);
+begin 
+timersent.enabled := false;
+historyfn.face.template := tfacecomp5; 
+end;
  
  procedure tsongplayer2fo.ontimerwait(const Sender: TObject);
 begin 
@@ -130,7 +142,10 @@ procedure tsongplayer2fo.ClosePlayer1;
     cbloop.enabled := true;
     trackbar1.value := 0;
     trackbar1.enabled := false;
-    lposition.caption := '00:00:00.000';
+     lposition.value := '00:00:00.000';
+    lposition.face.template := tfacecomp4;
+    tstringdisp1.face.template := tfacecomp2;
+    tstringdisp1.value := ''; 
      end;
      
   procedure tsongplayer2fo.ShowLevel;
@@ -159,7 +174,7 @@ procedure tsongplayer2fo.ClosePlayer1;
         temptime := uos_InputPositionTime(theplayer2, Inputindex2);
         ////// Length of input in time
         DecodeTime(temptime, ho, mi, se, ms);
-        lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+        lposition.value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
       end;
     end;
    
@@ -177,6 +192,8 @@ var
        ho, mi, se, ms: word;
   begin
   
+  if fileexists(historyfn.value) then
+  begin
      samformat := 0;
      
    //  songdir.hint := songdir.value;
@@ -274,9 +291,9 @@ var
    ///// add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
   begin
-   PluginIndex3 := uos_AddPlugin(Playerindex2, 'bs2b',
+   PlugInindex2 := uos_AddPlugin(Playerindex2, 'bs2b',
    uos_InputGetSampleRate(Playerindex2, Inputindex2) , -1);
-   uos_SetPluginbs2b(Playerindex2, PluginIndex3, -1 , -1, -1, chkst2b.value);
+   uos_SetPluginbs2b(Playerindex2, Pluginindex2, -1 , -1, -1, chkst2b.value);
   end; 
   
   
@@ -285,7 +302,7 @@ var
   /// SoundTouch plugin should be the last added.
     if plugsoundtouch = true then
   begin
-    PluginIndex3 := uos_AddPlugin(theplayer2, 'soundtouch', 
+    PlugInIndex3 := uos_AddPlugin(theplayer2, 'soundtouch', 
     uos_InputGetSampleRate(theplayer2, Inputindex2) , -1);
     ChangePlugSetSoundTouch(self); //// custom procedure to Change plugin settings
    end;    
@@ -298,7 +315,7 @@ var
 
    DecodeTime(tottime, ho, mi, se, ms);
     
-   llength.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+   llength.value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
    
    uos_EndProc(theplayer2, @ClosePlayer1);
  
@@ -327,10 +344,16 @@ var
     songdir.value := historyfn.value;
     historyfn.hint := historyfn.value;
     Timerwait.Enabled := true;
-    end else 
-    begin
-     showmessage( historyfn.value + ' does not exist...');
-    end;
+    tstringdisp1.face.template := tfacegreen;
+    lposition.face.template := tfaceplayer;
+    
+    theplaying2 := historyfn.value; 
+    tstringdisp1.value := 'Playing ' + theplaying2; 
+    
+    
+    end else showmessage( historyfn.value + ' cannot load...');
+      
+    end else showmessage( historyfn.value + ' does not exist...');
 end;
 
 procedure tsongplayer2fo.doplayeresume(const sender: TObject);
@@ -339,6 +362,9 @@ begin
   btnPause.Enabled := True;
   btnresume.Enabled := False;
   uos_RePlay(theplayer2);
+  tstringdisp1.face.template := tfacegreen;
+  lposition.face.template := tfaceplayer;
+  tstringdisp1.value := 'Replaying ' + theplaying2; 
 end;
 
 procedure tsongplayer2fo.doplayerpause(const sender: TObject);
@@ -351,6 +377,9 @@ begin
     btnPause.Enabled := False;
     btnresume.Enabled := True;
     uos_Pause(theplayer2);
+    tstringdisp1.face.template := tfacered;
+    lposition.face.template := tfaceplayer;
+    tstringdisp1.value := 'Paused ' + theplaying2; 
 end;
 
 procedure tsongplayer2fo.doplayerstop(const sender: TObject);
@@ -390,6 +419,9 @@ maxwidth : integer;
 temptimeinfo : ttime;
  ho, mi, se, ms: word;
 begin
+
+ if fileexists(historyfn.value) then
+  begin
   uos_Stop(theplayer2info) ;
 
  if uos_CreatePlayer(theplayer2info) then
@@ -433,7 +465,8 @@ if maxwidth < infosfo.infolength.width then maxwidth := infosfo.infolength.width
 infosfo.width := maxwidth + 42 ; 
 // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
 infosfo.show(true);
-end;
+ end else showmessage( historyfn.value + ' cannot load...');      
+ end else showmessage( historyfn.value + ' does not exist...');
 end;
 
 
@@ -466,40 +499,21 @@ if (trackbar1.tag = 1) and (Inputlength2 > 0) then
 begin
         temptime := tottime *  TrackBar1.value;
         DecodeTime(temptime, ho, mi, se, ms);
-        lposition.caption := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+        lposition.value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
        
  end;
 
-end;
-
-procedure tsongplayer2fo.onfloatplay(const sender: TObject);
-begin
-{
-height := 114;
-mainfo.height := mainfo.height - 114;
-if mainfo.height < 40 then mainfo.height := 40;
-}
-end;
-
-procedure tsongplayer2fo.ondockplay(const sender: TObject);
-begin
-// if initplay = 0 then mainfo.procshowpllayer(sender);
-
-if hasinit = 0 then begin
-height := 114;
-mainfo.height := mainfo.height + 114;
-end;
 end;
 
 procedure tsongplayer2fo.visiblechangeev(const sender: TObject);
 begin
 
  if visible then begin
-//  mainfo.tmainmenu1.menu[1].hint := ' Hide Player 1 ' ;
+ // mainfo.tmainmenu1.menu[1].hint := ' Hide Player 1 ' ;
  end
  else begin
+  uos_Stop(theplayer2);
  // mainfo.tmainmenu1.menu[1].hint := ' Show Player 1 ' ;
-   uos_Stop(theplayer2);
  end;
 
  mainfo.updatelayout();
@@ -515,6 +529,11 @@ caption := 'Song Player 2';
         Timerwait.interval := 100000;
         Timerwait.Enabled := False;
        Timerwait.ontimer := @ontimerwait;
+       
+        Timersent := ttimer.Create(nil);
+        Timersent.interval := 1000000;
+        Timersent.Enabled := False;
+       Timersent.ontimer := @ontimersent;
      
        if plugsoundtouch = false then
         begin
@@ -559,6 +578,7 @@ end;
 procedure tsongplayer2fo.ondestr(const sender: TObject);
 begin
 Timerwait.free;
+timersent.free;
 end;
 
 

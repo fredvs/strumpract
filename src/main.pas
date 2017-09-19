@@ -54,10 +54,10 @@ const
  versiontext = '1.5';
  emptyheight = 40;
  drumsfoheight = 236;
- filelistfoheight = 119;
+ filelistfoheight = 122;
  guitarsfoheight = 66;
- songplayerfoheight = 110;
- recorderfoheight = 128;
+ songplayerfoheight = 130;
+ recorderfoheight = 130;
  fowidth = 458;
  tabheight = 39;
  maxheightfo = 600; 

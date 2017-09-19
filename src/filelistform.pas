@@ -72,12 +72,16 @@ if tbutton(sender).tag = 0 then
 begin
 // songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 songplayerfo.historyfn.value := list_files.directory + list_files.selectednames[0];
+songplayerfo.historyfn.face.template := songplayerfo.tfacegreen; 
+songplayerfo.timersent.enabled := true;
 end;
 
 if tbutton(sender).tag = 1 then
 begin
 //songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 songplayer2fo.historyfn.value := list_files.directory + list_files.selectednames[0];
+songplayer2fo.historyfn.face.template := songplayerfo.tfacegreen; 
+songplayer2fo.timersent.enabled := true;
 end;
 end;
 end;

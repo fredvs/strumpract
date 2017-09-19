@@ -27,6 +27,7 @@ type
    tbutton3: tbutton;
    loopguit: tbooleanedit;
    tlabel23: tlabel;
+   tfacecomp3: tfacecomp;
    procedure doguitarstring(const sender: TObject);
 //   procedure onfloatguit(const sender: TObject);
 //   procedure ondockguit(const sender: TObject);
