@@ -19,8 +19,8 @@ object songplayer2fo: tsongplayer2fo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 2. '
   visible = False
-  bounds_x = 814
-  bounds_y = 187
+  bounds_x = 566
+  bounds_y = 203
   bounds_cx = 458
   bounds_cy = 130
   bounds_cxmin = 458
@@ -481,6 +481,7 @@ object songplayer2fo: tsongplayer2fo
       onchange = onsliderchange
       enabled = False
       value = 0
+      scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonendlength = 11
       scrollbar.face.fade_pos.count = 2
       scrollbar.face.fade_pos.items = (
@@ -629,7 +630,7 @@ object songplayer2fo: tsongplayer2fo
       face.template = tfacecomp4
       taborder = 18
       hint = ' Lenght of sound '
-      bounds_x = 351
+      bounds_x = 354
       bounds_y = 93
       bounds_cx = 90
       bounds_cy = 15
@@ -644,7 +645,7 @@ object songplayer2fo: tsongplayer2fo
       face.template = tfacecomp4
       taborder = 19
       hint = ' Position of sound '
-      bounds_x = 351
+      bounds_x = 354
       bounds_y = 78
       bounds_cx = 90
       bounds_cy = 15
@@ -679,21 +680,6 @@ object songplayer2fo: tsongplayer2fo
     template.fade_direction = gd_down
     left = 215
     top = 8
-  end
-  object tfacecomp2: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      15989438
-      11120261
-    )
-    template.fade_direction = gd_down
-    left = 111
-    top = 6
   end
   object tfacegreen: tfacecomp
     template.fade_pos.count = 2
@@ -752,8 +738,8 @@ object songplayer2fo: tsongplayer2fo
       11843724
     )
     template.fade_direction = gd_down
-    left = 122
-    top = 8
+    left = 111
+    top = 66
   end
   object tfacecomp5: tfacecomp
     template.fade_pos.count = 2
@@ -769,5 +755,20 @@ object songplayer2fo: tsongplayer2fo
     template.fade_direction = gd_down
     left = 171
     top = 74
+  end
+  object tfacecomp2: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      15989438
+      11120261
+    )
+    template.fade_direction = gd_down
+    left = 128
+    top = 23
   end
 end

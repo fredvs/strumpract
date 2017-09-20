@@ -73,6 +73,9 @@ type
                    var dialogkind: filedialogkindty;
                    var aresult: modalresultty);
    procedure ondestr(const sender: TObject);
+   procedure onsliderup(const sender: TObject);
+   procedure afterev(const sender: tcustomscrollbar; const akind: scrolleventty;
+                   const avalue: Real);
  end;
 var
  songplayerfo: tsongplayerfo;
@@ -165,7 +168,7 @@ procedure tsongplayerfo.ClosePlayer1;
     ho, mi, se, ms: word;
   begin
  
-     if (TrackBar1.Tag = 0) then
+     if not TrackBar1.clicked then
     begin
       if uos_InputPosition(theplayer, InputIndex1) > 0 then
       begin
@@ -494,7 +497,7 @@ procedure tsongplayerfo.onsliderchange(const sender: TObject);
     temptime: ttime;
     ho, mi, se, ms: word;
 begin
-if (trackbar1.tag = 1) and (inputlength > 0) then
+if trackbar1.clicked then
 begin
         temptime := tottime *  TrackBar1.value;
         DecodeTime(temptime, ho, mi, se, ms);
@@ -577,6 +580,19 @@ procedure tsongplayerfo.ondestr(const sender: TObject);
 begin
 Timerwait.free;
 timersent.free;
+end;
+
+procedure tsongplayerfo.onsliderup(const sender: TObject);
+begin
+if TrackBar1.clicked then
+ uos_InputSeek(theplayer, InputIndex1, trunc(TrackBar1.value * inputlength));
+ 
+end;
+
+procedure tsongplayerfo.afterev(const sender: tcustomscrollbar;
+               const akind: scrolleventty; const avalue: Real);
+begin
+uos_InputSeek(theplayer, InputIndex1, trunc(TrackBar1.value * inputlength));
 end;
 
 

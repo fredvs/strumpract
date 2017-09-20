@@ -57,6 +57,16 @@ object filelistfo: tfilelistfo
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
   object list_files: tfilelistview
+    frame.sbvert.width = 10
+    frame.sbvert.face.localprops = []
+    frame.sbvert.face.template = mainfo.tfacecomp6
+    frame.sbvert.facebutton.localprops = []
+    frame.sbvert.facebutton.template = mainfo.tfacecomp4
+    frame.sbhorz.width = 10
+    frame.sbhorz.face.localprops = []
+    frame.sbhorz.face.template = mainfo.tfacecomp5
+    frame.sbhorz.facebutton.localprops = []
+    frame.sbhorz.facebutton.template = mainfo.tfacecomp7
     frame.localprops = []
     frame.localprops1 = []
     face.localprops = []
@@ -67,10 +77,11 @@ object filelistfo: tfilelistfo
     bounds_cy = 91
     anchors = [an_left, an_top, an_right, an_bottom]
     cellwidth = 446
-    cellheight = 17
+    cellheight = 18
     optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
     options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
     cellwidthmin = 446
+    cellheightmin = 18
     statfile = mainfo.tstatfile1
     onselectionchanged = selctchanged
     reffontheight = 15

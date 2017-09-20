@@ -6,9 +6,9 @@ interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
  ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,drums,
- recorder,songplayer, songplayer2, filelistform, guitars,msedataedits,mseedit,msestatfile,
- SysUtils,Classes, uos_flat, aboutform,msebitmap, msesys,msemenus,msestream,
- msegrids,mselistbrowser;
+ recorder,songplayer, songplayer2, filelistform, guitars,msedataedits,mseedit,
+ msestatfile,SysUtils,Classes, uos_flat, aboutform,msebitmap, msesys,msemenus,
+ msestream,msegrids,mselistbrowser;
  
 type
   tmainfo = class(tmainform)
@@ -23,6 +23,8 @@ type
    tframecomp1: tframecomp;
    tfacecomp5: tfacecomp;
    timagelist3: timagelist;
+   tfacecomp6: tfacecomp;
+   tfacecomp7: tfacecomp;
    procedure oncreateform(const sender: TObject);
    procedure oncreatedform(const sender: TObject);
    procedure dodestroy(const sender: TObject);
@@ -61,7 +63,7 @@ const
  fowidth = 458;
  tabheight = 39;
  maxheightfo = 600; 
- scrollwidth = 14;
+ scrollwidth = 12;
  
 var
  mainfo: tmainfo;
@@ -87,7 +89,7 @@ begin
  songplayerfo.height := songplayerfoheight;
  songplayer2fo.height := songplayerfoheight;
  recorderfo.height := recorderfoheight;
- filelistfo.height := filelistfoheight;
+ //filelistfo.height := filelistfoheight;
  
  drumsfo.width := fowidth;
  guitarsfo.width := fowidth;
@@ -425,8 +427,8 @@ begin
 // width := width +4;
 
 filelistfo.bounds_cxmax := fowidth ;
-filelistfo.bounds_cymax := filelistfoheight;
-//filelistfo.bounds_cymax := 700;
+//filelistfo.bounds_cymax := filelistfoheight;
+filelistfo.bounds_cymax := 700;
 
   resizeall();
 

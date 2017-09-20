@@ -16,7 +16,7 @@ object mainfo: tmainfo
   bounds_x = 577
   bounds_y = 222
   bounds_cx = 469
-  bounds_cy = 79
+  bounds_cy = 67
   bounds_cxmin = 458
   container.frame.framei_left = 10
   container.frame.framei_right = 10
@@ -25,21 +25,24 @@ object mainfo: tmainfo
   container.frame.optionsskin = [fso_flat]
   container.frame.localprops = [frl_hiddenedges, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
   container.frame.localprops1 = []
-  container.frame.sbhorz.width = 12
+  container.frame.sbhorz.width = 10
   container.frame.sbhorz.face.localprops = []
   container.frame.sbhorz.face.template = tfacecomp4
-  container.frame.sbvert.width = 12
+  container.frame.sbhorz.facebutton.localprops = []
+  container.frame.sbhorz.facebutton.template = tfacecomp6
+  container.frame.sbvert.width = 10
   container.frame.sbvert.face.localprops = []
-  container.frame.sbvert.face.template = tfacecomp4
+  container.frame.sbvert.face.template = tfacecomp6
+  container.frame.sbvert.face1.localprops = []
   container.frame.sbvert.facebutton.localprops = []
-  container.frame.sbvert.facebutton.template = tfacecomp4
+  container.frame.sbvert.facebutton.template = tfacecomp7
   container.frame.sbvert.frameendbutton1.localprops = []
   container.frame.sbvert.frameendbutton1.localprops1 = []
   container.bounds = (
     0
     17
     469
-    62
+    50
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1144,7 +1147,7 @@ object mainfo: tmainfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 469
-    bounds_cy = 60
+    bounds_cy = 48
     anchors = [an_left, an_top, an_right, an_bottom]
     font.name = 'stf_default'
     font.xscale = 1
@@ -3262,5 +3265,35 @@ object mainfo: tmainfo
       0080800000808000008080000FFFFF001000FF002000FF004000FF008000FF00
       8000FF008000FF008000FF00
     }
+  end
+  object tfacecomp6: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      15921906
+      10395294
+    )
+    template.fade_direction = gd_left
+    left = 123
+    top = 17
+  end
+  object tfacecomp7: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      11250603
+      15921906
+    )
+    template.fade_direction = gd_left
+    left = 95
+    top = 5
   end
 end

@@ -17,7 +17,6 @@ type
    
    tfaceplayer: tfacecomp;
    tgroupbox1: tgroupbox;
-   tfacecomp2: tfacecomp;
    vuRight: tdockpanel;
    vuLeft: tdockpanel;
    edvol: trealspinedit;
@@ -44,6 +43,7 @@ type
    lposition: tstringdisp;
    tfacecomp4: tfacecomp;
    tfacecomp5: tfacecomp;
+   tfacecomp2: tfacecomp;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -166,7 +166,7 @@ procedure tsongplayer2fo.ClosePlayer1;
     ho, mi, se, ms: word;
   begin
  
-     if (TrackBar1.Tag = 0) then
+     if not TrackBar1.clicked then
     begin
       if uos_InputPosition(theplayer2, Inputindex2) > 0 then
       begin
@@ -390,7 +390,7 @@ end;
 procedure tsongplayer2fo.changepos(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
- if TrackBar1.Tag = 0 then
+ if TrackBar1.clicked then
    uos_InputSeek(theplayer2, Inputindex2, trunc(avalue * Inputlength2));
  //  TrackBar1.Tag := 0;
 
@@ -495,7 +495,7 @@ procedure tsongplayer2fo.onsliderchange(const sender: TObject);
     temptime: ttime;
     ho, mi, se, ms: word;
 begin
-if (trackbar1.tag = 1) and (Inputlength2 > 0) then
+if trackbar1.clicked then
 begin
         temptime := tottime *  TrackBar1.value;
         DecodeTime(temptime, ho, mi, se, ms);

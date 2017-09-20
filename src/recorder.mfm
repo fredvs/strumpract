@@ -255,7 +255,7 @@ object recorderfo: trecorderfo
         3
       )
       face.localprops = []
-      face.template = tfacecomp3
+      face.template = tfacecomp4
       taborder = 6
       hint = ' Listen to the input while recording. WARNING: Use headphones or set volume output low. '
       bounds_x = 302
@@ -281,7 +281,7 @@ object recorderfo: trecorderfo
         3
       )
       face.localprops = []
-      face.template = tfacecomp3
+      face.template = tfacecomp4
       taborder = 7
       hint = ' Save recording to file '
       bounds_x = 188
@@ -415,7 +415,7 @@ object recorderfo: trecorderfo
         0
       )
       face.localprops = []
-      face.template = tfacecomp3
+      face.template = tfacecomp4
       taborder = 12
       hint = ' Enable looping the song '
       bounds_x = 143
@@ -453,7 +453,7 @@ object recorderfo: trecorderfo
         0
       )
       face.localprops = []
-      face.template = tfacecomp3
+      face.template = tfacecomp4
       taborder = 14
       hint = ' Enable stretching (changing temo) '
       bounds_x = 267
@@ -763,8 +763,8 @@ object recorderfo: trecorderfo
     )
     template.fade_color.count = 2
     template.fade_color.items = (
-      16775159
-      16767449
+      16446194
+      16773360
     )
     template.fade_direction = gd_down
     left = 160

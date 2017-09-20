@@ -478,9 +478,12 @@ object songplayerfo: tsongplayerfo
       bounds_y = 82
       bounds_cx = 336
       bounds_cy = 22
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onsliderchange
+      ondataentered = onsliderup
       enabled = False
       value = 0
+      scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonendlength = 11
       scrollbar.face.fade_pos.count = 2
       scrollbar.face.fade_pos.items = (
@@ -509,7 +512,6 @@ object songplayerfo: tsongplayerfo
       scrollbar.face2.localprops = []
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfacecomp2
-      onsetvalue = changepos
     end
     object historyfn: thistoryedit
       frame.captionpos = cp_lefttop
@@ -683,8 +685,8 @@ object songplayerfo: tsongplayerfo
       11120261
     )
     template.fade_direction = gd_down
-    left = 110
-    top = 9
+    left = 83
+    top = 8
   end
   object tfacegreen: tfacecomp
     template.fade_pos.count = 2
@@ -713,8 +715,8 @@ object songplayerfo: tsongplayerfo
       16742520
     )
     template.fade_direction = gd_down
-    left = 96
-    top = 7
+    left = 321
+    top = 6
   end
   object tfacecomp3: tfacecomp
     template.fade_pos.count = 2
@@ -728,8 +730,8 @@ object songplayerfo: tsongplayerfo
       14739118
     )
     template.fade_direction = gd_down
-    left = 27
-    top = 28
+    left = 29
+    top = 49
   end
   object tfacecomp4: tfacecomp
     template.fade_pos.count = 2

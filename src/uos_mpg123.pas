@@ -431,8 +431,8 @@ const
 
 (** Data structure for storing information about a frame of MPEG Audio *)
 type
-  pmpg123_frameinfo = ^Tmpg123_frameinfo;
-   Tmpg123_frameinfo = packed record
+    pmpg123_frameinfo = ^Tmpg123_frameinfo;
+    Tmpg123_frameinfo = packed record
     mpg123_version_version: longword;  (**< The MPEG version (1.0/2.0/2.5). *)
     layer: integer;   (**< The MPEG Audio Layer (MP1/MP2/MP3). *)
     rate: longword;  (**< The sampling rate in Hz. *)
