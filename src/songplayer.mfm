@@ -40,6 +40,7 @@ object songplayerfo: tsongplayerfo
     130
   )
   dragdock.splitter_size = 5
+  dragdock.faceactivetab = tfaceplayer
   dragdock.caption = ' Player 1 '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1

@@ -6,8 +6,8 @@ object filelistfo: tfilelistfo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
   visible = False
-  bounds_x = 287
-  bounds_y = 176
+  bounds_x = 618
+  bounds_y = 230
   bounds_cx = 458
   bounds_cy = 122
   bounds_cxmin = 458

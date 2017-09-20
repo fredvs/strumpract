@@ -29,8 +29,6 @@ type
    tlabel23: tlabel;
    tfacecomp3: tfacecomp;
    procedure doguitarstring(const sender: TObject);
-//   procedure onfloatguit(const sender: TObject);
-//   procedure ondockguit(const sender: TObject);
    procedure onvisiblechangeev(const sender: TObject);
    procedure oncreateguit(const sender: TObject);
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
@@ -79,24 +77,7 @@ begin
   
  end;   
  end;   
-{
-procedure tguitarsfo.onfloatguit(const sender: TObject);
-begin
-height := 74;
-mainfo.height := mainfo.height - 74;
-if mainfo.height < 40 then mainfo.height := 40;
-end;
 
-procedure tguitarsfo.ondockguit(const sender: TObject);
-begin
-//if initguit = 0 then mainfo.procshowguitars(sender);
-
-if hasinit = 0 then begin
-height := 74;
-mainfo.height := mainfo.height + 74;
-end;
-end;
-}
 procedure tguitarsfo.onvisiblechangeev(const sender: TObject);
 begin
 {

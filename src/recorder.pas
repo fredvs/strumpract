@@ -66,9 +66,6 @@ type
    procedure onsliderkeyup(const sender: twidget; var ainfo: keyeventinfoty);
    procedure onsliderchange(const sender: TObject);
    procedure ontimerwait(const Sender: TObject);
- 
-   procedure onfloatplay(const sender: TObject);
-   procedure ondockplay(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure onplayercreate(const sender: TObject);
    procedure onmousewindow(const sender: twidget; var ainfo: mouseeventinfoty);
@@ -490,24 +487,6 @@ begin
 
 end;
 
-procedure trecorderfo.onfloatplay(const sender: TObject);
-begin
-{
-height := 114;
-mainfo.height := mainfo.height - 114;
-if mainfo.height < 40 then mainfo.height := 40;
-}
-end;
-
-procedure trecorderfo.ondockplay(const sender: TObject);
-begin
-// if initplay = 0 then mainfo.procshowpllayer(sender);
-
-if hasinit = 0 then begin
-height := 158;
-mainfo.height := mainfo.height + 158;
-end;
-end;
 
 procedure trecorderfo.visiblechangeev(const sender: TObject);
 begin

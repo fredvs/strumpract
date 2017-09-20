@@ -1163,7 +1163,6 @@ object mainfo: tmainfo
     dragdock.tab_sizemin = 24
     dragdock.caption = 'Dock any window on this area.'
     dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_captionhint]
-    dragdock.onlayoutchanged = onchangelayout
     dragdock.onchilddock = updatedockev
     dragdock.onchildfloat = updatedockev
     statfile = tstatfile1

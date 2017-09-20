@@ -39,6 +39,7 @@ object drumsfo: tdrumsfo
     450
     236
   )
+  dragdock.faceactivetab = tfacedrums
   dragdock.caption = ' Drums '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
   statfile = mainfo.tstatfile1
