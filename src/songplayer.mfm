@@ -19,8 +19,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 446
-  bounds_y = 469
+  bounds_x = 261
+  bounds_y = 457
   bounds_cx = 458
   bounds_cy = 130
   bounds_cxmin = 458
@@ -686,8 +686,7 @@ object songplayerfo: tsongplayerfo
       11120261
     )
     template.fade_direction = gd_down
-    left = 83
-    top = 8
+    left = 86
   end
   object tfacegreen: tfacecomp
     template.fade_pos.count = 2
@@ -731,8 +730,8 @@ object songplayerfo: tsongplayerfo
       14739118
     )
     template.fade_direction = gd_down
-    left = 29
-    top = 49
+    left = 313
+    top = 30
   end
   object tfacecomp4: tfacecomp
     template.fade_pos.count = 2

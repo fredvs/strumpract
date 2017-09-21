@@ -87,7 +87,7 @@ var
  
 implementation
 uses
-main,
+main, commander,
  songplayer2_mfm;
  
   procedure tsongplayer2fo.ontimersent(const Sender: TObject);
@@ -101,6 +101,17 @@ begin
 timerwait.enabled := false;
  btnStart.Enabled := True;
     btnStop.Enabled := true;
+
+with commanderfo do
+ begin
+ btnStart2.Enabled := True;
+    btnStop2.Enabled := true;
+  if  cbloop.value = false then
+    btnPause2.Enabled := true else
+      btnPause2.Enabled := false;
+    btnresume2.Enabled := False;
+ end; 
+    
  if  cbloop.value = false then
     btnPause.Enabled := true else
       btnPause.Enabled := false;
@@ -139,6 +150,15 @@ procedure tsongplayer2fo.ClosePlayer1;
     btnStop.Enabled := False;
     btnPause.Enabled := False;
     btnresume.Enabled := False;
+    
+    with commanderfo do
+ begin
+ btnStart2.Enabled := True;
+    btnStop2.Enabled := False;
+    btnPause2.Enabled := False;
+    btnresume2.Enabled := False;
+ end; 
+      
     cbloop.enabled := true;
     trackbar1.value := 0;
     trackbar1.enabled := false;
@@ -328,6 +348,23 @@ var
     
     trackbar1.value := 0;
     trackbar1.Enabled := True;
+ 
+       with commanderfo do
+ begin
+ btnStop2.Enabled := True;
+    btnresume2.Enabled := False;
+  if cbloop.value = true then
+    begin
+     btnpause2.Enabled := false;
+    end
+     else
+     begin
+    btnpause2.Enabled := true;
+    end;   
+    
+ end; 
+    
+    
     btnStop.Enabled := True;
     btnresume.Enabled := False;
     if cbloop.value = true then
@@ -361,6 +398,14 @@ begin
   btnStop.Enabled := True;
   btnPause.Enabled := True;
   btnresume.Enabled := False;
+  
+      with commanderfo do
+ begin
+ btnStop2.Enabled := True;
+  btnPause2.Enabled := True;
+  btnresume2.Enabled := False;
+ end; 
+ 
   uos_RePlay(theplayer2);
   tstringdisp1.face.template := tfacegreen;
   lposition.face.template := tfaceplayer;
@@ -376,6 +421,13 @@ begin
     btnStop.Enabled := True;
     btnPause.Enabled := False;
     btnresume.Enabled := True;
+        with commanderfo do
+ begin
+btnStop2.Enabled := True;
+    btnPause2.Enabled := False;
+    btnresume2.Enabled := True;
+ end; 
+    
     uos_Pause(theplayer2);
     tstringdisp1.face.template := tfacered;
     lposition.face.template := tfaceplayer;

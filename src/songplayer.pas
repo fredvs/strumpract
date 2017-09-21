@@ -89,7 +89,7 @@ var
  
 implementation
 uses
-main,
+main, commander,
  songplayer_mfm;
  
  procedure tsongplayerfo.ontimerwait(const Sender: TObject);
@@ -97,6 +97,17 @@ begin
 timerwait.enabled := false;
  btnStart.Enabled := True;
     btnStop.Enabled := true;
+
+ with commanderfo do
+ begin
+  btnStart.Enabled := True;
+  btnStop.Enabled := true;
+   if  cbloop.value = false then
+    btnPause.Enabled := true else
+      btnPause.Enabled := false;
+        btnresume.Enabled := False;
+  end; 
+     
  if  cbloop.value = false then
     btnPause.Enabled := true else
       btnPause.Enabled := false;
@@ -132,6 +143,13 @@ procedure tsongplayerfo.ClosePlayer1;
     radiobutton3.Enabled := True;
     } 
     
+ with commanderfo do
+ begin
+  btnStart.Enabled := True;
+    btnStop.Enabled := False;
+    btnPause.Enabled := False;
+    btnresume.Enabled := False;
+   end; 
     
    vuright.Height := 0;
     vuleft.Height := 0;
@@ -333,6 +351,22 @@ var
     trackbar1.Enabled := True;
     btnStop.Enabled := True;
     btnresume.Enabled := False;
+    
+     with commanderfo do
+ begin
+   btnStop.Enabled := True;
+    btnresume.Enabled := False;
+   if cbloop.value = true then
+    begin
+    btnpause.Enabled := false;
+    end
+     else
+     begin
+    btnpause.Enabled := true;
+    end; 
+     end; 
+    
+    
     if cbloop.value = true then
     begin
     uos_Play(theplayer,-1) ;
@@ -363,6 +397,14 @@ begin
   btnStop.Enabled := True;
   btnPause.Enabled := True;
   btnresume.Enabled := False;
+  
+     with commanderfo do
+ begin
+  btnStop.Enabled := True;
+  btnPause.Enabled := True;
+  btnresume.Enabled := False;
+     end; 
+    
   uos_RePlay(theplayer);
   tstringdisp1.face.template := tfacegreen;
   lposition.face.template := tfaceplayer;
@@ -378,6 +420,15 @@ begin
     btnStop.Enabled := True;
     btnPause.Enabled := False;
     btnresume.Enabled := True;
+    
+        with commanderfo do
+ begin
+ btnStop.Enabled := True;
+    btnPause.Enabled := False;
+    btnresume.Enabled := True;
+     end; 
+    
+    
     uos_Pause(theplayer);
     tstringdisp1.face.template := tfacered;
     tstringdisp1.value := 'Paused ' + theplaying; 

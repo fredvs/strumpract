@@ -6,7 +6,7 @@ interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
  ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,drums,
- recorder,songplayer, songplayer2, filelistform, guitars,msedataedits,mseedit,
+ recorder,songplayer,songplayer2, commander, filelistform, guitars,msedataedits,mseedit,
  msestatfile,SysUtils,Classes, uos_flat, aboutform,msebitmap, msesys,msemenus,
  msestream,msegrids,mselistbrowser;
  
@@ -62,6 +62,7 @@ const
  guitarsfoheight = 66;
  songplayerfoheight = 130;
  recorderfoheight = 130;
+ commanderfoheight = 140;
  fowidth = 458;
  tabheight = 39;
  maxheightfo = 600; 
@@ -327,6 +328,9 @@ var
   if filelistfo.visible then
  filelistfo.dragdock.float();
  
+  if commanderfo.visible then
+ commanderfo.dragdock.float();
+ 
  endlayout();
 
  
@@ -344,9 +348,12 @@ var
  
   if recorderfo.visible then
  recorderfo.left := left;
+
   if filelistfo.visible then
  filelistfo.left := left;
  
+  if commanderfo.visible then
+ commanderfo.left := left;
 // resizeall();
  
  // showall(sender);
@@ -378,6 +385,12 @@ var
  begin 
  songplayer2fo.top:= posi;
  posi := songplayer2fo.top + songplayerfoheight + decorationheight;
+ end;
+ 
+  if commanderfo.visible then 
+ begin 
+ commanderfo.top:= posi;
+ posi := commanderfo.top + commanderfoheight + decorationheight;
  end;
  
  if guitarsfo.visible then 
@@ -417,12 +430,14 @@ if songplayerfo.visible then
  songplayerfo.parentwidget:= basedock;
 if songplayer2fo.visible then
  songplayer2fo.parentwidget:= basedock;
+ if commanderfo.visible then
+ commanderfo.parentwidget:= basedock;
 if recorderfo.visible then
  recorderfo.parentwidget:= basedock;
 if guitarsfo.visible then
  guitarsfo.parentwidget:= basedock; 
  
- //{  
+//{  
  pt1:= nullpoint;
  
  if drumsfo.visible then
@@ -448,6 +463,12 @@ if guitarsfo.visible then
  songplayer2fo.pos:= pt1;
  pt1.y:= pt1.y + songplayer2fo.height + decorationheight;
   end;
+  
+ if commanderfo.visible then
+ begin
+ commanderfo.pos:= pt1;
+ pt1.y:= pt1.y + commanderfo.height + decorationheight;
+  end; 
   
  if recorderfo.visible then
  begin
@@ -484,11 +505,13 @@ procedure tmainfo.showall(const sender: TObject);
 begin
  //beginlayout();
  drumsfo.show();
+ filelistfo.show();
  songplayerfo.show();
  songplayer2fo.show();
+ commanderfo.show();
  guitarsfo.show();
  recorderfo.show();
- filelistfo.show();
+
 // endlayout();
  timerwait.enabled := true;
 end;
