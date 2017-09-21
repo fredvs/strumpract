@@ -16,14 +16,16 @@ object mainfo: tmainfo
   bounds_x = 577
   bounds_y = 222
   bounds_cx = 469
-  bounds_cy = 67
+  bounds_cy = 68
   bounds_cxmin = 458
-  container.frame.framei_left = 10
-  container.frame.framei_right = 10
+  container.frame.framei_left = 0
+  container.frame.framei_top = 0
+  container.frame.framei_right = 0
+  container.frame.framei_bottom = 0
   container.frame.frameo_left = 1
   container.frame.frameo_right = 1
   container.frame.optionsskin = [fso_flat]
-  container.frame.localprops = [frl_hiddenedges, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
+  container.frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
   container.frame.localprops1 = []
   container.frame.sbhorz.width = 10
   container.frame.sbhorz.face.localprops = []
@@ -42,7 +44,7 @@ object mainfo: tmainfo
     0
     17
     469
-    50
+    51
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1147,8 +1149,7 @@ object mainfo: tmainfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 469
-    bounds_cy = 48
-    anchors = [an_left, an_top, an_right, an_bottom]
+    bounds_cy = 49
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
@@ -3203,9 +3204,9 @@ object mainfo: tmainfo
     top = 1
   end
   object tframecomp1: tframecomp
-    template.framei_left = 11
+    template.framei_left = 4
     template.framei_top = 2
-    template.framei_right = 11
+    template.framei_right = 4
     template.framei_bottom = 2
     template.frameo_left = 1
     template.frameo_right = 1

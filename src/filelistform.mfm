@@ -12,6 +12,8 @@ object filelistfo: tfilelistfo
   bounds_cy = 122
   bounds_cxmin = 458
   bounds_cymin = 122
+  bounds_cxmax = 458
+  bounds_cymax = 122
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (

@@ -66,7 +66,7 @@ const
  fowidth = 458;
  tabheight = 39;
  maxheightfo = 600; 
- scrollwidth = 12;
+ scrollwidth = 14;
  
 var
  mainfo: tmainfo;
@@ -87,7 +87,7 @@ begin
 timerwait.enabled := false;
 if fs_sbverton in container.frame.state then width := fowidth + scrollwidth  else width := fowidth ;
 end; 
- 
+
  
 procedure resizeall();
 begin
@@ -113,8 +113,7 @@ begin
         Timerwait.interval := 300000;
         Timerwait.Enabled := False;
        Timerwait.ontimer := @ontimerwait;
-
-end;
+       end;
 
 procedure tmainfo.onabout(const sender: TObject);
 begin
@@ -146,6 +145,8 @@ end;
 procedure tmainfo.oncreatedform(const sender: TObject);
 begin
 caption := 'StrumPract ' + versiontext;
+
+
 if not fileexists(tstatfile1.filename) then
  begin
  hide;
@@ -155,6 +156,15 @@ if not fileexists(tstatfile1.filename) then
   ondockall(sender); /// otherwise size of dock is not ok
  show;
  end;
+ 
+   if (filelistfo.visible) and (filelistfo.parentwidget= basedock)
+then
+begin
+filelistfo.bounds_cxmax := fowidth ;
+//filelistfo.bounds_cymax := filelistfoheight;
+filelistfo.bounds_cymax := 700;
+end;     
+ 
  Timerwait.Enabled := true; /// for width if scroll
 end;
 
@@ -219,43 +229,32 @@ var
  heights: integerarty;
  i1: int32;
  si1,si2,si3: sizety;
- isbig : boolean = false;
- rect1: rectty;
  w1: twidget;
 begin
-
  if flayoutlock <= 0 then begin
- 
   if basedock.dragdock.currentsplitdir = sd_tabed then begin
    if basedock.dragdock.activewidget <> nil then begin
     i1:= 0;
     repeat
      w1:= basedock.dragdock.activewidget;
-     size:= addsize(size,subsize(w1.size,basedock.dragdock.dockrect.size));
+     basedock.size:= addsize(basedock.size,
+                      subsize(w1.size,basedock.dragdock.dockrect.size));
      inc(i1);
     until sizeisequal(w1.size,basedock.dragdock.dockrect.size) or (i1 > 8);
-   
    end;
+   si1:= basedock.size;
   end
   else begin
-  // resizeall;
-   rect1:= application.workarea();
    children1:= basedock.dragdock.getitems();
    setlength(heights,length(children1));
    visiblecount:= 0;
    maxwidth:= 0;
    totheight:= 0;
-  totchildheight := 0;
+   totchildheight := 0;
    for i1:= 0 to high(children1) do begin
     with children1[i1] do begin
-
-    {does not work because forms have fixed size;
-    si1:= container.minscrollsize(); //minimal clientarea
-     addsize1(si1,framedim());        //add space for frame
-    }
      si1:= size;
      heights[i1]:= si1.cy;
-    
      if visible then begin
       if si1.cx > maxwidth then begin
        maxwidth:= si1.cx;
@@ -268,26 +267,23 @@ begin
      end;
     end;
    end;
-
+   si1.cx:= maxwidth;
    if visiblecount = 0 then begin
-    height:= emptyheight;
+    si1.cy:= emptyheight;
    end
    else begin
-    i1:= 0;
-     repeat
-     si1:= subsize(size,basedock.paintsize); //padding before update
-     si2.cx:= maxwidth + si1.cx;
-     si2.cy:= totheight + (visiblecount-1) * basedock.dragdock.splitter_size +  si1.cy;
-     size:= si2;
-     si2:= subsize(size,basedock.paintsize); //padding after update
-     inc(i1);
-    until (si1.cx = si2.cx) and (si1.cy = si2.cy) or      //padding stable
-                                                 (i1 > 8);  //emergency brake
+    si1.cy:= totheight + (visiblecount-1) * basedock.dragdock.splitter_size;
    end;
-   
-Timerwait.Enabled := true;  // for width of main form if scrolled.
-
- end;
+   basedock.size:= si1;
+  end;
+  container.frame.scrollpos:= nullpoint;
+  addsize1(si1,sizety(basedock.pos));
+  i1:= 0;
+  repeat
+   container.frame.scrollpos:= nullpoint;
+   size:= addsize(size,subsize(si1,container.paintsize));
+   inc(i1);
+  until sizeisequal(container.paintsize,si1) or (i1 > 8);
  end;
 end;
 
@@ -333,6 +329,8 @@ var
  
  endlayout();
 
+ height := emptyheight +20;
+ width := fowidth;
  
   if drumsfo.visible then
  drumsfo.left := left;
@@ -358,8 +356,6 @@ var
  
  // showall(sender);
   
- height := emptyheight;
- width := fowidth;
  
  if drumsfo.visible then 
  begin 
@@ -404,7 +400,11 @@ var
  recorderfo.top:= posi;
  posi := recorderfo.top + recorderfoheight + decorationheight;
  end;
-
+ 
+ width := fowidth ;
+ basedock.height := height -  decorationheight;
+ basedock.width := width - 10;
+  
 end;
 
 procedure tmainfo.ondockall(const sender: TObject);
