@@ -1173,14 +1173,14 @@ findhistory=20
  timer
 findoptions=1
 editpos=8
- 0,156
- 0,352
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,64
  0,-1073741823
- 25,12
- 0,23
+ 0,-1073741823
+ 0,12
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1254,7 +1254,7 @@ nomenumodules=8
  0
 [sourcefo.files_tab]
 firsttab=0
-index=6
+index=3
 [layout]
 windowlayout=678
  [mainfo.basedock]
@@ -1501,7 +1501,7 @@ windowlayout=678
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=targetconsolefo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1516,7 +1516,7 @@ windowlayout=678
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=474
  width0=259
@@ -1919,7 +1919,7 @@ windowlayout=678
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
