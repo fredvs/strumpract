@@ -96,10 +96,12 @@ if linkvol.value = true then
 begin
 if (tslider(sender).tag = 0) 
 then volumeright1.value := volumeleft1.value else
-volumeleft1.value := volumeright1.value
-end;
-
+volumeleft1.value := volumeright1.value;
 songplayerfo.edvolleft.value  := trunc(volumeleft1.value* 100);
+songplayerfo.edvolright.value  := trunc(volumeright1.value* 100);
+end else
+if (tslider(sender).tag = 0) then
+songplayerfo.edvolleft.value  := trunc(volumeleft1.value* 100) else
 songplayerfo.edvolright.value  := trunc(volumeright1.value* 100);
 //songplayerfo.changevolume(sender)
 
@@ -109,12 +111,14 @@ if linkvol2.value = true then
 begin
 if (tslider(sender).tag = 2) 
 then volumeright2.value := volumeleft2.value else
-volumeleft2.value := volumeright2.value
-end;
-
+volumeleft2.value := volumeright2.value;
 songplayer2fo.edvolleft.value  := trunc(volumeleft2.value* 100);
 songplayer2fo.edvolright.value  := trunc(volumeright2.value* 100);
-//songplayer2fo.changevolume(sender);
+end else
+if (tslider(sender).tag = 2) then
+songplayer2fo.edvolleft.value  := trunc(volumeleft2.value* 100) else
+songplayer2fo.edvolright.value  := trunc(volumeright2.value* 100);
+//songplayerfo.changevolume(sender)
 end;
 end;
 

@@ -3980,7 +3980,7 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Link vol'
+      frame.caption = 'Link L/R'
       frame.captionpos = cp_top
       frame.font.color = 4210752
       frame.font.name = 'stf_default'
@@ -3988,18 +3988,18 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        17
         18
         18
+        19
         0
       )
       face.localprops = []
       face.template = tfacecomp7
       taborder = 16
       hint = ' Link left and right volume  '
-      bounds_x = 168
+      bounds_x = 167
       bounds_y = 30
-      bounds_cx = 48
+      bounds_cx = 50
       bounds_cy = 30
       statfile = mainfo.tstatfile1
       colorglyph = 4539717
@@ -4009,7 +4009,7 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Link vol'
+      frame.caption = 'Link L/R'
       frame.captionpos = cp_top
       frame.font.color = 4210752
       frame.font.name = 'stf_default'
@@ -4017,18 +4017,18 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        17
         18
         18
+        19
         0
       )
       face.localprops = []
       face.template = tfacecomp7
       taborder = 17
       hint = ' Link left and right volume  '
-      bounds_x = 230
+      bounds_x = 229
       bounds_y = 30
-      bounds_cx = 48
+      bounds_cx = 50
       bounds_cy = 30
       statfile = mainfo.tstatfile1
       colorglyph = 4539717
