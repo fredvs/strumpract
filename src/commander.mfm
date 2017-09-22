@@ -278,8 +278,8 @@ object commanderfo: tcommanderfo
       value = 1
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 20
-      scrollbar.buttonminlength = 1
-      scrollbar.buttonendlength = 1
+      scrollbar.buttonminlength = -1
+      scrollbar.buttonendlength = -1
       scrollbar.face.image.origformat = 'png'
       scrollbar.face.image.alignment = [al_stretchx]
       scrollbar.face.image.image = {
@@ -1223,8 +1223,8 @@ object commanderfo: tcommanderfo
       value = 1
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 20
-      scrollbar.buttonminlength = 1
-      scrollbar.buttonendlength = 1
+      scrollbar.buttonminlength = -1
+      scrollbar.buttonendlength = -1
       scrollbar.face.image.origformat = 'png'
       scrollbar.face.image.alignment = [al_stretchx]
       scrollbar.face.image.image = {
@@ -2148,8 +2148,8 @@ object commanderfo: tcommanderfo
       value = 1
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 20
-      scrollbar.buttonminlength = 1
-      scrollbar.buttonendlength = 1
+      scrollbar.buttonminlength = -1
+      scrollbar.buttonendlength = -1
       scrollbar.face.image.origformat = 'png'
       scrollbar.face.image.alignment = [al_stretchx]
       scrollbar.face.image.image = {
@@ -3073,8 +3073,8 @@ object commanderfo: tcommanderfo
       value = 1
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 20
-      scrollbar.buttonminlength = 1
-      scrollbar.buttonendlength = 1
+      scrollbar.buttonminlength = -1
+      scrollbar.buttonendlength = -1
       scrollbar.face.image.origformat = 'png'
       scrollbar.face.image.alignment = [al_stretchx]
       scrollbar.face.image.image = {

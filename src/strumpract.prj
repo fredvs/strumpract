@@ -1194,14 +1194,14 @@ findhistory=20
  bound
 findoptions=1
 editpos=9
- 0,-1073741823
- 0,0
- 0,-1073741823
- 11,7
- 0,166
+ 8,6
  0,-1073741823
  0,-1073741823
- 0,9
+ 0,7
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1290,7 +1290,7 @@ order=9
  5
  1
 firsttab=0
-index=4
+index=0
 [layout]
 windowlayout=678
  [mainfo.basedock]
@@ -1305,8 +1305,8 @@ windowlayout=678
  ncy=0
  x=0
  y=0
- cx=1113
- cy=602
+ cx=1356
+ cy=694
  rcx=0
  rcy=0
  [mainfo]
@@ -1325,9 +1325,9 @@ windowlayout=678
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1113,602
+  basedock,0,0,1356,694
  focusedchild=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [targetconsolefo]
@@ -1441,7 +1441,7 @@ windowlayout=678
  x=0
  y=0
  cx=205
- cy=453
+ cy=523
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1537,15 +1537,15 @@ windowlayout=678
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=769
- y=455
+ x=599
+ y=39
  cx=484
  cy=484
  rcx=0
@@ -1554,10 +1554,10 @@ windowlayout=678
  active=0
  visible=1
  [objectinspectorfo.grid]
- propcolwidthref=474
- width0=214
+ propcolwidthref=459
+ width0=207
  sortdescend0=0
- width1=254
+ width1=246
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1646,9 +1646,9 @@ windowlayout=678
  ncx=0
  ncy=0
  x=0
- y=510
- cx=1113
- cy=92
+ y=588
+ cx=1356
+ cy=106
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1747,8 +1747,8 @@ windowlayout=678
  ncy=0
  x=0
  y=0
- cx=1113
- cy=51
+ cx=1356
+ cy=59
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1763,8 +1763,8 @@ windowlayout=678
  ncy=53
  x=0
  y=0
- cx=1113
- cy=53
+ cx=1356
+ cy=61
  rcx=0
  rcy=0
  [sourcefo]
@@ -1779,15 +1779,15 @@ windowlayout=678
  ncy=0
  x=208
  y=0
- cx=905
- cy=453
+ cx=1148
+ cy=523
  rcx=0
  rcy=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1814,15 +1814,15 @@ windowlayout=678
  ncx=0
  ncy=0
  x=0
- y=54
- cx=1113
- cy=453
+ y=62
+ cx=1356
+ cy=523
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1841,7 +1841,7 @@ windowlayout=678
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1860,7 +1860,7 @@ windowlayout=678
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1879,7 +1879,7 @@ windowlayout=678
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1898,7 +1898,7 @@ windowlayout=678
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -1917,7 +1917,7 @@ windowlayout=678
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1936,7 +1936,7 @@ windowlayout=678
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1955,7 +1955,7 @@ windowlayout=678
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_mainfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
