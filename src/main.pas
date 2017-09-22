@@ -6,9 +6,9 @@ interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msegui,msetimer,
  ctypes,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msedock,drums,
- recorder,songplayer,songplayer2, commander, filelistform, guitars,msedataedits,mseedit,
- msestatfile,SysUtils,Classes, uos_flat, aboutform,msebitmap, msesys,msemenus,
- msestream,msegrids,mselistbrowser;
+ recorder,songplayer,songplayer2, commander, filelistform, guitars,msedataedits,
+ mseedit,msestatfile,SysUtils,Classes, uos_flat, aboutform,msebitmap, msesys,
+ msemenus,msestream,msegrids,mselistbrowser;
  
 type
   tmainfo = class(tmainform)
@@ -26,6 +26,9 @@ type
    timagelist3: timagelist;
    tfacecomp6: tfacecomp;
    tfacecomp7: tfacecomp;
+   tfacered: tfacecomp;
+   tfacegreen: tfacecomp;
+   tfaceorange: tfacecomp;
    procedure ontimerwait(const Sender: TObject);
    procedure oncreateform(const sender: TObject);
    procedure oncreatedform(const sender: TObject);
@@ -58,16 +61,16 @@ const
  versiontext = '1.5';
  emptyheight = 40;
  drumsfoheight = 236;
- filelistfoheight = 122;
- guitarsfoheight = 66;
- songplayerfoheight = 130;
- recorderfoheight = 130;
- commanderfoheight = 130;
+ filelistfoheight = 128;
+ guitarsfoheight = 64;
+ songplayerfoheight = 128;
+ recorderfoheight = 128;
+ commanderfoheight = 128;
  fowidth = 458;
  tabheight = 39;
  maxheightfo = 600; 
  scrollwidth = 14;
- 
+  
 var
  mainfo: tmainfo;
  tottime: ttime;
@@ -86,8 +89,11 @@ uses
 begin 
 timerwait.enabled := false;
 if fs_sbverton in container.frame.state then width := fowidth + scrollwidth  else width := fowidth ;
+if height < 60 then
+ begin basedock.height:= height - 20 ;
+ basedock.width:= width - 20 ;
+ end;
 end; 
-
  
 procedure resizeall();
 begin
@@ -110,7 +116,7 @@ begin
       tstatfile1.filename :=  IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +  'status.sta';
 
        Timerwait := ttimer.Create(nil);
-        Timerwait.interval := 300000;
+        Timerwait.interval := 400000;
         Timerwait.Enabled := False;
        Timerwait.ontimer := @ontimerwait;
        end;
@@ -146,25 +152,21 @@ procedure tmainfo.oncreatedform(const sender: TObject);
 begin
 caption := 'StrumPract ' + versiontext;
 
-
 if not fileexists(tstatfile1.filename) then
  begin
- hide;
+ //hide;
  showall(sender);
  ondockall(sender);
-  sleep(100);
-  ondockall(sender); /// otherwise size of dock is not ok
- show;
+ // sleep(100);
+ // ondockall(sender); /// otherwise size of dock is not ok
+ //show;
  end;
- 
-   if (filelistfo.visible) and (filelistfo.parentwidget= basedock)
+   if (filelistfo.visible) and (filelistfo.parentwidget = nil)
 then
 begin
-filelistfo.bounds_cxmax := fowidth ;
-//filelistfo.bounds_cymax := filelistfoheight;
-filelistfo.bounds_cymax := 700;
-end;     
- 
+filelistfo.bounds_cxmax := 1024 ;
+filelistfo.bounds_cymax := 600;
+end;   
  Timerwait.Enabled := true; /// for width if scroll
 end;
 
@@ -284,7 +286,12 @@ begin
    size:= addsize(size,subsize(si1,container.paintsize));
    inc(i1);
   until sizeisequal(container.paintsize,si1) or (i1 > 8);
- end;
+ end; 
+ 
+ // if filelistfo.parentwidget <> NIL THEN filelistfo.size := sizebefdock;
+ 
+ timerwait.enabled := false; // to reset
+ timerwait.enabled := true;
 end;
 
 procedure tmainfo.updatedockev(const sender: TObject; const awidget: twidget);
@@ -352,10 +359,6 @@ var
  
   if commanderfo.visible then
  commanderfo.left := left;
-// resizeall();
- 
- // showall(sender);
-  
  
  if drumsfo.visible then 
  begin 
@@ -363,7 +366,6 @@ var
  posi := drumsfo.top + drumsfoheight + decorationheight;
  end
  else posi := top + height + decorationheight;
- 
  
  if filelistfo.visible then 
  begin 
@@ -400,11 +402,11 @@ var
  recorderfo.top:= posi;
  posi := recorderfo.top + recorderfoheight + decorationheight;
  end;
- 
  width := fowidth ;
- basedock.height := height -  decorationheight;
+ basedock.height := height - decorationheight +10;
  basedock.width := width - 10;
-  
+ basedock.top := 0;
+ basedock.left := 0;
 end;
 
 procedure tmainfo.ondockall(const sender: TObject);
@@ -413,15 +415,19 @@ var
   decorationheight : integer = 5;
 begin
 
-filelistfo.bounds_cxmax := fowidth ;
+//filelistfo.bounds_cxmax := fowidth ;
+
+filelistfo.bounds_cxmax := 700 ;
 //filelistfo.bounds_cymax := filelistfoheight;
 filelistfo.bounds_cymax := 700;
+
+//sizebefdock.cy := 500;
+//size := sizebefdock;
 
   beginlayout();
 
  basedock.dragdock.currentsplitdir:= sd_horz; 
  
-
 if drumsfo.visible then
  drumsfo.parentwidget:= basedock;
 if filelistfo.visible then
@@ -480,7 +486,7 @@ if guitarsfo.visible then
  guitarsfo.pos:= pt1; 
 //} 
   endlayout(); 
- 
+  
 end;
 
 procedure tmainfo.beforereadev(const sender: TObject);

@@ -6,22 +6,24 @@ object filelistfo: tfilelistfo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
   visible = False
-  bounds_x = 855
-  bounds_y = 25
+  bounds_x = 489
+  bounds_y = 254
   bounds_cx = 458
-  bounds_cy = 122
+  bounds_cy = 128
   bounds_cxmin = 458
-  bounds_cymin = 122
+  bounds_cymin = 128
   bounds_cxmax = 458
-  bounds_cymax = 122
+  bounds_cymax = 128
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     450
-    122
+    128
   )
+  dragdock.onbeforedragbegin = befdrag
+  dragdock.onafterdragover = afterdrag
   dragdock.splitter_size = 5
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
@@ -58,60 +60,37 @@ object filelistfo: tfilelistfo
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
-  object list_files: tfilelistview
-    frame.sbvert.width = 10
-    frame.sbvert.face.localprops = []
-    frame.sbvert.face.template = mainfo.tfacecomp6
-    frame.sbvert.facebutton.localprops = []
-    frame.sbvert.facebutton.template = mainfo.tfacecomp4
-    frame.sbhorz.width = 10
-    frame.sbhorz.face.localprops = []
-    frame.sbhorz.face.template = mainfo.tfacecomp5
-    frame.sbhorz.facebutton.localprops = []
-    frame.sbhorz.facebutton.template = mainfo.tfacecomp7
+  object tbutton1: tbutton
+    color = 13684944
     frame.localprops = []
     frame.localprops1 = []
-    face.localprops = []
-    face.template = mainfo.tfacecomp4
-    bounds_x = 0
-    bounds_y = 0
-    bounds_cx = 448
-    bounds_cy = 91
-    anchors = [an_left, an_top, an_right, an_bottom]
-    cellwidth = 446
-    cellheight = 18
-    optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
-    options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
-    cellwidthmin = 446
-    cellheightmin = 18
-    statfile = mainfo.tstatfile1
-    onselectionchanged = selctchanged
-    reffontheight = 15
-  end
-  object tbutton1: tbutton
+    frame.template = commanderfo.tframecomp1
     face.localprops = []
     face.template = mainfo.tfacecomp1
-    taborder = 1
     bounds_x = 208
-    bounds_y = 99
+    bounds_y = 105
     bounds_cx = 115
     bounds_cy = 20
     anchors = [an_right, an_bottom]
-    state = [as_localcaption, as_localonexecute]
+    state = [as_localcaption, as_localcolor, as_localonexecute]
     caption = 'Sent to Player 1'
     onexecute = onsent
   end
   object tbutton2: tbutton
     Tag = 1
+    color = 13684944
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp1
     face.localprops = []
     face.template = mainfo.tfacecomp1
-    taborder = 2
+    taborder = 1
     bounds_x = 329
-    bounds_y = 99
+    bounds_y = 105
     bounds_cx = 115
     bounds_cy = 20
     anchors = [an_right, an_bottom]
-    state = [as_localcaption, as_localonexecute]
+    state = [as_localcaption, as_localcolor, as_localonexecute]
     caption = 'Sent to Player 2'
     onexecute = onsent
   end
@@ -124,10 +103,10 @@ object filelistfo: tfilelistfo
         imagenr = 17
       end>
     frame.button.imagenr = 17
-    taborder = 3
+    taborder = 2
     hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
     bounds_x = 5
-    bounds_y = 97
+    bounds_y = 103
     bounds_cx = 22
     bounds_cy = 23
     anchors = [an_left, an_bottom]
@@ -172,10 +151,10 @@ object filelistfo: tfilelistfo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = songplayerfo.tfaceplayer
-    taborder = 4
+    taborder = 3
     hint = ' History of Directories '
     bounds_x = 25
-    bounds_y = 97
+    bounds_y = 103
     bounds_cx = 175
     bounds_cy = 22
     anchors = [an_left, an_right, an_bottom]
@@ -192,5 +171,51 @@ object filelistfo: tfilelistfo
       end>
     dropdown.historymaxcount = 50
     reffontheight = 15
+  end
+  object list_files: tfilelistview
+    frame.sbvert.width = 10
+    frame.sbvert.face.localprops = []
+    frame.sbvert.face.template = mainfo.tfacecomp6
+    frame.sbvert.facebutton.localprops = []
+    frame.sbvert.facebutton.template = mainfo.tfacecomp4
+    frame.sbhorz.width = 10
+    frame.sbhorz.face.localprops = []
+    frame.sbhorz.face.template = mainfo.tfacecomp5
+    frame.sbhorz.facebutton.localprops = []
+    frame.sbhorz.facebutton.template = mainfo.tfacecomp7
+    frame.localprops = []
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = mainfo.tfacecomp4
+    taborder = 4
+    bounds_x = -1
+    bounds_y = -1
+    bounds_cx = 448
+    bounds_cy = 97
+    anchors = [an_left, an_top, an_right, an_bottom]
+    cellwidth = 446
+    cellheight = 19
+    optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
+    options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
+    cellwidthmin = 446
+    cellheightmin = 19
+    statfile = mainfo.tstatfile1
+    onselectionchanged = selctchanged
+    reffontheight = 15
+  end
+  object tfacecomp2: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      15921906
+      12763842
+    )
+    template.fade_direction = gd_down
+    left = 75
+    top = 29
   end
 end

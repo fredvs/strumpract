@@ -20,14 +20,14 @@ object guitarsfo: tguitarsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
-  bounds_x = 427
-  bounds_y = 256
+  bounds_x = 275
+  bounds_y = 243
   bounds_cx = 458
-  bounds_cy = 66
+  bounds_cy = 64
   bounds_cxmin = 458
-  bounds_cymin = 66
+  bounds_cymin = 64
   bounds_cxmax = 458
-  bounds_cymax = 66
+  bounds_cymax = 64
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -38,7 +38,7 @@ object guitarsfo: tguitarsfo
     0
     0
     450
-    66
+    64
   )
   dragdock.splitter_size = 5
   dragdock.faceactivetab = tfaceguitars
@@ -378,7 +378,7 @@ object guitarsfo: tguitarsfo
     face.template = tfacecomp2
     taborder = 1
     bounds_x = 0
-    bounds_y = 34
+    bounds_y = 32
     bounds_cx = 450
     bounds_cy = 32
     object tbutton16: tbutton

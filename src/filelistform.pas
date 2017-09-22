@@ -10,11 +10,12 @@ uses
 
 type
  tfilelistfo = class(tdockform)
-   list_files: tfilelistview;
    tbutton1: tbutton;
    tbutton2: tbutton;
    songdir: tfilenameedit;
    historyfn: thistoryedit;
+   tfacecomp2: tfacecomp;
+   list_files: tfilelistview;
    procedure formcreated(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    procedure selctchanged(const sender: tcustomlistview);
@@ -25,9 +26,18 @@ type
    procedure onchangpath(const sender: TObject);
    procedure onafterdialog(const sender: tfiledialogcontroller;
                    var aresult: modalresultty);
+   procedure befdrag(const asender: TObject; const apos: pointty;
+                   var adragobject: tdragobject; var processed: Boolean);
+   procedure ondoc(const sender: TObject);
+   procedure onfloat(const sender: TObject);
+   procedure afterdrag(const asender: TObject; const apos: pointty;
+                   var adragobject: tdragobject; var accept: Boolean;
+                   var processed: Boolean);
  end;
 var
  filelistfo: tfilelistfo;
+ sizebefdock: sizety;
+ 
 implementation
 uses
 songplayer, songplayer2,
@@ -35,7 +45,7 @@ main, filelistform_mfm;
 
 procedure tfilelistfo.formcreated(const sender: TObject);
 begin
-
+sizebefdock := size;
 end;
 
 procedure tfilelistfo.visiblechangeev(const sender: TObject);
@@ -72,7 +82,7 @@ if tbutton(sender).tag = 0 then
 begin
 // songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 songplayerfo.historyfn.value := list_files.directory + list_files.selectednames[0];
-songplayerfo.historyfn.face.template := songplayerfo.tfacegreen; 
+songplayerfo.historyfn.face.template := mainfo.tfaceorange; 
 songplayerfo.timersent.enabled := true;
 end;
 
@@ -80,7 +90,7 @@ if tbutton(sender).tag = 1 then
 begin
 //songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 songplayer2fo.historyfn.value := list_files.directory + list_files.selectednames[0];
-songplayer2fo.historyfn.face.template := songplayerfo.tfacegreen; 
+songplayer2fo.historyfn.face.template := mainfo.tfaceorange; 
 songplayer2fo.timersent.enabled := true;
 end;
 end;
@@ -103,6 +113,34 @@ procedure tfilelistfo.onafterdialog(const sender: tfiledialogcontroller;
 begin
 //list_files.path := dir.value;
 
+end;
+
+procedure tfilelistfo.befdrag(const asender: TObject; const apos: pointty;
+               var adragobject: tdragobject; var processed: Boolean);
+begin
+// if parentwidget = nil then sizebefdock := size;
+end;
+
+procedure tfilelistfo.ondoc(const sender: TObject);
+begin
+//sizebefdock := size;
+end;
+
+procedure tfilelistfo.onfloat(const sender: TObject);
+begin
+//sizebefdock.cx := 500;
+//sizebefdock.cy := 500;
+//size := sizebefdock;
+end;
+
+procedure tfilelistfo.afterdrag(const asender: TObject; const apos: pointty;
+               var adragobject: tdragobject; var accept: Boolean;
+               var processed: Boolean);
+begin
+if parentwidget <> NIL THEN
+begin
+//size := sizebefdock;
+end;
 end;
 
 end.

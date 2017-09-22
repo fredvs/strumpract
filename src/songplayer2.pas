@@ -17,9 +17,6 @@ type
    
    tfaceplayer: tfacecomp;
    tgroupbox1: tgroupbox;
-   vuRight: tdockpanel;
-   vuLeft: tdockpanel;
-   edvol: trealspinedit;
    edtempo: trealspinedit;
    button1: tbutton;
    cbloop: tbooleanedit;
@@ -29,21 +26,25 @@ type
    btnStart: tbutton;
    btnResume: tbutton;
    btnPause: tbutton;
-   tlabel27: tlabel;
    tlabel28: tlabel;
    trackbar1: tslider;
    historyfn: thistoryedit;
    songdir: tfilenameedit;
    btinfos: tbutton;
-   tstringdisp1: tstringdisp;
-   tfacegreen: tfacecomp;
-   tfacered: tfacecomp;
    tfacecomp3: tfacecomp;
    llength: tstringdisp;
    lposition: tstringdisp;
    tfacecomp4: tfacecomp;
    tfacecomp5: tfacecomp;
    tfacecomp2: tfacecomp;
+   tstringdisp1: tstringdisp;
+   vuRight: tdockpanel;
+   edvolright: trealspinedit;
+   linkvol: tbooleanedit;
+   edvolleft: trealspinedit;
+   vuLeft: tdockpanel;
+   tlabel3: tlabel;
+   tlabel2: tlabel;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -176,8 +177,8 @@ procedure tsongplayer2fo.ClosePlayer1;
       vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer2, Inputindex2) * 44);
     if trunc(uos_InputGetLevelRight(theplayer2, Inputindex2) * 44) >= 0 then
       vuRight.Height := trunc(uos_InputGetLevelRight(theplayer2, Inputindex2) * 44);
-    vuLeft.top := 75 - vuLeft.Height;
-    vuRight.top := 75 - vuRight.Height;
+    vuLeft.top := 95 - vuLeft.Height;
+    vuRight.top := 95 - vuRight.Height;
    end;  
  
  procedure tsongplayer2fo.ShowPosition;
@@ -283,7 +284,7 @@ var
     ////////// VolLeft : Left volume
     ////////// VolRight : Right volume
 
-    uos_InputSetDSPVolume(theplayer2, Inputindex2, edvol.value/100, edvol.value/100, True);
+    uos_InputSetDSPVolume(theplayer2, Inputindex2, edvolleft.value/100, edvolright.value/100, True);
      /// Set volume
     ////////// Playerindex2 : Index of a existing Player
     ////////// Inputindex2 : InputIndex of a existing Input
@@ -381,7 +382,7 @@ var
     songdir.value := historyfn.value;
     historyfn.hint := historyfn.value;
     Timerwait.Enabled := true;
-    tstringdisp1.face.template := tfacegreen;
+    tstringdisp1.face.template := mainfo.tfacegreen;
     lposition.face.template := tfaceplayer;
     
     theplaying2 := historyfn.value; 
@@ -407,7 +408,7 @@ begin
  end; 
  
   uos_RePlay(theplayer2);
-  tstringdisp1.face.template := tfacegreen;
+  tstringdisp1.face.template := mainfo.tfacegreen;
   lposition.face.template := tfaceplayer;
   tstringdisp1.value := 'Replaying ' + theplaying2; 
 end;
@@ -429,7 +430,7 @@ btnStop2.Enabled := True;
  end; 
     
     uos_Pause(theplayer2);
-    tstringdisp1.face.template := tfacered;
+    tstringdisp1.face.template := mainfo.tfacered;
     lposition.face.template := tfaceplayer;
     tstringdisp1.value := 'Paused ' + theplaying2; 
 end;
@@ -450,8 +451,16 @@ end;
 
 procedure tsongplayer2fo.changevolume(const sender: TObject);
 begin
+
+if (trealspinedit(sender).clicked) and (linkvol.value = true) then
+begin
+if (trealspinedit(sender).tag = 0) 
+then edvolright.value := edvolleft.value else
+edvolleft.value := edvolright.value
+end;
+
    uos_InputSetDSPVolume(theplayer2, Inputindex2,
-   edvol.value/100, edvol.value/100, True);
+   edvolleft.value/100, edvolright.value/100, True);
 
 end;
 
@@ -472,8 +481,8 @@ temptimeinfo : ttime;
  ho, mi, se, ms: word;
 begin
 
- if fileexists(historyfn.value) then
-  begin
+ if fileexists(pchar(AnsiString(historyfn.value))) then
+   begin
   uos_Stop(theplayer2info) ;
 
  if uos_CreatePlayer(theplayer2info) then
@@ -583,7 +592,7 @@ caption := 'Song Player 2';
        Timerwait.ontimer := @ontimerwait;
        
         Timersent := ttimer.Create(nil);
-        Timersent.interval := 1000000;
+        Timersent.interval := 2000000;
         Timersent.Enabled := False;
        Timersent.ontimer := @ontimersent;
      

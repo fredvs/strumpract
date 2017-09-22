@@ -14,7 +14,7 @@ object mainfo: tmainfo
   face.localprops = [fal_fadirection]
   visible = False
   bounds_x = 577
-  bounds_y = 222
+  bounds_y = 223
   bounds_cx = 469
   bounds_cy = 68
   bounds_cxmin = 458
@@ -3206,15 +3206,18 @@ object mainfo: tmainfo
   object tframecomp1: tframecomp
     template.framei_left = 4
     template.framei_top = 2
-    template.framei_right = 4
+    template.framei_right = 3
     template.framei_bottom = 2
-    template.frameo_left = 1
-    template.frameo_right = 1
+    template.frameo_left = 2
+    template.frameo_top = 2
+    template.frameo_right = 2
+    template.frameo_bottom = 2
     template.frameimage_list = timagelist3
     template.frameimage_left = -8
     template.frameimage_top = -8
     template.frameimage_right = -8
     template.frameimage_bottom = -8
+    template.colorclient = 13421772
     template.hiddenedges = [edg_bottom]
     template.optionsskin = [fso_flat]
     left = 346
@@ -3261,7 +3264,7 @@ object mainfo: tmainfo
       A7C4C508FFFFFF075D5D5D01FFFFFF08A5C2C408FFFFFF075D5D5D01FFFFFF08
       A3C1C208FFFFFF075D5D5D01FFFFFF08A3C1C202A1C0C106FFFFFF075D5D5D01
       FFFFFF08A1C0C104A0BFC004F001010008010100040101000201010001010100
-      0101010001010100010101000080800000808000008080000080800000808000
+      010101000101010001010100FF80800000808000008080000080800000808000
       0080800000808000008080000FFFFF001000FF002000FF004000FF008000FF00
       8000FF008000FF008000FF00
     }
@@ -3295,5 +3298,50 @@ object mainfo: tmainfo
     template.fade_direction = gd_left
     left = 95
     top = 5
+  end
+  object tfacered: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16762052
+      16742520
+    )
+    template.fade_direction = gd_down
+    left = 323
+    top = 4
+  end
+  object tfacegreen: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      12779422
+      7255365
+    )
+    template.fade_direction = gd_down
+    left = 255
+    top = 4
+  end
+  object tfaceorange: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16766878
+      16749824
+    )
+    template.fade_direction = gd_down
+    left = 360
+    top = 1
   end
 end

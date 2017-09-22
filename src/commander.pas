@@ -21,12 +21,18 @@ type
    btnResume2: tbutton;
    btnStart2: tbutton;
    tlabel2: tlabel;
-   volume1: tslider;
+   volumeleft1: tslider;
    tfacecomp7: tfacecomp;
-   volume2: tslider;
-   startstop1: tbutton;
    tbutton2: tbutton;
    tfacecomp2: tfacecomp;
+   volumeleft2: tslider;
+   volumeright1: tslider;
+   volumeright2: tslider;
+   linkvol: tbooleanedit;
+   linkvol2: tbooleanedit;
+   tframecomp1: tframecomp;
+   timagelist2: timagelist;
+   tbutton3: tbutton;
    procedure formcreated(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    
@@ -84,16 +90,30 @@ end;
 
 procedure tcommanderfo.changevol(const sender: TObject);
 begin
-if tslider(sender).tag = 0 then
+if (tslider(sender).tag = 0) or (tslider(sender).tag = 1) then
 begin
+if linkvol.value = true then
+begin
+if (tslider(sender).tag = 0) 
+then volumeright1.value := volumeleft1.value else
+volumeleft1.value := volumeright1.value
+end;
 
-songplayerfo.edvol.value  := trunc(volume1.value* 100);
-
+songplayerfo.edvolleft.value  := trunc(volumeleft1.value* 100);
+songplayerfo.edvolright.value  := trunc(volumeright1.value* 100);
 //songplayerfo.changevolume(sender)
 
 end else
 begin
-songplayer2fo.edvol.value  := trunc(volume2.value* 100);
+if linkvol2.value = true then
+begin
+if (tslider(sender).tag = 2) 
+then volumeright2.value := volumeleft2.value else
+volumeleft2.value := volumeright2.value
+end;
+
+songplayer2fo.edvolleft.value  := trunc(volumeleft2.value* 100);
+songplayer2fo.edvolright.value  := trunc(volumeright2.value* 100);
 //songplayer2fo.changevolume(sender);
 end;
 end;
