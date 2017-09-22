@@ -999,7 +999,7 @@ sigsettings=27
  30,30,T,F
 defaultmake=1
 [breakpoints]
-on=19
+on=20
  0
  0
  0
@@ -1019,7 +1019,8 @@ on=19
  0
  0
  0
-path=19
+ 0
+path=20
  /home/fred/drumspract/main.pas
  /home/fred/strumpract/uos.pas
  /home/fred/strumpract/uos.pas
@@ -1039,7 +1040,8 @@ path=19
  /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/songplayer.pas
-line=19
+ /home/fred/strumpract/src/songplayer.pas
+line=20
  553
  6389
  7495
@@ -1053,13 +1055,14 @@ line=19
  11
  32
  40
- 442
- 5655
- 305
- 528
+ 449
+ 5662
+ 306
+ 535
  87
- 465
-address=19
+ 483
+ 467
+address=20
  4574251
  6931020
  6939728
@@ -1079,7 +1082,8 @@ address=19
  0
  0
  0
-addbkpt=19
+ 0
+addbkpt=20
  0
  0
  0
@@ -1099,7 +1103,8 @@ addbkpt=19
  0
  0
  0
-ignore=19
+ 0
+ignore=20
  0
  0
  0
@@ -1119,7 +1124,9 @@ ignore=19
  0
  0
  0
-condition=19
+ 0
+condition=20
+ 
  
  
  
@@ -1170,8 +1177,11 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=tface
+finddtext=id3
 findhistory=20
+ id3
+ timersent
+ hasinit
  tface
  Timerwait
  resizeall
@@ -1189,17 +1199,14 @@ findhistory=20
  fileex
  filelistfo
  = 5
- filedialogfo
- workarea
- bound
 findoptions=1
 editpos=9
- 8,6
  0,-1073741823
+ 0,136
+ 0,119
  0,-1073741823
- 0,7
- 0,-1073741823
- 0,-1073741823
+ 0,140
+ 0,1963
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1290,7 +1297,7 @@ order=9
  5
  1
 firsttab=0
-index=0
+index=7
 [layout]
 windowlayout=678
  [mainfo.basedock]
@@ -1318,8 +1325,8 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=159
- y=67
+ x=90
+ y=71
  cx=1123
  cy=619
  rcx=0
@@ -1339,8 +1346,8 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=866
- y=221
+ x=861
+ y=274
  cx=497
  cy=314
  rcx=0
@@ -1441,7 +1448,7 @@ windowlayout=678
  x=0
  y=0
  cx=205
- cy=523
+ cy=521
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1537,15 +1544,15 @@ windowlayout=678
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=599
- y=39
+ x=840
+ y=36
  cx=484
  cy=484
  rcx=0
@@ -1748,7 +1755,7 @@ windowlayout=678
  x=0
  y=0
  cx=1356
- cy=59
+ cy=61
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1764,7 +1771,7 @@ windowlayout=678
  x=0
  y=0
  cx=1356
- cy=61
+ cy=63
  rcx=0
  rcy=0
  [sourcefo]
@@ -1780,14 +1787,14 @@ windowlayout=678
  x=208
  y=0
  cx=1148
- cy=523
+ cy=521
  rcx=0
  rcy=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1814,15 +1821,15 @@ windowlayout=678
  ncx=0
  ncy=0
  x=0
- y=62
+ y=64
  cx=1356
- cy=523
+ cy=521
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1841,7 +1848,7 @@ windowlayout=678
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1867,8 +1874,8 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=235
- y=143
+ x=316
+ y=74
  cx=468
  cy=128
  rcx=0
@@ -1879,15 +1886,15 @@ windowlayout=678
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=366
- y=426
+ x=316
+ y=229
  cx=468
  cy=128
  rcx=0
@@ -1898,14 +1905,14 @@ windowlayout=678
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=452
+ x=453
  y=295
  cx=468
  cy=128
@@ -1955,7 +1962,7 @@ windowlayout=678
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0

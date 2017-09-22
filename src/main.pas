@@ -89,10 +89,11 @@ uses
 begin 
 timerwait.enabled := false;
 if fs_sbverton in container.frame.state then width := fowidth + scrollwidth  else width := fowidth ;
-if height < 60 then
+if height <= emptyheight +20 then
  begin basedock.height:= height - 20 ;
  basedock.width:= width - 20 ;
  end;
+ hasinit := 1 ;
 end; 
  
 procedure resizeall();
@@ -402,11 +403,17 @@ var
  recorderfo.top:= posi;
  posi := recorderfo.top + recorderfoheight + decorationheight;
  end;
+
+ {
  width := fowidth ;
  basedock.height := height - decorationheight +10;
  basedock.width := width - 10;
  basedock.top := 0;
  basedock.left := 0;
+ }
+ 
+ timerwait.enabled := true;
+ 
 end;
 
 procedure tmainfo.ondockall(const sender: TObject);

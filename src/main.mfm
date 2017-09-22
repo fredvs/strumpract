@@ -3337,7 +3337,7 @@ object mainfo: tmainfo
     )
     template.fade_color.count = 2
     template.fade_color.items = (
-      16766878
+      16775664
       16749824
     )
     template.fade_direction = gd_down

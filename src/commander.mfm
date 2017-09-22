@@ -7,7 +7,7 @@ object commanderfo: tcommanderfo
   frame.grip_face.template = mainfo.tfacecomp4
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 452
+  bounds_x = 453
   bounds_y = 295
   bounds_cx = 458
   bounds_cy = 128
@@ -267,7 +267,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp1
       taborder = 12
-      hint = ' Volume Player 1 Left'
+      hint = ' Left Volume Player 1 '
       bounds_x = 59
       bounds_y = 6
       bounds_cx = 50
@@ -1212,7 +1212,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp1
       taborder = 13
-      hint = ' Volume Player 2 '
+      hint = ' Left Volume Player 2 '
       bounds_x = 284
       bounds_y = 6
       bounds_cx = 50
@@ -2137,7 +2137,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp1
       taborder = 14
-      hint = ' Volume Player 1 Right'
+      hint = ' Right Volume Player 1 '
       bounds_x = 112
       bounds_y = 6
       bounds_cx = 50
@@ -3062,7 +3062,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp1
       taborder = 15
-      hint = ' Volume Player 2 Right'
+      hint = ' Right Volume Player 2 '
       bounds_x = 337
       bounds_y = 6
       bounds_cx = 50
@@ -3982,6 +3982,9 @@ object commanderfo: tcommanderfo
       frame.colorclient = 16580582
       frame.caption = 'Link vol'
       frame.captionpos = cp_top
+      frame.font.color = 4210752
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
@@ -3999,6 +4002,7 @@ object commanderfo: tcommanderfo
       bounds_cx = 48
       bounds_cy = 30
       statfile = mainfo.tstatfile1
+      colorglyph = 4539717
       value = True
     end
     object linkvol2: tbooleanedit
@@ -4007,6 +4011,9 @@ object commanderfo: tcommanderfo
       frame.colorclient = 16580582
       frame.caption = 'Link vol'
       frame.captionpos = cp_top
+      frame.font.color = 4210752
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
@@ -4024,6 +4031,7 @@ object commanderfo: tcommanderfo
       bounds_cx = 48
       bounds_cy = 30
       statfile = mainfo.tstatfile1
+      colorglyph = 4539717
       value = True
     end
     object tbutton3: tbutton

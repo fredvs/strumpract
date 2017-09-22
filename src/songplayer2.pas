@@ -20,7 +20,6 @@ type
    edtempo: trealspinedit;
    button1: tbutton;
    cbloop: tbooleanedit;
-   label6: tlabel;
    cbtempo: tbooleanedit;
    btnStop: tbutton;
    btnStart: tbutton;
@@ -95,6 +94,9 @@ main, commander,
 begin 
 timersent.enabled := false;
 historyfn.face.template := tfacecomp5; 
+edvolleft.face.template := tfaceplayer;
+edvolright.face.template := tfaceplayer;
+edtempo.face.template := tfaceplayer;
 end;
  
  procedure tsongplayer2fo.ontimerwait(const Sender: TObject);
@@ -124,15 +126,20 @@ end;
  
  procedure tsongplayer2fo.ChangePlugSetSoundTouch(const Sender: TObject);
    begin
-         if (trim(Pchar(AnsiString(songplayer2fo.historyfn.value))) <> '') 
+ if hasinit = 1 then begin   
+          if (trim(Pchar(AnsiString(songplayer2fo.historyfn.value))) <> '') 
          and fileexists(AnsiString(songplayer2fo.historyfn.value)) then
   begin
- 
+  if cbtempo.value = true then begin
+   edtempo.face.template := mainfo.tfaceorange;
+   timersent.enabled := false;
+   timersent.enabled := true;
+   end;
          uos_SetPluginSoundTouch(theplayer2, PluginIndex3, edtempo.value, 1, cbtempo.value);
  
     end;
   end;
- 
+ end;
   
 procedure tsongplayer2fo.ClosePlayer1;
   begin
@@ -451,6 +458,13 @@ end;
 
 procedure tsongplayer2fo.changevolume(const sender: TObject);
 begin
+if hasinit = 1 then begin
+if (trealspinedit(sender).tag = 0) 
+then edvolleft.face.template := mainfo.tfaceorange else
+edvolright.face.template := mainfo.tfaceorange;
+
+timersent.enabled := false;
+timersent.enabled := true;
 
 if (trealspinedit(sender).clicked) and (linkvol.value = true) then
 begin
@@ -462,6 +476,7 @@ end;
    uos_InputSetDSPVolume(theplayer2, Inputindex2,
    edvolleft.value/100, edvolright.value/100, True);
 
+end;
 end;
 
 procedure tsongplayer2fo.doentertrackbar(const sender: TObject);
@@ -587,12 +602,12 @@ begin
 
 caption := 'Song Player 2';
       Timerwait := ttimer.Create(nil);
-        Timerwait.interval := 100000;
+        Timerwait.interval := 200000;
         Timerwait.Enabled := False;
        Timerwait.ontimer := @ontimerwait;
        
         Timersent := ttimer.Create(nil);
-        Timersent.interval := 2000000;
+        Timersent.interval := 1500000;
         Timersent.Enabled := False;
        Timersent.ontimer := @ontimersent;
      
@@ -601,8 +616,7 @@ caption := 'Song Player 2';
        edtempo.enabled := false;
        cbtempo.enabled := false;
        Button1.enabled := false;
-       label6.enabled := false;
-       end;
+         end;
        
    ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
      
