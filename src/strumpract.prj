@@ -285,7 +285,7 @@ options=114
  index=0
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=1
+ index=2
  [projectoptionsfo]
  stackedunder=
  x=151
@@ -999,7 +999,7 @@ sigsettings=27
  30,30,T,F
 defaultmake=1
 [breakpoints]
-on=20
+on=21
  0
  0
  0
@@ -1020,7 +1020,8 @@ on=20
  0
  0
  0
-path=20
+ 0
+path=21
  /home/fred/drumspract/main.pas
  /home/fred/strumpract/uos.pas
  /home/fred/strumpract/uos.pas
@@ -1041,7 +1042,8 @@ path=20
  /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/songplayer.pas
  /home/fred/strumpract/src/songplayer.pas
-line=20
+ /home/fred/strumpract/src/commander.pas
+line=21
  553
  6389
  7495
@@ -1062,7 +1064,8 @@ line=20
  87
  483
  467
-address=20
+ 120
+address=21
  4574251
  6931020
  6939728
@@ -1083,7 +1086,8 @@ address=20
  0
  0
  0
-addbkpt=20
+ 0
+addbkpt=21
  0
  0
  0
@@ -1104,7 +1108,8 @@ addbkpt=20
  0
  0
  0
-ignore=20
+ 0
+ignore=21
  0
  0
  0
@@ -1125,7 +1130,9 @@ ignore=20
  0
  0
  0
-condition=20
+ 0
+condition=21
+ 
  
  
  
@@ -1177,8 +1184,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=id3
+finddtext=mse
 findhistory=20
+ mse
+ timerwait
  id3
  timersent
  hasinit
@@ -1197,19 +1206,18 @@ findhistory=20
  ondockplay
  thesender
  fileex
- filelistfo
- = 5
 findoptions=1
-editpos=9
- 0,123
+editpos=10
+ 0,73
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,7
+ 0,6638
  0,-1073741823
- 0,1963
  0,-1073741823
  0,-1073741823
- 0,-1073741823
+ 0,12
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1219,7 +1227,8 @@ bookmarks5=0
 bookmarks6=0
 bookmarks7=0
 bookmarks8=0
-sourcefiles=9
+bookmarks9=0
+sourcefiles=10
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/main.pas
@@ -1229,7 +1238,8 @@ sourcefiles=9
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/guitars.pas
-relpaths=9
+ ${PROJECTDIR}/define.inc
+relpaths=10
  commander.pas
  songplayer2.pas
  main.pas
@@ -1239,7 +1249,9 @@ relpaths=9
  recorder.pas
  drums.pas
  guitars.pas
-ismoduletexts=9
+ define.inc
+ismoduletexts=10
+ 0
  0
  0
  0
@@ -1286,7 +1298,7 @@ nomenumodules=8
  0
  0
 [sourcefo.files_tab]
-order=9
+order=10
  0
  6
  7
@@ -1295,6 +1307,7 @@ order=9
  8
  4
  5
+ 9
  1
 firsttab=0
 index=0
@@ -1312,8 +1325,8 @@ windowlayout=678
  ncy=0
  x=0
  y=0
- cx=1356
- cy=694
+ cx=1113
+ cy=602
  rcx=0
  rcy=0
  [mainfo]
@@ -1325,17 +1338,17 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=90
- y=71
+ x=151
+ y=98
  cx=1123
  cy=619
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1356,694
+  basedock,0,0,1113,602
  focusedchild=0
- wsize=6
- active=1
+ wsize=0
+ active=0
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1346,14 +1359,14 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=861
- y=274
+ x=249
+ y=208
  cx=497
  cy=314
  rcx=0
  rcy=0
  wsize=0
- active=0
+ active=1
  visible=1
  [threadsfo]
  splitdir=0
@@ -1448,7 +1461,7 @@ windowlayout=678
  x=0
  y=0
  cx=205
- cy=521
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1544,7 +1557,7 @@ windowlayout=678
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
@@ -1653,9 +1666,9 @@ windowlayout=678
  ncx=0
  ncy=0
  x=0
- y=588
- cx=1356
- cy=106
+ y=510
+ cx=1113
+ cy=92
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1724,7 +1737,7 @@ windowlayout=678
  [componentpalettefo]
  splitdir=0
  useroptions=805331051
- stackedunder=
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -1739,9 +1752,9 @@ windowlayout=678
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=1
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -1754,8 +1767,8 @@ windowlayout=678
  ncy=0
  x=0
  y=0
- cx=1356
- cy=61
+ cx=1113
+ cy=53
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1770,8 +1783,8 @@ windowlayout=678
  ncy=63
  x=0
  y=0
- cx=1356
- cy=63
+ cx=1113
+ cy=55
  rcx=0
  rcy=0
  [sourcefo]
@@ -1786,8 +1799,8 @@ windowlayout=678
  ncy=0
  x=208
  y=0
- cx=1148
- cy=521
+ cx=905
+ cy=451
  rcx=0
  rcy=0
  [cpuc86_64fo]
@@ -1821,9 +1834,9 @@ windowlayout=678
  ncx=0
  ncy=0
  x=0
- y=64
- cx=1356
- cy=521
+ y=56
+ cx=1113
+ cy=451
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -1848,7 +1861,7 @@ windowlayout=678
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1867,7 +1880,7 @@ windowlayout=678
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1905,15 +1918,15 @@ windowlayout=678
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=453
- y=295
+ x=734
+ y=283
  cx=468
  cy=128
  rcx=0
@@ -1962,7 +1975,7 @@ windowlayout=678
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=componentpalettefo
  parent=
  mdistate=0
  nx=0

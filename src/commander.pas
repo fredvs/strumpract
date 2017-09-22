@@ -3,13 +3,15 @@ unit commander;
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
- msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
- msefiledialog,msegrids,mseificomp,mseificompglob,mseifiglob,mselistbrowser,
- msestatfile,msestream,msestrings,msesys,sysutils,msegraphedits,msescrollbar;
+  msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
+ msedatanodes,mseedit,msefiledialog,msegrids,mseificomp,mseificompglob,
+ mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,sysutils,
+ msegraphedits,msescrollbar;
 
 type
  tcommanderfo = class(tdockform)
+   timermix : ttimer;
    tgroupbox1: tgroupbox;
    btnStop: tbutton;
    btnPause: tbutton;
@@ -33,6 +35,7 @@ type
    tframecomp1: tframecomp;
    timagelist2: timagelist;
    tbutton3: tbutton;
+   timemix: trealspinedit;
    procedure formcreated(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    
@@ -42,9 +45,15 @@ type
    procedure doresume(const sender: TObject);
    procedure changevol(const sender: TObject);
    procedure onstartstop(const sender: TObject);
+   procedure ontimermix(const Sender: TObject);
+   procedure ondest(const sender: TObject);
  end;
 var
  commanderfo: tcommanderfo;
+ totmixinterval, incmixinterval : integer;
+ initvolleft1, initvolright1, initvolleft2, initvolright2 : double;
+ maxvolleft1, maxvolright1, maxvolleft2, maxvolright2 : double;
+ thetypemix : integer = 0;
 implementation
 uses
 songplayer, songplayer2,
@@ -52,8 +61,139 @@ main, commander_mfm;
 
 procedure tcommanderfo.formcreated(const sender: TObject);
 begin
-
+        Timermix := ttimer.Create(nil);
+        Timermix.interval := 100000;
+        Timermix.Enabled := False;
+        Timermix.ontimer := @ontimermix;
 end;
+
+procedure tcommanderfo.onstartstop(const sender: TObject);
+begin
+
+totmixinterval := trunc(timemix.value / 10);
+
+incmixinterval := 0;
+
+maxvolleft1 := 1;
+maxvolright1 := 1;
+
+maxvolleft2 := 1;
+maxvolright2 := 1;
+
+initvolleft1 := 0;
+initvolright1 := 0;
+
+initvolleft2 := 0;
+initvolright2 := 0;
+
+if tbutton(sender).tag = 0 then
+begin
+thetypemix := 0;
+volumeleft1.value := 0;
+volumeright1.value := 0;
+//volumeleft2.value := 1;
+//volumeright2.value := 1;
+songplayerfo.doplayerstart(sender) ;
+timermix.enabled := true;
+end else
+begin
+thetypemix := 1;
+volumeleft2.value := 0;
+volumeright2.value := 0;
+//volumeleft2.value := 1;
+//volumeright2.value := 1;
+songplayer2fo.doplayerstart(sender) ;
+timermix.enabled := true;
+end;
+end;
+
+
+ procedure tcommanderfo.ontimermix(const Sender: TObject);
+ var
+ muststop : integer = 0;
+begin 
+timermix.enabled := false;
+ //  application.lock();
+  if thetypemix = 0 then begin
+if incmixinterval < totmixinterval then
+begin
+inc(incmixinterval);
+
+if (incmixinterval / totmixinterval) + initvolleft1 < maxvolleft1 then
+volumeleft1.value := (incmixinterval / totmixinterval) + initvolleft1 else
+volumeleft1.value := maxvolleft1  ;
+
+if (incmixinterval / totmixinterval) + initvolright1  < maxvolright1 then
+volumeright1.value := (incmixinterval / totmixinterval) + initvolright1  else
+volumeright1.value := maxvolright1;
+
+if ((totmixinterval-incmixinterval) / totmixinterval) - initvolleft2 > 0 then
+volumeleft2.value := ((totmixinterval-incmixinterval) / totmixinterval) - initvolleft2 else
+begin
+volumeleft2.value := 0  ;
+songplayer2fo.doplayerstop(sender) ;
+muststop := 1;
+end;
+
+if ((totmixinterval-incmixinterval) / totmixinterval) - initvolright2 > 0 then
+volumeright2.value := ((totmixinterval-incmixinterval) / totmixinterval) - initvolright2 
+else
+begin
+volumeright2.value := 0  ;
+songplayer2fo.doplayerstop(sender) ;
+muststop := 1;
+end;
+
+if muststop = 0 then
+timermix.enabled := true;
+end else 
+begin
+volumeright2.value := 0  ;
+songplayer2fo.doplayerstop(sender) ;
+end;
+ end else  /// player 2 --> 1
+begin
+
+if incmixinterval < totmixinterval  then
+begin
+inc(incmixinterval);
+
+if (incmixinterval / totmixinterval) + initvolleft2 < maxvolleft2 then
+volumeleft2.value := (incmixinterval / totmixinterval) + initvolleft2 else
+volumeleft2.value := maxvolleft2  ;
+
+if (incmixinterval / totmixinterval) + initvolright2  < maxvolright2 then
+volumeright2.value := (incmixinterval / totmixinterval) + initvolright2  else
+volumeright2.value := maxvolright2;
+
+if ((totmixinterval-incmixinterval) / totmixinterval) - initvolleft1 > 0 then
+volumeleft1.value := ((totmixinterval-incmixinterval) / totmixinterval) - initvolleft1 else
+begin
+volumeleft1.value := 0  ;
+songplayerfo.doplayerstop(sender) ;
+muststop := 1;
+end;
+
+if ((totmixinterval-incmixinterval) / totmixinterval) - initvolright1 > 0 then
+volumeright1.value := ((totmixinterval-incmixinterval) / totmixinterval) - initvolright1 
+else
+begin
+volumeright1.value := 0  ;
+songplayerfo.doplayerstop(sender) ;
+muststop := 1;
+end;
+
+if muststop = 0 then
+timermix.enabled := true;
+end else 
+begin
+volumeright1.value := 0  ;
+songplayerfo.doplayerstop(sender) ;
+end;
+end;
+   //  application.unlock(); 
+end;
+
 
 procedure tcommanderfo.visiblechangeev(const sender: TObject);
 begin
@@ -122,17 +262,9 @@ songplayer2fo.edvolright.value  := trunc(volumeright2.value* 100);
 end;
 end;
 
-procedure tcommanderfo.onstartstop(const sender: TObject);
+procedure tcommanderfo.ondest(const sender: TObject);
 begin
-if tbutton(sender).tag = 0 then
-begin
-songplayer2fo.doplayerstop(sender) ;
-songplayerfo.doplayerstart(sender) ;
-end else
-begin
-songplayerfo.doplayerstop(sender) ;
-songplayer2fo.doplayerstart(sender) ;
-end;
+Timermix.free;
 end;
 
 

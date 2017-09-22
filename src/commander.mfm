@@ -7,8 +7,8 @@ object commanderfo: tcommanderfo
   frame.grip_face.template = mainfo.tfacecomp4
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 453
-  bounds_y = 295
+  bounds_x = 734
+  bounds_y = 283
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -56,6 +56,7 @@ object commanderfo: tcommanderfo
     C0DCC004
   }
   oncreated = formcreated
+  ondestroy = ondest
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
@@ -75,6 +76,49 @@ object commanderfo: tcommanderfo
     bounds_y = 0
     bounds_cx = 448
     bounds_cy = 126
+    object timemix: trealspinedit
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16515040
+      frame.framei_left = 1
+      frame.framei_top = 1
+      frame.framei_right = 1
+      frame.framei_bottom = 1
+      frame.caption = 'Mix cs'
+      frame.captionpos = cp_top
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = tfacecomp2
+      frame.buttonsize = 20
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      face.localprops = []
+      face.template = tfacecomp2
+      taborder = 18
+      hint = ' Change mixing time in 1/100 second '
+      bounds_x = 192
+      bounds_y = 43
+      bounds_cx = 59
+      bounds_cy = 42
+      statfile = mainfo.tstatfile1
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      value = 300
+      valuedefault = 300
+      valuerange = 1
+      valuestart = 0
+      min = 0
+      max = 10000
+      step = 10
+      stepctrlfact = 0
+      stepshiftfact = 0
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
     object btnStop: tbutton
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
@@ -135,8 +179,8 @@ object commanderfo: tcommanderfo
     object tlabel28: tlabel
       color = -2147483645
       taborder = 6
-      bounds_x = 170
-      bounds_y = 16
+      bounds_x = 169
+      bounds_y = 4
       bounds_cx = 48
       bounds_cy = 15
       caption = 'Player 1'
@@ -248,7 +292,7 @@ object commanderfo: tcommanderfo
       color = -2147483645
       taborder = 11
       bounds_x = 228
-      bounds_y = 16
+      bounds_y = 4
       bounds_cx = 48
       bounds_cy = 15
       caption = 'Player 2'
@@ -1192,9 +1236,9 @@ object commanderfo: tcommanderfo
       taborder = 1
       hint = ' Stop player 1 and Start player 2 '
       bounds_x = 226
-      bounds_y = 76
+      bounds_y = 90
       bounds_cx = 50
-      bounds_cy = 45
+      bounds_cy = 30
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -3997,8 +4041,8 @@ object commanderfo: tcommanderfo
       face.template = tfacecomp7
       taborder = 16
       hint = ' Link left and right volume  '
-      bounds_x = 167
-      bounds_y = 30
+      bounds_x = 169
+      bounds_y = 20
       bounds_cx = 50
       bounds_cy = 30
       statfile = mainfo.tstatfile1
@@ -4026,8 +4070,8 @@ object commanderfo: tcommanderfo
       face.template = tfacecomp7
       taborder = 17
       hint = ' Link left and right volume  '
-      bounds_x = 229
-      bounds_y = 30
+      bounds_x = 226
+      bounds_y = 20
       bounds_cx = 50
       bounds_cy = 30
       statfile = mainfo.tstatfile1
@@ -4043,9 +4087,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacecomp6
       hint = ' Stop player 2 and Start player 1 '
       bounds_x = 171
-      bounds_y = 76
+      bounds_y = 90
       bounds_cx = 50
-      bounds_cy = 45
+      bounds_cy = 30
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -4107,8 +4151,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 222
-    top = 72
+    left = 61
+    top = 80
     image = {
       00000000020000000C0000000C000000F8000000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
