@@ -89,11 +89,7 @@ uses
 begin 
 timerwait.enabled := false;
 if fs_sbverton in container.frame.state then width := fowidth + scrollwidth  else width := fowidth ;
-if height <= emptyheight +20 then
- begin basedock.height:= height - 20 ;
- basedock.width:= width - 20 ;
- end;
- hasinit := 1 ;
+hasinit := 1 ;
 end; 
  
 procedure resizeall();
@@ -273,6 +269,7 @@ begin
    si1.cx:= maxwidth;
    if visiblecount = 0 then begin
     si1.cy:= emptyheight;
+    si1.cx:= basedock.width; //do not change width   
    end
    else begin
     si1.cy:= totheight + (visiblecount-1) * basedock.dragdock.splitter_size;
@@ -422,10 +419,7 @@ var
   decorationheight : integer = 5;
 begin
 
-//filelistfo.bounds_cxmax := fowidth ;
-
-filelistfo.bounds_cxmax := 700 ;
-//filelistfo.bounds_cymax := filelistfoheight;
+filelistfo.bounds_cxmax := fowidth ;
 filelistfo.bounds_cymax := 700;
 
 //sizebefdock.cy := 500;

@@ -1057,10 +1057,10 @@ line=21
  11
  32
  40
- 449
+ 443
  5662
- 306
- 535
+ 303
+ 529
  87
  483
  467
@@ -1184,8 +1184,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=mse
+finddtext=si1.cx:= maxwidth
 findhistory=20
+ si1.cx:= maxwidth
+ do not change this
  mse
  timerwait
  id3
@@ -1204,20 +1206,18 @@ findhistory=20
  .templ
  lposition.face
  ondockplay
- thesender
- fileex
 findoptions=1
 editpos=10
  0,73
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,7
- 0,6638
+ 14,91
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,12
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1310,7 +1310,7 @@ order=10
  9
  1
 firsttab=0
-index=0
+index=3
 [layout]
 windowlayout=678
  [mainfo.basedock]
@@ -1338,8 +1338,8 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=151
- y=98
+ x=234
+ y=114
  cx=1123
  cy=619
  rcx=0
@@ -1348,7 +1348,7 @@ windowlayout=678
   basedock,0,0,1113,602
  focusedchild=0
  wsize=0
- active=0
+ active=1
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1366,7 +1366,7 @@ windowlayout=678
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
  [threadsfo]
  splitdir=0
@@ -1557,7 +1557,7 @@ windowlayout=678
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1572,7 +1572,7 @@ windowlayout=678
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=474
  width0=214
@@ -1737,7 +1737,7 @@ windowlayout=678
  [componentpalettefo]
  splitdir=0
  useroptions=805331051
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -1752,7 +1752,7 @@ windowlayout=678
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
  activetab=1
  [debuggerfo]
@@ -1779,8 +1779,8 @@ windowlayout=678
  mdistate=0
  nx=0
  ny=0
- ncx=1356
- ncy=63
+ ncx=1113
+ ncy=55
  x=0
  y=0
  cx=1113
@@ -1861,7 +1861,7 @@ windowlayout=678
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1880,7 +1880,7 @@ windowlayout=678
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1918,7 +1918,7 @@ windowlayout=678
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1975,7 +1975,7 @@ windowlayout=678
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=componentpalettefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
