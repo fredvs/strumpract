@@ -86,15 +86,47 @@ uses
  main_mfm;
 
  procedure tmainfo.ontimerwait(const Sender: TObject);
+   var
+ children1: widgetarty;
+ i1, visiblecount: int32;
 begin 
 timerwait.enabled := false;
+
+ children1:= basedock.dragdock.getitems();
+ visiblecount:= 0; 
+
+// writeln('Number of childs: ' + inttostr(high(children1)));
+ 
+ for i1:= 0 to high(children1) do 
+   with children1[i1] do 
+         if visible then begin
+//  writeln('Child visible: ' + inttostr(i1));
+        inc(visiblecount); 
+        end;
+
+if visiblecount = 0 then begin
+//  writeln('No Child visible.');
+ width := fowidth ;
+ height := emptyheight + 20;
+ application.processmessages;
+ basedock.height := height-20;
+ basedock.width := width -10 ;
+ basedock.top := 0;
+ basedock.left := 0;
+// writeln('width: ' + inttostr(width));
+// writeln('height: ' + inttostr(height));
+// writeln('basedock.width: ' + inttostr(basedock.width));
+// writeln('basedock.height: ' + inttostr(basedock.height));
+   end;
+
 if fs_sbverton in container.frame.state then width := fowidth + scrollwidth  else width := fowidth ;
 hasinit := 1 ;
+
 end; 
  
 procedure resizeall();
 begin
- filelistfo.height := filelistfoheight;
+// filelistfo.height := filelistfoheight;
 end; 
 
 procedure resizealltab();
@@ -158,12 +190,21 @@ if not fileexists(tstatfile1.filename) then
  // ondockall(sender); /// otherwise size of dock is not ok
  //show;
  end;
-   if (filelistfo.visible) and (filelistfo.parentwidget = nil)
+
+  if (filelistfo.visible) then
+  begin 
+   if (filelistfo.parentwidget = nil)
 then
 begin
 filelistfo.bounds_cxmax := 1024 ;
 filelistfo.bounds_cymax := 600;
-end;   
+end else
+begin
+filelistfo.bounds_cxmax := fowidth ;
+filelistfo.bounds_cymax := 600;
+end;
+end;
+   
  Timerwait.Enabled := true; /// for width if scroll
 end;
 
@@ -250,11 +291,18 @@ begin
    maxwidth:= 0;
    totheight:= 0;
    totchildheight := 0;
+ 
+ //  writeln('Number of childs: ' + inttostr(high(children1)));
+  
+    
    for i1:= 0 to high(children1) do begin
     with children1[i1] do begin
      si1:= size;
      heights[i1]:= si1.cy;
      if visible then begin
+   
+  //   writeln('Child visible: ' + inttostr(i1));
+   
       if si1.cx > maxwidth then begin
        maxwidth:= si1.cx;
       end;
@@ -262,12 +310,14 @@ begin
       inc(visiblecount);
      end
      else begin
+  //   writeln('Child not visible: ' + inttostr(i1));
      heights[i1]:= 0;
      end;
     end;
    end;
    si1.cx:= maxwidth;
    if visiblecount = 0 then begin
+ //   writeln('basedock.width: ' + inttostr(basedock.width));
     si1.cy:= emptyheight;
     si1.cx:= basedock.width; //do not change width   
    end
@@ -275,6 +325,9 @@ begin
     si1.cy:= totheight + (visiblecount-1) * basedock.dragdock.splitter_size;
    end;
    basedock.size:= si1;
+ //   writeln('final basedock.width: ' + inttostr(basedock.width));
+ //   writeln('final basedock.height: ' + inttostr(basedock.height));
+ //   writeln('final basedock.top: ' + inttostr(basedock.top));
   end;
   container.frame.scrollpos:= nullpoint;
   addsize1(si1,sizety(basedock.pos));
@@ -286,7 +339,15 @@ begin
   until sizeisequal(container.paintsize,si1) or (i1 > 8);
  end; 
  
- // if filelistfo.parentwidget <> NIL THEN filelistfo.size := sizebefdock;
+ {
+  writeln('final2 basedock.width: ' + inttostr(basedock.width));
+  writeln('final2 basedock.height: ' + inttostr(basedock.height));
+  writeln('final2 basedock.top: ' + inttostr(basedock.top));
+  writeln('final2 width: ' + inttostr(width));
+  writeln('final2 height: ' + inttostr(height));
+  }
+  
+   // if filelistfo.parentwidget <> NIL THEN filelistfo.size := sizebefdock;
  
  timerwait.enabled := false; // to reset
  timerwait.enabled := true;
@@ -304,10 +365,7 @@ var
   si1: sizety;
  begin
  
- filelistfo.bounds_cxmax := 1024 ;
- filelistfo.bounds_cymax := 700;
- 
- decorationheight:= window.decoratedbounds_cy - height;
+  decorationheight:= window.decoratedbounds_cy - height;
  
  beginlayout();
  
@@ -333,6 +391,9 @@ var
  commanderfo.dragdock.float();
  
  endlayout();
+
+ filelistfo.bounds_cxmax := 1024 ;
+ filelistfo.bounds_cymax := 700;
 
  height := emptyheight +20;
  width := fowidth;
@@ -407,7 +468,7 @@ var
  basedock.width := width - 10;
  basedock.top := 0;
  basedock.left := 0;
- }
+// }
  
  timerwait.enabled := true;
  
@@ -502,6 +563,8 @@ end;
 
 procedure tmainfo.ontab(const sender: TObject);
 begin
+filelistfo.bounds_cxmax := fowidth ;
+filelistfo.bounds_cymax := 700;
  beginlayout();
  ondockall(sender); // otherwise the close button are hidden
  basedock.dragdock.currentsplitdir:= sd_tabed;

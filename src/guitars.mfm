@@ -20,8 +20,8 @@ object guitarsfo: tguitarsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
-  bounds_x = 275
-  bounds_y = 243
+  bounds_x = 645
+  bounds_y = 623
   bounds_cx = 458
   bounds_cy = 64
   bounds_cxmin = 458

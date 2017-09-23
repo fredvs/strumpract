@@ -1057,13 +1057,13 @@ line=21
  11
  32
  40
- 443
+ 504
  5662
- 303
- 529
+ 364
+ 592
  87
- 483
- 467
+ 491
+ 471
  120
 address=21
  4574251
@@ -1184,11 +1184,14 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=si1.cx:= maxwidth
+finddtext=writeln
 findhistory=20
+ writeln
+ lock();
+ unlo
+ mse
  si1.cx:= maxwidth
  do not change this
- mse
  timerwait
  id3
  timersent
@@ -1203,14 +1206,11 @@ findhistory=20
  addfrom
  mpg123_id3(StreamIn[x].Data.HandleSt
  Timersent
- .templ
- lposition.face
- ondockplay
 findoptions=1
 editpos=10
- 0,73
+ 0,241
  0,-1073741823
- 14,91
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1310,7 +1310,7 @@ order=10
  9
  1
 firsttab=0
-index=3
+index=0
 [layout]
 windowlayout=678
  [mainfo.basedock]
@@ -1338,7 +1338,7 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=234
+ x=125
  y=114
  cx=1123
  cy=619
@@ -1359,8 +1359,8 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=249
- y=208
+ x=68
+ y=419
  cx=497
  cy=314
  rcx=0
@@ -1564,8 +1564,8 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=840
- y=36
+ x=224
+ y=69
  cx=484
  cy=484
  rcx=0
@@ -1807,7 +1807,7 @@ windowlayout=678
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1842,7 +1842,7 @@ windowlayout=678
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1868,8 +1868,27 @@ windowlayout=678
  ny=0
  ncx=0
  ncy=0
- x=489
- y=254
+ x=723
+ y=246
+ cx=468
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_commanderfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=_mse_mainfo_mse_
+ parent=
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=734
+ y=283
  cx=468
  cy=128
  rcx=0
@@ -1880,7 +1899,7 @@ windowlayout=678
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1899,7 +1918,7 @@ windowlayout=678
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1915,37 +1934,18 @@ windowlayout=678
  wsize=0
  active=0
  visible=1
- [_mse_commanderfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=734
- y=283
- cx=468
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=545
- y=250
+ x=873
+ y=74
  cx=468
  cy=128
  rcx=0
@@ -1956,15 +1956,15 @@ windowlayout=678
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=437
- y=189
+ x=661
+ y=421
  cx=468
  cy=236
  rcx=0
@@ -1975,15 +1975,15 @@ windowlayout=678
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=275
- y=243
+ x=645
+ y=623
  cx=468
  cy=64
  rcx=0

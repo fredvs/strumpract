@@ -6,8 +6,8 @@ object filelistfo: tfilelistfo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
   visible = False
-  bounds_x = 489
-  bounds_y = 254
+  bounds_x = 723
+  bounds_y = 246
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -67,6 +67,7 @@ object filelistfo: tfilelistfo
     frame.template = commanderfo.tframecomp1
     face.localprops = []
     face.template = mainfo.tfacecomp1
+    taborder = 1
     bounds_x = 208
     bounds_y = 105
     bounds_cx = 115
@@ -84,7 +85,7 @@ object filelistfo: tfilelistfo
     frame.template = commanderfo.tframecomp1
     face.localprops = []
     face.template = mainfo.tfacecomp1
-    taborder = 1
+    taborder = 2
     bounds_x = 329
     bounds_y = 105
     bounds_cx = 115
@@ -95,20 +96,43 @@ object filelistfo: tfilelistfo
     onexecute = onsent
   end
   object songdir: tfilenameedit
-    frame.localprops = []
+    frame.levelo = 0
+    frame.framei_left = 4
+    frame.framei_top = 2
+    frame.framei_right = 4
+    frame.framei_bottom = 2
+    frame.frameo_left = 1
+    frame.frameo_right = 1
+    frame.frameimage_list = commanderfo.timagelist2
+    frame.frameimage_left = -4
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.frameimage_bottom = -4
+    frame.colorclient = -2147483645
+    frame.localprops = [frl_frameimagelist]
     frame.localprops1 = []
     frame.buttons.count = 1
     frame.buttons.items = <    
       item
+        face.localprops = []
+        face.template = tfacecomp2
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = commanderfo.tframecomp1
         imagenr = 17
       end>
+    frame.button.face.localprops = []
+    frame.button.face.template = tfacecomp2
+    frame.button.frame.localprops = []
+    frame.button.frame.localprops1 = []
+    frame.button.frame.template = commanderfo.tframecomp1
     frame.button.imagenr = 17
-    taborder = 2
+    taborder = 3
     hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
-    bounds_x = 5
+    bounds_x = 4
     bounds_y = 103
     bounds_cx = 22
-    bounds_cy = 23
+    bounds_cy = 22
     anchors = [an_left, an_bottom]
     statfile = mainfo.tstatfile1
     controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
@@ -144,14 +168,34 @@ object filelistfo: tfilelistfo
     frame.captiondist = 0
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
+    frame.template = commanderfo.tframecomp1
+    frame.button.face.localprops = []
+    frame.button.face.template = tfacecomp2
+    frame.button.frame.localprops = []
+    frame.button.frame.localprops1 = []
+    frame.button.frame.template = commanderfo.tframecomp1
     frame.buttons.count = 1
     frame.buttons.items = <    
       item
+        face.localprops = []
+        face.template = tfacecomp2
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = commanderfo.tframecomp1
       end>
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16777215
+      14408667
+    )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    face.template = songplayerfo.tfaceplayer
-    taborder = 3
+    taborder = 4
     hint = ' History of Directories '
     bounds_x = 25
     bounds_y = 103
@@ -173,6 +217,14 @@ object filelistfo: tfilelistfo
     reffontheight = 15
   end
   object list_files: tfilelistview
+    frame.levelo = 0
+    frame.colorclient = -2147483645
+    frame.frameimage_list = commanderfo.timagelist2
+    frame.frameimage_left = -4
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.frameimage_bottom = -4
+    frame.optionsskin = [fso_flat, fso_nofocusrect]
     frame.sbvert.width = 10
     frame.sbvert.face.localprops = []
     frame.sbvert.face.template = mainfo.tfacecomp6
@@ -183,14 +235,23 @@ object filelistfo: tfilelistfo
     frame.sbhorz.face.template = mainfo.tfacecomp5
     frame.sbhorz.facebutton.localprops = []
     frame.sbhorz.facebutton.template = mainfo.tfacecomp7
-    frame.localprops = []
+    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist]
     frame.localprops1 = []
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16777215
+      15461355
+    )
+    face.fade_direction = gd_down
     face.localprops = []
-    face.template = mainfo.tfacecomp4
-    taborder = 4
-    bounds_x = -1
-    bounds_y = -1
-    bounds_cx = 448
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 449
     bounds_cy = 97
     anchors = [an_left, an_top, an_right, an_bottom]
     cellwidth = 446

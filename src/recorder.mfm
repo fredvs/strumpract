@@ -9,8 +9,8 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
-  bounds_x = 545
-  bounds_y = 250
+  bounds_x = 873
+  bounds_y = 74
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -477,7 +477,8 @@ object recorderfo: trecorderfo
       onchange = onsliderchange
       enabled = False
       value = 0
-      scrollbar.buttonendlength = 11
+      scrollbar.buttonlength = 20
+      scrollbar.buttonendlength = -1
       scrollbar.face.fade_direction = gd_down
       scrollbar.face.localprops = [fal_fadirection]
       scrollbar.face.template = tfacecomp1

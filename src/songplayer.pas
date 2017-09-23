@@ -391,6 +391,7 @@ var
      uos_Play(theplayer) ;  /////// everything is ready, here we are, lets play it...
      btnpause.Enabled := true;
     end;
+    
     cbloop.enabled := false; 
     songdir.value := historyfn.value;
     historyfn.hint := historyfn.value;
@@ -419,8 +420,9 @@ begin
   btnPause.Enabled := True;
   btnresume.Enabled := False;
  end; 
- 
+
   uos_RePlay(theplayer);
+ 
   tstringdisp1.face.template := mainfo.tfacegreen;
   lposition.face.template := tfaceplayer;
   tstringdisp1.value := 'Replaying ' + theplaying1; 
@@ -443,6 +445,7 @@ btnStop.Enabled := True;
  end; 
     
     uos_Pause(theplayer);
+   
     tstringdisp1.face.template := mainfo.tfacered;
     lposition.face.template := tfaceplayer;
     tstringdisp1.value := 'Paused ' + theplaying1; 
@@ -451,6 +454,7 @@ end;
 procedure tsongplayerfo.doplayerstop(const sender: TObject);
 begin
  uos_Stop(theplayer);
+
 end;
 
 procedure tsongplayerfo.changepos(const sender: TObject; var avalue: realty;
@@ -472,14 +476,18 @@ edvolright.face.template := mainfo.tfaceorange;
 timersent.enabled := false;
 timersent.enabled := true;
 
+{
 if  (linkvol.value = true) then
 begin
 if (trealspinedit(sender).tag = 0) 
 then edvolright.value := edvolleft.value else
 edvolleft.value := edvolright.value
 end;
+}
+  
    uos_InputSetDSPVolume(theplayer, Inputindex1,
    edvolleft.value/100, edvolright.value/100, True);
+     
 end;
 end;
 

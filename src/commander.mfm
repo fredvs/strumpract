@@ -90,6 +90,9 @@ object commanderfo: tcommanderfo
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp2
+      frame.buttonframe.localprops = []
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = tframecomp1
       frame.buttonsize = 20
       frame.outerframe = (
         0

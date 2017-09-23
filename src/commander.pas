@@ -191,7 +191,7 @@ volumeright1.value := 0  ;
 songplayerfo.doplayerstop(sender) ;
 end;
 end;
-   //  application.unlock(); 
+     
 end;
 
 
@@ -266,6 +266,5 @@ procedure tcommanderfo.ondest(const sender: TObject);
 begin
 Timermix.free;
 end;
-
 
 end.
