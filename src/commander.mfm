@@ -7,8 +7,8 @@ object commanderfo: tcommanderfo
   frame.grip_face.template = mainfo.tfacecomp4
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 734
-  bounds_y = 283
+  bounds_x = 418
+  bounds_y = 445
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -102,7 +102,7 @@ object commanderfo: tcommanderfo
       )
       face.localprops = []
       face.template = tfacecomp2
-      taborder = 18
+      taborder = 1
       hint = ' Change mixing time in 1/100 second '
       bounds_x = 192
       bounds_y = 43
@@ -123,9 +123,10 @@ object commanderfo: tcommanderfo
       reffontheight = 15
     end
     object btnStop: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
@@ -142,9 +143,10 @@ object commanderfo: tcommanderfo
       onexecute = onstop
     end
     object btnPause: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
@@ -161,9 +163,10 @@ object commanderfo: tcommanderfo
       onexecute = dopause
     end
     object btnResume: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
@@ -193,9 +196,10 @@ object commanderfo: tcommanderfo
       reffontheight = 15
     end
     object btnStart: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
@@ -213,9 +217,10 @@ object commanderfo: tcommanderfo
     end
     object btnStop2: tbutton
       Tag = 1
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
@@ -233,9 +238,10 @@ object commanderfo: tcommanderfo
     end
     object btnPause2: tbutton
       Tag = 1
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
@@ -253,9 +259,10 @@ object commanderfo: tcommanderfo
     end
     object btnResume2: tbutton
       Tag = 1
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
@@ -273,9 +280,10 @@ object commanderfo: tcommanderfo
     end
     object btnStart2: tbutton
       Tag = 1
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
@@ -1228,26 +1236,6 @@ object commanderfo: tcommanderfo
       scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
-    object tbutton2: tbutton
-      Tag = 1
-      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = []
-      frame.template = tframecomp1
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacecomp6
-      taborder = 1
-      hint = ' Stop player 1 and Start player 2 '
-      bounds_x = 226
-      bounds_y = 90
-      bounds_cx = 50
-      bounds_cy = 30
-      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 27
-      focusrectdist = 0
-      onexecute = onstartstop
-    end
     object volumeleft2: tslider
       Tag = 2
       color = 13357471
@@ -1260,7 +1248,7 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp1
       taborder = 13
       hint = ' Left Volume Player 2 '
-      bounds_x = 284
+      bounds_x = 286
       bounds_y = 6
       bounds_cx = 50
       bounds_cy = 115
@@ -4081,18 +4069,40 @@ object commanderfo: tcommanderfo
       colorglyph = 4539717
       value = True
     end
-    object tbutton3: tbutton
-      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+    object tbutton2: tbutton
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp1
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacecomp6
-      hint = ' Stop player 2 and Start player 1 '
+      hint = ' Start player '
       bounds_x = 171
-      bounds_y = 90
-      bounds_cx = 50
-      bounds_cy = 30
+      bounds_y = 88
+      bounds_cx = 51
+      bounds_cy = 32
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = onstartstop
+    end
+    object tbutton3: tbutton
+      Tag = 1
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacecomp6
+      taborder = 18
+      hint = ' Start player '
+      bounds_x = 226
+      bounds_y = 88
+      bounds_cx = 51
+      bounds_cy = 32
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -4135,14 +4145,12 @@ object commanderfo: tcommanderfo
     template.framei_top = 2
     template.framei_right = 4
     template.framei_bottom = 2
-    template.frameo_left = 1
-    template.frameo_right = 1
     template.frameimage_list = timagelist2
     template.frameimage_left = -4
     template.frameimage_top = -4
     template.frameimage_right = -4
     template.frameimage_bottom = -4
-    template.optionsskin = [fso_flat, fso_nofocusrect]
+    template.optionsskin = [fso_flat]
     left = 87
     top = 54
   end
@@ -4157,17 +4165,56 @@ object commanderfo: tcommanderfo
     left = 61
     top = 80
     image = {
-      00000000020000000C0000000C000000F8000000000000000000000000000000
+      00000000020000000C0000000C00000010010000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
       00000003A5A5A50100000003FFFFFF018B8B8B01FFFFFF02A5A5A50100000003
       A5A5A501000000038B8B8B01FFFFFF03A5A5A50100000003A5A5A50100000003
-      8B8B8B01FFFFFF03A5A5A50100000003A5A5A50100000007FFFFFF038B8B8B01
-      FFFFFF038B8B8B0100000004FFFFFF038B8B8B01FFFFFF038B8B8B0100000004
-      FFFFFF038B8B8B01FFFFFF038B8B8B0100000004FFFFFF02D6D6D6018B8B8B01
-      FFFFFF02D6D6D6018B8B8B03FFFFFF028B8B8B0400000004FFFFFF028B8B8B01
-      FFFFFF04D6D6D60100000004FFFFFF038B8B8B01FFFFFF0400000004FFFFFF03
-      8B8B8B01FFFFFF04000000041C01000012010000110100001101000080080000
-      800800008008000080080000F3000000040000000800000008000000
+      8B8B8B01FFFFFF03A5A5A50100000003A5A5A501000000038B8B8B02FFFFFF01
+      8B8B8B01FFFFFF038B8B8B01FFFFFF038B8B8B01FFFFFF028B8B8B02FFFFFF03
+      8B8B8B01FFFFFF038B8B8B01FFFFFF038B8B8B01FFFFFF038B8B8B01FFFFFF03
+      8B8B8B01FFFFFF038B8B8B01FFFFFF02D6D6D6018B8B8B01FFFFFF02D6D6D601
+      8B8B8B03FFFFFF028B8B8B0400000004FFFFFF028B8B8B01FFFFFF04D6D6D601
+      00000004FFFFFF038B8B8B01FFFFFF0400000004FFFFFF038B8B8B01FFFFFF04
+      000000041C010000120100001101000011010000800800008008000080080000
+      80080000F3000000040000000800000008000000
     }
+  end
+  object timagelist3: timagelist
+    width = 4
+    height = 4
+    count = 8
+    cornermask_topleft = #2#1
+    cornermask_bottomleft = #2#1
+    cornermask_bottomright = #2#1
+    cornermask_topright = #2#1
+    left = 253
+    top = 60
+    image = {
+      00000000020000000C0000000C000000E8000000000000000000000000000000
+      0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
+      000000038B8B8B01FFFFFF048B8B8B01FFFFFF02A5A5A501000000038B8B8B01
+      FFFFFF038B8B8B01FFFFFF03A5A5A50100000003FFFFFF018B8B8B01FFFFFF02
+      8B8B8B01FFFFFF03A5A5A50100000003FFFFFF028B8B8B03FFFFFF068B8B8B01
+      FFFFFF038B8B8B02FFFFFF068B8B8B01FFFFFF038B8B8B01FFFFFF018B8B8B01
+      FFFFFF048B8B8B01FFFFFF048B8B8B07FFFFFF04D6D6D6018B8B8B03FFFFFF02
+      8B8B8B0400000004FFFFFF028B8B8B01FFFFFF04D6D6D60100000004FFFFFF03
+      8B8B8B01FFFFFF0400000004FFFFFF038B8B8B01FFFFFF04000000041C010000
+      1201000011020000110C00008008000080080000400800003F080000F3000000
+      040000000800000008000000
+    }
+  end
+  object tframecomp2: tframecomp
+    template.framei_left = 4
+    template.framei_top = 2
+    template.framei_right = 4
+    template.framei_bottom = 2
+    template.frameimage_list = timagelist3
+    template.frameimage_left = -4
+    template.frameimage_top = -4
+    template.frameimage_right = -4
+    template.frameimage_bottom = -4
+    template.optionsskin = [fso_flat]
+    left = 256
+    top = 42
   end
 end

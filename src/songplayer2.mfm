@@ -118,10 +118,10 @@ object songplayer2fo: tsongplayer2fo
     bounds_cy = 128
     object button1: tbutton
       Tag = 1
-      color = 11647116
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
+      frame.template = commanderfo.tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -205,9 +205,10 @@ object songplayer2fo: tsongplayer2fo
       colorglyph = 4539717
     end
     object btnStop: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
+      frame.template = commanderfo.tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -233,9 +234,10 @@ object songplayer2fo: tsongplayer2fo
       onexecute = doplayerstop
     end
     object btnStart: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
+      frame.template = commanderfo.tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -261,9 +263,10 @@ object songplayer2fo: tsongplayer2fo
       onexecute = doplayerstart
     end
     object btnResume: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
+      frame.template = commanderfo.tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -289,9 +292,10 @@ object songplayer2fo: tsongplayer2fo
       onexecute = doplayeresume
     end
     object btnPause: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
+      frame.template = commanderfo.tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -453,7 +457,7 @@ object songplayer2fo: tsongplayer2fo
     end
     object btinfos: tbutton
       Tag = 1
-      color = 11647116
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp1
@@ -482,8 +486,10 @@ object songplayer2fo: tsongplayer2fo
       onexecute = onfinfos
     end
     object llength: tstringdisp
+      color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp4
       taborder = 13
@@ -497,8 +503,10 @@ object songplayer2fo: tsongplayer2fo
       reffontheight = 15
     end
     object lposition: tstringdisp
+      color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp4
       taborder = 14
@@ -546,14 +554,12 @@ object songplayer2fo: tsongplayer2fo
     end
     object edvolright: trealspinedit
       Tag = 1
+      color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16515040
-      frame.framei_left = 1
-      frame.framei_top = 1
-      frame.framei_right = 1
-      frame.framei_bottom = 1
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp2
@@ -610,14 +616,12 @@ object songplayer2fo: tsongplayer2fo
       visible = False
     end
     object edvolleft: trealspinedit
+      color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16515040
-      frame.framei_left = 1
-      frame.framei_top = 1
-      frame.framei_right = 1
-      frame.framei_bottom = 1
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp2
@@ -696,14 +700,12 @@ object songplayer2fo: tsongplayer2fo
       reffontheight = 15
     end
     object edtempo: trealspinedit
+      color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16515040
-      frame.framei_left = 1
-      frame.framei_top = 1
-      frame.framei_right = 1
-      frame.framei_bottom = 1
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_pos.count = 2
       frame.buttonface.fade_pos.items = (
         0

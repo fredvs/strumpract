@@ -25,7 +25,6 @@ type
    cbloop: tbooleanedit;
    cbtempo: tbooleanedit;
    btnStop: tbutton;
-   btnStart: tbutton;
    btnResume: tbutton;
    btnPause: tbutton;
    tlabel28: tlabel;
@@ -44,6 +43,7 @@ type
    linkvol: tbooleanedit;
    tlabel2: tlabel;
    tlabel3: tlabel;
+   btnStart: tbutton;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);

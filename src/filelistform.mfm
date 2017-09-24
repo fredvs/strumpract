@@ -6,8 +6,8 @@ object filelistfo: tfilelistfo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
   visible = False
-  bounds_x = 723
-  bounds_y = 246
+  bounds_x = 449
+  bounds_y = 81
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -61,13 +61,12 @@ object filelistfo: tfilelistfo
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
   object tbutton1: tbutton
-    color = 13684944
+    color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp1
     face.localprops = []
     face.template = mainfo.tfacecomp1
-    taborder = 1
     bounds_x = 208
     bounds_y = 105
     bounds_cx = 115
@@ -79,13 +78,13 @@ object filelistfo: tfilelistfo
   end
   object tbutton2: tbutton
     Tag = 1
-    color = 13684944
+    color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp1
     face.localprops = []
     face.template = mainfo.tfacecomp1
-    taborder = 2
+    taborder = 1
     bounds_x = 329
     bounds_y = 105
     bounds_cx = 115
@@ -127,7 +126,7 @@ object filelistfo: tfilelistfo
     frame.button.frame.localprops1 = []
     frame.button.frame.template = commanderfo.tframecomp1
     frame.button.imagenr = 17
-    taborder = 3
+    taborder = 2
     hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
     bounds_x = 4
     bounds_y = 103
@@ -164,6 +163,7 @@ object filelistfo: tfilelistfo
     reffontheight = 15
   end
   object historyfn: thistoryedit
+    color = -2147483645
     frame.captionpos = cp_lefttop
     frame.captiondist = 0
     frame.localprops = []
@@ -195,7 +195,7 @@ object filelistfo: tfilelistfo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 4
+    taborder = 3
     hint = ' History of Directories '
     bounds_x = 25
     bounds_y = 103
@@ -217,14 +217,7 @@ object filelistfo: tfilelistfo
     reffontheight = 15
   end
   object list_files: tfilelistview
-    frame.levelo = 0
-    frame.colorclient = -2147483645
-    frame.frameimage_list = commanderfo.timagelist2
-    frame.frameimage_left = -4
-    frame.frameimage_top = -4
-    frame.frameimage_right = -4
-    frame.frameimage_bottom = -4
-    frame.optionsskin = [fso_flat, fso_nofocusrect]
+    frame.optionsskin = [fso_flat]
     frame.sbvert.width = 10
     frame.sbvert.face.localprops = []
     frame.sbvert.face.template = mainfo.tfacecomp6
@@ -235,31 +228,22 @@ object filelistfo: tfilelistfo
     frame.sbhorz.face.template = mainfo.tfacecomp5
     frame.sbhorz.facebutton.localprops = []
     frame.sbhorz.facebutton.template = mainfo.tfacecomp7
-    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist]
+    frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16777215
-      15461355
-    )
-    face.fade_direction = gd_down
     face.localprops = []
+    face.template = mainfo.tfacecomp4
+    taborder = 4
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 449
-    bounds_cy = 97
+    bounds_cy = 99
     anchors = [an_left, an_top, an_right, an_bottom]
     cellwidth = 446
-    cellheight = 19
+    cellheight = 20
     optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
     options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
     cellwidthmin = 446
-    cellheightmin = 19
+    cellheightmin = 18
     statfile = mainfo.tstatfile1
     onselectionchanged = selctchanged
     reffontheight = 15

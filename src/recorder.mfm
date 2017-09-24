@@ -207,8 +207,10 @@ object recorderfo: trecorderfo
       reffontheight = 15
     end
     object tbutton3: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp1
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
@@ -225,8 +227,10 @@ object recorderfo: trecorderfo
       onexecute = dorecorderstart
     end
     object tbutton2: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp1
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
@@ -295,17 +299,18 @@ object recorderfo: trecorderfo
     end
     object btinfos: tbutton
       Tag = 1
-      color = 11647116
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
       taborder = 8
       hint = ' Show infos of the song '
-      bounds_x = 10
+      bounds_x = 7
       bounds_y = 4
-      bounds_cx = 41
+      bounds_cx = 44
       bounds_cy = 20
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Infos'
@@ -314,17 +319,18 @@ object recorderfo: trecorderfo
       onexecute = onfinfos
     end
     object edvol: trealspinedit
+      color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16515040
-      frame.framei_left = 1
-      frame.framei_top = 1
-      frame.framei_right = 1
-      frame.framei_bottom = 1
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp1
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp1
+      frame.buttonframe.localprops = []
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 30
       face.localprops = []
       face.template = tfacerecorder
@@ -349,17 +355,18 @@ object recorderfo: trecorderfo
       reffontheight = 15
     end
     object edtempo: trealspinedit
+      color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16515040
-      frame.framei_left = 1
-      frame.framei_top = 1
-      frame.framei_right = 1
-      frame.framei_bottom = 1
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp1
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp1
+      frame.buttonframe.localprops = []
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 30
       face.localprops = []
       face.template = tfacerecorder
@@ -384,9 +391,10 @@ object recorderfo: trecorderfo
     end
     object button1: tbutton
       Tag = 1
-      color = 11647116
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
@@ -492,8 +500,10 @@ object recorderfo: trecorderfo
       onsetvalue = changepos
     end
     object btnStop: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
@@ -510,8 +520,10 @@ object recorderfo: trecorderfo
       onexecute = doplayerstop
     end
     object btnStart: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
@@ -528,8 +540,10 @@ object recorderfo: trecorderfo
       onexecute = doplayerstart
     end
     object btnResume: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
@@ -546,8 +560,10 @@ object recorderfo: trecorderfo
       onexecute = doplayeresume
     end
     object btnPause: tbutton
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacecomp1
@@ -581,13 +597,20 @@ object recorderfo: trecorderfo
       frame.captiondist = 0
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp1
       frame.button.face.localprops = []
       frame.button.face.template = tfacecomp1
+      frame.button.frame.localprops = []
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp1
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
           face.localprops = []
           face.template = tfacecomp1
+          frame.localprops = []
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp1
         end>
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -624,19 +647,26 @@ object recorderfo: trecorderfo
     object songdir: tfilenameedit
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp1
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
           face.localprops = []
           face.template = tfacecomp1
+          frame.localprops = []
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp1
           imagenr = 17
         end>
       frame.button.face.localprops = []
       frame.button.face.template = tfacecomp1
+      frame.button.frame.localprops = []
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp1
       frame.button.imagenr = 17
       taborder = 22
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
-      bounds_x = 57
+      bounds_x = 60
       bounds_y = 3
       bounds_cx = 22
       bounds_cy = 22
@@ -668,8 +698,10 @@ object recorderfo: trecorderfo
       reffontheight = 15
     end
     object llength: tstringdisp
+      color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp1
       taborder = 23
@@ -683,8 +715,10 @@ object recorderfo: trecorderfo
       reffontheight = 15
     end
     object lposition: tstringdisp
+      color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp1
       taborder = 24

@@ -3,7 +3,7 @@ unit commander;
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
-  msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
  msedatanodes,mseedit,msefiledialog,msegrids,mseificomp,mseificompglob,
  mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,sysutils,
@@ -25,7 +25,6 @@ type
    tlabel2: tlabel;
    volumeleft1: tslider;
    tfacecomp7: tfacecomp;
-   tbutton2: tbutton;
    tfacecomp2: tfacecomp;
    volumeleft2: tslider;
    volumeright1: tslider;
@@ -34,8 +33,11 @@ type
    linkvol2: tbooleanedit;
    tframecomp1: tframecomp;
    timagelist2: timagelist;
-   tbutton3: tbutton;
    timemix: trealspinedit;
+   timagelist3: timagelist;
+   tframecomp2: tframecomp;
+   tbutton2: tbutton;
+   tbutton3: tbutton;
    procedure formcreated(const sender: TObject);
    procedure visiblechangeev(const sender: TObject);
    

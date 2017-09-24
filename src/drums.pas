@@ -247,7 +247,7 @@ begin
  
  if noanim.value = false then
 begin
- application.lock();    
+//  application.lock();    
 label2.visible := true;
 
 if (posi = 1) or (posi = 9) then
@@ -469,7 +469,7 @@ posi := posi + 1;
 // Timertick.Enabled := true;
   Timertick.tag := 0 ;
   
-    application.unlock();
+  //  application.unlock();
  end else 
  begin
  Timertick.Enabled := false;

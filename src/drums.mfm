@@ -19,8 +19,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 661
-  bounds_y = 421
+  bounds_x = 619
+  bounds_y = 212
   bounds_cx = 458
   bounds_cy = 236
   bounds_cxmin = 458
@@ -819,21 +819,13 @@ object drumsfo: tdrumsfo
         bounds_cy = 17
       end
       object loop_stop: tbutton
-        color = -1610612731
+        color = 11848368
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
-        face.fade_pos.count = 2
-        face.fade_pos.items = (
-          0
-          1
-        )
-        face.fade_color.count = 2
-        face.fade_color.items = (
-          -1610612730
-          6857570
-        )
+        frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
+        face.template = tfacecomp2
         taborder = 14
         hint = ' Stop loop '
         bounds_x = 72
@@ -847,21 +839,13 @@ object drumsfo: tdrumsfo
         onexecute = dostop
       end
       object loop_resume: tbutton
-        color = -1610612731
+        color = 11848368
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
-        face.fade_pos.count = 2
-        face.fade_pos.items = (
-          0
-          1
-        )
-        face.fade_color.count = 2
-        face.fade_color.items = (
-          -1610612730
-          6857570
-        )
+        frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
+        face.template = tfacecomp2
         taborder = 15
         hint = ' Resume loop '
         bounds_x = 41
@@ -875,21 +859,19 @@ object drumsfo: tdrumsfo
         onexecute = doresume
       end
       object loop_start: tbutton
-        color = -1610612731
-        frame.localprops = [frl_optionsskin]
-        frame.localprops1 = []
-        face.fade_pos.count = 2
-        face.fade_pos.items = (
-          0
-          1
-        )
-        face.fade_color.count = 2
-        face.fade_color.items = (
-          -1610612730
-          6857570
-        )
+        color = 11848368
+        frame.colorframe = -2147483642
+        frame.colorframedefault = -2147483642
+        frame.colorshadow = -2147483642
+        frame.colorlight = -2147483642
+        frame.colordkwidth = 0
+        frame.colorhlwidth = 0
+        frame.localprops = [frl_colorframe, frl_colorshadow, frl_colorlight, frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
+        frame.localprops1 = [frl1_foleft, frl1_foright, frl1_colorframedefault]
+        frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
+        face.template = tfacecomp2
         taborder = 16
         hint = ' Start loop '
         bounds_x = 10
@@ -977,35 +959,28 @@ object drumsfo: tdrumsfo
         reffontheight = 15
       end
       object edittempo: trealspinedit
+        color = -2147483645
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.colorclient = 15923187
-        frame.framei_left = 1
-        frame.framei_top = 1
-        frame.framei_right = 1
-        frame.framei_bottom = 1
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
-        frame.buttonface.fade_pos.count = 2
-        frame.buttonface.fade_pos.items = (
-          0
-          1
-        )
-        frame.buttonface.fade_color.count = 2
-        frame.buttonface.fade_color.items = (
-          14284243
-          7906148
-        )
+        frame.template = commanderfo.tframecomp2
         frame.buttonface.fade_direction = gd_down
         frame.buttonface.localprops = [fal_fadirection]
+        frame.buttonface.template = tfacecomp2
+        frame.buttonframe.localprops = []
+        frame.buttonframe.localprops1 = []
+        frame.buttonframe.template = commanderfo.tframecomp1
         frame.buttonsize = 30
         face.localprops = []
         face.template = tfacecomp3
         taborder = 21
         hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
-        bounds_x = 118
+        bounds_x = 115
         bounds_y = 21
-        bounds_cx = 59
+        bounds_cx = 62
         bounds_cy = 40
+        textflagsactive = [tf_xcentered, tf_ycentered]
         onchange = onchangetempo
         value = 100
         valuedefault = 100
