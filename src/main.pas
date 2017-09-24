@@ -89,9 +89,11 @@ uses
    var
  children1: widgetarty;
  i1, visiblecount: int32;
-begin 
+ 
+ begin 
 timerwait.enabled := false;
 
+//{
  children1:= basedock.dragdock.getitems();
  visiblecount:= 0; 
 
@@ -103,14 +105,13 @@ timerwait.enabled := false;
 //  writeln('Child visible: ' + inttostr(i1));
         inc(visiblecount); 
         end;
-
-if visiblecount = 0 then begin
+if (visiblecount = 0) then begin
 //  writeln('No Child visible.');
  width := fowidth ;
  height := emptyheight + 20;
  application.processmessages;
  basedock.height := height-20;
- basedock.width := width -10 ;
+ basedock.width := width ;
  basedock.top := 0;
  basedock.left := 0;
 // writeln('width: ' + inttostr(width));
@@ -118,9 +119,11 @@ if visiblecount = 0 then begin
 // writeln('basedock.width: ' + inttostr(basedock.width));
 // writeln('basedock.height: ' + inttostr(basedock.height));
    end;
+//}
 
-if fs_sbverton in container.frame.state then width := fowidth + scrollwidth  else width := fowidth ;
+if (fs_sbverton in container.frame.state) then width := fowidth + scrollwidth  else width := fowidth ;
 hasinit := 1 ;
+
 
 end; 
  

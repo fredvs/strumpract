@@ -17,8 +17,6 @@ type
    
    tfaceplayer: tfacecomp;
    tgroupbox1: tgroupbox;
-   vuRight: tdockpanel;
-   vuLeft: tdockpanel;
    edvolleft: trealspinedit;
    edtempo: trealspinedit;
    button1: tbutton;
@@ -44,6 +42,8 @@ type
    tlabel2: tlabel;
    tlabel3: tlabel;
    btnStart: tbutton;
+   vuLeft: tgroupbox;
+   vuRight: tgroupbox;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);
@@ -76,6 +76,7 @@ type
    procedure ondestr(const sender: TObject);
    procedure changevol(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
+   procedure oncreated(const sender: TObject);
  end;
 var
  songplayerfo: tsongplayerfo;
@@ -638,7 +639,8 @@ caption := 'Song Player 1';
 // if historyfn.value = '' then
 // historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
  
- songplayerfo.historyfn.value := songplayerfo.songdir.value ;         
+ songplayerfo.historyfn.value := songplayerfo.songdir.value ;  
+ 
         
 end;
 
@@ -672,6 +674,11 @@ procedure tsongplayerfo.changevol(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
 changevolume(sender);
+end;
+
+procedure tsongplayerfo.oncreated(const sender: TObject);
+begin
+// tstringdisp1.left := 3 ; // if not left := 0 ?  
 end;
 
 

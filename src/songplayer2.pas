@@ -37,13 +37,13 @@ type
    tfacecomp5: tfacecomp;
    tfacecomp2: tfacecomp;
    tstringdisp1: tstringdisp;
-   vuRight: tdockpanel;
    edvolright: trealspinedit;
    linkvol: tbooleanedit;
    edvolleft: trealspinedit;
-   vuLeft: tdockpanel;
    tlabel3: tlabel;
    tlabel2: tlabel;
+   vuRight: tgroupbox;
+   vuLeft: tgroupbox;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);

@@ -17,8 +17,6 @@ type
    tfacerecorder: tfacecomp;
    tgroupbox1: tgroupbox;
    tfacecomp2: tfacecomp;
-   vuRight: tdockpanel;
-   vuLeft: tdockpanel;
    tlabel2: tlabel;
    tlabel28: tlabel;
    tbutton3: tbutton;
@@ -44,6 +42,8 @@ type
    llength: tstringdisp;
    lposition: tstringdisp;
    tfacecomp4: tfacecomp;
+   vuRight: tgroupbox;
+   vuLeft: tgroupbox;
    procedure doplayerstart(const sender: TObject);
    procedure doplayeresume(const sender: TObject);
    procedure doplayerpause(const sender: TObject);

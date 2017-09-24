@@ -334,9 +334,22 @@ object songplayer2fo: tsongplayer2fo
       reffontheight = 15
     end
     object trackbar1: tslider
-      color = 13357471
-      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      color = -2147483645
+      frame.levelo = -1
+      frame.localprops = [frl_levelo, frl_leveli]
       frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        12041360
+        11317639
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
       taborder = 9
       hint = ' Position of sound '
       bounds_x = 8
@@ -347,7 +360,7 @@ object songplayer2fo: tsongplayer2fo
       enabled = False
       value = 0
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
-      scrollbar.buttonlength = 20
+      scrollbar.buttonlength = 18
       scrollbar.buttonendlength = -1
       scrollbar.face.fade_direction = gd_down
       scrollbar.face.localprops = [fal_fadirection]
@@ -358,6 +371,10 @@ object songplayer2fo: tsongplayer2fo
       scrollbar.face2.localprops = []
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfacecomp7
+      scrollbar.framebutton.localprops = []
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       onsetvalue = changepos
     end
     object historyfn: thistoryedit
@@ -520,37 +537,18 @@ object songplayer2fo: tsongplayer2fo
       reffontheight = 15
     end
     object tstringdisp1: tstringdisp
+      color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp2
       taborder = 15
       bounds_x = 0
       bounds_y = 29
-      bounds_cx = 450
+      bounds_cx = 454
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
-    end
-    object vuRight: tdockpanel
-      color = 976914
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        8585109
-        38403
-      )
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      taborder = 16
-      visible = False
-      bounds_x = 290
-      bounds_y = 54
-      bounds_cx = 6
-      bounds_cy = 44
     end
     object edvolright: trealspinedit
       Tag = 1
@@ -570,7 +568,7 @@ object songplayer2fo: tsongplayer2fo
       frame.buttonpos = sbp_left
       face.localprops = []
       face.template = tfaceplayer
-      taborder = 17
+      taborder = 16
       hint = ' Change Right volume of song '
       bounds_x = 237
       bounds_y = 66
@@ -606,7 +604,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.localprops = []
       face.template = tfacecomp3
-      taborder = 18
+      taborder = 17
       hint = ' Link left and right volume  '
       bounds_x = 273
       bounds_y = 49
@@ -631,7 +629,7 @@ object songplayer2fo: tsongplayer2fo
       frame.buttonsize = 20
       face.localprops = []
       face.template = tfaceplayer
-      taborder = 19
+      taborder = 18
       hint = ' Change Left volume of song '
       bounds_x = 186
       bounds_y = 66
@@ -652,32 +650,11 @@ object songplayer2fo: tsongplayer2fo
       wheelsensitivity = 1
       reffontheight = 15
     end
-    object vuLeft: tdockpanel
-      color = 976914
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        8585109
-        38403
-      )
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      taborder = 20
-      visible = False
-      bounds_x = 177
-      bounds_y = 55
-      bounds_cx = 6
-      bounds_cy = 44
-    end
     object tlabel3: tlabel
       color = -2147483645
-      taborder = 21
+      taborder = 19
       bounds_x = 236
-      bounds_y = 48
+      bounds_y = 50
       bounds_cx = 32
       bounds_cy = 15
       caption = 'Right'
@@ -688,9 +665,9 @@ object songplayer2fo: tsongplayer2fo
     end
     object tlabel2: tlabel
       color = -2147483645
-      taborder = 22
+      taborder = 20
       bounds_x = 188
-      bounds_y = 49
+      bounds_y = 50
       bounds_cx = 23
       bounds_cy = 15
       caption = 'Left'
@@ -742,6 +719,34 @@ object songplayer2fo: tsongplayer2fo
       stepshiftfact = 0
       wheelsensitivity = 1
       reffontheight = 15
+    end
+    object vuRight: tgroupbox
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp1
+      face.localprops = []
+      face.template = mainfo.tfacegreen
+      taborder = 21
+      visible = False
+      bounds_x = 288
+      bounds_y = 54
+      bounds_cx = 8
+      bounds_cy = 44
+    end
+    object vuLeft: tgroupbox
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp1
+      face.localprops = []
+      face.template = mainfo.tfacegreen
+      taborder = 22
+      visible = False
+      bounds_x = 177
+      bounds_y = 54
+      bounds_cx = 8
+      bounds_cy = 44
     end
   end
   object tfaceplayer: tfacecomp

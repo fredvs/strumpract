@@ -85,6 +85,9 @@ object commanderfo: tcommanderfo
       frame.framei_bottom = 1
       frame.caption = 'Mix cs'
       frame.captionpos = cp_top
+      frame.font.color = 4342338
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.buttonface.fade_direction = gd_down
