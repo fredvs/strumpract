@@ -3249,6 +3249,7 @@ object commanderfo: tcommanderfo
       direction = gd_up
     end
     object volumeleft2: tslider
+      Tag = 2
       color = 13357471
       frame.levelo = 0
       frame.colordkwidth = 0
@@ -3266,7 +3267,7 @@ object commanderfo: tcommanderfo
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = changevol
-      value = 2
+      value = 1
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 17
       scrollbar.buttonminlength = -1

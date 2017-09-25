@@ -1256,7 +1256,7 @@ findhistory=20
 findoptions=1
 editpos=18
  0,-1073741823
- 0,4
+ 0,10
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1271,7 +1271,7 @@ editpos=18
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
+ 0,279
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1400,8 +1400,8 @@ order=18
  14
  15
  16
-firsttab=1
-index=1
+firsttab=10
+index=17
 [layout]
 windowlayout=659
  [mainfo.basedock]
@@ -1429,7 +1429,7 @@ windowlayout=659
  ny=0
  ncx=0
  ncy=0
- x=197
+ x=196
  y=114
  cx=1123
  cy=619
@@ -1648,22 +1648,22 @@ windowlayout=659
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=637
- y=115
+ x=691
+ y=306
  cx=484
  cy=484
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [objectinspectorfo.grid]
  propcolwidthref=474
  width0=214
@@ -1898,7 +1898,7 @@ windowlayout=659
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1933,7 +1933,7 @@ windowlayout=659
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1952,7 +1952,7 @@ windowlayout=659
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1971,7 +1971,7 @@ windowlayout=659
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -2047,7 +2047,7 @@ windowlayout=659
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
