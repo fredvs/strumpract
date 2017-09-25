@@ -7561,6 +7561,12 @@ begin
 
   CheckIfPaused ; // is there a pause waiting ?
    
+   
+   {$IF DEFINED(mse)}
+    application.lock();
+    {$endif} 
+    
+    
   case StreamIn[x].Data.TypePut of
  
   0:  // It is a input from audio file.
@@ -7588,7 +7594,12 @@ begin
   ReadEndless(x);
 
   end; //case StreamIn[x].Data.TypePut of
-
+  
+  {$IF DEFINED(mse)}
+   
+   application.unlock(); 
+   
+   {$endif}  
  
   if StreamIn[x].Data.OutFrames = 0 then StreamIn[x].Data.status := 0;
 
@@ -7764,12 +7775,18 @@ begin
   plugenabled := True;
   end;
   ///////////////////////////////////////////
+  {$IF DEFINED(mse)}
+  //  application.lock(); 
+   {$endif} 
   if plugenabled = True then
   WriteOutPlug(x, x2)
   else  // No plugin
   WriteOut(x, x2);
   end;
   end;
+  {$IF DEFINED(mse)}
+  // application.unlock(); 
+   {$endif} 
   
    {$IF DEFINED(debug)}
    WriteLn('Before LoopEndProc ------------------------------');

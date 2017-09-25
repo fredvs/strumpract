@@ -717,23 +717,26 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=6
+modulenames=7
  COMMANDERFO
  DRUMSFO
+ FILELISTFO
  MAINFO
  RECORDERFO
  SONGPLAYERFO
  SONGPLAYER2FO
-moduletypes=6
+moduletypes=7
  TCOMMANDERFO
  TDRUMSFO
+ TFILELISTFO
  TMAINFO
  TRECORDERFO
  TSONGPLAYERFO
  TSONGPLAYER2FO
-modulefiles=6
+modulefiles=7
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
+ /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
@@ -1228,8 +1231,11 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=timersent
+finddtext=execute
 findhistory=20
+ execute
+ lock(
+ lock
  timersent
  timerwait
  createdrums
@@ -1247,11 +1253,8 @@ findhistory=20
  id3
  hasinit
  Timerwait
- resizeall
- onsliderchange
- mpid3v2
 findoptions=1
-editpos=17
+editpos=18
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1260,11 +1263,12 @@ editpos=17
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,12
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,183
- 0,410
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1286,7 +1290,8 @@ bookmarks13=0
 bookmarks14=0
 bookmarks15=0
 bookmarks16=0
-sourcefiles=17
+bookmarks17=0
+sourcefiles=18
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/main.pas
@@ -1304,7 +1309,8 @@ sourcefiles=17
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/commander.pas
-relpaths=17
+ ${PROJECTDIR}/filelistform.pas
+relpaths=18
  commander.pas
  songplayer2.pas
  main.pas
@@ -1322,7 +1328,8 @@ relpaths=17
  drums.pas
  recorder.pas
  commander.pas
-ismoduletexts=17
+ filelistform.pas
+ismoduletexts=18
  0
  0
  0
@@ -1340,28 +1347,33 @@ ismoduletexts=17
  0
  0
  0
-modules=6
+ 0
+modules=7
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/songplayer2.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
-moduleoptions=6
+ /home/fred/strumpract/src/filelistform.mfm
+moduleoptions=7
  0
  0
  0
  0
  0
  0
-visiblemodules=6
+ 0
+visiblemodules=7
  -1
  0
  -1
  -1
  -1
  0
-nomenumodules=6
+ -1
+nomenumodules=7
+ 0
  0
  0
  0
@@ -1369,10 +1381,29 @@ nomenumodules=6
  0
  0
 [sourcefo.files_tab]
-firsttab=6
-index=11
+order=18
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ 11
+ 17
+ 12
+ 13
+ 14
+ 15
+ 16
+firsttab=0
+index=8
 [layout]
-windowlayout=640
+windowlayout=659
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1425,9 +1456,9 @@ windowlayout=640
  cy=541
  rcx=0
  rcy=0
- wsize=5
+ wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=805322857
@@ -1624,8 +1655,8 @@ windowlayout=640
  ny=0
  ncx=0
  ncy=0
- x=73
- y=99
+ x=535
+ y=156
  cx=484
  cy=484
  rcx=0
@@ -1978,7 +2009,7 @@ windowlayout=640
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2006,6 +2037,25 @@ windowlayout=640
  ncy=0
  x=192
  y=355
+ cx=468
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_filelistfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=449
+ y=81
  cx=468
  cy=128
  rcx=0

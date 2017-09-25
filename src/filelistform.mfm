@@ -246,6 +246,7 @@ object filelistfo: tfilelistfo
     cellheightmin = 18
     statfile = mainfo.tstatfile1
     onselectionchanged = selctchanged
+    filelist.options = [flo_sortname]
     reffontheight = 15
   end
   object tfacecomp2: tfacecomp
