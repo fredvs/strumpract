@@ -264,7 +264,8 @@ procedure tsongplayer2fo.ShowLevel;
      
     if (commanderfo.visible) and (commanderfo.vuin.value = true) then 
     begin
-    if (rightlev >= 0) and (rightlev < 1) then    commanderfo.vuRight.top := 124  - commanderfo.vuRight.Height; 
+    if (rightlev >= 0) and (rightlev < 1) then  
+      commanderfo.vuRight2.top := 124  - commanderfo.vuRight2.Height; 
     if (leftlev >= 0) and (leftlev < 1) then 
     commanderfo.vuLeft2.top := 124 - commanderfo.vuLeft2.Height;    end;
  

@@ -1261,14 +1261,14 @@ editpos=17
  0,1240
  0,-1073741823
  0,-1073741823
- 0,567
- 0,0
- 0,0
- 0,400
+ 0,-1073741823
+ 0,-1073741823
+ 0,275
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,369
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1370,7 +1370,7 @@ nomenumodules=6
  0
 [sourcefo.files_tab]
 firsttab=6
-index=6
+index=11
 [layout]
 windowlayout=640
  [mainfo.basedock]
@@ -1399,7 +1399,7 @@ windowlayout=640
  ncx=0
  ncy=0
  x=138
- y=199
+ y=114
  cx=1123
  cy=619
  rcx=0
@@ -1617,7 +1617,7 @@ windowlayout=640
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1632,7 +1632,7 @@ windowlayout=640
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=474
  width0=214
@@ -1867,7 +1867,7 @@ windowlayout=640
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1959,7 +1959,7 @@ windowlayout=640
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1978,7 +1978,7 @@ windowlayout=640
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
