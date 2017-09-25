@@ -106,8 +106,9 @@ findinfiledialog=64
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=tstringdisp1
+ value=tstringdisp1.face
  history=20
+  tstringdisp1.face
   tstringdisp1
   fs_sbhorzon
   select a audio
@@ -127,7 +128,6 @@ findinfiledialog=64
   getparent
   theparent
   queue
-  threadprocty
  [findinfileadialogfo]
  stackedunder=
  x=338
@@ -1084,8 +1084,8 @@ line=26
  367
  595
  87
- 588
- 568
+ 593
+ 573
  144
  285
  318
@@ -1231,13 +1231,15 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=execute
+finddtext=tstringdisp1.face
 findhistory=20
+ tstringdisp1.face
+ status
+ timerwait
  execute
  lock(
  lock
  timersent
- timerwait
  createdrums
  vuleft.vi
  dostart
@@ -1251,26 +1253,24 @@ findhistory=20
  si1.cx:= maxwidth
  do not change this
  id3
- hasinit
- Timerwait
 findoptions=1
 editpos=18
- 0,3
- 0,0
+ 0,-1073741823
+ 0,4
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,2
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
  0,-1073741823
- 0,0
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1400,8 +1400,8 @@ order=18
  14
  15
  16
-firsttab=10
-index=16
+firsttab=1
+index=1
 [layout]
 windowlayout=659
  [mainfo.basedock]
@@ -1430,7 +1430,7 @@ windowlayout=659
  ncx=0
  ncy=0
  x=197
- y=585
+ y=114
  cx=1123
  cy=619
  rcx=0
@@ -1439,7 +1439,7 @@ windowlayout=659
   basedock,0,0,1113,602
  focusedchild=0
  wsize=0
- active=1
+ active=0
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1451,13 +1451,13 @@ windowlayout=659
  ncx=0
  ncy=0
  x=140
- y=558
+ y=192
  cx=497
  cy=541
  rcx=0
  rcy=0
  wsize=0
- active=0
+ active=1
  visible=1
  [threadsfo]
  splitdir=0
@@ -1648,7 +1648,7 @@ windowlayout=659
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1663,12 +1663,12 @@ windowlayout=659
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
- propcolwidthref=459
- width0=207
+ propcolwidthref=474
+ width0=214
  sortdescend0=0
- width1=246
+ width1=254
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1898,7 +1898,7 @@ windowlayout=659
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1933,7 +1933,7 @@ windowlayout=659
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
@@ -1952,7 +1952,7 @@ windowlayout=659
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1971,7 +1971,7 @@ windowlayout=659
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1990,7 +1990,7 @@ windowlayout=659
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2009,7 +2009,7 @@ windowlayout=659
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2028,7 +2028,7 @@ windowlayout=659
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2047,7 +2047,7 @@ windowlayout=659
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
