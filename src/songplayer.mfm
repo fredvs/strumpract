@@ -192,24 +192,25 @@ object songplayerfo: tsongplayerfo
       frame.captionpos = cp_top
       frame.captiondist = 3
       frame.font.color = 4013373
+      frame.font.height = 10
       frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color]
+      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        9
-        20
-        9
+        6
+        18
+        7
         0
       )
       face.localprops = []
       face.template = tfacecomp3
       taborder = 3
       hint = ' Enable looping the song '
-      bounds_x = 138
-      bounds_y = 60
-      bounds_cx = 31
-      bounds_cy = 32
+      bounds_x = 141
+      bounds_y = 62
+      bounds_cx = 26
+      bounds_cy = 30
       statfile = mainfo.tstatfile1
       colorglyph = 4539717
     end
@@ -221,14 +222,15 @@ object songplayerfo: tsongplayerfo
       frame.captionpos = cp_topleft
       frame.captiondist = 3
       frame.font.color = 4013373
+      frame.font.height = 10
       frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color]
+      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        20
-        77
+        18
+        60
         0
       )
       face.localprops = []
@@ -236,9 +238,9 @@ object songplayerfo: tsongplayerfo
       taborder = 4
       hint = ' Enable stretching (changing temo) '
       bounds_x = 315
-      bounds_y = 48
-      bounds_cx = 90
-      bounds_cy = 32
+      bounds_y = 50
+      bounds_cx = 73
+      bounds_cy = 30
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
     end
@@ -334,15 +336,16 @@ object songplayerfo: tsongplayerfo
     object tlabel28: tlabel
       color = -2147483645
       taborder = 8
-      bounds_x = 34
-      bounds_y = 51
-      bounds_cx = 83
-      bounds_cy = 15
+      bounds_x = 41
+      bounds_y = 53
+      bounds_cx = 67
+      bounds_cy = 13
       caption = 'Song Player 1'
       font.color = 4210752
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
     end
     object trackbar1: tslider
       color = -2147483645
@@ -626,28 +629,30 @@ object songplayerfo: tsongplayerfo
     object tlabel2: tlabel
       color = -2147483645
       taborder = 18
-      bounds_x = 191
-      bounds_y = 50
-      bounds_cx = 23
-      bounds_cy = 15
+      bounds_x = 192
+      bounds_y = 54
+      bounds_cx = 20
+      bounds_cy = 13
       caption = 'Left'
       font.color = 4013373
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
     end
     object tlabel3: tlabel
       color = -2147483645
       taborder = 19
-      bounds_x = 236
-      bounds_y = 50
-      bounds_cx = 32
-      bounds_cy = 15
+      bounds_x = 259
+      bounds_y = 54
+      bounds_cx = 26
+      bounds_cy = 13
       caption = 'Right'
       font.color = 4013373
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
     end
     object edtempo: trealspinedit
       color = -2147483645

@@ -8,7 +8,7 @@ object commanderfo: tcommanderfo
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
   bounds_x = 536
-  bounds_y = 170
+  bounds_y = 169
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -83,8 +83,9 @@ object commanderfo: tcommanderfo
       frame.caption = 'Mix time'
       frame.captionpos = cp_top
       frame.font.color = 4342338
+      frame.font.height = 10
       frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color]
+      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.template = tframecomp2
@@ -97,7 +98,7 @@ object commanderfo: tcommanderfo
       frame.buttonsize = 20
       frame.outerframe = (
         0
-        18
+        16
         0
         0
       )
@@ -106,9 +107,9 @@ object commanderfo: tcommanderfo
       taborder = 1
       hint = ' Change mixing time in 1/100 second '
       bounds_x = 111
-      bounds_y = 50
+      bounds_y = 52
       bounds_cx = 59
-      bounds_cy = 42
+      bounds_cy = 40
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       value = 300
@@ -2142,26 +2143,27 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = ' L/R'
+      frame.caption = ' L+R'
       frame.font.color = 4210752
+      frame.font.height = 10
       frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color]
+      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
+        1
+        27
         2
-        26
-        3
       )
       face.localprops = []
       face.template = songplayerfo.tfacecomp2
       taborder = 12
       hint = ' Link left and right volume  '
       bounds_x = 49
-      bounds_y = 1
-      bounds_cx = 39
-      bounds_cy = 17
+      bounds_y = 2
+      bounds_cx = 40
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4539717
       value = True
@@ -2210,27 +2212,28 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'L/R  '
+      frame.caption = 'L+R  '
       frame.captionpos = cp_left
       frame.font.color = 4210752
+      frame.font.height = 10
       frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color]
+      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         30
-        2
+        1
         0
-        3
+        2
       )
       face.localprops = []
       face.template = songplayerfo.tfacecomp2
       taborder = 14
       hint = ' Link left and right volume  '
       bounds_x = 192
-      bounds_y = 1
+      bounds_y = 2
       bounds_cx = 43
-      bounds_cy = 17
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4539717
       value = True
@@ -2238,15 +2241,16 @@ object commanderfo: tcommanderfo
     object tlabel1: tlabel
       color = -2147483645
       taborder = 15
-      bounds_x = 109
-      bounds_y = 8
-      bounds_cx = 68
-      bounds_cy = 15
+      bounds_x = 111
+      bounds_y = 13
+      bounds_cx = 55
+      bounds_cy = 13
       caption = '1  Player  2'
       font.color = 4868682
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
     end
     object vuRight: tgroupbox
       color = -2147483645
@@ -2282,24 +2286,25 @@ object commanderfo: tcommanderfo
       frame.colorclient = 16580582
       frame.caption = 'VU'
       frame.font.color = 4210752
+      frame.font.height = 10
       frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color]
+      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
+        1
+        17
         2
-        20
-        3
       )
       face.localprops = []
       face.template = songplayerfo.tfacecomp2
       taborder = 18
       hint = ' Enable level view meters '
-      bounds_x = 128
-      bounds_y = 28
-      bounds_cx = 33
-      bounds_cy = 17
+      bounds_x = 125
+      bounds_y = 34
+      bounds_cx = 30
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4539717
     end
@@ -5185,15 +5190,16 @@ object commanderfo: tcommanderfo
     object tlabel2: tlabel
       color = -2147483645
       taborder = 4
-      bounds_x = 55
-      bounds_y = 10
-      bounds_cx = 40
-      bounds_cy = 15
+      bounds_x = 59
+      bounds_y = 11
+      bounds_cx = 33
+      bounds_cy = 13
       caption = 'Drums'
       font.color = 4868682
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
     end
   end
   object tgroupboxinput: tgroupbox
