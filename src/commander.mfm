@@ -8,7 +8,7 @@ object commanderfo: tcommanderfo
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
   bounds_x = 536
-  bounds_y = 171
+  bounds_y = 170
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -2227,8 +2227,8 @@ object commanderfo: tcommanderfo
       face.template = songplayerfo.tfacecomp2
       taborder = 14
       hint = ' Link left and right volume  '
-      bounds_x = 187
-      bounds_y = 0
+      bounds_x = 192
+      bounds_y = 1
       bounds_cx = 43
       bounds_cy = 17
       statfile = mainfo.tstatfile1
