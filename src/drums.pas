@@ -171,7 +171,7 @@ var
   ach, aoh, asd, abd : tcheck;
 implementation
 uses
-main, uos_flat,
+main, uos_flat, commander,
  drums_mfm;
  
  procedure tdrumsfo.ontimerpause(const Sender: TObject);
@@ -487,6 +487,10 @@ begin
   loop_resume.Enabled := false; 
   TimerTick.Enabled := true; 
   loop_stop.Enabled := true; 
+ 
+  commanderfo.loop_resume.Enabled := false; 
+  commanderfo.loop_stop.Enabled := true; 
+   
 end;
 
 procedure tdrumsfo.dostop(const sender: TObject);
@@ -494,6 +498,8 @@ begin
  label2.enabled := false;
  loop_stop.Enabled := false; 
  loop_resume.Enabled := true; 
+ commanderfo.loop_resume.Enabled := true;
+ commanderfo.loop_stop.Enabled := false; 
  stopit := true; 
  Timerpause.Enabled := true; 
 end;
@@ -506,6 +512,9 @@ begin
  loop_resume.Enabled := false;
  loop_stop.Enabled := true; 
  TimerTick.Enabled := true; 
+ 
+ commanderfo.loop_resume.Enabled := false; 
+ commanderfo.loop_stop.Enabled := true; 
 
 end;
 

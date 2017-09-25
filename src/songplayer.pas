@@ -161,6 +161,7 @@ procedure tsongplayerfo.ClosePlayer1;
     vuleft.Height := 0;
     vuLeft.Visible := False;
      vuRight.Visible := False;
+     
     btnStart.Enabled := True;
     btnStop.Enabled := False;
     btnPause.Enabled := False;
@@ -172,6 +173,10 @@ procedure tsongplayerfo.ClosePlayer1;
     btnStop.Enabled := False;
     btnPause.Enabled := False;
     btnresume.Enabled := False;
+    vuright.Height := 0;
+    vuleft.Height := 0;
+    vuLeft.Visible := False;
+     vuRight.Visible := False;
  end; 
       
     cbloop.enabled := true;
@@ -184,15 +189,101 @@ procedure tsongplayerfo.ClosePlayer1;
      end;
      
   procedure tsongplayerfo.ShowLevel;
+  var
+  leftlev, rightlev:double;
   begin
-      vuLeft.Visible := True;
-    vuRight.Visible := True;
-    if trunc(uos_InputGetLevelLeft(theplayer, Inputindex1) * 44) >= 0 then
-      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer, Inputindex1) * 44);
-    if trunc(uos_InputGetLevelRight(theplayer, Inputindex1) * 44) >= 0 then
-      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer, Inputindex1) * 44);
+  
+     vuLeft.Visible := True;
+     vuRight.Visible := True;
+     
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then begin
+     commanderfo.vuLeft.Visible := True;
+     commanderfo.vuRight.Visible := True;
+     end else
+     begin
+     commanderfo.vuLeft.Visible := false;
+     commanderfo.vuRight.Visible := false;
+     end;
+    
+    leftlev := uos_InputGetLevelLeft(theplayer, Inputindex1);
+    rightlev := uos_InputGetLevelRight(theplayer, Inputindex1);
+ //{  
+ 
+ if (leftlev >= 0) and (leftlev < 1) then begin 
+    if leftlev < 0.80 then
+      begin
+     vuLeft.face.template := mainfo.tfacegreen;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuLeft.face.template := mainfo.tfacegreen;
+    end 
+      else
+     if leftlev < 0.90 then
+     begin
+     vuLeft.face.template := mainfo.tfaceorange;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuLeft.face.template := mainfo.tfaceorange;
+     end  else 
+     begin
+     vuLeft.face.template := mainfo.tfacered;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuLeft.face.template := mainfo.tfacered;
+     end;
+     end;
+     
+     if (rightlev >= 0) and (rightlev < 1) then begin
+     
+      if rightlev < 0.80 then
+      begin
+     vuRight.face.template := mainfo.tfacegreen;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuRight.face.template := mainfo.tfacegreen;
+     end else
+     if rightlev < 0.90 then
+     begin
+     vuRight.face.template := mainfo.tfaceorange; 
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuRight.face.template := mainfo.tfaceorange; 
+     end   else 
+     begin 
+     vuRight.face.template := mainfo.tfacered;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuRight.face.template := mainfo.tfacered;
+     end;
+     end;
+    
+ //}  
+    if (leftlev >= 0) and (leftlev < 1) then
+     begin
+      vuLeft.Height := trunc(leftlev * 44);
+      if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+       commanderfo.vuLeft.Height := trunc(leftlev * 105);
+     end; 
+  
+    if (rightlev >= 0) and (rightlev < 1) then
+    begin
+      vuRight.Height := trunc(rightlev * 44);
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuRight.Height := trunc(rightlev * 105); 
+    end;
+   
+    if (rightlev >= 0) and (rightlev < 1) then
+    begin
+    vuRight.top := 95  - vuRight.Height; 
+    end;
+    
+    if (leftlev >= 0) and (leftlev < 1) then     
+    begin
     vuLeft.top := 95 - vuLeft.Height;
-    vuRight.top := 95  - vuRight.Height;
+     end;
+     
+    if (commanderfo.visible) and (commanderfo.vuin.value = true) then 
+    begin
+    if (rightlev >= 0) and (rightlev < 1) then
+    commanderfo.vuRight.top := 124  - commanderfo.vuRight.Height; 
+    if (leftlev >= 0) and (leftlev < 1) then 
+    commanderfo.vuLeft.top := 124 - commanderfo.vuLeft.Height;
+    end;
+ 
    end;  
  
  procedure tsongplayerfo.ShowPosition;
@@ -435,11 +526,16 @@ begin
     vuRight.Visible := False;
     vuright.Height := 0;
     vuleft.Height := 0;
+    
     btnStop.Enabled := True;
     btnPause.Enabled := False;
     btnresume.Enabled := True;
         with commanderfo do
  begin
+  vuLeft.Visible := False;
+    vuRight.Visible := False;
+    vuright.Height := 0;
+    vuleft.Height := 0;
 btnStop.Enabled := True;
     btnPause.Enabled := False;
     btnresume.Enabled := True;

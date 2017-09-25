@@ -176,16 +176,98 @@ procedure tsongplayer2fo.ClosePlayer1;
     tstringdisp1.value := ''; 
      end;
      
-  procedure tsongplayer2fo.ShowLevel;
+procedure tsongplayer2fo.ShowLevel;
+  var
+  leftlev, rightlev:double;
   begin
-      vuLeft.Visible := True;
-    vuRight.Visible := True;
-    if trunc(uos_InputGetLevelLeft(theplayer2, Inputindex2) * 44) >= 0 then
-      vuLeft.Height := trunc(uos_InputGetLevelLeft(theplayer2, Inputindex2) * 44);
-    if trunc(uos_InputGetLevelRight(theplayer2, Inputindex2) * 44) >= 0 then
-      vuRight.Height := trunc(uos_InputGetLevelRight(theplayer2, Inputindex2) * 44);
+       vuLeft.Visible := True;
+     vuRight.Visible := True;
+     
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then begin
+     commanderfo.vuLeft2.Visible := True;
+     commanderfo.vuRight2.Visible := True;
+     end else
+     begin
+     commanderfo.vuLeft2.Visible := false;
+     commanderfo.vuRight2.Visible := false;
+     end;
+    
+    leftlev := uos_InputGetLevelLeft(theplayer2, Inputindex2);
+    rightlev := uos_InputGetLevelRight(theplayer2, Inputindex2);
+ //{  
+ 
+ if (leftlev >= 0) and (leftlev < 1) then begin 
+    if leftlev < 0.80 then
+      begin
+     vuLeft.face.template := mainfo.tfacegreen;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuLeft2.face.template := mainfo.tfacegreen;
+    end 
+      else
+     if leftlev < 0.90 then
+     begin
+     vuLeft.face.template := mainfo.tfaceorange;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuLeft2.face.template := mainfo.tfaceorange;
+     end  else 
+     begin
+     vuLeft.face.template := mainfo.tfacered;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuLeft2.face.template := mainfo.tfacered;
+     end;
+     end;
+     
+     if (rightlev >= 0) and (rightlev < 1) then begin
+     
+      if rightlev < 0.80 then
+      begin
+     vuRight.face.template := mainfo.tfacegreen;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuRight2.face.template := mainfo.tfacegreen;
+     end else
+     if rightlev < 0.90 then
+     begin
+     vuRight.face.template := mainfo.tfaceorange; 
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuRight2.face.template := mainfo.tfaceorange; 
+     end   else 
+     begin 
+     vuRight.face.template := mainfo.tfacered;
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuRight2.face.template := mainfo.tfacered;
+     end;
+     end;
+    
+ //}  
+    if (leftlev >= 0) and (leftlev < 1) then     begin
+      vuLeft.Height := trunc(leftlev * 44);
+      if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+       commanderfo.vuLeft2.Height := trunc(leftlev * 105);
+     end; 
+  
+    if (rightlev >= 0) and (rightlev < 1) then
+    begin
+      vuRight.Height := trunc(rightlev * 44);
+     if (commanderfo.visible) and (commanderfo.vuin.value = true) then
+      commanderfo.vuRight2.Height := trunc(rightlev * 105); 
+    end;
+   
+    if (rightlev >= 0) and (rightlev < 1) then
+    begin
+    vuRight.top := 95  - vuRight.Height; 
+    end;
+    
+    if (leftlev >= 0) and (leftlev < 1) then     
+    begin
     vuLeft.top := 95 - vuLeft.Height;
-    vuRight.top := 95 - vuRight.Height;
+     end;
+     
+    if (commanderfo.visible) and (commanderfo.vuin.value = true) then 
+    begin
+    if (rightlev >= 0) and (rightlev < 1) then    commanderfo.vuRight.top := 124  - commanderfo.vuRight.Height; 
+    if (leftlev >= 0) and (leftlev < 1) then 
+    commanderfo.vuLeft2.top := 124 - commanderfo.vuLeft2.Height;    end;
+ 
    end;  
  
  procedure tsongplayer2fo.ShowPosition;

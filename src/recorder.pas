@@ -144,16 +144,35 @@ procedure trecorderfo.ClosePlayer1;
     
      end;
      
-  procedure trecorderfo.ShowLevel;
+   procedure trecorderfo.ShowLevel;
+  var
+  leftlev, rightlev:double;
   begin
-      vuLeft.Visible := True;
-    vuRight.Visible := True;
-    if trunc(uos_InputGetLevelLeft(therecplayer, InputIndex3) * 44) >= 0 then
-      vuLeft.Height := trunc(uos_InputGetLevelLeft(therecplayer, InputIndex3) * 44);
-    if trunc(uos_InputGetLevelRight(therecplayer, InputIndex3) * 44) >= 0 then
-      vuRight.Height := trunc(uos_InputGetLevelRight(therecplayer, InputIndex3) * 44);
-    vuLeft.top := 96 - vuLeft.Height;
-    vuRight.top := 96 - vuRight.Height;
+     vuLeft.Visible := True;
+     vuRight.Visible := True;
+    
+    leftlev := uos_InputGetLevelLeft(therecplayer, Inputindex3);
+    rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
+    
+    if leftlev < 0.80 then
+     vuLeft.face.template := mainfo.tfacegreen else
+     if leftlev < 0.90 then
+     vuLeft.face.template := mainfo.tfaceorange else  
+     vuLeft.face.template := mainfo.tfacered;
+     
+      if rightlev < 0.80 then
+     vuRight.face.template := mainfo.tfacegreen else
+     if rightlev < 0.90 then
+     vuRight.face.template := mainfo.tfaceorange else  
+     vuRight.face.template := mainfo.tfacered;
+     
+    
+    if trunc(leftlev * 44) >= 0 then
+      vuLeft.Height := trunc(leftlev * 44);
+    if trunc(rightlev * 44) >= 0 then
+      vuRight.Height := trunc(rightlev * 44);
+    vuLeft.top := 95 - vuLeft.Height;
+    vuRight.top := 95  - vuRight.Height;
    end;  
  
  procedure trecorderfo.ShowPosition;
@@ -556,12 +575,12 @@ procedure trecorderfo.dorecorderstart(const sender: TObject);
     tbutton3.enabled := false;
      btnStart.Enabled := false;
    
+   if bsavetofile.value then
    uos_AddIntoFile(therecplayer, pchar(AnsiString(historyfn.value)));
-   //  if checkbox1.Checked then
-     OutputIndex3 := uos_AddIntoDevOut(therecplayer);
+  
+       OutputIndex3 := uos_AddIntoDevOut(therecplayer);
      uos_outputsetenable(therecplayer,OutputIndex3,blistenin.value);
-   
-   
+     
    InputIndex3 := uos_AddFromDevIn(therecplayer);
    /// add Input from mic/aux into IN device with default parameters
     
