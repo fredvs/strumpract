@@ -20,7 +20,7 @@ object drumsfo: tdrumsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
   bounds_x = 703
-  bounds_y = 218
+  bounds_y = 220
   bounds_cx = 458
   bounds_cy = 236
   bounds_cxmin = 458
@@ -500,8 +500,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 2
         hint = ' Drums Patern 1 '
-        bounds_x = 319
-        bounds_y = 16
+        bounds_x = 329
+        bounds_y = 17
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -528,8 +528,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 3
         hint = ' Drums Patern 2 '
-        bounds_x = 319
-        bounds_y = 32
+        bounds_x = 329
+        bounds_y = 33
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -554,8 +554,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 4
         hint = ' Drums Patern 3 '
-        bounds_x = 319
-        bounds_y = 48
+        bounds_x = 329
+        bounds_y = 49
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -580,8 +580,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 5
         hint = ' Drums Patern 4 '
-        bounds_x = 319
-        bounds_y = 64
+        bounds_x = 329
+        bounds_y = 65
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -606,8 +606,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 6
         hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
-        bounds_x = 273
-        bounds_y = 64
+        bounds_x = 283
+        bounds_y = 65
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -632,8 +632,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 7
         hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
-        bounds_x = 273
-        bounds_y = 48
+        bounds_x = 283
+        bounds_y = 49
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -658,8 +658,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 8
         hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
-        bounds_x = 273
-        bounds_y = 32
+        bounds_x = 283
+        bounds_y = 33
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -684,8 +684,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 9
         hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
-        bounds_x = 273
-        bounds_y = 16
+        bounds_x = 283
+        bounds_y = 17
         bounds_cx = 30
         bounds_cy = 17
         onchange = dopatern
@@ -693,8 +693,8 @@ object drumsfo: tdrumsfo
       object tlabel22: tlabel
         color = -2147483645
         taborder = 1
-        bounds_x = 314
-        bounds_y = 3
+        bounds_x = 324
+        bounds_y = 4
         bounds_cx = 39
         bounds_cy = 15
         caption = 'Patern'
@@ -705,8 +705,8 @@ object drumsfo: tdrumsfo
       end
       object tlabel21: tlabel
         color = -2147483645
-        bounds_x = 266
-        bounds_y = 3
+        bounds_x = 276
+        bounds_y = 4
         bounds_cx = 41
         bounds_cy = 15
         caption = 'Lesson'
@@ -735,8 +735,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 10
         hint = ' No graphic animation. '
-        bounds_x = 361
-        bounds_y = 59
+        bounds_x = 371
+        bounds_y = 60
         bounds_cx = 65
         bounds_cy = 17
       end
@@ -760,8 +760,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 11
         hint = ' No "and" between 2 numbers. '
-        bounds_x = 361
-        bounds_y = 26
+        bounds_x = 371
+        bounds_y = 27
         bounds_cx = 70
         bounds_cy = 17
         value = True
@@ -786,8 +786,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 12
         hint = ' No counting voice '
-        bounds_x = 361
-        bounds_y = 10
+        bounds_x = 371
+        bounds_y = 11
         bounds_cx = 66
         bounds_cy = 17
         onsetvalue = onsetnovoice
@@ -813,8 +813,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp3
         taborder = 13
         hint = ' No drums sound.  '
-        bounds_x = 361
-        bounds_y = 42
+        bounds_x = 371
+        bounds_y = 43
         bounds_cx = 74
         bounds_cy = 17
       end
@@ -828,8 +828,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp2
         taborder = 14
         hint = ' Stop loop '
-        bounds_x = 72
-        bounds_y = 35
+        bounds_x = 68
+        bounds_y = 36
         bounds_cx = 30
         bounds_cy = 30
         state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -848,8 +848,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp2
         taborder = 15
         hint = ' Resume loop '
-        bounds_x = 41
-        bounds_y = 35
+        bounds_x = 37
+        bounds_y = 36
         bounds_cx = 30
         bounds_cy = 30
         state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -874,8 +874,8 @@ object drumsfo: tdrumsfo
         face.template = tfacecomp2
         taborder = 16
         hint = ' Start loop '
-        bounds_x = 10
-        bounds_y = 35
+        bounds_x = 6
+        bounds_y = 36
         bounds_cx = 30
         bounds_cy = 30
         state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -889,8 +889,8 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 17
         visible = False
-        bounds_x = 230
-        bounds_y = 26
+        bounds_x = 255
+        bounds_y = 25
         bounds_cx = 18
         bounds_cy = 44
         caption = '/'
@@ -908,8 +908,8 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 18
         enabled = False
-        bounds_x = 204
-        bounds_y = 18
+        bounds_x = 229
+        bounds_y = 17
         bounds_cx = 32
         bounds_cy = 59
         caption = '0'
@@ -930,8 +930,8 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 19
         visible = False
-        bounds_x = 194
-        bounds_y = 26
+        bounds_x = 219
+        bounds_y = 25
         bounds_cx = 18
         bounds_cy = 44
         caption = '\'
@@ -944,19 +944,6 @@ object drumsfo: tdrumsfo
         font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
         textflags = [tf_xcentered, tf_ycentered]
         reffontheight = 59
-      end
-      object label5: tlabel
-        color = -2147483645
-        taborder = 20
-        bounds_x = 120
-        bounds_y = 65
-        bounds_cx = 53
-        bounds_cy = 15
-        caption = '150 BPM'
-        font.color = 657930
-        font.name = 'stf_default'
-        font.localprops = [flp_color]
-        reffontheight = 15
       end
       object edittempo: trealspinedit
         color = -2147483645
@@ -971,14 +958,14 @@ object drumsfo: tdrumsfo
         frame.buttonframe.localprops = []
         frame.buttonframe.localprops1 = []
         frame.buttonframe.template = commanderfo.tframecomp1
-        frame.buttonsize = 30
+        frame.buttonsize = 20
         face.localprops = []
         face.template = tfacecomp3
-        taborder = 21
+        taborder = 20
         hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
-        bounds_x = 115
-        bounds_y = 21
-        bounds_cx = 62
+        bounds_x = 105
+        bounds_y = 20
+        bounds_cx = 50
         bounds_cy = 40
         textflagsactive = [tf_xcentered, tf_ycentered]
         onchange = onchangetempo
@@ -996,8 +983,8 @@ object drumsfo: tdrumsfo
       end
       object tlabel25: tlabel
         color = -2147483645
-        taborder = 22
-        bounds_x = 124
+        taborder = 21
+        bounds_x = 107
         bounds_y = 3
         bounds_cx = 46
         bounds_cy = 15
@@ -1009,15 +996,81 @@ object drumsfo: tdrumsfo
       end
       object tlabel26: tlabel
         color = -2147483645
-        taborder = 23
-        bounds_x = 25
-        bounds_y = 15
+        taborder = 22
+        bounds_x = 21
+        bounds_y = 16
         bounds_cx = 64
         bounds_cy = 15
         caption = 'Drums Set'
         font.color = 4210752
         font.name = 'stf_default'
         font.localprops = [flp_color]
+        reffontheight = 15
+      end
+      object tlabel23: tlabel
+        color = -2147483645
+        taborder = 23
+        bounds_x = 163
+        bounds_y = 3
+        bounds_cx = 45
+        bounds_cy = 15
+        caption = 'Volume'
+        font.color = 5197647
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
+        reffontheight = 15
+      end
+      object volumedrums: trealspinedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 15923187
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
+        frame.buttonface.fade_direction = gd_down
+        frame.buttonface.localprops = [fal_fadirection]
+        frame.buttonface.template = tfacecomp2
+        frame.buttonframe.localprops = []
+        frame.buttonframe.localprops1 = []
+        frame.buttonframe.template = commanderfo.tframecomp1
+        frame.buttonsize = 20
+        face.localprops = []
+        face.template = tfacecomp3
+        taborder = 24
+        hint = ' General volume of Drums '
+        bounds_x = 161
+        bounds_y = 19
+        bounds_cx = 50
+        bounds_cy = 40
+        textflagsactive = [tf_xcentered, tf_ycentered]
+        onchange = onchangevol
+        value = 100
+        valuedefault = 100
+        valuerange = 1
+        valuestart = 0
+        min = 0
+        max = 100
+        step = 1
+        stepctrlfact = 0
+        stepshiftfact = 0
+        wheelsensitivity = 1
+        reffontheight = 15
+      end
+      object ltempo: tstringdisp
+        color = -2147483645
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
+        face.localprops = []
+        face.template = tfacecomp2
+        taborder = 25
+        hint = ' Position of sound '
+        bounds_x = 104
+        bounds_y = 62
+        bounds_cx = 108
+        bounds_cy = 16
+        textflags = [tf_xcentered, tf_ycentered]
+        value = 'Tempo 150 BPM'
         reffontheight = 15
       end
     end

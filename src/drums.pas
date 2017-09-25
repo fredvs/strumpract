@@ -6,7 +6,7 @@ uses
  msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msesimplewidgets,msewidgets,msegraphedits,msedataedits, SysUtils,Classes,
  msedragglob,mseificomp,mseificompglob,mseifiglob,msescrollbar,msetypes,mseact,
- mseedit,msestatfile,msestream,msestrings;
+ mseedit,msestatfile,msestream,msestrings,msedispwidgets,mserichstring;
 
 type
  talab =  array[0..15] of tlabel;
@@ -17,6 +17,7 @@ type
  tdrumsfo = class(tdockform)
    Timertick: Ttimer;
    Timerpause: Ttimer;
+   Timersent: Ttimer;
    tfacedrums: tfacecomp;
    tdockpanel1: tgroupbox;
    and4: tlabel;
@@ -65,7 +66,6 @@ type
    label4: tlabel;
    label2: tlabel;
    label3: tlabel;
-   label5: tlabel;
    edittempo: trealspinedit;
    tlabel25: tlabel;
    tlabel26: tlabel;
@@ -139,8 +139,12 @@ type
    tbooleanedit64: tbooleanedit;
    tfacecomp2: tfacecomp;
    tfacecomp3: tfacecomp;
+   tlabel23: tlabel;
+   volumedrums: trealspinedit;
+   ltempo: tstringdisp;
    procedure ontimertick(const Sender: TObject);
    procedure ontimerpause(const Sender: TObject);
+   procedure ontimersent(const Sender: TObject);
    procedure dostart(const sender: TObject);
    procedure dostop(const sender: TObject);
    procedure doresume(const sender: TObject);
@@ -157,13 +161,16 @@ type
    procedure onsetnovoice(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
    procedure ondestroi(const sender: TObject);
+   procedure onchangevol(const sender: TObject);
  end;
 var
  drumsfo: tdrumsfo;
   posi :integer = 1;
   initdrum : integer = 1;
+  
   adrums: array[0..8] of string;
- drum_beats: array[0..3] of string; 
+ drum_beats: array[0..3] of string;
+ drum_input: array[0..3] of integer; 
  ams :  array[0..8] of Tmemorystream; 
   alab : talab;
  alab2 : talab2;
@@ -173,6 +180,14 @@ implementation
 uses
 main, uos_flat, commander,
  drums_mfm;
+ 
+ procedure tdrumsfo.ontimersent(const Sender: TObject);
+begin 
+timersent.enabled := false;
+edittempo.face.template := tfacecomp3; 
+volumedrums.face.template := tfacecomp3;
+ltempo.face.template := tfacecomp3;
+end; 
  
  procedure tdrumsfo.ontimerpause(const Sender: TObject);
 var
@@ -223,12 +238,32 @@ end;
  if nodrums.value = false then 
 begin
 
- if  ach[posi-1].value = true then uos_PlaynofreePaused(0) ;
- if  aoh[posi-1].value = true then uos_PlaynofreePaused(1) ;
- if  asd[posi-1].value = true then uos_PlaynofreePaused(2) ;
- if  abd[posi-1].value = true then uos_PlaynofreePaused(3) ;
-   
-   // uos_SetGlobalEvent(true) was executed --> This set events (like pause/replay threads) to global.
+ if  ach[posi-1].value = true then 
+ begin   
+ uos_InputSetDSPVolume(0, drum_input[0], volumedrums.value/100, 
+ volumedrums.value/100, True);
+ uos_PlaynofreePaused(0) ;
+ end;
+ 
+ if  aoh[posi-1].value then  begin   
+ uos_InputSetDSPVolume(1, drum_input[1], volumedrums.value/100, 
+ volumedrums.value/100, True);
+ uos_PlaynofreePaused(1) ;
+ end;
+ 
+ if  asd[posi-1].value then  begin   
+ uos_InputSetDSPVolume(2, drum_input[2], volumedrums.value/100, 
+ volumedrums.value/100, True);
+ uos_PlaynofreePaused(2) ;
+ end;
+ 
+ if  abd[posi-1].value then  begin   
+ uos_InputSetDSPVolume(3, drum_input[3], volumedrums.value/100, 
+ volumedrums.value/100, True);
+ uos_PlaynofreePaused(3) ;
+ end;
+ 
+    // uos_SetGlobalEvent(true) was executed --> This set events (like pause/replay threads) to global.
     // One event (for example uos_replay) will have impact on all players.
     
  if (ach[posi-1].value = true) then
@@ -520,10 +555,14 @@ end;
 
 procedure tdrumsfo.onchangetempo(const sender: TObject);
 begin
-
+if hasinit = 1 then begin
 TimerTick.Interval := trunc(edittempo.value * 1000);
-label5.caption :=  inttostr(trunc(1000/edittempo.value*60/4)) + ' BPM' ;
-
+ltempo.value :=  'Tempo ' + inttostr(trunc(1000/edittempo.value*60/4)) + ' BPM' ;
+edittempo.face.template := mainfo.tfaceorange;
+ltempo.face.template := mainfo.tfaceorange;
+timersent.enabled := false;
+   timersent.enabled := true;
+end;
 end;
 
 
@@ -678,16 +717,25 @@ for i := 0 to 3 do
   //One event (for example replay) will have impact on all players.  
 
   // using memorystream
- if uos_AddFromMemoryStream(i,ams[i],0,-1,2,512) > -1 then 
+ drum_input[i] := uos_AddFromMemoryStream(i,ams[i],0,-1,2,512) ; 
+
+ if drum_input[i] > -1 then
  
- // using memorybuffer
-// if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
-  
  if uos_AddFromEndlessMuted(i, channels, 512) > -1 then 
   // this for a dummy endless input, must be last input 
   
- uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512)  ;
-  
+if uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512) > -1 then
+begin
+
+  uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
+    ///// DSP Volume changer
+    ////////// Playerindex1 : Index of a existing Player
+    ////////// Inputindex1 : Index of a existing input
+    ////////// VolLeft : Left volume
+    ////////// VolRight : Right volume
+  uos_InputSetDSPVolume(i, drum_input[i], volumedrums.value/100, volumedrums.value/100, True);
+   
+end;
 end;
 end;   
 
@@ -828,6 +876,11 @@ begin
         Timerpause.interval := 30000000;    
         Timerpause.Enabled := False;
         Timerpause.ontimer := @ontimerpause;
+        
+         Timersent := ttimer.Create(nil);
+        Timersent.interval := 1500000;
+        Timersent.Enabled := False;
+        Timersent.ontimer := @ontimersent;
 
   drum_beats[0] := 'x0x0x0x0x0x0x000'; // closed hat
   drum_beats[1] := '00000000000000x0'; // opened hat
@@ -1185,6 +1238,16 @@ procedure tdrumsfo.ondestroi(const sender: TObject);
 begin
 Timerpause.free;
 Timertick.free;
+timersent.free;
+end;
+
+procedure tdrumsfo.onchangevol(const sender: TObject);
+begin
+if hasinit = 1 then begin
+volumedrums.face.template := mainfo.tfaceorange;
+timersent.enabled := false;
+timersent.enabled := true;
+end;
 end;
  
 end.

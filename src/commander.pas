@@ -67,6 +67,7 @@ type
    procedure doplaydrums(const sender: TObject);
    procedure dopausedrums(const sender: TObject);
    procedure doresumedrums(const sender: TObject);
+   procedure onchangevoldrums(const sender: TObject);
  end;
 var
  commanderfo: tcommanderfo;
@@ -369,6 +370,11 @@ end;
 procedure tcommanderfo.doresumedrums(const sender: TObject);
 begin
 drumsfo.doresume(sender);
+end;
+
+procedure tcommanderfo.onchangevoldrums(const sender: TObject);
+begin
+if hasinit = 1 then drumsfo.volumedrums.value  := trunc(tslider2.value* 100);
 end;
 
 
