@@ -161,7 +161,11 @@ procedure tsongplayer2fo.ClosePlayer1;
     
     with commanderfo do
  begin
- btnStart2.Enabled := True;
+   vuright2.Height := 0;
+    vuleft2.Height := 0;
+    vuLeft2.Visible := False;
+     vuRight2.Visible := False;
+    btnStart2.Enabled := True;
     btnStop2.Enabled := False;
     btnPause2.Enabled := False;
     btnresume2.Enabled := False;
