@@ -48,11 +48,6 @@ begin
   sizebefdock := size;
 end;
 
-procedure tfilelistfo.visiblechangeev(const Sender: TObject);
-begin
-  mainfo.updatelayout();
-end;
-
 procedure tfilelistfo.selctchanged(const Sender: tcustomlistview);
 var
   ar1: msestringarty;
@@ -142,6 +137,20 @@ begin
   begin
     //size := sizebefdock;
   end;
+end;
+
+procedure tfilelistfo.visiblechangeev(const Sender: TObject);
+begin
+  if Visible then
+  begin
+    mainfo.tmainmenu1.menu[3].submenu[3].caption := ' Hide File List ' ;
+  end
+  else
+  begin
+    mainfo.tmainmenu1.menu[3].submenu[3].caption := ' Show File List ' ; 
+  end;
+
+  mainfo.updatelayout();
 end;
 
 end.

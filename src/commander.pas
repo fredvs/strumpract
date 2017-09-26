@@ -4,12 +4,12 @@ unit commander;
 interface
 
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msegui,
-  msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
-  msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits,
-  msedatanodes, mseedit, msefiledialog, msegrids, mseificomp, mseificompglob,
-  mseifiglob, mselistbrowser, msestatfile, msestream, msestrings, msesys, SysUtils,
-  msegraphedits, msescrollbar;
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  msegui,msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
+  msedock,msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
+  msedataedits,msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
+  mseificompglob,mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
+  msesys, SysUtils,msegraphedits, msescrollbar;
 
 type
   tcommanderfo = class(tdockform)
@@ -35,7 +35,6 @@ type
     tframecomp2: tframecomp;
     tbutton2: TButton;
     tbutton3: TButton;
-    linkvol2: tbooleanedit;
     tgroupboxdrums: tgroupbox;
     loop_start: TButton;
     loop_stop: TButton;
@@ -53,9 +52,9 @@ type
     volumeright2: tslider;
     volumeleft2: tslider;
     vuLeft2: tgroupbox;
+    linkvol2: tbooleanedit;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
-
     procedure onplay(const Sender: TObject);
     procedure onstop(const Sender: TObject);
     procedure dopause(const Sender: TObject);
@@ -236,6 +235,15 @@ end;
 
 procedure tcommanderfo.visiblechangeev(const Sender: TObject);
 begin
+  if Visible then
+  begin
+    mainfo.tmainmenu1.menu[3].submenu[6].caption := ' Hide Commander ' ;
+  end
+  else
+  begin
+    mainfo.tmainmenu1.menu[3].submenu[6].caption := ' Show Commander ' ;
+   end;
+
   mainfo.updatelayout();
 end;
 
@@ -406,7 +414,5 @@ begin
   if hasinit = 1 then
     drumsfo.volumedrums.Value := trunc(tslider2.Value * 100);
 end;
-
-
 
 end.

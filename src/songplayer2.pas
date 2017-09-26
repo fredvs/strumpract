@@ -263,14 +263,14 @@ begin
   begin
     vuLeft.Height := trunc(leftlev * 44);
     if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
-      commanderfo.vuLeft2.Height := trunc(leftlev * 105);
+      commanderfo.vuLeft2.Height := trunc(leftlev * 120);
   end;
 
   if (rightlev >= 0) and (rightlev < 1) then
   begin
     vuRight.Height := trunc(rightlev * 44);
     if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
-      commanderfo.vuRight2.Height := trunc(rightlev * 105);
+      commanderfo.vuRight2.Height := trunc(rightlev * 120);
   end;
 
   if (rightlev >= 0) and (rightlev < 1) then
@@ -709,12 +709,12 @@ begin
 
   if Visible then
   begin
-    // mainfo.tmainmenu1.menu[1].hint := ' Hide Player 1 ' ;
+    mainfo.tmainmenu1.menu[3].submenu[5].caption := ' Hide Player 2 ' ;
   end
   else
   begin
     uos_Stop(theplayer2);
-    // mainfo.tmainmenu1.menu[1].hint := ' Show Player 1 ' ;
+     mainfo.tmainmenu1.menu[3].submenu[5].caption := ' Show Player 2 ' ;
   end;
 
   mainfo.updatelayout();

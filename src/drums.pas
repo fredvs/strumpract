@@ -723,12 +723,12 @@ begin
 
   if Visible then
   begin
-    //  mainfo.tmainmenu1.menu[0].hint := ' Hide Drums ' ;
+    mainfo.tmainmenu1.menu[3].submenu[2].caption := ' Hide Drums ' ;
   end
   else
   begin
     dostop(Sender);
-    // mainfo.tmainmenu1.menu[0].hint := ' Show Drums ' ;
+   mainfo.tmainmenu1.menu[3].submenu[2].caption := ' Show Drums ' ;
   end;
 
   mainfo.updatelayout();

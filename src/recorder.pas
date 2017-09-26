@@ -527,11 +527,11 @@ begin
 
   if Visible then
   begin
-    // mainfo.tmainmenu1.menu[4].hint := ' Hide Recorder ' ;
+    mainfo.tmainmenu1.menu[3].submenu[7].caption := ' Hide Recorder ' ;
   end
   else
   begin
-    // mainfo.tmainmenu1.menu[4].hint := ' Show Recorder ' ;
+    mainfo.tmainmenu1.menu[3].submenu[7].caption := ' Show Recorder ' ;
     uos_Stop(therecplayer);
   end;
 

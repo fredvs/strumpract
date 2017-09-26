@@ -19,8 +19,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 192
-  bounds_y = 355
+  bounds_x = 196
+  bounds_y = 379
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -367,7 +367,7 @@ object songplayerfo: tsongplayerfo
       taborder = 9
       hint = ' Position of sound '
       bounds_x = 8
-      bounds_y = 102
+      bounds_y = 100
       bounds_cx = 336
       bounds_cy = 22
       onchange = onsliderchange

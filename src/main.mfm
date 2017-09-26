@@ -3172,8 +3172,55 @@ object mainfo: tmainfo
         onexecute = ontab
       end    
       item
+        submenu.count = 9
+        submenu.items = <        
+          item
+            caption = ' Show All '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showall
+          end        
+          item
+            caption = ' Hide All '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = hideall
+          end        
+          item
+            caption = ' Show Drums '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showdrums
+          end        
+          item
+            caption = ' Show File List '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showfiles
+          end        
+          item
+            caption = ' Show Player 1 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showplayer
+          end        
+          item
+            caption = ' Show Player 2 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showplayer2
+          end        
+          item
+            caption = ' Show Commander '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showcommander
+          end        
+          item
+            caption = ' Show Recorder '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showrecorder
+          end        
+          item
+            caption = ' Show Guitars '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showguitars
+          end>
         caption = ' &Show '
-        hint = ' Show all windows '
+        hint = ' Show/hide windows '
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = showall
       end    

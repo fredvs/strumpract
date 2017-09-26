@@ -7,8 +7,8 @@ object commanderfo: tcommanderfo
   frame.grip_face.template = mainfo.tfacecomp4
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 536
-  bounds_y = 169
+  bounds_x = 542
+  bounds_y = 144
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -300,9 +300,9 @@ object commanderfo: tcommanderfo
       taborder = 10
       hint = ' Left Volume Player 1 '
       bounds_x = 41
-      bounds_y = 17
+      bounds_y = 3
       bounds_cx = 25
-      bounds_cy = 108
+      bounds_cy = 121
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = changevol
@@ -1226,9 +1226,9 @@ object commanderfo: tcommanderfo
       taborder = 11
       hint = ' Right Volume Player 1 '
       bounds_x = 67
-      bounds_y = 17
+      bounds_y = 3
       bounds_cx = 25
-      bounds_cy = 108
+      bounds_cy = 121
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = changevol
@@ -2143,7 +2143,8 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = ' L+R'
+      frame.caption = 'L+R'
+      frame.captionpos = cp_top
       frame.font.color = 4210752
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -2151,19 +2152,19 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
+        5
+        16
+        5
         0
-        1
-        27
-        2
       )
       face.localprops = []
       face.template = songplayerfo.tfacecomp2
       taborder = 12
       hint = ' Link left and right volume  '
-      bounds_x = 49
-      bounds_y = 2
-      bounds_cx = 40
-      bounds_cy = 15
+      bounds_x = 103
+      bounds_y = 16
+      bounds_cx = 23
+      bounds_cy = 28
       statfile = mainfo.tstatfile1
       colorglyph = 4539717
       value = True
@@ -2208,41 +2209,11 @@ object commanderfo: tcommanderfo
       focusrectdist = 0
       onexecute = onstartstop
     end
-    object linkvol2: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'L+R  '
-      frame.captionpos = cp_left
-      frame.font.color = 4210752
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        30
-        1
-        0
-        2
-      )
-      face.localprops = []
-      face.template = songplayerfo.tfacecomp2
-      taborder = 14
-      hint = ' Link left and right volume  '
-      bounds_x = 192
-      bounds_y = 2
-      bounds_cx = 43
-      bounds_cy = 15
-      statfile = mainfo.tstatfile1
-      colorglyph = 4539717
-      value = True
-    end
     object tlabel1: tlabel
       color = -2147483645
-      taborder = 15
+      taborder = 14
       bounds_x = 111
-      bounds_y = 13
+      bounds_y = 2
       bounds_cx = 55
       bounds_cy = 13
       caption = '1  Player  2'
@@ -2259,7 +2230,7 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
-      taborder = 16
+      taborder = 15
       visible = False
       bounds_x = 93
       bounds_y = 18
@@ -2273,7 +2244,7 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
-      taborder = 17
+      taborder = 16
       visible = False
       bounds_x = 34
       bounds_y = 18
@@ -2285,6 +2256,7 @@ object commanderfo: tcommanderfo
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
       frame.caption = 'VU'
+      frame.captionpos = cp_top
       frame.font.color = 4210752
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -2292,19 +2264,19 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        0
         1
-        17
+        16
         2
+        0
       )
       face.localprops = []
       face.template = songplayerfo.tfacecomp2
-      taborder = 18
+      taborder = 17
       hint = ' Enable level view meters '
-      bounds_x = 125
-      bounds_y = 34
-      bounds_cx = 30
-      bounds_cy = 15
+      bounds_x = 132
+      bounds_y = 22
+      bounds_cx = 16
+      bounds_cy = 28
       statfile = mainfo.tstatfile1
       colorglyph = 4539717
     end
@@ -2315,7 +2287,7 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
-      taborder = 19
+      taborder = 18
       visible = False
       bounds_x = 241
       bounds_y = 18
@@ -2332,12 +2304,12 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
-      taborder = 20
+      taborder = 19
       hint = ' Right Volume Player 1 '
       bounds_x = 215
-      bounds_y = 17
+      bounds_y = 3
       bounds_cx = 25
-      bounds_cy = 108
+      bounds_cy = 121
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = changevol
@@ -3258,12 +3230,12 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
-      taborder = 21
+      taborder = 20
       hint = ' Left Volume Player 1 '
       bounds_x = 189
-      bounds_y = 17
+      bounds_y = 3
       bounds_cx = 25
-      bounds_cy = 108
+      bounds_cy = 121
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = changevol
@@ -4181,12 +4153,42 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
-      taborder = 22
+      taborder = 21
       visible = False
       bounds_x = 182
-      bounds_y = 18
+      bounds_y = 4
       bounds_cx = 6
-      bounds_cy = 105
+      bounds_cy = 122
+    end
+    object linkvol2: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'L+R'
+      frame.captionpos = cp_top
+      frame.font.color = 4210752
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        5
+        16
+        5
+        0
+      )
+      face.localprops = []
+      face.template = songplayerfo.tfacecomp2
+      taborder = 22
+      hint = ' Link left and right volume  '
+      bounds_x = 156
+      bounds_y = 16
+      bounds_cx = 23
+      bounds_cy = 28
+      statfile = mainfo.tstatfile1
+      colorglyph = 4539717
+      value = True
     end
   end
   object tgroupboxdrums: tgroupbox
@@ -4275,9 +4277,9 @@ object commanderfo: tcommanderfo
       taborder = 3
       hint = ' General Volume of drums '
       bounds_x = 6
-      bounds_y = 4
+      bounds_y = 3
       bounds_cx = 45
-      bounds_cy = 119
+      bounds_cy = 121
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onchangevoldrums
@@ -5227,7 +5229,7 @@ object commanderfo: tcommanderfo
       bounds_x = 6
       bounds_y = 24
       bounds_cx = 45
-      bounds_cy = 100
+      bounds_cy = 99
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onchangevolinput

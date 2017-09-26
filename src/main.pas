@@ -50,6 +50,9 @@ type
     function issomeplaying: boolean;
     procedure showall(const Sender: TObject);
 
+   procedure hideall(const sender: TObject);
+   procedure showcommander(const sender: TObject);
+   procedure showfiles(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -600,6 +603,31 @@ begin
 
   // endlayout();
   timerwait.Enabled := True;
+end;
+
+procedure tmainfo.hideall(const sender: TObject);
+begin
+  //beginlayout();
+  drumsfo.visible := false;
+  filelistfo.visible := false;
+  songplayerfo.visible := false;
+  songplayer2fo.visible := false;
+  commanderfo.visible := false;
+  guitarsfo.visible := false;
+  recorderfo.visible := false;
+
+  // endlayout();
+  timerwait.Enabled := True;
+end;
+
+procedure tmainfo.showcommander(const sender: TObject);
+begin
+commanderfo.Visible := not commanderfo.Visible;
+end;
+
+procedure tmainfo.showfiles(const sender: TObject);
+begin
+filelistfo.Visible := not filelistfo.Visible;
 end;
 
 
