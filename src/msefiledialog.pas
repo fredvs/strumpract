@@ -1494,6 +1494,7 @@ filelistfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.as
 filelistfo.historyfn.value := dir.value;
 //filelistfo.dir.value := dir.value;
 filelistfo.list_files.path := dir.value;
+filelistfo.list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
 end;
 
 if thesender = 0 then
