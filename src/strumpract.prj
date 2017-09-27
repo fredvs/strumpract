@@ -1282,9 +1282,9 @@ editpos=30
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
- 0,105
- 0,224
+ 0,-1073741823
+ 0,-1073741823
+ 0,200
  0,221
 bookmarks0=0
 bookmarks1=0
@@ -1470,7 +1470,7 @@ order=30
  28
  29
 firsttab=20
-index=29
+index=28
 [layout]
 windowlayout=651
  [mainfo.basedock]
@@ -1508,7 +1508,7 @@ windowlayout=651
   basedock,0,0,1356,694
  focusedchild=0
  wsize=6
- active=0
+ active=1
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1526,7 +1526,7 @@ windowlayout=651
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
  [threadsfo]
  splitdir=0
@@ -1717,7 +1717,7 @@ windowlayout=651
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1732,7 +1732,7 @@ windowlayout=651
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=357
  width0=160
@@ -1956,7 +1956,7 @@ windowlayout=651
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
+ value=/home/fred/strumpract/src/songplayer2.pas
  history=0
  [sourcefo]
  splitdir=0
@@ -2013,7 +2013,7 @@ windowlayout=651
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2032,7 +2032,7 @@ windowlayout=651
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2051,7 +2051,7 @@ windowlayout=651
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2108,7 +2108,7 @@ windowlayout=651
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0

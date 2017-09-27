@@ -198,7 +198,7 @@ begin
   begin
   
     btnStart2.Enabled := True;
-    btnStop.Enabled := False;
+    btnStop2.Enabled := False;
     btnPause2.Enabled := False;
     btnresume2.Enabled := False;
     vuright2.Height := 0;
