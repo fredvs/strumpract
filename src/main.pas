@@ -6,19 +6,16 @@ unit main;
 interface
 
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msegui, msetimer,
-  ctypes, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms, msedock, drums,
-  recorder, songplayer, songplayer2, commander, filelistform, guitars, msedataedits,
-  mseedit, msestatfile, SysUtils, Classes, uos_flat, aboutform, msebitmap, msesys,
-  msemenus, msestream, msegrids, mselistbrowser;
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msegui,
+ msetimer,ctypes, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms,
+ msedock, drums,recorder, songplayer, songplayer2, commander, filelistform,
+ guitars, msedataedits,mseedit, msestatfile, SysUtils, Classes, uos_flat,
+ aboutform, msebitmap, msesys,msemenus, msestream, msegrids, mselistbrowser;
 
 type
   tmainfo = class(tmainform)
     Timerwait: Ttimer;
     buttonicons: timagelist;
-    tfacecomp1: tfacecomp;
-    tfacecomp2: tfacecomp;
-    tfacecomp3: tfacecomp;
     basedock: tdockpanel;
     tmainmenu1: tmainmenu;
     tfacecomp4: tfacecomp;
@@ -31,6 +28,11 @@ type
     tfacered: tfacecomp;
     tfacegreen: tfacecomp;
     tfaceorange: tfacecomp;
+   tfaceplayer: tfacecomp;
+   tfaceplayerlight: tfacecomp;
+   tfaceplayerrev: tfacecomp;
+   tfacecomp1: tfacecomp;
+   tframecomp2: tframecomp;
     procedure ontimerwait(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
     procedure oncreatedform(const Sender: TObject);

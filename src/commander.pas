@@ -5,11 +5,11 @@ interface
 
 uses
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  msegui,msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
-  msedock,msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
-  msedataedits,msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
-  mseificompglob,mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
-  msesys, SysUtils,msegraphedits, msescrollbar;
+ msegui,msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
+ msedock,msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
+ msedataedits,msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
+ mseificompglob,mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
+ msesys, SysUtils,msegraphedits, msescrollbar;
 
 type
   tcommanderfo = class(tdockform)
@@ -53,6 +53,8 @@ type
     volumeleft2: tslider;
     vuLeft2: tgroupbox;
     linkvol2: tbooleanedit;
+   tfaceslider: tfacecomp;
+   tfacebutton: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -120,6 +122,8 @@ begin
     volumeright1.Value := 0;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
+    if  iscue1 then
+    songplayerfo.doplayeresume(Sender) else
     songplayerfo.doplayerstart(Sender);
     timermix.Enabled := True;
   end
@@ -130,6 +134,8 @@ begin
     volumeright2.Value := 0;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
+     if  iscue2 then
+   songplayer2fo.doplayeresume(Sender) else
     songplayer2fo.doplayerstart(Sender);
     timermix.Enabled := True;
   end;

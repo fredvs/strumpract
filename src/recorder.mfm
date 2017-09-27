@@ -304,8 +304,8 @@ object recorderfo: trecorderfo
       valuedefault = 100
       valuerange = 1
       valuestart = 0
-      min = 0
-      max = 100
+      valuemin = 0
+      valuemax = 100
       step = 1
       stepctrlfact = 0
       stepshiftfact = 0
@@ -339,8 +339,8 @@ object recorderfo: trecorderfo
       valuedefault = 1
       valuerange = 1
       valuestart = 0
-      min = 0
-      max = 10
+      valuemin = 0
+      valuemax = 10
       step = 0.05
       stepctrlfact = 0
       stepshiftfact = 0
@@ -782,8 +782,8 @@ object recorderfo: trecorderfo
       16759482
     )
     template.fade_direction = gd_down
-    left = 50
-    top = 53
+    left = 147
+    top = 30
   end
   object tfacecomp4: tfacecomp
     template.fade_pos.count = 2

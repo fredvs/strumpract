@@ -16,7 +16,6 @@ type
     tbutton2: TButton;
     songdir: tfilenameedit;
     historyfn: thistoryedit;
-    tfacecomp2: tfacecomp;
     list_files: tfilelistview;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
