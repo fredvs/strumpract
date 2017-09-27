@@ -19,10 +19,6 @@ type
     btnPause: TButton;
     btnResume: TButton;
     btnStart: TButton;
-    btnStop2: TButton;
-    btnPause2: TButton;
-    btnResume2: TButton;
-    btnStart2: TButton;
     volumeleft1: tslider;
     tfacecomp7: tfacecomp;
     tfacecomp2: tfacecomp;
@@ -55,6 +51,12 @@ type
     linkvol2: tbooleanedit;
    tfaceslider: tfacecomp;
    tfacebutton: tfacecomp;
+   btncue: tbutton;
+   btnStart2: tbutton;
+   btncue2: tbutton;
+   btnStop2: tbutton;
+   btnPause2: tbutton;
+   btnResume2: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

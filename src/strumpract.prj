@@ -1085,11 +1085,11 @@ line=26
  372
  600
  92
- 649
- 629
- 149
+ 653
+ 633
+ 151
  285
- 332
+ 334
  519
  720
  730
@@ -1232,8 +1232,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=commander
+finddtext=if cbloop.value then
 findhistory=20
+ if cbloop.value then
+ btncue
  commander
  vuright
  btnStart2
@@ -1252,8 +1254,6 @@ findhistory=20
  tfacecomp
  IF DEFINED(mse)
  lock(
- visblec
- visilech
 findoptions=1
 editpos=30
  0,-1073741823
@@ -1283,9 +1283,9 @@ editpos=30
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,200
- 0,221
+ 0,39
+ 0,197
+ 0,196
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1549,7 +1549,7 @@ windowlayout=651
  [memoryfo]
  splitdir=0
  useroptions=805322875
- stackedunder=dialogfilesfo
+ stackedunder=about_form
  parent=
  mdistate=0
  nx=0
@@ -1717,27 +1717,27 @@ windowlayout=651
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=928
- y=174
+ x=883
+ y=124
  cx=367
  cy=484
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [objectinspectorfo.grid]
- propcolwidthref=357
- width0=160
+ propcolwidthref=342
+ width0=153
  sortdescend0=0
- width1=191
+ width1=183
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1978,7 +1978,7 @@ windowlayout=651
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2013,7 +2013,7 @@ windowlayout=651
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2032,7 +2032,7 @@ windowlayout=651
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2051,15 +2051,15 @@ windowlayout=651
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=510
- y=339
+ x=358
+ y=298
  cx=468
  cy=128
  rcx=0
@@ -2108,7 +2108,7 @@ windowlayout=651
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0

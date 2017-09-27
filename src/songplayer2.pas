@@ -125,6 +125,7 @@ begin
 
   with commanderfo do
   begin
+    btncue2.Enabled := false;
     btnStart2.Enabled := True;
     btnStop2.Enabled := True;
     if (cbloop.Value = False) and (iscue2 = false) then
@@ -192,11 +193,15 @@ begin
   btnStop.Enabled := False;
   btnPause.Enabled := False;
   btnresume.Enabled := False;
-  btncue.Enabled := True;
+  
+  
+ if cbloop.value then
+  btncue.Enabled := false else btncue.Enabled := true;
 
   with commanderfo do
   begin
-  
+    if cbloop.value then
+  btncue2.Enabled := false else btncue2.Enabled := true;
     btnStart2.Enabled := True;
     btnStop2.Enabled := False;
     btnPause2.Enabled := False;
@@ -1019,7 +1024,14 @@ end;
 
 procedure tsongplayer2fo.changeloop(const sender: TObject);
 begin
-if cbloop.value then btncue.enabled := false else  btncue.enabled := true;
+if cbloop.value then
+begin
+ commanderfo.btncue2.Enabled := false;
+ btncue.enabled := false end else 
+ begin  
+ commanderfo.btncue2.Enabled := True;
+ btncue.enabled := true;
+ end;
 end;
 
 
