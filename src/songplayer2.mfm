@@ -17,7 +17,7 @@ object songplayer2fo: tsongplayer2fo
   )
   frame.grip_faceactive.fade_direction = gd_down
   frame.grip_faceactive.localprops = []
-  frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
+  frame.grip_hint = ' Use that grip panel to drag/drop Player 2. '
   visible = False
   bounds_x = 382
   bounds_y = 177
@@ -40,7 +40,7 @@ object songplayer2fo: tsongplayer2fo
     128
   )
   dragdock.splitter_size = 5
-  dragdock.caption = ' Player 1 '
+  dragdock.caption = ' Player 2 '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
   icon.options = [bmo_masked]
@@ -583,7 +583,7 @@ object songplayer2fo: tsongplayer2fo
       face.localprops = []
       face.template = mainfo.tfaceplayerrev
       taborder = 12
-      hint = ' Player 1 '
+      hint = ' Player 2 '
       bounds_x = 0
       bounds_y = 27
       bounds_cx = 454
