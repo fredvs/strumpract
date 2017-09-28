@@ -4,11 +4,12 @@ unit drums;
 interface
 
 uses
-  mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
-  msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
-  msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes, mseact,
-  mseedit, msestatfile, msestream, msestrings, msedispwidgets, mserichstring;
+ mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+ msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
+ msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
+ msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
+ mseact,mseedit, msestatfile, msestream, msestrings, msedispwidgets,
+ mserichstring;
 
 type
   talab = array[0..15] of tlabel;
@@ -70,7 +71,6 @@ type
     label3: tlabel;
     edittempo: trealspinedit;
     tlabel25: tlabel;
-    tlabel26: tlabel;
     tlabel13: tlabel;
     tlabel14: tlabel;
     tlabel15: tlabel;
@@ -144,6 +144,7 @@ type
     tlabel23: tlabel;
     volumedrums: trealspinedit;
     ltempo: tstringdisp;
+   tstringdisp2: tstringdisp;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);

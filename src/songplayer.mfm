@@ -19,8 +19,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 385
-  bounds_y = 400
+  bounds_x = 384
+  bounds_y = 401
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -162,7 +162,7 @@ object songplayerfo: tsongplayerfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      hint = ' Change Left volume of song '
+      hint = ' Change Left volume '
       bounds_x = 197
       bounds_y = 50
       bounds_cx = 50
@@ -208,6 +208,10 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 24
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
+      font.color = 3684408
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onreset
@@ -256,7 +260,7 @@ object songplayerfo: tsongplayerfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Stretch      Player 1'
+      frame.caption = 'Stretch'
       frame.captionpos = cp_topleft
       frame.captiondist = 3
       frame.font.color = 4013373
@@ -268,7 +272,7 @@ object songplayerfo: tsongplayerfo
       frame.outerframe = (
         0
         18
-        83
+        25
         0
       )
       face.fade_pos.count = 2
@@ -284,10 +288,10 @@ object songplayerfo: tsongplayerfo
       face.fade_direction = gd_down
       face.localprops = []
       taborder = 4
-      hint = ' Enable stretching (changing temo) '
-      bounds_x = 342
+      hint = ' Enable stretching (changing tempo) '
+      bounds_x = 343
       bounds_y = 47
-      bounds_cx = 96
+      bounds_cx = 38
       bounds_cy = 30
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
@@ -408,7 +412,7 @@ object songplayerfo: tsongplayerfo
       enabled = False
       value = 0
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
-      scrollbar.buttonlength = 18
+      scrollbar.buttonlength = 12
       scrollbar.buttonendlength = -1
       scrollbar.face.fade_direction = gd_down
       scrollbar.face.localprops = [fal_fadirection]
@@ -664,7 +668,7 @@ object songplayerfo: tsongplayerfo
       face.fade_direction = gd_down
       face.localprops = []
       taborder = 14
-      hint = ' Change Right volume of song '
+      hint = ' Change Right volume '
       bounds_x = 248
       bounds_y = 50
       bounds_cx = 50
@@ -721,9 +725,9 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       taborder = 1
       hint = ' Change tempo of song '
-      bounds_x = 358
+      bounds_x = 360
       bounds_y = 65
-      bounds_cx = 56
+      bounds_cx = 52
       bounds_cy = 26
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = ChangePlugSetSoundTouch
@@ -797,7 +801,7 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 28
     end
     object btinfos: tbutton
-      Tag = 3
+      Tag = 9
       color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
@@ -893,8 +897,29 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 30
       bounds_cy = 28
       statfile = mainfo.tstatfile1
-      colorglyph = 4539717
+      colorglyph = 4868682
       value = True
+    end
+    object tstringdisp2: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 21
+      hint = ' Player 1 '
+      bounds_x = 392
+      bounds_y = 48
+      bounds_cx = 52
+      bounds_cy = 15
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Player 1'
+      reffontheight = 13
     end
   end
   object tfaceslider: tfacecomp
@@ -909,7 +934,6 @@ object songplayerfo: tsongplayerfo
       11120261
     )
     template.fade_direction = gd_down
-    template.onafterpaint = faceafterpaint
     left = 117
     top = 7
   end

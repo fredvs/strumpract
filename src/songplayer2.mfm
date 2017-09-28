@@ -19,8 +19,8 @@ object songplayer2fo: tsongplayer2fo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 381
-  bounds_y = 178
+  bounds_x = 382
+  bounds_y = 177
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -162,7 +162,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      hint = ' Change Left volume of song '
+      hint = ' Change Left volume '
       bounds_x = 197
       bounds_y = 50
       bounds_cx = 50
@@ -208,16 +208,21 @@ object songplayer2fo: tsongplayer2fo
       bounds_cy = 24
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
+      font.color = 3684408
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onreset
     end
-    object cbloop: tbooleanedit
+    object cbtempo: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Loop'
-      frame.captionpos = cp_top
+      frame.caption = 'Stretch'
+      frame.captionpos = cp_topleft
+      frame.captiondist = 3
       frame.font.color = 4013373
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -225,9 +230,9 @@ object songplayer2fo: tsongplayer2fo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        6
-        16
-        7
+        0
+        18
+        25
         0
       )
       face.fade_pos.count = 2
@@ -243,51 +248,10 @@ object songplayer2fo: tsongplayer2fo
       face.fade_direction = gd_down
       face.localprops = []
       taborder = 3
-      hint = ' Enable looping the song. (Pause is not enabled with loop.) '
-      bounds_x = 161
-      bounds_y = 50
-      bounds_cx = 26
-      bounds_cy = 28
-      statfile = mainfo.tstatfile1
-      onchange = changeloop
-      colorglyph = 4539717
-    end
-    object cbtempo: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Stretch      Player 2'
-      frame.captionpos = cp_topleft
-      frame.captiondist = 3
-      frame.font.color = 4013373
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        0
-        18
-        83
-        0
-      )
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        16580584
-        14870704
-      )
-      face.fade_direction = gd_down
-      face.localprops = []
-      taborder = 4
-      hint = ' Enable stretching (changing temo) '
-      bounds_x = 342
+      hint = ' Enable stretching (changing tempo) '
+      bounds_x = 343
       bounds_y = 47
-      bounds_cx = 96
+      bounds_cx = 38
       bounds_cy = 30
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
@@ -311,7 +275,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 5
+      taborder = 4
       hint = ' Stop player '
       bounds_x = 130
       bounds_y = 50
@@ -340,7 +304,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 6
+      taborder = 5
       hint = ' Resume player '
       bounds_x = 68
       bounds_y = 50
@@ -369,7 +333,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 7
+      taborder = 6
       hint = ' Pause player '
       bounds_x = 99
       bounds_y = 50
@@ -398,7 +362,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 8
+      taborder = 7
       hint = ' Position of sound '
       bounds_x = 4
       bounds_y = 82
@@ -408,7 +372,7 @@ object songplayer2fo: tsongplayer2fo
       enabled = False
       value = 0
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
-      scrollbar.buttonlength = 18
+      scrollbar.buttonlength = 12
       scrollbar.buttonendlength = -1
       scrollbar.face.fade_direction = gd_down
       scrollbar.face.localprops = [fal_fadirection]
@@ -465,7 +429,7 @@ object songplayer2fo: tsongplayer2fo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 9
+      taborder = 8
       hint = ' History of Cue files '
       bounds_x = 73
       bounds_y = 5
@@ -524,7 +488,7 @@ object songplayer2fo: tsongplayer2fo
       frame.button.frame.localprops1 = []
       frame.button.frame.template = commanderfo.tframecomp1
       frame.button.imagenr = 17
-      taborder = 10
+      taborder = 9
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
       bounds_x = 52
       bounds_y = 5
@@ -574,7 +538,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 11
+      taborder = 10
       hint = ' Lenght of sound '
       bounds_x = 357
       bounds_y = 111
@@ -601,7 +565,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 12
+      taborder = 11
       hint = ' Position of sound '
       bounds_x = 357
       bounds_y = 95
@@ -618,7 +582,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerrev
-      taborder = 13
+      taborder = 12
       hint = ' Player 1 '
       bounds_x = 0
       bounds_y = 27
@@ -663,8 +627,8 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 14
-      hint = ' Change Right volume of song '
+      taborder = 13
+      hint = ' Change Right volume '
       bounds_x = 248
       bounds_y = 50
       bounds_cx = 50
@@ -721,9 +685,9 @@ object songplayer2fo: tsongplayer2fo
       face.localprops = []
       taborder = 1
       hint = ' Change tempo of song '
-      bounds_x = 358
+      bounds_x = 360
       bounds_y = 65
-      bounds_cx = 56
+      bounds_cx = 52
       bounds_cy = 26
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = ChangePlugSetSoundTouch
@@ -756,7 +720,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 15
+      taborder = 14
       hint = ' Load from cue and Start player '
       bounds_x = 37
       bounds_y = 50
@@ -775,7 +739,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
-      taborder = 16
+      taborder = 15
       visible = False
       bounds_x = 188
       bounds_y = 50
@@ -789,7 +753,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
-      taborder = 17
+      taborder = 16
       visible = False
       bounds_x = 299
       bounds_y = 50
@@ -797,7 +761,7 @@ object songplayer2fo: tsongplayer2fo
       bounds_cy = 28
     end
     object btinfos: tbutton
-      Tag = 5
+      Tag = 9
       color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
@@ -814,7 +778,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 18
+      taborder = 17
       hint = ' Show infos of the song '
       bounds_x = 6
       bounds_y = 5
@@ -844,7 +808,7 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      taborder = 19
+      taborder = 18
       hint = ' Load from cue and Pause player '
       bounds_x = 6
       bounds_y = 50
@@ -886,15 +850,76 @@ object songplayer2fo: tsongplayer2fo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 20
+      taborder = 19
       hint = ' Show wave form in slider '
       bounds_x = 310
       bounds_y = 49
       bounds_cx = 30
       bounds_cy = 28
       statfile = mainfo.tstatfile1
-      colorglyph = 4539717
+      colorglyph = 4868682
       value = True
+    end
+    object tstringdisp2: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 20
+      hint = ' Player 2 '
+      bounds_x = 392
+      bounds_y = 48
+      bounds_cx = 52
+      bounds_cy = 15
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Player 2'
+      reffontheight = 13
+    end
+    object cbloop: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Loop'
+      frame.captionpos = cp_top
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        6
+        16
+        7
+        0
+      )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16580584
+        14870704
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      taborder = 21
+      hint = ' Show wave form in slider '
+      bounds_x = 161
+      bounds_y = 50
+      bounds_cx = 26
+      bounds_cy = 28
+      statfile = mainfo.tstatfile1
+      onchange = changeloop
+      colorglyph = 4539717
     end
   end
   object tfaceslider: tfacecomp
@@ -909,7 +934,6 @@ object songplayer2fo: tsongplayer2fo
       11120261
     )
     template.fade_direction = gd_down
-    template.onafterpaint = faceafterpaint
     left = 117
     top = 7
   end

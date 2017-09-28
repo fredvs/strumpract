@@ -43,6 +43,7 @@ type
    tfacebuttonslider: tfacecomp;
    tfacegreen: tfacecomp;
    waveformcheck: tbooleanedit;
+   tstringdisp2: tstringdisp;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -238,7 +239,7 @@ begin
   vuLeft.Visible := True;
   vuRight.Visible := True;
 
-  if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+  if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
   begin
     commanderfo.vuLeft.Visible := True;
     commanderfo.vuRight.Visible := True;
@@ -258,20 +259,20 @@ begin
     if leftlev < 0.80 then
     begin
       vuLeft.face.template := mainfo.tfacegreen;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
         commanderfo.vuLeft.face.template := mainfo.tfacegreen;
     end
     else
     if leftlev < 0.90 then
     begin
       vuLeft.face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
         commanderfo.vuLeft.face.template := mainfo.tfaceorange;
     end
     else
     begin
       vuLeft.face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
         commanderfo.vuLeft.face.template := mainfo.tfacered;
     end;
   end;
@@ -282,20 +283,20 @@ begin
     if rightlev < 0.80 then
     begin
       vuRight.face.template := mainfo.tfacegreen;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
         commanderfo.vuRight.face.template := mainfo.tfacegreen;
     end
     else
     if rightlev < 0.90 then
     begin
       vuRight.face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
         commanderfo.vuRight.face.template := mainfo.tfaceorange;
     end
     else
     begin
       vuRight.face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
         commanderfo.vuRight.face.template := mainfo.tfacered;
     end;
   end;
@@ -304,14 +305,14 @@ begin
   if (leftlev >= 0) and (leftlev < 1) then
   begin
     vuLeft.Height := trunc(leftlev * 30);
-    if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+    if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
       commanderfo.vuLeft.Height := trunc(leftlev * 120);
   end;
 
   if (rightlev >= 0) and (rightlev < 1) then
   begin
     vuRight.Height := trunc(rightlev * 30);
-    if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+    if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
       commanderfo.vuRight.Height := trunc(rightlev * 120);
   end;
 
@@ -325,7 +326,7 @@ begin
     vuLeft.top := 78 - vuLeft.Height;
   end;
 
-  if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+  if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
   begin
     if (rightlev >= 0) and (rightlev < 1) then
       commanderfo.vuRight.top := 124 - commanderfo.vuRight.Height;
@@ -503,6 +504,8 @@ begin
 
       trackbar1.Value := 0;
       trackbar1.Enabled := True;
+      
+      theplaying1 := historyfn.Value;
 
       with commanderfo do
       begin
@@ -521,7 +524,8 @@ begin
 
       btnStop.Enabled := True;
          
-     if tbutton(sender).tag = 0 then
+     if (tbutton(sender).tag = 0) or (tbutton(sender).tag = 2)
+      then
      begin
      iscue1 := false;
        btnresume.Enabled := False;
@@ -536,9 +540,10 @@ begin
         btnpause.Enabled := True;
       end;
        tstringdisp1.face.template := mainfo.tfacegreen;
+       tstringdisp1.Value := 'Playing ' + theplaying1;
       end;
       
-       if tbutton(sender).tag = 1 then  /// cue
+       if (tbutton(sender).tag = 1) or (tbutton(sender).tag = 3) then  /// cue
      begin
      iscue1 := true;
        btnresume.Enabled := true;
@@ -555,6 +560,7 @@ begin
       end;
       uos_Pause(theplayer);
        tstringdisp1.face.template := mainfo.tfaceorange;
+       tstringdisp1.Value := 'Loaded ' + theplaying1;
       end;
     
 
@@ -565,10 +571,7 @@ begin
       Timerwait.Enabled := True;
       lposition.face.template := mainfo.tfaceplayerrev;
 
-      theplaying1 := historyfn.Value;
-      tstringdisp1.Value := 'Playing ' + theplaying1;
-   
-       oninfowav(sender);
+      oninfowav(sender);
 
     end
     else
@@ -596,7 +599,7 @@ begin
 
   tstringdisp1.face.template := mainfo.tfacegreen;
   lposition.face.template := mainfo.tfaceplayerrev;
-  tstringdisp1.Value := 'Replaying ' + theplaying1;
+  tstringdisp1.Value := 'Playing ' + theplaying1;
 end;
 
 procedure tsongplayerfo.doplayerpause(const Sender: TObject);
@@ -708,7 +711,7 @@ begin
           Inputlength1 := uos_Inputlength(theplayer, 0);
          ////// Length of Input in samples
        
-        if tbutton(sender).tag = 3 then
+        if tbutton(sender).tag = 9 then
         begin
         
         temptimeinfo := uos_InputlengthTime(theplayerinfo, 0);
@@ -748,10 +751,10 @@ begin
         infosfo.Width := maxwidth + 42;
         // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
         infosfo.Show(True);
-        end;
+        end else
         
         
-        if ((tbutton(sender).tag = 1) or (tbutton(sender).tag = 0)) and (waveformcheck.value = true) then 
+        if (waveformcheck.value = true) then  
            begin
         
         iswav := false;
@@ -769,7 +772,7 @@ begin
     // 2 => calcul after all DSP procedures.
 
     //// determine how much frame will be designed
-    framewanted1 := Inputlength1 div trackbar1.Width;
+    framewanted1 := Inputlength1 div (trackbar1.Width - 7);
        
     uos_InputSetFrameCount(theplayerinfo, 0, framewanted1);
 
@@ -937,7 +940,7 @@ poswav2.x :=0 ;
 poswav2.y := ((arect.cy div 2) -2) - round(
             (waveformdata1[poswav.x*2 ]) * ((trackbar1.height div 2) -3)) ;
 
-      while poswav.x < length(waveformdata1) div chan1  do
+      while poswav.x < (length(waveformdata1) div chan1 )  do
       begin
         if chan1 = 2 then
         begin
@@ -946,14 +949,16 @@ poswav2.y := ((arect.cy div 2) -2) - round(
       poswav2.y := ((arect.cy div 2) -1) - round(
             (waveformdata1[poswav.x *2]) * ((arect.cy div 2) -3)) ;
         
-      canvas.drawline(poswav,poswav2,$AC94D6); 
+    //  canvas.drawline(poswav,poswav2,$AC94D6); 
+      
+      canvas.drawline(poswav,poswav2,cl_red);
       
       poswav.y := (trackbar1.height div 2) ;
        
       poswav2.y := poswav.y  + ( round(
             (waveformdata1[(poswav.x *2)+1]) * ((trackbar1.height div 2) -3))) ;
       
-      canvas.drawline(poswav,poswav2,$AC95D6); 
+      canvas.drawline(poswav,poswav2,$AC25D6); 
 
        end;
         if chan1 = 1 then
@@ -971,14 +976,16 @@ procedure tsongplayerfo.faceafterpaintgreen(const sender: tcustomface;
                const canvas: tcanvas; const arect: rectty);
  var
  
- poswav, poswav2 : pointty;              
+ poswav, poswav2 : pointty;  
+ poswavx : integer;            
 begin
 if (iswav = true) and (waveformcheck.value = true) then begin
 
-poswav.x :=0 ;
+poswav.x :=6 ;
 poswav.y := (trackbar1.height div 2) -2;
 
-poswav2.x :=0 ;
+
+poswav2.x :=6 ;
 poswav2.y := ((arect.cy div 2) -2) - round(
             (waveformdata1[poswav.x*2 ]) * ((trackbar1.height div 2) -3)) ;
 
@@ -988,17 +995,18 @@ poswav2.y := ((arect.cy div 2) -2) - round(
         begin
        poswav.y := (trackbar1.height div 2) -2 ;  
       poswav2.x :=poswav.x ;
+      poswavx := poswav.x -6;
       poswav2.y := ((arect.cy div 2) -1) - round(
-            (waveformdata1[poswav.x *2]) * ((arect.cy div 2) -3)) ;
-              canvas.drawline(poswav,poswav2,$AC94D6); 
+            (waveformdata1[poswavx *2]) * ((arect.cy div 2) -3)) ;
+              canvas.drawline(poswav,poswav2,$AC99D6); 
       
       poswav.y := (trackbar1.height div 2) ;
        
       poswav2.y := poswav.y  + ( round(
-            (waveformdata1[(poswav.x *2)+1]) * ((trackbar1.height div 2) -3))) ;
+            (waveformdata1[(poswavx *2)+1]) * ((trackbar1.height div 2) -3))) ;
       
-      canvas.drawline(poswav,poswav2,$AC95D6); 
-   
+      canvas.drawline(poswav,poswav2,$AC79D6); 
+       
        end;
         if chan1 = 1 then
         begin

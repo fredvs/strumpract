@@ -14,7 +14,7 @@ object mainfo: tmainfo
   face.localprops = [fal_fadirection]
   visible = False
   bounds_x = 501
-  bounds_y = 226
+  bounds_y = 225
   bounds_cx = 469
   bounds_cy = 66
   bounds_cxmin = 458

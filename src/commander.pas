@@ -9,7 +9,7 @@ uses
  msedock,msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
  msedataedits,msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
  mseificompglob,mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
- msesys, SysUtils,msegraphedits, msescrollbar;
+ msesys, SysUtils,msegraphedits, msescrollbar,msedispwidgets,mserichstring;
 
 type
   tcommanderfo = class(tdockform)
@@ -23,7 +23,6 @@ type
     tfacecomp7: tfacecomp;
     tfacecomp2: tfacecomp;
     volumeright1: tslider;
-    linkvol: tbooleanedit;
     tframecomp1: tframecomp;
     timagelist2: timagelist;
     timemix: trealspinedit;
@@ -36,19 +35,15 @@ type
     loop_stop: TButton;
     loop_resume: TButton;
     tslider2: tslider;
-    tlabel1: tlabel;
-    tlabel2: tlabel;
     tgroupboxinput: tgroupbox;
     tslider3: tslider;
     tbutton7: TButton;
     vuRight: tgroupbox;
     vuLeft: tgroupbox;
-    vuin: tbooleanedit;
     vuRight2: tgroupbox;
     volumeright2: tslider;
     volumeleft2: tslider;
     vuLeft2: tgroupbox;
-    linkvol2: tbooleanedit;
    tfaceslider: tfacecomp;
    tfacebutton: tfacecomp;
    btncue: tbutton;
@@ -57,13 +52,18 @@ type
    btnStop2: tbutton;
    btnPause2: tbutton;
    btnResume2: tbutton;
+   linkvol: tbutton;
+   linkvol2: tbutton;
+   vuin: tbutton;
+   lposition: tstringdisp;
+   tstringdisp2: tstringdisp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
     procedure onstop(const Sender: TObject);
-    procedure dopause(const Sender: TObject);
+    procedure doplayerpause(const Sender: TObject);
     procedure doresume(const Sender: TObject);
-    procedure changevol(const Sender: TObject);
+    procedure setvolume(const Sender: TObject);
     procedure onstartstop(const Sender: TObject);
     procedure ontimermix(const Sender: TObject);
     procedure ondest(const Sender: TObject);
@@ -73,6 +73,9 @@ type
     procedure dopausedrums(const Sender: TObject);
     procedure doresumedrums(const Sender: TObject);
     procedure onchangevoldrums(const Sender: TObject);
+   procedure setlr1(const sender: TObject);
+   procedure setlr2(const sender: TObject);
+   procedure setvu(const sender: TObject);
   end;
 
 var
@@ -119,6 +122,10 @@ begin
 
   if TButton(Sender).tag = 0 then
   begin
+    tbutton2.face.template := mainfo.tfacecomp6;
+    tbutton3.face.template := mainfo.tfaceorange;
+    //tbutton3.focused := true;
+ 
     thetypemix := 0;
     volumeleft1.Value := 0;
     volumeright1.Value := 0;
@@ -134,6 +141,8 @@ begin
     thetypemix := 1;
     volumeleft2.Value := 0;
     volumeright2.Value := 0;
+   tbutton3.face.template := mainfo.tfacecomp6;
+    tbutton2.face.template := mainfo.tfaceorange; 
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
      if  iscue2 then
@@ -257,7 +266,7 @@ end;
 
 procedure tcommanderfo.onplay(const Sender: TObject);
 begin
-  if TButton(Sender).tag = 0 then
+  if (TButton(Sender).tag = 0) or (TButton(Sender).tag = 2) or (TButton(Sender).tag = 3) then
     songplayerfo.doplayerstart(Sender)
   else
     songplayer2fo.doplayerstart(Sender);
@@ -271,7 +280,7 @@ begin
     songplayer2fo.doplayerstop(Sender);
 end;
 
-procedure tcommanderfo.dopause(const Sender: TObject);
+procedure tcommanderfo.doplayerpause(const Sender: TObject);
 begin
   if TButton(Sender).tag = 0 then
     songplayerfo.doplayerpause(Sender)
@@ -287,14 +296,14 @@ begin
     songplayer2fo.doplayeresume(Sender);
 end;
 
-procedure tcommanderfo.changevol(const Sender: TObject);
+procedure tcommanderfo.setvolume(const Sender: TObject);
 begin
 
   if hasinit = 1 then
   begin
     if (tslider(Sender).tag = 0) or (tslider(Sender).tag = 1) then
     begin
-      if linkvol.Value = True then
+      if linkvol.tag = 0 then
       begin
         if (tslider(Sender).tag = 0) then
           volumeright1.Value := volumeleft1.Value
@@ -313,7 +322,7 @@ begin
     end
     else
     begin
-      if linkvol2.Value = True then
+      if linkvol2.tag = 0 then
       begin
         if (tslider(Sender).tag = 2) then
           volumeright2.Value := volumeleft2.Value
@@ -421,6 +430,49 @@ procedure tcommanderfo.onchangevoldrums(const Sender: TObject);
 begin
   if hasinit = 1 then
     drumsfo.volumedrums.Value := trunc(tslider2.Value * 100);
+end;
+
+procedure tcommanderfo.setlr1(const sender: TObject);
+begin
+if linkvol.tag = 0 then
+begin
+linkvol.tag := 1;
+linkvol.face.template:= mainfo.tfacecomp6;
+end else
+if linkvol.tag = 1 then
+begin
+linkvol.tag := 0;
+linkvol.face.template:= mainfo.tfacegreen;
+end;
+end;
+
+procedure tcommanderfo.setlr2(const sender: TObject);
+begin
+if linkvol2.tag = 0 then
+begin
+linkvol2.tag := 1;
+linkvol2.face.template:= mainfo.tfacecomp6;
+end else
+if linkvol2.tag = 1 then
+begin
+linkvol2.tag := 0;
+linkvol2.face.template:= mainfo.tfacegreen;
+end;
+end;
+
+procedure tcommanderfo.setvu(const sender: TObject);
+begin
+if vuin.tag = 0 then
+begin
+vuin.tag := 1;
+vuin.face.template:= mainfo.tfacecomp6;
+end else
+if vuin.tag = 1 then
+begin
+vuin.tag := 0;
+vuin.face.template:= mainfo.tfacegreen;
+end;
+
 end;
 
 end.

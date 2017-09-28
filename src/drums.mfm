@@ -19,8 +19,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 703
-  bounds_y = 220
+  bounds_x = 616
+  bounds_y = 282
   bounds_cx = 458
   bounds_cy = 236
   bounds_cxmin = 458
@@ -695,34 +695,37 @@ object drumsfo: tdrumsfo
         taborder = 1
         bounds_x = 324
         bounds_y = 4
-        bounds_cx = 39
-        bounds_cy = 15
+        bounds_cx = 32
+        bounds_cy = 13
         caption = 'Patern'
         font.color = 5197647
+        font.height = 10
         font.name = 'stf_default'
-        font.localprops = [flp_color]
-        reffontheight = 15
+        font.localprops = [flp_color, flp_height]
+        reffontheight = 13
       end
       object tlabel21: tlabel
         color = -2147483645
         bounds_x = 276
         bounds_y = 4
-        bounds_cx = 41
-        bounds_cy = 15
+        bounds_cx = 34
+        bounds_cy = 13
         caption = 'Lesson'
         font.color = 5197647
+        font.height = 10
         font.name = 'stf_default'
-        font.localprops = [flp_color]
-        reffontheight = 15
+        font.localprops = [flp_color, flp_height]
+        reffontheight = 13
       end
       object noanim: tbooleanedit
         color = -2147483645
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.colorclient = 16250871
         frame.caption = 'no anim'
-        frame.font.color = 1710618
+        frame.font.color = 2697513
+        frame.font.height = 12
         frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color]
+        frame.font.localprops = [flp_color, flp_height]
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
         frame.outerframe = (
@@ -745,9 +748,10 @@ object drumsfo: tdrumsfo
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.colorclient = 16250871
         frame.caption = 'no "and"'
-        frame.font.color = 1710618
+        frame.font.color = 2697513
+        frame.font.height = 12
         frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color]
+        frame.font.localprops = [flp_color, flp_height]
         frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
         frame.outerframe = (
@@ -771,9 +775,10 @@ object drumsfo: tdrumsfo
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.colorclient = 16250871
         frame.caption = 'no voice'
-        frame.font.color = 1710618
+        frame.font.color = 2697513
+        frame.font.height = 12
         frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color]
+        frame.font.localprops = [flp_color, flp_height]
         frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
         frame.outerframe = (
@@ -798,9 +803,10 @@ object drumsfo: tdrumsfo
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.colorclient = 16250871
         frame.caption = 'no drums'
-        frame.font.color = 1710618
+        frame.font.color = 2697513
+        frame.font.height = 12
         frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color]
+        frame.font.localprops = [flp_color, flp_height]
         frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
         frame.localprops1 = []
         frame.outerframe = (
@@ -831,7 +837,7 @@ object drumsfo: tdrumsfo
         bounds_x = 68
         bounds_y = 36
         bounds_cx = 30
-        bounds_cy = 30
+        bounds_cy = 42
         state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
         imagelist = mainfo.buttonicons
         imagenr = 1
@@ -851,7 +857,7 @@ object drumsfo: tdrumsfo
         bounds_x = 37
         bounds_y = 36
         bounds_cx = 30
-        bounds_cy = 30
+        bounds_cy = 42
         state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
         imagelist = mainfo.buttonicons
         imagenr = 28
@@ -877,7 +883,7 @@ object drumsfo: tdrumsfo
         bounds_x = 6
         bounds_y = 36
         bounds_cx = 30
-        bounds_cy = 30
+        bounds_cy = 42
         state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
         imagelist = mainfo.buttonicons
         imagenr = 27
@@ -973,8 +979,8 @@ object drumsfo: tdrumsfo
         valuedefault = 100
         valuerange = 1
         valuestart = 0
-        min = 40
-        max = 200
+        valuemin = 40
+        valuemax = 200
         step = 1
         stepctrlfact = 0
         stepshiftfact = 0
@@ -985,40 +991,29 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 21
         bounds_x = 107
-        bounds_y = 3
-        bounds_cx = 46
-        bounds_cy = 15
+        bounds_y = 6
+        bounds_cx = 38
+        bounds_cy = 13
         caption = 'Interval'
         font.color = 5197647
+        font.height = 10
         font.name = 'stf_default'
-        font.localprops = [flp_color]
-        reffontheight = 15
-      end
-      object tlabel26: tlabel
-        color = -2147483645
-        taborder = 22
-        bounds_x = 21
-        bounds_y = 16
-        bounds_cx = 64
-        bounds_cy = 15
-        caption = 'Drums Set'
-        font.color = 4210752
-        font.name = 'stf_default'
-        font.localprops = [flp_color]
-        reffontheight = 15
+        font.localprops = [flp_color, flp_height]
+        reffontheight = 13
       end
       object tlabel23: tlabel
         color = -2147483645
-        taborder = 23
+        taborder = 22
         bounds_x = 163
-        bounds_y = 3
-        bounds_cx = 45
-        bounds_cy = 15
+        bounds_y = 6
+        bounds_cx = 38
+        bounds_cy = 13
         caption = 'Volume'
         font.color = 5197647
+        font.height = 10
         font.name = 'stf_default'
-        font.localprops = [flp_color]
-        reffontheight = 15
+        font.localprops = [flp_color, flp_height]
+        reffontheight = 13
       end
       object volumedrums: trealspinedit
         color = -2147483645
@@ -1036,7 +1031,7 @@ object drumsfo: tdrumsfo
         frame.buttonsize = 20
         face.localprops = []
         face.template = tfacecomp3
-        taborder = 24
+        taborder = 23
         hint = ' General volume of Drums '
         bounds_x = 161
         bounds_y = 19
@@ -1048,8 +1043,8 @@ object drumsfo: tdrumsfo
         valuedefault = 100
         valuerange = 1
         valuestart = 0
-        min = 0
-        max = 100
+        valuemin = 0
+        valuemax = 100
         step = 1
         stepctrlfact = 0
         stepshiftfact = 0
@@ -1063,15 +1058,40 @@ object drumsfo: tdrumsfo
         frame.template = commanderfo.tframecomp2
         face.localprops = []
         face.template = tfacecomp2
-        taborder = 25
+        taborder = 24
         hint = ' Position of sound '
         bounds_x = 104
         bounds_y = 62
         bounds_cx = 108
-        bounds_cy = 16
+        bounds_cy = 15
+        font.color = 3355443
+        font.height = 11
+        font.name = 'stf_default'
+        font.localprops = [flp_color, flp_height]
         textflags = [tf_xcentered, tf_ycentered]
         value = 'Tempo 150 BPM'
-        reffontheight = 15
+        reffontheight = 14
+      end
+      object tstringdisp2: tstringdisp
+        color = -2147483645
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
+        face.localprops = []
+        face.template = tfacecomp2
+        taborder = 25
+        hint = ' Drums set '
+        bounds_x = 16
+        bounds_y = 15
+        bounds_cx = 75
+        bounds_cy = 15
+        font.color = 3355443
+        font.height = 11
+        font.name = 'stf_default'
+        font.localprops = [flp_color, flp_height]
+        textflags = [tf_xcentered, tf_ycentered]
+        value = 'Drums Set'
+        reffontheight = 14
       end
     end
     object tlabel13: tlabel

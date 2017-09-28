@@ -4,10 +4,11 @@ unit guitars;
 interface
 
 uses
-  mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msegui,
-  msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
-  msesimplewidgets, msewidgets, msegraphedits, SysUtils, mseificomp, mseificompglob,
-  mseifiglob, msescrollbar, msetypes;
+ mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msegui,
+ msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
+ msesimplewidgets, msewidgets, msegraphedits, SysUtils, mseificomp,
+ mseificompglob,mseifiglob, msescrollbar, msetypes,msedispwidgets,mserichstring,
+ msestrings;
 
 type
   tguitarsfo = class(tdockform)
@@ -20,7 +21,6 @@ type
     tbutton14: TButton;
     tbutton13: TButton;
     loopbass: tbooleanedit;
-    tlabel24: tlabel;
     tbutton9: TButton;
     tbutton8: TButton;
     tbutton7: TButton;
@@ -28,8 +28,9 @@ type
     tbutton5: TButton;
     tbutton3: TButton;
     loopguit: tbooleanedit;
-    tlabel23: tlabel;
     tfacecomp3: tfacecomp;
+   tstringdisp2: tstringdisp;
+   tstringdisp3: tstringdisp;
     procedure doguitarstring(const Sender: TObject);
     procedure onvisiblechangeev(const Sender: TObject);
     procedure oncreateguit(const Sender: TObject);

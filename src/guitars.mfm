@@ -357,18 +357,26 @@ object guitarsfo: tguitarsfo
       bounds_cy = 17
       statfile = mainfo.tstatfile1
     end
-    object tlabel23: tlabel
+    object tstringdisp2: tstringdisp
       color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = tfaceguitars
       taborder = 7
-      bounds_x = 10
+      hint = ' Tuned Guitar strings '
+      bounds_x = 11
       bounds_y = 1
-      bounds_cx = 82
+      bounds_cx = 81
       bounds_cy = 15
-      caption = 'Guitar strings'
-      font.color = 4210752
+      font.color = 3881787
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Guitar strings'
+      reffontheight = 13
     end
   end
   object tgroupbox2: tgroupbox
@@ -520,18 +528,26 @@ object guitarsfo: tguitarsfo
       bounds_cy = 17
       statfile = mainfo.tstatfile1
     end
-    object tlabel24: tlabel
+    object tstringdisp3: tstringdisp
       color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = tfaceguitars
       taborder = 5
-      bounds_x = 10
+      hint = ' Tuned Bass strings '
+      bounds_x = 11
       bounds_y = 1
-      bounds_cx = 72
+      bounds_cx = 81
       bounds_cy = 15
-      caption = 'Bass strings'
-      font.color = 4210752
+      font.color = 3881787
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = [flp_color]
-      reffontheight = 15
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Bass strings'
+      reffontheight = 13
     end
   end
   object tfaceguitars: tfacecomp

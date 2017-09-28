@@ -4,12 +4,13 @@ unit recorder;
 interface
 
 uses
-  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
-  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, mseevent,
-  mseclasses, mseforms, msedock, msesimplewidgets, msewidgets, msedataedits,
-  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils, msegraphedits, mseificomp,
-  mseificompglob, mseifiglob, msescrollbar, msedragglob, mseact, mseedit, msestatfile,
-  msestream, msestrings, msebitmap, msedatanodes, msedispwidgets, mserichstring;
+ ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
+ mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,
+  mseevent,mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,
+  msedataedits,msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,
+  msegraphedits, mseificomp,mseificompglob, mseifiglob, msescrollbar,
+  msedragglob, mseact, mseedit, msestatfile,msestream, msestrings, msebitmap,
+  msedatanodes, msedispwidgets, mserichstring;
 
 type
   trecorderfo = class(tdockform)
@@ -46,6 +47,7 @@ type
     tfacecomp4: tfacecomp;
     vuRight: tgroupbox;
     vuLeft: tgroupbox;
+   tstringdisp2: tstringdisp;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
