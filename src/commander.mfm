@@ -10,8 +10,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 398
-  bounds_y = 402
+  bounds_x = 314
+  bounds_y = 419
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -340,45 +340,39 @@ object commanderfo: tcommanderfo
       onexecute = onstartstop
     end
     object vuRight: tgroupbox
+      optionswidget1 = []
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
       taborder = 9
       visible = False
-      bounds_x = 94
+      bounds_x = 92
       bounds_y = 18
-      bounds_cx = 6
+      bounds_cx = 8
       bounds_cy = 105
     end
     object vuLeft: tgroupbox
+      optionswidget1 = []
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
       taborder = 10
       visible = False
-      bounds_x = 34
+      bounds_x = 32
       bounds_y = 18
-      bounds_cx = 6
+      bounds_cx = 8
       bounds_cy = 105
     end
     object vuRight2: tgroupbox
+      optionswidget1 = []
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
       taborder = 11
       visible = False
-      bounds_x = 241
+      bounds_x = 240
       bounds_y = 18
-      bounds_cx = 6
+      bounds_cx = 8
       bounds_cy = 105
     end
     object volumeright2: tslider
@@ -392,7 +386,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
       taborder = 12
-      hint = ' Right Volume Player 1 '
+      hint = ' Right Volume Player 2 '
       bounds_x = 215
       bounds_y = 3
       bounds_cx = 25
@@ -439,7 +433,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
       taborder = 13
-      hint = ' Left Volume Player 1 '
+      hint = ' Left Volume Player 2 '
       bounds_x = 189
       bounds_y = 3
       bounds_cx = 25
@@ -476,17 +470,15 @@ object commanderfo: tcommanderfo
       direction = gd_up
     end
     object vuLeft2: tgroupbox
+      optionswidget1 = []
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
       taborder = 14
       visible = False
-      bounds_x = 182
+      bounds_x = 180
       bounds_y = 4
-      bounds_cx = 6
+      bounds_cx = 8
       bounds_cy = 122
     end
     object btncue: tbutton

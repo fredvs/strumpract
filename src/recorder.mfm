@@ -719,9 +719,6 @@ object recorderfo: trecorderfo
     end
     object vuRight: tgroupbox
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
       taborder = 23
@@ -733,9 +730,6 @@ object recorderfo: trecorderfo
     end
     object vuLeft: tgroupbox
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
       taborder = 24

@@ -10,7 +10,7 @@ uses
  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,msegraphedits,
  msedragglob, mseact, mseedit, mseificomp, mseificompglob,mseifiglob,
  msestatfile,msestream, msestrings, msescrollbar, msebitmap,msedatanodes,
- msedispwidgets,mserichstring;
+ msedispwidgets,mserichstring,msepolygon;
 
 type
   tsongplayerfo = class(tdockform)
@@ -44,6 +44,7 @@ type
    tfacegreen: tfacecomp;
    waveformcheck: tbooleanedit;
    tstringdisp2: tstringdisp;
+   sliderimage: tbitmapcomp;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -76,13 +77,12 @@ type
     procedure oncreated(const Sender: TObject);
    procedure faceafterpaintbut(const sender: tcustomface; const canvas: tcanvas;
                    const arect: rectty);
- 
-   procedure faceafterpaintgreen(const sender: tcustomface;
-               const canvas: tcanvas; const arect: rectty);
-   procedure onafterev(const sender: tcustomscrollbar;
+    procedure onafterev(const sender: tcustomscrollbar;
                    const akind: scrolleventty; const avalue: Real);
    procedure changeloop(const sender: TObject);
    procedure DrawWaveForm();
+   protected
+   procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
 
 var
@@ -106,8 +106,8 @@ implementation
 uses
   main, commander,
   songplayer_mfm;
-
-procedure tsongplayerfo.ontimersent(const Sender: TObject);
+  
+ procedure tsongplayerfo.ontimersent(const Sender: TObject);
 begin
   timersent.Enabled := False;
   historyfn.face.template := mainfo.tfaceplayerlight;
@@ -680,13 +680,77 @@ begin
   songplayerfo.edtempo.Value := 1;
 end;
 
+
+procedure tsongplayerfo.paintsliderimage(const canvas: tcanvas;
+                                                        const arect: rectty);
+ var
+ 
+ poswav, poswav2 : pointty;  
+ poswavx : integer;            
+begin
+if (iswav = true) and (waveformcheck.value = true) then begin
+
+poswav.x :=6 ;
+poswav.y := (trackbar1.height div 2) -2;
+
+
+poswav2.x :=6 ;
+poswav2.y := ((arect.cy div 2) -2) - round(
+            (waveformdata1[poswav.x*2 ]) * ((trackbar1.height div 2) -3)) ;
+
+      while poswav.x < length(waveformdata1) div chan1 do
+      begin
+        if chan1 = 2 then
+        begin
+       poswav.y := (trackbar1.height div 2) -2 ;  
+      poswav2.x :=poswav.x ;
+      poswavx := poswav.x -6;
+      poswav2.y := ((arect.cy div 2) -1) - round(
+            (waveformdata1[poswavx *2]) * ((arect.cy div 2) -3)) ;
+     
+     if mainfo.typecolor.value = 0 then canvas.drawline(poswav,poswav2,$AC99D6) 
+     else canvas.drawline(poswav,poswav2,$6A6A6A) ;
+      
+      poswav.y := (trackbar1.height div 2) ;
+
+      poswav2.y := poswav.y  + ( round(
+        (waveformdata1[(poswavx *2)+1]) * ((trackbar1.height div 2) -3))) ;
+      
+      if mainfo.typecolor.value = 0 then canvas.drawline(poswav,poswav2,$AC79D6) else
+      canvas.drawline(poswav,poswav2,$8A8A8A) ;
+       
+       end;
+        if chan1 = 1 then
+        begin
+         // Custom1.Canvas.drawLine(poswav, 0, poswav, ((Custom1.Height) - 1) 
+         // - round((waveformdata[poswav]) * (Custom1.Height) - 1));
+        end;
+       Inc(poswav.x,1) ;
+      end;
+         
+ end;                     
+end;
+
 procedure tsongplayerfo.DrawWaveForm();
+const
+ transpcolor = cl_magenta;
+var
+ rect1: rectty;
   begin
      waveformdata1 := uos_InputGetArrayLevel(theplayerinfo, 0);
     iswav := true;
-    trackbar1.hide;
-    trackbar1.show;
+    trackbar1.invalidate();
  //  writeln(inttostr(length(waveformdata1)));
+ rect1.pos:= nullpoint;
+ rect1.size:= trackbar1.paintsize;
+ with sliderimage.bitmap do begin
+  size:= rect1.size;
+  masked:= false;
+  init(transpcolor);
+  paintsliderimage(canvas,rect1);
+  transparentcolor:= transpcolor;
+  masked:= true;
+ end;
   end;
 
 procedure tsongplayerfo.oninfowav(const Sender: TObject);
@@ -924,56 +988,6 @@ canvas.drawline(point1,point2,cl_red);
 
          
                   
-end;
-
-procedure tsongplayerfo.faceafterpaintgreen(const sender: tcustomface;
-               const canvas: tcanvas; const arect: rectty);
- var
- 
- poswav, poswav2 : pointty;  
- poswavx : integer;            
-begin
-if (iswav = true) and (waveformcheck.value = true) then begin
-
-poswav.x :=6 ;
-poswav.y := (trackbar1.height div 2) -2;
-
-
-poswav2.x :=6 ;
-poswav2.y := ((arect.cy div 2) -2) - round(
-            (waveformdata1[poswav.x*2 ]) * ((trackbar1.height div 2) -3)) ;
-
-      while poswav.x < length(waveformdata1) div chan1 do
-      begin
-        if chan1 = 2 then
-        begin
-       poswav.y := (trackbar1.height div 2) -2 ;  
-      poswav2.x :=poswav.x ;
-      poswavx := poswav.x -6;
-      poswav2.y := ((arect.cy div 2) -1) - round(
-            (waveformdata1[poswavx *2]) * ((arect.cy div 2) -3)) ;
-     
-     if mainfo.typecolor.value = 0 then canvas.drawline(poswav,poswav2,$AC99D6) 
-     else canvas.drawline(poswav,poswav2,$6A6A6A) ;
-      
-      poswav.y := (trackbar1.height div 2) ;
-       
-      poswav2.y := poswav.y  + ( round(
-            (waveformdata1[(poswavx *2)+1]) * ((trackbar1.height div 2) -3))) ;
-      
-      if mainfo.typecolor.value = 0 then canvas.drawline(poswav,poswav2,$AC79D6) else
-      canvas.drawline(poswav,poswav2,$8A8A8A) ;
-       
-       end;
-        if chan1 = 1 then
-        begin
-         // Custom1.Canvas.drawLine(poswav, 0, poswav, ((Custom1.Height) - 1) 
-         // - round((waveformdata[poswav]) * (Custom1.Height) - 1));
-        end;
-       Inc(poswav.x,1) ;
-      end;
-         
- end;                     
 end;
 
 procedure tsongplayerfo.onafterev(const sender: tcustomscrollbar;

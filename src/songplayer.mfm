@@ -20,8 +20,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 359
-  bounds_y = 333
+  bounds_x = 459
+  bounds_y = 225
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -216,7 +216,6 @@ object songplayerfo: tsongplayerfo
       frame.colorclient = 16580582
       frame.caption = 'Stretch'
       frame.captionpos = cp_topleft
-      frame.captiondist = 3
       frame.font.color = 4013373
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -225,7 +224,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        18
+        16
         25
         0
       )
@@ -234,9 +233,9 @@ object songplayerfo: tsongplayerfo
       taborder = 4
       hint = ' Enable stretching (changing tempo) '
       bounds_x = 343
-      bounds_y = 47
+      bounds_y = 49
       bounds_cx = 38
-      bounds_cy = 30
+      bounds_cy = 28
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
     end
@@ -321,10 +320,13 @@ object songplayerfo: tsongplayerfo
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 12
       scrollbar.buttonendlength = -1
+      scrollbar.face.image.source = sliderimage
       scrollbar.face.fade_direction = gd_down
-      scrollbar.face.localprops = [fal_fadirection]
+      scrollbar.face.localprops = [fal_fadirection, fal_image]
       scrollbar.face.template = tfaceslider
-      scrollbar.face1.localprops = []
+      scrollbar.face1.image.source = sliderimage
+      scrollbar.face1.framei_right = -6
+      scrollbar.face1.localprops = [fal_framei_right, fal_image]
       scrollbar.face1.template = tfacegreen
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = tfacebuttonslider
@@ -457,7 +459,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 357
       bounds_y = 95
       bounds_cx = 90
-      bounds_cy = 16
+      bounds_cy = 17
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
       reffontheight = 15
@@ -474,6 +476,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 0
       bounds_y = 27
       bounds_cx = 454
+      bounds_cy = 21
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
@@ -573,10 +576,8 @@ object songplayerfo: tsongplayerfo
       onexecute = doplayerstart
     end
     object vuLeft: tgroupbox
+      optionswidget1 = []
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
       taborder = 16
@@ -587,10 +588,8 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 28
     end
     object vuRight: tgroupbox
+      optionswidget1 = []
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
       face.localprops = []
       face.template = mainfo.tfacegreen
       taborder = 17
@@ -695,6 +694,7 @@ object songplayerfo: tsongplayerfo
     end
   end
   object tfaceslider: tfacecomp
+    template.image.source = sliderimage
     template.fade_pos.count = 2
     template.fade_pos.items = (
       0
@@ -716,6 +716,7 @@ object songplayerfo: tsongplayerfo
     top = 6
   end
   object tfacegreen: tfacecomp
+    template.image.source = sliderimage
     template.fade_pos.count = 2
     template.fade_pos.items = (
       0
@@ -727,8 +728,11 @@ object songplayerfo: tsongplayerfo
       7255365
     )
     template.fade_direction = gd_down
-    template.onafterpaint = faceafterpaintgreen
     left = 200
     top = 95
+  end
+  object sliderimage: tbitmapcomp
+    left = 32
+    top = 96
   end
 end
