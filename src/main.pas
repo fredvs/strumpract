@@ -10,7 +10,8 @@ uses
  msetimer,ctypes, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms,
  msedock, drums,recorder, songplayer, songplayer2, commander, filelistform,
  guitars, msedataedits,mseedit, msestatfile, SysUtils, Classes, uos_flat,
- aboutform, msebitmap, msesys,msemenus, msestream, msegrids, mselistbrowser;
+ aboutform, msebitmap, msesys,msemenus, msestream, msegrids, mselistbrowser,
+ mseact,mseificomp,mseificompglob,mseifiglob,msestrings;
 
 type
   tmainfo = class(tmainform)
@@ -35,6 +36,7 @@ type
    tframecomp2: tframecomp;
    tfaceorangelt: tfacecomp;
    tfaceorangehz: tfacecomp;
+   typecolor: tintegeredit;
     procedure ontimerwait(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
     procedure oncreatedform(const Sender: TObject);
@@ -59,6 +61,7 @@ type
    procedure showfiles(const sender: TObject);
    procedure changecolors(const sender: TObject);
    procedure changesilver(const sender: TObject);
+   procedure onchangevalcolor(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -89,7 +92,6 @@ var
   channels: cardinal = 2; // stereo output
   allok: boolean = False;
   plugsoundtouch: boolean = False;
-  typecolor : integer = 0;
   ordir: string;
   hasinit: integer = 0;
 
@@ -639,6 +641,18 @@ end;
 
 procedure tmainfo.changecolors(const sender: TObject);
 begin
+typecolor.value := 0;
+end;
+
+procedure tmainfo.changesilver(const sender: TObject);
+begin
+typecolor.value := 1;
+end;
+
+procedure tmainfo.onchangevalcolor(const sender: TObject);
+begin
+if typecolor.value = 0 then 
+begin
 // main
 tfacegreen.template.fade_color.items[0] := $C2FF9E ;
 tfacegreen.template.fade_color.items[1] := $6EB545 ;
@@ -702,11 +716,9 @@ guitarsfo.tfaceguit.template.fade_color.items[1] := $BFB7AA ;
 guitarsfo.tfaceguitlight.template.fade_color.items[0] := $DBD3C3 ;
 guitarsfo.tfaceguitlight.template.fade_color.items[1] := $FFF5E3 ;
 
-typecolor := 0;
-
 end;
 
-procedure tmainfo.changesilver(const sender: TObject);
+if typecolor.value = 1 then 
 begin
 // main
 tfacegreen.template.fade_color.items[0] := $FDFDFD ;
@@ -770,10 +782,10 @@ guitarsfo.tfaceguit.template.fade_color.items[1] := $BABABA ;
 // light
 guitarsfo.tfaceguitlight.template.fade_color.items[0] := $EDEDED ;
 guitarsfo.tfaceguitlight.template.fade_color.items[1] := $BABABA ;
+end;
 
 
-typecolor := 1;
-
+ 
 end;
 
 

@@ -1169,6 +1169,20 @@ object mainfo: tmainfo
     statfile = tstatfile1
     dockingareacaption = 'Drag the window into this Dock Area...'
   end
+  object typecolor: tintegeredit
+    frame.localprops = []
+    frame.localprops1 = []
+    taborder = 1
+    visible = False
+    bounds_x = 431
+    bounds_y = 10
+    bounds_cx = 29
+    bounds_cy = 21
+    statfile = tstatfile1
+    onchange = onchangevalcolor
+    valuemax = 10
+    reffontheight = 15
+  end
   object buttonicons: timagelist
     width = 24
     height = 24

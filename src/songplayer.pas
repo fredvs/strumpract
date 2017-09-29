@@ -953,7 +953,7 @@ poswav2.y := ((arect.cy div 2) -2) - round(
       poswav2.y := ((arect.cy div 2) -1) - round(
             (waveformdata1[poswavx *2]) * ((arect.cy div 2) -3)) ;
      
-     if typecolor = 0 then canvas.drawline(poswav,poswav2,$AC99D6) 
+     if mainfo.typecolor.value = 0 then canvas.drawline(poswav,poswav2,$AC99D6) 
      else canvas.drawline(poswav,poswav2,$6A6A6A) ;
       
       poswav.y := (trackbar1.height div 2) ;
@@ -961,7 +961,7 @@ poswav2.y := ((arect.cy div 2) -2) - round(
       poswav2.y := poswav.y  + ( round(
             (waveformdata1[(poswavx *2)+1]) * ((trackbar1.height div 2) -3))) ;
       
-      if typecolor = 0 then canvas.drawline(poswav,poswav2,$AC79D6) else
+      if mainfo.typecolor.value = 0 then canvas.drawline(poswav,poswav2,$AC79D6) else
       canvas.drawline(poswav,poswav2,$8A8A8A) ;
        
        end;
