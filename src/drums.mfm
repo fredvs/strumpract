@@ -1,4 +1,5 @@
 object drumsfo: tdrumsfo
+  color = -2147483645
   frame.localprops = []
   frame.localprops1 = []
   frame.grip_size = 8
@@ -175,6 +176,7 @@ object drumsfo: tdrumsfo
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
   object tdockpanel1: tgroupbox
+    color = -2147483645
     frame.leveli = 0
     frame.colordkwidth = 0
     frame.colorhlwidth = 0
@@ -462,7 +464,7 @@ object drumsfo: tdrumsfo
       reffontheight = 15
     end
     object panel1: tgroupbox
-      color = 12446914
+      color = -2147483645
       frame.leveli = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0

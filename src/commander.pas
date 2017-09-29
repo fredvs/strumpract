@@ -57,6 +57,7 @@ type
    vuin: tbutton;
    lposition: tstringdisp;
    tstringdisp2: tstringdisp;
+   tfacegriptab: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

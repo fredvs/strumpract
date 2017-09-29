@@ -76,8 +76,7 @@ type
     procedure oncreated(const Sender: TObject);
    procedure faceafterpaintbut(const sender: tcustomface; const canvas: tcanvas;
                    const arect: rectty);
-   procedure faceafterpaint(const sender: tcustomface;
-               const canvas: tcanvas; const arect: rectty);
+ 
    procedure faceafterpaintgreen(const sender: tcustomface;
                const canvas: tcanvas; const arect: rectty);
    procedure onafterev(const sender: tcustomscrollbar;
@@ -830,7 +829,7 @@ end;
 procedure tsongplayerfo.visiblechangeev(const Sender: TObject);
 begin
 
-  if Visible then
+      if Visible then
   begin
      mainfo.tmainmenu1.menu[3].submenu[4].caption := ' Hide Player 1 ' ;
   end
@@ -839,8 +838,7 @@ begin
     uos_Stop(theplayer);
      mainfo.tmainmenu1.menu[3].submenu[4].caption := ' Show Player 1 ' ;
   end;
-
-  mainfo.updatelayout();
+  mainfo.updatelayout(); 
 end;
 
 procedure tsongplayerfo.onplayercreate(const Sender: TObject);
@@ -917,60 +915,16 @@ procedure tsongplayerfo.faceafterpaintbut(const sender: tcustomface;
  var
  point1, point2 : pointty;              
 begin
-point1.x := arect.x + (arect.cx div 2) ;
+point1.x := arect.x + (arect.cx div 2)  ;
 point1.y := 0;
 point2.x := point1.x;
 point2.y := arect.cy;
                          
-canvas.drawline(point1,point2,cl_red);                        
+canvas.drawline(point1,point2,cl_red);
+
+         
                   
 end;
-
-procedure tsongplayerfo.faceafterpaint(const sender: tcustomface;
-               const canvas: tcanvas; const arect: rectty);
- var
- poswav, poswav2 : pointty;              
-begin
-if (hasinit= 1) and (iswav = true) and (waveformcheck.value = true) then begin
-
-poswav.x :=0 ;
-poswav.y := (trackbar1.height div 2) -2;
-
-poswav2.x :=0 ;
-poswav2.y := ((arect.cy div 2) -2) - round(
-            (waveformdata1[poswav.x*2 ]) * ((trackbar1.height div 2) -3)) ;
-
-      while poswav.x < (length(waveformdata1) div chan1 )  do
-      begin
-        if chan1 = 2 then
-        begin
-       poswav.y := (trackbar1.height div 2) -2 ;  
-      poswav2.x :=poswav.x ;
-      poswav2.y := ((arect.cy div 2) -1) - round(
-            (waveformdata1[poswav.x *2]) * ((arect.cy div 2) -3)) ;
-        
-    //  canvas.drawline(poswav,poswav2,$AC94D6); 
-      
-      canvas.drawline(poswav,poswav2,cl_red);
-      
-      poswav.y := (trackbar1.height div 2) ;
-       
-      poswav2.y := poswav.y  + ( round(
-            (waveformdata1[(poswav.x *2)+1]) * ((trackbar1.height div 2) -3))) ;
-      
-      canvas.drawline(poswav,poswav2,$AC25D6); 
-
-       end;
-        if chan1 = 1 then
-        begin
-         // Custom1.Canvas.drawLine(poswav, 0, poswav, ((Custom1.Height) - 1) - round((waveformdata[poswav]) * (Custom1.Height) - 1));
-        end;
-       Inc(poswav.x,1) ;
-      end;
-      
- end;                     
-end;
-
 
 procedure tsongplayerfo.faceafterpaintgreen(const sender: tcustomface;
                const canvas: tcanvas; const arect: rectty);
@@ -998,14 +952,17 @@ poswav2.y := ((arect.cy div 2) -2) - round(
       poswavx := poswav.x -6;
       poswav2.y := ((arect.cy div 2) -1) - round(
             (waveformdata1[poswavx *2]) * ((arect.cy div 2) -3)) ;
-              canvas.drawline(poswav,poswav2,$AC99D6); 
+     
+     if typecolor = 0 then canvas.drawline(poswav,poswav2,$AC99D6) 
+     else canvas.drawline(poswav,poswav2,$6A6A6A) ;
       
       poswav.y := (trackbar1.height div 2) ;
        
       poswav2.y := poswav.y  + ( round(
             (waveformdata1[(poswavx *2)+1]) * ((trackbar1.height div 2) -3))) ;
       
-      canvas.drawline(poswav,poswav2,$AC79D6); 
+      if typecolor = 0 then canvas.drawline(poswav,poswav2,$AC79D6) else
+      canvas.drawline(poswav,poswav2,$8A8A8A) ;
        
        end;
         if chan1 = 1 then

@@ -835,12 +835,12 @@ begin
 
   if Visible then
   begin
-     mainfo.tmainmenu1.menu[3].submenu[4].caption := ' Hide Player 1 ' ;
+     mainfo.tmainmenu1.menu[3].submenu[5].caption := ' Hide Player 2 ' ;
   end
   else
   begin
     uos_Stop(theplayer2);
-     mainfo.tmainmenu1.menu[3].submenu[4].caption := ' Show Player 1 ' ;
+     mainfo.tmainmenu1.menu[3].submenu[5].caption := ' Show Player 2 ' ;
   end;
 
   mainfo.updatelayout();
@@ -998,14 +998,18 @@ poswav2.y := ((arect.cy div 2) -2) - round(
       poswavx := poswav.x -6;
       poswav2.y := ((arect.cy div 2) -1) - round(
             (waveformdata2[poswavx *2]) * ((arect.cy div 2) -3)) ;
-              canvas.drawline(poswav,poswav2,$AC99D6); 
-      
+            
+             if typecolor = 0 then canvas.drawline(poswav,poswav2,$AC99D6) 
+     else canvas.drawline(poswav,poswav2,$6A6A6A) ;
+        
       poswav.y := (trackbar1.height div 2) ;
        
       poswav2.y := poswav.y  + ( round(
             (waveformdata2[(poswavx *2)+1]) * ((trackbar1.height div 2) -3))) ;
       
-      canvas.drawline(poswav,poswav2,$AC79D6); 
+     if typecolor = 0 then canvas.drawline(poswav,poswav2,$AC99D6) 
+     else canvas.drawline(poswav,poswav2,$8A8A8A) ;
+   
    
        end;
         if chan2 = 1 then

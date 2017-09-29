@@ -4,11 +4,12 @@ unit filelistform;
 interface
 
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msegui,
-  msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock, msedragglob,
-  msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits, msedatanodes, mseedit,
-  msefiledialog, msegrids, mseificomp, mseificompglob, mseifiglob, mselistbrowser,
-  msestatfile, msestream, msestrings, msesys, SysUtils, msegraphedits, msescrollbar;
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  msegui,msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
+  msedragglob,msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits,
+  msedatanodes, mseedit,msefiledialog, msegrids, mseificomp, mseificompglob,
+  mseifiglob, mselistbrowser,msestatfile, msestream, msestrings, msesys,
+  SysUtils, msegraphedits, msescrollbar;
 
 type
   tfilelistfo = class(tdockform)
@@ -17,6 +18,7 @@ type
     songdir: tfilenameedit;
     historyfn: thistoryedit;
     list_files: tfilelistview;
+   tfacecomp1: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure selctchanged(const Sender: tcustomlistview);

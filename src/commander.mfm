@@ -1,10 +1,13 @@
 object commanderfo: tcommanderfo
+  color = -2147483645
   frame.localprops = []
   frame.localprops1 = []
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
+  frame.grip_faceactive.localprops = []
+  frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
   bounds_x = 404
@@ -24,6 +27,7 @@ object commanderfo: tcommanderfo
     128
   )
   dragdock.splitter_size = 5
+  dragdock.faceactivetab = tfacegriptab
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
   caption = 'Commander'
@@ -61,7 +65,7 @@ object commanderfo: tcommanderfo
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
   object tgroupboxplayers: tgroupbox
-    color = 13158600
+    color = -2147483645
     frame.framei_left = 0
     frame.framei_top = 0
     frame.framei_right = 0
@@ -70,18 +74,8 @@ object commanderfo: tcommanderfo
     frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_optionsskin]
     frame.localprops1 = []
     frame.template = tframecomp1
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      15989438
-      11120261
-    )
-    face.fade_direction = gd_down
     face.localprops = []
+    face.template = mainfo.tfaceplayer
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 283
@@ -114,18 +108,8 @@ object commanderfo: tcommanderfo
       frame.buttonframe.localprops1 = []
       frame.buttonframe.template = tframecomp1
       frame.buttonsize = 20
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        15989438
-        11120261
-      )
-      face.fade_direction = gd_down
       face.localprops = []
+      face.template = mainfo.tfaceplayer
       hint = ' Change mixing time in 1/100 second '
       bounds_x = 111
       bounds_y = 68
@@ -745,6 +729,7 @@ object commanderfo: tcommanderfo
     end
   end
   object tgroupboxdrums: tgroupbox
+    color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
     frame.template = tframecomp1
@@ -887,11 +872,12 @@ object commanderfo: tcommanderfo
     end
   end
   object tgroupboxinput: tgroupbox
+    color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
     frame.template = tframecomp1
     face.localprops = []
-    face.template = recorderfo.tfacecomp1
+    face.template = recorderfo.tfacereclight
     taborder = 2
     bounds_x = 390
     bounds_y = 0
@@ -980,8 +966,8 @@ object commanderfo: tcommanderfo
       15921906
     )
     template.fade_direction = gd_left
-    left = 245
-    top = 46
+    left = 317
+    top = 53
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -995,8 +981,8 @@ object commanderfo: tcommanderfo
       10921638
     )
     template.fade_direction = gd_down
-    left = 232
-    top = 52
+    left = 293
+    top = 47
   end
   object tframecomp1: tframecomp
     template.framei_left = 4
@@ -1020,8 +1006,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 334
-    top = 56
+    left = 286
+    top = 41
     image = {
       00000000020000000C0000000C00000010010000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -1524,7 +1510,22 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 224
-    top = 38
+    left = 333
+    top = 35
+  end
+  object tfacegriptab: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16310015
+      13546198
+    )
+    template.fade_direction = gd_down
+    left = 282
+    top = 61
   end
 end

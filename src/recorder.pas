@@ -16,10 +16,10 @@ type
   trecorderfo = class(tdockform)
     Timerwait: Ttimer;
 
-    tfacecomp1: tfacecomp;
-    tfacerecorder: tfacecomp;
+    tfacereclight: tfacecomp;
+    tfacerecrev: tfacecomp;
     tgroupbox1: tgroupbox;
-    tfacecomp2: tfacecomp;
+    tfacerecorder: tfacecomp;
     tlabel2: tlabel;
     tlabel28: tlabel;
     tbutton3: TButton;
@@ -41,10 +41,8 @@ type
     tlabel27: tlabel;
     historyfn: thistoryedit;
     songdir: tfilenameedit;
-    tfacecomp3: tfacecomp;
     llength: tstringdisp;
     lposition: tstringdisp;
-    tfacecomp4: tfacecomp;
     vuRight: tgroupbox;
     vuLeft: tgroupbox;
    tstringdisp2: tstringdisp;
@@ -144,7 +142,7 @@ begin
   trackbar1.Enabled := False;
   bsavetofile.Enabled := True;
   lposition.Value := '00:00:00.000';
-  lposition.face.template := tfacecomp1;
+  lposition.face.template := tfacereclight;
 
 end;
 
@@ -362,7 +360,7 @@ begin
         uos_Play(therecplayer);  /////// everything is ready, here we are, lets play it...
         btnpause.Enabled := True;
       end;
-      lposition.face.template := tfacecomp4;
+      lposition.face.template := tfacereclight;
       cbloop.Enabled := False;
       songdir.Value := historyfn.Value;
       historyfn.hint := historyfn.Value;

@@ -12,9 +12,9 @@ uses
 
 type
   tguitarsfo = class(tdockform)
-    tfaceguitars: tfacecomp;
+    tfaceguitlight: tfacecomp;
     tgroupbox1: tgroupbox;
-    tfacecomp2: tfacecomp;
+    tfaceguit: tfacecomp;
     tgroupbox2: tgroupbox;
     tbutton16: TButton;
     tbutton15: TButton;
@@ -28,7 +28,6 @@ type
     tbutton5: TButton;
     tbutton3: TButton;
     loopguit: tbooleanedit;
-    tfacecomp3: tfacecomp;
    tstringdisp2: tstringdisp;
    tstringdisp3: tstringdisp;
     procedure doguitarstring(const Sender: TObject);

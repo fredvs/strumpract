@@ -6,7 +6,7 @@ object recorderfo: trecorderfo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
   frame.grip_faceactive.localprops = []
-  frame.grip_faceactive.template = tfacecomp1
+  frame.grip_faceactive.template = tfacereclight
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
   bounds_x = 746
@@ -30,7 +30,7 @@ object recorderfo: trecorderfo
     128
   )
   dragdock.splitter_size = 5
-  dragdock.faceactivetab = tfacerecorder
+  dragdock.faceactivetab = tfacerecrev
   dragdock.caption = ' Recorder '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   options = [fo_savepos, fo_savezorder, fo_savestate]
@@ -138,7 +138,7 @@ object recorderfo: trecorderfo
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp1
     face.localprops = []
-    face.template = tfacecomp2
+    face.template = tfacerecorder
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 450
@@ -177,7 +177,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp1
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
+      face.template = tfacerecorder
       taborder = 2
       hint = ' Start Recording  '
       bounds_x = 95
@@ -197,7 +197,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp1
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
+      face.template = tfacerecorder
       taborder = 3
       hint = ' Stop player '
       bounds_x = 129
@@ -228,8 +228,18 @@ object recorderfo: trecorderfo
         38
         2
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16446194
+        16773360
+      )
+      face.fade_direction = gd_down
       face.localprops = []
-      face.template = tfacecomp4
       taborder = 4
       hint = ' Listen to the input while recording. WARNING: Use headphones or set volume output low. '
       bounds_x = 287
@@ -258,8 +268,18 @@ object recorderfo: trecorderfo
         69
         2
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16446194
+        16773360
+      )
+      face.fade_direction = gd_down
       face.localprops = []
-      face.template = tfacecomp4
       taborder = 5
       hint = ' Save recording to file '
       bounds_x = 180
@@ -277,7 +297,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
+      face.template = tfacerecorder
       taborder = 6
       hint = ' Show infos of the song '
       bounds_x = 7
@@ -302,13 +322,13 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp1
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = tfacecomp1
+      frame.buttonface.template = tfacerecorder
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
       frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 30
       face.localprops = []
-      face.template = tfacerecorder
+      face.template = tfacerecrev
       taborder = 7
       hint = ' Change volume of song '
       bounds_x = 190
@@ -338,13 +358,13 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp1
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = tfacecomp1
+      frame.buttonface.template = tfacerecorder
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
       frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 30
       face.localprops = []
-      face.template = tfacerecorder
+      face.template = tfacerecrev
       taborder = 8
       hint = ' Change tempo of song '
       bounds_x = 319
@@ -372,7 +392,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
+      face.template = tfacerecorder
       taborder = 9
       hint = ' Reset to tempo original '
       bounds_x = 386
@@ -406,8 +426,18 @@ object recorderfo: trecorderfo
         8
         0
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16446194
+        16773360
+      )
+      face.fade_direction = gd_down
       face.localprops = []
-      face.template = tfacecomp4
       taborder = 10
       hint = ' Enable looping the song '
       bounds_x = 143
@@ -449,8 +479,18 @@ object recorderfo: trecorderfo
         15
         0
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16446194
+        16773360
+      )
+      face.fade_direction = gd_down
       face.localprops = []
-      face.template = tfacecomp4
       taborder = 12
       hint = ' Enable stretching (changing temo) '
       bounds_x = 269
@@ -462,7 +502,7 @@ object recorderfo: trecorderfo
     object trackbar1: tslider
       color = -2147483645
       face.localprops = []
-      face.template = tfacecomp1
+      face.template = tfacereclight
       taborder = 13
       hint = ' Position of sound '
       bounds_x = 13
@@ -476,12 +516,12 @@ object recorderfo: trecorderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.fade_direction = gd_down
       scrollbar.face.localprops = [fal_fadirection]
-      scrollbar.face.template = tfacecomp1
+      scrollbar.face.template = tfacerecorder
       scrollbar.face1.fade_direction = gd_down
       scrollbar.face1.localprops = [fal_fadirection]
       scrollbar.face1.template = mainfo.tfacegreen
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = tfacecomp1
+      scrollbar.face2.template = tfacerecorder
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = commanderfo.tfacecomp2
       scrollbar.frame.localprops = []
@@ -500,7 +540,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
+      face.template = tfacerecorder
       taborder = 14
       hint = ' Stop player '
       bounds_x = 106
@@ -520,7 +560,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
+      face.template = tfacerecorder
       taborder = 15
       hint = ' Start player '
       bounds_x = 13
@@ -540,7 +580,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
+      face.template = tfacerecorder
       taborder = 16
       hint = ' Resume player '
       bounds_x = 44
@@ -560,7 +600,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacecomp1
+      face.template = tfacerecorder
       taborder = 17
       hint = ' Pause player '
       bounds_x = 75
@@ -594,7 +634,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = [frl1_captiondist]
       frame.template = commanderfo.tframecomp1
       frame.button.face.localprops = []
-      frame.button.face.template = tfacecomp1
+      frame.button.face.template = tfacerecorder
       frame.button.frame.localprops = []
       frame.button.frame.localprops1 = []
       frame.button.frame.template = commanderfo.tframecomp1
@@ -602,23 +642,14 @@ object recorderfo: trecorderfo
       frame.buttons.items = <      
         item
           face.localprops = []
-          face.template = tfacecomp1
+          face.template = tfacerecorder
           frame.localprops = []
           frame.localprops1 = []
           frame.template = commanderfo.tframecomp1
         end>
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        16777215
-        16770019
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfacereclight
       taborder = 19
       hint = ' Choose a filename for saving  '
       bounds_x = 81
@@ -628,7 +659,7 @@ object recorderfo: trecorderfo
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
-      dropdown.facetemplate = tfacecomp1
+      dropdown.facetemplate = tfacereclight
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
@@ -647,14 +678,14 @@ object recorderfo: trecorderfo
       frame.buttons.items = <      
         item
           face.localprops = []
-          face.template = tfacecomp1
+          face.template = tfacerecorder
           frame.localprops = []
           frame.localprops1 = []
           frame.template = commanderfo.tframecomp1
           imagenr = 17
         end>
       frame.button.face.localprops = []
-      frame.button.face.template = tfacecomp1
+      frame.button.face.template = tfacerecorder
       frame.button.frame.localprops = []
       frame.button.frame.localprops1 = []
       frame.button.frame.template = commanderfo.tframecomp1
@@ -698,7 +729,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = tfacecomp1
+      face.template = tfacereclight
       taborder = 21
       hint = ' Lenght of sound '
       bounds_x = 353
@@ -715,7 +746,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = tfacecomp1
+      face.template = tfacereclight
       taborder = 22
       hint = ' Position of sound '
       bounds_x = 353
@@ -760,7 +791,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = tfacecomp3
+      face.template = tfacerecrev
       taborder = 25
       hint = ' Input recorder '
       bounds_x = 379
@@ -776,7 +807,7 @@ object recorderfo: trecorderfo
       reffontheight = 13
     end
   end
-  object tfacecomp1: tfacecomp
+  object tfacereclight: tfacecomp
     template.fade_pos.count = 2
     template.fade_pos.items = (
       0
@@ -784,13 +815,13 @@ object recorderfo: trecorderfo
     )
     template.fade_color.count = 2
     template.fade_color.items = (
-      16770019
-      14063254
+      16775159
+      15586259
     )
     template.fade_direction = gd_down
     left = 92
   end
-  object tfacerecorder: tfacecomp
+  object tfacerecrev: tfacecomp
     template.fade_pos.count = 2
     template.fade_pos.items = (
       0
@@ -802,10 +833,10 @@ object recorderfo: trecorderfo
       16770019
     )
     template.fade_direction = gd_down
-    left = 77
-    top = 2
+    left = 205
+    top = 20
   end
-  object tfacecomp2: tfacecomp
+  object tfacerecorder: tfacecomp
     template.fade_pos.count = 2
     template.fade_pos.items = (
       0
@@ -817,35 +848,7 @@ object recorderfo: trecorderfo
       14327197
     )
     template.fade_direction = gd_down
-    left = 75
-  end
-  object tfacecomp3: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16775159
-      16759482
-    )
-    template.fade_direction = gd_down
-    left = 85
-  end
-  object tfacecomp4: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16446194
-      16773360
-    )
-    template.fade_direction = gd_down
-    left = 75
-    top = 3
+    left = 225
+    top = 8
   end
 end

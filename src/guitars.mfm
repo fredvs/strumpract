@@ -20,8 +20,8 @@ object guitarsfo: tguitarsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
-  bounds_x = 645
-  bounds_y = 623
+  bounds_x = 448
+  bounds_y = 454
   bounds_cx = 458
   bounds_cy = 64
   bounds_cxmin = 458
@@ -41,7 +41,7 @@ object guitarsfo: tguitarsfo
     64
   )
   dragdock.splitter_size = 5
-  dragdock.faceactivetab = tfaceguitars
+  dragdock.faceactivetab = tfaceguitlight
   dragdock.caption = ' Guitars '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
@@ -155,7 +155,7 @@ object guitarsfo: tguitarsfo
     frame.localprops = []
     frame.localprops1 = []
     face.localprops = []
-    face.template = tfacecomp2
+    face.template = tfaceguit
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 450
@@ -165,18 +165,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 102
       bounds_y = 8
@@ -193,18 +184,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       taborder = 1
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 159
@@ -222,18 +204,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       taborder = 2
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 216
@@ -251,18 +224,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       taborder = 3
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 273
@@ -280,18 +244,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       taborder = 4
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 331
@@ -309,18 +264,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       taborder = 5
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 389
@@ -348,7 +294,7 @@ object guitarsfo: tguitarsfo
         3
       )
       face.localprops = []
-      face.template = tfacecomp3
+      face.template = tfaceguitlight
       taborder = 6
       hint = ' Enable looping the string. '
       bounds_x = 22
@@ -363,7 +309,7 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = tfaceguitars
+      face.template = tfaceguitlight
       taborder = 7
       hint = ' Tuned Guitar strings '
       bounds_x = 11
@@ -383,7 +329,7 @@ object guitarsfo: tguitarsfo
     frame.localprops = []
     frame.localprops1 = []
     face.localprops = []
-    face.template = tfacecomp2
+    face.template = tfaceguit
     taborder = 1
     bounds_x = 0
     bounds_y = 32
@@ -394,18 +340,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 158
       bounds_y = 8
@@ -422,18 +359,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       taborder = 1
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 215
@@ -451,18 +379,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       taborder = 2
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 272
@@ -480,18 +399,9 @@ object guitarsfo: tguitarsfo
       color = 13221285
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        -1610612730
-        11576720
-      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
+      face.template = tfaceguit
       taborder = 3
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 329
@@ -519,7 +429,7 @@ object guitarsfo: tguitarsfo
         3
       )
       face.localprops = []
-      face.template = tfacecomp3
+      face.template = tfaceguitlight
       taborder = 4
       hint = ' Enable looping the string. '
       bounds_x = 22
@@ -534,7 +444,7 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = tfaceguitars
+      face.template = tfaceguitlight
       taborder = 5
       hint = ' Tuned Bass strings '
       bounds_x = 11
@@ -550,7 +460,7 @@ object guitarsfo: tguitarsfo
       reffontheight = 13
     end
   end
-  object tfaceguitars: tfacecomp
+  object tfaceguitlight: tfacecomp
     template.fade_pos.count = 2
     template.fade_pos.items = (
       0
@@ -562,10 +472,10 @@ object guitarsfo: tguitarsfo
       16774627
     )
     template.fade_direction = gd_down
-    left = 239
-    top = 15
+    left = 213
+    top = 20
   end
-  object tfacecomp2: tfacecomp
+  object tfaceguit: tfacecomp
     template.fade_pos.count = 2
     template.fade_pos.items = (
       0
@@ -578,21 +488,6 @@ object guitarsfo: tguitarsfo
     )
     template.fade_direction = gd_down
     left = 118
-    top = 17
-  end
-  object tfacecomp3: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16776439
-      14603461
-    )
-    template.fade_direction = gd_down
-    left = 128
-    top = 13
+    top = 16
   end
 end

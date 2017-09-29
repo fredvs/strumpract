@@ -3086,7 +3086,7 @@ object mainfo: tmainfo
     }
   end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 5
+    menu.submenu.count = 6
     menu.submenu.items = <    
       item
         caption = ' D&ock '
@@ -3160,6 +3160,24 @@ object mainfo: tmainfo
         onexecute = showall
       end    
       item
+        submenu.count = 2
+        submenu.items = <        
+          item
+            caption = ' Colorized '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = changecolors
+          end        
+          item
+            caption = ' Silver '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 1
+            onexecute = changesilver
+          end>
+        caption = ' &Colors '
+        hint = ' Change the colors '
+        state = [as_localcaption, as_localhint]
+      end    
+      item
         caption = ' &About '
         hint = ' About StrumPract '
         state = [as_localcaption, as_localhint, as_localonexecute]
@@ -3176,7 +3194,7 @@ object mainfo: tmainfo
     template.fade_color.count = 2
     template.fade_color.items = (
       12237498
-      14408667
+      15592941
     )
     template.fade_direction = gd_down
     left = 154
@@ -3231,8 +3249,8 @@ object mainfo: tmainfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 9
-    top = 6
+    left = 79
+    top = 8
     image = {
       00000000020000001800000018000000B8010000000000000000000000000000
       00000000000000000000000000000000000000005D5D5D09FFFFFF075D5D5D01
@@ -3267,8 +3285,8 @@ object mainfo: tmainfo
       10395294
     )
     template.fade_direction = gd_left
-    left = 188
-    top = 14
+    left = 245
+    top = 13
   end
   object tfacecomp7: tfacecomp
     template.fade_pos.count = 2
@@ -3297,8 +3315,7 @@ object mainfo: tmainfo
       16742520
     )
     template.fade_direction = gd_down
-    left = 173
-    top = 8
+    left = 132
   end
   object tfacegreen: tfacecomp
     template.fade_pos.count = 2
@@ -3312,8 +3329,8 @@ object mainfo: tmainfo
       7255365
     )
     template.fade_direction = gd_down
-    left = 178
-    top = 9
+    left = 113
+    top = 7
   end
   object tfaceorange: tfacecomp
     template.fade_pos.count = 2
@@ -3324,11 +3341,11 @@ object mainfo: tmainfo
     template.fade_color.count = 2
     template.fade_color.items = (
       16775664
-      16749824
+      16751892
     )
     template.fade_direction = gd_down
-    left = 267
-    top = 7
+    left = 288
+    top = 11
   end
   object tfaceplayer: tfacecomp
     template.fade_pos.count = 2
@@ -3357,8 +3374,8 @@ object mainfo: tmainfo
       14936240
     )
     template.fade_direction = gd_down
-    left = 27
-    top = 3
+    left = 222
+    top = 2
   end
   object tfaceplayerrev: tfacecomp
     template.fade_pos.count = 2
@@ -3387,8 +3404,7 @@ object mainfo: tmainfo
       12896665
     )
     template.fade_direction = gd_down
-    left = 108
-    top = 3
+    left = 52
   end
   object tframecomp2: tframecomp
     template.framei_left = 4
@@ -3408,5 +3424,34 @@ object mainfo: tmainfo
     template.optionsskin = [fso_flat]
     left = 259
     top = 13
+  end
+  object tfaceorangelt: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16775664
+      16764802
+    )
+    template.fade_direction = gd_down
+    left = 324
+    top = 8
+  end
+  object tfaceorangehz: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16775664
+      16762227
+    )
+    left = 155
+    top = 16
   end
 end

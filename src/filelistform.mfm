@@ -5,9 +5,12 @@ object filelistfo: tfilelistfo
   frame.grip_grip = stb_dens0
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
+  frame.grip_faceactive.localprops = []
+  frame.grip_faceactive.template = tfacecomp1
+  frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 449
-  bounds_y = 81
+  bounds_x = 491
+  bounds_y = 266
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -25,6 +28,7 @@ object filelistfo: tfilelistfo
   dragdock.onbeforedragbegin = befdrag
   dragdock.onafterdragover = afterdrag
   dragdock.splitter_size = 5
+  dragdock.faceactivetab = tfacecomp1
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
   caption = 'Files'
@@ -290,5 +294,20 @@ object filelistfo: tfilelistfo
     onselectionchanged = selctchanged
     filelist.options = [flo_sortname]
     reffontheight = 15
+  end
+  object tfacecomp1: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16448250
+      15263976
+    )
+    template.fade_direction = gd_down
+    left = 144
+    top = 37
   end
 end
