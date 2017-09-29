@@ -1085,10 +1085,10 @@ line=27
  11
  32
  46
- 519
+ 521
  5662
  379
- 607
+ 610
  99
  655
  635
@@ -1265,24 +1265,23 @@ findhistory=20
  btnStop
  iscue
 findoptions=1
-editpos=17
+editpos=16
+ 0,-1073741823
+ 0,-1073741823
+ 0,801
+ 0,-1073741823
+ 0,-1073741823
+ 78,6
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,0
  0,-1073741823
- 0,731
  0,-1073741823
  0,-1073741823
- 0,4
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,1009
- 0,983
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1299,8 +1298,7 @@ bookmarks12=0
 bookmarks13=0
 bookmarks14=0
 bookmarks15=0
-bookmarks16=0
-sourcefiles=17
+sourcefiles=16
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/main.pas
@@ -1314,11 +1312,10 @@ sourcefiles=17
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/commander.pas
- /home/fred/msegui/lib/common/graphics/msegraphutils.pas
  /home/fred/msegui/lib/common/kernel/msegui.pas
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/songplayer.pas
-relpaths=17
+relpaths=16
  commander.pas
  songplayer2.pas
  main.pas
@@ -1332,12 +1329,10 @@ relpaths=17
  drums.pas
  recorder.pas
  commander.pas
- msegui/lib/common/graphics/msegraphutils.pas
  msegui/lib/common/kernel/msegui.pas
  songplayer2.pas
  songplayer.pas
-ismoduletexts=17
- 0
+ismoduletexts=16
  0
  0
  0
@@ -1387,7 +1382,7 @@ nomenumodules=7
  0
  0
 [sourcefo.files_tab]
-order=17
+order=16
  2
  15
  16
@@ -1395,7 +1390,6 @@ order=17
  0
  1
  8
- 13
  12
  3
  4
@@ -1405,8 +1399,8 @@ order=17
  9
  10
  11
-firsttab=2
-index=11
+firsttab=0
+index=10
 [layout]
 windowlayout=670
  [mainfo.basedock]
@@ -1421,8 +1415,8 @@ windowlayout=670
  ncy=0
  x=0
  y=0
- cx=1113
- cy=604
+ cx=1356
+ cy=694
  rcx=0
  rcy=0
  [mainfo]
@@ -1434,16 +1428,16 @@ windowlayout=670
  ny=0
  ncx=0
  ncy=0
- x=136
- y=366
+ x=158
+ y=24
  cx=1123
  cy=621
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1113,604
+  basedock,0,0,1356,694
  focusedchild=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [targetconsolefo]
@@ -1557,7 +1551,7 @@ windowlayout=670
  x=0
  y=0
  cx=205
- cy=455
+ cy=523
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1661,7 +1655,7 @@ windowlayout=670
  ncx=0
  ncy=0
  x=941
- y=315
+ y=256
  cx=367
  cy=477
  rcx=0
@@ -1670,10 +1664,10 @@ windowlayout=670
  active=0
  visible=1
  [objectinspectorfo.grid]
- propcolwidthref=342
- width0=157
+ propcolwidthref=357
+ width0=164
  sortdescend0=0
- width1=179
+ width1=187
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1762,9 +1756,9 @@ windowlayout=670
  ncx=0
  ncy=0
  x=0
- y=512
- cx=1113
- cy=92
+ y=588
+ cx=1356
+ cy=106
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1863,8 +1857,8 @@ windowlayout=670
  ncy=0
  x=0
  y=0
- cx=1113
- cy=51
+ cx=1356
+ cy=59
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1879,8 +1873,8 @@ windowlayout=670
  ncy=53
  x=0
  y=0
- cx=1113
- cy=53
+ cx=1356
+ cy=61
  rcx=0
  rcy=0
  [debuggerfo.project_options]
@@ -1906,15 +1900,15 @@ windowlayout=670
  ncy=0
  x=208
  y=0
- cx=905
- cy=455
+ cx=1148
+ cy=523
  rcx=0
  rcy=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1941,15 +1935,15 @@ windowlayout=670
  ncx=0
  ncy=0
  x=0
- y=54
- cx=1113
- cy=455
+ y=62
+ cx=1356
+ cy=523
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1968,7 +1962,7 @@ windowlayout=670
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1987,7 +1981,7 @@ windowlayout=670
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2006,7 +2000,7 @@ windowlayout=670
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -2044,7 +2038,7 @@ windowlayout=670
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2063,7 +2057,7 @@ windowlayout=670
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0

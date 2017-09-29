@@ -1516,7 +1516,7 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 282
-    top = 61
+    left = 244
+    top = 62
   end
 end

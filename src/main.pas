@@ -391,7 +391,8 @@ var
   decorationheight, posi: int32;
   si1: sizety;
 begin
-
+// basedock.anchors := [an_left,an_top]  ;
+  
   decorationheight := window.decoratedbounds_cy - Height;
 
   beginlayout();
@@ -507,6 +508,7 @@ var
   pt1: pointty;
   decorationheight: integer = 5;
 begin
+// basedock.anchors := [an_left,an_top]  ;
 
   filelistfo.bounds_cxmax := fowidth;
   filelistfo.bounds_cymax := 700;
@@ -576,7 +578,7 @@ begin
     guitarsfo.pos := pt1;
   //}
   endlayout();
-
+//basedock.anchors := [an_left,an_top,an_right,an_bottom]  ;
 end;
 
 procedure tmainfo.beforereadev(const Sender: TObject);
@@ -591,6 +593,7 @@ end;
 
 procedure tmainfo.ontab(const Sender: TObject);
 begin
+  //basedock.anchors := [an_left,an_top];
   filelistfo.bounds_cxmax := fowidth;
   filelistfo.bounds_cymax := 700;
   beginlayout();
@@ -716,6 +719,10 @@ guitarsfo.tfaceguit.template.fade_color.items[1] := $BFB7AA ;
 guitarsfo.tfaceguitlight.template.fade_color.items[0] := $DBD3C3 ;
 guitarsfo.tfaceguitlight.template.fade_color.items[1] := $FFF5E3 ;
 
+// commander
+commanderfo.tfacegriptab.template.fade_color.items[0] := $F8DEFF ;
+commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6 ;
+
 end;
 
 if typecolor.value = 1 then 
@@ -789,6 +796,11 @@ guitarsfo.tfaceguit.template.fade_color.items[1] := $BABABA ;
 // light
 guitarsfo.tfaceguitlight.template.fade_color.items[0] := $EDEDED ;
 guitarsfo.tfaceguitlight.template.fade_color.items[1] := $BABABA ;
+
+// commander
+commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED ;
+commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA ;
+
 end;
 
 
