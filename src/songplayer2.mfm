@@ -404,7 +404,7 @@ object songplayer2fo: tsongplayer2fo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 10
       hint = ' Lenght of sound '
       bounds_x = 357
@@ -421,7 +421,7 @@ object songplayer2fo: tsongplayer2fo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 11
       hint = ' Position of sound '
       bounds_x = 357

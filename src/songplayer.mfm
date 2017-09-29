@@ -20,8 +20,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 423
-  bounds_y = 178
+  bounds_x = 359
+  bounds_y = 333
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -434,7 +434,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 11
       hint = ' Lenght of sound '
       bounds_x = 357
@@ -451,7 +451,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 12
       hint = ' Position of sound '
       bounds_x = 357

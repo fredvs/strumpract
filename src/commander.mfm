@@ -10,8 +10,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 404
-  bounds_y = 349
+  bounds_x = 398
+  bounds_y = 402
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -92,18 +92,9 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.template = tframecomp2
-      frame.buttonface.fade_pos.count = 2
-      frame.buttonface.fade_pos.items = (
-        0
-        1
-      )
-      frame.buttonface.fade_color.count = 2
-      frame.buttonface.fade_color.items = (
-        15989438
-        11120261
-      )
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = mainfo.tfaceplayerrev
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
       frame.buttonframe.template = tframecomp1

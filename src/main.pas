@@ -733,11 +733,18 @@ tfacered.template.fade_color.items[1] := $BABABA ;
 tfaceplayer.template.fade_color.items[0] := $EDEDED ;
 tfaceplayer.template.fade_color.items[1] := $BABABA ;
 
+//tfaceplayer.template.fade_color.items[0] := $BABABA ;
+//tfaceplayer.template.fade_color.items[1] := $5A5A5A ;
+
+
 tfaceplayerlight.template.fade_color.items[0] := $FDFDFD;
 tfaceplayerlight.template.fade_color.items[1] := $DDDDDD;
 
 songplayerfo.tfaceslider.template.fade_color.items[0] := $EDEDED ;
 songplayerfo.tfaceslider.template.fade_color.items[1] := $BABABA ;
+
+//songplayerfo.tfaceslider.template.fade_color.items[0] := $BABABA ;
+//songplayerfo.tfaceslider.template.fade_color.items[1] := $5A5A5A ;
 
 songplayer2fo.tfaceslider.template.fade_color.items[0] := $EDEDED ;
 songplayer2fo.tfaceslider.template.fade_color.items[1] := $BABABA ;
