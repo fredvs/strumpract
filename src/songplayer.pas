@@ -10,7 +10,7 @@ uses
  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,msegraphedits,
  msedragglob, mseact, mseedit, mseificomp, mseificompglob,mseifiglob,
  msestatfile,msestream, msestrings, msescrollbar, msebitmap,msedatanodes,
- msedispwidgets,mserichstring,msepolygon;
+ msedispwidgets,mserichstring;
 
 type
   tsongplayerfo = class(tdockform)
@@ -80,7 +80,9 @@ type
     procedure onafterev(const sender: tcustomscrollbar;
                    const akind: scrolleventty; const avalue: Real);
    procedure changeloop(const sender: TObject);
+   procedure GetWaveData();
    procedure DrawWaveForm();
+   
    protected
    procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
@@ -224,7 +226,7 @@ begin
   end;
 
 iswav := false;
-  
+iscue1 := false;
   trackbar1.visible := false;
   trackbar1.visible := true;
 
@@ -595,6 +597,8 @@ begin
   end;
 
   uos_RePlay(theplayer);
+  
+  iscue1 := false;
 
   tstringdisp1.face.template := mainfo.tfacegreen;
   lposition.face.template := mainfo.tfaceplayerrev;
@@ -640,7 +644,6 @@ begin
   if accept then
     uos_InputSeek(theplayer, Inputindex1, trunc(avalue * Inputlength1));
   //  TrackBar1.Tag := 0;
-
 end;
 
 procedure tsongplayerfo.changevolume(const Sender: TObject);
@@ -672,14 +675,13 @@ end;
 
 procedure tsongplayerfo.doentertrackbar(const Sender: TObject);
 begin
-  songplayerfo.trackbar1.tag := 1;
+  trackbar1.tag := 1;
 end;
 
 procedure tsongplayerfo.onreset(const Sender: TObject);
 begin
-  songplayerfo.edtempo.Value := 1;
+  edtempo.Value := 1;
 end;
-
 
 procedure tsongplayerfo.paintsliderimage(const canvas: tcanvas;
                                                         const arect: rectty);
@@ -731,15 +733,21 @@ poswav2.y := ((arect.cy div 2) -2) - round(
  end;                     
 end;
 
+procedure tsongplayerfo.GetWaveData();
+begin
+  waveformdata1 := uos_InputGetArrayLevel(theplayerinfo, 0);
+  iswav := true;
+  DrawWaveForm();
+end;
+
 procedure tsongplayerfo.DrawWaveForm();
 const
  transpcolor = cl_magenta;
 var
  rect1: rectty;
   begin
-     waveformdata1 := uos_InputGetArrayLevel(theplayerinfo, 0);
-    iswav := true;
-    trackbar1.invalidate();
+  if iswav = true then begin
+   trackbar1.invalidate();
  //  writeln(inttostr(length(waveformdata1)));
  rect1.pos:= nullpoint;
  rect1.size:= trackbar1.paintsize;
@@ -751,6 +759,7 @@ var
   transparentcolor:= transpcolor;
   masked:= true;
  end;
+  end;  
   end;
 
 procedure tsongplayerfo.oninfowav(const Sender: TObject);
@@ -840,7 +849,7 @@ begin
     uos_InputSetFrameCount(theplayerinfo, 0, framewanted1);
 
      ///// Assign the procedure of object to execute at end of stream
-    uos_EndProc(theplayerinfo, @DrawWaveForm);
+    uos_EndProc(theplayerinfo, @GetWaveData);
 
     uos_Play(theplayerinfo);  /////// everything is ready, here we are, lets do it...
 

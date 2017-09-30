@@ -4,6 +4,10 @@ object about_form: taboutfo
   bounds_y = 255
   bounds_cx = 372
   bounds_cy = 276
+  bounds_cxmin = 372
+  bounds_cymin = 276
+  bounds_cxmax = 372
+  bounds_cymax = 276
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (

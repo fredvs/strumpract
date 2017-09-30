@@ -80,6 +80,7 @@ type
     procedure onafterev(const sender: tcustomscrollbar;
                    const akind: scrolleventty; const avalue: Real);
    procedure changeloop(const sender: TObject);
+   procedure GetWaveData();
    procedure DrawWaveForm();
    protected
    procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
@@ -131,7 +132,7 @@ begin
     if (cbloop.Value = False) and (iscue2 = false) then
       btnPause2.Enabled := True
     else
-      btnPause.Enabled := False;
+      btnPause2.Enabled := False;
     if iscue2 then btnresume2.Enabled := true else btnresume2.Enabled := False;
   end;
 
@@ -225,6 +226,7 @@ begin
   end;
   
   iswav2 := false;
+  iscue2 := false;
   
   trackbar1.visible := false;
   trackbar1.visible := true;
@@ -600,6 +602,7 @@ begin
   end;
 
   uos_RePlay(theplayer2);
+  iscue2 := false;
 
   tstringdisp1.face.template := mainfo.tfacegreen;
   lposition.face.template := mainfo.tfaceplayerrev;
@@ -677,14 +680,13 @@ end;
 
 procedure tsongplayer2fo.doentertrackbar(const Sender: TObject);
 begin
-  songplayer2fo.trackbar1.tag := 1;
+  trackbar1.tag := 1;
 end;
 
 procedure tsongplayer2fo.onreset(const Sender: TObject);
 begin
-  songplayer2fo.edtempo.Value := 1;
+  edtempo.Value := 1;
 end;
-
 
 procedure tsongplayer2fo.paintsliderimage(const canvas: tcanvas;
                                                         const arect: rectty);
@@ -736,15 +738,21 @@ poswav2.y := ((arect.cy div 2) -2) - round(
  end;                     
 end;
 
+procedure tsongplayer2fo.GetWaveData();
+begin
+  waveformdata2 := uos_InputGetArrayLevel(theplayerinfo2, 0);
+  iswav2 := true;
+  DrawWaveForm();
+end;
+
 procedure tsongplayer2fo.DrawWaveForm();
 const
  transpcolor = cl_magenta;
 var
  rect1: rectty;
   begin
-     waveformdata2 := uos_InputGetArrayLevel(theplayerinfo2, 0);
-    iswav2 := true;
-    trackbar1.invalidate();
+  if iswav2 = true then begin
+     trackbar1.invalidate();
  //  writeln(inttostr(length(waveformdata2)));
  rect1.pos:= nullpoint;
  rect1.size:= trackbar1.paintsize;
@@ -757,6 +765,9 @@ var
   masked:= true;
  end;
   end;
+  end;
+  
+  
 
 procedure tsongplayer2fo.oninfowav(const Sender: TObject);
 var
@@ -845,7 +856,7 @@ begin
     uos_InputSetFrameCount(theplayerinfo2, 0, framewanted2);
 
      ///// Assign the procedure of object to execute at end of stream
-    uos_EndProc(theplayerinfo2, @DrawWaveForm);
+    uos_EndProc(theplayerinfo2, @GetWaveData);
 
     uos_Play(theplayerinfo2);  /////// everything is ready, here we are, lets do it...
 

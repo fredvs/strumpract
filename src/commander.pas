@@ -123,6 +123,8 @@ begin
 
   if TButton(Sender).tag = 0 then
   begin
+  
+  
     tbutton2.face.template := mainfo.tfacecomp6;
     tbutton3.face.template := mainfo.tfaceorange;
     //tbutton3.focused := true;
@@ -132,7 +134,7 @@ begin
     volumeright1.Value := 0;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
-    if  iscue1 then
+    if  (iscue1 = true) or (uos_GetStatus(theplayer) = 2 ) then
     songplayerfo.doplayeresume(Sender) else
     songplayerfo.doplayerstart(Sender);
     timermix.Enabled := True;
@@ -146,7 +148,7 @@ begin
     tbutton2.face.template := mainfo.tfaceorange; 
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
-     if  iscue2 then
+    if  (iscue2 = true) or (uos_GetStatus(theplayer2) = 2 ) then
    songplayer2fo.doplayeresume(Sender) else
     songplayer2fo.doplayerstart(Sender);
     timermix.Enabled := True;

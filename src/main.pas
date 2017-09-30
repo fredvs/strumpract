@@ -723,6 +723,8 @@ guitarsfo.tfaceguitlight.template.fade_color.items[1] := $FFF5E3 ;
 commanderfo.tfacegriptab.template.fade_color.items[0] := $F8DEFF ;
 commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6 ;
 
+songplayerfo.DrawWaveForm();
+songplayer2fo.DrawWaveForm();
 end;
 
 if typecolor.value = 1 then 
@@ -801,6 +803,8 @@ guitarsfo.tfaceguitlight.template.fade_color.items[1] := $BABABA ;
 commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED ;
 commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA ;
 
+songplayerfo.DrawWaveForm();
+songplayer2fo.DrawWaveForm();
 end;
 
 
