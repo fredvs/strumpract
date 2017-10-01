@@ -1104,19 +1104,19 @@ line=32
  381
  612
  101
- 634
- 615
+ 635
+ 616
  172
  286
  355
  520
  721
  731
- 511
- 661
+ 512
+ 662
  923
- 118
- 899
+ 119
+ 900
  1036
 address=32
  4574916
@@ -1281,8 +1281,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=loop
+finddtext=draww
 findhistory=20
+ draww
  loop
  vuRight
  ShowLevel
@@ -1302,11 +1303,10 @@ findhistory=20
  iswav
  iscue
  getstatus
- pause(
 findoptions=1
 editpos=16
- 0,0
- 0,8
+ 0,1005
+ 0,722
  0,995
  0,98
  0,-1073741823
@@ -1471,8 +1471,8 @@ windowlayout=689
  ny=0
  ncx=0
  ncy=0
- x=157
- y=548
+ x=124
+ y=143
  cx=1123
  cy=621
  rcx=0
@@ -2043,7 +2043,7 @@ windowlayout=689
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2081,7 +2081,7 @@ windowlayout=689
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -2119,7 +2119,7 @@ windowlayout=689
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0

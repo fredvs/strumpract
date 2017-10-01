@@ -82,6 +82,7 @@ type
    procedure changeloop(const sender: TObject);
    procedure GetWaveData();
    procedure DrawWaveForm();
+   procedure onchangwav(const sender: TObject);
    protected
    procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
@@ -726,7 +727,7 @@ const
 var
  rect1: rectty;
   begin
-  if (waveformcheck.value = true) then begin
+ // if (waveformcheck.value = true) then begin
      trackbar1.invalidate();
  //  writeln(inttostr(length(waveformdata2)));
  rect1.pos:= nullpoint;
@@ -738,7 +739,7 @@ var
   paintsliderimage(canvas,rect1);
   transparentcolor:= transpcolor;
   masked:= true;
- end;
+ // end;
   end;
   end;
  
@@ -995,6 +996,11 @@ begin
  commanderfo.btncue2.Enabled := True;
  btncue.enabled := true;
  end;
+end;
+
+procedure tsongplayer2fo.onchangwav(const sender: TObject);
+begin
+DrawWaveForm();
 end;
 
 

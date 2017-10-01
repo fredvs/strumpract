@@ -670,6 +670,7 @@ object songplayer2fo: tsongplayer2fo
       bounds_cx = 30
       bounds_cy = 28
       statfile = mainfo.tstatfile1
+      onchange = onchangwav
       colorglyph = 4868682
       value = True
     end

@@ -83,6 +83,7 @@ type
    procedure GetWaveData();
    procedure DrawWaveForm();
    
+   procedure onchachewav(const sender: TObject);
    protected
    procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
@@ -677,7 +678,7 @@ poswav2.x :=6 ;
 poswav2.y := ((arect.cy div 2) -2) - round(
             (waveformdata1[poswav.x*2 ]) * ((trackbar1.height div 2) -3)) ;
 
-      while poswav.x < length(waveformdata1) div chan1 do
+      while poswav.x < (length(waveformdata1) div chan1) -1 do
       begin
         if chan1 = 2 then
         begin
@@ -725,7 +726,7 @@ const
 var
  rect1: rectty;
   begin
-  if (waveformcheck.value = true) then begin
+// if (waveformcheck.value = true) then begin
    trackbar1.invalidate();
  //  writeln(inttostr(length(waveformdata1)));
  rect1.pos:= nullpoint;
@@ -738,7 +739,7 @@ var
   transparentcolor:= transpcolor;
   masked:= true;
  end;
-  end;  
+//  end;  
   end;
 
 procedure tsongplayerfo.oninfowav(const Sender: TObject);
@@ -998,6 +999,11 @@ begin
  commanderfo.btncue.Enabled := True;
  btncue.enabled := true;
  end;
+end;
+
+procedure tsongplayerfo.onchachewav(const sender: TObject);
+begin
+DrawWaveForm(); 
 end;
 
 
