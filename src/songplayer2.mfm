@@ -20,8 +20,8 @@ object songplayer2fo: tsongplayer2fo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 2. '
   visible = False
-  bounds_x = 133
-  bounds_y = 86
+  bounds_x = 325
+  bounds_y = 239
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -121,13 +121,23 @@ object songplayer2fo: tsongplayer2fo
     bounds_cy = 128
     object edvolleft: trealspinedit
       color = -2147483645
+      frame.levelo = 0
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16515040
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.colorbutton = -2147483645
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_list = commanderfo.timagelist3
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_hiddenedges, frl_frameimagelist, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      frame.buttonface.fade_direction = gd_down
-      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.localprops = []
       frame.buttonface.template = mainfo.tfaceplayer
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
@@ -248,7 +258,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfacebutgray
       taborder = 5
       hint = ' Stop player '
       bounds_x = 130
@@ -268,7 +278,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfacebutgray
       taborder = 6
       hint = ' Resume player '
       bounds_x = 68
@@ -288,7 +298,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfacebutgray
       taborder = 7
       hint = ' Pause player '
       bounds_x = 99
@@ -303,7 +313,7 @@ object songplayer2fo: tsongplayer2fo
     end
     object trackbar1: tslider
       color = -2147483645
-      frame.levelo = -1
+      frame.levelo = 0
       frame.localprops = [frl_levelo, frl_leveli]
       frame.localprops1 = []
       face.localprops = []
@@ -370,6 +380,7 @@ object songplayer2fo: tsongplayer2fo
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
+      dropdown.cols.facetemplate = mainfo.tfaceplayer
       dropdown.cols.items = <      
         item
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
@@ -443,6 +454,8 @@ object songplayer2fo: tsongplayer2fo
       bounds_y = 111
       bounds_cx = 90
       bounds_cy = 16
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
       reffontheight = 15
@@ -460,6 +473,8 @@ object songplayer2fo: tsongplayer2fo
       bounds_y = 95
       bounds_cx = 90
       bounds_cy = 17
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
       reffontheight = 15
@@ -483,11 +498,21 @@ object songplayer2fo: tsongplayer2fo
     object edvolright: trealspinedit
       Tag = 1
       color = -2147483645
+      frame.levelo = 0
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16515040
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_list = commanderfo.timagelist3
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_hiddenedges, frl_frameimagelist, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = mainfo.tfaceplayer
@@ -562,7 +587,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfacebutgray
       taborder = 15
       hint = ' Load from cue and Start player '
       bounds_x = 37
@@ -628,7 +653,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfacebutgray
       taborder = 19
       hint = ' Load from cue and Pause player '
       bounds_x = 6

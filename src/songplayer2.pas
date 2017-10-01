@@ -230,7 +230,7 @@ begin
   
   trackbar1.visible := false;
   trackbar1.visible := true;
-
+  DrawWaveForm();
 end;
 
 procedure tsongplayer2fo.ShowLevel;
@@ -740,9 +740,11 @@ end;
 
 procedure tsongplayer2fo.GetWaveData();
 begin
+if (waveformcheck.value = true) then begin
   waveformdata2 := uos_InputGetArrayLevel(theplayerinfo2, 0);
   iswav2 := true;
   DrawWaveForm();
+  end;
 end;
 
 procedure tsongplayer2fo.DrawWaveForm();
@@ -751,7 +753,7 @@ const
 var
  rect1: rectty;
   begin
-  if iswav2 = true then begin
+  if (waveformcheck.value = true) then begin
      trackbar1.invalidate();
  //  writeln(inttostr(length(waveformdata2)));
  rect1.pos:= nullpoint;
@@ -766,9 +768,7 @@ var
  end;
   end;
   end;
-  
-  
-
+ 
 procedure tsongplayer2fo.oninfowav(const Sender: TObject);
 var
   maxwidth: integer;
@@ -937,9 +937,12 @@ begin
 
   if plugsoundtouch = False then
   begin
-    edtempo.Enabled := False;
-    cbtempo.Enabled := False;
-    Button1.Enabled := False;
+    edtempo.visible := False;
+    cbtempo.visible := False;
+    Button1.visible := False;
+    tstringdisp2.left := 377;
+    tstringdisp2.top := 64;
+    waveformcheck.left := 325;
   end;
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));

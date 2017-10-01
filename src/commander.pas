@@ -37,7 +37,7 @@ type
     tslider2: tslider;
     tgroupboxinput: tgroupbox;
     tslider3: tslider;
-    tbutton7: TButton;
+    butinput: TButton;
     vuRight: tgroupbox;
     vuLeft: tgroupbox;
     vuRight2: tgroupbox;
@@ -55,9 +55,10 @@ type
    linkvol: tbutton;
    linkvol2: tbutton;
    vuin: tbutton;
-   lposition: tstringdisp;
-   tstringdisp2: tstringdisp;
+   nameplayers: tstringdisp;
+   namedrums: tstringdisp;
    tfacegriptab: tfacecomp;
+   tfacesliderdark: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -91,7 +92,7 @@ var
 implementation
 
 uses
-  songplayer, songplayer2, drums, uos_flat,
+  songplayer, songplayer2, drums, filelistform, uos_flat,
   main, commander_mfm;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -125,8 +126,14 @@ begin
   begin
   
   
-    tbutton2.face.template := mainfo.tfacecomp6;
+    tbutton2.face.template := mainfo.tfacebutgray;
     tbutton3.face.template := mainfo.tfaceorange;
+  
+  filelistfo.tbutton2.face.template := mainfo.tfaceorange;
+   filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
+  
+  
+  
     //tbutton3.focused := true;
  
     thetypemix := 0;
@@ -144,8 +151,10 @@ begin
     thetypemix := 1;
     volumeleft2.Value := 0;
     volumeright2.Value := 0;
-   tbutton3.face.template := mainfo.tfacecomp6;
+   tbutton3.face.template := mainfo.tfacebutgray;
     tbutton2.face.template := mainfo.tfaceorange; 
+     filelistfo.tbutton1.face.template := mainfo.tfaceorange;
+   filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
     if  (iscue2 = true) or (uos_GetStatus(theplayer2) = 2 ) then
@@ -399,7 +408,7 @@ begin
     begin
       // writeln('uos_Stop = ' + inttostr(theinput));
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacecomp6;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
       uos_Stop(theinput);
     end;
   end;
@@ -440,7 +449,7 @@ begin
 if linkvol.tag = 0 then
 begin
 linkvol.tag := 1;
-linkvol.face.template:= mainfo.tfacecomp6;
+linkvol.face.template:= mainfo.tfacebutgray;
 end else
 if linkvol.tag = 1 then
 begin
@@ -454,7 +463,7 @@ begin
 if linkvol2.tag = 0 then
 begin
 linkvol2.tag := 1;
-linkvol2.face.template:= mainfo.tfacecomp6;
+linkvol2.face.template:= mainfo.tfacebutgray;
 end else
 if linkvol2.tag = 1 then
 begin
@@ -468,7 +477,7 @@ begin
 if vuin.tag = 0 then
 begin
 vuin.tag := 1;
-vuin.face.template:= mainfo.tfacecomp6;
+vuin.face.template:= mainfo.tfacebutgray;
 end else
 if vuin.tag = 1 then
 begin

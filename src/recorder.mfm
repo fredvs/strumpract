@@ -9,8 +9,8 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = tfacereclight
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
-  bounds_x = 746
-  bounds_y = 92
+  bounds_x = 857
+  bounds_y = 24
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458

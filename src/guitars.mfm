@@ -1,4 +1,5 @@
 object guitarsfo: tguitarsfo
+  color = -2147483645
   frame.localprops = []
   frame.localprops1 = []
   frame.grip_size = 8
@@ -20,8 +21,8 @@ object guitarsfo: tguitarsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
-  bounds_x = 448
-  bounds_y = 454
+  bounds_x = 281
+  bounds_y = 111
   bounds_cx = 458
   bounds_cy = 64
   bounds_cxmin = 458
@@ -152,6 +153,7 @@ object guitarsfo: tguitarsfo
   onhide = onvisiblechangeev
   moduleclassname = 'tdockform'
   object tgroupbox1: tgroupbox
+    color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
     face.localprops = []
@@ -162,17 +164,18 @@ object guitarsfo: tguitarsfo
     bounds_cy = 32
     object tbutton9: tbutton
       Tag = 6
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 102
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '6 Mi/E'
       imagenr = 27
@@ -181,18 +184,19 @@ object guitarsfo: tguitarsfo
     end
     object tbutton8: tbutton
       Tag = 5
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       taborder = 1
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 159
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '5 La/A'
       imagenr = 27
@@ -201,18 +205,19 @@ object guitarsfo: tguitarsfo
     end
     object tbutton7: tbutton
       Tag = 4
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       taborder = 2
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 216
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '4 Re/D'
       imagenr = 27
@@ -221,18 +226,19 @@ object guitarsfo: tguitarsfo
     end
     object tbutton6: tbutton
       Tag = 3
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       taborder = 3
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 273
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '3 Sol/G'
       imagenr = 27
@@ -241,18 +247,19 @@ object guitarsfo: tguitarsfo
     end
     object tbutton5: tbutton
       Tag = 2
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       taborder = 4
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
-      bounds_x = 331
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_x = 330
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '2 Si/B'
       imagenr = 27
@@ -261,18 +268,19 @@ object guitarsfo: tguitarsfo
     end
     object tbutton3: tbutton
       Tag = 1
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       taborder = 5
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
-      bounds_x = 389
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_x = 387
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '1 Mi/E'
       imagenr = 27
@@ -282,25 +290,29 @@ object guitarsfo: tguitarsfo
     object loopguit: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16774627
+      frame.colorclient = -2147483645
       frame.caption = 'Loop'
       frame.captiondist = 2
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        3
-        33
-        3
+        2
+        28
+        2
       )
       face.localprops = []
       face.template = tfaceguitlight
       taborder = 6
       hint = ' Enable looping the string. '
       bounds_x = 22
-      bounds_y = 14
-      bounds_cx = 49
-      bounds_cy = 17
+      bounds_y = 15
+      bounds_cx = 44
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
     end
     object tstringdisp2: tstringdisp
@@ -309,7 +321,7 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = tfaceguitlight
+      face.template = tfaceguit
       taborder = 7
       hint = ' Tuned Guitar strings '
       bounds_x = 11
@@ -326,6 +338,7 @@ object guitarsfo: tguitarsfo
     end
   end
   object tgroupbox2: tgroupbox
+    color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
     face.localprops = []
@@ -337,17 +350,18 @@ object guitarsfo: tguitarsfo
     bounds_cy = 32
     object tbutton16: tbutton
       Tag = 10
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 158
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '4 Mi/E'
       imagenr = 27
@@ -356,18 +370,19 @@ object guitarsfo: tguitarsfo
     end
     object tbutton15: tbutton
       Tag = 9
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       taborder = 1
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 215
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '3 La/A'
       imagenr = 27
@@ -376,18 +391,19 @@ object guitarsfo: tguitarsfo
     end
     object tbutton14: tbutton
       Tag = 8
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       taborder = 2
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 272
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '2 Re/D'
       imagenr = 27
@@ -396,18 +412,19 @@ object guitarsfo: tguitarsfo
     end
     object tbutton13: tbutton
       Tag = 7
-      color = 13221285
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
       taborder = 3
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 329
-      bounds_y = 8
-      bounds_cx = 54
-      bounds_cy = 16
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '1 Sol/G'
       imagenr = 27
@@ -417,25 +434,29 @@ object guitarsfo: tguitarsfo
     object loopbass: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16774627
+      frame.colorclient = -2147483645
       frame.caption = 'Loop'
       frame.captiondist = 2
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        3
-        33
-        3
+        2
+        28
+        2
       )
       face.localprops = []
       face.template = tfaceguitlight
       taborder = 4
       hint = ' Enable looping the string. '
       bounds_x = 22
-      bounds_y = 14
-      bounds_cx = 49
-      bounds_cy = 17
+      bounds_y = 15
+      bounds_cx = 44
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
     end
     object tstringdisp3: tstringdisp
@@ -444,7 +465,7 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = tfaceguitlight
+      face.template = tfaceguit
       taborder = 5
       hint = ' Tuned Bass strings '
       bounds_x = 11
@@ -472,8 +493,8 @@ object guitarsfo: tguitarsfo
       16774627
     )
     template.fade_direction = gd_down
-    left = 213
-    top = 20
+    left = 117
+    top = 27
   end
   object tfaceguit: tfacecomp
     template.fade_pos.count = 2
@@ -483,11 +504,11 @@ object guitarsfo: tguitarsfo
     )
     template.fade_color.count = 2
     template.fade_color.items = (
-      16774627
+      16116442
       12564394
     )
     template.fade_direction = gd_down
-    left = 118
-    top = 16
+    left = 150
+    top = 20
   end
 end

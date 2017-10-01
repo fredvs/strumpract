@@ -9,8 +9,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 491
-  bounds_y = 266
+  bounds_x = 897
+  bounds_y = 241
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -64,236 +64,225 @@ object filelistfo: tfilelistfo
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
-  object tbutton1: tbutton
-    color = -2147483645
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
-    face.localprops = []
-    face.template = mainfo.tfaceplayer
-    hint = ' Sent to cue for Player 1 '
-    bounds_x = 208
-    bounds_y = 105
-    bounds_cx = 115
-    bounds_cy = 20
-    anchors = [an_right, an_bottom]
-    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Sent to Player 1'
-    onexecute = onsent
-  end
-  object tbutton2: tbutton
-    Tag = 1
-    color = -2147483645
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
-    face.localprops = []
-    face.template = mainfo.tfaceplayer
-    taborder = 1
-    hint = ' Sent to cue for Player 2 '
-    bounds_x = 329
-    bounds_y = 105
-    bounds_cx = 115
-    bounds_cy = 20
-    anchors = [an_right, an_bottom]
-    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Sent to Player 2'
-    onexecute = onsent
-  end
-  object songdir: tfilenameedit
-    frame.levelo = 0
-    frame.framei_left = 4
-    frame.framei_top = 2
-    frame.framei_right = 4
-    frame.framei_bottom = 2
-    frame.frameo_left = 1
-    frame.frameo_right = 1
-    frame.frameimage_list = commanderfo.timagelist2
-    frame.frameimage_left = -4
-    frame.frameimage_top = -4
-    frame.frameimage_right = -4
-    frame.frameimage_bottom = -4
-    frame.colorclient = -2147483645
-    frame.localprops = [frl_frameimagelist]
-    frame.localprops1 = []
-    frame.buttons.count = 1
-    frame.buttons.items = <    
-      item
-        face.fade_pos.count = 2
-        face.fade_pos.items = (
-          0
-          1
-        )
-        face.fade_color.count = 2
-        face.fade_color.items = (
-          15921906
-          12763842
-        )
-        face.fade_direction = gd_down
-        face.localprops = []
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.template = commanderfo.tframecomp1
-        imagenr = 17
-      end>
-    frame.button.face.fade_pos.count = 2
-    frame.button.face.fade_pos.items = (
-      0
-      1
-    )
-    frame.button.face.fade_color.count = 2
-    frame.button.face.fade_color.items = (
-      15921906
-      12763842
-    )
-    frame.button.face.fade_direction = gd_down
-    frame.button.face.localprops = []
-    frame.button.frame.localprops = []
-    frame.button.frame.localprops1 = []
-    frame.button.frame.template = commanderfo.tframecomp1
-    frame.button.imagenr = 17
-    taborder = 2
-    hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
-    bounds_x = 4
-    bounds_y = 103
-    bounds_cx = 22
-    bounds_cy = 22
-    anchors = [an_left, an_bottom]
-    statfile = mainfo.tstatfile1
-    controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
-    controller.filterlist.data = (
-      (
-        'MS wav'
-        '*.wav'
-      )
-      (
-        'Ogg Vorbis'
-        '*.ogg'
-      )
-      (
-        'Flac'
-        '*.flac'
-      )
-      (
-        'MP3'
-        '*.mp3'
-      )
-      (
-        'All audio files'
-        '"*.mp3" "*.wav" "*.ogg" "*.flac"'
-      )
-    )
-    controller.options = [fdo_directory, fdo_savelastdir]
-    controller.onbeforeexecute = whosent
-    controller.onafterexecute = onafterdialog
-    reffontheight = 15
-  end
-  object historyfn: thistoryedit
-    color = -2147483645
-    frame.captionpos = cp_lefttop
-    frame.captiondist = 0
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = commanderfo.tframecomp1
-    frame.button.face.fade_pos.count = 2
-    frame.button.face.fade_pos.items = (
-      0
-      1
-    )
-    frame.button.face.fade_color.count = 2
-    frame.button.face.fade_color.items = (
-      15921906
-      12763842
-    )
-    frame.button.face.fade_direction = gd_down
-    frame.button.face.localprops = []
-    frame.button.frame.localprops = []
-    frame.button.frame.localprops1 = []
-    frame.button.frame.template = commanderfo.tframecomp1
-    frame.buttons.count = 1
-    frame.buttons.items = <    
-      item
-        face.fade_pos.count = 2
-        face.fade_pos.items = (
-          0
-          1
-        )
-        face.fade_color.count = 2
-        face.fade_color.items = (
-          15921906
-          12763842
-        )
-        face.fade_direction = gd_down
-        face.localprops = []
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.template = commanderfo.tframecomp1
-      end>
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16777215
-      14408667
-    )
+  object tgroupbox1: tgroupbox
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 3
-    hint = ' History of Directories '
-    bounds_x = 25
-    bounds_y = 103
-    bounds_cx = 175
-    bounds_cy = 22
-    anchors = [an_left, an_right, an_bottom]
-    statfile = mainfo.tstatfile1
-    optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
-    optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
-    onchange = onchangpath
-    dropdown.options = [deo_keydropdown, deo_cliphint]
-    dropdown.dropdownrowcount = 10
-    dropdown.cols.count = 1
-    dropdown.cols.items = <    
-      item
-        textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
-      end>
-    dropdown.historymaxcount = 50
-    reffontheight = 15
-  end
-  object list_files: tfilelistview
-    frame.optionsskin = [fso_flat]
-    frame.sbvert.width = 10
-    frame.sbvert.face.localprops = []
-    frame.sbvert.face.template = mainfo.tfacecomp6
-    frame.sbvert.facebutton.localprops = []
-    frame.sbvert.facebutton.template = mainfo.tfacecomp4
-    frame.sbhorz.width = 10
-    frame.sbhorz.face.localprops = []
-    frame.sbhorz.face.template = mainfo.tfacecomp5
-    frame.sbhorz.facebutton.localprops = []
-    frame.sbhorz.facebutton.template = mainfo.tfacecomp7
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    face.localprops = []
-    face.template = mainfo.tfacecomp4
-    taborder = 4
+    face.template = mainfo.tfaceplayer
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 449
-    bounds_cy = 99
+    bounds_cx = 448
+    bounds_cy = 126
     anchors = [an_left, an_top, an_right, an_bottom]
-    cellwidth = 446
-    cellheight = 20
-    optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
-    options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
-    cellwidthmin = 446
-    cellheightmin = 18
-    statfile = mainfo.tstatfile1
-    onselectionchanged = selctchanged
-    filelist.options = [flo_sortname]
-    reffontheight = 15
+    object songdir: tfilenameedit
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameo_left = 1
+      frame.frameo_right = 1
+      frame.frameimage_list = commanderfo.timagelist2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.colorclient = -2147483645
+      frame.localprops = [frl_frameimagelist]
+      frame.localprops1 = []
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          face.localprops = []
+          face.template = mainfo.tfacebutgray
+          frame.localprops = []
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+          imagenr = 17
+        end>
+      frame.button.face.localprops = []
+      frame.button.face.template = mainfo.tfacebutgray
+      frame.button.frame.localprops = []
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.button.imagenr = 17
+      hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
+      bounds_x = 3
+      bounds_y = 100
+      bounds_cx = 22
+      bounds_cy = 24
+      anchors = [an_left, an_bottom]
+      statfile = mainfo.tstatfile1
+      controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
+      controller.filterlist.data = (
+        (
+          'MS wav'
+          '*.wav'
+        )
+        (
+          'Ogg Vorbis'
+          '*.ogg'
+        )
+        (
+          'Flac'
+          '*.flac'
+        )
+        (
+          'MP3'
+          '*.mp3'
+        )
+        (
+          'All audio files'
+          '"*.mp3" "*.wav" "*.ogg" "*.flac"'
+        )
+      )
+      controller.options = [fdo_directory, fdo_savelastdir]
+      controller.onbeforeexecute = whosent
+      controller.onafterexecute = onafterdialog
+      reffontheight = 15
+    end
+    object historyfn: thistoryedit
+      color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_list = commanderfo.timagelist3
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.colorclient = -2147483645
+      frame.captionpos = cp_lefttop
+      frame.captiondist = 0
+      frame.localprops = [frl_frameimagelist]
+      frame.localprops1 = [frl1_captiondist]
+      frame.button.face.localprops = []
+      frame.button.face.template = mainfo.tfacebutgray
+      frame.button.frame.localprops = []
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          face.localprops = []
+          face.template = mainfo.tfacebutgray
+          frame.localprops = []
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutltgray
+      taborder = 1
+      hint = ' History of Directories '
+      bounds_x = 24
+      bounds_y = 100
+      bounds_cx = 176
+      bounds_cy = 24
+      anchors = [an_left, an_right, an_bottom]
+      statfile = mainfo.tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
+      optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+      onchange = onchangpath
+      dropdown.options = [deo_keydropdown, deo_cliphint]
+      dropdown.dropdownrowcount = 10
+      dropdown.cols.count = 1
+      dropdown.cols.items = <      
+        item
+          textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+        end>
+      dropdown.historymaxcount = 50
+      reffontheight = 15
+    end
+    object list_files: tfilelistview
+      frame.optionsskin = [fso_flat]
+      frame.sbvert.width = 10
+      frame.sbvert.face.localprops = []
+      frame.sbvert.face.template = mainfo.tfacebutgray
+      frame.sbvert.facebutton.localprops = []
+      frame.sbvert.facebutton.template = mainfo.tfacecomp4
+      frame.sbhorz.width = 10
+      frame.sbhorz.face.localprops = []
+      frame.sbhorz.face.template = mainfo.tfacecomp5
+      frame.sbhorz.facebutton.localprops = []
+      frame.sbhorz.facebutton.template = mainfo.tfacecomp7
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutgray
+      taborder = 2
+      bounds_x = 2
+      bounds_y = 0
+      bounds_cx = 444
+      bounds_cy = 98
+      anchors = [an_left, an_top, an_right, an_bottom]
+      font.color = 4013373
+      font.name = 'stf_default'
+      font.localprops = []
+      cellwidth = 446
+      cellheight = 20
+      optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
+      options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
+      cellwidthmin = 446
+      cellheightmin = 18
+      statfile = mainfo.tstatfile1
+      onselectionchanged = selctchanged
+      filelist.options = [flo_sortname]
+      reffontheight = 15
+    end
+    object tbutton1: tbutton
+      color = -2147483645
+      frame.captiondist = 0
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayer
+      taborder = 3
+      hint = ' Sent to cue for Player 1 '
+      bounds_x = 206
+      bounds_y = 100
+      bounds_cx = 115
+      bounds_cy = 24
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Sent to Player 1'
+      captiondist = 0
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = onsent
+    end
+    object tbutton2: tbutton
+      Tag = 1
+      color = -2147483645
+      frame.captiondist = 0
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayer
+      taborder = 4
+      hint = ' Sent to cue for Player 2 '
+      bounds_x = 327
+      bounds_y = 100
+      bounds_cx = 118
+      bounds_cy = 24
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Sent to Player 2'
+      captiondist = 0
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = onsent
+    end
   end
   object tfacecomp1: tfacecomp
     template.fade_pos.count = 2

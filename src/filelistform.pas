@@ -5,20 +5,21 @@ interface
 
 uses
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  msegui,msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
-  msedragglob,msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits,
-  msedatanodes, mseedit,msefiledialog, msegrids, mseificomp, mseificompglob,
-  mseifiglob, mselistbrowser,msestatfile, msestream, msestrings, msesys,
-  SysUtils, msegraphedits, msescrollbar;
+ msegui,msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
+ msedragglob,msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits,
+ msedatanodes, mseedit,msefiledialog, msegrids, mseificomp, mseificompglob,
+ mseifiglob, mselistbrowser,msestatfile, msestream, msestrings, msesys,SysUtils,
+ msegraphedits, msescrollbar;
 
 type
   tfilelistfo = class(tdockform)
-    tbutton1: TButton;
-    tbutton2: TButton;
-    songdir: tfilenameedit;
-    historyfn: thistoryedit;
-    list_files: tfilelistview;
    tfacecomp1: tfacecomp;
+   tgroupbox1: tgroupbox;
+   songdir: tfilenameedit;
+   historyfn: thistoryedit;
+   list_files: tfilelistview;
+   tbutton1: tbutton;
+   tbutton2: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure selctchanged(const Sender: tcustomlistview);

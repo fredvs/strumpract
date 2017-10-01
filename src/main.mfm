@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 501
-  bounds_y = 225
+  bounds_x = 819
+  bounds_y = 86
   bounds_cx = 469
   bounds_cy = 66
   bounds_cxmin = 458
@@ -31,10 +31,10 @@ object mainfo: tmainfo
   container.frame.sbhorz.face.localprops = []
   container.frame.sbhorz.face.template = tfacecomp4
   container.frame.sbhorz.facebutton.localprops = []
-  container.frame.sbhorz.facebutton.template = tfacecomp6
+  container.frame.sbhorz.facebutton.template = tfacebutgray
   container.frame.sbvert.width = 10
   container.frame.sbvert.face.localprops = []
-  container.frame.sbvert.face.template = tfacecomp6
+  container.frame.sbvert.face.template = tfacebutgray
   container.frame.sbvert.face1.localprops = []
   container.frame.sbvert.facebutton.localprops = []
   container.frame.sbvert.facebutton.template = tfacecomp7
@@ -3174,7 +3174,7 @@ object mainfo: tmainfo
         onexecute = showall
       end    
       item
-        submenu.count = 2
+        submenu.count = 3
         submenu.items = <        
           item
             caption = ' Colorized '
@@ -3186,6 +3186,12 @@ object mainfo: tmainfo
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 1
             onexecute = changesilver
+          end        
+          item
+            caption = ' Carbon '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 2
+            onexecute = changecarbon
           end>
         caption = ' &Colors '
         hint = ' Change the colors '
@@ -3252,8 +3258,8 @@ object mainfo: tmainfo
       15461355
     )
     template.fade_direction = gd_down
-    left = 221
-    top = 9
+    left = 266
+    top = 7
   end
   object timagelist3: timagelist
     width = 8
@@ -3287,7 +3293,7 @@ object mainfo: tmainfo
       8000FF008000FF008000FF00
     }
   end
-  object tfacecomp6: tfacecomp
+  object tfacebutgray: tfacecomp
     template.fade_pos.count = 2
     template.fade_pos.items = (
       0
@@ -3298,9 +3304,9 @@ object mainfo: tmainfo
       15921906
       10395294
     )
-    template.fade_direction = gd_left
-    left = 245
-    top = 13
+    template.fade_direction = gd_down
+    left = 170
+    top = 9
   end
   object tfacecomp7: tfacecomp
     template.fade_pos.count = 2
@@ -3369,8 +3375,8 @@ object mainfo: tmainfo
     )
     template.fade_color.count = 2
     template.fade_color.items = (
-      16383938
-      12896665
+      14870704
+      11317382
     )
     template.fade_direction = gd_down
     left = 77
@@ -3388,8 +3394,7 @@ object mainfo: tmainfo
       14936240
     )
     template.fade_direction = gd_down
-    left = 222
-    top = 2
+    left = 279
   end
   object tfaceplayerrev: tfacecomp
     template.fade_pos.count = 2
@@ -3403,8 +3408,8 @@ object mainfo: tmainfo
       15989438
     )
     template.fade_direction = gd_down
-    left = 110
-    top = 11
+    left = 220
+    top = 10
   end
   object tfacecomp1: tfacecomp
     template.fade_pos.count = 2
@@ -3418,7 +3423,8 @@ object mainfo: tmainfo
       12896665
     )
     template.fade_direction = gd_down
-    left = 52
+    left = 133
+    top = 1
   end
   object tframecomp2: tframecomp
     template.framei_left = 4
@@ -3436,8 +3442,8 @@ object mainfo: tmainfo
     template.frameimage_bottom = -8
     template.hiddenedges = [edg_bottom]
     template.optionsskin = [fso_flat]
-    left = 259
-    top = 13
+    left = 174
+    top = 2
   end
   object tfaceorangelt: tfacecomp
     template.fade_pos.count = 2
@@ -3465,7 +3471,21 @@ object mainfo: tmainfo
       16775664
       16762227
     )
-    left = 155
-    top = 16
+    left = 212
+    top = 11
+  end
+  object tfacebutltgray: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16250871
+      13750737
+    )
+    template.fade_direction = gd_down
+    left = 164
   end
 end

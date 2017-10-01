@@ -223,12 +223,15 @@ begin
   begin
     tstringdisp1.Value := '';
     tstringdisp1.face.template := mainfo.tfaceplayer;
+   
   end;
 
 iswav := false;
 iscue1 := false;
   trackbar1.visible := false;
   trackbar1.visible := true;
+  
+  DrawWaveForm();
 
 end;
 
@@ -542,7 +545,7 @@ begin
       end;
        tstringdisp1.face.template := mainfo.tfacegreen;
        tstringdisp1.Value := 'Playing ' + theplaying1;
-      end;
+       end;
       
        if (tbutton(sender).tag = 1) or (tbutton(sender).tag = 3) then  /// cue
      begin
@@ -690,6 +693,7 @@ procedure tsongplayerfo.paintsliderimage(const canvas: tcanvas;
  poswav, poswav2 : pointty;  
  poswavx : integer;            
 begin
+
 if (iswav = true) and (waveformcheck.value = true) then begin
 
 poswav.x :=6 ;
@@ -729,15 +733,17 @@ poswav2.y := ((arect.cy div 2) -2) - round(
         end;
        Inc(poswav.x,1) ;
       end;
-         
- end;                     
+       end;  
+                     
 end;
 
 procedure tsongplayerfo.GetWaveData();
 begin
+ if (waveformcheck.value = true) then begin
   waveformdata1 := uos_InputGetArrayLevel(theplayerinfo, 0);
   iswav := true;
   DrawWaveForm();
+end;
 end;
 
 procedure tsongplayerfo.DrawWaveForm();
@@ -746,7 +752,7 @@ const
 var
  rect1: rectty;
   begin
-  if iswav = true then begin
+  if (waveformcheck.value = true) then begin
    trackbar1.invalidate();
  //  writeln(inttostr(length(waveformdata1)));
  rect1.pos:= nullpoint;
@@ -932,11 +938,14 @@ begin
 
   if plugsoundtouch = False then
   begin
-    edtempo.Enabled := False;
-    cbtempo.Enabled := False;
-    Button1.Enabled := False;
+    edtempo.visible := False;
+    cbtempo.visible := False;
+    Button1.visible := False;
+    tstringdisp2.left := 377;
+    tstringdisp2.top := 64;
+    waveformcheck.left := 325;
   end;
-
+  
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   if songdir.Value = '' then

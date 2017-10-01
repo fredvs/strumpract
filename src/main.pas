@@ -24,7 +24,7 @@ type
     tframecomp1: tframecomp;
     tfacecomp5: tfacecomp;
     timagelist3: timagelist;
-    tfacecomp6: tfacecomp;
+    tfacebutgray: tfacecomp;
     tfacecomp7: tfacecomp;
     tfacered: tfacecomp;
     tfacegreen: tfacecomp;
@@ -37,6 +37,7 @@ type
    tfaceorangelt: tfacecomp;
    tfaceorangehz: tfacecomp;
    typecolor: tintegeredit;
+   tfacebutltgray: tfacecomp;
     procedure ontimerwait(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
     procedure oncreatedform(const Sender: TObject);
@@ -61,6 +62,7 @@ type
    procedure showfiles(const sender: TObject);
    procedure changecolors(const sender: TObject);
    procedure changesilver(const sender: TObject);
+   procedure changecarbon(const sender: TObject);
    procedure onchangevalcolor(const sender: TObject);
   private
     flayoutlock: int32;
@@ -652,10 +654,19 @@ begin
 typecolor.value := 1;
 end;
 
+procedure tmainfo.changecarbon(const sender: TObject);
+begin
+typecolor.value := 2;
+end;
+
 procedure tmainfo.onchangevalcolor(const sender: TObject);
+var
+ltblank : integer = $F0F0F0;
+ltblack : integer = $2D2D2D;
 begin
 if typecolor.value = 0 then 
 begin
+
 // main
 tfacegreen.template.fade_color.items[0] := $C2FF9E ;
 tfacegreen.template.fade_color.items[1] := $6EB545 ;
@@ -667,8 +678,44 @@ tfacered.template.fade_color.items[0] := $FFC4C4 ;
 tfacered.template.fade_color.items[1] := $FF7878 ;
 
 // players
+songplayerfo.font.color := ltblack;
+songplayer2fo.font.color := ltblack;
+
 tfaceplayer.template.fade_color.items[0] := $F9FFC2 ;
 tfaceplayer.template.fade_color.items[1] := $C4C999 ;
+
+tfacebutgray.template.fade_color.items[0] := $F2F2F2 ;
+tfacebutgray.template.fade_color.items[1] := $9E9E9E ;
+
+tfacebutltgray.template.fade_color.items[0] := $FAFAFA ;
+tfacebutltgray.template.fade_color.items[1] := $D1D1D1 ;
+
+songplayerfo.tstringdisp1.font.color := ltblack;
+songplayer2fo.tstringdisp1.font.color := ltblack;
+
+songplayerfo.lposition.font.color := ltblack;
+songplayer2fo.lposition.font.color := ltblack;
+
+songplayerfo.llength.font.color := ltblack;
+songplayer2fo.llength.font.color := ltblack;
+
+songplayerfo.cbloop.frame.font.color := ltblack;
+songplayer2fo.cbloop.frame.font.color := ltblack;
+
+songplayerfo.cbtempo.frame.font.color := ltblack;
+songplayer2fo.cbtempo.frame.font.color := ltblack;
+
+songplayerfo.waveformcheck.frame.font.color := ltblack;
+songplayer2fo.waveformcheck.frame.font.color := ltblack;
+
+songplayerfo.tstringdisp2.font.color := ltblack;
+songplayer2fo.tstringdisp2.font.color := ltblack;
+
+songplayerfo.button1.font.color := ltblack;
+songplayer2fo.button1.font.color := ltblack;
+
+songplayerfo.tstringdisp1.color := cl_default;
+songplayer2fo.tstringdisp1.color := cl_default;
 
 songplayerfo.tfaceslider.template.fade_color.items[0] := $F9FFC2 ;
 songplayerfo.tfaceslider.template.fade_color.items[1] := $C4C999 ;
@@ -689,6 +736,18 @@ tfaceplayerrev.template.fade_color.items[1] := $F3FABE;
 // drums
 drumsfo.tfacedrums.template.fade_color.items[0] := $9AAD97 ;
 drumsfo.tfacedrums.template.fade_color.items[1] := $D6F0D1 ;
+drumsfo.ltempo.font.color := ltblack;
+drumsfo.novoice.frame.font.color := ltblack;
+drumsfo.noand.frame.font.color := ltblack;
+drumsfo.nodrums.frame.font.color := ltblack;
+drumsfo.noanim.frame.font.color := ltblack;
+drumsfo.tlabel21.font.color := ltblack;
+drumsfo.tlabel22.font.color := ltblack;
+drumsfo.tlabel25.font.color := ltblack;
+drumsfo.tlabel23.font.color := ltblack;
+
+drumsfo.tstringdisp2.font.color := ltblack;
+
 
 // rev
 drumsfo.tfacecomp2.template.fade_color.items[0] := $D6F0D1 ;
@@ -699,9 +758,22 @@ drumsfo.tfacecomp3.template.fade_color.items[0] := $F9FFF7 ;
 drumsfo.tfacecomp3.template.fade_color.items[1] := $BCD4B8 ;
 
 // recorder
-
 recorderfo.tfacerecorder.template.fade_color.items[0] := $FFE3E3 ;
 recorderfo.tfacerecorder.template.fade_color.items[1] := $DA9D9D ;
+
+recorderfo.cbloop.frame.font.color := ltblack;
+recorderfo.cbtempo.frame.font.color := ltblack;
+recorderfo.bsavetofile.frame.font.color := ltblack;
+recorderfo.blistenin.frame.font.color := ltblack;
+recorderfo.tlabel27.font.color := ltblack;
+recorderfo.label6.font.color := ltblack;
+recorderfo.tlabel28.font.color := ltblack;
+recorderfo.tlabel2.font.color := ltblack;
+recorderfo.btinfos.font.color := ltblack;
+recorderfo.button1.font.color := ltblack;
+recorderfo.tstringdisp2.font.color := ltblack;
+recorderfo.llength.font.color := ltblack;
+recorderfo.lposition.font.color := ltblack;
 
 // rev
 recorderfo.tfacerecrev.template.fade_color.items[0] := $D9C1C1 ;
@@ -712,7 +784,12 @@ recorderfo.tfacereclight.template.fade_color.items[0] := $FFF7F7 ;
 recorderfo.tfacereclight.template.fade_color.items[1] := $EDD3D3 ;
 
 // guitar
-guitarsfo.tfaceguit.template.fade_color.items[0] := $FFF5E3 ;
+guitarsfo.loopguit.frame.font.color := ltblack;
+guitarsfo.loopbass.frame.font.color := ltblack;
+guitarsfo.tstringdisp2.font.color := ltblack;
+guitarsfo.tstringdisp3.font.color := ltblack;
+
+guitarsfo.tfaceguit.template.fade_color.items[0] := $F5EADA ;
 guitarsfo.tfaceguit.template.fade_color.items[1] := $BFB7AA ;
 
 // light
@@ -720,40 +797,93 @@ guitarsfo.tfaceguitlight.template.fade_color.items[0] := $DBD3C3 ;
 guitarsfo.tfaceguitlight.template.fade_color.items[1] := $FFF5E3 ;
 
 // commander
+commanderfo.nameplayers.font.color := ltblack;
+commanderfo.namedrums.font.color := ltblack;
+commanderfo.linkvol.font.color := ltblack;
+commanderfo.linkvol2.font.color := ltblack;
+commanderfo.vuin.font.color := ltblack;
+commanderfo.linkvol.font.color := ltblack;
+commanderfo.timemix.font.color := ltblack;
+commanderfo.butinput.font.color := ltblack;
 commanderfo.tfacegriptab.template.fade_color.items[0] := $F8DEFF ;
 commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6 ;
 
-songplayerfo.DrawWaveForm();
-songplayer2fo.DrawWaveForm();
+commanderfo.volumeleft1.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.volumeleft1.scrollbar.face1.template :=  commanderfo.tfaceslider;
+commanderfo.volumeleft2.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.volumeleft2.scrollbar.face1.template :=  commanderfo.tfaceslider;
+commanderfo.volumeright1.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.volumeright1.scrollbar.face1.template :=  commanderfo.tfaceslider;
+commanderfo.volumeright2.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.volumeright2.scrollbar.face1.template :=  commanderfo.tfaceslider;
+
+commanderfo.tslider2.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.tslider2.scrollbar.face1.template :=  commanderfo.tfaceslider;
+commanderfo.tslider3.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.tslider3.scrollbar.face1.template :=  commanderfo.tfaceslider;
+
 end;
 
 if typecolor.value = 1 then 
 begin
 // main
+tfacebutgray.template.fade_color.items[0] := $F2F2F2 ;
+tfacebutgray.template.fade_color.items[1] := $9E9E9E ;
+
+tfacebutltgray.template.fade_color.items[0] := $FAFAFA ;
+tfacebutltgray.template.fade_color.items[1] := $D1D1D1 ;
+{
 tfacegreen.template.fade_color.items[0] := $FDFDFD ;
 tfacegreen.template.fade_color.items[1] := $DDDDDD ;
 
 tfaceorange.template.fade_color.items[0] := $FCFCFC ;
 tfaceorange.template.fade_color.items[1] := $DDDDDD ;
+}
+tfacegreen.template.fade_color.items[0] := $C2FF9E ;
+tfacegreen.template.fade_color.items[1] := $6EB545 ;
 
-tfacered.template.fade_color.items[0] := $FCFCFC ;
-tfacered.template.fade_color.items[1] := $BABABA ;
+tfaceorange.template.fade_color.items[0] := $FFF9F0 ;
+tfaceorange.template.fade_color.items[1] := $FF9D14 ;
+
+//tfacered.template.fade_color.items[0] := $FCFCFC ;
+//tfacered.template.fade_color.items[1] := $BABABA ;
 
 tfaceplayer.template.fade_color.items[0] := $EDEDED ;
 tfaceplayer.template.fade_color.items[1] := $BABABA ;
 
-//tfaceplayer.template.fade_color.items[0] := $BABABA ;
-//tfaceplayer.template.fade_color.items[1] := $5A5A5A ;
-
-
 tfaceplayerlight.template.fade_color.items[0] := $FDFDFD;
 tfaceplayerlight.template.fade_color.items[1] := $DDDDDD;
 
+// players
+songplayerfo.font.color := cl_default;
+songplayer2fo.font.color := cl_default;
+
+songplayerfo.tstringdisp1.font.color := cl_default;
+songplayer2fo.tstringdisp1.font.color := cl_default;
+
+songplayerfo.lposition.font.color := cl_default;
+songplayer2fo.lposition.font.color := cl_default;
+
+songplayerfo.llength.font.color := cl_default;
+songplayer2fo.llength.font.color := cl_default;
+
+songplayerfo.cbloop.frame.font.color := ltblack;
+songplayer2fo.cbloop.frame.font.color := ltblack;
+
+songplayerfo.cbtempo.frame.font.color := ltblack;
+songplayer2fo.cbtempo.frame.font.color := ltblack;
+
+songplayerfo.waveformcheck.frame.font.color := ltblack;
+songplayer2fo.waveformcheck.frame.font.color := ltblack;
+
+songplayerfo.tstringdisp2.font.color := ltblack;
+songplayer2fo.tstringdisp2.font.color := ltblack;
+
+songplayerfo.button1.font.color := ltblack;
+songplayer2fo.button1.font.color := ltblack;
+
 songplayerfo.tfaceslider.template.fade_color.items[0] := $EDEDED ;
 songplayerfo.tfaceslider.template.fade_color.items[1] := $BABABA ;
-
-//songplayerfo.tfaceslider.template.fade_color.items[0] := $BABABA ;
-//songplayerfo.tfaceslider.template.fade_color.items[1] := $5A5A5A ;
 
 songplayer2fo.tfaceslider.template.fade_color.items[0] := $EDEDED ;
 songplayer2fo.tfaceslider.template.fade_color.items[1] := $BABABA ;
@@ -770,6 +900,19 @@ tfaceplayerrev.template.fade_color.items[1] := $EDEDED;
 drumsfo.tfacedrums.template.fade_color.items[0] := $CCCCCC ;
 drumsfo.tfacedrums.template.fade_color.items[1] := $AAAAAA ;
 
+
+drumsfo.ltempo.font.color := ltblack;
+drumsfo.novoice.frame.font.color := ltblack;
+drumsfo.noand.frame.font.color := ltblack;
+drumsfo.nodrums.frame.font.color := ltblack;
+drumsfo.noanim.frame.font.color := ltblack;
+drumsfo.tlabel21.font.color := ltblack;
+drumsfo.tlabel22.font.color := ltblack;
+drumsfo.tlabel25.font.color := ltblack;
+drumsfo.tlabel23.font.color := ltblack;
+
+drumsfo.tstringdisp2.font.color := ltblack;
+
 // rev
 drumsfo.tfacecomp2.template.fade_color.items[0] := $BABABA ;
 drumsfo.tfacecomp2.template.fade_color.items[1] := $EDEDED ;
@@ -779,6 +922,20 @@ drumsfo.tfacecomp3.template.fade_color.items[0] := $EDEDED ;
 drumsfo.tfacecomp3.template.fade_color.items[1] := $BABABA ;
 
 // recorder
+
+recorderfo.cbloop.frame.font.color := ltblack;
+recorderfo.cbtempo.frame.font.color := ltblack;
+recorderfo.bsavetofile.frame.font.color := ltblack;
+recorderfo.blistenin.frame.font.color := ltblack;
+recorderfo.tlabel27.font.color := ltblack;
+recorderfo.label6.font.color := ltblack;
+recorderfo.tlabel28.font.color := ltblack;
+recorderfo.tlabel2.font.color := ltblack;
+recorderfo.btinfos.font.color := ltblack;
+recorderfo.button1.font.color := ltblack;
+recorderfo.tstringdisp2.font.color := ltblack;
+recorderfo.llength.font.color := ltblack;
+recorderfo.lposition.font.color := ltblack;
 
 recorderfo.tfacerecorder.template.fade_color.items[0] := $EDEDED ;
 recorderfo.tfacerecorder.template.fade_color.items[1] := $BABABA ;
@@ -792,6 +949,10 @@ recorderfo.tfacereclight.template.fade_color.items[0] := $EDEDED ;
 recorderfo.tfacereclight.template.fade_color.items[1] := $BABABA ;
 
 // guitar
+guitarsfo.loopguit.frame.font.color := ltblack;
+guitarsfo.loopbass.frame.font.color := ltblack;
+guitarsfo.tstringdisp2.font.color := ltblack;
+guitarsfo.tstringdisp3.font.color := ltblack;
 guitarsfo.tfaceguit.template.fade_color.items[0] := $EDEDED ;
 guitarsfo.tfaceguit.template.fade_color.items[1] := $BABABA ;
 
@@ -800,14 +961,203 @@ guitarsfo.tfaceguitlight.template.fade_color.items[0] := $EDEDED ;
 guitarsfo.tfaceguitlight.template.fade_color.items[1] := $BABABA ;
 
 // commander
+commanderfo.nameplayers.font.color := ltblack;
+commanderfo.namedrums.font.color := ltblack;
+commanderfo.linkvol.font.color := ltblack;
+commanderfo.linkvol2.font.color := ltblack;
+commanderfo.vuin.font.color := ltblack;
+commanderfo.linkvol.font.color := ltblack;
+commanderfo.timemix.font.color := ltblack;
+commanderfo.butinput.font.color := ltblack;
+
+commanderfo.volumeleft1.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.volumeleft1.scrollbar.face1.template :=  commanderfo.tfaceslider;
+commanderfo.volumeleft2.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.volumeleft2.scrollbar.face1.template :=  commanderfo.tfaceslider;
+commanderfo.volumeright1.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.volumeright1.scrollbar.face1.template :=  commanderfo.tfaceslider;
+commanderfo.volumeright2.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.volumeright2.scrollbar.face1.template :=  commanderfo.tfaceslider;
+
+commanderfo.tslider2.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.tslider2.scrollbar.face1.template :=  commanderfo.tfaceslider;
+commanderfo.tslider3.scrollbar.face.template :=  commanderfo.tfaceslider;
+commanderfo.tslider3.scrollbar.face1.template :=  commanderfo.tfaceslider;
+
 commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED ;
 commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA ;
 
-songplayerfo.DrawWaveForm();
-songplayer2fo.DrawWaveForm();
+filelistfo.list_files.font.color := cl_black;
 end;
 
+if typecolor.value = 2 then 
+begin
+// main
+//tfacebutgray.template.fade_color.items[0] := $7E7E7E;
+//tfacebutgray.template.fade_color.items[1] := $5E5E5E ;
 
+tfacebutgray.template.fade_color.items[0] := $D2D2D2 ;
+tfacebutgray.template.fade_color.items[1] := $9E9E9E ;
+
+tfacebutltgray.template.fade_color.items[0] := $5A5A5A ;
+tfacebutltgray.template.fade_color.items[1] := $2A2A2A ;
+
+tfacegreen.template.fade_color.items[0] := $AAAAAA ;
+tfacegreen.template.fade_color.items[1] := $2A2A2A ;
+
+tfaceorange.template.fade_color.items[0] := $AAAAAA ;
+tfaceorange.template.fade_color.items[1] := $5A5A5A ;
+
+//tfacered.template.fade_color.items[0] := $BABABA ;
+//tfacered.template.fade_color.items[1] := $5A5A5A ;
+
+tfaceplayer.template.fade_color.items[0] := $5A5A5A ;
+tfaceplayer.template.fade_color.items[1] := $2A2A2A ;
+
+tfaceplayerlight.template.fade_color.items[0] := $5A5A5A;
+tfaceplayerlight.template.fade_color.items[1] := $2A2A2A;
+
+// players
+songplayerfo.tfaceslider.template.fade_color.items[0] := $5A5A5A ;
+songplayerfo.tfaceslider.template.fade_color.items[1] := $2A2A2A ;
+
+songplayerfo.font.color := ltblank;
+songplayer2fo.font.color := ltblank;
+
+songplayerfo.tstringdisp1.font.color := ltblank;
+songplayer2fo.tstringdisp1.font.color := ltblank;
+
+songplayerfo.lposition.font.color := ltblank;
+songplayer2fo.lposition.font.color := ltblank;
+
+songplayerfo.llength.font.color := ltblank;
+songplayer2fo.llength.font.color := ltblank;
+
+songplayerfo.cbloop.frame.font.color := ltblank;
+songplayer2fo.cbloop.frame.font.color := ltblank;
+
+songplayerfo.cbtempo.frame.font.color := ltblank;
+songplayer2fo.cbtempo.frame.font.color := ltblank;
+
+songplayerfo.waveformcheck.frame.font.color := ltblank;
+songplayer2fo.waveformcheck.frame.font.color := ltblank;
+
+songplayerfo.tstringdisp2.font.color := ltblank;
+songplayer2fo.tstringdisp2.font.color := ltblank;
+
+songplayerfo.button1.font.color := ltblank;
+songplayer2fo.button1.font.color := ltblank;
+
+songplayer2fo.tfaceslider.template.fade_color.items[0] := $5A5A5A ;
+songplayer2fo.tfaceslider.template.fade_color.items[1] := $2A2A2A ;
+
+songplayerfo.tfacegreen.template.fade_color.items[0] := $AAAAAA ;
+songplayerfo.tfacegreen.template.fade_color.items[1] := $5A5A5A ;
+songplayer2fo.tfacegreen.template.fade_color.items[0] := $AAAAAA ;
+songplayer2fo.tfacegreen.template.fade_color.items[1] := $5A5A5A ;
+
+tfaceplayerrev.template.fade_color.items[0] := $2A2A2A;
+tfaceplayerrev.template.fade_color.items[1] := $5A5A5A;
+
+// drums
+//drumsfo.panel1.font.color := cl_white;
+
+//drumsfo.font.color := cl_black;
+
+drumsfo.tstringdisp2.font.color := ltblank;
+drumsfo.ltempo.font.color := ltblank;
+drumsfo.novoice.frame.font.color := ltblank;
+drumsfo.noand.frame.font.color := ltblank;
+drumsfo.nodrums.frame.font.color := ltblank;
+drumsfo.noanim.frame.font.color := ltblank;
+drumsfo.tlabel21.font.color := ltblank;
+drumsfo.tlabel22.font.color := ltblank;
+drumsfo.tlabel25.font.color := ltblank;
+drumsfo.tlabel23.font.color := ltblank;
+
+drumsfo.tfacedrums.template.fade_color.items[0] := $5A5A5A ;
+drumsfo.tfacedrums.template.fade_color.items[1] := $2A2A2A ;
+
+
+// rev
+drumsfo.tfacecomp2.template.fade_color.items[0] := $5A5A5A ;
+drumsfo.tfacecomp2.template.fade_color.items[1] := $2A2A2A ;
+
+// light
+drumsfo.tfacecomp3.template.fade_color.items[0] := $BABABA ;
+drumsfo.tfacecomp3.template.fade_color.items[1] := $5A5A5A ;
+
+// recorder
+recorderfo.cbloop.frame.font.color := ltblank;
+recorderfo.cbtempo.frame.font.color := ltblank;
+recorderfo.bsavetofile.frame.font.color := ltblank;
+recorderfo.blistenin.frame.font.color := ltblank;
+recorderfo.tlabel27.font.color := ltblank;
+recorderfo.label6.font.color := ltblank;
+recorderfo.tlabel28.font.color := ltblank;
+recorderfo.tlabel2.font.color := ltblank;
+recorderfo.btinfos.font.color := ltblank;
+recorderfo.button1.font.color := ltblank;
+recorderfo.tstringdisp2.font.color := ltblank;
+recorderfo.llength.font.color := ltblank;
+recorderfo.lposition.font.color := ltblank;
+
+recorderfo.tfacerecorder.template.fade_color.items[0] := $5A5A5A ;
+recorderfo.tfacerecorder.template.fade_color.items[1] := $2A2A2A ;
+
+// rev
+recorderfo.tfacerecrev.template.fade_color.items[0] := $2A2A2A ;
+recorderfo.tfacerecrev.template.fade_color.items[1] := $5A5A5A ;
+
+// light
+recorderfo.tfacereclight.template.fade_color.items[0] := $5A5A5A ;
+recorderfo.tfacereclight.template.fade_color.items[1] := $2A2A2A ;
+
+// guitar
+guitarsfo.loopguit.frame.font.color := ltblank;
+guitarsfo.loopbass.frame.font.color := ltblank;
+guitarsfo.tstringdisp2.font.color := ltblank;
+guitarsfo.tstringdisp3.font.color := ltblank;
+guitarsfo.tfaceguit.template.fade_color.items[0] := $5A5A5A ;
+guitarsfo.tfaceguit.template.fade_color.items[1] := $2A2A2A ;
+
+// light
+guitarsfo.tfaceguitlight.template.fade_color.items[0] := $BABABA ;
+guitarsfo.tfaceguitlight.template.fade_color.items[1] := $5A5A5A ;
+
+// commander
+commanderfo.nameplayers.font.color := ltblank;
+commanderfo.namedrums.font.color := ltblank;
+commanderfo.linkvol.font.color := ltblank;
+commanderfo.linkvol2.font.color := ltblank;
+commanderfo.vuin.font.color := ltblank;
+commanderfo.linkvol.font.color := ltblank;
+commanderfo.timemix.font.color := ltblank;
+commanderfo.butinput.font.color := ltblack;
+
+commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED ;
+commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA ;
+
+commanderfo.volumeleft1.scrollbar.face.template :=  commanderfo.tfacesliderdark;
+commanderfo.volumeleft1.scrollbar.face1.template :=  commanderfo.tfacesliderdark;
+commanderfo.volumeleft2.scrollbar.face.template :=  commanderfo.tfacesliderdark;
+commanderfo.volumeleft2.scrollbar.face1.template :=  commanderfo.tfacesliderdark;
+commanderfo.volumeright1.scrollbar.face.template :=  commanderfo.tfacesliderdark;
+commanderfo.volumeright1.scrollbar.face1.template :=  commanderfo.tfacesliderdark;
+commanderfo.volumeright2.scrollbar.face.template :=  commanderfo.tfacesliderdark;
+commanderfo.volumeright2.scrollbar.face1.template :=  commanderfo.tfacesliderdark;
+
+commanderfo.tslider2.scrollbar.face.template :=  commanderfo.tfacesliderdark;
+commanderfo.tslider2.scrollbar.face1.template :=  commanderfo.tfacesliderdark;
+commanderfo.tslider3.scrollbar.face.template :=  commanderfo.tfacesliderdark;
+commanderfo.tslider3.scrollbar.face1.template :=  commanderfo.tfacesliderdark;
+
+filelistfo.list_files.font.color := cl_black;
+
+end;
+
+songplayerfo.DrawWaveForm();
+songplayer2fo.DrawWaveForm();
  
 end;
 
