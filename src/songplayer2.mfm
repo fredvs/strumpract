@@ -226,6 +226,7 @@ object songplayer2fo: tsongplayer2fo
       frame.colorclient = 16580582
       frame.caption = 'Stretch'
       frame.captionpos = cp_topleft
+      frame.captiondist = 0
       frame.font.color = 4013373
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -234,7 +235,7 @@ object songplayer2fo: tsongplayer2fo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        16
+        15
         25
         0
       )
@@ -245,7 +246,7 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 343
       bounds_y = 49
       bounds_cx = 38
-      bounds_cy = 28
+      bounds_cy = 27
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
     end
@@ -258,7 +259,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 5
       hint = ' Stop player '
       bounds_x = 130
@@ -278,7 +279,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 6
       hint = ' Resume player '
       bounds_x = 68
@@ -298,7 +299,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 7
       hint = ' Pause player '
       bounds_x = 99
@@ -587,7 +588,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 15
       hint = ' Load from cue and Start player '
       bounds_x = 37
@@ -629,7 +630,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 17
       hint = ' Load from cue and Pause player '
       bounds_x = 6

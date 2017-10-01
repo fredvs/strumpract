@@ -20,8 +20,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 659
-  bounds_y = 342
+  bounds_x = 762
+  bounds_y = 120
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -226,6 +226,7 @@ object songplayerfo: tsongplayerfo
       frame.colorclient = 16580582
       frame.caption = 'Stretch'
       frame.captionpos = cp_topleft
+      frame.captiondist = 0
       frame.font.color = 4013373
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -234,7 +235,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        16
+        15
         25
         0
       )
@@ -245,7 +246,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 343
       bounds_y = 49
       bounds_cx = 38
-      bounds_cy = 28
+      bounds_cy = 27
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
     end
@@ -258,7 +259,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 5
       hint = ' Stop player '
       bounds_x = 130
@@ -278,7 +279,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 6
       hint = ' Resume player '
       bounds_x = 68
@@ -298,7 +299,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 7
       hint = ' Pause player '
       bounds_x = 99
@@ -590,7 +591,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 15
       hint = ' Load from cue and Start player '
       bounds_x = 37
@@ -632,7 +633,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayer
       taborder = 17
       hint = ' Load from cue and Pause player '
       bounds_x = 6
@@ -667,8 +668,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 18
       hint = ' Show wave form in slider '
-      bounds_x = 321
-      bounds_y = 50
+      bounds_x = 310
+      bounds_y = 49
       bounds_cx = 30
       bounds_cy = 28
       statfile = mainfo.tstatfile1
