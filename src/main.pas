@@ -16,7 +16,6 @@ uses
 type
   tmainfo = class(tmainform)
     Timerwait: Ttimer;
-    buttonicons: timagelist;
     basedock: tdockpanel;
     tmainmenu1: tmainmenu;
     tfacecomp4: tfacecomp;
@@ -38,6 +37,7 @@ type
    tfaceorangehz: tfacecomp;
    typecolor: tintegeredit;
    tfacebutltgray: tfacecomp;
+   buttonicons: timagelist;
     procedure ontimerwait(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
     procedure oncreatedform(const Sender: TObject);
@@ -914,8 +914,8 @@ drumsfo.tlabel23.font.color := ltblack;
 drumsfo.tstringdisp2.font.color := ltblack;
 
 // rev
-drumsfo.tfacecomp2.template.fade_color.items[0] := $BABABA ;
-drumsfo.tfacecomp2.template.fade_color.items[1] := $EDEDED ;
+drumsfo.tfacecomp2.template.fade_color.items[0] := $EDEDED ;
+drumsfo.tfacecomp2.template.fade_color.items[1] := $BABABA ;
 
 // light
 drumsfo.tfacecomp3.template.fade_color.items[0] := $EDEDED ;
@@ -993,11 +993,8 @@ end;
 if typecolor.value = 2 then 
 begin
 // main
-//tfacebutgray.template.fade_color.items[0] := $7E7E7E;
-//tfacebutgray.template.fade_color.items[1] := $5E5E5E ;
-
-tfacebutgray.template.fade_color.items[0] := $D2D2D2 ;
-tfacebutgray.template.fade_color.items[1] := $9E9E9E ;
+tfacebutgray.template.fade_color.items[0] := $888888 ;
+tfacebutgray.template.fade_color.items[1] := $2A2A2A ;
 
 tfacebutltgray.template.fade_color.items[0] := $5A5A5A ;
 tfacebutltgray.template.fade_color.items[1] := $2A2A2A ;
@@ -1005,8 +1002,8 @@ tfacebutltgray.template.fade_color.items[1] := $2A2A2A ;
 tfacegreen.template.fade_color.items[0] := $AAAAAA ;
 tfacegreen.template.fade_color.items[1] := $2A2A2A ;
 
-tfaceorange.template.fade_color.items[0] := $AAAAAA ;
-tfaceorange.template.fade_color.items[1] := $5A5A5A ;
+tfaceorange.template.fade_color.items[0] := $D2D2D2 ;
+tfaceorange.template.fade_color.items[1] := $5E5E5E ;
 
 //tfacered.template.fade_color.items[0] := $BABABA ;
 //tfacered.template.fade_color.items[1] := $5A5A5A ;

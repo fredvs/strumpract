@@ -833,7 +833,7 @@ object drumsfo: tdrumsfo
         frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
-        face.template = tfacecomp2
+        face.template = mainfo.tfacebutgray
         taborder = 14
         hint = ' Stop loop '
         bounds_x = 68
@@ -853,7 +853,7 @@ object drumsfo: tdrumsfo
         frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
-        face.template = tfacecomp2
+        face.template = mainfo.tfacebutgray
         taborder = 15
         hint = ' Resume loop '
         bounds_x = 37
@@ -879,7 +879,7 @@ object drumsfo: tdrumsfo
         frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
-        face.template = tfacecomp2
+        face.template = mainfo.tfacebutgray
         taborder = 16
         hint = ' Start loop '
         bounds_x = 6
