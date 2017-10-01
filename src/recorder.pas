@@ -5,12 +5,12 @@ interface
 
 uses
  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
- mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,
-  mseevent,mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,
-  msedataedits,msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,
-  msegraphedits, mseificomp,mseificompglob, mseifiglob, msescrollbar,
-  msedragglob, mseact, mseedit, msestatfile,msestream, msestrings, msebitmap,
-  msedatanodes, msedispwidgets, mserichstring;
+ mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,mseevent,
+ mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,msedataedits,
+ msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,msegraphedits,
+ mseificomp,mseificompglob, mseifiglob, msescrollbar,msedragglob, mseact,
+ mseedit, msestatfile,msestream, msestrings, msebitmap,msedatanodes,
+ msedispwidgets, mserichstring;
 
 type
   trecorderfo = class(tdockform)
@@ -43,9 +43,9 @@ type
     songdir: tfilenameedit;
     llength: tstringdisp;
     lposition: tstringdisp;
-    vuRight: tgroupbox;
-    vuLeft: tgroupbox;
    tstringdisp2: tstringdisp;
+   vuRight: tprogressbar;
+   vuLeft: tprogressbar;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -81,6 +81,7 @@ var
   recorderfo: trecorderfo;
   thedialogform: tfiledialogfo;
   initplay: integer = 1;
+  isrecording : boolean = false;
   therecplayer: integer = 24;
   therecplayerinfo: integer = 25;
   plugIndex3, PluginIndex3: integer;
@@ -129,8 +130,8 @@ begin
   tbutton2.Enabled := False;
   tbutton3.Enabled := True;
 
-  vuright.Height := 0;
-  vuleft.Height := 0;
+  vuright.value := 0;
+  vuleft.value := 0;
   vuLeft.Visible := False;
   vuRight.Visible := False;
   btnStart.Enabled := True;
@@ -156,30 +157,32 @@ begin
   leftlev := uos_InputGetLevelLeft(therecplayer, Inputindex3);
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
 
+
+if (leftlev >= 0) and (leftlev < 1) then
+  begin
+
   if leftlev < 0.80 then
-    vuLeft.face.template := mainfo.tfacegreen
+    vuLeft.bar_face.template := mainfo.tfacegreen
   else
   if leftlev < 0.90 then
-    vuLeft.face.template := mainfo.tfaceorange
+    vuLeft.bar_face.template := mainfo.tfaceorange
   else
-    vuLeft.face.template := mainfo.tfacered;
+    vuLeft.bar_face.template := mainfo.tfacered;
+    vuLeft.value := leftlev; 
+ end;   
 
+if (rightlev >= 0) and (rightlev < 1) then
+  begin
   if rightlev < 0.80 then
-    vuRight.face.template := mainfo.tfacegreen
+    vuRight.bar_face.template := mainfo.tfacegreen
   else
   if rightlev < 0.90 then
-    vuRight.face.template := mainfo.tfaceorange
+    vuRight.bar_face.template := mainfo.tfaceorange
   else
-    vuRight.face.template := mainfo.tfacered;
-
-
-  if trunc(leftlev * 44) >= 0 then
-    vuLeft.Height := trunc(leftlev * 44);
-  if trunc(rightlev * 44) >= 0 then
-    vuRight.Height := trunc(rightlev * 44);
-  vuLeft.top := 95 - vuLeft.Height;
-  vuRight.top := 95 - vuRight.Height;
-end;
+    vuRight.bar_face.template := mainfo.tfacered;
+    vuRight.value := rightlev; 
+  end;
+  end;
 
 procedure trecorderfo.ShowPosition;
 var
@@ -203,8 +206,8 @@ end;
 
 procedure trecorderfo.LoopProcPlayer1;
 begin
-  ShowPosition;
-  ShowLevel;
+ if isrecording = false then  ShowPosition;
+ ShowLevel;
 end;
 
 procedure trecorderfo.doplayerstart(const Sender: TObject);
@@ -242,6 +245,7 @@ begin
 
     if InputIndex3 > -1 then
     begin
+    isrecording := false;
       // OutputIndex3 := uos_AddIntoDevOut(PlayerIndex3) ;
       //// add a Output into device with default parameters
       OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, -1, uos_InputGetSampleRate(therecplayer, InputIndex3),
@@ -388,8 +392,6 @@ procedure trecorderfo.doplayerpause(const Sender: TObject);
 begin
   vuLeft.Visible := False;
   vuRight.Visible := False;
-  vuright.Height := 0;
-  vuleft.Height := 0;
   btnStop.Enabled := True;
   btnPause.Enabled := False;
   btnresume.Enabled := True;
@@ -587,6 +589,7 @@ begin
 
   if uos_CreatePlayer(therecplayer) then
   begin
+    isrecording := true;
     tbutton2.Enabled := True;
     tbutton3.Enabled := False;
     btnStart.Enabled := False;

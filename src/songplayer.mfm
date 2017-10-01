@@ -603,30 +603,6 @@ object songplayerfo: tsongplayerfo
       focusrectdist = 0
       onexecute = doplayerstart
     end
-    object vuLeft: tgroupbox
-      optionswidget1 = []
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfacegreen
-      taborder = 16
-      visible = False
-      bounds_x = 188
-      bounds_y = 50
-      bounds_cx = 8
-      bounds_cy = 28
-    end
-    object vuRight: tgroupbox
-      optionswidget1 = []
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfacegreen
-      taborder = 17
-      visible = False
-      bounds_x = 299
-      bounds_y = 50
-      bounds_cx = 8
-      bounds_cy = 28
-    end
     object btinfos: tbutton
       Tag = 9
       color = -2147483645
@@ -636,7 +612,7 @@ object songplayerfo: tsongplayerfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 18
+      taborder = 16
       hint = ' Show infos of the song '
       bounds_x = 6
       bounds_y = 5
@@ -657,7 +633,7 @@ object songplayerfo: tsongplayerfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 19
+      taborder = 17
       hint = ' Load from cue and Pause player '
       bounds_x = 6
       bounds_y = 50
@@ -689,10 +665,10 @@ object songplayerfo: tsongplayerfo
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 20
+      taborder = 18
       hint = ' Show wave form in slider '
-      bounds_x = 310
-      bounds_y = 49
+      bounds_x = 321
+      bounds_y = 50
       bounds_cx = 30
       bounds_cy = 28
       statfile = mainfo.tstatfile1
@@ -706,7 +682,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 21
+      taborder = 19
       hint = ' Player 1 '
       bounds_x = 392
       bounds_y = 48
@@ -719,6 +695,40 @@ object songplayerfo: tsongplayerfo
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Player 1'
       reffontheight = 13
+    end
+    object vuRight: tprogressbar
+      taborder = 20
+      bounds_x = 299
+      bounds_y = 50
+      bounds_cx = 8
+      bounds_cy = 28
+      direction = gd_up
+      bar_face.fade_direction = gd_up
+      bar_face.localprops = [fal_fadirection]
+      bar_face.template = tfacegreen
+      bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      valuerange = 100
+      valuestart = 0
+      value = 0
+      format = ''
+    end
+    object vuLeft: tprogressbar
+      taborder = 21
+      bounds_x = 188
+      bounds_y = 50
+      bounds_cx = 8
+      bounds_cy = 28
+      direction = gd_up
+      bar_face.fade_direction = gd_up
+      bar_face.localprops = [fal_fadirection]
+      bar_face.template = tfacegreen
+      bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      valuerange = 100
+      valuestart = 0
+      value = 0
+      format = ''
     end
   end
   object tfaceslider: tfacecomp

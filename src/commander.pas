@@ -38,12 +38,8 @@ type
     tgroupboxinput: tgroupbox;
     tslider3: tslider;
     butinput: TButton;
-    vuRight: tgroupbox;
-    vuLeft: tgroupbox;
-    vuRight2: tgroupbox;
     volumeright2: tslider;
     volumeleft2: tslider;
-    vuLeft2: tgroupbox;
    tfaceslider: tfacecomp;
    tfacebutton: tfacecomp;
    btncue: tbutton;
@@ -59,6 +55,10 @@ type
    namedrums: tstringdisp;
    tfacegriptab: tfacecomp;
    tfacesliderdark: tfacecomp;
+   vuLeft: tprogressbar;
+   vuright: tprogressbar;
+   vuright2: tprogressbar;
+   vuLeft2: tprogressbar;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

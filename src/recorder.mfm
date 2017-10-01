@@ -9,8 +9,8 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = tfacereclight
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
-  bounds_x = 857
-  bounds_y = 24
+  bounds_x = 196
+  bounds_y = 228
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -717,28 +717,6 @@ object recorderfo: trecorderfo
       value = '00:00:00.000'
       reffontheight = 15
     end
-    object vuRight: tgroupbox
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfacegreen
-      taborder = 23
-      visible = False
-      bounds_x = 253
-      bounds_y = 50
-      bounds_cx = 8
-      bounds_cy = 44
-    end
-    object vuLeft: tgroupbox
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfacegreen
-      taborder = 24
-      visible = False
-      bounds_x = 181
-      bounds_y = 50
-      bounds_cx = 8
-      bounds_cy = 44
-    end
     object tstringdisp2: tstringdisp
       color = -2147483645
       frame.localprops = []
@@ -746,7 +724,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacerecrev
-      taborder = 25
+      taborder = 23
       hint = ' Input recorder '
       bounds_x = 379
       bounds_y = 33
@@ -759,6 +737,56 @@ object recorderfo: trecorderfo
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Recorder'
       reffontheight = 13
+    end
+    object vuRight: tprogressbar
+      color = -2147483645
+      taborder = 24
+      bounds_x = 253
+      bounds_y = 59
+      bounds_cx = 8
+      bounds_cy = 35
+      direction = gd_up
+      bar_face.fade_pos.count = 1
+      bar_face.fade_pos.items = (
+        0
+      )
+      bar_face.fade_color.count = 1
+      bar_face.fade_color.items = (
+        -1610612715
+      )
+      bar_face.fade_direction = gd_up
+      bar_face.localprops = [fal_fadirection]
+      bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      valuerange = 100
+      valuestart = 0
+      value = 0
+      format = ''
+    end
+    object vuLeft: tprogressbar
+      color = -2147483645
+      taborder = 25
+      bounds_x = 181
+      bounds_y = 59
+      bounds_cx = 8
+      bounds_cy = 35
+      direction = gd_up
+      bar_face.fade_pos.count = 1
+      bar_face.fade_pos.items = (
+        0
+      )
+      bar_face.fade_color.count = 1
+      bar_face.fade_color.items = (
+        -1610612715
+      )
+      bar_face.fade_direction = gd_up
+      bar_face.localprops = [fal_fadirection]
+      bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      valuerange = 100
+      valuestart = 0
+      value = 0
+      format = ''
     end
   end
   object tfacereclight: tfacecomp

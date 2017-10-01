@@ -10,7 +10,7 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 386
+  bounds_x = 384
   bounds_y = 338
   bounds_cx = 458
   bounds_cy = 128
@@ -339,42 +339,6 @@ object commanderfo: tcommanderfo
       focusrectdist = 0
       onexecute = onstartstop
     end
-    object vuRight: tgroupbox
-      optionswidget1 = []
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfacegreen
-      taborder = 9
-      visible = False
-      bounds_x = 92
-      bounds_y = 18
-      bounds_cx = 8
-      bounds_cy = 105
-    end
-    object vuLeft: tgroupbox
-      optionswidget1 = []
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfacegreen
-      taborder = 10
-      visible = False
-      bounds_x = 32
-      bounds_y = 18
-      bounds_cx = 8
-      bounds_cy = 105
-    end
-    object vuRight2: tgroupbox
-      optionswidget1 = []
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfacegreen
-      taborder = 11
-      visible = False
-      bounds_x = 240
-      bounds_y = 18
-      bounds_cx = 8
-      bounds_cy = 105
-    end
     object volumeright2: tslider
       Tag = 3
       color = 13357471
@@ -385,7 +349,7 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
-      taborder = 12
+      taborder = 9
       hint = ' Right Volume Player 2 '
       bounds_x = 215
       bounds_y = 3
@@ -432,7 +396,7 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
-      taborder = 13
+      taborder = 10
       hint = ' Left Volume Player 2 '
       bounds_x = 189
       bounds_y = 3
@@ -469,18 +433,6 @@ object commanderfo: tcommanderfo
       scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
-    object vuLeft2: tgroupbox
-      optionswidget1 = []
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfacegreen
-      taborder = 14
-      visible = False
-      bounds_x = 180
-      bounds_y = 4
-      bounds_cx = 8
-      bounds_cy = 122
-    end
     object btncue: tbutton
       Tag = 3
       color = -2147483645
@@ -490,7 +442,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 15
+      taborder = 11
       hint = ' Cue-Load-Pause Player '
       bounds_x = 4
       bounds_y = 102
@@ -511,7 +463,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 16
+      taborder = 12
       hint = ' Load and Start Player '
       bounds_x = 250
       bounds_y = 77
@@ -532,7 +484,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 17
+      taborder = 13
       hint = ' Cue-Load-Pause Player '
       bounds_x = 250
       bounds_y = 102
@@ -553,7 +505,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 18
+      taborder = 14
       hint = ' Stop player '
       bounds_x = 250
       bounds_y = 2
@@ -574,7 +526,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 19
+      taborder = 15
       hint = ' Pause player '
       bounds_x = 250
       bounds_y = 27
@@ -595,7 +547,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 20
+      taborder = 16
       hint = ' Resume player '
       bounds_x = 250
       bounds_y = 52
@@ -616,7 +568,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacegreen
-      taborder = 21
+      taborder = 17
       hint = ' Link left and right volume 1 '
       bounds_x = 104
       bounds_y = 24
@@ -642,7 +594,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacegreen
-      taborder = 22
+      taborder = 18
       hint = ' Link left and right volume 2 '
       bounds_x = 145
       bounds_y = 24
@@ -672,7 +624,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 23
+      taborder = 19
       hint = ' View Meters on/off '
       bounds_x = 125
       bounds_y = 46
@@ -696,7 +648,7 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 24
+      taborder = 20
       hint = ' DJ console '
       bounds_x = 104
       bounds_y = 4
@@ -709,6 +661,102 @@ object commanderfo: tcommanderfo
       textflags = [tf_xcentered, tf_ycentered]
       value = '1  Player  2'
       reffontheight = 13
+    end
+    object vuLeft: tprogressbar
+      taborder = 21
+      bounds_x = 33
+      bounds_y = 3
+      bounds_cx = 8
+      bounds_cy = 121
+      direction = gd_up
+      bar_face.fade_pos.count = 1
+      bar_face.fade_pos.items = (
+        0
+      )
+      bar_face.fade_color.count = 1
+      bar_face.fade_color.items = (
+        -1610612715
+      )
+      bar_face.fade_direction = gd_up
+      bar_face.localprops = [fal_fadirection]
+      bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      valuerange = 100
+      valuestart = 0
+      value = 0
+      format = ''
+    end
+    object vuright: tprogressbar
+      taborder = 22
+      bounds_x = 92
+      bounds_y = 3
+      bounds_cx = 8
+      bounds_cy = 121
+      direction = gd_up
+      bar_face.fade_pos.count = 1
+      bar_face.fade_pos.items = (
+        0
+      )
+      bar_face.fade_color.count = 1
+      bar_face.fade_color.items = (
+        -1610612715
+      )
+      bar_face.fade_direction = gd_up
+      bar_face.localprops = [fal_fadirection]
+      bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      valuerange = 100
+      valuestart = 0
+      value = 0
+      format = ''
+    end
+    object vuright2: tprogressbar
+      taborder = 23
+      bounds_x = 240
+      bounds_y = 3
+      bounds_cx = 8
+      bounds_cy = 121
+      direction = gd_up
+      bar_face.fade_pos.count = 1
+      bar_face.fade_pos.items = (
+        0
+      )
+      bar_face.fade_color.count = 1
+      bar_face.fade_color.items = (
+        -1610612715
+      )
+      bar_face.fade_direction = gd_up
+      bar_face.localprops = [fal_fadirection]
+      bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      valuerange = 100
+      valuestart = 0
+      value = 0
+      format = ''
+    end
+    object vuLeft2: tprogressbar
+      taborder = 24
+      bounds_x = 181
+      bounds_y = 3
+      bounds_cx = 8
+      bounds_cy = 121
+      direction = gd_up
+      bar_face.fade_pos.count = 1
+      bar_face.fade_pos.items = (
+        0
+      )
+      bar_face.fade_color.count = 1
+      bar_face.fade_color.items = (
+        -1610612715
+      )
+      bar_face.fade_direction = gd_up
+      bar_face.localprops = [fal_fadirection]
+      bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      valuerange = 100
+      valuestart = 0
+      value = 0
+      format = ''
     end
   end
   object tgroupboxdrums: tgroupbox
@@ -1472,8 +1520,8 @@ object commanderfo: tcommanderfo
       B8B9B801B8B8B701B6B7B701B6B5B501B4B4B501B3B3B401B2B3B301B1B1B101
       B0B0B0018B8B8B01
     }
-    left = 227
-    top = 37
+    left = 292
+    top = 46
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -1494,8 +1542,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 244
-    top = 17
+    left = 289
+    top = 23
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -1509,8 +1557,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 203
-    top = 70
+    left = 284
+    top = 58
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -1939,7 +1987,7 @@ object commanderfo: tcommanderfo
       474647014747480149484801494A4A014B4B4A014C4C4B014D4C4C014E4E4E01
       4F4F4F0174747401
     }
-    left = 168
-    top = 54
+    left = 285
+    top = 30
   end
 end
