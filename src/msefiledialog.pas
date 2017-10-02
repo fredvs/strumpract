@@ -1607,6 +1607,9 @@ end;
 procedure tfiledialogfo.formoncreate(const sender: TObject);
 begin
  fcourseid:= -1;
+ 
+ font.color := cl_black;
+ 
  with stockobjects do begin
  // dir.frame.caption:= captions[sc_dirhk];
   home.caption:= captions[sc_homehk];

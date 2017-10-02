@@ -469,7 +469,6 @@ object recorderfo: trecorderfo
       bounds_y = 100
       bounds_cx = 336
       bounds_cy = 22
-      onchange = onsliderchange
       enabled = False
       value = 0
       scrollbar.buttonlength = 18
@@ -491,7 +490,7 @@ object recorderfo: trecorderfo
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
       scrollbar.color = -2147483645
-      onsetvalue = changepos
+      scrollbar.onafterevent = afterev
     end
     object btnStop: tbutton
       color = -2147483645

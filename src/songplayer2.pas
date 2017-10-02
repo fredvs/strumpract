@@ -56,7 +56,6 @@ type
     procedure oninfowav(const Sender: TObject);
     procedure onreset(const Sender: TObject);
 
-    procedure changepos(const Sender: TObject; var avalue: realty; var accept: boolean);
     procedure changevolume(const Sender: TObject);
 
     procedure doentertrackbar(const Sender: TObject);
@@ -614,15 +613,6 @@ end;
 procedure tsongplayer2fo.doplayerstop(const Sender: TObject);
 begin
   uos_Stop(theplayer2);
-
-end;
-
-procedure tsongplayer2fo.changepos(const Sender: TObject; var avalue: realty; var accept: boolean);
-begin
-  if accept then
-    uos_InputSeek(theplayer2, Inputindex2, trunc(avalue * Inputlength2));
-  //  TrackBar1.Tag := 0;
-
 end;
 
 procedure tsongplayer2fo.changevolume(const Sender: TObject);
@@ -982,8 +972,9 @@ end;
 procedure tsongplayer2fo.onafterev(const sender: tcustomscrollbar;
                const akind: scrolleventty; const avalue: Real);
 begin
-if TrackBar1.clicked then
-    uos_InputSeek(theplayerinfo2, Inputindex2, trunc(avalue * Inputlength2));
+if akind = sbe_thumbposition then
+    uos_InputSeek(theplayer2, Inputindex2, trunc(avalue * Inputlength2))
+    else onsliderchange(Sender);
 end;
 
 procedure tsongplayer2fo.changeloop(const sender: TObject);

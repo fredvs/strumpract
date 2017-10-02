@@ -325,7 +325,6 @@ object songplayer2fo: tsongplayer2fo
       bounds_y = 82
       bounds_cx = 350
       bounds_cy = 45
-      onchange = onsliderchange
       enabled = False
       value = 0
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -344,7 +343,7 @@ object songplayer2fo: tsongplayer2fo
       scrollbar.framebutton.localprops = [frl_colorframe, frl_hiddenedges, frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.color = -2147483645
-      onsetvalue = changepos
+      scrollbar.onafterevent = onafterev
     end
     object historyfn: thistoryedit
       frame.captionpos = cp_lefttop

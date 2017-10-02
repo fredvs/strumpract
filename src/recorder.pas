@@ -57,7 +57,6 @@ type
     procedure onfinfos(const Sender: TObject);
     procedure onreset(const Sender: TObject);
 
-    procedure changepos(const Sender: TObject; var avalue: realty; var accept: boolean);
     procedure changevolume(const Sender: TObject);
 
     procedure doentertrackbar(const Sender: TObject);
@@ -75,6 +74,8 @@ type
       var aresult: modalresultty);
     procedure onlistenin(const Sender: TObject);
     procedure ondest(const Sender: TObject);
+   procedure afterev(const sender: tcustomscrollbar; const akind: scrolleventty;
+                   const avalue: Real);
   end;
 
 var
@@ -403,14 +404,6 @@ begin
   uos_Stop(therecplayer);
 end;
 
-procedure trecorderfo.changepos(const Sender: TObject; var avalue: realty; var accept: boolean);
-begin
-  if TrackBar1.Tag = 0 then
-    uos_InputSeek(therecplayer, InputIndex3, trunc(avalue * inputlength));
-  //  TrackBar1.Tag := 0;
-
-end;
-
 procedure trecorderfo.changevolume(const Sender: TObject);
 begin
   uos_InputSetDSPVolume(therecplayer, InputIndex3,
@@ -660,6 +653,14 @@ end;
 procedure trecorderfo.ondest(const Sender: TObject);
 begin
   Timerwait.Free;
+end;
+
+procedure trecorderfo.afterev(const sender: tcustomscrollbar;
+               const akind: scrolleventty; const avalue: Real);
+begin
+if akind = sbe_thumbposition then 
+   uos_InputSeek(therecplayer, InputIndex3, trunc(avalue * inputlength))
+   else onsliderchange(Sender);
 end;
 
 

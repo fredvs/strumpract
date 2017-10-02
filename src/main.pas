@@ -74,7 +74,7 @@ type
   end;
 
 const
-  versiontext = '1.5';
+  versiontext = '1.4';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -1260,7 +1260,6 @@ commanderfo.tslider3.scrollbar.face1.template :=  commanderfo.tfacesliderdark;
 filelistfo.list_files.font.color := cl_black;
 filelistfo.historyfn.frame.button.colorglyph := ltblank;
 filelistfo.songdir.frame.button.colorglyph := ltblank;
-
 
 end;
 
