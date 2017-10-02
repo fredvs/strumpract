@@ -9,8 +9,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 895
-  bounds_y = 241
+  bounds_x = 847
+  bounds_y = 182
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -27,7 +27,7 @@ object filelistfo: tfilelistfo
   )
   dragdock.onbeforedragbegin = befdrag
   dragdock.onafterdragover = afterdrag
-  dragdock.splitter_size = 5
+  dragdock.splitter_grip = stb_dens0
   dragdock.faceactivetab = tfacecomp1
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
@@ -218,11 +218,15 @@ object filelistfo: tfilelistfo
       bounds_cx = 444
       bounds_cy = 98
       anchors = [an_left, an_top, an_right, an_bottom]
-      font.color = 4013373
+      font.color = 1315860
       font.name = 'stf_default'
-      font.localprops = []
+      font.localprops = [flp_color, flp_colorbackground]
+      fontempty.name = 'stf_empty'
+      fontempty.localprops = [flp_color]
       cellwidth = 446
       cellheight = 20
+      cellframe.localprops = []
+      cellframe.localprops1 = []
       optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
       options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
       cellwidthmin = 446

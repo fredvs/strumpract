@@ -29,7 +29,7 @@ object recorderfo: trecorderfo
     450
     128
   )
-  dragdock.splitter_size = 5
+  dragdock.splitter_grip = stb_dens0
   dragdock.faceactivetab = tfacereclight
   dragdock.caption = ' Recorder '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]

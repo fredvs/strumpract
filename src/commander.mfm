@@ -10,8 +10,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 384
-  bounds_y = 338
+  bounds_x = 591
+  bounds_y = 524
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -26,7 +26,7 @@ object commanderfo: tcommanderfo
     450
     128
   )
-  dragdock.splitter_size = 5
+  dragdock.splitter_grip = stb_dens0
   dragdock.faceactivetab = tfacegriptab
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1

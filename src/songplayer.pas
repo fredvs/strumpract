@@ -618,7 +618,7 @@ end;
 
 procedure tsongplayerfo.changepos(const Sender: TObject; var avalue: realty; var accept: boolean);
 begin
-  if accept then
+  if not accept then
     uos_InputSeek(theplayer, Inputindex1, trunc(avalue * Inputlength1));
   //  TrackBar1.Tag := 0;
 end;
@@ -985,7 +985,8 @@ end;
 procedure tsongplayerfo.onafterev(const sender: tcustomscrollbar;
                const akind: scrolleventty; const avalue: Real);
 begin
-if TrackBar1.clicked then
+
+if TrackBar1.clicked then 
     uos_InputSeek(theplayer, Inputindex1, trunc(avalue * Inputlength1));
 end;
 

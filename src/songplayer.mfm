@@ -20,8 +20,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 762
-  bounds_y = 120
+  bounds_x = 666
+  bounds_y = 106
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -40,7 +40,7 @@ object songplayerfo: tsongplayerfo
     450
     128
   )
-  dragdock.splitter_size = 5
+  dragdock.splitter_grip = stb_dens0
   dragdock.faceactivetab = mainfo.tfaceplayerlight
   dragdock.caption = ' Player 1 '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]

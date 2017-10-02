@@ -957,6 +957,7 @@ begin
     begin
       Width := 16;
       Height := 16;
+      color := $D5D5D5;
       Visible := True;
       // textflags := [xcentered,tf_ycentered];
       Caption := IntToStr(ax + 1);
@@ -1000,6 +1001,7 @@ begin
       Width := 16;
       Height := 16;
       Visible := True;
+      color := $B5B5B5;
       // textflags := [xcentered,tf_ycentered];
       Caption := '&&';
       if ax = 0 then
@@ -1050,14 +1052,15 @@ begin
   begin
     with alab[ax] do
     begin
-      alab[ax].optionswidget1 := [ow1_fontglyphheight];
-      alab[ax].Width := 16;
-      alab[ax].Height := 16;
-      alab[ax].Visible := True;
+      optionswidget1 := [ow1_fontglyphheight];
+      Width := 16;
+      Height := 16;
+      color := $D5D5D5;
+      Visible := True;
       // textflags := [xcentered,tf_ycentered];
-      alab[ax].Caption := IntToStr(ax + 1);
-      alab[ax].left := posx + 65 + (spcx * (ax + 1));
-      alab[ax].top := posy + (spcy * 1);
+      Caption := IntToStr(ax + 1);
+      left := posx + 65 + (spcx * (ax + 1));
+      top := posy + (spcy * 1);
     end;
   end;
 

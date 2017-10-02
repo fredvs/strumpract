@@ -20,8 +20,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 895
-  bounds_y = 274
+  bounds_x = 727
+  bounds_y = 250
   bounds_cx = 458
   bounds_cy = 236
   bounds_cxmin = 458
@@ -40,6 +40,7 @@ object drumsfo: tdrumsfo
     450
     236
   )
+  dragdock.splitter_grip = stb_dens0
   dragdock.faceactivetab = tfacedrums
   dragdock.caption = ' Drums '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
@@ -190,6 +191,9 @@ object drumsfo: tdrumsfo
     bounds_y = 0
     bounds_cx = 450
     bounds_cy = 236
+    font.color = -1610612734
+    font.name = 'stf_default'
+    font.localprops = [flp_color]
     object and4: tlabel
       optionswidget1 = [ow1_fontglyphheight]
       bounds_x = 414
@@ -235,6 +239,7 @@ object drumsfo: tdrumsfo
     end
     object labd: tlabel
       optionswidget1 = [ow1_fontglyphheight]
+      color = 14013909
       taborder = 4
       bounds_x = 3
       bounds_y = 125
@@ -246,6 +251,7 @@ object drumsfo: tdrumsfo
     end
     object lasd: tlabel
       optionswidget1 = [ow1_fontglyphheight]
+      color = 14013909
       taborder = 5
       bounds_x = 3
       bounds_y = 101
@@ -257,6 +263,7 @@ object drumsfo: tdrumsfo
     end
     object laoh: tlabel
       optionswidget1 = [ow1_fontglyphheight]
+      color = 14013909
       taborder = 6
       bounds_x = 3
       bounds_y = 77
@@ -268,6 +275,7 @@ object drumsfo: tdrumsfo
     end
     object lach: tlabel
       optionswidget1 = [ow1_fontglyphheight]
+      color = 14013909
       taborder = 7
       bounds_x = 3
       bounds_y = 53
@@ -454,7 +462,7 @@ object drumsfo: tdrumsfo
       reffontheight = 15
     end
     object labpat: tlabel
-      color = -2147483645
+      color = 14013909
       taborder = 24
       bounds_x = 4
       bounds_y = 10
@@ -482,6 +490,9 @@ object drumsfo: tdrumsfo
       bounds_y = 149
       bounds_cx = 450
       bounds_cy = 87
+      font.color = 5000268
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
       object tbooleaneditradio8: tbooleaneditradio
         Tag = 5
         optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
