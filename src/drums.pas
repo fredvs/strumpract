@@ -770,7 +770,7 @@ begin
       if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
         // this for a dummy endless input, must be last input
          {$if defined(cpuarm)}
-        if uos_AddIntoDevOut(i, -1, 0.3, -1, -1, 2, 512) > -1 then
+        if uos_AddIntoDevOut(i, -1, 0.08, -1, -1, 2, 512) > -1 then
        {$else}
          if uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512) > -1 then
        {$endif}
@@ -837,7 +837,7 @@ begin
               // this for a dummy endless input, must be last input
 
              {$if defined(cpuarm)}
-              uos_AddIntoDevOut(i, -1, 0.3, -1, -1, 2, 512);
+              uos_AddIntoDevOut(i, -1, 0.08, -1, -1, 2, 512);
                {$else}
                uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512);
                 {$endif}
