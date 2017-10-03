@@ -254,6 +254,7 @@ object filelistfo: tfilelistfo
       bounds_y = 100
       bounds_cx = 115
       bounds_cy = 24
+      anchors = [an_left, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Sent to Player 1'
       captiondist = 0
@@ -280,6 +281,7 @@ object filelistfo: tfilelistfo
       bounds_y = 100
       bounds_cx = 118
       bounds_cy = 24
+      anchors = [an_left, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Sent to Player 2'
       captiondist = 0

@@ -397,6 +397,7 @@ begin
   
   decorationheight := window.decoratedbounds_cy - Height;
 
+  
   beginlayout();
 
   if drumsfo.Visible then
@@ -597,7 +598,7 @@ procedure tmainfo.ontab(const Sender: TObject);
 begin
   //basedock.anchors := [an_left,an_top];
   filelistfo.bounds_cxmax := fowidth;
-  filelistfo.bounds_cymax := 700;
+  filelistfo.bounds_cymax := filelistfoheight;
   beginlayout();
   ondockall(Sender); // otherwise the close button are hidden
   basedock.dragdock.currentsplitdir := sd_tabed;
