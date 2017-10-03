@@ -375,9 +375,14 @@ begin
       begin
         // writeln('ok create');
         TButton(Sender).tag := 1;
-
+        
+        {$if defined(cpuarm)}
+        OutputIndex4 := uos_AddIntoDevOut(theinput, -1, 0.3, -1,
+        -1, 0, -1);      
+         {$else}
         OutputIndex4 := uos_AddIntoDevOut(theinput);
-
+          {$ENDIF}
+          
         // writeln('OutputIndex4 = ' + inttostr(OutputIndex4));
         // uos_outputsetenable(theinput,OutputIndex4,true);
 

@@ -377,8 +377,16 @@ begin
     begin
       // Outputindex1 := uos_AddIntoDevOut(Playerindex1) ;
       //// add a Output into device with default parameters
-      Outputindex1 := uos_AddIntoDevOut(theplayer, -1, -1, uos_InputGetSampleRate(theplayer, Inputindex1),
+     {$if defined(cpuarm)}
+   Outputindex1 := uos_AddIntoDevOut(theplayer, -1, 0.3, uos_InputGetSampleRate(theplayer, Inputindex1),
         uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024);
+      {$else}
+  Outputindex1 := uos_AddIntoDevOut(theplayer, -1, -1, uos_InputGetSampleRate(theplayer, Inputindex1),
+        uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024);
+      {$ENDIF}
+   
+   
+   
       //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
       //////////// Device ( -1 is default Output device )

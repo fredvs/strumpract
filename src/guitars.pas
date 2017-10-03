@@ -55,18 +55,34 @@ begin
   begin
     if uos_CreatePlayer(TButton(Sender).tag + 9) then
       if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
-        if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
+        
+          {$if defined(cpuarm)}
+        if uos_AddIntoDevOut(TButton(Sender).tag + 9, -1, 0.3, -1, -1, -1, -1) > -1 then
+         {$else}
+         if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
+         {$endif}
+         
           uos_Play(TButton(Sender).tag + 9);
   end
   else
   begin
     if (aguitarisplaying[TButton(Sender).tag - 1] = False) then
+    
+    
     begin
       TButton(Sender).face.fade_direction := gd_up;
       TButton(Sender).face.fade_color.items[1] := cl_ltgreen;
+      
       if uos_CreatePlayer(TButton(Sender).tag + 9) then
-        if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
-          if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
+      
+      if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
+     
+        {$if defined(cpuarm)}
+        if uos_AddIntoDevOut(TButton(Sender).tag + 9, -1, 0.3, -1, -1, -1, -1) > -1 then
+         {$else}
+         if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
+         {$endif}
+     
           begin
             uos_Play(TButton(Sender).tag + 9, -1);
             aguitarisplaying[TButton(Sender).tag - 1] := True;

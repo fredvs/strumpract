@@ -769,8 +769,13 @@ begin
 
       if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
         // this for a dummy endless input, must be last input
-
-        if uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512) > -1 then
+         {$if defined(cpuarm)}
+        if uos_AddIntoDevOut(i, -1, 0.3, -1, -1, 2, 512) > -1 then
+       {$else}
+         if uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512) > -1 then
+       {$endif}
+        
+        
         begin
 
           uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
@@ -831,8 +836,11 @@ begin
             if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
               // this for a dummy endless input, must be last input
 
-              uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512);
-
+             {$if defined(cpuarm)}
+              uos_AddIntoDevOut(i, -1, 0.3, -1, -1, 2, 512);
+               {$else}
+               uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512);
+                {$endif}
     end;
   tag := 1;
   if timerisenabled = True then

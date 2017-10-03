@@ -253,8 +253,19 @@ begin
     isrecording := false;
       // OutputIndex3 := uos_AddIntoDevOut(PlayerIndex3) ;
       //// add a Output into device with default parameters
+  
+    
+  {$if defined(cpuarm)}
+          OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, 0.3, uos_InputGetSampleRate(therecplayer, InputIndex3),
+        uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024);
+ 
+       {$else}
       OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, -1, uos_InputGetSampleRate(therecplayer, InputIndex3),
         uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024);
+ 
+       {$endif}
+   
+  
       //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
       //////////// Device ( -1 is default Output device )
@@ -598,7 +609,13 @@ begin
     if bsavetofile.Value then
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
 
-    OutputIndex3 := uos_AddIntoDevOut(therecplayer);
+    {$if defined(cpuarm)}
+       OutputIndex3 := uos_AddIntoDevOut(therecplayer,-1, 0.3, -1, -1, -1, -1) ;
+       {$else}
+       OutputIndex3 := uos_AddIntoDevOut(therecplayer);
+       {$endif}
+ 
+    
     uos_outputsetenable(therecplayer, OutputIndex3, blistenin.Value);
 
     InputIndex3 := uos_AddFromDevIn(therecplayer);
