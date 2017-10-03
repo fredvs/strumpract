@@ -46,6 +46,7 @@ type
    tstringdisp2: tstringdisp;
    vuRight: tprogressbar;
    vuLeft: tprogressbar;
+   recpan: tgroupbox;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -145,6 +146,9 @@ begin
   bsavetofile.Enabled := True;
   lposition.Value := '00:00:00.000';
   lposition.face.template := tfacereclight;
+   historyfn.face.template := tfacereclight;
+      
+  recpan.visible := false;
 
 end;
 
@@ -586,6 +590,10 @@ begin
     tbutton2.Enabled := True;
     tbutton3.Enabled := False;
     btnStart.Enabled := False;
+    
+     historyfn.face.template := mainfo.tfacered;
+      
+      recpan.visible := true;
 
     if bsavetofile.Value then
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));

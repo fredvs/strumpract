@@ -787,6 +787,22 @@ object recorderfo: trecorderfo
       value = 0
       format = ''
     end
+    object recpan: tgroupbox
+      frame.caption = '...RECORDING...'
+      frame.captionpos = cp_center
+      frame.captionoffset = 0
+      frame.localprops = []
+      frame.localprops1 = [frl1_captionoffset]
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfacered
+      taborder = 26
+      visible = False
+      bounds_x = 12
+      bounds_y = 98
+      bounds_cx = 337
+      bounds_cy = 24
+    end
   end
   object tfacereclight: tfacecomp
     template.fade_pos.count = 2
