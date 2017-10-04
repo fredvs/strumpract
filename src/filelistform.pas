@@ -130,6 +130,8 @@ begin
   //sizebefdock.cx := 500;
   //sizebefdock.cy := 500;
   //size := sizebefdock;
+  bounds_cxmax := 1024;
+  bounds_cymax := 600;
 end;
 
 procedure tfilelistfo.afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject;

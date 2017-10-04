@@ -217,7 +217,9 @@ begin
     else
     begin
       filelistfo.bounds_cxmax := fowidth;
-      filelistfo.bounds_cymax := 600;
+      filelistfo.bounds_cymax := filelistfoheight;
+      filelistfo.width := fowidth;
+      filelistfo.height := filelistfoheight;
     end;
   end;
 

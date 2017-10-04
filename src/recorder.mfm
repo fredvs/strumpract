@@ -6,7 +6,7 @@ object recorderfo: trecorderfo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
   frame.grip_faceactive.localprops = []
-  frame.grip_faceactive.template = tfacereclight
+  frame.grip_faceactive.template = tfacecomp2
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
   bounds_x = 196
@@ -846,7 +846,22 @@ object recorderfo: trecorderfo
       14327197
     )
     template.fade_direction = gd_down
-    left = 225
-    top = 8
+    left = 258
+    top = 47
+  end
+  object tfacecomp2: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16775159
+      15586259
+    )
+    template.fade_direction = gd_down
+    left = 285
+    top = 15
   end
 end

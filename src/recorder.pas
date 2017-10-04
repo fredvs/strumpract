@@ -47,6 +47,7 @@ type
    vuRight: tprogressbar;
    vuLeft: tprogressbar;
    recpan: tgroupbox;
+   tfacecomp2: tfacecomp;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);

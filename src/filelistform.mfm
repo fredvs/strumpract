@@ -9,14 +9,14 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 847
-  bounds_y = 182
+  bounds_x = 476
+  bounds_y = 202
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
   bounds_cymin = 128
   bounds_cxmax = 458
-  bounds_cymax = 128
+  bounds_cymax = 700
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
@@ -31,6 +31,7 @@ object filelistfo: tfilelistfo
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = guitarsfo.tfaceguitlight
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  dragdock.onfloat = onfloat
   statfile = mainfo.tstatfile1
   caption = 'Files'
   icon.origformat = 'png'
@@ -255,7 +256,7 @@ object filelistfo: tfilelistfo
       bounds_y = 100
       bounds_cx = 115
       bounds_cy = 24
-      anchors = [an_left, an_bottom]
+      anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Sent to Player 1'
       captiondist = 0
@@ -282,7 +283,7 @@ object filelistfo: tfilelistfo
       bounds_y = 100
       bounds_cx = 118
       bounds_cy = 24
-      anchors = [an_left, an_bottom]
+      anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Sent to Player 2'
       captiondist = 0
