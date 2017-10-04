@@ -41,6 +41,7 @@ object drumsfo: tdrumsfo
     236
   )
   dragdock.splitter_grip = stb_dens0
+  dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = tfacedrums
   dragdock.caption = ' Drums '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
