@@ -1486,7 +1486,7 @@ var
  int1: integer;
  str1: filenamety;
 begin
-application.lock();
+//application.lock();
 
 if thesender = 5 then
 begin
@@ -1567,7 +1567,7 @@ end;
    end;
   // visible := false;
    window.modalresult:= mr_ok;
-   application.unlock();
+ //  application.unlock();
   end
   else begin
    filename.setfocus;
