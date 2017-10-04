@@ -34,6 +34,8 @@ object recorderfo: trecorderfo
   dragdock.faceactivetab = tfacereclight
   dragdock.caption = ' Recorder '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  font.name = 'stf_default'
+  font.localprops = []
   options = [fo_savepos, fo_savezorder, fo_savestate]
   statfile = mainfo.tstatfile1
   icon.options = [bmo_masked, bmo_graymask]
@@ -702,6 +704,8 @@ object recorderfo: trecorderfo
     end
     object lposition: tstringdisp
       color = -2147483645
+      frame.font.name = 'stf_default'
+      frame.font.localprops = []
       frame.localprops = []
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
@@ -792,6 +796,8 @@ object recorderfo: trecorderfo
       frame.caption = '...RECORDING...'
       frame.captionpos = cp_center
       frame.captionoffset = 0
+      frame.font.name = 'stf_default'
+      frame.font.localprops = []
       frame.localprops = []
       frame.localprops1 = [frl1_captionoffset]
       frame.template = commanderfo.tframecomp2
@@ -803,6 +809,8 @@ object recorderfo: trecorderfo
       bounds_y = 98
       bounds_cx = 337
       bounds_cy = 24
+      font.name = 'stf_default'
+      font.localprops = []
     end
   end
   object tfacereclight: tfacecomp

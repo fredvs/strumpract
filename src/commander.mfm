@@ -10,8 +10,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 569
-  bounds_y = 278
+  bounds_x = 571
+  bounds_y = 277
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458

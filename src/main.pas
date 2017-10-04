@@ -1074,8 +1074,8 @@ tfacebutltgray.template.fade_color.items[1] := $2A2A2A ;
 tfacegreen.template.fade_color.items[0] := $AAAAAA ;
 tfacegreen.template.fade_color.items[1] := $2A2A2A ;
 
-tfaceorange.template.fade_color.items[0] := $D2D2D2 ;
-tfaceorange.template.fade_color.items[1] := $5E5E5E ;
+tfaceorange.template.fade_color.items[0] := $5E5E5E ;
+tfaceorange.template.fade_color.items[1] := $3E3E3E ;
 
 //tfacered.template.fade_color.items[0] := $BABABA ;
 //tfacered.template.fade_color.items[1] := $5A5A5A ;

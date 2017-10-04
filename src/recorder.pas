@@ -15,6 +15,7 @@ uses
 type
   trecorderfo = class(tdockform)
     Timerwait: Ttimer;
+    Timerrec: Ttimer;
 
     tfacereclight: tfacecomp;
     tfacerecrev: tfacecomp;
@@ -68,6 +69,7 @@ type
     procedure onsliderkeyup(const Sender: twidget; var ainfo: keyeventinfoty);
     procedure onsliderchange(const Sender: TObject);
     procedure ontimerwait(const Sender: TObject);
+    procedure ontimerrec(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplayercreate(const Sender: TObject);
     procedure onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -81,6 +83,7 @@ type
   end;
 
 var
+  timenow : ttime;
   recorderfo: trecorderfo;
   thedialogform: tfiledialogfo;
   initplay: integer = 1;
@@ -96,6 +99,20 @@ implementation
 uses
   main,
   recorder_mfm;
+  
+procedure trecorderfo.ontimerrec(const Sender: TObject);
+var
+  temptime: ttime;
+  ho, mi, se, ms: word;
+begin
+timerrec.Enabled := False;
+if isrecording then begin
+    temptime := now - timenow;
+    DecodeTime(temptime, ho, mi, se, ms);
+    lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+    timerrec.Enabled := true;
+  end else lposition.Value := '00:00:00.000';
+end;  
 
 procedure trecorderfo.ontimerwait(const Sender: TObject);
 begin
@@ -148,8 +165,16 @@ begin
   lposition.Value := '00:00:00.000';
   lposition.face.template := tfacereclight;
    historyfn.face.template := tfacereclight;
+   
+   isrecording := false;
+   
+   timerrec.enabled := false;
       
   recpan.visible := false;
+  
+  lposition.Value := '00:00:00.000';
+  lposition.face.template := tfacereclight;
+   historyfn.face.template := tfacereclight;
 
 end;
 
@@ -559,6 +584,11 @@ begin
   Timerwait.interval := 100000;
   Timerwait.Enabled := False;
   Timerwait.ontimer := @ontimerwait;
+  
+  Timerrec := ttimer.Create(nil);
+  Timerrec.interval := 100000;
+  Timerrec.Enabled := False;
+  Timerrec.ontimer := @ontimerrec;
 
   if plugsoundtouch = False then
   begin
@@ -603,9 +633,15 @@ begin
     tbutton3.Enabled := False;
     btnStart.Enabled := False;
     
-     historyfn.face.template := mainfo.tfacered;
+     historyfn.face.template := tfacereclight;
+     
+     lposition.face.template := mainfo.tfaceorange;
+     
+       //historyfn.font.color := cl_black;
       
       recpan.visible := true;
+      
+       recpan.font.color := cl_black;
 
     if bsavetofile.Value then
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
@@ -661,8 +697,8 @@ begin
 
     bsavetofile.Enabled := False;
 
-    //   end;
-
+       timenow := now;
+    timerrec.enabled := true;
   end;
 end;
 
@@ -679,6 +715,7 @@ end;
 procedure trecorderfo.ondest(const Sender: TObject);
 begin
   Timerwait.Free;
+  timerrec.free;
 end;
 
 procedure trecorderfo.afterev(const sender: tcustomscrollbar;
