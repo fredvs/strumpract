@@ -74,7 +74,7 @@ type
   end;
 
 const
-  versiontext = '1.4.2';
+  versiontext = '1.4.3';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -788,8 +788,17 @@ drumsfo.tfacecomp3.template.fade_color.items[0] := $F9FFF7 ;
 drumsfo.tfacecomp3.template.fade_color.items[1] := $BCD4B8 ;
 
 // recorder
+recorderfo.font.color := ltblack;
 recorderfo.tfacerecorder.template.fade_color.items[0] := $FFE3E3 ;
 recorderfo.tfacerecorder.template.fade_color.items[1] := $DA9D9D ;
+
+recorderfo.cbloop.colorglyph := ltblack;
+recorderfo.cbtempo.colorglyph := ltblack;
+recorderfo.bsavetofile.colorglyph := ltblack;
+recorderfo.blistenin.colorglyph := ltblack;
+
+recorderfo.songdir.frame.button.colorglyph := ltblack;
+recorderfo.historyfn.frame.button.colorglyph := ltblack;
 
 recorderfo.cbloop.frame.font.color := ltblack;
 recorderfo.cbtempo.frame.font.color := ltblack;
@@ -814,6 +823,8 @@ recorderfo.tfacereclight.template.fade_color.items[0] := $FFF7F7 ;
 recorderfo.tfacereclight.template.fade_color.items[1] := $EDD3D3 ;
 
 // guitar
+
+guitarsfo.font.color := ltblack;
 guitarsfo.loopguit.colorglyph := ltblack;
 guitarsfo.loopbass.colorglyph := ltblack;
 guitarsfo.loopguit.frame.font.color := ltblack;
@@ -987,6 +998,7 @@ drumsfo.tfacecomp3.template.fade_color.items[0] := $EDEDED ;
 drumsfo.tfacecomp3.template.fade_color.items[1] := $BABABA ;
 
 // recorder
+recorderfo.font.color := ltblack;
 
 recorderfo.cbloop.frame.font.color := ltblack;
 recorderfo.cbtempo.frame.font.color := ltblack;
@@ -1002,6 +1014,14 @@ recorderfo.tstringdisp2.font.color := ltblack;
 recorderfo.llength.font.color := ltblack;
 recorderfo.lposition.font.color := ltblack;
 
+recorderfo.cbloop.colorglyph := ltblack;
+recorderfo.cbtempo.colorglyph := ltblack;
+recorderfo.bsavetofile.colorglyph := ltblack;
+recorderfo.blistenin.colorglyph := ltblack;
+
+recorderfo.songdir.frame.button.colorglyph := ltblack;
+recorderfo.historyfn.frame.button.colorglyph := ltblack;
+
 recorderfo.tfacerecorder.template.fade_color.items[0] := $EDEDED ;
 recorderfo.tfacerecorder.template.fade_color.items[1] := $BABABA ;
 
@@ -1014,6 +1034,9 @@ recorderfo.tfacereclight.template.fade_color.items[0] := $EDEDED ;
 recorderfo.tfacereclight.template.fade_color.items[1] := $BABABA ;
 
 // guitar
+
+guitarsfo.font.color := ltblack;
+
 guitarsfo.loopguit.colorglyph := ltblack;
 guitarsfo.loopbass.colorglyph := ltblack;
 guitarsfo.loopguit.frame.font.color := ltblack;
@@ -1182,6 +1205,8 @@ drumsfo.tfacecomp3.template.fade_color.items[0] := $BABABA ;
 drumsfo.tfacecomp3.template.fade_color.items[1] := $5A5A5A ;
 
 // recorder
+recorderfo.font.color := ltblank;
+
 recorderfo.cbloop.frame.font.color := ltblank;
 recorderfo.cbtempo.frame.font.color := ltblank;
 
@@ -1217,6 +1242,7 @@ recorderfo.tfacereclight.template.fade_color.items[0] := $5A5A5A ;
 recorderfo.tfacereclight.template.fade_color.items[1] := $2A2A2A ;
 
 // guitar
+guitarsfo.font.color := ltblank;
 guitarsfo.loopguit.colorglyph := ltblank;
 guitarsfo.loopbass.colorglyph := ltblank;
 guitarsfo.loopguit.frame.font.color := ltblank;

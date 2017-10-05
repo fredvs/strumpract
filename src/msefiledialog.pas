@@ -1441,7 +1441,8 @@ begin
 //
  accept:= tryreadlist(avalue,true);
  if accept then begin
- tlabel1.caption := avalue;
+ 
+ tlabel1.caption := tosysfilepath(avalue);
   course(avalue);
  end;
 // listview.directory:= avalue;
@@ -1491,28 +1492,28 @@ begin
 if thesender = 5 then
 begin
 filelistfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-filelistfo.historyfn.value := dir.value;
+filelistfo.historyfn.value := tosysfilepath(dir.value);
 //filelistfo.dir.value := dir.value;
-filelistfo.list_files.path := dir.value;
+filelistfo.list_files.path := tosysfilepath(dir.value);
 filelistfo.list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
 end;
 
 if thesender = 0 then
 begin
 songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-songplayerfo.historyfn.value := dir.value + filename.value;
+songplayerfo.historyfn.value := tosysfilepath(dir.value + filename.value);
 end;
 
 if thesender = 1 then
 begin
 songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-songplayer2fo.historyfn.value := dir.value + filename.value;
+songplayer2fo.historyfn.value := tosysfilepath(dir.value + filename.value);
 end;
 
 if thesender = 2 then
 begin
 recorderfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-recorderfo.historyfn.value := dir.value + filename.value;
+recorderfo.historyfn.value := tosysfilepath(dir.value + filename.value);
 end;
   
   if (filename.value <> '') or (fdo_acceptempty in dialogoptions) then begin

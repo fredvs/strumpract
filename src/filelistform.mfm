@@ -76,6 +76,7 @@ object filelistfo: tfilelistfo
     bounds_cy = 126
     anchors = [an_left, an_top, an_right, an_bottom]
     object songdir: tfilenameedit
+      cursor = cr_arrow
       frame.levelo = 0
       frame.framei_left = 4
       frame.framei_top = 2
@@ -114,6 +115,7 @@ object filelistfo: tfilelistfo
       bounds_cy = 24
       anchors = [an_left, an_bottom]
       statfile = mainfo.tstatfile1
+      cursorreadonly = cr_arrow
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
       controller.filterlist.data = (
         (

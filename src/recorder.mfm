@@ -146,6 +146,8 @@ object recorderfo: trecorderfo
     bounds_y = 0
     bounds_cx = 450
     bounds_cy = 128
+    font.name = 'stf_default'
+    font.localprops = []
     object tlabel2: tlabel
       color = -2147483645
       bounds_x = 57

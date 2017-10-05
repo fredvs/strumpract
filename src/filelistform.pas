@@ -4,7 +4,7 @@ unit filelistform;
 interface
 
 uses
- msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msefileutils,
  msegui,msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
  msedragglob,msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits,
  msedatanodes, mseedit,msefiledialog, msegrids, mseificomp, mseificompglob,
@@ -83,7 +83,7 @@ begin
     if TButton(Sender).tag = 0 then
     begin
       // songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-      songplayerfo.historyfn.Value := list_files.directory + list_files.selectednames[0];
+      songplayerfo.historyfn.Value := tosysfilepath(list_files.directory + list_files.selectednames[0]);
       songplayerfo.historyfn.face.template := mainfo.tfaceorange;
       songplayerfo.timersent.Enabled := True;
     end;
@@ -91,7 +91,7 @@ begin
     if TButton(Sender).tag = 1 then
     begin
       //songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-      songplayer2fo.historyfn.Value := list_files.directory + list_files.selectednames[0];
+      songplayer2fo.historyfn.Value := tosysfilepath(list_files.directory + list_files.selectednames[0]);
       songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
       songplayer2fo.timersent.Enabled := True;
     end;

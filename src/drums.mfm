@@ -987,6 +987,7 @@ object drumsfo: tdrumsfo
         bounds_y = 20
         bounds_cx = 50
         bounds_cy = 40
+        statfile = mainfo.tstatfile1
         textflagsactive = [tf_xcentered, tf_ycentered]
         onchange = onchangetempo
         value = 100
@@ -1051,6 +1052,7 @@ object drumsfo: tdrumsfo
         bounds_y = 19
         bounds_cx = 50
         bounds_cy = 40
+        statfile = mainfo.tstatfile1
         textflagsactive = [tf_xcentered, tf_ycentered]
         onchange = onchangevol
         value = 100

@@ -1288,9 +1288,8 @@ object filedialogfo: Tfiledialogfo
     end
     object cancel: tbutton
       optionswidget1 = [ow1_autowidth, ow1_autoheight]
-      optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
       color = -2147483645
-      frame.optionsskin = [fso_flat]
+      frame.optionsskin = [fso_flat, fso_focusrect]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
@@ -1316,11 +1315,9 @@ object filedialogfo: Tfiledialogfo
       state = [as_localcaption, as_localcolor]
       caption = '&Cancel'
       modalresult = mr_cancel
-      options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     end
     object ok: tbutton
       optionswidget1 = [ow1_autowidth, ow1_autoheight]
-      optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
       color = -2147483645
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
@@ -1347,7 +1344,6 @@ object filedialogfo: Tfiledialogfo
       anchors = [an_top, an_right]
       state = [as_default, as_localdefault, as_localcaption, as_localcolor, as_localonexecute]
       caption = '&Ok'
-      options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
       onexecute = okonexecute
     end
     object showhidden: tbooleanedit
@@ -1385,7 +1381,6 @@ object filedialogfo: Tfiledialogfo
   end
   object home: tbutton
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
-    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
     color = -2147483645
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
@@ -1413,13 +1408,11 @@ object filedialogfo: Tfiledialogfo
     anchors = [an_top, an_right]
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = '&Home'
-    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     onexecute = homeaction
     reffontheight = 15
   end
   object createdir: tbutton
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
-    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
     color = -2147483645
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
@@ -1447,13 +1440,11 @@ object filedialogfo: Tfiledialogfo
     anchors = [an_top, an_right]
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = '&New Dir'
-    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     onexecute = createdironexecute
     reffontheight = 15
   end
   object up: tstockglyphbutton
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
-    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
     color = -2147483645
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
@@ -1481,7 +1472,6 @@ object filedialogfo: Tfiledialogfo
     anchors = [an_top, an_right]
     state = [as_localcaption, as_localimagelist, as_localimagenr, as_localcolor, as_localhint, as_localshortcut, as_localonexecute]
     glyph = stg_arrowup
-    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     onexecute = upaction
     reffontheight = 15
     sc = (
