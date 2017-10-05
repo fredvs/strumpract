@@ -185,7 +185,10 @@ object drumsfo: tdrumsfo
     frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth]
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp1
-    face.localprops = []
+    face.image.options = [bmo_masked, bmo_graymask]
+    face.image.origformat = 'png'
+    face.image.alignment = [al_stretchx, al_stretchy]
+    face.localprops = [fal_image]
     face.template = tfacedrums
     hint = ' Drums set '
     bounds_x = 0

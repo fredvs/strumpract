@@ -264,7 +264,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=0
+ index=3
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=769
  width0=47
@@ -430,17 +430,18 @@ compnamedialog=5
  y=267
  cx=295
  cy=203
-bmpfiledialog=39
+bmpfiledialog=40
  [filedialog]
  filenames=1
-  /home/fred/Documents/vertslidernew2dark.png
+  /home/fred/Images/drums2.png
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
- lastdir=/home/fred/Documents/
- filehistory=27
+ lastdir=/home/fred/Images/
+ filehistory=28
+  /home/fred/Images/drums2.png
   /home/fred/Documents/vertslidernew2dark.png
   /home/fred/Documents/butslider2.png
   /home/fred/Documents/vertslidernew2.png
@@ -475,13 +476,9 @@ targetfile=${PROJECTNAME}${EXEEXT}
 messageoutputfile=
 makecommand=${COMPILER}
 makedir=
-unitdirs=6
- ${MSEDIR}lib/addon/*/
- ${MSELIBDIR}kernel/windows
- ${MSELIBDIR}kernel/linux
+unitdirs=2
  ${MSELIBDIR}kernel/$TARGETOSDIR/
  ${MSELIBDIR}*/
- ${MSELIBDIR}kernel/linux/dyn_x11
 unitpref=-Fu
 incpref=-Fi
 libpref=-Fl
@@ -841,13 +838,9 @@ project_time=02:09:29
 project_date=11/11/2016
 project_comment=
 aftcommandon=0
-unitdirson=6
+unitdirson=2
  200703
- 983232
- 983103
- 0
  69631
- 196608
 macroon=0
 macronames=0
 macrovalues=0
@@ -1319,6 +1312,7 @@ editpos=24
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,18
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1327,7 +1321,6 @@ editpos=24
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,643
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1336,8 +1329,8 @@ editpos=24
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,66
- 0,0
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1472,7 +1465,7 @@ visiblemodules=11
  -1
  -1
  -1
- -1
+ 0
 nomenumodules=11
  0
  0
@@ -1511,8 +1504,8 @@ order=24
  19
  20
  21
-firsttab=7
-index=9
+firsttab=0
+index=5
 [layout]
 windowlayout=746
  [mainfo.basedock]
@@ -1541,7 +1534,7 @@ windowlayout=746
  ncx=0
  ncy=0
  x=3
- y=24
+ y=127
  cx=1360
  cy=621
  rcx=0
@@ -1759,7 +1752,7 @@ windowlayout=746
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=confideufo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1772,14 +1765,14 @@ windowlayout=746
  cy=484
  rcx=0
  rcy=0
- wsize=5
+ wsize=0
  active=0
  visible=0
  [objectinspectorfo.grid]
- propcolwidthref=291
- width0=197
+ propcolwidthref=306
+ width0=207
  sortdescend0=0
- width1=88
+ width1=93
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1990,7 +1983,7 @@ windowlayout=746
  rcx=0
  rcy=0
  [debuggerfo.project_options]
- value=6
+ value=1
  [debuggerfo.edit_options]
  value=X
  [debuggerfo.edit_compilernum]
@@ -1998,7 +1991,7 @@ windowlayout=746
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/strumpract/src/drums.pas
  history=0
  [sourcefo]
  splitdir=0
@@ -2020,7 +2013,7 @@ windowlayout=746
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2055,7 +2048,7 @@ windowlayout=746
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2093,7 +2086,7 @@ windowlayout=746
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2112,7 +2105,7 @@ windowlayout=746
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2226,7 +2219,7 @@ windowlayout=746
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filedialogfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -2245,7 +2238,7 @@ windowlayout=746
  [_mse_filedialogfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_mainfo_mse_
+ stackedunder=confideufo
  parent=
  mdistate=0
  nx=0
@@ -2258,9 +2251,9 @@ windowlayout=746
  cy=332
  rcx=0
  rcy=0
- wsize=0
+ wsize=5
  active=0
- visible=1
+ visible=0
 [targetconsole]
 finddtext=
 findhistory=0
