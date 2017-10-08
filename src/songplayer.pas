@@ -55,14 +55,8 @@ type
     procedure LoopProcPlayer1();
     procedure oninfowav(const Sender: TObject);
     procedure onreset(const Sender: TObject);
-
     procedure changevolume(const Sender: TObject);
-
-    procedure doentertrackbar(const Sender: TObject);
     procedure ChangePlugSetSoundTouch(const Sender: TObject);
-    procedure onmouseslider(const Sender: twidget; var ainfo: mouseeventinfoty);
-    procedure onsliderkeydown(const Sender: twidget; var ainfo: keyeventinfoty);
-    procedure onsliderkeyup(const Sender: twidget; var ainfo: keyeventinfoty);
     procedure onsliderchange(const Sender: TObject);
     procedure ontimerwait(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -106,7 +100,7 @@ var
 implementation
 
 uses
-  main, commander,
+  main, commander, config,
   songplayer_mfm;
   
  procedure tsongplayerfo.ontimersent(const Sender: TObject);
@@ -203,7 +197,6 @@ begin
   begin
   if cbloop.value then
   btncue.Enabled := false else btncue.Enabled := true;
-    btncue.Enabled := True;
     btnStart.Enabled := True;
     btnStop.Enabled := False;
     btnPause.Enabled := False;
@@ -222,14 +215,11 @@ begin
   begin
     tstringdisp1.Value := '';
     tstringdisp1.face.template := mainfo.tfaceplayer;
-   
   end;
 
 iswav := false;
 iscue1 := false;
-  trackbar1.visible := false;
-  trackbar1.visible := true;
-  
+   
   DrawWaveForm();
 
 end;
@@ -377,15 +367,11 @@ begin
     begin
       // Outputindex1 := uos_AddIntoDevOut(Playerindex1) ;
       //// add a Output into device with default parameters
-     {$if defined(cpuarm)}
-   Outputindex1 := uos_AddIntoDevOut(theplayer, -1, 0.3, uos_InputGetSampleRate(theplayer, Inputindex1),
+      
+  if configfo.latplay.value < 0 then configfo.latplay.value := -1;    
+
+  Outputindex1 := uos_AddIntoDevOut(theplayer, -1,configfo.latplay.value, uos_InputGetSampleRate(theplayer, Inputindex1),
         uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024);
-      {$else}
-  Outputindex1 := uos_AddIntoDevOut(theplayer, -1, -1, uos_InputGetSampleRate(theplayer, Inputindex1),
-        uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024);
-      {$ENDIF}
-   
-   
    
       //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
@@ -650,11 +636,6 @@ end;
   end;
 end;
 
-procedure tsongplayerfo.doentertrackbar(const Sender: TObject);
-begin
-  trackbar1.tag := 1;
-end;
-
 procedure tsongplayerfo.onreset(const Sender: TObject);
 begin
   edtempo.Value := 1;
@@ -843,27 +824,6 @@ begin
     ShowMessage(historyfn.Value + ' does not exist...');
 end;
 
-
-procedure tsongplayerfo.onmouseslider(const Sender: twidget; var ainfo: mouseeventinfoty);
-begin
-  if ainfo.eventkind = ek_buttonpress then
-    trackbar1.tag := 1
-  else
-  if ainfo.eventkind = ek_buttonrelease then
-    trackbar1.tag := 0;
-end;
-
-
-procedure tsongplayerfo.onsliderkeydown(const Sender: twidget; var ainfo: keyeventinfoty);
-begin
-  trackbar1.tag := 1;
-end;
-
-procedure tsongplayerfo.onsliderkeyup(const Sender: twidget; var ainfo: keyeventinfoty);
-begin
-  trackbar1.tag := 0;
-end;
-
 procedure tsongplayerfo.onsliderchange(const Sender: TObject);
 var
   temptime: ttime;
@@ -874,7 +834,6 @@ begin
     temptime := tottime * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms);
     lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
-
   end;
 
 end;

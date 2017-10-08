@@ -1,0 +1,192 @@
+object configfo: tconfigfo
+  visible = False
+  bounds_x = 516
+  bounds_y = 282
+  bounds_cx = 358
+  bounds_cy = 166
+  bounds_cxmin = 358
+  bounds_cymin = 166
+  bounds_cxmax = 358
+  bounds_cymax = 166
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    358
+    166
+  )
+  caption = 'Audio Configuration'
+  moduleclassname = 'tmseform'
+  object tgroupbox1: tgroupbox
+    frame.caption = 'Latency ( -1 or < 0 ---> suggested latency )'
+    frame.captiondist = 10
+    frame.captionoffset = 8
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+    frame.template = commanderfo.tframecomp2
+    frame.outerframe = (
+      0
+      19
+      0
+      0
+    )
+    face.localprops = []
+    face.template = mainfo.tfacebutltgray
+    taborder = 1
+    bounds_x = 10
+    bounds_y = 0
+    bounds_cx = 337
+    bounds_cy = 94
+    object latrec: trealspinedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16515040
+      frame.caption = 'Recorder'
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = recorderfo.tfacerecorder
+      frame.buttonframe.localprops = []
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp2
+      frame.buttonsize = 40
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      face.localprops = []
+      face.template = recorderfo.tfacerecorder
+      hint = ' Change latency of Recorder/Direct Input.  ---->  -1 = Latency suggested. '
+      bounds_x = 228
+      bounds_y = 31
+      bounds_cy = 50
+      statfile = mainfo.tstatfile1
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = changelatrec
+      value = -1
+      valuedefault = -1
+      valuerange = 1
+      valuestart = 0
+      valuemin = -1
+      valuemax = 10
+      step = 0.001
+      stepctrlfact = 0
+      stepshiftfact = 0
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+    object latplay: trealspinedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16515040
+      frame.caption = 'Players'
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = mainfo.tfaceplayer
+      frame.buttonframe.localprops = []
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp2
+      frame.buttonsize = 40
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 1
+      hint = ' Change latency of Players.  ---->  -1 = Latency suggested. '
+      bounds_x = 119
+      bounds_y = 31
+      bounds_cy = 50
+      statfile = mainfo.tstatfile1
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = changelatplay
+      value = -1
+      valuedefault = -1
+      valuerange = 1
+      valuestart = 0
+      valuemin = -1
+      valuemax = 10
+      step = 0.001
+      stepctrlfact = 0
+      stepshiftfact = 0
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+    object latdrums: trealspinedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16515040
+      frame.caption = 'Drums'
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = drumsfo.tfacedrums
+      frame.buttonframe.localprops = []
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp2
+      frame.buttonsize = 40
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      face.localprops = []
+      face.template = drumsfo.tfacedrums
+      taborder = 2
+      hint = ' Change latency of Drums.  ---->  -1 = Latency suggested. Need to close-reload Strumpract to feel the change. '
+      bounds_x = 10
+      bounds_y = 31
+      bounds_cy = 50
+      statfile = mainfo.tstatfile1
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = changelatdrums
+      value = -1
+      valuedefault = -1
+      valuerange = 1
+      valuestart = 0
+      valuemin = -1
+      valuemax = 10
+      step = 0.001
+      stepctrlfact = 0
+      stepshiftfact = 0
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+  end
+  object tbutton1: tbutton
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    bounds_x = 137
+    bounds_y = 139
+    bounds_cx = 70
+    bounds_cy = 21
+    state = [as_localcaption]
+    caption = 'OK'
+    modalresult = mr_windowclosed
+  end
+  object lsuglat: tlabel
+    taborder = 2
+    bounds_x = 10
+    bounds_y = 113
+    bounds_cx = 121
+    bounds_cy = 15
+    caption = 'Suggested latency: '
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 15
+  end
+end

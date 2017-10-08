@@ -48,29 +48,6 @@ type
     tlabel19: tlabel;
     tlabel20: tlabel;
     labpat: tlabel;
-    panel1: tgroupbox;
-    tbooleaneditradio8: tbooleaneditradio;
-    tbooleaneditradio7: tbooleaneditradio;
-    tbooleaneditradio6: tbooleaneditradio;
-    tbooleaneditradio5: tbooleaneditradio;
-    tbooleaneditradio2: tbooleaneditradio;
-    tbooleaneditradio4: tbooleaneditradio;
-    tbooleaneditradio3: tbooleaneditradio;
-    tbooleaneditradio1: tbooleaneditradio;
-    tlabel22: tlabel;
-    tlabel21: tlabel;
-    noanim: tbooleanedit;
-    noand: tbooleanedit;
-    novoice: tbooleanedit;
-    nodrums: tbooleanedit;
-    loop_stop: TButton;
-    loop_resume: TButton;
-    loop_start: TButton;
-    label4: tlabel;
-    label2: tlabel;
-    label3: tlabel;
-    edittempo: trealspinedit;
-    tlabel25: tlabel;
     tlabel13: tlabel;
     tlabel14: tlabel;
     tlabel15: tlabel;
@@ -141,9 +118,32 @@ type
     tbooleanedit64: tbooleanedit;
     tfacecomp2: tfacecomp;
     tfacecomp3: tfacecomp;
-    tlabel23: tlabel;
-    volumedrums: trealspinedit;
-    ltempo: tstringdisp;
+   panel1: tgroupbox;
+   tbooleaneditradio8: tbooleaneditradio;
+   tbooleaneditradio7: tbooleaneditradio;
+   tbooleaneditradio6: tbooleaneditradio;
+   tbooleaneditradio5: tbooleaneditradio;
+   tbooleaneditradio2: tbooleaneditradio;
+   tbooleaneditradio4: tbooleaneditradio;
+   tbooleaneditradio3: tbooleaneditradio;
+   tbooleaneditradio1: tbooleaneditradio;
+   tlabel22: tlabel;
+   tlabel21: tlabel;
+   noanim: tbooleanedit;
+   noand: tbooleanedit;
+   novoice: tbooleanedit;
+   nodrums: tbooleanedit;
+   loop_stop: tbutton;
+   loop_resume: tbutton;
+   loop_start: tbutton;
+   label4: tlabel;
+   label2: tlabel;
+   label3: tlabel;
+   edittempo: trealspinedit;
+   tlabel25: tlabel;
+   tlabel23: tlabel;
+   volumedrums: trealspinedit;
+   ltempo: tstringdisp;
    tstringdisp2: tstringdisp;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
@@ -183,7 +183,7 @@ var
 implementation
 
 uses
-  main, uos_flat, commander,
+  main, uos_flat, commander, config,
   drums_mfm;
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
@@ -764,17 +764,16 @@ begin
 
         // using memorystream
         drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
+        
+        if configfo.latdrums.value < 0 then configfo.latdrums.value := -1;
 
     if drum_input[i] > -1 then
 
       if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
+            
         // this for a dummy endless input, must be last input
-         {$if defined(cpuarm)}
-        if uos_AddIntoDevOut(i, -1, 0.08, -1, -1, 2, 512) > -1 then
-       {$else}
-         if uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512) > -1 then
-       {$endif}
-        
+         if uos_AddIntoDevOut(i, -1, configfo.latdrums.value, -1, -1, 2, 512) > -1 then
+         
         
         begin
 
@@ -836,12 +835,10 @@ begin
             if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
               // this for a dummy endless input, must be last input
 
-             {$if defined(cpuarm)}
-              uos_AddIntoDevOut(i, -1, 0.08, -1, -1, 2, 512);
-               {$else}
-               uos_AddIntoDevOut(i, -1, -1, -1, -1, 2, 512);
-                {$endif}
-    end;
+
+          if uos_AddIntoDevOut(i, -1, configfo.latdrums.value, -1, -1, 2, 512) > -1 then
+ 
+             end;
   tag := 1;
   if timerisenabled = True then
     timertick.Enabled := True;
@@ -928,6 +925,7 @@ begin
   Timertick.interval := 100000;
   Timertick.tag := 0;
   Timertick.Enabled := False;
+  Timertick.options := [to_highres];
   Timertick.ontimer := @ontimertick;
 
   Timerpause := ttimer.Create(nil);

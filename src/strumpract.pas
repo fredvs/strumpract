@@ -8,10 +8,10 @@ program strumpract;
 {$endif}
 uses
  {$ifdef FPC}{$ifdef unix} cthreads,{$endif}{$endif} 
-filelistform, msegui, main, aboutform, drums, songplayer, songplayer2, commander,
+filelistform, msegui, main, aboutform, drums, songplayer, songplayer2, commander, config,
 guitars, recorder,infos;
 begin
-
+   application.createform(tconfigfo,configfo);
   application.createform(tfilelistfo,filelistfo);
   application.createform(tdrumsfo,drumsfo);
   application.createform(tsongplayerfo,songplayerfo);

@@ -55,14 +55,8 @@ type
     procedure LoopProcPlayer1();
     procedure oninfowav(const Sender: TObject);
     procedure onreset(const Sender: TObject);
-
     procedure changevolume(const Sender: TObject);
-
-    procedure doentertrackbar(const Sender: TObject);
     procedure ChangePlugSetSoundTouch(const Sender: TObject);
-    procedure onmouseslider(const Sender: twidget; var ainfo: mouseeventinfoty);
-    procedure onsliderkeydown(const Sender: twidget; var ainfo: keyeventinfoty);
-    procedure onsliderkeyup(const Sender: twidget; var ainfo: keyeventinfoty);
     procedure onsliderchange(const Sender: TObject);
     procedure ontimerwait(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -105,7 +99,7 @@ var
 implementation
 
 uses
-  main, commander,
+  main, commander, config,
   songplayer2_mfm;
   
 procedure tsongplayer2fo.ontimersent(const Sender: TObject);
@@ -380,15 +374,11 @@ begin
       // Outputindex2 := uos_AddIntoDevOut(Playerindex2) ;
       //// add a Output into device with default parameters
     
-     {$if defined(cpuarm)}
-       Outputindex2 := uos_AddIntoDevOut(theplayer2, -1, 0.3, uos_InputGetSampleRate(theplayer2, Inputindex2),
-        uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024);
-  
-       {$else}
-         Outputindex2 := uos_AddIntoDevOut(theplayer2, -1, -1, uos_InputGetSampleRate(theplayer2, Inputindex2),
-        uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024);
-         {$endif}
+     if configfo.latplay.value < 0 then configfo.latplay.value := -1;    
     
+       Outputindex2 := uos_AddIntoDevOut(theplayer2, -1, configfo.latplay.value, uos_InputGetSampleRate(theplayer2, Inputindex2),
+        uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024);
+         
       //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
       //////////// Device ( -1 is default Output device )
@@ -650,11 +640,6 @@ end;
   end;
 end;
 
-procedure tsongplayer2fo.doentertrackbar(const Sender: TObject);
-begin
-  trackbar1.tag := 1;
-end;
-
 procedure tsongplayer2fo.onreset(const Sender: TObject);
 begin
   edtempo.Value := 1;
@@ -840,27 +825,6 @@ begin
   end
   else
     ShowMessage(historyfn.Value + ' does not exist...');
-end;
-
-
-procedure tsongplayer2fo.onmouseslider(const Sender: twidget; var ainfo: mouseeventinfoty);
-begin
-  if ainfo.eventkind = ek_buttonpress then
-    trackbar1.tag := 1
-  else
-  if ainfo.eventkind = ek_buttonrelease then
-    trackbar1.tag := 0;
-end;
-
-
-procedure tsongplayer2fo.onsliderkeydown(const Sender: twidget; var ainfo: keyeventinfoty);
-begin
-  trackbar1.tag := 1;
-end;
-
-procedure tsongplayer2fo.onsliderkeyup(const Sender: twidget; var ainfo: keyeventinfoty);
-begin
-  trackbar1.tag := 0;
 end;
 
 procedure tsongplayer2fo.onsliderchange(const Sender: TObject);

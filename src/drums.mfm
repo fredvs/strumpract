@@ -20,8 +20,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 727
-  bounds_y = 250
+  bounds_x = 632
+  bounds_y = 172
   bounds_cx = 458
   bounds_cy = 236
   bounds_cxmin = 458
@@ -194,7 +194,7 @@ object drumsfo: tdrumsfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 450
-    bounds_cy = 236
+    bounds_cy = 149
     font.color = -1610612734
     font.name = 'stf_default'
     font.localprops = [flp_color]
@@ -475,647 +475,9 @@ object drumsfo: tdrumsfo
       caption = 'Patern 1'
       reffontheight = 15
     end
-    object panel1: tgroupbox
-      color = -2147483645
-      frame.leveli = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.framei_left = 0
-      frame.framei_top = 0
-      frame.framei_right = 0
-      frame.framei_bottom = 0
-      frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = []
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = tfacecomp2
-      taborder = 25
-      bounds_x = -1
-      bounds_y = 149
-      bounds_cx = 450
-      bounds_cy = 87
-      font.color = 5000268
-      font.name = 'stf_default'
-      font.localprops = [flp_color]
-      object tbooleaneditradio8: tbooleaneditradio
-        Tag = 5
-        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = '1'
-        frame.captiondist = 6
-        frame.localprops = [frl_framewidth, frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          16
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 2
-        hint = ' Drums Patern 1 '
-        bounds_x = 329
-        bounds_y = 17
-        bounds_cx = 30
-        bounds_cy = 17
-        onchange = dopatern
-        options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_nodefaultframeactive]
-        value = True
-      end
-      object tbooleaneditradio7: tbooleaneditradio
-        Tag = 6
-        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = '2'
-        frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          16
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 3
-        hint = ' Drums Patern 2 '
-        bounds_x = 329
-        bounds_y = 33
-        bounds_cx = 30
-        bounds_cy = 17
-        onchange = dopatern
-      end
-      object tbooleaneditradio6: tbooleaneditradio
-        Tag = 7
-        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = '3'
-        frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          16
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 4
-        hint = ' Drums Patern 3 '
-        bounds_x = 329
-        bounds_y = 49
-        bounds_cx = 30
-        bounds_cy = 17
-        onchange = dopatern
-      end
-      object tbooleaneditradio5: tbooleaneditradio
-        Tag = 8
-        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = '4'
-        frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          16
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 5
-        hint = ' Drums Patern 4 '
-        bounds_x = 329
-        bounds_y = 65
-        bounds_cx = 30
-        bounds_cy = 17
-        onchange = dopatern
-      end
-      object tbooleaneditradio2: tbooleaneditradio
-        Tag = 4
-        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = '4'
-        frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          16
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 6
-        hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
-        bounds_x = 283
-        bounds_y = 65
-        bounds_cx = 30
-        bounds_cy = 17
-        onchange = dopatern
-      end
-      object tbooleaneditradio4: tbooleaneditradio
-        Tag = 3
-        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = '3'
-        frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          16
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 7
-        hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
-        bounds_x = 283
-        bounds_y = 49
-        bounds_cx = 30
-        bounds_cy = 17
-        onchange = dopatern
-      end
-      object tbooleaneditradio3: tbooleaneditradio
-        Tag = 2
-        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = '2'
-        frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          16
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 8
-        hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
-        bounds_x = 283
-        bounds_y = 33
-        bounds_cx = 30
-        bounds_cy = 17
-        onchange = dopatern
-      end
-      object tbooleaneditradio1: tbooleaneditradio
-        Tag = 1
-        optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = '1'
-        frame.captiondist = 6
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          16
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 9
-        hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
-        bounds_x = 283
-        bounds_y = 17
-        bounds_cx = 30
-        bounds_cy = 17
-        onchange = dopatern
-      end
-      object tlabel22: tlabel
-        color = -2147483645
-        taborder = 1
-        bounds_x = 324
-        bounds_y = 4
-        bounds_cx = 32
-        bounds_cy = 13
-        caption = 'Patern'
-        font.color = 5197647
-        font.height = 10
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_height]
-        reffontheight = 13
-      end
-      object tlabel21: tlabel
-        color = -2147483645
-        bounds_x = 276
-        bounds_y = 4
-        bounds_cx = 34
-        bounds_cy = 13
-        caption = 'Lesson'
-        font.color = 5197647
-        font.height = 10
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_height]
-        reffontheight = 13
-      end
-      object noanim: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = 'no anim'
-        frame.font.color = 2697513
-        frame.font.height = 12
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = []
-        frame.outerframe = (
-          0
-          2
-          52
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 10
-        hint = ' No graphic animation. '
-        bounds_x = 371
-        bounds_y = 60
-        bounds_cx = 65
-        bounds_cy = 17
-      end
-      object noand: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = 'no "and"'
-        frame.font.color = 2697513
-        frame.font.height = 12
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = []
-        frame.outerframe = (
-          0
-          2
-          57
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 11
-        hint = ' No "and" between 2 numbers. '
-        bounds_x = 371
-        bounds_y = 27
-        bounds_cx = 70
-        bounds_cy = 17
-        value = True
-      end
-      object novoice: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = 'no voice'
-        frame.font.color = 2697513
-        frame.font.height = 12
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = []
-        frame.outerframe = (
-          0
-          2
-          53
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 12
-        hint = ' No counting voice '
-        bounds_x = 371
-        bounds_y = 11
-        bounds_cx = 66
-        bounds_cy = 17
-        onsetvalue = onsetnovoice
-        value = True
-      end
-      object nodrums: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16250871
-        frame.caption = 'no drums'
-        frame.font.color = 2697513
-        frame.font.height = 12
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = []
-        frame.outerframe = (
-          0
-          2
-          61
-          2
-        )
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 13
-        hint = ' No drums sound.  '
-        bounds_x = 371
-        bounds_y = 43
-        bounds_cx = 74
-        bounds_cy = 17
-      end
-      object loop_stop: tbutton
-        color = 11848368
-        frame.localprops = [frl_optionsskin]
-        frame.localprops1 = []
-        frame.template = commanderfo.tframecomp2
-        face.fade_direction = gd_down
-        face.localprops = [fal_fadirection]
-        face.template = mainfo.tfacebutgray
-        taborder = 14
-        hint = ' Stop loop '
-        bounds_x = 68
-        bounds_y = 36
-        bounds_cx = 30
-        bounds_cy = 42
-        state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-        imagelist = mainfo.buttonicons
-        imagenr = 1
-        focusrectdist = 0
-        onexecute = dostop
-      end
-      object loop_resume: tbutton
-        color = 11848368
-        frame.localprops = [frl_optionsskin]
-        frame.localprops1 = []
-        frame.template = commanderfo.tframecomp2
-        face.fade_direction = gd_down
-        face.localprops = [fal_fadirection]
-        face.template = mainfo.tfacebutgray
-        taborder = 15
-        hint = ' Resume loop '
-        bounds_x = 37
-        bounds_y = 36
-        bounds_cx = 30
-        bounds_cy = 42
-        state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-        imagelist = mainfo.buttonicons
-        imagenr = 28
-        focusrectdist = 0
-        onexecute = doresume
-      end
-      object loop_start: tbutton
-        color = 11848368
-        frame.colorframe = -2147483642
-        frame.colorframedefault = -2147483642
-        frame.colorshadow = -2147483642
-        frame.colorlight = -2147483642
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
-        frame.localprops = [frl_colorframe, frl_colorshadow, frl_colorlight, frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        frame.localprops1 = [frl1_foleft, frl1_foright, frl1_colorframedefault]
-        frame.template = commanderfo.tframecomp2
-        face.fade_direction = gd_down
-        face.localprops = [fal_fadirection]
-        face.template = mainfo.tfacebutgray
-        taborder = 16
-        hint = ' Start loop '
-        bounds_x = 6
-        bounds_y = 36
-        bounds_cx = 30
-        bounds_cy = 42
-        state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-        imagelist = mainfo.buttonicons
-        imagenr = 27
-        focusrectdist = 0
-        onexecute = dostart
-      end
-      object label4: tlabel
-        optionswidget1 = [ow1_fontglyphheight]
-        color = -2147483645
-        taborder = 17
-        visible = False
-        bounds_x = 255
-        bounds_y = 25
-        bounds_cx = 18
-        bounds_cy = 44
-        caption = '/'
-        font.color = 7690558
-        font.colorbackground = -2147483645
-        font.shadow_color = 0
-        font.gloss_color = -1610612730
-        font.height = 50
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 59
-      end
-      object label2: tlabel
-        color = -2147483645
-        taborder = 18
-        enabled = False
-        bounds_x = 229
-        bounds_y = 17
-        bounds_cx = 32
-        bounds_cy = 59
-        caption = '0'
-        font.color = 4223805
-        font.shadow_color = 0
-        font.gloss_color = 16777215
-        font.grayed_shiftx = 2
-        font.grayed_shifty = 2
-        font.height = 50
-        font.name = 'stf_default'
-        font.options = [foo_script, foo_antialiased2]
-        font.localprops = [flp_color, flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_gloss_color, flp_gloss_shiftx, flp_gloss_shifty, flp_grayed_color, flp_grayed_shiftx, flp_grayed_shifty, flp_style, flp_height, flp_options]
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 59
-      end
-      object label3: tlabel
-        optionswidget1 = [ow1_fontglyphheight]
-        color = -2147483645
-        taborder = 19
-        visible = False
-        bounds_x = 219
-        bounds_y = 25
-        bounds_cx = 18
-        bounds_cy = 44
-        caption = '\'
-        font.color = 7690558
-        font.colorbackground = -2147483645
-        font.shadow_color = 0
-        font.gloss_color = -1610612730
-        font.height = 50
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 59
-      end
-      object edittempo: trealspinedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 15923187
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = []
-        frame.template = commanderfo.tframecomp2
-        frame.buttonface.fade_direction = gd_down
-        frame.buttonface.localprops = [fal_fadirection]
-        frame.buttonface.template = tfacecomp2
-        frame.buttonframe.localprops = []
-        frame.buttonframe.localprops1 = []
-        frame.buttonframe.template = commanderfo.tframecomp1
-        frame.buttonsize = 20
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 20
-        hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
-        bounds_x = 105
-        bounds_y = 20
-        bounds_cx = 50
-        bounds_cy = 40
-        statfile = mainfo.tstatfile1
-        textflagsactive = [tf_xcentered, tf_ycentered]
-        onchange = onchangetempo
-        value = 100
-        valuedefault = 100
-        valuerange = 1
-        valuestart = 0
-        valuemin = 40
-        valuemax = 200
-        step = 1
-        stepctrlfact = 0
-        stepshiftfact = 0
-        wheelsensitivity = 1
-        reffontheight = 15
-      end
-      object tlabel25: tlabel
-        color = -2147483645
-        taborder = 21
-        bounds_x = 107
-        bounds_y = 6
-        bounds_cx = 38
-        bounds_cy = 13
-        caption = 'Interval'
-        font.color = 5197647
-        font.height = 10
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_height]
-        reffontheight = 13
-      end
-      object tlabel23: tlabel
-        color = -2147483645
-        taborder = 22
-        bounds_x = 163
-        bounds_y = 6
-        bounds_cx = 38
-        bounds_cy = 13
-        caption = 'Volume'
-        font.color = 5197647
-        font.height = 10
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_height]
-        reffontheight = 13
-      end
-      object volumedrums: trealspinedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 15923187
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = []
-        frame.template = commanderfo.tframecomp2
-        frame.buttonface.fade_direction = gd_down
-        frame.buttonface.localprops = [fal_fadirection]
-        frame.buttonface.template = tfacecomp2
-        frame.buttonframe.localprops = []
-        frame.buttonframe.localprops1 = []
-        frame.buttonframe.template = commanderfo.tframecomp1
-        frame.buttonsize = 20
-        face.localprops = []
-        face.template = tfacecomp3
-        taborder = 23
-        hint = ' General volume of Drums '
-        bounds_x = 161
-        bounds_y = 19
-        bounds_cx = 50
-        bounds_cy = 40
-        statfile = mainfo.tstatfile1
-        textflagsactive = [tf_xcentered, tf_ycentered]
-        onchange = onchangevol
-        value = 100
-        valuedefault = 100
-        valuerange = 1
-        valuestart = 0
-        valuemin = 0
-        valuemax = 100
-        step = 1
-        stepctrlfact = 0
-        stepshiftfact = 0
-        wheelsensitivity = 1
-        reffontheight = 15
-      end
-      object ltempo: tstringdisp
-        color = -2147483645
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.template = commanderfo.tframecomp2
-        face.localprops = []
-        face.template = tfacecomp2
-        taborder = 24
-        hint = ' Position of sound '
-        bounds_x = 104
-        bounds_y = 62
-        bounds_cx = 108
-        bounds_cy = 15
-        font.color = 3355443
-        font.height = 11
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_height]
-        textflags = [tf_xcentered, tf_ycentered]
-        value = 'Tempo 150 BPM'
-        reffontheight = 14
-      end
-      object tstringdisp2: tstringdisp
-        color = -2147483645
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.template = commanderfo.tframecomp2
-        face.localprops = []
-        face.template = tfacecomp2
-        taborder = 25
-        hint = ' Drums set '
-        bounds_x = 16
-        bounds_y = 15
-        bounds_cx = 75
-        bounds_cy = 15
-        font.color = 3355443
-        font.height = 11
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_height]
-        textflags = [tf_xcentered, tf_ycentered]
-        value = 'Drums Set'
-        reffontheight = 14
-      end
-    end
     object tlabel13: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 26
+      taborder = 25
       bounds_x = 245
       bounds_y = 57
       bounds_cx = 41
@@ -1126,7 +488,7 @@ object drumsfo: tdrumsfo
     end
     object tlabel14: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 27
+      taborder = 26
       bounds_x = 249
       bounds_y = 56
       bounds_cx = 41
@@ -1137,7 +499,7 @@ object drumsfo: tdrumsfo
     end
     object tlabel15: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 28
+      taborder = 27
       bounds_x = 249
       bounds_y = 56
       bounds_cx = 41
@@ -1148,7 +510,7 @@ object drumsfo: tdrumsfo
     end
     object tlabel16: tlabel
       optionswidget1 = [ow1_fontglyphheight]
-      taborder = 29
+      taborder = 28
       bounds_x = 249
       bounds_y = 56
       bounds_cx = 41
@@ -1160,35 +522,35 @@ object drumsfo: tdrumsfo
     object tbooleanedit1: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 30
+      taborder = 29
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit2: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 31
+      taborder = 30
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit3: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 32
+      taborder = 31
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit4: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 33
+      taborder = 32
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit5: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 34
+      taborder = 33
       bounds_x = 296
       bounds_y = 23
     end
@@ -1196,415 +558,1054 @@ object drumsfo: tdrumsfo
       frame.colorclient = 16758968
       frame.localprops = [frl_colorclient]
       frame.localprops1 = []
-      taborder = 35
+      taborder = 34
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit7: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 36
+      taborder = 35
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit8: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 37
+      taborder = 36
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit9: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 38
+      taborder = 37
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit10: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 39
+      taborder = 38
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit11: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 40
+      taborder = 39
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit12: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 41
+      taborder = 40
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit13: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 42
+      taborder = 41
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit14: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 43
+      taborder = 42
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit15: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 44
+      taborder = 43
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit16: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 45
+      taborder = 44
       bounds_x = 296
       bounds_y = 23
     end
     object tbooleanedit17: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 46
+      taborder = 45
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit18: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 47
+      taborder = 46
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit19: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 48
+      taborder = 47
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit20: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 49
+      taborder = 48
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit21: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 50
+      taborder = 49
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit22: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 51
+      taborder = 50
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit23: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 52
+      taborder = 51
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit24: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 53
+      taborder = 52
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit25: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 54
+      taborder = 53
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit26: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 55
+      taborder = 54
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit27: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 56
+      taborder = 55
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit28: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 57
+      taborder = 56
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit29: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 58
+      taborder = 57
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit30: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 59
+      taborder = 58
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit31: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 60
+      taborder = 59
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit32: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 61
+      taborder = 60
       bounds_x = 216
       bounds_y = 31
     end
     object tbooleanedit33: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 62
+      taborder = 61
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit34: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 63
+      taborder = 62
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit35: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 64
+      taborder = 63
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit36: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 65
+      taborder = 64
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit37: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 66
+      taborder = 65
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit38: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 67
+      taborder = 66
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit39: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 68
+      taborder = 67
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit40: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 69
+      taborder = 68
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit41: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 70
+      taborder = 69
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit42: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 71
+      taborder = 70
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit43: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 72
+      taborder = 71
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit44: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 73
+      taborder = 72
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit45: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 74
+      taborder = 73
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit46: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 75
+      taborder = 74
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit47: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 76
+      taborder = 75
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit48: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 77
+      taborder = 76
       bounds_x = 256
       bounds_y = 111
     end
     object tbooleanedit49: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 78
+      taborder = 77
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit50: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 79
+      taborder = 78
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit51: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 80
+      taborder = 79
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit52: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 81
+      taborder = 80
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit53: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 82
+      taborder = 81
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit54: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 83
+      taborder = 82
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit55: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 84
+      taborder = 83
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit56: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 85
+      taborder = 84
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit57: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 86
+      taborder = 85
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit58: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 87
+      taborder = 86
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit59: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 88
+      taborder = 87
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit60: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 89
+      taborder = 88
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit61: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 90
+      taborder = 89
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit62: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 91
+      taborder = 90
       bounds_x = 165
       bounds_y = 111
     end
     object tbooleanedit63: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 92
+      taborder = 91
       bounds_x = 176
       bounds_y = 111
     end
     object tbooleanedit64: tbooleanedit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 93
+      taborder = 92
       bounds_x = 176
       bounds_y = 111
+    end
+  end
+  object panel1: tgroupbox
+    color = -2147483645
+    frame.leveli = 0
+    frame.colordkwidth = 0
+    frame.colorhlwidth = 0
+    frame.framei_left = 0
+    frame.framei_top = 0
+    frame.framei_right = 0
+    frame.framei_bottom = 0
+    frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp1
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = tfacecomp2
+    taborder = 1
+    bounds_x = 0
+    bounds_y = 149
+    bounds_cx = 450
+    bounds_cy = 87
+    font.color = 5000268
+    font.name = 'stf_default'
+    font.localprops = [flp_color]
+    object tbooleaneditradio8: tbooleaneditradio
+      Tag = 5
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = '1'
+      frame.captiondist = 6
+      frame.localprops = [frl_framewidth, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        16
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 2
+      hint = ' Drums Patern 1 '
+      bounds_x = 328
+      bounds_y = 16
+      bounds_cx = 30
+      bounds_cy = 17
+      onchange = dopatern
+      options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_nodefaultframeactive]
+      value = True
+    end
+    object tbooleaneditradio7: tbooleaneditradio
+      Tag = 6
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = '2'
+      frame.captiondist = 6
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        16
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 3
+      hint = ' Drums Patern 2 '
+      bounds_x = 328
+      bounds_y = 32
+      bounds_cx = 30
+      bounds_cy = 17
+      onchange = dopatern
+    end
+    object tbooleaneditradio6: tbooleaneditradio
+      Tag = 7
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = '3'
+      frame.captiondist = 6
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        16
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 4
+      hint = ' Drums Patern 3 '
+      bounds_x = 328
+      bounds_y = 48
+      bounds_cx = 30
+      bounds_cy = 17
+      onchange = dopatern
+    end
+    object tbooleaneditradio5: tbooleaneditradio
+      Tag = 8
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = '4'
+      frame.captiondist = 6
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        16
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 5
+      hint = ' Drums Patern 4 '
+      bounds_x = 328
+      bounds_y = 64
+      bounds_cx = 30
+      bounds_cy = 17
+      onchange = dopatern
+    end
+    object tbooleaneditradio2: tbooleaneditradio
+      Tag = 4
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = '4'
+      frame.captiondist = 6
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        16
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 6
+      hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
+      bounds_x = 282
+      bounds_y = 64
+      bounds_cx = 30
+      bounds_cy = 17
+      onchange = dopatern
+    end
+    object tbooleaneditradio4: tbooleaneditradio
+      Tag = 3
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = '3'
+      frame.captiondist = 6
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        16
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 7
+      hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
+      bounds_x = 282
+      bounds_y = 48
+      bounds_cx = 30
+      bounds_cy = 17
+      onchange = dopatern
+    end
+    object tbooleaneditradio3: tbooleaneditradio
+      Tag = 2
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = '2'
+      frame.captiondist = 6
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        16
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 8
+      hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
+      bounds_x = 282
+      bounds_y = 32
+      bounds_cx = 30
+      bounds_cy = 17
+      onchange = dopatern
+    end
+    object tbooleaneditradio1: tbooleaneditradio
+      Tag = 1
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = '1'
+      frame.captiondist = 6
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        16
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 9
+      hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
+      bounds_x = 282
+      bounds_y = 16
+      bounds_cx = 30
+      bounds_cy = 17
+      onchange = dopatern
+    end
+    object tlabel22: tlabel
+      color = -2147483645
+      taborder = 1
+      bounds_x = 323
+      bounds_y = 3
+      bounds_cx = 32
+      bounds_cy = 13
+      caption = 'Patern'
+      font.color = 5197647
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
+    end
+    object tlabel21: tlabel
+      color = -2147483645
+      bounds_x = 275
+      bounds_y = 3
+      bounds_cx = 34
+      bounds_cy = 13
+      caption = 'Lesson'
+      font.color = 5197647
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
+    end
+    object noanim: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = 'no anim'
+      frame.font.color = 2697513
+      frame.font.height = 12
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        52
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 10
+      hint = ' No graphic animation. '
+      bounds_x = 370
+      bounds_y = 59
+      bounds_cx = 65
+      bounds_cy = 17
+    end
+    object noand: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = 'no "and"'
+      frame.font.color = 2697513
+      frame.font.height = 12
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        57
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 11
+      hint = ' No "and" between 2 numbers. '
+      bounds_x = 370
+      bounds_y = 26
+      bounds_cx = 70
+      bounds_cy = 17
+      value = True
+    end
+    object novoice: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = 'no voice'
+      frame.font.color = 2697513
+      frame.font.height = 12
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        53
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 12
+      hint = ' No counting voice '
+      bounds_x = 370
+      bounds_y = 10
+      bounds_cx = 66
+      bounds_cy = 17
+      onsetvalue = onsetnovoice
+      value = True
+    end
+    object nodrums: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = 'no drums'
+      frame.font.color = 2697513
+      frame.font.height = 12
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        61
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 13
+      hint = ' No drums sound.  '
+      bounds_x = 370
+      bounds_y = 42
+      bounds_cx = 74
+      bounds_cy = 17
+    end
+    object loop_stop: tbutton
+      color = 11848368
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutgray
+      taborder = 14
+      hint = ' Stop loop '
+      bounds_x = 67
+      bounds_y = 35
+      bounds_cx = 30
+      bounds_cy = 42
+      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 1
+      focusrectdist = 0
+      onexecute = dostop
+    end
+    object loop_resume: tbutton
+      color = 11848368
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutgray
+      taborder = 15
+      hint = ' Resume loop '
+      bounds_x = 36
+      bounds_y = 35
+      bounds_cx = 30
+      bounds_cy = 42
+      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 28
+      focusrectdist = 0
+      onexecute = doresume
+    end
+    object loop_start: tbutton
+      color = 11848368
+      frame.colorframe = -2147483642
+      frame.colorframedefault = -2147483642
+      frame.colorshadow = -2147483642
+      frame.colorlight = -2147483642
+      frame.colordkwidth = 0
+      frame.colorhlwidth = 0
+      frame.localprops = [frl_colorframe, frl_colorshadow, frl_colorlight, frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
+      frame.localprops1 = [frl1_foleft, frl1_foright, frl1_colorframedefault]
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutgray
+      taborder = 16
+      hint = ' Start loop '
+      bounds_x = 5
+      bounds_y = 35
+      bounds_cx = 30
+      bounds_cy = 42
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = dostart
+    end
+    object label4: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      color = -2147483645
+      taborder = 17
+      visible = False
+      bounds_x = 254
+      bounds_y = 24
+      bounds_cx = 18
+      bounds_cy = 44
+      caption = '/'
+      font.color = 7690558
+      font.colorbackground = -2147483645
+      font.shadow_color = 0
+      font.gloss_color = -1610612730
+      font.height = 50
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 59
+    end
+    object label2: tlabel
+      color = -2147483645
+      taborder = 18
+      enabled = False
+      bounds_x = 228
+      bounds_y = 16
+      bounds_cx = 32
+      bounds_cy = 59
+      caption = '0'
+      font.color = 4223805
+      font.shadow_color = 0
+      font.gloss_color = 16777215
+      font.grayed_shiftx = 2
+      font.grayed_shifty = 2
+      font.height = 50
+      font.name = 'stf_default'
+      font.options = [foo_script, foo_antialiased2]
+      font.localprops = [flp_color, flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_gloss_color, flp_gloss_shiftx, flp_gloss_shifty, flp_grayed_color, flp_grayed_shiftx, flp_grayed_shifty, flp_style, flp_height, flp_options]
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 59
+    end
+    object label3: tlabel
+      optionswidget1 = [ow1_fontglyphheight]
+      color = -2147483645
+      taborder = 19
+      visible = False
+      bounds_x = 218
+      bounds_y = 24
+      bounds_cx = 18
+      bounds_cy = 44
+      caption = '\'
+      font.color = 7690558
+      font.colorbackground = -2147483645
+      font.shadow_color = 0
+      font.gloss_color = -1610612730
+      font.height = 50
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 59
+    end
+    object edittempo: trealspinedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 15923187
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = tfacecomp2
+      frame.buttonframe.localprops = []
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp1
+      frame.buttonsize = 20
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 20
+      hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
+      bounds_x = 104
+      bounds_y = 19
+      bounds_cx = 50
+      bounds_cy = 40
+      statfile = mainfo.tstatfile1
+      textflagsactive = [tf_xcentered, tf_ycentered]
+      onchange = onchangetempo
+      value = 100
+      valuedefault = 100
+      valuerange = 1
+      valuestart = 0
+      valuemin = 40
+      valuemax = 200
+      step = 1
+      stepctrlfact = 0
+      stepshiftfact = 0
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+    object tlabel25: tlabel
+      color = -2147483645
+      taborder = 21
+      bounds_x = 106
+      bounds_y = 5
+      bounds_cx = 38
+      bounds_cy = 13
+      caption = 'Interval'
+      font.color = 5197647
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
+    end
+    object tlabel23: tlabel
+      color = -2147483645
+      taborder = 22
+      bounds_x = 162
+      bounds_y = 5
+      bounds_cx = 38
+      bounds_cy = 13
+      caption = 'Volume'
+      font.color = 5197647
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      reffontheight = 13
+    end
+    object volumedrums: trealspinedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 15923187
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = tfacecomp2
+      frame.buttonframe.localprops = []
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp1
+      frame.buttonsize = 20
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 23
+      hint = ' General volume of Drums '
+      bounds_x = 160
+      bounds_y = 18
+      bounds_cx = 50
+      bounds_cy = 40
+      statfile = mainfo.tstatfile1
+      textflagsactive = [tf_xcentered, tf_ycentered]
+      onchange = onchangevol
+      value = 100
+      valuedefault = 100
+      valuerange = 1
+      valuestart = 0
+      valuemin = 0
+      valuemax = 100
+      step = 1
+      stepctrlfact = 0
+      stepshiftfact = 0
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+    object ltempo: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = tfacecomp2
+      taborder = 24
+      hint = ' Position of sound '
+      bounds_x = 103
+      bounds_y = 61
+      bounds_cx = 108
+      bounds_cy = 15
+      font.color = 3355443
+      font.height = 11
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Tempo 150 BPM'
+      reffontheight = 14
+    end
+    object tstringdisp2: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = tfacecomp2
+      taborder = 25
+      hint = ' Drums set '
+      bounds_x = 15
+      bounds_y = 14
+      bounds_cx = 75
+      bounds_cy = 15
+      font.color = 3355443
+      font.height = 11
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Drums Set'
+      reffontheight = 14
     end
   end
   object tfacedrums: tfacecomp

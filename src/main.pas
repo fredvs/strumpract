@@ -8,7 +8,7 @@ interface
 uses
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msegui,
  msetimer,ctypes, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms,
- msedock, drums,recorder, songplayer, songplayer2, commander, filelistform,
+ msedock, drums,recorder, songplayer, songplayer2, commander, filelistform, 
  guitars, msedataedits,mseedit, msestatfile, SysUtils, Classes, uos_flat,
  aboutform, msebitmap, msesys,msemenus, msestream, msegrids, mselistbrowser,
  mseact,mseificomp,mseificompglob,mseifiglob,msestrings;
@@ -64,6 +64,7 @@ type
    procedure changesilver(const sender: TObject);
    procedure changecarbon(const sender: TObject);
    procedure onchangevalcolor(const sender: TObject);
+   procedure onmenuaudio(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -96,10 +97,11 @@ var
   plugsoundtouch: boolean = False;
   ordir: string;
   hasinit: integer = 0;
-
+ 
 implementation
 
 uses
+config,
   main_mfm;
 
 procedure tmainfo.ontimerwait(const Sender: TObject);
@@ -194,11 +196,21 @@ begin
 end;
 
 procedure tmainfo.oncreatedform(const Sender: TObject);
+var
+    x: integer;
+       
 begin
   Caption := 'StrumPract ' + versiontext;
 
   if not fileexists(tstatfile1.filename) then
   begin
+  
+     {$if defined(cpuarm)}
+     configfo.latdrums.value := 0.08;
+     configfo.latplay.value := 0.3;
+     configfo.latrec.value := 0.3;
+      {$endif}
+  
     //hide;
     showall(Sender);
     ondockall(Sender);
@@ -222,6 +234,22 @@ begin
       filelistfo.height := filelistfoheight;
     end;
   end;
+  
+ UOS_GetInfoDevice(); 
+ 
+   x := 0;
+
+    while x < UOSDeviceCount do
+    begin
+    if UOSDeviceInfos[x].DefaultDevOut = True then
+    begin
+    
+    configfo.lsuglat.caption := 'Audio API ' + UOSDeviceInfos[x].HostAPIName  + ': Suggested latency = ' + floattostrf(UOSDeviceInfos[x].LatencyLowOut, ffFixed, 15, 8);
+   
+    end;
+    inc(x);
+    end;
+    
 
   Timerwait.Enabled := True; /// for width if scroll
 end;
@@ -1295,6 +1323,11 @@ end;
 songplayerfo.DrawWaveForm();
 songplayer2fo.DrawWaveForm();
  
+end;
+
+procedure tmainfo.onmenuaudio(const sender: TObject);
+begin
+  configfo.Show(True);
 end;
 
 

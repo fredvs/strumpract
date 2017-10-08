@@ -92,7 +92,7 @@ var
 implementation
 
 uses
-  songplayer, songplayer2, drums, filelistform, uos_flat,
+  songplayer, songplayer2, drums, filelistform, uos_flat, config,
   main, commander_mfm;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -376,13 +376,9 @@ begin
         // writeln('ok create');
         TButton(Sender).tag := 1;
         
-        {$if defined(cpuarm)}
-        OutputIndex4 := uos_AddIntoDevOut(theinput, -1, 0.3, -1,
-        -1, 0, -1);      
-         {$else}
-        OutputIndex4 := uos_AddIntoDevOut(theinput);
-          {$ENDIF}
-          
+        OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.value, -1,
+        -1, -1, -1);      
+                 
         // writeln('OutputIndex4 = ' + inttostr(OutputIndex4));
         // uos_outputsetenable(theinput,OutputIndex4,true);
 

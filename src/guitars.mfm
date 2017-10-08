@@ -157,7 +157,10 @@ object guitarsfo: tguitarsfo
     color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
-    face.localprops = []
+    face.image.options = [bmo_masked, bmo_graymask]
+    face.image.origformat = 'png'
+    face.image.alignment = [al_stretchx, al_stretchy]
+    face.localprops = [fal_image]
     face.template = tfaceguit
     bounds_x = 0
     bounds_y = 0

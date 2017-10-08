@@ -59,14 +59,8 @@ type
     procedure LoopProcPlayer1;
     procedure onfinfos(const Sender: TObject);
     procedure onreset(const Sender: TObject);
-
     procedure changevolume(const Sender: TObject);
-
-    procedure doentertrackbar(const Sender: TObject);
     procedure ChangePlugSetSoundTouch(const Sender: TObject);
-    procedure onmouseslider(const Sender: twidget; var ainfo: mouseeventinfoty);
-    procedure onsliderkeydown(const Sender: twidget; var ainfo: keyeventinfoty);
-    procedure onsliderkeyup(const Sender: twidget; var ainfo: keyeventinfoty);
     procedure onsliderchange(const Sender: TObject);
     procedure ontimerwait(const Sender: TObject);
     procedure ontimerrec(const Sender: TObject);
@@ -97,7 +91,7 @@ var
 implementation
 
 uses
-  main,
+  main, config,
   recorder_mfm;
   
 procedure trecorderfo.ontimerrec(const Sender: TObject);
@@ -452,14 +446,9 @@ begin
 
 end;
 
-procedure trecorderfo.doentertrackbar(const Sender: TObject);
-begin
-  recorderfo.trackbar1.tag := 1;
-end;
-
 procedure trecorderfo.onreset(const Sender: TObject);
 begin
-  recorderfo.edtempo.Value := 1;
+  edtempo.Value := 1;
 end;
 
 procedure trecorderfo.onfinfos(const Sender: TObject);
@@ -519,27 +508,6 @@ begin
       // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
       infosfo.Show(True);
     end;
-end;
-
-
-procedure trecorderfo.onmouseslider(const Sender: twidget; var ainfo: mouseeventinfoty);
-begin
-  if ainfo.eventkind = ek_buttonpress then
-    trackbar1.tag := 1
-  else
-  if ainfo.eventkind = ek_buttonrelease then
-    trackbar1.tag := 0;
-end;
-
-
-procedure trecorderfo.onsliderkeydown(const Sender: twidget; var ainfo: keyeventinfoty);
-begin
-  trackbar1.tag := 1;
-end;
-
-procedure trecorderfo.onsliderkeyup(const Sender: twidget; var ainfo: keyeventinfoty);
-begin
-  trackbar1.tag := 0;
 end;
 
 procedure trecorderfo.onsliderchange(const Sender: TObject);
@@ -646,12 +614,7 @@ begin
     if bsavetofile.Value then
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
 
-    {$if defined(cpuarm)}
-       OutputIndex3 := uos_AddIntoDevOut(therecplayer,-1, 0.3, -1, -1, -1, -1) ;
-       {$else}
-       OutputIndex3 := uos_AddIntoDevOut(therecplayer);
-       {$endif}
- 
+    OutputIndex3 := uos_AddIntoDevOut(therecplayer,-1, configfo.latrec.value, -1, -1, -1, -1) ;
     
     uos_outputsetenable(therecplayer, OutputIndex3, blistenin.Value);
 

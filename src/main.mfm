@@ -1184,7 +1184,7 @@ object mainfo: tmainfo
     reffontheight = 15
   end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 6
+    menu.submenu.count = 7
     menu.submenu.items = <    
       item
         caption = ' D&ock '
@@ -1280,6 +1280,17 @@ object mainfo: tmainfo
         caption = ' &Colors '
         hint = ' Change the colors '
         state = [as_localcaption, as_localhint]
+      end    
+      item
+        submenu.count = 1
+        submenu.items = <        
+          item
+            caption = ' &Audio '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onmenuaudio
+          end>
+        caption = ' C&onfig '
+        state = [as_localcaption]
       end    
       item
         caption = ' &About '
