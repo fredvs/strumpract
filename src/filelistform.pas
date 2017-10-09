@@ -22,7 +22,6 @@ type
    tbutton2: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
-    procedure selctchanged(const Sender: tcustomlistview);
     procedure onsent(const Sender: TObject);
     procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty;
       var aresult: modalresultty);
@@ -37,66 +36,72 @@ type
 
 var
   filelistfo: tfilelistfo;
-  sizebefdock: sizety;
-
+ 
 implementation
 
 uses
-  songplayer, songplayer2,
+  songplayer, songplayer2, commander,
   main, filelistform_mfm;
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
 begin
-  sizebefdock := size;
-end;
+   list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+   //  list_files.focusedindex := 0;
+   list_files.directory:= './';
+    filelistfo.list_files.readlist(); 
+ end;
 
-procedure tfilelistfo.selctchanged(const Sender: tcustomlistview);
-var
-  ar1: msestringarty;
-begin
-  if assigned(list_files.selectednames) then
-  begin
-    ar1 := nil; //compiler warning
-    ar1 := list_files.selectednames;
-    if length(ar1) > 0 then
-    begin
-      if length(ar1) > 1 then
-      begin
-        //   filename.value:= quotefilename(ar1);
-      end
-      else
-      begin
-        //   filename.value:= ar1[0];
-      end;
-    end
-    else
-    begin
-      //   filename.value:= ''; //dir chanaged
-    end;
-  end;
-end;
 
 procedure tfilelistfo.onsent(const Sender: TObject);
+var
+theplaysender : integer;
 begin
-  if assigned(list_files.selectednames) then
-  begin
-    if TButton(Sender).tag = 0 then
+
+if not assigned(list_files.selectednames)
+then ShowMessage('Nothing selected. Please select a song in the list...') else
+begin
+
+if sender <> nil then
+begin
+if TButton(Sender).tag = 0 then theplaysender := 0 else theplaysender := 1;
+end else
+begin
+if hasfocused1 = true then theplaysender := 0 else theplaysender := 1;
+end;
+
+if list_files.focusedindex < 0 then list_files.focusedindex := 0;
+
+   if sender = nil then
+     begin
+       if list_files.focusedindex +1 < list_files.filecount then
+        begin   
+         list_files.focusedindex := list_files.focusedindex +1;
+         end else
+         begin 
+         list_files.focusedindex := 0;
+         end;
+      end; 
+  
+      if theplaysender = 0 then
     begin
-      // songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
       songplayerfo.historyfn.Value := tosysfilepath(list_files.directory + list_files.selectednames[0]);
       songplayerfo.historyfn.face.template := mainfo.tfaceorange;
+      commanderfo.tbutton2.setfocus;
+      songplayerfo.timersent.Enabled := false;
       songplayerfo.timersent.Enabled := True;
     end;
 
-    if TButton(Sender).tag = 1 then
+    if theplaysender = 1 then
     begin
       //songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
       songplayer2fo.historyfn.Value := tosysfilepath(list_files.directory + list_files.selectednames[0]);
       songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
+      commanderfo.tbutton3.setfocus;
+      songplayer2fo.timersent.Enabled := false;
       songplayer2fo.timersent.Enabled := True;
     end;
-  end;
-end;
+ end;
+ end;
 
 procedure tfilelistfo.whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
 begin
@@ -105,8 +110,13 @@ end;
 
 procedure tfilelistfo.onchangpath(const Sender: TObject);
 begin
-  list_files.mask := '*.mp3';
-  list_files.path := historyfn.Value;
+   list_files.path := historyfn.Value;
+ //  list_files.path := './*.mp3'; 
+   list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+   list_files.focusedindex := 0;
+  // list_files.directory:= './';
+   list_files.readlist(); 
+ 
 end;
 
 procedure tfilelistfo.onafterdialog(const Sender: tfiledialogcontroller; var aresult: modalresultty);

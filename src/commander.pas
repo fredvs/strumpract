@@ -153,6 +153,13 @@ begin
     volumeright1.Value := 0;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
+   
+   if (sender <> nil) and (commanderfo.automix.tag = 1) then
+   begin
+    hasfocused2 := true;
+    filelistfo.onsent(nil);
+    hasfocused2 := false;
+    end;  
     
        if  (iscue1 = true) or (uos_GetStatus(theplayer) = 2 ) then
         songplayerfo.doplayeresume(Sender) else
@@ -172,6 +179,13 @@ begin
    filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
+    
+      if (sender <> nil) and (commanderfo.automix.tag = 1) then
+   begin
+    hasfocused1 := true;
+    filelistfo.onsent(nil);
+    hasfocused1 := false;
+    end;  
 
     if  (iscue2 = true) or (uos_GetStatus(theplayer2) = 2 ) then
  songplayer2fo.doplayeresume(Sender) else

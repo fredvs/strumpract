@@ -493,6 +493,8 @@ object songplayer2fo: tsongplayer2fo
       bounds_y = 27
       bounds_cx = 454
       bounds_cy = 21
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end

@@ -4,7 +4,7 @@ unit songplayer;
 interface
 
 uses
- ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
+ ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf, msefileutils,
  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,mseevent,
  mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,msedataedits,
  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,msegraphedits,
@@ -90,6 +90,7 @@ var
   theplaying1: string;
   iscue1 : boolean = false;
   hasmixed1 : boolean = false;
+  hasfocused1 : boolean = false;
   iswav : boolean = false;
   plugindex1, PluginIndex2: integer;
   Inputindex1, Outputindex1, Inputlength1: integer;
@@ -101,7 +102,7 @@ var
 implementation
 
 uses
-  main, commander, config,
+  main, commander, config,  filelistform,
   songplayer_mfm;
   
  procedure tsongplayerfo.ontimersent(const Sender: TObject);
@@ -331,6 +332,9 @@ begin
       begin
       hasmixed1 := true;
       commanderfo.onstartstop(nil);
+      hasfocused1 := true;
+      filelistfo.onsent(nil);
+      hasfocused1 := false;
       end;
       
     end;
@@ -349,7 +353,15 @@ procedure tsongplayerfo.doplayerstart(const Sender: TObject);
 var
   samformat, hassent: shortint;
   ho, mi, se, ms: word;
+  fileex : string;
+  
 begin
+
+fileex := fileext(PChar(ansistring(historyfn.Value))) ;
+
+if (fileex = 'wav') or(fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') 
+or (fileex = 'flac')  or (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') 
+then begin
 
   if fileexists(historyfn.Value) then
   begin
@@ -579,6 +591,9 @@ begin
   end
   else
     ShowMessage(historyfn.Value + ' does not exist...');
+    end 
+    else
+    ShowMessage(historyfn.Value + ' is not a audio file...');
 end;
 
 procedure tsongplayerfo.doplayeresume(const Sender: TObject);
@@ -757,7 +772,16 @@ var
   temptimeinfo: ttime;
    hassent: shortint;
   ho, mi, se, ms: word;
+  fileex : string;
+  
 begin
+
+
+fileex := fileext(PChar(ansistring(historyfn.Value))) ;
+
+if (fileex = 'wav') or(fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') 
+or (fileex = 'flac')  or (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') 
+then begin
 
   if fileexists(PChar(ansistring(historyfn.Value))) then
   begin
@@ -857,6 +881,7 @@ begin
   end
   else
     ShowMessage(historyfn.Value + ' does not exist...');
+    end else ShowMessage(historyfn.Value + ' is not a audio file...');
 end;
 
 procedure tsongplayerfo.onsliderchange(const Sender: TObject);

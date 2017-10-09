@@ -1317,6 +1317,7 @@ object mainfo: tmainfo
   end
   object tstatfile1: tstatfile
     filename = 'status.sta'
+    options = [sfo_activatorread, sfo_activatorwrite, sfo_nostate]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev
     left = 359

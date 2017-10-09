@@ -1,7 +1,7 @@
 object configfo: tconfigfo
   visible = False
-  bounds_x = 516
-  bounds_y = 282
+  bounds_x = 420
+  bounds_y = 302
   bounds_cx = 358
   bounds_cy = 166
   bounds_cxmin = 358
@@ -16,6 +16,8 @@ object configfo: tconfigfo
     358
     166
   )
+  font.name = 'stf_default'
+  font.localprops = []
   caption = 'Audio Configuration'
   moduleclassname = 'tmseform'
   object tgroupbox1: tgroupbox
@@ -31,8 +33,18 @@ object configfo: tconfigfo
       0
       0
     )
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16250871
+      13750737
+    )
+    face.fade_direction = gd_down
     face.localprops = []
-    face.template = mainfo.tfacebutltgray
     taborder = 1
     bounds_x = 10
     bounds_y = 0
@@ -46,9 +58,18 @@ object configfo: tconfigfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_pos.count = 2
+      frame.buttonface.fade_pos.items = (
+        0
+        1
+      )
+      frame.buttonface.fade_color.count = 2
+      frame.buttonface.fade_color.items = (
+        16770019
+        14327197
+      )
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = recorderfo.tfacerecorder
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
       frame.buttonframe.template = commanderfo.tframecomp2
@@ -59,8 +80,18 @@ object configfo: tconfigfo
         0
         0
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16770019
+        14327197
+      )
+      face.fade_direction = gd_down
       face.localprops = []
-      face.template = recorderfo.tfacerecorder
       hint = ' Change latency of Recorder/Direct Input.  ---->  -1 = Latency suggested. '
       bounds_x = 228
       bounds_y = 31
@@ -88,9 +119,18 @@ object configfo: tconfigfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_pos.count = 2
+      frame.buttonface.fade_pos.items = (
+        0
+        1
+      )
+      frame.buttonface.fade_color.count = 2
+      frame.buttonface.fade_color.items = (
+        14870704
+        11317382
+      )
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = mainfo.tfaceplayer
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
       frame.buttonframe.template = commanderfo.tframecomp2
@@ -101,8 +141,18 @@ object configfo: tconfigfo
         0
         0
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        12896665
+        15989438
+      )
+      face.fade_direction = gd_down
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
       taborder = 1
       hint = ' Change latency of Players.  ---->  -1 = Latency suggested. '
       bounds_x = 119
@@ -131,9 +181,18 @@ object configfo: tconfigfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_pos.count = 2
+      frame.buttonface.fade_pos.items = (
+        0
+        1
+      )
+      frame.buttonface.fade_color.count = 2
+      frame.buttonface.fade_color.items = (
+        10136983
+        14086353
+      )
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = drumsfo.tfacedrums
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
       frame.buttonframe.template = commanderfo.tframecomp2
@@ -144,8 +203,18 @@ object configfo: tconfigfo
         0
         0
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        10136983
+        14086353
+      )
+      face.fade_direction = gd_down
       face.localprops = []
-      face.template = drumsfo.tfacedrums
       taborder = 2
       hint = ' Change latency of Drums.  ---->  -1 = Latency suggested. Need to close-reload Strumpract to feel the change. '
       bounds_x = 10
@@ -171,7 +240,7 @@ object configfo: tconfigfo
     frame.localprops = []
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp2
-    bounds_x = 137
+    bounds_x = 141
     bounds_y = 139
     bounds_cx = 70
     bounds_cy = 21

@@ -1494,8 +1494,9 @@ begin
 filelistfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 filelistfo.historyfn.value := tosysfilepath(dir.value);
 //filelistfo.dir.value := dir.value;
-filelistfo.list_files.path := tosysfilepath(dir.value);
-filelistfo.list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+//filelistfo.list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+//filelistfo.list_files.path := tosysfilepath(dir.value);
+
 end;
 
 if thesender = 0 then

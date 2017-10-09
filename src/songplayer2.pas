@@ -4,7 +4,7 @@ unit songplayer2;
 interface
 
 uses
- ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
+ ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf, msefileutils,
  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,mseevent,
  mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,msedataedits,
  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,msegraphedits,
@@ -89,7 +89,8 @@ var
   theplaying2: string;
   iscue2 : boolean = false;
   iswav2 : boolean = false;
-  hasmixed2 : boolean = true;
+  hasmixed2 : boolean = false;
+   hasfocused2 : boolean= false;
   plugindex2, PluginIndex3: integer;
   Inputindex2, Outputindex2, Inputlength2: integer;
   poswav2, chan2, framewanted2: integer;
@@ -100,7 +101,7 @@ var
 implementation
 
 uses
-  main, commander, config,
+  main, commander, config, filelistform,
   songplayer2_mfm;
   
 procedure tsongplayer2fo.ontimersent(const Sender: TObject);
@@ -329,9 +330,10 @@ begin
      (uos_InputPosition(theplayer2, Inputindex2) > Inputlength2 - mixtime) then
       begin
       hasmixed2 := true;
-     
       commanderfo.onstartstop(nil);
-
+      hasfocused2 := true;
+      filelistfo.onsent(nil);
+      hasfocused2 := false;
       end;
     end;
   end;
@@ -350,7 +352,16 @@ procedure tsongplayer2fo.doplayerstart(const Sender: TObject);
 var
   samformat, hassent: shortint;
   ho, mi, se, ms: word;
+ fileex : string;
+  
 begin
+
+fileex := fileext(PChar(ansistring(historyfn.Value))) ;
+
+if (fileex = 'wav') or(fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') 
+or (fileex = 'flac')  or (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') 
+then begin
+
 // writeln('avant tout');
   if fileexists(historyfn.Value) then
   begin
@@ -582,6 +593,8 @@ begin
   end
   else
     ShowMessage(historyfn.Value + ' does not exist...');
+  end else
+    ShowMessage(historyfn.Value + ' is not a audio file...');  
 end;
 
 procedure tsongplayer2fo.doplayeresume(const Sender: TObject);
@@ -757,7 +770,15 @@ var
    hassent: shortint;
   temptimeinfo: ttime;
   ho, mi, se, ms: word;
+ fileex : string;
+  
 begin
+
+fileex := fileext(PChar(ansistring(historyfn.Value))) ;
+
+if (fileex = 'wav') or(fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') 
+or (fileex = 'flac')  or (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') 
+then begin
 
   if fileexists(PChar(ansistring(historyfn.Value))) then
   begin
@@ -858,6 +879,9 @@ begin
   end
   else
     ShowMessage(historyfn.Value + ' does not exist...');
+   end
+  else
+    ShowMessage(historyfn.Value + ' is not a audio file...');  
 end;
 
 procedure tsongplayer2fo.onsliderchange(const Sender: TObject);

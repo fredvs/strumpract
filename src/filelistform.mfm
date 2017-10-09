@@ -9,8 +9,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 683
-  bounds_y = 434
+  bounds_x = 682
+  bounds_y = 435
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -108,6 +108,7 @@ object filelistfo: tfilelistfo
       frame.button.frame.localprops1 = []
       frame.button.frame.template = commanderfo.tframecomp2
       frame.button.imagenr = 17
+      taborder = 1
       hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
       bounds_x = 3
       bounds_y = 100
@@ -178,7 +179,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutltgray
-      taborder = 1
+      taborder = 2
       hint = ' History of Directories '
       bounds_x = 24
       bounds_y = 100
@@ -216,7 +217,6 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 2
       bounds_x = 2
       bounds_y = 0
       bounds_cx = 444
@@ -227,17 +227,16 @@ object filelistfo: tfilelistfo
       font.localprops = [flp_color, flp_colorbackground]
       fontempty.name = 'stf_empty'
       fontempty.localprops = [flp_color]
-      cellwidth = 446
+      cellwidth = 439
       cellheight = 20
       cellframe.localprops = []
       cellframe.localprops1 = []
       optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
-      options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
-      cellwidthmin = 446
+      options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
+      cellwidthmin = 439
       cellheightmin = 18
       statfile = mainfo.tstatfile1
-      onselectionchanged = selctchanged
-      filelist.options = [flo_sortname]
+      filelist.options = [flo_sortname, flo_sorttype]
       reffontheight = 15
     end
     object tbutton1: tbutton

@@ -7,7 +7,7 @@ Like:
 - Practice your other instruments with a editable drums machine.
 - Tune your guitar and bass.
 - Play audio files and loop it.
-- DJ console for mixing, with 2 players and direct-output of mic.
+- DJ console for auto-mixing, with 2 players and direct-output of mic.
 - Record your ideas-jam.
 
 

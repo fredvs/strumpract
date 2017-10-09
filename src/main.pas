@@ -75,7 +75,7 @@ type
   end;
 
 const
-  versiontext = '1.4.3';
+  versiontext = '1.5.0';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -181,10 +181,11 @@ begin
   aboutfo.Caption := 'About StrumPract';
   aboutfo.about_text.frame.colorclient := $DFFFB2;
   aboutfo.about_text.Value := c_linefeed + c_linefeed + 'StrumPract ' + versiontext + ' for ' + platformtext + c_linefeed +
-    c_linefeed + 'Compiled with FPC 3.0.3.' + c_linefeed + c_linefeed + 'Graphic widget: MSEgui ' + mseguiversiontext +
+    c_linefeed + 'Compiled with FPC 3.0.3.' + c_linefeed + 'http://www.freepascal.org' +
+    c_linefeed +   c_linefeed + 'Graphic widget: MSEgui ' + mseguiversiontext +
     '.' + c_linefeed + 'http://sourceforge.net/projects/mseide-msegui/' + c_linefeed + c_linefeed +
-    'Audio library: uos (United Openlib of Sound)' + c_linefeed + 'https://github.com/fredvs/uos' + c_linefeed +
-    'Forum: http://uos.2369694.n4.nabble.com' + c_linefeed + c_linefeed + 'Copyright 2017' +
+    'Audio library: uos 1.7 (United Openlib of Sound)' + c_linefeed + 'https://github.com/fredvs/uos' +
+     c_linefeed +  c_linefeed + 'Copyright 2017' +
     c_linefeed + 'Fred van Stappen <fiens@hotmail.com>';
   aboutfo.Show(True);
 end;
@@ -745,8 +746,8 @@ songplayer2fo.tstringdisp2.font.color := ltblack;
 songplayerfo.button1.font.color := ltblack;
 songplayer2fo.button1.font.color := ltblack;
 
-songplayerfo.tstringdisp1.color := cl_default;
-songplayer2fo.tstringdisp1.color := cl_default;
+songplayerfo.tstringdisp1.color := ltblack;
+songplayer2fo.tstringdisp1.color := ltblack;
 
 songplayerfo.cbloop.colorglyph := ltblack;
 songplayer2fo.cbloop.colorglyph := ltblack;
@@ -878,6 +879,7 @@ commanderfo.timemix.font.color := ltblack;
 commanderfo.butinput.font.color := ltblack;
 
 commanderfo.timemix.frame.colorglyph := ltblack;
+commanderfo.automix.font.color := ltblack;
 
 commanderfo.tfacegriptab.template.fade_color.items[0] := $F8DEFF ;
 commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6 ;
@@ -899,6 +901,9 @@ commanderfo.tslider3.scrollbar.face1.template :=  commanderfo.tfaceslider;
 filelistfo.list_files.font.color := ltblack;
 filelistfo.historyfn.frame.button.colorglyph := ltblack;
 filelistfo.songdir.frame.button.colorglyph := ltblack;
+
+aboutfo.font.color := cl_black;
+// configfo.font.color := ltblack;
 end;
 
 if typecolor.value = 1 then 
@@ -935,8 +940,8 @@ tfaceplayerlight.template.fade_color.items[1] := $DDDDDD;
 songplayerfo.font.color := cl_default;
 songplayer2fo.font.color := cl_default;
 
-songplayerfo.tstringdisp1.font.color := cl_default;
-songplayer2fo.tstringdisp1.font.color := cl_default;
+songplayerfo.tstringdisp1.font.color := ltblack;
+songplayer2fo.tstringdisp1.font.color := ltblack;
 
 songplayerfo.lposition.font.color := cl_default;
 songplayer2fo.lposition.font.color := cl_default;
@@ -1088,6 +1093,7 @@ commanderfo.linkvol.font.color := ltblack;
 commanderfo.timemix.font.color := ltblack;
 commanderfo.butinput.font.color := ltblack;
 
+commanderfo.automix.font.color := ltblack;
 commanderfo.timemix.frame.colorglyph := ltblack;
 
 commanderfo.volumeleft1.scrollbar.face.template :=  commanderfo.tfaceslider;
@@ -1111,6 +1117,9 @@ filelistfo.list_files.font.color := ltblack;
 
 filelistfo.historyfn.frame.button.colorglyph := ltblack;
 filelistfo.songdir.frame.button.colorglyph := ltblack;
+
+aboutfo.font.color := cl_black;
+// configfo.font.color := ltblack;
 end;
 
 if typecolor.value = 2 then 
@@ -1122,11 +1131,11 @@ tfacebutgray.template.fade_color.items[1] := $2A2A2A ;
 tfacebutltgray.template.fade_color.items[0] := $5A5A5A ;
 tfacebutltgray.template.fade_color.items[1] := $2A2A2A ;
 
-tfacegreen.template.fade_color.items[0] := $AAAAAA ;
+tfacegreen.template.fade_color.items[0] := $CCCCCC ;
 tfacegreen.template.fade_color.items[1] := $2A2A2A ;
 
-tfaceorange.template.fade_color.items[0] := $5E5E5E ;
-tfaceorange.template.fade_color.items[1] := $3E3E3E ;
+ tfaceorange.template.fade_color.items[0] := $BABABA ;
+ tfaceorange.template.fade_color.items[1] := $3E3E3E ;
 
 //tfacered.template.fade_color.items[0] := $BABABA ;
 //tfacered.template.fade_color.items[1] := $5A5A5A ;
@@ -1290,6 +1299,9 @@ commanderfo.namedrums.font.color := ltblank;
 commanderfo.linkvol.font.color := ltblank;
 commanderfo.linkvol2.font.color := ltblank;
 commanderfo.vuin.font.color := ltblank;
+
+commanderfo.automix.font.color := ltblank;
+
 commanderfo.linkvol.font.color := ltblank;
 commanderfo.timemix.font.color := ltblank;
 commanderfo.butinput.font.color := ltblank;
@@ -1318,6 +1330,7 @@ filelistfo.list_files.font.color := cl_black;
 filelistfo.historyfn.frame.button.colorglyph := ltblank;
 filelistfo.songdir.frame.button.colorglyph := ltblank;
 
+aboutfo.font.color := cl_black;
 end;
 
 songplayerfo.DrawWaveForm();

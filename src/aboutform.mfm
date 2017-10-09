@@ -17,6 +17,8 @@ object about_form: taboutfo
     276
   )
   optionswindow = [wo_dialog]
+  font.name = 'stf_default'
+  font.localprops = []
   options = [fo_screencentered, fo_cancelonesc, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   icon.origformat = 'jpeg'
   icon.image = {
