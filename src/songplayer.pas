@@ -50,8 +50,8 @@ type
     procedure doplayerpause(const Sender: TObject);
     procedure doplayerstop(const Sender: TObject);
     procedure ClosePlayer1();
-    procedure showposition();
-    procedure showlevel();
+    procedure showposition(const Sender: TObject);
+    procedure showlevel(const Sender: TObject);
     procedure LoopProcPlayer1();
     procedure oninfowav(const Sender: TObject);
     procedure onreset(const Sender: TObject);
@@ -89,6 +89,7 @@ var
   theplayerinfo: integer = 21;
   theplaying1: string;
   iscue1 : boolean = false;
+  hasmixed1 : boolean = false;
   iswav : boolean = false;
   plugindex1, PluginIndex2: integer;
   Inputindex1, Outputindex1, Inputlength1: integer;
@@ -219,12 +220,15 @@ begin
 
 iswav := false;
 iscue1 := false;
+
+ hasmixed1 := false;
    
   DrawWaveForm();
 
 end;
 
-procedure tsongplayerfo.ShowLevel();
+procedure tsongplayerfo.ShowLevel(const Sender: TObject);
+
 var
   leftlev, rightlev: double;
 begin
@@ -303,10 +307,12 @@ begin
 
 end;
 
-procedure tsongplayerfo.ShowPosition();
+procedure tsongplayerfo.ShowPosition(const Sender: TObject);
+
 var
   temptime: ttime;
   ho, mi, se, ms: word;
+  mixtime : integer;
 begin
 
   if not TrackBar1.clicked then
@@ -318,20 +324,30 @@ begin
       ////// Length of input in time
       DecodeTime(temptime, ho, mi, se, ms);
       lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+      mixtime := trunc(commanderfo.timemix.value * 1000) + 100000;
+      if mixtime < 150000 then mixtime := 150000;
+     if (commanderfo.automix.tag = 1) and (hasmixed1 = false) and 
+     (uos_InputPosition(theplayer, Inputindex1) > Inputlength1 - mixtime) then
+      begin
+      hasmixed1 := true;
+      commanderfo.onstartstop(nil);
+      end;
+      
     end;
   end;
 
 end;
 
 procedure tsongplayerfo.LoopProcPlayer1();
+
 begin
-  ShowPosition();
-  ShowLevel();
+  ShowPosition(nil);
+  ShowLevel(nil);
 end;
 
 procedure tsongplayerfo.doplayerstart(const Sender: TObject);
 var
-  samformat: shortint;
+  samformat, hassent: shortint;
   ho, mi, se, ms: word;
 begin
 
@@ -472,6 +488,8 @@ begin
       //////////// ClosePlayer1 : procedure of object to execute inside the general loop
 
       btinfos.Enabled := True;
+      
+       hasmixed1 := false;
 
       trackbar1.Value := 0;
       trackbar1.Enabled := True;
@@ -494,8 +512,18 @@ begin
       end;
 
       btnStop.Enabled := True;
+      
+       if sender <> nil then 
+      begin
+        if (tbutton(sender).tag = 0) or (tbutton(sender).tag = 2) then
+       hassent := 0;
+       if (tbutton(sender).tag = 1) or (tbutton(sender).tag = 3) then hassent := 1;
+      end else
+      begin
+       hassent := 0;
+      end; 
          
-     if (tbutton(sender).tag = 0) or (tbutton(sender).tag = 2)
+     if  hassent = 0
       then
      begin
      iscue1 := false;
@@ -514,7 +542,7 @@ begin
        tstringdisp1.Value := 'Playing ' + theplaying1;
        end;
       
-       if (tbutton(sender).tag = 1) or (tbutton(sender).tag = 3) then  /// cue
+      if  hassent = 1 then  /// cue
      begin
      iscue1 := true;
        btnresume.Enabled := true;
@@ -727,6 +755,7 @@ procedure tsongplayerfo.oninfowav(const Sender: TObject);
 var
   maxwidth: integer;
   temptimeinfo: ttime;
+   hassent: shortint;
   ho, mi, se, ms: word;
 begin
 
@@ -744,7 +773,13 @@ begin
           Inputlength1 := uos_Inputlength(theplayer, 0);
          ////// Length of Input in samples
        
-        if tbutton(sender).tag = 9 then
+       if sender <> nil then
+    begin
+     if tbutton(sender).tag = 9 then hassent := 1
+     else hassent := 0;
+    end else  hassent := 0;
+    
+        if hassent = 1 then
         begin
         
         temptimeinfo := uos_InputlengthTime(theplayerinfo, 0);

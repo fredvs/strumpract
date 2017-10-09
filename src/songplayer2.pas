@@ -89,6 +89,7 @@ var
   theplaying2: string;
   iscue2 : boolean = false;
   iswav2 : boolean = false;
+  hasmixed2 : boolean = true;
   plugindex2, PluginIndex3: integer;
   Inputindex2, Outputindex2, Inputlength2: integer;
   poswav2, chan2, framewanted2: integer;
@@ -189,6 +190,7 @@ begin
   btnPause.Enabled := False;
   btnresume.Enabled := False;
   
+  hasmixed2 := false;
   
  if cbloop.value then
   btncue.Enabled := false else btncue.Enabled := true;
@@ -309,6 +311,7 @@ procedure tsongplayer2fo.ShowPosition;
 var
   temptime: ttime;
   ho, mi, se, ms: word;
+  mixtime : integer;
 begin
 
   if not TrackBar1.clicked then
@@ -320,6 +323,16 @@ begin
       ////// Length of input in time
       DecodeTime(temptime, ho, mi, se, ms);
       lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+      mixtime := trunc(commanderfo.timemix.value * 1000) + 100000;
+      if mixtime < 150000 then mixtime := 150000;
+         if (commanderfo.automix.tag = 1) and (hasmixed2 = false) and 
+     (uos_InputPosition(theplayer2, Inputindex2) > Inputlength2 - mixtime) then
+      begin
+      hasmixed2 := true;
+     
+      commanderfo.onstartstop(nil);
+
+      end;
     end;
   end;
 
@@ -335,7 +348,7 @@ end;
 
 procedure tsongplayer2fo.doplayerstart(const Sender: TObject);
 var
-  samformat: shortint;
+  samformat, hassent: shortint;
   ho, mi, se, ms: word;
 begin
 // writeln('avant tout');
@@ -500,8 +513,20 @@ begin
       end;
 
       btnStop.Enabled := True;
-         
-     if (tbutton(sender).tag = 0) or (tbutton(sender).tag = 2) or (tbutton(sender).tag = 4) then
+      
+      hasmixed2 := false ;
+           
+      if sender <> nil then 
+      begin
+      if (tbutton(sender).tag = 0) or (tbutton(sender).tag = 2) or (tbutton(sender).tag = 4) then
+       hassent := 0;
+       if (tbutton(sender).tag = 1) or (tbutton(sender).tag = 5)  then hassent := 1;
+      end else
+      begin
+       hassent := 0;
+      end; 
+                   
+     if hassent = 0 then
      begin
    //   writeln('tbutton(sender).tag = 0');
      iscue2 := false;
@@ -520,7 +545,7 @@ begin
        tstringdisp1.Value := 'Playing ' + theplaying2;
       end;
       
-       if (tbutton(sender).tag = 1) or (tbutton(sender).tag = 5)  then  /// cue
+    if hassent = 1 then  /// cue
      begin
      // writeln('tbutton(sender).tag = 1');
      iscue2 := true;
@@ -548,7 +573,7 @@ begin
       Timerwait.Enabled := True;
       lposition.face.template := mainfo.tfaceplayerrev;
 
-       oninfowav(sender);
+      oninfowav(sender);
 
     end
     else
@@ -729,6 +754,7 @@ var
 procedure tsongplayer2fo.oninfowav(const Sender: TObject);
 var
   maxwidth: integer;
+   hassent: shortint;
   temptimeinfo: ttime;
   ho, mi, se, ms: word;
 begin
@@ -736,6 +762,13 @@ begin
   if fileexists(PChar(ansistring(historyfn.Value))) then
   begin
     uos_Stop(theplayerinfo2);
+    
+    if sender <> nil then
+    begin
+     if tbutton(sender).tag = 9 then hassent := 1
+     else hassent := 0;
+    end else  hassent := 0;
+     
 
     if uos_CreatePlayer(theplayerinfo2) then
       //// Create the player.
@@ -747,7 +780,7 @@ begin
           Inputlength2 := uos_Inputlength(theplayer2, 0);
          ////// Length of Input in samples
        
-        if tbutton(sender).tag = 9 then
+        if hassent = 1 then
         begin
         
         temptimeinfo := uos_InputlengthTime(theplayerinfo2, 0);

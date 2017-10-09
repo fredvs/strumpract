@@ -59,6 +59,7 @@ type
    vuright: tprogressbar;
    vuright2: tprogressbar;
    vuLeft2: tprogressbar;
+   automix: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -78,6 +79,7 @@ type
    procedure setlr1(const sender: TObject);
    procedure setlr2(const sender: TObject);
    procedure setvu(const sender: TObject);
+   procedure setautomix(const sender: TObject);
   end;
 
 var
@@ -104,6 +106,8 @@ begin
 end;
 
 procedure tcommanderfo.onstartstop(const Sender: TObject);
+var
+fromplay : integer;
 begin
 
   totmixinterval := trunc(timemix.Value / 10);
@@ -121,33 +125,44 @@ begin
 
   initvolleft2 := 0;
   initvolright2 := 0;
-
-  if TButton(Sender).tag = 0 then
+  
+   if sender <> nil then
   begin
-  
-  
-    tbutton2.face.template := mainfo.tfacebutgray;
+  if (TButton(Sender).tag = 0) then
+  fromplay := 0 else fromplay := 1;
+  end else
+  begin
+  if hasmixed1 = true then 
+   fromplay := 1 else
+    fromplay := 0;
+  end;
+ 
+ 
+ if fromplay = 0 then 
+  begin
+   tbutton2.face.template := mainfo.tfacebutgray;
     tbutton3.face.template := mainfo.tfaceorange;
   
   filelistfo.tbutton2.face.template := mainfo.tfaceorange;
    filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
   
-  
-  
-    //tbutton3.focused := true;
+      //tbutton3.focused := true;
  
     thetypemix := 0;
     volumeleft1.Value := 0;
     volumeright1.Value := 0;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
-    if  (iscue1 = true) or (uos_GetStatus(theplayer) = 2 ) then
-    songplayerfo.doplayeresume(Sender) else
+    
+       if  (iscue1 = true) or (uos_GetStatus(theplayer) = 2 ) then
+        songplayerfo.doplayeresume(Sender) else
     songplayerfo.doplayerstart(Sender);
-    timermix.Enabled := True;
+   
+   timermix.Enabled := True;
   end
   else
-  begin
+   begin
+  
     thetypemix := 1;
     volumeleft2.Value := 0;
     volumeright2.Value := 0;
@@ -157,10 +172,12 @@ begin
    filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
+
     if  (iscue2 = true) or (uos_GetStatus(theplayer2) = 2 ) then
-   songplayer2fo.doplayeresume(Sender) else
-    songplayer2fo.doplayerstart(Sender);
+ songplayer2fo.doplayeresume(Sender) else
+  songplayer2fo.doplayerstart(Sender);
     timermix.Enabled := True;
+  
   end;
 end;
 
@@ -486,6 +503,20 @@ vuin.tag := 0;
 vuin.face.template:= mainfo.tfacegreen;
 end;
 
+end;
+
+procedure tcommanderfo.setautomix(const sender: TObject);
+begin
+if automix.tag = 0 then
+begin
+automix.tag := 1;
+automix.face.template:= mainfo.tfacegreen;
+end else
+if automix.tag = 1 then
+begin
+automix.tag := 0;
+automix.face.template:= mainfo.tfacebutgray;
+end;
 end;
 
 end.

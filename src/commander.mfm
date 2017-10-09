@@ -627,8 +627,8 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutgray
       taborder = 19
       hint = ' View Meters on/off '
-      bounds_x = 125
-      bounds_y = 46
+      bounds_x = 104
+      bounds_y = 44
       bounds_cx = 34
       bounds_cy = 18
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -758,6 +758,36 @@ object commanderfo: tcommanderfo
       valuestart = 0
       value = 0
       format = ''
+    end
+    object automix: tbutton
+      Tag = 1
+      color = -2147483645
+      frame.captiondist = 0
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacegreen
+      taborder = 25
+      hint = ' Auto Mixing on/off '
+      bounds_x = 145
+      bounds_y = 44
+      bounds_cx = 34
+      bounds_cy = 18
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Mix'
+      captiondist = 0
+      font.color = 4868682
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = setautomix
     end
   end
   object tgroupboxdrums: tgroupbox
