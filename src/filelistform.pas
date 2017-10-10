@@ -86,7 +86,7 @@ if list_files.focusedindex < 0 then list_files.focusedindex := 0;
     begin
       songplayerfo.historyfn.Value := tosysfilepath(list_files.directory + list_files.selectednames[0]);
       songplayerfo.historyfn.face.template := mainfo.tfaceorange;
-      commanderfo.tbutton2.setfocus;
+     if commanderfo.visible = true then commanderfo.tbutton2.setfocus;
       songplayerfo.timersent.Enabled := false;
       songplayerfo.timersent.Enabled := True;
     end;
@@ -96,7 +96,7 @@ if list_files.focusedindex < 0 then list_files.focusedindex := 0;
       //songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
       songplayer2fo.historyfn.Value := tosysfilepath(list_files.directory + list_files.selectednames[0]);
       songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
-      commanderfo.tbutton3.setfocus;
+      if commanderfo.visible = true then commanderfo.tbutton3.setfocus;
       songplayer2fo.timersent.Enabled := false;
       songplayer2fo.timersent.Enabled := True;
     end;

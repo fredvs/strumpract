@@ -1308,16 +1308,16 @@ findhistory=20
 findoptions=1
 editpos=11
  0,-1073741823
- 0,193
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,121
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,1497
+ 0,98
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1447,7 +1447,7 @@ windowlayout=765
  x=0
  y=0
  cx=1356
- cy=694
+ cy=788
  rcx=0
  rcy=0
  [mainfo]
@@ -1466,7 +1466,7 @@ windowlayout=765
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1356,694
+  basedock,0,0,1356,788
  focusedchild=0
  wsize=6
  active=1
@@ -1582,7 +1582,7 @@ windowlayout=765
  x=0
  y=0
  cx=205
- cy=522
+ cy=593
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1678,7 +1678,7 @@ windowlayout=765
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1693,12 +1693,12 @@ windowlayout=765
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
- propcolwidthref=469
- width0=229
+ propcolwidthref=484
+ width0=236
  sortdescend0=0
- width1=234
+ width1=242
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1787,9 +1787,9 @@ windowlayout=765
  ncx=0
  ncy=0
  x=0
- y=587
+ y=666
  cx=1356
- cy=107
+ cy=122
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1889,7 +1889,7 @@ windowlayout=765
  x=0
  y=0
  cx=1356
- cy=59
+ cy=67
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1905,7 +1905,7 @@ windowlayout=765
  x=0
  y=0
  cx=1356
- cy=61
+ cy=69
  rcx=0
  rcy=0
  [debuggerfo.project_options]
@@ -1932,7 +1932,7 @@ windowlayout=765
  x=208
  y=0
  cx=1148
- cy=522
+ cy=593
  rcx=0
  rcy=0
  [cpuc86_64fo]
@@ -1966,9 +1966,9 @@ windowlayout=765
  ncx=0
  ncy=0
  x=0
- y=62
+ y=70
  cx=1356
- cy=522
+ cy=593
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2069,7 +2069,7 @@ windowlayout=765
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_mainfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -2126,7 +2126,7 @@ windowlayout=765
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_dialogfilesfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2145,7 +2145,7 @@ windowlayout=765
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_dialogfilesfo_mse_
  parent=
  mdistate=0
  nx=0
