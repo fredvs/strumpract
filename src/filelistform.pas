@@ -57,8 +57,11 @@ var
 theplaysender : integer;
 begin
 
-if not assigned(list_files.selectednames)
-then ShowMessage('Nothing selected. Please select a song in the list...') else
+if (not assigned(list_files.selectednames)) 
+then begin
+if sender <> nil then
+ShowMessage('Nothing selected. Please select a song in the list...') ;
+end else
 begin
 
 if sender <> nil then

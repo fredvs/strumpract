@@ -760,7 +760,6 @@ object commanderfo: tcommanderfo
       format = ''
     end
     object automix: tbutton
-      Tag = 1
       color = -2147483645
       frame.captiondist = 0
       frame.font.height = 10
@@ -771,7 +770,7 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacegreen
+      face.template = mainfo.tfacebutgray
       taborder = 25
       hint = ' Auto Mixing on/off '
       bounds_x = 145
@@ -787,7 +786,21 @@ object commanderfo: tcommanderfo
       font.localprops = [flp_color, flp_height]
       imagenr = 27
       focusrectdist = 0
-      onexecute = setautomix
+      onexecute = onexecautomix
+    end
+    object edautomix: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 26
+      visible = False
+      bounds_x = 138
+      bounds_y = 45
+      bounds_cx = 29
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      onchange = setautomix
+      valuemax = 10
+      reffontheight = 15
     end
   end
   object tgroupboxdrums: tgroupbox

@@ -60,6 +60,7 @@ type
    vuright2: tprogressbar;
    vuLeft2: tprogressbar;
    automix: tbutton;
+   edautomix: tintegeredit;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -80,6 +81,7 @@ type
    procedure setlr2(const sender: TObject);
    procedure setvu(const sender: TObject);
    procedure setautomix(const sender: TObject);
+   procedure onexecautomix(const sender: TObject);
   end;
 
 var
@@ -154,7 +156,8 @@ begin
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
    
-   if (sender <> nil) and (commanderfo.automix.tag = 1) then
+   if (sender <> nil) and (commanderfo.edautomix.value = 1)
+    and (assigned(filelistfo.list_files.selectednames)) then
    begin
     hasfocused2 := true;
     filelistfo.onsent(nil);
@@ -180,7 +183,8 @@ begin
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
     
-      if (sender <> nil) and (commanderfo.automix.tag = 1) then
+      if (sender <> nil) and (commanderfo.edautomix.value = 1)
+       and (assigned(filelistfo.list_files.selectednames))then
    begin
     hasfocused1 := true;
     filelistfo.onsent(nil);
@@ -193,6 +197,12 @@ begin
     timermix.Enabled := True;
   
   end;
+  
+    if (sender <> nil) and (commanderfo.edautomix.value = 1)
+       and (assigned(filelistfo.list_files.selectednames) = false) then
+   begin
+    ShowMessage(' For auto-mixing, please select a file in File-List... ');
+    end; 
 end;
 
 
@@ -521,15 +531,25 @@ end;
 
 procedure tcommanderfo.setautomix(const sender: TObject);
 begin
-if automix.tag = 0 then
+if edautomix.value = 1 then
 begin
-automix.tag := 1;
 automix.face.template:= mainfo.tfacegreen;
 end else
-if automix.tag = 1 then
+if edautomix.value = 0 then
 begin
-automix.tag := 0;
 automix.face.template:= mainfo.tfacebutgray;
+end;
+end;
+
+procedure tcommanderfo.onexecautomix(const sender: TObject);
+begin
+if edautomix.value = 1 then
+begin
+edautomix.value := 0
+end else
+begin
+if edautomix.value = 0 then
+edautomix.value := 1;
 end;
 end;
 

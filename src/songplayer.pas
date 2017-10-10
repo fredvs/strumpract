@@ -327,7 +327,9 @@ begin
       lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
       mixtime := trunc(commanderfo.timemix.value * 1000) + 100000;
       if mixtime < 150000 then mixtime := 150000;
-     if (commanderfo.automix.tag = 1) and (hasmixed1 = false) and 
+      if Inputlength1 < mixtime + 50000 then mixtime := Inputlength1 - 50000;
+      
+     if (commanderfo.edautomix.value = 1) and (hasmixed1 = false) and 
      (uos_InputPosition(theplayer, Inputindex1) > Inputlength1 - mixtime) then
       begin
       hasmixed1 := true;
