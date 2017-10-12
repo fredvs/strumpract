@@ -13,8 +13,8 @@ object filedialogfo: Tfiledialogfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 494
-  bounds_y = 283
+  bounds_x = 3
+  bounds_y = 296
   bounds_cx = 554
   bounds_cy = 332
   bounds_cxmin = 360
@@ -1379,180 +1379,6 @@ object filedialogfo: Tfiledialogfo
       reffontheight = 19
     end
   end
-  object home: tbutton
-    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      15461355
-      10395294
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    taborder = 2
-    hint = ' Home directory '
-    bounds_x = 429
-    bounds_y = 7
-    bounds_cx = 51
-    bounds_cy = 30
-    bounds_cxmin = 35
-    anchors = [an_top, an_right]
-    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = '&Home'
-    onexecute = homeaction
-    reffontheight = 15
-  end
-  object createdir: tbutton
-    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      15461355
-      10395294
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    taborder = 3
-    hint = ' Create directory '
-    bounds_x = 489
-    bounds_y = 7
-    bounds_cx = 63
-    bounds_cy = 30
-    bounds_cxmin = 35
-    anchors = [an_top, an_right]
-    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = '&New Dir'
-    onexecute = createdironexecute
-    reffontheight = 15
-  end
-  object up: tstockglyphbutton
-    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      15461355
-      10395294
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    taborder = 4
-    hint = ' Parent directory '
-    onshowhint = buttonshowhint
-    bounds_x = 388
-    bounds_y = 7
-    bounds_cx = 40
-    bounds_cy = 30
-    anchors = [an_top, an_right]
-    state = [as_localcaption, as_localimagelist, as_localimagenr, as_localcolor, as_localhint, as_localshortcut, as_localonexecute]
-    glyph = stg_arrowup
-    onexecute = upaction
-    reffontheight = 15
-    sc = (
-      1
-      16662
-    )
-  end
-  object back: tstockglyphbutton
-    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
-    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_disabledhint]
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      15461355
-      10395294
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    taborder = 5
-    onshowhint = buttonshowhint
-    bounds_x = 347
-    bounds_y = 7
-    bounds_cx = 40
-    bounds_cy = 30
-    anchors = [an_top, an_right]
-    state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localcolor, as_localshortcut, as_localonexecute]
-    glyph = stg_arrowleft
-    autosize_cx = -10
-    onexecute = backexe
-    reffontheight = 15
-    sc = (
-      1
-      16474
-    )
-  end
-  object forward: tstockglyphbutton
-    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
-    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_disabledhint]
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      15461355
-      10395294
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    taborder = 6
-    onshowhint = buttonshowhint
-    bounds_x = 306
-    bounds_y = 7
-    bounds_cx = 40
-    bounds_cy = 30
-    anchors = [an_top, an_right]
-    state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localcolor, as_localshortcut, as_localonexecute]
-    glyph = stg_arrowright
-    autosize_cx = -10
-    onexecute = forwardexe
-    reffontheight = 15
-    sc = (
-      1
-      24666
-    )
-  end
   object dir: tdirdropdownedit
     optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
     frame.caption = '&Directory'
@@ -1596,7 +1422,7 @@ object filedialogfo: Tfiledialogfo
       0
       0
     )
-    taborder = 7
+    taborder = 2
     onshowhint = dirshowhint
     bounds_x = 0
     bounds_y = 0
@@ -1608,5 +1434,125 @@ object filedialogfo: Tfiledialogfo
     dropdown.options = [deo_selectonly, deo_keydropdown]
     onsetvalue = dironsetvalue
     reffontheight = 15
+  end
+  object createdir: tbutton
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
+    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets, ow_hinton]
+    color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.localprops = []
+    taborder = 3
+    hint = ' Create new directory '
+    bounds_x = 495
+    bounds_y = 4
+    bounds_cx = 54
+    bounds_cy = 30
+    bounds_cxmin = 35
+    anchors = [an_top, an_right]
+    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+    caption = '&New dir'
+    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
+    onexecute = createdironexecute
+    reffontheight = 15
+  end
+  object home: tbutton
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
+    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets, ow_hinton]
+    color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.localprops = []
+    taborder = 4
+    hint = ' Home directory '
+    bounds_x = 442
+    bounds_y = 4
+    bounds_cx = 43
+    bounds_cy = 30
+    bounds_cxmin = 35
+    anchors = [an_top, an_right]
+    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+    caption = '&Home'
+    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
+    onexecute = homeaction
+    reffontheight = 15
+  end
+  object up: tstockglyphbutton
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
+    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
+    color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.localprops = []
+    taborder = 5
+    hint = ' Parent directory '
+    onshowhint = buttonshowhint
+    bounds_x = 397
+    bounds_y = 4
+    bounds_cx = 40
+    bounds_cy = 30
+    anchors = [an_top, an_right]
+    state = [as_localcaption, as_localimagelist, as_localimagenr, as_localcolor, as_localhint, as_localshortcut, as_localonexecute]
+    glyph = stg_arrowup
+    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
+    onexecute = upaction
+    reffontheight = 15
+    sc = (
+      1
+      16662
+    )
+  end
+  object back: tstockglyphbutton
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
+    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_disabledhint]
+    color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.localprops = []
+    taborder = 6
+    onshowhint = buttonshowhint
+    bounds_x = 352
+    bounds_y = 4
+    bounds_cx = 40
+    bounds_cy = 30
+    anchors = [an_top, an_right]
+    state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localcolor, as_localshortcut, as_localonexecute]
+    glyph = stg_arrowleft
+    autosize_cx = -10
+    onexecute = backexe
+    reffontheight = 15
+    sc = (
+      1
+      16474
+    )
+  end
+  object forward: tstockglyphbutton
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
+    optionswidget = [ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_disabledhint]
+    color = 15132390
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.localprops = []
+    taborder = 7
+    onshowhint = buttonshowhint
+    bounds_x = 307
+    bounds_y = 4
+    bounds_cx = 40
+    bounds_cy = 30
+    anchors = [an_top, an_right]
+    state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localcolor, as_localshortcut, as_localonexecute]
+    glyph = stg_arrowright
+    autosize_cx = -10
+    onexecute = forwardexe
+    reffontheight = 15
+    sc = (
+      1
+      24666
+    )
   end
 end

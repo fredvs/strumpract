@@ -4,14 +4,14 @@ object infosfo: tinfosfo
   bounds_x = 685
   bounds_y = 257
   bounds_cx = 354
-  bounds_cy = 216
+  bounds_cy = 253
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     354
-    216
+    253
   )
   optionswindow = [wo_dialog]
   options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1100,7 +1100,7 @@ object infosfo: tinfosfo
   }
   moduleclassname = 'tmseform'
   object infoname: tlabel
-    bounds_x = 19
+    bounds_x = 20
     bounds_y = 49
     bounds_cx = 41
     bounds_cy = 15
@@ -1109,7 +1109,7 @@ object infosfo: tinfosfo
   end
   object infoartist: tlabel
     taborder = 1
-    bounds_x = 19
+    bounds_x = 20
     bounds_y = 71
     bounds_cx = 41
     bounds_cy = 15
@@ -1118,7 +1118,7 @@ object infosfo: tinfosfo
   end
   object infoalbum: tlabel
     taborder = 2
-    bounds_x = 19
+    bounds_x = 20
     bounds_y = 92
     bounds_cx = 41
     bounds_cy = 15
@@ -1127,7 +1127,7 @@ object infosfo: tinfosfo
   end
   object infoyear: tlabel
     taborder = 3
-    bounds_x = 19
+    bounds_x = 20
     bounds_y = 115
     bounds_cx = 41
     bounds_cy = 15
@@ -1136,7 +1136,7 @@ object infosfo: tinfosfo
   end
   object infolength: tlabel
     taborder = 4
-    bounds_x = 19
+    bounds_x = 20
     bounds_y = 183
     bounds_cx = 41
     bounds_cy = 15
@@ -1145,7 +1145,7 @@ object infosfo: tinfosfo
   end
   object infotag: tlabel
     taborder = 5
-    bounds_x = 19
+    bounds_x = 20
     bounds_y = 157
     bounds_cx = 41
     bounds_cy = 15
@@ -1154,7 +1154,7 @@ object infosfo: tinfosfo
   end
   object infocom: tlabel
     taborder = 6
-    bounds_x = 19
+    bounds_x = 20
     bounds_y = 136
     bounds_cx = 41
     bounds_cy = 15
@@ -1165,6 +1165,24 @@ object infosfo: tinfosfo
     taborder = 7
     bounds_x = 20
     bounds_y = 15
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
+    reffontheight = 15
+  end
+  object inforate: tlabel
+    taborder = 8
+    bounds_x = 20
+    bounds_y = 204
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
+    reffontheight = 15
+  end
+  object infochan: tlabel
+    taborder = 9
+    bounds_x = 20
+    bounds_y = 224
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'

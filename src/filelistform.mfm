@@ -9,8 +9,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 702
-  bounds_y = 367
+  bounds_x = 212
+  bounds_y = 156
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -73,8 +73,10 @@ object filelistfo: tfilelistfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 448
-    bounds_cy = 126
+    bounds_cy = 127
     anchors = [an_left, an_top, an_right, an_bottom]
+    font.name = 'stf_default'
+    font.localprops = []
     object songdir: tfilenameedit
       cursor = cr_arrow
       frame.levelo = 0
@@ -108,10 +110,9 @@ object filelistfo: tfilelistfo
       frame.button.frame.localprops1 = []
       frame.button.frame.template = commanderfo.tframecomp2
       frame.button.imagenr = 17
-      taborder = 1
       hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
       bounds_x = 3
-      bounds_y = 100
+      bounds_y = 101
       bounds_cx = 22
       bounds_cy = 24
       anchors = [an_left, an_bottom]
@@ -179,10 +180,10 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutltgray
-      taborder = 2
+      taborder = 1
       hint = ' History of Directories '
       bounds_x = 24
-      bounds_y = 100
+      bounds_y = 101
       bounds_cx = 176
       bounds_cy = 24
       anchors = [an_left, an_right, an_bottom]
@@ -200,45 +201,6 @@ object filelistfo: tfilelistfo
       dropdown.historymaxcount = 50
       reffontheight = 15
     end
-    object list_files: tfilelistview
-      frame.optionsskin = [fso_flat]
-      frame.sbvert.width = 10
-      frame.sbvert.face.localprops = []
-      frame.sbvert.face.template = mainfo.tfacebutgray
-      frame.sbvert.facebutton.localprops = []
-      frame.sbvert.facebutton.template = mainfo.tfacecomp4
-      frame.sbhorz.width = 10
-      frame.sbhorz.face.localprops = []
-      frame.sbhorz.face.template = mainfo.tfacecomp5
-      frame.sbhorz.facebutton.localprops = []
-      frame.sbhorz.facebutton.template = mainfo.tfacecomp7
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
-      bounds_x = 2
-      bounds_y = 0
-      bounds_cx = 444
-      bounds_cy = 98
-      anchors = [an_left, an_top, an_right, an_bottom]
-      font.color = 1315860
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_colorbackground]
-      fontempty.name = 'stf_empty'
-      fontempty.localprops = [flp_color]
-      cellwidth = 439
-      cellheight = 20
-      cellframe.localprops = []
-      cellframe.localprops1 = []
-      optionsgrid = [og_colsizing, og_focuscellonenter, og_sorted, og_mousescrollcol]
-      options = [lvo_readonly, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_locate, lvo_savevalue, lvo_hintclippedtext]
-      cellwidthmin = 439
-      cellheightmin = 18
-      statfile = mainfo.tstatfile1
-      filelist.options = [flo_sortname, flo_sorttype]
-      reffontheight = 15
-    end
     object tbutton1: tbutton
       color = -2147483645
       frame.captiondist = 0
@@ -251,15 +213,15 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 3
-      hint = ' Sent to cue for Player 1 '
-      bounds_x = 206
-      bounds_y = 100
-      bounds_cx = 115
+      taborder = 2
+      hint = ' Sent selected song to cue for Player 1 '
+      bounds_x = 268
+      bounds_y = 101
+      bounds_cx = 86
       bounds_cy = 24
       anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = 'Sent to Player 1'
+      caption = '--> Player 1'
       captiondist = 0
       imagenr = 27
       focusrectdist = 0
@@ -278,19 +240,137 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 4
-      hint = ' Sent to cue for Player 2 '
-      bounds_x = 327
-      bounds_y = 100
-      bounds_cx = 118
+      taborder = 3
+      hint = ' Sent selected song to cue for Player 2 '
+      bounds_x = 359
+      bounds_y = 101
+      bounds_cx = 86
       bounds_cy = 24
       anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = 'Sent to Player 2'
+      caption = '--> Player 2'
       captiondist = 0
       imagenr = 27
       focusrectdist = 0
       onexecute = onsent
+    end
+    object list_files: tstringgrid
+      frame.sbvert.width = 10
+      frame.sbvert.face.localprops = []
+      frame.sbvert.face.template = mainfo.tfacebutltgray
+      frame.sbvert.face1.localprops = []
+      frame.sbvert.face1.template = mainfo.tfacebutltgray
+      frame.sbvert.facebutton.localprops = []
+      frame.sbvert.facebutton.template = mainfo.tfacebutgray
+      frame.sbhorz.width = 10
+      frame.sbhorz.face.localprops = []
+      frame.sbhorz.face.template = mainfo.tfacebutltgray
+      frame.sbhorz.face1.localprops = []
+      frame.sbhorz.face1.template = mainfo.tfacebutltgray
+      frame.sbhorz.facebutton.localprops = []
+      frame.sbhorz.facebutton.template = mainfo.tfacebutgray
+      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = []
+      taborder = 4
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 447
+      bounds_cy = 97
+      anchors = [an_left, an_top, an_right, an_bottom]
+      font.name = 'stf_default'
+      font.localprops = []
+      datacols.count = 4
+      datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+      datacols.fontselect.colorselectbackground = 6514254
+      datacols.fontselect.name = 'stf_default'
+      datacols.fontselect.localprops = [flp_color, flp_colorselectbackground]
+      datacols.optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+      datacols.items = <      
+        item
+          width = 295
+          options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+          optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          valuefalse = '0'
+          valuetrue = '1'
+        end      
+        item
+          colorselect = -2147483642
+          width = 34
+          options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
+          optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          valuefalse = '0'
+          valuetrue = '1'
+        end      
+        item
+          width = 61
+          options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
+          optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          valuefalse = '0'
+          valuetrue = '1'
+        end      
+        item
+          width = 39
+          options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
+          optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          valuefalse = '0'
+          valuetrue = '1'
+        end>
+      fixrows.count = 1
+      fixrows.items = <      
+        item
+          height = 17
+          numstep = 1
+          captions.count = 4
+          captions.items = <          
+            item
+              caption = 'Name of sound'
+              face.localprops = []
+              face.template = mainfo.tfacebutgray
+            end          
+            item
+              caption = 'Ext'
+              face.localprops = []
+              face.template = mainfo.tfacebutgray
+              hint = 'File extension '
+            end          
+            item
+              caption = 'Size'
+              face.localprops = []
+              face.template = mainfo.tfacebutgray
+              hint = ' Size in Kb of the file '
+            end          
+            item
+              caption = 'Year'
+              face.localprops = []
+              face.template = mainfo.tfacebutgray
+              hint = 'Year of creation of the file'
+            end>
+          font.name = 'stf_default'
+          font.localprops = []
+        end>
+      datarowheight = 17
+      statfile = mainfo.tstatfile1
+      statpriority = 1
+      oncellevent = oncellev
+      reffontheight = 15
+    end
+    object filescount: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 5
+      hint = ' Number of files in the list '
+      bounds_x = 202
+      bounds_y = 105
+      bounds_cx = 63
+      bounds_cy = 17
+      anchors = [an_left, an_bottom]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = '0 files'
+      reffontheight = 15
     end
   end
   object tfacecomp1: tfacecomp

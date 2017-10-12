@@ -20,8 +20,8 @@ object songplayer2fo: tsongplayer2fo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 2. '
   visible = False
-  bounds_x = 182
-  bounds_y = 91
+  bounds_x = 181
+  bounds_y = 92
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -152,6 +152,8 @@ object songplayer2fo: tsongplayer2fo
       bounds_cx = 50
       bounds_cy = 28
       statfile = mainfo.tstatfile1
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = changevolume
       value = 100
@@ -378,6 +380,8 @@ object songplayer2fo: tsongplayer2fo
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+      font.name = 'stf_default'
+      font.localprops = []
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
@@ -533,6 +537,8 @@ object songplayer2fo: tsongplayer2fo
       bounds_cx = 50
       bounds_cy = 28
       statfile = mainfo.tstatfile1
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = changevolume
       value = 100
@@ -569,6 +575,8 @@ object songplayer2fo: tsongplayer2fo
       bounds_y = 65
       bounds_cx = 52
       bounds_cy = 26
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = ChangePlugSetSoundTouch
       value = 1
@@ -620,6 +628,8 @@ object songplayer2fo: tsongplayer2fo
       bounds_cy = 23
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Infos'
+      font.name = 'stf_default'
+      font.localprops = []
       imagenr = 27
       focusrectdist = 0
       onexecute = oninfowav

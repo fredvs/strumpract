@@ -4,12 +4,13 @@ unit filelistform;
 interface
 
 uses
- msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msefileutils,
- msegui,msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
- msedragglob,msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits,
- msedatanodes, mseedit,msefiledialog, msegrids, mseificomp, mseificompglob,
- mseifiglob, mselistbrowser,msestatfile, msestream, msestrings, msesys,SysUtils,
- msegraphedits, msescrollbar;
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+ msefileutils,msegui,msegraphics, msegraphutils, mseevent, mseclasses,
+ msegridsglob,mseforms, msedock,msedragglob,msesimplewidgets, msewidgets,mseact,
+  msebitmap,msedataedits,msedatanodes, mseedit,msefiledialog, msegrids,
+ mseificomp,mseificompglob,mseifiglob, mselistbrowser,msestatfile, msestream,
+ msestrings,msesys,SysUtils,msegraphedits, msescrollbar,msedispwidgets,
+ mserichstring;
 
 type
   tfilelistfo = class(tdockform)
@@ -17,9 +18,10 @@ type
    tgroupbox1: tgroupbox;
    songdir: tfilenameedit;
    historyfn: thistoryedit;
-   list_files: tfilelistview;
    tbutton1: tbutton;
    tbutton2: tbutton;
+   list_files: tstringgrid;
+   filescount: tstringdisp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
@@ -32,6 +34,7 @@ type
     procedure onfloat(const Sender: TObject);
     procedure afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject;
       var accept: boolean; var processed: boolean);
+   procedure oncellev(const sender: TObject; var info: celleventinfoty);
   end;
 
 var
@@ -45,22 +48,29 @@ uses
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
 begin
-   list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
-   //  list_files.focusedindex := 0;
-   list_files.directory:= './';
-    filelistfo.list_files.readlist(); 
- end;
+ 
+end;
 
 
 procedure tfilelistfo.onsent(const Sender: TObject);
 var
 theplaysender : integer;
+thefocusedcell : gridcoordty;
 begin
-
-if (not assigned(list_files.selectednames)) 
+if directoryexists(historyfn.Value) then begin
+thefocusedcell := list_files.focusedcell;
+ 
+if (filelistfo.list_files.rowcount < 1) or (trim(list_files[0][thefocusedcell.row]) = '')
 then begin
-if sender <> nil then
-ShowMessage('Nothing selected. Please select a song in the list...') ;
+ if filelistfo.list_files.rowcount < 1 then
+ShowMessage('No song in file list. Please select a audio directory with songs...') 
+else
+begin
+thefocusedcell.row := 0; 
+thefocusedcell.col := 0; 
+list_files.firstrow;
+list_files.selectcell(thefocusedcell,csm_select,false);
+end ;
 end else
 begin
 
@@ -72,22 +82,26 @@ begin
 if hasfocused1 = true then theplaysender := 0 else theplaysender := 1;
 end;
 
-if list_files.focusedindex < 0 then list_files.focusedindex := 0;
+// if list_files.focusedindex < 0 then list_files.focusedindex := 0;
 
    if sender = nil then
      begin
-       if list_files.focusedindex +1 < list_files.filecount then
-        begin   
-         list_files.focusedindex := list_files.focusedindex +1;
+       if thefocusedcell.row +1 < list_files.rowcount then
+        begin 
+        thefocusedcell.row := thefocusedcell.row +1;
+        list_files.rowdown;
          end else
-         begin 
-         list_files.focusedindex := 0;
+         begin
+         thefocusedcell.row := 0; 
+         list_files.firstrow;
          end;
       end; 
-  
+ 
       if theplaysender = 0 then
     begin
-      songplayerfo.historyfn.Value := tosysfilepath(list_files.directory + list_files.selectednames[0]);
+      songplayerfo.historyfn.Value := tosysfilepath(historyfn.value +
+          list_files[0][thefocusedcell.row] + '.' + list_files[1][thefocusedcell.row]);
+   
       songplayerfo.historyfn.face.template := mainfo.tfaceorange;
      if commanderfo.visible = true then commanderfo.tbutton2.setfocus;
       songplayerfo.timersent.Enabled := false;
@@ -97,12 +111,15 @@ if list_files.focusedindex < 0 then list_files.focusedindex := 0;
     if theplaysender = 1 then
     begin
       //songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
-      songplayer2fo.historyfn.Value := tosysfilepath(list_files.directory + list_files.selectednames[0]);
-      songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
+     songplayer2fo.historyfn.Value := tosysfilepath(historyfn.value +
+     list_files[0][thefocusedcell.row] + '.' + list_files[1][thefocusedcell.row]);
+       songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
       if commanderfo.visible = true then commanderfo.tbutton3.setfocus;
       songplayer2fo.timersent.Enabled := false;
       songplayer2fo.timersent.Enabled := True;
     end;
+     list_files.selectcell(thefocusedcell,csm_select,false);
+ end;
  end;
  end;
 
@@ -112,15 +129,40 @@ begin
 end;
 
 procedure tfilelistfo.onchangpath(const Sender: TObject);
+var
+x : integer;
+datalist_files : tfiledatalist;
+cellpos : gridcoordty;
 begin
-   list_files.path := historyfn.Value;
- //  list_files.path := './*.mp3'; 
-   list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
-   list_files.focusedindex := 0;
-  // list_files.directory:= './';
-   list_files.readlist(); 
- 
+if directoryexists(historyfn.Value) then begin
+datalist_files := tfiledatalist.create();
+
+datalist_files.adddirectory(historyfn.Value,fil_ext1,'"*.mp3" "*.wav" "*.ogg" "*.flac"'); 
+
+datalist_files.options := [flo_sortname,flo_sorttype];
+
+list_files.rowcount := datalist_files.count;
+
+for x := 0 to datalist_files.count -1 do
+begin
+list_files[0][x] := filenamebase(datalist_files.items[x].name);
+list_files[1][x] := fileext(datalist_files.items[x].name);
+list_files[2][x] := inttostr(datalist_files.items[x].extinfo1.size div 1000) + ' Kb';
+list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
 end;
+
+cellpos.row:= 0;
+cellpos.col:= 0;
+
+list_files.selectcell(cellpos,csm_select,false);
+
+filescount.value := inttostr(list_files.rowcount) + ' files';
+
+// list_files.focusedindex := 0;
+datalist_files.free();
+end;
+end;
+
 
 procedure tfilelistfo.onafterdialog(const Sender: tfiledialogcontroller; var aresult: modalresultty);
 begin
@@ -143,7 +185,7 @@ begin
   //sizebefdock.cx := 500;
   //sizebefdock.cy := 500;
   //size := sizebefdock;
-  bounds_cxmax := 1024;
+  bounds_cxmax := fowidth;
   bounds_cymax := 600;
 end;
 
@@ -168,6 +210,22 @@ begin
   end;
 
   mainfo.updatelayout();
+end;
+
+procedure tfilelistfo.oncellev(const sender: TObject; var info: celleventinfoty);
+var
+cellpos : gridcoordty;
+begin
+
+cellpos := info.cell;
+
+cellpos.col := 0;
+
+if (info.eventkind = cek_buttonrelease) or (info.eventkind =  cek_focusedcellchanged) then
+begin
+ list_files.selectcell(cellpos,csm_select,false);
+end;
+
 end;
 
 end.

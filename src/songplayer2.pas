@@ -174,12 +174,16 @@ end;
 
 procedure tsongplayer2fo.ClosePlayer1();
 begin
-  {
-    radiobutton1.Enabled := True;
-    radiobutton2.Enabled := True;
-    radiobutton3.Enabled := True;
-    }
 
+  if (commanderfo.edautomix.value = 1) and (hasmixed2 = false)  then
+      begin
+      hasmixed2 := true;
+      commanderfo.onstartstop(nil);
+      hasfocused2 := true;
+      filelistfo.onsent(nil);
+      hasfocused2 := false;
+      hasmixed2 := false;
+      end; 
 
   vuright.value := 0;
   vuleft.value := 0;
@@ -649,6 +653,7 @@ end;
 
 procedure tsongplayer2fo.doplayerstop(const Sender: TObject);
 begin
+  hasmixed2 := true;
   uos_Stop(theplayer2);
 end;
 
@@ -818,7 +823,10 @@ then begin
         infosfo.infocom.Caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayerinfo2, 0)));
         infosfo.infotag.Caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayerinfo2, 0)));
         infosfo.infolength.Caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
-
+        infosfo.inforate.Caption := 'Sample Rate: ' + msestring(inttostr(uos_InputGetSampleRate(theplayerinfo2, 0)));
+        infosfo.infochan.Caption := 'Channels: ' + msestring(inttostr(uos_InputGetChannels(theplayerinfo2, 0)));
+  
+         
         uos_play(theplayerinfo2);
         uos_Stop(theplayerinfo2);
 
@@ -1001,10 +1009,24 @@ end;
 
 procedure tsongplayer2fo.onafterev(const sender: tcustomscrollbar;
                const akind: scrolleventty; const avalue: Real);
+var
+mixtime : integer; 
+dopos : boolean = false;              
 begin
+onsliderchange(Sender);
+
+ if (commanderfo.edautomix.value = 1) then
+ begin
+ mixtime := trunc(commanderfo.timemix.value * 1000) + 100000;
+ if (trunc(avalue * Inputlength2) < Inputlength2 - mixtime + 1000)
+ then dopos := true; 
+end else dopos := true; 
+  
+if dopos = true then
+begin     
 if akind = sbe_thumbposition then
-    uos_InputSeek(theplayer2, Inputindex2, trunc(avalue * Inputlength2))
-    else onsliderchange(Sender);
+    uos_InputSeek(theplayer2, Inputindex2, trunc(avalue * Inputlength2));
+end;
 end;
 
 procedure tsongplayer2fo.changeloop(const sender: TObject);

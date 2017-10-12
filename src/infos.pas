@@ -15,6 +15,8 @@ type
    infotag: tlabel;
    infocom: tlabel;
    infofile: tlabel;
+   inforate: tlabel;
+   infochan: tlabel;
  end;
 var
  infosfo: tinfosfo;

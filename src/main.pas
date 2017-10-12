@@ -224,8 +224,8 @@ begin
   begin
     if (filelistfo.parentwidget = nil) then
     begin
-      filelistfo.bounds_cxmax := 1024;
-      filelistfo.bounds_cymax := 600;
+      filelistfo.bounds_cxmax := fowidth;
+      filelistfo.bounds_cymax := 1024;
     end
     else
     begin
@@ -454,8 +454,8 @@ begin
 
   endlayout();
 
-  filelistfo.bounds_cxmax := 1024;
-  filelistfo.bounds_cymax := 700;
+  filelistfo.bounds_cxmax := fowidth;
+  filelistfo.bounds_cymax := 1024;
 
   Height := emptyheight + 20;
   Width := fowidth;
@@ -545,7 +545,7 @@ begin
 // basedock.anchors := [an_left,an_top]  ;
 
   filelistfo.bounds_cxmax := fowidth;
-  filelistfo.bounds_cymax := 700;
+  filelistfo.bounds_cymax := 1024;
 
   //sizebefdock.cy := 500;
   //size := sizebefdock;
@@ -770,6 +770,19 @@ songplayer2fo.songdir.frame.button.colorglyph := ltblack;
 songplayerfo.historyfn.frame.button.colorglyph := ltblack;
 songplayer2fo.historyfn.frame.button.colorglyph := ltblack;
 
+songplayerfo.historyfn.font.color := ltblack;
+songplayer2fo.historyfn.font.color := ltblack;
+songplayerfo.edvolleft.font.color := ltblack;
+songplayer2fo.edvolleft.font.color := ltblack;
+
+songplayerfo.edvolright.font.color := ltblack;
+songplayer2fo.edvolright.font.color := ltblack;
+songplayerfo.edtempo.font.color := ltblack;
+songplayer2fo.edtempo.font.color := ltblack;
+
+songplayerfo.btinfos.font.color := ltblack;
+songplayer2fo.btinfos.font.color := ltblack;
+
 songplayerfo.tfaceslider.template.fade_color.items[0] := $F9FFC2 ;
 songplayerfo.tfaceslider.template.fade_color.items[1] := $C4C999 ;
 songplayer2fo.tfaceslider.template.fade_color.items[0] := $F9FFC2 ;
@@ -854,6 +867,8 @@ recorderfo.tfacereclight.template.fade_color.items[1] := $EDD3D3 ;
 // guitar
 
 guitarsfo.font.color := ltblack;
+guitarsfo.tgroupbox1.font.color := ltblack;
+guitarsfo.tgroupbox2.font.color := ltblack;
 guitarsfo.loopguit.colorglyph := ltblack;
 guitarsfo.loopbass.colorglyph := ltblack;
 guitarsfo.loopguit.frame.font.color := ltblack;
@@ -898,9 +913,19 @@ commanderfo.tslider2.scrollbar.face1.template :=  commanderfo.tfaceslider;
 commanderfo.tslider3.scrollbar.face.template :=  commanderfo.tfaceslider;
 commanderfo.tslider3.scrollbar.face1.template :=  commanderfo.tfaceslider;
 
+
 filelistfo.list_files.font.color := ltblack;
+filelistfo.tgroupbox1.font.color := ltblack;
 filelistfo.historyfn.frame.button.colorglyph := ltblack;
 filelistfo.songdir.frame.button.colorglyph := ltblack;
+filelistfo.list_files.datacols[0].color := cl_white;
+filelistfo.list_files.datacols[0].font.color := ltblack;
+filelistfo.list_files.datacols[1].color := cl_white;
+filelistfo.list_files.datacols[1].font.color := ltblack;
+filelistfo.list_files.datacols[2].color := cl_white;
+filelistfo.list_files.datacols[2].font.color := ltblack;
+filelistfo.list_files.datacols[3].color := cl_white;
+filelistfo.list_files.datacols[3].font.color := ltblack;
 
 aboutfo.font.color := cl_black;
 // configfo.font.color := ltblack;
@@ -984,6 +1009,19 @@ songplayer2fo.songdir.frame.button.colorglyph := ltblack;
 
 songplayerfo.historyfn.frame.button.colorglyph := ltblack;
 songplayer2fo.historyfn.frame.button.colorglyph := ltblack;
+
+songplayerfo.historyfn.font.color := ltblack;
+songplayer2fo.historyfn.font.color := ltblack;
+songplayerfo.edvolleft.font.color := ltblack;
+songplayer2fo.edvolleft.font.color := ltblack;
+
+songplayerfo.edvolright.font.color := ltblack;
+songplayer2fo.edvolright.font.color := ltblack;
+songplayerfo.edtempo.font.color := ltblack;
+songplayer2fo.edtempo.font.color := ltblack;
+
+songplayerfo.btinfos.font.color := ltblack;
+songplayer2fo.btinfos.font.color := ltblack;
 
 songplayerfo.tfaceslider.template.fade_color.items[0] := $EDEDED ;
 songplayerfo.tfaceslider.template.fade_color.items[1] := $BABABA ;
@@ -1070,6 +1108,9 @@ recorderfo.tfacereclight.template.fade_color.items[1] := $BABABA ;
 
 guitarsfo.font.color := ltblack;
 
+guitarsfo.tgroupbox1.font.color := ltblack;
+guitarsfo.tgroupbox2.font.color := ltblack;
+
 guitarsfo.loopguit.colorglyph := ltblack;
 guitarsfo.loopbass.colorglyph := ltblack;
 guitarsfo.loopguit.frame.font.color := ltblack;
@@ -1114,9 +1155,19 @@ commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED ;
 commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA ;
 
 filelistfo.list_files.font.color := ltblack;
+filelistfo.tgroupbox1.font.color := ltblack;
 
 filelistfo.historyfn.frame.button.colorglyph := ltblack;
 filelistfo.songdir.frame.button.colorglyph := ltblack;
+
+filelistfo.list_files.datacols[0].color := cl_white;
+filelistfo.list_files.datacols[0].font.color := ltblack;
+filelistfo.list_files.datacols[1].color := cl_white;
+filelistfo.list_files.datacols[1].font.color := ltblack;
+filelistfo.list_files.datacols[2].color := cl_white;
+filelistfo.list_files.datacols[2].font.color := ltblack;
+filelistfo.list_files.datacols[3].color := cl_white;
+filelistfo.list_files.datacols[3].font.color := ltblack;
 
 aboutfo.font.color := cl_black;
 // configfo.font.color := ltblack;
@@ -1179,6 +1230,19 @@ songplayerfo.edvolright.frame.colorglyph := ltblank;
 songplayer2fo.edvolright.frame.colorglyph := ltblank;
 songplayerfo.edtempo.frame.colorglyph := ltblank;
 songplayer2fo.edtempo.frame.colorglyph := ltblank;
+
+songplayerfo.historyfn.font.color := ltblank;
+songplayer2fo.historyfn.font.color := ltblank;
+songplayerfo.edvolleft.font.color := ltblank;
+songplayer2fo.edvolleft.font.color := ltblank;
+
+songplayerfo.edvolright.font.color := ltblank;
+songplayer2fo.edvolright.font.color := ltblank;
+songplayerfo.edtempo.font.color := ltblank;
+songplayer2fo.edtempo.font.color := ltblank;
+
+songplayerfo.btinfos.font.color := ltblank;
+songplayer2fo.btinfos.font.color := ltblank;
 
 songplayerfo.songdir.frame.button.colorglyph := ltblank;
 songplayer2fo.songdir.frame.button.colorglyph := ltblank;
@@ -1280,6 +1344,9 @@ recorderfo.tfacereclight.template.fade_color.items[1] := $2A2A2A ;
 
 // guitar
 guitarsfo.font.color := ltblank;
+guitarsfo.tgroupbox1.font.color := ltblank;
+guitarsfo.tgroupbox2.font.color := ltblank;
+
 guitarsfo.loopguit.colorglyph := ltblank;
 guitarsfo.loopbass.colorglyph := ltblank;
 guitarsfo.loopguit.frame.font.color := ltblank;
@@ -1326,9 +1393,20 @@ commanderfo.tslider3.scrollbar.face.template :=  commanderfo.tfacesliderdark;
 commanderfo.tslider3.scrollbar.face1.template :=  commanderfo.tfacesliderdark;
 
 // file list
-filelistfo.list_files.font.color := cl_black;
+//filelistfo.list_files.fixrows[-1][0].font.color := ltblack;
+
+filelistfo.tgroupbox1.font.color := ltblank;
 filelistfo.historyfn.frame.button.colorglyph := ltblank;
 filelistfo.songdir.frame.button.colorglyph := ltblank;
+
+filelistfo.list_files.datacols[0].color := ltblack;
+filelistfo.list_files.datacols[0].font.color := ltblank;
+filelistfo.list_files.datacols[1].color := ltblack;
+filelistfo.list_files.datacols[1].font.color := ltblank;
+filelistfo.list_files.datacols[2].color := ltblack;
+filelistfo.list_files.datacols[2].font.color := ltblank;
+filelistfo.list_files.datacols[3].color := ltblack;
+filelistfo.list_files.datacols[3].font.color := ltblank;
 
 aboutfo.font.color := cl_black;
 end;

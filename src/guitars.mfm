@@ -21,8 +21,8 @@ object guitarsfo: tguitarsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
-  bounds_x = 853
-  bounds_y = 36
+  bounds_x = 429
+  bounds_y = 263
   bounds_cx = 458
   bounds_cy = 64
   bounds_cxmin = 458
@@ -166,6 +166,8 @@ object guitarsfo: tguitarsfo
     bounds_y = 0
     bounds_cx = 450
     bounds_cy = 32
+    font.name = 'stf_default'
+    font.localprops = []
     object tbutton9: tbutton
       Tag = 6
       color = -2147483645
@@ -352,6 +354,8 @@ object guitarsfo: tguitarsfo
     bounds_y = 32
     bounds_cx = 450
     bounds_cy = 32
+    font.name = 'stf_default'
+    font.localprops = []
     object tbutton16: tbutton
       Tag = 10
       color = -2147483645

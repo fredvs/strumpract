@@ -480,13 +480,13 @@ type
    cancel: tbutton;
    ok: tbutton;
    showhidden: tbooleanedit;
-   home: tbutton;
+   tlabel1: tlabel;
+   dir: tdirdropdownedit;
    createdir: tbutton;
+   home: tbutton;
    up: tstockglyphbutton;
    back: tstockglyphbutton;
    forward: tstockglyphbutton;
-   tlabel1: tlabel;
-   dir: tdirdropdownedit;
    procedure createdironexecute(const sender: TObject);
    procedure listviewselectionchanged(const sender: tcustomlistview);
    procedure listviewitemevent(const sender: tcustomlistview;

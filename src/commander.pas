@@ -92,7 +92,6 @@ var
   thetypemix: integer = 0;
   theinput: integer = 26;
 
-
 implementation
 
 uses
@@ -138,8 +137,7 @@ begin
    fromplay := 1 else
     fromplay := 0;
   end;
- 
- 
+  
  if fromplay = 0 then 
   begin
    tbutton2.face.template := mainfo.tfacebutgray;
@@ -157,17 +155,20 @@ begin
     //volumeright2.value := 1;
    
    if (sender <> nil) and (commanderfo.edautomix.value = 1)
-    and (assigned(filelistfo.list_files.selectednames)) then
+    and (filelistfo.list_files.rowcount > 0) then
    begin
     hasfocused2 := true;
     filelistfo.onsent(nil);
     hasfocused2 := false;
     end;  
-    
-       if  (iscue1 = true) or (uos_GetStatus(theplayer) = 2 ) then
+ 
+   if uos_GetStatus(theplayer) <> 1  then begin
+    if  (iscue1 = true) or (uos_GetStatus(theplayer) = 2 ) then
         songplayerfo.doplayeresume(Sender) else
     songplayerfo.doplayerstart(Sender);
-   
+    end;
+ 
+    hasmixed2 := true;
    timermix.Enabled := True;
   end
   else
@@ -184,26 +185,24 @@ begin
     //volumeright2.value := 1;
     
       if (sender <> nil) and (commanderfo.edautomix.value = 1)
-       and (assigned(filelistfo.list_files.selectednames))then
+       and (filelistfo.list_files.rowcount > 0) then
    begin
     hasfocused1 := true;
     filelistfo.onsent(nil);
     hasfocused1 := false;
     end;  
 
+ if uos_GetStatus(theplayer2) <> 1  then begin
     if  (iscue2 = true) or (uos_GetStatus(theplayer2) = 2 ) then
  songplayer2fo.doplayeresume(Sender) else
   songplayer2fo.doplayerstart(Sender);
-    timermix.Enabled := True;
-  
   end;
   
-    if (sender <> nil) and (commanderfo.edautomix.value = 1)
-       and (assigned(filelistfo.list_files.selectednames) = false) then
-   begin
-    ShowMessage(' For auto-mixing, please select a file in File-List... ');
-    end; 
-end;
+  hasmixed1 := true;
+  timermix.Enabled := True;
+  
+  end;
+  end;
 
 
 procedure tcommanderfo.ontimermix(const Sender: TObject);

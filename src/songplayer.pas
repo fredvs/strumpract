@@ -180,8 +180,17 @@ begin
     radiobutton2.Enabled := True;
     radiobutton3.Enabled := True;
     }
-
-
+    
+  if (commanderfo.edautomix.value = 1) and (hasmixed1 = false)  then
+      begin
+      hasmixed1 := true;
+      commanderfo.onstartstop(nil);
+      hasfocused1 := true;
+      filelistfo.onsent(nil);
+      hasfocused1 := false;
+      hasmixed1 := false;
+      end;   
+ 
   vuright.value := 0;
   vuRight.Visible := False;
    
@@ -650,8 +659,8 @@ end;
 
 procedure tsongplayerfo.doplayerstop(const Sender: TObject);
 begin
-  uos_Stop(theplayer);
-
+ hasmixed1 := true;
+ uos_Stop(theplayer);
 end;
 
 procedure tsongplayerfo.changevolume(const Sender: TObject);
@@ -821,7 +830,9 @@ then begin
         infosfo.infocom.Caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayerinfo, 0)));
         infosfo.infotag.Caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayerinfo, 0)));
         infosfo.infolength.Caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
-
+        infosfo.inforate.Caption := 'Sample Rate: ' + msestring(inttostr(uos_InputGetSampleRate(theplayerinfo, 0)));
+        infosfo.infochan.Caption := 'Channels: ' + msestring(inttostr(uos_InputGetChannels(theplayerinfo, 0)));
+ 
         uos_play(theplayerinfo);
         uos_Stop(theplayerinfo);
 
@@ -1003,10 +1014,26 @@ end;
 
 procedure tsongplayerfo.onafterev(const sender: tcustomscrollbar;
                const akind: scrolleventty; const avalue: Real);
+var
+mixtime : integer; 
+dopos : boolean = false;              
 begin
-if akind = sbe_thumbposition then 
-    uos_InputSeek(theplayer, Inputindex1, trunc(avalue * Inputlength1))
-    else onsliderchange(Sender);
+
+onsliderchange(Sender);
+
+ if (commanderfo.edautomix.value = 1) then
+ begin
+ mixtime := trunc(commanderfo.timemix.value * 1000) + 100000;
+ if (trunc(avalue * Inputlength1) < Inputlength1 - mixtime + 1000)
+ then dopos := true; 
+end else dopos := true; 
+  
+if dopos = true then
+begin     
+if akind = sbe_thumbposition then
+    uos_InputSeek(theplayer, Inputindex1, trunc(avalue * Inputlength1));
+   
+end;
 end;
 
 procedure tsongplayerfo.changeloop(const sender: TObject);
