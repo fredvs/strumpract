@@ -65,6 +65,7 @@ type
    procedure changecarbon(const sender: TObject);
    procedure onchangevalcolor(const sender: TObject);
    procedure onmenuaudio(const sender: TObject);
+   procedure onresized(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -141,6 +142,8 @@ begin
     // writeln('basedock.height: ' + inttostr(basedock.height));
   end;
   //}
+  
+  if not fileexists(tstatfile1.filename) then top := 30;
 
   if (fs_sbverton in container.frame.state) then
     Width := fowidth + scrollwidth
@@ -612,6 +615,12 @@ begin
     guitarsfo.pos := pt1;
   //}
   endlayout();
+  if height > 600 then
+  begin
+   height := 600;
+   timerwait.Enabled := True;
+   end;
+  
 //basedock.anchors := [an_left,an_top,an_right,an_bottom]  ;
 end;
 
@@ -927,6 +936,7 @@ filelistfo.list_files.datacols[2].font.color := ltblack;
 filelistfo.list_files.datacols[3].color := cl_white;
 filelistfo.list_files.datacols[3].font.color := ltblack;
 
+filelistfo.list_files.datacols[3].colorglyph := ltblack;
 aboutfo.font.color := cl_black;
 // configfo.font.color := ltblack;
 end;
@@ -1169,6 +1179,8 @@ filelistfo.list_files.datacols[2].font.color := ltblack;
 filelistfo.list_files.datacols[3].color := cl_white;
 filelistfo.list_files.datacols[3].font.color := ltblack;
 
+filelistfo.list_files.datacols[3].colorglyph := ltblack;
+
 aboutfo.font.color := cl_black;
 // configfo.font.color := ltblack;
 end;
@@ -1407,6 +1419,7 @@ filelistfo.list_files.datacols[2].color := ltblack;
 filelistfo.list_files.datacols[2].font.color := ltblank;
 filelistfo.list_files.datacols[3].color := ltblack;
 filelistfo.list_files.datacols[3].font.color := ltblank;
+filelistfo.list_files.datacols[3].colorglyph := ltblank;
 
 aboutfo.font.color := cl_black;
 end;
@@ -1419,6 +1432,16 @@ end;
 procedure tmainfo.onmenuaudio(const sender: TObject);
 begin
   configfo.Show(True);
+end;
+
+procedure tmainfo.onresized(const sender: TObject);
+begin
+if height > 600 then
+begin
+height := 600;
+timerwait.Enabled := false;
+timerwait.Enabled := True;
+end;
 end;
 
 

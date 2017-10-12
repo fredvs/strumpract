@@ -271,8 +271,10 @@ object filelistfo: tfilelistfo
       frame.sbhorz.facebutton.template = mainfo.tfacebutgray
       frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfacebutgray
       taborder = 4
-      bounds_x = 0
+      bounds_x = 1
       bounds_y = 0
       bounds_cx = 447
       bounds_cy = 97
@@ -281,22 +283,21 @@ object filelistfo: tfilelistfo
       font.localprops = []
       datacols.count = 4
       datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
-      datacols.fontselect.colorselectbackground = 6514254
+      datacols.fontselect.colorselectbackground = 3224359
       datacols.fontselect.name = 'stf_default'
       datacols.fontselect.localprops = [flp_color, flp_colorselectbackground]
       datacols.optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       datacols.items = <      
         item
-          width = 295
-          options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+          width = 303
+          options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
           valuetrue = '1'
         end      
         item
-          colorselect = -2147483642
           width = 34
-          options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
+          options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
           valuetrue = '1'
@@ -309,9 +310,9 @@ object filelistfo: tfilelistfo
           valuetrue = '1'
         end      
         item
-          width = 39
-          options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
+          width = 30
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          optionsedit = [scoe_undoonesc, scoe_eatreturn, scoe_exitoncursor, scoe_autoselect, scoe_autoselectonfirstclick, scoe_focusrectonreadonly, scoe_checkbox]
           valuefalse = '0'
           valuetrue = '1'
         end>
@@ -340,10 +341,10 @@ object filelistfo: tfilelistfo
               hint = ' Size in Kb of the file '
             end          
             item
-              caption = 'Year'
+              caption = 'Mix'
               face.localprops = []
               face.template = mainfo.tfacebutgray
-              hint = 'Year of creation of the file'
+              hint = ' Include in the mixing list '
             end>
           font.name = 'stf_default'
           font.localprops = []

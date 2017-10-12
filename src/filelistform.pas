@@ -54,9 +54,11 @@ end;
 
 procedure tfilelistfo.onsent(const Sender: TObject);
 var
-theplaysender : integer;
+theplaysender, thecaution : integer;
 thefocusedcell : gridcoordty;
+mustmix : boolean = false;
 begin
+
 if directoryexists(historyfn.Value) then begin
 thefocusedcell := list_files.focusedcell;
  
@@ -74,6 +76,7 @@ end ;
 end else
 begin
 
+ 
 if sender <> nil then
 begin
 if TButton(Sender).tag = 0 then theplaysender := 0 else theplaysender := 1;
@@ -82,20 +85,33 @@ begin
 if hasfocused1 = true then theplaysender := 0 else theplaysender := 1;
 end;
 
-// if list_files.focusedindex < 0 then list_files.focusedindex := 0;
-
-   if sender = nil then
+ if commanderfo.edautomix.value = 1 then
+  begin 
+   thecaution := 0;
+    
+   while (mustmix = false) and (thecaution < 50) do
+   begin
+   
+   inc(thecaution);
+   
+   if (thefocusedcell.row +1 < list_files.rowcount) 
+    then
      begin
-       if thefocusedcell.row +1 < list_files.rowcount then
-        begin 
-        thefocusedcell.row := thefocusedcell.row +1;
-        list_files.rowdown;
-         end else
-         begin
-         thefocusedcell.row := 0; 
-         list_files.firstrow;
-         end;
+      if (list_files[3][thefocusedcell.row +1] = '1')
+      then mustmix := true;
+       
+      thefocusedcell.row := thefocusedcell.row +1;
+      list_files.rowdown;
+      end
+      else
+      begin
+      if (list_files[3][0] = '1') 
+      then mustmix := true;
+      thefocusedcell.row := 0; 
+      list_files.firstrow;;
       end; 
+     end;
+    end;
  
       if theplaysender = 0 then
     begin
@@ -134,6 +150,8 @@ x : integer;
 datalist_files : tfiledatalist;
 cellpos : gridcoordty;
 begin
+if hasinit = 1 then begin
+
 if directoryexists(historyfn.Value) then begin
 datalist_files := tfiledatalist.create();
 
@@ -148,7 +166,8 @@ begin
 list_files[0][x] := filenamebase(datalist_files.items[x].name);
 list_files[1][x] := fileext(datalist_files.items[x].name);
 list_files[2][x] := inttostr(datalist_files.items[x].extinfo1.size div 1000) + ' Kb';
-list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
+// list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
+list_files[3][x] := inttostr(1) ;
 end;
 
 cellpos.row:= 0;
@@ -160,6 +179,7 @@ filescount.value := inttostr(list_files.rowcount) + ' files';
 
 // list_files.focusedindex := 0;
 datalist_files.free();
+end;
 end;
 end;
 

@@ -20,8 +20,8 @@ object songplayer2fo: tsongplayer2fo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 2. '
   visible = False
-  bounds_x = 181
-  bounds_y = 92
+  bounds_x = 232
+  bounds_y = 271
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -150,7 +150,7 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 197
       bounds_y = 50
       bounds_cx = 50
-      bounds_cy = 28
+      bounds_cy = 27
       statfile = mainfo.tstatfile1
       font.name = 'stf_default'
       font.localprops = []
@@ -166,7 +166,7 @@ object songplayer2fo: tsongplayer2fo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object button1: tbutton
       Tag = 1
@@ -207,7 +207,7 @@ object songplayer2fo: tsongplayer2fo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         6
-        16
+        14
         7
         0
       )
@@ -216,9 +216,9 @@ object songplayer2fo: tsongplayer2fo
       taborder = 3
       hint = ' Enable looping the song. (Pause is not enabled with loop.) '
       bounds_x = 161
-      bounds_y = 50
+      bounds_y = 52
       bounds_cx = 26
-      bounds_cy = 28
+      bounds_cy = 26
       statfile = mainfo.tstatfile1
       onchange = changeloop
       colorglyph = 4539717
@@ -238,7 +238,7 @@ object songplayer2fo: tsongplayer2fo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        15
+        13
         25
         0
       )
@@ -247,9 +247,9 @@ object songplayer2fo: tsongplayer2fo
       taborder = 4
       hint = ' Enable stretching (changing tempo) '
       bounds_x = 343
-      bounds_y = 49
+      bounds_y = 51
       bounds_cx = 38
-      bounds_cy = 27
+      bounds_cy = 25
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
     end
@@ -376,7 +376,7 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 73
       bounds_y = 5
       bounds_cx = 371
-      bounds_cy = 22
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
@@ -391,7 +391,7 @@ object songplayer2fo: tsongplayer2fo
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
         end>
       dropdown.historymaxcount = 50
-      reffontheight = 15
+      reffontheight = 14
     end
     object songdir: tfilenameedit
       frame.localprops = []
@@ -418,7 +418,7 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 52
       bounds_y = 5
       bounds_cx = 22
-      bounds_cy = 22
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
       controller.filterlist.data = (
@@ -444,7 +444,7 @@ object songplayer2fo: tsongplayer2fo
         )
       )
       controller.onbeforeexecute = whosent
-      reffontheight = 15
+      reffontheight = 14
     end
     object llength: tstringdisp
       color = -2147483645
@@ -458,12 +458,12 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 357
       bounds_y = 111
       bounds_cx = 90
-      bounds_cy = 16
+      bounds_cy = 15
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 15
+      reffontheight = 14
     end
     object lposition: tstringdisp
       color = -2147483645
@@ -477,12 +477,12 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 357
       bounds_y = 95
       bounds_cx = 90
-      bounds_cy = 17
+      bounds_cy = 16
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 15
+      reffontheight = 14
     end
     object tstringdisp1: tstringdisp
       color = -2147483645
@@ -496,11 +496,10 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 0
       bounds_y = 27
       bounds_cx = 454
-      bounds_cy = 21
       font.name = 'stf_default'
       font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
+      reffontheight = 14
     end
     object edvolright: trealspinedit
       Tag = 1
@@ -535,7 +534,7 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 248
       bounds_y = 50
       bounds_cx = 50
-      bounds_cy = 28
+      bounds_cy = 27
       statfile = mainfo.tstatfile1
       font.name = 'stf_default'
       font.localprops = []
@@ -551,7 +550,7 @@ object songplayer2fo: tsongplayer2fo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object edtempo: trealspinedit
       color = -2147483645
@@ -574,7 +573,7 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 360
       bounds_y = 65
       bounds_cx = 52
-      bounds_cy = 26
+      bounds_cy = 25
       font.name = 'stf_default'
       font.localprops = []
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
@@ -589,7 +588,7 @@ object songplayer2fo: tsongplayer2fo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object btnStart: tbutton
       color = -2147483645
@@ -669,8 +668,8 @@ object songplayer2fo: tsongplayer2fo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         8
-        16
-        9
+        14
+        8
         0
       )
       face.localprops = []
@@ -678,9 +677,9 @@ object songplayer2fo: tsongplayer2fo
       taborder = 18
       hint = ' Show wave form in slider '
       bounds_x = 310
-      bounds_y = 49
-      bounds_cx = 30
-      bounds_cy = 28
+      bounds_y = 51
+      bounds_cx = 29
+      bounds_cy = 26
       statfile = mainfo.tstatfile1
       onchange = onchangwav
       colorglyph = 4868682
@@ -698,14 +697,14 @@ object songplayer2fo: tsongplayer2fo
       bounds_x = 392
       bounds_y = 48
       bounds_cx = 52
-      bounds_cy = 15
+      bounds_cy = 13
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Player 2'
-      reffontheight = 13
+      reffontheight = 11
     end
     object vuRight: tprogressbar
       taborder = 20

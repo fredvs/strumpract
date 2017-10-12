@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 552
-  bounds_y = 275
+  bounds_x = 359
+  bounds_y = 55
   bounds_cx = 469
   bounds_cy = 66
   bounds_cxmin = 458
@@ -1135,6 +1135,7 @@ object mainfo: tmainfo
   oncreate = oncreateform
   oncreated = oncreatedform
   ondestroy = dodestroy
+  onresize = onresized
   moduleclassname = 'tmainform'
   object basedock: tdockpanel
     frame.colordkwidth = 0
@@ -1317,7 +1318,7 @@ object mainfo: tmainfo
   end
   object tstatfile1: tstatfile
     filename = 'status.sta'
-    options = [sfo_activatorread, sfo_activatorwrite, sfo_nostate]
+    options = [sfo_savedata, sfo_activatorread, sfo_activatorwrite]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev
     left = 359
