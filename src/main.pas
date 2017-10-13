@@ -935,7 +935,7 @@ filelistfo.list_files.datacols[2].color := cl_white;
 filelistfo.list_files.datacols[2].font.color := ltblack;
 filelistfo.list_files.datacols[3].color := cl_white;
 filelistfo.list_files.datacols[3].font.color := ltblack;
-
+filelistfo.list_files.datacols[3].colorselect := $EDEDED;
 filelistfo.list_files.datacols[3].colorglyph := ltblack;
 aboutfo.font.color := cl_black;
 // configfo.font.color := ltblack;
@@ -1180,6 +1180,7 @@ filelistfo.list_files.datacols[3].color := cl_white;
 filelistfo.list_files.datacols[3].font.color := ltblack;
 
 filelistfo.list_files.datacols[3].colorglyph := ltblack;
+filelistfo.list_files.datacols[3].colorselect := $EDEDED;
 
 aboutfo.font.color := cl_black;
 // configfo.font.color := ltblack;
@@ -1420,6 +1421,8 @@ filelistfo.list_files.datacols[2].font.color := ltblank;
 filelistfo.list_files.datacols[3].color := ltblack;
 filelistfo.list_files.datacols[3].font.color := ltblank;
 filelistfo.list_files.datacols[3].colorglyph := ltblank;
+
+filelistfo.list_files.datacols[3].colorselect := $707070;
 
 aboutfo.font.color := cl_black;
 end;

@@ -13,8 +13,8 @@ object filedialogfo: Tfiledialogfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 3
-  bounds_y = 296
+  bounds_x = 331
+  bounds_y = 148
   bounds_cx = 554
   bounds_cy = 332
   bounds_cxmin = 360
@@ -1138,7 +1138,7 @@ object filedialogfo: Tfiledialogfo
     bounds_x = 0
     bounds_y = 39
     bounds_cx = 554
-    bounds_cy = 247
+    bounds_cy = 240
     anchors = [an_top]
     onkeydown = listviewonkeydown
     datarowlinecolor = -1610612731
@@ -1160,9 +1160,9 @@ object filedialogfo: Tfiledialogfo
   object tlayouter2: tlayouter
     optionswidget = [ow_tabfocus, ow_parenttabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_destroywidgets]
     bounds_x = 2
-    bounds_y = 288
+    bounds_y = 281
     bounds_cx = 551
-    bounds_cy = 42
+    bounds_cy = 49
     anchors = [an_left, an_right, an_bottom]
     optionsscale = [osc_expandy, osc_shrinky, osc_expandshrinkx, osc_expandshrinky]
     linktop = listview
@@ -1287,7 +1287,7 @@ object filedialogfo: Tfiledialogfo
       reffontheight = 15
     end
     object cancel: tbutton
-      optionswidget1 = [ow1_autowidth, ow1_autoheight]
+      optionswidget1 = []
       color = -2147483645
       frame.optionsskin = [fso_flat, fso_focusrect]
       frame.localprops = [frl_optionsskin]
@@ -1306,10 +1306,10 @@ object filedialogfo: Tfiledialogfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       taborder = 2
-      bounds_x = 446
-      bounds_y = 19
-      bounds_cx = 56
-      bounds_cy = 23
+      bounds_x = 435
+      bounds_y = 23
+      bounds_cx = 55
+      bounds_cy = 26
       bounds_cxmin = 35
       anchors = [an_top, an_right]
       state = [as_localcaption, as_localcolor]
@@ -1317,7 +1317,7 @@ object filedialogfo: Tfiledialogfo
       modalresult = mr_cancel
     end
     object ok: tbutton
-      optionswidget1 = [ow1_autowidth, ow1_autoheight]
+      optionswidget1 = []
       color = -2147483645
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
@@ -1336,12 +1336,12 @@ object filedialogfo: Tfiledialogfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       taborder = 3
-      bounds_x = 506
-      bounds_y = 18
-      bounds_cx = 35
-      bounds_cy = 23
+      bounds_x = 496
+      bounds_y = 23
+      bounds_cx = 51
+      bounds_cy = 26
       bounds_cxmin = 35
-      anchors = [an_top, an_right]
+      anchors = [an_right, an_bottom]
       state = [as_default, as_localdefault, as_localcaption, as_localcolor, as_localonexecute]
       caption = '&Ok'
       onexecute = okonexecute
@@ -1365,18 +1365,37 @@ object filedialogfo: Tfiledialogfo
       anchors = [an_top, an_right]
       onsetvalue = showhiddenonsetvalue
     end
-    object tlabel1: tlabel
+    object ldir: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16250871
+        13750737
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
       taborder = 5
+      hint = ' The selected directory '
       visible = False
-      bounds_x = 13
-      bounds_y = 5
-      bounds_cx = 158
-      bounds_cy = 19
-      caption = 'The directory name'
-      font.height = 16
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 428
+      bounds_cy = 26
+      anchors = [an_left, an_top, an_right]
+      font.height = 14
       font.name = 'stf_default'
       font.localprops = [flp_height]
-      reffontheight = 19
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'the directory'
+      reffontheight = 17
     end
   end
   object dir: tdirdropdownedit

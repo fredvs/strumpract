@@ -9,8 +9,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 212
-  bounds_y = 156
+  bounds_x = 363
+  bounds_y = 125
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -110,6 +110,7 @@ object filelistfo: tfilelistfo
       frame.button.frame.localprops1 = []
       frame.button.frame.template = commanderfo.tframecomp2
       frame.button.imagenr = 17
+      taborder = 1
       hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
       bounds_x = 3
       bounds_y = 101
@@ -146,61 +147,6 @@ object filelistfo: tfilelistfo
       controller.onafterexecute = onafterdialog
       reffontheight = 15
     end
-    object historyfn: thistoryedit
-      color = -2147483645
-      frame.levelo = 0
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = commanderfo.timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.colorclient = -2147483645
-      frame.captionpos = cp_lefttop
-      frame.captiondist = 0
-      frame.localprops = [frl_frameimagelist]
-      frame.localprops1 = [frl1_captiondist]
-      frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfacebutgray
-      frame.button.frame.localprops = []
-      frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
-      frame.buttons.count = 1
-      frame.buttons.items = <      
-        item
-          face.localprops = []
-          face.template = mainfo.tfacebutgray
-          frame.localprops = []
-          frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
-        end>
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutltgray
-      taborder = 1
-      hint = ' History of Directories '
-      bounds_x = 24
-      bounds_y = 101
-      bounds_cx = 176
-      bounds_cy = 24
-      anchors = [an_left, an_right, an_bottom]
-      statfile = mainfo.tstatfile1
-      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
-      optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
-      onchange = onchangpath
-      dropdown.options = [deo_keydropdown, deo_cliphint]
-      dropdown.dropdownrowcount = 10
-      dropdown.cols.count = 1
-      dropdown.cols.items = <      
-        item
-          textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
-        end>
-      dropdown.historymaxcount = 50
-      reffontheight = 15
-    end
     object tbutton1: tbutton
       color = -2147483645
       frame.captiondist = 0
@@ -213,7 +159,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 2
+      taborder = 3
       hint = ' Sent selected song to cue for Player 1 '
       bounds_x = 268
       bounds_y = 101
@@ -240,7 +186,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 3
+      taborder = 4
       hint = ' Sent selected song to cue for Player 2 '
       bounds_x = 359
       bounds_y = 101
@@ -273,7 +219,6 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutgray
-      taborder = 4
       bounds_x = 1
       bounds_y = 0
       bounds_cx = 447
@@ -281,7 +226,7 @@ object filelistfo: tfilelistfo
       anchors = [an_left, an_top, an_right, an_bottom]
       font.name = 'stf_default'
       font.localprops = []
-      datacols.count = 4
+      datacols.count = 5
       datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
       datacols.fontselect.colorselectbackground = 3224359
       datacols.fontselect.name = 'stf_default'
@@ -289,30 +234,42 @@ object filelistfo: tfilelistfo
       datacols.optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       datacols.items = <      
         item
-          width = 303
+          width = 293
           options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
           valuetrue = '1'
         end      
         item
-          width = 34
+          width = 44
           options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
+          textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
           valuetrue = '1'
         end      
         item
-          width = 61
+          width = 65
           options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
+          textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
           valuetrue = '1'
         end      
         item
-          width = 30
+          colorselect = 15592941
+          width = 27
+          textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           optionsedit = [scoe_undoonesc, scoe_eatreturn, scoe_exitoncursor, scoe_autoselect, scoe_autoselectonfirstclick, scoe_focusrectonreadonly, scoe_checkbox]
+          valuefalse = '0'
+          valuetrue = '1'
+        end      
+        item
+          width = 1
+          options = [co_readonly, co_nofocus, co_invisible, co_savevalue, co_savestate, co_mousescrollrow]
+          widthmin = 0
+          optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
           valuetrue = '1'
         end>
@@ -371,6 +328,76 @@ object filelistfo: tfilelistfo
       anchors = [an_left, an_bottom]
       textflags = [tf_xcentered, tf_ycentered]
       value = '0 files'
+      reffontheight = 15
+    end
+    object historyfn: thistoryedit
+      color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_list = commanderfo.timagelist3
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.colorclient = -2147483645
+      frame.captionpos = cp_lefttop
+      frame.captiondist = 0
+      frame.localprops = [frl_frameimagelist]
+      frame.localprops1 = [frl1_captiondist]
+      frame.button.face.localprops = []
+      frame.button.face.template = mainfo.tfacebutgray
+      frame.button.frame.localprops = []
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          face.localprops = []
+          face.template = mainfo.tfacebutgray
+          frame.localprops = []
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutltgray
+      taborder = 2
+      hint = ' History of Directories '
+      bounds_x = 24
+      bounds_y = 101
+      bounds_cx = 176
+      bounds_cy = 24
+      anchors = [an_left, an_right, an_bottom]
+      statfile = mainfo.tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
+      optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+      onchange = onchangpath
+      dropdown.options = [deo_keydropdown, deo_cliphint]
+      dropdown.dropdownrowcount = 10
+      dropdown.cols.count = 1
+      dropdown.cols.items = <      
+        item
+          textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+        end>
+      dropdown.historymaxcount = 50
+      onbeforedropdown = onbefdrop
+      onafterclosedropdown = onaftdrop
+      reffontheight = 15
+    end
+    object edfilescount: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 6
+      visible = False
+      bounds_x = 272
+      bounds_y = 102
+      bounds_cx = 20
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      onchange = onchangecount
       reffontheight = 15
     end
   end

@@ -20,7 +20,8 @@ uses
  msebitmap,msedatanodes,msefileutils,msedropdownlist,mseevent,msegraphedits,
  mseeditglob,msesplitter,msemenus,msegridsglob,msegraphics,msegraphutils,
  msedirtree,msewidgetgrid,mseact,mseapplication,msegui,mseificomp,
- mseificompglob,mseifiglob,msestream,sysutils,msemenuwidgets,msescrollbar;
+ mseificompglob,mseifiglob,msestream,sysutils,msemenuwidgets,msescrollbar,
+ mserichstring;
 
 const
  defaultlistviewoptionsfile = defaultlistviewoptions + [lvo_readonly];
@@ -480,13 +481,13 @@ type
    cancel: tbutton;
    ok: tbutton;
    showhidden: tbooleanedit;
-   tlabel1: tlabel;
    dir: tdirdropdownedit;
    createdir: tbutton;
    home: tbutton;
    up: tstockglyphbutton;
    back: tstockglyphbutton;
    forward: tstockglyphbutton;
+   ldir: tstringdisp;
    procedure createdironexecute(const sender: TObject);
    procedure listviewselectionchanged(const sender: tcustomlistview);
    procedure listviewitemevent(const sender: tcustomlistview;
@@ -1442,7 +1443,8 @@ begin
  accept:= tryreadlist(avalue,true);
  if accept then begin
  
- tlabel1.caption := tosysfilepath(avalue);
+ ldir.value := tosysfilepath(avalue);
+ ldir.hint := ' Selected: ' + ldir.value + ' ' ;
   course(avalue);
  end;
 // listview.directory:= avalue;
@@ -1487,34 +1489,33 @@ var
  int1: integer;
  str1: filenamety;
 begin
-//application.lock();
 
 if thesender = 5 then
 begin
 filelistfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 filelistfo.historyfn.value := tosysfilepath(dir.value);
-//filelistfo.dir.value := dir.value;
-//filelistfo.list_files.mask := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
-//filelistfo.list_files.path := tosysfilepath(dir.value);
-
+filelistfo.historyfn.hint := ' Selected: ' + filelistfo.historyfn.value + ' ';
 end;
 
 if thesender = 0 then
 begin
 songplayerfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 songplayerfo.historyfn.value := tosysfilepath(dir.value + filename.value);
+songplayerfo.historyfn.hint := ' Selected: ' + songplayerfo.historyfn.value + ' ';
 end;
 
 if thesender = 1 then
 begin
 songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 songplayer2fo.historyfn.value := tosysfilepath(dir.value + filename.value);
+songplayer2fo.historyfn.hint := ' Selected: ' + songplayer2fo.historyfn.value + ' ';
 end;
 
 if thesender = 2 then
 begin
 recorderfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 recorderfo.historyfn.value := tosysfilepath(dir.value + filename.value);
+recorderfo.historyfn.hint :=  ' Selected: ' + recorderfo.historyfn.value + ' ';
 end;
   
   if (filename.value <> '') or (fdo_acceptempty in dialogoptions) then begin
@@ -1628,15 +1629,15 @@ begin
   filename.visible := false;
   filter.visible := false;
   showhidden.visible := false;
-  tlabel1.top := 0;
-  tlabel1.visible := true;
+  ldir.top := 0;
+  ldir.visible := true;
   cancel.top := 0 ;
    ok.top := 0 ;
   caption := 'Select a audio directory';
    end else
    
    begin
-   tlabel1.visible := false;
+   ldir.visible := false;
    cancel.top := 19 ;
    ok.top := 19 ;
     showhidden.visible := true;
@@ -1740,7 +1741,10 @@ end;
 procedure tfiledialogfo.onchangedir(const sender: TObject);
 begin
  if thesender = 5 then
-     tlabel1.caption := dir.value;
+ begin
+     ldir.value := dir.value;
+    ldir.hint := ' Selected: ' + dir.value + ' ' ;
+ end;    
 end;
 
 
