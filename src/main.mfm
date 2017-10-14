@@ -13,11 +13,14 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 359
-  bounds_y = 55
-  bounds_cx = 469
-  bounds_cy = 66
+  bounds_x = 524
+  bounds_y = 289
+  bounds_cx = 458
+  bounds_cy = 68
   bounds_cxmin = 458
+  bounds_cymin = 40
+  bounds_cxmax = 472
+  bounds_cymax = 700
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -43,8 +46,8 @@ object mainfo: tmainfo
   container.bounds = (
     0
     17
-    469
-    49
+    458
+    51
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1149,7 +1152,7 @@ object mainfo: tmainfo
     frame.grip_face.template = tfacecomp4
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 469
+    bounds_cx = 458
     bounds_cy = 49
     font.name = 'stf_default'
     font.xscale = 1
@@ -1175,8 +1178,8 @@ object mainfo: tmainfo
     frame.localprops1 = []
     taborder = 1
     visible = False
-    bounds_x = 431
-    bounds_y = 10
+    bounds_x = 400
+    bounds_y = 7
     bounds_cx = 29
     bounds_cy = 21
     statfile = tstatfile1
@@ -1321,8 +1324,8 @@ object mainfo: tmainfo
     options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev
-    left = 359
-    top = 8
+    left = 322
+    top = 7
   end
   object tframecomp1: tframecomp
     template.framei_left = 4
@@ -1340,8 +1343,8 @@ object mainfo: tmainfo
     template.frameimage_bottom = -8
     template.hiddenedges = [edg_bottom]
     template.optionsskin = [fso_flat]
-    left = 311
-    top = 15
+    left = 310
+    top = 7
   end
   object tfacecomp5: tfacecomp
     template.fade_pos.count = 2
@@ -1476,8 +1479,8 @@ object mainfo: tmainfo
       11317382
     )
     template.fade_direction = gd_down
-    left = 77
-    top = 19
+    left = 75
+    top = 8
   end
   object tfaceplayerlight: tfacecomp
     template.fade_pos.count = 2
@@ -1590,8 +1593,8 @@ object mainfo: tmainfo
     height = 24
     options = [bmo_masked, bmo_colormask]
     count = 35
-    left = 24
-    top = 12
+    left = 23
+    top = 4
     image = {
       00000000060000009000000090000000649C0000000000000000000000000000
       0000000000000000000000000000000000000000C0C0C01800000030D0D0D018

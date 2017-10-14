@@ -4,13 +4,13 @@ unit recorder;
 interface
 
 uses
- ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
- mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,mseevent,
- mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,msedataedits,
- msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,msegraphedits,
- mseificomp,mseificompglob, mseifiglob, msescrollbar,msedragglob, mseact,
- mseedit, msestatfile,msestream, msestrings, msebitmap,msedatanodes,
- msedispwidgets, mserichstring;
+  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
+  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, mseevent,
+  mseclasses, mseforms, msedock, msesimplewidgets, msewidgets, msedataedits,
+  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils, msegraphedits,
+  mseificomp, mseificompglob, mseifiglob, msescrollbar, msedragglob, mseact,
+  mseedit, msestatfile, msestream, msestrings, msebitmap, msedatanodes,
+  msedispwidgets, mserichstring;
 
 type
   trecorderfo = class(tdockform)
@@ -44,11 +44,11 @@ type
     songdir: tfilenameedit;
     llength: tstringdisp;
     lposition: tstringdisp;
-   tstringdisp2: tstringdisp;
-   vuRight: tprogressbar;
-   vuLeft: tprogressbar;
-   recpan: tgroupbox;
-   tfacecomp2: tfacecomp;
+    tstringdisp2: tstringdisp;
+    vuRight: tprogressbar;
+    vuLeft: tprogressbar;
+    recpan: tgroupbox;
+    tfacecomp2: tfacecomp;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -68,20 +68,18 @@ type
     procedure onplayercreate(const Sender: TObject);
     procedure onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure dorecorderstart(const Sender: TObject);
-    procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty;
-      var aresult: modalresultty);
+    procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
     procedure onlistenin(const Sender: TObject);
     procedure ondest(const Sender: TObject);
-   procedure afterev(const sender: tcustomscrollbar; const akind: scrolleventty;
-                   const avalue: Real);
+    procedure afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
   end;
 
 var
-  timenow : ttime;
+  timenow: ttime;
   recorderfo: trecorderfo;
   thedialogform: tfiledialogfo;
   initplay: integer = 1;
-  isrecording : boolean = false;
+  isrecording: boolean = False;
   therecplayer: integer = 24;
   therecplayerinfo: integer = 25;
   plugIndex3, PluginIndex3: integer;
@@ -93,20 +91,23 @@ implementation
 uses
   main, config,
   recorder_mfm;
-  
+
 procedure trecorderfo.ontimerrec(const Sender: TObject);
 var
   temptime: ttime;
   ho, mi, se, ms: word;
 begin
-timerrec.Enabled := False;
-if isrecording then begin
+  timerrec.Enabled := False;
+  if isrecording then
+  begin
     temptime := now - timenow;
     DecodeTime(temptime, ho, mi, se, ms);
     lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
-    timerrec.Enabled := true;
-  end else lposition.Value := '00:00:00.000';
-end;  
+    timerrec.Enabled := True;
+  end
+  else
+    lposition.Value := '00:00:00.000';
+end;
 
 procedure trecorderfo.ontimerwait(const Sender: TObject);
 begin
@@ -144,8 +145,8 @@ begin
   tbutton2.Enabled := False;
   tbutton3.Enabled := True;
 
-  vuright.value := 0;
-  vuleft.value := 0;
+  vuright.Value := 0;
+  vuleft.Value := 0;
   vuLeft.Visible := False;
   vuRight.Visible := False;
   btnStart.Enabled := True;
@@ -158,17 +159,17 @@ begin
   bsavetofile.Enabled := True;
   lposition.Value := '00:00:00.000';
   lposition.face.template := tfacereclight;
-   historyfn.face.template := tfacereclight;
-   
-   isrecording := false;
-   
-   timerrec.enabled := false;
-      
-  recpan.visible := false;
-  
+  historyfn.face.template := tfacereclight;
+
+  isrecording := False;
+
+  timerrec.Enabled := False;
+
+  recpan.Visible := False;
+
   lposition.Value := '00:00:00.000';
   lposition.face.template := tfacereclight;
-   historyfn.face.template := tfacereclight;
+  historyfn.face.template := tfacereclight;
 
 end;
 
@@ -183,31 +184,31 @@ begin
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
 
 
-if (leftlev >= 0) and (leftlev < 1) then
+  if (leftlev >= 0) and (leftlev < 1) then
   begin
 
-  if leftlev < 0.80 then
-    vuLeft.bar_face.template := mainfo.tfacegreen
-  else
-  if leftlev < 0.90 then
-    vuLeft.bar_face.template := mainfo.tfaceorange
-  else
-    vuLeft.bar_face.template := mainfo.tfacered;
-    vuLeft.value := leftlev; 
- end;   
+    if leftlev < 0.80 then
+      vuLeft.bar_face.template := mainfo.tfacegreen
+    else
+    if leftlev < 0.90 then
+      vuLeft.bar_face.template := mainfo.tfaceorange
+    else
+      vuLeft.bar_face.template := mainfo.tfacered;
+    vuLeft.Value := leftlev;
+  end;
 
-if (rightlev >= 0) and (rightlev < 1) then
+  if (rightlev >= 0) and (rightlev < 1) then
   begin
-  if rightlev < 0.80 then
-    vuRight.bar_face.template := mainfo.tfacegreen
-  else
-  if rightlev < 0.90 then
-    vuRight.bar_face.template := mainfo.tfaceorange
-  else
-    vuRight.bar_face.template := mainfo.tfacered;
-    vuRight.value := rightlev; 
+    if rightlev < 0.80 then
+      vuRight.bar_face.template := mainfo.tfacegreen
+    else
+    if rightlev < 0.90 then
+      vuRight.bar_face.template := mainfo.tfaceorange
+    else
+      vuRight.bar_face.template := mainfo.tfacered;
+    vuRight.Value := rightlev;
   end;
-  end;
+end;
 
 procedure trecorderfo.ShowPosition;
 var
@@ -231,8 +232,9 @@ end;
 
 procedure trecorderfo.LoopProcPlayer1;
 begin
- if isrecording = false then  ShowPosition;
- ShowLevel;
+  if isrecording = False then
+    ShowPosition;
+  ShowLevel;
 end;
 
 procedure trecorderfo.doplayerstart(const Sender: TObject);
@@ -270,22 +272,22 @@ begin
 
     if InputIndex3 > -1 then
     begin
-    isrecording := false;
+      isrecording := False;
       // OutputIndex3 := uos_AddIntoDevOut(PlayerIndex3) ;
       //// add a Output into device with default parameters
-  
-    
+
+
   {$if defined(cpuarm)}
-          OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, 0.3, uos_InputGetSampleRate(therecplayer, InputIndex3),
+      OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, 0.3, uos_InputGetSampleRate(therecplayer, InputIndex3),
         uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024);
- 
+
        {$else}
       OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, -1, uos_InputGetSampleRate(therecplayer, InputIndex3),
         uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024);
- 
+
        {$endif}
-   
-  
+
+
       //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
       //////////// Device ( -1 is default Output device )
@@ -531,11 +533,11 @@ begin
 
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[3].submenu[7].caption := ' Hide Recorder ' ;
+    mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Hide Recorder ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[3].submenu[7].caption := ' Show Recorder ' ;
+    mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Show Recorder ';
     uos_Stop(therecplayer);
   end;
 
@@ -552,7 +554,7 @@ begin
   Timerwait.interval := 100000;
   Timerwait.Enabled := False;
   Timerwait.ontimer := @ontimerwait;
-  
+
   Timerrec := ttimer.Create(nil);
   Timerrec.interval := 100000;
   Timerrec.Enabled := False;
@@ -596,26 +598,26 @@ begin
 
   if uos_CreatePlayer(therecplayer) then
   begin
-    isrecording := true;
+    isrecording := True;
     tbutton2.Enabled := True;
     tbutton3.Enabled := False;
     btnStart.Enabled := False;
-    
-     historyfn.face.template := tfacereclight;
-     
-     lposition.face.template := mainfo.tfaceorange;
-     
-       //historyfn.font.color := cl_black;
-      
-      recpan.visible := true;
-      
-       recpan.font.color := cl_black;
+
+    historyfn.face.template := tfacereclight;
+
+    lposition.face.template := mainfo.tfaceorange;
+
+    //historyfn.font.color := cl_black;
+
+    recpan.Visible := True;
+
+    recpan.font.color := cl_black;
 
     if bsavetofile.Value then
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
 
-    OutputIndex3 := uos_AddIntoDevOut(therecplayer,-1, configfo.latrec.value, -1, -1, -1, -1) ;
-    
+    OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latrec.Value, -1, -1, -1, -1);
+
     uos_outputsetenable(therecplayer, OutputIndex3, blistenin.Value);
 
     InputIndex3 := uos_AddFromDevIn(therecplayer);
@@ -660,8 +662,8 @@ begin
 
     bsavetofile.Enabled := False;
 
-       timenow := now;
-    timerrec.enabled := true;
+    timenow := now;
+    timerrec.Enabled := True;
   end;
 end;
 
@@ -678,15 +680,15 @@ end;
 procedure trecorderfo.ondest(const Sender: TObject);
 begin
   Timerwait.Free;
-  timerrec.free;
+  timerrec.Free;
 end;
 
-procedure trecorderfo.afterev(const sender: tcustomscrollbar;
-               const akind: scrolleventty; const avalue: Real);
+procedure trecorderfo.afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
 begin
-if akind = sbe_thumbposition then 
-   uos_InputSeek(therecplayer, InputIndex3, trunc(avalue * inputlength))
-   else onsliderchange(Sender);
+  if akind = sbe_thumbposition then
+    uos_InputSeek(therecplayer, InputIndex3, trunc(avalue * inputlength))
+  else
+    onsliderchange(Sender);
 end;
 
 

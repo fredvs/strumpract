@@ -4,12 +4,12 @@ unit drums;
 interface
 
 uses
- mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
- msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
- msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
- msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
- mseact,mseedit, msestatfile, msestream, msestrings, msedispwidgets,
- mserichstring;
+  mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
+  msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
+  msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
+  mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
+  mserichstring;
 
 type
   talab = array[0..15] of tlabel;
@@ -118,33 +118,33 @@ type
     tbooleanedit64: tbooleanedit;
     tfacecomp2: tfacecomp;
     tfacecomp3: tfacecomp;
-   panel1: tgroupbox;
-   tbooleaneditradio8: tbooleaneditradio;
-   tbooleaneditradio7: tbooleaneditradio;
-   tbooleaneditradio6: tbooleaneditradio;
-   tbooleaneditradio5: tbooleaneditradio;
-   tbooleaneditradio2: tbooleaneditradio;
-   tbooleaneditradio4: tbooleaneditradio;
-   tbooleaneditradio3: tbooleaneditradio;
-   tbooleaneditradio1: tbooleaneditradio;
-   tlabel22: tlabel;
-   tlabel21: tlabel;
-   noanim: tbooleanedit;
-   noand: tbooleanedit;
-   novoice: tbooleanedit;
-   nodrums: tbooleanedit;
-   loop_stop: tbutton;
-   loop_resume: tbutton;
-   loop_start: tbutton;
-   label4: tlabel;
-   label2: tlabel;
-   label3: tlabel;
-   edittempo: trealspinedit;
-   tlabel25: tlabel;
-   tlabel23: tlabel;
-   volumedrums: trealspinedit;
-   ltempo: tstringdisp;
-   tstringdisp2: tstringdisp;
+    panel1: tgroupbox;
+    tbooleaneditradio8: tbooleaneditradio;
+    tbooleaneditradio7: tbooleaneditradio;
+    tbooleaneditradio6: tbooleaneditradio;
+    tbooleaneditradio5: tbooleaneditradio;
+    tbooleaneditradio2: tbooleaneditradio;
+    tbooleaneditradio4: tbooleaneditradio;
+    tbooleaneditradio3: tbooleaneditradio;
+    tbooleaneditradio1: tbooleaneditradio;
+    tlabel22: tlabel;
+    tlabel21: tlabel;
+    noanim: tbooleanedit;
+    noand: tbooleanedit;
+    novoice: tbooleanedit;
+    nodrums: tbooleanedit;
+    loop_stop: TButton;
+    loop_resume: TButton;
+    loop_start: TButton;
+    label4: tlabel;
+    label2: tlabel;
+    label3: tlabel;
+    edittempo: trealspinedit;
+    tlabel25: tlabel;
+    tlabel23: tlabel;
+    volumedrums: trealspinedit;
+    ltempo: tstringdisp;
+    tstringdisp2: tstringdisp;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -724,12 +724,12 @@ begin
 
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[3].submenu[2].caption := ' Hide Drums ' ;
+    mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Hide Drums ';
   end
   else
   begin
     dostop(Sender);
-   mainfo.tmainmenu1.menu[3].submenu[2].caption := ' Show Drums ' ;
+    mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Show Drums ';
   end;
 
   mainfo.updatelayout();
@@ -764,17 +764,17 @@ begin
 
         // using memorystream
         drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
-        
-        if configfo.latdrums.value < 0 then configfo.latdrums.value := -1;
+
+    if configfo.latdrums.Value < 0 then
+      configfo.latdrums.Value := -1;
 
     if drum_input[i] > -1 then
 
       if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
-            
+
         // this for a dummy endless input, must be last input
-         if uos_AddIntoDevOut(i, -1, configfo.latdrums.value, -1, -1, 2, 512) > -1 then
-         
-        
+        if uos_AddIntoDevOut(i, -1, configfo.latdrums.Value, -1, -1, 2, 512) > -1 then
+
         begin
 
           uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
@@ -835,10 +835,9 @@ begin
             if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
               // this for a dummy endless input, must be last input
 
+               if uos_AddIntoDevOut(i, -1, configfo.latdrums.Value, -1, -1, 2, 512) > -1 then;
 
-          if uos_AddIntoDevOut(i, -1, configfo.latdrums.value, -1, -1, 2, 512) > -1 then
- 
-             end;
+    end;
   tag := 1;
   if timerisenabled = True then
     timertick.Enabled := True;

@@ -4,12 +4,12 @@ unit commander;
 interface
 
 uses
- msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
- msegui,msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
- msedock,msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
- msedataedits,msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
- mseificompglob,mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
- msesys, SysUtils,msegraphedits, msescrollbar,msedispwidgets,mserichstring;
+  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
+  msedock, msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
+  msedataedits, msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
+  mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
+  msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets, mserichstring;
 
 type
   tcommanderfo = class(tdockform)
@@ -40,27 +40,27 @@ type
     butinput: TButton;
     volumeright2: tslider;
     volumeleft2: tslider;
-   tfaceslider: tfacecomp;
-   tfacebutton: tfacecomp;
-   btncue: tbutton;
-   btnStart2: tbutton;
-   btncue2: tbutton;
-   btnStop2: tbutton;
-   btnPause2: tbutton;
-   btnResume2: tbutton;
-   linkvol: tbutton;
-   linkvol2: tbutton;
-   vuin: tbutton;
-   nameplayers: tstringdisp;
-   namedrums: tstringdisp;
-   tfacegriptab: tfacecomp;
-   tfacesliderdark: tfacecomp;
-   vuLeft: tprogressbar;
-   vuright: tprogressbar;
-   vuright2: tprogressbar;
-   vuLeft2: tprogressbar;
-   automix: tbutton;
-   edautomix: tintegeredit;
+    tfaceslider: tfacecomp;
+    tfacebutton: tfacecomp;
+    btncue: TButton;
+    btnStart2: TButton;
+    btncue2: TButton;
+    btnStop2: TButton;
+    btnPause2: TButton;
+    btnResume2: TButton;
+    linkvol: TButton;
+    linkvol2: TButton;
+    vuin: TButton;
+    nameplayers: tstringdisp;
+    namedrums: tstringdisp;
+    tfacegriptab: tfacecomp;
+    tfacesliderdark: tfacecomp;
+    vuLeft: tprogressbar;
+    vuright: tprogressbar;
+    vuright2: tprogressbar;
+    vuLeft2: tprogressbar;
+    automix: TButton;
+    edautomix: tintegeredit;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -77,11 +77,11 @@ type
     procedure dopausedrums(const Sender: TObject);
     procedure doresumedrums(const Sender: TObject);
     procedure onchangevoldrums(const Sender: TObject);
-   procedure setlr1(const sender: TObject);
-   procedure setlr2(const sender: TObject);
-   procedure setvu(const sender: TObject);
-   procedure setautomix(const sender: TObject);
-   procedure onexecautomix(const sender: TObject);
+    procedure setlr1(const Sender: TObject);
+    procedure setlr2(const Sender: TObject);
+    procedure setvu(const Sender: TObject);
+    procedure setautomix(const Sender: TObject);
+    procedure onexecautomix(const Sender: TObject);
   end;
 
 var
@@ -108,7 +108,7 @@ end;
 
 procedure tcommanderfo.onstartstop(const Sender: TObject);
 var
-fromplay : integer;
+  fromplay: integer;
 begin
 
   totmixinterval := trunc(timemix.Value / 10);
@@ -126,83 +126,89 @@ begin
 
   initvolleft2 := 0;
   initvolright2 := 0;
-  
-   if sender <> nil then
+
+  if Sender <> nil then
   begin
-  if (TButton(Sender).tag = 0) then
-  fromplay := 0 else fromplay := 1;
-  end else
+    if (TButton(Sender).tag = 0) then
+      fromplay := 0
+    else
+      fromplay := 1;
+  end
+  else
   begin
-  if hasmixed1 = true then 
-   fromplay := 1 else
-    fromplay := 0;
+    if hasmixed1 = True then
+      fromplay := 1
+    else
+      fromplay := 0;
   end;
-  
- if fromplay = 0 then 
+
+  if fromplay = 0 then
   begin
-   tbutton2.face.template := mainfo.tfacebutgray;
+    tbutton2.face.template := mainfo.tfacebutgray;
     tbutton3.face.template := mainfo.tfaceorange;
-  
-  filelistfo.tbutton2.face.template := mainfo.tfaceorange;
-   filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
-  
-      //tbutton3.focused := true;
- 
+
+    filelistfo.tbutton2.face.template := mainfo.tfaceorange;
+    filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
+
+    //tbutton3.focused := true;
+
     thetypemix := 0;
     volumeleft1.Value := 0;
     volumeright1.Value := 0;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
-   
-   if (sender <> nil) and (commanderfo.edautomix.value = 1)
-    and (filelistfo.list_files.rowcount > 0) then
-   begin
-    hasfocused2 := true;
-    filelistfo.onsent(nil);
-    hasfocused2 := false;
-    end;  
- 
-   if uos_GetStatus(theplayer) <> 1  then begin
-    if  (iscue1 = true) or (uos_GetStatus(theplayer) = 2 ) then
-        songplayerfo.doplayeresume(Sender) else
-    songplayerfo.doplayerstart(Sender);
+
+    if (Sender <> nil) and (commanderfo.edautomix.Value = 1) and (filelistfo.list_files.rowcount > 0) then
+    begin
+      hasfocused2 := True;
+      filelistfo.onsent(nil);
+      hasfocused2 := False;
     end;
- 
-    hasmixed2 := true;
-   timermix.Enabled := True;
+
+    if uos_GetStatus(theplayer) <> 1 then
+    begin
+      if (iscue1 = True) or (uos_GetStatus(theplayer) = 2) then
+        songplayerfo.doplayeresume(Sender)
+      else
+        songplayerfo.doplayerstart(Sender);
+    end;
+
+    hasmixed2 := True;
+    timermix.Enabled := True;
   end
   else
-   begin
-  
+  begin
+
     thetypemix := 1;
     volumeleft2.Value := 0;
     volumeright2.Value := 0;
-   tbutton3.face.template := mainfo.tfacebutgray;
-    tbutton2.face.template := mainfo.tfaceorange; 
-     filelistfo.tbutton1.face.template := mainfo.tfaceorange;
-   filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
+    tbutton3.face.template := mainfo.tfacebutgray;
+    tbutton2.face.template := mainfo.tfaceorange;
+    filelistfo.tbutton1.face.template := mainfo.tfaceorange;
+    filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
-    
-      if (sender <> nil) and (commanderfo.edautomix.value = 1)
-       and (filelistfo.list_files.rowcount > 0) then
-   begin
-    hasfocused1 := true;
-    filelistfo.onsent(nil);
-    hasfocused1 := false;
-    end;  
 
- if uos_GetStatus(theplayer2) <> 1  then begin
-    if  (iscue2 = true) or (uos_GetStatus(theplayer2) = 2 ) then
- songplayer2fo.doplayeresume(Sender) else
-  songplayer2fo.doplayerstart(Sender);
+    if (Sender <> nil) and (commanderfo.edautomix.Value = 1) and (filelistfo.list_files.rowcount > 0) then
+    begin
+      hasfocused1 := True;
+      filelistfo.onsent(nil);
+      hasfocused1 := False;
+    end;
+
+    if uos_GetStatus(theplayer2) <> 1 then
+    begin
+      if (iscue2 = True) or (uos_GetStatus(theplayer2) = 2) then
+        songplayer2fo.doplayeresume(Sender)
+      else
+        songplayer2fo.doplayerstart(Sender);
+    end;
+
+    hasmixed1 := True;
+    timermix.Enabled := True;
+
   end;
-  
-  hasmixed1 := true;
-  timermix.Enabled := True;
-  
-  end;
-  end;
+end;
 
 
 procedure tcommanderfo.ontimermix(const Sender: TObject);
@@ -306,12 +312,12 @@ procedure tcommanderfo.visiblechangeev(const Sender: TObject);
 begin
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[3].submenu[6].caption := ' Hide Commander ' ;
+    mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Hide Commander ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[3].submenu[6].caption := ' Show Commander ' ;
-   end;
+    mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Show Commander ';
+  end;
 
   mainfo.updatelayout();
 end;
@@ -415,10 +421,9 @@ begin
       begin
         // writeln('ok create');
         TButton(Sender).tag := 1;
-        
-        OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.value, -1,
-        -1, -1, -1);      
-                 
+
+        OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.Value, -1, -1, -1, -1);
+
         // writeln('OutputIndex4 = ' + inttostr(OutputIndex4));
         // uos_outputsetenable(theinput,OutputIndex4,true);
 
@@ -485,71 +490,76 @@ begin
     drumsfo.volumedrums.Value := trunc(tslider2.Value * 100);
 end;
 
-procedure tcommanderfo.setlr1(const sender: TObject);
+procedure tcommanderfo.setlr1(const Sender: TObject);
 begin
-if linkvol.tag = 0 then
-begin
-linkvol.tag := 1;
-linkvol.face.template:= mainfo.tfacebutgray;
-end else
-if linkvol.tag = 1 then
-begin
-linkvol.tag := 0;
-linkvol.face.template:= mainfo.tfacegreen;
-end;
-end;
-
-procedure tcommanderfo.setlr2(const sender: TObject);
-begin
-if linkvol2.tag = 0 then
-begin
-linkvol2.tag := 1;
-linkvol2.face.template:= mainfo.tfacebutgray;
-end else
-if linkvol2.tag = 1 then
-begin
-linkvol2.tag := 0;
-linkvol2.face.template:= mainfo.tfacegreen;
-end;
+  if linkvol.tag = 0 then
+  begin
+    linkvol.tag := 1;
+    linkvol.face.template := mainfo.tfacebutgray;
+  end
+  else
+  if linkvol.tag = 1 then
+  begin
+    linkvol.tag := 0;
+    linkvol.face.template := mainfo.tfacegreen;
+  end;
 end;
 
-procedure tcommanderfo.setvu(const sender: TObject);
+procedure tcommanderfo.setlr2(const Sender: TObject);
 begin
-if vuin.tag = 0 then
-begin
-vuin.tag := 1;
-vuin.face.template:= mainfo.tfacebutgray;
-end else
-if vuin.tag = 1 then
-begin
-vuin.tag := 0;
-vuin.face.template:= mainfo.tfacegreen;
+  if linkvol2.tag = 0 then
+  begin
+    linkvol2.tag := 1;
+    linkvol2.face.template := mainfo.tfacebutgray;
+  end
+  else
+  if linkvol2.tag = 1 then
+  begin
+    linkvol2.tag := 0;
+    linkvol2.face.template := mainfo.tfacegreen;
+  end;
 end;
+
+procedure tcommanderfo.setvu(const Sender: TObject);
+begin
+  if vuin.tag = 0 then
+  begin
+    vuin.tag := 1;
+    vuin.face.template := mainfo.tfacebutgray;
+  end
+  else
+  if vuin.tag = 1 then
+  begin
+    vuin.tag := 0;
+    vuin.face.template := mainfo.tfacegreen;
+  end;
 
 end;
 
-procedure tcommanderfo.setautomix(const sender: TObject);
+procedure tcommanderfo.setautomix(const Sender: TObject);
 begin
-if edautomix.value = 1 then
-begin
-automix.face.template:= mainfo.tfacegreen;
-end else
-if edautomix.value = 0 then
-begin
-automix.face.template:= mainfo.tfacebutgray;
-end;
+  if edautomix.Value = 1 then
+  begin
+    automix.face.template := mainfo.tfacegreen;
+  end
+  else
+  if edautomix.Value = 0 then
+  begin
+    automix.face.template := mainfo.tfacebutgray;
+  end;
 end;
 
-procedure tcommanderfo.onexecautomix(const sender: TObject);
+procedure tcommanderfo.onexecautomix(const Sender: TObject);
 begin
-if edautomix.value = 1 then
-begin
-edautomix.value := 0
-end else
-begin
-if edautomix.value = 0 then
-edautomix.value := 1;
-end;
+  if edautomix.Value = 1 then
+  begin
+    edautomix.Value := 0;
+  end
+  else
+  begin
+    if edautomix.Value = 0 then
+      edautomix.Value := 1;
+  end;
 end;
 
 end.

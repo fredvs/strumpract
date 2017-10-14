@@ -4,11 +4,11 @@ unit guitars;
 interface
 
 uses
- mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msegui,
- msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
- msesimplewidgets, msewidgets, msegraphedits, SysUtils, mseificomp,
- mseificompglob,mseifiglob, msescrollbar, msetypes,msedispwidgets,mserichstring,
- msestrings;
+  mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msegui,
+  msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
+  msesimplewidgets, msewidgets, msegraphedits, SysUtils, mseificomp,
+  mseificompglob, mseifiglob, msescrollbar, msetypes, msedispwidgets, mserichstring,
+  msestrings;
 
 type
   tguitarsfo = class(tdockform)
@@ -28,8 +28,8 @@ type
     tbutton5: TButton;
     tbutton3: TButton;
     loopguit: tbooleanedit;
-   tstringdisp2: tstringdisp;
-   tstringdisp3: tstringdisp;
+    tstringdisp2: tstringdisp;
+    tstringdisp3: tstringdisp;
     procedure doguitarstring(const Sender: TObject);
     procedure onvisiblechangeev(const Sender: TObject);
     procedure oncreateguit(const Sender: TObject);
@@ -55,38 +55,37 @@ begin
   begin
     if uos_CreatePlayer(TButton(Sender).tag + 9) then
       if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
-        
+
           {$if defined(cpuarm)}
         if uos_AddIntoDevOut(TButton(Sender).tag + 9, -1, 0.3, -1, -1, -1, -1) > -1 then
          {$else}
-         if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
+          if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
          {$endif}
-         
-          uos_Play(TButton(Sender).tag + 9);
+
+            uos_Play(TButton(Sender).tag + 9);
   end
   else
   begin
     if (aguitarisplaying[TButton(Sender).tag - 1] = False) then
-    
-    
+
     begin
       TButton(Sender).face.fade_direction := gd_up;
       TButton(Sender).face.fade_color.items[1] := cl_ltgreen;
-      
+
       if uos_CreatePlayer(TButton(Sender).tag + 9) then
-      
-      if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
-     
+
+        if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
+
         {$if defined(cpuarm)}
-        if uos_AddIntoDevOut(TButton(Sender).tag + 9, -1, 0.3, -1, -1, -1, -1) > -1 then
+          if uos_AddIntoDevOut(TButton(Sender).tag + 9, -1, 0.3, -1, -1, -1, -1) > -1 then
          {$else}
-         if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
+            if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
          {$endif}
-     
-          begin
-            uos_Play(TButton(Sender).tag + 9, -1);
-            aguitarisplaying[TButton(Sender).tag - 1] := True;
-          end;
+
+            begin
+              uos_Play(TButton(Sender).tag + 9, -1);
+              aguitarisplaying[TButton(Sender).tag - 1] := True;
+            end;
     end
     else
     begin
@@ -100,13 +99,14 @@ end;
 
 procedure tguitarsfo.onvisiblechangeev(const Sender: TObject);
 begin
-if Visible then
+  if Visible then
   begin
-    mainfo.tmainmenu1.menu[3].submenu[8].caption := ' Hide Guitars ' ;
+    mainfo.tmainmenu1.menu[3].submenu[8].Caption := ' Hide Guitars ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[3].submenu[8].caption := ' Show Guitars ' ; 
+    mainfo.tmainmenu1.menu[3].submenu[8].Caption := ' Show Guitars ';
+
   end;
   mainfo.updatelayout();
 end;
