@@ -4,12 +4,12 @@ unit commander;
 interface
 
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
-  msedock, msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
-  msedataedits, msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
-  mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
-  msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets, mserichstring;
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+ msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
+ msedock, msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
+ msedataedits, msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
+ mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
+ msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets, mserichstring;
 
 type
   tcommanderfo = class(tdockform)
@@ -61,6 +61,7 @@ type
     vuLeft2: tprogressbar;
     automix: TButton;
     edautomix: tintegeredit;
+   edvuin: tintegeredit;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -82,6 +83,7 @@ type
     procedure setvu(const Sender: TObject);
     procedure setautomix(const Sender: TObject);
     procedure onexecautomix(const Sender: TObject);
+   procedure setvuin(const sender: TObject);
   end;
 
 var
@@ -522,15 +524,13 @@ end;
 
 procedure tcommanderfo.setvu(const Sender: TObject);
 begin
-  if vuin.tag = 0 then
+if edvuin.Value = 1 then
   begin
-    vuin.tag := 1;
-    vuin.face.template := mainfo.tfacebutgray;
+      vuin.face.template := mainfo.tfacebutgray;
   end
   else
-  if vuin.tag = 1 then
+ if edvuin.Value = 0 then
   begin
-    vuin.tag := 0;
     vuin.face.template := mainfo.tfacegreen;
   end;
 
@@ -559,6 +559,19 @@ begin
   begin
     if edautomix.Value = 0 then
       edautomix.Value := 1;
+  end;
+end;
+
+procedure tcommanderfo.setvuin(const sender: TObject);
+begin
+  if edvuin.Value = 1 then
+  begin
+    edvuin.Value := 0;
+  end
+  else
+  begin
+    if edvuin.Value = 0 then
+      edvuin.Value := 1;
   end;
 end;
 

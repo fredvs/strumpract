@@ -663,7 +663,7 @@ object commanderfo: tcommanderfo
       font.localprops = [flp_color, flp_height]
       imagenr = 27
       focusrectdist = 0
-      onexecute = setvu
+      onexecute = setvuin
     end
     object nameplayers: tstringdisp
       color = -2147483645
@@ -816,12 +816,28 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       taborder = 26
       visible = False
-      bounds_x = 138
+      bounds_x = 147
       bounds_y = 45
-      bounds_cx = 29
+      bounds_cx = 20
       bounds_cy = 21
       statfile = mainfo.tstatfile1
       onchange = setautomix
+      valuemax = 10
+      reffontheight = 15
+    end
+    object edvuin: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 27
+      visible = False
+      bounds_x = 114
+      bounds_y = 44
+      bounds_cx = 21
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      onchange = setvu
+      value = 1
+      valuedefault = 1
       valuemax = 10
       reffontheight = 15
     end

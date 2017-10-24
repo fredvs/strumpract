@@ -123,6 +123,8 @@ begin
 
       if theplaysender = 0 then
       begin
+      if fileexists((list_files[4][thefocusedcell.row])) then
+        begin
         songplayerfo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
 
         songplayerfo.historyfn.face.template := mainfo.tfaceorange;
@@ -132,11 +134,15 @@ begin
           commanderfo.tbutton2.SetFocus;
         songplayerfo.timersent.Enabled := False;
         songplayerfo.timersent.Enabled := True;
+       end else 
+      ShowMessage(tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...');
       end;
-
-      if theplaysender = 1 then
+ 
+       if theplaysender = 1 then
       begin
-        //songplayer2fo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
+        if fileexists((list_files[4][thefocusedcell.row])) then
+        begin
+        
         songplayer2fo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
 
         songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
@@ -146,10 +152,18 @@ begin
                 commanderfo.tbutton3.SetFocus;
         songplayer2fo.timersent.Enabled := False;
         songplayer2fo.timersent.Enabled := True;
-      end;
-      list_files.selectcell(thefocusedcell, csm_select, False);
-    end;
-  end;
+      end else
+      ShowMessage(tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...');
+      
+        end;
+ 
+   list_files.selectcell(thefocusedcell, csm_select, False);
+ 
+        end;
+  end else
+  begin
+    ShowMessage('Directory ' + historyfn.Value + ' does not exist or not mounted...');
+   end;
 end;
 
 procedure tfilelistfo.whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
@@ -168,6 +182,7 @@ begin
 
     if directoryexists(historyfn.Value) then
     begin
+      list_files.tag := 0;
 
       historyfn.hint := ' Selected: ' + historyfn.Value + ' ';
 
@@ -202,7 +217,6 @@ begin
   end;
 end;
 
-
 procedure tfilelistfo.onafterdialog(const Sender: tfiledialogcontroller; var aresult: modalresultty);
 begin
   //list_files.path := dir.value;
@@ -225,7 +239,7 @@ begin
   //sizebefdock.cy := 500;
   //size := sizebefdock;
   bounds_cxmax := fowidth;
-  bounds_cymax := 600;
+  bounds_cymax := 700;
 end;
 
 procedure tfilelistfo.afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject;
@@ -259,7 +273,6 @@ begin
 
   cellpos := info.cell;
  
-
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
   begin
    if (cellpos.row = -1) and (cellpos.col = 3)  then 

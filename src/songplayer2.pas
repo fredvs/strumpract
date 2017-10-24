@@ -247,7 +247,7 @@ begin
   vuLeft.Visible := True;
   vuRight.Visible := True;
 
-  if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+  if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
   begin
     commanderfo.vuLeft2.Visible := True;
     commanderfo.vuRight2.Visible := True;
@@ -267,24 +267,24 @@ begin
     if leftlev < 0.80 then
     begin
       vuLeft.bar_face.template := mainfo.tfacegreen;
-      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
         commanderfo.vuLeft2.bar_face.template := mainfo.tfacegreen;
     end
     else
     if leftlev < 0.90 then
     begin
       vuLeft.bar_face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
         commanderfo.vuLeft2.bar_face.template := mainfo.tfaceorange;
     end
     else
     begin
       vuLeft.bar_face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
         commanderfo.vuLeft2.bar_face.template := mainfo.tfacered;
     end;
     vuLeft.Value := leftlev;
-    if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+    if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
       commanderfo.vuLeft2.Value := leftlev;
   end;
 
@@ -295,24 +295,24 @@ begin
     begin
       vuRight.bar_face.template := mainfo.tfacegreen;
 
-      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
         commanderfo.vuRight2.bar_face.template := mainfo.tfacegreen;
     end
     else
     if rightlev < 0.90 then
     begin
       vuRight.bar_face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
         commanderfo.vuRight2.bar_face.template := mainfo.tfaceorange;
     end
     else
     begin
       vuRight.bar_face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
         commanderfo.vuRight2.bar_face.template := mainfo.tfacered;
     end;
     vuright.Value := rightlev;
-    if (commanderfo.Visible) and (commanderfo.vuin.tag = 0) then
+    if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
       commanderfo.vuright2.Value := rightlev;
   end;
 
@@ -608,7 +608,7 @@ begin
 
     end
     else
-      ShowMessage(historyfn.Value + ' does not exist...');
+      ShowMessage(historyfn.Value + ' does not exist or not mounted...');
   end
   else
     ShowMessage(historyfn.Value + ' is not a audio file...');
@@ -873,12 +873,10 @@ begin
           else
 
 
-          if (waveformcheck.Value = True) then
+          if (waveformcheck.Value = True) and (iswav2 = False) then
           begin
 
-            iswav2 := False;
-
-            chan2 := uos_InputGetChannels(theplayerinfo2, 0);
+                      chan2 := uos_InputGetChannels(theplayerinfo2, 0);
 
             // writeln('chan = ' + inttostr(chan1));
             //  writeln('Inputlength1 = ' + inttostr(Inputlength1));
@@ -907,7 +905,7 @@ begin
           ShowMessage(historyfn.Value + ' cannot load...');
     end
     else
-      ShowMessage(historyfn.Value + ' does not exist...');
+      ShowMessage(historyfn.Value + ' does not exist or not mounted...');
   end
   else
     ShowMessage(historyfn.Value + ' is not a audio file...');
