@@ -13,11 +13,19 @@ interface
 
   {$PACKENUM 4}(* use 4-byte enums *)
   {$PACKRECORDS C}(* C/C++-compatible record packing *)
-  {$MODE objfpc}
+  {$mode objfpc}{$H+}
 
 {$LONGSTRINGS ON}
 uses
-SysUtils, ctypes, dynlibs;
+ ctypes, dynlibs;
+ 
+const
+libmp=
+ {$IFDEF unix}
+ 'libmpg123.so.0';
+  {$ELSE}
+ 'mpg123.dll';
+  {$ENDIF}     
 
 type
   Tmpg123_handle = Pointer;
@@ -431,8 +439,8 @@ const
 
 (** Data structure for storing information about a frame of MPEG Audio *)
 type
-    pmpg123_frameinfo = ^Tmpg123_frameinfo;
-    Tmpg123_frameinfo = packed record
+  pmpg123_frameinfo = ^Tmpg123_frameinfo;
+   Tmpg123_frameinfo = packed record
     mpg123_version_version: longword;  (**< The MPEG version (1.0/2.0/2.5). *)
     layer: integer;   (**< The MPEG Audio Layer (MP1/MP2/MP3). *)
     rate: longword;  (**< The sampling rate in Hz. *)
@@ -905,7 +913,8 @@ result := false;
 end;
 
 function Mp_Load(const libfilename: string): boolean;
-
+var
+thelib: string; 
 begin
   Result := False;
   if Mp_Handle <> 0 then
@@ -915,9 +924,8 @@ begin
   end
   else
   begin {go & load the library}
-    if Length(libfilename) = 0 then
-      exit;
-    Mp_Handle := DynLibs.SafeLoadLibrary(libfilename); // obtain the handle we want
+    if Length(libfilename) = 0 then thelib := libmp else thelib := libfilename;
+    Mp_Handle := DynLibs.SafeLoadLibrary(thelib); // obtain the handle we want
     if Mp_Handle <> DynLibs.NilHandle then
 
     begin

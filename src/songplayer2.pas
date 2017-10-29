@@ -177,7 +177,7 @@ end;
 procedure tsongplayer2fo.ClosePlayer1();
 begin
 
-  if (commanderfo.edautomix.Value = 1) and (hasmixed2 = False) then
+  if (commanderfo.automix.Value = true) and (hasmixed2 = False) then
   begin
     hasmixed2 := True;
     commanderfo.onstartstop(nil);
@@ -247,7 +247,7 @@ begin
   vuLeft.Visible := True;
   vuRight.Visible := True;
 
-  if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+  if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
   begin
     commanderfo.vuLeft2.Visible := True;
     commanderfo.vuRight2.Visible := True;
@@ -267,24 +267,24 @@ begin
     if leftlev < 0.80 then
     begin
       vuLeft.bar_face.template := mainfo.tfacegreen;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuLeft2.bar_face.template := mainfo.tfacegreen;
     end
     else
     if leftlev < 0.90 then
     begin
       vuLeft.bar_face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuLeft2.bar_face.template := mainfo.tfaceorange;
     end
     else
     begin
       vuLeft.bar_face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuLeft2.bar_face.template := mainfo.tfacered;
     end;
     vuLeft.Value := leftlev;
-    if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+    if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
       commanderfo.vuLeft2.Value := leftlev;
   end;
 
@@ -295,24 +295,24 @@ begin
     begin
       vuRight.bar_face.template := mainfo.tfacegreen;
 
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuRight2.bar_face.template := mainfo.tfacegreen;
     end
     else
     if rightlev < 0.90 then
     begin
       vuRight.bar_face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuRight2.bar_face.template := mainfo.tfaceorange;
     end
     else
     begin
       vuRight.bar_face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuRight2.bar_face.template := mainfo.tfacered;
     end;
     vuright.Value := rightlev;
-    if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+    if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
       commanderfo.vuright2.Value := rightlev;
   end;
 
@@ -339,7 +339,7 @@ begin
         mixtime := 150000;
       if Inputlength2 < mixtime + 50000 then
         mixtime := Inputlength2 - 50000;
-      if (commanderfo.edautomix.Value = 1) and (hasmixed2 = False) and (uos_InputPosition(theplayer2, Inputindex2) >
+      if (commanderfo.automix.Value = true) and (hasmixed2 = False) and (uos_InputPosition(theplayer2, Inputindex2) >
         Inputlength2 - mixtime) then
       begin
         hasmixed2 := True;
@@ -608,7 +608,7 @@ begin
 
     end
     else
-      ShowMessage(historyfn.Value + ' does not exist or not mounted...');
+   //   ShowMessage(historyfn.Value + ' does not exist or not mounted...');
   end
   else
     ShowMessage(historyfn.Value + ' is not a audio file...');
@@ -691,7 +691,7 @@ end;
 }
 
     uos_InputSetDSPVolume(theplayer2, Inputindex2,
-      edvolleft.Value / 100, edvolright.Value / 100, True);
+  (edvolleft.Value / 100) * commanderfo.genvolleft.Value, (edvolright.Value / 100) * commanderfo.genvolright.Value, True);      
 
   end;
 end;
@@ -905,7 +905,7 @@ begin
           ShowMessage(historyfn.Value + ' cannot load...');
     end
     else
-      ShowMessage(historyfn.Value + ' does not exist or not mounted...');
+   //   ShowMessage(historyfn.Value + ' does not exist or not mounted...');
   end
   else
     ShowMessage(historyfn.Value + ' is not a audio file...');
@@ -1031,7 +1031,7 @@ var
 begin
   onsliderchange(Sender);
 
-  if (commanderfo.edautomix.Value = 1) then
+  if (commanderfo.automix.Value = true) then
   begin
     mixtime := trunc(commanderfo.timemix.Value * 1000) + 100000;
     if (trunc(avalue * Inputlength2) < Inputlength2 - mixtime + 1000) then

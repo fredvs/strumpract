@@ -170,6 +170,7 @@ var
   drumsfo: tdrumsfo;
   posi: integer = 1;
   initdrum: integer = 1;
+  wascreated : boolean = false;
 
   adrums: array[0..8] of string;
   drum_beats: array[0..3] of string;
@@ -199,9 +200,16 @@ var
   i: integer;
 begin
   Timerpause.Enabled := False;
+  if wascreated then begin
+
   label2.Caption := '0';
+
   for i := 0 to 8 do
+  begin
     uos_pause(i);
+   end;
+   
+  end;
 end;
 
 procedure tdrumsfo.ontimertick(const Sender: TObject);
@@ -246,29 +254,33 @@ begin
 
       if ach[posi - 1].Value = True then
       begin
-        uos_InputSetDSPVolume(0, drum_input[0], volumedrums.Value / 100,
-          volumedrums.Value / 100, True);
+       uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+            
         uos_PlaynofreePaused(0);
       end;
 
       if aoh[posi - 1].Value then
       begin
-        uos_InputSetDSPVolume(1, drum_input[1], volumedrums.Value / 100,
-          volumedrums.Value / 100, True);
+        uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+  
         uos_PlaynofreePaused(1);
       end;
 
       if asd[posi - 1].Value then
       begin
-        uos_InputSetDSPVolume(2, drum_input[2], volumedrums.Value / 100,
-          volumedrums.Value / 100, True);
+         uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+  
         uos_PlaynofreePaused(2);
       end;
 
       if abd[posi - 1].Value then
       begin
-        uos_InputSetDSPVolume(3, drum_input[3], volumedrums.Value / 100,
-          volumedrums.Value / 100, True);
+         uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+  
         uos_PlaynofreePaused(3);
       end;
 
@@ -543,6 +555,9 @@ end;
 
 procedure tdrumsfo.dostart(const Sender: TObject);
 begin
+ if wascreated = false then createdrumsplayers;
+
+  wascreated := true;
   stopit := False;
   label2.Enabled := True;
   Timerpause.Enabled := False;
@@ -783,7 +798,8 @@ begin
           ////////// Inputindex1 : Index of a existing input
           ////////// VolLeft : Left volume
           ////////// VolRight : Right volume
-          uos_InputSetDSPVolume(i, drum_input[i], volumedrums.Value / 100, volumedrums.Value / 100, True);
+          uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
 
         end;
   end;
@@ -928,7 +944,7 @@ begin
   Timertick.ontimer := @ontimertick;
 
   Timerpause := ttimer.Create(nil);
-  Timerpause.interval := 30000000;
+  Timerpause.interval := 10000000;
   Timerpause.Enabled := False;
   Timerpause.ontimer := @ontimerpause;
 
@@ -1256,7 +1272,7 @@ begin
 
   // if assigned( ams[i]) then ams[i].free;
 
-  createdrumsplayers;
+  // createdrumsplayers;
 
   posi := 1;
 

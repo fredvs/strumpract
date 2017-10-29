@@ -74,6 +74,13 @@ type
     procedure DrawWaveForm();
 
     procedure onchachewav(const Sender: TObject);
+   procedure onsetint(const sender: TObject; var avalue: Integer;
+                   var accept: Boolean);
+   procedure oncheck(const sender: tcustomdataedit; const quiet: Boolean;
+                   var accept: Boolean);
+   procedure ondtataenter(const sender: TObject);
+   procedure onsetvalvolleft(const sender: TObject; var avalue: realty;
+                   var accept: Boolean);
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
@@ -178,7 +185,7 @@ end;
 procedure tsongplayerfo.ClosePlayer1();
 begin
  
-  if (commanderfo.edautomix.Value = 1) and (hasmixed1 = False) then
+  if (commanderfo.automix.Value = true) and (hasmixed1 = False) then
   begin
     hasmixed1 := True;
     commanderfo.onstartstop(nil);
@@ -247,7 +254,7 @@ begin
   vuLeft.Visible := True;
   vuRight.Visible := True;
 
-  if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+  if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
   begin
     commanderfo.vuLeft.Visible := True;
     commanderfo.vuRight.Visible := True;
@@ -267,24 +274,24 @@ begin
     if leftlev < 0.80 then
     begin
       vuLeft.bar_face.template := mainfo.tfacegreen;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuLeft.bar_face.template := mainfo.tfacegreen;
     end
     else
     if leftlev < 0.90 then
     begin
       vuLeft.bar_face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuLeft.bar_face.template := mainfo.tfaceorange;
     end
     else
     begin
       vuLeft.bar_face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuLeft.bar_face.template := mainfo.tfacered;
     end;
     vuLeft.Value := leftlev;
-    if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+    if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
       commanderfo.vuLeft.Value := leftlev;
   end;
 
@@ -295,24 +302,24 @@ begin
     begin
       vuRight.bar_face.template := mainfo.tfacegreen;
 
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuRight.bar_face.template := mainfo.tfacegreen;
     end
     else
     if rightlev < 0.90 then
     begin
       vuRight.bar_face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuRight.bar_face.template := mainfo.tfaceorange;
     end
     else
     begin
       vuRight.bar_face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
         commanderfo.vuRight.bar_face.template := mainfo.tfacered;
     end;
     vuright.Value := rightlev;
-    if (commanderfo.Visible) and (commanderfo.edvuin.value = 0) then
+    if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
       commanderfo.vuright.Value := rightlev;
   end;
 
@@ -341,7 +348,7 @@ begin
       if Inputlength1 < mixtime + 50000 then
         mixtime := Inputlength1 - 50000;
 
-      if (commanderfo.edautomix.Value = 1) and (hasmixed1 = False) and (uos_InputPosition(theplayer, Inputindex1) > Inputlength1 - mixtime) then
+      if (commanderfo.automix.Value = true) and (hasmixed1 = False) and (uos_InputPosition(theplayer, Inputindex1) > Inputlength1 - mixtime) then
       begin
         hasmixed1 := True;
         commanderfo.onstartstop(nil);
@@ -602,7 +609,7 @@ begin
 
     end
     else
-      ShowMessage(historyfn.Value + ' does not exist or not mounted...');
+   //   ShowMessage(historyfn.Value + ' does not exist or not mounted...');
   end
   else
     ShowMessage(historyfn.Value + ' is not a audio file...');
@@ -666,6 +673,12 @@ end;
 
 procedure tsongplayerfo.changevolume(const Sender: TObject);
 begin
+
+//if edvolleft.Value := '' then edvolleft.Value := 0;
+//if edvolright.Value := '' then edvolright.Value := 0;
+
+// if edvolleft.value > 100 then edvolleft.value := 100;
+  
   if hasinit = 1 then
   begin
     if (trealspinedit(Sender).tag = 0) then
@@ -686,7 +699,7 @@ end;
 }
 
     uos_InputSetDSPVolume(theplayer, Inputindex1,
-      edvolleft.Value / 100, edvolright.Value / 100, True);
+      (edvolleft.Value / 100) * commanderfo.genvolleft.Value, (edvolright.Value / 100) * commanderfo.genvolright.Value, True);
 
   end;
 end;
@@ -899,7 +912,7 @@ begin
           ShowMessage(historyfn.Value + ' cannot load...');
     end
     else
-      ShowMessage(historyfn.Value + ' does not exist or not mounted...');
+   //   ShowMessage(historyfn.Value + ' does not exist or not mounted...');
   end
   else
     ShowMessage(historyfn.Value + ' is not a audio file...');
@@ -1027,7 +1040,7 @@ begin
 
   onsliderchange(Sender);
 
-  if (commanderfo.edautomix.Value = 1) then
+  if (commanderfo.automix.Value = true) then
   begin
     mixtime := trunc(commanderfo.timemix.Value * 1000) + 100000;
     if (trunc(avalue * Inputlength1) < Inputlength1 - mixtime + 1000) then
@@ -1061,6 +1074,29 @@ end;
 procedure tsongplayerfo.onchachewav(const Sender: TObject);
 begin
   DrawWaveForm();
+end;
+
+procedure tsongplayerfo.onsetint(const sender: TObject; var avalue: Integer;
+               var accept: Boolean);
+begin
+if avalue > 100 then edvolleft.value := 100;
+end;
+
+procedure tsongplayerfo.oncheck(const sender: tcustomdataedit;
+               const quiet: Boolean; var accept: Boolean);
+begin
+if edvolleft.value > 100 then edvolleft.value := 100;
+end;
+
+procedure tsongplayerfo.ondtataenter(const sender: TObject);
+begin
+if edvolleft.value > 100 then edvolleft.value := 100;
+end;
+
+procedure tsongplayerfo.onsetvalvolleft(const sender: TObject;
+               var avalue: realty; var accept: Boolean);
+begin
+if avalue > 100 then edvolleft.value := 100;
 end;
 
 end.

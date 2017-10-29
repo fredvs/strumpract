@@ -38,6 +38,7 @@ type
     typecolor: tintegeredit;
     tfacebutltgray: tfacecomp;
     buttonicons: timagelist;
+   tfaceplayerbut: tfacecomp;
     procedure ontimerwait(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
     procedure oncreatedform(const Sender: TObject);
@@ -76,7 +77,7 @@ type
   end;
 
 const
-  versiontext = '1.5.2';
+  versiontext = '1.5.3';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -712,6 +713,9 @@ begin
 
     tfaceplayer.template.fade_color.items[0] := $F9FFC2;
     tfaceplayer.template.fade_color.items[1] := $C4C999;
+    
+     tfaceplayerbut.template.fade_color.items[0] := $F9FFC2;
+    tfaceplayerbut.template.fade_color.items[1] := $C4C999;
 
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
     tfacebutgray.template.fade_color.items[1] := $9E9E9E;
@@ -883,18 +887,54 @@ begin
     // commander
     commanderfo.nameplayers.font.color := ltblack;
     commanderfo.namedrums.font.color := ltblack;
-    commanderfo.linkvol.font.color := ltblack;
-    commanderfo.linkvol2.font.color := ltblack;
-    commanderfo.vuin.font.color := ltblack;
-    commanderfo.linkvol.font.color := ltblack;
+    commanderfo.namegen.font.color := ltblack;
+    commanderfo.nameinput.font.color := ltblack;
+    commanderfo.genleftvolvalue.font.color := ltblack;
+    commanderfo.genrightvolvalue.font.color := ltblack; 
+    commanderfo.vuin.colorglyph := ltblack;
+    commanderfo.vuin.frame.font.color := ltblack; 
+    
+         commanderfo.volumeleft1val.font.color := ltblack;
+    commanderfo.volumeleft2val.font.color := ltblack;
+  
+     commanderfo.volumeright1val.font.color := ltblack;
+    commanderfo.volumeright2val.font.color := ltblack;
+    
+      commanderfo.tslider2val.font.color := ltblack;
+    commanderfo.tslider3val.font.color := ltblack;
+ 
+    
+    commanderfo.butinput.colorglyph := ltblack;
+    commanderfo.butinput.frame.font.color := ltblack; 
+    
+    commanderfo.automix.colorglyph := ltblack;
+    commanderfo.automix.frame.font.color := ltblack; 
+    
+    commanderfo.linkvol.colorglyph := ltblack;
+    commanderfo.linkvol.frame.font.color := ltblack; 
+    
+    commanderfo.linkvol2.colorglyph := ltblack;
+    commanderfo.linkvol2.frame.font.color := ltblack; 
+    
+    commanderfo.linkvolgen.colorglyph := ltblack;
+    commanderfo.linkvolgen.frame.font.color := ltblack; 
+     
     commanderfo.timemix.font.color := ltblack;
-    commanderfo.butinput.font.color := ltblack;
-
+  
     commanderfo.timemix.frame.colorglyph := ltblack;
-    commanderfo.automix.font.color := ltblack;
-
+  
     commanderfo.tfacegriptab.template.fade_color.items[0] := $F8DEFF;
     commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6;
+    
+    
+    commanderfo.timemix.frame.font.color := ltblack;
+   
+    commanderfo.genvolleft.scrollbar.face.template := commanderfo.tfaceslider;
+    commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
+   
+    commanderfo.genvolright.scrollbar.face.template := commanderfo.tfaceslider;
+    commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
+  
 
     commanderfo.volumeleft1.scrollbar.face.template := commanderfo.tfaceslider;
     commanderfo.volumeleft1.scrollbar.face1.template := commanderfo.tfaceslider;
@@ -955,6 +995,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     tfaceplayer.template.fade_color.items[0] := $EDEDED;
     tfaceplayer.template.fade_color.items[1] := $BABABA;
+    
+    tfaceplayerbut.template.fade_color.items[0] := $EDEDED;
+    tfaceplayerbut.template.fade_color.items[1] := $BABABA;
 
     tfaceplayerlight.template.fade_color.items[0] := $FDFDFD;
     tfaceplayerlight.template.fade_color.items[1] := $DDDDDD;
@@ -1125,15 +1168,51 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     // commander
     commanderfo.nameplayers.font.color := ltblack;
     commanderfo.namedrums.font.color := ltblack;
-    commanderfo.linkvol.font.color := ltblack;
-    commanderfo.linkvol2.font.color := ltblack;
-    commanderfo.vuin.font.color := ltblack;
-    commanderfo.linkvol.font.color := ltblack;
+    commanderfo.namegen.font.color := ltblack;
+    commanderfo.nameinput.font.color := ltblack;
+    commanderfo.genleftvolvalue.font.color := ltblack;
+    commanderfo.genrightvolvalue.font.color := ltblack;
+    
+      commanderfo.volumeleft1val.font.color := ltblack;
+    commanderfo.volumeleft2val.font.color := ltblack;
+  
+     commanderfo.volumeright1val.font.color := ltblack;
+    commanderfo.volumeright2val.font.color := ltblack;
+    
+      commanderfo.tslider2val.font.color := ltblack;
+    commanderfo.tslider3val.font.color := ltblack;
+ 
+    
     commanderfo.timemix.font.color := ltblack;
-    commanderfo.butinput.font.color := ltblack;
-
-    commanderfo.automix.font.color := ltblack;
+ 
     commanderfo.timemix.frame.colorglyph := ltblack;
+    
+    commanderfo.timemix.frame.font.color := ltblack;
+   
+    commanderfo.genvolleft.scrollbar.face.template := commanderfo.tfaceslider;
+    commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
+   
+    commanderfo.genvolright.scrollbar.face.template := commanderfo.tfaceslider;
+    commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
+
+    
+    commanderfo.vuin.colorglyph := ltblack;
+    commanderfo.vuin.frame.font.color := ltblack; 
+    
+    commanderfo.butinput.colorglyph := ltblack;
+    commanderfo.butinput.frame.font.color := ltblack; 
+    
+    commanderfo.automix.colorglyph := ltblack;
+    commanderfo.automix.frame.font.color := ltblack; 
+    
+    commanderfo.linkvol.colorglyph := ltblack;
+    commanderfo.linkvol.frame.font.color := ltblack; 
+    
+    commanderfo.linkvol2.colorglyph := ltblack;
+    commanderfo.linkvol2.frame.font.color := ltblack; 
+    
+    commanderfo.linkvolgen.colorglyph := ltblack;
+    commanderfo.linkvolgen.frame.font.color := ltblack; 
 
     commanderfo.volumeleft1.scrollbar.face.template := commanderfo.tfaceslider;
     commanderfo.volumeleft1.scrollbar.face1.template := commanderfo.tfaceslider;
@@ -1186,14 +1265,20 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     tfacegreen.template.fade_color.items[0] := $CCCCCC;
     tfacegreen.template.fade_color.items[1] := $2A2A2A;
 
-    tfaceorange.template.fade_color.items[0] := $BABABA;
-    tfaceorange.template.fade_color.items[1] := $3E3E3E;
+  //  tfaceorange.template.fade_color.items[0] := $BABABA;
+  //  tfaceorange.template.fade_color.items[1] := $3E3E3E;
+  
+    tfaceorange.template.fade_color.items[0] := $FF9D14;
+    tfaceorange.template.fade_color.items[1] := $EE9D14;
 
     //tfacered.template.fade_color.items[0] := $BABABA ;
     //tfacered.template.fade_color.items[1] := $5A5A5A ;
 
     tfaceplayer.template.fade_color.items[0] := $5A5A5A;
     tfaceplayer.template.fade_color.items[1] := $2A2A2A;
+    
+    tfaceplayerbut.template.fade_color.items[0] := $5A5A5A;
+    tfaceplayerbut.template.fade_color.items[1] := $5A5A5A;
 
     tfaceplayerlight.template.fade_color.items[0] := $5A5A5A;
     tfaceplayerlight.template.fade_color.items[1] := $2A2A2A;
@@ -1364,20 +1449,54 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     // commander
     commanderfo.nameplayers.font.color := ltblank;
     commanderfo.namedrums.font.color := ltblank;
-    commanderfo.linkvol.font.color := ltblank;
-    commanderfo.linkvol2.font.color := ltblank;
-    commanderfo.vuin.font.color := ltblank;
-
-    commanderfo.automix.font.color := ltblank;
-
-    commanderfo.linkvol.font.color := ltblank;
+    
+    commanderfo.namegen.font.color := ltblank;
+    commanderfo.nameinput.font.color := ltblank;
+    commanderfo.genleftvolvalue.font.color := ltblank;
+    commanderfo.genrightvolvalue.font.color := ltblank;
+    
+     commanderfo.volumeleft1val.font.color := ltblank;
+    commanderfo.volumeleft2val.font.color := ltblank;
+  
+     commanderfo.volumeright1val.font.color := ltblank;
+    commanderfo.volumeright2val.font.color := ltblank;
+    
+      commanderfo.tslider2val.font.color := ltblank;
+    commanderfo.tslider3val.font.color := ltblank;
+  
+  
     commanderfo.timemix.font.color := ltblank;
-    commanderfo.butinput.font.color := ltblank;
+
+     commanderfo.vuin.colorglyph := ltblank;
+    commanderfo.vuin.frame.font.color := ltblank; 
+    
+    commanderfo.butinput.colorglyph := ltblank;
+    commanderfo.butinput.frame.font.color := ltblank; 
+    
+    commanderfo.automix.colorglyph := ltblank;
+    commanderfo.automix.frame.font.color := ltblank; 
+    
+    commanderfo.linkvol.colorglyph := ltblank;
+    commanderfo.linkvol.frame.font.color := ltblank; 
+    
+    commanderfo.linkvol2.colorglyph := ltblank;
+    commanderfo.linkvol2.frame.font.color := ltblank; 
+    
+    commanderfo.linkvolgen.colorglyph := ltblank;
+    commanderfo.linkvolgen.frame.font.color := ltblank; 
 
     commanderfo.timemix.frame.colorglyph := ltblank;
 
     commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED;
     commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA;
+    
+    commanderfo.timemix.frame.font.color := ltblank;
+   
+    commanderfo.genvolleft.scrollbar.face.template := commanderfo.tfacesliderdark;
+    commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfacesliderdark;
+   
+    commanderfo.genvolright.scrollbar.face.template := commanderfo.tfacesliderdark;
+    commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfacesliderdark;
 
     commanderfo.volumeleft1.scrollbar.face.template := commanderfo.tfacesliderdark;
     commanderfo.volumeleft1.scrollbar.face1.template := commanderfo.tfacesliderdark;

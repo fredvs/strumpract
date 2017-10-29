@@ -9,8 +9,8 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = tfacecomp2
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
-  bounds_x = 196
-  bounds_y = 227
+  bounds_x = 172
+  bounds_y = 244
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -308,9 +308,9 @@ object recorderfo: trecorderfo
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacerecorder
-      frame.buttonframe.localprops = []
+      frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
-      frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 30
       face.localprops = []
       face.template = tfacerecrev
@@ -344,9 +344,9 @@ object recorderfo: trecorderfo
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacerecorder
-      frame.buttonframe.localprops = []
+      frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
-      frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 30
       face.localprops = []
       face.template = tfacerecrev

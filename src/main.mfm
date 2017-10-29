@@ -1479,8 +1479,8 @@ object mainfo: tmainfo
       11317382
     )
     template.fade_direction = gd_down
-    left = 75
-    top = 8
+    left = 66
+    top = 20
   end
   object tfaceplayerlight: tfacecomp
     template.fade_pos.count = 2
@@ -1529,7 +1529,7 @@ object mainfo: tmainfo
   object tframecomp2: tframecomp
     template.framei_left = 4
     template.framei_top = 2
-    template.framei_right = 3
+    template.framei_right = 4
     template.framei_bottom = 2
     template.frameo_left = 2
     template.frameo_top = 2
@@ -3503,5 +3503,20 @@ object mainfo: tmainfo
       1111110400000069020202010404040105050504040404010202020100000009
       3333331600000019
     }
+  end
+  object tfaceplayerbut: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      14870704
+      11317382
+    )
+    template.fade_direction = gd_down
+    left = 17
+    top = 14
   end
 end

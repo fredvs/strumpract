@@ -37,7 +37,6 @@ type
     tslider2: tslider;
     tgroupboxinput: tgroupbox;
     tslider3: tslider;
-    butinput: TButton;
     volumeright2: tslider;
     volumeleft2: tslider;
     tfaceslider: tfacecomp;
@@ -48,9 +47,6 @@ type
     btnStop2: TButton;
     btnPause2: TButton;
     btnResume2: TButton;
-    linkvol: TButton;
-    linkvol2: TButton;
-    vuin: TButton;
     nameplayers: tstringdisp;
     namedrums: tstringdisp;
     tfacegriptab: tfacecomp;
@@ -59,9 +55,25 @@ type
     vuright: tprogressbar;
     vuright2: tprogressbar;
     vuLeft2: tprogressbar;
-    automix: TButton;
-    edautomix: tintegeredit;
-   edvuin: tintegeredit;
+   tgroupall: tgroupbox;
+   genvolright: tslider;
+   genvolleft: tslider;
+   namegen: tstringdisp;
+   genleftvolvalue: tstringdisp;
+   genrightvolvalue: tstringdisp;
+   linkvol: tbooleanedit;
+   linkvolgen: tbooleanedit;
+   linkvol2: tbooleanedit;
+   vuin: tbooleanedit;
+   automix: tbooleanedit;
+   nameinput: tstringdisp;
+   butinput: tbooleanedit;
+   volumeright1val: tstringdisp;
+   volumeleft1val: tstringdisp;
+   volumeright2val: tstringdisp;
+   volumeleft2val: tstringdisp;
+   tslider2val: tstringdisp;
+   tslider3val: tstringdisp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -78,13 +90,8 @@ type
     procedure dopausedrums(const Sender: TObject);
     procedure doresumedrums(const Sender: TObject);
     procedure onchangevoldrums(const Sender: TObject);
-    procedure setlr1(const Sender: TObject);
-    procedure setlr2(const Sender: TObject);
-    procedure setvu(const Sender: TObject);
-    procedure setautomix(const Sender: TObject);
-    procedure onexecautomix(const Sender: TObject);
-   procedure setvuin(const sender: TObject);
-  end;
+   procedure onchangegenvol(const sender: TObject);
+        end;
 
 var
   commanderfo: tcommanderfo;
@@ -97,7 +104,7 @@ var
 implementation
 
 uses
-  songplayer, songplayer2, drums, filelistform, uos_flat, config,
+  songplayer, songplayer2, drums, filelistform, uos_flat, config, recorder,
   main, commander_mfm;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -160,7 +167,7 @@ begin
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
 
-    if (Sender <> nil) and (commanderfo.edautomix.Value = 1) and (filelistfo.list_files.rowcount > 0) then
+    if (Sender <> nil) and (commanderfo.automix.Value = true) and (filelistfo.list_files.rowcount > 0) then
     begin
       hasfocused2 := True;
       filelistfo.onsent(nil);
@@ -191,7 +198,7 @@ begin
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
 
-    if (Sender <> nil) and (commanderfo.edautomix.Value = 1) and (filelistfo.list_files.rowcount > 0) then
+    if (Sender <> nil) and (commanderfo.automix.Value = true) and (filelistfo.list_files.rowcount > 0) then
     begin
       hasfocused1 := True;
       filelistfo.onsent(nil);
@@ -363,14 +370,18 @@ begin
   begin
     if (tslider(Sender).tag = 0) or (tslider(Sender).tag = 1) then
     begin
-      if linkvol.tag = 0 then
+      if linkvol.value = true then
       begin
         if (tslider(Sender).tag = 0) then
           volumeright1.Value := volumeleft1.Value
         else
           volumeleft1.Value := volumeright1.Value;
+      
+      
         songplayerfo.edvolleft.Value := trunc(volumeleft1.Value * 100);
         songplayerfo.edvolright.Value := trunc(volumeright1.Value * 100);
+        
+       
       end
       else
       if (tslider(Sender).tag = 0) then
@@ -378,11 +389,12 @@ begin
       else
         songplayerfo.edvolright.Value := trunc(volumeright1.Value * 100);
       //songplayerfo.changevolume(sender)
-
+       volumeleft1val.Value := inttostr(trunc(songplayerfo.edvolleft.Value));
+        volumeright1val.Value :=  inttostr(trunc(songplayerfo.edvolright.Value));
     end
     else
     begin
-      if linkvol2.tag = 0 then
+      if linkvol2.value = true then
       begin
         if (tslider(Sender).tag = 2) then
           volumeright2.Value := volumeleft2.Value
@@ -396,7 +408,8 @@ begin
         songplayer2fo.edvolleft.Value := trunc(volumeleft2.Value * 100)
       else
         songplayer2fo.edvolright.Value := trunc(volumeright2.Value * 100);
-      //songplayerfo.changevolume(sender)
+        volumeleft2val.Value := inttostr(trunc(songplayer2fo.edvolleft.Value));
+        volumeright2val.Value :=  inttostr(trunc(songplayer2fo.edvolright.Value));
     end;
   end;
 end;
@@ -411,19 +424,19 @@ begin
 
   if hasinit = 1 then
   begin
-    if TButton(Sender).tag = 0 then
+    if butinput.value = true then
     begin
-
-      TButton(Sender).face.template := mainfo.tfacered;
-
+    
+   nameinput.face.template := mainfo.tfacered;
+  //  tslider3val.face.template :=  mainfo.tfacered;
+      
       tslider3.Enabled := True;
       uos_Stop(theinput);
 
       if uos_CreatePlayer(theinput) then
       begin
         // writeln('ok create');
-        TButton(Sender).tag := 1;
-
+      
         OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.Value, -1, -1, -1, -1);
 
         // writeln('OutputIndex4 = ' + inttostr(OutputIndex4));
@@ -455,15 +468,16 @@ begin
     else
     begin
       // writeln('uos_Stop = ' + inttostr(theinput));
-      TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
-      uos_Stop(theinput);
+        nameinput.face.template := recorderfo.tfacereclight;
+    //    tslider3val.face.template :=  mainfo.tfacebutltgray;    
+     uos_Stop(theinput);
     end;
   end;
 end;
 
 procedure tcommanderfo.onchangevolinput(const Sender: TObject);
 begin
+tslider3val.Value := inttostr(trunc(tslider3.Value * 100));
   if hasinit = 1 then
   begin
     uos_InputSetDSPVolume(theinput, Inputindex4,
@@ -488,90 +502,36 @@ end;
 
 procedure tcommanderfo.onchangevoldrums(const Sender: TObject);
 begin
+tslider2val.Value := inttostr(trunc(tslider2.Value * 100));
+
   if hasinit = 1 then
+  
     drumsfo.volumedrums.Value := trunc(tslider2.Value * 100);
 end;
 
-procedure tcommanderfo.setlr1(const Sender: TObject);
+procedure tcommanderfo.onchangegenvol(const sender: TObject);
 begin
-  if linkvol.tag = 0 then
-  begin
-    linkvol.tag := 1;
-    linkvol.face.template := mainfo.tfacebutgray;
-  end
-  else
-  if linkvol.tag = 1 then
-  begin
-    linkvol.tag := 0;
-    linkvol.face.template := mainfo.tfacegreen;
-  end;
-end;
 
-procedure tcommanderfo.setlr2(const Sender: TObject);
-begin
-  if linkvol2.tag = 0 then
+     if linkvolgen.value = true then
+      begin
+        if (tslider(Sender).tag = 0) then
+          genvolright.Value := genvolleft.Value
+        else
+          genvolleft.Value := genvolright.Value;
+        genleftvolvalue.Value := inttostr(trunc(genvolleft.Value * 100));
+        genrightvolvalue.Value := inttostr(trunc(genvolright.Value * 100));
+      end
+      else
+      if (tslider(Sender).tag = 0) then
+        genleftvolvalue.Value := inttostr(trunc(genvolleft.Value * 100))
+      else
+       genrightvolvalue.Value := inttostr(trunc(genvolright.Value * 100));
+      //songplayerfo.changevolume(sender)
+    if hasinit = 1 then
   begin
-    linkvol2.tag := 1;
-    linkvol2.face.template := mainfo.tfacebutgray;
-  end
-  else
-  if linkvol2.tag = 1 then
-  begin
-    linkvol2.tag := 0;
-    linkvol2.face.template := mainfo.tfacegreen;
-  end;
-end;
-
-procedure tcommanderfo.setvu(const Sender: TObject);
-begin
-if edvuin.Value = 1 then
-  begin
-      vuin.face.template := mainfo.tfacebutgray;
-  end
-  else
- if edvuin.Value = 0 then
-  begin
-    vuin.face.template := mainfo.tfacegreen;
-  end;
-
-end;
-
-procedure tcommanderfo.setautomix(const Sender: TObject);
-begin
-  if edautomix.Value = 1 then
-  begin
-    automix.face.template := mainfo.tfacegreen;
-  end
-  else
-  if edautomix.Value = 0 then
-  begin
-    automix.face.template := mainfo.tfacebutgray;
-  end;
-end;
-
-procedure tcommanderfo.onexecautomix(const Sender: TObject);
-begin
-  if edautomix.Value = 1 then
-  begin
-    edautomix.Value := 0;
-  end
-  else
-  begin
-    if edautomix.Value = 0 then
-      edautomix.Value := 1;
-  end;
-end;
-
-procedure tcommanderfo.setvuin(const sender: TObject);
-begin
-  if edvuin.Value = 1 then
-  begin
-    edvuin.Value := 0;
-  end
-  else
-  begin
-    if edvuin.Value = 0 then
-      edvuin.Value := 1;
+    songplayerfo.changevolume(sender);
+    songplayer2fo.changevolume(sender);
+    drumsfo.onchangevol(sender);
   end;
 end;
 

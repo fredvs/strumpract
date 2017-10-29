@@ -93,7 +93,7 @@ begin
           theplaysender := 1;
       end;
 
-      if (commanderfo.edautomix.Value = 1) and (Sender = nil) then
+      if (commanderfo.automix.Value = true) and (Sender = nil) then
       begin
         thecaution := 0;
 
@@ -135,7 +135,7 @@ begin
         songplayerfo.timersent.Enabled := False;
         songplayerfo.timersent.Enabled := True;
        end else 
-      ShowMessage(tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...');
+   ///   ShowMessage(tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...');
       end;
  
        if theplaysender = 1 then
@@ -153,7 +153,7 @@ begin
         songplayer2fo.timersent.Enabled := False;
         songplayer2fo.timersent.Enabled := True;
       end else
-      ShowMessage(tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...');
+   //   ShowMessage(tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...');
       
         end;
  
@@ -162,7 +162,7 @@ begin
         end;
   end else
   begin
-    ShowMessage('Directory ' + historyfn.Value + ' does not exist or not mounted...');
+   // ShowMessage('Directory ' + historyfn.Value + ' does not exist or not mounted...');
    end;
 end;
 

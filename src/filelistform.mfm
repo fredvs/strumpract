@@ -9,8 +9,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 363
-  bounds_y = 126
+  bounds_x = 209
+  bounds_y = 24
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -174,6 +174,7 @@ object filelistfo: tfilelistfo
         )
       )
       controller.options = [fdo_directory, fdo_savelastdir]
+      controller.historymaxcount = 100
       controller.onbeforeexecute = whosent
       controller.onafterexecute = onafterdialog
       reffontheight = 15
@@ -288,7 +289,6 @@ object filelistfo: tfilelistfo
           valuetrue = '1'
         end      
         item
-          colorselect = 15592941
           width = 27
           textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]

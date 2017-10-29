@@ -20,8 +20,8 @@ object songplayer2fo: tsongplayer2fo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 2. '
   visible = False
-  bounds_x = 232
-  bounds_y = 271
+  bounds_x = 322
+  bounds_y = 43
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -153,9 +153,9 @@ object songplayer2fo: tsongplayer2fo
       frame.localprops1 = []
       frame.buttonface.localprops = []
       frame.buttonface.template = mainfo.tfaceplayer
-      frame.buttonframe.localprops = []
+      frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
-      frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 20
       face.localprops = []
       face.template = mainfo.tfaceplayerrev
@@ -275,7 +275,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerbut
       taborder = 5
       hint = ' Stop player '
       bounds_x = 130
@@ -295,7 +295,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerbut
       taborder = 6
       hint = ' Resume player '
       bounds_x = 68
@@ -315,7 +315,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerbut
       taborder = 7
       hint = ' Pause player '
       bounds_x = 99
@@ -536,9 +536,9 @@ object songplayer2fo: tsongplayer2fo
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = mainfo.tfaceplayer
-      frame.buttonframe.localprops = []
+      frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
-      frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 20
       frame.buttonpos = sbp_left
       face.localprops = []
@@ -576,9 +576,9 @@ object songplayer2fo: tsongplayer2fo
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = mainfo.tfaceplayer
-      frame.buttonframe.localprops = []
+      frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
-      frame.buttonframe.template = commanderfo.tframecomp1
       frame.buttonsize = 20
       face.localprops = []
       face.template = mainfo.tfaceplayerrev
@@ -611,7 +611,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerbut
       taborder = 15
       hint = ' Load from cue and Start player '
       bounds_x = 37
@@ -655,7 +655,7 @@ object songplayer2fo: tsongplayer2fo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerbut
       taborder = 17
       hint = ' Load from cue and Pause player '
       bounds_x = 6
