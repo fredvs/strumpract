@@ -73,6 +73,8 @@ type
     procedure GetWaveData();
     procedure DrawWaveForm();
     procedure onchangwav(const Sender: TObject);
+   procedure onsetvalvol(const sender: TObject; var avalue: realty;
+                   var accept: Boolean);
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
@@ -1068,6 +1070,13 @@ end;
 procedure tsongplayer2fo.onchangwav(const Sender: TObject);
 begin
   DrawWaveForm();
+end;
+
+procedure tsongplayer2fo.onsetvalvol(const sender: TObject; var avalue: realty;
+               var accept: Boolean);
+begin
+if avalue > 100 then avalue := 100;
+if avalue < 0 then avalue := 0;
 end;
 
 
