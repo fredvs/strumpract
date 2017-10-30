@@ -72,6 +72,8 @@ type
     procedure onlistenin(const Sender: TObject);
     procedure ondest(const Sender: TObject);
     procedure afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
+   procedure onsetvalvol(const sender: TObject; var avalue: realty;
+                   var accept: Boolean);
   end;
 
 var
@@ -689,6 +691,13 @@ begin
     uos_InputSeek(therecplayer, InputIndex3, trunc(avalue * inputlength))
   else
     onsliderchange(Sender);
+end;
+
+procedure trecorderfo.onsetvalvol(const sender: TObject; var avalue: realty;
+               var accept: Boolean);
+begin
+if avalue > 100 then avalue := 100;
+if avalue < 0 then avalue := 0;
 end;
 
 

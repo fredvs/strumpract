@@ -1321,13 +1321,13 @@ findhistory=20
  iswav
   iswav := False
 findoptions=1
-editpos=18
+editpos=19
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,522
- 0,1068
+ 0,-1073741823
+ 0,1051
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1340,6 +1340,7 @@ editpos=18
  0,1078
  0,-1073741823
  0,-1073741823
+ 0,699
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1358,7 +1359,8 @@ bookmarks14=0
 bookmarks15=0
 bookmarks16=0
 bookmarks17=0
-sourcefiles=18
+bookmarks18=0
+sourcefiles=19
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/drums.pas
@@ -1377,7 +1379,8 @@ sourcefiles=18
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/main.pas
  /home/fred/msegui/lib/common/kernel/msescrollbar.pas
-relpaths=18
+ ${PROJECTDIR}/recorder.pas
+relpaths=19
  songplayer.pas
  recorder.pas
  drums.pas
@@ -1396,7 +1399,9 @@ relpaths=18
  songplayer.pas
  main.pas
  msegui/lib/common/kernel/msescrollbar.pas
-ismoduletexts=18
+ recorder.pas
+ismoduletexts=19
+ 0
  0
  0
  0
@@ -1460,7 +1465,7 @@ nomenumodules=10
  0
  0
 [sourcefo.files_tab]
-order=18
+order=19
  0
  17
  1
@@ -1472,6 +1477,7 @@ order=18
  16
  15
  5
+ 18
  6
  7
  8
@@ -1479,8 +1485,8 @@ order=18
  10
  11
  12
-firsttab=0
-index=10
+firsttab=1
+index=11
 [layout]
 windowlayout=727
  [mainfo.basedock]
@@ -1744,10 +1750,10 @@ windowlayout=727
  active=0
  visible=1
  [objectinspectorfo.grid]
- propcolwidthref=460
- width0=210
+ propcolwidthref=445
+ width0=203
  sortdescend0=0
- width1=244
+ width1=236
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1966,7 +1972,7 @@ windowlayout=727
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer2.pas
+ value=/home/fred/strumpract/src/recorder.pas
  history=0
  [sourcefo]
  splitdir=0
@@ -2061,7 +2067,7 @@ windowlayout=727
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -2080,7 +2086,7 @@ windowlayout=727
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2156,7 +2162,7 @@ windowlayout=727
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2194,7 +2200,7 @@ windowlayout=727
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0

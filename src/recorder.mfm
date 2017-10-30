@@ -322,12 +322,13 @@ object recorderfo: trecorderfo
       bounds_cy = 32
       statfile = mainfo.tstatfile1
       onchange = changevolume
+      onsetvalue = onsetvalvol
       value = 100
       valuedefault = 100
       valuerange = 1
       valuestart = 0
-      valuemin = 0
-      valuemax = 100
+      valuemin = -Inf
+      valuemax = 9999999
       step = 1
       stepctrlfact = 0
       stepshiftfact = 0
