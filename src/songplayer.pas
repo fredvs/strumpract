@@ -74,12 +74,7 @@ type
     procedure DrawWaveForm();
 
     procedure onchachewav(const Sender: TObject);
-   procedure onsetint(const sender: TObject; var avalue: Integer;
-                   var accept: Boolean);
-   procedure oncheck(const sender: tcustomdataedit; const quiet: Boolean;
-                   var accept: Boolean);
-   procedure ondtataenter(const sender: TObject);
-   procedure onsetvalvolleft(const sender: TObject; var avalue: realty;
+     procedure onsetvalvolleft(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
@@ -458,8 +453,9 @@ begin
         ////////// VolLeft : Left volume
         ////////// VolRight : Right volume
 
-        uos_InputSetDSPVolume(theplayer, Inputindex1, edvolleft.Value / 100, edvolright.Value / 100, True);
-        /// Set volume
+        uos_InputSetDSPVolume(theplayer, Inputindex1,
+      (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5 , (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+         /// Set volume
         ////////// Playerindex1 : Index of a existing Player
         ////////// Inputindex1 : InputIndex of a existing Input
         ////////// VolLeft : Left volume
@@ -699,7 +695,7 @@ end;
 }
 
     uos_InputSetDSPVolume(theplayer, Inputindex1,
-      (edvolleft.Value / 100) * commanderfo.genvolleft.Value, (edvolright.Value / 100) * commanderfo.genvolright.Value, True);
+      (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5 , (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
   end;
 end;
@@ -1076,27 +1072,11 @@ begin
   DrawWaveForm();
 end;
 
-procedure tsongplayerfo.onsetint(const sender: TObject; var avalue: Integer;
-               var accept: Boolean);
-begin
-if avalue > 100 then edvolleft.value := 100;
-end;
-
-procedure tsongplayerfo.oncheck(const sender: tcustomdataedit;
-               const quiet: Boolean; var accept: Boolean);
-begin
-if edvolleft.value > 100 then edvolleft.value := 100;
-end;
-
-procedure tsongplayerfo.ondtataenter(const sender: TObject);
-begin
-if edvolleft.value > 100 then edvolleft.value := 100;
-end;
-
 procedure tsongplayerfo.onsetvalvolleft(const sender: TObject;
                var avalue: realty; var accept: Boolean);
 begin
-if avalue > 100 then edvolleft.value := 100;
+if avalue > 100 then avalue := 100;
+if avalue < 0 then avalue := 0;
 end;
 
 end.

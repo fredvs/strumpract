@@ -10,8 +10,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 94
-  bounds_y = 202
+  bounds_x = 587
+  bounds_y = 243
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -936,7 +936,7 @@ object commanderfo: tcommanderfo
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
       hint = ' Start Drums '
-      bounds_x = 38
+      bounds_x = 39
       bounds_y = 92
       bounds_cx = 28
       bounds_cy = 28
@@ -957,8 +957,8 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutgray
       taborder = 1
       hint = ' Pause Drums '
-      bounds_x = 38
-      bounds_y = 62
+      bounds_x = 39
+      bounds_y = 26
       bounds_cx = 28
       bounds_cy = 28
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -978,8 +978,8 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutgray
       taborder = 2
       hint = ' Resume Drums '
-      bounds_x = 38
-      bounds_y = 32
+      bounds_x = 39
+      bounds_y = 59
       bounds_cx = 28
       bounds_cy = 28
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -1231,7 +1231,7 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
-      hint = ' Right Volume General '
+      hint = ' Right Volume General in % '
       bounds_x = 26
       bounds_y = 32
       bounds_cx = 23
@@ -1239,7 +1239,7 @@ object commanderfo: tcommanderfo
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onchangegenvol
-      value = 1
+      value = 0.666666
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 17
       scrollbar.buttonminlength = -1
@@ -1277,7 +1277,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
       taborder = 1
-      hint = ' Left Volume General '
+      hint = ' Left Volume General in % '
       bounds_x = 2
       bounds_y = 32
       bounds_cx = 23
@@ -1285,7 +1285,7 @@ object commanderfo: tcommanderfo
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onchangegenvol
-      value = 1
+      value = 0.666666
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 17
       scrollbar.buttonminlength = -1
@@ -1321,7 +1321,7 @@ object commanderfo: tcommanderfo
       face.localprops = []
       face.template = mainfo.tfacebutltgray
       taborder = 2
-      hint = ' General Volume '
+      hint = ' General Volume in % '
       bounds_x = 2
       bounds_y = 3
       bounds_cx = 47
@@ -1332,48 +1332,6 @@ object commanderfo: tcommanderfo
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'General'
-      reffontheight = 13
-    end
-    object genleftvolvalue: tstringdisp
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfacebutltgray
-      taborder = 3
-      hint = ' General left volume '
-      bounds_x = 1
-      bounds_y = 110
-      bounds_cx = 24
-      bounds_cy = 15
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      value = '100'
-      reffontheight = 13
-    end
-    object genrightvolvalue: tstringdisp
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfacebutltgray
-      taborder = 4
-      hint = ' General right volume '
-      bounds_x = 26
-      bounds_y = 110
-      bounds_cx = 24
-      bounds_cy = 15
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      value = '100'
       reffontheight = 13
     end
     object linkvolgen: tbooleanedit
@@ -1397,7 +1355,7 @@ object commanderfo: tcommanderfo
       )
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 5
+      taborder = 3
       hint = ' Link left and right volume general '
       bounds_x = 6
       bounds_y = 17
@@ -1406,6 +1364,69 @@ object commanderfo: tcommanderfo
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
       value = True
+    end
+    object genleftvolvalue: tbutton
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_list = timagelist3
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfacebutltgray
+      taborder = 4
+      hint = ' General left volume. Click to reset to 100%.  '
+      bounds_x = 0
+      bounds_y = 110
+      bounds_cx = 26
+      bounds_cy = 15
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = '100'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      onexecute = onresetgenvol
+    end
+    object genrightvolvalue: tbutton
+      Tag = 1
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_list = timagelist3
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfacebutltgray
+      taborder = 5
+      hint = ' General right volume. Click to reset to 100%.  '
+      bounds_x = 26
+      bounds_y = 110
+      bounds_cx = 26
+      bounds_cy = 15
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = '100'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      onexecute = onresetgenvol
     end
   end
   object tfacecomp7: tfacecomp
@@ -1420,8 +1441,8 @@ object commanderfo: tcommanderfo
       15921906
     )
     template.fade_direction = gd_left
-    left = 337
-    top = 66
+    left = 145
+    top = 62
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -1435,8 +1456,8 @@ object commanderfo: tcommanderfo
       10921638
     )
     template.fade_direction = gd_down
-    left = 334
-    top = 64
+    left = 150
+    top = 69
   end
   object tframecomp1: tframecomp
     template.framei_left = 4
@@ -1449,8 +1470,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 326
-    top = 67
+    left = 134
+    top = 72
   end
   object timagelist2: timagelist
     width = 4
@@ -1460,8 +1481,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 340
-    top = 66
+    left = 152
+    top = 65
     image = {
       00000000020000000C0000000C00000010010000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -1485,8 +1506,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 344
-    top = 68
+    left = 130
+    top = 70
     image = {
       00000000020000000C0000000C000000E8000000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -1512,8 +1533,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 330
-    top = 70
+    left = 150
+    top = 68
   end
   object tfaceslider: tfacecomp
     template.image.origformat = 'png'
@@ -1942,8 +1963,8 @@ object commanderfo: tcommanderfo
       B8B9B801B8B8B701B6B7B701B6B5B501B4B4B501B3B3B401B2B3B301B1B1B101
       B0B0B0018B8B8B01
     }
-    left = 349
-    top = 62
+    left = 150
+    top = 68
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -1964,8 +1985,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 339
-    top = 61
+    left = 130
+    top = 67
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -1979,8 +2000,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 335
-    top = 63
+    left = 139
+    top = 71
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -2409,7 +2430,7 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
-    left = 324
-    top = 62
+    left = 139
+    top = 67
   end
 end

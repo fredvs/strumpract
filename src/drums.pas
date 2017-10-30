@@ -164,6 +164,7 @@ type
     procedure onsetnovoice(const Sender: TObject; var avalue: boolean; var accept: boolean);
     procedure ondestroi(const Sender: TObject);
     procedure onchangevol(const Sender: TObject);
+   procedure onchangenovoice(const sender: TObject);
   end;
 
 var
@@ -203,11 +204,20 @@ begin
   if wascreated then begin
 
   label2.Caption := '0';
-
+  label3.visible := false;
+  label4.visible := false;
+    
   for i := 0 to 8 do
   begin
-    uos_pause(i);
+    uos_play(i);
+    uos_stop(i);
    end;
+ 
+  novoice.value := true;
+  tag := 0;
+  loop_resume.enabled := false;
+  commanderfo.loop_resume.enabled := false;
+  wascreated := false;  
    
   end;
 end;
@@ -254,32 +264,32 @@ begin
 
       if ach[posi - 1].Value = True then
       begin
-       uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+       uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
             
         uos_PlaynofreePaused(0);
       end;
 
       if aoh[posi - 1].Value then
       begin
-        uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+        uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
   
         uos_PlaynofreePaused(1);
       end;
 
       if asd[posi - 1].Value then
       begin
-         uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+         uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
   
         uos_PlaynofreePaused(2);
       end;
 
       if abd[posi - 1].Value then
       begin
-         uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+         uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
   
         uos_PlaynofreePaused(3);
       end;
@@ -623,7 +633,7 @@ begin
     drum_beats[1] := '0000000000000000'; // opened hat
     drum_beats[2] := '0000000000000000'; // snare
     drum_beats[3] := '0000000000000000'; // kick
-    // novoice.value := false;
+    novoice.value := false;
   end
   else
   if tbooleaneditradio(Sender).tag = 2 then
@@ -635,7 +645,7 @@ begin
     drum_beats[1] := '0000000000000000'; // opened hat
     drum_beats[2] := '0000000000000000'; // snare
     drum_beats[3] := 'x000000000000000'; // kick
-    //  novoice.value := false;
+    novoice.value := false;
   end
   else
   if tbooleaneditradio(Sender).tag = 3 then
@@ -647,7 +657,7 @@ begin
     drum_beats[1] := '0000000000000000'; // opened hat
     drum_beats[2] := '00000000x0000000'; // snare
     drum_beats[3] := 'x000000000000000'; // kick
-    // novoice.value := false;
+    novoice.value := false;
   end
   else
   if tbooleaneditradio(Sender).tag = 4 then
@@ -659,7 +669,7 @@ begin
     drum_beats[1] := '0000000000000000'; // opened hat
     drum_beats[2] := '00000000x0000000'; // snare
     drum_beats[3] := 'x000x00000000000'; // kick
-    // novoice.value := false;
+    novoice.value := false;
   end
   else
   if tbooleaneditradio(Sender).tag = 5 then
@@ -671,7 +681,7 @@ begin
     drum_beats[1] := '00000000000000x0'; // opened hat
     drum_beats[2] := '0000x0000000x000'; // snare
     drum_beats[3] := 'x0000000x0x00000'; // kick
-    // novoice.value := true;
+    novoice.value := true;
   end
   else
   if tbooleaneditradio(Sender).tag = 6 then
@@ -683,7 +693,7 @@ begin
     drum_beats[1] := '000000x000000000'; // opened hat
     drum_beats[2] := '00x0x0000000x000'; // snare
     drum_beats[3] := 'x0000000x0x00000'; // kick
-    // novoice.value := true;
+    novoice.value := true;
   end
   else
   if tbooleaneditradio(Sender).tag = 7 then
@@ -695,7 +705,7 @@ begin
     drum_beats[1] := '00x00000x00000x0'; // opened hat
     drum_beats[2] := '0000x0000000x000'; // snare
     drum_beats[3] := 'x00000x0x0x000x0'; // kick
-    // novoice.value := true;
+    novoice.value := true;
   end
   else
   if tbooleaneditradio(Sender).tag = 8 then
@@ -707,7 +717,7 @@ begin
     drum_beats[1] := '00x000x000x000x0'; // opened hat
     drum_beats[2] := '0000x0000000x000'; // snare
     drum_beats[3] := 'x0x00000x00000x0'; // kick
-    // novoice.value := true;
+    novoice.value := true;
   end;
 
   for ax := 0 to 15 do
@@ -743,7 +753,7 @@ begin
   end
   else
   begin
-    dostop(Sender);
+   // dostop(Sender);
     mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Show Drums ';
   end;
 
@@ -798,8 +808,9 @@ begin
           ////////// Inputindex1 : Index of a existing input
           ////////// VolLeft : Left volume
           ////////// VolRight : Right volume
-          uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) * commanderfo.genvolleft.Value
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value, True);
+          uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) *
+           commanderfo.genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
         end;
   end;
@@ -1311,9 +1322,7 @@ procedure tdrumsfo.onsetnovoice(const Sender: TObject; var avalue: boolean; var 
 
 begin
 
-  if (avalue = False) and (tag = 0) then
-    createvoiceplayers;
-  // else stopvoiceplayers;
+   // else stopvoiceplayers;
 
 end;
 
@@ -1332,6 +1341,12 @@ begin
     timersent.Enabled := False;
     timersent.Enabled := True;
   end;
+end;
+
+procedure tdrumsfo.onchangenovoice(const sender: TObject);
+begin
+ if (hasinit = 1) and (tag = 0) and (novoice.value = false) then
+    createvoiceplayers;
 end;
 
 end.

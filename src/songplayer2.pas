@@ -455,7 +455,11 @@ begin
         ////////// VolLeft : Left volume
         ////////// VolRight : Right volume
 
-        uos_InputSetDSPVolume(theplayer2, Inputindex2, edvolleft.Value / 100, edvolright.Value / 100, True);
+      
+            uos_InputSetDSPVolume(theplayer2, Inputindex2,
+  (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);      
+
+     
         /// Set volume
         ////////// Playerindex2 : Index of a existing Player
         ////////// Inputindex2 : InputIndex of a existing Input
@@ -691,7 +695,7 @@ end;
 }
 
     uos_InputSetDSPVolume(theplayer2, Inputindex2,
-  (edvolleft.Value / 100) * commanderfo.genvolleft.Value, (edvolright.Value / 100) * commanderfo.genvolright.Value, True);      
+  (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);      
 
   end;
 end;

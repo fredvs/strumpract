@@ -59,8 +59,6 @@ type
    genvolright: tslider;
    genvolleft: tslider;
    namegen: tstringdisp;
-   genleftvolvalue: tstringdisp;
-   genrightvolvalue: tstringdisp;
    linkvol: tbooleanedit;
    linkvolgen: tbooleanedit;
    linkvol2: tbooleanedit;
@@ -74,6 +72,8 @@ type
    volumeleft2val: tstringdisp;
    tslider2val: tstringdisp;
    tslider3val: tstringdisp;
+   genleftvolvalue: tbutton;
+   genrightvolvalue: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -91,6 +91,7 @@ type
     procedure doresumedrums(const Sender: TObject);
     procedure onchangevoldrums(const Sender: TObject);
    procedure onchangegenvol(const sender: TObject);
+   procedure onresetgenvol(const sender: TObject);
         end;
 
 var
@@ -120,7 +121,7 @@ var
   fromplay: integer;
 begin
 
-  totmixinterval := trunc(timemix.Value / 10);
+  totmixinterval := round(timemix.Value / 10);
 
   incmixinterval := 0;
 
@@ -376,12 +377,10 @@ begin
           volumeright1.Value := volumeleft1.Value
         else
           volumeleft1.Value := volumeright1.Value;
-      
-      
+         
         songplayerfo.edvolleft.Value := trunc(volumeleft1.Value * 100);
         songplayerfo.edvolright.Value := trunc(volumeright1.Value * 100);
-        
-       
+         
       end
       else
       if (tslider(Sender).tag = 0) then
@@ -518,14 +517,15 @@ begin
           genvolright.Value := genvolleft.Value
         else
           genvolleft.Value := genvolright.Value;
-        genleftvolvalue.Value := inttostr(trunc(genvolleft.Value * 100));
-        genrightvolvalue.Value := inttostr(trunc(genvolright.Value * 100));
+        genleftvolvalue.caption := inttostr(round(genvolleft.Value * 150));
+        genrightvolvalue.caption := inttostr(round(genvolright.Value * 150));
       end
       else
-      if (tslider(Sender).tag = 0) then
-        genleftvolvalue.Value := inttostr(trunc(genvolleft.Value * 100))
+      
+       if (tslider(Sender).tag = 0) then
+       genleftvolvalue.caption := inttostr(round(genvolleft.Value * 150))
       else
-       genrightvolvalue.Value := inttostr(trunc(genvolright.Value * 100));
+       genrightvolvalue.caption := inttostr(round(genvolright.Value * 150));
       //songplayerfo.changevolume(sender)
     if hasinit = 1 then
   begin
@@ -533,6 +533,25 @@ begin
     songplayer2fo.changevolume(sender);
     drumsfo.onchangevol(sender);
   end;
+end;
+
+procedure tcommanderfo.onresetgenvol(const sender: TObject);
+begin
+if linkvolgen.value = true then 
+begin
+genvolright.Value := 0.666666;  
+genvolleft.Value := 0.666666;  
+// genrightvolvalue.Value := 100;
+//genrightvolvalue.Value := 100;   
+ end else
+begin
+
+ if (tbutton(Sender).tag = 0) then
+ genvolleft.Value := 0.666666 else
+  genvolright.Value := 0.666666
+  
+  
+ end; 
 end;
 
 end.

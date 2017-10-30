@@ -1307,7 +1307,7 @@ object drumsfo: tdrumsfo
       bounds_y = 10
       bounds_cx = 66
       bounds_cy = 17
-      onsetvalue = onsetnovoice
+      onchange = onchangenovoice
       value = True
     end
     object nodrums: tbooleanedit

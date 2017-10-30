@@ -171,10 +171,7 @@ object songplayerfo: tsongplayerfo
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       caretwidth = 0
       onchange = changevolume
-      oncheckvalue = oncheck
-      ondataentered = ondtataenter
       onsetvalue = onsetvalvolleft
-      onsetintvalue = onsetint
       value = 100
       valuedefault = 100
       valuerange = 1
