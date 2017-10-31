@@ -14,6 +14,7 @@ uses
 type
   tcommanderfo = class(tdockform)
     timermix: ttimer;
+    Timersent: Ttimer;
     tgroupboxplayers: tgroupbox;
     btnStop: TButton;
     btnPause: TButton;
@@ -74,6 +75,9 @@ type
    tslider3val: tstringdisp;
    genleftvolvalue: tbutton;
    genrightvolvalue: tbutton;
+   hintpanel: tgroupbox;
+   hintlabel: tlabel;
+   hintlabel2: tlabel;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -83,6 +87,7 @@ type
     procedure setvolume(const Sender: TObject);
     procedure onstartstop(const Sender: TObject);
     procedure ontimermix(const Sender: TObject);
+    procedure ontimersent(const Sender: TObject);
     procedure ondest(const Sender: TObject);
     procedure onsetinput(const Sender: TObject);
     procedure onchangevolinput(const Sender: TObject);
@@ -90,9 +95,12 @@ type
     procedure dopausedrums(const Sender: TObject);
     procedure doresumedrums(const Sender: TObject);
     procedure onchangevoldrums(const Sender: TObject);
-   procedure onchangegenvol(const sender: TObject);
-   procedure onresetgenvol(const sender: TObject);
-        end;
+    procedure onchangegenvol(const sender: TObject);
+    procedure onresetgenvol(const sender: TObject);
+    procedure onsetvalvol(const sender: TObject; var avalue: realty;
+                   var accept: Boolean);
+    procedure ontextedit(const sender: tcustomedit; var atext: msestring);
+  end;
 
 var
   commanderfo: tcommanderfo;
@@ -114,6 +122,16 @@ begin
   Timermix.interval := 100000;
   Timermix.Enabled := False;
   Timermix.ontimer := @ontimermix;
+  Timersent := ttimer.Create(nil);
+  Timersent.interval := 2500000;
+  Timersent.Enabled := False;
+  Timersent.ontimer := @ontimersent;
+end;
+
+procedure tcommanderfo.ontimersent(const Sender: TObject);
+begin
+  timersent.Enabled := False;
+  hintpanel.visible := false;
 end;
 
 procedure tcommanderfo.onstartstop(const Sender: TObject);
@@ -552,6 +570,46 @@ begin
   
   
  end; 
+end;
+
+procedure tcommanderfo.onsetvalvol(const sender: TObject; var avalue: realty;
+               var accept: Boolean);
+begin
+if avalue > 10000 then
+begin
+hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 10000.  Reset to 10000.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+ avalue := 10000;
+end; 
+ 
+if avalue < 10 then begin
+hintlabel.caption := '" " is invalid value.  Reset to 10 (Min Value).';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+avalue := 10;
+end; 
+end;
+
+procedure tcommanderfo.ontextedit(const sender: tcustomedit;
+               var atext: msestring);
+begin
+if (isnumber(atext)) or (atext = '') or (atext = '-') then else
+begin
+hintlabel.caption := '"' + atext + '" is invalid value.  Reset to 300.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+ atext := '300';
+ end;
 end;
 
 end.

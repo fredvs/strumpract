@@ -4,13 +4,13 @@ unit songplayer;
 interface
 
 uses
-  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf, msefileutils,
-  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, mseevent,
-  mseclasses, mseforms, msedock, msesimplewidgets, msewidgets, msedataedits,
-  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils, msegraphedits,
-  msedragglob, mseact, mseedit, mseificomp, mseificompglob, mseifiglob,
-  msestatfile, msestream, msestrings, msescrollbar, msebitmap, msedatanodes,
-  msedispwidgets, mserichstring;
+ ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
+ msefileutils,mseapplication, msestat, msemenus, msegui, msegraphics,
+ msegraphutils, mseevent,mseclasses, mseforms, msedock, msesimplewidgets,
+ msewidgets, msedataedits,msefiledialog, msegrids, mselistbrowser, msesys,
+ SysUtils, msegraphedits,msedragglob, mseact, mseedit, mseificomp,
+ mseificompglob, mseifiglob,msestatfile, msestream, msestrings, msescrollbar,
+ msebitmap, msedatanodes,msedispwidgets, mserichstring;
 
 type
   tsongplayerfo = class(tdockform)
@@ -45,6 +45,9 @@ type
     sliderimage: tbitmapcomp;
     vuRight: tprogressbar;
     vuLeft: tprogressbar;
+   hintpanel: tgroupbox;
+   hintlabel: tlabel;
+   hintlabel2: tlabel;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -74,8 +77,9 @@ type
     procedure DrawWaveForm();
 
     procedure onchachewav(const Sender: TObject);
-     procedure onsetvalvol(const sender: TObject; var avalue: realty;
+    procedure onsetvalvol(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
+   procedure ontextedit(const sender: tcustomedit; var atext: msestring);
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
@@ -107,11 +111,12 @@ uses
 procedure tsongplayerfo.ontimersent(const Sender: TObject);
 begin
   timersent.Enabled := False;
+  hintpanel.visible := false;
   historyfn.face.template := mainfo.tfaceplayerlight;
   edvolleft.face.template := mainfo.tfaceplayer;
   edvolright.face.template := mainfo.tfaceplayer;
   edtempo.face.template := mainfo.tfaceplayer;
-end;
+  end;
 
 procedure tsongplayerfo.ontimerwait(const Sender: TObject);
 begin
@@ -955,7 +960,7 @@ begin
   Timerwait.ontimer := @ontimerwait;
 
   Timersent := ttimer.Create(nil);
-  Timersent.interval := 1500000;
+  Timersent.interval := 2500000;
   Timersent.Enabled := False;
   Timersent.ontimer := @ontimersent;
 
@@ -1075,8 +1080,68 @@ end;
 procedure tsongplayerfo.onsetvalvol(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
-if avalue > 100 then avalue := 100;
-if avalue < 0 then avalue := 0;
+if (trealspinedit(Sender).tag = 9) then
+begin
+if avalue > 2 then
+begin
+hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 2.  Reset to 2.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+ avalue := 2;
+end; 
+ 
+if avalue < 0.4 then begin
+hintlabel.caption := '" " is invalid value.  Reset to 0.4';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+avalue := 0.4;
+end; 
+end
+else
+begin
+
+if avalue > 100 then
+begin
+hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 100.  Reset to 100.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+ avalue := 100;
+end; 
+ 
+if avalue < 0 then begin
+hintlabel.caption := '" " is invalid value.  Reset to 0.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+avalue := 0;
+end; 
+end;
+end;
+
+procedure tsongplayerfo.ontextedit(const sender: tcustomedit;
+               var atext: msestring);
+begin
+if (isnumber(atext)) or (atext = '') or (atext = '-') then else
+begin
+ hintlabel.caption := '"' + atext + '" is invalid value.  Reset to 100.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+ atext := '100';
+end;
 end;
 
 end.

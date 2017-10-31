@@ -4,12 +4,12 @@ unit drums;
 interface
 
 uses
-  mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
-  msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
-  msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
-  mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
-  mserichstring;
+ mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+ msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
+ msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
+ msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
+ mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
+ mserichstring;
 
 type
   talab = array[0..15] of tlabel;
@@ -145,6 +145,9 @@ type
     volumedrums: trealspinedit;
     ltempo: tstringdisp;
     tstringdisp2: tstringdisp;
+   hintpanel: tgroupbox;
+   hintlabel: tlabel;
+   hintlabel2: tlabel;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -164,7 +167,10 @@ type
     procedure onsetnovoice(const Sender: TObject; var avalue: boolean; var accept: boolean);
     procedure ondestroi(const Sender: TObject);
     procedure onchangevol(const Sender: TObject);
-   procedure onchangenovoice(const sender: TObject);
+    procedure onchangenovoice(const sender: TObject);
+    procedure onsetvalvol(const sender: TObject; var avalue: realty;
+                   var accept: Boolean);
+    procedure ontextedit(const sender: tcustomedit; var atext: msestring);
   end;
 
 var
@@ -194,6 +200,7 @@ begin
   edittempo.face.template := tfacecomp3;
   volumedrums.face.template := tfacecomp3;
   ltempo.face.template := tfacecomp3;
+   hintpanel.visible := false;
 end;
 
 procedure tdrumsfo.ontimerpause(const Sender: TObject);
@@ -960,7 +967,7 @@ begin
   Timerpause.ontimer := @ontimerpause;
 
   Timersent := ttimer.Create(nil);
-  Timersent.interval := 1500000;
+  Timersent.interval := 2500000;
   Timersent.Enabled := False;
   Timersent.ontimer := @ontimersent;
 
@@ -1347,6 +1354,76 @@ procedure tdrumsfo.onchangenovoice(const sender: TObject);
 begin
  if (hasinit = 1) and (tag = 0) and (novoice.value = false) then
     createvoiceplayers;
+end;
+
+procedure tdrumsfo.onsetvalvol(const sender: TObject; var avalue: realty;
+               var accept: Boolean);
+begin
+ if (trealspinedit(Sender).tag = 1) then
+ begin
+if avalue > 100 then
+begin
+hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 100.  Reset to 100.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+ avalue := 100;
+end; 
+ 
+if avalue < 0 then begin
+hintlabel.caption := '" " is invalid value.  Reset to 0.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+timersent.Enabled := true;
+avalue := 0;
+end; 
+end;
+
+ if (trealspinedit(Sender).tag = 0) then
+ begin
+if avalue > 200 then
+begin
+hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 200.  Reset to 200.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+hintpanel.visible := true;
+timersent.Enabled := true;
+ avalue := 200;
+end; 
+ 
+if avalue < 40 then begin
+hintlabel.caption := 'Value entered is < Minimum Value (40).  Reset to 40.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+hintpanel.visible := true;
+timersent.Enabled := true;
+avalue := 40;
+end; 
+end;
+end;
+
+procedure tdrumsfo.ontextedit(const sender: tcustomedit;
+               var atext: msestring);
+begin
+if (isnumber(atext)) or (atext = '') or (atext = '-') then else
+begin
+hintlabel.caption := '"' + atext + '" is invalid value.  Reset to 100.';
+if hintlabel.width > hintlabel2.width then
+hintpanel.width := hintlabel.width + 10 else
+hintpanel.width := hintlabel2.width + 10;
+hintpanel.visible := true;
+hintpanel.visible := true;
+timersent.Enabled := true;
+ atext := '100';
+ end;
 end;
 
 end.

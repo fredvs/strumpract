@@ -10,8 +10,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 587
-  bounds_y = 243
+  bounds_x = 343
+  bounds_y = 373
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -143,11 +143,13 @@ object commanderfo: tcommanderfo
       font.name = 'stf_default'
       font.localprops = [flp_colorselect, flp_colorselectbackground]
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      ontextedited = ontextedit
+      onsetvalue = onsetvalvol
       value = 300
       valuedefault = 300
       valuerange = 1
       valuestart = 0
-      valuemin = 10
+      valuemin = -Inf
       valuemax = 10000
       step = 10
       stepctrlfact = 0
@@ -913,6 +915,43 @@ object commanderfo: tcommanderfo
       value = '0'
       reffontheight = 13
     end
+    object hintpanel: tgroupbox
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceorange
+      taborder = 30
+      visible = False
+      bounds_x = 5
+      bounds_y = 54
+      bounds_cx = 221
+      bounds_cy = 36
+      font.name = 'stf_default'
+      font.localprops = []
+      object hintlabel: tlabel
+        bounds_x = 3
+        bounds_y = 2
+        bounds_cx = 169
+        bounds_cy = 15
+        caption = 'Invalid value.  Reset to 100.'
+        font.name = 'stf_default'
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 15
+      end
+      object hintlabel2: tlabel
+        taborder = 1
+        bounds_x = 3
+        bounds_y = 16
+        bounds_cx = 215
+        bounds_cy = 15
+        caption = 'Or press Esc key for previous value.'
+        font.name = 'stf_default'
+        font.localprops = []
+        reffontheight = 15
+      end
+    end
   end
   object tgroupboxdrums: tgroupbox
     color = -2147483645
@@ -1376,7 +1415,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
       frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
-      frame.localprops = [frl_optionsskin]
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
@@ -1441,8 +1480,8 @@ object commanderfo: tcommanderfo
       15921906
     )
     template.fade_direction = gd_left
-    left = 145
-    top = 62
+    left = 309
+    top = 14
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -1456,8 +1495,8 @@ object commanderfo: tcommanderfo
       10921638
     )
     template.fade_direction = gd_down
-    left = 150
-    top = 69
+    left = 301
+    top = 13
   end
   object tframecomp1: tframecomp
     template.framei_left = 4
@@ -1470,8 +1509,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 134
-    top = 72
+    left = 303
+    top = 16
   end
   object timagelist2: timagelist
     width = 4
@@ -1481,8 +1520,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 152
-    top = 65
+    left = 317
+    top = 13
     image = {
       00000000020000000C0000000C00000010010000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -1506,8 +1545,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 130
-    top = 70
+    left = 311
+    top = 13
     image = {
       00000000020000000C0000000C000000E8000000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -1533,8 +1572,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 150
-    top = 68
+    left = 313
+    top = 13
   end
   object tfaceslider: tfacecomp
     template.image.origformat = 'png'
@@ -1963,8 +2002,8 @@ object commanderfo: tcommanderfo
       B8B9B801B8B8B701B6B7B701B6B5B501B4B4B501B3B3B401B2B3B301B1B1B101
       B0B0B0018B8B8B01
     }
-    left = 150
-    top = 68
+    left = 313
+    top = 16
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -1985,8 +2024,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 130
-    top = 67
+    left = 309
+    top = 18
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -2000,8 +2039,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 139
-    top = 71
+    left = 307
+    top = 12
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -2430,7 +2469,7 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
-    left = 139
-    top = 67
+    left = 311
+    top = 9
   end
 end

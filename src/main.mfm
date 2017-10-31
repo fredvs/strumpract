@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 524
-  bounds_y = 289
+  bounds_x = 341
+  bounds_y = 97
   bounds_cx = 458
   bounds_cy = 68
   bounds_cxmin = 458

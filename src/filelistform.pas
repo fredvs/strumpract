@@ -4,16 +4,17 @@ unit filelistform;
 interface
 
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  msefileutils, msegui, msegraphics, msegraphutils, mseevent, mseclasses,
-  msegridsglob, mseforms, msedock, msedragglob, msesimplewidgets, msewidgets, mseact,
-  msebitmap, msedataedits, msedatanodes, mseedit, msefiledialog, msegrids,
-  mseificomp, mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream,
-  msestrings, msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets,
-  mserichstring;
+ msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat, msemenus,
+ msefileutils, msegui, msegraphics, msegraphutils, mseevent, mseclasses,
+ msegridsglob, mseforms, msedock, msedragglob, msesimplewidgets, msewidgets,
+ mseact,msebitmap, msedataedits, msedatanodes, mseedit, msefiledialog,msegrids,
+ mseificomp, mseificompglob, mseifiglob, mselistbrowser, msestatfile,msestream,
+ msestrings, msesys, SysUtils, msegraphedits, msescrollbar,msedispwidgets,
+ mserichstring;
 
 type
   tfilelistfo = class(tdockform)
+     Timersent: Ttimer;
     tfacecomp1: tfacecomp;
     tgroupbox1: tgroupbox;
     songdir: tfilenameedit;
@@ -23,9 +24,12 @@ type
     list_files: tstringgrid;
     filescount: tstringdisp;
     edfilescount: tintegeredit;
+   hintpanel: tgroupbox;
+   hintlabel: tlabel;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
+    procedure ontimersent(const Sender: TObject);
     procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
     procedure onchangpath(const Sender: TObject);
     procedure onafterdialog(const Sender: tfiledialogcontroller; var aresult: modalresultty);
@@ -50,6 +54,16 @@ uses
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
 begin
+  Timersent := ttimer.Create(nil);
+  Timersent.interval := 2500000;
+  Timersent.Enabled := False;
+  Timersent.ontimer := @ontimersent;
+end;
+
+procedure tfilelistfo.ontimersent(const Sender: TObject);
+begin
+  timersent.Enabled := False;
+  hintpanel.visible := false;
 end;
 
 procedure tfilelistfo.onsent(const Sender: TObject);
@@ -66,7 +80,12 @@ begin
     if (filelistfo.list_files.rowcount < 1) or (trim(list_files[0][thefocusedcell.row]) = '') then
     begin
       if filelistfo.list_files.rowcount < 1 then
-        ShowMessage('No song in file list. Please select a audio directory with songs...')
+      begin
+      timersent.Enabled := False;
+      hintlabel.caption := 'No song in file list. Please select a audio directory with songs...';
+      hintpanel.visible := true;
+      timersent.Enabled := true;
+      end
       else
       begin
         thefocusedcell.row := 0;
@@ -135,7 +154,13 @@ begin
         songplayerfo.timersent.Enabled := False;
         songplayerfo.timersent.Enabled := True;
        end else 
-   ///   ShowMessage(tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...');
+      begin
+      timersent.Enabled := False;
+      hintlabel.caption := tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...';
+      hintpanel.visible := true; 
+      timersent.Enabled := true;
+      end;
+          
       end;
  
        if theplaysender = 1 then
@@ -153,17 +178,24 @@ begin
         songplayer2fo.timersent.Enabled := False;
         songplayer2fo.timersent.Enabled := True;
       end else
-   //   ShowMessage(tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...');
-      
-        end;
+    begin
+      timersent.Enabled := False;
+      hintlabel.caption := tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...';
+      hintpanel.visible := true; 
+      timersent.Enabled := true;
+      end;  
+   end;
  
    list_files.selectcell(thefocusedcell, csm_select, False);
  
         end;
   end else
   begin
-   // ShowMessage('Directory ' + historyfn.Value + ' does not exist or not mounted...');
-   end;
+      timersent.Enabled := False;
+      hintlabel.caption := 'Directory ' + historyfn.Value + ' does not exist or not mounted...';
+      hintpanel.visible := true; 
+      timersent.Enabled := true;
+  end;
 end;
 
 procedure tfilelistfo.whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
