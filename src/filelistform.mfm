@@ -94,6 +94,7 @@ object filelistfo: tfilelistfo
     0000000000000000000000000000000000000000
   }
   oncreated = formcreated
+  ondestroy = ondestr
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'

@@ -16,6 +16,7 @@ object configfo: tconfigfo
     358
     166
   )
+  optionswindow = [wo_dialog]
   font.name = 'stf_default'
   font.localprops = []
   caption = 'Audio Configuration'

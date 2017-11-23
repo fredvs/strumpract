@@ -1008,7 +1008,7 @@ procedure tsongplayerfo.ondestr(const Sender: TObject);
 begin
   Timerwait.Free;
   timersent.Free;
-end;
+  end;
 
 procedure tsongplayerfo.changevol(const Sender: TObject; var avalue: realty; var accept: boolean);
 begin

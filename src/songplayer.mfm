@@ -606,7 +606,7 @@ object songplayerfo: tsongplayerfo
       valuestart = 0
       valuemin = -Inf
       valuemax = 9999999
-      step = 0.05
+      step = 0.01
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
@@ -770,8 +770,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 22
       visible = False
-      bounds_x = 188
-      bounds_y = 56
+      bounds_x = 182
+      bounds_y = 57
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

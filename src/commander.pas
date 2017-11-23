@@ -434,6 +434,7 @@ end;
 procedure tcommanderfo.ondest(const Sender: TObject);
 begin
   Timermix.Free;
+  timersent.Free;
 end;
 
 procedure tcommanderfo.onsetinput(const Sender: TObject);

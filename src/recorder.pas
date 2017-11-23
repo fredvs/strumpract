@@ -700,6 +700,7 @@ procedure trecorderfo.ondest(const Sender: TObject);
 begin
   Timerwait.Free;
   timerrec.Free;
+  Timersent.Free;
 end;
 
 procedure trecorderfo.afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);

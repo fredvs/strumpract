@@ -539,6 +539,7 @@ type
   {$IF DEFINED(bs2b) or DEFINED(soundtouch)}
   Abs2b : Tt_bs2bdp;
   PlugFunc: TPlugFunc;
+ // PlugHandle2: THandle;
   {$endif}
   param1: float;
   param2: float;
@@ -2519,6 +2520,7 @@ var
  numoutbuf, x1, x2: cint32;
   BufferplugFLTMP: TDArFloat;
   BufferplugFL: TDArFloat;
+ //  plugHandle2 : THandle;
  begin
  
  case inputData.LibOpen of
@@ -2547,10 +2549,24 @@ var
   
   if inputData.outframes > 0 then
   begin 
+  
+   {
+ 
+    plugHandle2 := bpm_createInstance(inputData.Channels, inputData.samplerate);
+  
+   bpm_putSamples(plugHandle2,  pcfloat(bufferin),
+  inputData.outframes div cint(inputData.Channels * ratio));
+   
+  writeln('DetectBPM = ' + floattostr(bpm_getBpm(plugHandle2)));
+ 
+   bpm_destroyInstance(plugHandle2);
+ 
+   // }
+ 
   soundtouch_putSamples(plugHandle, pcfloat(bufferin),
   inputData.outframes div cint(inputData.Channels * ratio));
-  
-  {$IF DEFINED(debug)}
+
+   {$IF DEFINED(debug)}
   writeln('inputData.outframes div trunc(inputData.Channels * ratio) = '
   + inttostr(inputData.outframes div inputData.Channels * ratio)); 
   {$endif}
@@ -2682,8 +2698,12 @@ x := -1 ;
   Plugin[x].param6 := -1;
   Plugin[x].param7 := -1;
   Plugin[x].param8 := -1;
+  
+ // Plugin[x].PlugHandle2 :=  bpm_createInstance();
+  
   Plugin[x].PlugHandle := soundtouch_createInstance();
-  if SampleRate = -1 then
+ 
+   if SampleRate = -1 then
   soundtouch_setSampleRate(Plugin[x].PlugHandle, 44100)
   else
   soundtouch_setSampleRate(Plugin[x].PlugHandle, SampleRate);
@@ -6471,6 +6491,7 @@ begin
    begin
    soundtouch_clear(Plugin[x].PlugHandle);
    soundtouch_destroyInstance(Plugin[x].PlugHandle);
+  // bpm_destroyInstance(Plugin[x].PlugHandle2);
    end;
    {$endif}
 

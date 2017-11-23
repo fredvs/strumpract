@@ -41,6 +41,7 @@ type
     procedure onbefdrop(const Sender: TObject);
     procedure onaftdrop(const Sender: TObject);
     procedure onchangecount(const Sender: TObject);
+   procedure ondestr(const sender: TObject);
   end;
 
 var
@@ -346,6 +347,11 @@ end;
 procedure tfilelistfo.onchangecount(const Sender: TObject);
 begin
   filescount.Value := IntToStr(edfilescount.Value) + ' files';
+end;
+
+procedure tfilelistfo.ondestr(const sender: TObject);
+begin
+timersent.Free;
 end;
 
 end.
