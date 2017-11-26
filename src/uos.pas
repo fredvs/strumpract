@@ -74,7 +74,7 @@ uos_cdrom,
 Classes, ctypes, Math, sysutils;
 
 const
-  uos_version : cint32 = 170608;
+  uos_version : cint32 = 171009;
   
 {$IF DEFINED(bs2b)}
   BS2B_HIGH_CLEVEL = (CInt32(700)) or ((CInt32(30)) shl 16);
@@ -351,8 +351,9 @@ type
   LevelLeft, LevelRight: cfloat;
   levelArrayEnable : integer;
   
+  lensine: cfloat;
+   
   freqsine: cfloat;
-  lensine: cint32;
   dursine, posdursine: cint32;
   posLsine, posRsine: cint32;
   
@@ -396,6 +397,10 @@ type
   Length: cint32;  //  length samples total 
   LibOpen: integer;  // -1: nothing open, 0: sndfile open, 1: mpg123 open, 2: aac open, 3: cdrom, 4: opus
   Ratio: integer;  //  if mpg123 or aac then ratio := 2
+  
+  BPM : cfloat;
+  
+  numbuf : integer;
   
   Output: cint32;
 
@@ -539,7 +544,6 @@ type
   {$IF DEFINED(bs2b) or DEFINED(soundtouch)}
   Abs2b : Tt_bs2bdp;
   PlugFunc: TPlugFunc;
- // PlugHandle2: THandle;
   {$endif}
   param1: float;
   param2: float;
@@ -708,7 +712,7 @@ type
     //  result : Output Index in array     -1 = error
     //////////// example : OutputIndex1 := AddIntoFileFromBuf(edit5.Text,-1,-1, 0, -1);
   
-  function AddIntoMemoryBuffer(outmemory: PDArFloat) : cint32;
+  function AddIntoMemoryBuffer(var outmemory: PDArFloat) : cint32;
   // Add a Output into memory buffer
   // outmemory : pointer of buffer to use to store memory.
   // example : OutputIndex1 := AddIntoMemoryBuffer(bufmemory);
@@ -783,16 +787,17 @@ function AddFromFile(Filename: Pchar; OutputIndex: cint32;
   // example : InputIndex1 := AddFromFile(edit5.Text,-1,0,-1);
   
 function AddFromFileIntoMemory(Filename: Pchar; OutputIndex: cint32;
-  SampleFormat: cint32 ; FramesCount: cint32): cint32;
+  SampleFormat: cint32 ; FramesCount: cint32 ; numbuf : cint): cint32;
   // Add a input from audio file and store it into memory with custom parameters
   // FileName : filename of audio file
   // OutputIndex : Output index of used output// -1: all output, -2: no output, other cint32 refer to a existing OutputIndex  (if multi-output then OutName = name of each output separeted by ';')
   // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
   // FramesCount : default : -1 (4096)
+  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers) 
   //  result :  Input Index in array  -1 = error
-  // example : InputIndex1 := AddFromFileIntoMemory(edit5.Text,-1,0,-1);
+  // example : InputIndex1 := AddFromFileIntoMemory(edit5.Text,-1,0,-1, -1);
  
-function AddFromMemoryBuffer(MemoryBuffer: TDArFloat; Bufferinfos: Tuos_bufferinfos;
+function AddFromMemoryBuffer(var MemoryBuffer: TDArFloat; var Bufferinfos: Tuos_bufferinfos;
  OutputIndex: cint32; FramesCount: cint32): cint32;
   // Add a input from memory buffer with custom parameters
   // MemoryBuffer : the buffer
@@ -1128,7 +1133,10 @@ procedure uos_unloadlibCust(PortAudio, SndFile, Mpg123, AAC, opus: boolean);
   // Custom Unload libraries... if true, then unload the library. You may unload what and when you want...
 
 function uos_loadPlugin(PluginName, PluginFilename: PChar) : cint32;
-  // load plugin...
+ // load plugin...
+ 
+function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
+  // From SoundTouch plugin
   
 procedure uos_unloadPlugin(PluginName: PChar);
   // Unload Plugin...
@@ -1139,14 +1147,14 @@ procedure uos_Free();
   
 function uos_GetVersion() : cint32 ;  // version of uos
 
-function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; outmemory: TDArFloat; var bufferinfos: Tuos_BufferInfos ): TDArFloat;
+function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; var bufferinfos: Tuos_BufferInfos ; numbuf : cint ): TDArFloat;
   // Create a memory buffer of a audio file.
   // FileName : filename of audio file  
   // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
-  // Outmemory : the buffer to store data.
   // bufferinfos : the infos of the buffer.
+  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers) 
   //  result :  The memory buffer
-  // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos);
+  // example : buffmem := uos_File2buffer(edit5.Text,0, buffinfos, -1);
   
 procedure uos_File2File(FilenameIN: Pchar; FilenameOUT: Pchar; SampleFormat: cint32 ; typeout: cint32 );
   // Create a audio file from a audio file.
@@ -1191,6 +1199,7 @@ const
   {$endif}
 
 var
+  theinc : integer = 0;
   tempload : boolean = false;
   tempSamplerate, tempSampleFormat, tempchan, tempratio, tempLibOpen, tempLength : cint32; 
   tempoutmemory: TDArFloat;
@@ -1484,7 +1493,7 @@ begin
 end;
 
 function Filetobuffer(Filename: Pchar; OutputIndex: cint32;
-  SampleFormat: cint32 ; FramesCount: cint32; outmemory: TDArFloat; var bufferinfos: Tuos_BufferInfos): TDArFloat;
+  SampleFormat: cint32 ; FramesCount: cint32; var outmemory: TDArFloat; var bufferinfos: Tuos_BufferInfos; numbuf : cint ): TDArFloat;
   // Add a input from audio file with custom parameters
   // FileName : filename of audio file
   // OutputIndex : Output index of used output// -1: all output, -2: no output, other cint32 refer to a existing OutputIndex  (if multi-output then OutName = name of each output separeted by ';')
@@ -1492,11 +1501,12 @@ function Filetobuffer(Filename: Pchar; OutputIndex: cint32;
   // FramesCount : default : -1 (4096)
   // Outmemory : the buffer to store data.
   // bufferinfos : the infos of the buffer
+  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers) 
   //  result :  Input Index in array  -1 = error
-  // example : InputIndex1 := Filetobuffer(edit5.Text,-1,0,-1, buffmem, buffinfos);
+  // example : InputIndex1 := Filetobuffer(edit5.Text,-1,0,-1, buffmem, buffinfos, -1);
   var
   theplayer : Tuos_Player;
-  in1 : cint32; 
+  in1, maxsleep : cint32; 
   begin
   theplayer := Tuos_Player.Create();
    
@@ -1513,7 +1523,12 @@ function Filetobuffer(Filename: Pchar; OutputIndex: cint32;
   writeln('theplayer.InputLength(In1) = ' + inttostr(theplayer.InputLength(In1)));
   {$endif}
    
-  setlength(outmemory, theplayer.InputLength(In1));
+   if numbuf = -1 then
+  setlength(outmemory, theplayer.StreamIn[in1].Data.Length)
+  else  setlength(outmemory, FramesCount * numbuf * theplayer.StreamIn[in1].Data.Channels);
+  
+ 
+ //   writeln('length(outmemory) = ' + inttostr(length(outmemory)));
   
   tempchan := theplayer.StreamIn[in1].Data.Channels; 
   tempratio := theplayer.StreamIn[in1].Data.ratio;
@@ -1543,50 +1558,73 @@ function Filetobuffer(Filename: Pchar; OutputIndex: cint32;
   bufferinfos.LibOpen := 0;
   bufferinfos.Ratio := 2 ;
   
+  theplayer.StreamIn[in1].Data.numbuf := numbuf;
+  
   theplayer.AddIntoMemoryBuffer(pointer(outmemory));
   theplayer.Play(0); 
   end;
-  sleep(60);
-  result := outmemory;
+  maxsleep := 0;
+  while (theplayer.getstatus > 0)  do 
+  begin
+  sleep(100);
+ // maxsleep := maxsleep +1 ;
+  end;
+   result := outmemory;
  end; 
+ 
+function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
+  // From SoundTouch plugin
+  var
+   BPMhandle : THandle;
+    sr, ch : cint32;
+  begin
+  
+  if SampleRate = -1 then sr := 44100 else sr := SampleRate;
+  if Channels = -1 then ch := 2 else ch := Channels;
+  
+    BPMhandle := bpm_createInstance(ch,sr);
+   
+   // writeln('BPMhandle = ok'); 
+  
+   bpm_putSamples(BPMhandle,  pcfloat(thebuffer),  length(thebuffer) div Channels);
+   
+   result := bpm_getBpm(BPMhandle); 
+  
+  // writeln('Detected BPM = ' + inttostr(round(result)));  
+  
+   bpm_destroyInstance(BPMhandle);
+  
+  end;
+   
 
-function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; outmemory: TDArFloat; var bufferinfos: Tuos_BufferInfos ): TDArFloat;
+function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; var bufferinfos: Tuos_BufferInfos ; numbuf : cint ): TDArFloat;
   // Create a memory buffer of a audio file.
   // FileName : filename of audio file  
   // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
-  // Outmemory : the buffer to store data.
   // bufferinfos : the infos of the buffer.
+  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers) 
   //  result :  The memory buffer
-  // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos);
+  // example : buffmem := uos_File2buffer(edit5.Text,0,buffinfos, -1);
   var
   i : integer;
   st : string;
   begin
-   for i := 0 to length(tempoutmemory) -1 do
-  tempoutmemory[i] := 0.0;
-  
-  setlength(tempoutmemory, 0);
-   
-  Filetobuffer(Filename,-1, SampleFormat, 1024, tempoutmemory, bufferinfos);
-  //Filetobuffer(Filename,-1, SampleFormat, 1024, tempoutmemory);
-
-  sleep(50);
+    
+ result :=  Filetobuffer(Filename,-1, SampleFormat, 1024, tempoutmemory, bufferinfos, numbuf);
  
-   setlength(outmemory, length(tempoutmemory));
-  for i := 0 to length(tempoutmemory) -1 do
-  outmemory[i] := tempoutmemory[i];
-
+// writeln('tempoutmemory = '+ inttostr(length(tempoutmemory)));
+ 
   {$IF DEFINED(debug)} 
   writeln('After Filetobuffer');
-  writeln('length(tempoutmemory) =' +inttostr(length(outmemory)));
+  writeln('length(tempoutmemory) =' +inttostr(length(tempoutmemory)));
   st := '';
   for i := 0 to length(outmemory) -1 do
-  st := st + '|' + inttostr(i) + '=' + floattostr(outmemory[i]);  
+  st := st + '|' + inttostr(i) + '=' + floattostr(tempoutmemory[i]);  
   WriteLn('OUTPUT DATA into portaudio------------------------------');
   WriteLn(st);
   {$endif}
-  sleep(50);
-  result := outmemory;
+
+// result := tempoutmemory;
   end;
 
 procedure uos_File2File(FilenameIN: Pchar; FilenameOUT: Pchar; SampleFormat: cint32 ; typeout: cint32 );
@@ -2520,7 +2558,6 @@ var
  numoutbuf, x1, x2: cint32;
   BufferplugFLTMP: TDArFloat;
   BufferplugFL: TDArFloat;
- //  plugHandle2 : THandle;
  begin
  
  case inputData.LibOpen of
@@ -2549,24 +2586,10 @@ var
   
   if inputData.outframes > 0 then
   begin 
-  
-   {
- 
-    plugHandle2 := bpm_createInstance(inputData.Channels, inputData.samplerate);
-  
-   bpm_putSamples(plugHandle2,  pcfloat(bufferin),
-  inputData.outframes div cint(inputData.Channels * ratio));
-   
-  writeln('DetectBPM = ' + floattostr(bpm_getBpm(plugHandle2)));
- 
-   bpm_destroyInstance(plugHandle2);
- 
-   // }
- 
   soundtouch_putSamples(plugHandle, pcfloat(bufferin),
   inputData.outframes div cint(inputData.Channels * ratio));
-
-   {$IF DEFINED(debug)}
+  
+  {$IF DEFINED(debug)}
   writeln('inputData.outframes div trunc(inputData.Channels * ratio) = '
   + inttostr(inputData.outframes div inputData.Channels * ratio)); 
   {$endif}
@@ -2698,12 +2721,8 @@ x := -1 ;
   Plugin[x].param6 := -1;
   Plugin[x].param7 := -1;
   Plugin[x].param8 := -1;
-  
- // Plugin[x].PlugHandle2 :=  bpm_createInstance();
-  
   Plugin[x].PlugHandle := soundtouch_createInstance();
- 
-   if SampleRate = -1 then
+  if SampleRate = -1 then
   soundtouch_setSampleRate(Plugin[x].PlugHandle, 44100)
   else
   soundtouch_setSampleRate(Plugin[x].PlugHandle, SampleRate);
@@ -3729,12 +3748,12 @@ begin
   if Frequency = -1 then 
   begin
   StreamIn[x].Data.freqsine := 440 ;
-  StreamIn[x].Data.lensine :=  (StreamIn[x].Data.SampleRate div 440) ;
+  StreamIn[x].Data.lensine :=  (StreamIn[x].Data.SampleRate / 440) ;
   end
   else
   begin
   StreamIn[x].Data.freqsine := Frequency ;
-  StreamIn[x].Data.lensine := trunc(StreamIn[x].Data.SampleRate / Frequency) ;
+  StreamIn[x].Data.lensine := (StreamIn[x].Data.SampleRate / Frequency) ;
   end;
   
   StreamIn[x].Data.posLsine := 0 ;
@@ -3783,7 +3802,7 @@ begin
  begin
  StreamIn[InputIndex].Data.Enabled := Enable;
  StreamIn[InputIndex].Data.freqsine := Frequency ;
- StreamIn[InputIndex].Data.lensine := trunc(StreamIn[InputIndex].Data.SampleRate / Frequency) ;
+ StreamIn[InputIndex].Data.lensine := (StreamIn[InputIndex].Data.SampleRate / Frequency) ;
  end;
  if VolumeL <> -1 then StreamIn[InputIndex].Data.VLeft := VolumeL;
   
@@ -4125,7 +4144,7 @@ begin
   end;
  end;
  
- function  Tuos_Player.AddIntoMemoryBuffer(outmemory: PDArFloat): cint32;
+ function  Tuos_Player.AddIntoMemoryBuffer(var outmemory: PDArFloat): cint32;
   // Add a Output into memory-bufffer
   // outmemory : buffer to use to store memory buffer
   // example : OutputIndex1 := AddIntoMemoryBuffer(bufmemory);
@@ -4634,7 +4653,7 @@ function Tuos_Player.AddFromURL(URL: PChar; OutputIndex: cint32;
   end;
   {$ENDIF}
 
-function Tuos_Player.AddFromMemoryBuffer(MemoryBuffer: TDArFloat; Bufferinfos: Tuos_bufferinfos;
+function Tuos_Player.AddFromMemoryBuffer(var MemoryBuffer: TDArFloat; var Bufferinfos: Tuos_bufferinfos;
  OutputIndex: cint32; FramesCount: cint32): cint32;
   // Add a input from memory buffer with custom parameters
   // MemoryBuffer : the buffer
@@ -4659,6 +4678,8 @@ var
   st := st + '|' + inttostr(i) + '=' + floattostr(MemoryBuffer[i]);  
   WriteLn(st);
  {$endif} 
+ 
+//  writeln('length(MemoryBuffer) =' +inttostr(length(MemoryBuffer)));
   
   SetLength(StreamIn, Length(StreamIn) + 1);
   StreamIn[Length(StreamIn) - 1] := Tuos_InStream.Create;
@@ -4669,11 +4690,17 @@ var
   StreamIn[x].Data.typeput := 4;
   StreamIn[x].Data.positionEnable := 0;
   StreamIn[x].Data.levelArrayEnable := 0;
-     
+  
+   {  
   setlength(StreamIn[x].Data.memorybuffer, length(MemoryBuffer));
-    
+  
+   writeln('length(Data.memorybuffer) =' +inttostr(length(StreamIn[x].Data.memorybuffer)));
+   
   for i := 0 to length(MemoryBuffer) -1 do
   StreamIn[x].Data.memorybuffer[i] := MemoryBuffer[i];
+ }
+  
+   StreamIn[x].Data.memorybuffer := MemoryBuffer;
   
   sleep(50);
    
@@ -4731,7 +4758,7 @@ var
   end; 
   
 function Tuos_Player.AddFromFileIntoMemory(Filename: Pchar; OutputIndex: cint32;
-  SampleFormat: cint32 ; FramesCount: cint32): cint32;
+  SampleFormat: cint32 ; FramesCount: cint32; numbuf : cint): cint32;
   // Add a input from audio file and store it into memory with custom parameters
   // FileName : filename of audio file
   // OutputIndex : Output index of used output// -1: all output, -2: no output, other cint32 refer to a existing OutputIndex  (if multi-output then OutName = name of each output separeted by ';')
@@ -4777,13 +4804,15 @@ function Tuos_Player.AddFromFileIntoMemory(Filename: Pchar; OutputIndex: cint32;
   
   setlength(tempoutmemory, 0);
   
-  Filetobuffer(Filename, -1, SampleFormat, FramesCount, tempoutmemory, bufferinfos);
+  Filetobuffer(Filename, -1, SampleFormat, FramesCount, tempoutmemory, bufferinfos, numbuf);
   sleep(50);
 
   setlength(StreamIn[x].Data.memorybuffer, length(tempoutmemory));
   for i := 0 to length(tempoutmemory) -1 do
   StreamIn[x].Data.memorybuffer[i] := tempoutmemory [i];
 
+//  writeln('length(tempoutmemory) =' +inttostr(length(tempoutmemory)));
+  
   {$IF DEFINED(debug)} 
   writeln('After Filetobuffer');
   writeln('length(tempoutmemory) =' +inttostr(length(tempoutmemory)));
@@ -6491,7 +6520,6 @@ begin
    begin
    soundtouch_clear(Plugin[x].PlugHandle);
    soundtouch_destroyInstance(Plugin[x].PlugHandle);
-  // bpm_destroyInstance(Plugin[x].PlugHandle2);
    end;
    {$endif}
 
@@ -6895,7 +6923,14 @@ if err > 0 then
   writeln('(StreamIn[x2].Data.outframes ) -1 = ' +
   inttostr((StreamIn[x2].Data.outframes) -1));
   {$endif}
-
+  
+  if StreamIn[x2].Data.numbuf > -1 then
+  begin
+  // writeln('theinc = ' +  inttostr(theinc));
+  inc(theinc);
+  if theinc > StreamIn[x2].Data.numbuf then status := 0 ;
+  end;
+  
   SetLength(tempoutmemory,length(tempoutmemory) + wantframestemp );
 
   for x2 := 0 to (wantframestemp) -1 do
@@ -7505,6 +7540,8 @@ var
   plugenabled: boolean;
   curpos: cint64 = 0;
 begin
+
+theinc := 0;
 
 {$IF DEFINED(mse)}
  {$else}

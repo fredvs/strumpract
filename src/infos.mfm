@@ -4,14 +4,14 @@ object infosfo: tinfosfo
   bounds_x = 685
   bounds_y = 257
   bounds_cx = 354
-  bounds_cy = 253
+  bounds_cy = 277
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     354
-    253
+    277
   )
   optionswindow = [wo_dialog]
   font.name = 'stf_default'
@@ -1185,6 +1185,15 @@ object infosfo: tinfosfo
     taborder = 9
     bounds_x = 20
     bounds_y = 224
+    bounds_cx = 41
+    bounds_cy = 15
+    caption = 'tlabel1'
+    reffontheight = 15
+  end
+  object infobpm: tlabel
+    taborder = 10
+    bounds_x = 20
+    bounds_y = 246
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'

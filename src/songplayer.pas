@@ -400,7 +400,8 @@ begin
         //// PlayerIndex : from 0 to what your computer can do !
         //// If PlayerIndex exists already, it will be overwriten...
 
-        Inputindex1 := uos_AddFromFile(theplayer, PChar(ansistring(historyfn.Value)), -1, samformat, 1024);
+        Inputindex1 := uos_AddFromFile(theplayer, PChar(ansistring(historyfn.Value)), -1,
+         samformat, 1024);
 
       //// add input from audio file with custom parameters
       ////////// FileName : filename of audio file
@@ -802,6 +803,8 @@ var
   hassent: shortint;
   ho, mi, se, ms: word;
   fileex: string;
+  thebuffer : TDArFloat;
+  thebufferinfos : TuosF_BufferInfos;
 
 begin
 
@@ -856,6 +859,19 @@ begin
 
             uos_play(theplayerinfo);
             uos_Stop(theplayerinfo);
+            
+            // BPM
+            
+             if plugsoundtouch = true then
+             begin
+             
+                        
+          thebuffer :=  uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, 1024);
+        
+            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
+    
+            infosfo.infobpm.Caption :='BPM: ' + floattostr((uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate)));
+             end else  infosfo.infobpm.Caption :='';
 
             maxwidth := infosfo.infofile.Width;
 

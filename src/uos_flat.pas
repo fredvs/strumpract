@@ -160,8 +160,11 @@ function uos_LoadLib(PortAudioFileName, SndFileFileName, Mpg123FileName, Mp4ffFi
   // Mp4ff and Faad => needed for dealing with acc, m4a audio-files
   // opusfile => needed for dealing with opus audio-files
 
-  // If some libraries are not needed, replace it by "nil", for example : uos_loadlib(PortAudioFileName, SndFileFileName, nil, nil, nil, nil, nil)
-
+  // If you want to load libraries from system, replace it by "'system'"
+  // If some libraries are not needed, replace it by "nil", 
+ 
+  // for example : uos_loadlib('system', SndFileFileName, 'system', nil, nil, nil, OpusFileFileName)
+  
 procedure uos_unloadlib();
   // Unload all libraries... Do not forget to call it before close application...
 
@@ -254,15 +257,16 @@ function uos_AddFromFileIntoMemory(PlayerIndex: cint32; Filename: PChar): cint32
   // Add a input from audio file with default parameters
   
 function uos_AddFromFileIntoMemory(PlayerIndex: cint32; Filename: PChar; OutputIndex: cint32;
-  SampleFormat: cint32 ; FramesCount: cint32): cint32;
+  SampleFormat: cint32 ; FramesCount: cint32 ; numbuf : cint): cint32;
   // Add a input from audio file and store it into memory with custom parameters
   // PlayerIndex : Index of a existing Player
   // FileName : filename of audio file
   // OutputIndex : Output index of used output// -1: all output, -2: no output, other cint32 refer to a existing OutputIndex  (if multi-output then OutName = name of each output separeted by ';')
   // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
   // FramesCount : default : -1 (65536)
+  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers) 
   //  result : Input Index in array  -1 = error
-  // example : InputIndex1 := uos_AddFromFile(0, edit5.Text,-1,0);  
+  // example : InputIndex1 := uos_AddFromFile(0, edit5.Text,-1,0,-1);  
 
  {$IF DEFINED(shout)}
 function uos_AddIntoIceServer(PlayerIndex: cint32; SampleRate : cint; Channels: cint; SampleFormat: cint;
@@ -713,15 +717,18 @@ function uos_GetVersion() : cint32 ;  // version of uos
 function uos_SetGlobalEvent(PlayerIndex: cint32; isenabled : boolean) : boolean;
   // Set the RTL Events Global (will pause/start/replay all the players synchro with same rtl event)) 
   // result : true if set ok.
+  
+function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
+  // From SoundTouch plugin  
 
-function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; outmemory: TDArFloat; var bufferinfos: Tuos_BufferInfos ): TDArFloat;
+function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; var bufferinfos: Tuos_BufferInfos ; numbuf : cint ): TDArFloat;
   // Create a memory buffer of a audio file.
   // FileName : filename of audio file  
   // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
-  // Outmemory : the buffer to store data.
   // bufferinfos : the infos of the buffer.
+  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers) 
   //  result :  The memory buffer
-  // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos);
+  // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos, -1);
 
 procedure uos_File2File(FilenameIN: Pchar; FilenameOUT: Pchar; SampleFormat: cint32 ; typeout: cint32 );
   // Create a audio file from a audio file.
@@ -1388,7 +1395,7 @@ begin
 end;
 
 function uos_AddFromFileIntoMemory(PlayerIndex: cint32; Filename: PChar; OutputIndex: cint32;
-  SampleFormat: cint32 ; FramesCount: cint32): cint32;
+  SampleFormat: cint32 ; FramesCount: cint32 ; numbuf : cint): cint32;
   // Add a input from audio file and store it into memory with custom parameters
   // PlayerIndex : Index of a existing Player
   // FileName : filename of audio file
@@ -1402,7 +1409,7 @@ begin
   if (length(uosPlayers) > 0) and (PlayerIndex +1 <= length(uosPlayers)) then
   if  uosPlayersStat[PlayerIndex] = 1 then
   if assigned(uosPlayers[PlayerIndex]) then
-  Result := uosPlayers[PlayerIndex].AddFromFileIntoMemory(Filename, OutputIndex, SampleFormat, FramesCount);
+  Result := uosPlayers[PlayerIndex].AddFromFileIntoMemory(Filename, OutputIndex, SampleFormat, FramesCount, numbuf);
 end;
 
 function uos_AddFromFileIntoMemory(PlayerIndex: cint32; Filename: PChar): cint32;
@@ -1412,7 +1419,7 @@ begin
   if (length(uosPlayers) > 0) and (PlayerIndex +1 <= length(uosPlayers)) then
   if  uosPlayersStat[PlayerIndex] = 1 then
   if assigned(uosPlayers[PlayerIndex]) then
-  Result := uosPlayers[PlayerIndex].AddFromFileIntoMemory(Filename, -1, -1, -1);
+  Result := uosPlayers[PlayerIndex].AddFromFileIntoMemory(Filename, -1, -1, -1, -1);
 end;
 
 {$IF DEFINED(webstream)}
@@ -1883,18 +1890,25 @@ begin
  uosPlayers[PlayerIndex].StreamOut[OutIndex].LoopProc := Proc;
 end;
 
-function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; outmemory: TDArFloat; var bufferinfos: Tuos_BufferInfos ): TDArFloat;
+function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; var bufferinfos: Tuos_BufferInfos ; numbuf : cint ): TDArFloat;
   // Create a memory buffer of a audio file.
   // FileName : filename of audio file  
   // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
-  // Outmemory : the buffer to store data.
   // bufferinfos : the infos of the buffer.
+  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers) 
   //  result :  The memory buffer
-  // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos);
+  // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos, -1);
  begin
   ifflat := true;
-result := uos.uos_File2Buffer(Filename, SampleFormat, outmemory, bufferinfos)  ;
+result := uos.uos_File2Buffer(Filename, SampleFormat, bufferinfos, numbuf )  ;
   end;
+  
+function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
+  // From SoundTouch plugin  
+begin
+  ifflat := true;
+  uos.uos_GetBPM(TheBuffer, Channels, SampleRate);
+  end;  
   
 procedure uos_File2File(FilenameIN: Pchar; FilenameOUT: Pchar; SampleFormat: cint32 ; typeout: cint32 );
   // Create a audio file from a audio file.
