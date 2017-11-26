@@ -862,16 +862,20 @@ begin
             
             // BPM
             
+            infosfo.infobpm.Caption :='';
+            
+             {$if defined(cpu64) and defined(linux) }
              if plugsoundtouch = true then
              begin
-             
-                        
-          thebuffer :=  uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, 1024);
+                     
+             thebuffer :=  uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, 1024);
         
             //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
     
-            infosfo.infobpm.Caption :='BPM: ' + floattostr((uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate)));
-             end else  infosfo.infobpm.Caption :='';
+             infosfo.infobpm.Caption :='BPM: ' + floattostr((uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate)));;
+             
+             end;  
+             {$ENDIF}
 
             maxwidth := infosfo.infofile.Width;
 

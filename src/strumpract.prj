@@ -1305,14 +1305,14 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=filetobuffer
+finddtext=bpm
 findhistory=20
+ bpm
  filetobuffer
  uos_File2Buffer
  execute
  tempoutmemory
  Filetobuffer
- bpm
  soundtouch
  DetectBPM
  tempbuf
@@ -1328,14 +1328,11 @@ findhistory=20
  destroyInstance
  PlugHandle
 findoptions=1
-editpos=14
+editpos=15
  0,-1073741823
  0,-1073741823
- 0,1495
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,1482
+ 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1343,6 +1340,10 @@ editpos=14
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,877
+ 0,-1073741823
+ 0,-1073741823
+ 0,912
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1357,10 +1358,11 @@ bookmarks10=0
 bookmarks11=0
 bookmarks12=0
 bookmarks13=0
-sourcefiles=14
+bookmarks14=0
+sourcefiles=15
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
- /home/fred/strumpract/src/uos.pas
+ ${PROJECTDIR}/uos.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.mfm
@@ -1372,7 +1374,8 @@ sourcefiles=14
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/consolebpmdetect.pas
  ${PROJECTDIR}/uos_flat.pas
-relpaths=14
+ ${PROJECTDIR}/drums.pas
+relpaths=15
  commander.pas
  guitars.pas
  uos.pas
@@ -1387,13 +1390,15 @@ relpaths=14
  songplayer.pas
  uos/examples/consolebpmdetect.pas
  uos_flat.pas
-ismoduletexts=14
+ drums.pas
+ismoduletexts=15
  0
  0
  0
  0
  0
  -1
+ 0
  0
  0
  0
@@ -1435,10 +1440,11 @@ nomenumodules=7
  0
  0
 [sourcefo.files_tab]
-order=14
+order=15
  0
  1
  2
+ 14
  13
  10
  11
@@ -1451,7 +1457,7 @@ order=14
  7
  8
 firsttab=0
-index=2
+index=6
 [layout]
 windowlayout=720
  [mainfo.basedock]
@@ -1467,7 +1473,7 @@ windowlayout=720
  x=0
  y=0
  cx=1356
- cy=694
+ cy=784
  rcx=0
  rcy=0
  [mainfo]
@@ -1486,7 +1492,7 @@ windowlayout=720
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1356,694
+  basedock,0,0,1356,784
  focusedchild=0
  wsize=6
  active=1
@@ -1508,7 +1514,7 @@ windowlayout=720
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=805322857
@@ -1602,7 +1608,7 @@ windowlayout=720
  x=0
  y=0
  cx=205
- cy=523
+ cy=591
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1807,9 +1813,9 @@ windowlayout=720
  ncx=0
  ncy=0
  x=0
- y=588
+ y=664
  cx=1356
- cy=106
+ cy=120
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1909,7 +1915,7 @@ windowlayout=720
  x=0
  y=0
  cx=1356
- cy=59
+ cy=67
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1925,7 +1931,7 @@ windowlayout=720
  x=0
  y=0
  cx=1356
- cy=61
+ cy=69
  rcx=0
  rcy=0
  [debuggerfo.project_options]
@@ -1937,15 +1943,15 @@ windowlayout=720
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/uos.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=50
+  /home/fred/uos/examples/consolebpmdetect.pas
   /home/fred/strumpract/src/infos.pas
   /home/fred/uos/examples/uos.pas
   /home/fred/uos/src/uos_soundtouch.pas
   /home/fred/uos/examples/uos_soundtouch.pas
   /home/fred/strumpract/src/uos.pas
   /home/fred/uos/examples/consoleplaymemorybuffer.pas
-  /home/fred/uos/examples/consolebpmdetect.pas
   /home/fred/uos/examples/simpleplayer_fpGUI.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/filelistform.pas
@@ -2002,7 +2008,7 @@ windowlayout=720
  x=208
  y=0
  cx=1148
- cy=523
+ cy=591
  rcx=0
  rcy=0
  [cpuc86_64fo]
@@ -2036,9 +2042,9 @@ windowlayout=720
  ncx=0
  ncy=0
  x=0
- y=62
+ y=70
  cx=1356
- cy=523
+ cy=591
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2158,7 +2164,7 @@ windowlayout=720
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
