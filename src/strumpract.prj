@@ -1341,7 +1341,7 @@ findhistory=20
  tempbuffer
  addplugin
 findoptions=1
-editpos=24
+editpos=25
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1349,7 +1349,8 @@ editpos=24
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 28,731
+ 0,936
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1390,7 +1391,8 @@ bookmarks20=0
 bookmarks21=0
 bookmarks22=0
 bookmarks23=0
-sourcefiles=24
+bookmarks24=0
+sourcefiles=25
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/uos.pas
@@ -1398,7 +1400,7 @@ sourcefiles=24
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.mfm
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/drums.pas
+ /home/fred/strumpract/src/drums.pas
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/infos.pas
  ${PROJECTDIR}/songplayer.pas
@@ -1415,7 +1417,8 @@ sourcefiles=24
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/main.pas
-relpaths=24
+ ${PROJECTDIR}/main.pas
+relpaths=25
  commander.pas
  guitars.pas
  uos.pas
@@ -1440,13 +1443,15 @@ relpaths=24
  songplayer2.pas
  main.pas
  main.pas
-ismoduletexts=24
+ main.pas
+ismoduletexts=25
  0
  0
  0
  0
  0
  -1
+ 0
  0
  0
  0
@@ -1506,7 +1511,7 @@ nomenumodules=9
  0
  0
 [sourcefo.files_tab]
-order=24
+order=25
  0
  1
  2
@@ -1515,6 +1520,7 @@ order=24
  5
  6
  7
+ 24
  23
  8
  9
@@ -1560,8 +1566,8 @@ windowlayout=708
  ny=0
  ncx=0
  ncy=0
- x=130
- y=112
+ x=93
+ y=24
  cx=1157
  cy=621
  rcx=0
@@ -1779,7 +1785,7 @@ windowlayout=708
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=targetconsolefo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1794,7 +1800,7 @@ windowlayout=708
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=306
  width0=136
@@ -2094,7 +2100,7 @@ windowlayout=708
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2132,7 +2138,7 @@ windowlayout=708
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2227,7 +2233,7 @@ windowlayout=708
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0

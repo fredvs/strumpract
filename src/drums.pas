@@ -933,6 +933,7 @@ begin
   lib1 := ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so';
   lib2 := ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so';
   lib3 := ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so';
+  lib4 := ordir + 'lib/Linux/arm_raspberrypi/libsoundtouch-arm.so';
   {$ENDIF}
 
       {$IFDEF freebsd}
@@ -940,7 +941,7 @@ begin
   lib1 := ordir + 'lib/FreeBSD/64bit/libportaudio-64.so';
   lib2 := ordir + 'lib/FreeBSD/64bit/libsndfile-64.so';
   lib3 := ordir + 'lib/FreeBSD/64bit/libmpg123-64.so';
-  lib4 := '';
+  lib4 := ordir + 'lib/FreeBSD/64bit/LibSoundTouch-64.so';
         {$else}
   lib1 := ordir + 'lib/FreeBSD/32bit/libportaudio-32.so';
   lib2 := ordir + 'lib/FreeBSD/32bit/libsndfile-32.so';
