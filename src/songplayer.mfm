@@ -195,11 +195,11 @@ object songplayerfo: tsongplayerfo
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
       taborder = 2
-      hint = ' Reset to tempo original '
-      bounds_x = 414
-      bounds_y = 65
-      bounds_cx = 30
-      bounds_cy = 24
+      hint = ' Detect BMP and Reset to tempo original and set Drums tempo. '
+      bounds_x = 412
+      bounds_y = 68
+      bounds_cx = 37
+      bounds_cy = 22
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
       font.height = 10
@@ -770,8 +770,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 22
       visible = False
-      bounds_x = 182
-      bounds_y = 57
+      bounds_x = 197
+      bounds_y = 52
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

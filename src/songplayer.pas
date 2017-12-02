@@ -90,7 +90,7 @@ var
   initplay: integer = 1;
   theplayer: integer = 20;
   theplayerinfo: integer = 21;
-  theplaying1: string;
+  theplaying1: string = '';
   iscue1: boolean = False;
   hasmixed1: boolean = False;
   hasfocused1: boolean = False;
@@ -105,7 +105,7 @@ var
 implementation
 
 uses
-  main, commander, config, filelistform,
+  main, commander, config, filelistform, drums,
   songplayer_mfm;
 
 procedure tsongplayerfo.ontimersent(const Sender: TObject);
@@ -200,6 +200,10 @@ begin
 
   vuleft.Value := 0;
   vuleft.Visible := False;
+  
+  button1.Caption := '= 1';
+  
+  theplaying1 := '';
 
   btnStart.Enabled := True;
   btnStop.Enabled := False;
@@ -707,8 +711,34 @@ end;
 end;
 
 procedure tsongplayerfo.onreset(const Sender: TObject);
+var
+ thebuffer : TDArFloat;
+ thebufferinfos : TuosF_BufferInfos;
+ thebpm : float;
 begin
-  edtempo.Value := 1;
+ edtempo.Value := 1;
+   {$if defined(linux)}
+             if plugsoundtouch = true then
+             begin
+             
+             if btncue.enabled = true then btncue.onexecute(sender);
+                      
+             if fileexists(theplaying1) then 
+             begin
+                     
+             thebuffer :=  uos_File2Buffer(PChar(ansistring(theplaying1)), 0, thebufferinfos, 1024);
+        
+            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
+             thebpm := uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate);
+             if thebpm = 0 then button1.Caption := '= 1'
+             else begin
+             button1.Caption := inttostr(round(thebpm));  
+             drumsfo.edittempo.value := round(thebpm);
+             end;
+             end;
+             end;  
+     {$ENDIF}
+ 
 end;
 
 procedure tsongplayerfo.paintsliderimage(const canvas: tcanvas; const arect: rectty);
@@ -864,7 +894,7 @@ begin
             
             infosfo.infobpm.Caption :='';
             
-             {$if defined(cpu64) and defined(linux) }
+             {$if defined(linux)}
              if plugsoundtouch = true then
              begin
                      
@@ -958,12 +988,12 @@ begin
 
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[3].submenu[4].Caption := ' Hide Player 1 ';
+    mainfo.tmainmenu1.menu[1].submenu[4].Caption := ' Hide Player 1 ';
   end
   else
   begin
     uos_Stop(theplayer);
-    mainfo.tmainmenu1.menu[3].submenu[4].Caption := ' Show Player 1 ';
+    mainfo.tmainmenu1.menu[1].submenu[4].Caption := ' Show Player 1 ';
   end;
   mainfo.updatelayout();
 end;

@@ -586,6 +586,13 @@ procedure uos_SetPluginSoundTouch(PlayerIndex: cint32; PluginIndex: cint32; Temp
   Pitch: cfloat; Enable: boolean);
   // PluginIndex : PluginIndex Index of a existing Plugin.
   // PlayerIndex : Index of a existing Player
+  
+procedure uos_SetPluginGetBPM(PlayerIndex: cint32; PluginIndex: cint32; numofframes: integer; loop : boolean;
+   Enable: boolean);
+  // PluginIndex : PluginIndex Index of a existing Plugin.  
+  // numofframes: number of frames to analyse (-1 = 512 x frames)
+  // loop: do new detection after previous.  
+  
 {$endif}
 
 {$IF DEFINED(bs2b)}
@@ -660,6 +667,12 @@ function uos_InputGetLevelLeft(PlayerIndex: cint32; InputIndex: cint32): double;
 function uos_InputGetLevelRight(PlayerIndex: cint32; InputIndex: cint32): double;
   // InputIndex : InputIndex of existing input
   // result : right level(volume) from 0 to 1
+  
+{$IF DEFINED(soundtouch)}
+function uos_InputGetBPM(PlayerIndex: cint32; InputIndex: cint32): float;
+  // InputIndex : InputIndex of existing input
+  // result : Beats per minuts
+{$endif}     
 
 function uos_InputPositionSeconds(PlayerIndex: cint32; InputIndex: cint32): float;
   // InputIndex : InputIndex of existing input
@@ -726,8 +739,18 @@ function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; var bufferinfos
   // FileName : filename of audio file  
   // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
   // bufferinfos : the infos of the buffer.
-  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers) 
+  // numbuf : number of frames to add to outmemory (default : -1 = all, otherwise number max of frames) 
   //  result :  The memory buffer
+  // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos, -1);
+  
+function uos_Stream2Buffer(AudioFile: TMemoryStream; SampleFormat: int32 ; var outmemory: TDArFloat; var bufferinfos: Tuos_BufferInfos ;  numbuf : cint): TDArFloat;
+  // Create a memory buffer of a audio file.
+  // FileName : filename of audio file
+  // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
+  // Outmemory : the buffer to store data.
+  // bufferinfos : the infos of the buffer.
+  // numbuf : number of frames to add to outmemory (default : -1 = all, otherwise number max frames of buffers)
+    //  result :  The memory buffer
   // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos, -1);
 
 procedure uos_File2File(FilenameIN: Pchar; FilenameOUT: Pchar; SampleFormat: cint32 ; typeout: cint32 );
@@ -1483,6 +1506,16 @@ begin
   if assigned(uosPlayers[PlayerIndex]) then
    uosPlayers[PlayerIndex].SetPluginSoundTouch(PluginIndex, Tempo, Pitch, Enable);
 end;
+
+procedure uos_SetPluginGetBPM(PlayerIndex: cint32; PluginIndex: cint32; numofframes: integer; loop : boolean;
+   Enable: boolean);
+begin
+  if (length(uosPlayers) > 0) and (PlayerIndex +1 <= length(uosPlayers)) then
+  if  uosPlayersStat[PlayerIndex] = 1 then
+  if assigned(uosPlayers[PlayerIndex]) then
+   uosPlayers[PlayerIndex].SetPluginGetBPM(PluginIndex, numofframes, loop, Enable);
+end;
+
 {$endif}
 
 {$IF DEFINED(bs2b)}
@@ -1697,6 +1730,19 @@ begin
  result := uosPlayers[PlayerIndex].InputGetLevelRight(InputIndex) ;
 end;
 
+{$IF DEFINED(soundtouch)}
+function uos_InputGetBPM(PlayerIndex: cint32; InputIndex: cint32): float;
+  // InputIndex : InputIndex of existing input
+  // result : Beats per minuts
+begin
+  result := 0;
+  if (length(uosPlayers) > 0) and (PlayerIndex +1 <= length(uosPlayers)) then
+  if  uosPlayersStat[PlayerIndex] = 1 then
+  if assigned(uosPlayers[PlayerIndex]) then
+ result := uosPlayers[PlayerIndex].InputGetBPM(InputIndex) ;
+end;  
+{$endif}
+
 function uos_InputPositionSeconds(PlayerIndex: cint32; InputIndex: cint32): float;
   // InputIndex : InputIndex of existing input
   //  result : current postion of Input in seconds
@@ -1903,11 +1949,25 @@ function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; var bufferinfos
 result := uos.uos_File2Buffer(Filename, SampleFormat, bufferinfos, numbuf )  ;
   end;
   
+ function uos_Stream2Buffer(AudioFile: TMemoryStream; SampleFormat: int32 ; var outmemory: TDArFloat; var bufferinfos: Tuos_BufferInfos ;  numbuf : cint): TDArFloat;
+  // Create a memory buffer of a audio file.
+  // FileName : filename of audio file
+  // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
+  // Outmemory : the buffer to store data.
+  // bufferinfos : the infos of the buffer.
+  // numbuf : number of buffer to add to outmemory (default : -1 = all, otherwise number max of buffers)
+    //  result :  The memory buffer
+  // example : buffmem := uos_File2buffer(edit5.Text,0,buffmem, buffinfos, -1);
+ begin
+  ifflat := true;
+result := uos.uos_Stream2Buffer(AudioFile, SampleFormat, outmemory, bufferinfos, numbuf )  ;
+  end; 
+  
 function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
   // From SoundTouch plugin  
 begin
   ifflat := true;
-  uos.uos_GetBPM(TheBuffer, Channels, SampleRate);
+  result := uos.uos_GetBPM(TheBuffer, Channels, SampleRate);
   end;  
   
 procedure uos_File2File(FilenameIN: Pchar; FilenameOUT: Pchar; SampleFormat: cint32 ; typeout: cint32 );

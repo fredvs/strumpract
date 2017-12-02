@@ -1188,25 +1188,32 @@ object mainfo: tmainfo
     reffontheight = 15
   end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 7
+    menu.submenu.count = 5
     menu.submenu.items = <    
       item
-        caption = ' D&ock '
+        submenu.count = 3
+        submenu.items = <        
+          item
+            caption = ' &Dock all visible windows '
+            hint = ' Dock windows in one form '
+            state = [as_localcaption, as_localhint, as_localonexecute]
+            onexecute = ondockall
+          end        
+          item
+            caption = ' &Float all visible windows '
+            hint = ' Float windows in independent forms '
+            state = [as_localcaption, as_localhint, as_localonexecute]
+            onexecute = onfloatall
+          end        
+          item
+            caption = ' &Tab all visible windows '
+            hint = ' Make windows tabed in one form '
+            state = [as_localcaption, as_localhint, as_localonexecute]
+            onexecute = ontab
+          end>
+        caption = ' &Layout '
         hint = ' Dock windows in one form '
         state = [as_localcaption, as_localhint, as_localonexecute]
-        onexecute = ondockall
-      end    
-      item
-        caption = ' &Float '
-        hint = ' Float windows in independent forms '
-        state = [as_localcaption, as_localhint, as_localonexecute]
-        onexecute = onfloatall
-      end    
-      item
-        caption = ' &Tab '
-        hint = ' Make windows tabed in one form '
-        state = [as_localcaption, as_localhint, as_localonexecute]
-        onexecute = ontab
       end    
       item
         submenu.count = 9

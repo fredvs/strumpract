@@ -547,11 +547,11 @@ begin
 
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Hide Recorder ';
+    mainfo.tmainmenu1.menu[1].submenu[7].Caption := ' Hide Recorder ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Show Recorder ';
+    mainfo.tmainmenu1.menu[1].submenu[7].Caption := ' Show Recorder ';
     uos_Stop(therecplayer);
   end;
 

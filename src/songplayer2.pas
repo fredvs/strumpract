@@ -105,7 +105,7 @@ var
 implementation
 
 uses
-  main, commander, config, filelistform,
+  main, commander, config, filelistform, drums,
   songplayer2_mfm;
 
 procedure tsongplayer2fo.ontimersent(const Sender: TObject);
@@ -199,6 +199,10 @@ begin
   vuleft.Value := 0;
   vuLeft.Visible := False;
   vuRight.Visible := False;
+  
+  button1.Caption := '= 1';
+  
+  theplaying2 := '';
 
   btnStart.Enabled := True;
   btnStop.Enabled := False;
@@ -709,8 +713,33 @@ end;
 end;
 
 procedure tsongplayer2fo.onreset(const Sender: TObject);
+var
+ thebuffer : TDArFloat;
+ thebufferinfos : TuosF_BufferInfos;
+ thebpm : float;
 begin
-  edtempo.Value := 1;
+ edtempo.Value := 1;
+   {$if defined(linux)}
+             if plugsoundtouch = true then
+             begin
+             if btncue.enabled = true then btncue.onexecute(sender);
+             
+             if fileexists(theplaying2) then 
+             begin
+                     
+             thebuffer :=  uos_File2Buffer(PChar(ansistring(theplaying2)), 0, thebufferinfos, 1024);
+        
+            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
+             thebpm := uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate);
+             if thebpm = 0 then button1.Caption := '= 1'
+             else begin
+             button1.Caption := inttostr(round(thebpm));
+             drumsfo.edittempo.value := round(thebpm);
+             end;
+             end;
+             end;  
+     {$ENDIF}
+ 
 end;
 
 procedure tsongplayer2fo.paintsliderimage(const canvas: tcanvas; const arect: rectty);
@@ -804,6 +833,8 @@ var
   temptimeinfo: ttime;
   ho, mi, se, ms: word;
   fileex: string;
+  thebuffer : TDArFloat;
+  thebufferinfos : TuosF_BufferInfos;
 
 begin
 
@@ -860,6 +891,23 @@ begin
 
             uos_play(theplayerinfo2);
             uos_Stop(theplayerinfo2);
+            
+              // BPM
+            
+            infosfo.infobpm.Caption :='';
+            
+             {$if defined(linux)}
+             if plugsoundtouch = true then
+             begin
+                     
+             thebuffer :=  uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, 1024);
+        
+            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
+    
+             infosfo.infobpm.Caption :='BPM: ' + floattostr((uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate)));;
+             
+             end;  
+             {$ENDIF}
 
             maxwidth := infosfo.infofile.Width;
 
@@ -877,6 +925,8 @@ begin
               maxwidth := infosfo.infotag.Width;
             if maxwidth < infosfo.infolength.Width then
               maxwidth := infosfo.infolength.Width;
+             if maxwidth < infosfo.infobpm.Width then
+              maxwidth := infosfo.infobpm.Width;
 
             infosfo.Width := maxwidth + 42;
             // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
@@ -941,12 +991,12 @@ begin
 
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[3].submenu[5].Caption := ' Hide Player 2 ';
+    mainfo.tmainmenu1.menu[1].submenu[5].Caption := ' Hide Player 2 ';
   end
   else
   begin
     uos_Stop(theplayer2);
-    mainfo.tmainmenu1.menu[3].submenu[5].Caption := ' Show Player 2 ';
+    mainfo.tmainmenu1.menu[1].submenu[5].Caption := ' Show Player 2 ';
   end;
   mainfo.updatelayout();
 end;

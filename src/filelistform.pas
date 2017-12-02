@@ -288,11 +288,11 @@ procedure tfilelistfo.visiblechangeev(const Sender: TObject);
 begin
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[3].submenu[3].Caption := ' Hide File List ';
+    mainfo.tmainmenu1.menu[1].submenu[3].Caption := ' Hide File List ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[3].submenu[3].Caption := ' Show File List ';
+    mainfo.tmainmenu1.menu[1].submenu[3].Caption := ' Show File List ';
   end;
 
   mainfo.updatelayout();

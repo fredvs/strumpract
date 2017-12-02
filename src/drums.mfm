@@ -20,8 +20,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 343
-  bounds_y = 275
+  bounds_x = 665
+  bounds_y = 215
   bounds_cx = 458
   bounds_cy = 236
   bounds_cxmin = 458
@@ -1480,18 +1480,18 @@ object drumsfo: tdrumsfo
       face.localprops = []
       face.template = tfacecomp3
       taborder = 20
-      hint = ' Interval between 2 clicks. In 1/1000 second (ms). '
+      hint = 'BPM (Beats per minut)'
       bounds_x = 104
       bounds_y = 19
       bounds_cx = 50
-      bounds_cy = 40
+      bounds_cy = 36
       statfile = mainfo.tstatfile1
       textflagsactive = [tf_xcentered, tf_ycentered]
       onchange = onchangetempo
       ontextedited = ontextedit
       onsetvalue = onsetvalvol
-      value = 100
-      valuedefault = 100
+      value = 150
+      valuedefault = 150
       valuerange = 1
       valuestart = 0
       valuemin = -Inf
@@ -1507,9 +1507,9 @@ object drumsfo: tdrumsfo
       taborder = 21
       bounds_x = 106
       bounds_y = 5
-      bounds_cx = 38
+      bounds_cx = 22
       bounds_cy = 13
-      caption = 'Interval'
+      caption = 'BPM'
       font.color = 5197647
       font.height = 10
       font.name = 'stf_default'
@@ -1519,8 +1519,8 @@ object drumsfo: tdrumsfo
     object tlabel23: tlabel
       color = -2147483645
       taborder = 22
-      bounds_x = 162
-      bounds_y = 5
+      bounds_x = 168
+      bounds_y = 8
       bounds_cx = 38
       bounds_cy = 13
       caption = 'Volume'
@@ -1549,10 +1549,10 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 23
       hint = ' General volume of Drums '
-      bounds_x = 160
-      bounds_y = 18
+      bounds_x = 162
+      bounds_y = 22
       bounds_cx = 50
-      bounds_cy = 40
+      bounds_cy = 41
       statfile = mainfo.tstatfile1
       textflagsactive = [tf_xcentered, tf_ycentered]
       onchange = onchangevol
@@ -1578,17 +1578,17 @@ object drumsfo: tdrumsfo
       face.localprops = []
       face.template = tfacecomp2
       taborder = 24
-      hint = ' Position of sound '
-      bounds_x = 103
-      bounds_y = 61
-      bounds_cx = 108
+      hint = ' Beats per minuts - interval in 1/10000 second. '
+      bounds_x = 100
+      bounds_y = 69
+      bounds_cx = 116
       bounds_cy = 15
       font.color = 3355443
       font.height = 11
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
-      value = 'Tempo 150 BPM'
+      value = '150 BPM - 1000 ds'
       reffontheight = 14
     end
     object tstringdisp2: tstringdisp
@@ -1612,6 +1612,66 @@ object drumsfo: tdrumsfo
       value = 'Drums Set'
       reffontheight = 14
     end
+    object multbpm: tbutton
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfacebutltgray
+      taborder = 27
+      hint = ' Set BPM X 2 '
+      bounds_x = 103
+      bounds_y = 54
+      bounds_cx = 25
+      bounds_cy = 15
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = 'X 2'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      onexecute = onmultdiv
+    end
+    object divbpm: tbutton
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfacebutltgray
+      taborder = 28
+      hint = ' Set BPM / 2 '
+      bounds_x = 130
+      bounds_y = 54
+      bounds_cx = 25
+      bounds_cy = 15
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = '/ 2'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      onexecute = onmultdiv
+    end
     object hintpanel: tgroupbox
       frame.localprops = []
       frame.localprops1 = []
@@ -1620,8 +1680,8 @@ object drumsfo: tdrumsfo
       face.template = mainfo.tfaceorange
       taborder = 26
       visible = False
-      bounds_x = 89
-      bounds_y = 16
+      bounds_x = 73
+      bounds_y = 27
       bounds_cx = 221
       bounds_cy = 36
       font.color = 5000268
