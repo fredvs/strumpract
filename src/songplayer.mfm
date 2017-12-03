@@ -20,8 +20,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 343
-  bounds_y = 227
+  bounds_x = 470
+  bounds_y = 242
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -195,14 +195,14 @@ object songplayerfo: tsongplayerfo
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
       taborder = 2
-      hint = ' Detect BMP and Reset to tempo original and set Drums tempo. '
+      hint = ' Reset to tempo original '
       bounds_x = 412
-      bounds_y = 68
+      bounds_y = 63
       bounds_cx = 37
-      bounds_cy = 22
+      bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
-      font.height = 10
+      font.height = 9
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       imagenr = 27
@@ -716,9 +716,9 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 19
       hint = ' Player 1 '
-      bounds_x = 392
+      bounds_x = 388
       bounds_y = 48
-      bounds_cx = 52
+      bounds_cx = 56
       bounds_cy = 15
       font.color = 4013373
       font.height = 10
@@ -770,8 +770,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 22
       visible = False
-      bounds_x = 197
-      bounds_y = 52
+      bounds_x = 80
+      bounds_y = 47
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -798,6 +798,30 @@ object songplayerfo: tsongplayerfo
         font.localprops = []
         reffontheight = 15
       end
+    end
+    object button2: tbutton
+      Tag = 1
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayer
+      taborder = 23
+      hint = ' Detect BMP from current position and set it to Drums tempo. '
+      bounds_x = 412
+      bounds_y = 79
+      bounds_cx = 37
+      bounds_cy = 16
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'BPM'
+      font.height = 9
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = ongetbpm
     end
   end
   object tfaceslider: tfacecomp

@@ -48,6 +48,7 @@ type
    hintpanel: tgroupbox;
    hintlabel: tlabel;
    hintlabel2: tlabel;
+   button2: tbutton;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -80,6 +81,7 @@ type
     procedure onsetvalvol(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
    procedure ontextedit(const sender: tcustomedit; var atext: msestring);
+   procedure ongetbpm(const sender: TObject);
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
@@ -116,6 +118,8 @@ begin
   edvolleft.face.template := mainfo.tfaceplayer;
   edvolright.face.template := mainfo.tfaceplayer;
   edtempo.face.template := mainfo.tfaceplayer;
+  button1.face.template := mainfo.tfaceplayer;
+  button2.face.template := mainfo.tfaceplayer;
   end;
 
 procedure tsongplayerfo.ontimerwait(const Sender: TObject);
@@ -711,34 +715,12 @@ end;
 end;
 
 procedure tsongplayerfo.onreset(const Sender: TObject);
-var
- thebuffer : TDArFloat;
- thebufferinfos : TuosF_BufferInfos;
- thebpm : float;
 begin
  edtempo.Value := 1;
-   {$if defined(linux)}
-             if plugsoundtouch = true then
-             begin
-             
-             if btncue.enabled = true then btncue.onexecute(sender);
-                      
-             if fileexists(theplaying1) then 
-             begin
-                     
-             thebuffer :=  uos_File2Buffer(PChar(ansistring(theplaying1)), 0, thebufferinfos, 1024);
-        
-            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
-             thebpm := uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate);
-             if thebpm = 0 then button1.Caption := '= 1'
-             else begin
-             button1.Caption := inttostr(round(thebpm));  
-             drumsfo.edittempo.value := round(thebpm);
-             end;
-             end;
-             end;  
-     {$ENDIF}
- 
+  edtempo.face.template := mainfo.tfaceorange;
+  button1.face.template := mainfo.tfaceorange;
+  timersent.Enabled := False;
+  timersent.Enabled := True;
 end;
 
 procedure tsongplayerfo.paintsliderimage(const canvas: tcanvas; const arect: rectty);
@@ -898,7 +880,8 @@ begin
              if plugsoundtouch = true then
              begin
                      
-             thebuffer :=  uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, 1024);
+             thebuffer :=  uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0,
+              thebufferinfos, -1, 1024);
         
             //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
     
@@ -1192,6 +1175,44 @@ hintpanel.visible := true;
 timersent.Enabled := true;
  atext := '100';
 end;
+end;
+
+procedure tsongplayerfo.ongetbpm(const Sender: TObject);
+var
+ thebuffer : TDArFloat;
+ thebufferinfos : TuosF_BufferInfos;
+ thebpm : float;
+begin
+ 
+   {$if defined(linux)}
+             if plugsoundtouch = true then
+             begin
+             
+             if btncue.enabled = true then btncue.onexecute(sender);
+                      
+             if fileexists(theplaying1) then 
+             begin
+             
+             //writeln('pos= ' + inttostr( uos_InputPosition(theplayer, Inputindex1)));
+                  
+             thebuffer :=  uos_File2Buffer(PChar(ansistring(theplaying1)), 0, thebufferinfos,
+              uos_InputPosition(theplayer, Inputindex1),1024);
+        
+            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
+             thebpm := uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate);
+             if thebpm = 0 then button2.Caption := 'BPM'
+             else begin
+             
+             button2.Caption := inttostr(round(thebpm));  
+             drumsfo.edittempo.value := round(thebpm);
+              button2.face.template := mainfo.tfaceorange;
+             timersent.Enabled := False;
+             timersent.Enabled := True
+             end;
+             end;
+             end;  
+     {$ENDIF}
+ 
 end;
 
 end.

@@ -67,6 +67,7 @@ type
     procedure onchangevalcolor(const Sender: TObject);
     procedure onmenuaudio(const Sender: TObject);
     procedure onresized(const Sender: TObject);
+   procedure on(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -1553,6 +1554,10 @@ begin
     timerwait.Enabled := True;
   end;
   
+end;
+
+procedure tmainfo.on(const sender: TObject);
+begin
 end;
 
 end.

@@ -1,7 +1,7 @@
 object configfo: tconfigfo
   visible = False
-  bounds_x = 420
-  bounds_y = 302
+  bounds_x = 461
+  bounds_y = 100
   bounds_cx = 358
   bounds_cy = 166
   bounds_cxmin = 358
