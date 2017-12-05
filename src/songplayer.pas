@@ -1002,6 +1002,7 @@ begin
     edtempo.Visible := False;
     cbtempo.Visible := False;
     Button1.Visible := False;
+    Button2.Visible := False;
     tstringdisp2.left := 377;
     tstringdisp2.top := 64;
     waveformcheck.left := 325;

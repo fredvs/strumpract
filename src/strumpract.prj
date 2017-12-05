@@ -69,7 +69,7 @@ order16=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
-findinfiledialog=64
+findinfiledialog=50
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -85,13 +85,13 @@ findinfiledialog=64
  [findinfileadialogfo.indirectories]
  value=0
  [findinfileadialogfo.mask]
- value="*.pas" "*.pp" "*.inc" "*.mfm"
+ value="*.pas" "*.pp" "*.inc" 
  history=2
   "*.pas" "*.pp" "*.inc" "*.mfm"
   "*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/msegui/
+  /home/fred/soundtouch-trunk/
  filecolwidth=174
  x=0
  y=0
@@ -106,28 +106,14 @@ findinfiledialog=64
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=length(thebuffer) =
- history=20
-  length(thebuffer) =
-  getbpm
+ value=thelib
+ history=6
+  thelib
   putSamples
-  createin
-  3.0
-  tmainmenu1
-  infochan
-  timersent
-  create
-  isnumber
-  isint
-  isinteger
-  ShowMessage
-  linkvol
-  vuin.tag
-  maximized
-  size
-  screensize
-  screen
-  screenheight
+  StreamIn[x].Data.SampleRate =
+  TMemoryStream
+  samplerate
+  
  [findinfileadialogfo]
  stackedunder=
  x=615
@@ -1325,8 +1311,11 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=sleep(100
+finddtext=if plugsoundtouch = Fal
 findhistory=20
+ if plugsoundtouch = Fal
+ if plugsoundtouch = False then
++  begin
  sleep(100
  maxsleep
  theplayer.Play
@@ -1345,14 +1334,12 @@ findhistory=20
  closepl
  btncue.ena
  changecolors
- getbpm
- timersent
 findoptions=1
 editpos=29
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,883
+ 0,1000
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1374,7 +1361,7 @@ editpos=29
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
+ 28,1033
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1411,7 +1398,7 @@ sourcefiles=29
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/uos.pas
- /home/fred/strumpract/src/songplayer.pas
+ ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.mfm
  ${PROJECTDIR}/main.pas
@@ -1525,7 +1512,7 @@ visiblemodules=9
  -1
  -1
  -1
- -1
+ 0
  -1
 nomenumodules=9
  0
@@ -1569,7 +1556,7 @@ order=29
  21
  22
 firsttab=0
-index=5
+index=6
 [layout]
 windowlayout=760
  [mainfo.basedock]
@@ -1731,7 +1718,7 @@ windowlayout=760
  sortdescend1=0
  sorted=0
  col=1
- row=-1073741823
+ row=0
  rowheight=17
  [stackfo]
  splitdir=0
@@ -2053,7 +2040,7 @@ windowlayout=760
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
+ value=/home/fred/strumpract/src/songplayer2.pas
  history=50
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/config.pas
@@ -2106,7 +2093,7 @@ windowlayout=760
   /home/fred/mseuniverse-master-47c3668ae84b7a664f9dc5c76179814930e8f3ed/samples/widgets/grids/recordfieldedit/recordfieldedit.pas
   /home/fred/mseuniverse-master-47c3668ae84b7a664f9dc5c76179814930e8f3ed/samples/widgets/grids/coloredit/main.pas
  [debuggerfo.project_options]
- value=B
+ value=1
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2129,7 +2116,7 @@ windowlayout=760
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -2278,7 +2265,7 @@ windowlayout=760
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_configfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2297,7 +2284,7 @@ windowlayout=760
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_configfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2312,7 +2299,7 @@ windowlayout=760
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=805322875
