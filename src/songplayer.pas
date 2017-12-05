@@ -205,7 +205,7 @@ begin
   vuleft.Value := 0;
   vuleft.Visible := False;
   
-  button1.Caption := '= 1';
+  button2.Caption := 'BPM';
   
   theplaying1 := '';
 
@@ -880,12 +880,12 @@ begin
              if plugsoundtouch = true then
              begin
                      
-             thebuffer :=  uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0,
-              thebufferinfos, -1, 1024);
+             thebuffer := 
+         uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024);
         
-            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
-    
-             infosfo.infobpm.Caption :='BPM: ' + floattostr((uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate)));;
+            writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
+                 
+            infosfo.infobpm.Caption :='BPM: ' + floattostr((uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate)));;
              
              end;  
              {$ENDIF}

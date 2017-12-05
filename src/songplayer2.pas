@@ -204,7 +204,7 @@ begin
   vuLeft.Visible := False;
   vuRight.Visible := False;
   
-  button1.Caption := '= 1';
+  button2.Caption := 'BPM';
   
   theplaying2 := '';
 

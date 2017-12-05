@@ -747,7 +747,10 @@ begin
 
     songplayerfo.button1.font.color := ltblack;
     songplayer2fo.button1.font.color := ltblack;
-
+    
+    songplayerfo.button2.font.color := ltblack;
+    songplayer2fo.button2.font.color := ltblack;
+    
     songplayerfo.tstringdisp1.color := ltblack;
     songplayer2fo.tstringdisp1.color := ltblack;
 
@@ -1030,7 +1033,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.button1.font.color := ltblack;
     songplayer2fo.button1.font.color := ltblack;
-
+    
+    songplayerfo.button2.font.color := ltblack;
+    songplayer2fo.button2.font.color := ltblack;
+    
     songplayerfo.cbloop.colorglyph := ltblack;
     songplayer2fo.cbloop.colorglyph := ltblack;
     songplayerfo.cbtempo.colorglyph := ltblack;
@@ -1351,7 +1357,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.button1.font.color := ltblank;
     songplayer2fo.button1.font.color := ltblank;
-
+    
+    songplayerfo.button2.font.color := ltblank;
+    songplayer2fo.button2.font.color := ltblank;
+   
     songplayer2fo.tfaceslider.template.fade_color.items[0] := $5A5A5A;
     songplayer2fo.tfaceslider.template.fade_color.items[1] := $2A2A2A;
 
