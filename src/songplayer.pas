@@ -881,9 +881,9 @@ begin
              begin
                      
              thebuffer := 
-         uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024);
+            uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024);
         
-            writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
+          //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer))); 
                  
             infosfo.infobpm.Caption :='BPM: ' + floattostr((uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate)));;
              

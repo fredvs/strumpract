@@ -19,7 +19,7 @@
 {.$DEFINE opus} // uncomment to enable opus (opus audio file)
 {.$DEFINE cdrom} // uncomment to enable cdrom audio decoder (cda)
 
-{$DEFINE soundtouch} // uncomment to enable Soundtouch tempo plugin
+{$DEFINE soundtouch} // uncomment to enable Soundtouch tempo/detect bpm plugin
 {.$DEFINE bs2b} // uncomment to enable bs2b stereo to binaural plugin
 
 {.$DEFINE webstream} // uncomment to enable Internet Audio Streaming

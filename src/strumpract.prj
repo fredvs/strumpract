@@ -106,8 +106,9 @@ findinfiledialog=64
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=getbpm
+ value=length(thebuffer) =
  history=20
+  length(thebuffer) =
   getbpm
   putSamples
   createin
@@ -127,7 +128,6 @@ findinfiledialog=64
   screensize
   screen
   screenheight
-  screen.height
  [findinfileadialogfo]
  stackedunder=
  x=615
@@ -1119,7 +1119,7 @@ line=37
  33
  48
  545
- 5704
+ 5706
  411
  636
  104
@@ -1325,8 +1325,11 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=filetobuf
+finddtext=sleep(100
 findhistory=20
+ sleep(100
+ maxsleep
+ theplayer.Play
  filetobuf
  thebufferinfos
  infos.
@@ -1344,28 +1347,12 @@ findhistory=20
  changecolors
  getbpm
  timersent
- timerset
- orange
- onreset
 findoptions=1
 editpos=29
  0,-1073741823
  0,-1073741823
- 0,1718
- 0,885
  0,-1073741823
- 0,-1073741823
- 0,6
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,9
- 0,-1073741823
- 0,0
+ 0,883
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1376,8 +1363,21 @@ editpos=29
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,11
- 0,4
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1410,33 +1410,33 @@ bookmarks28=0
 sourcefiles=29
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
- /home/fred/strumpract/src/uos.pas
+ ${PROJECTDIR}/uos.pas
  /home/fred/strumpract/src/songplayer.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.mfm
- /home/fred/strumpract/src/main.pas
+ ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/infos.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/drums.pas
- /home/fred/strumpract/src/uos.pas
- /home/fred/strumpract/src/infos.pas
- /home/fred/strumpract/src/uos_soundtouch.pas
- /home/fred/strumpract/src/commander.pas
+ ${PROJECTDIR}/uos.pas
+ ${PROJECTDIR}/infos.pas
+ ${PROJECTDIR}/uos_soundtouch.pas
+ ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/recorder.pas
- /home/fred/strumpract/src/songplayer.pas
+ ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/config.pas
- /home/fred/strumpract/src/strumpract.pas
- /home/fred/strumpract/src/define.inc
+ ${PROJECTDIR}/strumpract.pas
+ ${PROJECTDIR}/define.inc
 relpaths=29
  commander.pas
  guitars.pas
@@ -1569,7 +1569,7 @@ order=29
  21
  22
 firsttab=0
-index=3
+index=5
 [layout]
 windowlayout=760
  [mainfo.basedock]
@@ -1626,7 +1626,7 @@ windowlayout=760
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=805322857
@@ -1648,7 +1648,7 @@ windowlayout=760
  [memoryfo]
  splitdir=0
  useroptions=805322875
- stackedunder=about_form
+ stackedunder=dialogfilesfo
  parent=
  mdistate=0
  nx=0
@@ -1694,7 +1694,7 @@ windowlayout=760
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2038,8 +2038,8 @@ windowlayout=760
  mdistate=0
  nx=0
  ny=0
- ncx=1111
- ncy=52
+ ncx=1147
+ ncy=54
  x=0
  y=0
  cx=1147
@@ -2053,7 +2053,7 @@ windowlayout=760
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/define.inc
+ value=/home/fred/strumpract/src/songplayer.pas
  history=50
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/config.pas
@@ -2129,7 +2129,7 @@ windowlayout=760
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=findinfilefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2316,7 +2316,7 @@ windowlayout=760
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
