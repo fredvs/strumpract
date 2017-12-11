@@ -731,7 +731,7 @@ var
  thebufferinfos : TuosF_BufferInfos;
  thebpm : float;
 begin
-   {$if defined(linux)}
+//   {$if defined(linux)}
              if plugsoundtouch = true then
              begin
              if btncue.enabled = true then btncue.onexecute(sender);
@@ -755,7 +755,7 @@ begin
              end;
              end;
              end;  
-     {$ENDIF}
+//     {$ENDIF}
  
 end;
 
@@ -913,7 +913,7 @@ begin
             
             infosfo.infobpm.Caption :='';
             
-             {$if defined(linux)}
+          //   {$if defined(linux)}
              if plugsoundtouch = true then
              begin
                      
@@ -924,7 +924,7 @@ begin
              infosfo.infobpm.Caption :='BPM: ' + floattostr((uos_GetBPM(thebuffer,thebufferinfos.channels,thebufferinfos.samplerate)));;
              
              end;  
-             {$ENDIF}
+          //   {$ENDIF}
 
             maxwidth := infosfo.infofile.Width;
 

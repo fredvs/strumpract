@@ -1311,8 +1311,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=if plugsoundtouch = Fal
+finddtext=linux
 findhistory=20
+ linux
+ unix
  if plugsoundtouch = Fal
  if plugsoundtouch = False then
 +  begin
@@ -1332,14 +1334,12 @@ findhistory=20
  list_files.
  button1.
  closepl
- btncue.ena
- changecolors
 findoptions=1
 editpos=29
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,1000
+ 0,878
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1361,7 +1361,7 @@ editpos=29
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 28,1033
+ 0,749
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1571,8 +1571,8 @@ windowlayout=760
  ncy=0
  x=0
  y=0
- cx=1147
- cy=604
+ cx=1356
+ cy=694
  rcx=0
  rcy=0
  [mainfo]
@@ -1591,10 +1591,10 @@ windowlayout=760
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1147,604
+  basedock,0,0,1356,694
  focusedchild=0
- wsize=0
- active=1
+ wsize=6
+ active=0
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1613,7 +1613,7 @@ windowlayout=760
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=805322857
@@ -1707,7 +1707,7 @@ windowlayout=760
  x=0
  y=0
  cx=205
- cy=455
+ cy=523
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1912,9 +1912,9 @@ windowlayout=760
  ncx=0
  ncy=0
  x=0
- y=512
- cx=1147
- cy=92
+ y=588
+ cx=1356
+ cy=106
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2013,8 +2013,8 @@ windowlayout=760
  ncy=0
  x=0
  y=0
- cx=1147
- cy=51
+ cx=1356
+ cy=59
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2029,8 +2029,8 @@ windowlayout=760
  ncy=54
  x=0
  y=0
- cx=1147
- cy=54
+ cx=1356
+ cy=62
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2093,7 +2093,7 @@ windowlayout=760
   /home/fred/mseuniverse-master-47c3668ae84b7a664f9dc5c76179814930e8f3ed/samples/widgets/grids/recordfieldedit/recordfieldedit.pas
   /home/fred/mseuniverse-master-47c3668ae84b7a664f9dc5c76179814930e8f3ed/samples/widgets/grids/coloredit/main.pas
  [debuggerfo.project_options]
- value=1
+ value=5
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2108,15 +2108,15 @@ windowlayout=760
  ncy=0
  x=208
  y=0
- cx=939
- cy=455
+ cx=1148
+ cy=523
  rcx=0
  rcy=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=targetconsolefo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2143,9 +2143,9 @@ windowlayout=760
  ncx=0
  ncy=0
  x=0
- y=54
- cx=1147
- cy=455
+ y=62
+ cx=1356
+ cy=523
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2284,7 +2284,7 @@ windowlayout=760
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
@@ -2303,7 +2303,7 @@ windowlayout=760
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -2317,7 +2317,7 @@ windowlayout=760
  rcx=0
  rcy=0
  wsize=0
- active=0
+ active=1
  visible=1
 [targetconsole]
 finddtext=
