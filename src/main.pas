@@ -78,7 +78,7 @@ type
   end;
 
 const
-  versiontext = '1.5.4';
+  versiontext = '1.6.0';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;

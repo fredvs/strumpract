@@ -1339,7 +1339,10 @@ editpos=29
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,878
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,80
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1359,9 +1362,6 @@ editpos=29
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,749
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1401,7 +1401,7 @@ sourcefiles=29
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.mfm
- ${PROJECTDIR}/main.pas
+ /home/fred/strumpract/src/main.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/infos.pas
@@ -1556,7 +1556,7 @@ order=29
  21
  22
 firsttab=0
-index=6
+index=9
 [layout]
 windowlayout=760
  [mainfo.basedock]
@@ -1594,7 +1594,7 @@ windowlayout=760
   basedock,0,0,1356,694
  focusedchild=0
  wsize=6
- active=0
+ active=1
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -2025,8 +2025,8 @@ windowlayout=760
  mdistate=0
  nx=0
  ny=0
- ncx=1147
- ncy=54
+ ncx=1356
+ ncy=70
  x=0
  y=0
  cx=1356
@@ -2040,7 +2040,7 @@ windowlayout=760
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer2.pas
+ value=/home/fred/strumpract/src/main.pas
  history=50
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/config.pas
@@ -2093,7 +2093,7 @@ windowlayout=760
   /home/fred/mseuniverse-master-47c3668ae84b7a664f9dc5c76179814930e8f3ed/samples/widgets/grids/recordfieldedit/recordfieldedit.pas
   /home/fred/mseuniverse-master-47c3668ae84b7a664f9dc5c76179814930e8f3ed/samples/widgets/grids/coloredit/main.pas
  [debuggerfo.project_options]
- value=5
+ value=2
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2284,7 +2284,7 @@ windowlayout=760
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=mainfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2317,7 +2317,7 @@ windowlayout=760
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
 [targetconsole]
 finddtext=
