@@ -809,6 +809,9 @@ begin
 
     drumsfo.panel1.font.color := ltblack;
 
+   drumsfo.multbpm.font.color := ltblack;
+   drumsfo.divbpm.font.color := ltblack;
+   
     drumsfo.edittempo.frame.colorglyph := ltblack;
     drumsfo.volumedrums.frame.colorglyph := ltblack;
 
@@ -1108,6 +1111,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     drumsfo.tstringdisp2.font.color := ltblack;
 
+    drumsfo.multbpm.font.color := ltblack;
+    drumsfo.divbpm.font.color := ltblack;
+   
     // rev
     drumsfo.tfacecomp2.template.fade_color.items[0] := $EDEDED;
     drumsfo.tfacecomp2.template.fade_color.items[1] := $BABABA;
@@ -1389,6 +1395,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     drumsfo.tlabel22.font.color := ltblank;
     drumsfo.tlabel25.font.color := ltblank;
     drumsfo.tlabel23.font.color := ltblank;
+    
+    drumsfo.multbpm.font.color := ltblank;
+    drumsfo.divbpm.font.color := ltblank;
+
 
     drumsfo.tfacedrums.template.fade_color.items[0] := $5A5A5A;
     drumsfo.tfacedrums.template.fade_color.items[1] := $2A2A2A;
