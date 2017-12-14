@@ -941,7 +941,7 @@ begin
   lib1 := ordir + 'lib/FreeBSD/64bit/libportaudio-64.so';
   lib2 := ordir + 'lib/FreeBSD/64bit/libsndfile-64.so';
   lib3 := ordir + 'lib/FreeBSD/64bit/libmpg123-64.so';
-  lib4 := ordir + 'lib/FreeBSD/64bit/LibSoundTouch-64.so';
+  lib4 := ordir + 'lib/FreeBSD/64bit/libsoundtouch-64.so';
         {$else}
   lib1 := ordir + 'lib/FreeBSD/32bit/libportaudio-32.so';
   lib2 := ordir + 'lib/FreeBSD/32bit/libsndfile-32.so';

@@ -69,7 +69,7 @@ order16=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
-findinfiledialog=50
+findinfiledialog=54
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -79,19 +79,19 @@ findinfiledialog=50
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.inprojectdir]
- value=1
+ value=0
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.indirectories]
- value=0
+ value=1
  [findinfileadialogfo.mask]
- value="*.pas" "*.pp" "*.inc" 
+ value="*.pas" "*.pp" "*.inc" "*.mfm"
  history=2
   "*.pas" "*.pp" "*.inc" "*.mfm"
   "*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/soundtouch-trunk/
+  /home/fred/msegui/
  filecolwidth=174
  x=0
  y=0
@@ -104,10 +104,14 @@ findinfiledialog=50
   /home/fred/designer_ext/
   /home/fred/msegui/apps/ide/
  filefilterindex=0
- filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
+ filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=thelib
- history=6
+ value=ppoll
+ history=10
+  ppoll
+  ImageMagic
+  ImageMagick
+   ImageMagick
   thelib
   putSamples
   StreamIn[x].Data.SampleRate =
@@ -1342,14 +1346,8 @@ editpos=30
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,1394
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,1
- 0,-1073741823
+ 16,895
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1358,14 +1356,20 @@ editpos=30
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,815
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,1576
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1457,7 +1461,7 @@ relpaths=30
  config.pas
  strumpract.pas
  define.inc
- ../msegui/lib/common/kernel/msegui.pas
+ msegui/lib/common/kernel/msegui.pas
 ismoduletexts=30
  0
  0
@@ -1562,7 +1566,7 @@ order=30
  22
  29
 firsttab=9
-index=9
+index=11
 [layout]
 windowlayout=760
  [mainfo.basedock]
@@ -1578,7 +1582,7 @@ windowlayout=760
  x=0
  y=0
  cx=1356
- cy=784
+ cy=694
  rcx=0
  rcy=0
  [mainfo]
@@ -1597,7 +1601,7 @@ windowlayout=760
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1356,784
+  basedock,0,0,1356,694
  focusedchild=0
  wsize=6
  active=1
@@ -1713,7 +1717,7 @@ windowlayout=760
  x=0
  y=0
  cx=205
- cy=591
+ cy=523
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1809,7 +1813,7 @@ windowlayout=760
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=targetconsolefo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1824,7 +1828,7 @@ windowlayout=760
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=306
  width0=136
@@ -1918,9 +1922,9 @@ windowlayout=760
  ncx=0
  ncy=0
  x=0
- y=664
+ y=588
  cx=1356
- cy=120
+ cy=106
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2020,7 +2024,7 @@ windowlayout=760
  x=0
  y=0
  cx=1356
- cy=67
+ cy=59
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2032,11 +2036,11 @@ windowlayout=760
  nx=0
  ny=0
  ncx=1356
- ncy=70
+ ncy=62
  x=0
  y=0
  cx=1356
- cy=70
+ cy=62
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2046,7 +2050,7 @@ windowlayout=760
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/strumpract/src/drums.pas
  history=50
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/config.pas
@@ -2099,7 +2103,7 @@ windowlayout=760
   /home/fred/mseuniverse-master-47c3668ae84b7a664f9dc5c76179814930e8f3ed/samples/widgets/grids/recordfieldedit/recordfieldedit.pas
   /home/fred/mseuniverse-master-47c3668ae84b7a664f9dc5c76179814930e8f3ed/samples/widgets/grids/coloredit/main.pas
  [debuggerfo.project_options]
- value=6
+ value=1
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2115,7 +2119,7 @@ windowlayout=760
  x=208
  y=0
  cx=1148
- cy=591
+ cy=523
  rcx=0
  rcy=0
  [cpuc86_64fo]
@@ -2149,9 +2153,9 @@ windowlayout=760
  ncx=0
  ncy=0
  x=0
- y=70
+ y=62
  cx=1356
- cy=591
+ cy=523
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2176,7 +2180,7 @@ windowlayout=760
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2214,7 +2218,7 @@ windowlayout=760
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2309,7 +2313,7 @@ windowlayout=760
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
