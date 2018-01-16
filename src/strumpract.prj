@@ -1371,7 +1371,7 @@ editpos=32
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 8,7
+ 0,9
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1436,7 +1436,7 @@ sourcefiles=32
  ${PROJECTDIR}/define.inc
  /home/fred/msegui/lib/common/kernel/msegui.pas
  ${PROJECTDIR}/uos_flat.pas
- /home/fred/strumpract/src/uos.pas
+ ${PROJECTDIR}/uos.pas
 relpaths=32
  commander.pas
  guitars.pas
