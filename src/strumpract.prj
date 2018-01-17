@@ -275,7 +275,7 @@ options=114
  index=0
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=2
+ index=1
  [projectoptionsfo]
  stackedunder=
  x=151
@@ -793,12 +793,12 @@ compilerusedon=29
  0
  0
 debuggerusedon=6
- 3842
+ 3840
  0
  0
  0
  0
- 253
+ 255
 exeusedon=14
  3903
  0
@@ -1133,43 +1133,43 @@ line=37
  637
  1517
 address=37
- 4581598
- 7050478
- 7059936
- 6989963
+ 4581790
+ 7051198
+ 7060656
+ 6990715
  0
- 4627264
- 4576176
- 4576393
- 4579248
- 5304240
+ 4627456
+ 4576368
+ 4576585
+ 4579440
+ 5304720
  4216736
  0
- 4576176
- 4581455
- 7043296
- 4580056
- 4582517
- 4576176
- 4636348
- 4636016
- 4667087
- 4606484
- 4669931
- 4610356
- 4614432
- 4614527
- 4653282
- 4636783
- 4593622
- 4646688
- 4661659
- 4599280
- 4604301
+ 4576368
+ 4581647
+ 7044016
+ 4580248
+ 4582709
+ 4576368
+ 4636540
+ 4636208
+ 4667279
+ 4606676
+ 4670123
+ 4610548
+ 4614624
+ 4614719
+ 4653474
+ 4636975
+ 4593814
+ 4646880
+ 4661851
+ 4599472
+ 4604493
  4390685
  0
- 4673677
- 6998365
+ 4673869
+ 6999085
 addbkpt=37
  0
  0
@@ -1315,10 +1315,12 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=(mse
+finddtext=ifflat
 findhistory=20
- (mse
  ifflat
+ thethread:=
+ uosthreadmse.
+ (mse
  linux
  unix
  if plugsoundtouch = Fal
@@ -1336,10 +1338,8 @@ findhistory=20
  infos.b
  soundtouchplug
  plugfunc
- plughandle
- list_files.
 findoptions=1
-editpos=33
+editpos=34
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1370,9 +1370,10 @@ editpos=33
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,2149
  0,-1073741823
- 0,13
+ 0,1229
+ 0,7
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1406,7 +1407,8 @@ bookmarks29=0
 bookmarks30=0
 bookmarks31=0
 bookmarks32=0
-sourcefiles=33
+bookmarks33=0
+sourcefiles=34
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/uos.pas
@@ -1440,7 +1442,8 @@ sourcefiles=33
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/uos.pas
  ${PROJECTDIR}/define.inc
-relpaths=33
+ /home/fred/msegui/lib/common/kernel/msethread.pas
+relpaths=34
  commander.pas
  guitars.pas
  uos.pas
@@ -1474,13 +1477,15 @@ relpaths=33
  uos_flat.pas
  uos.pas
  define.inc
-ismoduletexts=33
+ msegui/lib/common/kernel/msethread.pas
+ismoduletexts=34
  0
  0
  0
  0
  0
  -1
+ 0
  0
  0
  0
@@ -1549,7 +1554,7 @@ nomenumodules=9
  0
  0
 [sourcefo.files_tab]
-order=33
+order=34
  0
  1
  2
@@ -1564,6 +1569,7 @@ order=33
  7
  30
  31
+ 33
  32
  24
  23
@@ -1584,7 +1590,7 @@ order=33
  22
  29
 firsttab=9
-index=14
+index=15
 [layout]
 windowlayout=760
  [mainfo.basedock]
