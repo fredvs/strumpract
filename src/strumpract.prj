@@ -1134,8 +1134,8 @@ line=37
  1517
 address=37
  4581598
- 7050344
- 7059680
+ 7050478
+ 7059936
  6989963
  0
  4627264
@@ -1147,7 +1147,7 @@ address=37
  0
  4576176
  4581455
- 7043024
+ 7043296
  4580056
  4582517
  4576176
@@ -1169,7 +1169,7 @@ address=37
  4390685
  0
  4673677
- 6998528
+ 6998365
 addbkpt=37
  0
  0
@@ -1315,8 +1315,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=ifflat
+finddtext=(mse
 findhistory=20
+ (mse
  ifflat
  linux
  unix
@@ -1337,9 +1338,8 @@ findhistory=20
  plugfunc
  plughandle
  list_files.
- button1.
 findoptions=1
-editpos=32
+editpos=33
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1370,8 +1370,9 @@ editpos=32
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,9
+ 0,2155
+ 0,19
+ 0,7
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1404,7 +1405,8 @@ bookmarks28=0
 bookmarks29=0
 bookmarks30=0
 bookmarks31=0
-sourcefiles=32
+bookmarks32=0
+sourcefiles=33
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/uos.pas
@@ -1437,7 +1439,8 @@ sourcefiles=32
  /home/fred/msegui/lib/common/kernel/msegui.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/uos.pas
-relpaths=32
+ ${PROJECTDIR}/define.inc
+relpaths=33
  commander.pas
  guitars.pas
  uos.pas
@@ -1470,13 +1473,15 @@ relpaths=32
  msegui/lib/common/kernel/msegui.pas
  uos_flat.pas
  uos.pas
-ismoduletexts=32
+ define.inc
+ismoduletexts=33
  0
  0
  0
  0
  0
  -1
+ 0
  0
  0
  0
@@ -1544,7 +1549,7 @@ nomenumodules=9
  0
  0
 [sourcefo.files_tab]
-order=32
+order=33
  0
  1
  2
@@ -1559,6 +1564,7 @@ order=32
  7
  30
  31
+ 32
  24
  23
  8
@@ -1578,7 +1584,7 @@ order=32
  22
  29
 firsttab=9
-index=13
+index=14
 [layout]
 windowlayout=760
  [mainfo.basedock]
@@ -2062,8 +2068,9 @@ windowlayout=760
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/uos.pas
+ value=/home/fred/strumpract/src/define.inc
  history=50
+  /home/fred/strumpract/src/uos.pas
   /home/fred/mseconsts.pas
   /home/fred/ideu/src/mseconsts.pas
   /home/fred/msegui/lib/common/kernel/mseconsts.pas
@@ -2084,7 +2091,6 @@ windowlayout=760
   /home/fred/strumpract/src/infos.pas
   /home/fred/uos/src/uos_soundtouch.pas
   /home/fred/uos/examples/uos_soundtouch.pas
-  /home/fred/strumpract/src/uos.pas
   /home/fred/uos/examples/consoleplaymemorybuffer.pas
   /home/fred/uos/examples/simpleplayer_fpGUI.pas
   /home/fred/strumpract/src/main.pas
