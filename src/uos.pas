@@ -924,6 +924,16 @@ procedure InputSetArrayLevelEnable(InputIndex: cint32 ; levelcalc : cint32);
 function InputGetLevelLeft(InputIndex: cint32): double;
   // InputIndex : InputIndex of existing input
   // result : left level from 0 to 1
+  
+ function InputFilterGetLevelLeft(InputIndex: cint32; filterIndex: cint32): double;
+  // InputIndex : InputIndex of existing input
+  // filterIndex : Filterindex of existing filter
+  // result : left level from 0 to 1
+  
+ function InputFilterGetLevelRight(InputIndex: cint32; filterIndex: cint32): double;
+  // InputIndex : InputIndex of existing input
+  // filterIndex : Filterindex of existing filter
+  // result : right level from 0 to 1 
 
 function InputGetLevelRight(InputIndex: cint32): double;
   // InputIndex : InputIndex of existing input
@@ -1155,9 +1165,11 @@ procedure uos_unloadlibCust(PortAudio, SndFile, Mpg123, AAC, opus: boolean);
 
 function uos_loadPlugin(PluginName, PluginFilename: PChar) : cint32;
  // load plugin...
- 
+
+{$IF DEFINED(soundtouch)}
 function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
   // From SoundTouch plugin
+{$endif}  
   
 procedure uos_unloadPlugin(PluginName: PChar);
   // Unload Plugin...
@@ -1607,6 +1619,7 @@ function Filetobuffer(Filename: Pchar; OutputIndex: cint32;
   result := outmemory;
  end; 
  
+ {$IF DEFINED(soundtouch)}
 function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
   // From SoundTouch plugin
   var
@@ -1630,6 +1643,7 @@ function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32)
    bpm_destroyInstance(BPMhandle);
   
   end;
+ {$endif}
  
 function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; var bufferinfos: Tuos_BufferInfos ; frompos : cint; numbuf : cint ): TDArFloat;
   // Create a memory buffer of a audio file.
@@ -2093,6 +2107,24 @@ function Tuos_Player.InputGetLevelRight(InputIndex: cint32): double;
 begin
 Result := 0;
   if (isAssigned = True) then Result := StreamIn[InputIndex].Data.LevelRight;
+end;
+
+function Tuos_Player.InputFilterGetLevelLeft(InputIndex: cint32; filterIndex: cint32): double;
+  // InputIndex : InputIndex of existing input
+  // filterIndex : Filterindex of existing filter
+  // result : left level from 0 to 1
+ begin
+Result := 0;
+  if (Status > 0) and (isAssigned = True) then Result := StreamIn[InputIndex].DSP[FilterIndex].fftdata.RightResult;
+end;
+ 
+ function Tuos_Player.InputFilterGetLevelRight(InputIndex: cint32; filterIndex: cint32): double;
+  // InputIndex : InputIndex of existing input
+  // filterIndex : Filterindex of existing filter
+  // result : right level from 0 to 1 
+begin
+Result := 0;
+  if (Status > 0) and (isAssigned = True) then Result := StreamIn[InputIndex].DSP[FilterIndex].fftdata.LeftResult;
 end;
 
 {$IF DEFINED(soundtouch)}
@@ -3754,7 +3786,7 @@ function Tuos_Player.InputAddFilter(InputIndex: cint32; LowFrequency: cint32;
   // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
   // LoopProc : external procedure of object to synchronize after DSP done
   //  result : index of DSPIn in array
-  // example :FilterInIndex1 := InputAddFilter(InputIndex1,6000,16000,1,1,True);
+  // example :FilterInIndex1 := InputAddFilter(InputIndex1,6000,16000,1,1,True,nil);
 var
   FilterIndex: cint32;
 begin
@@ -4291,7 +4323,7 @@ begin
   x := Length(StreamOut) - 1;
    StreamOut[x].Data.Enabled := false;
   StreamOut[x].FileBuffer.ERROR := 0;
-  
+  StreamOut[x].Data.TypePut := 0 ;
   StreamOut[x].Data.Filename := filename;
   if (FileFormat = -1) or (FileFormat = 0) then 
   StreamOut[x].FileBuffer.FileFormat := 0 else StreamOut[x].FileBuffer.FileFormat := FileFormat;
@@ -8744,7 +8776,7 @@ begin
   LoopProc:= nil;
 
   {$IF DEFINED(Java)}
-  procedure LoopProcjava;
+//  procedure LoopProcjava;
   {$endif}
 end; 
 

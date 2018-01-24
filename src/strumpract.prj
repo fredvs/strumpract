@@ -275,7 +275,7 @@ options=114
  index=0
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=1
+ index=2
  [projectoptionsfo]
  stackedunder=
  x=151
@@ -1372,7 +1372,7 @@ editpos=34
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 1,12
+ 22,4
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1441,7 +1441,7 @@ sourcefiles=34
  /home/fred/msegui/lib/common/kernel/msegui.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/uos.pas
- ${PROJECTDIR}/define.inc
+ /home/fred/strumpract/src/define.inc
  /home/fred/msegui/lib/common/kernel/msethread.pas
 relpaths=34
  commander.pas
@@ -2127,7 +2127,7 @@ windowlayout=760
   /home/fred/strumpract/src/aboutform.pas
   /home/fred/uos/examples/deviceinfos_fpGUI.pas
  [debuggerfo.project_options]
- value=B
+ value=1
  [debuggerfo.hints]
  value=0
  [sourcefo]

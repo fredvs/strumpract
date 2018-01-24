@@ -668,6 +668,16 @@ function uos_InputGetLevelRight(PlayerIndex: cint32; InputIndex: cint32): double
   // InputIndex : InputIndex of existing input
   // result : right level(volume) from 0 to 1
   
+function uos_InputFilterGetLevelLeft(PlayerIndex: cint32; InputIndex: cint32; filterIndex: cint32): double;
+  // InputIndex : InputIndex of existing input
+  // filterIndex : Filterindex of existing filter
+  // result : left level from 0 to 1
+  
+ function uos_InputFilterGetLevelRight(PlayerIndex: cint32; InputIndex: cint32; filterIndex: cint32): double;
+  // InputIndex : InputIndex of existing input
+  // filterIndex : Filterindex of existing filter
+  // result : right level from 0 to 1   
+  
 {$IF DEFINED(soundtouch)}
 function uos_InputGetBPM(PlayerIndex: cint32; InputIndex: cint32): float;
   // InputIndex : InputIndex of existing input
@@ -730,9 +740,11 @@ function uos_GetVersion() : cint32 ;  // version of uos
 function uos_SetGlobalEvent(PlayerIndex: cint32; isenabled : boolean) : boolean;
   // Set the RTL Events Global (will pause/start/replay all the players synchro with same rtl event)) 
   // result : true if set ok.
-  
+ 
+ {$IF DEFINED(soundtouch)}
 function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
   // From SoundTouch plugin  
+{$endif}
 
 function uos_File2Buffer(Filename: Pchar; SampleFormat: cint32 ; var bufferinfos: Tuos_BufferInfos ; frompos : cint; numbuf : cint ): TDArFloat;
   // Create a memory buffer of a audio file.
@@ -1732,6 +1744,30 @@ begin
  result := uosPlayers[PlayerIndex].InputGetLevelRight(InputIndex) ;
 end;
 
+function uos_InputFilterGetLevelLeft(PlayerIndex: cint32; InputIndex: cint32; filterIndex: cint32): double;
+  // InputIndex : InputIndex of existing input
+  // filterIndex : Filterindex of existing filter
+  // result : left level from 0 to 1
+begin
+  result := 0;
+  if (length(uosPlayers) > 0) and (PlayerIndex +1 <= length(uosPlayers)) then
+  if  uosPlayersStat[PlayerIndex] = 1 then
+  if assigned(uosPlayers[PlayerIndex]) then
+ result := uosPlayers[PlayerIndex].InputFilterGetLevelLeft(InputIndex, filterindex) ;
+end;  
+  
+ function uos_InputFilterGetLevelRight(PlayerIndex: cint32; InputIndex: cint32; filterIndex: cint32): double;
+  // InputIndex : InputIndex of existing input
+  // filterIndex : Filterindex of existing filter
+  // result : right level from 0 to 1  
+begin
+  result := 0;
+  if (length(uosPlayers) > 0) and (PlayerIndex +1 <= length(uosPlayers)) then
+  if  uosPlayersStat[PlayerIndex] = 1 then
+  if assigned(uosPlayers[PlayerIndex]) then
+ result := uosPlayers[PlayerIndex].InputFilterGetLevelRight(InputIndex, filterindex) ;
+end;  
+
 {$IF DEFINED(soundtouch)}
 function uos_InputGetBPM(PlayerIndex: cint32; InputIndex: cint32): float;
   // InputIndex : InputIndex of existing input
@@ -1963,11 +1999,13 @@ function uos_Stream2Buffer(AudioFile: TMemoryStream; SampleFormat: int32 ; var o
 result := uos.uos_Stream2Buffer(AudioFile, SampleFormat, outmemory, bufferinfos, frompos, numbuf )  ;
   end; 
   
+{$IF DEFINED(soundtouch)}
 function uos_GetBPM(TheBuffer: TDArFloat;  Channels: cint32; SampleRate: cint32) : cfloat;
   // From SoundTouch plugin  
 begin
   result := uos.uos_GetBPM(TheBuffer, Channels, SampleRate);
-  end;  
+  end; 
+{$endif}  
   
 procedure uos_File2File(FilenameIN: Pchar; FilenameOUT: Pchar; SampleFormat: cint32 ; typeout: cint32 );
   // Create a audio file from a audio file.
