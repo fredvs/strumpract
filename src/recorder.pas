@@ -197,8 +197,7 @@ begin
   leftlev := uos_InputGetLevelLeft(therecplayer, Inputindex3);
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
 
-
-  if (leftlev >= 0) and (leftlev < 1) then
+  if (leftlev >= 0) and (leftlev <= 1) then
   begin
 
     if leftlev < 0.80 then
@@ -211,7 +210,7 @@ begin
     vuLeft.Value := leftlev;
   end;
 
-  if (rightlev >= 0) and (rightlev < 1) then
+  if (rightlev >= 0) and (rightlev <= 1) then
   begin
     if rightlev < 0.80 then
       vuRight.bar_face.template := mainfo.tfacegreen
@@ -246,9 +245,10 @@ end;
 
 procedure trecorderfo.LoopProcPlayer1;
 begin
-  if isrecording = False then
-    ShowPosition;
   ShowLevel;
+  
+  if isrecording = False then  ShowPosition;
+
 end;
 
 procedure trecorderfo.doplayerstart(const Sender: TObject);
@@ -291,18 +291,11 @@ begin
       //// add a Output into device with default parameters
 
 
-  {$if defined(cpuarm)}
-      OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, 0.3, uos_InputGetSampleRate(therecplayer, InputIndex3),
+ 
+      OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
         uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024);
 
-       {$else}
-      OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, -1, uos_InputGetSampleRate(therecplayer, InputIndex3),
-        uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024);
-
-       {$endif}
-
-
-      //// add a Output into device with custom parameters
+         //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
       //////////// Device ( -1 is default Output device )
       //////////// Latency  ( -1 is latency suggested ) )
@@ -499,7 +492,10 @@ begin
       infosfo.infocom.Caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(therecplayerinfo, 0)));
       infosfo.infotag.Caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(therecplayerinfo, 0)));
       infosfo.infolength.Caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
-
+      infosfo.inforate.Caption := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
+      infosfo.infochan.Caption := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
+      infosfo.infobpm.Caption :='';
+      
       uos_play(therecplayerinfo);
       uos_Stop(therecplayerinfo);
 
