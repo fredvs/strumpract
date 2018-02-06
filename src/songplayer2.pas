@@ -431,7 +431,7 @@ begin
           configfo.latplay.Value := -1;
 
         Outputindex2 := uos_AddIntoDevOut(theplayer2, -1, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
-          uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024);
+          uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024, -1);
 
         //// add a Output into device with custom parameters
         //////////// PlayerIndex : Index of a existing Player
@@ -814,7 +814,7 @@ procedure tsongplayer2fo.GetWaveData();
 begin
   if (waveformcheck.Value = True) then
   begin
-    waveformdata2 := uos_InputGetArrayLevel(theplayerinfo2, 0);
+    waveformdata2 := uos_InputGetLevelArray(theplayerinfo2, 0);
     iswav2 := True;
     DrawWaveForm();
   end;
@@ -961,7 +961,7 @@ begin
             //  writeln('Inputlength1 = ' + inttostr(Inputlength1));
 
             ///// set calculation of level/volume into array (usefull for wave form procedure)
-            uos_InputSetArrayLevelEnable(theplayerinfo2, 0, 2);
+            uos_InputSetLevelArrayEnable(theplayerinfo2, 0, 2);
             ///////// set level calculation (default is 0)
             // 0 => no calcul
             // 1 => calcul before all DSP procedures.

@@ -293,7 +293,7 @@ begin
 
  
       OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
-        uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024);
+        uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024, -1);
 
          //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
@@ -631,7 +631,7 @@ begin
     if bsavetofile.Value then
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
 
-    OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latrec.Value, -1, -1, -1, -1);
+    OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
     uos_outputsetenable(therecplayer, OutputIndex3, blistenin.Value);
 

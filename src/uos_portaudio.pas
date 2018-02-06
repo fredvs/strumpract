@@ -14,7 +14,7 @@ unit uos_portaudio;
 interface
 
 uses
-  dynlibs, CTypes;
+   dynlibs, CTypes;
   
 const
 libpa=
@@ -218,7 +218,7 @@ type
 
 // ************** Device enumeration and capabilities ******************
 
-    var Pa_GetDeviceCount: function:PaDeviceIndex ; cdecl;
+    var Pa_GetDeviceCount: function()  :PaDeviceIndex ; cdecl;
 
     var Pa_GetDefaultInputDevice: function:PaDeviceIndex ; cdecl;
 

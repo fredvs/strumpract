@@ -69,7 +69,7 @@ order16=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
-findinfiledialog=54
+findinfiledialog=55
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -79,11 +79,11 @@ findinfiledialog=54
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.inprojectdir]
- value=0
+ value=1
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.indirectories]
- value=1
+ value=0
  [findinfileadialogfo.mask]
  value="*.pas" "*.pp" "*.inc" "*.mfm"
  history=2
@@ -106,8 +106,9 @@ findinfiledialog=54
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=ppoll
- history=10
+ value=AddIntoDevOut
+ history=11
+  AddIntoDevOut
   ppoll
   ImageMagic
   ImageMagick
@@ -721,7 +722,7 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=9
+modulenames=10
  COMMANDERFO
  CONFIGFO
  DRUMSFO
@@ -731,7 +732,8 @@ modulenames=9
  MAINFO
  RECORDERFO
  SONGPLAYERFO
-moduletypes=9
+ SONGPLAYER2FO
+moduletypes=10
  TCOMMANDERFO
  TCONFIGFO
  TDRUMSFO
@@ -741,7 +743,8 @@ moduletypes=9
  TMAINFO
  TRECORDERFO
  TSONGPLAYERFO
-modulefiles=9
+ TSONGPLAYER2FO
+modulefiles=10
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/config.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -751,6 +754,7 @@ modulefiles=9
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/songplayer2.mfm
 befcommandon=0
 makeoptionson=9
  4095
@@ -1339,16 +1343,7 @@ findhistory=20
  infos.
  infos.in
 findoptions=1
-editpos=34
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 24,496
+editpos=43
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1374,6 +1369,24 @@ editpos=34
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,918
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1408,7 +1421,16 @@ bookmarks30=0
 bookmarks31=0
 bookmarks32=0
 bookmarks33=0
-sourcefiles=34
+bookmarks34=0
+bookmarks35=0
+bookmarks36=0
+bookmarks37=0
+bookmarks38=0
+bookmarks39=0
+bookmarks40=0
+bookmarks41=0
+bookmarks42=0
+sourcefiles=43
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/uos.pas
@@ -1417,7 +1439,7 @@ sourcefiles=34
  ${PROJECTDIR}/filelistform.mfm
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/drums.pas
- /home/fred/strumpract/src/recorder.pas
+ ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/infos.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/uos_flat.pas
@@ -1443,7 +1465,16 @@ sourcefiles=34
  ${PROJECTDIR}/uos.pas
  ${PROJECTDIR}/define.inc
  /home/fred/msegui/lib/common/kernel/msethread.pas
-relpaths=34
+ ${PROJECTDIR}/uos.pas
+ ${PROJECTDIR}/uos_portaudio.pas
+ ${PROJECTDIR}/commander.pas
+ ${PROJECTDIR}/drums.pas
+ ${PROJECTDIR}/guitars.pas
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/songplayer2.pas
+ ${PROJECTDIR}/songplayer2.pas
+ /home/fred/strumpract/src/songplayer.pas
+relpaths=43
  commander.pas
  guitars.pas
  uos.pas
@@ -1478,7 +1509,16 @@ relpaths=34
  uos.pas
  define.inc
  msegui/lib/common/kernel/msethread.pas
-ismoduletexts=34
+ uos.pas
+ uos_portaudio.pas
+ commander.pas
+ drums.pas
+ guitars.pas
+ songplayer.pas
+ songplayer2.pas
+ songplayer2.pas
+ songplayer.pas
+ismoduletexts=43
  0
  0
  0
@@ -1513,7 +1553,16 @@ ismoduletexts=34
  0
  0
  0
-modules=9
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+modules=10
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1523,7 +1572,8 @@ modules=9
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/config.mfm
-moduleoptions=9
+ /home/fred/strumpract/src/songplayer2.mfm
+moduleoptions=10
  0
  0
  0
@@ -1533,7 +1583,8 @@ moduleoptions=9
  0
  0
  0
-visiblemodules=9
+ 0
+visiblemodules=10
  -1
  -1
  -1
@@ -1543,7 +1594,9 @@ visiblemodules=9
  -1
  0
  -1
-nomenumodules=9
+ -1
+nomenumodules=10
+ 0
  0
  0
  0
@@ -1554,7 +1607,7 @@ nomenumodules=9
  0
  0
 [sourcefo.files_tab]
-order=34
+order=43
  0
  1
  2
@@ -1574,6 +1627,15 @@ order=34
  24
  23
  8
+ 39
+ 40
+ 34
+ 35
+ 36
+ 37
+ 41
+ 42
+ 38
  9
  10
  11
@@ -1589,10 +1651,10 @@ order=34
  21
  22
  29
-firsttab=9
-index=18
+firsttab=19
+index=26
 [layout]
-windowlayout=760
+windowlayout=729
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1605,8 +1667,8 @@ windowlayout=760
  ncy=0
  x=0
  y=0
- cx=1356
- cy=694
+ cx=1147
+ cy=604
  rcx=0
  rcy=0
  [mainfo]
@@ -1618,16 +1680,16 @@ windowlayout=760
  ny=0
  ncx=0
  ncy=0
- x=149
- y=43
+ x=125
+ y=46
  cx=1157
  cy=621
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1356,694
+  basedock,0,0,1147,604
  focusedchild=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [targetconsolefo]
@@ -1639,8 +1701,8 @@ windowlayout=760
  ny=0
  ncx=0
  ncy=0
- x=530
- y=151
+ x=493
+ y=171
  cx=497
  cy=314
  rcx=0
@@ -1724,7 +1786,7 @@ windowlayout=760
  ncy=0
  x=239
  y=115
- cx=678
+ cx=1029
  cy=414
  rcx=0
  rcy=0
@@ -1741,7 +1803,7 @@ windowlayout=760
  x=0
  y=0
  cx=205
- cy=523
+ cy=455
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1791,7 +1853,7 @@ windowlayout=760
  active=0
  visible=0
  [watchpointsfo.grid]
- propcolwidthref=332
+ propcolwidthref=352
  sortdescend0=0
  values1=1
   0
@@ -1800,7 +1862,7 @@ windowlayout=760
  sortdescend1=0
  values2=1
   pinteger(0x126c6b4)^
- width2=149
+ width2=158
  sortdescend2=0
  width4=34
  sortdescend4=0
@@ -1811,7 +1873,7 @@ windowlayout=760
  sortdescend5=0
  values6=1
   
- width6=172
+ width6=184
  sortdescend6=0
  [breakpointsfo]
  splitdir=0
@@ -1917,7 +1979,7 @@ windowlayout=760
  rcx=1262
  rcy=583
  [watchfo.grid]
- propcolwidthref=121
+ propcolwidthref=111
  values0=0
  values0_ci=-1
  sortdescend0=0
@@ -1946,9 +2008,9 @@ windowlayout=760
  ncx=0
  ncy=0
  x=0
- y=588
- cx=1356
- cy=106
+ y=512
+ cx=1147
+ cy=92
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2047,8 +2109,8 @@ windowlayout=760
  ncy=0
  x=0
  y=0
- cx=1356
- cy=59
+ cx=1147
+ cy=51
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2059,12 +2121,12 @@ windowlayout=760
  mdistate=0
  nx=0
  ny=0
- ncx=1356
- ncy=62
+ ncx=1147
+ ncy=54
  x=0
  y=0
- cx=1356
- cy=62
+ cx=1147
+ cy=54
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2074,58 +2136,8 @@ windowlayout=760
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/recorder.pas
- history=50
-  /home/fred/strumpract/src/uos.pas
-  /home/fred/mseconsts.pas
-  /home/fred/ideu/src/mseconsts.pas
-  /home/fred/msegui/lib/common/kernel/mseconsts.pas
-  /home/fred/uos/examples/multiplayer_fpGUI.pas
-  /home/fred/uos/examples/uos_dsp_utils.pas
-  /home/fred/uos/src/uos_flat.pas
-  /home/fred/uos/src/uos_mpg123.pas
-  /home/fred/uos/src/uos.pas
-  /home/fred/uos/src/uos_aac.pas
-  /home/fred/strumpract/src/define.inc
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/config.pas
-  /home/fred/uos/examples/uos.pas
-  /home/fred/uos/examples/SimplePlayer_MSE.pas
-  /home/fred/uos/examples/consolebpmdetect.pas
-  /home/fred/strumpract/src/songplayer2.pas
-  /home/fred/strumpract/src/drums.pas
-  /home/fred/strumpract/src/infos.pas
-  /home/fred/uos/src/uos_soundtouch.pas
-  /home/fred/uos/examples/uos_soundtouch.pas
-  /home/fred/uos/examples/consoleplaymemorybuffer.pas
-  /home/fred/uos/examples/simpleplayer_fpGUI.pas
-  /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/filelistform.pas
-  /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/commander.pas
-  /home/fred/ideu/src/dialogfiles.pas
-  /home/fred/ideu/src/confmsegui.pas
-  /home/fred/ideu/src/conffpgui.pas
-  /home/fred/ideu/src/confdebugger.pas
-  /home/fred/ideu/src/confcompiler.pas
-  /home/fred/ideu/src/confideu.pas
-  /home/fred/ideu/src/aboutform.pas
-  /home/fred/ideu_15_7_17/src/msedesigner.pas
-  /home/fred/Téléchargements/ideU-296c231f492dc77aa758c3f555e5d3e0a62c7a19/src/msedesigner.pas
-  /home/fred/ideu/src/msedesigner.pas
-  /home/fred/strumpract/src/recorder.pas
-  /home/fred/strumpract/src/uos_soundtouch.pas
-  /home/fred/strumpract/src/uos_portaudio.pas
-  /home/fred/strumpract/src/msefiledialog.pas
-  /home/fred/uos/examples/simplerecorder_fpGUI.pas
-  /home/fred/uos/examples/mainmse_sp.pas
-  /home/fred/uos/examples/main_sd.pas
-  /home/fred/uos/examples/consoleplaymemorystream.pas
-  /home/fred/uos/examples/consoleplay.pas
-  /home/fred/uos/examples/filterplayer_fpGUI.pas
-  /home/fred/strumpract/src/dialogfiles.pas
-  /home/fred/strumpract/src/aboutform.pas
-  /home/fred/uos/examples/deviceinfos_fpGUI.pas
+ value=/home/fred/strumpract/src/songplayer.pas
+ history=0
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2142,8 +2154,8 @@ windowlayout=760
  ncy=0
  x=208
  y=0
- cx=1148
- cy=523
+ cx=939
+ cy=455
  rcx=0
  rcy=0
  [cpuc86_64fo]
@@ -2177,9 +2189,9 @@ windowlayout=760
  ncx=0
  ncy=0
  x=0
- y=62
- cx=1356
- cy=523
+ y=54
+ cx=1147
+ cy=455
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2337,7 +2349,7 @@ windowlayout=760
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2348,6 +2360,25 @@ windowlayout=760
  y=100
  cx=368
  cy=166
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_songplayer2fo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=375
+ y=218
+ cx=468
+ cy=128
  rcx=0
  rcy=0
  wsize=0

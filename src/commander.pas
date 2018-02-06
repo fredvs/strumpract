@@ -456,7 +456,7 @@ begin
       begin
         // writeln('ok create');
       
-        OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.Value, -1, -1, -1, -1);
+        OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
         // writeln('OutputIndex4 = ' + inttostr(OutputIndex4));
         // uos_outputsetenable(theinput,OutputIndex4,true);
