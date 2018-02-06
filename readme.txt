@@ -10,7 +10,6 @@ Like:
 - DJ console for auto-mixing, with 2 players and direct-output of mic.
 - Record your ideas-jam.
 
-
 There are compiled executable for Linux 32/64, Windows 32/64, FreeBSD 64 and arm RPi.
  => https://github.com/fredvs/strumpract/releases/ 
 
