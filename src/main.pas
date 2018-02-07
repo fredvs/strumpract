@@ -192,8 +192,8 @@ begin
     c_linefeed +
     c_linefeed + 'Compiled with FPC 3.0.4.' + c_linefeed + 'http://www.freepascal.org' + c_linefeed +
     c_linefeed + 'Graphic widget: MSEgui ' + mseguiversiontext + '.' + c_linefeed + 'http://sourceforge.net/projects/mseide-msegui/' +
-    c_linefeed + c_linefeed + 'Audio library: uos 1.7. (United Openlib of Sound)' + c_linefeed + 'https://github.com/fredvs/uos' +
-    c_linefeed + c_linefeed + 'Copyright 2017' + c_linefeed + 'Fred van Stappen <fiens@hotmail.com>';
+    c_linefeed + c_linefeed + 'Audio library: uos 1.8. (United Openlib of Sound)' + c_linefeed + 'https://github.com/fredvs/uos' +
+    c_linefeed + c_linefeed + 'Copyright 2018' + c_linefeed + 'Fred van Stappen <fiens@hotmail.com>';
   aboutfo.Show(True);
 end;
 
