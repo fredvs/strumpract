@@ -1,0 +1,705 @@
+[mainfo.typecolor]
+value=0
+[mainfo.basedock]
+splitdir=2
+useroptions=268437632
+[mainfo]
+stackedunder=filelistfo
+x=361
+y=27
+cx=458
+cy=408
+wsize=0
+active=0
+visible=1
+[guitarsfo]
+splitdir=0
+useroptions=805339259
+parent=mainfo.basedock
+visible=0
+mdistate=0
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=0
+y=528
+cx=458
+cy=64
+rcx=458
+rcy=524
+[guitarsfo.loopguit]
+value=0
+[guitarsfo.loopbass]
+value=0
+[recorderfo]
+splitdir=0
+useroptions=805339243
+parent=mainfo.basedock
+visible=0
+mdistate=0
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=0
+y=528
+cx=458
+cy=128
+rcx=458
+rcy=592
+[recorderfo.blistenin]
+value=1
+[recorderfo.bsavetofile]
+value=1
+[recorderfo.edvol]
+value=100
+[recorderfo.cbloop]
+value=0
+[recorderfo.historyfn]
+value=/home/fred/strumpract/src/sound/record/record.wav
+history=0
+[recorderfo.songdir]
+filenames=1
+ /home/fred/strumpract/src/sound/record/record.wav
+filecolwidth=0
+x=0
+y=0
+cx=0
+cy=0
+lastdir=/home/fred/strumpract/src/sound/record/
+filehistory=0
+filefilterindex=0
+filefilter="*.mp3" "*.wav" "*.ogg" "*.flac"
+[commanderfo]
+splitdir=0
+useroptions=805339259
+parent=mainfo.basedock
+visible=1
+mdistate=0
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=0
+y=264
+cx=458
+cy=128
+rcx=0
+rcy=0
+[commanderfo.tslider2]
+value=1
+[commanderfo.tslider3]
+value=0
+[commanderfo.genvolright]
+value=0.666666
+[commanderfo.genvolleft]
+value=0.666666
+[commanderfo.linkvolgen]
+value=1
+[commanderfo.timemix]
+value=300
+[commanderfo.volumeleft1]
+value=1
+[commanderfo.volumeright1]
+value=1
+[commanderfo.volumeright2]
+value=0
+[commanderfo.volumeleft2]
+value=0
+[commanderfo.linkvol]
+value=1
+[commanderfo.linkvol2]
+value=1
+[commanderfo.vuin]
+value=0
+[commanderfo.automix]
+value=1
+[songplayer2fo]
+splitdir=0
+useroptions=805339243
+parent=mainfo.basedock
+visible=1
+mdistate=0
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=0
+y=132
+cx=458
+cy=128
+rcx=0
+rcy=0
+[songplayer2fo.edvolleft]
+value=0
+[songplayer2fo.cbloop]
+value=0
+[songplayer2fo.historyfn]
+value=/home/fred/mp3/new/01. Venus.mp3
+history=0
+[songplayer2fo.songdir]
+filenames=1
+ /home/fred/mp3/new/01. Venus.mp3
+filecolwidth=0
+x=0
+y=0
+cx=0
+cy=0
+lastdir=/home/fred/mp3/new/
+filehistory=0
+filefilterindex=0
+filefilter="*.mp3" "*.wav" "*.ogg" "*.flac"
+[songplayer2fo.edvolright]
+value=0
+[songplayer2fo.waveformcheck]
+value=1
+[songplayerfo]
+splitdir=0
+useroptions=805339243
+parent=mainfo.basedock
+visible=1
+mdistate=0
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=0
+y=0
+cx=458
+cy=128
+rcx=0
+rcy=0
+[songplayerfo.edvolleft]
+value=100
+[songplayerfo.cbloop]
+value=0
+[songplayerfo.historyfn]
+value=/home/fred/mp3/new/01.Fast Car.mp3
+history=3
+ /home/fred/mp3/new/01. Pick Up The Pieces.mp3
+ /home/fred/uos/examples/sound/test.flac
+ /home/fred/uos/examples/sound/test.mp3
+[songplayerfo.songdir]
+filenames=1
+ /home/fred/mp3/new/01.Fast Car.mp3
+filecolwidth=174
+x=392
+y=214
+cx=636
+cy=332
+lastdir=/home/fred/mp3/new/
+filehistory=4
+ /home/fred/mp3/new/10cc_-_I_m_not_in_love__complete_version___video_audio_edited___restored__HQ_HD__360p__1_.mp3
+ /home/fred/mp3/new/01. Pick Up The Pieces.mp3
+ /home/fred/uos/examples/sound/test.flac
+ /home/fred/uos/examples/sound/test.mp3
+filefilterindex=4
+filefilter="*.mp3" "*.wav" "*.ogg" "*.flac"
+[songplayerfo.edvolright]
+value=100
+[songplayerfo.waveformcheck]
+value=1
+[drumsfo]
+splitdir=0
+useroptions=268468331
+parent=mainfo.basedock
+visible=0
+mdistate=0
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=0
+y=0
+cx=458
+cy=236
+rcx=458
+rcy=724
+[drumsfo.edittempo]
+value=150
+[drumsfo.volumedrums]
+value=100
+[filelistfo]
+splitdir=0
+useroptions=805339259
+stackedunder=
+parent=
+mdistate=3
+nx=0
+ny=0
+ncx=0
+ncy=0
+x=845
+y=27
+cx=458
+cy=403
+rcx=0
+rcy=0
+wsize=0
+active=1
+visible=1
+[filelistfo.songdir]
+filenames=1
+ /home/fred/mp3/new/
+filecolwidth=174
+x=0
+y=0
+cx=0
+cy=0
+lastdir=/home/fred/mp3/new/
+filehistory=2
+ /home/fred/mp3/new/
+ /home/fred/strumpract/src/sound/song/
+filefilterindex=0
+filefilter="*.mp3" "*.wav" "*.ogg" "*.flac"
+[filelistfo.list_files]
+propcolwidthref=8
+values0=85
+ 01 Sugar
+ 01. Pick Up The Pieces
+ 01. Venus
+ 01.Fast Car
+ 02 - Marvin Gaye - What´s Going On
+ 02 - Why did you do it (Famous Original Mix)
+ 02 Cat Stevens (The Very Best Of ~) - Father & son
+ 02 My Sweet Lord
+ 02. Could You Be Loved
+ 03 xxx_Woke Up This Morning
+ 03-2 xxx_lentdedbut_for removeCrazy Knowledge
+ 03-Lipps Inc.  Funky Town
+ 04 - Gamma Ray
+ 04 Cat Stevens (The Very Best Of ~) - Wild world
+ 0447_-_m_a_r_r_s_-_pump_up_the_volume_1987_
+ 04xxx Iron Shirt
+ 05 Happy (From Despicable Me 2)
+ 05 The Bottle
+ 06 - Commodores - Easy
+ 10cc_-_I_m_not_in_love__complete_version___video_audio_edited___restored__HQ_HD__360p__1_
+ 11 the worm
+ 13 The Bottle - Guan Guanco (Live)
+ 13 War - Galaxy 2000
+ 13.Give Me One Reason
+ 14.Talkin' Bout A Revolution
+ 6._10CC_-_I_m_Not_in_Love__360p_
+ ADRIANO CELENTANO - SVALUTATION - YouTube
+ Al Stewart - Year of the cat (videoaudio edited & remastered
+ Alan Sorrenti  Figli delle stelle (radio edit) - DASH
+ Almost_Blue_Album_Covers_Inspired_By_Blue_Note_Records_The_F
+ Amigo ext. version
+ Amigo. Black Slate. 1980. (2011 remaster)
+ Amparanoia - Hacer dinero
+ Annie Lennox A Thin Line Between Love And Hate 1995
+ ayo_down_knees
+ B2 Venus (Original Mix)
+ Babe Ruth - The Mexican (1972) - YouTube
+ Black Slate - Amigo
+ Black Slate - Boom Boom
+ Black slate its a thin line between love and hate
+ BlueNote-Breaks1-02 Sookie Sookie [Grant Green]
+ calle13 Atrevete te te!
+ Claptone feat Jaw - No Eyes (Original Mix)
+ Clean_Bandit_-_Rockabye_ft._Sean_Paul___Anne-Marie__Official_Video_
+ Curtis Mayfield - Diamond in the Back - YouTube
+ doctor rockit
+ doobie brothers long train live clean
+ Freak Power - Turn on, Tune in, Cop Out
+ Gloria Gaynor - I Will Survive
+ guit_kungs
+ HB Bohannon_s Beat__
+ HB Extreme Rare Funk
+ HB Foot Stompin Music
+ HD Year Of The Cat
+ Hermes House Band - I Will Survive (La La La)
+ i will survive lalala
+ Ike & Tina Turner Nutbush City Limits - YouTube
+ James Brown - Soul Power
+ Juan Magan - Baila Conmigo ft. Luciana - DASH
+ Kungs vs Cookin' On 3 Burners - This Girl [Original Mix] - DASH-2
+ Kungs vs Cookin’ on 3 Burners - This Girl - DASH-1
+ Laidback - Happy Dreamer, Buddha Bar Volume 7
+ Looking back over my shoulder - Mike and The Mechanics
+ Madcon - Begging You
+ Manuel Carrasco - Uno X Uno - DASH
+ Manuel Carrasco - Uno X Uno (Lyric) - DASH
+ manuel_caroso
+ Morat - Cómo Te Atreves - DASH
+ My Sweet Lord
+ Pino D´ Angio - Ma Quale Idea Original 12 inch Version 1980
+ Sak Noel - Loca People (Official Video)
+ Steel Pulse - Handsworth Revolution
+ Steel Pulse - Prediction
+ Stevie Wonder - I Wish (The Reflex Remix) - YouTube
+ Supermax - Lovemachine (Long Version) - YouTube
+ take5lesson
+ The Persuaders - Thin Line between Love _ Hate - Video (High
+ The Pretenders - Thin Line Between Love And Hate (Remastered
+ tribute passadenas
+ Van Morrison - Gloria _live at the Hollywood Bowl_ 2008_
+ Van Morrison - Gloria_ WITH LYRICS
+ War - _War Is Coming, War Is Coming_
+ While My Guitar Gently Weeps
+ xxx_mitechnoo_George McCrae Featuring WuTang Clan - Lifted from the gravel pit (driberlah mash)(1)
+ xxx_techno_APHRODITE - Track 12
+sortdescend0=0
+values1=85
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+ mp3
+sortdescend1=0
+values2=85
+ 9469 Kb
+ 9615 Kb
+ 7438 Kb
+ 12267 Kb
+ 3794 Kb
+ 5444 Kb
+ 8888 Kb
+ 4532 Kb
+ 9666 Kb
+ 4217 Kb
+ 5157 Kb
+ 9512 Kb
+ 24317 Kb
+ 8105 Kb
+ 7303 Kb
+ 7862 Kb
+ 9464 Kb
+ 7446 Kb
+ 3994 Kb
+ 8838 Kb
+ 3273 Kb
+ 17195 Kb
+ 9799 Kb
+ 11103 Kb
+ 6732 Kb
+ 8558 Kb
+ 2998 Kb
+ 6300 Kb
+ 6383 Kb
+ 4688 Kb
+ 6527 Kb
+ 5545 Kb
+ 3012 Kb
+ 5729 Kb
+ 3808 Kb
+ 7219 Kb
+ 5507 Kb
+ 9170 Kb
+ 4051 Kb
+ 4851 Kb
+ 26599 Kb
+ 9558 Kb
+ 7827 Kb
+ 6463 Kb
+ 6923 Kb
+ 15824 Kb
+ 6166 Kb
+ 10775 Kb
+ 5792 Kb
+ 1854 Kb
+ 11206 Kb
+ 7513 Kb
+ 6964 Kb
+ 6786 Kb
+ 1840 Kb
+ 5421 Kb
+ 2812 Kb
+ 11665 Kb
+ 4513 Kb
+ 4961 Kb
+ 4151 Kb
+ 3993 Kb
+ 3435 Kb
+ 5255 Kb
+ 6541 Kb
+ 4838 Kb
+ 1328 Kb
+ 4887 Kb
+ 4466 Kb
+ 8801 Kb
+ 8048 Kb
+ 7709 Kb
+ 7699 Kb
+ 9040 Kb
+ 14088 Kb
+ 3423 Kb
+ 2925 Kb
+ 4930 Kb
+ 4236 Kb
+ 6488 Kb
+ 3336 Kb
+ 9246 Kb
+ 4598 Kb
+ 13366 Kb
+ 9971 Kb
+sortdescend2=0
+values3=85
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+ 1
+sortdescend3=0
+values4=85
+ /home/fred/mp3/new/01 Sugar.mp3
+ /home/fred/mp3/new/01. Pick Up The Pieces.mp3
+ /home/fred/mp3/new/01. Venus.mp3
+ /home/fred/mp3/new/01.Fast Car.mp3
+ /home/fred/mp3/new/02 - Marvin Gaye - What´s Going On.mp3
+ /home/fred/mp3/new/02 - Why did you do it (Famous Original Mix).mp3
+ /home/fred/mp3/new/02 Cat Stevens (The Very Best Of ~) - Father & son.mp3
+ /home/fred/mp3/new/02 My Sweet Lord.mp3
+ /home/fred/mp3/new/02. Could You Be Loved.mp3
+ /home/fred/mp3/new/03 xxx_Woke Up This Morning.mp3
+ /home/fred/mp3/new/03-2 xxx_lentdedbut_for removeCrazy Knowledge.mp3
+ /home/fred/mp3/new/03-Lipps Inc.  Funky Town.mp3
+ /home/fred/mp3/new/04 - Gamma Ray.mp3
+ /home/fred/mp3/new/04 Cat Stevens (The Very Best Of ~) - Wild world.mp3
+ /home/fred/mp3/new/0447_-_m_a_r_r_s_-_pump_up_the_volume_1987_.mp3
+ /home/fred/mp3/new/04xxx Iron Shirt.mp3
+ /home/fred/mp3/new/05 Happy (From Despicable Me 2).mp3
+ /home/fred/mp3/new/05 The Bottle.mp3
+ /home/fred/mp3/new/06 - Commodores - Easy.mp3
+ /home/fred/mp3/new/10cc_-_I_m_not_in_love__complete_version___video_audio_edited___restored__HQ_HD__360p__1_.mp3
+ /home/fred/mp3/new/11 the worm.mp3
+ /home/fred/mp3/new/13 The Bottle - Guan Guanco (Live).mp3
+ /home/fred/mp3/new/13 War - Galaxy 2000.mp3
+ /home/fred/mp3/new/13.Give Me One Reason.mp3
+ /home/fred/mp3/new/14.Talkin' Bout A Revolution.mp3
+ /home/fred/mp3/new/6._10CC_-_I_m_Not_in_Love__360p_.mp3
+ /home/fred/mp3/new/ADRIANO CELENTANO - SVALUTATION - YouTube.mp3
+ /home/fred/mp3/new/Al Stewart - Year of the cat (videoaudio edited & remastered.mp3
+ /home/fred/mp3/new/Alan Sorrenti  Figli delle stelle (radio edit) - DASH.mp3
+ /home/fred/mp3/new/Almost_Blue_Album_Covers_Inspired_By_Blue_Note_Records_The_F.mp3
+ /home/fred/mp3/new/Amigo ext. version.mp3
+ /home/fred/mp3/new/Amigo. Black Slate. 1980. (2011 remaster).mp3
+ /home/fred/mp3/new/Amparanoia - Hacer dinero.mp3
+ /home/fred/mp3/new/Annie Lennox A Thin Line Between Love And Hate 1995.mp3
+ /home/fred/mp3/new/ayo_down_knees.mp3
+ /home/fred/mp3/new/B2 Venus (Original Mix).mp3
+ /home/fred/mp3/new/Babe Ruth - The Mexican (1972) - YouTube.mp3
+ /home/fred/mp3/new/Black Slate - Amigo.mp3
+ /home/fred/mp3/new/Black Slate - Boom Boom.mp3
+ /home/fred/mp3/new/Black slate its a thin line between love and hate.mp3
+ /home/fred/mp3/new/BlueNote-Breaks1-02 Sookie Sookie [Grant Green].mp3
+ /home/fred/mp3/new/calle13 Atrevete te te!.mp3
+ /home/fred/mp3/new/Claptone feat Jaw - No Eyes (Original Mix).mp3
+ /home/fred/mp3/new/Clean_Bandit_-_Rockabye_ft._Sean_Paul___Anne-Marie__Official_Video_.mp3
+ /home/fred/mp3/new/Curtis Mayfield - Diamond in the Back - YouTube.mp3
+ /home/fred/mp3/new/doctor rockit.mp3
+ /home/fred/mp3/new/doobie brothers long train live clean.mp3
+ /home/fred/mp3/new/Freak Power - Turn on, Tune in, Cop Out.mp3
+ /home/fred/mp3/new/Gloria Gaynor - I Will Survive.mp3
+ /home/fred/mp3/new/guit_kungs.mp3
+ /home/fred/mp3/new/HB Bohannon_s Beat__.mp3
+ /home/fred/mp3/new/HB Extreme Rare Funk.mp3
+ /home/fred/mp3/new/HB Foot Stompin Music.mp3
+ /home/fred/mp3/new/HD Year Of The Cat.mp3
+ /home/fred/mp3/new/Hermes House Band - I Will Survive (La La La).mp3
+ /home/fred/mp3/new/i will survive lalala.mp3
+ /home/fred/mp3/new/Ike & Tina Turner Nutbush City Limits - YouTube.mp3
+ /home/fred/mp3/new/James Brown - Soul Power.mp3
+ /home/fred/mp3/new/Juan Magan - Baila Conmigo ft. Luciana - DASH.mp3
+ /home/fred/mp3/new/Kungs vs Cookin' On 3 Burners - This Girl [Original Mix] - DASH-2.mp3
+ /home/fred/mp3/new/Kungs vs Cookin’ on 3 Burners - This Girl - DASH-1.mp3
+ /home/fred/mp3/new/Laidback - Happy Dreamer, Buddha Bar Volume 7.mp3
+ /home/fred/mp3/new/Looking back over my shoulder - Mike and The Mechanics.mp3
+ /home/fred/mp3/new/Madcon - Begging You.mp3
+ /home/fred/mp3/new/Manuel Carrasco - Uno X Uno - DASH.mp3
+ /home/fred/mp3/new/Manuel Carrasco - Uno X Uno (Lyric) - DASH.mp3
+ /home/fred/mp3/new/manuel_caroso.mp3
+ /home/fred/mp3/new/Morat - Cómo Te Atreves - DASH.mp3
+ /home/fred/mp3/new/My Sweet Lord.mp3
+ /home/fred/mp3/new/Pino D´ Angio - Ma Quale Idea Original 12 inch Version 1980.mp3
+ /home/fred/mp3/new/Sak Noel - Loca People (Official Video).mp3
+ /home/fred/mp3/new/Steel Pulse - Handsworth Revolution.mp3
+ /home/fred/mp3/new/Steel Pulse - Prediction.mp3
+ /home/fred/mp3/new/Stevie Wonder - I Wish (The Reflex Remix) - YouTube.mp3
+ /home/fred/mp3/new/Supermax - Lovemachine (Long Version) - YouTube.mp3
+ /home/fred/mp3/new/take5lesson.mp3
+ /home/fred/mp3/new/The Persuaders - Thin Line between Love _ Hate - Video (High.mp3
+ /home/fred/mp3/new/The Pretenders - Thin Line Between Love And Hate (Remastered.mp3
+ /home/fred/mp3/new/tribute passadenas.mp3
+ /home/fred/mp3/new/Van Morrison - Gloria _live at the Hollywood Bowl_ 2008_.mp3
+ /home/fred/mp3/new/Van Morrison - Gloria_ WITH LYRICS.mp3
+ /home/fred/mp3/new/War - _War Is Coming, War Is Coming_.mp3
+ /home/fred/mp3/new/While My Guitar Gently Weeps.mp3
+ /home/fred/mp3/new/xxx_mitechnoo_George McCrae Featuring WuTang Clan - Lifted from the gravel pit (driberlah mash)(1).mp3
+ /home/fred/mp3/new/xxx_techno_APHRODITE - Track 12.mp3
+sortdescend4=0
+[filelistfo.historyfn]
+value=/home/fred/mp3/new/
+history=2
+ /home/fred/mp3/new/
+ /home/fred/strumpract/src/sound/song/
+[filelistfo.edfilescount]
+value=85
+[configfo.latrec]
+value=-1
+[configfo.latplay]
+value=-1
+[configfo.latdrums]
+value=-1

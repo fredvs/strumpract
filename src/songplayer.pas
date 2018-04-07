@@ -23,9 +23,6 @@ type
     button1: TButton;
     cbloop: tbooleanedit;
     cbtempo: tbooleanedit;
-    btnStop: TButton;
-    btnResume: TButton;
-    btnPause: TButton;
     trackbar1: tslider;
     historyfn: thistoryedit;
     songdir: tfilenameedit;
@@ -33,10 +30,8 @@ type
     lposition: tstringdisp;
     tstringdisp1: tstringdisp;
     edvolright: trealspinedit;
-    btnStart: TButton;
     tfaceslider: tfacecomp;
     btinfos: TButton;
-    BtnCue: TButton;
 
     tfacebuttonslider: tfacecomp;
     tfacegreen: tfacecomp;
@@ -49,6 +44,13 @@ type
    hintlabel: tlabel;
    hintlabel2: tlabel;
    button2: tbutton;
+   playreverse: tbooleanedit;
+   btnStop: tbutton;
+   btnPause: tbutton;
+   btnResume: tbutton;
+   btnStart: tbutton;
+   BtnCue: tbutton;
+   setmono: tbooleanedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -76,6 +78,8 @@ type
     procedure changeloop(const Sender: TObject);
     procedure GetWaveData();
     procedure DrawWaveForm();
+    procedure changereverse(const Sender: TObject);
+    procedure ChangeStereo2Mono(const Sender: TObject);
 
     procedure onchachewav(const Sender: TObject);
     procedure onsetvalvol(const sender: TObject; var avalue: realty;
@@ -98,7 +102,7 @@ var
   hasfocused1: boolean = False;
   iswav: boolean = False;
   plugindex1, PluginIndex2: integer;
-  Inputindex1, Outputindex1, Inputlength1: integer;
+  Inputindex1, DSPIndex1, DSPIndex11, Outputindex1, Inputlength1: integer;
   poswav1, chan1, framewanted1: integer;
   waveformdata1: array of cfloat;
 
@@ -109,8 +113,80 @@ implementation
 uses
   main, commander, config, filelistform, drums,
   songplayer_mfm;
+  
+  function DSPStereo2Mono(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
+  var
+    x: integer = 0;
+    pf: PDArFloat;     //////// if input is Float32 format
+    samplef : cFloat;
+  
+  begin
+   if (Data.channels = 2) then  
+  begin
+  
+     pf := @Data.Buffer;
+     while x < Data.OutFrames -1 do
+       begin
+        samplef := (pf^[x] + pf^[x+1])/2;   
+        pf^[x] := samplef ;
+        pf^[x+1] := samplef ;
+        x := x + 2;
+        end;
+ 
+  Result := Data.Buffer; 
+  end 
+  else Result := Data.Buffer; 
+  end;  
+  
+ procedure tsongplayerfo.Changestereo2mono(const Sender: TObject);
+  begin
+   uos_InputSetDSP(theplayer, InputIndex1, DSPIndex11, setmono.value); 
+  end;  
+  
+procedure tsongplayerfo.changereverse(const Sender: TObject);
+  begin
+   uos_InputSetDSP(theplayer, InputIndex1, DSPIndex1, playreverse.value);
+  end;
 
-procedure tsongplayerfo.ontimersent(const Sender: TObject);
+function DSPReverseBefore(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
+  begin
+   
+    if (Data.position > Data.OutFrames div Data.channels) then
+     uos_InputSeek(theplayer, InputIndex1, Data.position - (Data.OutFrames div Data.ratio))
+   end;
+
+  function DSPReverseAfter(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
+  var
+    x: integer = 0;
+    arfl: TDArFloat;
+
+  begin
+   if (Data.position > Data.OutFrames div Data.channels) then
+   begin
+     SetLength(arfl, Data.outframes);
+     {
+       while x < Data.outframes do
+     begin
+     arfl[x] := 0.0;
+     x := x +1;
+     end;
+     }
+     
+     x:=0;
+ 
+        while x < Data.outframes -1  do
+          begin
+      arfl[x] := (Data.Buffer[Data.outframes - x - 2]) ;
+      arfl[x+1] := (Data.Buffer[Data.outframes - x -1])  ;
+      x := x +2;
+          end;
+    Result := arfl;
+    end else Result := Data.Buffer;
+  end;
+  
+  
+
+ procedure tsongplayerfo.ontimersent(const Sender: TObject);
 begin
   timersent.Enabled := False;
   hintpanel.visible := false;
@@ -409,7 +485,7 @@ begin
         //// If PlayerIndex exists already, it will be overwriten...
 
         Inputindex1 := uos_AddFromFile(theplayer, PChar(ansistring(historyfn.Value)), -1,
-         samformat, 1024);
+         samformat, 1024*8);
 
       //// add input from audio file with custom parameters
       ////////// FileName : filename of audio file
@@ -428,7 +504,7 @@ begin
           configfo.latplay.Value := -1;
 
         Outputindex1 := uos_AddIntoDevOut(theplayer, -1, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
-          uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024, -1);
+          uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024*8, -1);
 
         //// add a Output into device with custom parameters
         //////////// PlayerIndex : Index of a existing Player
@@ -475,9 +551,8 @@ begin
         ////////// VolLeft : Left volume
         ////////// VolRight : Right volume
         ////////// Enable : Enabled
-
-     {
-   DSPindex1 := uos_InputAddDSP(Playerindex1, Inputindex1, @DSPReverseBefore,   @DSPReverseAfter, nil, nil);
+    
+   DSPindex1 := uos_InputAddDSP(theplayer, Inputindex1, @DSPReverseBefore,   @DSPReverseAfter, nil, nil);
       ///// add a custom DSP procedure for input
     ////////// Playerindex1 : Index of a existing Player
     ////////// Inputindex1: InputIndex of existing input
@@ -487,13 +562,16 @@ begin
     ////////// LoopProc : external procedure to do after the buffer is filled
 
    //// set the parameters of custom DSP
-   uos_InputSetDSP(Playerindex1, Inputindex1, DSPindex1, checkbox1.value);
+ //  playreverse.value := false;
+
+   uos_InputSetDSP(theplayer, Inputindex1, DSPindex1, playreverse.value);
+
 
    // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
-   DSPindex1 := uos_InputAddDSP(Playerindex1, Inputindex1, nil, @DSPStereo2Mono, nil, nil);
-    uos_InputSetDSP(Playerindex1, Inputindex1, DSPindex1, chkstereo2mono.value);
+   DSPindex11 := uos_InputAddDSP(theplayer, Inputindex1, nil, @DSPStereo2Mono, nil, nil);
+    uos_InputSetDSP(theplayer, Inputindex1, DSPindex11, setmono.value);
 
-   ///// add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
+  { ///// add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
   begin
    PlugInindex1 := uos_AddPlugin(Playerindex1, 'bs2b',

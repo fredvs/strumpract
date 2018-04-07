@@ -20,8 +20,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Player 1. '
   visible = False
-  bounds_x = 470
-  bounds_y = 242
+  bounds_x = 220
+  bounds_y = 27
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -164,7 +164,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 197
       bounds_y = 50
       bounds_cx = 50
-      bounds_cy = 28
+      bounds_cy = 27
       statfile = mainfo.tstatfile1
       font.name = 'stf_default'
       font.localprops = []
@@ -183,7 +183,7 @@ object songplayerfo: tsongplayerfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object button1: tbutton
       Tag = 1
@@ -215,6 +215,7 @@ object songplayerfo: tsongplayerfo
       frame.colorclient = 16580582
       frame.caption = 'Loop'
       frame.captionpos = cp_top
+      frame.captiondist = 0
       frame.font.color = 4013373
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -223,7 +224,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         6
-        16
+        13
         7
         0
       )
@@ -231,10 +232,10 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 3
       hint = ' Enable looping the song. (Pause is not enabled with loop.) '
-      bounds_x = 161
-      bounds_y = 50
+      bounds_x = 160
+      bounds_y = 51
       bounds_cx = 26
-      bounds_cy = 28
+      bounds_cy = 25
       statfile = mainfo.tstatfile1
       onchange = changeloop
       colorglyph = 4539717
@@ -243,8 +244,7 @@ object songplayerfo: tsongplayerfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Stretch'
-      frame.captionpos = cp_topleft
+      frame.caption = 'Stretching'
       frame.captiondist = 0
       frame.font.color = 4013373
       frame.font.height = 10
@@ -254,82 +254,19 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        15
-        25
         0
+        53
+        1
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 4
       hint = ' Enable stretching (changing tempo) '
-      bounds_x = 343
-      bounds_y = 49
-      bounds_cx = 38
-      bounds_cy = 27
+      bounds_x = 377
+      bounds_y = 50
+      bounds_cx = 66
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
-    end
-    object btnStop: tbutton
-      color = -2147483645
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_hiddenedges, frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerbut
-      taborder = 5
-      hint = ' Stop player '
-      bounds_x = 130
-      bounds_y = 50
-      bounds_cx = 30
-      bounds_cy = 28
-      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 2
-      focusrectdist = 0
-      onexecute = doplayerstop
-    end
-    object btnResume: tbutton
-      color = -2147483645
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerbut
-      taborder = 6
-      hint = ' Resume player '
-      bounds_x = 68
-      bounds_y = 50
-      bounds_cx = 30
-      bounds_cy = 28
-      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 28
-      focusrectdist = 0
-      onexecute = doplayeresume
-    end
-    object btnPause: tbutton
-      color = -2147483645
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerbut
-      taborder = 7
-      hint = ' Pause player '
-      bounds_x = 99
-      bounds_y = 50
-      bounds_cx = 30
-      bounds_cy = 28
-      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 1
-      focusrectdist = 0
-      onexecute = doplayerpause
     end
     object trackbar1: tslider
       color = -2147483645
@@ -338,11 +275,11 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfaceplayer
-      taborder = 8
+      taborder = 5
       hint = ' Position of sound '
       bounds_x = 4
       bounds_y = 82
-      bounds_cx = 350
+      bounds_cx = 351
       bounds_cy = 45
       enabled = False
       value = 0
@@ -387,12 +324,12 @@ object songplayerfo: tsongplayerfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 9
+      taborder = 6
       hint = ' History of Cue files '
-      bounds_x = 73
+      bounds_x = 96
       bounds_y = 5
-      bounds_cx = 371
-      bounds_cy = 22
+      bounds_cx = 299
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
@@ -406,7 +343,7 @@ object songplayerfo: tsongplayerfo
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
         end>
       dropdown.historymaxcount = 50
-      reffontheight = 15
+      reffontheight = 14
     end
     object songdir: tfilenameedit
       frame.localprops = []
@@ -428,12 +365,12 @@ object songplayerfo: tsongplayerfo
       frame.button.frame.localprops1 = []
       frame.button.frame.template = commanderfo.tframecomp1
       frame.button.imagenr = 17
-      taborder = 10
+      taborder = 7
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
-      bounds_x = 52
+      bounds_x = 75
       bounds_y = 5
       bounds_cx = 22
-      bounds_cy = 22
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
       controller.filterlist.data = (
@@ -459,7 +396,7 @@ object songplayerfo: tsongplayerfo
         )
       )
       controller.onbeforeexecute = whosent
-      reffontheight = 15
+      reffontheight = 14
     end
     object llength: tstringdisp
       color = -2147483645
@@ -468,17 +405,17 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 11
+      taborder = 8
       hint = ' Lenght of sound '
       bounds_x = 357
       bounds_y = 111
       bounds_cx = 90
-      bounds_cy = 16
+      bounds_cy = 15
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 15
+      reffontheight = 14
     end
     object lposition: tstringdisp
       color = -2147483645
@@ -487,35 +424,31 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 12
+      taborder = 9
       hint = ' Position of sound '
       bounds_x = 357
       bounds_y = 95
       bounds_cx = 90
-      bounds_cy = 17
+      bounds_cy = 16
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 15
+      reffontheight = 14
     end
     object tstringdisp1: tstringdisp
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayer
-      taborder = 13
+      taborder = 10
       hint = ' Player 1 '
       bounds_x = 0
       bounds_y = 27
-      bounds_cx = 454
-      bounds_cy = 21
+      bounds_cx = 451
       font.name = 'stf_default'
       font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
+      reffontheight = 14
     end
     object edvolright: trealspinedit
       Tag = 1
@@ -545,12 +478,12 @@ object songplayerfo: tsongplayerfo
       frame.buttonpos = sbp_left
       face.localprops = []
       face.template = mainfo.tfaceplayerrev
-      taborder = 14
+      taborder = 11
       hint = ' Change Right volume '
       bounds_x = 248
       bounds_y = 50
       bounds_cx = 50
-      bounds_cy = 28
+      bounds_cy = 27
       statfile = mainfo.tstatfile1
       font.name = 'stf_default'
       font.localprops = []
@@ -569,7 +502,7 @@ object songplayerfo: tsongplayerfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object edtempo: trealspinedit
       Tag = 9
@@ -593,7 +526,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 360
       bounds_y = 65
       bounds_cx = 52
-      bounds_cy = 26
+      bounds_cy = 25
       font.name = 'stf_default'
       font.localprops = []
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
@@ -610,126 +543,33 @@ object songplayerfo: tsongplayerfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
-    end
-    object btnStart: tbutton
-      color = -2147483645
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerbut
-      taborder = 15
-      hint = ' Load from cue and Start player '
-      bounds_x = 37
-      bounds_y = 50
-      bounds_cx = 30
-      bounds_cy = 28
-      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 27
-      focusrectdist = 0
-      onexecute = doplayerstart
+      reffontheight = 14
     end
     object btinfos: tbutton
       Tag = 9
       color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 16
+      taborder = 12
       hint = ' Show infos of the song '
-      bounds_x = 6
-      bounds_y = 5
-      bounds_cx = 42
-      bounds_cy = 23
+      bounds_x = 4
+      bounds_y = 4
+      bounds_cx = 38
+      bounds_cy = 21
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = 'Infos'
+      caption = 'Info'
       font.name = 'stf_default'
       font.localprops = []
       imagenr = 27
       focusrectdist = 0
       onexecute = oninfowav
     end
-    object BtnCue: tbutton
-      Tag = 1
-      color = -2147483645
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerbut
-      taborder = 17
-      hint = ' Load from cue and Pause player '
-      bounds_x = 6
-      bounds_y = 50
-      bounds_cx = 30
-      bounds_cy = 28
-      state = [as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 34
-      focusrectdist = 0
-      onexecute = doplayerstart
-    end
-    object waveformcheck: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Wave'
-      frame.captionpos = cp_top
-      frame.font.color = 4013373
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        8
-        16
-        9
-        0
-      )
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 18
-      hint = ' Show wave form in slider '
-      bounds_x = 310
-      bounds_y = 49
-      bounds_cx = 30
-      bounds_cy = 28
-      statfile = mainfo.tstatfile1
-      onchange = onchachewav
-      colorglyph = 4868682
-      value = True
-    end
-    object tstringdisp2: tstringdisp
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 19
-      hint = ' Player 1 '
-      bounds_x = 388
-      bounds_y = 48
-      bounds_cx = 56
-      bounds_cy = 15
-      font.color = 4013373
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      value = 'Player 1'
-      reffontheight = 13
-    end
     object vuRight: tprogressbar
-      taborder = 20
+      taborder = 15
       bounds_x = 299
       bounds_y = 50
       bounds_cx = 8
@@ -746,7 +586,7 @@ object songplayerfo: tsongplayerfo
       format = ''
     end
     object vuLeft: tprogressbar
-      taborder = 21
+      taborder = 16
       bounds_x = 188
       bounds_y = 50
       bounds_cx = 8
@@ -762,43 +602,6 @@ object songplayerfo: tsongplayerfo
       value = 0
       format = ''
     end
-    object hintpanel: tgroupbox
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceorange
-      taborder = 22
-      visible = False
-      bounds_x = 80
-      bounds_y = 47
-      bounds_cx = 221
-      bounds_cy = 36
-      font.name = 'stf_default'
-      font.localprops = []
-      object hintlabel: tlabel
-        bounds_x = 5
-        bounds_y = 4
-        bounds_cx = 169
-        bounds_cy = 15
-        caption = 'Invalid value.  Reset to 100.'
-        font.name = 'stf_default'
-        font.localprops = []
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
-      end
-      object hintlabel2: tlabel
-        taborder = 1
-        bounds_x = 5
-        bounds_y = 18
-        bounds_cx = 215
-        bounds_cy = 15
-        caption = 'Or press Esc key for previous value.'
-        font.name = 'stf_default'
-        font.localprops = []
-        reffontheight = 15
-      end
-    end
     object button2: tbutton
       Tag = 1
       color = -2147483645
@@ -808,7 +611,7 @@ object songplayerfo: tsongplayerfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 23
+      taborder = 18
       hint = ' Detect BMP from current position and set it to Drums tempo. '
       bounds_x = 412
       bounds_y = 79
@@ -822,6 +625,252 @@ object songplayerfo: tsongplayerfo
       imagenr = 27
       focusrectdist = 0
       onexecute = ongetbpm
+    end
+    object tstringdisp2: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 14
+      hint = ' Player 1 '
+      bounds_x = 396
+      bounds_y = 5
+      bounds_cx = 52
+      font.color = 4013373
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Player 1'
+      reffontheight = 11
+    end
+    object playreverse: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Reverse'
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        0
+        43
+        1
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 19
+      hint = ' Enable playing reverse.'
+      bounds_x = 310
+      bounds_y = 50
+      bounds_cx = 56
+      onchange = changereverse
+      colorglyph = 4539717
+    end
+    object btnStop: tbutton
+      color = -2147483645
+      frame.colordkwidth = 0
+      frame.colorhlwidth = 0
+      frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_hiddenedges, frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayerbut
+      taborder = 20
+      hint = ' Stop player '
+      bounds_x = 128
+      bounds_y = 50
+      bounds_cx = 30
+      bounds_cy = 28
+      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 2
+      focusrectdist = 0
+      onexecute = doplayerstop
+    end
+    object btnPause: tbutton
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayerbut
+      taborder = 21
+      hint = ' Pause player '
+      bounds_x = 97
+      bounds_y = 50
+      bounds_cx = 30
+      bounds_cy = 28
+      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 1
+      focusrectdist = 0
+      onexecute = doplayerpause
+    end
+    object btnResume: tbutton
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayerbut
+      taborder = 22
+      hint = ' Resume player '
+      bounds_x = 66
+      bounds_y = 50
+      bounds_cx = 30
+      bounds_cy = 28
+      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 28
+      focusrectdist = 0
+      onexecute = doplayeresume
+    end
+    object btnStart: tbutton
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayerbut
+      taborder = 23
+      hint = ' Load from cue and Start player '
+      bounds_x = 35
+      bounds_y = 50
+      bounds_cx = 30
+      bounds_cy = 28
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doplayerstart
+    end
+    object BtnCue: tbutton
+      Tag = 1
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayerbut
+      taborder = 24
+      hint = ' Load from cue and Pause player '
+      bounds_x = 4
+      bounds_y = 50
+      bounds_cx = 30
+      bounds_cy = 28
+      state = [as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 34
+      focusrectdist = 0
+      onexecute = doplayerstart
+    end
+    object waveformcheck: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'wave'
+      frame.captionpos = cp_top
+      frame.captiondist = 0
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        7
+        13
+        8
+        0
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 13
+      hint = ' Show wave form in slider '
+      bounds_x = 43
+      bounds_y = 1
+      bounds_cx = 28
+      bounds_cy = 25
+      statfile = mainfo.tstatfile1
+      onchange = onchachewav
+      colorglyph = 4868682
+      value = True
+    end
+    object setmono: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Mono'
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        0
+        30
+        1
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 25
+      hint = 'Mono/Stereo'
+      bounds_x = 310
+      bounds_y = 67
+      bounds_cx = 43
+      onchange = ChangeStereo2Mono
+      colorglyph = 4539717
+    end
+    object hintpanel: tgroupbox
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceorange
+      taborder = 17
+      visible = False
+      bounds_x = 87
+      bounds_y = 39
+      bounds_cx = 221
+      bounds_cy = 36
+      font.name = 'stf_default'
+      font.localprops = []
+      object hintlabel: tlabel
+        bounds_x = 5
+        bounds_y = 4
+        bounds_cx = 169
+        bounds_cy = 14
+        caption = 'Invalid value.  Reset to 100.'
+        font.name = 'stf_default'
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 14
+      end
+      object hintlabel2: tlabel
+        taborder = 1
+        bounds_x = 5
+        bounds_y = 18
+        bounds_cx = 215
+        bounds_cy = 14
+        caption = 'Or press Esc key for previous value.'
+        font.name = 'stf_default'
+        font.localprops = []
+        reffontheight = 14
+      end
     end
   end
   object tfaceslider: tfacecomp
@@ -843,8 +892,7 @@ object songplayerfo: tsongplayerfo
   object tfacebuttonslider: tfacecomp
     template.fade_direction = gd_down
     template.onafterpaint = faceafterpaintbut
-    left = 24
-    top = 7
+    left = 128
   end
   object tfacegreen: tfacecomp
     template.image.source = sliderimage

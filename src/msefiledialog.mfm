@@ -13,8 +13,8 @@ object filedialogfo: Tfiledialogfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 331
-  bounds_y = 148
+  bounds_x = 397
+  bounds_y = 152
   bounds_cx = 554
   bounds_cy = 332
   bounds_cxmin = 360
@@ -1155,10 +1155,9 @@ object filedialogfo: Tfiledialogfo
     onitemevent = listviewitemevent
     filelist.options = [flo_sortname, flo_sorttype]
     onlistread = listviewonlistread
-    reffontheight = 15
+    reffontheight = 14
   end
   object tlayouter2: tlayouter
-    optionswidget = [ow_tabfocus, ow_parenttabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_destroywidgets]
     bounds_x = 2
     bounds_y = 281
     bounds_cx = 551
@@ -1170,6 +1169,7 @@ object filedialogfo: Tfiledialogfo
     options = [spao_gluebottom]
     object filename: thistoryedit
       frame.caption = '&Name (history of files in drop list)'
+      frame.captiontextflags = [tf_xcentered, tf_bottom]
       frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
@@ -1203,15 +1203,15 @@ object filedialogfo: Tfiledialogfo
         end>
       frame.outerframe = (
         0
-        18
+        17
         0
         0
       )
       hint = ' Click button on right corner to show the history of files. '
       bounds_x = 1
-      bounds_y = -2
+      bounds_y = -1
       bounds_cx = 293
-      bounds_cy = 40
+      bounds_cy = 38
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
       oncopytoclipboard = copytoclip
@@ -1225,10 +1225,11 @@ object filedialogfo: Tfiledialogfo
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
         end>
       dropdown.historymaxcount = 50
-      reffontheight = 15
+      reffontheight = 14
     end
     object filter: tdropdownlistedit
       frame.caption = '&Filter'
+      frame.captiontextflags = [tf_xcentered, tf_bottom]
       frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
@@ -1262,15 +1263,15 @@ object filedialogfo: Tfiledialogfo
         end>
       frame.outerframe = (
         0
-        18
+        17
         0
         0
       )
       taborder = 1
       bounds_x = 298
-      bounds_y = -1
-      bounds_cx = 146
-      bounds_cy = 38
+      bounds_y = 0
+      bounds_cx = 129
+      bounds_cy = 36
       anchors = [an_left, an_top, an_right]
       ondataentered = filepathentered
       onsetvalue = filteronsetvalue
@@ -1284,7 +1285,7 @@ object filedialogfo: Tfiledialogfo
         end>
       dropdown.valuecol = 1
       onafterclosedropdown = filteronafterclosedropdown
-      reffontheight = 15
+      reffontheight = 14
     end
     object cancel: tbutton
       optionswidget1 = []
@@ -1352,16 +1353,16 @@ object filedialogfo: Tfiledialogfo
       frame.localprops1 = []
       frame.outerframe = (
         0
-        2
+        1
         82
         2
       )
       taborder = 4
       hint = ' Show hidden files '
       bounds_x = 449
-      bounds_y = 1
+      bounds_y = 2
       bounds_cx = 95
-      bounds_cy = 17
+      bounds_cy = 16
       anchors = [an_top, an_right]
       onsetvalue = showhiddenonsetvalue
     end
@@ -1395,12 +1396,13 @@ object filedialogfo: Tfiledialogfo
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'the directory'
-      reffontheight = 17
+      reffontheight = 16
     end
   end
   object dir: tdirdropdownedit
     optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_destroywidgets]
     frame.caption = '&Directory'
+    frame.captiontextflags = [tf_xcentered, tf_bottom]
     frame.captionpos = cp_top
     frame.font.height = 10
     frame.font.name = 'stf_default'
@@ -1437,22 +1439,22 @@ object filedialogfo: Tfiledialogfo
       end>
     frame.outerframe = (
       0
-      16
+      14
       0
       0
     )
     taborder = 2
     onshowhint = dirshowhint
     bounds_x = 0
-    bounds_y = 0
+    bounds_y = 2
     bounds_cx = 304
-    bounds_cy = 37
+    bounds_cy = 34
     anchors = [an_left, an_top, an_right]
     textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
     onchange = onchangedir
     dropdown.options = [deo_selectonly, deo_keydropdown]
     onsetvalue = dironsetvalue
-    reffontheight = 15
+    reffontheight = 14
   end
   object createdir: tbutton
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
@@ -1467,14 +1469,14 @@ object filedialogfo: Tfiledialogfo
     bounds_x = 495
     bounds_y = 4
     bounds_cx = 54
-    bounds_cy = 30
+    bounds_cy = 29
     bounds_cxmin = 35
     anchors = [an_top, an_right]
+    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = '&New dir'
-    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     onexecute = createdironexecute
-    reffontheight = 15
+    reffontheight = 14
   end
   object home: tbutton
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth]
@@ -1489,14 +1491,14 @@ object filedialogfo: Tfiledialogfo
     bounds_x = 442
     bounds_y = 4
     bounds_cx = 43
-    bounds_cy = 30
+    bounds_cy = 29
     bounds_cxmin = 35
     anchors = [an_top, an_right]
+    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = '&Home'
-    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     onexecute = homeaction
-    reffontheight = 15
+    reffontheight = 14
   end
   object up: tstockglyphbutton
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
@@ -1512,13 +1514,13 @@ object filedialogfo: Tfiledialogfo
     bounds_x = 397
     bounds_y = 4
     bounds_cx = 40
-    bounds_cy = 30
+    bounds_cy = 29
     anchors = [an_top, an_right]
+    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     state = [as_localcaption, as_localimagelist, as_localimagenr, as_localcolor, as_localhint, as_localshortcut, as_localonexecute]
     glyph = stg_arrowup
-    options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_candefocuswindow]
     onexecute = upaction
-    reffontheight = 15
+    reffontheight = 14
     sc = (
       1
       16662
@@ -1537,13 +1539,13 @@ object filedialogfo: Tfiledialogfo
     bounds_x = 352
     bounds_y = 4
     bounds_cx = 40
-    bounds_cy = 30
+    bounds_cy = 29
     anchors = [an_top, an_right]
     state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localcolor, as_localshortcut, as_localonexecute]
     glyph = stg_arrowleft
     autosize_cx = -10
     onexecute = backexe
-    reffontheight = 15
+    reffontheight = 14
     sc = (
       1
       16474
@@ -1562,13 +1564,13 @@ object filedialogfo: Tfiledialogfo
     bounds_x = 307
     bounds_y = 4
     bounds_cx = 40
-    bounds_cy = 30
+    bounds_cy = 29
     anchors = [an_top, an_right]
     state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localcolor, as_localshortcut, as_localonexecute]
     glyph = stg_arrowright
     autosize_cx = -10
     onexecute = forwardexe
-    reffontheight = 15
+    reffontheight = 14
     sc = (
       1
       24666

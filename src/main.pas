@@ -78,7 +78,7 @@ type
   end;
 
 const
-  versiontext = '1.6.0';
+  versiontext = '1.6.1';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -741,6 +741,12 @@ begin
 
     songplayerfo.waveformcheck.frame.font.color := ltblack;
     songplayer2fo.waveformcheck.frame.font.color := ltblack;
+    
+    songplayerfo.playreverse.frame.font.color := ltblack;
+    songplayer2fo.playreverse.frame.font.color := ltblack;
+    
+     songplayerfo.setmono.frame.font.color := ltblack;
+    songplayer2fo.setmono.frame.font.color := ltblack;
 
     songplayerfo.tstringdisp2.font.color := ltblack;
     songplayer2fo.tstringdisp2.font.color := ltblack;
@@ -760,6 +766,13 @@ begin
     songplayer2fo.cbtempo.colorglyph := ltblack;
     songplayerfo.waveformcheck.colorglyph := ltblack;
     songplayer2fo.waveformcheck.colorglyph := ltblack;
+    
+     songplayerfo.playreverse.frame.font.color := ltblack;
+    songplayer2fo.playreverse.frame.font.color := ltblack;
+    
+     songplayerfo.setmono.frame.font.color := ltblack;
+    songplayer2fo.setmono.frame.font.color := ltblack;
+
 
     songplayerfo.edvolleft.frame.colorglyph := ltblack;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
@@ -1030,6 +1043,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.waveformcheck.frame.font.color := ltblack;
     songplayer2fo.waveformcheck.frame.font.color := ltblack;
+    
+     songplayerfo.playreverse.frame.font.color := ltblack;
+    songplayer2fo.playreverse.frame.font.color := ltblack;
+    
+     songplayerfo.setmono.frame.font.color := ltblack;
+    songplayer2fo.setmono.frame.font.color := ltblack;
 
     songplayerfo.tstringdisp2.font.color := ltblack;
     songplayer2fo.tstringdisp2.font.color := ltblack;
@@ -1046,6 +1065,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.cbtempo.colorglyph := ltblack;
     songplayerfo.waveformcheck.colorglyph := ltblack;
     songplayer2fo.waveformcheck.colorglyph := ltblack;
+    
+     songplayerfo.playreverse.frame.font.color := ltblack;
+    songplayer2fo.playreverse.frame.font.color := ltblack;
+    
+     songplayerfo.setmono.frame.font.color := ltblack;
+    songplayer2fo.setmono.frame.font.color := ltblack;
+
 
     songplayerfo.edvolleft.frame.colorglyph := ltblack;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
@@ -1321,6 +1347,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.cbtempo.colorglyph := ltblank;
     songplayerfo.waveformcheck.colorglyph := ltblank;
     songplayer2fo.waveformcheck.colorglyph := ltblank;
+    
+     songplayerfo.playreverse.frame.font.color := ltblank;
+    songplayer2fo.playreverse.frame.font.color := ltblank;
+    
+     songplayerfo.setmono.frame.font.color := ltblank;
+    songplayer2fo.setmono.frame.font.color := ltblank;
+
 
     songplayerfo.edvolleft.frame.colorglyph := ltblank;
     songplayer2fo.edvolleft.frame.colorglyph := ltblank;
@@ -1357,6 +1390,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.waveformcheck.frame.font.color := ltblank;
     songplayer2fo.waveformcheck.frame.font.color := ltblank;
+    
+      songplayerfo.playreverse.frame.font.color := ltblank;
+    songplayer2fo.playreverse.frame.font.color := ltblank;
+    
+     songplayerfo.setmono.frame.font.color := ltblank;
+    songplayer2fo.setmono.frame.font.color := ltblank;
 
     songplayerfo.tstringdisp2.font.color := ltblank;
     songplayer2fo.tstringdisp2.font.color := ltblank;

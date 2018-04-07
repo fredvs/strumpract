@@ -21,7 +21,6 @@ type
     edvolleft: trealspinedit;
     edtempo: trealspinedit;
     cbloop: tbooleanedit;
-    cbtempo: tbooleanedit;
     btnStop: TButton;
     btnResume: TButton;
     btnPause: TButton;
@@ -34,7 +33,6 @@ type
     edvolright: trealspinedit;
     btnStart: TButton;
     tfaceslider: tfacecomp;
-    btinfos: TButton;
     BtnCue: TButton;
 
     tfacebuttonslider: tfacecomp;
@@ -49,6 +47,10 @@ type
    hintlabel2: tlabel;
    button2: tbutton;
    button1: tbutton;
+   btinfos: tbutton;
+   cbtempo: tbooleanedit;
+   setmono: tbooleanedit;
+   playreverse: tbooleanedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -82,6 +84,8 @@ type
                    var accept: Boolean);
     procedure ontextedit(const sender: tcustomedit;
                var atext: msestring);
+   procedure changereverse(const sender: TObject);
+    procedure ChangeStereo2Mono(const Sender: TObject);
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
@@ -98,7 +102,7 @@ var
   hasmixed2: boolean = False;
   hasfocused2: boolean = False;
   plugindex2, PluginIndex3: integer;
-  Inputindex2, Outputindex2, Inputlength2: integer;
+  Inputindex2,  DSPIndex2, DSPIndex22, Outputindex2, Inputlength2: integer;
   poswav2, chan2, framewanted2: integer;
   waveformdata2: array of cfloat;
 
@@ -109,6 +113,75 @@ implementation
 uses
   main, commander, config, filelistform, drums,
   songplayer2_mfm;
+  
+function DSPStereo2Mono(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
+  var
+    x: integer = 0;
+    pf: PDArFloat;     //////// if input is Float32 format
+    samplef : cFloat;
+  
+  begin
+   if (Data.channels = 2) then  
+  begin
+  
+     pf := @Data.Buffer;
+     while x < Data.OutFrames -1 do
+       begin
+        samplef := (pf^[x] + pf^[x+1])/2;   
+        pf^[x] := samplef ;
+        pf^[x+1] := samplef ;
+        x := x + 2;
+        end;
+ 
+  Result := Data.Buffer; 
+  end 
+  else Result := Data.Buffer; 
+  end;  
+  
+ 
+ procedure tsongplayer2fo.Changestereo2mono(const Sender: TObject);
+  begin
+   uos_InputSetDSP(theplayer2, InputIndex2, DSPIndex22, setmono.value); 
+  end;   
+  
+function DSPReverseBefore(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
+  begin
+   
+    if (Data.position > Data.OutFrames div Data.channels) then
+     uos_InputSeek(theplayer2, InputIndex2, Data.position - (Data.OutFrames div Data.ratio) )
+   end;
+
+  function DSPReverseAfter(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
+  var
+    x: integer = 0;
+    arfl: TDArFloat;
+
+  begin
+   if (Data.position > Data.OutFrames div Data.channels) then
+   begin
+     SetLength(arfl, Data.outframes);
+   {  
+     while x < Data.outframes do
+     begin
+     arfl[x] := 0.0;
+     x := x +1;
+     end;
+    } 
+     x:=0;
+ 
+        while x < Data.outframes -1  do
+          begin
+      arfl[x] := Data.Buffer[Data.outframes - x - 2] ;
+    //  if  arfl[x] > 1 then arfl[x] := 1;
+    //  if  arfl[x] < -1 then arfl[x] := -1;
+      arfl[x+1] := Data.Buffer[Data.outframes - x -1]  ;
+    //   if  arfl[x+1] > 1 then arfl[x+1] := 1;
+    //  if  arfl[x+1] < -1 then arfl[x+1] := -1;
+      x := x +2;
+          end;
+    Result := arfl;
+    end else Result := Data.Buffer;
+  end;  
 
 procedure tsongplayer2fo.ontimersent(const Sender: TObject);
 begin
@@ -410,7 +483,8 @@ begin
         //// PlayerIndex : from 0 to what your computer can do !
         //// If PlayerIndex exists already, it will be overwriten...
 
-        Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)), -1, samformat, 1024);
+        Inputindex2 := uos_AddFromFile(theplayer2,
+         PChar(ansistring(historyfn.Value)), -1, samformat, 1024*8);
 
       //// add input from audio file with custom parameters
       ////////// FileName : filename of audio file
@@ -431,7 +505,7 @@ begin
           configfo.latplay.Value := -1;
 
         Outputindex2 := uos_AddIntoDevOut(theplayer2, -1, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
-          uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024, -1);
+          uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024*16, -1);
 
         //// add a Output into device with custom parameters
         //////////// PlayerIndex : Index of a existing Player
@@ -483,8 +557,8 @@ begin
         ////////// VolRight : Right volume
         ////////// Enable : Enabled
 
-     {
-   DSPindex2 := uos_InputAddDSP(Playerindex2, Inputindex2, @DSPReverseBefore,   @DSPReverseAfter, nil, nil);
+    
+   DSPindex2 := uos_InputAddDSP(theplayer2, Inputindex2, @DSPReverseBefore,   @DSPReverseAfter, nil, nil);
       ///// add a custom DSP procedure for input
     ////////// Playerindex2 : Index of a existing Player
     ////////// Inputindex2: InputIndex of existing input
@@ -494,12 +568,13 @@ begin
     ////////// LoopProc : external procedure to do after the buffer is filled
 
    //// set the parameters of custom DSP
-   uos_InputSetDSP(Playerindex2, Inputindex2, DSPindex2, checkbox1.value);
+   uos_InputSetDSP(theplayer2, Inputindex2, DSPindex2, playreverse.value);
 
+ 
    // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
-   DSPindex2 := uos_InputAddDSP(Playerindex2, Inputindex2, nil, @DSPStereo2Mono, nil, nil);
-    uos_InputSetDSP(Playerindex2, Inputindex2, DSPindex2, chkstereo2mono.value);
-
+   DSPindex22 := uos_InputAddDSP(theplayer2, Inputindex2, nil, @DSPStereo2Mono, nil, nil);
+    uos_InputSetDSP(theplayer2, Inputindex2, DSPindex22, setmono.value);
+{
    ///// add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
   begin
@@ -1212,6 +1287,11 @@ timersent.Enabled := true;
  atext := '100';
  end;
 end;
+
+procedure tsongplayer2fo.changereverse(const Sender: TObject);
+  begin
+   uos_InputSetDSP(theplayer2, InputIndex2, DSPIndex2, playreverse.value);
+  end;
 
 
 end.

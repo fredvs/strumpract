@@ -229,7 +229,7 @@ object commanderfo: tcommanderfo
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Drums'
-      reffontheight = 13
+      reffontheight = 11
     end
     object tslider2val: tbutton
       frame.framei_left = 4
@@ -332,14 +332,14 @@ object commanderfo: tcommanderfo
       bounds_x = 2
       bounds_y = 3
       bounds_cx = 35
-      bounds_cy = 14
+      bounds_cy = 12
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Input'
-      reffontheight = 13
+      reffontheight = 11
     end
     object butinput: tbooleanedit
       color = -2147483645
@@ -358,7 +358,7 @@ object commanderfo: tcommanderfo
         19
         0
         0
-        1
+        0
       )
       face.localprops = []
       face.template = recorderfo.tfacereclight
@@ -367,7 +367,7 @@ object commanderfo: tcommanderfo
       bounds_x = 4
       bounds_y = 17
       bounds_cx = 32
-      bounds_cy = 15
+      bounds_cy = 14
       onchange = onsetinput
       colorglyph = 4868682
     end
@@ -519,14 +519,14 @@ object commanderfo: tcommanderfo
       bounds_x = 2
       bounds_y = 3
       bounds_cx = 47
-      bounds_cy = 14
+      bounds_cy = 12
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'General'
-      reffontheight = 13
+      reffontheight = 11
     end
     object linkvolgen: tbooleanedit
       color = -2147483645
@@ -543,18 +543,17 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         26
-        1
         0
-        2
+        0
+        1
       )
       face.localprops = []
       face.template = mainfo.tfacebutltgray
       taborder = 3
       hint = ' Link left and right volume general '
       bounds_x = 6
-      bounds_y = 17
+      bounds_y = 18
       bounds_cx = 39
-      bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
       value = True
@@ -661,7 +660,7 @@ object commanderfo: tcommanderfo
       frame.buttonsize = 20
       frame.outerframe = (
         0
-        16
+        14
         0
         0
       )
@@ -669,9 +668,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayer
       hint = ' Change mixing time in 1/100 second '
       bounds_x = 111
-      bounds_y = 52
+      bounds_y = 54
       bounds_cx = 59
-      bounds_cy = 40
+      bounds_cy = 37
       statfile = mainfo.tstatfile1
       font.colorselect = 2105625
       font.colorselectbackground = 14015399
@@ -690,7 +689,7 @@ object commanderfo: tcommanderfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object btnStop: tbutton
       color = -2147483645
@@ -1139,14 +1138,14 @@ object commanderfo: tcommanderfo
       bounds_x = 104
       bounds_y = 3
       bounds_cx = 75
-      bounds_cy = 14
+      bounds_cy = 16
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '1  Player  2'
-      reffontheight = 13
+      reffontheight = 11
     end
     object vuLeft: tprogressbar
       taborder = 18
@@ -1259,18 +1258,17 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         26
-        1
         0
-        2
+        0
+        1
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 22
       hint = ' Link left and right volume Player 1 '
       bounds_x = 46
-      bounds_y = 1
+      bounds_y = 2
       bounds_cx = 39
-      bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
       value = True
@@ -1290,18 +1288,17 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         26
-        1
         0
-        2
+        0
+        1
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 23
       hint = ' Link left and right volume Player 2 '
       bounds_x = 195
-      bounds_y = 1
+      bounds_y = 2
       bounds_cx = 39
-      bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
       value = True
@@ -1321,18 +1318,17 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         62
-        1
         0
-        2
+        0
+        1
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 24
       hint = ' View Meters on/off '
       bounds_x = 103
-      bounds_y = 19
+      bounds_y = 21
       bounds_cx = 75
-      bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
     end
@@ -1351,18 +1347,17 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         50
-        1
         0
-        2
+        0
+        1
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 25
       hint = ' Auto Mixing on/off '
       bounds_x = 110
-      bounds_y = 36
+      bounds_y = 37
       bounds_cx = 63
-      bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
     end
@@ -1384,23 +1379,23 @@ object commanderfo: tcommanderfo
         bounds_x = 3
         bounds_y = 2
         bounds_cx = 169
-        bounds_cy = 15
+        bounds_cy = 14
         caption = 'Invalid value.  Reset to 100.'
         font.name = 'stf_default'
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
+        reffontheight = 14
       end
       object hintlabel2: tlabel
         taborder = 1
         bounds_x = 3
         bounds_y = 17
         bounds_cx = 215
-        bounds_cy = 15
+        bounds_cy = 14
         caption = 'Or press Esc key for previous value.'
         font.name = 'stf_default'
         font.localprops = []
-        reffontheight = 15
+        reffontheight = 14
       end
     end
     object volumeleft1val: tbutton
