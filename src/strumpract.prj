@@ -206,7 +206,7 @@ options=114
  sorted=0
  col=-1073741823
  row=-1073741823
- rowheight=17
+ rowheight=16
  [projectoptionsfo.newfile]
  firsttab=0
  index=2
@@ -228,7 +228,7 @@ options=114
  sortdescend6=0
  [projectoptionsfo.macrosplitter]
  x=0
- y=175
+ y=172
  xprop=1
  yprop=0.34429400386847
  [projectoptionsfo.macrogrid]
@@ -255,7 +255,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=2
+ index=5
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=769
  width0=47
@@ -282,7 +282,7 @@ options=114
  x=185
  y=66
  cx=818
- cy=572
+ cy=561
 programparameters=18
  [programparametersfo.grid]
  propcolwidthref=304
@@ -852,8 +852,8 @@ project_date=11/11/2016
 project_comment=
 aftcommandon=0
 unitdirson=3
- 199744
- 197567
+ 199872
+ 197439
  69631
 macroon=0
 macronames=0
@@ -1356,7 +1356,7 @@ findhistory=20
  if plugsoundtouch = False then
 +  begin
 findoptions=1
-editpos=52
+editpos=53
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1407,8 +1407,9 @@ editpos=52
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,2
- 0,0
+ 23,8
+ 0,-1073741823
+ 0,4
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1461,7 +1462,8 @@ bookmarks48=0
 bookmarks49=0
 bookmarks50=0
 bookmarks51=0
-sourcefiles=52
+bookmarks52=0
+sourcefiles=53
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/uos.pas
@@ -1514,7 +1516,8 @@ sourcefiles=52
  ${PROJECTDIR}/msefiledialog.pas
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/main.pas
-relpaths=52
+ /home/fred/msegui/lib/common/kernel/mselibc.pas
+relpaths=53
  commander.pas
  guitars.pas
  uos.pas
@@ -1567,7 +1570,9 @@ relpaths=52
  msefiledialog.pas
  commander.pas
  main.pas
-ismoduletexts=52
+ ../msegui/lib/common/kernel/mselibc.pas
+ismoduletexts=53
+ 0
  0
  0
  0
@@ -1681,7 +1686,7 @@ nomenumodules=14
  0
  0
 [sourcefo.files_tab]
-order=52
+order=53
  0
  1
  2
@@ -1689,6 +1694,7 @@ order=52
  4
  5
  50
+ 52
  51
  6
  7
@@ -1735,7 +1741,7 @@ order=52
  48
  49
 firsttab=4
-index=6
+index=7
 [layout]
 windowlayout=812
  [mainfo.basedock]
@@ -1982,7 +1988,7 @@ windowlayout=812
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1997,7 +2003,7 @@ windowlayout=812
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=306
  width0=136
@@ -2223,13 +2229,13 @@ windowlayout=812
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/commander.pas
+ value=/home/fred/msegui/lib/common/kernel/mselibc.pas
  history=3
   /home/fred/strumpract/src/msefiledialog.pas
   /home/fred/strumpract/src/dialogfiles.pas
   /home/fred/strumpract/src/recorder.pas
  [debuggerfo.project_options]
- value=1
+ value=6
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2306,7 +2312,7 @@ windowlayout=812
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2534,7 +2540,7 @@ windowlayout=812
  [_mse_filedialogfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
