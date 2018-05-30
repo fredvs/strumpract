@@ -114,7 +114,7 @@ var
 implementation
 
 uses
-  songplayer, songplayer2, drums, filelistform, uos_flat, config, recorder,
+  songplayer, songplayer2, drums, filelistform, uos_flat, config, recorder, dockpanel1,
   main, commander_mfm;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -349,6 +349,10 @@ begin
   end;
 
   mainfo.updatelayout();
+  
+   if dockpanel1fo.visible then dockpanel1fo.updatelayout();
+  if dockpanel2fo.visible then dockpanel2fo.updatelayout(); 
+  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
 end;
 
 procedure tcommanderfo.onplay(const Sender: TObject);

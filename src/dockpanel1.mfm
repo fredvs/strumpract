@@ -1,5 +1,8 @@
 object dockpanel1fo: tdockpanel1fo
-  frame.localprops = []
+  frame.optionsskin = [fso_flat]
+  frame.font.name = 'stf_default'
+  frame.font.localprops = []
+  frame.localprops = [frl_optionsskin]
   frame.localprops1 = []
   frame.grip_size = 0
   frame.grip_options = [go_closebutton, go_fixsizebutton, go_topbutton, go_backgroundbutton, go_lockbutton]
@@ -16,6 +19,8 @@ object dockpanel1fo: tdockpanel1fo
   container.frame.framei_top = 0
   container.frame.framei_right = 0
   container.frame.framei_bottom = 0
+  container.frame.font.name = 'stf_default'
+  container.frame.font.localprops = []
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.frame.sbvert.options = [sbo_thumbtrack, sbo_moveauto]
@@ -25,6 +30,8 @@ object dockpanel1fo: tdockpanel1fo
     458
     71
   )
+  dragdock.facetab = mainfo.tfacebutgray
+  dragdock.faceactivetab = mainfo.tfacebutltgray
   dragdock.caption = ' 1'
   dragdock.splitdir = sd_horz
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_acceptsdock]

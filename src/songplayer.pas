@@ -388,6 +388,8 @@ var
   leftlev, rightlev: double;
 begin
 
+
+
   vuLeft.Visible := True;
   vuRight.Visible := True;
 
@@ -502,8 +504,8 @@ end;
 procedure tsongplayerfo.LoopProcPlayer1();
 
 begin
-  ShowPosition(nil);
-  if waveformcheck.value = true then ShowLevel(nil);
+  if (visible = true) then ShowPosition(nil);
+  if (commanderfo.vuin.value = true) and (visible = true) then ShowLevel(nil);
   if (spectrum1fo.spect1.value = true) and (spectrum1fo.visible = true) and (configfo.speccalc.value = true) then ShowSpectrum(nil);
 end;
 
@@ -1119,7 +1121,6 @@ begin
   mainfo.updatelayout();
   if dockpanel1fo.visible then dockpanel1fo.updatelayout();
   if dockpanel2fo.visible then dockpanel2fo.updatelayout();
-  
   if dockpanel3fo.visible then dockpanel3fo.updatelayout();
 end;
 

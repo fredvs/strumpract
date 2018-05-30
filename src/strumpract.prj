@@ -357,19 +357,23 @@ fadeeditor=24
  wsize=0
  active=1
  visible=1
-imagelisteditor=62
+imagelisteditor=66
  [imagelisteditorfo.statfile1]
  currentversion=0
  [imagelisteditorfo.filedialog]
  filenames=1
-  /home/fred/Documents/cue24.png
+  /home/fred/Images/pause24.png
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
- lastdir=/home/fred/Documents/
- filehistory=36
+ lastdir=/home/fred/Images/
+ filehistory=40
+  /home/fred/Images/pause24.png
+  /home/fred/Images/stop24.png
+  /home/fred/Images/cue.png
+  /home/fred/Images/start.png
   /home/fred/Documents/cue24.png
   /home/fred/Images/pause5.png
   /home/fred/Images/pause6.png
@@ -1129,29 +1133,29 @@ line=38
  11
  55
  48
- 599
+ 608
  5713
  433
- 709
+ 734
  111
- 812
- 800
+ 814
+ 802
  240
  318
- 426
+ 430
  552
  765
  775
- 696
- 841
- 1299
+ 694
+ 843
+ 1334
  208
- 1131
- 1690
- 1891
+ 1129
+ 1746
+ 1947
  311
  5
- 637
+ 641
  1517
  167
 address=38
@@ -1341,11 +1345,14 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=scroll
+finddtext=ShowSpectrum
 findhistory=20
+ ShowSpectrum
+ taball
+ ondockall
+ timerwait
  scroll
  maxheightfo
- ShowSpectrum
  spectrum1fo
  spectrum
  tstringdisp1
@@ -1353,7 +1360,6 @@ findhistory=20
  updatelayout
  Timerwait
  tmainfo.on
- timerwait
  fowidth
  updatedockev
  flayoutlock
@@ -1361,12 +1367,9 @@ findhistory=20
  spectrumfo
  inputaddfil
  nbfilters
- uos_BandFilter
- carbon
 findoptions=1
 editpos=19
  0,-1073741823
- 0,20
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1383,6 +1386,7 @@ editpos=19
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,504
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1532,8 +1536,8 @@ order=19
  9
  10
  11
-firsttab=0
-index=3
+firsttab=1
+index=1
 [layout]
 windowlayout=752
  [mainfo.basedock]
@@ -1562,7 +1566,7 @@ windowlayout=752
  ncx=0
  ncy=0
  x=125
- y=46
+ y=72
  cx=1157
  cy=621
  rcx=0
@@ -2021,7 +2025,7 @@ windowlayout=752
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/dockpanel1.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=0
  [debuggerfo.project_options]
  value=1
@@ -2234,7 +2238,7 @@ windowlayout=752
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_songplayer2fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2253,7 +2257,7 @@ windowlayout=752
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayer2fo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0

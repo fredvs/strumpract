@@ -580,6 +580,15 @@ if spectrum2fo.Visible then
 
   timerwait.Enabled := True;
 
+    dockpanel1fo.Timerwaitdp.Enabled := false;
+    dockpanel1fo.Timerwaitdp.Enabled := True;
+    
+     dockpanel2fo.Timerwaitdp.Enabled := false;
+    dockpanel2fo.Timerwaitdp.Enabled := True;
+    
+      dockpanel3fo.Timerwaitdp.Enabled := false;
+    dockpanel3fo.Timerwaitdp.Enabled := True;
+    
 end;
 
 procedure tmainfo.ondockall(const Sender: TObject);
@@ -683,6 +692,14 @@ begin
     timerwait.Enabled := True;
   end;
   
+   dockpanel1fo.Timerwaitdp.Enabled := false;
+    dockpanel1fo.Timerwaitdp.Enabled := True;
+    
+     dockpanel2fo.Timerwaitdp.Enabled := false;
+    dockpanel2fo.Timerwaitdp.Enabled := True;
+    
+      dockpanel3fo.Timerwaitdp.Enabled := false;
+    dockpanel3fo.Timerwaitdp.Enabled := True;
 
   //basedock.anchors := [an_left,an_top,an_right,an_bottom]  ;
 end;
@@ -706,6 +723,14 @@ begin
   ondockall(Sender); // otherwise the close button are hidden
   basedock.dragdock.currentsplitdir := sd_tabed;
   endlayout();
+    dockpanel1fo.Timerwaitdp.Enabled := false;
+    dockpanel1fo.Timerwaitdp.Enabled := True;
+    
+     dockpanel2fo.Timerwaitdp.Enabled := false;
+    dockpanel2fo.Timerwaitdp.Enabled := True;
+    
+      dockpanel3fo.Timerwaitdp.Enabled := false;
+    dockpanel3fo.Timerwaitdp.Enabled := True;
 end;
 
 procedure tmainfo.showall(const Sender: TObject);
@@ -1139,6 +1164,16 @@ begin
      commanderfo.loop_start.imagenrdisabled := -2;
        commanderfo.loop_stop.imagenrdisabled := -2;
     commanderfo.loop_resume.imagenrdisabled := -2;
+    
+     recorderfo.btnresume.imagenrdisabled := -2;
+      recorderfo.tbutton2.imagenrdisabled := -2;
+     recorderfo.btnstart.imagenrdisabled := -2;
+     recorderfo.btnpause.imagenrdisabled := -2;
+     recorderfo.btnstop.imagenrdisabled := -2;
+     
+      drumsfo.loop_resume.imagenrdisabled := -2;
+      drumsfo.loop_start.imagenrdisabled := -2;
+     drumsfo.loop_stop.imagenrdisabled := -2;
       
   end;
 
@@ -1468,6 +1503,17 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
      commanderfo.loop_start.imagenrdisabled := -2;
        commanderfo.loop_stop.imagenrdisabled := -2;
     commanderfo.loop_resume.imagenrdisabled := -2;
+    
+     recorderfo.btnresume.imagenrdisabled := -2;
+      recorderfo.tbutton2.imagenrdisabled := -2;
+     recorderfo.btnstart.imagenrdisabled := -2;
+     recorderfo.btnpause.imagenrdisabled := -2;
+     recorderfo.btnstop.imagenrdisabled := -2;
+     
+      drumsfo.loop_resume.imagenrdisabled := -2;
+      drumsfo.loop_start.imagenrdisabled := -2;
+     drumsfo.loop_stop.imagenrdisabled := -2;
+     
        i := 1;
          while i < 21 do
   begin
@@ -1612,6 +1658,16 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.btnpause.imagenrdisabled := -1;
        songplayerfo.btnstop.imagenrdisabled := -1;
     songplayer2fo.btnstop.imagenrdisabled := -1;
+    
+      recorderfo.btnresume.imagenrdisabled := -1;
+      recorderfo.tbutton2.imagenrdisabled := -1;
+     recorderfo.btnstart.imagenrdisabled := -1;
+     recorderfo.btnpause.imagenrdisabled := -1;
+     recorderfo.btnstop.imagenrdisabled := -1;
+     
+      drumsfo.loop_resume.imagenrdisabled := -1;
+      drumsfo.loop_start.imagenrdisabled := -1;
+     drumsfo.loop_stop.imagenrdisabled := -1;
     
      commanderfo.btnresume.imagenrdisabled := -1;
     commanderfo.btnresume2.imagenrdisabled := -1;

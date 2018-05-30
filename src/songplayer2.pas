@@ -496,8 +496,6 @@ begin
    (configfo.speccalc.value = true) then ShowSpectrum();
 end;
 
-
-
 procedure tsongplayer2fo.doplayerstart(const Sender: TObject);
 var
   samformat, hassent: shortint;

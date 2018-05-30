@@ -11,10 +11,9 @@ type
  tdockpanel1fo = class(tdockform)
    basedock: tdockpanel;
    Timerwaitdp: Ttimer;
-     Timerwait: Ttimer;
    tmainmenu1: tmainmenu;
    procedure ontimerwait(const Sender: TObject);
-   procedure ontimerwaitinit(const Sender: TObject);   
+    
    procedure updatedockev(const Sender: TObject; const awidget: twidget);
     // procedure beforereadev(const Sender: TObject);
     // procedure afterreadev(const Sender: TObject);
@@ -53,13 +52,6 @@ type
 implementation
 uses
  dockpanel1_mfm;
- 
-procedure tdockpanel1fo.ontimerwaitinit(const Sender: TObject);  
-begin
-Timerwait.Enabled := False;
-basedock.dragdock.currentsplitdir := sd_horz;
- updatelayout();
-end;
  
  
 procedure tdockpanel1fo.ontimerwait(const Sender: TObject);
@@ -206,11 +198,9 @@ begin
         si1.cy := totheight + (visiblecount - 1) * basedock.dragdock.splitter_size;
       end;
       basedock.size := si1;
-    //  basedock.height := totheight;
-    //  container.height := totheight;
-      //  writeln('final basedock.width: ' + inttostr(basedock.width));
-       writeln('final basedock.height: ' + inttostr(basedock.height));
-        writeln('final totheight: ' + inttostr(totheight));
+     //  writeln('final basedock.width: ' + inttostr(basedock.width));
+     //  writeln('final basedock.height: ' + inttostr(basedock.height));
+     //   writeln('final totheight: ' + inttostr(totheight));
       //  writeln('final basedock.top: ' + inttostr(basedock.top));
     end;
        
@@ -224,16 +214,21 @@ begin
    until sizeisequal(container.paintsize, si1) or (i1 > 8);
 
   end;
+  
+ //  basedock.height := height+100;
  
  //{ 
    if basedock.dragdock.currentsplitdir = sd_tabed then
    begin
-  // container.height := basedock.dragdock.activewidget.height + 150;
+  // 
    if basedock.dragdock.activewidget <> nil then
     height :=basedock.dragdock.activewidget.height + 40;
    container.height := height;
    end;
 //}
+
+//container.height := basedock.height + 150;
+
   Timerwaitdp.Enabled := False; // to reset
   Timerwaitdp.Enabled := True;
 end;
@@ -250,11 +245,6 @@ flayoutlock := 0;
   Timerwaitdp.interval := 250000;
   Timerwaitdp.Enabled := False;
   Timerwaitdp.ontimer := @ontimerwait;
-  flayoutlock := 0;
-  Timerwait := ttimer.Create(nil);
-  Timerwait.interval := 350000;
-  Timerwait.Enabled := False;
-  Timerwait.ontimer := @ontimerwaitinit;
 end;
 
 procedure tdockpanel1fo.oncreated(const sender: TObject);
@@ -267,8 +257,7 @@ end;
 procedure tdockpanel1fo.ondestroy(const sender: TObject);
 begin
  Timerwaitdp.Free;
-  Timerwait.Free;
-end;
+ end;
 
 procedure tdockpanel1fo.onresized(const sender: TObject);
 begin
@@ -278,17 +267,18 @@ end;
 
 procedure tdockpanel1fo.ontab(const sender: TObject);
 begin
- //beginlayout();
+ beginlayout();
   basedock.dragdock.currentsplitdir := sd_tabed;
-// endlayout();
-  updatelayout();
+ endlayout();
+ // updatelayout();
  // writeln('updatedtab');
 end;
 
 procedure tdockpanel1fo.ondock(const sender: TObject);
 begin
+ beginlayout();
 basedock.dragdock.currentsplitdir := sd_horz;
- updatelayout();
+  endlayout();
 // writeln('updateddok');
 end;
 
