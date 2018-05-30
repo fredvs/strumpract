@@ -19,8 +19,8 @@ begin
    spectrum1fo.caption := 'Spectrum Player 1';
     spectrum2fo.caption := 'Spectrum Player 2';
     
-    spectrum1fo.dragdock.caption := 'Spect1';
-    spectrum2fo.dragdock.caption := 'Spect2';
+    spectrum1fo.dragdock.caption := ' Spec1 ';
+    spectrum2fo.dragdock.caption := ' Spec2 ';
     
     spectrum1fo.groupbox1.frame.caption := 'Player 1 Left';
 spectrum1fo.groupbox2.frame.caption := 'Player 1 Right';

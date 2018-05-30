@@ -8,7 +8,7 @@ uses
  mseifiglob,msescrollbar,msesimplewidgets,msewidgets;
 
 type
- tdockpanel1fo = class(tdockpanelform)
+ tdockpanel1fo = class(tdockform)
    basedock: tdockpanel;
    Timerwaitdp: Ttimer;
      Timerwait: Ttimer;
@@ -88,7 +88,7 @@ begin
     //  writeln('No Child visible.');
     Width := fowidth;
     Height := emptyheight + 20;
-    application.ProcessMessages;
+  //  application.ProcessMessages;
     basedock.Height := Height - 20;
     basedock.Width := Width;
     basedock.top := 0;
@@ -106,6 +106,8 @@ begin
   else
     Width := fowidth;
     
+ //   Width := fowidth + scrollwidth;
+    
    
 end; 
  
@@ -121,7 +123,7 @@ begin
   basedock.dragdock.endplacement();
   if flayoutlock = 0 then
     updatelayout();
- Timerwaitdp.Enabled := True;
+ //Timerwaitdp.Enabled := True;
 end;
 
 procedure tdockpanel1fo.updatelayout();
@@ -204,10 +206,14 @@ begin
         si1.cy := totheight + (visiblecount - 1) * basedock.dragdock.splitter_size;
       end;
       basedock.size := si1;
-      //   writeln('final basedock.width: ' + inttostr(basedock.width));
-      //   writeln('final basedock.height: ' + inttostr(basedock.height));
-      //   writeln('final basedock.top: ' + inttostr(basedock.top));
+    //  basedock.height := totheight;
+    //  container.height := totheight;
+      //  writeln('final basedock.width: ' + inttostr(basedock.width));
+       writeln('final basedock.height: ' + inttostr(basedock.height));
+        writeln('final totheight: ' + inttostr(totheight));
+      //  writeln('final basedock.top: ' + inttostr(basedock.top));
     end;
+       
     container.frame.scrollpos := nullpoint;
     addsize1(si1, sizety(basedock.pos));
     i1 := 0;
@@ -215,15 +221,16 @@ begin
       container.frame.scrollpos := nullpoint;
       size := addsize(size, subsize(si1, container.paintsize));
       Inc(i1);
-    until sizeisequal(container.paintsize, si1) or (i1 > 8);
+   until sizeisequal(container.paintsize, si1) or (i1 > 8);
+
   end;
  
-// { 
+ //{ 
    if basedock.dragdock.currentsplitdir = sd_tabed then
    begin
   // container.height := basedock.dragdock.activewidget.height + 150;
    if basedock.dragdock.activewidget <> nil then
-    height :=basedock.dragdock.activewidget.height + 32;
+    height :=basedock.dragdock.activewidget.height + 40;
    container.height := height;
    end;
 //}
@@ -254,18 +261,19 @@ procedure tdockpanel1fo.oncreated(const sender: TObject);
 begin
  
    Timerwaitdp.Enabled := True; /// for width if scroll
-    Timerwait.Enabled := true;
+   // Timerwait.Enabled := true;
 end;
 
 procedure tdockpanel1fo.ondestroy(const sender: TObject);
 begin
  Timerwaitdp.Free;
+  Timerwait.Free;
 end;
 
 procedure tdockpanel1fo.onresized(const sender: TObject);
 begin
- Timerwaitdp.Enabled := False;
-  Timerwaitdp.Enabled := True;
+ //Timerwaitdp.Enabled := False;
+ // Timerwaitdp.Enabled := True;
 end;
 
 procedure tdockpanel1fo.ontab(const sender: TObject);

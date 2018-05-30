@@ -1199,7 +1199,8 @@ object mainfo: tmainfo
       end    
       item
         caption = ' &Tab '
-        state = [as_localcaption, as_localonexecute]
+        hint = ' One form with tabs '
+        state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onmaintab
       end    
       item
@@ -1224,7 +1225,7 @@ object mainfo: tmainfo
             onexecute = ontab
           end>
         caption = ' &Layout '
-        hint = ' Dock windows in one form '
+        hint = ' Choose a layout '
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
@@ -1309,7 +1310,7 @@ object mainfo: tmainfo
             onexecute = showpan3
           end>
         caption = '  &Dock-panels '
-        hint = ' Tab all windows '
+        hint = ' Show/hide extra Dock Panels '
         state = [as_localcaption, as_localhint]
       end    
       item
@@ -1343,7 +1344,8 @@ object mainfo: tmainfo
             onexecute = changecolors
           end>
         caption = ' C&onfig '
-        state = [as_localcaption]
+        hint = ' Configuration of sound and colors '
+        state = [as_localcaption, as_localhint]
       end    
       item
         caption = ' &About '

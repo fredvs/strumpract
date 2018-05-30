@@ -3,11 +3,12 @@ object dockpanel1fo: tdockpanel1fo
   frame.localprops1 = []
   frame.grip_size = 0
   frame.grip_options = [go_closebutton, go_fixsizebutton, go_topbutton, go_backgroundbutton, go_lockbutton]
-  bounds_x = 298
-  bounds_y = 192
+  bounds_x = 197
+  bounds_y = 206
   bounds_cx = 458
   bounds_cy = 87
   bounds_cxmin = 458
+  bounds_cymin = 50
   bounds_cxmax = 472
   bounds_cymax = 700
   container.optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_mousetransparent, ow_mousewheel]
@@ -15,8 +16,9 @@ object dockpanel1fo: tdockpanel1fo
   container.frame.framei_top = 0
   container.frame.framei_right = 0
   container.frame.framei_bottom = 0
-  container.frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+  container.frame.localprops = []
   container.frame.localprops1 = []
+  container.frame.sbvert.options = [sbo_thumbtrack, sbo_moveauto]
   container.bounds = (
     0
     16
@@ -25,7 +27,7 @@ object dockpanel1fo: tdockpanel1fo
   )
   dragdock.caption = ' 1'
   dragdock.splitdir = sd_horz
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_acceptsdock, od_splithorz, od_tabed]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_acceptsdock]
   dragdock.onchilddock = updatedockev
   dragdock.onchildfloat = updatedockev
   mainmenu = tmainmenu1
@@ -1203,7 +1205,7 @@ object dockpanel1fo: tdockpanel1fo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 458
-    bounds_cy = 70
+    bounds_cy = 71
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
@@ -1211,12 +1213,16 @@ object dockpanel1fo: tdockpanel1fo
     dragdock.splitter_grip = stb_dens50
     dragdock.splitter_color = 16119285
     dragdock.splitter_colorgrip = 11053224
+    dragdock.tab_face = mainfo.tfacecomp5
+    dragdock.tab_frametab = mainfo.tframecomp1
+    dragdock.tab_facetab = mainfo.tfacecomp7
     dragdock.tab_size = 24
     dragdock.tab_sizemin = 24
+    dragdock.splitdir = sd_horz
     dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_captionhint]
     dragdock.onchilddock = updatedockev
     dragdock.onchildfloat = updatedockev
-    dockingareacaption = 'Drag the form into this Dock Area...'
+    dockingareacaption = 'Drag the window into this Dock Area...'
   end
   object tmainmenu1: tmainmenu
     menu.submenu.count = 2

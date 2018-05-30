@@ -160,12 +160,12 @@ begin
   else
     Width := fowidth;
     
-  if  hasinit <> 1 then
-  begin 
+//  if  hasinit <> 1 then
+ // begin 
  dockpanel1fo.caption := 'Dock Panel 1';
-//dockpanel2fo.caption := 'Dock Panel 2';   
-// dockpanel3fo.caption := 'Dock Panel 3';
-end;
+ dockpanel2fo.caption := 'Dock Panel 2';   
+ dockpanel3fo.caption := 'Dock Panel 3';
+// end;
   hasinit := 1;
 
 end;
@@ -1097,6 +1097,8 @@ begin
       groupbox2.color := $D2D8A5; 
       spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
+       groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
       spect1.frame.colorclient :=cl_default;
       spect1.color := $D2D8A5;
       end;
@@ -1107,11 +1109,13 @@ begin
       groupbox2.color := $D2D8A5; 
       spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
+       groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
       spect1.frame.colorclient :=cl_default;
       spect1.color := $D2D8A5;
       end; 
-  
-   songplayerfo.btnresume.imagenrdisabled := -2;
+      
+    songplayerfo.btnresume.imagenrdisabled := -2;
     songplayer2fo.btnresume.imagenrdisabled := -2;
      songplayerfo.btncue.imagenrdisabled := -2;
     songplayer2fo.btncue.imagenrdisabled := -2;
@@ -1490,6 +1494,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       begin
      groupbox1.color := cl_default;
  groupbox2.color := cl_default;
+   groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
      spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
        spect1.frame.colorclient :=cl_default;
@@ -1538,6 +1544,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
    with spectrum1fo do 
       begin
      groupbox1.color := $2A2A2A;
+     
+      groupbox1.frame.font.color := ltblank;
+      groupbox2.frame.font.color := ltblank;
+      
      groupbox2.color := $2A2A2A;
      spect1.colorglyph := ltblank;
      spect1.frame.font.color := ltblank;
@@ -1547,6 +1557,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       
     with spectrum2fo do 
       begin
+        groupbox1.frame.font.color := ltblank;
+      groupbox2.frame.font.color := ltblank;
        groupbox1.color := $2A2A2A;
      groupbox2.color := $2A2A2A;
      spect1.colorglyph := ltblank;

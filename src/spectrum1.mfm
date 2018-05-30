@@ -6,8 +6,8 @@ object spectrum1fo: tspectrum1fo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacecomp4
   visible = False
-  bounds_x = 251
-  bounds_y = 316
+  bounds_x = 325
+  bounds_y = 315
   bounds_cx = 458
   bounds_cy = 128
   bounds_cxmin = 458
@@ -22,9 +22,13 @@ object spectrum1fo: tspectrum1fo
     450
     128
   )
+  dragdock.facetab = mainfo.tfacebutgray
+  dragdock.faceactivetab = mainfo.tfaceplayerlight
   dragdock.caption = ' Spect '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   dragdock.bandgap = 1
+  font.name = 'stf_default'
+  font.localprops = []
   statfile = mainfo.tstatfile1
   caption = 'Spectrum'
   icon.options = [bmo_masked]
@@ -123,6 +127,8 @@ object spectrum1fo: tspectrum1fo
     color = 13818021
     frame.caption = 'Player 1 Left'
     frame.captiontextflags = [tf_bottom]
+    frame.font.name = 'stf_default'
+    frame.font.localprops = []
     frame.localprops = []
     frame.localprops1 = []
     frame.outerframe = (
@@ -135,6 +141,8 @@ object spectrum1fo: tspectrum1fo
     bounds_y = 0
     bounds_cx = 224
     bounds_cy = 125
+    font.name = 'stf_default'
+    font.localprops = []
     object tprogressbar10: tprogressbar
       frame.font.height = 8
       frame.font.name = 'stf_default'
@@ -470,6 +478,8 @@ object spectrum1fo: tspectrum1fo
     color = 13818021
     frame.caption = 'Player 1 Right'
     frame.captiontextflags = [tf_bottom]
+    frame.font.name = 'stf_default'
+    frame.font.localprops = []
     frame.localprops = []
     frame.localprops1 = []
     frame.outerframe = (
@@ -483,6 +493,8 @@ object spectrum1fo: tspectrum1fo
     bounds_y = 0
     bounds_cx = 225
     bounds_cy = 125
+    font.name = 'stf_default'
+    font.localprops = []
     object tprogressbar11: tprogressbar
       frame.captiontextflags = [tf_bottom]
       frame.font.height = 8
