@@ -83,9 +83,11 @@ object configfo: tconfigfo
     77EDE95C2C1B08000000040D171C180F05000000000000040D171C180F050000
     000000000000000000000000000000000000000000000000
   }
+  windowopacity = -Inf
   moduleclassname = 'tmseform'
   object tgroupbox1: tgroupbox
     frame.caption = 'Latency ( -1 or < 0 ---> suggested latency )'
+    frame.captiontextflags = [tf_bottom]
     frame.captiondist = 10
     frame.captionoffset = 8
     frame.localprops = []
@@ -93,7 +95,7 @@ object configfo: tconfigfo
     frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
-      19
+      18
       0
       0
     )
@@ -111,9 +113,9 @@ object configfo: tconfigfo
     face.localprops = []
     taborder = 1
     bounds_x = 10
-    bounds_y = 0
+    bounds_y = 1
     bounds_cx = 337
-    bounds_cy = 94
+    bounds_cy = 87
     object latrec: trealspinedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -140,7 +142,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        18
+        17
         0
         0
       )
@@ -159,7 +161,7 @@ object configfo: tconfigfo
       hint = ' Change latency of Recorder/Direct Input.  ---->  -1 = Latency suggested. '
       bounds_x = 228
       bounds_y = 31
-      bounds_cy = 50
+      bounds_cy = 48
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = changelatrec
@@ -173,7 +175,7 @@ object configfo: tconfigfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object latplay: trealspinedit
       color = -2147483645
@@ -201,7 +203,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        18
+        17
         0
         0
       )
@@ -221,7 +223,7 @@ object configfo: tconfigfo
       hint = ' Change latency of Players.  ---->  -1 = Latency suggested. '
       bounds_x = 119
       bounds_y = 31
-      bounds_cy = 50
+      bounds_cy = 48
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = changelatplay
@@ -235,7 +237,7 @@ object configfo: tconfigfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object latdrums: trealspinedit
       color = -2147483645
@@ -263,7 +265,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        18
+        17
         0
         0
       )
@@ -283,7 +285,7 @@ object configfo: tconfigfo
       hint = ' Change latency of Drums.  ---->  -1 = Latency suggested. Need to close-reload Strumpract to feel the change. '
       bounds_x = 10
       bounds_y = 31
-      bounds_cy = 50
+      bounds_cy = 48
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = changelatdrums
@@ -297,7 +299,7 @@ object configfo: tconfigfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
   end
   object tbutton1: tbutton
@@ -314,12 +316,41 @@ object configfo: tconfigfo
   end
   object lsuglat: tlabel
     taborder = 2
-    bounds_x = 10
-    bounds_y = 113
+    bounds_x = 4
+    bounds_y = 95
     bounds_cx = 121
-    bounds_cy = 15
+    bounds_cy = 14
     caption = 'Suggested latency: '
     textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 15
+    reffontheight = 14
+  end
+  object speccalc: tbooleanedit
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.colorclient = 15592941
+    frame.caption = 'Enable Spectrum Calculation'
+    frame.font.color = 2039583
+    frame.font.height = 12
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_color, flp_height]
+    frame.localprops = [frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = commanderfo.tframecomp2
+    frame.outerframe = (
+      0
+      0
+      178
+      0
+    )
+    face.localprops = []
+    face.template = mainfo.tfacecomp5
+    taborder = 3
+    hint = 'Enable Spectrum calculation'
+    bounds_x = 66
+    bounds_y = 114
+    bounds_cx = 191
+    bounds_cy = 24
+    statfile = mainfo.tstatfile1
+    colorglyph = 4539717
+    value = True
   end
 end

@@ -29,6 +29,7 @@ object commanderfo: tcommanderfo
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfacebutltgray
+  dragdock.caption = ' Com '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
   caption = 'Commander'
@@ -1144,7 +1145,7 @@ object commanderfo: tcommanderfo
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
-      value = '1  Player  2'
+      value = '1  Players  2'
       reffontheight = 11
     end
     object vuLeft: tprogressbar

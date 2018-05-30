@@ -45,7 +45,7 @@ var
 implementation
 
 uses
-  uos_flat, main,
+  uos_flat, main, dockpanel1,
   guitars_mfm;
 
 procedure tguitarsfo.doguitarstring(const Sender: TObject);
@@ -101,14 +101,18 @@ procedure tguitarsfo.onvisiblechangeev(const Sender: TObject);
 begin
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[1].submenu[8].Caption := ' Hide Guitars ';
+    mainfo.tmainmenu1.menu[3].submenu[8].Caption := ' Hide Guitars ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[1].submenu[8].Caption := ' Show Guitars ';
+    mainfo.tmainmenu1.menu[3].submenu[8].Caption := ' Show Guitars ';
 
   end;
   mainfo.updatelayout();
+  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
+  if dockpanel2fo.visible then dockpanel2fo.updatelayout();
+  
+  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
 end;
 
 procedure tguitarsfo.oncreateguit(const Sender: TObject);

@@ -58,6 +58,8 @@ type
     procedure ClosePlayer1();
     procedure showposition();
     procedure showlevel();
+    procedure showspectrum();
+    procedure resetspectrum();
     procedure LoopProcPlayer1();
     procedure oninfowav(const Sender: TObject);
     procedure onreset(const Sender: TObject);
@@ -89,8 +91,15 @@ type
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
   end;
+  
+    equalizer_band_type=record
+    lo_freq,hi_freq:integer;
+    text:string[10];
+end;
 
 var
+   Equalizer_Bands:array[1..10] of equalizer_band_type;
+   thearray : array of cfloat;
   songplayer2fo: tsongplayer2fo;
   thedialogform: tfiledialogfo;
   initplay: integer = 1;
@@ -111,7 +120,7 @@ var
 implementation
 
 uses
-  main, commander, config, filelistform, drums,
+  main, commander, config, filelistform, drums, spectrum1, dockpanel1,
   songplayer2_mfm;
   
 function DSPStereo2Mono(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
@@ -258,6 +267,19 @@ begin
   end;
 end;
 
+procedure tsongplayer2fo.resetspectrum();
+var
+i : integer = 1;
+begin
+
+while i < 21 do
+  begin
+   with spectrum2fo do
+    TProgressBar(findcomponent('Tprogressbar'+inttostr(i))).value:=0;
+     inc(i);
+  end;
+end; 
+
 
 procedure tsongplayer2fo.ClosePlayer1();
 begin
@@ -324,9 +346,33 @@ begin
 
   trackbar1.Visible := False;
   trackbar1.Visible := True;
+  
+  resetspectrum();
   DrawWaveForm();
 end;
 
+procedure tsongplayer2fo.ShowSpectrum();
+
+var i,x :integer;
+v : cfloat;
+Begin
+  If uos_getstatus(theplayer2) > 0 then
+  begin
+    i:=1;
+    thearray := uos_InputFiltersGetLevelArray(theplayer2,InputIndex2);
+    x := 0;
+   while x < length(thearray) -1 do
+    begin
+      if i<=10 then
+      begin
+       // v:= (thearray[x] + thearray[x+1]) / 2; 
+        with spectrum2fo do TProgressBar(findcomponent('Tprogressbar'+inttostr(i))).value:=thearray[x];
+        with spectrum2fo do TProgressBar(findcomponent('Tprogressbar'+inttostr(i+10))).value:=thearray[x+1];       end;
+      x:=x+2;
+      inc(i);
+    end;
+  end;
+end;
 
 procedure tsongplayer2fo.ShowLevel();
 var
@@ -445,7 +491,9 @@ end;
 procedure tsongplayer2fo.LoopProcPlayer1();
 begin
   ShowPosition();
-  ShowLevel();
+ if waveformcheck.value = true then ShowLevel();
+  if (spectrum2fo.spect1.value = true) and (spectrum2fo.visible = true) and
+   (configfo.speccalc.value = true) then ShowSpectrum();
 end;
 
 
@@ -455,7 +503,7 @@ var
   samformat, hassent: shortint;
   ho, mi, se, ms: word;
   fileex: string;
-
+   i:integer;
 begin
 
   fileex := fileext(PChar(ansistring(historyfn.Value)));
@@ -574,6 +622,13 @@ begin
    // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
    DSPindex22 := uos_InputAddDSP(theplayer2, Inputindex2, nil, @DSPStereo2Mono, nil, nil);
     uos_InputSetDSP(theplayer2, Inputindex2, DSPindex22, setmono.value);
+    
+       
+  if  configfo.speccalc.value = true then
+      for i:=1 to 10 do
+    uos_InputAddFilter(theplayer2, Inputindex2, Equalizer_Bands[i].lo_freq,Equalizer_Bands[i].hi_freq, 1, 3, false, nil);
+  
+    
 {
    ///// add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
@@ -756,6 +811,7 @@ begin
   tstringdisp1.face.template := mainfo.tfacered;
   lposition.face.template := mainfo.tfaceplayer;
   tstringdisp1.Value := 'Paused ' + theplaying2;
+  resetspectrum();
 end;
 
 procedure tsongplayer2fo.doplayerstop(const Sender: TObject);
@@ -1083,14 +1139,18 @@ begin
 
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[1].submenu[5].Caption := ' Hide Player 2 ';
+    mainfo.tmainmenu1.menu[3].submenu[5].Caption := ' Hide Player 2 ';
   end
   else
   begin
     uos_Stop(theplayer2);
-    mainfo.tmainmenu1.menu[1].submenu[5].Caption := ' Show Player 2 ';
+    mainfo.tmainmenu1.menu[3].submenu[5].Caption := ' Show Player 2 ';
   end;
   mainfo.updatelayout();
+  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
+  if dockpanel2fo.visible then dockpanel2fo.updatelayout();
+  
+  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
 end;
 
 procedure tsongplayer2fo.onplayercreate(const Sender: TObject);
@@ -1117,7 +1177,6 @@ begin
     Button2.Visible := False;
     tstringdisp2.left := 377;
     tstringdisp2.top := 64;
-    waveformcheck.left := 325;
   end;
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
@@ -1161,10 +1220,39 @@ begin
   changevolume(Sender);
 end;
 
-procedure tsongplayer2fo.oncreated(const Sender: TObject);
+procedure tsongplayer2fo.oncreated(const Sender: TObject);             
 begin
-  // tstringdisp1.left := 3 ; // if not left := 0 ?
-end;
+  Equalizer_Bands[1].lo_freq:=18;
+   Equalizer_Bands[1].hi_freq:=46;
+   Equalizer_Bands[1].Text:='31';
+   Equalizer_Bands[2].lo_freq:=47;
+   Equalizer_Bands[2].hi_freq:=94;
+   Equalizer_Bands[2].Text:='62';
+   Equalizer_Bands[3].lo_freq:=95;
+   Equalizer_Bands[3].hi_freq:=188;
+   Equalizer_Bands[3].Text:='125';
+   Equalizer_Bands[4].lo_freq:=189;
+   Equalizer_Bands[4].hi_freq:=375;
+   Equalizer_Bands[4].Text:='250';
+   Equalizer_Bands[5].lo_freq:=376;
+   Equalizer_Bands[5].hi_freq:=750;
+   Equalizer_Bands[5].Text:='500';
+   Equalizer_Bands[6].lo_freq:=751;
+   Equalizer_Bands[6].hi_freq:=1500;
+   Equalizer_Bands[6].Text:='1K';
+   Equalizer_Bands[7].lo_freq:=1501;
+   Equalizer_Bands[7].hi_freq:=3000;
+   Equalizer_Bands[7].Text:='2K';
+   Equalizer_Bands[8].lo_freq:=3001;
+   Equalizer_Bands[8].hi_freq:=6000;
+   Equalizer_Bands[8].Text:='4K';
+   Equalizer_Bands[9].lo_freq:=6001;
+   Equalizer_Bands[9].hi_freq:=12000;
+   Equalizer_Bands[9].Text:='8K';
+   Equalizer_Bands[10].lo_freq:=12001;
+   Equalizer_Bands[10].hi_freq:=20000;
+   Equalizer_Bands[10].Text:='16K';
+ end;
 
 procedure tsongplayer2fo.faceafterpaintbut(const Sender: tcustomface; const canvas: tcanvas; const arect: rectty);
 var

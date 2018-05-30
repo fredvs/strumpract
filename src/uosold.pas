@@ -74,7 +74,7 @@ uos_cdrom,
 Classes, ctypes, Math, sysutils;
 
 const
-  uos_version : cint32 = 2180528;
+  uos_version : cint32 = 2180324;
   
 {$IF DEFINED(bs2b)}
   BS2B_HIGH_CLEVEL = (CInt32(700)) or ((CInt32(30)) shl 16);
@@ -346,11 +346,6 @@ type
   DSPNoiseIndex : cint32;
   
   VLeft, VRight: double;
-  
-  hasfilters : boolean;
-  
-  nbfilters : cint32;
-  incfilters : cint32;
   
   levelfilters : string;
   
@@ -3380,6 +3375,7 @@ end;
 function DSPLevelString(Buffer: TDArFloat; SampleFormat, Ratio : cint32; var resfloatleft : cfloat; var resfloatright : cfloat): string;
 var
   x, OutFrames: cint32;
+  LevelLeft, Levelright : cfloat;
   ps: PDArShort;// if input is Int16 format
   pl: PDArLong;// if input is Int32 format
   pf: PDArFloat;// if input is Float32 format
@@ -3417,14 +3413,14 @@ OutFrames := length(buffer);
   end;
 
   if Abs(mins[0]) > Abs(maxs[0]) then
-  resfloatLeft := Sqrt(Abs(mins[0]) / 32768)
+  LevelLeft := Sqrt(Abs(mins[0]) / 32768)
   else
-  resfloatLeft := Sqrt(Abs(maxs[0]) / 32768);
+  LevelLeft := Sqrt(Abs(maxs[0]) / 32768);
 
   if Abs(mins[1]) > Abs(maxs[1]) then
-  resfloatright := Sqrt(Abs(mins[1]) / 32768)
+  Levelright := Sqrt(Abs(mins[1]) / 32768)
   else
-  resfloatright := Sqrt(Abs(maxs[1]) / 32768);
+  Levelright := Sqrt(Abs(maxs[1]) / 32768);
 
   end;
 
@@ -3454,14 +3450,14 @@ OutFrames := length(buffer);
   end;
 
   if Abs(minl[0]) > Abs(maxl[0]) then
-  resfloatLeft := Sqrt(Abs(minl[0]) / 2147483648)
+  LevelLeft := Sqrt(Abs(minl[0]) / 2147483648)
   else
-  resfloatLeft := Sqrt(Abs(maxl[0]) / 2147483648);
+  LevelLeft := Sqrt(Abs(maxl[0]) / 2147483648);
 
   if Abs(minl[1]) > Abs(maxl[1]) then
-  resfloatright := Sqrt(Abs(minl[1]) / 2147483648)
+  Levelright := Sqrt(Abs(minl[1]) / 2147483648)
   else
-  resfloatright := Sqrt(Abs(maxl[1]) / 2147483648);
+  Levelright := Sqrt(Abs(maxl[1]) / 2147483648);
   end;
 
   0:
@@ -3491,17 +3487,21 @@ OutFrames := length(buffer);
   end;
 
   if Abs(minf[0]) > Abs(maxf[0]) then
-  resfloatLeft := Sqrt(Abs(minf[0]))
+  LevelLeft := Sqrt(Abs(minf[0]))
   else
-  resfloatLeft := Sqrt(Abs(maxf[0]));
+  LevelLeft := Sqrt(Abs(maxf[0]));
 
   if Abs(minf[1]) > Abs(maxf[1]) then
-  resfloatright := Sqrt(Abs(minf[1]))
+  Levelright := Sqrt(Abs(minf[1]))
   else
-  resfloatright := Sqrt(Abs(maxf[1]));
+  Levelright := Sqrt(Abs(maxf[1]));
   end;
   end;
-  Result := floattostr(resfloatleft) + '|' + floattostr(resfloatright);
+  
+  resfloatright := Levelright;
+  resfloatleft := Levelleft;
+// writeln(floattostr(Levelleft) + '|' + floattostr(Levelright));
+  Result := floattostr(Levelleft) + '|' + floattostr(Levelright);
 end;
 
 
@@ -3510,6 +3510,9 @@ var
   i, ratio: cint32;
   ifbuf: boolean;
   arg, res, res2: cfloat;
+  Levelright : cfloat;
+  Levelleft : cfloat;
+
   ps, ps2: PDArShort;// if input is Int16 format
   pl, pl2: PDArLong;// if input is Int32 format
   pf, pf2: PDArFloat;// if input is Float32 format
@@ -3543,7 +3546,7 @@ begin
   end;
   end;
   i := 0;
-  while i < (Data.OutFrames div ratio) -1 do
+  while i < (Data.OutFrames div ratio) do
   begin
 
   case Data.SampleFormat of
@@ -3699,11 +3702,11 @@ begin
   
   if ifbuf = false then
   begin
-  data.levelfilters  := data.levelfilters + '%'+ DSPLevelString(fft.VirtualBuffer, Data.SampleFormat, data.Ratio, data.levelleft, data.levelright) ;
-  inc(Data.incfilters);
-  Data.levelfiltersar[Data.incfilters-1] := data.levelleft;
-  inc(Data.incfilters);
-  Data.levelfiltersar[Data.incfilters-1] := data.levelright;
+  data.levelfilters  := data.levelfilters + '%'+ DSPLevelString(fft.VirtualBuffer, Data.SampleFormat, data.Ratio, levelleft, levelright) ;
+  setlength(Data.levelfiltersar,length(Data.levelfiltersar)+1);
+  Data.levelfiltersar[length(Data.levelfiltersar)-1] := levelleft;
+  setlength(Data.levelfiltersar,length(Data.levelfiltersar)+1);
+  Data.levelfiltersar[length(Data.levelfiltersar)-1] := levelright;
   end;
  
   Result := Data.Buffer;
@@ -3737,7 +3740,7 @@ var
   begin
   ps := @Data.Buffer;
   ps2 := @Buffer2;
-  while x < Data.OutFrames -1 do
+  while x < Data.OutFrames  do
   begin  
   ps2^[x2] := (ps^[x]);
   ps2^[x2+1] := (ps^[x]);
@@ -3750,7 +3753,7 @@ var
   begin
   pl := @Data.Buffer;
   pl2 := @Buffer2;
-  while x < Data.OutFrames -1  do
+  while x < Data.OutFrames  do
   begin  
   pl2^[x2] := (pl^[x]);
   pl2^[x2+1] := (pl^[x]);
@@ -3763,7 +3766,7 @@ var
   begin
   pf := @Data.Buffer;
   pf2 := @Buffer2;
-  while x < Data.OutFrames -1  do
+  while x < Data.OutFrames  do
   begin  
   pf2^[x2] := (pf^[x]);
   pf2^[x2+1] := (pf^[x]);
@@ -3980,19 +3983,14 @@ var
   FilterIndex: cint32;
 begin
   FilterIndex := InputAddDSP(InputIndex, nil, @uos_BandFilter, nil, LoopProc);
-  
- if alsobuf = false then
- begin
-  StreamIn[InputIndex].data.hasfilters := true;
-   inc(StreamIn[InputIndex].data.nbfilters);
- end;
- 
+
   StreamIn[InputIndex].DSP[FilterIndex].fftdata :=
   Tuos_FFT.Create();
   
   setlength(StreamIn[InputIndex].DSP[FilterIndex].fftdata.Virtualbuffer, length(StreamIn[InputIndex].data.buffer));
    
-  if TypeFilter = -1 then  TypeFilter := 1;
+  if TypeFilter = -1 then
+  TypeFilter := 1;
   InputSetFilter(InputIndex, FilterIndex, LowFrequency, HighFrequency,
   Gain, TypeFilter, AlsoBuf, True, LoopProc);
 
@@ -4016,17 +4014,11 @@ var
 begin
   FilterIndex := OutputAddDSP(OutputIndex, nil, @uos_BandFilter, nil, LoopProc);
   
-   if alsobuf = false then
- begin
-  StreamIn[OutputIndex].data.hasfilters := true;  
-   inc(StreamIn[OutputIndex].data.nbfilters);
- end;
-  
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata :=
   Tuos_FFT.Create();
   
-  if TypeFilter = -1 then  TypeFilter := 1;
-  
+  if TypeFilter = -1 then
+  TypeFilter := 1;
   OutputSetFilter(OutputIndex, FilterIndex, LowFrequency, HighFrequency,
   Gain, TypeFilter, AlsoBuf, True, LoopProc);
 
@@ -6696,7 +6688,7 @@ begin
   {$IF not DEFINED(Library)}
   if (StreamOut[x].DSP[x3].LoopProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,StreamOut[x].DSP[x3].LoopProc);
+  thethread.queue(thethread,StreamOut[x].DSP[x3].LoopProc);
   {$else}
  {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
  begin
@@ -6715,7 +6707,7 @@ begin
   {$else}
   if (StreamOut[x].DSP[x3].LoopProc <> nil) then
   {$IF FPC_FULLVERSION >= 20701}
-  thethread.synchronize(thethread,@StreamOut[x].DSP[x3].LoopProcjava);
+  thethread.queue(thethread,@StreamOut[x].DSP[x3].LoopProcjava);
   {$else}
   thethread.synchronize(thethread,@StreamOut[x].DSP[x3].LoopProcjava);
   {$endif}
@@ -6794,7 +6786,7 @@ begin
     {$IF not DEFINED(Library)}
   if (StreamIn[x].DSP[x2].LoopProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,StreamIn[x].DSP[x2].LoopProc);
+  thethread.queue(thethread,StreamIn[x].DSP[x2].LoopProc);
   {$else}
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   begin
@@ -6812,7 +6804,7 @@ begin
   {$else}
   if (StreamIn[x].DSP[x2].LoopProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@Streamin[x].DSP[x2].LoopProcjava);
+  thethread.queue(thethread,@Streamin[x].DSP[x2].LoopProcjava);
   {$else}
   thethread.synchronize(thethread,@Streamin[x].DSP[x2].LoopProcjava);
   {$endif}
@@ -6878,7 +6870,7 @@ begin
 
 //  Execute LoopEndProc procedure
    {$IF FPC_FULLVERSION>=20701}
-   thethread.synchronize(thethread,LoopEndProc);
+   thethread.queue(thethread,LoopEndProc);
    {$else}
    {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
    begin
@@ -6896,7 +6888,7 @@ begin
    if LoopEndProc <> nil then
 
    {$IF FPC_FULLVERSION>=20701}
-   thethread.synchronize(thethread,@endprocjava);
+   thethread.queue(thethread,@endprocjava);
    {$else}
    thethread.synchronize(thethread,@endprocjava);//  Execute EndProc procedure
    {$endif}
@@ -6908,20 +6900,32 @@ procedure Tuos_Player.DoEndProc;
 begin
 {$IF DEFINED(mse)}
  if EndProc <> nil then
-     application.queueasynccall(EndProc);
- {$else}
+   begin
+   application.queueasynccall(EndProc);
+   end;
+     {$else}
 
  {$IF not DEFINED(Library)}
   if EndProc <> nil then
+  {$IF FPC_FULLVERSION>=20701}
+  begin
+  thethread.queue(thethread,EndProc);
+  end;
+  {$else}
   thethread.synchronize(thethread,EndProc);//  Execute EndProc procedure
+  {$endif}
 
   {$elseif not DEFINED(java)}
   if (EndProc <> nil) then
   EndProc;
   {$else}
   if (EndProc <> nil) then
+  {$IF FPC_FULLVERSION>=20701}
+  thethread.queue(thethread,@endprocjava);
+  {$else}
   thethread.synchronize(thethread,@endprocjava);//  Execute EndProc procedure
- 
+  {$endif}
+  
   {$endif}
 
   {$endif}
@@ -6970,7 +6974,7 @@ begin
   {$IF not DEFINED(Library)}
   if EndProc <> nil then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,EndProc);
+  thethread.queue(thethread,EndProc);
   {$else}
   thethread.synchronize(thethread,EndProc);//  Execute EndProc procedure
   {$endif}
@@ -6981,7 +6985,7 @@ begin
   {$else}
   if (EndProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@endprocjava);
+  thethread.queue(thethread,@endprocjava);
   {$else}
   thethread.synchronize(thethread,@endprocjava);//  Execute EndProc procedure
   {$endif}
@@ -7191,7 +7195,7 @@ begin
   {$IF not DEFINED(Library)}
   if StreamIn[x].LoopProc <> nil then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,StreamIn[x].LoopProc);
+  thethread.queue(thethread,StreamIn[x].LoopProc);
   {$else}
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   begin
@@ -7210,7 +7214,7 @@ begin
   {$else}
   if (StreamIn[x].LoopProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@Streamin[x].LoopProcjava);
+  thethread.queue(thethread,@Streamin[x].LoopProcjava);
   {$else}
   thethread.synchronize(thethread,@Streamin[x].LoopProcjava);
   {$endif}
@@ -7235,7 +7239,7 @@ begin
   if BeginProc <> nil then
 //  Execute BeginProc procedure
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,BeginProc);
+  thethread.queue(thethread,BeginProc);
   {$else}
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   begin
@@ -7252,7 +7256,7 @@ begin
   {$else}
   if BeginProc <> nil then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@BeginProcjava);
+  thethread.queue(thethread,@BeginProcjava);
   {$else}
   thethread.synchronize(thethread,@BeginProcjava);
   {$endif}
@@ -7276,7 +7280,7 @@ begin
   if LoopBeginProc <> nil then
 //  Execute BeginProc procedure
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,LoopBeginProc);
+  thethread.queue(thethread,LoopBeginProc);
   {$else}
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   begin
@@ -7293,7 +7297,7 @@ begin
   {$else}
   if loopBeginProc <> nil then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@loopBeginProcjava);
+  thethread.queue(thethread,@loopBeginProcjava);
   {$else}
   thethread.synchronize(thethread,@loopBeginProcjava);
   {$endif}
@@ -8059,14 +8063,13 @@ begin
 
 theinc := 0;
 
-
 {$IF DEFINED(mse)}
  {$else}
 with  Tuos_Player(theparent) do
 begin
  {$endif}
  
-   CheckIfPaused ;// is there a pause waiting ?
+  CheckIfPaused ;// is there a pause waiting ?
 
   DoBeginMethods();
    
@@ -8080,13 +8083,7 @@ begin
 // Dealing with input
   for x := 0 to high(StreamIn) do
   begin
- 
-  if StreamIn[x].data.hasfilters then
-  begin
-  setlength(StreamIn[x].Data.levelfiltersar,StreamIn[x].Data.nbfilters * StreamIn[x].Data.channels );
-  StreamIn[x].Data.incfilters := 0;
-  end;
-   
+  
   {$IF DEFINED(debug)}
    WriteLn('Before for x := 0 to high(StreamIn)');
   {$endif}
@@ -8098,7 +8095,8 @@ begin
   begin
   
   StreamIn[x].Data.levelfilters := '';
-  
+  setlength(StreamIn[x].Data.levelfiltersar,0);
+
   {$IF DEFINED(debug)}
    WriteLn('Before StreamIn[x].Data.Seekable = True');
   {$endif}
@@ -8258,12 +8256,6 @@ begin
   if (StreamOut[x].Data.Enabled = True)
   then
   begin
-  
-   if StreamOut[x].data.hasfilters then
-  begin
-  setlength(StreamOut[x].Data.levelfiltersar,StreamOut[x].Data.nbfilters * StreamOut[x].Data.channels );
-  StreamOut[x].Data.incfilters := 0;
-  end;
 
   for x2 := 0 to high(StreamOut[x].Data.Buffer) do
   StreamOut[x].Data.Buffer[x2] := cfloat(0.0);// clear output
@@ -8915,7 +8907,6 @@ begin
   Seekable:= False;
   Status:= 0;// no data
 
-  
   SetLength(Buffer,0);
   SetLength(MemoryBuffer,0);
   MemoryStream:= nil;
@@ -8928,15 +8919,8 @@ begin
   DSPVolumeIndex:= -1;
   DSPNoiseIndex:= -1;
   VLeft:= 0;
-  
   VRight:= 0;
-  
-  hasfilters := false;
-  
-  nbfilters := 0;
-  
-  incfilters := 0;
-  
+
   PositionEnable:= 0;
   LevelEnable:= 0;
   LevelLeft:= 0;

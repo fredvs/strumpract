@@ -43,7 +43,7 @@ object songplayerfo: tsongplayerfo
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
-  dragdock.caption = ' Player 1 '
+  dragdock.caption = ' Play1 '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
   icon.options = [bmo_masked, bmo_graymask]

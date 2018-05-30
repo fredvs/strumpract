@@ -32,7 +32,7 @@ object recorderfo: trecorderfo
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = tfacereclight
-  dragdock.caption = ' Recorder '
+  dragdock.caption = ' Rec '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   font.name = 'stf_default'
   font.localprops = []
@@ -153,13 +153,13 @@ object recorderfo: trecorderfo
       bounds_x = 57
       bounds_y = 30
       bounds_cx = 35
-      bounds_cy = 13
+      bounds_cy = 11
       caption = 'Record'
       font.color = 4210752
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
-      reffontheight = 13
+      reffontheight = 11
     end
     object tlabel28: tlabel
       color = -2147483645
@@ -167,13 +167,13 @@ object recorderfo: trecorderfo
       bounds_x = 15
       bounds_y = 51
       bounds_cx = 21
-      bounds_cy = 13
+      bounds_cy = 11
       caption = 'Play'
       font.color = 4210752
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
-      reffontheight = 13
+      reffontheight = 11
     end
     object tbutton3: tbutton
       color = -2147483645
@@ -229,7 +229,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        2
+        1
         38
         2
       )
@@ -238,9 +238,9 @@ object recorderfo: trecorderfo
       taborder = 4
       hint = ' Listen to the input while recording. WARNING: Use headphones or set volume output low. '
       bounds_x = 287
-      bounds_y = 28
+      bounds_y = 29
       bounds_cx = 51
-      bounds_cy = 16
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
       onchange = onlistenin
       value = True
@@ -259,7 +259,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        2
+        1
         69
         2
       )
@@ -268,9 +268,9 @@ object recorderfo: trecorderfo
       taborder = 5
       hint = ' Save recording to file '
       bounds_x = 180
-      bounds_y = 28
+      bounds_y = 29
       bounds_cx = 82
-      bounds_cy = 16
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
       value = True
     end
@@ -319,7 +319,7 @@ object recorderfo: trecorderfo
       bounds_x = 190
       bounds_y = 61
       bounds_cx = 62
-      bounds_cy = 32
+      bounds_cy = 31
       statfile = mainfo.tstatfile1
       onchange = changevolume
       ontextedited = ontextedit
@@ -334,7 +334,7 @@ object recorderfo: trecorderfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object edtempo: trealspinedit
       Tag = 9
@@ -358,7 +358,7 @@ object recorderfo: trecorderfo
       bounds_x = 319
       bounds_y = 61
       bounds_cx = 62
-      bounds_cy = 28
+      bounds_cy = 27
       onchange = ChangePlugSetSoundTouch
       onsetvalue = onsetvalvol
       value = 1
@@ -371,7 +371,7 @@ object recorderfo: trecorderfo
       stepctrlfact = 0
       stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 14
     end
     object button1: tbutton
       Tag = 1
@@ -411,7 +411,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         8
-        17
+        16
         8
         0
       )
@@ -420,9 +420,9 @@ object recorderfo: trecorderfo
       taborder = 10
       hint = ' Enable looping the song '
       bounds_x = 143
-      bounds_y = 63
+      bounds_y = 64
       bounds_cx = 29
-      bounds_cy = 29
+      bounds_cy = 28
       statfile = mainfo.tstatfile1
     end
     object label6: tlabel
@@ -431,13 +431,13 @@ object recorderfo: trecorderfo
       bounds_x = 323
       bounds_y = 47
       bounds_cx = 34
-      bounds_cy = 13
+      bounds_cy = 11
       caption = 'Tempo'
       font.color = 4013373
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
-      reffontheight = 13
+      reffontheight = 11
     end
     object cbtempo: tbooleanedit
       color = -2147483645
@@ -454,7 +454,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         14
-        19
+        18
         15
         0
       )
@@ -463,9 +463,9 @@ object recorderfo: trecorderfo
       taborder = 12
       hint = ' Enable stretching (changing temo) '
       bounds_x = 269
-      bounds_y = 57
+      bounds_y = 58
       bounds_cx = 42
-      bounds_cy = 31
+      bounds_cy = 30
       onchange = ChangePlugSetSoundTouch
     end
     object trackbar1: tslider
@@ -587,13 +587,13 @@ object recorderfo: trecorderfo
       bounds_x = 199
       bounds_y = 47
       bounds_cx = 38
-      bounds_cy = 13
+      bounds_cy = 11
       caption = 'Volume'
       font.color = 4013373
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
-      reffontheight = 13
+      reffontheight = 11
     end
     object historyfn: thistoryedit
       frame.captionpos = cp_lefttop
@@ -623,7 +623,7 @@ object recorderfo: trecorderfo
       bounds_x = 81
       bounds_y = 3
       bounds_cx = 355
-      bounds_cy = 22
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
@@ -636,7 +636,7 @@ object recorderfo: trecorderfo
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
         end>
       dropdown.historymaxcount = 50
-      reffontheight = 15
+      reffontheight = 14
     end
     object songdir: tfilenameedit
       frame.localprops = []
@@ -663,7 +663,7 @@ object recorderfo: trecorderfo
       bounds_x = 60
       bounds_y = 3
       bounds_cx = 22
-      bounds_cy = 22
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
       controller.filterlist.data = (
@@ -689,7 +689,7 @@ object recorderfo: trecorderfo
         )
       )
       controller.onbeforeexecute = whosent
-      reffontheight = 15
+      reffontheight = 14
     end
     object llength: tstringdisp
       color = -2147483645
@@ -703,10 +703,10 @@ object recorderfo: trecorderfo
       bounds_x = 353
       bounds_y = 109
       bounds_cx = 90
-      bounds_cy = 15
+      bounds_cy = 14
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 15
+      reffontheight = 14
     end
     object lposition: tstringdisp
       color = -2147483645
@@ -722,10 +722,10 @@ object recorderfo: trecorderfo
       bounds_x = 353
       bounds_y = 94
       bounds_cx = 90
-      bounds_cy = 15
+      bounds_cy = 14
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 15
+      reffontheight = 14
     end
     object tstringdisp2: tstringdisp
       color = -2147483645
@@ -739,14 +739,14 @@ object recorderfo: trecorderfo
       bounds_x = 379
       bounds_y = 33
       bounds_cx = 58
-      bounds_cy = 15
+      bounds_cy = 13
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Recorder'
-      reffontheight = 13
+      reffontheight = 11
     end
     object vuRight: tprogressbar
       color = -2147483645
@@ -800,6 +800,7 @@ object recorderfo: trecorderfo
     end
     object recpan: tgroupbox
       frame.caption = '...RECORDING...'
+      frame.captiontextflags = [tf_xcentered, tf_ycentered]
       frame.captionpos = cp_center
       frame.captionoffset = 0
       frame.font.name = 'stf_default'
@@ -838,12 +839,12 @@ object recorderfo: trecorderfo
         bounds_x = 5
         bounds_y = 4
         bounds_cx = 169
-        bounds_cy = 15
+        bounds_cy = 14
         caption = 'Invalid value.  Reset to 100.'
         font.name = 'stf_default'
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
+        reffontheight = 14
       end
       object hintlabel2: tlabel
         color = -2147483645
@@ -851,11 +852,11 @@ object recorderfo: trecorderfo
         bounds_x = 5
         bounds_y = 18
         bounds_cx = 215
-        bounds_cy = 15
+        bounds_cy = 14
         caption = 'Or press Esc key for previous value.'
         font.name = 'stf_default'
         font.localprops = []
-        reffontheight = 15
+        reffontheight = 14
       end
     end
   end

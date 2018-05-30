@@ -97,7 +97,7 @@ var
 implementation
 
 uses
-  main, config,
+  main, config, dockpanel1,
   recorder_mfm;
 
 procedure trecorderfo.ontimersent(const Sender: TObject);
@@ -543,15 +543,19 @@ begin
 
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[1].submenu[7].Caption := ' Hide Recorder ';
+    mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Hide Recorder ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[1].submenu[7].Caption := ' Show Recorder ';
+    mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Show Recorder ';
     uos_Stop(therecplayer);
   end;
 
   mainfo.updatelayout();
+  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
+  if dockpanel2fo.visible then dockpanel2fo.updatelayout();
+  
+  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
 end;
 
 procedure trecorderfo.onplayercreate(const Sender: TObject);

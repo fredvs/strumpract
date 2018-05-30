@@ -44,7 +44,7 @@ object guitarsfo: tguitarsfo
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = tfaceguitlight
-  dragdock.caption = ' Guitars '
+  dragdock.caption = ' Guit '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   statfile = mainfo.tstatfile1
   caption = 'Guitar and Bass tuned strings'
@@ -307,18 +307,17 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        2
+        1
         28
-        2
+        1
       )
       face.localprops = []
       face.template = tfaceguitlight
       taborder = 6
       hint = ' Enable looping the string. '
       bounds_x = 22
-      bounds_y = 15
+      bounds_y = 16
       bounds_cx = 44
-      bounds_cy = 15
       statfile = mainfo.tstatfile1
     end
     object tstringdisp2: tstringdisp
@@ -333,14 +332,14 @@ object guitarsfo: tguitarsfo
       bounds_x = 11
       bounds_y = 1
       bounds_cx = 81
-      bounds_cy = 15
+      bounds_cy = 13
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Guitar strings'
-      reffontheight = 13
+      reffontheight = 11
     end
   end
   object tgroupbox2: tgroupbox
@@ -453,18 +452,17 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        2
+        1
         28
-        2
+        1
       )
       face.localprops = []
       face.template = tfaceguitlight
       taborder = 4
       hint = ' Enable looping the string. '
       bounds_x = 22
-      bounds_y = 15
+      bounds_y = 16
       bounds_cx = 44
-      bounds_cy = 15
       statfile = mainfo.tstatfile1
     end
     object tstringdisp3: tstringdisp
@@ -479,14 +477,14 @@ object guitarsfo: tguitarsfo
       bounds_x = 11
       bounds_y = 1
       bounds_cx = 81
-      bounds_cy = 15
+      bounds_cy = 13
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Bass strings'
-      reffontheight = 13
+      reffontheight = 11
     end
   end
   object tfaceguitlight: tfacecomp

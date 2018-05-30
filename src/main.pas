@@ -6,10 +6,10 @@ unit main;
 interface
 
 uses
- msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msegui,
+ msetypes, mseglob, mseguiglob, msegraphedits, mseguiintf, mseapplication, msestat, msegui,
  msetimer, ctypes, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms,
- msedock, drums, recorder, songplayer, songplayer2, commander, filelistform,
- guitars, msedataedits, mseedit, msestatfile, SysUtils, Classes, uos_flat,
+ msedock, drums, recorder, songplayer, songplayer2, commander, filelistform, spectrum1,
+ guitars, msedataedits, mseedit, msestatfile, SysUtils, Classes, uos_flat, dockpanel1,
  aboutform, msebitmap, msesys, msemenus, msestream, msegrids, mselistbrowser,
  mseact, mseificomp, mseificompglob, mseifiglob, msestrings;
 
@@ -67,7 +67,13 @@ type
     procedure onchangevalcolor(const Sender: TObject);
     procedure onmenuaudio(const Sender: TObject);
     procedure onresized(const Sender: TObject);
-   procedure on(const sender: TObject);
+    procedure showspectrum(const sender: TObject);
+   procedure showpan1(const sender: TObject);
+   procedure showpan2(const sender: TObject);
+   procedure showpan3(const sender: TObject);
+   procedure onshowspectrum2(const sender: TObject);
+   procedure onmaintab(const sender: TObject);
+   procedure onmaindock(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -78,12 +84,13 @@ type
   end;
 
 const
-  versiontext = '1.6.1';
+  versiontext = '1.7.0';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
   guitarsfoheight = 64;
   songplayerfoheight = 128;
+  spectrum1foheight = 128;
   recorderfoheight = 128;
   commanderfoheight = 128;
   fowidth = 458;
@@ -152,6 +159,13 @@ begin
     Width := fowidth + scrollwidth
   else
     Width := fowidth;
+    
+  if  hasinit <> 1 then
+  begin 
+ dockpanel1fo.caption := 'Dock Panel 1';
+//dockpanel2fo.caption := 'Dock Panel 2';   
+// dockpanel3fo.caption := 'Dock Panel 3';
+end;
   hasinit := 1;
 
 end;
@@ -173,6 +187,7 @@ end;
 procedure tmainfo.oncreateform(const Sender: TObject);
 // var x : integer;
 begin
+  flayoutlock := 0;
   // for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
   tstatfile1.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'status.sta';
   //cueliststa.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'cuelist.sta';
@@ -254,6 +269,13 @@ begin
   end;
 
   Timerwait.Enabled := True; /// for width if scroll
+  
+  dockpanel1fo.dragdock.caption := 'Dock Panel 1';
+ //dockpanel2fo.dragdock.caption := 'Dock Panel 2';
+//  dockpanel3fo.dragdock.caption := 'Dock Panel 3';  
+    dockpanel1fo.caption := 'Dock Panel 1';
+// dockpanel2fo.caption := 'Dock Panel 2';
+//  dockpanel3fo.caption := 'Dock Panel 3';  
 end;
 
 procedure tmainfo.showguitars(const Sender: TObject);
@@ -438,6 +460,12 @@ begin
 
   if songplayerfo.Visible then
     songplayerfo.dragdock.float();
+    
+  if spectrum1fo.Visible then
+    spectrum1fo.dragdock.float(); 
+    
+ if spectrum2fo.Visible then
+    spectrum2fo.dragdock.float();     
 
   if songplayer2fo.Visible then
     songplayer2fo.dragdock.float();
@@ -450,7 +478,13 @@ begin
 
   if commanderfo.Visible then
     commanderfo.dragdock.float();
-
+    
+  if spectrum1fo.Visible then
+    spectrum1fo.dragdock.float(); 
+    
+if spectrum2fo.Visible then
+    spectrum2fo.dragdock.float(); 
+    
   endlayout();
 
   filelistfo.bounds_cxmax := fowidth;
@@ -479,6 +513,13 @@ begin
 
   if commanderfo.Visible then
     commanderfo.left := left;
+    
+   if spectrum1fo.Visible then
+    spectrum1fo.left := left;
+    
+    
+   if spectrum2fo.Visible then
+    spectrum2fo.left := left;  
 
   if drumsfo.Visible then
   begin
@@ -511,6 +552,19 @@ begin
     commanderfo.top := posi;
     posi := commanderfo.top + commanderfoheight + decorationheight;
   end;
+  
+  
+  if spectrum1fo.Visible then
+  begin
+    spectrum1fo.top := posi;
+    posi := spectrum1fo.top + spectrum1foheight + decorationheight;
+  end; 
+  
+  if spectrum2fo.Visible then
+  begin
+    spectrum2fo.top := posi;
+    posi := spectrum2fo.top + spectrum1foheight + decorationheight;
+  end;  
 
   if guitarsfo.Visible then
   begin
@@ -555,6 +609,12 @@ begin
     songplayer2fo.parentwidget := basedock;
   if commanderfo.Visible then
     commanderfo.parentwidget := basedock;
+  if spectrum1fo.Visible then
+    spectrum1fo.parentwidget := basedock;
+    
+   if spectrum2fo.Visible then
+    spectrum2fo.parentwidget := basedock;  
+      
   if recorderfo.Visible then
     recorderfo.parentwidget := basedock;
   if guitarsfo.Visible then
@@ -591,6 +651,19 @@ begin
   begin
     commanderfo.pos := pt1;
     pt1.y := pt1.y + commanderfo.Height + decorationheight;
+  end;
+  
+  if spectrum1fo.Visible then
+  begin
+    spectrum1fo.pos := pt1;
+    pt1.y := pt1.y + spectrum1fo.Height + decorationheight;
+  end;
+  
+  
+  if spectrum2fo.Visible then
+  begin
+    spectrum2fo.pos := pt1;
+    pt1.y := pt1.y + spectrum2fo.Height + decorationheight;
   end;
 
   if recorderfo.Visible then
@@ -645,6 +718,9 @@ begin
   commanderfo.Show();
   guitarsfo.Show();
   recorderfo.Show();
+  spectrum1fo.Show();
+   spectrum2fo.Show();
+
 
   // endlayout();
   timerwait.Enabled := True;
@@ -660,6 +736,8 @@ begin
   commanderfo.Visible := False;
   guitarsfo.Visible := False;
   recorderfo.Visible := False;
+  spectrum1fo.Visible := False;
+   spectrum2fo.Visible := False;
 
   // endlayout();
   timerwait.Enabled := True;
@@ -694,6 +772,7 @@ procedure tmainfo.onchangevalcolor(const Sender: TObject);
 var
   ltblank: integer = $F0F0F0;
   ltblack: integer = $2D2D2D;
+  i : integer = 1;
 begin
   if typecolor.Value = 0 then
   begin
@@ -987,6 +1066,76 @@ begin
     filelistfo.list_files.datacols[3].colorglyph := ltblack;
     aboutfo.font.color := cl_black;
     // configfo.font.color := ltblack;
+    
+    i := 1;
+   
+      while i < 21 do
+  begin
+      with spectrum1fo do 
+      begin
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $D2D8A5;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
+    end;
+  inc(i);
+  end;
+  
+    
+    i := 1;
+         while i < 21 do
+  begin
+    with spectrum2fo do 
+      begin
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $D2D8A5;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
+    end; 
+  inc(i);
+  end;
+  
+   with spectrum1fo do 
+      begin
+      groupbox1.color := $D2D8A5; 
+      groupbox2.color := $D2D8A5; 
+      spect1.colorglyph := ltblack;
+      spect1.frame.font.color := ltblack;
+      spect1.frame.colorclient :=cl_default;
+      spect1.color := $D2D8A5;
+      end;
+      
+    with spectrum2fo do 
+      begin
+      groupbox1.color := $D2D8A5; 
+      groupbox2.color := $D2D8A5; 
+      spect1.colorglyph := ltblack;
+      spect1.frame.font.color := ltblack;
+      spect1.frame.colorclient :=cl_default;
+      spect1.color := $D2D8A5;
+      end; 
+  
+   songplayerfo.btnresume.imagenrdisabled := -2;
+    songplayer2fo.btnresume.imagenrdisabled := -2;
+     songplayerfo.btncue.imagenrdisabled := -2;
+    songplayer2fo.btncue.imagenrdisabled := -2;
+     songplayerfo.btnstart.imagenrdisabled := -2;
+    songplayer2fo.btnstart.imagenrdisabled := -2;
+     songplayerfo.btnpause.imagenrdisabled := -2;
+    songplayer2fo.btnpause.imagenrdisabled := -2;
+       songplayerfo.btnstop.imagenrdisabled := -2;
+    songplayer2fo.btnstop.imagenrdisabled := -2;
+    
+     commanderfo.btnresume.imagenrdisabled := -2;
+    commanderfo.btnresume2.imagenrdisabled := -2;
+     commanderfo.btncue.imagenrdisabled := -2;
+    commanderfo.btncue2.imagenrdisabled := -2;
+     commanderfo.btnstart.imagenrdisabled := -2;
+    commanderfo.btnstart2.imagenrdisabled := -2;
+     commanderfo.btnpause.imagenrdisabled := -2;
+    commanderfo.btnpause2.imagenrdisabled := -2;
+       commanderfo.btnstop.imagenrdisabled := -2;
+    commanderfo.btnstop2.imagenrdisabled := -2;
+     commanderfo.loop_start.imagenrdisabled := -2;
+       commanderfo.loop_stop.imagenrdisabled := -2;
+    commanderfo.loop_resume.imagenrdisabled := -2;
+      
   end;
 
   if typecolor.Value = 1 then
@@ -1290,25 +1439,143 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     aboutfo.font.color := cl_black;
     // configfo.font.color := ltblack;
+    
+     songplayerfo.btnresume.imagenrdisabled := -2;
+    songplayer2fo.btnresume.imagenrdisabled := -2;
+     songplayerfo.btncue.imagenrdisabled := -2;
+    songplayer2fo.btncue.imagenrdisabled := -2;
+     songplayerfo.btnstart.imagenrdisabled := -2;
+    songplayer2fo.btnstart.imagenrdisabled := -2;
+     songplayerfo.btnpause.imagenrdisabled := -2;
+    songplayer2fo.btnpause.imagenrdisabled := -2;
+       songplayerfo.btnstop.imagenrdisabled := -2;
+    songplayer2fo.btnstop.imagenrdisabled := -2;
+    
+     commanderfo.btnresume.imagenrdisabled := -2;
+    commanderfo.btnresume2.imagenrdisabled := -2;
+     commanderfo.btncue.imagenrdisabled := -2;
+    commanderfo.btncue2.imagenrdisabled := -2;
+     commanderfo.btnstart.imagenrdisabled := -2;
+    commanderfo.btnstart2.imagenrdisabled := -2;
+     commanderfo.btnpause.imagenrdisabled := -2;
+    commanderfo.btnpause2.imagenrdisabled := -2;
+       commanderfo.btnstop.imagenrdisabled := -2;
+    commanderfo.btnstop2.imagenrdisabled := -2;
+     commanderfo.loop_start.imagenrdisabled := -2;
+       commanderfo.loop_stop.imagenrdisabled := -2;
+    commanderfo.loop_resume.imagenrdisabled := -2;
+       i := 1;
+         while i < 21 do
+  begin
+    with spectrum1fo do 
+      begin
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= cl_default;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
+    end; 
+  inc(i);
+  end;
+  
+    i := 1;
+         while i < 21 do
+  begin
+    with spectrum2fo do 
+      begin
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= cl_default;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
+    end; 
+  inc(i);
+  end;
+  
+   with spectrum1fo do 
+      begin
+     groupbox1.color := cl_default;
+ groupbox2.color := cl_default;
+     spect1.colorglyph := ltblack;
+      spect1.frame.font.color := ltblack;
+       spect1.frame.colorclient :=cl_default;
+      spect1.color := cl_default;
+      end;
+      
+    with spectrum2fo do 
+      begin
+     groupbox1.color := cl_default;
+ groupbox2.color := cl_default;     spect1.colorglyph := ltblack;
+      spect1.frame.font.color := ltblack;
+       spect1.frame.colorclient :=cl_default;
+      spect1.color := cl_default;
+      end;   
+       
   end;
 
   if typecolor.Value = 2 then
   begin
     // main
+      
+          i := 1;
+   
+      while i < 21 do
+  begin
+      with spectrum1fo do 
+      begin
+        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $2A2A2A;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblank;
+    end;
+  inc(i);
+  end;
+  
+    
+    i := 1;
+         while i < 21 do
+  begin
+    with spectrum2fo do 
+      begin
+        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $2A2A2A;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblank;
+    end; 
+  inc(i);
+  end;
+  
+   with spectrum1fo do 
+      begin
+     groupbox1.color := $2A2A2A;
+     groupbox2.color := $2A2A2A;
+     spect1.colorglyph := ltblank;
+     spect1.frame.font.color := ltblank;
+     spect1.frame.colorclient :=$4A4A4A;
+     spect1.color := $2A2A2A;
+      end;
+      
+    with spectrum2fo do 
+      begin
+       groupbox1.color := $2A2A2A;
+     groupbox2.color := $2A2A2A;
+     spect1.colorglyph := ltblank;
+     spect1.frame.font.color := ltblank;
+     spect1.frame.colorclient :=$4A4A4A;
+     spect1.color := $2A2A2A;
+      end;
+      
+   
     tfacebutgray.template.fade_color.items[0] := $888888;
     tfacebutgray.template.fade_color.items[1] := $2A2A2A;
 
     tfacebutltgray.template.fade_color.items[0] := $5A5A5A;
     tfacebutltgray.template.fade_color.items[1] := $2A2A2A;
-
-    tfacegreen.template.fade_color.items[0] := $CCCCCC;
+   
+   // tfacegreen.template.fade_color.items[0] := $5A5A5A;
+    
+     tfacegreen.template.fade_color.items[0] := $0F4700;
     tfacegreen.template.fade_color.items[1] := $2A2A2A;
+    
+  //   tfacegreen.template.fade_color.items[0] := $C2FF9E;
+  //  tfacegreen.template.fade_color.items[1] := $6EB545;
+
 
   //  tfaceorange.template.fade_color.items[0] := $BABABA;
   //  tfaceorange.template.fade_color.items[1] := $3E3E3E;
   
-    tfaceorange.template.fade_color.items[0] := $FF9D14;
-    tfaceorange.template.fade_color.items[1] := $EE9D14;
+    tfaceorange.template.fade_color.items[0] := $D97E00;
+    tfaceorange.template.fade_color.items[1] := $6E4000;
 
     //tfacered.template.fade_color.items[0] := $BABABA ;
     //tfacered.template.fade_color.items[1] := $5A5A5A ;
@@ -1316,13 +1583,40 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     tfaceplayer.template.fade_color.items[0] := $5A5A5A;
     tfaceplayer.template.fade_color.items[1] := $2A2A2A;
     
-    tfaceplayerbut.template.fade_color.items[0] := $5A5A5A;
-    tfaceplayerbut.template.fade_color.items[1] := $5A5A5A;
-
-    tfaceplayerlight.template.fade_color.items[0] := $5A5A5A;
+   tfaceplayerbut.template.fade_color.items[0] := $5A5A5A;
+   tfaceplayerbut.template.fade_color.items[1] := $2A2A2A;
+    
+     tfaceplayerlight.template.fade_color.items[0] := $5A5A5A;
     tfaceplayerlight.template.fade_color.items[1] := $2A2A2A;
 
     // players
+    songplayerfo.btnresume.imagenrdisabled := -1;
+    songplayer2fo.btnresume.imagenrdisabled := -1;
+     songplayerfo.btncue.imagenrdisabled := -1;
+    songplayer2fo.btncue.imagenrdisabled := -1;
+     songplayerfo.btnstart.imagenrdisabled := -1;
+    songplayer2fo.btnstart.imagenrdisabled := -1;
+     songplayerfo.btnpause.imagenrdisabled := -1;
+    songplayer2fo.btnpause.imagenrdisabled := -1;
+       songplayerfo.btnstop.imagenrdisabled := -1;
+    songplayer2fo.btnstop.imagenrdisabled := -1;
+    
+     commanderfo.btnresume.imagenrdisabled := -1;
+    commanderfo.btnresume2.imagenrdisabled := -1;
+     commanderfo.btncue.imagenrdisabled := -1;
+    commanderfo.btncue2.imagenrdisabled := -1;
+     commanderfo.btnstart.imagenrdisabled := -1;
+    commanderfo.btnstart2.imagenrdisabled := -1;
+     commanderfo.btnpause.imagenrdisabled := -1;
+    commanderfo.btnpause2.imagenrdisabled := -1;
+       commanderfo.btnstop.imagenrdisabled := -1;
+    commanderfo.btnstop2.imagenrdisabled := -1;
+     commanderfo.loop_start.imagenrdisabled := -1;
+       commanderfo.loop_stop.imagenrdisabled := -1;
+    commanderfo.loop_resume.imagenrdisabled := -1;
+  
+    
+    
     songplayerfo.tfaceslider.template.fade_color.items[0] := $5A5A5A;
     songplayerfo.tfaceslider.template.fade_color.items[1] := $2A2A2A;
 
@@ -1614,8 +1908,58 @@ begin
   
 end;
 
-procedure tmainfo.on(const sender: TObject);
+
+procedure tmainfo.showspectrum(const sender: TObject);
 begin
+ spectrum1fo.Visible := not spectrum1fo.Visible;
+end;
+
+procedure tmainfo.showpan1(const sender: TObject);
+begin
+ dockpanel1fo.Visible := not dockpanel1fo.Visible;
+ dockpanel1fo.caption := 'Dock Panel 1';
+  if dockpanel1fo.Visible then
+  tmainmenu1.menu[4].submenu[0].Caption := ' Hide Dock Panel 1 '
+   else
+  tmainmenu1.menu[4].submenu[0].Caption := ' Show Dock Panel 1 '; 
+ 
+end;
+
+procedure tmainfo.showpan2(const sender: TObject);
+begin
+dockpanel2fo.Visible := not dockpanel2fo.Visible;
+dockpanel2fo.caption := 'Dock Panel 2';
+if dockpanel2fo.Visible then
+tmainmenu1.menu[4].submenu[1].Caption := ' Hide Dock Panel 2 '   else
+tmainmenu1.menu[4].submenu[1].Caption := ' Show Dock Panel 2 '; 
+
+end;
+
+procedure tmainfo.showpan3(const sender: TObject);
+begin
+
+dockpanel3fo.Visible := not dockpanel3fo.Visible;
+dockpanel3fo.caption := 'Dock Panel 3';
+if dockpanel3fo.Visible then
+  tmainmenu1.menu[4].submenu[2].Caption := ' Hide Dock Panel 3 '  else
+  tmainmenu1.menu[4].submenu[2].Caption := ' Show Dock Panel 3 '; 
+end;
+
+procedure tmainfo.onshowspectrum2(const sender: TObject);
+begin
+ spectrum2fo.Visible := not spectrum2fo.Visible;
+end;
+
+procedure tmainfo.onmaintab(const sender: TObject);
+begin
+basedock.dragdock.currentsplitdir := sd_tabed;
+ updatelayout();
+end;
+
+procedure tmainfo.onmaindock(const sender: TObject);
+begin
+basedock.dragdock.currentsplitdir := sd_horz;
+ updatelayout();
 end;
 
 end.

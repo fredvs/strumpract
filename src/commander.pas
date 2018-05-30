@@ -341,11 +341,11 @@ procedure tcommanderfo.visiblechangeev(const Sender: TObject);
 begin
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[1].submenu[6].Caption := ' Hide Commander ';
+    mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Hide Commander ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[1].submenu[6].Caption := ' Show Commander ';
+    mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Show Commander ';
   end;
 
   mainfo.updatelayout();

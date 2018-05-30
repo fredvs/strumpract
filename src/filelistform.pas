@@ -50,7 +50,7 @@ var
 implementation
 
 uses
-  songplayer, songplayer2, commander,
+  songplayer, songplayer2, commander, dockpanel1,
   main, filelistform_mfm;
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
@@ -288,14 +288,18 @@ procedure tfilelistfo.visiblechangeev(const Sender: TObject);
 begin
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[1].submenu[3].Caption := ' Hide File List ';
+    mainfo.tmainmenu1.menu[3].submenu[3].Caption := ' Hide File List ';
   end
   else
   begin
-    mainfo.tmainmenu1.menu[1].submenu[3].Caption := ' Show File List ';
+    mainfo.tmainmenu1.menu[3].submenu[3].Caption := ' Show File List ';
   end;
 
   mainfo.updatelayout();
+  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
+  if dockpanel2fo.visible then dockpanel2fo.updatelayout();
+  
+  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
 end;
 
 procedure tfilelistfo.oncellev(const Sender: TObject; var info: celleventinfoty);

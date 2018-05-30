@@ -2118,7 +2118,7 @@ function uos_CreatePlayer(PlayerIndex : cint32): boolean;
 // If PlayerIndex exists already, it will be overwriten...
  var
 x : cint32;
-nt : integer = 200;
+nt : integer = 50;
 begin
 result := false;
 

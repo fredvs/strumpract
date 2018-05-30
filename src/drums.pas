@@ -194,7 +194,7 @@ var
 implementation
 
 uses
-  main, uos_flat, commander, config,
+  main, uos_flat, commander, config, dockpanel1, 
   drums_mfm;
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
@@ -768,15 +768,21 @@ begin
 
   if Visible then
   begin
-    mainfo.tmainmenu1.menu[1].submenu[2].Caption := ' Hide Drums ';
+    mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Hide Drums ';
   end
   else
   begin
    // dostop(Sender);
-    mainfo.tmainmenu1.menu[1].submenu[2].Caption := ' Show Drums ';
+    mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Show Drums ';
   end;
 
   mainfo.updatelayout();
+  
+  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
+  
+  if dockpanel2fo.visible then dockpanel2fo.updatelayout();
+  
+  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
 end;
 
 procedure tdrumsfo.createdrumsplayers;

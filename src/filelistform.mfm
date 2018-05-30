@@ -30,6 +30,7 @@ object filelistfo: tfilelistfo
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = guitarsfo.tfaceguitlight
+  dragdock.caption = ' Files '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   dragdock.onfloat = onfloat
   statfile = mainfo.tstatfile1

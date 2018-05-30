@@ -45,9 +45,9 @@ object mainfo: tmainfo
   container.frame.sbvert.frameendbutton1.localprops1 = []
   container.bounds = (
     0
-    17
+    16
     458
-    51
+    52
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1135,6 +1135,7 @@ object mainfo: tmainfo
     D1FFD001C1F6ED01D4FDD701E5FFC001BAF5E001F3F9E601BFEDE101CBFECC01
     E3FFDB01CFFCD510D6FBD502
   }
+  windowopacity = -Inf
   oncreate = oncreateform
   oncreated = oncreatedform
   ondestroy = dodestroy
@@ -1174,6 +1175,7 @@ object mainfo: tmainfo
     dockingareacaption = 'Drag the window into this Dock Area...'
   end
   object typecolor: tintegeredit
+    color = 1001216
     frame.localprops = []
     frame.localprops1 = []
     taborder = 1
@@ -1181,15 +1183,25 @@ object mainfo: tmainfo
     bounds_x = 400
     bounds_y = 7
     bounds_cx = 29
-    bounds_cy = 21
     statfile = tstatfile1
     onchange = onchangevalcolor
     valuemax = 10
-    reffontheight = 15
+    reffontheight = 14
   end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 4
+    menu.submenu.count = 7
     menu.submenu.items = <    
+      item
+        caption = ' &Dock '
+        hint = ' Dock windows in one form '
+        state = [as_localcaption, as_localhint, as_localonexecute]
+        onexecute = onmaindock
+      end    
+      item
+        caption = ' &Tab '
+        state = [as_localcaption, as_localonexecute]
+        onexecute = onmaintab
+      end    
       item
         submenu.count = 3
         submenu.items = <        
@@ -1216,7 +1228,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 9
+        submenu.count = 11
         submenu.items = <        
           item
             caption = ' Show All '
@@ -1262,11 +1274,43 @@ object mainfo: tmainfo
             caption = ' Show Guitars '
             state = [as_localcaption, as_localonexecute]
             onexecute = showguitars
+          end        
+          item
+            caption = ' Show Spectrum 1 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showspectrum
+          end        
+          item
+            caption = ' Show Spectrum 2 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onshowspectrum2
           end>
         caption = ' &Show '
         hint = ' Show/hide windows '
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = showall
+      end    
+      item
+        submenu.count = 3
+        submenu.items = <        
+          item
+            caption = ' Show Dock Panel 1 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showpan1
+          end        
+          item
+            caption = ' Show Dock Panel 2 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showpan2
+          end        
+          item
+            caption = ' Show Dock Panel 3 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showpan3
+          end>
+        caption = '  &Dock-panels '
+        hint = ' Tab all windows '
+        state = [as_localcaption, as_localhint]
       end    
       item
         submenu.count = 2
@@ -1348,7 +1392,7 @@ object mainfo: tmainfo
     template.frameimage_bottom = -8
     template.hiddenedges = [edg_bottom]
     template.optionsskin = [fso_flat]
-    left = 310
+    left = 256
     top = 7
   end
   object tfacecomp5: tfacecomp
@@ -1562,7 +1606,7 @@ object mainfo: tmainfo
       16764802
     )
     template.fade_direction = gd_down
-    left = 324
+    left = 276
     top = 8
   end
   object tfaceorangehz: tfacecomp
