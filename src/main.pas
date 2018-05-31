@@ -95,7 +95,7 @@ const
   commanderfoheight = 128;
   fowidth = 458;
   tabheight = 39;
-  maxheightfo = 600;
+  maxheightfo = 700;
   scrollwidth = 14;
 
 var
@@ -160,13 +160,15 @@ begin
   else
     Width := fowidth;
     
-//  if  hasinit <> 1 then
- // begin 
- dockpanel1fo.caption := 'Dock Panel 1';
- dockpanel2fo.caption := 'Dock Panel 2';   
- dockpanel3fo.caption := 'Dock Panel 3';
-// end;
   hasinit := 1;
+  
+bounds_cxmax:= bounds_cx;
+bounds_cxmin:= bounds_cx;
+
+if bounds_cy < maxheightfo then
+bounds_cymax:= bounds_cy else
+bounds_cymax:= maxheightfo;
+bounds_cymin:= bounds_cy;
 
 end;
 
@@ -270,13 +272,7 @@ begin
 
   Timerwait.Enabled := True; /// for width if scroll
   
-  dockpanel1fo.dragdock.caption := 'Dock Panel 1';
- //dockpanel2fo.dragdock.caption := 'Dock Panel 2';
-//  dockpanel3fo.dragdock.caption := 'Dock Panel 3';  
-    dockpanel1fo.caption := 'Dock Panel 1';
-// dockpanel2fo.caption := 'Dock Panel 2';
-//  dockpanel3fo.caption := 'Dock Panel 3';  
-end;
+ end;
 
 procedure tmainfo.showguitars(const Sender: TObject);
 begin
@@ -346,6 +342,12 @@ var
 begin
   if flayoutlock <= 0 then
   begin
+
+bounds_cxmax:= 0;
+bounds_cxmin:= 0;
+bounds_cymax:= 0;
+bounds_cymin:= 0;
+
     if basedock.dragdock.currentsplitdir = sd_tabed then
     begin
       if basedock.dragdock.activewidget <> nil then
@@ -430,7 +432,7 @@ begin
   }
 
   // if filelistfo.parentwidget <> NIL THEN filelistfo.size := sizebefdock;
-
+  
   timerwait.Enabled := False; // to reset
   timerwait.Enabled := True;
 end;
@@ -580,6 +582,7 @@ if spectrum2fo.Visible then
 
   timerwait.Enabled := True;
 
+
     dockpanel1fo.Timerwaitdp.Enabled := false;
     dockpanel1fo.Timerwaitdp.Enabled := True;
     
@@ -691,7 +694,7 @@ begin
     timerwait.Enabled := false;
     timerwait.Enabled := True;
   end;
-  
+   
    dockpanel1fo.Timerwaitdp.Enabled := false;
     dockpanel1fo.Timerwaitdp.Enabled := True;
     

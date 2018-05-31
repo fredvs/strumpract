@@ -28,6 +28,7 @@ type
    procedure ondock(const sender: TObject);
    procedure layoutchanged(const sender: tdockcontroller);
    procedure onfloat(const sender: TObject);
+   procedure onvisiblech(const sender: TObject);
    private
     flayoutlock: int32;
   protected
@@ -41,7 +42,7 @@ type
  emptyheight = 40;
   fowidth = 458;
   tabheight = 39;
-  maxheightfo = 600;
+  maxheightfo = 700;
   scrollwidth = 14;
  
  var
@@ -51,7 +52,7 @@ type
 
 implementation
 uses
- dockpanel1_mfm;
+main, dockpanel1_mfm;
  
  
 procedure tdockpanel1fo.ontimerwait(const Sender: TObject);
@@ -61,7 +62,7 @@ var
 
 begin
   Timerwaitdp.Enabled := False;
-
+  
   //{
   children1 := basedock.dragdock.getitems();
   visiblecount := 0;
@@ -99,7 +100,14 @@ begin
     Width := fowidth;
     
  //   Width := fowidth + scrollwidth;
-    
+  onvisiblech(sender);
+  
+bounds_cxmax:= bounds_cx;
+bounds_cxmin:= bounds_cx;  
+ if bounds_cy < maxheightfo then
+bounds_cymax:= bounds_cy else
+bounds_cymax:= maxheightfo;
+bounds_cymin:= bounds_cy;
    
 end; 
  
@@ -129,10 +137,16 @@ var
   heights: integerarty;
   i1: int32;
   si1, si2, si3: sizety;
-  w1: twidget;
+   w1: twidget;
 begin
  if flayoutlock <= 0 then
    begin
+   
+bounds_cxmax:= 0;
+bounds_cxmin:= 0;
+bounds_cymax:= 0;
+bounds_cymin:= 0;
+    
     if basedock.dragdock.currentsplitdir = sd_tabed then
     begin
     
@@ -215,8 +229,6 @@ begin
 
   end;
   
- //  basedock.height := height+100;
- 
  //{ 
    if basedock.dragdock.currentsplitdir = sd_tabed then
    begin
@@ -227,9 +239,7 @@ begin
    end;
 //}
 
-//container.height := basedock.height + 150;
-
-  Timerwaitdp.Enabled := False; // to reset
+ Timerwaitdp.Enabled := False; // to reset
   Timerwaitdp.Enabled := True;
 end;
 
@@ -252,6 +262,7 @@ begin
  
    Timerwaitdp.Enabled := True; /// for width if scroll
    // Timerwait.Enabled := true;
+  
 end;
 
 procedure tdockpanel1fo.ondestroy(const sender: TObject);
@@ -291,6 +302,32 @@ end;
 procedure tdockpanel1fo.onfloat(const sender: TObject);
 begin
 
+end;
+
+procedure tdockpanel1fo.onvisiblech(const sender: TObject);
+begin
+if assigned(mainfo) then begin
+if caption = 'Dock Panel 1' then begin
+  if Visible then
+  mainfo.tmainmenu1.menu[4].submenu[0].Caption := ' Hide Dock Panel 1 '
+   else
+  mainfo.tmainmenu1.menu[4].submenu[0].Caption := ' Show Dock Panel 1 '; 
+  end;
+  
+if caption = 'Dock Panel 2' then begin
+  if Visible then
+  mainfo.tmainmenu1.menu[4].submenu[1].Caption := ' Hide Dock Panel 2 '
+   else
+  mainfo.tmainmenu1.menu[4].submenu[1].Caption := ' Show Dock Panel 2 '; 
+  end;  
+  
+if caption = 'Dock Panel 3' then begin
+  if Visible then
+  mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Hide Dock Panel 3 '
+   else
+  mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Show Dock Panel 3 '; 
+  end;  
+ end; 
 end;
 
 end.

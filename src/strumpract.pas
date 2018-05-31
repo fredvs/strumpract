@@ -36,11 +36,18 @@ spectrum2fo.groupbox2.frame.caption := 'Player 2 Right';
   application.createform(tguitarsfo,guitarsfo);
   application.createform(taboutfo,aboutfo);
   application.createform(tinfosfo,infosfo);
-    application.createform(tdockpanel1fo,dockpanel1fo);
-    application.createform(tdockpanel1fo,dockpanel2fo);
+   
+     application.createform(tdockpanel1fo,dockpanel1fo);  
+       application.createform(tdockpanel1fo,dockpanel2fo);
     application.createform(tdockpanel1fo,dockpanel3fo);
     
+      dockpanel1fo.caption := 'Dock Panel 1';
+      dockpanel2fo.caption := 'Dock Panel 2';
+       dockpanel3fo.caption := 'Dock Panel 3';
+        
     application.createform(tmainfo,mainfo);
+    
+   
   
   
  application.run;

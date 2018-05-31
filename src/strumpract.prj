@@ -69,7 +69,7 @@ order16=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
-findinfiledialog=66
+findinfiledialog=68
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -79,11 +79,11 @@ findinfiledialog=66
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.inprojectdir]
- value=1
+ value=0
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.indirectories]
- value=0
+ value=1
  [findinfileadialogfo.mask]
  value="*.pas" "*.pp" "*.inc" "*.mfm" 
  history=4
@@ -93,25 +93,28 @@ findinfiledialog=66
   "*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/soundtouch-master/
+  /home/fred/msegui/
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
  filehistory=7
+  /home/fred/msegui/
   /home/fred/soundtouch-master/
   /home/fred/soundtouch-master/source/
-  /home/fred/msegui/
   /home/fred/ideu/
   /usr/share/fpcsrc/
   /home/fred/designer_ext/
   /home/fred/msegui/apps/ide/
  filefilterindex=0
- filefilter="*.pas" "*.pp" "*.inc" "*.mfm" "*.*"
+ filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=tmainmenu1.menu[2]
- history=18
+ value=cxmax
+ history=20
+  cxmax
+  cx_max
+  dockpanel1fo
   tmainmenu1.menu[2]
   tmainmenu1.menu[1]
   tmainmenu1.menu
@@ -129,7 +132,6 @@ findinfiledialog=66
   StreamIn[x].Data.SampleRate =
   TMemoryStream
   samplerate
-  
  [findinfileadialogfo]
  stackedunder=
  x=615
@@ -1041,7 +1043,7 @@ sigsettings=27
  30,30,T,F
 defaultmake=1
 [breakpoints]
-on=38
+on=36
  0
  0
  0
@@ -1078,9 +1080,7 @@ on=38
  0
  0
  0
- 0
- 0
-path=38
+path=36
  /home/fred/drumspract/main.pas
  /home/fred/strumpract/uos.pas
  /home/fred/strumpract/uos.pas
@@ -1096,7 +1096,6 @@ path=38
  /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/uos.pas
- /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/songplayer.pas
@@ -1118,8 +1117,7 @@ path=38
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/commander.pas
  /home/fred/strumpract/src/uos.pas
- /home/fred/strumpract/src/main.pas
-line=38
+line=36
  553
  6389
  7495
@@ -1131,12 +1129,11 @@ line=38
  343
  582
  11
- 55
+ 62
  48
- 608
+ 611
  5713
- 433
- 734
+ 737
  111
  814
  802
@@ -1148,17 +1145,16 @@ line=38
  775
  694
  843
- 1334
+ 1337
  208
  1129
- 1746
- 1947
+ 1749
+ 1950
  311
  5
  641
  1517
- 167
-address=38
+address=36
  4581790
  7051198
  7060656
@@ -1174,7 +1170,6 @@ address=38
  4576368
  4581647
  7044016
- 4580248
  4582709
  4576368
  4636540
@@ -1196,8 +1191,8 @@ address=38
  0
  4673869
  6999085
+addbkpt=36
  0
-addbkpt=38
  0
  0
  0
@@ -1233,10 +1228,10 @@ addbkpt=38
  0
  0
  0
+ignore=36
  0
  0
  0
-ignore=38
  0
  0
  0
@@ -1270,14 +1265,7 @@ ignore=38
  0
  0
  0
- 0
- 0
- 0
- 0
- 0
-condition=38
- 
- 
+condition=36
  
  
  
@@ -1345,8 +1333,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=ShowSpectrum
+finddtext=updatelay
 findhistory=20
+ updatelay
+ dockpanel
  ShowSpectrum
  taball
  ondockall
@@ -1365,12 +1355,12 @@ findhistory=20
  flayoutlock
  with spect
  spectrumfo
- inputaddfil
- nbfilters
 findoptions=1
-editpos=19
+editpos=21
  0,-1073741823
- 0,9
+ 63,5
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1407,7 +1397,9 @@ bookmarks15=0
 bookmarks16=0
 bookmarks17=0
 bookmarks18=0
-sourcefiles=19
+bookmarks19=0
+bookmarks20=0
+sourcefiles=21
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/dockpanel1.pas
  ${PROJECTDIR}/main.pas
@@ -1427,7 +1419,9 @@ sourcefiles=19
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/songplayer2.pas
-relpaths=19
+ ${PROJECTDIR}/main.pas
+ /home/fred/msegui/lib/common/kernel/msegui.pas
+relpaths=21
  strumpract.pas
  dockpanel1.pas
  main.pas
@@ -1447,7 +1441,11 @@ relpaths=19
  recorder.pas
  songplayer.pas
  songplayer2.pas
-ismoduletexts=19
+ main.pas
+ msegui/lib/common/kernel/msegui.pas
+ismoduletexts=21
+ 0
+ 0
  0
  0
  0
@@ -1516,17 +1514,19 @@ nomenumodules=11
  0
  0
 [sourcefo.files_tab]
-order=19
+order=21
  5
  17
  4
  1
+ 20
  0
  2
  12
  13
  14
  15
+ 19
  16
  18
  3
@@ -1552,8 +1552,8 @@ windowlayout=752
  ncy=0
  x=0
  y=0
- cx=1147
- cy=605
+ cx=1350
+ cy=692
  rcx=0
  rcy=0
  [mainfo]
@@ -1565,17 +1565,17 @@ windowlayout=752
  ny=0
  ncx=0
  ncy=0
- x=125
- y=46
- cx=1157
- cy=621
+ x=81
+ y=60
+ cx=1167
+ cy=591
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1147,605
+  basedock,0,0,1350,692
  focusedchild=0
- wsize=0
- active=1
+ wsize=6
+ active=0
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1593,7 +1593,7 @@ windowlayout=752
  rcx=0
  rcy=0
  wsize=0
- active=0
+ active=1
  visible=1
  [threadsfo]
  splitdir=0
@@ -1688,7 +1688,7 @@ windowlayout=752
  x=0
  y=0
  cx=205
- cy=456
+ cy=523
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1897,9 +1897,9 @@ windowlayout=752
  ncx=0
  ncy=0
  x=0
- y=513
- cx=1147
- cy=92
+ y=587
+ cx=1350
+ cy=105
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1998,8 +1998,8 @@ windowlayout=752
  ncy=0
  x=0
  y=0
- cx=1147
- cy=51
+ cx=1350
+ cy=58
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2010,12 +2010,12 @@ windowlayout=752
  mdistate=0
  nx=0
  ny=0
- ncx=1147
- ncy=54
+ ncx=1350
+ ncy=61
  x=0
  y=0
- cx=1147
- cy=54
+ cx=1350
+ cy=61
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2043,8 +2043,8 @@ windowlayout=752
  ncy=0
  x=208
  y=0
- cx=939
- cy=456
+ cx=1142
+ cy=523
  rcx=0
  rcy=0
  [cpuc86_64fo]
@@ -2078,9 +2078,9 @@ windowlayout=752
  ncx=0
  ncy=0
  x=0
- y=54
- cx=1147
- cy=456
+ y=61
+ cx=1350
+ cy=523
  rcx=0
  rcy=0
  [_mse_filedialogres_mse_]
@@ -2276,7 +2276,7 @@ windowlayout=752
  [_mse_songplayer2fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
