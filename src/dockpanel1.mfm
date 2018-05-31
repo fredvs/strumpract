@@ -1,11 +1,5 @@
 object dockpanel1fo: tdockpanel1fo
-  frame.optionsskin = [fso_flat]
-  frame.font.name = 'stf_default'
-  frame.font.localprops = []
-  frame.localprops = [frl_optionsskin]
-  frame.localprops1 = []
-  frame.grip_size = 0
-  frame.grip_options = [go_closebutton, go_fixsizebutton, go_topbutton, go_backgroundbutton, go_lockbutton]
+  optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton]
   bounds_x = 197
   bounds_y = 206
   bounds_cx = 458
@@ -14,7 +8,6 @@ object dockpanel1fo: tdockpanel1fo
   bounds_cymin = 50
   bounds_cxmax = 472
   bounds_cymax = 700
-  container.optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_mousetransparent, ow_mousewheel]
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -23,7 +16,16 @@ object dockpanel1fo: tdockpanel1fo
   container.frame.font.localprops = []
   container.frame.localprops = []
   container.frame.localprops1 = []
-  container.frame.sbvert.options = [sbo_thumbtrack, sbo_moveauto]
+  container.frame.sbhorz.width = 10
+  container.frame.sbhorz.face.localprops = []
+  container.frame.sbhorz.face.template = mainfo.tfacecomp4
+  container.frame.sbhorz.facebutton.localprops = []
+  container.frame.sbhorz.facebutton.template = mainfo.tfacecomp4
+  container.frame.sbvert.width = 10
+  container.frame.sbvert.face.localprops = []
+  container.frame.sbvert.face.template = mainfo.tfacebutgray
+  container.frame.sbvert.facebutton.localprops = []
+  container.frame.sbvert.facebutton.template = mainfo.tfacecomp7
   container.bounds = (
     0
     16
@@ -33,11 +35,11 @@ object dockpanel1fo: tdockpanel1fo
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfacebutltgray
   dragdock.caption = ' 1'
-  dragdock.splitdir = sd_horz
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_acceptsdock]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_acceptsdock, od_captionhint, od_childicons]
   dragdock.onchilddock = updatedockev
   dragdock.onchildfloat = updatedockev
   mainmenu = tmainmenu1
+  options = [fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   statfile = mainfo.tstatfile1
   icon.origformat = 'jpeg'
   icon.image = {
