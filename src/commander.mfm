@@ -1332,6 +1332,7 @@ object commanderfo: tcommanderfo
       bounds_cx = 75
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
+      onsetvalue = onsetvu
     end
     object automix: tbooleanedit
       color = -2147483645

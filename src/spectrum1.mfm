@@ -851,6 +851,7 @@ object spectrum1fo: tspectrum1fo
     bounds_cx = 49
     statfile = mainfo.tstatfile1
     colorglyph = 4539717
+    onsetvalue = onshowspec
     value = True
   end
 end

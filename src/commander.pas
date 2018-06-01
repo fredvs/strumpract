@@ -101,6 +101,9 @@ type
                    var accept: Boolean);
     procedure ontextedit(const sender: tcustomedit; var atext: msestring);
    procedure resetvolume(const sender: TObject);
+   procedure onsetvu(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+   
   end;
 
 var
@@ -116,6 +119,61 @@ implementation
 uses
   songplayer, songplayer2, drums, filelistform, uos_flat, config, recorder, dockpanel1,
   main, commander_mfm;
+ 
+procedure tcommanderfo.onsetvu(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin 
+ if avalue = false then
+ begin 
+   with commanderfo do
+   begin
+    vuLeft.Visible := False;
+    vuRight.Visible := False;
+    vuLeft.value := 0;
+    vuRight.value := 0;
+    vuLeft2.Visible := False;
+    vuRight2.Visible := False;
+    vuLeft2.value := 0;
+    vuRight2.value := 0;
+  end;
+  with songplayerfo do
+   begin 
+    vuLeft.Visible := False;
+    vuRight.Visible := False;
+    vuLeft.value := 0;
+    vuRight.value := 0;
+  end;
+   with songplayer2fo do
+   begin 
+    vuLeft.Visible := False;
+    vuRight.Visible := False;
+    vuLeft.value := 0;
+    vuRight.value := 0;
+  end;
+  end else
+  
+ begin 
+   with commanderfo do
+   begin 
+    vuLeft.Visible := true;
+    vuRight.Visible := true;
+    vuLeft2.Visible := true;
+    vuRight2.Visible := true;
+  end; 
+   with songplayerfo do
+   begin 
+    vuLeft.Visible := true;
+    vuRight.Visible := true;
+  end;
+   with songplayer2fo do
+   begin 
+    vuLeft.Visible := true;
+    vuRight.Visible := true;
+  end;
+  end;
+  
+  
+end;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
 begin

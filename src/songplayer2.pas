@@ -490,8 +490,8 @@ end;
 
 procedure tsongplayer2fo.LoopProcPlayer1();
 begin
-  ShowPosition();
- if waveformcheck.value = true then ShowLevel();
+   if  (visible = true) then  ShowPosition();
+   if (commanderfo.vuin.value = true) and (visible = true) then ShowLevel();
   if (spectrum2fo.spect1.value = true) and (spectrum2fo.visible = true) and
    (configfo.speccalc.value = true) then ShowSpectrum();
 end;

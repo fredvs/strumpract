@@ -34,6 +34,8 @@ type
    spect1: tbooleanedit;
    procedure onvisiblechange(const sender: TObject);
    procedure onformcreated(const sender: TObject);
+   procedure onshowspec(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
   end;
  
    equalizer_band_type=record
@@ -119,5 +121,20 @@ Equalizer_Bands[1].lo_freq:=18;
   end;
 
 end;
+
+procedure tspectrum1fo.onshowspec(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+var
+i : integer =1;               
+begin
+if avalue = false then
+ begin 
+while i < 21 do
+begin
+    TProgressBar(findcomponent('tprogressbar'+inttostr(i))).value:= 0;
+  inc(i);
+  end; 
+ end;
+ end;
 
 end.
