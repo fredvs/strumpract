@@ -52,7 +52,6 @@ type
     namedrums: tstringdisp;
     tfacegriptab: tfacecomp;
     tfacesliderdark: tfacecomp;
-    vuLeft: tprogressbar;
     vuright: tprogressbar;
     vuright2: tprogressbar;
     vuLeft2: tprogressbar;
@@ -78,6 +77,7 @@ type
    volumeleft2val: tbutton;
    tslider2val: tbutton;
    tslider3val: tbutton;
+   vuLeft: tprogressbar;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

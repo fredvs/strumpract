@@ -79,11 +79,11 @@ findinfiledialog=68
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.inprojectdir]
- value=0
+ value=1
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.indirectories]
- value=1
+ value=0
  [findinfileadialogfo.mask]
  value="*.pas" "*.pp" "*.inc" "*.mfm" 
  history=4
@@ -110,8 +110,9 @@ findinfiledialog=68
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=cxmax
+ value=vuleft
  history=20
+  vuleft
   cxmax
   cx_max
   dockpanel1fo
@@ -131,7 +132,6 @@ findinfiledialog=68
   putSamples
   StreamIn[x].Data.SampleRate =
   TMemoryStream
-  samplerate
  [findinfileadialogfo]
  stackedunder=
  x=615
@@ -743,33 +743,36 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=9
+modulenames=10
  COMMANDERFO
  DOCKPANEL1FO
  DRUMSFO
  FILELISTFO
  GUITARSFO
  MAINFO
+ FILEDIALOGRES
  RECORDERFO
  SONGPLAYERFO
  SPECTRUM1FO
-moduletypes=9
+moduletypes=10
  TCOMMANDERFO
  TDOCKPANEL1FO
  TDRUMSFO
  TFILELISTFO
  TGUITARSFO
  TMAINFO
+ TFILEDIALOGRES
  TRECORDERFO
  TSONGPLAYERFO
  TSPECTRUM1FO
-modulefiles=9
+modulefiles=10
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/dockpanel1.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/msefiledialogres.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/spectrum1.mfm
@@ -1330,15 +1333,16 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=close
+finddtext=bar_face
 findhistory=20
+ bar_face
+ timerwait
  close
  ShowSpectrum
  updatelay
  dockpanel
  taball
  ondockall
- timerwait
  scroll
  maxheightfo
  spectrum1fo
@@ -1351,28 +1355,29 @@ findhistory=20
  fowidth
  updatedockev
  flayoutlock
- with spect
 findoptions=1
-editpos=19
- 0,-1073741823
- 0,3
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 5,132
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,126
+editpos=21
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,5
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,4
+ 0,92
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,203
+ 0,-1073741823
+ 0,459
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,466
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1392,7 +1397,9 @@ bookmarks15=0
 bookmarks16=0
 bookmarks17=0
 bookmarks18=0
-sourcefiles=19
+bookmarks19=0
+bookmarks20=0
+sourcefiles=21
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/dockpanel1.pas
  ${PROJECTDIR}/main.pas
@@ -1412,7 +1419,9 @@ sourcefiles=19
  ${PROJECTDIR}/songplayer2.pas
  ${PROJECTDIR}/main.pas
  /home/fred/msegui/lib/common/kernel/msegui.pas
-relpaths=19
+ ${PROJECTDIR}/msefiledialogres.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=21
  strumpract.pas
  dockpanel1.pas
  main.pas
@@ -1432,7 +1441,11 @@ relpaths=19
  songplayer2.pas
  main.pas
  msegui/lib/common/kernel/msegui.pas
-ismoduletexts=19
+ msefiledialogres.pas
+ songplayer.pas
+ismoduletexts=21
+ 0
+ 0
  0
  0
  0
@@ -1486,7 +1499,7 @@ visiblemodules=10
  -1
  -1
 nomenumodules=10
- -1
+ 0
  0
  0
  0
@@ -1497,8 +1510,30 @@ nomenumodules=10
  0
  0
 [sourcefo.files_tab]
-firsttab=0
-index=5
+order=21
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 19
+ 6
+ 7
+ 8
+ 9
+ 10
+ 20
+ 16
+ 11
+ 12
+ 13
+ 14
+ 15
+ 17
+ 18
+firsttab=9
+index=10
 [layout]
 windowlayout=733
  [mainfo.basedock]
@@ -1536,7 +1571,7 @@ windowlayout=733
   basedock,0,0,1350,692
  focusedchild=0
  wsize=6
- active=1
+ active=0
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1555,7 +1590,7 @@ windowlayout=733
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=805322857
@@ -1623,7 +1658,7 @@ windowlayout=733
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1745,15 +1780,15 @@ windowlayout=733
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=targetconsolefo
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=324
- y=194
+ x=831
+ y=152
  cx=385
  cy=484
  rcx=0
@@ -1986,7 +2021,7 @@ windowlayout=733
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/spectrum1.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=0
  [debuggerfo.project_options]
  value=1
@@ -2085,7 +2120,7 @@ windowlayout=733
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_dockpanel1fo_mse_
+ stackedunder=findinfilefo
  parent=
  mdistate=3
  nx=0
@@ -2104,7 +2139,7 @@ windowlayout=733
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_dockpanel1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2142,7 +2177,7 @@ windowlayout=733
  [_mse_dockpanel1fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2199,7 +2234,7 @@ windowlayout=733
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2218,7 +2253,7 @@ windowlayout=733
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2232,7 +2267,7 @@ windowlayout=733
  rcx=0
  rcy=0
  wsize=0
- active=0
+ active=1
  visible=1
 [targetconsole]
 finddtext=

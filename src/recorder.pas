@@ -199,7 +199,7 @@ begin
 
   if (leftlev >= 0) and (leftlev <= 1) then
   begin
-
+{
     if leftlev < 0.80 then
       vuLeft.bar_face.template := mainfo.tfacegreen
     else
@@ -207,11 +207,14 @@ begin
       vuLeft.bar_face.template := mainfo.tfaceorange
     else
       vuLeft.bar_face.template := mainfo.tfacered;
+ }     
+      
     vuLeft.Value := leftlev;
   end;
 
   if (rightlev >= 0) and (rightlev <= 1) then
   begin
+  {
     if rightlev < 0.80 then
       vuRight.bar_face.template := mainfo.tfacegreen
     else
@@ -219,6 +222,7 @@ begin
       vuRight.bar_face.template := mainfo.tfaceorange
     else
       vuRight.bar_face.template := mainfo.tfacered;
+      }
     vuRight.Value := rightlev;
   end;
 end;

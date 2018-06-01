@@ -412,22 +412,22 @@ begin
   begin
     if leftlev < 0.80 then
     begin
-      vuLeft.bar_face.template := mainfo.tfacegreen;
-      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
-        commanderfo.vuLeft.bar_face.template := mainfo.tfacegreen;
+    //  vuLeft.bar_face.template := mainfo.tfacegreen;
+    //  if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
+    //    commanderfo.vuLeft.bar_face.template := mainfo.tfacegreen;
     end
     else
     if leftlev < 0.90 then
     begin
-      vuLeft.bar_face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
-        commanderfo.vuLeft.bar_face.template := mainfo.tfaceorange;
+   //   vuLeft.bar_face.template := mainfo.tfaceorange;
+    //  if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
+    //    commanderfo.vuLeft.bar_face.template := mainfo.tfaceorange;
     end
     else
     begin
-      vuLeft.bar_face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
-        commanderfo.vuLeft.bar_face.template := mainfo.tfacered;
+  //    vuLeft.bar_face.template := mainfo.tfacered;
+ //     if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
+ //       commanderfo.vuLeft.bar_face.template := mainfo.tfacered;
     end;
     vuLeft.Value := leftlev;
     if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
@@ -439,23 +439,23 @@ begin
 
     if rightlev < 0.80 then
     begin
-      vuRight.bar_face.template := mainfo.tfacegreen;
+    //  vuRight.bar_face.template := mainfo.tfacegreen;
 
-      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
-        commanderfo.vuRight.bar_face.template := mainfo.tfacegreen;
+     // if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
+     //   commanderfo.vuRight.bar_face.template := mainfo.tfacegreen;
     end
     else
     if rightlev < 0.90 then
     begin
-      vuRight.bar_face.template := mainfo.tfaceorange;
-      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
-        commanderfo.vuRight.bar_face.template := mainfo.tfaceorange;
+    //  vuRight.bar_face.template := mainfo.tfaceorange;
+     // if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
+     //   commanderfo.vuRight.bar_face.template := mainfo.tfaceorange;
     end
     else
     begin
-      vuRight.bar_face.template := mainfo.tfacered;
-      if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
-        commanderfo.vuRight.bar_face.template := mainfo.tfacered;
+  //    vuRight.bar_face.template := mainfo.tfacered;
+   //  if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
+   //     commanderfo.vuRight.bar_face.template := mainfo.tfacered;
     end;
     vuright.Value := rightlev;
     if (commanderfo.Visible) and (commanderfo.vuin.value = true) then
