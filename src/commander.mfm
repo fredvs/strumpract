@@ -1136,7 +1136,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 17
       hint = ' DJ console '
-      bounds_x = 104
+      bounds_x = 103
       bounds_y = 3
       bounds_cx = 75
       bounds_cy = 16
@@ -1150,9 +1150,9 @@ object commanderfo: tcommanderfo
     end
     object vuright: tprogressbar
       taborder = 18
-      bounds_x = 92
+      bounds_x = 94
       bounds_y = 3
-      bounds_cx = 8
+      bounds_cx = 5
       bounds_cy = 121
       direction = gd_up
       bar_face.fade_pos.count = 1
@@ -1174,9 +1174,9 @@ object commanderfo: tcommanderfo
     end
     object vuright2: tprogressbar
       taborder = 19
-      bounds_x = 240
+      bounds_x = 242
       bounds_y = 3
-      bounds_cx = 8
+      bounds_cx = 5
       bounds_cy = 121
       direction = gd_up
       bar_face.fade_pos.count = 1
@@ -1200,7 +1200,7 @@ object commanderfo: tcommanderfo
       taborder = 20
       bounds_x = 181
       bounds_y = 3
-      bounds_cx = 8
+      bounds_cx = 5
       bounds_cy = 121
       direction = gd_up
       bar_face.fade_pos.count = 1
@@ -1502,9 +1502,9 @@ object commanderfo: tcommanderfo
     end
     object vuLeft: tprogressbar
       taborder = 30
-      bounds_x = 32
+      bounds_x = 34
       bounds_y = 3
-      bounds_cx = 8
+      bounds_cx = 5
       bounds_cy = 121
       direction = gd_up
       bar_face.fade_pos.count = 1
@@ -1631,8 +1631,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 313
-    top = 13
+    left = 310
+    top = 24
   end
   object tfaceslider: tfacecomp
     template.image.origformat = 'png'
@@ -2062,7 +2062,7 @@ object commanderfo: tcommanderfo
       B0B0B0018B8B8B01
     }
     left = 313
-    top = 16
+    top = 44
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -2084,7 +2084,7 @@ object commanderfo: tcommanderfo
       C6CECE01
     }
     left = 309
-    top = 18
+    top = 44
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -2099,7 +2099,7 @@ object commanderfo: tcommanderfo
     )
     template.fade_direction = gd_down
     left = 307
-    top = 12
+    top = 55
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -2528,7 +2528,7 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
-    left = 311
-    top = 9
+    left = 309
+    top = 39
   end
 end

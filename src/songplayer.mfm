@@ -570,9 +570,9 @@ object songplayerfo: tsongplayerfo
     end
     object vuRight: tprogressbar
       taborder = 15
-      bounds_x = 299
+      bounds_x = 301
       bounds_y = 50
-      bounds_cx = 8
+      bounds_cx = 5
       bounds_cy = 28
       direction = gd_up
       bar_face.fade_direction = gd_up
@@ -587,9 +587,9 @@ object songplayerfo: tsongplayerfo
     end
     object vuLeft: tprogressbar
       taborder = 16
-      bounds_x = 188
+      bounds_x = 189
       bounds_y = 50
-      bounds_cx = 8
+      bounds_cx = 5
       bounds_cy = 28
       direction = gd_up
       bar_face.fade_direction = gd_up
@@ -843,8 +843,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 17
       visible = False
-      bounds_x = 87
-      bounds_y = 39
+      bounds_x = 147
+      bounds_y = 45
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

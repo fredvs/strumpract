@@ -10,17 +10,7 @@ uses
 type
  tspectrum1fo = class(tdockform)
    spect1: tbooleanedit;
-   groupbox2: tgroupbox;
-   tprogressbar11: tprogressbar;
-   tprogressbar12: tprogressbar;
-   tprogressbar13: tprogressbar;
-   tprogressbar14: tprogressbar;
-   tprogressbar15: tprogressbar;
-   tprogressbar16: tprogressbar;
-   tprogressbar17: tprogressbar;
-   tprogressbar18: tprogressbar;
-   tprogressbar19: tprogressbar;
-   tprogressbar20: tprogressbar;
+   fond: tgroupbox;
    groupbox1: tgroupbox;
    tprogressbar10: tprogressbar;
    tprogressbar9: tprogressbar;
@@ -32,6 +22,17 @@ type
    tprogressbar3: tprogressbar;
    tprogressbar2: tprogressbar;
    tprogressbar1: tprogressbar;
+   groupbox2: tgroupbox;
+   tprogressbar11: tprogressbar;
+   tprogressbar12: tprogressbar;
+   tprogressbar13: tprogressbar;
+   tprogressbar14: tprogressbar;
+   tprogressbar15: tprogressbar;
+   tprogressbar16: tprogressbar;
+   tprogressbar17: tprogressbar;
+   tprogressbar18: tprogressbar;
+   tprogressbar19: tprogressbar;
+   tprogressbar20: tprogressbar;
    procedure onvisiblechange(const sender: TObject);
    procedure onformcreated(const sender: TObject);
    procedure onshowspec(const sender: TObject; var avalue: Boolean;

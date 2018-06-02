@@ -1096,13 +1096,14 @@ begin
     // configfo.font.color := ltblack;
     
     i := 1;
-   
-      while i < 21 do
+    
+       while i < 21 do
   begin
       with spectrum1fo do 
       begin
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $D2D8A5;
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $CEB2D6;
     end;
   inc(i);
   end;
@@ -1115,12 +1116,24 @@ begin
       begin
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $D2D8A5;
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $CEB2D6;
+ 
     end; 
   inc(i);
   end;
   
+  commanderfo.vuleft.bar_face.fade_color.items[0] := $CEB2D6;
+    commanderfo.vuleft2.bar_face.fade_color.items[0] := $CEB2D6;
+    commanderfo.vuright.bar_face.fade_color.items[0] := $CEB2D6;
+    commanderfo.vuright2.bar_face.fade_color.items[0] := $CEB2D6;
+    songplayerfo.vuleft.bar_face.fade_color.items[0] := $CEB2D6;
+    songplayer2fo.vuleft.bar_face.fade_color.items[0] := $CEB2D6;
+    songplayerfo.vuright.bar_face.fade_color.items[0] := $CEB2D6;
+    songplayer2fo.vuright.bar_face.fade_color.items[0] := $CEB2D6;
+  
    with spectrum1fo do 
       begin
+      fond.color := $D2D8A5;
       groupbox1.color := $D2D8A5; 
       groupbox2.color := $D2D8A5; 
       spect1.colorglyph := ltblack;
@@ -1133,6 +1146,7 @@ begin
       
     with spectrum2fo do 
       begin
+      fond.color := $D2D8A5;
       groupbox1.color := $D2D8A5; 
       groupbox2.color := $D2D8A5; 
       spect1.colorglyph := ltblack;
@@ -1460,6 +1474,15 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED;
     commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA;
+    
+    commanderfo.vuleft.bar_face.fade_color.items[0] := $EDEDED;
+    commanderfo.vuleft2.bar_face.fade_color.items[0] := $EDEDED;
+    commanderfo.vuright.bar_face.fade_color.items[0] := $EDEDED;
+    commanderfo.vuright2.bar_face.fade_color.items[0] := $EDEDED;
+    songplayerfo.vuleft.bar_face.fade_color.items[0] := $EDEDED;
+    songplayer2fo.vuleft.bar_face.fade_color.items[0] := $EDEDED;
+    songplayerfo.vuright.bar_face.fade_color.items[0] := $EDEDED;
+    songplayer2fo.vuright.bar_face.fade_color.items[0] := $EDEDED;
 
     filelistfo.list_files.font.color := ltblack;
     filelistfo.tgroupbox1.font.color := ltblack;
@@ -1524,6 +1547,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       begin
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= cl_default;
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
+        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $6A6A6A;
+ 
     end; 
   inc(i);
   end;
@@ -1535,15 +1560,30 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       begin
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= cl_default;
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $6A6A6A;
+ 
     end; 
   inc(i);
   end;
   
+  commanderfo.vuleft.bar_face.fade_color.items[0] := $6A6A6A;
+    commanderfo.vuleft2.bar_face.fade_color.items[0] := $6A6A6A;
+    commanderfo.vuright.bar_face.fade_color.items[0] := $6A6A6A;
+    commanderfo.vuright2.bar_face.fade_color.items[0] := $6A6A6A;
+    songplayerfo.vuleft.bar_face.fade_color.items[0] := $6A6A6A;
+    songplayer2fo.vuleft.bar_face.fade_color.items[0] := $6A6A6A;
+    songplayerfo.vuright.bar_face.fade_color.items[0] := $6A6A6A;
+    songplayer2fo.vuright.bar_face.fade_color.items[0] := $6A6A6A;
+
+  
+  
    with spectrum1fo do 
       begin
+      fond.color := cl_default;
+      
      groupbox1.color := cl_default;
- groupbox2.color := cl_default;
-   groupbox1.frame.font.color := ltblack;
+     groupbox2.color := cl_default;
+      groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
      spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
@@ -1553,8 +1593,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       
     with spectrum2fo do 
       begin
+         fond.color := cl_default;
      groupbox1.color := cl_default;
- groupbox2.color := cl_default;     spect1.colorglyph := ltblack;
+     groupbox2.color := cl_default;  
+        groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
+       spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
        spect1.frame.colorclient :=cl_default;
       spect1.color := cl_default;
@@ -1572,8 +1616,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
   begin
       with spectrum1fo do 
       begin
-        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $2A2A2A;
+        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $3A3A3A;
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblank;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $aAaAaA;
     end;
   inc(i);
   end;
@@ -1584,14 +1629,18 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
   begin
     with spectrum2fo do 
       begin
-        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $2A2A2A;
+        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $3A3A3A;
       TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblank;
+      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $aAaAaA;
+ 
     end; 
   inc(i);
   end;
   
    with spectrum1fo do 
       begin
+      
+      fond.color := $2A2A2A;
      groupbox1.color := $2A2A2A;
      
       groupbox1.frame.font.color := ltblank;
@@ -1606,6 +1655,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       
     with spectrum2fo do 
       begin
+         fond.color := $2A2A2A;
         groupbox1.frame.font.color := ltblank;
       groupbox2.frame.font.color := ltblank;
        groupbox1.color := $2A2A2A;
@@ -1615,6 +1665,15 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
      spect1.frame.colorclient :=$4A4A4A;
      spect1.color := $2A2A2A;
       end;
+      
+     commanderfo.vuleft.bar_face.fade_color.items[0] := $aAaAaA;
+    commanderfo.vuleft2.bar_face.fade_color.items[0] := $aAaAaA;
+    commanderfo.vuright.bar_face.fade_color.items[0] := $aAaAaA;
+    commanderfo.vuright2.bar_face.fade_color.items[0] := $aAaAaA;
+    songplayerfo.vuleft.bar_face.fade_color.items[0] := $aAaAaA;
+    songplayer2fo.vuleft.bar_face.fade_color.items[0] := $aAaAaA;
+    songplayerfo.vuright.bar_face.fade_color.items[0] := $aAaAaA;
+    songplayer2fo.vuright.bar_face.fade_color.items[0] := $aAaAaA;  
       
    
     tfacebutgray.template.fade_color.items[0] := $888888;

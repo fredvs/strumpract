@@ -9,7 +9,7 @@ uses
  msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
  msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
  mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
- mserichstring;
+ mserichstring,msebitmap;
 
 type
   talab = array[0..15] of tlabel;
@@ -136,9 +136,6 @@ type
     loop_stop: TButton;
     loop_resume: TButton;
     loop_start: TButton;
-    label4: tlabel;
-    label2: tlabel;
-    label3: tlabel;
     edittempo: trealspinedit;
     tlabel25: tlabel;
     tlabel23: tlabel;
@@ -150,6 +147,10 @@ type
    hintlabel2: tlabel;
    multbpm: tbutton;
    divbpm: tbutton;
+   tgroupbox1: tgroupbox;
+   label2: tlabel;
+   label3: tlabel;
+   label4: tlabel;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -1150,8 +1151,7 @@ begin
       Height := 16;
       frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
       hint := ' Add/Remove a Closed Hat at position ' + IntToStr(ax + 1) + ' ';
-
-    end;
+      end;
     if (Copy(drum_beats[0], ax + 1, 1) = 'x') then
       ach[ax].Value := True
     else

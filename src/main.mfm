@@ -1421,8 +1421,8 @@ object mainfo: tmainfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 79
-    top = 8
+    left = 14
+    top = 18
     image = {
       00000000020000001800000018000000B8010000000000000000000000000000
       00000000000000000000000000000000000000005D5D5D09FFFFFF075D5D5D01
@@ -1609,8 +1609,8 @@ object mainfo: tmainfo
       16764802
     )
     template.fade_direction = gd_down
-    left = 276
-    top = 8
+    left = 275
+    top = 19
   end
   object tfaceorangehz: tfacecomp
     template.fade_pos.count = 2
@@ -1623,8 +1623,8 @@ object mainfo: tmainfo
       16775664
       16762227
     )
-    left = 212
-    top = 11
+    left = 227
+    top = 15
   end
   object tfacebutltgray: tfacecomp
     template.fade_pos.count = 2
@@ -1645,7 +1645,7 @@ object mainfo: tmainfo
     height = 24
     options = [bmo_masked, bmo_colormask]
     count = 35
-    left = 23
+    left = 158
     top = 4
     image = {
       00000000060000009000000090000000649A0000000000000000000000000000
@@ -3552,7 +3552,7 @@ object mainfo: tmainfo
       11317382
     )
     template.fade_direction = gd_down
-    left = 17
-    top = 14
+    left = 106
+    top = 16
   end
 end

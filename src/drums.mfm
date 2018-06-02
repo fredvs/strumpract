@@ -850,6 +850,22 @@ object drumsfo: tdrumsfo
       bounds_y = 111
     end
     object tbooleanedit48: tbooleanedit
+      frame.levelo = 0
+      frame.hiddenedges = [edg_bottom]
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameo_left = 2
+      frame.frameo_top = 2
+      frame.frameo_right = 2
+      frame.frameo_bottom = 2
+      frame.frameimage_list = mainfo.timagelist3
+      frame.frameimage_left = -8
+      frame.frameimage_top = -8
+      frame.frameimage_right = -8
+      frame.frameimage_bottom = -8
+      frame.colorclient = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 76
@@ -1402,67 +1418,6 @@ object drumsfo: tdrumsfo
       focusrectdist = 0
       onexecute = dostart
     end
-    object label4: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      color = -2147483645
-      taborder = 17
-      visible = False
-      bounds_x = 254
-      bounds_y = 24
-      bounds_cx = 18
-      bounds_cy = 44
-      caption = '/'
-      font.color = 7690558
-      font.colorbackground = -2147483645
-      font.shadow_color = 0
-      font.gloss_color = -1610612730
-      font.height = 50
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 58
-    end
-    object label2: tlabel
-      color = -2147483645
-      taborder = 18
-      enabled = False
-      bounds_x = 228
-      bounds_y = 16
-      bounds_cx = 32
-      bounds_cy = 58
-      caption = '0'
-      font.color = 4223805
-      font.shadow_color = 0
-      font.gloss_color = 16777215
-      font.grayed_shiftx = 2
-      font.grayed_shifty = 2
-      font.height = 50
-      font.name = 'stf_default'
-      font.options = [foo_script, foo_antialiased2]
-      font.localprops = [flp_color, flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_gloss_color, flp_gloss_shiftx, flp_gloss_shifty, flp_grayed_color, flp_grayed_shiftx, flp_grayed_shifty, flp_style, flp_height, flp_options]
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 58
-    end
-    object label3: tlabel
-      optionswidget1 = [ow1_fontglyphheight]
-      color = -2147483645
-      taborder = 19
-      visible = False
-      bounds_x = 218
-      bounds_y = 24
-      bounds_cx = 18
-      bounds_cy = 44
-      caption = '\'
-      font.color = 7690558
-      font.colorbackground = -2147483645
-      font.shadow_color = 0
-      font.gloss_color = -1610612730
-      font.height = 50
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_colorbackground, flp_shadow_color, flp_gloss_color, flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 58
-    end
     object edittempo: trealspinedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -1479,7 +1434,7 @@ object drumsfo: tdrumsfo
       frame.buttonsize = 20
       face.localprops = []
       face.template = tfacecomp3
-      taborder = 20
+      taborder = 17
       hint = 'BPM (Beats per minut)'
       bounds_x = 104
       bounds_y = 19
@@ -1504,7 +1459,7 @@ object drumsfo: tdrumsfo
     end
     object tlabel25: tlabel
       color = -2147483645
-      taborder = 21
+      taborder = 18
       bounds_x = 106
       bounds_y = 5
       bounds_cx = 22
@@ -1518,7 +1473,7 @@ object drumsfo: tdrumsfo
     end
     object tlabel23: tlabel
       color = -2147483645
-      taborder = 22
+      taborder = 19
       bounds_x = 168
       bounds_y = 8
       bounds_cx = 38
@@ -1547,7 +1502,7 @@ object drumsfo: tdrumsfo
       frame.buttonsize = 20
       face.localprops = []
       face.template = tfacecomp3
-      taborder = 23
+      taborder = 20
       hint = ' General volume of Drums '
       bounds_x = 162
       bounds_y = 22
@@ -1577,11 +1532,11 @@ object drumsfo: tdrumsfo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp2
-      taborder = 24
+      taborder = 21
       hint = ' Beats per minuts - interval in 1/10000 second. '
-      bounds_x = 100
-      bounds_y = 69
-      bounds_cx = 116
+      bounds_x = 102
+      bounds_y = 72
+      bounds_cx = 110
       bounds_cy = 14
       font.color = 3355443
       font.height = 11
@@ -1598,7 +1553,7 @@ object drumsfo: tdrumsfo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp2
-      taborder = 25
+      taborder = 22
       hint = ' Drums set '
       bounds_x = 15
       bounds_y = 14
@@ -1626,7 +1581,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 27
+      taborder = 24
       hint = ' Set BPM X 2 '
       bounds_x = 103
       bounds_y = 54
@@ -1656,7 +1611,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 28
+      taborder = 25
       hint = ' Set BPM / 2 '
       bounds_x = 130
       bounds_y = 54
@@ -1672,16 +1627,87 @@ object drumsfo: tdrumsfo
       font.localprops = [flp_color, flp_height]
       onexecute = onmultdiv
     end
+    object tgroupbox1: tgroupbox
+      color = 12566463
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      taborder = 26
+      bounds_x = 218
+      bounds_y = 17
+      bounds_cx = 54
+      bounds_cy = 62
+      object label3: tlabel
+        optionswidget1 = [ow1_fontglyphheight]
+        color = -2147483645
+        taborder = 1
+        visible = False
+        bounds_x = 4
+        bounds_y = 8
+        bounds_cx = 18
+        bounds_cy = 44
+        caption = '\'
+        font.color = 7690558
+        font.colorbackground = -2147483645
+        font.shadow_color = 0
+        font.gloss_color = -1610612730
+        font.height = 50
+        font.name = 'stf_default'
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 58
+      end
+      object label4: tlabel
+        optionswidget1 = [ow1_fontglyphheight]
+        color = -2147483645
+        taborder = 2
+        visible = False
+        bounds_x = 34
+        bounds_y = 8
+        bounds_cx = 18
+        bounds_cy = 44
+        caption = '/'
+        font.color = 7690558
+        font.colorbackground = -2147483645
+        font.shadow_color = 0
+        font.gloss_color = -1610612730
+        font.height = 50
+        font.name = 'stf_default'
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 58
+      end
+      object label2: tlabel
+        color = -2147483645
+        enabled = False
+        bounds_x = 12
+        bounds_y = 4
+        bounds_cx = 32
+        bounds_cy = 58
+        caption = '0'
+        font.color = 4223805
+        font.shadow_color = 0
+        font.gloss_color = 16777215
+        font.grayed_shiftx = 2
+        font.grayed_shifty = 2
+        font.height = 50
+        font.name = 'stf_default'
+        font.options = [foo_script, foo_antialiased2]
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 58
+      end
+    end
     object hintpanel: tgroupbox
       frame.localprops = []
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceorange
-      taborder = 26
+      taborder = 23
       visible = False
-      bounds_x = 73
-      bounds_y = 27
+      bounds_x = 93
+      bounds_y = 23
       bounds_cx = 221
       bounds_cy = 36
       font.color = 5000268

@@ -647,9 +647,9 @@ object songplayer2fo: tsongplayer2fo
     end
     object vuRight: tprogressbar
       taborder = 17
-      bounds_x = 299
+      bounds_x = 301
       bounds_y = 51
-      bounds_cx = 8
+      bounds_cx = 5
       bounds_cy = 28
       direction = gd_up
       bar_face.fade_direction = gd_up
@@ -664,9 +664,9 @@ object songplayer2fo: tsongplayer2fo
     end
     object vuLeft: tprogressbar
       taborder = 18
-      bounds_x = 188
+      bounds_x = 189
       bounds_y = 51
-      bounds_cx = 8
+      bounds_cx = 5
       bounds_cy = 28
       direction = gd_up
       bar_face.fade_direction = gd_up
@@ -678,43 +678,6 @@ object songplayer2fo: tsongplayer2fo
       valuestart = 0
       value = 0
       format = ''
-    end
-    object hintpanel: tgroupbox
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceorange
-      taborder = 19
-      visible = False
-      bounds_x = 166
-      bounds_y = 48
-      bounds_cx = 221
-      bounds_cy = 36
-      font.name = 'stf_default'
-      font.localprops = []
-      object hintlabel: tlabel
-        bounds_x = 5
-        bounds_y = 4
-        bounds_cx = 169
-        bounds_cy = 14
-        caption = 'Invalid value.  Reset to 100.'
-        font.name = 'stf_default'
-        font.localprops = []
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 14
-      end
-      object hintlabel2: tlabel
-        taborder = 1
-        bounds_x = 5
-        bounds_y = 18
-        bounds_cx = 215
-        bounds_cy = 14
-        caption = 'Or press Esc key for previous value.'
-        font.name = 'stf_default'
-        font.localprops = []
-        reffontheight = 14
-      end
     end
     object button2: tbutton
       Tag = 1
@@ -868,6 +831,43 @@ object songplayer2fo: tsongplayer2fo
       bounds_cx = 56
       onchange = changereverse
       colorglyph = 4539717
+    end
+    object hintpanel: tgroupbox
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceorange
+      taborder = 19
+      visible = False
+      bounds_x = 148
+      bounds_y = 48
+      bounds_cx = 221
+      bounds_cy = 36
+      font.name = 'stf_default'
+      font.localprops = []
+      object hintlabel: tlabel
+        bounds_x = 5
+        bounds_y = 4
+        bounds_cx = 169
+        bounds_cy = 14
+        caption = 'Invalid value.  Reset to 100.'
+        font.name = 'stf_default'
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 14
+      end
+      object hintlabel2: tlabel
+        taborder = 1
+        bounds_x = 5
+        bounds_y = 18
+        bounds_cx = 215
+        bounds_cy = 14
+        caption = 'Or press Esc key for previous value.'
+        font.name = 'stf_default'
+        font.localprops = []
+        reffontheight = 14
+      end
     end
   end
   object tfaceslider: tfacecomp
