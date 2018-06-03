@@ -42,6 +42,7 @@ type
     procedure onaftdrop(const Sender: TObject);
     procedure onchangecount(const Sender: TObject);
    procedure ondestr(const sender: TObject);
+   procedure ondock(const sender: TObject);
   end;
 
 var
@@ -271,8 +272,9 @@ begin
   //sizebefdock.cx := 500;
   //sizebefdock.cy := 500;
   //size := sizebefdock;
+  bounds_cy := 500;
   bounds_cxmax := fowidth;
-  bounds_cymax := 700;
+  bounds_cymax := 0;
 end;
 
 procedure tfilelistfo.afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject;
@@ -356,6 +358,11 @@ end;
 procedure tfilelistfo.ondestr(const sender: TObject);
 begin
 timersent.Free;
+end;
+
+procedure tfilelistfo.ondock(const sender: TObject);
+begin
+bounds_cy := 128;
 end;
 
 end.

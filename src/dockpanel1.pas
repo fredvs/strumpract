@@ -29,6 +29,10 @@ type
    procedure layoutchanged(const sender: tdockcontroller);
    procedure onfloat(const sender: TObject);
    procedure onvisiblech(const sender: TObject);
+   procedure befdrag(const asender: TObject; const apos: pointty;
+                   var adragobject: tdragobject; var processed: Boolean);
+   procedure afterdrag(const asender: TObject; const apos: pointty;
+                   var adragobject: tdragobject; var processed: Boolean);
    private
     flayoutlock: int32;
   protected
@@ -328,6 +332,17 @@ if caption = 'Dock Panel 3' then begin
   mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Show Dock Panel 3 '; 
   end;  
  end; 
+end;
+
+procedure tdockpanel1fo.befdrag(const asender: TObject; const apos: pointty;
+               var adragobject: tdragobject; var processed: Boolean);
+               
+begin
+end;
+
+procedure tdockpanel1fo.afterdrag(const asender: TObject; const apos: pointty;
+               var adragobject: tdragobject; var processed: Boolean);
+begin
 end;
 
 end.

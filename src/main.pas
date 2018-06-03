@@ -7,7 +7,7 @@ interface
 
 uses
  msetypes, mseglob, mseguiglob, msegraphedits, mseguiintf, mseapplication, msestat, msegui,
- msetimer, ctypes, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms,
+ msetimer, ctypes, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms, msechart,
  msedock, drums, recorder, songplayer, songplayer2, commander, filelistform, spectrum1,
  guitars, msedataedits, mseedit, msestatfile, SysUtils, Classes, uos_flat, dockpanel1,
  aboutform, msebitmap, msesys, msemenus, msestream, msegrids, mselistbrowser,
@@ -600,6 +600,7 @@ var
   decorationheight: integer = 5;
 begin
   // basedock.anchors := [an_left,an_top]  ;
+   decorationheight := window.decoratedbounds_cy - Height;
 
   filelistfo.bounds_cxmax := fowidth;
   filelistfo.bounds_cymax := 1024;
@@ -800,7 +801,7 @@ procedure tmainfo.onchangevalcolor(const Sender: TObject);
 var
   ltblank: integer = $F0F0F0;
   ltblack: integer = $2D2D2D;
-  i : integer = 1;
+ 
 begin
   if typecolor.Value = 0 then
   begin
@@ -879,7 +880,12 @@ begin
     
      songplayerfo.setmono.frame.font.color := ltblack;
     songplayer2fo.setmono.frame.font.color := ltblack;
-
+    
+     songplayerfo.setmono.colorglyph := ltblack;
+    songplayer2fo.setmono.colorglyph := ltblack;
+    
+    songplayerfo.playreverse.colorglyph := ltblack;
+    songplayer2fo.playreverse.colorglyph := ltblack;
 
     songplayerfo.edvolleft.frame.colorglyph := ltblack;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
@@ -1094,35 +1100,8 @@ begin
     filelistfo.list_files.datacols[3].colorglyph := ltblack;
     aboutfo.font.color := cl_black;
     // configfo.font.color := ltblack;
-    
-    i := 1;
-    
-       while i < 21 do
-  begin
-      with spectrum1fo do 
-      begin
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $D2D8A5;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $CEB2D6;
-    end;
-  inc(i);
-  end;
-  
-    
-    i := 1;
-         while i < 21 do
-  begin
-    with spectrum2fo do 
-      begin
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $D2D8A5;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $CEB2D6;
- 
-    end; 
-  inc(i);
-  end;
-  
-  commanderfo.vuleft.bar_face.fade_color.items[0] := $CEB2D6;
+   
+    commanderfo.vuleft.bar_face.fade_color.items[0] := $CEB2D6;
     commanderfo.vuleft2.bar_face.fade_color.items[0] := $CEB2D6;
     commanderfo.vuright.bar_face.fade_color.items[0] := $CEB2D6;
     commanderfo.vuright2.bar_face.fade_color.items[0] := $CEB2D6;
@@ -1133,12 +1112,22 @@ begin
   
    with spectrum1fo do 
       begin
+      tchartleft.colorchart := $D2D8A5;
+      tchartleft.traces[0].chartkind := tck_bar ;
+      tchartleft.traces[0].color := $C69EFF ;
+      labelleft.font.color := ltblack;
+     
+      tchartright.colorchart := $D2D8A5;
+      tchartright.traces[0].chartkind := tck_bar ;
+      tchartright.traces[0].color := $C69EFF ;
+      labelright.font.color := ltblack;
+          
       fond.color := $D2D8A5;
       groupbox1.color := $D2D8A5; 
       groupbox2.color := $D2D8A5; 
       spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
-       groupbox1.frame.font.color := ltblack;
+      groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
       spect1.frame.colorclient :=cl_default;
       spect1.color := $D2D8A5;
@@ -1146,6 +1135,16 @@ begin
       
     with spectrum2fo do 
       begin
+        tchartleft.colorchart := $D2D8A5;
+      tchartleft.traces[0].chartkind := tck_bar ;
+      tchartleft.traces[0].color := $C69EFF ;
+      labelleft.font.color := ltblack;
+     
+      tchartright.colorchart := $D2D8A5;
+      tchartright.traces[0].chartkind := tck_bar ;
+      tchartright.traces[0].color := $C69EFF ;
+      labelright.font.color := ltblack;
+      
       fond.color := $D2D8A5;
       groupbox1.color := $D2D8A5; 
       groupbox2.color := $D2D8A5; 
@@ -1276,6 +1275,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     
      songplayerfo.setmono.frame.font.color := ltblack;
     songplayer2fo.setmono.frame.font.color := ltblack;
+     
+     
+     songplayerfo.setmono.colorglyph := ltblack;
+    songplayer2fo.setmono.colorglyph := ltblack;
+    
+    songplayerfo.playreverse.colorglyph := ltblack;
+    songplayer2fo.playreverse.colorglyph := ltblack;
 
 
     songplayerfo.edvolleft.frame.colorglyph := ltblack;
@@ -1539,33 +1545,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       drumsfo.loop_resume.imagenrdisabled := -2;
       drumsfo.loop_start.imagenrdisabled := -2;
      drumsfo.loop_stop.imagenrdisabled := -2;
-     
-       i := 1;
-         while i < 21 do
-  begin
-    with spectrum1fo do 
-      begin
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= cl_default;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
-        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $6A6A6A;
- 
-    end; 
-  inc(i);
-  end;
-  
-    i := 1;
-         while i < 21 do
-  begin
-    with spectrum2fo do 
-      begin
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= cl_default;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblack;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $6A6A6A;
- 
-    end; 
-  inc(i);
-  end;
-  
+    
   commanderfo.vuleft.bar_face.fade_color.items[0] := $6A6A6A;
     commanderfo.vuleft2.bar_face.fade_color.items[0] := $6A6A6A;
     commanderfo.vuright.bar_face.fade_color.items[0] := $6A6A6A;
@@ -1575,12 +1555,19 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.vuright.bar_face.fade_color.items[0] := $6A6A6A;
     songplayer2fo.vuright.bar_face.fade_color.items[0] := $6A6A6A;
 
-  
-  
-   with spectrum1fo do 
+    with spectrum1fo do 
       begin
-      fond.color := cl_default;
-      
+     
+       tchartleft.colorchart := cl_background; 
+        tchartleft.traces[0].color := $9A9A9A ;
+      labelleft.font.color := ltblack;
+     
+      tchartright.colorchart := cl_background;
+      tchartright.traces[0].color := $9A9A9A ;
+      labelright.font.color := ltblack;
+    
+      fond.color := cl_default; 
+           
      groupbox1.color := cl_default;
      groupbox2.color := cl_default;
       groupbox1.frame.font.color := ltblack;
@@ -1593,6 +1580,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       
     with spectrum2fo do 
       begin
+         tchartleft.colorchart := cl_background; 
+        tchartleft.traces[0].color := $9A9A9A ;
+      labelleft.font.color := ltblack;
+     
+      tchartright.colorchart := cl_background;
+      tchartright.traces[0].color := $9A9A9A ;
+      labelright.font.color := ltblack;
          fond.color := cl_default;
      groupbox1.color := cl_default;
      groupbox2.color := cl_default;  
@@ -1608,62 +1602,53 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
   if typecolor.Value = 2 then
   begin
-    // main
-      
-          i := 1;
-   
-      while i < 21 do
-  begin
-      with spectrum1fo do 
-      begin
-        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $3A3A3A;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblank;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $aAaAaA;
-    end;
-  inc(i);
-  end;
   
-    
-    i := 1;
-         while i < 21 do
-  begin
-    with spectrum2fo do 
+     with spectrum1fo do 
       begin
-        TProgressBar(findcomponent('tprogressbar'+inttostr(i))).color:= $3A3A3A;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).frame.font.color:= ltblank;
-      TProgressBar(findcomponent('tprogressbar'+inttostr(i))).bar_face.fade_color.items[0] := $aAaAaA;
- 
-    end; 
-  inc(i);
-  end;
-  
-   with spectrum1fo do 
-      begin
+       // labelleft.color := $3A3A3A;
+       // labelright.color := $3A3A3A;
       
-      fond.color := $2A2A2A;
-     groupbox1.color := $2A2A2A;
+         tchartleft.colorchart := $3A3A3A; 
+        tchartleft.traces[0].color := $7A7A7A ;
+      labelleft.font.color := ltblank;
+     
+      tchartright.colorchart := $3A3A3A;
+      tchartright.traces[0].color := $7A7A7A ;
+      labelright.font.color := ltblank;
+      
+      fond.color := $3A3A3A;
+     groupbox1.color := $3A3A3A;
      
       groupbox1.frame.font.color := ltblank;
       groupbox2.frame.font.color := ltblank;
       
-     groupbox2.color := $2A2A2A;
+     groupbox2.color := $3A3A3A;
      spect1.colorglyph := ltblank;
      spect1.frame.font.color := ltblank;
      spect1.frame.colorclient :=$4A4A4A;
-     spect1.color := $2A2A2A;
+     spect1.color := $3A3A3A;
       end;
       
     with spectrum2fo do 
       begin
-         fond.color := $2A2A2A;
+           tchartleft.colorchart := $3A3A3A; 
+        tchartleft.traces[0].color := $7A7A7A ;
+      labelleft.font.color := ltblank;
+     //  labelleft.color := $3A3A3A;
+     //   labelright.color := $3A3A3A;
+      tchartright.colorchart := $3A3A3A;
+      tchartright.traces[0].color := $7A7A7A ;
+      labelright.font.color := ltblank;
+    
+         fond.color := $3A3A3A;
         groupbox1.frame.font.color := ltblank;
       groupbox2.frame.font.color := ltblank;
-       groupbox1.color := $2A2A2A;
-     groupbox2.color := $2A2A2A;
+       groupbox1.color := $3A3A3A;
+     groupbox2.color := $3A3A3A;
      spect1.colorglyph := ltblank;
      spect1.frame.font.color := ltblank;
      spect1.frame.colorclient :=$4A4A4A;
-     spect1.color := $2A2A2A;
+     spect1.color := $3A3A3A;
       end;
       
      commanderfo.vuleft.bar_face.fade_color.items[0] := $aAaAaA;
@@ -1777,6 +1762,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     
      songplayerfo.setmono.frame.font.color := ltblank;
     songplayer2fo.setmono.frame.font.color := ltblank;
+  
+    songplayerfo.setmono.colorglyph := ltblank;
+    songplayer2fo.setmono.colorglyph := ltblank;
+    
+    songplayerfo.playreverse.colorglyph := ltblank;
+    songplayer2fo.playreverse.colorglyph := ltblank;
 
 
     songplayerfo.edvolleft.frame.colorglyph := ltblank;

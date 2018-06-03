@@ -130,649 +130,187 @@ object spectrum1fo: tspectrum1fo
     bounds_y = 0
     bounds_cx = 448
     bounds_cy = 126
-    object groupbox1: tgroupbox
-      frame.font.name = 'stf_default'
-      frame.font.localprops = []
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      bounds_x = 1
-      bounds_y = 8
-      bounds_cx = 223
-      bounds_cy = 118
+    object groupbox2: tgroupbox
+      color = -2147483645
+      frame.hiddenedges = [edg_bottom]
+      frame.caption = 'Player 1 Right'
+      frame.captiontextflags = [tf_xcentered, tf_bottom]
+      frame.captionpos = cp_top
+      frame.captionoffset = 0
+      frame.localprops = [frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorclient]
+      frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
+      frame.template = mainfo.tframecomp1
+      frame.outerframe = (
+        0
+        8
+        0
+        0
+      )
+      bounds_x = 224
+      bounds_y = 1
+      bounds_cx = 224
+      bounds_cy = 127
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = []
-      object tprogressbar10: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        bounds_x = 202
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar9: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
+      font.localprops = [flp_height]
+      object tchartright: tchart
+        color = -1879048187
+        frame.colordkwidth = 0
+        frame.colorhlwidth = 0
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
         frame.localprops1 = []
         taborder = 1
-        bounds_x = 180
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar8: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 2
-        bounds_x = 158
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar7: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 3
-        bounds_x = 136
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar6: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 4
-        bounds_x = 114
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_none
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar5: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 5
-        bounds_x = 92
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar4: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 6
-        bounds_x = 70
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar3: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 7
-        bounds_x = 48
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar2: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 8
-        bounds_x = 26
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar1: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 9
         bounds_x = 4
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
+        bounds_y = 27
+        bounds_cx = 223
+        bounds_cy = 101
+        traces.count = 1
+        traces.chartkind = tck_bar
+        traces.options = [cto_smooth]
+        traces.xserstart = 0
+        traces.xstart = 0
+        traces.ystart = 0
+        traces.xrange = 1
+        traces.xserrange = 1
+        traces.yrange = 1
+        traces.maxcount = 11
+        traces.image_widthmm = 0
+        traces.image_heighthmm = 0
+        traces.bar_width = 20
+        traces.legend_x = 0
+        traces.legend_y = 0
+        traces.items = <        
+          item
+            color = -2147483647
+            widthmm = 0.3
+            xserrange = 1
+            xserstart = 0
+            xrange = 1
+            xstart = 0
+            yrange = 1
+            ystart = 0
+            maxcount = 11
+            chartkind = tck_bar
+            options = [cto_smooth]
+            bar_width = 20
+          end>
+        colorchart = -1879048187
+        framechart.colordkwidth = 0
+        framechart.colorhlwidth = 0
+        framechart.localprops = [frl_colordkwidth, frl_colorhlwidth]
+        framechart.localprops1 = []
+        xstart = 0
+        ystart = 0
+        xrange = 1
+        yrange = 1
+        xdials.start = 0
+        xdials.range = 1
+        ydials.start = 0
+        ydials.range = 1
+      end
+      object labelright: tlabel
+        color = -2147483645
+        bounds_x = 4
+        bounds_y = 16
+        bounds_cx = 216
+        bounds_cy = 11
+        caption = '31   62   125  250  500  1k   2k   4k   8k   16k'
+        font.height = 10
         font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
+        font.localprops = [flp_height]
+        reffontheight = 11
       end
     end
-    object groupbox2: tgroupbox
-      frame.font.name = 'stf_default'
-      frame.font.localprops = []
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
+    object groupbox1: tgroupbox
+      color = -2147483645
+      frame.hiddenedges = [edg_bottom]
+      frame.caption = 'Player 1 Left'
+      frame.captiontextflags = [tf_xcentered, tf_bottom]
+      frame.captionpos = cp_top
+      frame.captionoffset = 0
+      frame.localprops = [frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorclient]
+      frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
+      frame.template = mainfo.tframecomp1
+      frame.outerframe = (
+        0
+        8
+        0
+        0
+      )
       taborder = 1
-      bounds_x = 225
-      bounds_y = 8
-      bounds_cx = 223
-      bounds_cy = 118
+      bounds_x = 1
+      bounds_y = 1
+      bounds_cx = 224
+      bounds_cy = 127
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = []
-      object tprogressbar11: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        bounds_x = 4
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar12: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
+      font.localprops = [flp_height]
+      object tchartleft: tchart
+        color = -1879048187
+        frame.colordkwidth = 0
+        frame.colorhlwidth = 0
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
         frame.localprops1 = []
         taborder = 1
-        bounds_x = 26
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
+        bounds_x = 4
+        bounds_y = 27
+        bounds_cx = 223
+        bounds_cy = 101
+        traces.count = 1
+        traces.chartkind = tck_bar
+        traces.options = [cto_smooth]
+        traces.xserstart = 0
+        traces.xstart = 0
+        traces.ystart = 0
+        traces.xrange = 1
+        traces.xserrange = 1
+        traces.yrange = 1
+        traces.maxcount = 11
+        traces.image_widthmm = 0
+        traces.image_heighthmm = 0
+        traces.bar_width = 20
+        traces.legend_x = 0
+        traces.legend_y = 0
+        traces.items = <        
+          item
+            color = -2147483647
+            widthmm = 0.3
+            xserrange = 1
+            xserstart = 0
+            xrange = 1
+            xstart = 0
+            yrange = 1
+            ystart = 0
+            maxcount = 11
+            chartkind = tck_bar
+            options = [cto_smooth]
+            bar_width = 20
+          end>
+        colorchart = -1879048187
+        framechart.localprops = []
+        framechart.localprops1 = []
+        xstart = 0
+        ystart = 0
+        xrange = 1
+        yrange = 1
+        xdials.start = 0
+        xdials.range = 1
+        ydials.start = 0
+        ydials.range = 1
       end
-      object tprogressbar13: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 2
-        bounds_x = 48
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          8568693
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
+      object labelleft: tlabel
+        color = -2147483645
+        bounds_x = 4
+        bounds_y = 16
+        bounds_cx = 216
+        bounds_cy = 11
+        caption = '31   62   125  250  500  1k   2k   4k   8k   16k'
+        font.height = 10
         font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar14: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 3
-        bounds_x = 70
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar15: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 4
-        bounds_x = 92
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar16: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 5
-        bounds_x = 114
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar17: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 6
-        bounds_x = 136
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar18: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 7
-        bounds_x = 158
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar19: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 8
-        bounds_x = 180
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
-      end
-      object tprogressbar20: tprogressbar
-        frame.font.height = 8
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_height]
-        frame.localprops = []
-        frame.localprops1 = []
-        taborder = 9
-        bounds_x = 202
-        bounds_y = 21
-        bounds_cx = 20
-        bounds_cy = 99
-        direction = gd_up
-        bar_face.fade_pos.count = 1
-        bar_face.fade_pos.items = (
-          0
-        )
-        bar_face.fade_color.count = 1
-        bar_face.fade_color.items = (
-          10414222
-        )
-        bar_face.fade_direction = gd_up
-        bar_face.localprops = [fal_fadirection]
-        bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        valuerange = 100
-        valuestart = 0
-        font.name = 'stf_default'
-        font.localprops = []
-        value = 0
-        format = ''
+        font.localprops = [flp_height]
+        reffontheight = 11
       end
     end
   end
@@ -795,7 +333,7 @@ object spectrum1fo: tspectrum1fo
       1
     )
     hint = 'Enable Spectrum rendering'
-    bounds_x = 144
+    bounds_x = 164
     bounds_y = 2
     bounds_cx = 49
     statfile = mainfo.tstatfile1

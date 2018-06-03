@@ -100,6 +100,7 @@ end;
 var
    Equalizer_Bands:array[1..10] of equalizer_band_type;
    thearray : array of cfloat;
+    arl2, arr2: flo64arty;
   songplayer2fo: tsongplayer2fo;
   thedialogform: tfiledialogfo;
   initplay: integer = 1;
@@ -269,16 +270,19 @@ end;
 
 procedure tsongplayer2fo.resetspectrum();
 var
-i : integer = 1;
+i : integer = 0;
 begin
 
-while i < 21 do
+while i < 10 do
   begin
-   with spectrum2fo do
-    TProgressBar(findcomponent('Tprogressbar'+inttostr(i))).value:=0;
-     inc(i);
+  arl2[i]:= 0;
+   arr2[i]:= 0;      inc(i);
+   end;
+    
+     spectrum2fo.tchartleft.traces[0].ydata:= arl2;  
+     spectrum2fo.tchartright.traces[0].ydata:= arr2;   
+  
   end;
-end; 
 
 
 procedure tsongplayer2fo.ClosePlayer1();
@@ -354,25 +358,26 @@ end;
 procedure tsongplayer2fo.ShowSpectrum();
 
 var i,x :integer;
-v : cfloat;
+
 Begin
   If uos_getstatus(theplayer2) > 0 then
   begin
     i:=1;
     thearray := uos_InputFiltersGetLevelArray(theplayer2,InputIndex2);
-    x := 0;
-   while x < length(thearray) -1 do
+     x := 0;
+     i:=0;
+    while x < length(thearray) -1 do
     begin
-      if i<=10 then
-      begin
-       // v:= (thearray[x] + thearray[x+1]) / 2; 
-        with spectrum2fo do TProgressBar(findcomponent('Tprogressbar'+inttostr(i))).value:=thearray[x];
-        with spectrum2fo do TProgressBar(findcomponent('Tprogressbar'+inttostr(i+10))).value:=thearray[x+1];       end;
-      x:=x+2;
+         arl2[i]:= thearray[x];
+         arr2[i]:= thearray[x+1];
+       x:=x+2;
       inc(i);
     end;
+    
+     spectrum2fo.tchartleft.traces[0].ydata:= arl2;  
+     spectrum2fo.tchartright.traces[0].ydata:= arr2;   
   end;
-end;
+  end;
 
 procedure tsongplayer2fo.ShowLevel();
 var
@@ -1250,6 +1255,9 @@ begin
    Equalizer_Bands[10].lo_freq:=12001;
    Equalizer_Bands[10].hi_freq:=20000;
    Equalizer_Bands[10].Text:='16K';
+   setlength(arl2,10); 
+   setlength(arr2,10); 
+
  end;
 
 procedure tsongplayer2fo.faceafterpaintbut(const Sender: tcustomface; const canvas: tcanvas; const arect: rectty);

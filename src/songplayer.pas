@@ -102,6 +102,7 @@ type
 var
    Equalizer_Bands:array[1..10] of equalizer_band_type;
     thearray : array of cfloat;
+     arl, arr: flo64arty;
   songplayerfo: tsongplayerfo;
   thedialogform: tfiledialogfo;
   initplay: integer = 1;
@@ -274,18 +275,20 @@ end;
 
 procedure tsongplayerfo.resetspectrum();
 var
-i : integer = 1;
+i : integer = 0;
 begin
 
-while i < 21 do
+while i < 10 do
   begin
-  with spectrum1fo do
-    TProgressBar(findcomponent('Tprogressbar'+inttostr(i))).value:=0;
-     inc(i);
+  arl[i]:= 0;
+   arr[i]:= 0;
+      inc(i);
+   end;
+    
+     spectrum1fo.tchartleft.traces[0].ydata:= arl;  
+     spectrum1fo.tchartright.traces[0].ydata:= arr;   
+  
   end;
-end; 
-
-
 
 procedure tsongplayerfo.ClosePlayer1();
 begin
@@ -359,28 +362,25 @@ end;
 procedure tsongplayerfo.ShowSpectrum(const Sender: TObject);
 
 var i,x :integer;
-v : cfloat;
+
 Begin
   If uos_getstatus(theplayer) > 0 then
   begin
-    i:=1;
     thearray := uos_InputFiltersGetLevelArray(theplayer,InputIndex1);
     x := 0;
+     i:=0;
     while x < length(thearray) -1 do
     begin
-      if i<=10 then
-      begin
-       // v:= (thearray[x] + thearray[x+1]) / 2; 
-        with spectrum1fo do TProgressBar(findcomponent('Tprogressbar'+inttostr(i))).value:=thearray[x];
-        with spectrum1fo do TProgressBar(findcomponent('Tprogressbar'+inttostr(i+10))).value:=thearray[x+1];
-       end;
-      x:=x+2;
+         arl[i]:= thearray[x];
+         arr[i]:= thearray[x+1];
+       x:=x+2;
       inc(i);
     end;
+    
+     spectrum1fo.tchartleft.traces[0].ydata:= arl;  
+     spectrum1fo.tchartright.traces[0].ydata:= arr;   
   end;
-end;
-
-
+  end;
 
 procedure tsongplayerfo.ShowLevel(const Sender: TObject);
 
@@ -1223,6 +1223,9 @@ begin
    Equalizer_Bands[10].lo_freq:=12001;
    Equalizer_Bands[10].hi_freq:=20000;
    Equalizer_Bands[10].Text:='16K';
+   setlength(arl,10); 
+   setlength(arr,10); 
+
  end;
 
 procedure tsongplayerfo.faceafterpaintbut(const Sender: tcustomface; const canvas: tcanvas; const arect: rectty);

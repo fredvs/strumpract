@@ -33,6 +33,7 @@ object filelistfo: tfilelistfo
   dragdock.caption = ' Files '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
   dragdock.onfloat = onfloat
+  dragdock.ondock = ondock
   statfile = mainfo.tstatfile1
   caption = 'Audio files'
   icon.options = [bmo_masked, bmo_graymask]

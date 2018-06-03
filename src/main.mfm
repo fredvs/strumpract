@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 341
-  bounds_y = 97
+  bounds_x = 350
+  bounds_y = 118
   bounds_cx = 458
   bounds_cy = 68
   bounds_cxmin = 458
@@ -1310,7 +1310,7 @@ object mainfo: tmainfo
             state = [as_localcaption, as_localonexecute]
             onexecute = showpan3
           end>
-        caption = '  &Dock-panels '
+        caption = ' &Panels '
         hint = ' Show/hide extra Dock Panels '
         state = [as_localcaption, as_localhint]
       end    
@@ -1344,7 +1344,7 @@ object mainfo: tmainfo
             state = [as_localcaption, as_localonexecute]
             onexecute = changecolors
           end>
-        caption = ' C&onfig '
+        caption = ' &Config '
         hint = ' Configuration of sound and colors '
         state = [as_localcaption, as_localhint]
       end    
