@@ -36,6 +36,7 @@ type
 var
   wavefo: twavefo;
   wavefo2: twavefo;
+  pageinc : integer = 1;
  
 implementation
 
@@ -237,8 +238,7 @@ end;
 
 procedure twavefo.pageup(const sender: TObject);
 begin
-container.frame.sbhorz.pageup ; 
-//container.frame.scrollpos_x := 300;
+ container.frame.sbhorz.pageup ; 
 end;
 
 procedure twavefo.pagedown(const sender: TObject);

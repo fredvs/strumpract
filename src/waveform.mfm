@@ -11,9 +11,9 @@ object wavefo: twavefo
   bounds_x = 550
   bounds_y = 282
   bounds_cx = 442
-  bounds_cy = 109
+  bounds_cy = 110
   bounds_cxmin = 442
-  bounds_cymin = 98
+  bounds_cymin = 110
   container.frame.optionsskin = [fso_flat]
   container.frame.localprops = [frl_optionsskin]
   container.frame.localprops1 = []
@@ -28,7 +28,7 @@ object wavefo: twavefo
     0
     16
     434
-    93
+    94
   )
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
@@ -123,7 +123,7 @@ object wavefo: twavefo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 432
-    bounds_cy = 76
+    bounds_cy = 80
     enabled = False
     value = 0
     scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -158,7 +158,7 @@ object wavefo: twavefo
     frame.localprops1 = []
     enabled = False
     bounds_x = 0
-    bounds_y = 77
+    bounds_y = 78
     bounds_cx = 432
     bounds_cy = 16
     anchors = [an_left, an_bottom]
@@ -255,12 +255,12 @@ object wavefo: twavefo
       end    
       item
         caption = ' Up '
-        state = [as_invisible, as_localinvisible, as_localcaption, as_localonexecute]
+        state = [as_localinvisible, as_localcaption, as_localonexecute]
         onexecute = pageup
       end    
       item
         caption = ' Down '
-        state = [as_invisible, as_localinvisible, as_localcaption, as_localonexecute]
+        state = [as_localinvisible, as_localcaption, as_localonexecute]
         onexecute = pagedown
       end>
     left = 300
