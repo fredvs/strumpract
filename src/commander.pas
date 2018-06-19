@@ -4,12 +4,12 @@ unit commander;
 interface
 
 uses
- msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
- msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
- msedock, msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
- msedataedits, msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
- mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
- msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets, mserichstring;
+  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
+  msedock, msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
+  msedataedits, msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
+  mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
+  msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets, mserichstring;
 
 type
   tcommanderfo = class(tdockform)
@@ -55,29 +55,29 @@ type
     vuright: tprogressbar;
     vuright2: tprogressbar;
     vuLeft2: tprogressbar;
-   tgroupall: tgroupbox;
-   genvolright: tslider;
-   genvolleft: tslider;
-   namegen: tstringdisp;
-   linkvol: tbooleanedit;
-   linkvolgen: tbooleanedit;
-   linkvol2: tbooleanedit;
-   vuin: tbooleanedit;
-   automix: tbooleanedit;
-   nameinput: tstringdisp;
-   butinput: tbooleanedit;
-   genleftvolvalue: tbutton;
-   genrightvolvalue: tbutton;
-   hintpanel: tgroupbox;
-   hintlabel: tlabel;
-   hintlabel2: tlabel;
-   volumeleft1val: tbutton;
-   volumeright1val: tbutton;
-   volumeright2val: tbutton;
-   volumeleft2val: tbutton;
-   tslider2val: tbutton;
-   tslider3val: tbutton;
-   vuLeft: tprogressbar;
+    tgroupall: tgroupbox;
+    genvolright: tslider;
+    genvolleft: tslider;
+    namegen: tstringdisp;
+    linkvol: tbooleanedit;
+    linkvolgen: tbooleanedit;
+    linkvol2: tbooleanedit;
+    vuin: tbooleanedit;
+    automix: tbooleanedit;
+    nameinput: tstringdisp;
+    butinput: tbooleanedit;
+    genleftvolvalue: TButton;
+    genrightvolvalue: TButton;
+    hintpanel: tgroupbox;
+    hintlabel: tlabel;
+    hintlabel2: tlabel;
+    volumeleft1val: TButton;
+    volumeright1val: TButton;
+    volumeright2val: TButton;
+    volumeleft2val: TButton;
+    tslider2val: TButton;
+    tslider3val: TButton;
+    vuLeft: tprogressbar;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -95,15 +95,13 @@ type
     procedure dopausedrums(const Sender: TObject);
     procedure doresumedrums(const Sender: TObject);
     procedure onchangevoldrums(const Sender: TObject);
-    procedure onchangegenvol(const sender: TObject);
-    procedure onresetgenvol(const sender: TObject);
-    procedure onsetvalvol(const sender: TObject; var avalue: realty;
-                   var accept: Boolean);
-    procedure ontextedit(const sender: tcustomedit; var atext: msestring);
-   procedure resetvolume(const sender: TObject);
-   procedure onsetvu(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-   
+    procedure onchangegenvol(const Sender: TObject);
+    procedure onresetgenvol(const Sender: TObject);
+    procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
+    procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
+    procedure resetvolume(const Sender: TObject);
+    procedure onsetvu(const Sender: TObject; var avalue: boolean; var accept: boolean);
+
   end;
 
 var
@@ -117,62 +115,61 @@ var
 implementation
 
 uses
-  songplayer, songplayer2, drums, filelistform, uos_flat, config, recorder, dockpanel1,
+  songplayer, drums, filelistform, uos_flat, config, recorder, dockpanel1,
   main, commander_mfm;
- 
-procedure tcommanderfo.onsetvu(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin 
- if avalue = false then
- begin 
-   with commanderfo do
-   begin
-    vuLeft.Visible := False;
-    vuRight.Visible := False;
-    vuLeft.value := 0;
-    vuRight.value := 0;
-    vuLeft2.Visible := False;
-    vuRight2.Visible := False;
-    vuLeft2.value := 0;
-    vuRight2.value := 0;
+
+procedure tcommanderfo.onsetvu(const Sender: TObject; var avalue: boolean; var accept: boolean);
+begin
+  if avalue = False then
+  begin
+    with commanderfo do
+    begin
+      vuLeft.Visible := False;
+      vuRight.Visible := False;
+      vuLeft.Value := 0;
+      vuRight.Value := 0;
+      vuLeft2.Visible := False;
+      vuRight2.Visible := False;
+      vuLeft2.Value := 0;
+      vuRight2.Value := 0;
+    end;
+    with songplayerfo do
+    begin
+      vuLeft.Visible := False;
+      vuRight.Visible := False;
+      vuLeft.Value := 0;
+      vuRight.Value := 0;
+    end;
+    with songplayer2fo do
+    begin
+      vuLeft.Visible := False;
+      vuRight.Visible := False;
+      vuLeft.Value := 0;
+      vuRight.Value := 0;
+    end;
+  end
+  else
+
+  begin
+    with commanderfo do
+    begin
+      vuLeft.Visible := True;
+      vuRight.Visible := True;
+      vuLeft2.Visible := True;
+      vuRight2.Visible := True;
+    end;
+    with songplayerfo do
+    begin
+      vuLeft.Visible := True;
+      vuRight.Visible := True;
+    end;
+    with songplayer2fo do
+    begin
+      vuLeft.Visible := True;
+      vuRight.Visible := True;
+    end;
   end;
-  with songplayerfo do
-   begin 
-    vuLeft.Visible := False;
-    vuRight.Visible := False;
-    vuLeft.value := 0;
-    vuRight.value := 0;
-  end;
-   with songplayer2fo do
-   begin 
-    vuLeft.Visible := False;
-    vuRight.Visible := False;
-    vuLeft.value := 0;
-    vuRight.value := 0;
-  end;
-  end else
-  
- begin 
-   with commanderfo do
-   begin 
-    vuLeft.Visible := true;
-    vuRight.Visible := true;
-    vuLeft2.Visible := true;
-    vuRight2.Visible := true;
-  end; 
-   with songplayerfo do
-   begin 
-    vuLeft.Visible := true;
-    vuRight.Visible := true;
-  end;
-   with songplayer2fo do
-   begin 
-    vuLeft.Visible := true;
-    vuRight.Visible := true;
-  end;
-  end;
-  
-  
+
 end;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -190,7 +187,7 @@ end;
 procedure tcommanderfo.ontimersent(const Sender: TObject);
 begin
   timersent.Enabled := False;
-  hintpanel.visible := false;
+  hintpanel.Visible := False;
 end;
 
 procedure tcommanderfo.onstartstop(const Sender: TObject);
@@ -245,7 +242,7 @@ begin
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
 
-    if (Sender <> nil) and (commanderfo.automix.Value = true) and (filelistfo.list_files.rowcount > 0) then
+    if (Sender <> nil) and (commanderfo.automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
     begin
       hasfocused2 := True;
       filelistfo.onsent(nil);
@@ -276,7 +273,7 @@ begin
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
 
-    if (Sender <> nil) and (commanderfo.automix.Value = true) and (filelistfo.list_files.rowcount > 0) then
+    if (Sender <> nil) and (commanderfo.automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
     begin
       hasfocused1 := True;
       filelistfo.onsent(nil);
@@ -407,10 +404,13 @@ begin
   end;
 
   mainfo.updatelayout();
-  
-   if dockpanel1fo.visible then dockpanel1fo.updatelayout();
-  if dockpanel2fo.visible then dockpanel2fo.updatelayout(); 
-  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
+
+  if dockpanel1fo.Visible then
+    dockpanel1fo.updatelayout();
+  if dockpanel2fo.Visible then
+    dockpanel2fo.updatelayout();
+  if dockpanel3fo.Visible then
+    dockpanel3fo.updatelayout();
 end;
 
 procedure tcommanderfo.onplay(const Sender: TObject);
@@ -452,16 +452,16 @@ begin
   begin
     if (tslider(Sender).tag = 0) or (tslider(Sender).tag = 1) then
     begin
-      if linkvol.value = true then
+      if linkvol.Value = True then
       begin
         if (tslider(Sender).tag = 0) then
           volumeright1.Value := volumeleft1.Value
         else
           volumeleft1.Value := volumeright1.Value;
-         
+
         songplayerfo.edvolleft.Value := trunc(volumeleft1.Value * 100);
         songplayerfo.edvolright.Value := trunc(volumeright1.Value * 100);
-         
+
       end
       else
       if (tslider(Sender).tag = 0) then
@@ -469,12 +469,12 @@ begin
       else
         songplayerfo.edvolright.Value := trunc(volumeright1.Value * 100);
       //songplayerfo.changevolume(sender)
-       volumeleft1val.caption := inttostr(trunc(songplayerfo.edvolleft.Value));
-        volumeright1val.caption :=  inttostr(trunc(songplayerfo.edvolright.Value));
+      volumeleft1val.Caption := IntToStr(trunc(songplayerfo.edvolleft.Value));
+      volumeright1val.Caption := IntToStr(trunc(songplayerfo.edvolright.Value));
     end
     else
     begin
-      if linkvol2.value = true then
+      if linkvol2.Value = True then
       begin
         if (tslider(Sender).tag = 2) then
           volumeright2.Value := volumeleft2.Value
@@ -488,8 +488,8 @@ begin
         songplayer2fo.edvolleft.Value := trunc(volumeleft2.Value * 100)
       else
         songplayer2fo.edvolright.Value := trunc(volumeright2.Value * 100);
-        volumeleft2val.caption := inttostr(trunc(songplayer2fo.edvolleft.Value));
-        volumeright2val.caption :=  inttostr(trunc(songplayer2fo.edvolright.Value));
+      volumeleft2val.Caption := IntToStr(trunc(songplayer2fo.edvolleft.Value));
+      volumeright2val.Caption := IntToStr(trunc(songplayer2fo.edvolright.Value));
     end;
   end;
 end;
@@ -505,19 +505,19 @@ begin
 
   if hasinit = 1 then
   begin
-    if butinput.value = true then
+    if butinput.Value = True then
     begin
-    
-   nameinput.face.template := mainfo.tfacered;
-  //  tslider3val.face.template :=  mainfo.tfacered;
-      
+
+      nameinput.face.template := mainfo.tfacered;
+      //  tslider3val.face.template :=  mainfo.tfacered;
+
       tslider3.Enabled := True;
       uos_Stop(theinput);
 
       if uos_CreatePlayer(theinput) then
       begin
         // writeln('ok create');
-      
+
         OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
         // writeln('OutputIndex4 = ' + inttostr(OutputIndex4));
@@ -549,16 +549,16 @@ begin
     else
     begin
       // writeln('uos_Stop = ' + inttostr(theinput));
-        nameinput.face.template := recorderfo.tfacereclight;
-    //    tslider3val.face.template :=  mainfo.tfacebutltgray;    
-     uos_Stop(theinput);
+      nameinput.face.template := recorderfo.tfacereclight;
+      //    tslider3val.face.template :=  mainfo.tfacebutltgray;
+      uos_Stop(theinput);
     end;
   end;
 end;
 
 procedure tcommanderfo.onchangevolinput(const Sender: TObject);
 begin
-tslider3val.caption := inttostr(trunc(tslider3.Value * 100));
+  tslider3val.Caption := IntToStr(trunc(tslider3.Value * 100));
   if hasinit = 1 then
   begin
     uos_InputSetDSPVolume(theinput, Inputindex4,
@@ -583,224 +583,236 @@ end;
 
 procedure tcommanderfo.onchangevoldrums(const Sender: TObject);
 begin
-tslider2val.caption := inttostr(trunc(tslider2.Value * 100));
+  tslider2val.Caption := IntToStr(trunc(tslider2.Value * 100));
 
   if hasinit = 1 then
-  
+
     drumsfo.volumedrums.Value := trunc(tslider2.Value * 100);
 end;
 
-procedure tcommanderfo.onchangegenvol(const sender: TObject);
+procedure tcommanderfo.onchangegenvol(const Sender: TObject);
 begin
 
-     if linkvolgen.value = true then
-      begin
-        if (tslider(Sender).tag = 0) then
-          genvolright.Value := genvolleft.Value
-        else
-          genvolleft.Value := genvolright.Value;
-        genleftvolvalue.caption := inttostr(round(genvolleft.Value * 150));
-        genrightvolvalue.caption := inttostr(round(genvolright.Value * 150));
-      end
-      else
-      
-       if (tslider(Sender).tag = 0) then
-       genleftvolvalue.caption := inttostr(round(genvolleft.Value * 150))
-      else
-       genrightvolvalue.caption := inttostr(round(genvolright.Value * 150));
-      //songplayerfo.changevolume(sender)
-    if hasinit = 1 then
+  if linkvolgen.Value = True then
   begin
-    songplayerfo.changevolume(sender);
-    songplayer2fo.changevolume(sender);
-    drumsfo.onchangevol(sender);
+    if (tslider(Sender).tag = 0) then
+      genvolright.Value := genvolleft.Value
+    else
+      genvolleft.Value := genvolright.Value;
+    genleftvolvalue.Caption := IntToStr(round(genvolleft.Value * 150));
+    genrightvolvalue.Caption := IntToStr(round(genvolright.Value * 150));
+  end
+  else
+
+  if (tslider(Sender).tag = 0) then
+    genleftvolvalue.Caption := IntToStr(round(genvolleft.Value * 150))
+  else
+    genrightvolvalue.Caption := IntToStr(round(genvolright.Value * 150));
+  //songplayerfo.changevolume(sender)
+  if hasinit = 1 then
+  begin
+    songplayerfo.changevolume(Sender);
+    songplayer2fo.changevolume(Sender);
+    drumsfo.onchangevol(Sender);
   end;
 end;
 
-procedure tcommanderfo.onresetgenvol(const sender: TObject);
+procedure tcommanderfo.onresetgenvol(const Sender: TObject);
 begin
-if linkvolgen.value = true then 
-begin
-genvolright.Value := 0.666666;  
-genvolleft.Value := 0.666666;  
-// genrightvolvalue.Value := 100;
-//genrightvolvalue.Value := 100;   
- end else
-begin
+  if linkvolgen.Value = True then
+  begin
+    genvolright.Value := 0.666666;
+    genvolleft.Value := 0.666666;
+    // genrightvolvalue.Value := 100;
+    //genrightvolvalue.Value := 100;
+  end
+  else
+  begin
 
- if (tbutton(Sender).tag = 0) then
- genvolleft.Value := 0.666666 else
-  genvolright.Value := 0.666666
-  
-  
- end; 
-end;
+    if (TButton(Sender).tag = 0) then
+      genvolleft.Value := 0.666666
+    else
+      genvolright.Value := 0.666666;
 
-procedure tcommanderfo.onsetvalvol(const sender: TObject; var avalue: realty;
-               var accept: Boolean);
-begin
-if avalue > 10000 then
-begin
-hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 10000.  Reset to 10000.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
- avalue := 10000;
-end; 
- 
-if avalue < 10 then begin
-hintlabel.caption := '" " is invalid value.  Reset to 10 (Min Value).';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
-avalue := 10;
-end; 
+  end;
 end;
 
-procedure tcommanderfo.ontextedit(const sender: tcustomedit;
-               var atext: msestring);
+procedure tcommanderfo.onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
 begin
-if (isnumber(atext)) or (atext = '') or (atext = '-') then else
-begin
-hintlabel.caption := '"' + atext + '" is invalid value.  Reset to 300.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
- atext := '300';
- end;
+  if avalue > 10000 then
+  begin
+    hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 10000.  Reset to 10000.';
+    if hintlabel.Width > hintlabel2.Width then
+      hintpanel.Width := hintlabel.Width + 10
+    else
+      hintpanel.Width := hintlabel2.Width + 10;
+    hintpanel.Visible := True;
+    timersent.Enabled := True;
+    avalue := 10000;
+  end;
+
+  if avalue < 10 then
+  begin
+    hintlabel.Caption := '" " is invalid value.  Reset to 10 (Min Value).';
+    if hintlabel.Width > hintlabel2.Width then
+      hintpanel.Width := hintlabel.Width + 10
+    else
+      hintpanel.Width := hintlabel2.Width + 10;
+    hintpanel.Visible := True;
+    timersent.Enabled := True;
+    avalue := 10;
+  end;
 end;
 
-procedure tcommanderfo.resetvolume(const sender: TObject);
+procedure tcommanderfo.ontextedit(const Sender: tcustomedit; var atext: msestring);
 begin
-if (tbutton(Sender).name = 'volumeleft1val') then
-begin
-if tbutton(Sender).tag = 0 then
-begin
-tbutton(Sender).tag := 1;
-if linkvol.value = true then 
-begin
-volumeleft1.Value := 0;  
-volumeright1.Value := 0;  
-end else
-volumeleft1.Value := 0;  
-end
-else 
-begin
-tbutton(Sender).tag := 0;
-if linkvol.value = true then 
-begin
-volumeleft1.Value := 1;  
-volumeright1.Value := 1;  
-end else
-volumeleft1.Value := 1;  
-end;
+  if (isnumber(atext)) or (atext = '') or (atext = '-') then
+  else
+  begin
+    hintlabel.Caption := '"' + atext + '" is invalid value.  Reset to 300.';
+    if hintlabel.Width > hintlabel2.Width then
+      hintpanel.Width := hintlabel.Width + 10
+    else
+      hintpanel.Width := hintlabel2.Width + 10;
+    hintpanel.Visible := True;
+    timersent.Enabled := True;
+    atext := '300';
+  end;
 end;
 
-if (tbutton(Sender).name = 'volumeright1val') then
+procedure tcommanderfo.resetvolume(const Sender: TObject);
 begin
-if tbutton(Sender).tag = 0 then
-begin
-tbutton(Sender).tag := 1;
-if linkvol.value = true then 
-begin
-volumeleft1.Value := 0;  
-volumeright1.Value := 0;  
-end else
-volumeright1.Value := 0;  
-end
-else 
-begin
-tbutton(Sender).tag := 0;
-if linkvol.value = true then 
-begin
-volumeleft1.Value := 1;  
-volumeright1.Value := 1;  
-end else
-volumeright1.Value := 1;  
-end;
-end;
+  if (TButton(Sender).Name = 'volumeleft1val') then
+  begin
+    if TButton(Sender).tag = 0 then
+    begin
+      TButton(Sender).tag := 1;
+      if linkvol.Value = True then
+      begin
+        volumeleft1.Value := 0;
+        volumeright1.Value := 0;
+      end
+      else
+        volumeleft1.Value := 0;
+    end
+    else
+    begin
+      TButton(Sender).tag := 0;
+      if linkvol.Value = True then
+      begin
+        volumeleft1.Value := 1;
+        volumeright1.Value := 1;
+      end
+      else
+        volumeleft1.Value := 1;
+    end;
+  end;
 
-if (tbutton(Sender).name = 'volumeleft2val') then
-begin
-if tbutton(Sender).tag = 0 then
-begin
-tbutton(Sender).tag := 1;
-if linkvol2.value = true then 
-begin
-volumeleft2.Value := 0;  
-volumeright2.Value := 0;  
-end else
-volumeleft2.Value := 0;  
-end
-else 
-begin
-tbutton(Sender).tag := 0;
-if linkvol2.value = true then 
-begin
-volumeleft2.Value := 1;  
-volumeright2.Value := 1;  
-end else
-volumeleft2.Value := 1;  
-end;
-end;
+  if (TButton(Sender).Name = 'volumeright1val') then
+  begin
+    if TButton(Sender).tag = 0 then
+    begin
+      TButton(Sender).tag := 1;
+      if linkvol.Value = True then
+      begin
+        volumeleft1.Value := 0;
+        volumeright1.Value := 0;
+      end
+      else
+        volumeright1.Value := 0;
+    end
+    else
+    begin
+      TButton(Sender).tag := 0;
+      if linkvol.Value = True then
+      begin
+        volumeleft1.Value := 1;
+        volumeright1.Value := 1;
+      end
+      else
+        volumeright1.Value := 1;
+    end;
+  end;
 
-if (tbutton(Sender).name = 'volumeright2val') then
-begin
-if tbutton(Sender).tag = 0 then
-begin
-tbutton(Sender).tag := 1;
-if linkvol2.value = true then 
-begin
-volumeleft2.Value := 0;  
-volumeright2.Value := 0;  
-end else
-volumeright2.Value := 0;  
-end
-else 
-begin
-tbutton(Sender).tag := 0;
-if linkvol2.value = true then 
-begin
-volumeleft2.Value := 1;  
-volumeright2.Value := 1;  
-end else
-volumeright2.Value := 1;  
-end;
-end;
+  if (TButton(Sender).Name = 'volumeleft2val') then
+  begin
+    if TButton(Sender).tag = 0 then
+    begin
+      TButton(Sender).tag := 1;
+      if linkvol2.Value = True then
+      begin
+        volumeleft2.Value := 0;
+        volumeright2.Value := 0;
+      end
+      else
+        volumeleft2.Value := 0;
+    end
+    else
+    begin
+      TButton(Sender).tag := 0;
+      if linkvol2.Value = True then
+      begin
+        volumeleft2.Value := 1;
+        volumeright2.Value := 1;
+      end
+      else
+        volumeleft2.Value := 1;
+    end;
+  end;
 
-if (tbutton(Sender).name = 'tslider2val') then
-begin
-if tbutton(Sender).tag = 0 then
-begin
-tbutton(Sender).tag := 1;
-tslider2.Value := 0;  
-end
-else 
-begin
-tbutton(Sender).tag := 0;
-tslider2.Value := 1;    
-end;
-end;
+  if (TButton(Sender).Name = 'volumeright2val') then
+  begin
+    if TButton(Sender).tag = 0 then
+    begin
+      TButton(Sender).tag := 1;
+      if linkvol2.Value = True then
+      begin
+        volumeleft2.Value := 0;
+        volumeright2.Value := 0;
+      end
+      else
+        volumeright2.Value := 0;
+    end
+    else
+    begin
+      TButton(Sender).tag := 0;
+      if linkvol2.Value = True then
+      begin
+        volumeleft2.Value := 1;
+        volumeright2.Value := 1;
+      end
+      else
+        volumeright2.Value := 1;
+    end;
+  end;
 
-if (tbutton(Sender).name = 'tslider3val') then
-begin
-if tbutton(Sender).tag = 0 then
-begin
-tbutton(Sender).tag := 1;
-tslider3.Value := 0;  
-end
-else 
-begin
-tbutton(Sender).tag := 0;
-tslider3.Value := 1;    
-end;
-end;
+  if (TButton(Sender).Name = 'tslider2val') then
+  begin
+    if TButton(Sender).tag = 0 then
+    begin
+      TButton(Sender).tag := 1;
+      tslider2.Value := 0;
+    end
+    else
+    begin
+      TButton(Sender).tag := 0;
+      tslider2.Value := 1;
+    end;
+  end;
+
+  if (TButton(Sender).Name = 'tslider3val') then
+  begin
+    if TButton(Sender).tag = 0 then
+    begin
+      TButton(Sender).tag := 1;
+      tslider3.Value := 0;
+    end
+    else
+    begin
+      TButton(Sender).tag := 0;
+      tslider3.Value := 1;
+    end;
+  end;
 
 end;
 

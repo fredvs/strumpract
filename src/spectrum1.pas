@@ -31,7 +31,7 @@ var
      
 implementation
 uses
-  main, dockpanel1, songplayer, songplayer2, spectrum1_mfm;
+  main, dockpanel1, songplayer, spectrum1_mfm;
  
 procedure tspectrum1fo.onvisiblechange(const sender: TObject);
 begin
@@ -60,8 +60,8 @@ end;
 
 procedure tspectrum1fo.onformcreated(const sender: TObject);
 begin
-    tchartleft.traces.count := 10;
-  tchartright.traces.count := 10;
+//    tchartleft.traces.count := 10;
+//  tchartright.traces.count := 10;
 
  tchartleft.traces[0].chartkind := tck_bar ;
    tchartright.traces[0].chartkind := tck_bar ;

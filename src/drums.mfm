@@ -20,13 +20,13 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 665
-  bounds_y = 215
-  bounds_cx = 458
+  bounds_x = 598
+  bounds_y = 198
+  bounds_cx = 442
   bounds_cy = 236
-  bounds_cxmin = 458
+  bounds_cxmin = 442
   bounds_cymin = 236
-  bounds_cxmax = 458
+  bounds_cxmax = 442
   bounds_cymax = 236
   container.frame.framei_left = 0
   container.frame.framei_top = 0
@@ -37,7 +37,7 @@ object drumsfo: tdrumsfo
   container.bounds = (
     0
     0
-    450
+    434
     236
   )
   dragdock.splitter_grip = stb_dens0
@@ -193,7 +193,7 @@ object drumsfo: tdrumsfo
     hint = ' Drums set '
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 450
+    bounds_cx = 434
     bounds_cy = 149
     font.color = -1610612734
     font.name = 'stf_default'
@@ -246,7 +246,7 @@ object drumsfo: tdrumsfo
       color = 14013909
       taborder = 4
       bounds_x = 3
-      bounds_y = 125
+      bounds_y = 126
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Bass'
@@ -258,7 +258,7 @@ object drumsfo: tdrumsfo
       color = 14013909
       taborder = 5
       bounds_x = 3
-      bounds_y = 101
+      bounds_y = 102
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Snare'
@@ -270,7 +270,7 @@ object drumsfo: tdrumsfo
       color = 14013909
       taborder = 6
       bounds_x = 3
-      bounds_y = 77
+      bounds_y = 78
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Open H'
@@ -282,7 +282,7 @@ object drumsfo: tdrumsfo
       color = 14013909
       taborder = 7
       bounds_x = 3
-      bounds_y = 53
+      bounds_y = 55
       bounds_cx = 55
       bounds_cy = 15
       caption = 'Close H'
@@ -469,7 +469,7 @@ object drumsfo: tdrumsfo
       color = 14013909
       taborder = 24
       bounds_x = 4
-      bounds_y = 10
+      bounds_y = 18
       bounds_cx = 51
       bounds_cy = 14
       caption = 'Patern 1'
@@ -631,6 +631,7 @@ object drumsfo: tdrumsfo
       taborder = 44
       bounds_x = 296
       bounds_y = 23
+      bounds_cx = 30
     end
     object tbooleanedit17: tbooleanedit
       frame.localprops = []
@@ -866,7 +867,7 @@ object drumsfo: tdrumsfo
       frame.frameimage_right = -8
       frame.frameimage_bottom = -8
       frame.colorclient = -2147483645
-      frame.localprops = []
+      frame.localprops = [frl_frameimagelist]
       frame.localprops1 = []
       taborder = 76
       bounds_x = 256
@@ -1003,7 +1004,7 @@ object drumsfo: tdrumsfo
     taborder = 1
     bounds_x = 0
     bounds_y = 149
-    bounds_cx = 450
+    bounds_cx = 434
     bounds_cy = 87
     font.color = 5000268
     font.name = 'stf_default'
@@ -1028,7 +1029,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 2
       hint = ' Drums Patern 1 '
-      bounds_x = 328
+      bounds_x = 317
       bounds_y = 17
       bounds_cx = 30
       bounds_cy = 16
@@ -1056,7 +1057,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 3
       hint = ' Drums Patern 2 '
-      bounds_x = 328
+      bounds_x = 317
       bounds_y = 33
       bounds_cx = 30
       bounds_cy = 16
@@ -1082,7 +1083,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 4
       hint = ' Drums Patern 3 '
-      bounds_x = 328
+      bounds_x = 317
       bounds_y = 49
       bounds_cx = 30
       bounds_cy = 16
@@ -1108,7 +1109,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 5
       hint = ' Drums Patern 4 '
-      bounds_x = 328
+      bounds_x = 317
       bounds_y = 65
       bounds_cx = 30
       bounds_cy = 16
@@ -1221,7 +1222,7 @@ object drumsfo: tdrumsfo
     object tlabel22: tlabel
       color = -2147483645
       taborder = 1
-      bounds_x = 323
+      bounds_x = 317
       bounds_y = 3
       bounds_cx = 32
       bounds_cy = 11
@@ -1266,7 +1267,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 10
       hint = ' No graphic animation. '
-      bounds_x = 370
+      bounds_x = 353
       bounds_y = 60
       bounds_cx = 65
       bounds_cy = 16
@@ -1292,7 +1293,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 11
       hint = ' No "and" between 2 numbers. '
-      bounds_x = 370
+      bounds_x = 353
       bounds_y = 27
       bounds_cx = 70
       bounds_cy = 16
@@ -1319,7 +1320,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 12
       hint = ' No counting voice '
-      bounds_x = 370
+      bounds_x = 353
       bounds_y = 11
       bounds_cx = 66
       bounds_cy = 16
@@ -1347,7 +1348,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 13
       hint = ' No drums sound.  '
-      bounds_x = 370
+      bounds_x = 353
       bounds_y = 43
       bounds_cx = 74
       bounds_cy = 16
@@ -1706,8 +1707,8 @@ object drumsfo: tdrumsfo
       face.template = mainfo.tfaceorange
       taborder = 23
       visible = False
-      bounds_x = 93
-      bounds_y = 23
+      bounds_x = -5
+      bounds_y = -29
       bounds_cx = 221
       bounds_cy = 36
       font.color = 5000268

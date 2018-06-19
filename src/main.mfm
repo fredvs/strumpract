@@ -13,13 +13,13 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 350
-  bounds_y = 118
-  bounds_cx = 458
-  bounds_cy = 68
-  bounds_cxmin = 458
+  bounds_x = 349
+  bounds_y = 91
+  bounds_cx = 454
+  bounds_cy = 139
+  bounds_cxmin = 442
   bounds_cymin = 40
-  bounds_cxmax = 472
+  bounds_cxmax = 454
   bounds_cymax = 700
   container.frame.framei_left = 0
   container.frame.framei_top = 0
@@ -46,8 +46,8 @@ object mainfo: tmainfo
   container.bounds = (
     0
     16
-    458
-    52
+    454
+    123
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -1153,8 +1153,8 @@ object mainfo: tmainfo
     frame.grip_face.template = tfacecomp4
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 458
-    bounds_cy = 49
+    bounds_cx = 454
+    bounds_cy = 120
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
@@ -1173,7 +1173,7 @@ object mainfo: tmainfo
     dragdock.onchilddock = updatedockev
     dragdock.onchildfloat = updatedockev
     statfile = tstatfile1
-    dockingareacaption = 'Drag the window into this Dock Area...'
+    dockingareacaption = 'Drag a form here using right-border grip.'
   end
   object typecolor: tintegeredit
     color = 1001216
@@ -1205,7 +1205,7 @@ object mainfo: tmainfo
         onexecute = onmaintab
       end    
       item
-        submenu.count = 3
+        submenu.count = 6
         submenu.items = <        
           item
             caption = ' &Dock all visible windows '
@@ -1224,13 +1224,26 @@ object mainfo: tmainfo
             hint = ' Make windows tabed in one form '
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = ontab
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            caption = ' &Jam Session '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = ondockjam
+          end        
+          item
+            caption = ' D&J Console '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = ondockplayers
           end>
         caption = ' &Layout '
         hint = ' Choose a layout '
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 11
+        submenu.count = 13
         submenu.items = <        
           item
             caption = ' Show All '
@@ -1286,6 +1299,16 @@ object mainfo: tmainfo
             caption = ' Show Spectrum 2 '
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowspectrum2
+          end        
+          item
+            caption = ' Show WaveForm 1 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onshowwave1
+          end        
+          item
+            caption = ' Show WaveForm 2 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onshowwave2
           end>
         caption = ' &Show '
         hint = ' Show/hide windows '

@@ -4,12 +4,12 @@ unit drums;
 interface
 
 uses
- mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
- msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
- msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
- msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
- mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
- mserichstring,msebitmap;
+  mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
+  msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
+  msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
+  mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
+  mserichstring, msebitmap;
 
 type
   talab = array[0..15] of tlabel;
@@ -142,15 +142,15 @@ type
     volumedrums: trealspinedit;
     ltempo: tstringdisp;
     tstringdisp2: tstringdisp;
-   hintpanel: tgroupbox;
-   hintlabel: tlabel;
-   hintlabel2: tlabel;
-   multbpm: tbutton;
-   divbpm: tbutton;
-   tgroupbox1: tgroupbox;
-   label2: tlabel;
-   label3: tlabel;
-   label4: tlabel;
+    hintpanel: tgroupbox;
+    hintlabel: tlabel;
+    hintlabel2: tlabel;
+    multbpm: TButton;
+    divbpm: TButton;
+    tgroupbox1: tgroupbox;
+    label2: tlabel;
+    label3: tlabel;
+    label4: tlabel;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -170,18 +170,17 @@ type
     procedure onsetnovoice(const Sender: TObject; var avalue: boolean; var accept: boolean);
     procedure ondestroi(const Sender: TObject);
     procedure onchangevol(const Sender: TObject);
-    procedure onchangenovoice(const sender: TObject);
-    procedure onsetvalvol(const sender: TObject; var avalue: realty;
-                   var accept: Boolean);
-    procedure ontextedit(const sender: tcustomedit; var atext: msestring);
-   procedure onmultdiv(const sender: TObject);
+    procedure onchangenovoice(const Sender: TObject);
+    procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
+    procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
+    procedure onmultdiv(const Sender: TObject);
   end;
 
 var
   drumsfo: tdrumsfo;
   posi: integer = 1;
   initdrum: integer = 1;
-  wascreated : boolean = false;
+  wascreated: boolean = False;
 
   adrums: array[0..8] of string;
   drum_beats: array[0..3] of string;
@@ -195,7 +194,7 @@ var
 implementation
 
 uses
-  main, uos_flat, commander, config, dockpanel1, 
+  main, uos_flat, commander, config, dockpanel1,
   drums_mfm;
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
@@ -204,7 +203,7 @@ begin
   edittempo.face.template := tfacecomp3;
   volumedrums.face.template := tfacecomp3;
   ltempo.face.template := tfacecomp3;
-   hintpanel.visible := false;
+  hintpanel.Visible := False;
 end;
 
 procedure tdrumsfo.ontimerpause(const Sender: TObject);
@@ -212,24 +211,25 @@ var
   i: integer;
 begin
   Timerpause.Enabled := False;
-  if wascreated then begin
-
-  label2.Caption := '0';
-  label3.visible := false;
-  label4.visible := false;
-    
-  for i := 0 to 8 do
+  if wascreated then
   begin
-    uos_play(i);
-    uos_stop(i);
-   end;
- 
-  novoice.value := true;
-  tag := 0;
-  loop_resume.enabled := false;
-  commanderfo.loop_resume.enabled := false;
-  wascreated := false;  
-   
+
+    label2.Caption := '0';
+    label3.Visible := False;
+    label4.Visible := False;
+
+    for i := 0 to 8 do
+    begin
+      uos_play(i);
+      uos_stop(i);
+    end;
+
+    novoice.Value := True;
+    tag := 0;
+    loop_resume.Enabled := False;
+    commanderfo.loop_resume.Enabled := False;
+    wascreated := False;
+
   end;
 end;
 
@@ -275,9 +275,9 @@ begin
 
       if ach[posi - 1].Value = True then
       begin
-       uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
+        uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
           , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-            
+
         uos_PlaynofreePaused(0);
       end;
 
@@ -285,23 +285,23 @@ begin
       begin
         uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
           , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-  
+
         uos_PlaynofreePaused(1);
       end;
 
       if asd[posi - 1].Value then
       begin
-         uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
+        uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
           , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-  
+
         uos_PlaynofreePaused(2);
       end;
 
       if abd[posi - 1].Value then
       begin
-         uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
+        uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
           , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-  
+
         uos_PlaynofreePaused(3);
       end;
 
@@ -576,9 +576,10 @@ end;
 
 procedure tdrumsfo.dostart(const Sender: TObject);
 begin
- if wascreated = false then createdrumsplayers;
+  if wascreated = False then
+    createdrumsplayers;
 
-  wascreated := true;
+  wascreated := True;
   stopit := False;
   label2.Enabled := True;
   Timerpause.Enabled := False;
@@ -619,22 +620,20 @@ end;
 
 procedure tdrumsfo.onchangetempo(const Sender: TObject);
 begin
-if round(60000/4/edittempo.Value * 1000) > 0 then
+  if round(60000 / 4 / edittempo.Value * 1000) > 0 then
 
-    ltempo.Value := 'BPM ' + inttostr(round(edittempo.Value)) +   
-      ' - ' + inttostr(round(600000/4/edittempo.Value)) + ' ds'
-      else 
-      begin
-      edittempo.Value := 1;
-       ltempo.Value := 'BPM ' + inttostr(round(edittempo.Value)) +   
-      ' - ' + inttostr(round(600000/4/edittempo.Value)) + ' ds'
-      end;
-    
+    ltempo.Value := 'BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(600000 / 4 / edittempo.Value)) + ' ds'
+  else
+  begin
+    edittempo.Value := 1;
+    ltempo.Value := 'BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(600000 / 4 / edittempo.Value)) + ' ds';
+  end;
+
   if hasinit = 1 then
   begin
     //TimerTick.Interval := trunc(edittempo.Value * 1000);
-    TimerTick.Interval :=    round(60000/4/edittempo.Value * 1000);
-    
+    TimerTick.Interval := round(60000 / 4 / edittempo.Value * 1000);
+
     edittempo.face.template := mainfo.tfaceorange;
     ltempo.face.template := mainfo.tfaceorange;
     timersent.Enabled := False;
@@ -647,97 +646,98 @@ procedure tdrumsfo.dopatern(const Sender: TObject);
 var
   ax: integer;
 begin
-if tbooleaneditradio(Sender).value = true then
-begin
-case tbooleaneditradio(Sender).tag of
-1: begin
-    labpat.Caption := 'Lesson 1';
-    edittempo.Value := 100;
-    onchangetempo(Sender);
-    drum_beats[0] := 'x000x000x000x000'; // closed hat
-    drum_beats[1] := '0000000000000000'; // opened hat
-    drum_beats[2] := '0000000000000000'; // snare
-    drum_beats[3] := '0000000000000000'; // kick
-    novoice.value := false;
-  end;
-  2:
+  if tbooleaneditradio(Sender).Value = True then
   begin
-    labpat.Caption := 'Lesson 2';
-    edittempo.Value := 100;
-    onchangetempo(Sender);
-    drum_beats[0] := 'x000x000x000x000'; // closed hat
-    drum_beats[1] := '0000000000000000'; // opened hat
-    drum_beats[2] := '0000000000000000'; // snare
-    drum_beats[3] := 'x000000000000000'; // kick
-    novoice.value := false;
-  end;
-  3:
-  begin
-    labpat.Caption := 'Lesson 3';
-    edittempo.Value := 100;
-    onchangetempo(Sender);
-    drum_beats[0] := 'x000x000x000x000'; // closed hat
-    drum_beats[1] := '0000000000000000'; // opened hat
-    drum_beats[2] := '00000000x0000000'; // snare
-    drum_beats[3] := 'x000000000000000'; // kick
-    novoice.value := false;
-  end;
-  4:
-  begin
-    labpat.Caption := 'Lesson 4';
-    edittempo.Value := 200;
-    onchangetempo(Sender);
-    drum_beats[0] := 'x000x000x000x000'; // closed hat
-    drum_beats[1] := '0000000000000000'; // opened hat
-    drum_beats[2] := '00000000x0000000'; // snare
-    drum_beats[3] := 'x000x00000000000'; // kick
-    novoice.value := false;
-  end;
-  5:
-  begin
-    labpat.Caption := 'Patern 1';
-    //edittempo.Value := 150;
-    ///onchangetempo(Sender);
-    drum_beats[0] := 'x0x0x0x0x0x0x000'; // closed hat
-    drum_beats[1] := '00000000000000x0'; // opened hat
-    drum_beats[2] := '0000x0000000x000'; // snare
-    drum_beats[3] := 'x0000000x0x00000'; // kick
-    novoice.value := true;
-  end;
-  6:
-  begin
-    labpat.Caption := 'Patern 2';
-    //edittempo.Value := 150;
-    //onchangetempo(Sender);
-    drum_beats[0] := 'x0x0x000x0x0x0x0'; // closed hat
-    drum_beats[1] := '000000x000000000'; // opened hat
-    drum_beats[2] := '00x0x0000000x000'; // snare
-    drum_beats[3] := 'x0000000x0x00000'; // kick
-    novoice.value := true;
-  end;
-  7:
-  begin
-    labpat.Caption := 'Patern 3';
-    //edittempo.Value := 150;
-    //onchangetempo(Sender);
-    drum_beats[0] := 'x000x0x000x0x000'; // closed hat
-    drum_beats[1] := '00x00000x00000x0'; // opened hat
-    drum_beats[2] := '0000x0000000x000'; // snare
-    drum_beats[3] := 'x00000x0x0x000x0'; // kick
-    novoice.value := true;
-  end;
-  8:
-  begin
-    labpat.Caption := 'Patern 4';
-    //edittempo.Value := 150;
-    //onchangetempo(Sender);
-    drum_beats[0] := 'x000x000x000x000'; // closed hat
-    drum_beats[1] := '00x000x000x000x0'; // opened hat
-    drum_beats[2] := '0000x0000000x000'; // snare
-    drum_beats[3] := 'x0x00000x00000x0'; // kick
-    novoice.value := true;
-  end;
-  end;
+    case tbooleaneditradio(Sender).tag of
+      1:
+      begin
+        labpat.Caption := 'Lesson 1';
+        edittempo.Value := 100;
+        onchangetempo(Sender);
+        drum_beats[0] := 'x000x000x000x000'; // closed hat
+        drum_beats[1] := '0000000000000000'; // opened hat
+        drum_beats[2] := '0000000000000000'; // snare
+        drum_beats[3] := '0000000000000000'; // kick
+        novoice.Value := False;
+      end;
+      2:
+      begin
+        labpat.Caption := 'Lesson 2';
+        edittempo.Value := 100;
+        onchangetempo(Sender);
+        drum_beats[0] := 'x000x000x000x000'; // closed hat
+        drum_beats[1] := '0000000000000000'; // opened hat
+        drum_beats[2] := '0000000000000000'; // snare
+        drum_beats[3] := 'x000000000000000'; // kick
+        novoice.Value := False;
+      end;
+      3:
+      begin
+        labpat.Caption := 'Lesson 3';
+        edittempo.Value := 100;
+        onchangetempo(Sender);
+        drum_beats[0] := 'x000x000x000x000'; // closed hat
+        drum_beats[1] := '0000000000000000'; // opened hat
+        drum_beats[2] := '00000000x0000000'; // snare
+        drum_beats[3] := 'x000000000000000'; // kick
+        novoice.Value := False;
+      end;
+      4:
+      begin
+        labpat.Caption := 'Lesson 4';
+        edittempo.Value := 200;
+        onchangetempo(Sender);
+        drum_beats[0] := 'x000x000x000x000'; // closed hat
+        drum_beats[1] := '0000000000000000'; // opened hat
+        drum_beats[2] := '00000000x0000000'; // snare
+        drum_beats[3] := 'x000x00000000000'; // kick
+        novoice.Value := False;
+      end;
+      5:
+      begin
+        labpat.Caption := 'Patern 1';
+        //edittempo.Value := 150;
+        ///onchangetempo(Sender);
+        drum_beats[0] := 'x0x0x0x0x0x0x000'; // closed hat
+        drum_beats[1] := '00000000000000x0'; // opened hat
+        drum_beats[2] := '0000x0000000x000'; // snare
+        drum_beats[3] := 'x0000000x0x00000'; // kick
+        novoice.Value := True;
+      end;
+      6:
+      begin
+        labpat.Caption := 'Patern 2';
+        //edittempo.Value := 150;
+        //onchangetempo(Sender);
+        drum_beats[0] := 'x0x0x000x0x0x0x0'; // closed hat
+        drum_beats[1] := '000000x000000000'; // opened hat
+        drum_beats[2] := '00x0x0000000x000'; // snare
+        drum_beats[3] := 'x0000000x0x00000'; // kick
+        novoice.Value := True;
+      end;
+      7:
+      begin
+        labpat.Caption := 'Patern 3';
+        //edittempo.Value := 150;
+        //onchangetempo(Sender);
+        drum_beats[0] := 'x000x0x000x0x000'; // closed hat
+        drum_beats[1] := '00x00000x00000x0'; // opened hat
+        drum_beats[2] := '0000x0000000x000'; // snare
+        drum_beats[3] := 'x00000x0x0x000x0'; // kick
+        novoice.Value := True;
+      end;
+      8:
+      begin
+        labpat.Caption := 'Patern 4';
+        //edittempo.Value := 150;
+        //onchangetempo(Sender);
+        drum_beats[0] := 'x000x000x000x000'; // closed hat
+        drum_beats[1] := '00x000x000x000x0'; // opened hat
+        drum_beats[2] := '0000x0000000x000'; // snare
+        drum_beats[3] := 'x0x00000x00000x0'; // kick
+        novoice.Value := True;
+      end;
+    end;
   end;
 
   for ax := 0 to 15 do
@@ -773,17 +773,20 @@ begin
   end
   else
   begin
-   // dostop(Sender);
+    // dostop(Sender);
     mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Show Drums ';
   end;
 
   mainfo.updatelayout();
-  
-  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
-  
-  if dockpanel2fo.visible then dockpanel2fo.updatelayout();
-  
-  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
+
+  if dockpanel1fo.Visible then
+    dockpanel1fo.updatelayout();
+
+  if dockpanel2fo.Visible then
+    dockpanel2fo.updatelayout();
+
+  if dockpanel3fo.Visible then
+    dockpanel3fo.updatelayout();
 end;
 
 procedure tdrumsfo.createdrumsplayers;
@@ -834,9 +837,8 @@ begin
           ////////// Inputindex1 : Index of a existing input
           ////////// VolLeft : Left volume
           ////////// VolRight : Right volume
-          uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) *
-           commanderfo.genvolleft.Value * 1.5
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+          uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) * commanderfo.genvolleft.Value * 1.5
+            , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
         end;
   end;
@@ -888,7 +890,7 @@ begin
             if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
               // this for a dummy endless input, must be last input
 
-               if uos_AddIntoDevOut(i, -1, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then;
+              if uos_AddIntoDevOut(i, -1, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then;
 
     end;
   tag := 1;
@@ -998,13 +1000,16 @@ begin
 
   spcx := 24;
   spcy := 24;
-  posx := -26;
+  // posx := -26;
+  posx := -33;
+
   posy := 6;
 
   alab2[0] := tlabel1;
   alab2[1] := tlabel2;
   alab2[2] := tlabel3;
   alab2[3] := tlabel4;
+
   for i1 := 0 to high(alab2) do
   begin
     alab2[i1].createfont();
@@ -1151,7 +1156,7 @@ begin
       Height := 16;
       frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
       hint := ' Add/Remove a Closed Hat at position ' + IntToStr(ax + 1) + ' ';
-      end;
+    end;
     if (Copy(drum_beats[0], ax + 1, 1) = 'x') then
       ach[ax].Value := True
     else
@@ -1348,7 +1353,7 @@ procedure tdrumsfo.onsetnovoice(const Sender: TObject; var avalue: boolean; var 
 
 begin
 
-   // else stopvoiceplayers;
+  // else stopvoiceplayers;
 
 end;
 
@@ -1369,89 +1374,95 @@ begin
   end;
 end;
 
-procedure tdrumsfo.onchangenovoice(const sender: TObject);
+procedure tdrumsfo.onchangenovoice(const Sender: TObject);
 begin
- if (hasinit = 1) and (tag = 0) and (novoice.value = false) then
+  if (hasinit = 1) and (tag = 0) and (novoice.Value = False) then
     createvoiceplayers;
 end;
 
-procedure tdrumsfo.onsetvalvol(const sender: TObject; var avalue: realty;
-               var accept: Boolean);
+procedure tdrumsfo.onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
 begin
- if (trealspinedit(Sender).tag = 1) then
- begin
-if avalue > 200 then
-begin
-hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 200.  Reset to 200.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
- avalue := 200;
-end; 
- 
-if avalue < 1 then begin
-hintlabel.caption := '" " is invalid value.  Reset to 0.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
-avalue := 0;
-end; 
+  if (trealspinedit(Sender).tag = 1) then
+  begin
+    if avalue > 200 then
+    begin
+      hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 200.  Reset to 200.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      timersent.Enabled := True;
+      avalue := 200;
+    end;
+
+    if avalue < 1 then
+    begin
+      hintlabel.Caption := '" " is invalid value.  Reset to 0.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      timersent.Enabled := True;
+      avalue := 0;
+    end;
+  end;
+
+  if (trealspinedit(Sender).tag = 0) then
+  begin
+    if avalue > 500 then
+    begin
+      hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 500.  Reset to 500.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      hintpanel.Visible := True;
+      timersent.Enabled := True;
+      avalue := 500;
+    end;
+
+    if avalue < 1 then
+    begin
+      hintlabel.Caption := 'Value entered is < Minimum Value (1).  Reset to 1.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      hintpanel.Visible := True;
+      timersent.Enabled := True;
+      avalue := 1;
+    end;
+  end;
 end;
 
- if (trealspinedit(Sender).tag = 0) then
- begin
-if avalue > 500 then
+procedure tdrumsfo.ontextedit(const Sender: tcustomedit; var atext: msestring);
 begin
-hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 500.  Reset to 500.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-hintpanel.visible := true;
-timersent.Enabled := true;
- avalue := 500;
-end; 
- 
-if avalue < 1 then begin
-hintlabel.caption := 'Value entered is < Minimum Value (1).  Reset to 1.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-hintpanel.visible := true;
-timersent.Enabled := true;
-avalue := 1;
-end; 
-end;
+  if (isnumber(atext)) or (atext = '') or (atext = '-') then
+  else
+  begin
+    hintlabel.Caption := '"' + atext + '" is invalid value.  Reset to 100.';
+    if hintlabel.Width > hintlabel2.Width then
+      hintpanel.Width := hintlabel.Width + 10
+    else
+      hintpanel.Width := hintlabel2.Width + 10;
+    hintpanel.Visible := True;
+    hintpanel.Visible := True;
+    timersent.Enabled := True;
+    atext := '100';
+  end;
 end;
 
-procedure tdrumsfo.ontextedit(const sender: tcustomedit;
-               var atext: msestring);
+procedure tdrumsfo.onmultdiv(const Sender: TObject);
 begin
-if (isnumber(atext)) or (atext = '') or (atext = '-') then else
-begin
-hintlabel.caption := '"' + atext + '" is invalid value.  Reset to 100.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-hintpanel.visible := true;
-timersent.Enabled := true;
- atext := '100';
- end;
-end;
+  if (TButton(Sender).Name = 'multbpm') then
+    edittempo.Value := round(edittempo.Value * 2);
 
-procedure tdrumsfo.onmultdiv(const sender: TObject);
-begin
-if (tbutton(Sender).name = 'multbpm') then
-edittempo.value := round(edittempo.value * 2);
-
-if (tbutton(Sender).name = 'divbpm') then
-edittempo.value := round(edittempo.value / 2);
+  if (TButton(Sender).Name = 'divbpm') then
+    edittempo.Value := round(edittempo.Value / 2);
 
 end;
 

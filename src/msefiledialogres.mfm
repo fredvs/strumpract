@@ -1,8 +1,8 @@
 object filedialogres: tfiledialogres
   bounds_cx = 235
   bounds_cy = 117
-  left = 136
-  top = 575
+  left = 423
+  top = 381
   moduleclassname = 'tmsedatamodule'
   object images: timagelist
     count = 16

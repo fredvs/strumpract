@@ -9,13 +9,13 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = tfacecomp2
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
-  bounds_x = 348
-  bounds_y = 428
-  bounds_cx = 458
+  bounds_x = 447
+  bounds_y = 365
+  bounds_cx = 442
   bounds_cy = 128
-  bounds_cxmin = 458
+  bounds_cxmin = 442
   bounds_cymin = 128
-  bounds_cxmax = 458
+  bounds_cxmax = 442
   bounds_cymax = 128
   container.frame.framei_left = 0
   container.frame.framei_top = 0
@@ -26,7 +26,7 @@ object recorderfo: trecorderfo
   container.bounds = (
     0
     0
-    450
+    434
     128
   )
   dragdock.splitter_grip = stb_dens0
@@ -144,7 +144,7 @@ object recorderfo: trecorderfo
     face.template = tfacerecorder
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 450
+    bounds_cx = 434
     bounds_cy = 128
     font.name = 'stf_default'
     font.localprops = []
@@ -355,7 +355,7 @@ object recorderfo: trecorderfo
       face.template = tfacerecrev
       taborder = 8
       hint = ' Change tempo of song '
-      bounds_x = 319
+      bounds_x = 316
       bounds_y = 61
       bounds_cx = 62
       bounds_cy = 27
@@ -384,7 +384,7 @@ object recorderfo: trecorderfo
       face.template = tfacerecorder
       taborder = 9
       hint = ' Reset to tempo original '
-      bounds_x = 386
+      bounds_x = 384
       bounds_y = 65
       bounds_cx = 46
       bounds_cy = 21
@@ -476,7 +476,7 @@ object recorderfo: trecorderfo
       hint = ' Position of sound '
       bounds_x = 13
       bounds_y = 100
-      bounds_cx = 336
+      bounds_cx = 324
       bounds_cy = 22
       enabled = False
       value = 0
@@ -620,9 +620,9 @@ object recorderfo: trecorderfo
       face.template = tfacereclight
       taborder = 19
       hint = ' Choose a filename for saving  '
-      bounds_x = 81
+      bounds_x = 82
       bounds_y = 3
-      bounds_cx = 355
+      bounds_cx = 346
       bounds_cy = 21
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -700,7 +700,7 @@ object recorderfo: trecorderfo
       face.template = tfacereclight
       taborder = 21
       hint = ' Lenght of sound '
-      bounds_x = 353
+      bounds_x = 340
       bounds_y = 109
       bounds_cx = 90
       bounds_cy = 14
@@ -719,7 +719,7 @@ object recorderfo: trecorderfo
       face.template = tfacereclight
       taborder = 22
       hint = ' Position of sound '
-      bounds_x = 353
+      bounds_x = 340
       bounds_y = 94
       bounds_cx = 90
       bounds_cy = 14
@@ -736,9 +736,9 @@ object recorderfo: trecorderfo
       face.template = tfacerecrev
       taborder = 23
       hint = ' Input recorder '
-      bounds_x = 379
+      bounds_x = 370
       bounds_y = 33
-      bounds_cx = 58
+      bounds_cx = 56
       bounds_cy = 13
       font.color = 3881787
       font.height = 10
@@ -812,9 +812,9 @@ object recorderfo: trecorderfo
       face.template = mainfo.tfacered
       taborder = 26
       visible = False
-      bounds_x = 12
-      bounds_y = 98
-      bounds_cx = 337
+      bounds_x = 6
+      bounds_y = 99
+      bounds_cx = 330
       bounds_cy = 24
       font.name = 'stf_default'
       font.localprops = []
@@ -828,8 +828,8 @@ object recorderfo: trecorderfo
       face.template = mainfo.tfaceorange
       taborder = 27
       visible = False
-      bounds_x = 176
-      bounds_y = 58
+      bounds_x = 124
+      bounds_y = 55
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -886,8 +886,7 @@ object recorderfo: trecorderfo
       16770019
     )
     template.fade_direction = gd_down
-    left = 205
-    top = 20
+    left = 198
   end
   object tfacerecorder: tfacecomp
     template.fade_pos.count = 2

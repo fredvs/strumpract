@@ -1,0 +1,268 @@
+object wavefo: twavefo
+  frame.localprops = []
+  frame.localprops1 = []
+  frame.grip_size = 8
+  frame.grip_grip = stb_dens0
+  frame.grip_face.localprops = []
+  frame.grip_face.template = filelistfo.tfacecomp1
+  frame.grip_faceactive.localprops = []
+  frame.grip_faceactive.template = mainfo.tfacecomp4
+  frame.grip_hint = ' Use that grip to drag the form '
+  bounds_x = 512
+  bounds_y = 286
+  bounds_cx = 442
+  bounds_cy = 109
+  bounds_cxmin = 442
+  bounds_cymin = 98
+  container.frame.optionsskin = [fso_flat]
+  container.frame.localprops = [frl_optionsskin]
+  container.frame.localprops1 = []
+  container.frame.sbhorz.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto]
+  container.frame.sbhorz.width = 10
+  container.frame.sbhorz.face.localprops = []
+  container.frame.sbhorz.face.template = mainfo.tfacecomp4
+  container.frame.sbhorz.facebutton.localprops = []
+  container.frame.sbhorz.facebutton.template = mainfo.tfacebutgray
+  container.frame.sbvert.width = 1
+  container.bounds = (
+    0
+    16
+    434
+    93
+  )
+  dragdock.facetab = mainfo.tfacebutgray
+  dragdock.faceactivetab = mainfo.tfaceplayerlight
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  dragdock.onfloat = onfloat
+  dragdock.ondock = ondock
+  mainmenu = tmainmenu1
+  statfile = mainfo.tstatfile1
+  icon.origformat = 'png'
+  icon.image = {
+    0000000000000000200000002000000024080000000000000000000000000000
+    0000000000000000000000000000000000000000C0FCF61CBFFDF701C3EFEC01
+    C4E7E601BFFFF801BEFAF41BBEFBF501C0F1ED01C8D2D601CCC3CB01C5DEDF01
+    BDF9F318BEF7F101C2E6E501BDFAF401BCFCF501C5DCDE01D892A701D698AB01
+    CFB4C001BCF7F103BCF8F201BEF2ED01C3DDDE01BBFAF301BCF7F103BBFBF401
+    C6D1D601C4DCDD01BBFAF301BCF7F103BCF9F301BCF8F101BCF7F103BFE9E701
+    BEEEEB01BCF6F001CCBEC701BBFCF501BBFAF301C4DBDD01D892A701D699AC01
+    D698AB01BBF6F004BDEDEA01C7CED301BAF9F201BBF7F001BAF8F101BBF5EF01
+    B9FCF501CBBEC701C8C8CE01BBF7F001BAF8F101BFE8E601BBF5EF01C3D9DB01
+    BCF3ED01BBF6F002BBF5EF01C9C5CC01D893A701D3A2B201D3A4B401B9FCF401
+    BAF8F201C3DADB01D892A701D699AC02BAF4EE03BAF3ED01BCECE801C6CDD201
+    B8FAF201C2DADB01CABFC801B8F9F201C0DFDE01D2A6B501CFAFBC01BEE8E501
+    BFE4E301C8C7CE01BBF2EC01D49EB001BDEBE701BAF4EE02BAF3EE01D795A901
+    D699AC01D698AB01D2A6B501B9F7F002C2D9DA01D892A701D699AC02B9F3ED02
+    BAF1EB01C6C8CE01C0DCDD01C8C4CB01C1D9DA01C2D8D901D3A1B201BEE2E001
+    C6CBD001D892A701CEB1BD01BCE9E601C2D6D701CEB1BD01BBEDE901D3A2B201
+    C2D7D901B9F2ED01B9F4EE01B9F3ED01D797AA01D699AC02D49FB001C3D2D501
+    B7F9F101C2D8DA01D892A701D699AC02B7F1EB01B8F0EA01C6C9CE01CBB9C301
+    C8C3CB01CEB1BD01CFAEBB01C7C5CC01D893A801C6C8CE01C5CBD001D893A801
+    D59DAF01BFDDDD01C1D7D901D59BAD01BBE7E401D2A3B301CABEC701BCE4E201
+    C5CCD101B7F1EB01D797AA01D699AC02D49FB001C2D2D601B5F8F001C1D7D801
+    D893A701D699AC02B7F0EA01B7EEE801C8BFC701D59BAD01C7C1C801D894A801
+    D2A4B401CCB5C001D992A701C6C5CB01C3CCD001D894A802C4CBD001C3CDD101
+    D59AAD01BAE5E201D2A3B301CABAC301C6C4CA02B7EFE901D797AA01D699AC02
+    D59AAD01CFABB901C2D2D501BFD9DA01D893A801D699AC02B5EEE901B6ECE801
+    C8BFC601D699AC01D0A9B801D698AB01D699AC01D698AB01D698AC01D3A1B201
+    D2A2B301D698AB01D796AA01CAB9C201D1A6B501D991A701B9E5E201D1A5B501
+    D796AA01D0A9B801C6C3C901B7E9E501D797AB01D699AC03D797AB01CDB0BD01
+    BCDBDB01D893A801D699AC02B4EDE702CFACBA01D798AB01D699AC09D59CAE01
+    D69AAD01D894A901BED4D601D2A3B301D698AC01D699AC01D59CAE01D69AAD01
+    D699AC04D698AB01D1A6B501C8BCC401D796AA01D699AC02B3EBE501C6BDC601
+    D796AA01D699AC0DD49EAF01D69AAD01D699AC08D698AC01D3A1B201CCB0BC01
+    D797AB01D699AC02B2E9E401C5BFC601D797AB01D699AC19D798AB01D699AC03
+    B1E7E301C4BEC501D797AB01D699AC1DAFE7E101C4BDC501D797AB01D699AC1D
+    AEE5DF01BCCCCE01C8B6BE01C7B7BF1DAEE3DE01C4A8C201D871A901D774AA1D
+    ACE1DD01C2AAC201D777AB01D679AC1DABE0DB01C3A9C201D777AB01D679AC1D
+    AADFD901C2A8C101D777AB01D679AC18D678AC01D778AB01D679AC03A9DDD801
+    BEAFC401D874AA01D679AC0DD777AB01D679AC09D678AC01D283B001CA94B801
+    D776AB01D679AC02A8DCD701A8DBD701C1A7C001D776AB01D679AC09D57CAD01
+    D57AAD01D875AA01BFABC201D281B001D679AC02D47DAE02D679AC04D778AB01
+    CF88B301C3A3BE01D875AA01D679AC02A6DBD501A7D9D401C1A4BE01D679AC01
+    CD8CB401D778AB01D679AC02D777AB01CC8EB501CA91B701D777AB01D876AB01
+    C59DBB01CF87B201DA70A801ABD0D101CF87B201D776AB01CD8CB401BFA9C101
+    A8D7D301D777AB01D679AC03D777AB01C993B701B1C5CC01DA72A901D679AC02
+    A5D9D401A6D7D301C1A4BE01CE8AB301C1A4BE01D973A901D678AC01D776AB01
+    D875AA01BEA9C001BAB1C301D973AA01D973A901B6B7C601B8B5C501D67AAC01
+    ABCECF01D085B101C49DBB01BEAAC001BFA8C001A6D9D401D777AB01D679AC02
+    D57AAD01CB8FB501B2C0CA01B2C0C901DA72A901D679AC02A4D8D301A5D6D201
+    B6B6C401BDA9BF01BDA8BF01C1A2BC01CA8FB501BCABC001D973A901BBACC101
+    BAAFC201D972A901D47DAE01B0C1CA01B3BCC701D57BAD01AACCCE01D084B101
+    C1A2BC01B4B9C501BEA7BE01A4D7D301D777AB01D679AC02D380AF01B5B7C501
+    A0DFD601B3BBC701DA72A901D679AC02A3D6D102A5D2CF01B9AFC201A5D3D001
+    BFA5BE01B2BBC601B3B9C501D182B001ADC5CA01B9ADC101D973A901C992B601
+    A9CCCD01B2BBC601C893B601A6D0CE01D182AF01B3BAC601A3D6D101AEC2C901
+    A3D6D101D776AB01D679AC02D37FAF01B6B4C4019FDCD301B2BAC601DA72A901
+    D679AC02A2D5CF03A2D6CF01A7CDCC01B8AEC0019FDAD101A7CCCC01B9ACBF01
+    B1BBC501ACC4C901CE88B201CA8FB501AAC7CA019FDAD101B8AEC001A4D2CE01
+    D37EAE01A7CCCC01A2D5CF03C0A1BC01D777AB01D678AC01D182B001ABC5C901
+    9FDAD101B2B9C501DA72A901D679AC02A0D3CE03A0D4CF01A5CBCB01B8ABBF01
+    9ED7D001A0D4CF019FD5CF03C498B801BBA6BD019FD5CF01A0D4CF01A4CECC01
+    A0D4CF01B1B7C301A2D0CD01A0D3CE03BEA2BB01DB71A901D875AB01CF85B101
+    9CDBD1019FD6CF01B0B8C401DA72A901D679AC02A0D2CD04A1CFCC01A7C7C801
+    9FD3CD01A0D2CD039ED4CE01B0B8C301ABBFC6019FD3CD01A0D2CD039FD3CD01
+    A0D2CD04A8C5C7019CD7CF01B3B3C101BF9FBA019DD6CE019ED4CE01B0B7C301
+    DA73AA01D679AC029FD0CB18A2CBC901B6ACBE019DD3CC019DD2CC01AFB6C201
+    DA72AA01D679AC029DCFC91B9CD0CA01A5C3C501C88FB401D876AB01D778AC01
+    9CCDC81B9CCEC9019ECAC701B1AFBE01CB89B101BBA1B901
+  }
+  onresize = onresiz
+  onshow = onvisiblech
+  onhide = onvisiblech
+  moduleclassname = 'tdockform'
+  object trackbar1: tslider
+    color = -2147483645
+    frame.levelo = 0
+    frame.localprops = [frl_levelo, frl_leveli]
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = mainfo.tfaceplayer
+    taborder = 1
+    hint = ' Position of sound '
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 432
+    bounds_cy = 76
+    enabled = False
+    value = 0
+    scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
+    scrollbar.buttonlength = 2
+    scrollbar.buttonminlength = 1
+    scrollbar.buttonendlength = -1
+    scrollbar.face.image.source = sliderimage
+    scrollbar.face.fade_direction = gd_down
+    scrollbar.face.localprops = [fal_fadirection, fal_image]
+    scrollbar.face1.image.source = sliderimage
+    scrollbar.face1.framei_right = -6
+    scrollbar.face1.localprops = [fal_framei_right, fal_image]
+    scrollbar.face1.template = mainfo.tfacegreen
+    scrollbar.framebutton.localprops = [frl_colorframe, frl_hiddenedges, frl_optionsskin]
+    scrollbar.framebutton.localprops1 = []
+    scrollbar.color = -2147483645
+  end
+  object echelle: tstringgrid
+    color = 13882323
+    frame.levelo = 0
+    frame.colorframe = 2500134
+    frame.colorlight = 2500134
+    frame.colordkwidth = 1
+    frame.colorhlwidth = 1
+    frame.framei_left = 1
+    frame.framei_top = 1
+    frame.framei_right = 1
+    frame.framei_bottom = 1
+    frame.sbvert.width = 0
+    frame.sbhorz.width = 0
+    frame.localprops = [frl_levelo, frl_colorframe, frl_colorlight, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+    frame.localprops1 = []
+    enabled = False
+    bounds_x = 0
+    bounds_y = 77
+    bounds_cx = 432
+    bounds_cy = 16
+    anchors = [an_left, an_bottom]
+    datacols.count = 1
+    datacols.linecolor = -1879048167
+    datacols.width = 21
+    datacols.font.color = -1610612734
+    datacols.font.colorbackground = -1610612732
+    datacols.font.height = 10
+    datacols.font.name = 'stf_default'
+    datacols.font.localprops = [flp_color, flp_colorbackground, flp_height]
+    datacols.items = <    
+      item
+        color = -1610612729
+        linecolor = -1879048167
+        width = 21
+        datalist.data = (
+          ''
+        )
+        valuefalse = '0'
+        valuetrue = '1'
+      end>
+    rowcount = 1
+    rowcolors.count = 1
+    rowcolors.items = (
+      -1610612732
+    )
+    datarowlinecolor = -1879048167
+    datarowheight = 14
+    statpriority = 1
+    reffontheight = 14
+  end
+  object sliderimage: tbitmapcomp
+    left = 81
+    top = 35
+  end
+  object ttimer1: ttimer
+    interval = 500000
+    ontimer = ontimer
+    left = 23
+    top = 44
+  end
+  object tfacebuttonslider: tfacecomp
+    template.fade_direction = gd_down
+    template.onafterpaint = faceafterpaintbut
+    left = 209
+    top = 50
+  end
+  object tmainmenu1: tmainmenu
+    menu.submenu.count = 10
+    menu.submenu.items = <    
+      item
+        caption = ' Enable '
+        hint = ' Enable Wave Form rendering '
+        state = [as_checked, as_localchecked, as_localcaption, as_localhint]
+        options = [mao_checkbox, mao_shortcutcaption]
+      end    
+      item
+        options = [mao_separator, mao_shortcutcaption]
+      end    
+      item
+        caption = ' Now=1 '
+        hint = ' Actual Zoom factor '
+        state = [as_localcaption, as_localhint]
+      end    
+      item
+        options = [mao_separator, mao_shortcutcaption]
+      end    
+      item
+        caption = ' Zoom=1 '
+        hint = 'Zoom to window width '
+        state = [as_localcaption, as_localhint, as_localtag, as_localonexecute]
+        onexecute = onzoom
+      end    
+      item
+        caption = ' ZoomX2 '
+        hint = ' Zoom twice '
+        state = [as_localcaption, as_localhint, as_localtag, as_localonexecute]
+        tag = 1
+        onexecute = onzoom
+      end    
+      item
+        caption = ' Zoom/2 '
+        hint = ' Zoom half '
+        state = [as_localcaption, as_localhint, as_localtag, as_localonexecute]
+        tag = 2
+        onexecute = onzoom
+      end    
+      item
+        caption = ' '
+        state = [as_localcaption]
+        options = [mao_separator, mao_shortcutcaption]
+      end    
+      item
+        caption = ' Up '
+        state = [as_invisible, as_localinvisible, as_localcaption, as_localonexecute]
+        onexecute = pageup
+      end    
+      item
+        caption = ' Down '
+        state = [as_invisible, as_localinvisible, as_localcaption, as_localonexecute]
+        onexecute = pagedown
+      end>
+    left = 300
+    top = 56
+  end
+end

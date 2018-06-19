@@ -2,11 +2,11 @@ object dockpanel1fo: tdockpanel1fo
   optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton]
   bounds_x = 197
   bounds_y = 206
-  bounds_cx = 458
+  bounds_cx = 454
   bounds_cy = 87
-  bounds_cxmin = 458
+  bounds_cxmin = 454
   bounds_cymin = 50
-  bounds_cxmax = 472
+  bounds_cxmax = 468
   bounds_cymax = 700
   container.frame.framei_left = 0
   container.frame.framei_top = 0
@@ -29,7 +29,7 @@ object dockpanel1fo: tdockpanel1fo
   container.bounds = (
     0
     16
-    458
+    454
     71
   )
   dragdock.facetab = mainfo.tfacebutgray
@@ -1214,7 +1214,7 @@ object dockpanel1fo: tdockpanel1fo
     frame.grip_face.localprops = []
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 458
+    bounds_cx = 454
     bounds_cy = 71
     font.name = 'stf_default'
     font.xscale = 1
@@ -1234,7 +1234,7 @@ object dockpanel1fo: tdockpanel1fo
     dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_captionhint]
     dragdock.onchilddock = updatedockev
     dragdock.onchildfloat = updatedockev
-    dockingareacaption = 'Drag the window into this Dock Area...'
+    dockingareacaption = 'Drag a form here using right-border grip.'
   end
   object tmainmenu1: tmainmenu
     menu.submenu.count = 2

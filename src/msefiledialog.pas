@@ -583,7 +583,7 @@ var
 
 implementation
 uses
-filelistform, songplayer, songplayer2, recorder,msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
+filelistform, songplayer, recorder,msefiledialog_mfm,msebits,mseactions,  msestringenter,msefiledialogres,msekeyboard,
  msestockobjects,msesysintf,msearrayutils;
 
 type
@@ -1495,6 +1495,7 @@ begin
 filelistfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 filelistfo.historyfn.value := tosysfilepath(dir.value);
 filelistfo.historyfn.hint := ' Selected: ' + filelistfo.historyfn.value + ' ';
+filelistfo.onfloat(nil) ;
 end;
 
 if thesender = 0 then
@@ -1517,7 +1518,7 @@ recorderfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.as
 recorderfo.historyfn.value := tosysfilepath(dir.value + filename.value);
 recorderfo.historyfn.hint :=  ' Selected: ' + recorderfo.historyfn.value + ' ';
 end;
-  
+
   if (filename.value <> '') or (fdo_acceptempty in dialogoptions) then begin
    if fdo_directory in dialogoptions then begin
     str1:= quotefilename(listview.directory);

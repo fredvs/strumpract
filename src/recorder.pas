@@ -4,13 +4,13 @@ unit recorder;
 interface
 
 uses
- ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
- mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,mseevent,
- mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,msedataedits,
- msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,msegraphedits,
- mseificomp, mseificompglob, mseifiglob, msescrollbar,msedragglob, mseact,
- mseedit, msestatfile, msestream, msestrings, msebitmap,msedatanodes,
- msedispwidgets, mserichstring;
+  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
+  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, mseevent,
+  mseclasses, mseforms, msedock, msesimplewidgets, msewidgets, msedataedits,
+  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils, msegraphedits,
+  mseificomp, mseificompglob, mseifiglob, msescrollbar, msedragglob, mseact,
+  mseedit, msestatfile, msestream, msestrings, msebitmap, msedatanodes,
+  msedispwidgets, mserichstring;
 
 type
   trecorderfo = class(tdockform)
@@ -50,9 +50,9 @@ type
     vuLeft: tprogressbar;
     recpan: tgroupbox;
     tfacecomp2: tfacecomp;
-   hintpanel: tgroupbox;
-   hintlabel: tlabel;
-   hintlabel2: tlabel;
+    hintpanel: tgroupbox;
+    hintlabel: tlabel;
+    hintlabel2: tlabel;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -77,9 +77,8 @@ type
     procedure onlistenin(const Sender: TObject);
     procedure ondest(const Sender: TObject);
     procedure afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
-    procedure onsetvalvol(const sender: TObject; var avalue: realty;
-                   var accept: Boolean);
-    procedure ontextedit(const sender: tcustomedit; var atext: msestring);
+    procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
+    procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
   end;
 
 var
@@ -103,7 +102,7 @@ uses
 procedure trecorderfo.ontimersent(const Sender: TObject);
 begin
   timersent.Enabled := False;
-  hintpanel.visible := false;
+  hintpanel.Visible := False;
 end;
 
 procedure trecorderfo.ontimerrec(const Sender: TObject);
@@ -207,8 +206,8 @@ begin
       vuLeft.bar_face.template := mainfo.tfaceorange
     else
       vuLeft.bar_face.template := mainfo.tfacered;
- }     
-      
+ }
+
     vuLeft.Value := leftlev;
   end;
 
@@ -250,8 +249,9 @@ end;
 procedure trecorderfo.LoopProcPlayer1;
 begin
   ShowLevel;
-  
-  if isrecording = False then  ShowPosition;
+
+  if isrecording = False then
+    ShowPosition;
 
 end;
 
@@ -295,11 +295,11 @@ begin
       //// add a Output into device with default parameters
 
 
- 
+
       OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
         uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024, -1);
 
-         //// add a Output into device with custom parameters
+      //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
       //////////// Device ( -1 is default Output device )
       //////////// Latency  ( -1 is latency suggested ) )
@@ -498,8 +498,8 @@ begin
       infosfo.infolength.Caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
       infosfo.inforate.Caption := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
       infosfo.infochan.Caption := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
-      infosfo.infobpm.Caption :='';
-      
+      infosfo.infobpm.Caption := '';
+
       uos_play(therecplayerinfo);
       uos_Stop(therecplayerinfo);
 
@@ -556,10 +556,13 @@ begin
   end;
 
   mainfo.updatelayout();
-  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
-  if dockpanel2fo.visible then dockpanel2fo.updatelayout();
-  
-  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
+  if dockpanel1fo.Visible then
+    dockpanel1fo.updatelayout();
+  if dockpanel2fo.Visible then
+    dockpanel2fo.updatelayout();
+
+  if dockpanel3fo.Visible then
+    dockpanel3fo.updatelayout();
 end;
 
 procedure trecorderfo.onplayercreate(const Sender: TObject);
@@ -577,8 +580,8 @@ begin
   Timerrec.interval := 100000;
   Timerrec.Enabled := False;
   Timerrec.ontimer := @ontimerrec;
-  
-   Timersent := ttimer.Create(nil);
+
+  Timersent := ttimer.Create(nil);
   Timersent.interval := 2500000;
   Timersent.Enabled := False;
   Timersent.ontimer := @ontimersent;
@@ -715,71 +718,77 @@ begin
     onsliderchange(Sender);
 end;
 
-procedure trecorderfo.onsetvalvol(const sender: TObject; var avalue: realty;
-               var accept: Boolean);
+procedure trecorderfo.onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
 begin
-if (trealspinedit(Sender).tag = 9) then
-begin
-if avalue > 2 then
-begin
-hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 2.  Reset to 2.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
- avalue := 2;
-end; 
- 
-if avalue < 0.4 then begin
-hintlabel.caption := '" " is invalid value.  Reset to 0.4';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
-avalue := 0.4;
-end; 
-end
-else
-begin
+  if (trealspinedit(Sender).tag = 9) then
+  begin
+    if avalue > 2 then
+    begin
+      hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 2.  Reset to 2.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      timersent.Enabled := True;
+      avalue := 2;
+    end;
 
-if avalue > 100 then
-begin
-hintlabel.caption := '"' +inttostr(trunc(avalue)) + '" is > 100.  Reset to 100.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
- avalue := 100;
-end; 
- 
-if avalue < 0 then begin
-hintlabel.caption := '" " is invalid value.  Reset to 0.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
-avalue := 0;
-end; 
-end;
+    if avalue < 0.4 then
+    begin
+      hintlabel.Caption := '" " is invalid value.  Reset to 0.4';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      timersent.Enabled := True;
+      avalue := 0.4;
+    end;
+  end
+  else
+  begin
+
+    if avalue > 100 then
+    begin
+      hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 100.  Reset to 100.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      timersent.Enabled := True;
+      avalue := 100;
+    end;
+
+    if avalue < 0 then
+    begin
+      hintlabel.Caption := '" " is invalid value.  Reset to 0.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      timersent.Enabled := True;
+      avalue := 0;
+    end;
+  end;
 end;
 
-procedure trecorderfo.ontextedit(const sender: tcustomedit;
-               var atext: msestring);
+procedure trecorderfo.ontextedit(const Sender: tcustomedit; var atext: msestring);
 begin
-if (isnumber(atext)) or (atext = '') or (atext = '-') then else
-begin
-hintlabel.caption := '"' + atext + '" is invalid value.  Reset to 100.';
-if hintlabel.width > hintlabel2.width then
-hintpanel.width := hintlabel.width + 10 else
-hintpanel.width := hintlabel2.width + 10;
-hintpanel.visible := true;
-timersent.Enabled := true;
- atext := '100';
- end;
+  if (isnumber(atext)) or (atext = '') or (atext = '-') then
+  else
+  begin
+    hintlabel.Caption := '"' + atext + '" is invalid value.  Reset to 100.';
+    if hintlabel.Width > hintlabel2.Width then
+      hintpanel.Width := hintlabel.Width + 10
+    else
+      hintpanel.Width := hintlabel2.Width + 10;
+    hintpanel.Visible := True;
+    timersent.Enabled := True;
+    atext := '100';
+  end;
 end;
 
 

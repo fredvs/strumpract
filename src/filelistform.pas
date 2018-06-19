@@ -4,17 +4,17 @@ unit filelistform;
 interface
 
 uses
- msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat, msemenus,
- msefileutils, msegui, msegraphics, msegraphutils, mseevent, mseclasses,
- msegridsglob, mseforms, msedock, msedragglob, msesimplewidgets, msewidgets,
- mseact,msebitmap, msedataedits, msedatanodes, mseedit, msefiledialog,msegrids,
- mseificomp, mseificompglob, mseifiglob, mselistbrowser, msestatfile,msestream,
- msestrings, msesys, SysUtils, msegraphedits, msescrollbar,msedispwidgets,
- mserichstring;
+  msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat,
+  msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent,
+  mseclasses, msegridsglob, mseforms, msedock, msedragglob, msesimplewidgets,
+  msewidgets, mseact, msebitmap, msedataedits, msedatanodes, mseedit,
+  msefiledialog, msegrids, mseificomp, mseificompglob, mseifiglob, mselistbrowser,
+  msestatfile, msestream, msestrings, msesys, SysUtils, msegraphedits,
+  msescrollbar, msedispwidgets, mserichstring;
 
 type
   tfilelistfo = class(tdockform)
-     Timersent: Ttimer;
+    Timersent: Ttimer;
     tfacecomp1: tfacecomp;
     tgroupbox1: tgroupbox;
     songdir: tfilenameedit;
@@ -24,8 +24,8 @@ type
     list_files: tstringgrid;
     filescount: tstringdisp;
     edfilescount: tintegeredit;
-   hintpanel: tgroupbox;
-   hintlabel: tlabel;
+    hintpanel: tgroupbox;
+    hintlabel: tlabel;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
@@ -41,8 +41,8 @@ type
     procedure onbefdrop(const Sender: TObject);
     procedure onaftdrop(const Sender: TObject);
     procedure onchangecount(const Sender: TObject);
-   procedure ondestr(const sender: TObject);
-   procedure ondock(const sender: TObject);
+    procedure ondestr(const Sender: TObject);
+    procedure ondock(const Sender: TObject);
   end;
 
 var
@@ -51,7 +51,7 @@ var
 implementation
 
 uses
-  songplayer, songplayer2, commander, dockpanel1,
+  songplayer, commander, dockpanel1,
   main, filelistform_mfm;
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
@@ -65,7 +65,7 @@ end;
 procedure tfilelistfo.ontimersent(const Sender: TObject);
 begin
   timersent.Enabled := False;
-  hintpanel.visible := false;
+  hintpanel.Visible := False;
 end;
 
 procedure tfilelistfo.onsent(const Sender: TObject);
@@ -83,10 +83,10 @@ begin
     begin
       if filelistfo.list_files.rowcount < 1 then
       begin
-      timersent.Enabled := False;
-      hintlabel.caption := 'No song in file list. Please select a audio directory with songs...';
-      hintpanel.visible := true;
-      timersent.Enabled := true;
+        timersent.Enabled := False;
+        hintlabel.Caption := 'No song in file list. Please select a audio directory with songs...';
+        hintpanel.Visible := True;
+        timersent.Enabled := True;
       end
       else
       begin
@@ -114,7 +114,7 @@ begin
           theplaysender := 1;
       end;
 
-      if (commanderfo.automix.Value = true) and (Sender = nil) then
+      if (commanderfo.automix.Value = True) and (Sender = nil) then
       begin
         thecaution := 0;
 
@@ -144,59 +144,60 @@ begin
 
       if theplaysender = 0 then
       begin
-      if fileexists((list_files[4][thefocusedcell.row])) then
+        if fileexists((list_files[4][thefocusedcell.row])) then
         begin
-        songplayerfo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
+          songplayerfo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
 
-        songplayerfo.historyfn.face.template := mainfo.tfaceorange;
-        if (commanderfo.Visible = True)
-         and (commanderfo.window.windowpos <> wp_minimized) 
-         and  (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
-          commanderfo.tbutton2.SetFocus;
-        songplayerfo.timersent.Enabled := False;
-        songplayerfo.timersent.Enabled := True;
-       end else 
-      begin
-      timersent.Enabled := False;
-      hintlabel.caption := tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...';
-      hintpanel.visible := true; 
-      timersent.Enabled := true;
+          songplayerfo.historyfn.face.template := mainfo.tfaceorange;
+          if (commanderfo.Visible = True) and (commanderfo.window.windowpos <> wp_minimized) and
+            (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
+            commanderfo.tbutton2.SetFocus;
+          songplayerfo.timersent.Enabled := False;
+          songplayerfo.timersent.Enabled := True;
+        end
+        else
+        begin
+          timersent.Enabled := False;
+          hintlabel.Caption := tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...';
+          hintpanel.Visible := True;
+          timersent.Enabled := True;
+        end;
+
       end;
-          
-      end;
- 
-       if theplaysender = 1 then
+
+      if theplaysender = 1 then
       begin
         if fileexists((list_files[4][thefocusedcell.row])) then
         begin
-        
-        songplayer2fo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
 
-        songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
-        if (commanderfo.Visible = True)
-         and (commanderfo.window.windowpos <> wp_minimized) 
-         and  (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
-                commanderfo.tbutton3.SetFocus;
-        songplayer2fo.timersent.Enabled := False;
-        songplayer2fo.timersent.Enabled := True;
-      end else
-    begin
-      timersent.Enabled := False;
-      hintlabel.caption := tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...';
-      hintpanel.visible := true; 
-      timersent.Enabled := true;
-      end;  
-   end;
- 
-   list_files.selectcell(thefocusedcell, csm_select, False);
- 
+          songplayer2fo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
+
+          songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
+          if (commanderfo.Visible = True) and (commanderfo.window.windowpos <> wp_minimized) and
+            (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
+            commanderfo.tbutton3.SetFocus;
+          songplayer2fo.timersent.Enabled := False;
+          songplayer2fo.timersent.Enabled := True;
+        end
+        else
+        begin
+          timersent.Enabled := False;
+          hintlabel.Caption := tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...';
+          hintpanel.Visible := True;
+          timersent.Enabled := True;
         end;
-  end else
+      end;
+
+      list_files.selectcell(thefocusedcell, csm_select, False);
+
+    end;
+  end
+  else
   begin
-      timersent.Enabled := False;
-      hintlabel.caption := 'Directory ' + historyfn.Value + ' does not exist or not mounted...';
-      hintpanel.visible := true; 
-      timersent.Enabled := true;
+    timersent.Enabled := False;
+    hintlabel.Caption := 'Directory ' + historyfn.Value + ' does not exist or not mounted...';
+    hintpanel.Visible := True;
+    timersent.Enabled := True;
   end;
 end;
 
@@ -247,6 +248,7 @@ begin
 
       // list_files.focusedindex := 0;
       datalist_files.Free();
+      onfloat(nil);
     end;
   end;
 end;
@@ -272,9 +274,12 @@ begin
   //sizebefdock.cx := 500;
   //sizebefdock.cy := 500;
   //size := sizebefdock;
-  bounds_cy := 500;
-  bounds_cxmax := fowidth;
-  bounds_cymax := 0;
+  if parentwidget = nil then
+  begin
+    bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
+    bounds_cxmax := fowidth;
+    bounds_cymax := 0;
+  end;
 end;
 
 procedure tfilelistfo.afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject;
@@ -298,10 +303,13 @@ begin
   end;
 
   mainfo.updatelayout();
-  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
-  if dockpanel2fo.visible then dockpanel2fo.updatelayout();
-  
-  if dockpanel3fo.visible then dockpanel3fo.updatelayout();
+  if dockpanel1fo.Visible then
+    dockpanel1fo.updatelayout();
+  if dockpanel2fo.Visible then
+    dockpanel2fo.updatelayout();
+
+  if dockpanel3fo.Visible then
+    dockpanel3fo.updatelayout();
 end;
 
 procedure tfilelistfo.oncellev(const Sender: TObject; var info: celleventinfoty);
@@ -311,30 +319,30 @@ var
 begin
 
   cellpos := info.cell;
- 
+
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
   begin
-   if (cellpos.row = -1) and (cellpos.col = 3)  then 
-   begin
-    // writeln(inttostr(cellpos.col) + ' ' + inttostr(cellpos.row));
-   if list_files.tag = 0 then
-   begin
-      list_files.tag := 1;
-      for x := 0 to list_files.rowCount - 1 do
+    if (cellpos.row = -1) and (cellpos.col = 3) then
+    begin
+      // writeln(inttostr(cellpos.col) + ' ' + inttostr(cellpos.row));
+      if list_files.tag = 0 then
       begin
-       list_files[3][x] := IntToStr(0);
-      end;
-   end
-   else
-   begin
-   list_files.tag := 0;
-      for x := 0 to list_files.rowCount - 1 do
+        list_files.tag := 1;
+        for x := 0 to list_files.rowCount - 1 do
+        begin
+          list_files[3][x] := IntToStr(0);
+        end;
+      end
+      else
       begin
-       list_files[3][x] := IntToStr(1);
+        list_files.tag := 0;
+        for x := 0 to list_files.rowCount - 1 do
+        begin
+          list_files[3][x] := IntToStr(1);
+        end;
       end;
-   end;
-   end;
-      cellpos.col := 0;
+    end;
+    cellpos.col := 0;
     list_files.selectcell(cellpos, csm_select, False);
   end;
 
@@ -355,14 +363,15 @@ begin
   filescount.Value := IntToStr(edfilescount.Value) + ' files';
 end;
 
-procedure tfilelistfo.ondestr(const sender: TObject);
+procedure tfilelistfo.ondestr(const Sender: TObject);
 begin
-timersent.Free;
+  timersent.Free;
 end;
 
-procedure tfilelistfo.ondock(const sender: TObject);
+procedure tfilelistfo.ondock(const Sender: TObject);
 begin
-bounds_cy := 128;
+
+  bounds_cy := 128;
 end;
 
 end.

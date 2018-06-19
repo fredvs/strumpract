@@ -9,20 +9,20 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 343
-  bounds_y = 27
-  bounds_cx = 458
+  bounds_x = 380
+  bounds_y = 254
+  bounds_cx = 442
   bounds_cy = 128
-  bounds_cxmin = 458
+  bounds_cxmin = 442
   bounds_cymin = 128
-  bounds_cxmax = 458
+  bounds_cxmax = 442
   bounds_cymax = 700
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
-    450
+    434
     128
   )
   dragdock.onbeforedragbegin = befdrag
@@ -106,9 +106,9 @@ object filelistfo: tfilelistfo
     face.template = mainfo.tfaceplayer
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 448
-    bounds_cy = 127
-    anchors = [an_left, an_top, an_right, an_bottom]
+    bounds_cx = 432
+    bounds_cy = 126
+    anchors = [an_left, an_top, an_bottom]
     font.name = 'stf_default'
     font.localprops = []
     object songdir: tfilenameedit
@@ -147,7 +147,7 @@ object filelistfo: tfilelistfo
       taborder = 1
       hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
       bounds_x = 3
-      bounds_y = 102
+      bounds_y = 101
       bounds_cx = 22
       bounds_cy = 23
       anchors = [an_left, an_bottom]
@@ -196,9 +196,9 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayer
       taborder = 3
       hint = ' Sent selected song to cue for Player 1 '
-      bounds_x = 268
-      bounds_y = 101
-      bounds_cx = 86
+      bounds_x = 250
+      bounds_y = 100
+      bounds_cx = 82
       bounds_cy = 24
       anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -223,9 +223,9 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayer
       taborder = 4
       hint = ' Sent selected song to cue for Player 2 '
-      bounds_x = 359
-      bounds_y = 101
-      bounds_cx = 86
+      bounds_x = 340
+      bounds_y = 100
+      bounds_cx = 82
       bounds_cy = 24
       anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -256,8 +256,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfacebutgray
       bounds_x = 1
       bounds_y = 0
-      bounds_cx = 447
-      bounds_cy = 97
+      bounds_cx = 431
+      bounds_cy = 100
       anchors = [an_left, an_top, an_right, an_bottom]
       font.name = 'stf_default'
       font.localprops = []
@@ -271,7 +271,7 @@ object filelistfo: tfilelistfo
       datacols.items = <      
         item
           colorselect = 16763002
-          width = 293
+          width = 276
           options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
@@ -297,7 +297,7 @@ object filelistfo: tfilelistfo
         end      
         item
           colorselect = 16763002
-          width = 27
+          width = 28
           textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           optionsedit = [scoe_undoonesc, scoe_eatreturn, scoe_exitoncursor, scoe_autoselect, scoe_autoselectonfirstclick, scoe_focusrectonreadonly, scoe_checkbox]
@@ -361,9 +361,9 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayerlight
       taborder = 5
       hint = ' Number of files in the list '
-      bounds_x = 202
-      bounds_y = 106
-      bounds_cx = 63
+      bounds_x = 183
+      bounds_y = 105
+      bounds_cx = 60
       bounds_cy = 16
       anchors = [an_left, an_bottom]
       textflags = [tf_xcentered, tf_ycentered]
@@ -407,8 +407,8 @@ object filelistfo: tfilelistfo
       taborder = 2
       hint = ' History of Directories '
       bounds_x = 24
-      bounds_y = 102
-      bounds_cx = 176
+      bounds_y = 101
+      bounds_cx = 152
       bounds_cy = 23
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
@@ -432,8 +432,8 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       taborder = 6
       visible = False
-      bounds_x = 272
-      bounds_y = 102
+      bounds_x = 259
+      bounds_y = 41
       bounds_cx = 20
       statfile = mainfo.tstatfile1
       onchange = onchangecount
@@ -447,9 +447,9 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 7
       visible = False
-      bounds_x = 1
-      bounds_y = 94
-      bounds_cx = 447
+      bounds_x = -1
+      bounds_y = 92
+      bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
       font.name = 'stf_default'
@@ -457,7 +457,7 @@ object filelistfo: tfilelistfo
       object hintlabel: tlabel
         optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
         color = -2147483645
-        bounds_x = 8
+        bounds_x = 6
         bounds_y = 10
         bounds_cx = 430
         bounds_cy = 14
