@@ -5,10 +5,10 @@ interface
 
 uses
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
- mseact,
- msegui,SysUtils, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
- msedock,msegraphedits, mseificomp, mseificompglob, mseifiglob, msescrollbar,
- msebitmap,msetimer, msesimplewidgets, msewidgets, msegrids;
+ mseact,msegui,SysUtils, msegraphics, msegraphutils, mseevent, mseclasses,
+ mseforms,msedock,msegraphedits, mseificomp, mseificompglob, mseifiglob,
+ msescrollbar,msebitmap,msetimer, msesimplewidgets, msewidgets, msegrids,
+ msedataedits,msedropdownlist,mseedit,msestatfile,msestream;
 
 type
   twavefo = class(tdockform)
@@ -30,12 +30,13 @@ type
    procedure onzoom(const sender: TObject);
    procedure pageup(const sender: TObject);
    procedure pagedown(const sender: TObject);
+  
   end;
 
 var
   wavefo: twavefo;
   wavefo2: twavefo;
-
+ 
 implementation
 
 uses
@@ -177,34 +178,50 @@ if (assigned(mainfo)) and (assigned(dockpanel1fo)) and
 end;
 
 procedure twavefo.onzoom(const sender: TObject);
+var
+rect1: rectty;
 begin
 
  if as_checked in tmainmenu1.menu[0].state then begin
+ 
+  rect1:= application.screenrect(window);
 
 if tmenuitem(sender).tag = 0 then
 trackbar1.width := width - 10;
 
- if (Caption = 'Wave Player 1') and (tmenuitem(sender).tag = 1) and
-(trackbar1.width * 2 < Inputlength1 div 2) and (trackbar1.width div width < 8) then
+ if (Caption = 'Wave Player 1') and (tmenuitem(sender).tag = 1) 
+ and (trackbar1.width * 2 < Inputlength1 div 32) 
+and (trackbar1.width div rect1.cx < 8) then
 begin
 trackbar1.width := trackbar1.width * 2;
 end;
 
- if (Caption = 'Wave Player 2') and (tmenuitem(sender).tag = 1) and
-(trackbar1.width * 2 < Inputlength2 div 2) and (trackbar1.width div width < 8) then
+ if (Caption = 'Wave Player 2') and (tmenuitem(sender).tag = 1)
+ and (trackbar1.width * 2 < Inputlength2 div 4) 
+ and (trackbar1.width div rect1.cx < 8) then
 begin
 trackbar1.width := trackbar1.width * 2;
 end;
 
-if tmenuitem(sender).tag = 2 then
+if (Caption = 'Wave Player 1') and (tmenuitem(sender).tag = 2) 
+and (trackbar1.width div 2 >  width -30) then
 begin
-if trackbar1.width div 2 >  width -30 then
 trackbar1.width := trackbar1.width div 2 ;
 end;
 
+if (Caption = 'Wave Player 2') and (tmenuitem(sender).tag = 2) 
+and (trackbar1.width div 2 >  width -30) then
+begin
+trackbar1.width := trackbar1.width div 2 ;
+end;
+end;
 
-tmainmenu1.menu[2].caption := ' Now=' + 
-     IntToStr((trackbar1.width div width)+1);
+
+if (trackbar1.width div width) +1 = 31 then
+tmainmenu1.menu[2].caption := ' Now=X' + 
+     IntToStr((trackbar1.width div width)+2) else
+tmainmenu1.menu[2].caption := ' Now=X' + 
+     IntToStr((trackbar1.width div width)+1) ;     
      
  doechelle(sender);
 
@@ -217,7 +234,6 @@ tmainmenu1.menu[2].caption := ' Now=' +
     songplayer2fo.onwavform(Sender);
     
 end;
-end;
 
 procedure twavefo.pageup(const sender: TObject);
 begin
@@ -229,5 +245,6 @@ procedure twavefo.pagedown(const sender: TObject);
 begin
 container.frame.sbhorz.pagedown ;
 end;
+
 
 end.

@@ -8,8 +8,8 @@ object wavefo: twavefo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacecomp4
   frame.grip_hint = ' Use that grip to drag the form '
-  bounds_x = 512
-  bounds_y = 286
+  bounds_x = 550
+  bounds_y = 282
   bounds_cx = 442
   bounds_cy = 109
   bounds_cxmin = 442
@@ -197,7 +197,7 @@ object wavefo: twavefo
   end
   object ttimer1: ttimer
     interval = 500000
-    ontimer = ontimer
+    ontimer = onzoom
     left = 23
     top = 44
   end
@@ -222,7 +222,8 @@ object wavefo: twavefo
       item
         caption = ' Now=1 '
         hint = ' Actual Zoom factor '
-        state = [as_localcaption, as_localhint]
+        state = [as_localdisabled, as_localcaption, as_localcolor, as_localhint]
+        color = 15132390
       end    
       item
         options = [mao_separator, mao_shortcutcaption]

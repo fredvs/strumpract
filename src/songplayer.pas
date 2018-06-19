@@ -1033,7 +1033,7 @@ begin
 
           oninfowav(Sender);
 
-          application.ProcessMessages;
+        //  application.ProcessMessages;
 
           hascue := True;
         
@@ -1042,7 +1042,9 @@ begin
         //  if (wavefo.waveon.Value = True) then  begin
             initwaveform1:= False;
             wavefo.doechelle(Sender);
+        //     application.processmessages;
             onwavform(Sender);
+          //   application.processmessages;
             end;
         end
         else
@@ -1316,14 +1318,17 @@ begin
 
           hascue2 := True;
           oninfowav(Sender);
-          application.ProcessMessages;
+        //  application.ProcessMessages;
         
              if as_checked in wavefo2.tmainmenu1.menu[0].state then begin
       
        //   if (wavefo2.waveon.Value = True) then     begin
             initwaveform2 := False;
             wavefo2.doechelle(nil);
-            onwavform(Sender);
+          //   application.processmessages;
+            onwavform(Sender); 
+          //  application.processmessages;
+            
           end;  
 
         end
@@ -1736,7 +1741,6 @@ begin
 
     begin
       waveformdataform1 := uos_InputGetLevelArray(theplayerinfoform, 0);
-      iswav := True;
       formDrawWaveForm();
     end;
 
@@ -1749,7 +1753,6 @@ begin
 
     begin
       waveformdataform2 := uos_InputGetLevelArray(theplayerinfoform2, 0);
-      iswav2 := True;
       formDrawWaveForm();
     end;
 
@@ -1788,8 +1791,6 @@ var
   rect1form: rectty;
 begin
 
-   
-
   if (Caption = 'Player 1') and (as_checked in wavefo.tmainmenu1.menu[0].state) then
   begin
     wavefo.trackbar1.invalidate();
@@ -1827,6 +1828,7 @@ begin
     end;
     buzywaveform2 := False;
   end;
+ 
 end;
 
 procedure tsongplayerfo.onwavform(const Sender: TObject);
@@ -2482,7 +2484,8 @@ end;
 procedure tsongplayerfo.onchachewav(const Sender: TObject);
 begin
   DrawWaveForm();
-  formDrawWaveForm();
+//  application.processmessages;
+//  formDrawWaveForm();
 end;
 
 procedure tsongplayerfo.onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);

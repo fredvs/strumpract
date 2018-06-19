@@ -176,6 +176,15 @@ begin
   else
     bounds_cymax := maxheightfo;
   bounds_cymin := bounds_cy;
+  
+  if dockpanel1fo.Visible then
+    dockpanel1fo.updatelayout();
+
+  if dockpanel2fo.Visible then
+    dockpanel2fo.updatelayout();
+
+  if dockpanel3fo.Visible then
+    dockpanel3fo.updatelayout();
 
 end;
 
