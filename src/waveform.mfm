@@ -8,8 +8,8 @@ object wavefo: twavefo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacecomp4
   frame.grip_hint = ' Use that grip to drag the form '
-  bounds_x = 550
-  bounds_y = 282
+  bounds_x = 422
+  bounds_y = 313
   bounds_cx = 442
   bounds_cy = 110
   bounds_cxmin = 442
@@ -112,6 +112,7 @@ object wavefo: twavefo
   onhide = onvisiblech
   moduleclassname = 'tdockform'
   object trackbar1: tslider
+    optionswidget1 = [ow1_autoscale, ow1_noclampinview]
     color = -2147483645
     frame.levelo = 0
     frame.localprops = [frl_levelo, frl_leveli]
@@ -119,7 +120,7 @@ object wavefo: twavefo
     face.localprops = []
     face.template = mainfo.tfaceplayer
     taborder = 1
-    hint = ' Position of sound '
+    hint = ' Click to change position of sound '
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 432
@@ -137,9 +138,8 @@ object wavefo: twavefo
     scrollbar.face1.framei_right = -6
     scrollbar.face1.localprops = [fal_framei_right, fal_image]
     scrollbar.face1.template = mainfo.tfacegreen
-    scrollbar.framebutton.localprops = [frl_colorframe, frl_hiddenedges, frl_optionsskin]
-    scrollbar.framebutton.localprops1 = []
     scrollbar.color = -2147483645
+    scrollbar.onafterevent = onafterev
   end
   object echelle: tstringgrid
     color = 13882323
@@ -162,25 +162,13 @@ object wavefo: twavefo
     bounds_cx = 432
     bounds_cy = 16
     anchors = [an_left, an_bottom]
-    datacols.count = 1
     datacols.linecolor = -1879048167
     datacols.width = 21
     datacols.font.color = -1610612734
     datacols.font.colorbackground = -1610612732
-    datacols.font.height = 10
+    datacols.font.height = 9
     datacols.font.name = 'stf_default'
     datacols.font.localprops = [flp_color, flp_colorbackground, flp_height]
-    datacols.items = <    
-      item
-        color = -1610612729
-        linecolor = -1879048167
-        width = 21
-        datalist.data = (
-          ''
-        )
-        valuefalse = '0'
-        valuetrue = '1'
-      end>
     rowcount = 1
     rowcolors.count = 1
     rowcolors.items = (
@@ -201,14 +189,8 @@ object wavefo: twavefo
     left = 23
     top = 44
   end
-  object tfacebuttonslider: tfacecomp
-    template.fade_direction = gd_down
-    template.onafterpaint = faceafterpaintbut
-    left = 209
-    top = 50
-  end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 10
+    menu.submenu.count = 9
     menu.submenu.items = <    
       item
         caption = ' Enable '
@@ -254,16 +236,18 @@ object wavefo: twavefo
         options = [mao_separator, mao_shortcutcaption]
       end    
       item
-        caption = ' Up '
-        state = [as_localinvisible, as_localcaption, as_localonexecute]
-        onexecute = pageup
-      end    
-      item
-        caption = ' Down '
-        state = [as_localinvisible, as_localcaption, as_localonexecute]
-        onexecute = pagedown
+        caption = ' Autoscroll '
+        hint = ' The scrollbar will folow the position of sound '
+        state = [as_checked, as_localinvisible, as_localchecked, as_localcaption, as_localhint, as_localonexecute]
+        options = [mao_checkbox, mao_shortcutcaption]
       end>
     left = 300
     top = 56
+  end
+  object tfacebuttonslider: tfacecomp
+    template.fade_direction = gd_down
+    template.onafterpaint = faceafterpaintbut
+    left = 210
+    top = 23
   end
 end

@@ -83,7 +83,8 @@ type
 
 var
   timenow: ttime;
-  recorderfo: trecorderfo;
+   tottimerec: ttime;
+   recorderfo: trecorderfo;
   thedialogform: tfiledialogfo;
   initplay: integer = 1;
   isrecording: boolean = False;
@@ -259,6 +260,7 @@ procedure trecorderfo.doplayerstart(const Sender: TObject);
 var
   samformat: shortint;
   ho, mi, se, ms: word;
+   tottime: ttime;
 begin
   if fileexists(PChar(ansistring(historyfn.Value))) then
   begin
@@ -533,7 +535,7 @@ var
 begin
   if (trackbar1.tag = 1) and (inputlength > 0) then
   begin
-    temptime := tottime * TrackBar1.Value;
+    temptime := tottimerec * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms);
     lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
 

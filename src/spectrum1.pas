@@ -64,6 +64,7 @@ begin
 //  tchartright.traces.count := 10;
 
  tchartleft.traces[0].chartkind := tck_bar ;
+
    tchartright.traces[0].chartkind := tck_bar ;
  end;
 

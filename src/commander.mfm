@@ -1,4 +1,5 @@
 object commanderfo: tcommanderfo
+  optionswidget1 = [ow1_autoscale, ow1_noclampinview]
   color = -2147483645
   frame.localprops = []
   frame.localprops1 = []
@@ -754,6 +755,7 @@ object commanderfo: tcommanderfo
       onexecute = onplay
     end
     object volumeleft1: tslider
+      optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = 13357471
       frame.levelo = 0
       frame.colordkwidth = 0
@@ -801,6 +803,7 @@ object commanderfo: tcommanderfo
     end
     object volumeright1: tslider
       Tag = 1
+      optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = 13357471
       frame.levelo = 0
       frame.colordkwidth = 0
@@ -889,6 +892,7 @@ object commanderfo: tcommanderfo
     end
     object volumeright2: tslider
       Tag = 3
+      optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = 13357471
       frame.levelo = 0
       frame.colordkwidth = 0
@@ -936,6 +940,7 @@ object commanderfo: tcommanderfo
     end
     object volumeleft2: tslider
       Tag = 2
+      optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = 13357471
       frame.levelo = 0
       frame.colordkwidth = 0
@@ -1297,6 +1302,7 @@ object commanderfo: tcommanderfo
       bounds_cx = 63
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
+      value = True
     end
     object volumeleft1val: tbutton
       frame.framei_left = 4
@@ -2060,8 +2066,8 @@ object commanderfo: tcommanderfo
       B8B9B801B8B8B701B6B7B701B6B5B501B4B4B501B3B3B401B2B3B301B1B1B101
       B0B0B0018B8B8B01
     }
-    left = 173
-    top = 45
+    left = 199
+    top = 74
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -2082,8 +2088,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 185
-    top = 27
+    left = 281
+    top = 24
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -2097,8 +2103,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 109
-    top = 40
+    left = 275
+    top = 34
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'

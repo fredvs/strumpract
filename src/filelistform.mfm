@@ -1,4 +1,5 @@
 object filelistfo: tfilelistfo
+  optionswidget1 = [ow1_autoscale, ow1_noclampinview]
   frame.localprops = []
   frame.localprops1 = []
   frame.grip_size = 8
@@ -236,6 +237,7 @@ object filelistfo: tfilelistfo
       onexecute = onsent
     end
     object list_files: tstringgrid
+      optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_noclampinview]
       frame.sbvert.width = 10
       frame.sbvert.face.localprops = []
       frame.sbvert.face.template = mainfo.tfacebutltgray

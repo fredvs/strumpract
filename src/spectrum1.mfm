@@ -169,7 +169,7 @@ object spectrum1fo: tspectrum1fo
         bounds_cy = 101
         traces.count = 1
         traces.chartkind = tck_bar
-        traces.xserstart = 0.05
+        traces.xserstart = 0.02
         traces.xstart = 0
         traces.ystart = 0
         traces.xrange = 1
@@ -177,7 +177,7 @@ object spectrum1fo: tspectrum1fo
         traces.yrange = 1
         traces.image_widthmm = 0
         traces.image_heighthmm = 0
-        traces.bar_width = 20
+        traces.bar_width = 10
         traces.legend_x = 0
         traces.legend_y = 0
         traces.items = <        
@@ -185,13 +185,13 @@ object spectrum1fo: tspectrum1fo
             color = -2147483647
             widthmm = 0.3
             xserrange = 0.9
-            xserstart = 0
+            xserstart = 0.02
             xrange = 1
             xstart = 0
             yrange = 1
             ystart = 0
             chartkind = tck_bar
-            bar_width = 20
+            bar_width = 10
           end>
         colorchart = -1879048187
         framechart.localprops = []
@@ -256,7 +256,7 @@ object spectrum1fo: tspectrum1fo
         bounds_cy = 101
         traces.count = 1
         traces.chartkind = tck_bar
-        traces.xserstart = 0.05
+        traces.xserstart = 0.02
         traces.xstart = 0
         traces.ystart = 0
         traces.xrange = 1
@@ -264,7 +264,7 @@ object spectrum1fo: tspectrum1fo
         traces.yrange = 1
         traces.image_widthmm = 0
         traces.image_heighthmm = 0
-        traces.bar_width = 20
+        traces.bar_width = 10
         traces.legend_x = 0
         traces.legend_y = 0
         traces.items = <        
@@ -272,13 +272,13 @@ object spectrum1fo: tspectrum1fo
             color = -2147483647
             widthmm = 0.3
             xserrange = 0.9
-            xserstart = 0
+            xserstart = 0.02
             xrange = 1
             xstart = 0
             yrange = 1
             ystart = 0
             chartkind = tck_bar
-            bar_width = 20
+            bar_width = 10
           end>
         colorchart = -1879048187
         framechart.colordkwidth = 0

@@ -105,7 +105,6 @@ const
 
 var
   mainfo: tmainfo;
-  tottime: ttime;
   stopit: boolean = False;
   channels: cardinal = 2; // stereo output
   allok: boolean = False;

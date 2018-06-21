@@ -79,29 +79,29 @@ findinfiledialog=69
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.inprojectdir]
- value=0
+ value=1
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.indirectories]
- value=1
+ value=0
  [findinfileadialogfo.mask]
- value="*.pas" "*.pp" "*.inc"
+ value="*.pas" "*.pp" "*.inc" "*.mfm" 
  history=4
-  "*.pas" "*.pp" "*.inc"
   "*.pas" "*.pp" "*.inc" "*.mfm" 
+  "*.pas" "*.pp" "*.inc"
   "*.pas" "*.pp" "*.inc" "*.mfm" "*.*"
   "*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/Téléchargements/mseuniverse-master/
+  /home/fred/msegui/
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
  filehistory=8
-  /home/fred/Téléchargements/mseuniverse-master/
   /home/fred/msegui/
+  /home/fred/Téléchargements/mseuniverse-master/
   /home/fred/soundtouch-master/
   /home/fred/soundtouch-master/source/
   /home/fred/ideu/
@@ -109,10 +109,17 @@ findinfiledialog=69
   /home/fred/designer_ext/
   /home/fred/msegui/apps/ide/
  filefilterindex=0
- filefilter="*.pas" "*.pp" "*.inc"
+ filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=clampinview
+ value=tchartleft
  history=20
+  tchartleft
+  onsliderchange
+  tottime
+  totime
+  ow1_noclampinview
+  widget.doactivate
+  faceafterpaintbut
   clampinview
   sbhorz
   scrollpos
@@ -126,17 +133,10 @@ findinfiledialog=69
   as_checked
   waveon
   modulo
-  = 25
-  songplayer2
-  vuLeft2
-  TProgressBar
-  mwcnoise
-  fade_
-  bar_face
  [findinfileadialogfo]
  stackedunder=
- x=615
- y=213
+ x=635
+ y=252
  cx=339
  cy=275
 finddialog=8
@@ -439,17 +439,20 @@ compnamedialog=5
  y=267
  cx=295
  cy=203
-bmpfiledialog=55
+bmpfiledialog=58
  [filedialog]
  filenames=1
-  /home/fred/Images/wave.png
+  /home/fred/Images/start.png
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
  lastdir=/home/fred/Images/
- filehistory=43
+ filehistory=46
+  /home/fred/Images/start.png
+  /home/fred/Images/uosicon24.png
+  /home/fred/Images/uosicon32.png
   /home/fred/Images/wave.png
   /home/fred/Images/spectrum.png
   /home/fred/Images/gnome-multimedia.png
@@ -745,26 +748,23 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=6
+modulenames=5
  DRUMSFO
- FILELISTFO
- MAINFO
  RECORDERFO
  SONGPLAYERFO
+ SPECTRUM1FO
  WAVEFO
-moduletypes=6
+moduletypes=5
  TDRUMSFO
- TFILELISTFO
- TMAINFO
  TRECORDERFO
  TSONGPLAYERFO
+ TSPECTRUM1FO
  TWAVEFO
-modulefiles=6
+modulefiles=5
  /home/fred/strumpract/src/drums.mfm
- /home/fred/strumpract/src/filelistform.mfm
- /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/spectrum1.mfm
  /home/fred/strumpract/src/waveform.mfm
 befcommandon=0
 makeoptionson=9
@@ -1127,11 +1127,11 @@ line=39
  11
  105
  47
- 1182
+ 1181
  5713
- 1339
- 117
- 1415
+ 1338
+ 116
+ 1461
  298
  319
  488
@@ -1139,20 +1139,20 @@ line=39
  766
  776
  701
- 1486
- 1974
+ 1532
+ 1973
  209
  1136
- 2409
- 2616
+ 2408
+ 2615
  316
  5
  699
  1517
  101
- 135
- 1419
- 246
+ 148
+ 1465
+ 305
 address=39
  4584872
  7099064
@@ -1350,8 +1350,17 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=iswav
+finddtext=DSPReverseBefore
 findhistory=20
+ DSPReverseBefore
+ DSPIndex11
+ onsliderchange
+ tottime
+ lposition.value
+ lposition
+ wavefo.
+ wavefo
+ faceafterpaintbut
  iswav
  oninfowav
  appl
@@ -1363,29 +1372,14 @@ findhistory=20
  ScreenWidth
  formDrawWaveForm
  GetWaveDataform
- totsec2 :=
- buzywaveform1
- ondockpl
- onf
- ondoxck
- faceafterpaintbut
- getwavedat
- onwaveform
- wavefo
 findoptions=1
-editpos=13
- 0,-1073741823
- 0,230
+editpos=7
  0,-1073741823
  0,-1073741823
+ 0,192
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,62
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1394,41 +1388,23 @@ bookmarks3=0
 bookmarks4=0
 bookmarks5=0
 bookmarks6=0
-bookmarks7=0
-bookmarks8=0
-bookmarks9=0
-bookmarks10=0
-bookmarks11=0
-bookmarks12=0
-sourcefiles=13
+sourcefiles=7
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/waveform.pas
- ${PROJECTDIR}/main.pas
- /home/fred/msegui/lib/common/dialogs/msefiledialog.mfm
+ ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/songplayer.pas
- /home/fred/msegui/lib/common/widgets/msewidgets.pas
- /home/fred/msegui/apps/ide/formdesigner.pas
- /home/fred/msegui/apps/ide/formdesigner.mfm
- /home/fred/msegui/lib/common/kernel/msegui.pas
- /home/fred/Téléchargements/mseuniverse-master/testcase/graphics/radeonline/msegrids_test.pas
-relpaths=13
+ ${PROJECTDIR}/spectrum1.pas
+ /home/fred/msegui/lib/common/widgets/msechart.pas
+relpaths=7
  strumpract.pas
  waveform.pas
- main.pas
- msegui/lib/common/dialogs/msefiledialog.mfm
+ songplayer.pas
  drums.pas
  recorder.pas
- filelistform.pas
- songplayer.pas
- msegui/lib/common/widgets/msewidgets.pas
- msegui/apps/ide/formdesigner.pas
- msegui/apps/ide/formdesigner.mfm
- msegui/lib/common/kernel/msegui.pas
- Téléchargements/mseuniverse-master/testcase/graphics/radeonline/msegrids_test.pas
-ismoduletexts=13
+ spectrum1.pas
+ msegui/lib/common/widgets/msechart.pas
+ismoduletexts=7
  0
  0
  0
@@ -1436,13 +1412,7 @@ ismoduletexts=13
  0
  0
  0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=9
+modules=10
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1450,9 +1420,10 @@ modules=9
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/msefiledialogres.mfm
  /home/fred/strumpract/src/filelistform.mfm
- /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/waveform.mfm
-moduleoptions=9
+ /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/spectrum1.mfm
+moduleoptions=10
  0
  0
  0
@@ -1462,45 +1433,42 @@ moduleoptions=9
  0
  0
  0
-visiblemodules=9
- -1
  0
- -1
- -1
+visiblemodules=10
  0
  0
- -1
  -1
  -1
-nomenumodules=9
  0
+ 0
+ 0
+ 0
+ -1
+ -1
+nomenumodules=10
+ -1
  -1
  0
  0
+ -1
  -1
  -1
  0
  0
  0
 [sourcefo.files_tab]
-order=13
+order=7
  0
- 10
  1
- 12
- 9
- 8
- 11
- 7
  2
- 3
- 4
  5
  6
-firsttab=0
+ 3
+ 4
+firsttab=2
 index=2
 [layout]
-windowlayout=734
+windowlayout=753
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1513,8 +1481,8 @@ windowlayout=734
  ncy=0
  x=0
  y=0
- cx=1147
- cy=605
+ cx=1350
+ cy=692
  rcx=0
  rcy=0
  [mainfo]
@@ -1533,9 +1501,9 @@ windowlayout=734
  rcx=0
  rcy=0
  children=1
-  basedock,0,0,1147,605
+  basedock,0,0,1350,692
  focusedchild=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [targetconsolefo]
@@ -1547,8 +1515,8 @@ windowlayout=734
  ny=0
  ncx=0
  ncy=0
- x=493
- y=171
+ x=744
+ y=214
  cx=497
  cy=314
  rcx=0
@@ -1649,7 +1617,7 @@ windowlayout=734
  x=0
  y=0
  cx=205
- cy=463
+ cy=530
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1679,7 +1647,7 @@ windowlayout=734
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [watchpointsfo]
  splitdir=0
  useroptions=805322857
@@ -1745,27 +1713,27 @@ windowlayout=734
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=confideufo
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=243
- y=110
+ x=818
+ y=95
  cx=316
  cy=484
  rcx=0
  rcy=0
- wsize=5
+ wsize=0
  active=0
- visible=0
+ visible=1
  [objectinspectorfo.grid]
- propcolwidthref=291
- width0=170
+ propcolwidthref=306
+ width0=179
  sortdescend0=0
- width1=115
+ width1=121
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1858,9 +1826,9 @@ windowlayout=734
  ncx=0
  ncy=0
  x=0
- y=512
- cx=1147
- cy=93
+ y=585
+ cx=1350
+ cy=107
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1959,8 +1927,8 @@ windowlayout=734
  ncy=0
  x=0
  y=0
- cx=1147
- cy=43
+ cx=1350
+ cy=49
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1970,12 +1938,12 @@ windowlayout=734
  visible=1
  mdistate=0
  nx=0
- ny=0
+ ny=-2
  ncx=1350
  ncy=52
  x=0
- y=-1
- cx=1140
+ y=-2
+ cx=1350
  cy=52
  rcx=0
  rcy=0
@@ -1986,11 +1954,13 @@ windowlayout=734
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/waveform.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=20
-  /home/fred/strumpract/src/waveform.pas
-  /home/fred/strumpract/src/songplayer.pas
+  /home/fred/strumpract/src/spectrum1.pas
+  /home/fred/strumpract/src/commander.pas
+  /home/fred/scrolltest/waveform.pas
   /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/waveform.pas
   /home/fred/strumpract2play/src/songplayer.pas
   /home/fred/ideu/src/syntaxdefs/pascal_ideu.sdef
   /home/fred/Téléchargements/msemem/main.pas
@@ -1999,15 +1969,13 @@ windowlayout=734
   /home/fred/Téléchargements/msemem/msemem.pas
   /home/fred/strumpract/src/msefiledialog.pas
   /home/fred/strumpract/src/dialogfiles.pas
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/songplayer2.pas
-  /home/fred/strumpract/src/commander.pas
   /home/fred/msemem/msemem.pas
   /home/fred/msemem/main.pas
   /home/fred/msescrolltest/main.pas
   /home/fred/strumpract/src/dockpanel1.pas
-  /home/fred/strumpract/src/filelistform.pas
-  /home/fred/strumpract/src/pannel1.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2024,15 +1992,15 @@ windowlayout=734
  ncy=0
  x=208
  y=0
- cx=939
- cy=463
+ cx=1142
+ cy=530
  rcx=0
  rcy=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2059,15 +2027,15 @@ windowlayout=734
  ncx=0
  ncy=0
  x=0
- y=46
- cx=1147
- cy=463
+ y=52
+ cx=1350
+ cy=530
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_wavefo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2082,7 +2050,7 @@ windowlayout=734
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=805322875
@@ -2105,7 +2073,7 @@ windowlayout=734
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2162,7 +2130,7 @@ windowlayout=734
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2181,7 +2149,7 @@ windowlayout=734
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2196,11 +2164,30 @@ windowlayout=734
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
+ [_mse_wavefo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=_mse_drumsfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=422
+ y=313
+ cx=452
+ cy=110
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=stackfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2216,20 +2203,20 @@ windowlayout=734
  wsize=0
  active=0
  visible=1
- [_mse_wavefo_mse_]
+ [_mse_spectrum1fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=targetconsolefo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=550
- y=282
+ x=78
+ y=103
  cx=452
- cy=110
+ cy=128
  rcx=0
  rcy=0
  wsize=0
