@@ -186,7 +186,7 @@ object mainfo: tmainfo
     reffontheight = 14
   end
   object tmainmenu1: tmainmenu
-    menu.submenu.count = 7
+    menu.submenu.count = 9
     menu.submenu.items = <    
       item
         caption = ' &Dock '
@@ -372,6 +372,15 @@ object mainfo: tmainfo
         hint = ' About StrumPract '
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onabout
+      end    
+      item
+        options = [mao_separator, mao_shortcutcaption]
+      end    
+      item
+        caption = ' &Exit '
+        hint = ' Terminate StrumPract '
+        state = [as_localcaption, as_localhint, as_localonexecute]
+        onexecute = onexit
       end>
     left = 7
   end

@@ -78,6 +78,7 @@ type
     procedure ondockplayers(const Sender: TObject);
     procedure ondockjam(const Sender: TObject);
 
+   procedure onexit(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -100,7 +101,6 @@ const
   commanderfoheight = 128;
   fowidth = 442;
   tabheight = 39;
-  maxheightfo = 700;
   scrollwidth = 14;
 
 var
@@ -111,6 +111,7 @@ var
   plugsoundtouch: boolean = False;
   ordir: string;
   hasinit: integer = 0;
+  maxheightfo : integer;
 
 implementation
 
@@ -123,6 +124,7 @@ procedure tmainfo.ontimerwait(const Sender: TObject);
 var
   children1: widgetarty;
   i1, visiblecount: int32;
+  rect1: rectty;
 
 begin
   timerwait.Enabled := False;
@@ -169,6 +171,10 @@ begin
 
   bounds_cxmax := bounds_cx;
   bounds_cxmin := bounds_cx;
+  
+  rect1 := application.screenrect(window);
+  
+  maxheightfo := rect1.cy - 30; 
 
   if bounds_cy < maxheightfo then
     bounds_cymax := bounds_cy
@@ -202,9 +208,14 @@ begin
 end;
 
 procedure tmainfo.oncreateform(const Sender: TObject);
-// var x : integer;
+ var  rect1: rectty;
+
 begin
   flayoutlock := 0;
+  
+ rect1 := application.screenrect(window);
+  
+  maxheightfo := rect1.cy - 30; 
   // for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
   tstatfile1.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'status.sta';
   //cueliststa.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'cuelist.sta';
@@ -257,7 +268,7 @@ begin
     if (filelistfo.parentwidget = nil) then
     begin
       filelistfo.bounds_cxmax := 0;
-      filelistfo.bounds_cymax := 0;
+      filelistfo.bounds_cymax := maxheightfo;
     end
     else
     begin
@@ -967,7 +978,9 @@ end;
 procedure tmainfo.ondockplayers(const Sender: TObject);
 var
   pt1: pointty;
+  rect1: rectty;
   decorationheight: integer = 5;
+  interv : integer;
 begin
   // basedock.anchors := [an_left,an_top]  ;
   decorationheight := window.decoratedbounds_cy - Height;
@@ -1125,26 +1138,33 @@ begin
 
   left := 0;
   top := 0;
+  
+  rect1 := application.screenrect(window);
+  
+  interv := (rect1.cx- (dockpanel1fo.Width + filelistfo.Width + dockpanel2fo.Width)) div 2 ;
 
   dockpanel1fo.left := left;
   dockpanel1fo.top := commanderfoheight + 74;
 
-  filelistfo.left := commanderfo.Width + 10;
+  filelistfo.left := commanderfo.Width + interv;
   filelistfo.top := 0;
   filelistfo.Height := commanderfo.Height + 47 + dockpanel1fo.Height;
 
-  recorderfo.left := filelistfo.left + filelistfo.Width + 8;
+  recorderfo.left := filelistfo.left + filelistfo.Width + interv;
   recorderfo.top := 0;
 
   dockpanel2fo.left := recorderfo.left;
   dockpanel2fo.top := dockpanel1fo.top;
+  
+  interv := (rect1.cy- 128 -filelistfo.Height) div 2;
 
+  
   wavefo.Width := recorderfo.left + recorderfo.Width - 2;
   wavefo2.Width := recorderfo.left + recorderfo.Width - 2;
-  wavefo.Height := 98;
-  wavefo2.Height := 98;
-  wavefo.top := dockpanel1fo.top + dockpanel1fo.Height + 31;
-  wavefo2.top := wavefo.top + wavefo.Height + 33;
+  wavefo.Height := interv;
+  wavefo2.Height := interv;
+  wavefo.top := filelistfo.top + filelistfo.Height + 58;
+  wavefo2.top := wavefo.top + wavefo.Height + 31;
 
   wavefo.left := 0;
   wavefo2.left := wavefo.left;
@@ -2646,7 +2666,6 @@ begin
 
 end;
 
-
 procedure tmainfo.showspectrum(const Sender: TObject);
 begin
   spectrum1fo.Visible := not spectrum1fo.Visible;
@@ -2709,6 +2728,11 @@ end;
 procedure tmainfo.onshowwave2(const Sender: TObject);
 begin
   wavefo2.Visible := not wavefo2.Visible;
+end;
+
+procedure tmainfo.onexit(const sender: TObject);
+begin
+close;
 end;
 
 end.

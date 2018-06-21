@@ -13,7 +13,7 @@ object wavefo: twavefo
   bounds_cx = 442
   bounds_cy = 110
   bounds_cxmin = 442
-  bounds_cymin = 110
+  bounds_cymin = 100
   container.frame.optionsskin = [fso_flat]
   container.frame.localprops = [frl_optionsskin]
   container.frame.localprops1 = []

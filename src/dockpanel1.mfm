@@ -7,7 +7,6 @@ object dockpanel1fo: tdockpanel1fo
   bounds_cxmin = 454
   bounds_cymin = 50
   bounds_cxmax = 468
-  bounds_cymax = 700
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0

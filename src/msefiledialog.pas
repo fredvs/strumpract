@@ -1495,7 +1495,7 @@ begin
 filelistfo.historyfn.dropdown.valuelist.asarray:= filename.dropdown.valuelist.asarray;
 filelistfo.historyfn.value := tosysfilepath(dir.value);
 filelistfo.historyfn.hint := ' Selected: ' + filelistfo.historyfn.value + ' ';
-filelistfo.onfloat(nil) ;
+//filelistfo.onfloat(nil) ;
 end;
 
 if thesender = 0 then

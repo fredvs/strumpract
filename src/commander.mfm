@@ -1302,7 +1302,6 @@ object commanderfo: tcommanderfo
       bounds_cx = 63
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
-      value = True
     end
     object volumeleft1val: tbutton
       frame.framei_left = 4

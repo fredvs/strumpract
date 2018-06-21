@@ -270,15 +270,19 @@ begin
 end;
 
 procedure tfilelistfo.onfloat(const Sender: TObject);
+var  rect1: rectty;
+
 begin
   //sizebefdock.cx := 500;
   //sizebefdock.cy := 500;
   //size := sizebefdock;
   if parentwidget = nil then
   begin
-    bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
+  rect1 := application.screenrect(window);
+  
+  //  bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
     bounds_cxmax := fowidth;
-    bounds_cymax := 0;
+    bounds_cymax := rect1.cy - 60;
   end;
 end;
 

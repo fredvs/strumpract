@@ -46,7 +46,6 @@ const
   emptyheight = 40;
   fowidth = 442;
   tabheight = 39;
-  maxheightfo = 700;
   scrollwidth = 14;
 
 var
@@ -63,7 +62,8 @@ procedure tdockpanel1fo.ontimerwait(const Sender: TObject);
 var
   children1: widgetarty;
   i1, visiblecount: int32;
-
+   rect1: rectty;
+  
 begin
   Timerwaitdp.Enabled := False;
 
@@ -105,13 +105,15 @@ begin
 
   //   Width := fowidth + scrollwidth;
   onvisiblech(Sender);
-
+  
+   rect1 := application.screenrect(window);
+  
   bounds_cxmax := bounds_cx;
   bounds_cxmin := bounds_cx;
-  if bounds_cy < maxheightfo then
+  if bounds_cy < rect1.cy - 30 then
     bounds_cymax := bounds_cy
   else
-    bounds_cymax := maxheightfo;
+    bounds_cymax := rect1.cy - 30;
   bounds_cymin := bounds_cy;
 
 end;
