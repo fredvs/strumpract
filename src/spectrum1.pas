@@ -50,12 +50,14 @@ begin
     mainfo.tmainmenu1.menu[3].submenu[9].Caption := ' Show Spectrum 1 '
     else  mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Show Spectrum 2 ';
   end;
-
+if norefresh = false then
+begin
  if assigned(mainfo) then  mainfo.updatelayout();
  if assigned(dockpanel1fo) then  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
   if assigned(dockpanel2fo) then if dockpanel2fo.visible then dockpanel2fo.updatelayout();
   
   if assigned(dockpanel3fo) then if dockpanel3fo.visible then dockpanel3fo.updatelayout();
+end;  
 end;
 
 procedure tspectrum1fo.onformcreated(const sender: TObject);

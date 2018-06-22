@@ -1680,7 +1680,7 @@ begin
       poswav2.x := 6;
       poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
 
-      while poswav.x < (length(waveformdataform1) div chan1) - 1 do
+      while (poswav.x < (length(waveformdataform1) div chan1) - 1) and (poswav.x < wavefo.trackbar1.width) do
       begin
         if chan1 = 2 then
         begin
@@ -1724,7 +1724,7 @@ begin
       poswav2.x := 6;
       poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform2[poswav.x * 2]) * ((wavefo2.trackbar1.Height div 2) - 3));
 
-      while poswav.x < length(waveformdataform2) div chan2 do
+      while (poswav.x < length(waveformdataform2) div chan2) and  (poswav.x < wavefo2.trackbar1.width) do
       begin
         if chan2 = 2 then
         begin
@@ -1919,8 +1919,8 @@ begin
       //  ttimer1.enabled := true;
 
       //{
-
-      uos_Stop(theplayerinfoform);
+      
+       uos_Stop(theplayerinfoform);
       if uos_CreatePlayer(theplayerinfoform) then
         //// Create the player.
         //// PlayerIndex : from 0 to what your computer can do !
@@ -1941,6 +1941,14 @@ begin
           // 2 => calcul after all DSP procedures.
 
           //// determine how much frame will be designed
+        if  (wavefo.trackbar1.Width < Inputlength1 div 64) then
+        else
+        begin
+         wavefo.trackbar1.Width := wavefo.width -10;
+          wavefo.doechelle(nil);
+          wavefo.tmainmenu1.menu[2].Caption := ' Now=X1 ' 
+        end;
+           
           framewanted := Inputlength1 div (wavefo.trackbar1.Width - 7);
 
           uos_InputSetFrameCount(theplayerinfoform, 0, framewanted);
@@ -1988,6 +1996,14 @@ begin
           // 2 => calcul after all DSP procedures.
 
           //// determine how much frame will be designed
+           if  (wavefo2.trackbar1.Width < Inputlength2 div 64) then
+        else 
+        begin
+        wavefo2.trackbar1.Width := wavefo.width -10;
+        wavefo2.doechelle(nil);
+        wavefo2.tmainmenu1.menu[2].Caption := ' Now=X1 ' 
+        end;
+               
           framewanted := Inputlength2 div (wavefo2.trackbar1.Width - 7);
 
           uos_InputSetFrameCount(theplayerinfoform2, 0, framewanted);
@@ -2346,7 +2362,8 @@ begin
       mainfo.tmainmenu1.menu[3].submenu[5].Caption := ' Show Player 2 ';
     end;
   end;
-
+if norefresh = false then
+begin
   mainfo.updatelayout();
   if dockpanel1fo.Visible then
     dockpanel1fo.updatelayout();
@@ -2354,6 +2371,7 @@ begin
     dockpanel2fo.updatelayout();
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
+    end;
 end;
 
 procedure tsongplayerfo.onplayercreate(const Sender: TObject);

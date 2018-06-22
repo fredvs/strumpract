@@ -108,11 +108,15 @@ begin
     mainfo.tmainmenu1.menu[3].submenu[8].Caption := ' Show Guitars ';
 
   end;
+  
+  if norefresh = false then
+begin
   mainfo.updatelayout();
   if dockpanel1fo.visible then dockpanel1fo.updatelayout();
   if dockpanel2fo.visible then dockpanel2fo.updatelayout();
   
   if dockpanel3fo.visible then dockpanel3fo.updatelayout();
+end;  
 end;
 
 procedure tguitarsfo.oncreateguit(const Sender: TObject);

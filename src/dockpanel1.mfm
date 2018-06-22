@@ -3,7 +3,7 @@ object dockpanel1fo: tdockpanel1fo
   bounds_x = 197
   bounds_y = 206
   bounds_cx = 454
-  bounds_cy = 87
+  bounds_cy = 96
   bounds_cxmin = 454
   bounds_cymin = 50
   bounds_cxmax = 468
@@ -29,7 +29,7 @@ object dockpanel1fo: tdockpanel1fo
     0
     16
     454
-    71
+    80
   )
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfacebutltgray
@@ -1214,7 +1214,7 @@ object dockpanel1fo: tdockpanel1fo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 454
-    bounds_cy = 71
+    bounds_cy = 79
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]

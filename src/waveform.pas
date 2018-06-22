@@ -47,8 +47,6 @@ procedure twavefo.faceafterpaintbut(const Sender: tcustomface; const canvas: tca
 var
   point1, point2: pointty;
 begin
-  // point1.x := arect.x + (arect.cx div 2);
-
   point1.x := arect.x + (arect.cx div 2);
   point1.y := 0;
   point2.x := point1.x;
@@ -143,6 +141,7 @@ end;
 procedure twavefo.ondock(const Sender: TObject);
 begin
   bounds_cymax := 128;
+   bounds_cxmax := 442;
 end;
 
 procedure twavefo.onvisiblech(const Sender: TObject);
@@ -162,6 +161,9 @@ begin
       else
         mainfo.tmainmenu1.menu[3].submenu[12].Caption := ' Show WaveForm 2 ';
 
+if norefresh = false then
+begin
+
     mainfo.updatelayout();
 
 
@@ -175,6 +177,8 @@ begin
       dockpanel3fo.updatelayout();
 
   end;
+  
+end;  
 
 end;
 
@@ -191,14 +195,14 @@ begin
     if tmenuitem(Sender).tag = 0 then
       trackbar1.Width := Width - 10;
 
-    if (Caption = 'Wave Player 1') and (tmenuitem(Sender).tag = 1) and (trackbar1.Width * 2 < Inputlength1 div 32) and
-      (trackbar1.Width div rect1.cx < 8) then
+    if (Caption = 'Wave Player 1') and (tmenuitem(Sender).tag = 1) and (trackbar1.Width * 2 < Inputlength1 div 64) and
+      ((trackbar1.Width * 2)  div rect1.cx < 16) then
     begin
       trackbar1.Width := trackbar1.Width * 2;
     end;
 
-    if (Caption = 'Wave Player 2') and (tmenuitem(Sender).tag = 1) and (trackbar1.Width * 2 < Inputlength2 div 32) and
-      (trackbar1.Width div rect1.cx < 8) then
+    if (Caption = 'Wave Player 2') and (tmenuitem(Sender).tag = 1) and (trackbar1.Width * 2 < Inputlength2 div 64) and
+      ((trackbar1.Width *2) div rect1.cx < 16) then
     begin
       trackbar1.Width := trackbar1.Width * 2;
     end;
@@ -287,9 +291,7 @@ begin
       begin
      temptime := tottime1 * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms); 
-      
     songplayerfo.lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
-    
     end;
   
     if (Caption = 'Wave Player 2') and (hascue2 = True) and (totsec2 > 0)

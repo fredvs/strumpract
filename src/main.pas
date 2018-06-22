@@ -112,6 +112,7 @@ var
   ordir: string;
   hasinit: integer = 0;
   maxheightfo : integer;
+  norefresh: boolean = False;
 
 implementation
 
@@ -174,7 +175,7 @@ begin
   
   rect1 := application.screenrect(window);
   
-  maxheightfo := rect1.cy - 30; 
+  maxheightfo := rect1.cy - 70; 
 
   if bounds_cy < maxheightfo then
     bounds_cymax := bounds_cy
@@ -215,13 +216,13 @@ begin
   
  rect1 := application.screenrect(window);
   
-  maxheightfo := rect1.cy - 30; 
+  maxheightfo := rect1.cy - 70; 
   // for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
   tstatfile1.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'status.sta';
   //cueliststa.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'cuelist.sta';
 
   Timerwait := ttimer.Create(nil);
-  Timerwait.interval := 250000;
+  Timerwait.interval := 500000;
   Timerwait.Enabled := False;
   Timerwait.options := [to_single];
   Timerwait.ontimer := @ontimerwait;
@@ -512,6 +513,8 @@ begin
   decorationheight := window.decoratedbounds_cy - Height;
 
   beginlayout();
+  
+  norefresh := true;
 
   if drumsfo.Visible then
     drumsfo.dragdock.float();
@@ -551,6 +554,8 @@ begin
 
   if wavefo2.Visible then
     wavefo2.dragdock.float();
+    
+    norefresh := false;
 
   endlayout();
 
@@ -702,7 +707,7 @@ begin
     posi := wavefo2.top + topdec;
     wavefo2.activate;
   end;
-
+norefresh := false;
   //  activate;
   timerwait.Enabled := True;
 
@@ -730,6 +735,8 @@ begin
   decorationheight := window.decoratedbounds_cy - Height;
 
   beginlayout();
+  
+  norefresh := true;
 
   basedock.dragdock.currentsplitdir := sd_horz;
 
@@ -967,7 +974,7 @@ begin
 
   dockpanel2fo.left := left + Width + 8;
   dockpanel2fo.top := dockpanel1fo.top;
-
+  norefresh := false;
   endlayout();
 
   Timerwait.Enabled := False;
@@ -983,10 +990,32 @@ var
   interv : integer;
 begin
   // basedock.anchors := [an_left,an_top]  ;
-  decorationheight := window.decoratedbounds_cy - Height;
-
-  beginlayout();
-
+   decorationheight := window.decoratedbounds_cy - Height;
+   
+    beginlayout();
+    
+    norefresh := true;
+   dockpanel1fo.visible := false;
+   dockpanel2fo.visible := false;
+   dockpanel3fo.visible := false;
+   drumsfo.Visible := False;
+   
+  guitarsfo.Visible := False;
+  
+  spectrum1fo.Visible := true;
+  spectrum2fo.Visible := true;
+  songplayerfo.Visible := true;
+  songplayer2fo.Visible := true;
+  wavefo.Visible := true;
+  wavefo2.Visible := true;
+  
+  commanderfo.Visible := true; 
+  filelistfo.Visible := true;
+  recorderfo.Visible := true;  
+   
+  dockpanel1fo.visible := true;
+  dockpanel2fo.visible := true;
+    
   basedock.dragdock.currentsplitdir := sd_horz;
 
   with dockpanel1fo do
@@ -1031,30 +1060,20 @@ begin
     if wavefo2.parentwidget = basedock then
       wavefo2.dragdock.float();
 
-    Visible := True;
-
-    songplayerfo.Visible := True;
     songplayerfo.parentwidget := basedock;
 
-    spectrum1fo.Visible := True;
     spectrum1fo.parentwidget := basedock;
 
     //{
     pt1 := nullpoint;
 
-    if spectrum1fo.Visible then
-    begin
-      spectrum1fo.pos := pt1;
+     spectrum1fo.pos := pt1;
       pt1.y := pt1.y + spectrum1fo.Height + decorationheight;
-    end;
-
-    if songplayerfo.Visible then
-    begin
+   
       songplayerfo.pos := pt1;
       pt1.y := pt1.y + songplayerfo.Height + decorationheight;
-    end;
-    dockpanel1fo.Timerwaitdp.Enabled := False;
-    dockpanel1fo.Timerwaitdp.Enabled := True;
+    // dockpanel1fo.Timerwaitdp.Enabled := False;
+   // dockpanel1fo.Timerwaitdp.Enabled := True;
   end;
 
   with dockpanel2fo do
@@ -1098,12 +1117,8 @@ begin
     if wavefo2.parentwidget = basedock then
       wavefo2.dragdock.float();
 
-    Visible := True;
-
-    songplayer2fo.Visible := True;
     songplayer2fo.parentwidget := basedock;
 
-    spectrum2fo.Visible := True;
     spectrum2fo.parentwidget := basedock;
 
     //{
@@ -1115,25 +1130,16 @@ begin
     songplayer2fo.pos := pt1;
     pt1.y := pt1.y + songplayerfo.Height + decorationheight;
 
-    dockpanel2fo.Timerwaitdp.Enabled := False;
-    dockpanel2fo.Timerwaitdp.Enabled := True;
+  //  dockpanel2fo.Timerwaitdp.Enabled := False;
+  //  dockpanel2fo.Timerwaitdp.Enabled := True;
   end;
 
-  drumsfo.Visible := False;
-  guitarsfo.Visible := False;
-  dockpanel3fo.Visible := False;
-
   filelistfo.dragdock.float();
-  filelistfo.Visible := True;
   commanderfo.dragdock.float();
-  commanderfo.Visible := True;
   wavefo.dragdock.float();
-  wavefo.Visible := True;
   wavefo2.dragdock.float();
-  wavefo2.Visible := True;
   recorderfo.dragdock.float();
-  recorderfo.Visible := True;
-
+  
   commanderfo.parentwidget := basedock;
 
   left := 0;
@@ -1141,38 +1147,51 @@ begin
   
   rect1 := application.screenrect(window);
   
-  interv := (rect1.cx- (dockpanel1fo.Width + filelistfo.Width + dockpanel2fo.Width)) div 2 ;
+  interv := (rect1.cx- (songplayerfo.Width + filelistfo.Width + songplayer2fo.Width)) div 2 ;
 
   dockpanel1fo.left := left;
   dockpanel1fo.top := commanderfoheight + 74;
 
+   filelistfo.activate;
   filelistfo.left := commanderfo.Width + interv;
   filelistfo.top := 0;
-  filelistfo.Height := commanderfo.Height + 47 + dockpanel1fo.Height;
+  filelistfo.Height := commanderfo.Height + 67 + songplayerfo.Height + spectrum1fo.Height ;
 
   recorderfo.left := filelistfo.left + filelistfo.Width + interv;
   recorderfo.top := 0;
-
-  dockpanel2fo.left := recorderfo.left;
-  dockpanel2fo.top := dockpanel1fo.top;
   
-  interv := (rect1.cy- 128 -filelistfo.Height) div 2;
-
+   dockpanel2fo.top := dockpanel1fo.top;
+   
+   dockpanel2fo.left := filelistfo.left + filelistfo.Width + interv;
+  
+  interv := (rect1.cy- 194 -songplayerfo.Height - spectrum1fo.Height - commanderfo.Height) div 2;
   
   wavefo.Width := recorderfo.left + recorderfo.Width - 2;
   wavefo2.Width := recorderfo.left + recorderfo.Width - 2;
   wavefo.Height := interv;
   wavefo2.Height := interv;
-  wavefo.top := filelistfo.top + filelistfo.Height + 58;
+  wavefo.top := commanderfo.Height + songplayerfo.Height + spectrum1fo.Height + 126;
   wavefo2.top := wavefo.top + wavefo.Height + 31;
 
   wavefo.left := 0;
   wavefo2.left := wavefo.left;
-
-  endlayout();
+  
+    //  visible:= true;
+ 
+   endlayout();
+    
+    dockpanel1fo.activate;
+    dockpanel2fo.activate;
+    
+      wavefo.activate;
+    wavefo2.activate;
+    
+    activate;
 
   Timerwait.Enabled := False;
   Timerwait.Enabled := True;
+  
+   norefresh := false;
 
 end;
 
@@ -1180,10 +1199,11 @@ procedure tmainfo.ondockall(const Sender: TObject);
 var
   pt1: pointty;
   decorationheight: integer = 5;
+  rect1: rectty;
 begin
   // basedock.anchors := [an_left,an_top]  ;
   decorationheight := window.decoratedbounds_cy - Height;
-
+  norefresh := true;
   filelistfo.bounds_cxmax := fowidth;
   filelistfo.bounds_cymax := 1024;
 
@@ -1195,6 +1215,8 @@ begin
 
   //sizebefdock.cy := 500;
   //size := sizebefdock;
+  
+  rect1 := application.screenrect(window);
 
   beginlayout();
 
@@ -1293,6 +1315,8 @@ begin
   if guitarsfo.Visible then
     guitarsfo.pos := pt1;
   //}
+  
+  norefresh := false;
   endlayout();
 
   if Height > 699 then
@@ -1313,6 +1337,8 @@ begin
 
   dockpanel3fo.Timerwaitdp.Enabled := False;
   dockpanel3fo.Timerwaitdp.Enabled := True;
+  
+  left :=  (rect1.cx- Width) div 2 ; 
 
   //basedock.anchors := [an_left,an_top,an_right,an_bottom]  ;
 end;
@@ -1358,6 +1384,7 @@ end;
 
 procedure tmainfo.showall(const Sender: TObject);
 begin
+ norefresh := true;
   //beginlayout();
   drumsfo.Show();
   filelistfo.Show();
@@ -1370,7 +1397,7 @@ begin
   spectrum2fo.Show();
   wavefo.Show();
   wavefo2.Show();
-
+norefresh := false;
   // endlayout();
   timerwait.Enabled := True;
 end;
@@ -1378,6 +1405,7 @@ end;
 procedure tmainfo.hideall(const Sender: TObject);
 begin
   //beginlayout();
+  norefresh := true;
   drumsfo.Visible := False;
   filelistfo.Visible := False;
   songplayerfo.Visible := False;
@@ -1389,7 +1417,7 @@ begin
   spectrum2fo.Visible := False;
   wavefo.Visible := False;
   wavefo2.Visible := False;
-
+  norefresh := false;
   // endlayout();
   timerwait.Enabled := True;
 end;

@@ -111,8 +111,9 @@ findinfiledialog=71
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=ttimer.Create(nil)
+ value=onvisible
  history=20
+  onvisible
   ttimer.Create(nil)
   to_single
   filelistfo.
@@ -134,7 +135,6 @@ findinfiledialog=71
   widget.doactivate
   faceafterpaintbut
   clampinview
-  sbhorz
  [findinfileadialogfo]
  stackedunder=
  x=635
@@ -750,33 +750,36 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=10
+modulenames=11
  COMMANDERFO
  DOCKPANEL1FO
  DRUMSFO
  FILELISTFO
+ GUITARSFO
  MAINFO
  FILEDIALOGFO
  RECORDERFO
  SONGPLAYERFO
  SPECTRUM1FO
  WAVEFO
-moduletypes=10
+moduletypes=11
  TCOMMANDERFO
  TDOCKPANEL1FO
  TDRUMSFO
  TFILELISTFO
+ TGUITARSFO
  TMAINFO
  TFILEDIALOGFO
  TRECORDERFO
  TSONGPLAYERFO
  TSPECTRUM1FO
  TWAVEFO
-modulefiles=10
+modulefiles=11
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/dockpanel1.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/msefiledialog.mfm
  /home/fred/strumpract/src/recorder.mfm
@@ -1144,32 +1147,32 @@ line=39
  11
  105
  47
- 1201
+ 1236
  5714
- 1358
- 117
+ 1398
+ 118
  1467
  300
  319
- 490
+ 492
  553
  766
  776
  701
  1538
- 1993
+ 2034
  209
  1136
- 2428
- 2635
- 321
+ 2469
+ 2676
+ 323
  5
- 701
+ 703
  1517
  103
- 150
+ 148
  1471
- 307
+ 308
 address=39
  4584872
  7099064
@@ -1423,33 +1426,30 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=onwavform
+finddtext=ondockall
 findhistory=20
+ ondockall
+ timerwaitdp
+ beginla
+ visiblee
+ rect1.cy
+ hideall
+ dockall
  onwavform
+ paintsliderimageform
+ FormDrawWaveForm
+ ttimer
  ttimer1
  buzywaveform
  initwaveform
   initwaveform
- FormDrawWaveForm
  DrawWaveFormbusy1
  timer
   DrawWaveFormbusy1
  DrawWaveForm
  paintsliderimage
- maxheightfo
- DSPReverseBefore
- DSPIndex11
- onsliderchange
- tottime
- lposition.value
- lposition
- wavefo.
- wavefo
 findoptions=1
-editpos=25
- 0,-1073741823
- 0,-1073741823
- 0,1381
+editpos=28
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1463,7 +1463,13 @@ editpos=25
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,178
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 3,1163
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1471,7 +1477,7 @@ editpos=25
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,269
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1497,7 +1503,10 @@ bookmarks21=0
 bookmarks22=0
 bookmarks23=0
 bookmarks24=0
-sourcefiles=25
+bookmarks25=0
+bookmarks26=0
+bookmarks27=0
+sourcefiles=28
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/songplayer.pas
@@ -1523,7 +1532,10 @@ sourcefiles=25
  ${PROJECTDIR}/define.inc
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/waveform.pas
-relpaths=25
+ ${PROJECTDIR}/dockpanel1.pas
+ ${PROJECTDIR}/guitars.pas
+ ${PROJECTDIR}/spectrum1.pas
+relpaths=28
  strumpract.pas
  waveform.pas
  songplayer.pas
@@ -1549,7 +1561,13 @@ relpaths=25
  define.inc
  waveform.pas
  waveform.pas
-ismoduletexts=25
+ dockpanel1.pas
+ guitars.pas
+ spectrum1.pas
+ismoduletexts=28
+ 0
+ 0
+ 0
  0
  0
  0
@@ -1606,12 +1624,12 @@ visiblemodules=12
  -1
  -1
  -1
- 0
+ -1
  0
  -1
  -1
  -1
- 0
+ -1
  -1
  0
 nomenumodules=12
@@ -1619,7 +1637,7 @@ nomenumodules=12
  0
  0
  0
- -1
+ 0
  -1
  0
  0
@@ -1628,11 +1646,14 @@ nomenumodules=12
  0
  0
 [sourcefo.files_tab]
-order=25
+order=28
  0
  1
  2
  24
+ 25
+ 26
+ 27
  16
  17
  18
@@ -1655,9 +1676,9 @@ order=25
  3
  4
 firsttab=2
-index=2
+index=10
 [layout]
-windowlayout=779
+windowlayout=781
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1734,7 +1755,7 @@ windowlayout=779
  [memoryfo]
  splitdir=0
  useroptions=805322875
- stackedunder=dialogfilesfo
+ stackedunder=about_form
  parent=
  mdistate=0
  nx=0
@@ -1816,7 +1837,7 @@ windowlayout=779
  width1=82
  sortdescend1=0
  sorted=0
- col=0
+ col=1
  row=5
  rowheight=16
  [stackfo]
@@ -1902,7 +1923,7 @@ windowlayout=779
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=targetconsolefo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1917,7 +1938,7 @@ windowlayout=779
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=306
  width0=136
@@ -2086,7 +2107,7 @@ windowlayout=779
  [componentpalettefo]
  splitdir=0
  useroptions=805331051
- stackedunder=confideufo
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -2099,7 +2120,7 @@ windowlayout=779
  cy=77
  rcx=0
  rcy=0
- wsize=5
+ wsize=0
  active=0
  visible=0
  [componentpalettefo.componentpages]
@@ -2143,16 +2164,18 @@ windowlayout=779
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
- history=8
-  /home/fred/strumpract/src/commander.pas
+ value=/home/fred/strumpract/src/main.pas
+ history=10
+  /home/fred/strumpract/src/main.pas
+  /home/pi/strumpract/src/main.pas
   /home/fred/strumpract/src/waveform.pas
+  /home/fred/strumpract/src/songplayer.pas
+  /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/define.inc
   /home/fred/strumpract/src/uos.pas
   /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2177,9 +2200,9 @@ windowlayout=779
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_filedialogres_mse_
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
@@ -2250,7 +2273,7 @@ windowlayout=779
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2288,7 +2311,7 @@ windowlayout=779
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filedialogres_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2303,11 +2326,11 @@ windowlayout=779
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=_mse_filedialogfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2326,7 +2349,7 @@ windowlayout=779
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_dockpanel1fo_mse_
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2352,8 +2375,8 @@ windowlayout=779
  ny=0
  ncx=0
  ncy=0
- x=422
- y=313
+ x=347
+ y=305
  cx=452
  cy=110
  rcx=0
@@ -2364,7 +2387,7 @@ windowlayout=779
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2383,7 +2406,7 @@ windowlayout=779
  [_mse_spectrum1fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filedialogfo_mse_
+ stackedunder=_mse_dockpanel1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2398,11 +2421,11 @@ windowlayout=779
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_dockpanel1fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_wavefo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2412,7 +2435,7 @@ windowlayout=779
  x=197
  y=206
  cx=464
- cy=87
+ cy=96
  rcx=0
  rcy=0
  wsize=0

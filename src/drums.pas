@@ -776,6 +776,9 @@ begin
     // dostop(Sender);
     mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Show Drums ';
   end;
+  
+  if norefresh = false then
+begin
 
   mainfo.updatelayout();
 
@@ -787,6 +790,7 @@ begin
 
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
+    end;
 end;
 
 procedure tdrumsfo.createdrumsplayers;

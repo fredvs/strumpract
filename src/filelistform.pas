@@ -306,7 +306,8 @@ begin
   begin
     mainfo.tmainmenu1.menu[3].submenu[3].Caption := ' Show File List ';
   end;
-
+if norefresh = false then
+begin
   mainfo.updatelayout();
   if dockpanel1fo.Visible then
     dockpanel1fo.updatelayout();
@@ -315,6 +316,7 @@ begin
 
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
+ end;   
 end;
 
 procedure tfilelistfo.oncellev(const Sender: TObject; var info: celleventinfoty);

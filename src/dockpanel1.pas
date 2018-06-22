@@ -70,7 +70,7 @@ begin
   //{
   children1 := basedock.dragdock.getitems();
   visiblecount := 0;
-
+  
   // writeln('Number of childs: ' + inttostr(high(children1)));
 
   for i1 := 0 to high(children1) do
@@ -96,7 +96,6 @@ begin
     // writeln('basedock.height: ' + inttostr(basedock.height));
   end;
   //}
-
 
   if (fs_sbverton in container.frame.state) then
     Width := fowidth + scrollwidth
@@ -245,9 +244,11 @@ begin
     container.Height := Height;
   end;
   //}
+if norefresh = false then begin
 
   Timerwaitdp.Enabled := False; // to reset
   Timerwaitdp.Enabled := True;
+  end;
 end;
 
 procedure tdockpanel1fo.updatedockev(const Sender: TObject; const awidget: twidget);

@@ -404,7 +404,8 @@ begin
   begin
     mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Show Commander ';
   end;
-
+if norefresh = false then
+begin
   mainfo.updatelayout();
 
   if dockpanel1fo.Visible then
@@ -413,6 +414,7 @@ begin
     dockpanel2fo.updatelayout();
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
+ end;   
 end;
 
 procedure tcommanderfo.onplay(const Sender: TObject);

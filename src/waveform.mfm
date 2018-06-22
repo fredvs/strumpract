@@ -8,12 +8,12 @@ object wavefo: twavefo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacecomp4
   frame.grip_hint = ' Use that grip to drag the form '
-  bounds_x = 422
-  bounds_y = 313
+  bounds_x = 347
+  bounds_y = 305
   bounds_cx = 442
   bounds_cy = 110
   bounds_cxmin = 442
-  bounds_cymin = 100
+  bounds_cymin = 94
   container.frame.optionsskin = [fso_flat]
   container.frame.localprops = [frl_optionsskin]
   container.frame.localprops1 = []
