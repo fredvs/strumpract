@@ -576,17 +576,20 @@ begin
   Timerwait := ttimer.Create(nil);
   Timerwait.interval := 100000;
   Timerwait.Enabled := False;
+  Timerwait.options := [to_single];
   Timerwait.ontimer := @ontimerwait;
 
   Timerrec := ttimer.Create(nil);
   Timerrec.interval := 100000;
   Timerrec.Enabled := False;
+  Timerrec.options := [to_single];
   Timerrec.ontimer := @ontimerrec;
 
   Timersent := ttimer.Create(nil);
   Timersent.interval := 2500000;
   Timersent.Enabled := False;
   Timersent.ontimer := @ontimersent;
+  Timersent.options := [to_single];
 
   if plugsoundtouch = False then
   begin

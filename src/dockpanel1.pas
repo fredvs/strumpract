@@ -143,7 +143,7 @@ var
   children1: widgetarty;
   heights: integerarty;
   i1: int32;
-  si1, si2, si3: sizety;
+  si1 : sizety;
   w1: twidget;
 begin
   if flayoutlock <= 0 then

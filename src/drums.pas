@@ -987,11 +987,13 @@ begin
   Timerpause.interval := 10000000;
   Timerpause.Enabled := False;
   Timerpause.ontimer := @ontimerpause;
+  Timerpause.options := [to_single];
 
   Timersent := ttimer.Create(nil);
   Timersent.interval := 2500000;
   Timersent.Enabled := False;
   Timersent.ontimer := @ontimersent;
+  Timersent.options := [to_single];
 
   drum_beats[0] := 'x0x0x0x0x0x0x000'; // closed hat
   drum_beats[1] := '00000000000000x0'; // opened hat

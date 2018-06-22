@@ -185,6 +185,7 @@ object wavefo: twavefo
   end
   object ttimer1: ttimer
     interval = 500000
+    options = [to_single]
     ontimer = onzoom
     left = 23
     top = 44

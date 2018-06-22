@@ -4,13 +4,13 @@ unit songplayer;
 interface
 
 uses
-  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
-  msefileutils, mseapplication, msestat, msemenus, msegui, msegraphics,
-  msegraphutils, mseevent, mseclasses, mseforms, msedock, msesimplewidgets,
-  msewidgets, msedataedits, msefiledialog, msegrids, mselistbrowser, msesys,
-  SysUtils, msegraphedits, msedragglob, mseact, mseedit, mseificomp,
-  mseificompglob, mseifiglob, msestatfile, msestream, msestrings, msescrollbar,
-  msebitmap, msedatanodes, msedispwidgets, mserichstring;
+ ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
+ msefileutils, mseapplication, msestat, msemenus, msegui, msegraphics,
+ msegraphutils, mseevent, mseclasses, mseforms, msedock, msesimplewidgets,
+ msewidgets, msedataedits, msefiledialog, msegrids, mselistbrowser, msesys,
+ SysUtils, msegraphedits, msedragglob, mseact, mseedit, mseificomp,
+ mseificompglob, mseifiglob, msestatfile, msestream, msestrings, msescrollbar,
+ msebitmap, msedatanodes, msedispwidgets, mserichstring;
 
 type
   tsongplayerfo = class(tdockform)
@@ -51,6 +51,7 @@ type
     btnStart: TButton;
     BtnCue: TButton;
     setmono: tbooleanedit;
+    ttimer1: ttimer;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -95,6 +96,7 @@ type
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure ongetbpm(const Sender: TObject);
 
+   procedure ontimerwaveform(const sender: TObject);
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const canvas: tcanvas; const arect: rectty);
@@ -156,6 +158,12 @@ var
   
    tottime1: ttime;
    tottime2: ttime;
+   
+    DrawWaveFormbusy1 : boolean = False;
+    DrawWaveFormbusy2 : boolean = False;
+    
+     FormDrawWaveFormbusy1 : boolean = False;
+    FormDrawWaveFormbusy2 : boolean = False;
 
   iscue2: boolean = False;
   iswav2: boolean = False;
@@ -576,9 +584,9 @@ begin
   lposition.Value := '00:00:00.000';
   lposition.face.template := mainfo.tfaceplayer;
 
-  DrawWaveForm();
+   DrawWaveForm();
 
-  //formDrawWaveForm();
+   formDrawWaveForm();
 
   resetspectrum();
 
@@ -1072,22 +1080,23 @@ begin
           Timerwait.Enabled := True;
           lposition.face.template := mainfo.tfaceplayerrev;
 
-          oninfowav(Sender);
-
-          //  application.ProcessMessages;
+             //  application.ProcessMessages;
 
           hascue := True;
+          
+             oninfowav(Sender); 
 
           if as_checked in wavefo.tmainmenu1.menu[0].state then
           begin
 
-            //  if (wavefo.waveon.Value = True) then  begin
-            initwaveform1 := False;
-            wavefo.doechelle(Sender);
-            //     application.processmessages;
-            onwavform(Sender);
-            //   application.processmessages;
+           wavefo.doechelle(Sender);
+           
+           //   onwavform(Sender);
+           ttimer1.enabled := false;
+           ttimer1.enabled := true;
+           
           end;
+                
         end
         else
           ShowMessage(historyfn.Value + ' cannot load...');
@@ -1366,14 +1375,11 @@ begin
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
           begin
 
-            //   if (wavefo2.waveon.Value = True) then     begin
-            initwaveform2 := False;
             wavefo2.doechelle(nil);
-            //   application.processmessages;
-            onwavform(Sender);
-            //  application.processmessages;
-
-          end;
+            ttimer1.enabled := false;
+            ttimer1.enabled := true;
+             //  onwavform(Sender);
+           end;
 
         end
         else
@@ -1807,6 +1813,14 @@ const
 var
   rect1: rectty;
 begin
+
+ if ((Caption = 'Player 1') and (DrawWaveFormbusy1 = false)) or
+ ((Caption = 'Player 2') and (DrawWaveFormbusy2 = false)) then
+ begin
+ 
+  if Caption = 'Player 1' then DrawWaveFormbusy1 := true;
+  if Caption = 'Player 2' then DrawWaveFormbusy2 := true;
+ 
   // if (waveformcheck.value = true) then begin
   trackbar1.invalidate();
 
@@ -1824,6 +1838,9 @@ begin
     transparentcolor := transpcolor;
     masked := True;
   end;
+   if Caption = 'Player 1' then DrawWaveFormbusy1 := false;
+   if Caption = 'Player 2' then DrawWaveFormbusy2 := false;
+   end;
 end;
 
 procedure tsongplayerfo.FormDrawWaveForm();
@@ -1833,9 +1850,12 @@ var
   rect1form: rectty;
 begin
 
-  if (Caption = 'Player 1') and (as_checked in wavefo.tmainmenu1.menu[0].state) then
+  if (Caption = 'Player 1')  and 
+  (FormDrawWaveFormbusy1 = false) and
+   (as_checked in wavefo.tmainmenu1.menu[0].state) then
   begin
-    wavefo.trackbar1.invalidate();
+   FormDrawWaveFormbusy1 := true;
+  wavefo.trackbar1.invalidate();
 
     rect1form.pos := nullpoint;
     rect1form.size := wavefo.trackbar1.paintsize;
@@ -1850,10 +1870,14 @@ begin
       masked := True;
     end;
     buzywaveform1 := False;
+   FormDrawWaveFormbusy1 := false; 
   end;
 
-  if (Caption = 'Player 2') and (as_checked in wavefo2.tmainmenu1.menu[0].state) then
+  if (Caption = 'Player 2')
+    and (FormDrawWaveFormbusy2 = false) 
+   and (as_checked in wavefo2.tmainmenu1.menu[0].state) then
   begin
+  FormDrawWaveFormbusy2 := true; 
     wavefo2.trackbar1.invalidate();
 
     rect1form.pos := nullpoint;
@@ -1869,6 +1893,7 @@ begin
       masked := True;
     end;
     buzywaveform2 := False;
+     FormDrawWaveFormbusy2 := false; 
   end;
 
 end;
@@ -1879,7 +1904,9 @@ var
 
 begin
 
-  if (Caption = 'Player 1') and (as_checked in wavefo.tmainmenu1.menu[0].state) and (buzywaveform1 = False) then
+  if (Caption = 'Player 1') and (as_checked in wavefo.tmainmenu1.menu[0].state) 
+ and (buzywaveform1 = False)
+  then
   begin
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
@@ -2338,11 +2365,13 @@ begin
   Timerwait.interval := 250000;
   Timerwait.Enabled := False;
   Timerwait.ontimer := @ontimerwait;
+  Timerwait.options := [to_single];
 
   Timersent := ttimer.Create(nil);
   Timersent.interval := 2500000;
   Timersent.Enabled := False;
   Timersent.ontimer := @ontimersent;
+  Timersent.options := [to_single];
 
   if plugsoundtouch = False then
   begin
@@ -2680,6 +2709,12 @@ begin
     end;
   end;
 
+end;
+
+procedure tsongplayerfo.ontimerwaveform(const sender: TObject);
+begin
+ttimer1.enabled := false;
+onwavform(sender);
 end;
 
 end.

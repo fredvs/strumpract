@@ -125,11 +125,13 @@ end;
 procedure twavefo.ontimer(const Sender: TObject);
 begin
   ttimer1.Enabled := False;
+ 
   if (Caption = 'Wave Player 1') and (hascue = True) and (totsec1 > 0) and (assigned(songplayerfo)) then
     songplayerfo.onwavform(Sender);
 
   if (Caption = 'Wave Player 2') and (hascue2 = True) and (totsec2 > 0) and (assigned(songplayer2fo)) then
     songplayer2fo.onwavform(Sender);
+  
 end;
 
 procedure twavefo.onfloat(const Sender: TObject);

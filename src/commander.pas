@@ -176,11 +176,13 @@ procedure tcommanderfo.formcreated(const Sender: TObject);
 begin
   Timermix := ttimer.Create(nil);
   Timermix.interval := 100000;
+  Timermix.options := [to_single];
   Timermix.Enabled := False;
   Timermix.ontimer := @ontimermix;
   Timersent := ttimer.Create(nil);
   Timersent.interval := 2500000;
   Timersent.Enabled := False;
+  Timersent.options := [to_single];
   Timersent.ontimer := @ontimersent;
 end;
 

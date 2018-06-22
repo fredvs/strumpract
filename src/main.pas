@@ -7,7 +7,7 @@ interface
 
 uses
   msetypes, mseglob, mseguiglob, msegraphedits, mseguiintf, mseapplication, msestat, msegui,
-  msetimer, ctypes, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms, msechart,
+  msetimer, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms, msechart,
   msedock, msedataedits, mseedit, msestatfile, SysUtils, Classes,
   msebitmap, msesys, msemenus, msestream, msegrids, mselistbrowser,
   mseact, mseificomp, mseificompglob, mseifiglob, msestrings;
@@ -223,6 +223,7 @@ begin
   Timerwait := ttimer.Create(nil);
   Timerwait.interval := 250000;
   Timerwait.Enabled := False;
+  Timerwait.options := [to_single];
   Timerwait.ontimer := @ontimerwait;
 end;
 
@@ -394,7 +395,7 @@ var
   children1: widgetarty;
   heights: integerarty;
   i1: int32;
-  si1, si2, si3: sizety;
+  si1 : sizety;
   w1: twidget;
 begin
   if flayoutlock <= 0 then
@@ -501,9 +502,8 @@ end;
 
 procedure tmainfo.onfloatall(const Sender: TObject);
 var
-  rect1, rect2: rectty;
+  
   decorationheight, posi: int32;
-  si1: sizety;
   leftdec: integer = 70;
   topdec: integer = 40;
 begin

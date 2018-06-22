@@ -59,6 +59,7 @@ begin
   Timersent := ttimer.Create(nil);
   Timersent.interval := 2500000;
   Timersent.Enabled := False;
+  Timersent.options := [to_single];
   Timersent.ontimer := @ontimersent;
 end;
 
@@ -354,12 +355,12 @@ end;
 
 procedure tfilelistfo.onbefdrop(const Sender: TObject);
 begin
-  historyfn.Width := 422;
+  historyfn.Width := 402;
 end;
 
 procedure tfilelistfo.onaftdrop(const Sender: TObject);
 begin
-  historyfn.Width := 176;
+  historyfn.Width := 164;
 end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
@@ -374,7 +375,6 @@ end;
 
 procedure tfilelistfo.ondock(const Sender: TObject);
 begin
-
   bounds_cy := 128;
 end;
 

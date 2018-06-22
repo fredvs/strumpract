@@ -826,8 +826,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 17
       visible = False
-      bounds_x = 75
-      bounds_y = 15
+      bounds_x = 163
+      bounds_y = 55
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -912,10 +912,17 @@ object songplayerfo: tsongplayerfo
     )
     template.fade_direction = gd_down
     left = 206
-    top = 17
+    top = 26
   end
   object sliderimage: tbitmapcomp
     left = 32
     top = 96
+  end
+  object ttimer1: ttimer
+    interval = 500000
+    options = [to_single]
+    ontimer = ontimerwaveform
+    left = 127
+    top = 94
   end
 end
