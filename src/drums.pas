@@ -199,7 +199,7 @@ uses
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
 begin
-  timersent.Enabled := False;
+//  timersent.Enabled := False;
   edittempo.face.template := tfacecomp3;
   volumedrums.face.template := tfacecomp3;
   ltempo.face.template := tfacecomp3;
@@ -210,7 +210,7 @@ procedure tdrumsfo.ontimerpause(const Sender: TObject);
 var
   i: integer;
 begin
-  Timerpause.Enabled := False;
+//  Timerpause.Enabled := False;
   if wascreated then
   begin
 
@@ -985,6 +985,7 @@ begin
   Timertick.tag := 0;
   Timertick.Enabled := False;
   Timertick.options := [to_highres];
+  Timertick.options := [to_leak];
   Timertick.ontimer := @ontimertick;
 
   Timerpause := ttimer.Create(nil);

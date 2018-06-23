@@ -176,7 +176,8 @@ procedure tcommanderfo.formcreated(const Sender: TObject);
 begin
   Timermix := ttimer.Create(nil);
   Timermix.interval := 100000;
-  Timermix.options := [to_single];
+  //Timermix.options := [to_single];
+  Timermix.options := [to_leak];
   Timermix.Enabled := False;
   Timermix.ontimer := @ontimermix;
   Timersent := ttimer.Create(nil);
@@ -188,7 +189,7 @@ end;
 
 procedure tcommanderfo.ontimersent(const Sender: TObject);
 begin
-  timersent.Enabled := False;
+ // timersent.Enabled := False;
   hintpanel.Visible := False;
 end;
 
@@ -301,7 +302,7 @@ procedure tcommanderfo.ontimermix(const Sender: TObject);
 var
   muststop: integer = 0;
 begin
-  timermix.Enabled := False;
+ // timermix.Enabled := False;
   //  application.lock();
   if thetypemix = 0 then
   begin
@@ -337,13 +338,14 @@ begin
         muststop := 1;
       end;
 
-      if muststop = 0 then
-        timermix.Enabled := True;
+      if muststop = 1 then
+        timermix.Enabled := false;
     end
     else
     begin
       volumeright2.Value := 0;
       songplayer2fo.doplayerstop(Sender);
+       timermix.Enabled := false;
     end;
   end
   else  /// player 2 --> 1
@@ -381,13 +383,14 @@ begin
         muststop := 1;
       end;
 
-      if muststop = 0 then
-        timermix.Enabled := True;
+      if muststop = 1 then
+        timermix.Enabled := false;
     end
     else
     begin
       volumeright1.Value := 0;
       songplayerfo.doplayerstop(Sender);
+       timermix.Enabled := false;
     end;
   end;
 

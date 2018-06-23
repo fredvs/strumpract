@@ -125,7 +125,7 @@ end;
 
 procedure trecorderfo.ontimerwait(const Sender: TObject);
 begin
-  timerwait.Enabled := False;
+//  timerwait.Enabled := False;
   btnStart.Enabled := True;
   btnStop.Enabled := True;
   if cbloop.Value = False then
@@ -556,7 +556,8 @@ begin
     mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Show Recorder ';
     uos_Stop(therecplayer);
   end;
-
+if norefresh = false then
+begin
   mainfo.updatelayout();
   if dockpanel1fo.Visible then
     dockpanel1fo.updatelayout();
@@ -565,6 +566,7 @@ begin
 
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
+end;    
 end;
 
 procedure trecorderfo.onplayercreate(const Sender: TObject);
@@ -582,7 +584,7 @@ begin
   Timerrec := ttimer.Create(nil);
   Timerrec.interval := 100000;
   Timerrec.Enabled := False;
-  Timerrec.options := [to_single];
+  //Timerrec.options := [to_single];
   Timerrec.ontimer := @ontimerrec;
 
   Timersent := ttimer.Create(nil);

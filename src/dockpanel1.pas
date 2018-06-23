@@ -65,7 +65,7 @@ var
    rect1: rectty;
   
 begin
-  Timerwaitdp.Enabled := False;
+  // Timerwaitdp.Enabled := False;
 
   //{
   children1 := basedock.dragdock.getitems();
@@ -260,6 +260,7 @@ procedure tdockpanel1fo.oncreate(const Sender: TObject);
 begin
   flayoutlock := 0;
   Timerwaitdp := ttimer.Create(nil);
+  Timerwaitdp.options := [to_single];
   Timerwaitdp.interval := 250000;
   Timerwaitdp.Enabled := False;
   Timerwaitdp.ontimer := @ontimerwait;

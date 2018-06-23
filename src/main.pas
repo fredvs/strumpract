@@ -128,7 +128,7 @@ var
   rect1: rectty;
 
 begin
-  timerwait.Enabled := False;
+ // timerwait.Enabled := False;
 
   //{
   children1 := basedock.dragdock.getitems();
@@ -968,7 +968,7 @@ begin
   dockpanel1fo.top := 0;
 
   dockpanel3fo.left := 0;
-  dockpanel3fo.top := dockpanel1fo.Height + (2 * decorationheight);
+  dockpanel3fo.top := songplayerfo.Height + songplayerfo.Height + 30 + (2 * decorationheight);
 
   left := dockpanel1fo.Width + 10;
 

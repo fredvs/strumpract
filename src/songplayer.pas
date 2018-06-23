@@ -268,7 +268,7 @@ end;
 
 procedure tsongplayerfo.ontimersent(const Sender: TObject);
 begin
-  timersent.Enabled := False;
+ // timersent.Enabled := False;
   hintpanel.Visible := False;
   historyfn.face.template := mainfo.tfaceplayerlight;
   edvolleft.face.template := mainfo.tfaceplayer;
@@ -283,7 +283,7 @@ begin
 
   if Caption = 'Player 1' then
   begin
-    timerwait.Enabled := False;
+  //  timerwait.Enabled := False;
     btnStart.Enabled := True;
     btnStop.Enabled := True;
     btncue.Enabled := False;
@@ -339,7 +339,7 @@ begin
 
   if Caption = 'Player 2' then
   begin
-    timerwait.Enabled := False;
+    // timerwait.Enabled := False;
     btnStart.Enabled := True;
     btnStop.Enabled := True;
     btncue.Enabled := False;
@@ -2731,7 +2731,6 @@ end;
 
 procedure tsongplayerfo.ontimerwaveform(const sender: TObject);
 begin
-ttimer1.enabled := false;
 onwavform(sender);
 end;
 

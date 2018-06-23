@@ -65,7 +65,7 @@ end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
 begin
-  timersent.Enabled := False;
+ // timersent.Enabled := False;
   hintpanel.Visible := False;
 end;
 
