@@ -65,8 +65,7 @@ end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
 begin
- // timersent.Enabled := False;
-  hintpanel.Visible := False;
+   hintpanel.Visible := False;
 end;
 
 procedure tfilelistfo.onsent(const Sender: TObject);
@@ -84,10 +83,12 @@ begin
     begin
       if filelistfo.list_files.rowcount < 1 then
       begin
-        timersent.Enabled := False;
+       
         hintlabel.Caption := 'No song in file list. Please select a audio directory with songs...';
         hintpanel.Visible := True;
-        timersent.Enabled := True;
+       if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       end
       else
       begin
@@ -153,15 +154,21 @@ begin
           if (commanderfo.Visible = True) and (commanderfo.window.windowpos <> wp_minimized) and
             (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
             commanderfo.tbutton2.SetFocus;
-          songplayerfo.timersent.Enabled := False;
-          songplayerfo.timersent.Enabled := True;
+       
+          if songplayerfo.timersent.Enabled then
+  songplayerfo.timersent.restart // to reset
+ else songplayerfo.timersent.Enabled := True;
+      
         end
         else
         begin
-          timersent.Enabled := False;
+         
           hintlabel.Caption := tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...';
           hintpanel.Visible := True;
-          timersent.Enabled := True;
+         
+               if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
         end;
 
       end;
@@ -177,15 +184,17 @@ begin
           if (commanderfo.Visible = True) and (commanderfo.window.windowpos <> wp_minimized) and
             (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
             commanderfo.tbutton3.SetFocus;
-          songplayer2fo.timersent.Enabled := False;
-          songplayer2fo.timersent.Enabled := True;
+                if songplayer2fo.timersent.Enabled then
+  songplayer2fo.timersent.restart // to reset
+ else songplayer2fo.timersent.Enabled := True;
         end
         else
         begin
-          timersent.Enabled := False;
           hintlabel.Caption := tosysfilepath(list_files[4][thefocusedcell.row]) + ' does not exist or not mounted...';
           hintpanel.Visible := True;
-          timersent.Enabled := True;
+                if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
         end;
       end;
 
@@ -195,10 +204,11 @@ begin
   end
   else
   begin
-    timersent.Enabled := False;
     hintlabel.Caption := 'Directory ' + historyfn.Value + ' does not exist or not mounted...';
     hintpanel.Visible := True;
-    timersent.Enabled := True;
+     if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
   end;
 end;
 

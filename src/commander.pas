@@ -682,8 +682,10 @@ begin
     else
       hintpanel.Width := hintlabel2.Width + 10;
     hintpanel.Visible := True;
-    timersent.Enabled := True;
-    atext := '300';
+    if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
+      atext := '300';
   end;
 end;
 

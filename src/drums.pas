@@ -199,7 +199,6 @@ uses
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
 begin
-//  timersent.Enabled := False;
   edittempo.face.template := tfacecomp3;
   volumedrums.face.template := tfacecomp3;
   ltempo.face.template := tfacecomp3;
@@ -210,7 +209,6 @@ procedure tdrumsfo.ontimerpause(const Sender: TObject);
 var
   i: integer;
 begin
-//  Timerpause.Enabled := False;
   if wascreated then
   begin
 
@@ -601,7 +599,9 @@ begin
   commanderfo.loop_resume.Enabled := True;
   commanderfo.loop_stop.Enabled := False;
   stopit := True;
-  Timerpause.Enabled := True;
+   if timerpause.Enabled then
+  timerpause.restart // to reset
+ else timerpause.Enabled := True;
 end;
 
 procedure tdrumsfo.doresume(const Sender: TObject);
@@ -636,8 +636,9 @@ begin
 
     edittempo.face.template := mainfo.tfaceorange;
     ltempo.face.template := mainfo.tfaceorange;
-    timersent.Enabled := False;
-    timersent.Enabled := True;
+         if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
   end;
 end;
 
@@ -1376,8 +1377,9 @@ begin
   if hasinit = 1 then
   begin
     volumedrums.face.template := mainfo.tfaceorange;
-    timersent.Enabled := False;
-    timersent.Enabled := True;
+          if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
   end;
 end;
 
@@ -1399,7 +1401,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+           if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 200;
     end;
 
@@ -1411,7 +1415,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+      if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 0;
     end;
   end;
@@ -1427,7 +1433,9 @@ begin
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+      if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 500;
     end;
 
@@ -1440,7 +1448,9 @@ begin
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+      if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 1;
     end;
   end;
@@ -1457,8 +1467,9 @@ begin
     else
       hintpanel.Width := hintlabel2.Width + 10;
     hintpanel.Visible := True;
-    hintpanel.Visible := True;
-    timersent.Enabled := True;
+    if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
     atext := '100';
   end;
 end;

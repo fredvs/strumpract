@@ -384,7 +384,9 @@ begin
   basedock.dragdock.endplacement();
   if flayoutlock = 0 then
     updatelayout();
-  Timerwait.Enabled := True;
+ if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
 end;
 
 procedure tmainfo.updatelayout();
@@ -492,8 +494,9 @@ begin
 
   // if filelistfo.parentwidget <> NIL THEN filelistfo.size := sizebefdock;
 
-  timerwait.Enabled := False; // to reset
-  timerwait.Enabled := True;
+  if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
 end;
 
 procedure tmainfo.updatedockev(const Sender: TObject; const awidget: twidget);
@@ -709,20 +712,25 @@ begin
   end;
 norefresh := false;
   //  activate;
-  timerwait.Enabled := True;
+  if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
 
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
   dockpanel3fo.Visible := False;
+  
+   if dockpanel1fo.Timerwaitdp.Enabled then
+  dockpanel1fo.Timerwaitdp.restart // to reset
+ else dockpanel1fo.Timerwaitdp.Enabled := True;
 
-  dockpanel1fo.Timerwaitdp.Enabled := False;
-  dockpanel1fo.Timerwaitdp.Enabled := True;
+   if dockpanel2fo.Timerwaitdp.Enabled then
+  dockpanel2fo.Timerwaitdp.restart // to reset
+ else dockpanel2fo.Timerwaitdp.Enabled := True;
 
-  dockpanel2fo.Timerwaitdp.Enabled := False;
-  dockpanel2fo.Timerwaitdp.Enabled := True;
-
-  dockpanel3fo.Timerwaitdp.Enabled := False;
-  dockpanel3fo.Timerwaitdp.Enabled := True;
+    if dockpanel3fo.Timerwaitdp.Enabled then
+  dockpanel3fo.Timerwaitdp.restart // to reset
+ else dockpanel3fo.Timerwaitdp.Enabled := True;
 
 end;
 
@@ -804,9 +812,9 @@ begin
       guitarsfo.pos := pt1;
       pt1.y := pt1.y + guitarsfo.Height + decorationheight;
     end;
-
-    dockpanel3fo.Timerwaitdp.Enabled := False;
-    dockpanel3fo.Timerwaitdp.Enabled := True;
+    if dockpanel3fo.Timerwaitdp.Enabled then
+  dockpanel3fo.Timerwaitdp.restart // to reset
+ else dockpanel3fo.Timerwaitdp.Enabled := True;
   end;
 
   with dockpanel1fo do
@@ -873,8 +881,10 @@ begin
       songplayerfo.pos := pt1;
       pt1.y := pt1.y + songplayerfo.Height + decorationheight;
     end;
-    dockpanel1fo.Timerwaitdp.Enabled := False;
-    dockpanel1fo.Timerwaitdp.Enabled := True;
+      if dockpanel1fo.Timerwaitdp.Enabled then
+  dockpanel1fo.Timerwaitdp.restart // to reset
+ else dockpanel1fo.Timerwaitdp.Enabled := True;
+
   end;
 
   with dockpanel2fo do
@@ -935,9 +945,11 @@ begin
     songplayer2fo.pos := pt1;
     pt1.y := pt1.y + songplayerfo.Height + decorationheight;
 
-    dockpanel2fo.Timerwaitdp.Enabled := False;
-    dockpanel2fo.Timerwaitdp.Enabled := True;
-  end;
+   if dockpanel2fo.Timerwaitdp.Enabled then
+  dockpanel2fo.Timerwaitdp.restart // to reset
+ else dockpanel2fo.Timerwaitdp.Enabled := True;
+
+   end;
 
   filelistfo.dragdock.float();
   filelistfo.Visible := True;
@@ -977,8 +989,9 @@ begin
   norefresh := false;
   endlayout();
 
-  Timerwait.Enabled := False;
-  Timerwait.Enabled := True;
+   if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
 
 end;
 
@@ -1188,8 +1201,9 @@ begin
     
     activate;
 
-  Timerwait.Enabled := False;
-  Timerwait.Enabled := True;
+   if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
   
    norefresh := false;
 
@@ -1321,22 +1335,26 @@ begin
 
   if Height > 699 then
   begin
-    timerwait.Enabled := False;
-    timerwait.Enabled := True;
+    if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
   end;
 
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
   dockpanel3fo.Visible := False;
 
-  dockpanel1fo.Timerwaitdp.Enabled := False;
-  dockpanel1fo.Timerwaitdp.Enabled := True;
+    if dockpanel1fo.Timerwaitdp.Enabled then
+  dockpanel1fo.Timerwaitdp.restart // to reset
+ else dockpanel1fo.Timerwaitdp.Enabled := True;
 
-  dockpanel2fo.Timerwaitdp.Enabled := False;
-  dockpanel2fo.Timerwaitdp.Enabled := True;
+   if dockpanel2fo.Timerwaitdp.Enabled then
+  dockpanel2fo.Timerwaitdp.restart // to reset
+ else dockpanel2fo.Timerwaitdp.Enabled := True;
 
-  dockpanel3fo.Timerwaitdp.Enabled := False;
-  dockpanel3fo.Timerwaitdp.Enabled := True;
+    if dockpanel3fo.Timerwaitdp.Enabled then
+  dockpanel3fo.Timerwaitdp.restart // to reset
+ else dockpanel3fo.Timerwaitdp.Enabled := True;
   
   left :=  (rect1.cx- Width) div 2 ; 
 
@@ -1372,14 +1390,19 @@ begin
   ondockall(Sender); // otherwise the close button are hidden
   basedock.dragdock.currentsplitdir := sd_tabed;
   endlayout();
-  dockpanel1fo.Timerwaitdp.Enabled := False;
-  dockpanel1fo.Timerwaitdp.Enabled := True;
+  
+    if dockpanel1fo.Timerwaitdp.Enabled then
+  dockpanel1fo.Timerwaitdp.restart // to reset
+ else dockpanel1fo.Timerwaitdp.Enabled := True;
 
-  dockpanel2fo.Timerwaitdp.Enabled := False;
-  dockpanel2fo.Timerwaitdp.Enabled := True;
+   if dockpanel2fo.Timerwaitdp.Enabled then
+  dockpanel2fo.Timerwaitdp.restart // to reset
+ else dockpanel2fo.Timerwaitdp.Enabled := True;
 
-  dockpanel3fo.Timerwaitdp.Enabled := False;
-  dockpanel3fo.Timerwaitdp.Enabled := True;
+    if dockpanel3fo.Timerwaitdp.Enabled then
+  dockpanel3fo.Timerwaitdp.restart // to reset
+ else dockpanel3fo.Timerwaitdp.Enabled := True;
+ 
 end;
 
 procedure tmainfo.showall(const Sender: TObject);
@@ -1399,7 +1422,9 @@ begin
   wavefo2.Show();
 norefresh := false;
   // endlayout();
-  timerwait.Enabled := True;
+   if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
 end;
 
 procedure tmainfo.hideall(const Sender: TObject);
@@ -1419,7 +1444,9 @@ begin
   wavefo2.Visible := False;
   norefresh := false;
   // endlayout();
-  timerwait.Enabled := True;
+   if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
 end;
 
 procedure tmainfo.showcommander(const Sender: TObject);
@@ -2688,8 +2715,9 @@ begin
 
   if (hasinit = 1) then
   begin
-    timerwait.Enabled := False;
-    timerwait.Enabled := True;
+    if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
   end;
 
 end;

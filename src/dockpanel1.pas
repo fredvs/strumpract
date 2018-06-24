@@ -246,8 +246,9 @@ begin
   //}
 if norefresh = false then begin
 
-  Timerwaitdp.Enabled := False; // to reset
-  Timerwaitdp.Enabled := True;
+if Timerwaitdp.Enabled then
+  Timerwaitdp.restart // to reset
+ else Timerwaitdp.Enabled := True;
   end;
 end;
 

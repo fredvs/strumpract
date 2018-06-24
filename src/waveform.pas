@@ -66,9 +66,9 @@ begin
 
   doechelle(nil);
 
-  ttimer1.Enabled := False;
-
-  ttimer1.Enabled := True;
+ if ttimer1.Enabled then
+  ttimer1.restart // to reset
+ else ttimer1.Enabled := True;
 
 end;
 
@@ -122,7 +122,6 @@ end;
 
 procedure twavefo.ontimer(const Sender: TObject);
 begin
-  ttimer1.Enabled := False;
  
   if (Caption = 'Wave Player 1') and (hascue = True) and (totsec1 > 0) and (assigned(songplayerfo)) then
     songplayerfo.onwavform(Sender);

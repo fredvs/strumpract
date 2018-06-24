@@ -406,9 +406,12 @@ begin
         if cbtempo.Value = True then
         begin
           edtempo.face.template := mainfo.tfaceorange;
-          timersent.Enabled := False;
-          timersent.Enabled := True;
-        end;
+          
+          if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
+          
+           end;
 
         uos_SetPluginSoundTouch(theplayer, PluginIndex2, edtempo.Value, 1, cbtempo.Value);
 
@@ -421,8 +424,10 @@ begin
         if cbtempo.Value = True then
         begin
           edtempo.face.template := mainfo.tfaceorange;
-          timersent.Enabled := False;
-          timersent.Enabled := True;
+          
+         if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
         end;
 
         uos_SetPluginSoundTouch(theplayer2, PluginIndex3, edtempo.Value, 1, cbtempo.Value);
@@ -1076,8 +1081,9 @@ begin
           cbloop.Enabled := False;
           songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
-          Timerwait.Enabled := False;
-          Timerwait.Enabled := True;
+          if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
           lposition.face.template := mainfo.tfaceplayerrev;
 
              //  application.ProcessMessages;
@@ -1364,8 +1370,9 @@ begin
           cbloop.Enabled := False;
           songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
-          Timerwait.Enabled := False;
-          Timerwait.Enabled := True;
+          if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
           lposition.face.template := mainfo.tfaceplayerrev;
 
           hascue2 := True;
@@ -1533,8 +1540,9 @@ begin
     else
       edvolright.face.template := mainfo.tfaceorange;
 
-    timersent.Enabled := False;
-    timersent.Enabled := True;
+    if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
 
 {
 if  (linkvol.value = true) then
@@ -1561,8 +1569,9 @@ begin
   edtempo.Value := 1;
   edtempo.face.template := mainfo.tfaceorange;
   button1.face.template := mainfo.tfaceorange;
-  timersent.Enabled := False;
-  timersent.Enabled := True;
+ if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
 end;
 
 procedure tsongplayerfo.paintsliderimage(const canvas: tcanvas; const arect: rectty);
@@ -2597,7 +2606,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+     if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 2;
     end;
 
@@ -2609,7 +2620,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+     if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 0.4;
     end;
   end
@@ -2624,7 +2637,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+     if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 100;
     end;
 
@@ -2636,7 +2651,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+     if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 0;
     end;
   end;
@@ -2692,8 +2709,9 @@ begin
           button2.Caption := IntToStr(round(thebpm));
           drumsfo.edittempo.Value := round(thebpm);
           button2.face.template := mainfo.tfaceorange;
-          timersent.Enabled := False;
-          timersent.Enabled := True;
+         if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
         end;
       end;
     end;
@@ -2720,8 +2738,9 @@ begin
           drumsfo.edittempo.Value := round(thebpm);
           button2.face.template := mainfo.tfaceorange;
 
-          timersent.Enabled := False;
-          timersent.Enabled := True;
+        if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
         end;
       end;
     end;

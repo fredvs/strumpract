@@ -102,7 +102,6 @@ uses
 
 procedure trecorderfo.ontimersent(const Sender: TObject);
 begin
-  timersent.Enabled := False;
   hintpanel.Visible := False;
 end;
 
@@ -419,7 +418,9 @@ begin
       cbloop.Enabled := False;
       songdir.Value := historyfn.Value;
       historyfn.hint := historyfn.Value;
-      Timerwait.Enabled := True;
+      if timerwait.Enabled then
+  timerwait.restart // to reset
+ else timerwait.Enabled := True;
     end
     else
     begin
@@ -737,7 +738,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+      if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 2;
     end;
 
@@ -749,7 +752,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+       if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 0.4;
     end;
   end
@@ -764,7 +769,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+       if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 100;
     end;
 
@@ -776,7 +783,9 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-      timersent.Enabled := True;
+       if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
       avalue := 0;
     end;
   end;
@@ -793,7 +802,9 @@ begin
     else
       hintpanel.Width := hintlabel2.Width + 10;
     hintpanel.Visible := True;
-    timersent.Enabled := True;
+     if timersent.Enabled then
+  timersent.restart // to reset
+ else timersent.Enabled := True;
     atext := '100';
   end;
 end;
