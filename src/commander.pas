@@ -417,6 +417,10 @@ begin
     dockpanel2fo.updatelayout();
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
+ if dockpanel4fo.Visible then
+    dockpanel4fo.updatelayout();
+  if dockpanel5fo.Visible then
+    dockpanel5fo.updatelayout();   
  end;   
 end;
 

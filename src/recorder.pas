@@ -76,13 +76,23 @@ type
     procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
     procedure onlistenin(const Sender: TObject);
     procedure ondest(const Sender: TObject);
+    procedure ShowSpectrum(const Sender: TObject);
+    procedure resetspectrum();
     procedure afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
     procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
   end;
 
+ equalizer_band_type = record
+    lo_freq, hi_freq: integer;
+    Text: string[10];
+  end;
+  
 var
   timenow: ttime;
+   arrecl, arrecr : flo64arty;
+   Equalizer_Bands: array[1..10] of equalizer_band_type;
+    thearrayrec: array of cfloat;
    tottimerec: ttime;
    recorderfo: trecorderfo;
   thedialogform: tfiledialogfo;
@@ -97,7 +107,7 @@ var
 implementation
 
 uses
-  main, config, dockpanel1,
+  main, config, dockpanel1, spectrum1,
   recorder_mfm;
 
 procedure trecorderfo.ontimersent(const Sender: TObject);
@@ -180,9 +190,14 @@ begin
 
   recpan.Visible := False;
 
-  lposition.Value := '00:00:00.000';
+  llength.Value := '00:00:00.000';
   lposition.face.template := tfacereclight;
   historyfn.face.template := tfacereclight;
+  
+    tbutton3.visible := true;
+    tbutton2.visible := false;
+    
+     resetspectrum();
 
 end;
 
@@ -251,13 +266,16 @@ begin
   ShowLevel;
 
   if isrecording = False then
-    ShowPosition;
-
-end;
+     ShowPosition;
+  
+   if (spectrumrecfo.spect1.Value = True) and (spectrumrecfo.Visible = True) and 
+   (configfo.speccalc.Value = True) then
+      ShowSpectrum(nil);
+ end;
 
 procedure trecorderfo.doplayerstart(const Sender: TObject);
 var
-  samformat: shortint;
+  samformat, i: shortint;
   ho, mi, se, ms: word;
    tottime: ttime;
 begin
@@ -375,6 +393,11 @@ begin
   }
       /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
       /// SoundTouch plugin should be the last added.
+      if configfo.speccalc.Value = True then
+            for i := 1 to 10 do
+     uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
+      
+      
       if plugsoundtouch = True then
       begin
         PlugInIndex3 := uos_AddPlugin(therecplayer, 'soundtouch', uos_InputGetSampleRate(therecplayer, InputIndex3), -1);
@@ -567,13 +590,95 @@ begin
 
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
+    
+ if dockpanel4fo.Visible then
+    dockpanel4fo.updatelayout();
+
+  if dockpanel5fo.Visible then
+    dockpanel5fo.updatelayout();   
 end;    
 end;
+
+procedure trecorderfo.resetspectrum();
+var
+  i: integer = 0;
+begin
+
+   while i < 10 do
+    begin
+      arrecl[i] := 0;
+      arrecr[i] := 0;
+      Inc(i);
+    end;
+
+    spectrumrecfo.tchartleft.traces[0].ydata := arrecl;
+    spectrumrecfo.tchartright.traces[0].ydata := arrecr;
+ 
+ end;
+ 
+procedure trecorderfo.ShowSpectrum(const Sender: TObject);
+
+var
+  i, x: integer;
+
+begin
+    if uos_getstatus(therecplayer) > 0 then
+    begin
+      thearrayrec := uos_InputFiltersGetLevelArray(therecplayer, InputIndex3);
+      x := 0;
+      i := 0;
+      while x < length(thearrayrec) - 1 do
+      begin
+        arrecl[i] := thearrayrec[x];
+        arrecr[i] := thearrayrec[x + 1];
+        x := x + 2;
+        Inc(i);
+      end;
+
+      spectrumrecfo.tchartleft.traces[0].ydata := arrecl;
+      spectrumrecfo.tchartright.traces[0].ydata := arrecr;
+    end;
+  end;
 
 procedure trecorderfo.onplayercreate(const Sender: TObject);
 var
   ordir: string;
 begin
+
+ Equalizer_Bands[1].lo_freq := 18;
+  Equalizer_Bands[1].hi_freq := 46;
+  Equalizer_Bands[1].Text := '31';
+  Equalizer_Bands[2].lo_freq := 47;
+  Equalizer_Bands[2].hi_freq := 94;
+  Equalizer_Bands[2].Text := '62';
+  Equalizer_Bands[3].lo_freq := 95;
+  Equalizer_Bands[3].hi_freq := 188;
+  Equalizer_Bands[3].Text := '125';
+  Equalizer_Bands[4].lo_freq := 189;
+  Equalizer_Bands[4].hi_freq := 375;
+  Equalizer_Bands[4].Text := '250';
+  Equalizer_Bands[5].lo_freq := 376;
+  Equalizer_Bands[5].hi_freq := 750;
+  Equalizer_Bands[5].Text := '500';
+  Equalizer_Bands[6].lo_freq := 751;
+  Equalizer_Bands[6].hi_freq := 1500;
+  Equalizer_Bands[6].Text := '1K';
+  Equalizer_Bands[7].lo_freq := 1501;
+  Equalizer_Bands[7].hi_freq := 3000;
+  Equalizer_Bands[7].Text := '2K';
+  Equalizer_Bands[8].lo_freq := 3001;
+  Equalizer_Bands[8].hi_freq := 6000;
+  Equalizer_Bands[8].Text := '4K';
+  Equalizer_Bands[9].lo_freq := 6001;
+  Equalizer_Bands[9].hi_freq := 12000;
+  Equalizer_Bands[9].Text := '8K';
+  Equalizer_Bands[10].lo_freq := 12001;
+  Equalizer_Bands[10].hi_freq := 20000;
+  Equalizer_Bands[10].Text := '16K';
+
+  setlength(arrecl, 10);
+  setlength(arrecr, 10);
+
 
   Caption := 'Recorder';
   Timerwait := ttimer.Create(nil);
@@ -625,6 +730,8 @@ end;
 end;
 
 procedure trecorderfo.dorecorderstart(const Sender: TObject);
+var
+i : integer;
 begin
   // if (bsavetofile.value = True) or (blistenin.value = True) then begin
 
@@ -685,16 +792,26 @@ begin
     uos_LoopProcIn(therecplayer, InputIndex3, @LoopProcPlayer1);
 
     uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvol.Value / 100, True);
+    
+     if configfo.speccalc.Value = True then
+            for i := 1 to 10 do
+     uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
+
 
     /////// procedure to execute when stream is terminated
     uos_EndProc(therecplayer, @ClosePlayer1);
     ///// Assign the procedure of object to execute at end
     //////////// PlayerIndex : Index of a existing Player
     //////////// ClosePlayer1 : procedure of object to execute inside the loop
+    
+    llength.Value := '00:00:00.000';
 
     uos_Play(therecplayer);  /////// everything is ready to play...
 
     bsavetofile.Enabled := False;
+    
+    tbutton2.visible := true;
+    tbutton3.visible := false;
 
     timenow := now;
     timerrec.Enabled := True;

@@ -69,8 +69,11 @@ type
     procedure showspectrum(const Sender: TObject);
     procedure showpan1(const Sender: TObject);
     procedure showpan2(const Sender: TObject);
+    procedure showpan4(const Sender: TObject);
+    procedure showpan5(const Sender: TObject);
     procedure showpan3(const Sender: TObject);
     procedure onshowspectrum2(const Sender: TObject);
+    procedure onshowspectrumrec(const Sender: TObject);
     procedure onmaintab(const Sender: TObject);
     procedure onmaindock(const Sender: TObject);
     procedure onshowwave2(const Sender: TObject);
@@ -79,6 +82,7 @@ type
     procedure ondockjam(const Sender: TObject);
 
    procedure onexit(const sender: TObject);
+  
   private
     flayoutlock: int32;
   protected
@@ -191,6 +195,12 @@ begin
 
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
+    
+  if dockpanel4fo.Visible then
+    dockpanel4fo.updatelayout();
+
+  if dockpanel5fo.Visible then
+    dockpanel5fo.updatelayout();  
 
 end;
 
@@ -533,6 +543,9 @@ begin
 
   if spectrum2fo.Visible then
     spectrum2fo.dragdock.float();
+    
+   if spectrumrecfo.Visible then
+    spectrumrecfo.dragdock.float();  
 
   if songplayer2fo.Visible then
     songplayer2fo.dragdock.float();
@@ -546,11 +559,11 @@ begin
   if commanderfo.Visible then
     commanderfo.dragdock.float();
 
-  if spectrum1fo.Visible then
-    spectrum1fo.dragdock.float();
-
   if spectrum2fo.Visible then
     spectrum2fo.dragdock.float();
+    
+  if spectrumrecfo.Visible then
+    spectrumrecfo.dragdock.float();  
 
   if wavefo.Visible then
     wavefo.dragdock.float();
@@ -614,8 +627,12 @@ begin
   if spectrum2fo.Visible then
     spectrum2fo.left := spectrum1fo.left + leftdec;
 
+   if spectrumrecfo.Visible then
+    spectrumrecfo.left := spectrum2fo.left + leftdec;
+
+
   if wavefo.Visible then
-    wavefo.left := spectrum2fo.left + leftdec;
+    wavefo.left := spectrumrecfo.left + leftdec;
 
   if wavefo2.Visible then
     wavefo2.left := wavefo.left + leftdec;
@@ -662,6 +679,15 @@ begin
     posi := recorderfo.top + topdec;
     recorderfo.activate;
   end;
+  
+  if spectrumrecfo.Visible then
+  begin
+    spectrumrecfo.top := posi;
+    posi := spectrumrecfo.top + topdec;
+    spectrumrecfo.activate;
+  end
+  else
+    posi := top + topdec;
 
   if filelistfo.Visible then
   begin
@@ -695,14 +721,18 @@ begin
     spectrum2fo.top := posi;
     posi := spectrum2fo.top + topdec;
     spectrum2fo.activate;
-  end;
-
+  end
+  else
+    posi := top + topdec;
+  
   if wavefo.Visible then
   begin
     wavefo.top := posi;
     posi := wavefo.top + topdec;
     wavefo.activate;
-  end;
+   end
+  else
+    posi := top + topdec;
 
   if wavefo2.Visible then
   begin
@@ -719,6 +749,8 @@ norefresh := false;
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
   dockpanel3fo.Visible := False;
+  dockpanel4fo.Visible := False;
+  dockpanel5fo.Visible := False;
   
    if dockpanel1fo.Timerwaitdp.Enabled then
   dockpanel1fo.Timerwaitdp.restart // to reset
@@ -731,6 +763,16 @@ norefresh := false;
     if dockpanel3fo.Timerwaitdp.Enabled then
   dockpanel3fo.Timerwaitdp.restart // to reset
  else dockpanel3fo.Timerwaitdp.Enabled := True;
+ 
+    if dockpanel4fo.Timerwaitdp.Enabled then
+  dockpanel4fo.Timerwaitdp.restart // to reset
+ else dockpanel4fo.Timerwaitdp.Enabled := True;
+ 
+    if dockpanel5fo.Timerwaitdp.Enabled then
+  dockpanel5fo.Timerwaitdp.restart // to reset
+ else dockpanel5fo.Timerwaitdp.Enabled := True;
+
+
 
 end;
 
@@ -765,6 +807,9 @@ begin
 
     if spectrum2fo.parentwidget = basedock then
       spectrum2fo.dragdock.float();
+      
+      if spectrumrecfo.parentwidget = basedock then
+      spectrumrecfo.dragdock.float();  
 
     if songplayer2fo.parentwidget = basedock then
       songplayer2fo.dragdock.float();
@@ -783,6 +828,9 @@ begin
 
     if spectrum2fo.parentwidget = basedock then
       spectrum2fo.dragdock.float();
+       
+    if spectrumrecfo.parentwidget = basedock then
+      spectrumrecfo.dragdock.float();  
 
     if wavefo.parentwidget = basedock then
       wavefo.dragdock.float();
@@ -834,6 +882,9 @@ begin
 
     if spectrum2fo.parentwidget = basedock then
       spectrum2fo.dragdock.float();
+      
+    if spectrumrecfo.parentwidget = basedock then
+      spectrumrecfo.dragdock.float();  
 
     if songplayer2fo.parentwidget = basedock then
       songplayer2fo.dragdock.float();
@@ -852,15 +903,20 @@ begin
 
     if spectrum2fo.parentwidget = basedock then
       spectrum2fo.dragdock.float();
+      
+    if spectrumrecfo.parentwidget = basedock then
+      spectrumrecfo.dragdock.float();  
 
     if wavefo.parentwidget = basedock then
       wavefo.dragdock.float();
 
     if wavefo2.parentwidget = basedock then
       wavefo2.dragdock.float();
+      
+    //  spectrumrecfo.Visible := false;  
 
     Visible := True;
-
+   
     songplayerfo.Visible := True;
     songplayerfo.parentwidget := basedock;
 
@@ -898,13 +954,7 @@ begin
     if songplayerfo.parentwidget = basedock then
       songplayerfo.dragdock.float();
 
-    if spectrum1fo.parentwidget = basedock then
-      spectrum1fo.dragdock.float();
-
-    if spectrum2fo.parentwidget = basedock then
-      spectrum2fo.dragdock.float();
-
-    if songplayer2fo.parentwidget = basedock then
+       if songplayer2fo.parentwidget = basedock then
       songplayer2fo.dragdock.float();
 
     if recorderfo.parentwidget = basedock then
@@ -921,6 +971,9 @@ begin
 
     if spectrum2fo.parentwidget = basedock then
       spectrum2fo.dragdock.float();
+      
+     if spectrumrecfo.parentwidget = basedock then
+      spectrumrecfo.dragdock.float();  
 
     if wavefo.parentwidget = basedock then
       wavefo.dragdock.float();
@@ -950,22 +1003,82 @@ begin
  else dockpanel2fo.Timerwaitdp.Enabled := True;
 
    end;
+   
+   
+  with dockpanel4fo do
+  begin
+  
+  if drumsfo.parentwidget = basedock then
+      drumsfo.dragdock.float();
 
+    if guitarsfo.parentwidget = basedock then
+      guitarsfo.dragdock.float();
+
+    if songplayerfo.parentwidget = basedock then
+      songplayerfo.dragdock.float();
+       if songplayer2fo.parentwidget = basedock then
+      songplayer2fo.dragdock.float();
+
+    if recorderfo.parentwidget = basedock then
+      recorderfo.dragdock.float();
+
+    if filelistfo.parentwidget = basedock then
+      filelistfo.dragdock.float();
+
+    if commanderfo.parentwidget = basedock then
+      commanderfo.dragdock.float();
+
+    if spectrum1fo.parentwidget = basedock then
+      spectrum1fo.dragdock.float();
+
+    if spectrum2fo.parentwidget = basedock then
+      spectrum2fo.dragdock.float();
+      
+     if spectrumrecfo.parentwidget = basedock then
+      spectrumrecfo.dragdock.float();  
+
+    if wavefo.parentwidget = basedock then
+      wavefo.dragdock.float();
+
+    if wavefo2.parentwidget = basedock then
+      wavefo2.dragdock.float();
+
+    Visible := True;
+     recorderfo.Visible := True;
+    recorderfo.parentwidget := basedock;
+
+    spectrumrecfo.Visible := True;
+    spectrumrecfo.parentwidget := basedock;
+    
+     pt1 := nullpoint;
+
+    recorderfo.pos := pt1;
+    pt1.y := pt1.y + recorderfo.Height + decorationheight;
+
+    spectrumrecfo.pos := pt1;
+    
+      if dockpanel4fo.Timerwaitdp.Enabled then
+  dockpanel4fo.Timerwaitdp.restart // to reset
+ else dockpanel4fo.Timerwaitdp.Enabled := True;
+
+  
+end;
+    //{
+  
+ 
   filelistfo.dragdock.float();
   filelistfo.Visible := True;
   commanderfo.dragdock.float();
   commanderfo.Visible := True;
   wavefo.Visible := False;
   wavefo2.Visible := False;
-  recorderfo.Visible := True;
+ 
 
   filelistfo.parentwidget := basedock;
 
   commanderfo.parentwidget := basedock;
 
-  recorderfo.parentwidget := basedock;
-
-  pt1 := nullpoint;
+   pt1 := nullpoint;
 
   filelistfo.pos := pt1;
   pt1.y := pt1.y + filelistfo.Height + decorationheight;
@@ -973,9 +1086,8 @@ begin
   commanderfo.pos := pt1;
   pt1.y := pt1.y + commanderfo.Height + decorationheight;
 
-  recorderfo.pos := pt1;
-  pt1.y := pt1.y + recorderfo.Height + decorationheight;
-
+ 
+ 
   dockpanel1fo.left := 0;
   dockpanel1fo.top := 0;
 
@@ -986,6 +1098,10 @@ begin
 
   dockpanel2fo.left := left + Width + 8;
   dockpanel2fo.top := dockpanel1fo.top;
+  
+   dockpanel4fo.left := left ;
+  dockpanel4fo.top := songplayerfo.Height + songplayerfo.Height + 30 + (2 * decorationheight);
+  
   norefresh := false;
   endlayout();
 
@@ -1015,6 +1131,8 @@ begin
    
   guitarsfo.Visible := False;
   
+   spectrumrecfo.Visible := false;
+  
   spectrum1fo.Visible := true;
   spectrum2fo.Visible := true;
   songplayerfo.Visible := true;
@@ -1028,6 +1146,9 @@ begin
    
   dockpanel1fo.visible := true;
   dockpanel2fo.visible := true;
+  
+   dockpanel4fo.visible := false;
+  dockpanel5fo.visible := false;
     
   basedock.dragdock.currentsplitdir := sd_horz;
 
@@ -1048,7 +1169,10 @@ begin
 
     if spectrum2fo.parentwidget = basedock then
       spectrum2fo.dragdock.float();
-
+      
+     if spectrumrecfo.parentwidget = basedock then
+      spectrumrecfo.dragdock.float();
+  
     if songplayer2fo.parentwidget = basedock then
       songplayer2fo.dragdock.float();
 
@@ -1061,13 +1185,7 @@ begin
     if commanderfo.parentwidget = basedock then
       commanderfo.dragdock.float();
 
-    if spectrum1fo.parentwidget = basedock then
-      spectrum1fo.dragdock.float();
-
-    if spectrum2fo.parentwidget = basedock then
-      spectrum2fo.dragdock.float();
-
-    if wavefo.parentwidget = basedock then
+     if wavefo.parentwidget = basedock then
       wavefo.dragdock.float();
 
     if wavefo2.parentwidget = basedock then
@@ -1100,12 +1218,6 @@ begin
     if songplayerfo.parentwidget = basedock then
       songplayerfo.dragdock.float();
 
-    if spectrum1fo.parentwidget = basedock then
-      spectrum1fo.dragdock.float();
-
-    if spectrum2fo.parentwidget = basedock then
-      spectrum2fo.dragdock.float();
-
     if songplayer2fo.parentwidget = basedock then
       songplayer2fo.dragdock.float();
 
@@ -1123,7 +1235,10 @@ begin
 
     if spectrum2fo.parentwidget = basedock then
       spectrum2fo.dragdock.float();
-
+      
+      if spectrumrecfo.parentwidget = basedock then
+      spectrumrecfo.dragdock.float();
+  
     if wavefo.parentwidget = basedock then
       wavefo.dragdock.float();
 
@@ -1251,6 +1366,9 @@ begin
 
   if spectrum2fo.Visible then
     spectrum2fo.parentwidget := basedock;
+    
+  if spectrumrecfo.Visible then
+    spectrumrecfo.parentwidget := basedock;   
 
   if wavefo.Visible then
     wavefo.parentwidget := basedock;
@@ -1306,6 +1424,12 @@ begin
   begin
     spectrum2fo.pos := pt1;
     pt1.y := pt1.y + spectrum2fo.Height + decorationheight;
+  end;
+  
+   if spectrumrecfo.Visible then
+  begin
+    spectrumrecfo.pos := pt1;
+    pt1.y := pt1.y + spectrumrecfo.Height + decorationheight;
   end;
 
   if wavefo.Visible then
@@ -1418,6 +1542,7 @@ begin
   recorderfo.Show();
   spectrum1fo.Show();
   spectrum2fo.Show();
+   spectrumrecfo.Show();
   wavefo.Show();
   wavefo2.Show();
 norefresh := false;
@@ -1440,6 +1565,7 @@ begin
   recorderfo.Visible := False;
   spectrum1fo.Visible := False;
   spectrum2fo.Visible := False;
+  spectrumrecfo.Visible := False;
   wavefo.Visible := False;
   wavefo2.Visible := False;
   norefresh := false;
@@ -1838,6 +1964,28 @@ begin
       groupbox2.frame.font.color := ltblack;
       spect1.frame.colorclient := cl_default;
       spect1.color := $D2D8A5;
+    end;
+    
+     with spectrumrecfo do
+    begin
+      tchartleft.colorchart := $DA9D9D;
+      tchartleft.traces[0].chartkind := tck_bar;
+      tchartleft.traces[0].color := $C69EFF;
+      labelleft.font.color := ltblack;
+
+      tchartright.colorchart := $DA9D9D;
+      tchartright.traces[0].chartkind := tck_bar;
+      tchartright.traces[0].color := $C69EFF;
+      labelright.font.color := ltblack;
+      fond.color := $DA9D9D;
+      groupbox1.color := $DA9D9D;
+      groupbox2.color := $DA9D9D;
+      spect1.colorglyph := ltblack;
+      spect1.frame.font.color := ltblack;
+      groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
+      spect1.frame.colorclient := cl_default;
+      spect1.color := $DA9D9D;
     end;
 
     songplayerfo.btnresume.imagenrdisabled := -2;
@@ -2284,6 +2432,27 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       spect1.frame.colorclient := cl_default;
       spect1.color := cl_default;
     end;
+    
+    
+    with spectrumrecfo do
+    begin
+      tchartleft.colorchart := cl_background;
+      tchartleft.traces[0].color := $9A9A9A;
+      labelleft.font.color := ltblack;
+
+      tchartright.colorchart := cl_background;
+      tchartright.traces[0].color := $9A9A9A;
+      labelright.font.color := ltblack;
+      fond.color := cl_default;
+      groupbox1.color := cl_default;
+      groupbox2.color := cl_default;
+      groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
+      spect1.colorglyph := ltblack;
+      spect1.frame.font.color := ltblack;
+      spect1.frame.colorclient := cl_default;
+      spect1.color := cl_default;
+    end;
 
   end;
 
@@ -2317,6 +2486,29 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     end;
 
     with spectrum2fo do
+    begin
+      tchartleft.colorchart := $3A3A3A;
+      tchartleft.traces[0].color := $7A7A7A;
+      labelleft.font.color := ltblank;
+      //  labelleft.color := $3A3A3A;
+      //   labelright.color := $3A3A3A;
+      tchartright.colorchart := $3A3A3A;
+      tchartright.traces[0].color := $7A7A7A;
+      labelright.font.color := ltblank;
+
+      fond.color := $3A3A3A;
+      groupbox1.frame.font.color := ltblank;
+      groupbox2.frame.font.color := ltblank;
+      groupbox1.color := $3A3A3A;
+      groupbox2.color := $3A3A3A;
+      spect1.colorglyph := ltblank;
+      spect1.frame.font.color := ltblank;
+      spect1.frame.colorclient := $4A4A4A;
+      spect1.color := $3A3A3A;
+    end;
+    
+    
+    with spectrumrecfo do
     begin
       tchartleft.colorchart := $3A3A3A;
       tchartleft.traces[0].color := $7A7A7A;
@@ -2764,6 +2956,11 @@ begin
   spectrum2fo.Visible := not spectrum2fo.Visible;
 end;
 
+procedure tmainfo.onshowspectrumrec(const Sender: TObject);
+begin
+  spectrumrecfo.Visible := not spectrumrecfo.Visible;
+end;
+
 procedure tmainfo.onmaintab(const Sender: TObject);
 begin
   basedock.dragdock.currentsplitdir := sd_tabed;
@@ -2789,6 +2986,24 @@ end;
 procedure tmainfo.onexit(const sender: TObject);
 begin
 close;
+end;
+
+procedure tmainfo.showpan4(const sender: TObject);
+begin
+ dockpanel4fo.Visible := not dockpanel4fo.Visible;
+   if dockpanel4fo.Visible then
+    tmainmenu1.menu[4].submenu[3].Caption := ' Hide Dock Panel 4 '
+  else
+    tmainmenu1.menu[4].submenu[3].Caption := ' Show Dock Panel 4 ';
+end;
+
+procedure tmainfo.showpan5(const sender: TObject);
+begin
+ dockpanel5fo.Visible := not dockpanel5fo.Visible;
+   if dockpanel5fo.Visible then
+    tmainmenu1.menu[4].submenu[4].Caption := ' Hide Dock Panel 5 '
+  else
+    tmainmenu1.menu[4].submenu[4].Caption := ' Show Dock Panel 5 ';
 end;
 
 end.

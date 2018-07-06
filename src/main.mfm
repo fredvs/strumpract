@@ -239,7 +239,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 13
+        submenu.count = 14
         submenu.items = <        
           item
             caption = ' Show All '
@@ -297,6 +297,11 @@ object mainfo: tmainfo
             onexecute = onshowspectrum2
           end        
           item
+            caption = ' Show Spectrum Rec '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onshowspectrumrec
+          end        
+          item
             caption = ' Show WaveForm 1 '
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowwave1
@@ -312,7 +317,7 @@ object mainfo: tmainfo
         onexecute = showall
       end    
       item
-        submenu.count = 3
+        submenu.count = 5
         submenu.items = <        
           item
             caption = ' Show Dock Panel 1 '
@@ -328,6 +333,16 @@ object mainfo: tmainfo
             caption = ' Show Dock Panel 3 '
             state = [as_localcaption, as_localonexecute]
             onexecute = showpan3
+          end        
+          item
+            caption = ' Show Dock Panel 4 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showpan4
+          end        
+          item
+            caption = ' Show Dock Panel 5 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showpan5
           end>
         caption = ' &Panels '
         hint = ' Show/hide extra Dock Panels '
@@ -382,6 +397,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onexit
       end>
+    menu.state = [as_localonexecute]
     left = 7
   end
   object tfacecomp4: tfacecomp

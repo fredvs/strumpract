@@ -150,15 +150,15 @@ begin
   begin
     if (Caption = 'Wave Player 1') then
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[11].Caption := ' Hide WaveForm 1 '
+        mainfo.tmainmenu1.menu[3].submenu[12].Caption := ' Hide WaveForm 1 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[11].Caption := ' Show WaveForm 1 ';
+        mainfo.tmainmenu1.menu[3].submenu[12].Caption := ' Show WaveForm 1 ';
 
     if (Caption = 'Wave Player 2') then
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[12].Caption := ' Hide WaveForm 2 '
+        mainfo.tmainmenu1.menu[3].submenu[13].Caption := ' Hide WaveForm 2 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[12].Caption := ' Show WaveForm 2 ';
+        mainfo.tmainmenu1.menu[3].submenu[13].Caption := ' Show WaveForm 2 ';
 
 if norefresh = false then
 begin
@@ -174,6 +174,12 @@ begin
 
     if dockpanel3fo.Visible then
       dockpanel3fo.updatelayout();
+      
+   if dockpanel4fo.Visible then
+      dockpanel4fo.updatelayout();
+
+    if dockpanel5fo.Visible then
+      dockpanel5fo.updatelayout();   
 
   end;
   

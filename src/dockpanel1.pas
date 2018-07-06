@@ -52,6 +52,8 @@ var
   dockpanel1fo: tdockpanel1fo;
   dockpanel2fo: tdockpanel1fo;
   dockpanel3fo: tdockpanel1fo;
+  dockpanel4fo: tdockpanel1fo;
+  dockpanel5fo: tdockpanel1fo;
 
 implementation
 
@@ -340,6 +342,22 @@ begin
         mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Hide Dock Panel 3 '
       else
         mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Show Dock Panel 3 ';
+    end;
+    
+     if Caption = 'Dock Panel 4' then
+    begin
+      if Visible then
+        mainfo.tmainmenu1.menu[4].submenu[3].Caption := ' Hide Dock Panel 4 '
+      else
+        mainfo.tmainmenu1.menu[4].submenu[3].Caption := ' Show Dock Panel 4 ';
+    end;
+    
+     if Caption = 'Dock Panel 5' then
+    begin
+      if Visible then
+        mainfo.tmainmenu1.menu[4].submenu[4].Caption := ' Hide Dock Panel 5 '
+      else
+        mainfo.tmainmenu1.menu[4].submenu[4].Caption := ' Show Dock Panel 5 ';
     end;
   end;
 end;

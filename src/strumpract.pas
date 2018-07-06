@@ -29,24 +29,32 @@ begin
 
   application.createform(tspectrum1fo, spectrum1fo);
   application.createform(tspectrum1fo, spectrum2fo);
+   application.createform(tspectrum1fo, spectrumrecfo);
 
   spectrum1fo.Caption := 'Spectrum Player 1';
   spectrum2fo.Caption := 'Spectrum Player 2';
 
-  spectrum1fo.dragdock.Caption := 'Spe1';
-  spectrum2fo.dragdock.Caption := 'Spe2';
+  spectrum1fo.dragdock.Caption := 'Sp1';
+  spectrum2fo.dragdock.Caption := 'Sp2';
+  
+  spectrumrecfo.Caption := 'Spectrum Recorder';
+   spectrumrecfo.dragdock.Caption := 'SpR';
+   
 
   spectrum1fo.groupbox1.frame.Caption := 'Player 1 Left';
   spectrum1fo.groupbox2.frame.Caption := 'Player 1 Right';
   spectrum2fo.groupbox1.frame.Caption := 'Player 2 Left';
   spectrum2fo.groupbox2.frame.Caption := 'Player 2 Right';
+  
+  spectrumrecfo.groupbox1.frame.Caption := 'Recorder Left';
+  spectrumrecfo.groupbox2.frame.Caption := 'Recorder Right';
 
   application.createform(tfilelistfo, filelistfo);
 
-  filelistfo.dragdock.Caption := 'File';
+  filelistfo.dragdock.Caption := 'Files';
   application.createform(tdrumsfo, drumsfo);
 
-  drumsfo.dragdock.Caption := 'Drums';
+  drumsfo.dragdock.Caption := 'Drum';
   application.createform(tsongplayerfo, songplayerfo);
 
   application.createform(tsongplayerfo, songplayer2fo);
@@ -57,20 +65,20 @@ begin
   songplayerfo.tstringdisp2.Value := 'Player 1';
   songplayer2fo.tstringdisp2.Value := 'Player 2';
 
-  songplayerfo.dragdock.Caption := 'Pla1';
-  songplayer2fo.dragdock.Caption := 'Pla2';
+  songplayerfo.dragdock.Caption := 'Pl1';
+  songplayer2fo.dragdock.Caption := 'Pl2';
 
   songplayerfo.tgroupbox1.hint := ' Player 1 ';
   songplayer2fo.tgroupbox1.hint := ' Player 2 ';
 
   application.createform(twavefo, wavefo);
   wavefo.Caption := 'Wave Player 1';
-  wavefo.dragdock.Caption := 'Wav1';
+  wavefo.dragdock.Caption := 'Wa1';
   //wavefo.waveon.frame.Caption := 'Enable Wave 1';
 
   application.createform(twavefo, wavefo2);
   wavefo2.Caption := 'Wave Player 2';
-  wavefo2.dragdock.Caption := 'Wav2';
+  wavefo2.dragdock.Caption := 'Wa2';
   //wavefo2.waveon.frame.Caption := 'Enable Wave 2';
 
   application.createform(tcommanderfo, commanderfo);
@@ -89,10 +97,14 @@ begin
   application.createform(tdockpanel1fo, dockpanel1fo);
   application.createform(tdockpanel1fo, dockpanel2fo);
   application.createform(tdockpanel1fo, dockpanel3fo);
+  application.createform(tdockpanel1fo, dockpanel4fo);
+  application.createform(tdockpanel1fo, dockpanel5fo);
 
   dockpanel1fo.Caption := 'Dock Panel 1';
   dockpanel2fo.Caption := 'Dock Panel 2';
   dockpanel3fo.Caption := 'Dock Panel 3';
+  dockpanel4fo.Caption := 'Dock Panel 4';
+  dockpanel5fo.Caption := 'Dock Panel 5';
 
   application.createform(tmainfo, mainfo);
 

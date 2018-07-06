@@ -27,7 +27,8 @@ type
  
 var
  spectrum1fo: tspectrum1fo;
-  spectrum2fo: tspectrum1fo;
+ spectrum2fo: tspectrum1fo;
+ spectrumrecfo: tspectrum1fo;
      
 implementation
 uses
@@ -40,7 +41,12 @@ begin
    if assigned(mainfo) then
    if caption = 'Spectrum Player 1' then
     mainfo.tmainmenu1.menu[3].submenu[9].Caption := ' Hide Spectrum 1 '
-    else  mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Hide Spectrum 2 ';
+    else
+    if caption = 'Spectrum Player 2' then
+      mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Hide Spectrum 2 '
+    else  
+     if caption = 'Spectrum Recorder' then
+      mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Hide Spectrum Rec ' 
   end
   else
   begin
@@ -48,7 +54,10 @@ begin
   if assigned(mainfo) then  
   if caption = 'Spectrum Player 1' then
     mainfo.tmainmenu1.menu[3].submenu[9].Caption := ' Show Spectrum 1 '
-    else  mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Show Spectrum 2 ';
+    else  if caption = 'Spectrum Player 2' then
+    mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Show Spectrum 2 '
+    else  if caption = 'Spectrum Recorder' then
+    mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Show Spectrum Rec ';
   end;
 if norefresh = false then
 begin
@@ -76,7 +85,8 @@ procedure tspectrum1fo.onshowspec(const sender: TObject; var avalue: Boolean;
 begin
 if avalue = false then
   if caption = 'Spectrum Player 1' then songplayerfo.resetspectrum() else
- songplayer2fo.resetspectrum() ;
+ if caption = 'Spectrum Player 2' then songplayer2fo.resetspectrum() else
+if caption = 'Spectrum Recorder' then  ;
  end;
 
 end.

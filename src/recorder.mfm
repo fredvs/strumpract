@@ -175,26 +175,6 @@ object recorderfo: trecorderfo
       font.localprops = [flp_color, flp_height]
       reffontheight = 11
     end
-    object tbutton3: tbutton
-      color = -2147483645
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = tfacerecorder
-      taborder = 2
-      hint = ' Start Recording  '
-      bounds_x = 95
-      bounds_y = 29
-      bounds_cx = 30
-      bounds_cy = 30
-      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 33
-      focusrectdist = 0
-      onexecute = dorecorderstart
-    end
     object tbutton2: tbutton
       color = -2147483645
       frame.localprops = [frl_optionsskin]
@@ -204,8 +184,8 @@ object recorderfo: trecorderfo
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
       taborder = 3
-      hint = ' Stop player '
-      bounds_x = 129
+      hint = ' Stop recording '
+      bounds_x = 100
       bounds_y = 29
       bounds_cx = 30
       bounds_cy = 30
@@ -818,6 +798,26 @@ object recorderfo: trecorderfo
       bounds_cy = 24
       font.name = 'stf_default'
       font.localprops = []
+    end
+    object tbutton3: tbutton
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp1
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfacerecorder
+      taborder = 2
+      hint = ' Start Recording  '
+      bounds_x = 100
+      bounds_y = 29
+      bounds_cx = 30
+      bounds_cy = 30
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 33
+      focusrectdist = 0
+      onexecute = dorecorderstart
     end
     object hintpanel: tgroupbox
       color = -2147483645
