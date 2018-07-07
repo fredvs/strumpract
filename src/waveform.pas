@@ -30,18 +30,21 @@ type
     procedure pagedown(const Sender: TObject);
     procedure onsliderchange(const Sender: TObject);
     procedure onafterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
+   procedure oncreated(const sender: TObject);
   end;
 
 var
   wavefo: twavefo;
   wavefo2: twavefo;
+  waveforec: twavefo;
   zoomint1: integer = 1;
   zoomint2: integer = 1;
+  zoomintrec: integer = 1;
 
 implementation
 
 uses
-  songplayer, main, dockpanel1, waveform_mfm;
+  songplayer, recorder, main, dockpanel1, waveform_mfm;
 
 procedure twavefo.faceafterpaintbut(const Sender: tcustomface; const canvas: tcanvas; const arect: rectty);
 var
@@ -62,10 +65,23 @@ begin
 
   trackbar1.Width := Width - 15;
 
-  trackbar1.Height := Height - echelle.Height;
-
+if ((Caption = 'Wave Player 1') and (assigned(songplayerfo)))
+or ((Caption = 'Wave Player 2') and (assigned(songplayer2fo)))
+or ((Caption = 'Wave Recorder') and (assigned(recorderfo)) and (islive = false))
+then begin
   doechelle(nil);
-
+  echelle.visible := true;
+   trackbar1.Height := Height - echelle.Height;
+   end
+else
+ if ((Caption = 'Wave Recorder') and (assigned(recorderfo)) and (islive = true))
+then
+begin
+ trackbar1.Width := waveforec.width -10;
+ trackbar1.height := waveforec.height - 18;
+ echelle.visible := false;
+end;  
+   
  if ttimer1.Enabled then
   ttimer1.restart // to reset
  else ttimer1.Enabled := True;
@@ -119,7 +135,6 @@ begin
   end;
 end;
 
-
 procedure twavefo.ontimer(const Sender: TObject);
 begin
  
@@ -159,6 +174,12 @@ begin
         mainfo.tmainmenu1.menu[3].submenu[13].Caption := ' Hide WaveForm 2 '
       else
         mainfo.tmainmenu1.menu[3].submenu[13].Caption := ' Show WaveForm 2 ';
+        
+      if (Caption = 'Wave Recorder') then
+      if Visible then
+        mainfo.tmainmenu1.menu[3].submenu[14].Caption := ' Hide WaveForm Rec '
+      else
+        mainfo.tmainmenu1.menu[3].submenu[14].Caption := ' Show WaveForm Rec ';    
 
 if norefresh = false then
 begin
@@ -252,7 +273,7 @@ begin
     end;
   end;
 
-  doechelle(Sender);
+   if (Caption = 'Wave Player 1') or  (Caption = 'Wave Player 2') then  doechelle(Sender);
 
   if (Caption = 'Wave Player 1') and (hascue = True) and (totsec1 > 0) and (assigned(songplayerfo)) then
     songplayerfo.onwavform(Sender);
@@ -309,5 +330,10 @@ begin
  
   end;
   end;
+
+procedure twavefo.oncreated(const sender: TObject);
+begin
+end;
+
 
 end.

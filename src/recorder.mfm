@@ -150,8 +150,8 @@ object recorderfo: trecorderfo
     font.localprops = []
     object tlabel2: tlabel
       color = -2147483645
-      bounds_x = 57
-      bounds_y = 30
+      bounds_x = 15
+      bounds_y = 33
       bounds_cx = 35
       bounds_cy = 11
       caption = 'Record'
@@ -185,8 +185,8 @@ object recorderfo: trecorderfo
       face.template = tfacerecorder
       taborder = 3
       hint = ' Stop recording '
-      bounds_x = 100
-      bounds_y = 29
+      bounds_x = 60
+      bounds_y = 30
       bounds_cx = 30
       bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -809,8 +809,8 @@ object recorderfo: trecorderfo
       face.template = tfacerecorder
       taborder = 2
       hint = ' Start Recording  '
-      bounds_x = 100
-      bounds_y = 29
+      bounds_x = 60
+      bounds_y = 30
       bounds_cx = 30
       bounds_cy = 30
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -818,6 +818,36 @@ object recorderfo: trecorderfo
       imagenr = 33
       focusrectdist = 0
       onexecute = dorecorderstart
+    end
+    object sentcue1: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Sent to Cue1'
+      frame.captionpos = cp_top
+      frame.captiondist = 3
+      frame.font.color = 2368548
+      frame.font.height = 11
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        31
+        18
+        31
+        0
+      )
+      face.localprops = []
+      face.template = tfacereclight
+      taborder = 28
+      hint = ' Sent saved record to Player 1 '
+      bounds_x = 100
+      bounds_y = 28
+      bounds_cx = 75
+      bounds_cy = 30
+      statfile = mainfo.tstatfile1
+      value = True
     end
     object hintpanel: tgroupbox
       color = -2147483645

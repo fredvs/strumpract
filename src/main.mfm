@@ -201,7 +201,7 @@ object mainfo: tmainfo
         onexecute = onmaintab
       end    
       item
-        submenu.count = 6
+        submenu.count = 7
         submenu.items = <        
           item
             caption = ' &Dock all visible windows '
@@ -233,13 +233,18 @@ object mainfo: tmainfo
             caption = ' D&J Console '
             state = [as_localcaption, as_localonexecute]
             onexecute = ondockplayers
+          end        
+          item
+            caption = ' &Record stage '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = ondockrec
           end>
         caption = ' &Layout '
         hint = ' Choose a layout '
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 14
+        submenu.count = 15
         submenu.items = <        
           item
             caption = ' Show All '
@@ -310,6 +315,11 @@ object mainfo: tmainfo
             caption = ' Show WaveForm 2 '
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowwave2
+          end        
+          item
+            caption = ' Show WaveForm Rec '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onshowwaverec
           end>
         caption = ' &Show '
         hint = ' Show/hide windows '

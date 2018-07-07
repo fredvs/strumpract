@@ -4,13 +4,13 @@ unit recorder;
 interface
 
 uses
-  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
-  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, mseevent,
-  mseclasses, mseforms, msedock, msesimplewidgets, msewidgets, msedataedits,
-  msefiledialog, msegrids, mselistbrowser, msesys, SysUtils, msegraphedits,
-  mseificomp, mseificompglob, mseifiglob, msescrollbar, msedragglob, mseact,
-  mseedit, msestatfile, msestream, msestrings, msebitmap, msedatanodes,
-  msedispwidgets, mserichstring;
+ ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
+ mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,
+  mseevent,mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,
+  msedataedits,msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,
+  msegraphedits,mseificomp, mseificompglob, mseifiglob, msescrollbar,
+  msedragglob, mseact,mseedit, msestatfile, msestream, msestrings, msebitmap,
+  msedatanodes,msedispwidgets, mserichstring;
 
 type
   trecorderfo = class(tdockform)
@@ -53,6 +53,7 @@ type
     hintpanel: tgroupbox;
     hintlabel: tlabel;
     hintlabel2: tlabel;
+   sentcue1: tbooleanedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -78,6 +79,8 @@ type
     procedure ondest(const Sender: TObject);
     procedure ShowSpectrum(const Sender: TObject);
     procedure resetspectrum();
+    procedure InitDrawLive();
+    procedure DrawLive(lv,rv : double);
     procedure afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
     procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
@@ -91,6 +94,9 @@ type
 var
   timenow: ttime;
    arrecl, arrecr : flo64arty;
+   rectrecform: rectty;
+   xreclive : integer;
+   islive : boolean = true;
    Equalizer_Bands: array[1..10] of equalizer_band_type;
     thearrayrec: array of cfloat;
    tottimerec: ttime;
@@ -107,8 +113,78 @@ var
 implementation
 
 uses
-  main, config, dockpanel1, spectrum1,
+  main, config, dockpanel1, spectrum1, waveform, songplayer,
   recorder_mfm;
+  
+procedure trecorderfo.InitDrawLive();
+const
+  transpcolor = cl_gray;
+begin
+
+  if  (as_checked in waveforec.tmainmenu1.menu[0].state) then
+  begin
+    waveforec.trackbar1.Width := waveforec.width -10;
+    waveforec.trackbar1.height := waveforec.height - 18;
+    waveforec.trackbar1.invalidate();
+    
+    rectrecform.pos := nullpoint;
+    rectrecform.size := waveforec.trackbar1.paintsize;
+    
+    xreclive := 1 ;
+
+    with waveforec.sliderimage.bitmap do
+    begin
+      size := rectrecform.size;
+      init(transpcolor);
+       masked := False;
+       transparentcolor := transpcolor;
+    end;
+  end;
+
+end;  
+
+procedure trecorderfo.DrawLive(lv,rv : double);
+var
+  poswav, poswav2: pointty;
+  poswavx: integer;
+  leftlev, rightlev: double;
+begin
+    waveforec.sliderimage.bitmap.masked := False;
+  
+      poswav.x := xreclive;
+      poswav2.x := poswav.x;
+
+      leftlev := lv;
+      rightlev := rv;
+        
+ //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
+
+          poswav.y := (waveforec.trackbar1.Height div 2) - 2;
+          poswav2.x := poswav.x;
+          poswavx := poswav.x - 6;
+          poswav2.y := ((rectrecform.cy div 2) - 1) - round((leftlev) * ((rectrecform.cy div 2) - 3));
+
+          // if mainfo.typecolor.Value = 0 then
+          waveforec.sliderimage.bitmap.canvas.drawline(poswav, poswav2, $AC99D6);
+          //  else
+          //    canvas.drawline(poswav, poswav2, $6A6A6A);
+
+          poswav.y := (waveforec.trackbar1.Height div 2);
+
+          poswav2.y := poswav.y + (round((rightlev) * ((waveforec.trackbar1.Height div 2) - 3)));
+
+          //  if mainfo.typecolor.Value = 0 then
+          waveforec.sliderimage.bitmap.canvas.drawline(poswav, poswav2, $AC79D6);
+          //  else
+          //    canvas.drawline(poswav, poswav2, $8A8A8A);
+
+      
+    xreclive := xreclive +1;
+    
+    waveforec.sliderimage.bitmap.masked := true;
+    
+      end;
+
 
 procedure trecorderfo.ontimersent(const Sender: TObject);
 begin
@@ -204,12 +280,31 @@ end;
 procedure trecorderfo.ShowLevel;
 var
   leftlev, rightlev: double;
+   rat: integer;
 begin
   vuLeft.Visible := True;
   vuRight.Visible := True;
-
+  
+ 
   leftlev := uos_InputGetLevelLeft(therecplayer, Inputindex3);
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
+  
+   if  (as_checked in waveforec.tmainmenu1.menu[0].state) then
+   begin
+            if (xreclive ) > (waveforec.Width - 10) then
+          begin
+          
+          if  waveforec.TrackBar1.Width <> (waveforec.Width - 10) * ((xreclive div (waveforec.Width - 10)) +1)
+          
+          then begin
+         InitDrawLive();       
+         //   waveforec.TrackBar1.Value := xreclive / waveforec.TrackBar1.Width ;
+         end;
+          
+            
+        end;
+      DrawLive(leftlev,rightlev);   
+    end;
 
   if (leftlev >= 0) and (leftlev <= 1) then
   begin
@@ -256,6 +351,8 @@ begin
       ////// Length of input in time
       DecodeTime(temptime, ho, mi, se, ms);
       lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+   
+        
     end;
   end;
 
@@ -282,7 +379,9 @@ begin
   if fileexists(PChar(ansistring(historyfn.Value))) then
   begin
     samformat := 0;
-
+    
+    if sentcue1.value = true then songplayerfo.historyfn.Value := historyfn.Value;
+ 
     //  songdir.hint := songdir.value;
 
 
@@ -427,6 +526,7 @@ begin
       trackbar1.Enabled := True;
       btnStop.Enabled := True;
       btnresume.Enabled := False;
+      InitDrawLive();
       if cbloop.Value = True then
       begin
         uos_Play(therecplayer, -1);
@@ -749,11 +849,14 @@ begin
     lposition.face.template := mainfo.tfaceorange;
 
     //historyfn.font.color := cl_black;
-
+ if sentcue1.value = true then songplayerfo.historyfn.Value := historyfn.Value;
+   
     recpan.Visible := True;
 
     recpan.font.color := cl_black;
-
+    
+    if sentcue1.value = true then songplayerfo.historyfn.Value := historyfn.Value;
+    
     if bsavetofile.Value then
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
 
@@ -805,6 +908,8 @@ begin
     //////////// ClosePlayer1 : procedure of object to execute inside the loop
     
     llength.Value := '00:00:00.000';
+    
+    InitDrawLive();
 
     uos_Play(therecplayer);  /////// everything is ready to play...
 

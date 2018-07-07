@@ -32,7 +32,7 @@ var
      
 implementation
 uses
-  main, dockpanel1, songplayer, spectrum1_mfm;
+  main, dockpanel1, songplayer, recorder, spectrum1_mfm;
  
 procedure tspectrum1fo.onvisiblechange(const sender: TObject);
 begin
@@ -46,7 +46,7 @@ begin
       mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Hide Spectrum 2 '
     else  
      if caption = 'Spectrum Recorder' then
-      mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Hide Spectrum Rec ' 
+      mainfo.tmainmenu1.menu[3].submenu[11].Caption := ' Hide Spectrum Rec ' 
   end
   else
   begin
@@ -57,7 +57,7 @@ begin
     else  if caption = 'Spectrum Player 2' then
     mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Show Spectrum 2 '
     else  if caption = 'Spectrum Recorder' then
-    mainfo.tmainmenu1.menu[3].submenu[10].Caption := ' Show Spectrum Rec ';
+    mainfo.tmainmenu1.menu[3].submenu[11].Caption := ' Show Spectrum Rec ';
   end;
 if norefresh = false then
 begin
@@ -86,7 +86,7 @@ begin
 if avalue = false then
   if caption = 'Spectrum Player 1' then songplayerfo.resetspectrum() else
  if caption = 'Spectrum Player 2' then songplayer2fo.resetspectrum() else
-if caption = 'Spectrum Recorder' then  ;
+if caption = 'Spectrum Recorder' then recorderfo.resetspectrum()  ;
  end;
 
 end.

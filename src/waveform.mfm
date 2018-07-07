@@ -107,6 +107,7 @@ object wavefo: twavefo
     DA72AA01D679AC029DCFC91B9CD0CA01A5C3C501C88FB401D876AB01D778AC01
     9CCDC81B9CCEC9019ECAC701B1AFBE01CB89B101BBA1B901
   }
+  oncreated = oncreated
   onresize = onresiz
   onshow = onvisiblech
   onhide = onvisiblech
@@ -180,8 +181,8 @@ object wavefo: twavefo
     reffontheight = 14
   end
   object sliderimage: tbitmapcomp
-    left = 81
-    top = 35
+    left = 72
+    top = 21
   end
   object ttimer1: ttimer
     interval = 500000
@@ -242,13 +243,13 @@ object wavefo: twavefo
         state = [as_checked, as_localinvisible, as_localchecked, as_localcaption, as_localhint, as_localonexecute]
         options = [mao_checkbox, mao_shortcutcaption]
       end>
-    left = 300
-    top = 56
+    left = 299
+    top = 44
   end
   object tfacebuttonslider: tfacecomp
     template.fade_direction = gd_down
     template.onafterpaint = faceafterpaintbut
-    left = 210
-    top = 23
+    left = 107
+    top = 29
   end
 end

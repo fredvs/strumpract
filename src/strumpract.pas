@@ -13,6 +13,7 @@ uses
   msegui,
   main,
   aboutform,
+  mseact,
   drums,
   songplayer,
   commander,
@@ -51,10 +52,10 @@ begin
 
   application.createform(tfilelistfo, filelistfo);
 
-  filelistfo.dragdock.Caption := 'Files';
+  filelistfo.dragdock.Caption := 'Fil';
   application.createform(tdrumsfo, drumsfo);
 
-  drumsfo.dragdock.Caption := 'Drum';
+  drumsfo.dragdock.Caption := 'Dru';
   application.createform(tsongplayerfo, songplayerfo);
 
   application.createform(tsongplayerfo, songplayer2fo);
@@ -80,8 +81,24 @@ begin
   wavefo2.Caption := 'Wave Player 2';
   wavefo2.dragdock.Caption := 'Wa2';
   //wavefo2.waveon.frame.Caption := 'Enable Wave 2';
-
-  application.createform(tcommanderfo, commanderfo);
+  
+   application.createform(twavefo, waveforec);
+  waveforec.Caption := 'Wave Recorder';
+  waveforec.dragdock.Caption := 'WaR';
+  
+  with  waveforec do begin
+ tmainmenu1.menu[1].state := [as_invisible,as_localinvisible];
+tmainmenu1.menu[2].state := [as_invisible,as_localinvisible];
+tmainmenu1.menu[3].state := [as_invisible,as_localinvisible];
+tmainmenu1.menu[4].state := [as_invisible,as_localinvisible];
+tmainmenu1.menu[5].state := [as_invisible,as_localinvisible];
+tmainmenu1.menu[6].state := [as_invisible,as_localinvisible];
+tmainmenu1.menu[7].state := [as_invisible,as_localinvisible];
+tmainmenu1.menu[8].state := [as_invisible,as_localinvisible];
+end;
+  
+  
+    application.createform(tcommanderfo, commanderfo);
   commanderfo.dragdock.Caption := 'Com';
 
   application.createform(trecorderfo, recorderfo);
@@ -89,7 +106,7 @@ begin
 
   application.createform(tguitarsfo, guitarsfo);
 
-  guitarsfo.dragdock.Caption := 'Guit';
+  guitarsfo.dragdock.Caption := 'Gui';
 
   application.createform(taboutfo, aboutfo);
   application.createform(tinfosfo, infosfo);
