@@ -10,8 +10,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 351
-  bounds_y = 449
+  bounds_x = 290
+  bounds_y = 432
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -450,7 +450,7 @@ object filelistfo: tfilelistfo
       taborder = 7
       visible = False
       bounds_x = 1
-      bounds_y = 62
+      bounds_y = 94
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

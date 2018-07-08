@@ -1707,8 +1707,8 @@ object drumsfo: tdrumsfo
       face.template = mainfo.tfaceorange
       taborder = 23
       visible = False
-      bounds_x = -5
-      bounds_y = -29
+      bounds_x = 31
+      bounds_y = 23
       bounds_cx = 221
       bounds_cy = 36
       font.color = 5000268
