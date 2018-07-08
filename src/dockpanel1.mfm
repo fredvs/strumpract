@@ -38,7 +38,7 @@ object dockpanel1fo: tdockpanel1fo
   dragdock.onchilddock = updatedockev
   dragdock.onchildfloat = updatedockev
   mainmenu = tmainmenu1
-  options = [fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   statfile = mainfo.tstatfile1
   icon.origformat = 'jpeg'
   icon.image = {

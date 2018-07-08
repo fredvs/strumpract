@@ -267,6 +267,7 @@ begin
   Timerwaitdp.interval := 250000;
   Timerwaitdp.Enabled := False;
   Timerwaitdp.ontimer := @ontimerwait;
+  visible := false;
 end;
 
 procedure tdockpanel1fo.oncreated(const Sender: TObject);

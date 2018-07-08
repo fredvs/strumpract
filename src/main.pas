@@ -225,6 +225,8 @@ procedure tmainfo.oncreateform(const Sender: TObject);
  var  rect1: rectty;
 
 begin
+
+  visible := false;
   flayoutlock := 0;
   
  rect1 := application.screenrect(window);
@@ -235,7 +237,7 @@ begin
   //cueliststa.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'cuelist.sta';
 
   Timerwait := ttimer.Create(nil);
-  Timerwait.interval := 500000;
+  Timerwait.interval := 750000;
   Timerwait.Enabled := False;
   Timerwait.options := [to_single];
   Timerwait.ontimer := @ontimerwait;
@@ -266,6 +268,8 @@ var
 
 begin
   Caption := 'StrumPract ' + versiontext;
+  
+  visible := true;
 
   if not fileexists(tstatfile1.filename) then
   begin
@@ -276,6 +280,7 @@ begin
       {$endif}
     showall(Sender);
     ondockall(Sender);
+     
   end;
 
   if (filelistfo.Visible) then
@@ -358,7 +363,7 @@ begin
     end;
     Inc(x);
   end;
-
+  
   Timerwait.Enabled := True; /// for width if scroll
 
 end;
@@ -1035,14 +1040,6 @@ begin
    dockpanel1fo.visible := false;
    dockpanel2fo.visible := false;
    dockpanel3fo.visible := false;
-   drumsfo.Visible := False;
-   
-  guitarsfo.Visible := False;
-  
-  waveforec.Visible := false;
-  
-   spectrumrecfo.Visible := false;
-  
   spectrum1fo.Visible := true;
   spectrum2fo.Visible := true;
   songplayerfo.Visible := true;
@@ -1151,7 +1148,13 @@ begin
     //  visible:= true;
     endlayout();
    
+   drumsfo.Visible := False;
    
+  guitarsfo.Visible := False;
+  
+  waveforec.Visible := false;
+  
+   spectrumrecfo.Visible := false;  
     
     dockpanel1fo.activate;
     dockpanel2fo.activate;

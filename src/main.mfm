@@ -52,7 +52,7 @@ object mainfo: tmainfo
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   statfile = tstatfile1
-  caption = 'StrumPract version 1.0.'
+  caption = 'StrumPract'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
   icon.image = {
