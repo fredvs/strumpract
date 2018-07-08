@@ -1,7 +1,7 @@
 object dockpanel1fo: tdockpanel1fo
   optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton]
-  bounds_x = 197
-  bounds_y = 206
+  bounds_x = 462
+  bounds_y = 211
   bounds_cx = 454
   bounds_cy = 96
   bounds_cxmin = 454

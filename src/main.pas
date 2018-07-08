@@ -595,7 +595,7 @@ begin
     waveforec.dragdock.float();  
     
     norefresh := false;
-
+  sleep(1);
   endlayout();
 
   wavefo2.bounds_cxmax := 0;
@@ -845,7 +845,8 @@ begin
   norefresh := true;
 
   basedock.dragdock.currentsplitdir := sd_horz;
-   
+  
+  commanderfo.automix.value := true;    
 
   with dockpanel3fo do
   begin
@@ -968,13 +969,17 @@ begin
 end;
     //{
    
-  filelistfo.dragdock.float();
+// filelistfo.dragdock.float();
   filelistfo.Visible := True;
-  commanderfo.dragdock.float();
+//  commanderfo.dragdock.float();
   commanderfo.Visible := True;
   wavefo.Visible := False;
   wavefo2.Visible := False;
  
+   filelistfo.bounds_cxmax := fowidth;
+      filelistfo.bounds_cymax := filelistfoheight;
+      filelistfo.Width := fowidth;
+      filelistfo.Height := filelistfoheight;
 
   filelistfo.parentwidget := basedock;
 
@@ -1005,6 +1010,7 @@ end;
   dockpanel4fo.top := songplayerfo.Height + songplayerfo.Height + 30 + (2 * decorationheight);
   
   norefresh := false;
+  sleep(1);
   endlayout();
 
    if timerwait.Enabled then
@@ -1045,13 +1051,13 @@ begin
   wavefo2.Visible := true;
   
   commanderfo.Visible := true; 
+  
+  commanderfo.automix.value := true; 
+  
   filelistfo.Visible := true;
   recorderfo.Visible := true;  
    
-  dockpanel1fo.visible := true;
-  dockpanel2fo.visible := true;
-  
-   dockpanel4fo.visible := false;
+  dockpanel4fo.visible := false;
   dockpanel5fo.visible := false;
     
   basedock.dragdock.currentsplitdir := sd_horz;
@@ -1136,13 +1142,16 @@ begin
   wavefo2.Height := interv;
   wavefo.top := commanderfo.Height + songplayerfo.Height + spectrum1fo.Height + 126;
   wavefo2.top := commanderfo.Height + songplayerfo.Height + spectrum1fo.Height + 158 + interv;
-
+  
   wavefo.left := 0;
   wavefo2.left := wavefo.left;
   
+  sleep(1);
+  
     //  visible:= true;
- 
-   endlayout();
+    endlayout();
+   
+   
     
     dockpanel1fo.activate;
     dockpanel2fo.activate;
@@ -1303,6 +1312,7 @@ begin
   //}
   
   norefresh := false;
+  sleep(1);
   endlayout();
 
   if Height > 699 then
@@ -1355,6 +1365,7 @@ begin
   beginlayout();
   ondockall(Sender); // otherwise the close button are hidden
   basedock.dragdock.currentsplitdir := sd_tabed;
+  sleep(1);
   endlayout();
   
    dockpanel1fo.Visible := False;
@@ -1384,6 +1395,7 @@ begin
    waveforec.Show();
 norefresh := false;
   // endlayout();
+  
    if timerwait.Enabled then
   timerwait.restart // to reset
  else timerwait.Enabled := True;
@@ -2786,34 +2798,17 @@ end;
 procedure tmainfo.showpan1(const Sender: TObject);
 begin
   dockpanel1fo.Visible := not dockpanel1fo.Visible;
-  dockpanel1fo.Caption := 'Dock Panel 1';
-  if dockpanel1fo.Visible then
-    tmainmenu1.menu[4].submenu[0].Caption := ' Hide Dock Panel 1 '
-  else
-    tmainmenu1.menu[4].submenu[0].Caption := ' Show Dock Panel 1 ';
-
 end;
 
 procedure tmainfo.showpan2(const Sender: TObject);
 begin
   dockpanel2fo.Visible := not dockpanel2fo.Visible;
-  dockpanel2fo.Caption := 'Dock Panel 2';
-  if dockpanel2fo.Visible then
-    tmainmenu1.menu[4].submenu[1].Caption := ' Hide Dock Panel 2 '
-  else
-    tmainmenu1.menu[4].submenu[1].Caption := ' Show Dock Panel 2 ';
-
-end;
+ end;
 
 procedure tmainfo.showpan3(const Sender: TObject);
 begin
   dockpanel3fo.Visible := not dockpanel3fo.Visible;
-  dockpanel3fo.Caption := 'Dock Panel 3';
-  if dockpanel3fo.Visible then
-    tmainmenu1.menu[4].submenu[2].Caption := ' Hide Dock Panel 3 '
-  else
-    tmainmenu1.menu[4].submenu[2].Caption := ' Show Dock Panel 3 ';
-end;
+ end;
 
 procedure tmainfo.onshowspectrum2(const Sender: TObject);
 begin
@@ -2860,33 +2855,36 @@ end;
 procedure tmainfo.showpan4(const sender: TObject);
 begin
  dockpanel4fo.Visible := not dockpanel4fo.Visible;
-   if dockpanel4fo.Visible then
-    tmainmenu1.menu[4].submenu[3].Caption := ' Hide Dock Panel 4 '
-  else
-    tmainmenu1.menu[4].submenu[3].Caption := ' Show Dock Panel 4 ';
 end;
 
 procedure tmainfo.showpan5(const sender: TObject);
 begin
  dockpanel5fo.Visible := not dockpanel5fo.Visible;
-   if dockpanel5fo.Visible then
-    tmainmenu1.menu[4].submenu[4].Caption := ' Hide Dock Panel 5 '
-  else
-    tmainmenu1.menu[4].submenu[4].Caption := ' Show Dock Panel 5 ';
 end;
 
 procedure tmainfo.ondockrec(const Sender: TObject);
 var
   pt1: pointty;
+  rect1 : rectty;
+  interv : integer;
   decorationheight: integer = 5;
 begin
   // basedock.anchors := [an_left,an_top]  ;
   decorationheight := window.decoratedbounds_cy - Height;
+  
+  rect1 := application.screenrect(window);
+  
+  interv := (rect1.cx- (songplayerfo.Width + recorderfo.Width + 20)) div 2 ;
 
   beginlayout();
   
   norefresh := true;
-
+  
+  commanderfo.automix.value := false; 
+  
+  songplayerfo.edvolleft.value := 100;
+  songplayerfo.edvolright.value := 100;
+  
   basedock.dragdock.currentsplitdir := sd_horz;
   
   dockpanel1fo.visible := false;
@@ -2894,8 +2892,8 @@ begin
   dockpanel3fo.visible := false;
   dockpanel4fo.visible := false;
   dockpanel5fo.visible := false;
-   
-  with dockpanel1fo do
+  
+with dockpanel1fo do
   begin
 
     dragfloat();
@@ -2908,11 +2906,7 @@ begin
     spectrum1fo.Visible := True;
     spectrum1fo.parentwidget := basedock;
     
-    wavefo.Visible := True;
-    wavefo.parentwidget := basedock;
-
-
-    //{
+     //{
     pt1 := nullpoint;
 
       spectrum1fo.pos := pt1;
@@ -2922,49 +2916,80 @@ begin
       songplayerfo.pos := pt1;
       pt1.y := pt1.y + songplayerfo.Height + decorationheight;
       
-      wavefo.pos := pt1;
-      pt1.y := pt1.y + wavefo.Height + decorationheight;
-   
-     
+        
       if dockpanel1fo.Timerwaitdp.Enabled then
   dockpanel1fo.Timerwaitdp.restart // to reset
  else dockpanel1fo.Timerwaitdp.Enabled := True;
 
   end;
-
-     Visible := True;
+  
+        Visible := True;
      recorderfo.Visible := True;
     recorderfo.parentwidget := basedock;
 
     spectrumrecfo.Visible := True;
     spectrumrecfo.parentwidget := basedock;
     
+     spectrumrecfo.Visible := True;
+    spectrumrecfo.parentwidget := basedock;
+            
+      waveforec.bounds_cxmax := fowidth;
+      waveforec.bounds_cymax := wavefoheight;
+      waveforec.Width := fowidth;
+      waveforec.Height := wavefoheight;
+     
      waveforec.Visible := True;
-    waveforec.parentwidget := basedock;
-    
-     pt1 := nullpoint;
+     waveforec.parentwidget := basedock;
+     
+       pt1 := nullpoint;
 
     recorderfo.pos := pt1;
     pt1.y := pt1.y + recorderfo.Height + decorationheight;
 
     spectrumrecfo.pos := pt1;
     
-      pt1.y := pt1.y + spectrumrecfo.Height + decorationheight;
+     pt1.y := pt1.y + spectrumrecfo.Height + decorationheight;
       
-    waveforec.pos := pt1; 
+     waveforec.pos := pt1; 
    
   filelistfo.Visible := false;
   commanderfo.Visible := false;
   
     if recorderfo.sentcue1.value = true then songplayerfo.historyfn.Value := recorderfo.historyfn.Value; 
   
- left := 40;
+ left := interv;
  top := 10;
 
-  dockpanel1fo.left := commanderfo.width + 80;
-  dockpanel1fo.top := 10;
+  dockpanel1fo.left := recorderfo.width + 10 + interv;
+  dockpanel1fo.top := recorderfo.height +6 ;
+  
+   wavefo.dragdock.float();
+  wavefo.Visible := True;
+   sleep(1);
+  wavefo.left := left;
+  
+  wavefo.width := recorderfo.width + songplayerfo.width + 10;
+  
+  wavefo.height := recorderfo.height;
+  
+  wavefo.top := recorderfo.height + spectrumrecfo.height + waveforec.height + (2*decorationheight) ;
 
+  drumsfo.Visible := False;
+   
+  guitarsfo.Visible := False;
+  
+  spectrum2fo.Visible := false;
+  songplayer2fo.Visible := false;
+  wavefo2.Visible := false;
+  
+  commanderfo.Visible := false; 
+  filelistfo.Visible := false;
+ 
     norefresh := false;
+    dockpanel1fo. activate; 
+    wavefo. activate; 
+   activate; 
+    sleep(1);
   endlayout();
 
    if timerwait.Enabled then

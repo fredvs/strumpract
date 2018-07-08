@@ -272,7 +272,7 @@ end;
 procedure tdockpanel1fo.oncreated(const Sender: TObject);
 begin
 
-  Timerwaitdp.Enabled := True; /// for width if scroll
+ if visible then Timerwaitdp.Enabled := True; /// for width if scroll
   // Timerwait.Enabled := true;
 
 end;

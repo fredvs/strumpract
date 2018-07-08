@@ -399,6 +399,9 @@ end;
 
 procedure tcommanderfo.visiblechangeev(const Sender: TObject);
 begin
+ if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(dockpanel3fo))
+ and (assigned(dockpanel4fo)) and (assigned(dockpanel5fo)) then
+  begin
   if Visible then
   begin
     mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Hide Commander ';
@@ -421,7 +424,8 @@ begin
     dockpanel4fo.updatelayout();
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayout();   
- end;   
+ end; 
+ end;  
 end;
 
 procedure tcommanderfo.onplay(const Sender: TObject);

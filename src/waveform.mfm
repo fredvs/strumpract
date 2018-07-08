@@ -8,6 +8,7 @@ object wavefo: twavefo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacecomp4
   frame.grip_hint = ' Use that grip to drag the form '
+  visible = False
   bounds_x = 347
   bounds_y = 305
   bounds_cx = 442

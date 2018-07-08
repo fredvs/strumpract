@@ -328,9 +328,9 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 6
       hint = ' History of Cue files '
-      bounds_x = 67
+      bounds_x = 68
       bounds_y = 4
-      bounds_cx = 308
+      bounds_cx = 306
       bounds_cy = 21
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -371,7 +371,7 @@ object songplayerfo: tsongplayerfo
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
       bounds_x = 46
       bounds_y = 4
-      bounds_cx = 22
+      bounds_cx = 21
       bounds_cy = 21
       statfile = mainfo.tstatfile1
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
@@ -826,8 +826,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 17
       visible = False
-      bounds_x = 163
-      bounds_y = 55
+      bounds_x = 144
+      bounds_y = 54
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

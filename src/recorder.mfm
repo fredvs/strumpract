@@ -642,7 +642,7 @@ object recorderfo: trecorderfo
       hint = ' Choose a audio file (wav, ogg, flac or mp3) '
       bounds_x = 60
       bounds_y = 3
-      bounds_cx = 22
+      bounds_cx = 21
       bounds_cy = 21
       statfile = mainfo.tstatfile1
       controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'

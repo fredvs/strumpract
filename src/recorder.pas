@@ -293,16 +293,10 @@ begin
    begin
             if (xreclive ) > (waveforec.Width - 10) then
           begin
-          
-          if  waveforec.TrackBar1.Width <> (waveforec.Width - 10) * ((xreclive div (waveforec.Width - 10)) +1)
-          
-          then begin
-         InitDrawLive();       
-         //   waveforec.TrackBar1.Value := xreclive / waveforec.TrackBar1.Width ;
-         end;
-          
-            
-        end;
+            InitDrawLive();       
+           end;
+         
+      waveforec.TrackBar1.Value := xreclive / (waveforec.TrackBar1.Width );  
       DrawLive(leftlev,rightlev);   
     end;
 
@@ -671,6 +665,9 @@ end;
 procedure trecorderfo.visiblechangeev(const Sender: TObject);
 begin
 
+  if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(dockpanel3fo))
+ and (assigned(dockpanel4fo)) and (assigned(dockpanel5fo)) then
+  begin
   if Visible then
   begin
     mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Hide Recorder ';
@@ -696,7 +693,8 @@ begin
 
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayout();   
-end;    
+end;  
+end;  
 end;
 
 procedure trecorderfo.resetspectrum();

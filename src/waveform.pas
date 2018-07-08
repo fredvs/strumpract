@@ -161,7 +161,8 @@ end;
 procedure twavefo.onvisiblech(const Sender: TObject);
 begin
 
-  if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(dockpanel3fo)) then
+  if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(dockpanel3fo))
+ and (assigned(dockpanel4fo)) and (assigned(dockpanel5fo)) then
   begin
     if (Caption = 'Wave Player 1') then
       if Visible then

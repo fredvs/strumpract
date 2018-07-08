@@ -149,7 +149,7 @@ object filelistfo: tfilelistfo
       hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
       bounds_x = 3
       bounds_y = 101
-      bounds_cx = 22
+      bounds_cx = 23
       bounds_cy = 23
       anchors = [an_left, an_bottom]
       statfile = mainfo.tstatfile1
@@ -408,9 +408,9 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfacebutltgray
       taborder = 2
       hint = ' History of Directories '
-      bounds_x = 24
+      bounds_x = 27
       bounds_y = 101
-      bounds_cx = 164
+      bounds_cx = 160
       bounds_cy = 23
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
@@ -449,8 +449,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 7
       visible = False
-      bounds_x = 2
-      bounds_y = 95
+      bounds_x = 1
+      bounds_y = 62
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

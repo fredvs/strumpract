@@ -61,6 +61,14 @@ begin
   Timersent.Enabled := False;
   Timersent.options := [to_single];
   Timersent.ontimer := @ontimersent;
+  
+   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+   if trim(historyfn.Value) = '' then
+   begin
+    historyfn.Value := ordir + 'sound' + directoryseparator + 'song'  ;
+    onchangpath(Sender);
+    end;
+
 end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
@@ -223,10 +231,10 @@ var
   datalist_files: tfiledatalist;
   cellpos: gridcoordty;
 begin
-  if hasinit = 1 then
-  begin
+//  if hasinit = 1 then
+//  begin
 
-    if directoryexists(historyfn.Value) then
+    if directoryexists(tosysfilepath(historyfn.Value)) then
     begin
       list_files.tag := 0;
 
@@ -260,7 +268,7 @@ begin
       // list_files.focusedindex := 0;
       datalist_files.Free();
       onfloat(nil);
-    end;
+  //  end;
   end;
 end;
 
@@ -308,6 +316,9 @@ end;
 
 procedure tfilelistfo.visiblechangeev(const Sender: TObject);
 begin
+ if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(dockpanel3fo))
+ and (assigned(dockpanel4fo)) and (assigned(dockpanel5fo)) then
+  begin
   if Visible then
   begin
     mainfo.tmainmenu1.menu[3].submenu[3].Caption := ' Hide File List ';
@@ -326,7 +337,14 @@ begin
 
   if dockpanel3fo.Visible then
     dockpanel3fo.updatelayout();
- end;   
+    
+    if dockpanel4fo.Visible then
+    dockpanel4fo.updatelayout();  
+    
+     if dockpanel5fo.Visible then
+    dockpanel5fo.updatelayout();  
+ end; 
+ end;  
 end;
 
 procedure tfilelistfo.oncellev(const Sender: TObject; var info: celleventinfoty);
