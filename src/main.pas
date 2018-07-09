@@ -237,7 +237,7 @@ begin
   //cueliststa.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'cuelist.sta';
 
   Timerwait := ttimer.Create(nil);
-  Timerwait.interval := 750000;
+  Timerwait.interval := 100000;
   Timerwait.Enabled := False;
   Timerwait.options := [to_single];
   Timerwait.ontimer := @ontimerwait;
@@ -600,9 +600,7 @@ begin
     waveforec.dragdock.float();  
     
     norefresh := false;
-  sleep(1);
-  endlayout();
-
+ 
   wavefo2.bounds_cxmax := 0;
   wavefo2.bounds_cymax := 0;
 
@@ -629,7 +627,9 @@ begin
 
   left := 0;
   top := 0;
-
+  
+  endlayout();
+   
   if drumsfo.Visible then
     drumsfo.left := leftdec;
 
@@ -955,7 +955,9 @@ begin
     Visible := True;
      recorderfo.Visible := True;
     recorderfo.parentwidget := basedock;
-
+    
+    recorderfo.sentcue1.value := false;
+ 
     spectrumrecfo.Visible := True;
     spectrumrecfo.parentwidget := basedock;
     
@@ -972,7 +974,8 @@ begin
 
   
 end;
-    //{
+
+     //{
    
 // filelistfo.dragdock.float();
   filelistfo.Visible := True;
@@ -998,7 +1001,7 @@ end;
   commanderfo.pos := pt1;
   pt1.y := pt1.y + commanderfo.Height + decorationheight;
 
- 
+  endlayout();
  
   dockpanel1fo.left := 0;
   dockpanel1fo.top := 0;
@@ -1016,8 +1019,7 @@ end;
   
   norefresh := false;
   sleep(1);
-  endlayout();
-
+ 
    if timerwait.Enabled then
   timerwait.restart // to reset
  else timerwait.Enabled := True;
@@ -1107,6 +1109,8 @@ begin
   wavefo2.dragdock.float();
   recorderfo.dragdock.float();
   
+  recorderfo.sentcue1.value := false;
+  
   commanderfo.parentwidget := basedock;
 
   left := 0;
@@ -1130,23 +1134,29 @@ begin
    dockpanel2fo.top := dockpanel1fo.top;
    
    dockpanel2fo.left := filelistfo.left + filelistfo.Width + interv;
+   
+     endlayout();
   
-  interv := (rect1.cy- 194 -songplayerfo.Height - spectrum1fo.Height - commanderfo.Height) div 2;
+  interv := (rect1.cy- 194 - ( 3 *songplayerfoHeight)) div 2;
+  
+  wavefo2.bounds_cxmax := 0;
+  wavefo2.bounds_cymax := 0;
+
+  wavefo.bounds_cxmax := 0;
+  wavefo.bounds_cymax := 0;
   
   wavefo.Width := recorderfo.left + recorderfo.Width - 2;
   wavefo2.Width := recorderfo.left + recorderfo.Width - 2;
   wavefo.Height := interv;
   wavefo2.Height := interv;
-  wavefo.top := commanderfo.Height + songplayerfo.Height + spectrum1fo.Height + 126;
-  wavefo2.top := commanderfo.Height + songplayerfo.Height + spectrum1fo.Height + 158 + interv;
+  sleep(1);
+  wavefo.top :=  (3 * songplayerfoHeight) + 126;
+  wavefo2.top := (3 * songplayerfoHeight) + 158 + interv;
   
   wavefo.left := 0;
-  wavefo2.left := wavefo.left;
-  
-  sleep(1);
-  
+  wavefo2.left := 0;
+    
     //  visible:= true;
-    endlayout();
    
    drumsfo.Visible := False;
    
@@ -2954,11 +2964,14 @@ with dockpanel1fo do
      pt1.y := pt1.y + spectrumrecfo.Height + decorationheight;
       
      waveforec.pos := pt1; 
+     
+       endlayout();
    
   filelistfo.Visible := false;
   commanderfo.Visible := false;
   
-    if recorderfo.sentcue1.value = true then songplayerfo.historyfn.Value := recorderfo.historyfn.Value; 
+ recorderfo.sentcue1.value := true;
+ songplayerfo.historyfn.Value := recorderfo.historyfn.Value; 
   
  left := interv;
  top := 10;
@@ -2968,14 +2981,14 @@ with dockpanel1fo do
   
    wavefo.dragdock.float();
   wavefo.Visible := True;
-   sleep(1);
   wavefo.left := left;
   
-  wavefo.width := recorderfo.width + songplayerfo.width + 10;
+   
+  wavefo.width := (2*fowidth) + 10;
   
-  wavefo.height := recorderfo.height;
+  wavefo.height := songplayerfoheight;
   
-  wavefo.top := recorderfo.height + spectrumrecfo.height + waveforec.height + (2*decorationheight) ;
+  wavefo.top := (3*songplayerfoheight) + (2*decorationheight);
 
   drumsfo.Visible := False;
    
@@ -2992,9 +3005,7 @@ with dockpanel1fo do
     dockpanel1fo. activate; 
     wavefo. activate; 
    activate; 
-    sleep(1);
-  endlayout();
-
+  
    if timerwait.Enabled then
   timerwait.restart // to reset
  else timerwait.Enabled := True;

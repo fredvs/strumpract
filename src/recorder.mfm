@@ -847,7 +847,6 @@ object recorderfo: trecorderfo
       bounds_cx = 75
       bounds_cy = 30
       statfile = mainfo.tstatfile1
-      value = True
     end
     object hintpanel: tgroupbox
       color = -2147483645

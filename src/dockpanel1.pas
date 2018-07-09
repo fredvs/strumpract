@@ -264,7 +264,7 @@ begin
   flayoutlock := 0;
   Timerwaitdp := ttimer.Create(nil);
   Timerwaitdp.options := [to_single];
-  Timerwaitdp.interval := 250000;
+  Timerwaitdp.interval := 100000;
   Timerwaitdp.Enabled := False;
   Timerwaitdp.ontimer := @ontimerwait;
   visible := false;
