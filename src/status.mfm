@@ -1,20 +1,21 @@
 object statusfo: tstatusfo
+  color = 13221031
   visible = False
-  bounds_x = 430
+  bounds_x = 540
   bounds_y = 278
   bounds_cx = 288
-  bounds_cy = 114
+  bounds_cy = 140
   bounds_cxmin = 288
-  bounds_cymin = 114
+  bounds_cymin = 140
   bounds_cxmax = 288
-  bounds_cymax = 114
+  bounds_cymax = 140
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     288
-    114
+    140
   )
   optionswindow = [wo_dialog, wo_windowcentermessage]
   caption = 'Layout'
@@ -32,20 +33,24 @@ object statusfo: tstatusfo
       0
       0
     )
-    bounds_x = 22
-    bounds_y = 36
-    bounds_cx = 192
-    bounds_cy = 37
+    bounds_x = 7
+    bounds_y = 46
+    bounds_cx = 214
+    bounds_cy = 55
+    font.height = 16
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    textflags = [tf_xcentered, tf_ycentered, tf_noselect]
     value = 'mylayout'
-    reffontheight = 14
+    reffontheight = 19
   end
   object tbutton1: tbutton
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     taborder = 1
-    bounds_x = 229
-    bounds_y = 28
+    bounds_x = 228
+    bounds_y = 40
     bounds_cx = 56
     bounds_cy = 28
     state = [as_localcaption, as_localonexecute]
@@ -57,8 +62,8 @@ object statusfo: tstatusfo
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     taborder = 2
-    bounds_x = 230
-    bounds_y = 68
+    bounds_x = 229
+    bounds_y = 80
     bounds_cx = 56
     bounds_cy = 28
     state = [as_localcaption, as_localonexecute]
@@ -89,14 +94,14 @@ object statusfo: tstatusfo
     )
     face.localprops = [fal_fadirection]
     taborder = 3
-    bounds_x = 4
-    bounds_y = 0
-    bounds_cx = 221
-    bounds_cy = 111
+    bounds_x = 3
+    bounds_y = 8
+    bounds_cx = 220
+    bounds_cy = 126
     datarowlinecolor = -1610612731
     datacollinecolor = -1610612731
     cellwidth = 214
-    cellheight = 14
+    cellheight = 20
     optionsgrid = [og_focuscellonenter, og_autoappend, og_sorted, og_mousescrollcol]
     options = [lvo_readonly, lvo_drawfocus, lvo_focusselect, lvo_mouseselect, lvo_keyselect, lvo_locate, lvo_hintclippedtext]
     itemlist.imagelist = filedialogres.images

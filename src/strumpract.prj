@@ -1526,17 +1526,17 @@ findhistory=20
  floatall
 findoptions=1
 editpos=13
+ 0,0
+ 0,0
+ 77,11
+ 0,5
+ 0,-1073741823
+ 0,0
+ 0,0
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,3006
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,14
  0,56
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1670,7 +1670,7 @@ order=13
  8
  7
 firsttab=0
-index=4
+index=9
 [layout]
 windowlayout=829
  [mainfo.basedock]
@@ -1708,7 +1708,7 @@ windowlayout=829
   basedock,0,0,1350,692
  focusedchild=0
  wsize=6
- active=0
+ active=1
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1726,7 +1726,7 @@ windowlayout=829
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
  [threadsfo]
  splitdir=0
@@ -1749,7 +1749,7 @@ windowlayout=829
  [memoryfo]
  splitdir=0
  useroptions=805322875
- stackedunder=about_form
+ stackedunder=dialogfilesfo
  parent=
  mdistate=0
  nx=0
@@ -1917,7 +1917,7 @@ windowlayout=829
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=mainfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1932,7 +1932,7 @@ windowlayout=829
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=382
  width0=247
@@ -2158,8 +2158,9 @@ windowlayout=829
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/status.pas
+ value=/home/fred/strumpract/src/recorder.pas
  history=20
+  /home/fred/strumpract/src/status.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/dialogfiles.pas
   /home/fred/strumpract/src/drums.pas
@@ -2179,7 +2180,6 @@ windowlayout=829
   /home/fred/msemem/main2.pas
   /home/fred/Téléchargements/msemem/msemem.pas
   /home/fred/strumpract/src/msefiledialog.pas
-  /home/fred/strumpract/src/strumpract.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2239,7 +2239,7 @@ windowlayout=829
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_statusfo_mse_
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2277,7 +2277,7 @@ windowlayout=829
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2334,7 +2334,7 @@ windowlayout=829
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2353,7 +2353,7 @@ windowlayout=829
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2372,7 +2372,7 @@ windowlayout=829
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_wavefo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2410,7 +2410,7 @@ windowlayout=829
  [_mse_dockpanel1fo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_dialogfilesfo_mse_
+ stackedunder=_mse_statusfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2429,17 +2429,17 @@ windowlayout=829
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=objectinspectorfo
+ stackedunder=_mse_dialogfilesfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=430
+ x=540
  y=278
  cx=298
- cy=114
+ cy=140
  rcx=0
  rcy=0
  wsize=0
@@ -2486,7 +2486,7 @@ windowlayout=829
  [_mse_filedialogfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_mainfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

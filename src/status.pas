@@ -46,15 +46,20 @@ ordir := ExtractFilePath(ParamStr(0))
  
 if typstat = 0 then
 begin
+if statusfo.layoutname.value <> '' then begin
  ordir := ordir + statusfo.layoutname.value + '.lay';
 mainfo.tstatfile1.writestat(ordir);
+end;
 end;
 
 if typstat = 1 then
 begin
+if assigned(list_files.selectednames) then if list_files.selectednames[0] <> '' then begin
 ordir := ordir + list_files.selectednames[0] ;
 mainfo.tstatfile1.readstat(ordir);
 end;
+end;
+
 close;
 end;
 
