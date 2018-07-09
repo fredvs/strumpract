@@ -1,0 +1,110 @@
+object statusfo: tstatusfo
+  visible = False
+  bounds_x = 430
+  bounds_y = 278
+  bounds_cx = 288
+  bounds_cy = 114
+  bounds_cxmin = 288
+  bounds_cymin = 114
+  bounds_cxmax = 288
+  bounds_cymax = 114
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    288
+    114
+  )
+  optionswindow = [wo_dialog, wo_windowcentermessage]
+  caption = 'Layout'
+  windowopacity = -Inf
+  oncreated = oncreated
+  moduleclassname = 'tmseform'
+  object layoutname: tstringedit
+    frame.caption = 'Choose a layout name'
+    frame.captiontextflags = [tf_bottom]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.outerframe = (
+      0
+      17
+      0
+      0
+    )
+    bounds_x = 22
+    bounds_y = 36
+    bounds_cx = 192
+    bounds_cy = 37
+    value = 'mylayout'
+    reffontheight = 14
+  end
+  object tbutton1: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    taborder = 1
+    bounds_x = 229
+    bounds_y = 28
+    bounds_cx = 56
+    bounds_cy = 28
+    state = [as_localcaption, as_localonexecute]
+    caption = 'OK'
+    onexecute = onok
+  end
+  object tbutton2: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    taborder = 2
+    bounds_x = 230
+    bounds_y = 68
+    bounds_cx = 56
+    bounds_cy = 28
+    state = [as_localcaption, as_localonexecute]
+    caption = 'Cancel'
+    onexecute = oncancel
+  end
+  object list_files: tfilelistview
+    optionswidget = [ow_mousefocus, ow_arrowfocus, ow_focusbackonesc, ow_mousewheel, ow_destroywidgets]
+    frame.caption = 'Choose a layout'
+    frame.captiontextflags = [tf_bottom]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.outerframe = (
+      0
+      17
+      0
+      0
+    )
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      -1610612730
+      10592673
+    )
+    face.localprops = [fal_fadirection]
+    taborder = 3
+    bounds_x = 4
+    bounds_y = 0
+    bounds_cx = 221
+    bounds_cy = 111
+    datarowlinecolor = -1610612731
+    datacollinecolor = -1610612731
+    cellwidth = 214
+    cellheight = 14
+    optionsgrid = [og_focuscellonenter, og_autoappend, og_sorted, og_mousescrollcol]
+    options = [lvo_readonly, lvo_drawfocus, lvo_focusselect, lvo_mouseselect, lvo_keyselect, lvo_locate, lvo_hintclippedtext]
+    itemlist.imagelist = filedialogres.images
+    itemlist.imagewidth = 16
+    itemlist.imageheight = 16
+    cellwidthmin = 50
+    optionsfile = [flvo_checksubdir]
+    filelist.options = [flo_sortname, flo_sorttype]
+    reffontheight = 14
+  end
+end

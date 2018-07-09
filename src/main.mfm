@@ -201,7 +201,7 @@ object mainfo: tmainfo
         onexecute = onmaintab
       end    
       item
-        submenu.count = 7
+        submenu.count = 10
         submenu.items = <        
           item
             caption = ' &Dock all visible windows '
@@ -238,6 +238,21 @@ object mainfo: tmainfo
             caption = ' &Record stage '
             state = [as_localcaption, as_localonexecute]
             onexecute = ondockrec
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            caption = ' Save Layout '
+            hint = ' Save current layout '
+            state = [as_localcaption, as_localhint, as_localonexecute]
+            onexecute = savelayout
+          end        
+          item
+            caption = ' Load Layout '
+            hint = ' Load saved layout '
+            state = [as_localcaption, as_localhint, as_localonexecute]
+            onexecute = loadlayout
           end>
         caption = ' &Layout '
         hint = ' Choose a layout '
@@ -430,8 +445,8 @@ object mainfo: tmainfo
     options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev
-    left = 322
-    top = 7
+    left = 325
+    top = 47
   end
   object tframecomp1: tframecomp
     template.framei_left = 4

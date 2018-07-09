@@ -7,7 +7,7 @@ interface
 
 uses
   msetypes, mseglob, mseguiglob, msegraphedits, mseguiintf, mseapplication, msestat, msegui,
-  msetimer, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms, msechart,
+  msetimer, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms, msechart, status,
   msedock, msedataedits, mseedit, msestatfile, SysUtils, Classes,
   msebitmap, msesys, msemenus, msestream, msegrids, mselistbrowser,
   mseact, mseificomp, mseificompglob, mseifiglob, msestrings;
@@ -82,10 +82,10 @@ type
     procedure ondockplayers(const Sender: TObject);
     procedure ondockjam(const Sender: TObject);
     procedure dragfloat();
-
-   procedure onexit(const sender: TObject);
-  
-   procedure ondockrec(const sender: TObject);
+    procedure onexit(const sender: TObject);
+    procedure ondockrec(const sender: TObject);
+    procedure loadlayout(const sender: TObject);
+    procedure savelayout(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -96,7 +96,7 @@ type
   end;
 
 const
-  versiontext = '1.7.0';
+  versiontext = '1.7.1';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -2999,6 +2999,28 @@ with dockpanel1fo do
   timerwait.restart // to reset
  else timerwait.Enabled := True;
 
+end;
+
+procedure tmainfo.loadlayout(const sender: TObject);
+var
+ordir : string;
+begin
+ ordir := ExtractFilePath(ParamStr(0))
+ + 'layout' + directoryseparator;
+
+typstat := 1;
+ statusfo.list_files.path := ordir;
+statusfo.layoutname.visible := false;
+statusfo.list_files.visible := true;
+statusfo.activate;
+end;
+
+procedure tmainfo.savelayout(const sender: TObject);
+begin
+typstat := 0;
+statusfo.layoutname.visible := true;
+statusfo.list_files.visible := false;
+statusfo.activate;
 end;
 
 end.

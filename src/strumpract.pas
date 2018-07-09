@@ -21,6 +21,7 @@ uses
   guitars,
   recorder,
   infos,
+  status,
   spectrum1,
   waveform,
   dockpanel1;
@@ -110,6 +111,7 @@ end;
 
   application.createform(taboutfo, aboutfo);
   application.createform(tinfosfo, infosfo);
+  application.createform(tstatusfo, statusfo);
 
   application.createform(tdockpanel1fo, dockpanel1fo);
   application.createform(tdockpanel1fo, dockpanel2fo);
