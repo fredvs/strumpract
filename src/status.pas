@@ -38,6 +38,7 @@ end;
 
 procedure tstatusfo.onok(const sender: TObject);
 var
+x : integer;
 ordir : string;
  cellpos: gridcoordty;
 begin
@@ -96,6 +97,13 @@ filelistfo.tstatfile1.readstat(ordir);
       filelistfo.edfilescount.Value := filelistfo.list_files.rowcount;
 
 filelistfo.caption := removefileext(list_files.selectednames[0]);
+
+ filelistfo.list_files.fixcols[-1].captions.count:= filelistfo.list_files.rowCount;
+ 
+  for x := 0 to filelistfo.list_files.rowCount - 1 do 
+        filelistfo.list_files.fixcols[-1].captions[x] := inttostr(x+1);
+    
+    filelistfo.filescount.Value := IntToStr(filelistfo.edfilescount.Value) + ' files';
 
 //filelistfo.statfile := mainfo.tstatfile1;
 end;

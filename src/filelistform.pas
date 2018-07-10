@@ -5,7 +5,7 @@ interface
 
 uses
  msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat,
- msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent,
+ msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent, msedatalist,
  mseclasses, msegridsglob, mseforms, msedock, msedragglob, msesimplewidgets,
  msewidgets, mseact, msebitmap, msedataedits, msedatanodes, mseedit,
  msefiledialog, msegrids, mseificomp, mseificompglob, mseifiglob,mselistbrowser,
@@ -15,6 +15,7 @@ uses
 type
   tfilelistfo = class(tdockform)
     Timersent: Ttimer;
+    Timercount: Ttimer;
     tfacecomp1: tfacecomp;
     tgroupbox1: tgroupbox;
     songdir: tfilenameedit;
@@ -35,6 +36,7 @@ type
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
+    procedure ontimercount(const Sender: TObject);
     procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
     procedure onchangpath(const Sender: TObject);
     procedure onafterdialog(const Sender: tfiledialogcontroller; var aresult: modalresultty);
@@ -64,6 +66,8 @@ uses
   main, filelistform_mfm;
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
+var
+x : integer;
 
 begin
   Timersent := ttimer.Create(nil);
@@ -71,6 +75,12 @@ begin
   Timersent.Enabled := False;
   Timersent.options := [to_single];
   Timersent.ontimer := @ontimersent;
+  
+   Timercount := ttimer.Create(nil);
+  Timercount.interval := 2500000;
+  Timercount.Enabled := False;
+  Timercount.options := [to_single];
+  Timercount.ontimer := @ontimercount;
   
   
    ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
@@ -83,12 +93,27 @@ begin
     historyfn.Value := ordir + 'sound' + directoryseparator + 'song'  ;
     onchangpath(Sender);
     end;
+   
+      list_files.fixcols[-1].captions.count:= list_files.rowCount;
+ 
+  for x := 0 to list_files.rowCount - 1 do list_files.fixcols[-1].captions[x] := inttostr(x+1);
 
 end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
 begin
    hintpanel.Visible := False;
+end;
+
+procedure tfilelistfo.ontimercount(const Sender: TObject);
+var
+x: integer;
+begin
+ list_files.fixcols[-1].captions.count:= list_files.rowCount;
+ 
+  for x := 0 to list_files.rowCount - 1 do 
+      list_files.fixcols[-1].captions[x] := inttostr(x+1);
+
 end;
 
 procedure tfilelistfo.onsent(const Sender: TObject);
@@ -281,6 +306,12 @@ begin
       list_files.selectcell(cellpos, csm_select, False);
 
       edfilescount.Value := list_files.rowcount;
+      
+       list_files.fixcols[-1].captions.count:= list_files.rowCount;
+ 
+  for x := 0 to list_files.rowCount - 1 do       list_files.fixcols[-1].captions[x] := inttostr(x+1);
+     edfilescount.Value := list_files.rowcount;
+    filescount.Value := IntToStr(edfilescount.Value) + ' files';
 
       // list_files.focusedindex := 0;
       datalist_files.Free();
@@ -368,6 +399,7 @@ procedure tfilelistfo.oncellev(const Sender: TObject; var info: celleventinfoty)
 var
   cellpos: gridcoordty;
   x: integer;
+  
 begin
 
   cellpos := info.cell;
@@ -397,8 +429,18 @@ begin
     cellpos.col := 0;
     list_files.selectcell(cellpos, csm_select, False);
   end;
-   edfilescount.Value := list_files.rowcount;
+  if (info.eventkind = cek_buttonrelease) then
+  begin 
+  
+     edfilescount.Value := list_files.rowcount;
     filescount.Value := IntToStr(edfilescount.Value) + ' files';
+
+ if timercount.Enabled then
+  timercount.restart // to reset
+ else timercount.Enabled := True;
+ 
+
+end;
 end;
 
 procedure tfilelistfo.onbefdrop(const Sender: TObject);
@@ -420,6 +462,7 @@ end;
 procedure tfilelistfo.ondestr(const Sender: TObject);
 begin
   timersent.Free;
+  timercount.free;
 end;
 
 procedure tfilelistfo.ondock(const Sender: TObject);
@@ -477,7 +520,8 @@ if fileexists(str1) then begin
  
  list_files.rowcount := list_files.rowcount + 1; 
   x := list_files.rowcount-1;
-
+        
+ //    if x > 0 then  list_files[-1][x] := inttostr(x+1);
         list_files[0][x] := filenamebase(str1);
         list_files[1][x] := fileext(str1);
         list_files[2][x] := IntToStr(siz div 1000) + ' Kb';
@@ -486,6 +530,13 @@ if fileexists(str1) then begin
         list_files[4][x] := str1;
   edfilescount.Value := list_files.rowcount;    
    filescount.Value := IntToStr(edfilescount.Value) + ' files';   
+   
+    list_files.fixcols[-1].captions.count:= list_files.rowCount;
+ 
+  for x := 0 to list_files.rowCount - 1 do list_files.fixcols[-1].captions[x] := inttostr(x+1);
+     edfilescount.Value := list_files.rowcount;
+    filescount.Value := IntToStr(edfilescount.Value) + ' files';
+   
  end;
 end;
 end;
