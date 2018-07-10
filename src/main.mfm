@@ -441,7 +441,7 @@ object mainfo: tmainfo
     top = 8
   end
   object tstatfile1: tstatfile
-    filename = 'status.sta'
+    filename = 'stat.ini'
     options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev

@@ -10,8 +10,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 290
-  bounds_y = 432
+  bounds_x = 485
+  bounds_y = 353
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -96,6 +96,7 @@ object filelistfo: tfilelistfo
     F78B0E000000050F0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0E0E010000000000
     0000000000000000000000000000000000000000
   }
+  oncreate = oncreate
   oncreated = formcreated
   ondestroy = ondestr
   onshow = visiblechangeev
@@ -197,13 +198,13 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayer
       taborder = 3
       hint = ' Sent selected song to cue for Player 1 '
-      bounds_x = 262
+      bounds_x = 352
       bounds_y = 100
-      bounds_cx = 80
+      bounds_cx = 38
       bounds_cy = 24
       anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = '> Player 1'
+      caption = '>Pl1'
       captiondist = 0
       imagenr = 27
       focusrectdist = 0
@@ -224,13 +225,13 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayer
       taborder = 4
       hint = ' Sent selected song to cue for Player 2 '
-      bounds_x = 347
+      bounds_x = 392
       bounds_y = 100
-      bounds_cx = 80
+      bounds_cx = 38
       bounds_cy = 24
       anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = '> Player 2'
+      caption = '>Pl2'
       captiondist = 0
       imagenr = 27
       focusrectdist = 0
@@ -263,6 +264,7 @@ object filelistfo: tfilelistfo
       anchors = [an_left, an_top, an_right, an_bottom]
       font.name = 'stf_default'
       font.localprops = []
+      optionsgrid = [og_rowmoving, og_rowinserting, og_rowdeleting, og_focuscellonenter, og_savestate, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
       datacols.count = 5
       datacols.colorselect = 16763002
       datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
@@ -349,7 +351,7 @@ object filelistfo: tfilelistfo
           font.localprops = []
         end>
       datarowheight = 16
-      statfile = mainfo.tstatfile1
+      statfile = tstatfile1
       statpriority = 1
       oncellevent = oncellev
       reffontheight = 14
@@ -363,7 +365,7 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayerlight
       taborder = 5
       hint = ' Number of files in the list '
-      bounds_x = 196
+      bounds_x = 290
       bounds_y = 105
       bounds_cx = 60
       bounds_cy = 16
@@ -371,6 +373,96 @@ object filelistfo: tfilelistfo
       textflags = [tf_xcentered, tf_ycentered]
       value = '0 files'
       reffontheight = 14
+    end
+    object edfilescount: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 6
+      visible = False
+      bounds_x = 259
+      bounds_y = 41
+      bounds_cx = 20
+      statfile = mainfo.tstatfile1
+      onchange = onchangecount
+      reffontheight = 14
+    end
+    object tbutton3: tbutton
+      color = -2147483645
+      frame.captiondist = 0
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutgray
+      taborder = 8
+      hint = ' Load custom play-list '
+      bounds_x = 160
+      bounds_y = 100
+      bounds_cx = 40
+      bounds_cy = 24
+      anchors = [an_right, an_bottom]
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Load'
+      captiondist = 0
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = loadlist
+    end
+    object tbutton4: tbutton
+      color = -2147483645
+      frame.captiondist = 0
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutgray
+      taborder = 9
+      hint = ' Save custom play-list '
+      bounds_x = 246
+      bounds_y = 100
+      bounds_cx = 40
+      bounds_cy = 24
+      anchors = [an_right, an_bottom]
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Save'
+      captiondist = 0
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = savelist
+    end
+    object tbutton5: tbutton
+      color = -2147483645
+      frame.captiondist = 0
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutgray
+      taborder = 10
+      hint = ' Add file in custom play-list '
+      bounds_x = 203
+      bounds_y = 100
+      bounds_cx = 40
+      bounds_cy = 24
+      anchors = [an_right, an_bottom]
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Add'
+      captiondist = 0
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = addfile
     end
     object historyfn: thistoryedit
       color = -2147483645
@@ -410,7 +502,7 @@ object filelistfo: tfilelistfo
       hint = ' History of Directories '
       bounds_x = 27
       bounds_y = 101
-      bounds_cx = 160
+      bounds_cx = 128
       bounds_cy = 23
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
@@ -429,18 +521,6 @@ object filelistfo: tfilelistfo
       onafterclosedropdown = onaftdrop
       reffontheight = 14
     end
-    object edfilescount: tintegeredit
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 6
-      visible = False
-      bounds_x = 259
-      bounds_y = 41
-      bounds_cx = 20
-      statfile = mainfo.tstatfile1
-      onchange = onchangecount
-      reffontheight = 14
-    end
     object hintpanel: tgroupbox
       frame.localprops = []
       frame.localprops1 = []
@@ -449,8 +529,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 7
       visible = False
-      bounds_x = 1
-      bounds_y = 94
+      bounds_x = 7
+      bounds_y = 58
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
@@ -485,5 +565,15 @@ object filelistfo: tfilelistfo
     template.fade_direction = gd_down
     left = 144
     top = 37
+  end
+  object tstatfile1: tstatfile
+    filename = 'cue.lis'
+    options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
+    left = 320
+    top = 39
+  end
+  object tfiledialog1: tfiledialog
+    left = 30
+    top = 42
   end
 end

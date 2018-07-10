@@ -4,13 +4,13 @@ unit filelistform;
 interface
 
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat,
-  msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent,
-  mseclasses, msegridsglob, mseforms, msedock, msedragglob, msesimplewidgets,
-  msewidgets, mseact, msebitmap, msedataedits, msedatanodes, mseedit,
-  msefiledialog, msegrids, mseificomp, mseificompglob, mseifiglob, mselistbrowser,
-  msestatfile, msestream, msestrings, msesys, SysUtils, msegraphedits,
-  msescrollbar, msedispwidgets, mserichstring;
+ msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat,
+ msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent,
+ mseclasses, msegridsglob, mseforms, msedock, msedragglob, msesimplewidgets,
+ msewidgets, mseact, msebitmap, msedataedits, msedatanodes, mseedit,
+ msefiledialog, msegrids, mseificomp, mseificompglob, mseifiglob,mselistbrowser,
+ msestatfile, msestream, msestrings, msesys, SysUtils,msegraphedits,
+ msescrollbar, msedispwidgets, mserichstring,msedropdownlist;
 
 type
   tfilelistfo = class(tdockform)
@@ -26,6 +26,11 @@ type
     edfilescount: tintegeredit;
     hintpanel: tgroupbox;
     hintlabel: tlabel;
+   tbutton3: tbutton;
+   tbutton4: tbutton;
+   tbutton5: tbutton;
+   tstatfile1: tstatfile;
+   tfiledialog1: tfiledialog;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
@@ -43,6 +48,10 @@ type
     procedure onchangecount(const Sender: TObject);
     procedure ondestr(const Sender: TObject);
     procedure ondock(const Sender: TObject);
+   procedure loadlist(const sender: TObject);
+   procedure savelist(const sender: TObject);
+   procedure addfile(const sender: TObject);
+   procedure oncreate(const sender: TObject);
   end;
 
 var
@@ -51,10 +60,11 @@ var
 implementation
 
 uses
-  songplayer, commander, dockpanel1,
+  songplayer, commander, dockpanel1, status,
   main, filelistform_mfm;
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
+
 begin
   Timersent := ttimer.Create(nil);
   Timersent.interval := 2500000;
@@ -62,9 +72,14 @@ begin
   Timersent.options := [to_single];
   Timersent.ontimer := @ontimersent;
   
+  
    ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+   
+  if fileexists(ordir+  'ini'  + directoryseparator +  'list.ini') then
+   filelistfo.tstatfile1.readstat(ordir+  'ini'  + directoryseparator +  'list.ini') else
    if trim(historyfn.Value) = '' then
    begin
+    hasinit := 1;
     historyfn.Value := ordir + 'sound' + directoryseparator + 'song'  ;
     onchangpath(Sender);
     end;
@@ -231,8 +246,8 @@ var
   datalist_files: tfiledatalist;
   cellpos: gridcoordty;
 begin
-//  if hasinit = 1 then
-//  begin
+ if hasinit = 1 then
+  begin
 
     if directoryexists(tosysfilepath(historyfn.Value)) then
     begin
@@ -245,6 +260,8 @@ begin
       datalist_files.adddirectory(historyfn.Value, fil_ext1, '"*.mp3" "*.wav" "*.ogg" "*.flac"');
 
       datalist_files.options := [flo_sortname, flo_sorttype];
+      
+      caption := tosysfilepath(historyfn.Value);
 
       list_files.rowcount := datalist_files.Count;
 
@@ -268,7 +285,7 @@ begin
       // list_files.focusedindex := 0;
       datalist_files.Free();
       onfloat(nil);
-  //  end;
+  end;
   end;
 end;
 
@@ -390,7 +407,7 @@ end;
 
 procedure tfilelistfo.onaftdrop(const Sender: TObject);
 begin
-  historyfn.Width := 164;
+  historyfn.Width := 128 ;
 end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
@@ -407,5 +424,72 @@ procedure tfilelistfo.ondock(const Sender: TObject);
 begin
   bounds_cy := 128;
 end;
+
+procedure tfilelistfo.loadlist(const sender: TObject);
+var
+ordir : string;
+begin
+ ordir := ExtractFilePath(ParamStr(0))
+ + 'list' + directoryseparator;
+typstat := 3;
+statusfo.caption := 'Cue List';
+statusfo.color := $A7C9B9;
+statusfo.list_files.frame.caption := 'Choose a cue-list';
+statusfo.list_files.path := ordir;
+statusfo.list_files.mask :=  '*.lis' ;
+statusfo.layoutname.visible := false;
+statusfo.list_files.visible := true;
+statusfo.activate;
+end;
+
+procedure tfilelistfo.savelist(const sender: TObject);
+begin
+typstat := 2;
+statusfo.caption := 'Cue List';
+statusfo.color := $A7C9B9;
+statusfo.layoutname.value := 'mycuelist';
+statusfo.layoutname.frame.caption := 'Choose a cue-list name';
+statusfo.layoutname.visible := true;
+statusfo.list_files.visible := false;
+statusfo.activate;
+end;
+
+procedure tfilelistfo.addfile(const sender: TObject);
+var
+x, siz : integer;
+str1: filenamety;
+info: fileinfoty;
+res : modalresultty;
+begin
+
+  thesender := 4;
+  
+ tfiledialog1.controller.filter :=  '"*.mp3" "*.wav" "*.ogg" "*.flac"' ;
+
+ if tfiledialog1.controller.execute(str1) then begin 
+
+if fileexists(str1) then begin
+ getfileinfo(str1, info);
+ 
+ siz := info.extinfo1.size;
+ 
+ list_files.rowcount := list_files.rowcount + 1; 
+  x := list_files.rowcount-1;
+
+        list_files[0][x] := filenamebase(str1);
+        list_files[1][x] := fileext(str1);
+        list_files[2][x] := IntToStr(siz div 1000) + ' Kb';
+        // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
+        list_files[3][x] := IntToStr(1);
+        list_files[4][x] := str1;
+ end;
+end;
+end;
+
+procedure tfilelistfo.oncreate(const sender: TObject);
+begin
+ tstatfile1.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +  'ini'  + 
+ directoryseparator +  'list.ini';
+ end;
 
 end.

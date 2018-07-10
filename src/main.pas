@@ -96,7 +96,7 @@ type
   end;
 
 const
-  versiontext = '1.7.1';
+  versiontext = '1.8.0';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -233,9 +233,9 @@ begin
   
   maxheightfo := rect1.cy - 70; 
   // for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
-  tstatfile1.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'status.sta';
-  //cueliststa.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'cuelist.sta';
-
+  tstatfile1.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+  'ini'  + directoryseparator +  'stat.ini';
+  
   Timerwait := ttimer.Create(nil);
   Timerwait.interval := 100000;
   Timerwait.Enabled := False;
@@ -257,7 +257,12 @@ begin
 end;
 
 procedure tmainfo.dodestroy(const Sender: TObject);
+
 begin
+
+   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+ 
+filelistfo.tstatfile1.writestat(ordir+  'ini'  + directoryseparator +  'list.ini');
   uos_free();
   Timerwait.Free;
 end;
@@ -3020,7 +3025,9 @@ begin
  + 'layout' + directoryseparator;
 
 typstat := 1;
- statusfo.list_files.path := ordir;
+statusfo.color := $C9BCA7;
+statusfo.list_files.frame.caption := 'Choose a layout';
+statusfo.list_files.path := ordir;
 statusfo.layoutname.visible := false;
 statusfo.list_files.visible := true;
 statusfo.activate;
@@ -3029,6 +3036,10 @@ end;
 procedure tmainfo.savelayout(const sender: TObject);
 begin
 typstat := 0;
+statusfo.caption := 'Layout';
+statusfo.color := $C9BCA7;
+statusfo.layoutname.value := 'mylayout';
+statusfo.layoutname.frame.caption := 'Choose a layout name';
 statusfo.layoutname.visible := true;
 statusfo.list_files.visible := false;
 statusfo.activate;

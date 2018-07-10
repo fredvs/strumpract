@@ -1,5 +1,5 @@
 object statusfo: tstatusfo
-  color = 13221031
+  color = 10996153
   visible = False
   bounds_x = 540
   bounds_y = 278

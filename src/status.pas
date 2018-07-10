@@ -3,7 +3,7 @@ unit status;
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,mseact,
+ msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,mseact, msefileutils,
  msedataedits,msedropdownlist,mseedit,mseificomp,mseificompglob,mseifiglob,
  msestatfile,msestream,sysutils,msesimplewidgets,msebitmap,msedatanodes,
  msefiledialog,msegrids,mselistbrowser,msesys;
@@ -22,7 +22,7 @@ var
  typstat : shortint = 0;
 implementation
 uses
- status_mfm, main;
+ status_mfm, main, filelistform;
  
 procedure tstatusfo.oncreated(const sender: TObject);
 var
@@ -39,13 +39,14 @@ end;
 procedure tstatusfo.onok(const sender: TObject);
 var
 ordir : string;
+ cellpos: gridcoordty;
 begin
 
-ordir := ExtractFilePath(ParamStr(0))
- + 'layout' + directoryseparator;
- 
+
 if typstat = 0 then
 begin
+ordir := ExtractFilePath(ParamStr(0))
+ + 'layout' + directoryseparator;
 if statusfo.layoutname.value <> '' then begin
  ordir := ordir + statusfo.layoutname.value + '.lay';
 mainfo.tstatfile1.writestat(ordir);
@@ -54,11 +55,53 @@ end;
 
 if typstat = 1 then
 begin
+ordir := ExtractFilePath(ParamStr(0))
+ + 'layout' + directoryseparator;
 if assigned(list_files.selectednames) then if list_files.selectednames[0] <> '' then begin
 ordir := ordir + list_files.selectednames[0] ;
 mainfo.tstatfile1.readstat(ordir);
 end;
 end;
+
+if typstat = 2 then
+begin
+ordir := ExtractFilePath(ParamStr(0))
+ + 'list' + directoryseparator;
+if statusfo.layoutname.value <> '' then begin
+//filelistfo.statfile := mainfo.tstatfile1;
+//filelistfo.tstatfile1.writestat(ExtractFilePath(ParamStr(0))+ 'list.ini');
+ ordir := ordir + statusfo.layoutname.value + '.lis';
+filelistfo.tstatfile1.writestat(ordir); 
+filelistfo.caption := statusfo.layoutname.value;
+
+//filelistfo.statfile := mainfo.tstatfile1;
+end;
+end;
+
+if typstat = 3 then
+begin
+ordir := ExtractFilePath(ParamStr(0))
+ + 'list' + directoryseparator;
+ 
+if assigned(list_files.selectednames) then if list_files.selectednames[0] <> '' then begin
+//filelistfo.statfile := filelistfo.tstatfile1;
+ordir := ordir + list_files.selectednames[0] ;
+filelistfo.tstatfile1.readstat(ordir);
+
+    cellpos.row := 0;
+      cellpos.col := 0;
+
+      filelistfo.list_files.selectcell(cellpos, csm_select, False);
+
+      filelistfo.edfilescount.Value := filelistfo.list_files.rowcount;
+
+filelistfo.caption := removefileext(list_files.selectednames[0]);
+
+//filelistfo.statfile := mainfo.tstatfile1;
+end;
+end;
+
+
 
 close;
 end;
