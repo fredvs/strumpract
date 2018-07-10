@@ -257,6 +257,7 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutgray
+      hint = ' To move a row: clicki+hold into the fixed column and drag the row where you want. '
       bounds_x = 1
       bounds_y = 0
       bounds_cx = 431
@@ -275,7 +276,7 @@ object filelistfo: tfilelistfo
       datacols.items = <      
         item
           colorselect = 16763002
-          width = 276
+          width = 274
           options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
@@ -310,12 +311,17 @@ object filelistfo: tfilelistfo
         end      
         item
           colorselect = 16763002
-          width = 1
+          width = 0
           options = [co_readonly, co_nofocus, co_invisible, co_savevalue, co_savestate, co_mousescrollrow]
           widthmin = 0
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           valuefalse = '0'
           valuetrue = '1'
+        end>
+      fixcols.count = 1
+      fixcols.items = <      
+        item
+          width = 10
         end>
       fixrows.count = 1
       fixrows.items = <      
@@ -529,8 +535,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 7
       visible = False
-      bounds_x = 7
-      bounds_y = 58
+      bounds_x = -31
+      bounds_y = 20
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

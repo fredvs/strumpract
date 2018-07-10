@@ -95,11 +95,11 @@ findinfiledialog=70
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.inprojectdir]
- value=0
+ value=1
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.indirectories]
- value=1
+ value=0
  [findinfileadialogfo.mask]
  value="*.pas" "*.pp" "*.inc" 
  history=5
@@ -128,8 +128,9 @@ findinfiledialog=70
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=mask
+ value=name of sound
  history=20
+  name of sound
   mask
   maskar
   .maskar
@@ -149,7 +150,6 @@ findinfiledialog=70
   as_invisible
   .state
   .state :=
-  wavefo
  [findinfileadialogfo]
  stackedunder=
  x=635
@@ -377,6 +377,12 @@ fadeeditor=24
  wsize=0
  active=1
  visible=1
+stringlisteditor=5
+ [stringlisteditor]
+ x=177
+ y=203
+ cx=275
+ cy=237
 imagelisteditor=66
  [imagelisteditorfo.statfile1]
  currentversion=0
@@ -1493,8 +1499,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=filedialog
+finddtext=name of
 findhistory=20
+ name of
  filedialog
  fileinfoty
  extinfo1.size
@@ -1514,19 +1521,19 @@ findhistory=20
  .ogg
  DrawLive
  rectrecform
- jam
 findoptions=1
-editpos=10
- 0,3
- 0,98
- 0,427
- 0,9
- 0,74
- 0,87
- 0,250
- 0,1480
- 4,6
- 0,108
+editpos=11
+ 0,-1073741823
+ 0,-1073741823
+ 0,463
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 6,11
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1537,7 +1544,8 @@ bookmarks6=0
 bookmarks7=0
 bookmarks8=0
 bookmarks9=0
-sourcefiles=10
+bookmarks10=0
+sourcefiles=11
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
@@ -1548,18 +1556,20 @@ sourcefiles=10
  /home/fred/msegui/lib/common/dialogs/msefiledialog.pas
  /home/fred/msegui/lib/common/dialogs/msefiledialog.mfm
  /home/fred/msegui/apps/ide/msecodetemplates.pas
-relpaths=10
+ ${PROJECTDIR}/main.pas
+relpaths=11
  songplayer.pas
  main.pas
  filelistform.pas
- ../msegui/lib/common/kernel/msefileutils.pas
+ msegui/lib/common/kernel/msefileutils.pas
  status.pas
  msefiledialog.pas
- ../msegui/lib/common/kernel/msetypes.pas
- ../msegui/lib/common/dialogs/msefiledialog.pas
- ../msegui/lib/common/dialogs/msefiledialog.mfm
- ../msegui/apps/ide/msecodetemplates.pas
-ismoduletexts=10
+ msegui/lib/common/kernel/msetypes.pas
+ msegui/lib/common/dialogs/msefiledialog.pas
+ msegui/lib/common/dialogs/msefiledialog.mfm
+ msegui/apps/ide/msecodetemplates.pas
+ main.pas
+ismoduletexts=11
  0
  0
  0
@@ -1570,6 +1580,7 @@ ismoduletexts=10
  0
  -1
  0
+ 0
 modules=10
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
@@ -1578,9 +1589,9 @@ modules=10
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/msefiledialogres.mfm
  /home/fred/strumpract/src/songplayer.mfm
- /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/status.mfm
  /home/fred/strumpract/src/msefiledialog.mfm
+ /home/fred/strumpract/src/filelistform.mfm
 moduleoptions=10
  0
  0
@@ -1601,7 +1612,7 @@ visiblemodules=10
  0
  -1
  -1
- -1
+ 0
  -1
 nomenumodules=10
  0
@@ -1615,10 +1626,11 @@ nomenumodules=10
  0
  0
 [sourcefo.files_tab]
-order=10
+order=11
  0
  1
  2
+ 10
  7
  8
  4
@@ -1627,9 +1639,9 @@ order=10
  6
  3
 firsttab=1
-index=4
+index=3
 [layout]
-windowlayout=745
+windowlayout=746
  [mainfo.basedock]
  splitdir=2
  useroptions=11395
@@ -1655,8 +1667,8 @@ windowlayout=745
  ny=0
  ncx=0
  ncy=0
- x=129
- y=54
+ x=98
+ y=87
  cx=1157
  cy=621
  rcx=0
@@ -1752,7 +1764,7 @@ windowlayout=745
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -1874,22 +1886,22 @@ windowlayout=745
  [objectinspectorfo]
  splitdir=0
  useroptions=805322859
- stackedunder=
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=786
- y=123
+ x=648
+ y=114
  cx=571
  cy=484
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [objectinspectorfo.grid]
  propcolwidthref=561
  width0=363
@@ -2115,9 +2127,10 @@ windowlayout=745
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/msegui/lib/common/dialogs/msefiledialog.mfm
- history=12
+ value=/home/fred/strumpract/src/filelistform.mfm
+ history=13
   /home/fred/strumpract/src/filelistform.pas
+  /home/fred/msegui/lib/common/dialogs/msefiledialog.mfm
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/msegui/apps/ide/objectinspector.mfm
@@ -2188,7 +2201,7 @@ windowlayout=745
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2283,7 +2296,7 @@ windowlayout=745
  [_mse_filedialogres_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_filedialogfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2302,7 +2315,7 @@ windowlayout=745
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_statusfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2318,29 +2331,10 @@ windowlayout=745
  wsize=0
  active=0
  visible=1
- [_mse_filelistfo_mse_]
- splitdir=0
- useroptions=805322875
- stackedunder=_mse_statusfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=485
- y=353
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=_mse_filedialogfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2359,7 +2353,7 @@ windowlayout=745
  [_mse_filedialogfo_mse_]
  splitdir=0
  useroptions=805322875
- stackedunder=findinfilefo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2370,6 +2364,25 @@ windowlayout=745
  y=125
  cx=564
  cy=332
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
+ [_mse_filelistfo_mse_]
+ splitdir=0
+ useroptions=805322875
+ stackedunder=findinfilefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=485
+ y=353
+ cx=452
+ cy=128
  rcx=0
  rcy=0
  wsize=0

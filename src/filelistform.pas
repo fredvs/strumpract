@@ -397,10 +397,12 @@ begin
     cellpos.col := 0;
     list_files.selectcell(cellpos, csm_select, False);
   end;
-
+   edfilescount.Value := list_files.rowcount;
+    filescount.Value := IntToStr(edfilescount.Value) + ' files';
 end;
 
 procedure tfilelistfo.onbefdrop(const Sender: TObject);
+
 begin
   historyfn.Width := 402;
 end;
@@ -482,6 +484,8 @@ if fileexists(str1) then begin
         // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
         list_files[3][x] := IntToStr(1);
         list_files[4][x] := str1;
+  edfilescount.Value := list_files.rowcount;    
+   filescount.Value := IntToStr(edfilescount.Value) + ' files';   
  end;
 end;
 end;
