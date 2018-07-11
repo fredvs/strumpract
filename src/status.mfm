@@ -18,6 +18,8 @@ object statusfo: tstatusfo
     140
   )
   optionswindow = [wo_dialog, wo_windowcentermessage]
+  font.name = 'stf_default'
+  font.localprops = []
   caption = 'Layout'
   windowopacity = -Inf
   oncreated = oncreated

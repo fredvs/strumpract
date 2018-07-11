@@ -5,7 +5,7 @@ interface
 
 uses
  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
- msefileutils, mseapplication, msestat, msemenus, msegui, msegraphics,
+ msefileutils, mseapplication, msestat, msemenus, msegui, msegraphics, math,
  msegraphutils, mseevent, mseclasses, mseforms, msedock, msesimplewidgets,
  msewidgets, msedataedits, msefiledialog, msegrids, mselistbrowser, msesys,
  SysUtils, msegraphedits, msedragglob, mseact, mseedit, mseificomp,
@@ -128,7 +128,7 @@ var
   theplayerinfoform: integer = 26;
   theplayerinfoform2: integer = 27;
 
-  theplaying2: string;
+  theplaying2: string = '';
 
   iscue1: boolean = False;
   hasmixed1: boolean = False;
@@ -521,6 +521,7 @@ begin
   if Caption = 'Player 1' then
   begin
     theplaying1 := '';
+     wavefo.caption := 'Wave Player 1';
 
     iswav := False;
     iscue1 := False;
@@ -555,6 +556,7 @@ begin
   if Caption = 'Player 2' then
   begin
     theplaying2 := '';
+      wavefo2.caption := 'Wave Player 2';
     iswav2 := False;
     iscue2 := False;
 
@@ -1000,6 +1002,7 @@ begin
           wavefo.trackbar1.Value := 0;
           wavefo.container.frame.scrollpos_x := 0;
           wavefo.trackbar1.Enabled := True;
+          wavefo.caption := 'Wave1 of ' + historyfn.Value;
 
           theplaying1 := historyfn.Value;
 
@@ -1287,6 +1290,7 @@ begin
           wavefo2.trackbar1.Enabled := True;
 
           theplaying2 := historyfn.Value;
+           wavefo2.caption := 'Wave2 of ' + historyfn.Value;
 
           with commanderfo do
           begin
@@ -2396,7 +2400,9 @@ procedure tsongplayerfo.onplayercreate(const Sender: TObject);
 var
   ordir: string;
 begin
-
+     SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+  [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+  
   Timerwait := ttimer.Create(nil);
   Timerwait.interval := 250000;
   Timerwait.Enabled := False;

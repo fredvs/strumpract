@@ -108,7 +108,7 @@ object wavefo: twavefo
     DA72AA01D679AC029DCFC91B9CD0CA01A5C3C501C88FB401D876AB01D778AC01
     9CCDC81B9CCEC9019ECAC701B1AFBE01CB89B101BBA1B901
   }
-  oncreated = oncreated
+  oncreate = oncreated
   onresize = onresiz
   onshow = onvisiblech
   onhide = onvisiblech

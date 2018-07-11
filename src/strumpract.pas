@@ -9,6 +9,7 @@ program strumpract;
 {$endif}
 uses
  {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}
+  Math, 
   filelistform,
   msegui,
   main,
@@ -27,6 +28,9 @@ uses
   dockpanel1;
 
 begin
+    SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+  [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+  
   application.createform(tconfigfo, configfo);
 
   application.createform(tspectrum1fo, spectrum1fo);
@@ -75,11 +79,13 @@ begin
 
   application.createform(twavefo, wavefo);
   wavefo.Caption := 'Wave Player 1';
+   wavefo.tag := 1;
   wavefo.dragdock.Caption := 'Wa1';
   //wavefo.waveon.frame.Caption := 'Enable Wave 1';
 
   application.createform(twavefo, wavefo2);
   wavefo2.Caption := 'Wave Player 2';
+   wavefo2.tag := 2;
   wavefo2.dragdock.Caption := 'Wa2';
   //wavefo2.waveon.frame.Caption := 'Enable Wave 2';
   

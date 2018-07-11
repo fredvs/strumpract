@@ -4,7 +4,7 @@ unit commander;
 interface
 
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, math,
   msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
   msedock, msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
   msedataedits, msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
@@ -174,6 +174,10 @@ end;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
 begin
+      SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+  [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+ 
+
   Timermix := ttimer.Create(nil);
   Timermix.interval := 100000;
   //Timermix.options := [to_single];

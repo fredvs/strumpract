@@ -5,7 +5,7 @@ interface
 
 uses
  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
- mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils,
+ mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, math,
   mseevent,mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,
   msedataedits,msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,
   msegraphedits,mseificomp, mseificompglob, mseifiglob, msescrollbar,
@@ -742,6 +742,9 @@ procedure trecorderfo.onplayercreate(const Sender: TObject);
 var
   ordir: string;
 begin
+
+   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+  [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
  Equalizer_Bands[1].lo_freq := 18;
   Equalizer_Bands[1].hi_freq := 46;

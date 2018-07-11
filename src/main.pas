@@ -8,7 +8,7 @@ interface
 uses
   msetypes, mseglob, mseguiglob, msegraphedits, mseguiintf, mseapplication, msestat, msegui,
   msetimer, msegraphics, msegraphutils, mseclasses, msewidgets, mseforms, msechart, status,
-  msedock, msedataedits, mseedit, msestatfile, SysUtils, Classes,
+  msedock, msedataedits, mseedit, msestatfile, SysUtils, Classes, math,
   msebitmap, msesys, msemenus, msestream, msegrids, mselistbrowser,
   mseact, mseificomp, mseificompglob, mseifiglob, msestrings;
 
@@ -226,10 +226,13 @@ procedure tmainfo.oncreateform(const Sender: TObject);
 
 begin
 
+      SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+  [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+ 
   visible := false;
   flayoutlock := 0;
   
- rect1 := application.screenrect(window);
+  rect1 := application.screenrect(window);
   
   maxheightfo := rect1.cy - 70; 
   // for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
@@ -784,7 +787,7 @@ begin
   if waveforec.Visible then
   begin
     waveforec.top := posi;
-    wavefo2.activate;
+    waveforec.activate;
   end; 
   
 norefresh := false;
@@ -1051,8 +1054,8 @@ begin
   spectrum2fo.Visible := true;
   songplayerfo.Visible := true;
   songplayer2fo.Visible := true;
-  wavefo.Visible := true;
-  wavefo2.Visible := true;
+  wavefo.Visible := false;
+  wavefo2.Visible := false;
   
   commanderfo.Visible := true; 
   
@@ -1140,9 +1143,9 @@ begin
    
    dockpanel2fo.left := filelistfo.left + filelistfo.Width + interv;
    
-     endlayout();
-  
-  interv := (rect1.cy- 194 - ( 3 *songplayerfoHeight)) div 2;
+    endlayout();
+   
+   interv := (rect1.cy- 194 - ( 3 *songplayerfoHeight)) div 2;
   
   wavefo2.bounds_cxmax := 0;
   wavefo2.bounds_cymax := 0;
@@ -1170,7 +1173,7 @@ begin
   waveforec.Visible := false;
   
    spectrumrecfo.Visible := false;  
-    
+           
     dockpanel1fo.activate;
     dockpanel2fo.activate;
     
@@ -1418,12 +1421,6 @@ norefresh := false;
   timerwait.restart // to reset
  else timerwait.Enabled := True;
  
-  dockpanel1fo.Visible := False;
-  dockpanel2fo.Visible := False;
-  dockpanel3fo.Visible := False;
-   dockpanel4fo.Visible := False;
-  dockpanel5fo.Visible := False;
-
  end;
 
 procedure tmainfo.hideall(const Sender: TObject);
@@ -2893,6 +2890,8 @@ begin
   rect1 := application.screenrect(window);
   
   interv := (rect1.cx- (songplayerfo.Width + recorderfo.Width + 20)) div 2 ;
+  
+  wavefo.visible := false;
 
   beginlayout();
   
@@ -2916,8 +2915,6 @@ with dockpanel1fo do
 
     dragfloat();
 
-    Visible := True;
-   
     songplayerfo.Visible := True;
     songplayerfo.parentwidget := basedock;
 
@@ -2940,8 +2937,7 @@ with dockpanel1fo do
  else dockpanel1fo.Timerwaitdp.Enabled := True;
 
   end;
-  
-        Visible := True;
+        
      recorderfo.Visible := True;
     recorderfo.parentwidget := basedock;
 
@@ -2985,8 +2981,7 @@ with dockpanel1fo do
   dockpanel1fo.top := recorderfo.height +6 ;
   
    wavefo.dragdock.float();
-  wavefo.Visible := True;
-  wavefo.left := left;
+   wavefo.left := left;
   
    
   wavefo.width := (2*fowidth) + 10;

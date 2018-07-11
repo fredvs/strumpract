@@ -5,6 +5,7 @@ interface
 
 uses
   mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  math,
   msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
   msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
   msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
@@ -922,6 +923,8 @@ var
   i1: int32;
 begin
   // visible := false;
+     SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+  [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
