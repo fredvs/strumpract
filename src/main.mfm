@@ -17,9 +17,9 @@ object mainfo: tmainfo
   bounds_y = 91
   bounds_cx = 454
   bounds_cy = 139
-  bounds_cxmin = 442
+  bounds_cxmin = 454
   bounds_cymin = 40
-  bounds_cxmax = 454
+  bounds_cxmax = 468
   bounds_cymax = 700
   container.frame.framei_left = 0
   container.frame.framei_top = 0

@@ -90,7 +90,7 @@ begin
    if trim(historyfn.Value) = '' then
    begin
     hasinit := 1;
-    historyfn.Value := ordir + 'sound' + directoryseparator + 'song'  ;
+    historyfn.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator  ;
     onchangpath(Sender);
     end;
    

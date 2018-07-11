@@ -15,6 +15,8 @@ object wavefo: twavefo
   bounds_cy = 110
   bounds_cxmin = 442
   bounds_cymin = 94
+  bounds_cxmax = 442
+  bounds_cymax = 110
   container.frame.optionsskin = [fso_flat]
   container.frame.localprops = [frl_optionsskin]
   container.frame.localprops1 = []
@@ -108,7 +110,7 @@ object wavefo: twavefo
     DA72AA01D679AC029DCFC91B9CD0CA01A5C3C501C88FB401D876AB01D778AC01
     9CCDC81B9CCEC9019ECAC701B1AFBE01CB89B101BBA1B901
   }
-  oncreate = oncreated
+  oncreated = oncreated
   onresize = onresiz
   onshow = onvisiblech
   onhide = onvisiblech

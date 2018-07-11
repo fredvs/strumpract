@@ -155,7 +155,7 @@ end;
 procedure twavefo.ondock(const Sender: TObject);
 begin
   bounds_cymax := 128;
-   bounds_cxmax := 442;
+  bounds_cxmax := 442;
 end;
 
 procedure twavefo.onvisiblech(const Sender: TObject);
@@ -336,6 +336,20 @@ procedure twavefo.oncreated(const sender: TObject);
 begin
    SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
   [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+    if (parentwidget = nil) then
+    begin
+      bounds_cxmax := 0;
+      bounds_cymax := 0;
+    end
+    else
+    begin
+      bounds_cxmax := fowidth;
+      bounds_cymax := wavefoheight;  
+       bounds_cxmin := fowidth;
+      bounds_cymin := wavefoheight;  
+      Width := fowidth;
+      Height := wavefoheight;
+    end;
 end;
 
 
