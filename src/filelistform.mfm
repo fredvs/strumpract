@@ -155,27 +155,27 @@ object filelistfo: tfilelistfo
       anchors = [an_left, an_bottom]
       statfile = mainfo.tstatfile1
       cursorreadonly = cr_arrow
-      controller.filter = '"*.mp3" "*.wav" "*.ogg" "*.flac"'
+      controller.filter = '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'
       controller.filterlist.data = (
         (
           'MS wav'
-          '*.wav'
+          '"*.wav" "*.WAV"'
         )
         (
           'Ogg Vorbis'
-          '*.ogg'
+          '"*.ogg" "*.OGG"'
         )
         (
           'Flac'
-          '*.flac'
+          '"*.flac" "*.FLAC"'
         )
         (
           'MP3'
-          '*.mp3'
+          '"*.mp3" "*.MP3"'
         )
         (
           'All audio files'
-          '"*.mp3" "*.wav" "*.ogg" "*.flac"'
+          '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'
         )
       )
       controller.options = [fdo_directory, fdo_savelastdir]

@@ -282,7 +282,7 @@ begin
 
       datalist_files := tfiledatalist.Create();
 
-      datalist_files.adddirectory(historyfn.Value, fil_ext1, '"*.mp3" "*.wav" "*.ogg" "*.flac"');
+      datalist_files.adddirectory(historyfn.Value, fil_ext1, '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"');
 
       datalist_files.options := [flo_sortname, flo_sorttype];
       
@@ -509,7 +509,7 @@ begin
 
   thesender := 4;
   
- tfiledialog1.controller.filter :=  '"*.mp3" "*.wav" "*.ogg" "*.flac"' ;
+ tfiledialog1.controller.filter :=  '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"' ;
 
  if tfiledialog1.controller.execute(str1) then begin 
 

@@ -8,6 +8,7 @@ uses
   SysUtils, msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
   msedock, msedockpanelform, msedragglob, msegraphedits, mseificomp, mseificompglob,
   mseifiglob, msescrollbar, msesimplewidgets, msewidgets;
+  
 
 type
   tdockpanel1fo = class(tdockform)

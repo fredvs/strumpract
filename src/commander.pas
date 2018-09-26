@@ -2,14 +2,14 @@ unit commander;
 
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
-
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, math,
-  msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
-  msedock, msedragglob, msesimplewidgets, msewidgets, mseact, msebitmap,
-  msedataedits, msedatanodes, mseedit, msefiledialog, msegrids, mseificomp,
-  mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream, msestrings,
-  msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets, mserichstring;
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  math,msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses,
+  mseforms,msedock, msedragglob, msesimplewidgets, msewidgets, mseact,
+  msebitmap,msedataedits, msedatanodes, mseedit, msefiledialog, msegrids,
+  mseificomp,mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream,
+  msestrings,msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets,
+  mserichstring;
 
 type
   tcommanderfo = class(tdockform)
@@ -78,6 +78,7 @@ type
     tslider2val: TButton;
     tslider3val: TButton;
     vuLeft: tprogressbar;
+   guimix: tbooleanedit;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

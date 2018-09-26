@@ -816,6 +816,10 @@ end;
 procedure tsongplayerfo.LoopProcPlayer1();
 
 begin
+
+if (commanderfo.timermix.Enabled = false) or 
+((commanderfo.timermix.Enabled = true) and (commanderfo.guimix.value = false) ) then
+begin
   if (Visible = True) then
     ShowPosition(nil);
 
@@ -829,7 +833,7 @@ begin
   if Caption = 'Player 2' then
     if (spectrum2fo.spect1.Value = True) and (spectrum2fo.Visible = True) and (configfo.speccalc.Value = True) then
       ShowSpectrum(nil);
-
+end;
 end;
 
 procedure tsongplayerfo.doplayerstart(const Sender: TObject);

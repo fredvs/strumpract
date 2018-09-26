@@ -1822,6 +1822,9 @@ begin
 
     commanderfo.automix.colorglyph := ltblack;
     commanderfo.automix.frame.font.color := ltblack;
+    
+    commanderfo.guimix.colorglyph := ltblack;
+    commanderfo.guimix.frame.font.color := ltblack;
 
     commanderfo.linkvol.colorglyph := ltblack;
     commanderfo.linkvol.frame.font.color := ltblack;
@@ -2258,7 +2261,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.automix.colorglyph := ltblack;
     commanderfo.automix.frame.font.color := ltblack;
-
+    
+    
+     commanderfo.guimix.colorglyph := ltblack;
+    commanderfo.guimix.frame.font.color := ltblack;
+   
     commanderfo.linkvol.colorglyph := ltblack;
     commanderfo.linkvol.frame.font.color := ltblack;
 
@@ -2801,6 +2808,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.automix.colorglyph := ltblank;
     commanderfo.automix.frame.font.color := ltblank;
+    
+    commanderfo.guimix.colorglyph := ltblank;
+    commanderfo.guimix.frame.font.color := ltblank;
 
     commanderfo.linkvol.colorglyph := ltblank;
     commanderfo.linkvol.frame.font.color := ltblank;

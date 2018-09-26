@@ -4,6 +4,7 @@ unit guitars;
 interface
 
 uses
+
   mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msegui,
   msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
   msesimplewidgets, msewidgets, msegraphedits, SysUtils, mseificomp,

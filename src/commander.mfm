@@ -31,7 +31,7 @@ object commanderfo: tcommanderfo
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfacebutltgray
   dragdock.caption = ' Com '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]
   statfile = mainfo.tstatfile1
   caption = 'Commander'
   icon.options = [bmo_masked, bmo_graymask]
@@ -644,8 +644,8 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = -2147483645
-      frame.caption = 'Mix time'
-      frame.captionpos = cp_top
+      frame.caption = 'MT'
+      frame.captionpos = cp_left
       frame.font.color = 4342338
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -661,18 +661,18 @@ object commanderfo: tcommanderfo
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 20
       frame.outerframe = (
+        18
         0
-        14
         0
         0
       )
       face.localprops = []
       face.template = mainfo.tfaceplayer
       hint = ' Change mixing time in 1/100 second '
-      bounds_x = 111
-      bounds_y = 54
-      bounds_cx = 59
-      bounds_cy = 37
+      bounds_x = 104
+      bounds_y = 68
+      bounds_cx = 70
+      bounds_cy = 23
       statfile = mainfo.tstatfile1
       font.colorselect = 2105625
       font.colorselectbackground = 14015399
@@ -1298,7 +1298,7 @@ object commanderfo: tcommanderfo
       taborder = 24
       hint = ' Auto Mixing on/off '
       bounds_x = 110
-      bounds_y = 37
+      bounds_y = 36
       bounds_cx = 63
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
@@ -1502,8 +1502,8 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceorange
       taborder = 25
       visible = False
-      bounds_x = 32
-      bounds_y = 63
+      bounds_x = 50
+      bounds_y = 94
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -1530,6 +1530,37 @@ object commanderfo: tcommanderfo
         font.localprops = []
         reffontheight = 14
       end
+    end
+    object guimix: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'No GUI/mix'
+      frame.captionpos = cp_left
+      frame.captiondist = 3
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        61
+        0
+        0
+        1
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 31
+      hint = 'No graphic-anim while mixing (if cpu too low) '
+      bounds_x = 103
+      bounds_y = 52
+      bounds_cx = 74
+      statfile = mainfo.tstatfile1
+      colorglyph = 4868682
+      value = True
+      valuedefault = True
     end
   end
   object tfacecomp7: tfacecomp
@@ -1584,8 +1615,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 215
-    top = 7
+    left = 231
+    top = 1
     image = {
       00000000020000000C0000000C00000010010000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -1635,7 +1666,7 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 187
+    left = 253
     top = 2
   end
   object tfaceslider: tfacecomp
@@ -2065,8 +2096,8 @@ object commanderfo: tcommanderfo
       B8B9B801B8B8B701B6B7B701B6B5B501B4B4B501B3B3B401B2B3B301B1B1B101
       B0B0B0018B8B8B01
     }
-    left = 199
-    top = 74
+    left = 324
+    top = 39
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -2532,7 +2563,7 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
-    left = 130
-    top = 66
+    left = 284
+    top = 39
   end
 end
