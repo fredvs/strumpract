@@ -61,7 +61,32 @@ begin
   application.createform(tdrumsfo, drumsfo);
 
   drumsfo.dragdock.Caption := 'Dru';
-  application.createform(tsongplayerfo, songplayerfo);
+  
+  drumsfo.lesson1.hint := 'First lesson.' + #10 +
+  'Count slowly 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, ...,' + #10 +
+ 'With the stick, hit the closed hat on each count.'  + #10 +
+  'Count loud with your voice too.' + #10 +
+  'Dont stop this for 1 minut.' ;
+  
+  drumsfo.lesson2.hint := 'Second lesson.' + #10 +
+  'Do the same as first lesson and on count "1"' + #10 +
+  'add a "boom" with your right foot on the Bass Drum.'  + #10 +
+  'Still count loud with your voice.' + #10 +
+  'Dont stop this for 1 minut.' ;
+ 
+    drumsfo.lesson3.hint := '3th lesson.' + #10 +
+   'Do the same as second lesson and on count "3"' + #10 +
+   'add a "clack" on the Snare Drum with the other stick.'  + #10 +
+   'This is the most difficult.' + #10 +
+   'Still count loud with your voice.' + #10 +
+   'Dont stop this for 1 minut.' ;
+  
+  drumsfo.lesson4.hint := 'Last lesson.' + #10 +
+  'Do the same as 3th lesson but increasing the tempo.' + #10 +
+  'On count "2" you may add a "boom" on the Bass Drum.'  + #10 +
+  'Congratulation, you are a drummer now. ;-)'  ;
+  
+   application.createform(tsongplayerfo, songplayerfo);
 
   application.createform(tsongplayerfo, songplayer2fo);
 

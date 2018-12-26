@@ -5,10 +5,10 @@ interface
 
 uses
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  msegui,uos_flat, msegraphics, msegraphutils, mseevent, mseclasses, msewidgets,
-  mseforms,mseact, msedataedits, mseedit, mseificomp, mseificompglob,
-  mseifiglob, msestatfile,msestream, msestrings, SysUtils, msesimplewidgets,
- msegraphedits,msescrollbar;
+ msegui,uos_flat, msegraphics, msegraphutils, mseevent, mseclasses, msewidgets,
+ mseforms,mseact, msedataedits, mseedit, mseificomp, mseificompglob,mseifiglob,
+ msestatfile,msestream, msestrings, SysUtils, msesimplewidgets,msegraphedits,
+ msescrollbar;
 
 type
   tconfigfo = class(tmseform)
@@ -19,13 +19,17 @@ type
     tbutton1: TButton;
     lsuglat: tlabel;
    speccalc: tbooleanedit;
+   defdevin: tlabel;
+   defdevout: tlabel;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
+   procedure confcreated(const sender: TObject);
   end;
 
 var
   configfo: tconfigfo;
+  devin, devout : integer;
 
 implementation
 
@@ -45,6 +49,26 @@ end;
 procedure tconfigfo.changelatrec(const Sender: TObject);
 begin
   /// if latrec.value < 0 then latrec.value := -1;
+end;
+
+procedure tconfigfo.confcreated(const sender: TObject);
+begin
+devin := UOSDefaultDeviceIN;
+devout := UOSDefaultDeviceOUT;
+
+// devin := -1;
+
+if devin > -1 then
+defdevin.caption := 'Default Device IN = ' + IntToStr(devin)
+else defdevin.caption := 'No Default Device IN';
+
+if devout > -1 then
+defdevout.caption := 'Default Device OUT = ' + IntToStr(devout)
+else defdevout.caption := 'No Default Device OUT';
+
+
+
+
 end;
 
 end.

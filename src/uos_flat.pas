@@ -2241,7 +2241,7 @@ begin
  setlength(uosLevelArray,PlayerIndex + 1) ;
 end;
 
- {$IF DEFINED(debug)}
+ {$IF DEFINED(debug) and DEFINED(unix)}
  writeln('before uosPlayers[PlayerIndex] <> nil ');
  {$endif}  
   
@@ -2257,7 +2257,7 @@ end;
   
   end;
 
-{$IF DEFINED(debug)}
+{$IF DEFINED(debug) and DEFINED(unix)}
  writeln('after uosPlayers[PlayerIndex] <> nil ');
 {$endif}  
 
@@ -2282,7 +2282,7 @@ end;
 procedure uos_Free();
 var
 x : integer;
-nt : integer = 200;
+nt : integer = 100;
 begin
 
 // needed for MSE and if some players are still playing

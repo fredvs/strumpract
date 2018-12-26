@@ -2060,7 +2060,7 @@ type
    
    fincupdown : integer;
    ftimerupdown : TTimer;
- 
+   
    class function classskininfo: skininfoty; override;
    
    function checkrowindex(var aindex: integer): boolean;
@@ -2850,7 +2850,7 @@ type
  twidget1 = class(twidget);
  tinplaceedit1 = class(tinplaceedit);
  tcustomscrollbar1 = class(tcustomscrollbar);
- 
+
 const
  errorstrings: array[griderrorty] of string = (
   '', //ok
@@ -2861,6 +2861,9 @@ const
   'Invalid widget'
  );
  
+//var
+// coloptionssplitinfo: setsplitinfoty;
+
 function iscellkeypress(const info: celleventinfoty;
              const akey: keyty = key_none; //key_none -> all keys
              const shiftstatemustinclude: shiftstatesty = [];
@@ -9638,7 +9641,7 @@ end;
 
 { tcustomgrid }
 
- constructor tcustomgrid.create(aowner: tcomponent);
+constructor tcustomgrid.create(aowner: tcomponent);
 begin
  include(fstate,gs_updatelocked);
  fmouseeventcol:= -1;
@@ -13711,9 +13714,10 @@ procedure tcustomgrid.dokeyup(var info: keyeventinfoty);
 var
  celleventinfo: celleventinfoty;
 begin
- ftimerupdown.enabled := false;
- fincupdown := 0;
 
+ftimerupdown.enabled := false;
+ fincupdown := 0;
+ 
  if ffocusedcell.col >= 0 then begin
   fdatacols[ffocusedcell.col].dokeyevent(info,true);
  end
@@ -15044,7 +15048,7 @@ begin
  {$ifdef mse_with_ifi}
   if bo1 and (fifiserverintf <> nil) and not(ws_loadedproc in fwidgetstate) and
          not (gs_emptyrowremoved in fstate) and not isautoappend then begin
-   fifiserverintf.valuechanged(iifigridlink(self));
+   iifidataserver(fifiserverintf).valuechanged(iifigridlink(self));
   end;
  {$endif}
   if (gs1_showcellinvalid in fstate1) then begin
@@ -16558,7 +16562,7 @@ procedure tcustomgrid.ifirowchange;
 begin
  if (fupdating = 0) and (fifiserverintf <> nil) and 
                               not(ws_loadedproc in fwidgetstate) then begin
-    fifiserverintf.valuechanged(iifigridlink(self));
+  iifidataserver(fifiserverintf).valuechanged(iifigridlink(self));
  end;
 end;
 

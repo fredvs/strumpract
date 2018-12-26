@@ -1115,7 +1115,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 16
       onchange = dopatern
     end
-    object tbooleaneditradio2: tbooleaneditradio
+    object lesson4: tbooleaneditradio
       Tag = 4
       optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
       color = -2147483645
@@ -1141,7 +1141,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 16
       onchange = dopatern
     end
-    object tbooleaneditradio4: tbooleaneditradio
+    object lesson3: tbooleaneditradio
       Tag = 3
       optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
       color = -2147483645
@@ -1167,7 +1167,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 16
       onchange = dopatern
     end
-    object tbooleaneditradio3: tbooleaneditradio
+    object lesson2: tbooleaneditradio
       Tag = 2
       optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
       color = -2147483645
@@ -1193,7 +1193,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 16
       onchange = dopatern
     end
-    object tbooleaneditradio1: tbooleaneditradio
+    object lesson1: tbooleaneditradio
       Tag = 1
       optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
       color = -2147483645
@@ -1430,6 +1430,7 @@ object drumsfo: tdrumsfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp2
       frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 20
@@ -1498,6 +1499,7 @@ object drumsfo: tdrumsfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp2
       frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 20

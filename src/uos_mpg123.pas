@@ -17,7 +17,8 @@ interface
 
 {$LONGSTRINGS ON}
 uses
- ctypes, dynlibs;
+ ctypes, 
+ classes, dynlibs;
  
 const
 libmp=
@@ -25,7 +26,30 @@ libmp=
  'libmpg123.so.0';
   {$ELSE}
  'mpg123.dll';
-  {$ENDIF}     
+  {$ENDIF} 
+  
+const
+  SEEK_SET = 0;       //* seek relative to beginning of file */
+  SEEK_CUR = 1;       //* seek relative to current file position */
+  SEEK_END = 2;       //* seek relative to end of file */
+  SEEK_DATA = 3;       //* seek to the next data */
+  SEEK_HOLE = 4;       //* seek to the next hole */
+  SEEK_MAX = SEEK_HOLE;
+  
+ 
+type 
+ {$IF Defined(MSWINDOWS)} 
+  off_t = int64;
+  {$ELSE}  
+  off_t    = clonglong;  
+ {$ENDIF} 
+  
+type
+  Puos_count_t = ^Tuos_count_t;
+  Tuos_count_t = off_t;     
+  
+type   
+PMemoryStream = ^TMemoryStream;        
 
 type
   Tmpg123_handle = Pointer;

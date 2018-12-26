@@ -32,7 +32,7 @@ object filelistfo: tfilelistfo
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = guitarsfo.tfaceguitlight
   dragdock.caption = ' Files '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]
   dragdock.onfloat = onfloat
   dragdock.ondock = ondock
   statfile = mainfo.tstatfile1
@@ -257,7 +257,7 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutgray
-      hint = ' To move a row: clicki+hold into the fixed column and drag the row where you want. '
+      hint = ' To move a row: click+hold into the fixed column and drag the row where you want. '
       bounds_x = 1
       bounds_y = 0
       bounds_cx = 431
@@ -539,7 +539,7 @@ object filelistfo: tfilelistfo
       taborder = 7
       visible = False
       bounds_x = 1
-      bounds_y = 95
+      bounds_y = 93
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

@@ -124,10 +124,10 @@ type
     tbooleaneditradio7: tbooleaneditradio;
     tbooleaneditradio6: tbooleaneditradio;
     tbooleaneditradio5: tbooleaneditradio;
-    tbooleaneditradio2: tbooleaneditradio;
-    tbooleaneditradio4: tbooleaneditradio;
-    tbooleaneditradio3: tbooleaneditradio;
-    tbooleaneditradio1: tbooleaneditradio;
+    lesson4: tbooleaneditradio;
+    lesson3: tbooleaneditradio;
+    lesson2: tbooleaneditradio;
+    lesson1: tbooleaneditradio;
     tlabel22: tlabel;
     tlabel21: tlabel;
     noanim: tbooleanedit;

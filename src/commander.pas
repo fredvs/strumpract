@@ -102,7 +102,6 @@ type
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure resetvolume(const Sender: TObject);
     procedure onsetvu(const Sender: TObject; var avalue: boolean; var accept: boolean);
-
   end;
 
 var
@@ -111,7 +110,7 @@ var
   initvolleft1, initvolright1, initvolleft2, initvolright2: double;
   maxvolleft1, maxvolright1, maxvolleft2, maxvolright2: double;
   thetypemix: integer = 0;
-  theinput: integer = 26;
+  theinput: integer = 30;
 
 implementation
 
@@ -190,6 +189,14 @@ begin
   Timersent.Enabled := False;
   Timersent.options := [to_single];
   Timersent.ontimer := @ontimersent;
+  
+  if devin < 0 then
+  begin
+  butinput.enabled := false;
+  tslider3.enabled := false;
+  tslider3val.enabled := false;
+  end;
+  
 end;
 
 procedure tcommanderfo.ontimersent(const Sender: TObject);
@@ -523,9 +530,10 @@ end;
 procedure tcommanderfo.onsetinput(const Sender: TObject);
 begin
 
-  if hasinit = 1 then
+  if (hasinit = 1) and (devin > -1) then
   begin
-    if butinput.Value = True then
+  
+   if butinput.Value = True then
     begin
 
       nameinput.face.template := mainfo.tfacered;
@@ -534,8 +542,7 @@ begin
       tslider3.Enabled := True;
       uos_Stop(theinput);
 
-      if uos_CreatePlayer(theinput) then
-      begin
+      uos_CreatePlayer(theinput);
         // writeln('ok create');
 
         OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.Value, -1, -1, -1, -1, -1);
@@ -548,7 +555,7 @@ begin
         //  writeln('InputIndex4 = ' + inttostr(InputIndex4));
 
         uos_InputAddDSP1ChanTo2Chan(theinput, InputIndex4);
-
+        
         uos_InputSetLevelEnable(theinput, InputIndex4, 2);
 
         uos_InputAddDSPVolume(theinput, InputIndex4, 1, 1);
@@ -561,10 +568,11 @@ begin
         //   uos_EndProc(therecplayer, @ClosePlayer1);
 
         uos_Play(theinput);  /////// everything is ready to play...
-
+        
+     
         //   bsavetofile.Enabled := false;
 
-      end;
+     
     end
     else
     begin
@@ -573,13 +581,14 @@ begin
       //    tslider3val.face.template :=  mainfo.tfacebutltgray;
       uos_Stop(theinput);
     end;
-  end;
+  end ;
+ // else butinput.Value := false;
 end;
 
 procedure tcommanderfo.onchangevolinput(const Sender: TObject);
 begin
   tslider3val.Caption := IntToStr(trunc(tslider3.Value * 100));
-  if hasinit = 1 then
+  if (hasinit = 1) and  (butinput.Value = True) then
   begin
     uos_InputSetDSPVolume(theinput, Inputindex4,
       tslider3.Value, tslider3.Value, True);
@@ -822,7 +831,8 @@ begin
     end;
   end;
 
-  if (TButton(Sender).Name = 'tslider3val') then
+  if (TButton(Sender).Name = 'tslider3val')
+   then
   begin
     if TButton(Sender).tag = 0 then
     begin
@@ -837,5 +847,6 @@ begin
   end;
 
 end;
+
 
 end.
