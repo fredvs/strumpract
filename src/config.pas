@@ -24,7 +24,7 @@ type
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
-   procedure confcreated(const sender: TObject);
+  
   end;
 
 var
@@ -51,24 +51,5 @@ begin
   /// if latrec.value < 0 then latrec.value := -1;
 end;
 
-procedure tconfigfo.confcreated(const sender: TObject);
-begin
-devin := UOSDefaultDeviceIN;
-devout := UOSDefaultDeviceOUT;
-
-// devin := -1;
-
-if devin > -1 then
-defdevin.caption := 'Default Device IN = ' + IntToStr(devin)
-else defdevin.caption := 'No Default Device IN';
-
-if devout > -1 then
-defdevout.caption := 'Default Device OUT = ' + IntToStr(devout)
-else defdevout.caption := 'No Default Device OUT';
-
-
-
-
-end;
 
 end.

@@ -84,7 +84,6 @@ object configfo: tconfigfo
     000000000000000000000000000000000000000000000000
   }
   windowopacity = -Inf
-  oncreated = confcreated
   moduleclassname = 'tmseform'
   object tgroupbox1: tgroupbox
     frame.caption = 'Latency ( -1 or < 0 ---> suggested latency )'

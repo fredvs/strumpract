@@ -992,6 +992,20 @@ begin
   end
   else
     application.terminate;
+    
+   UOS_GetInfoDevice();
+devin := UOSDefaultDeviceIN;
+devout := UOSDefaultDeviceOUT;
+
+// devin := -1;
+
+if devin > -1 then
+configfo.defdevin.caption := 'Default Device IN = ' + IntToStr(devin)
+else configfo.defdevin.caption := 'No Default Device IN';
+
+if devout > -1 then
+configfo.defdevout.caption := 'Default Device OUT = ' + IntToStr(devout)
+else configfo.defdevout.caption := 'No Default Device OUT';  
 
   Timertick := ttimer.Create(nil);
   Timertick.interval := 100000;
