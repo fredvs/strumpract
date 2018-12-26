@@ -1524,8 +1524,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=hintpanel
+finddtext=recorderfo
 findhistory=20
+ recorderfo
  hintpanel
  ftimerupdown
  fincupdown
@@ -1545,9 +1546,8 @@ findhistory=20
  showposition
  timermix
  addinto
- addintomem
 findoptions=1
-editpos=23
+editpos=24
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1558,7 +1558,6 @@ editpos=23
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,7
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1567,10 +1566,12 @@ editpos=23
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,183
  0,-1073741823
+ 0,1041
  0,-1073741823
- 0,20
- 0,1007
+ 0,985
+ 0,118
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1594,7 +1595,8 @@ bookmarks19=0
 bookmarks20=0
 bookmarks21=0
 bookmarks22=0
-sourcefiles=23
+bookmarks23=0
+sourcefiles=24
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.pas
  /home/fred/msegui/lib/common/kernel/linux/mseguiintf.pas
@@ -1618,7 +1620,8 @@ sourcefiles=23
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/config.pas
  ${PROJECTDIR}/drums.pas
-relpaths=23
+ ${PROJECTDIR}/strumpract.pas
+relpaths=24
  filelistform.pas
  filelistform.pas
  msegui/lib/common/kernel/linux/mseguiintf.pas
@@ -1642,7 +1645,9 @@ relpaths=23
  recorder.pas
  config.pas
  drums.pas
-ismoduletexts=23
+ strumpract.pas
+ismoduletexts=24
+ 0
  0
  0
  0
@@ -1711,34 +1716,35 @@ nomenumodules=10
  0
  0
 [sourcefo.files_tab]
-order=23
+order=24
  0
  1
  2
  3
- 21
- 22
- 5
- 16
- 12
- 10
- 4
- 7
- 11
- 14
- 19
- 9
- 15
- 13
- 17
- 6
- 8
  20
  18
-firsttab=1
+ 22
+ 23
+ 15
+ 11
+ 4
+ 21
+ 16
+ 7
+ 19
+ 6
+ 10
+ 9
+ 14
+ 13
+ 5
+ 12
+ 8
+ 17
+firsttab=0
 index=4
 [layout]
-windowlayout=765
+windowlayout=766
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1846,7 +1852,7 @@ windowlayout=765
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=confideufo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1883,7 +1889,7 @@ windowlayout=765
  sortdescend1=0
  sorted=0
  col=0
- row=7
+ row=9
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1968,15 +1974,15 @@ windowlayout=765
  [objectinspectorfo]
  splitdir=0
  useroptions=268451947
- stackedunder=targetconsolefo
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=595
- y=108
+ x=920
+ y=71
  cx=316
  cy=484
  rcx=0
@@ -1985,10 +1991,10 @@ windowlayout=765
  active=0
  visible=1
  [objectinspectorfo.grid]
- propcolwidthref=306
- width0=136
+ propcolwidthref=291
+ width0=129
  sortdescend0=0
- width1=164
+ width1=156
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2209,10 +2215,10 @@ windowlayout=765
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/config.pas
+ value=/home/fred/strumpract/src/recorder.pas
  history=20
-  /home/fred/strumpract/src/status.pas
   /home/fred/strumpract/src/recorder.pas
+  /home/fred/strumpract/src/status.pas
   /home/fred/bgramse/bgrabitmap/bgrafpguibitmap.pas
   /home/fred/bgramse/fpreadpcx.pas
   /home/fred/bgramse/bgradefaultbitmap.pas
@@ -2252,37 +2258,38 @@ windowlayout=765
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=23
+ order=24
   0
   1
   2
   3
-  21
-  22
-  5
-  16
-  12
-  10
-  4
-  7
-  11
-  14
-  19
-  9
-  15
-  13
-  17
-  6
-  8
   20
   18
- firsttab=1
+  22
+  23
+  15
+  11
+  4
+  21
+  16
+  7
+  19
+  6
+  10
+  9
+  14
+  13
+  5
+  12
+  8
+  17
+ firsttab=0
  index=4
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=threadsfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2317,7 +2324,7 @@ windowlayout=765
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2336,7 +2343,7 @@ windowlayout=765
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filedialogres_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2355,7 +2362,7 @@ windowlayout=765
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_filedialogres_mse_
  parent=
  mdistate=3
  nx=0
@@ -2450,7 +2457,7 @@ windowlayout=765
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_configfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2469,7 +2476,7 @@ windowlayout=765
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2488,7 +2495,7 @@ windowlayout=765
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_configfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

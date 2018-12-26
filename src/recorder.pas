@@ -84,6 +84,7 @@ type
     procedure afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
     procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
+   procedure oncreated(const sender: TObject);
   end;
 
  equalizer_band_type = record
@@ -1029,6 +1030,16 @@ begin
   timersent.restart // to reset
  else timersent.Enabled := True;
     atext := '100';
+  end;
+end;
+
+procedure trecorderfo.oncreated(const sender: TObject);
+begin
+if devin < 0 then
+  begin
+  tbutton3.enabled := false;
+  btnStart.enabled := false;
+  btinfos.enabled := false;
   end;
 end;
 

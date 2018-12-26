@@ -33,7 +33,7 @@ object recorderfo: trecorderfo
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = tfacereclight
   dragdock.caption = ' Rec '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
   font.name = 'stf_default'
   font.localprops = []
   options = [fo_savepos, fo_savezorder, fo_savestate]
@@ -124,6 +124,7 @@ object recorderfo: trecorderfo
     000000000000000000000000000000000000000000000000
   }
   oncreate = onplayercreate
+  oncreated = oncreated
   ondestroy = ondest
   onmouseevent = onmousewindow
   onshow = visiblechangeev
@@ -289,6 +290,7 @@ object recorderfo: trecorderfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacerecorder
       frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 30
@@ -328,6 +330,7 @@ object recorderfo: trecorderfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacerecorder
       frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 30
@@ -647,7 +650,7 @@ object recorderfo: trecorderfo
       statfile = mainfo.tstatfile1
       controller.filter = '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'
       controller.filterlist.data = (
-       (
+        (
           'MS wav'
           '"*.wav" "*.WAV"'
         )
