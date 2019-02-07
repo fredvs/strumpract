@@ -1585,7 +1585,7 @@ end;
 procedure tsongplayerfo.paintsliderimage(const canvas: tcanvas; const arect: rectty);
 var
 
-  poswav, poswav2: pointty;
+  poswav, poswav2, poswav3: pointty;
   poswavx: integer;
 begin
 
@@ -1608,21 +1608,31 @@ begin
           poswav2.x := poswav.x;
           poswavx := poswav.x - 6;
           poswav2.y := ((arect.cy div 2) - 1) - round((waveformdata1[poswavx * 2]) * ((arect.cy div 2) - 3));
-
-          //  if mainfo.typecolor.Value = 0 then
+          
+            poswav2.y := poswav2.y -1;
+          poswav3.x := poswav2.x ;
+          poswav3.y := poswav2.y +1;
+         
           canvas.drawline(poswav, poswav2, $AC99D6);
-          // else
-          //  canvas.drawline(poswav, poswav2, $6A6A6A);
-
+          
+      //      if mainfo.typecolor.Value <> 2 then
+      //    canvas.drawline(poswav2, poswav3,cl_black) else
+            canvas.drawline(poswav2, poswav3,$F0F0F0);
+       
           poswav.y := (trackbar1.Height div 2);
 
           poswav2.y := poswav.y + (round((waveformdata1[(poswavx * 2) + 1]) * ((trackbar1.Height div 2) - 3)));
 
           //  if mainfo.typecolor.Value = 0 then
-          canvas.drawline(poswav, poswav2, $AC79D6);
-          //  else
-          //    canvas.drawline(poswav, poswav2, $8A8A8A);
-
+          poswav2.y := poswav2.y -1;
+          poswav3.x := poswav2.x ;
+          poswav3.y := poswav2.y +1;
+           // if mainfo.typecolor.Value = 0 then
+          canvas.drawline(poswav, poswav2, $AC99D6);
+       //     if mainfo.typecolor.Value <> 2 then
+       //   canvas.drawline(poswav2, poswav3,cl_black) else
+            canvas.drawline(poswav2, poswav3,$F0F0F0);
+         
         end;
         if chan1 = 1 then
         begin
@@ -1651,18 +1661,27 @@ begin
           poswav2.x := poswav.x;
           poswavx := poswav.x - 6;
           poswav2.y := ((arect.cy div 2) - 1) - round((waveformdata2[poswavx * 2]) * ((arect.cy div 2) - 3));
-
-          //   if mainfo.typecolor.Value = 0 then
+          poswav2.y := poswav2.y -1;
+          poswav3.x := poswav2.x ;
+          poswav3.y := poswav2.y +1;
+           // if mainfo.typecolor.Value = 0 then
           canvas.drawline(poswav, poswav2, $AC99D6);
-          // else
-          //   canvas.drawline(poswav, poswav2, $6A6A6A);
+       //     if mainfo.typecolor.Value <> 2 then
+       //   canvas.drawline(poswav2, poswav3,cl_black) else
+            canvas.drawline(poswav2, poswav3,$F0F0F0);
 
           poswav.y := (trackbar1.Height div 2);
 
           poswav2.y := poswav.y + (round((waveformdata2[(poswavx * 2) + 1]) * ((trackbar1.Height div 2) - 3)));
-
-          //if mainfo.typecolor.Value = 0 then
-          canvas.drawline(poswav, poswav2, $AC79D6);
+        
+          poswav2.y := poswav2.y -1;
+          poswav3.x := poswav2.x ;
+          poswav3.y := poswav2.y +1;
+           // if mainfo.typecolor.Value = 0 then
+          canvas.drawline(poswav, poswav2, $AC99D6);
+         //    if mainfo.typecolor.Value <> 2 then
+         //  canvas.drawline(poswav2, poswav3,cl_black) else
+            canvas.drawline(poswav2, poswav3,$F0F0F0);
           // else
           //   canvas.drawline(poswav, poswav2, $8A8A8A);
 
@@ -1682,7 +1701,7 @@ end;
 
 procedure tsongplayerfo.paintsliderimageform(const canvas: tcanvas; const arect: rectty);
 var
-  poswav, poswav2: pointty;
+  poswav, poswav2, poswav3: pointty;
   poswavx: integer;
 begin
 
@@ -1705,21 +1724,28 @@ begin
           poswav2.x := poswav.x;
           poswavx := poswav.x - 6;
           poswav2.y := ((arect.cy div 2) - 1) - round((waveformdataform1[poswavx * 2]) * ((arect.cy div 2) - 3));
-
-          // if mainfo.typecolor.Value = 0 then
+          poswav2.y := poswav2.y -1;
+          poswav3.x := poswav2.x ;
+          poswav3.y := poswav2.y +1;
+           // if mainfo.typecolor.Value = 0 then
           canvas.drawline(poswav, poswav2, $AC99D6);
-          //  else
-          //    canvas.drawline(poswav, poswav2, $6A6A6A);
+       
+       //  if mainfo.typecolor.Value <> 2 then
+       //   canvas.drawline(poswav2, poswav3,cl_black) else
+            canvas.drawline(poswav2, poswav3,$F0F0F0);
 
           poswav.y := (wavefo.trackbar1.Height div 2);
 
           poswav2.y := poswav.y + (round((waveformdataform1[(poswavx * 2) + 1]) * ((wavefo.trackbar1.Height div 2) - 3)));
 
-          //  if mainfo.typecolor.Value = 0 then
-          canvas.drawline(poswav, poswav2, $AC79D6);
-          //  else
-          //    canvas.drawline(poswav, poswav2, $8A8A8A);
-
+          poswav2.y := poswav2.y -1;
+          poswav3.x := poswav2.x ;
+          poswav3.y := poswav2.y +1;
+           // if mainfo.typecolor.Value = 0 then
+          canvas.drawline(poswav, poswav2, $AC99D6);
+         //   if mainfo.typecolor.Value <> 2 then
+         //  canvas.drawline(poswav2, poswav3,cl_black) else
+            canvas.drawline(poswav2, poswav3,$F0F0F0);
         end;
         if chan1 = 1 then
         begin
@@ -1750,20 +1776,27 @@ begin
           poswavx := poswav.x - 6;
           poswav2.y := ((arect.cy div 2) - 1) - round((waveformdataform2[poswavx * 2]) * ((arect.cy div 2) - 3));
 
-          // if mainfo.typecolor.Value = 0 then
+          poswav2.y := poswav2.y -1;
+          poswav3.x := poswav2.x ;
+          poswav3.y := poswav2.y +1;
+           // if mainfo.typecolor.Value = 0 then
           canvas.drawline(poswav, poswav2, $AC99D6);
-          // else
-          //  canvas.drawline(poswav, poswav2, $6A6A6A);
+          //  if mainfo.typecolor.Value <> 2 then
+          // canvas.drawline(poswav2, poswav3,cl_black) else
+            canvas.drawline(poswav2, poswav3,$F0F0F0);
 
           poswav.y := (wavefo2.trackbar1.Height div 2);
 
           poswav2.y := poswav.y + (round((waveformdataform2[(poswavx * 2) + 1]) * ((wavefo2.trackbar1.Height div 2) - 3)));
-
-          // if mainfo.typecolor.Value = 0 then
-          canvas.drawline(poswav, poswav2, $AC79D6);
-          // else
-          //  canvas.drawline(poswav, poswav2, $8A8A8A);
-
+          poswav2.y := poswav2.y -1;
+          poswav3.x := poswav2.x ;
+          poswav3.y := poswav2.y +1;
+           // if mainfo.typecolor.Value = 0 then
+          canvas.drawline(poswav, poswav2, $AC99D6);
+         //    if mainfo.typecolor.Value <> 2 then
+         // canvas.drawline(poswav2, poswav3,cl_black) else
+          canvas.drawline(poswav2, poswav3,$F0F0F0);
+         
         end;
         if chan2 = 1 then
         begin

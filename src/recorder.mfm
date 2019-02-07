@@ -796,8 +796,8 @@ object recorderfo: trecorderfo
       taborder = 26
       visible = False
       bounds_x = 6
-      bounds_y = 99
-      bounds_cx = 330
+      bounds_y = 98
+      bounds_cx = 332
       bounds_cy = 24
       font.name = 'stf_default'
       font.localprops = []
@@ -860,8 +860,8 @@ object recorderfo: trecorderfo
       face.template = mainfo.tfaceorange
       taborder = 27
       visible = False
-      bounds_x = 124
-      bounds_y = 55
+      bounds_x = 121
+      bounds_y = 62
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

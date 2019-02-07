@@ -45,7 +45,7 @@ object songplayerfo: tsongplayerfo
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
   dragdock.caption = ' Play1 '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
   statfile = mainfo.tstatfile1
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
@@ -155,6 +155,7 @@ object songplayerfo: tsongplayerfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = mainfo.tfaceplayer
       frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 20
@@ -298,6 +299,7 @@ object songplayerfo: tsongplayerfo
       scrollbar.face1.template = mainfo.tfacegreen
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = tfacebuttonslider
+      scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_colorframe, frl_hiddenedges, frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.color = -2147483645
@@ -476,6 +478,7 @@ object songplayerfo: tsongplayerfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = mainfo.tfaceplayer
       frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 20
@@ -520,6 +523,7 @@ object songplayerfo: tsongplayerfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = mainfo.tfaceplayer
       frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 20
@@ -826,7 +830,7 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 17
       visible = False
-      bounds_x = 144
+      bounds_x = 140
       bounds_y = 54
       bounds_cx = 221
       bounds_cy = 36

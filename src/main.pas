@@ -1655,11 +1655,22 @@ begin
 
     songplayerfo.edvolleft.frame.colorglyph := ltblack;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
+   
+    recorderfo.edvol.frame.colorglyph := ltblack;
+    recorderfo.edtempo.frame.colorglyph := ltblack;
 
     songplayerfo.edvolright.frame.colorglyph := ltblack;
     songplayer2fo.edvolright.frame.colorglyph := ltblack;
     songplayerfo.edtempo.frame.colorglyph := ltblack;
     songplayer2fo.edtempo.frame.colorglyph := ltblack;
+    
+    recorderfo.edvol.frame.colorglyph := ltblack;
+    recorderfo.edtempo.frame.colorglyph := ltblack;
+    
+    waveforec.trackbar1.color := $F9FFC2;
+    
+     waveforec.sliderimage.bitmap.canvas.color := $F9FFC2;
+
 
     songplayerfo.songdir.frame.button.colorglyph := ltblack;
     songplayer2fo.songdir.frame.button.colorglyph := ltblack;
@@ -1671,6 +1682,9 @@ begin
     songplayer2fo.historyfn.font.color := ltblack;
     songplayerfo.edvolleft.font.color := ltblack;
     songplayer2fo.edvolleft.font.color := ltblack;
+    
+    recorderfo.edvol.font.color := ltblack;
+    recorderfo.edtempo.font.color := ltblack;
 
     songplayerfo.edvolright.font.color := ltblack;
     songplayer2fo.edvolright.font.color := ltblack;
@@ -2086,6 +2100,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.edvolleft.frame.colorglyph := ltblack;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
+    
+     recorderfo.edvol.frame.colorglyph := ltblack;
+    recorderfo.edtempo.frame.colorglyph := ltblack;
 
     songplayerfo.edvolright.frame.colorglyph := ltblack;
     songplayer2fo.edvolright.frame.colorglyph := ltblack;
@@ -2623,6 +2640,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.edvolleft.frame.colorglyph := ltblank;
     songplayer2fo.edvolleft.frame.colorglyph := ltblank;
+    
+      recorderfo.edvol.frame.colorglyph := ltblank;
+    recorderfo.edtempo.frame.colorglyph := ltblank;
+
 
     songplayerfo.edvolright.frame.colorglyph := ltblank;
     songplayer2fo.edvolright.frame.colorglyph := ltblank;

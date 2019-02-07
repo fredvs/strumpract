@@ -132,58 +132,54 @@ begin
     rectrecform.size := waveforec.trackbar1.paintsize;
     
     xreclive := 1 ;
+    
+     waveforec.TrackBar1.Value := 0;
 
     with waveforec.sliderimage.bitmap do
     begin
       size := rectrecform.size;
       init(transpcolor);
-       masked := False;
+       masked := true;
        transparentcolor := transpcolor;
     end;
+  
   end;
 
 end;  
 
 procedure trecorderfo.DrawLive(lv,rv : double);
 var
-  poswav, poswav2: pointty;
-  poswavx: integer;
-  leftlev, rightlev: double;
+  poswavrec, poswavrec2: pointty;
 begin
-    waveforec.sliderimage.bitmap.masked := False;
-  
-      poswav.x := xreclive;
-      poswav2.x := poswav.x;
+      
+    waveforec.sliderimage.bitmap.masked := false; 
+    
+      poswavrec.x := xreclive;
+      poswavrec2.x := poswavrec.x;
 
-      leftlev := lv;
-      rightlev := rv;
         
  //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
 
-          poswav.y := (waveforec.trackbar1.Height div 2) - 2;
-          poswav2.x := poswav.x;
-          poswavx := poswav.x - 6;
-          poswav2.y := ((rectrecform.cy div 2) - 1) - round((leftlev) * ((rectrecform.cy div 2) - 3));
+          poswavrec.y := (waveforec.trackbar1.Height div 2) - 2;
+          poswavrec2.y := ((rectrecform.cy div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
 
           // if mainfo.typecolor.Value = 0 then
-          waveforec.sliderimage.bitmap.canvas.drawline(poswav, poswav2, $AC99D6);
+          waveforec.sliderimage.bitmap.canvas.drawline(poswavrec, poswavrec2, $AC99D6);
           //  else
           //    canvas.drawline(poswav, poswav2, $6A6A6A);
 
-          poswav.y := (waveforec.trackbar1.Height div 2);
+          poswavrec.y := (waveforec.trackbar1.Height div 2);
 
-          poswav2.y := poswav.y + (round((rightlev) * ((waveforec.trackbar1.Height div 2) - 3)));
+          poswavrec2.y := poswavrec.y + (round((rv) * ((waveforec.trackbar1.Height div 2) - 3)));
 
           //  if mainfo.typecolor.Value = 0 then
-          waveforec.sliderimage.bitmap.canvas.drawline(poswav, poswav2, $AC79D6);
+          waveforec.sliderimage.bitmap.canvas.drawline(poswavrec, poswavrec2, $AC79D6);
           //  else
           //    canvas.drawline(poswav, poswav2, $8A8A8A);
 
       
     xreclive := xreclive +1;
-    
-    waveforec.sliderimage.bitmap.masked := true;
-    
+ 
       end;
 
 
@@ -275,6 +271,7 @@ begin
     tbutton2.visible := false;
     
      resetspectrum();
+     InitDrawLive();
 
 end;
 
@@ -289,6 +286,8 @@ begin
  
   leftlev := uos_InputGetLevelLeft(therecplayer, Inputindex3);
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
+ 
+if waveforec.visible = true then begin
   
    if  (as_checked in waveforec.tmainmenu1.menu[0].state) then
    begin
@@ -298,8 +297,10 @@ begin
            end;
          
       waveforec.TrackBar1.Value := xreclive / (waveforec.TrackBar1.Width );  
-      DrawLive(leftlev,rightlev);   
+     DrawLive(leftlev,rightlev);   
     end;
+    
+end;   
 
   if (leftlev >= 0) and (leftlev <= 1) then
   begin
@@ -341,11 +342,12 @@ begin
   begin
     if uos_InputPosition(therecplayer, InputIndex3) > 0 then
     begin
-      TrackBar1.Value := uos_InputPosition(therecplayer, InputIndex3) / inputlength;
-      temptime := uos_InputPositionTime(therecplayer, InputIndex3);
+
+     TrackBar1.Value := uos_InputPosition(therecplayer, InputIndex3) / inputlength;
+     temptime := uos_InputPositionTime(therecplayer, InputIndex3);
       ////// Length of input in time
       DecodeTime(temptime, ho, mi, se, ms);
-      lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+     lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
    
         
     end;
@@ -362,7 +364,7 @@ begin
   
    if (spectrumrecfo.spect1.Value = True) and (spectrumrecfo.Visible = True) and 
    (configfo.speccalc.Value = True) then
-      ShowSpectrum(nil);
+    ShowSpectrum(nil);
  end;
 
 procedure trecorderfo.doplayerstart(const Sender: TObject);
