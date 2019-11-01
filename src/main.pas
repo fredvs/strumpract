@@ -2891,6 +2891,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     aboutfo.font.color := cl_black;
   end;
 
+if lastrowplayed <> -1 then
+begin
+  if typecolor.Value = 2 then         
+   filelistfo.list_files.rowcolorstate[lastrowplayed]:= 2 else
+     filelistfo.list_files.rowcolorstate[lastrowplayed]:= 0;
+end;       
+
   songplayerfo.DrawWaveForm();
   songplayer2fo.DrawWaveForm();
 

@@ -58,6 +58,7 @@ type
 
 var
   filelistfo: tfilelistfo;
+  thefocusedcell: gridcoordty;
 
 implementation
 
@@ -119,7 +120,6 @@ end;
 procedure tfilelistfo.onsent(const Sender: TObject);
 var
   theplaysender, thecaution: integer;
-  thefocusedcell: gridcoordty;
   mustmix: boolean = False;
 begin
 
@@ -429,17 +429,36 @@ begin
     cellpos.col := 0;
     list_files.selectcell(cellpos, csm_select, False);
   end;
+  
   if (info.eventkind = cek_buttonrelease) then
   begin 
-  
-     edfilescount.Value := list_files.rowcount;
+    edfilescount.Value := list_files.rowcount;
     filescount.Value := IntToStr(edfilescount.Value) + ' files';
+    
+    if filelistfo.tbutton1.face.template = mainfo.tfaceorange then
+    onsent(tbutton1) else
+    if filelistfo.tbutton2.face.template = mainfo.tfaceorange then  onsent(tbutton2)  ;
+  
+  {      
+  if (ss_double in info.mouseeventinfopo^.shiftstate) then
+  begin   
+    
+      
+     if commanderfo.tbutton2.face.template = mainfo.tfaceorange then
+   
+    commanderfo.onstartstop(tbutton3) else 
+ 
+   if commanderfo.tbutton3.face.template = mainfo.tfaceorange then
+   
+    commanderfo.onstartstop(tbutton2)  ;
 
+    end;
+ }
+    
  if timercount.Enabled then
   timercount.restart // to reset
  else timercount.Enabled := True;
  
-
 end;
 end;
 

@@ -149,9 +149,9 @@ object filelistfo: tfilelistfo
       taborder = 1
       hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
       bounds_x = 3
-      bounds_y = 101
+      bounds_y = 100
       bounds_cx = 23
-      bounds_cy = 23
+      bounds_cy = 24
       anchors = [an_left, an_bottom]
       statfile = mainfo.tstatfile1
       cursorreadonly = cr_arrow
@@ -182,7 +182,7 @@ object filelistfo: tfilelistfo
       controller.historymaxcount = 100
       controller.onbeforeexecute = whosent
       controller.onafterexecute = onafterdialog
-      reffontheight = 14
+      reffontheight = 15
     end
     object tbutton1: tbutton
       color = -2147483645
@@ -359,11 +359,17 @@ object filelistfo: tfilelistfo
           font.name = 'stf_default'
           font.localprops = []
         end>
-      datarowheight = 16
+      rowcolors.count = 3
+      rowcolors.items = (
+        2752308
+        16744576
+        28173
+      )
+      datarowheight = 17
       statfile = tstatfile1
       statpriority = 1
       oncellevent = oncellev
-      reffontheight = 14
+      reffontheight = 15
     end
     object filescount: tstringdisp
       color = -2147483645
@@ -375,13 +381,13 @@ object filelistfo: tfilelistfo
       taborder = 5
       hint = ' Number of files in the list '
       bounds_x = 290
-      bounds_y = 105
+      bounds_y = 104
       bounds_cx = 60
-      bounds_cy = 16
+      bounds_cy = 17
       anchors = [an_left, an_bottom]
       textflags = [tf_xcentered, tf_ycentered]
       value = '0 files'
-      reffontheight = 14
+      reffontheight = 15
     end
     object edfilescount: tintegeredit
       frame.localprops = []
@@ -391,9 +397,10 @@ object filelistfo: tfilelistfo
       bounds_x = 259
       bounds_y = 41
       bounds_cx = 20
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       onchange = onchangecount
-      reffontheight = 14
+      reffontheight = 15
     end
     object tbutton3: tbutton
       color = -2147483645
@@ -510,9 +517,9 @@ object filelistfo: tfilelistfo
       taborder = 2
       hint = ' History of Directories '
       bounds_x = 27
-      bounds_y = 101
+      bounds_y = 100
       bounds_cx = 128
-      bounds_cy = 23
+      bounds_cy = 24
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -528,7 +535,7 @@ object filelistfo: tfilelistfo
       dropdown.historymaxcount = 50
       onbeforedropdown = onbefdrop
       onafterclosedropdown = onaftdrop
-      reffontheight = 14
+      reffontheight = 15
     end
     object hintpanel: tgroupbox
       frame.localprops = []
@@ -538,8 +545,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 7
       visible = False
-      bounds_x = 1
-      bounds_y = 93
+      bounds_x = 5
+      bounds_y = 36
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
@@ -551,12 +558,12 @@ object filelistfo: tfilelistfo
         bounds_x = 6
         bounds_y = 10
         bounds_cx = 430
-        bounds_cy = 14
+        bounds_cy = 15
         caption = 'Invalid value.  Reset to 100.'
         font.name = 'stf_default'
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 14
+        reffontheight = 15
       end
     end
   end

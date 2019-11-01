@@ -111,6 +111,7 @@ var
   maxvolleft1, maxvolright1, maxvolleft2, maxvolright2: double;
   thetypemix: integer = 0;
   theinput: integer = 30;
+  lastrowplayed : integer = -1;
 
 implementation
 
@@ -209,11 +210,20 @@ procedure tcommanderfo.onstartstop(const Sender: TObject);
 var
   fromplay: integer;
 begin
-
-  totmixinterval := round(timemix.Value / 10);
+   totmixinterval := round(timemix.Value / 10);
 
   incmixinterval := 0;
-
+  
+  if lastrowplayed <> -1 then
+  begin
+      filelistfo.list_files.rowcolorstate[lastrowplayed]:= -1;
+     
+    lastrowplayed := filelistfo.list_files.focusedcell.row;
+   if mainfo.typecolor.Value = 2 then         
+   filelistfo.list_files.rowcolorstate[lastrowplayed]:= 2 else
+     filelistfo.list_files.rowcolorstate[lastrowplayed]:= 0;  
+  end else  lastrowplayed := filelistfo.list_files.focusedcell.row;
+   
   maxvolleft1 := 1;
   maxvolright1 := 1;
 
@@ -225,6 +235,8 @@ begin
 
   initvolleft2 := 0;
   initvolright2 := 0;
+  
+  
 
   if Sender <> nil then
   begin
@@ -288,11 +300,11 @@ begin
     //volumeleft2.value := 1;
     //volumeright2.value := 1;
 
-    if (Sender <> nil) and (commanderfo.automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
+    if (Sender <> nil) and (automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
     begin
       hasfocused1 := True;
-      filelistfo.onsent(nil);
-      hasfocused1 := False;
+       filelistfo.onsent(nil);
+       hasfocused1 := False;
     end;
 
     if uos_GetStatus(theplayer2) <> 1 then
@@ -305,8 +317,11 @@ begin
 
     hasmixed1 := True;
     timermix.Enabled := True;
+   //  filelistfo.list_files.rowcolorstate[4]:= 0;
 
   end;
+
+ 
 end;
 
 
@@ -405,7 +420,7 @@ begin
        timermix.Enabled := false;
     end;
   end;
-
+ //filelistfo.list_files.rowcolorstate[4]:= 0;
 end;
 
 
