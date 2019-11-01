@@ -1589,6 +1589,9 @@ var
   poswavx: integer;
 begin
 
+if (arect.cy > 0) and (arect.cx > 0) then
+begin
+
   if Caption = 'Player 1' then
     if (iswav = True) and (waveformcheck.Value = True) then
     begin
@@ -1598,7 +1601,7 @@ begin
 
 
       poswav2.x := 6;
-      poswav2.y := ((arect.cy div 2) - 2) - round((waveformdata1[poswav.x * 2]) * ((trackbar1.Height div 2) - 3));
+    //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdata1[poswav.x * 2]) * ((trackbar1.Height div 2) - 3));
 
       while poswav.x < (length(waveformdata1) div chan1) - 1 do
       begin
@@ -1651,7 +1654,7 @@ begin
       poswav.y := (trackbar1.Height div 2) - 2;
 
       poswav2.x := 6;
-      poswav2.y := ((arect.cy div 2) - 2) - round((waveformdata2[poswav.x * 2]) * ((trackbar1.Height div 2) - 3));
+    //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdata2[poswav.x * 2]) * ((trackbar1.Height div 2) - 3));
 
       while poswav.x < length(waveformdata2) div chan2 do
       begin
@@ -1695,6 +1698,8 @@ begin
       end;
 
     end;
+    
+    end;
 
 end;
 
@@ -1714,9 +1719,10 @@ begin
 
 
       poswav2.x := 6;
-      poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
+ 
+    //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
 
-      while (poswav.x < (length(waveformdataform1) div chan1) - 1) and (poswav.x < wavefo.trackbar1.width) do
+       while (poswav.x < (length(waveformdataform1) div chan1) - 1) and (poswav.x < wavefo.trackbar1.width) do
       begin
         if chan1 = 2 then
         begin
@@ -1765,7 +1771,7 @@ begin
 
 
       poswav2.x := 6;
-      poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform2[poswav.x * 2]) * ((wavefo2.trackbar1.Height div 2) - 3));
+    //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform2[poswav.x * 2]) * ((wavefo2.trackbar1.Height div 2) - 3));
 
       while (poswav.x < length(waveformdataform2) div chan2) and  (poswav.x < wavefo2.trackbar1.width) do
       begin
@@ -1877,6 +1883,8 @@ begin
   //  writeln(inttostr(length(waveformdata1)));
   rect1.pos := nullpoint;
   rect1.size := trackbar1.paintsize;
+  
+  application.processmessages;
 
 
   with sliderimage.bitmap do

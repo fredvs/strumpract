@@ -402,10 +402,13 @@ var
   
 begin
 
-  cellpos := info.cell;
-
+  
+  
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
   begin
+  cellpos := info.cell;
+  // writeln('button release 1');
+   
     if (cellpos.row = -1) and (cellpos.col = 3) then
     begin
       // writeln(inttostr(cellpos.col) + ' ' + inttostr(cellpos.row));
@@ -439,21 +442,26 @@ begin
     onsent(tbutton1) else
     if filelistfo.tbutton2.face.template = mainfo.tfaceorange then  onsent(tbutton2)  ;
   
-  {      
+ // {      
   if (ss_double in info.mouseeventinfopo^.shiftstate) then
   begin   
     
-      
+  //  writeln('button 2x click');   
      if commanderfo.tbutton2.face.template = mainfo.tfaceorange then
-   
-    commanderfo.onstartstop(tbutton3) else 
+     
+     begin
+  //   writeln('onstartstop(tbutton2)');  
+    commanderfo.onstartstop(commanderfo.tbutton2) end else 
  
    if commanderfo.tbutton3.face.template = mainfo.tfaceorange then
    
-    commanderfo.onstartstop(tbutton2)  ;
+   begin
+  //  writeln('onstartstop(tbutton3)');  
+    commanderfo.onstartstop(commanderfo.tbutton3)  ;
+    end;
 
     end;
- }
+// }
     
  if timercount.Enabled then
   timercount.restart // to reset
