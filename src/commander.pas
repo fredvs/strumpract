@@ -214,16 +214,19 @@ begin
 
   incmixinterval := 0;
   
-  if lastrowplayed <> -1 then
+  if lastrowplayed = -1 then 
   begin
-      filelistfo.list_files.rowcolorstate[lastrowplayed]:= -1;
+  filelistfo.onsent(filelistfo.tbutton1);
+  lastrowplayed := filelistfo.list_files.focusedcell.row;
+  end;
+  
+  filelistfo.list_files.rowcolorstate[lastrowplayed]:= -1;
      
     lastrowplayed := filelistfo.list_files.focusedcell.row;
    if mainfo.typecolor.Value = 2 then         
    filelistfo.list_files.rowcolorstate[lastrowplayed]:= 2 else
      filelistfo.list_files.rowcolorstate[lastrowplayed]:= 0;  
-  end else  lastrowplayed := filelistfo.list_files.focusedcell.row;
-   
+    
   maxvolleft1 := 1;
   maxvolright1 := 1;
 

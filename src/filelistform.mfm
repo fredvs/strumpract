@@ -195,7 +195,7 @@ object filelistfo: tfilelistfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceorange
       taborder = 3
       hint = ' Sent selected song to cue for Player 1 '
       bounds_x = 352
@@ -545,8 +545,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 7
       visible = False
-      bounds_x = 5
-      bounds_y = 36
+      bounds_x = 0
+      bounds_y = 95
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
