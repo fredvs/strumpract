@@ -98,7 +98,6 @@ begin
       list_files.fixcols[-1].captions.count:= list_files.rowCount;
  
   for x := 0 to list_files.rowCount - 1 do list_files.fixcols[-1].captions[x] := inttostr(x+1);
-
 end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);

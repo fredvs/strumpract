@@ -4,13 +4,12 @@ unit drums;
 interface
 
 uses
-  mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  math,
-  msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
-  msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, Classes,
-  msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, msetypes,
-  mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
-  mserichstring, msebitmap;
+ mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+ math,msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
+ msedock,msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils,
+ Classes,msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar,
+ msetypes,mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
+ mserichstring, msebitmap,msedropdownlist;
 
 type
   talab = array[0..15] of tlabel;
@@ -152,6 +151,7 @@ type
     label2: tlabel;
     label3: tlabel;
     label4: tlabel;
+   langcount: tdropdownlistedit;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -175,6 +175,7 @@ type
     procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure onmultdiv(const Sender: TObject);
+   procedure onchangelang(const sender: TObject);
   end;
 
 var
@@ -880,6 +881,22 @@ begin
   if timertick.Enabled = True then
     timerisenabled := True;
   timertick.Enabled := False;
+  
+  writeln(langcount.text);
+//langcount.value  := 'es';
+// writeln(langcount.text);
+  adrums[4] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
+   langcount.value + directoryseparator + '1.ogg';
+  adrums[5] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
+   langcount.value + directoryseparator + '2.ogg';
+  adrums[6] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
+  langcount.value + directoryseparator + '3.ogg';
+  adrums[7] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
+   langcount.value + directoryseparator + '4.ogg';
+  adrums[8] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
+   langcount.value + directoryseparator + 'and.ogg';
+  
+  
   if tag = 0 then
     for i := 4 to 8 do
     begin
@@ -1332,25 +1349,7 @@ else configfo.defdevout.caption := 'No Default Device OUT';
     end;
   end;
 
-  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
-
-  adrums[0] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.ogg';
-  adrums[1] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.ogg';
-  adrums[2] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.ogg';
-  adrums[3] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.ogg';
-
-  adrums[4] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 'one.ogg';
-  adrums[5] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 'two.ogg';
-  adrums[6] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 'three.ogg';
-  adrums[7] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 'four.ogg';
-  adrums[8] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 'and.ogg';
-
-
-  // if assigned( ams[i]) then ams[i].free;
-
-  // createdrumsplayers;
-
-  posi := 1;
+ 
 
 {
 for i := 0 to 3 do
@@ -1368,6 +1367,18 @@ begin
   //height := 238;
   //width := 458;
   Caption := 'Drums set';
+   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+
+  adrums[0] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.ogg';
+  adrums[1] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.ogg';
+  adrums[2] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.ogg';
+  adrums[3] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.ogg';
+
+  // if assigned( ams[i]) then ams[i].free;
+
+  // createdrumsplayers;
+
+  posi := 1;
 end;
 
 procedure tdrumsfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -1508,6 +1519,18 @@ begin
   if (TButton(Sender).Name = 'divbpm') then
     edittempo.Value := round(edittempo.Value / 2);
 
+end;
+
+procedure tdrumsfo.onchangelang(const sender: TObject);
+var
+nov : boolean = true;
+begin
+nov := novoice.value;
+
+dostop(Sender);
+ontimerpause(sender);
+
+novoice.value := nov;
 end;
 
 end.

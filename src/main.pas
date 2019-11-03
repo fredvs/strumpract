@@ -1735,6 +1735,12 @@ begin
     drumsfo.tfacedrums.template.fade_color.items[1] := $D6F0D1;
     drumsfo.ltempo.font.color := ltblack;
     drumsfo.novoice.frame.font.color := ltblack;
+    drumsfo.langcount.frame.font.color := ltblack;
+    drumsfo.langcount.font.color := ltblack;
+    drumsfo.langcount.frame.button.colorglyph := ltblack;
+
+   
+     
     drumsfo.noand.frame.font.color := ltblack;
     drumsfo.nodrums.frame.font.color := ltblack;
     drumsfo.noanim.frame.font.color := ltblack;
@@ -2163,6 +2169,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     drumsfo.ltempo.font.color := ltblack;
     drumsfo.novoice.frame.font.color := ltblack;
+    drumsfo.langcount.frame.font.color := ltblack;
+    drumsfo.langcount.font.color := ltblack;
+     drumsfo.langcount.frame.button.colorglyph := ltblack;
+
+   
+   
     drumsfo.noand.frame.font.color := ltblack;
     drumsfo.nodrums.frame.font.color := ltblack;
     drumsfo.noanim.frame.font.color := ltblack;
@@ -2609,7 +2621,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     drumsfo.edittempo.frame.colorglyph := ltblank;
     drumsfo.volumedrums.frame.colorglyph := ltblank;
+     drumsfo.langcount.frame.button.colorglyph := ltblank;
 
+   
     songplayerfo.tstringdisp1.font.color := ltblank;
     songplayer2fo.tstringdisp1.font.color := ltblank;
 
@@ -2714,6 +2728,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     drumsfo.tstringdisp2.font.color := ltblank;
     drumsfo.ltempo.font.color := ltblank;
     drumsfo.novoice.frame.font.color := ltblank;
+    drumsfo.langcount.frame.font.color := ltblank;
+    drumsfo.langcount.font.color := ltblack;
+   
     drumsfo.noand.frame.font.color := ltblank;
     drumsfo.nodrums.frame.font.color := ltblank;
     drumsfo.noanim.frame.font.color := ltblank;

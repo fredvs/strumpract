@@ -206,7 +206,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel4'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object and3: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -217,7 +217,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 17
       caption = 'tlabel1'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object and2: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -228,7 +228,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel2'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object and1: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -239,7 +239,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel3'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object labd: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -251,7 +251,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'Bass'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object lasd: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -263,7 +263,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'Snare'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object laoh: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -275,7 +275,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'Open H'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object lach: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -287,7 +287,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'Close H'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel1: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -298,7 +298,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel1'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel2: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -309,7 +309,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel2'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel3: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -320,7 +320,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel3'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel4: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -331,7 +331,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel4'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel5: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -342,7 +342,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel4'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel6: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -353,7 +353,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel3'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel7: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -364,7 +364,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel2'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel8: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -375,7 +375,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel1'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel9: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -386,7 +386,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel4'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel10: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -397,7 +397,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel3'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel11: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -408,7 +408,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel2'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel12: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -419,7 +419,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel1'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel17: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -430,7 +430,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel4'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel18: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -441,7 +441,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel3'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel19: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -452,7 +452,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel2'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel20: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -463,7 +463,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel1'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object labpat: tlabel
       color = 14013909
@@ -471,9 +471,9 @@ object drumsfo: tdrumsfo
       bounds_x = 4
       bounds_y = 18
       bounds_cx = 51
-      bounds_cy = 14
+      bounds_cy = 15
       caption = 'Patern 1'
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel13: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -484,7 +484,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel4'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel14: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -495,7 +495,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel3'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel15: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -506,7 +506,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel2'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel16: tlabel
       optionswidget1 = [ow1_fontglyphheight]
@@ -517,7 +517,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 15
       caption = 'tlabel1'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object tbooleanedit1: tbooleanedit
       frame.localprops = []
@@ -1021,7 +1021,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         16
         2
       )
@@ -1030,9 +1030,9 @@ object drumsfo: tdrumsfo
       taborder = 2
       hint = ' Drums Patern 1 '
       bounds_x = 317
-      bounds_y = 17
+      bounds_y = 16
       bounds_cx = 30
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = dopatern
       options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_nodefaultframeactive]
       value = True
@@ -1049,7 +1049,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         16
         2
       )
@@ -1058,9 +1058,9 @@ object drumsfo: tdrumsfo
       taborder = 3
       hint = ' Drums Patern 2 '
       bounds_x = 317
-      bounds_y = 33
+      bounds_y = 32
       bounds_cx = 30
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = dopatern
     end
     object tbooleaneditradio6: tbooleaneditradio
@@ -1075,7 +1075,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         16
         2
       )
@@ -1084,9 +1084,9 @@ object drumsfo: tdrumsfo
       taborder = 4
       hint = ' Drums Patern 3 '
       bounds_x = 317
-      bounds_y = 49
+      bounds_y = 48
       bounds_cx = 30
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = dopatern
     end
     object tbooleaneditradio5: tbooleaneditradio
@@ -1101,7 +1101,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         16
         2
       )
@@ -1110,9 +1110,9 @@ object drumsfo: tdrumsfo
       taborder = 5
       hint = ' Drums Patern 4 '
       bounds_x = 317
-      bounds_y = 65
+      bounds_y = 64
       bounds_cx = 30
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = dopatern
     end
     object lesson4: tbooleaneditradio
@@ -1127,7 +1127,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         16
         2
       )
@@ -1136,9 +1136,9 @@ object drumsfo: tdrumsfo
       taborder = 6
       hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
       bounds_x = 282
-      bounds_y = 65
+      bounds_y = 64
       bounds_cx = 30
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = dopatern
     end
     object lesson3: tbooleaneditradio
@@ -1153,7 +1153,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         16
         2
       )
@@ -1162,9 +1162,9 @@ object drumsfo: tdrumsfo
       taborder = 7
       hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
       bounds_x = 282
-      bounds_y = 49
+      bounds_y = 48
       bounds_cx = 30
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = dopatern
     end
     object lesson2: tbooleaneditradio
@@ -1179,7 +1179,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         16
         2
       )
@@ -1188,9 +1188,9 @@ object drumsfo: tdrumsfo
       taborder = 8
       hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
       bounds_x = 282
-      bounds_y = 33
+      bounds_y = 32
       bounds_cx = 30
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = dopatern
     end
     object lesson1: tbooleaneditradio
@@ -1205,7 +1205,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         16
         2
       )
@@ -1214,9 +1214,9 @@ object drumsfo: tdrumsfo
       taborder = 9
       hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
       bounds_x = 282
-      bounds_y = 17
+      bounds_y = 16
       bounds_cx = 30
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = dopatern
     end
     object tlabel22: tlabel
@@ -1225,26 +1225,26 @@ object drumsfo: tdrumsfo
       bounds_x = 317
       bounds_y = 3
       bounds_cx = 32
-      bounds_cy = 11
+      bounds_cy = 13
       caption = 'Patern'
       font.color = 5197647
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
-      reffontheight = 11
+      reffontheight = 13
     end
     object tlabel21: tlabel
       color = -2147483645
       bounds_x = 275
       bounds_y = 3
       bounds_cx = 34
-      bounds_cy = 11
+      bounds_cy = 13
       caption = 'Lesson'
       font.color = 5197647
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
-      reffontheight = 11
+      reffontheight = 13
     end
     object noanim: tbooleanedit
       color = -2147483645
@@ -1259,7 +1259,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       frame.outerframe = (
         0
-        1
+        2
         52
         2
       )
@@ -1267,10 +1267,10 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 10
       hint = ' No graphic animation. '
-      bounds_x = 353
-      bounds_y = 60
+      bounds_x = 350
+      bounds_y = 64
       bounds_cx = 65
-      bounds_cy = 16
+      bounds_cy = 17
     end
     object noand: tbooleanedit
       color = -2147483645
@@ -1285,7 +1285,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       frame.outerframe = (
         0
-        1
+        2
         57
         2
       )
@@ -1293,16 +1293,16 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 11
       hint = ' No "and" between 2 numbers. '
-      bounds_x = 353
-      bounds_y = 27
+      bounds_x = 350
+      bounds_y = 36
       bounds_cx = 70
-      bounds_cy = 16
+      bounds_cy = 17
       value = True
     end
     object novoice: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16250871
+      frame.colorclient = 12895428
       frame.caption = 'no voice'
       frame.font.color = 2697513
       frame.font.height = 12
@@ -1312,7 +1312,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       frame.outerframe = (
         0
-        1
+        2
         53
         2
       )
@@ -1320,10 +1320,10 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 12
       hint = ' No counting voice '
-      bounds_x = 353
-      bounds_y = 11
+      bounds_x = 350
+      bounds_y = 22
       bounds_cx = 66
-      bounds_cy = 16
+      bounds_cy = 17
       onchange = onchangenovoice
       value = True
     end
@@ -1340,7 +1340,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       frame.outerframe = (
         0
-        1
+        2
         61
         2
       )
@@ -1348,10 +1348,10 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 13
       hint = ' No drums sound.  '
-      bounds_x = 353
-      bounds_y = 43
+      bounds_x = 350
+      bounds_y = 50
       bounds_cx = 74
-      bounds_cy = 16
+      bounds_cy = 17
     end
     object loop_stop: tbutton
       color = 11848368
@@ -1441,7 +1441,7 @@ object drumsfo: tdrumsfo
       bounds_x = 104
       bounds_y = 19
       bounds_cx = 50
-      bounds_cy = 35
+      bounds_cy = 36
       statfile = mainfo.tstatfile1
       textflagsactive = [tf_xcentered, tf_ycentered]
       onchange = onchangetempo
@@ -1450,14 +1450,11 @@ object drumsfo: tdrumsfo
       value = 150
       valuedefault = 150
       valuerange = 1
-      valuestart = 0
       valuemin = -Inf
       valuemax = 9999999
       step = 1
-      stepctrlfact = 0
-      stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object tlabel25: tlabel
       color = -2147483645
@@ -1465,13 +1462,13 @@ object drumsfo: tdrumsfo
       bounds_x = 106
       bounds_y = 5
       bounds_cx = 22
-      bounds_cy = 11
+      bounds_cy = 13
       caption = 'BPM'
       font.color = 5197647
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
-      reffontheight = 11
+      reffontheight = 13
     end
     object tlabel23: tlabel
       color = -2147483645
@@ -1479,13 +1476,13 @@ object drumsfo: tdrumsfo
       bounds_x = 168
       bounds_y = 8
       bounds_cx = 38
-      bounds_cy = 11
+      bounds_cy = 13
       caption = 'Volume'
       font.color = 5197647
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
-      reffontheight = 11
+      reffontheight = 13
     end
     object volumedrums: trealspinedit
       Tag = 1
@@ -1510,7 +1507,7 @@ object drumsfo: tdrumsfo
       bounds_x = 162
       bounds_y = 22
       bounds_cx = 50
-      bounds_cy = 40
+      bounds_cy = 41
       statfile = mainfo.tstatfile1
       textflagsactive = [tf_xcentered, tf_ycentered]
       onchange = onchangevol
@@ -1519,14 +1516,11 @@ object drumsfo: tdrumsfo
       value = 100
       valuedefault = 100
       valuerange = 1
-      valuestart = 0
       valuemin = -Inf
       valuemax = 999999
       step = 1
-      stepctrlfact = 0
-      stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object ltempo: tstringdisp
       color = -2147483645
@@ -1540,14 +1534,14 @@ object drumsfo: tdrumsfo
       bounds_x = 102
       bounds_y = 72
       bounds_cx = 110
-      bounds_cy = 14
+      bounds_cy = 15
       font.color = 3355443
       font.height = 11
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '150 BPM - 1000 ds'
-      reffontheight = 13
+      reffontheight = 14
     end
     object tstringdisp2: tstringdisp
       color = -2147483645
@@ -1561,14 +1555,14 @@ object drumsfo: tdrumsfo
       bounds_x = 15
       bounds_y = 14
       bounds_cx = 75
-      bounds_cy = 14
+      bounds_cy = 15
       font.color = 3355443
       font.height = 11
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Drums Set'
-      reffontheight = 13
+      reffontheight = 14
     end
     object multbpm: tbutton
       frame.framei_left = 4
@@ -1658,7 +1652,7 @@ object drumsfo: tdrumsfo
         font.name = 'stf_default'
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 58
+        reffontheight = 59
       end
       object label4: tlabel
         optionswidget1 = [ow1_fontglyphheight]
@@ -1678,7 +1672,7 @@ object drumsfo: tdrumsfo
         font.name = 'stf_default'
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 58
+        reffontheight = 59
       end
       object label2: tlabel
         color = -2147483645
@@ -1686,7 +1680,7 @@ object drumsfo: tdrumsfo
         bounds_x = 12
         bounds_y = 4
         bounds_cx = 32
-        bounds_cy = 58
+        bounds_cy = 59
         caption = '0'
         font.color = 4223805
         font.shadow_color = 0
@@ -1698,7 +1692,7 @@ object drumsfo: tdrumsfo
         font.options = [foo_script, foo_antialiased2]
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 58
+        reffontheight = 59
       end
     end
     object hintpanel: tgroupbox
@@ -1720,24 +1714,92 @@ object drumsfo: tdrumsfo
         bounds_x = 5
         bounds_y = 4
         bounds_cx = 169
-        bounds_cy = 14
+        bounds_cy = 15
         caption = 'Invalid value.  Reset to 100.'
         font.name = 'stf_default'
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 14
+        reffontheight = 15
       end
       object hintlabel2: tlabel
         taborder = 1
         bounds_x = 5
         bounds_y = 18
         bounds_cx = 215
-        bounds_cy = 14
+        bounds_cy = 15
         caption = 'Or press Esc key for previous value.'
         font.name = 'stf_default'
         font.localprops = []
-        reffontheight = 14
+        reffontheight = 15
       end
+    end
+    object langcount: tdropdownlistedit
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.caption = 'Lang'
+      frame.captionpos = cp_left
+      frame.font.color = 5000268
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.button.color = 13421772
+      frame.button.face.fade_direction = gd_down
+      frame.button.face.localprops = [fal_fadirection]
+      frame.button.face.template = tfacecomp2
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          color = 13421772
+          face.fade_direction = gd_down
+          face.localprops = [fal_fadirection]
+          face.template = tfacecomp2
+          frame.framei_bottom = 2
+          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      frame.outerframe = (
+        27
+        0
+        0
+        0
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 27
+      hint = 'Language for counting'
+      bounds_x = 361
+      bounds_y = 4
+      bounds_cx = 66
+      bounds_cy = 18
+      statfile = mainfo.tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+      font.color = 5000268
+      font.name = 'stf_default'
+      font.localprops = []
+      onchange = onchangelang
+      value = 'en'
+      dropdown.dropdownrowcount = 7
+      dropdown.cols.count = 1
+      dropdown.cols.items = <      
+        item
+          data = (
+            'en'
+            'es'
+            'fr'
+            'de'
+            'it'
+            'pt'
+            'nl'
+          )
+        end>
+      reffontheight = 15
     end
   end
   object tfacedrums: tfacecomp
