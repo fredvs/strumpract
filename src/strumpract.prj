@@ -1172,11 +1172,11 @@ line=40
  781
  701
  1554
- 2181
+ 2182
  209
  1136
- 2671
- 2886
+ 2674
+ 2889
  398
  5
  749
@@ -1184,7 +1184,7 @@ line=40
  162
  1486
  356
- 3089
+ 3092
  1667
 address=40
  4607475
@@ -1513,8 +1513,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=volumedrums
+finddtext=langcount
 findhistory=20
+ langcount
  volumedrums
  novoice
  ontimerpause
@@ -1534,9 +1535,8 @@ findhistory=20
  ltblack
  list_files
  list8files
- rowcolorstate
 findoptions=1
-editpos=51
+editpos=53
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1546,7 +1546,6 @@ editpos=51
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,2
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1554,13 +1553,14 @@ editpos=51
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1579,15 +1579,17 @@ editpos=51
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,2
- 0,2619
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,0
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 43,1518
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1639,7 +1641,9 @@ bookmarks47=0
 bookmarks48=0
 bookmarks49=0
 bookmarks50=0
-sourcefiles=51
+bookmarks51=0
+bookmarks52=0
+sourcefiles=53
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.pas
  /home/fred/msegui/lib/common/kernel/linux/mseguiintf.pas
@@ -1690,8 +1694,10 @@ sourcefiles=51
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.pas
+ /home/fred/strumpract/src/drums.pas
  ${PROJECTDIR}/drums.pas
-relpaths=51
+ ${PROJECTDIR}/main.pas
+relpaths=53
  filelistform.pas
  filelistform.pas
  msegui/lib/common/kernel/linux/mseguiintf.pas
@@ -1743,7 +1749,11 @@ relpaths=51
  filelistform.pas
  filelistform.pas
  drums.pas
-ismoduletexts=51
+ drums.pas
+ main.pas
+ismoduletexts=53
+ 0
+ 0
  0
  0
  0
@@ -1832,7 +1842,7 @@ nomenumodules=8
  -1
  0
 [sourcefo.files_tab]
-order=51
+order=53
  0
  1
  2
@@ -1842,52 +1852,54 @@ order=51
  6
  7
  8
- 27
- 48
- 16
- 12
- 31
- 14
- 29
- 26
- 50
- 23
- 47
- 44
- 40
- 43
- 49
- 24
- 39
- 38
  9
- 10
+ 23
+ 24
+ 12
+ 48
+ 14
+ 22
+ 36
+ 17
+ 45
+ 50
+ 33
+ 15
+ 42
+ 49
+ 40
+ 44
+ 35
+ 51
+ 25
+ 18
+ 19
+ 41
+ 38
+ 26
+ 32
+ 43
+ 27
  28
+ 29
+ 37
+ 31
+ 20
+ 46
+ 10
+ 39
+ 47
+ 21
+ 16
+ 52
  11
  30
- 19
- 21
- 15
  34
- 36
- 33
- 22
- 18
- 20
  13
- 45
- 35
- 25
- 46
- 32
- 37
- 41
- 42
- 17
 firsttab=17
-index=17
+index=19
 [layout]
-windowlayout=755
+windowlayout=757
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1995,7 +2007,7 @@ windowlayout=755
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2117,7 +2129,7 @@ windowlayout=755
  [objectinspectorfo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2132,7 +2144,7 @@ windowlayout=755
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
  propcolwidthref=513
  width0=212
@@ -2360,15 +2372,15 @@ windowlayout=755
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/drums.pas
  history=20
+  /home/fred/strumpract/src/drums.pas
+  /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/commander.pas
   /home/fred/msegui/lib/common/editwidgets/mselistbrowser.pas
   /home/fred/strumpract/src/config.pas
   /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/msegrids.pas
   /home/fred/msegui/lib/common/kernel/msegui.pas
   /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/drums.pas
   /home/fred/strumpract/src/waveform.pas
   /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/recorder.pas
@@ -2401,7 +2413,7 @@ windowlayout=755
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=51
+ order=53
   0
   1
   2
@@ -2411,50 +2423,52 @@ windowlayout=755
   6
   7
   8
-  27
-  48
-  16
-  12
-  31
-  14
-  29
-  26
-  50
-  23
-  47
-  44
-  40
-  43
-  49
-  24
-  39
-  38
   9
-  10
+  23
+  24
+  12
+  48
+  14
+  22
+  36
+  17
+  45
+  50
+  33
+  15
+  42
+  49
+  40
+  44
+  35
+  51
+  25
+  18
+  19
+  41
+  38
+  26
+  32
+  43
+  27
   28
+  29
+  37
+  31
+  20
+  46
+  10
+  39
+  47
+  21
+  16
+  52
   11
   30
-  19
-  21
-  15
   34
-  36
-  33
-  22
-  18
-  20
   13
-  45
-  35
-  25
-  46
-  32
-  37
-  41
-  42
-  17
  firsttab=17
- index=17
+ index=19
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
@@ -2494,7 +2508,7 @@ windowlayout=755
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_filedialogres_mse_
  parent=
  mdistate=0
  nx=0
@@ -2551,7 +2565,7 @@ windowlayout=755
  [_mse_dirtreefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=threadsfo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2570,7 +2584,7 @@ windowlayout=755
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2589,7 +2603,7 @@ windowlayout=755
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filedialogres_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2627,7 +2641,7 @@ windowlayout=755
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

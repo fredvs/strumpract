@@ -1785,10 +1785,14 @@ object drumsfo: tdrumsfo
       font.localprops = []
       onchange = onchangelang
       value = 'en'
+      dropdown.color = -1610612733
+      dropdown.colorclient = -1610612732
       dropdown.dropdownrowcount = 7
       dropdown.cols.count = 1
+      dropdown.cols.colorselect = 9737364
       dropdown.cols.items = <      
         item
+          colorselect = 9737364
           data = (
             'en'
             'es'
