@@ -1,4 +1,4 @@
-StrumPract is various tools for musicians.
+# StrumPract is various tools for musicians.
 
 Like:
 
