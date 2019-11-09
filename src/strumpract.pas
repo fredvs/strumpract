@@ -11,7 +11,6 @@ uses
 
  {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}
   Math, 
-libwebp_dl,
   filelistform,
   msegui,
   main,

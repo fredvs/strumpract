@@ -1677,6 +1677,9 @@ begin
 
     songplayerfo.historyfn.frame.button.colorglyph := ltblack;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblack;
+    
+    songplayerfo.historyfn.dropdown.colorclient := ltblank;
+    songplayer2fo.historyfn.dropdown.colorclient := ltblank;
 
     songplayerfo.historyfn.font.color := ltblack;
     songplayer2fo.historyfn.font.color := ltblack;
@@ -1776,7 +1779,9 @@ begin
 
     recorderfo.songdir.frame.button.colorglyph := ltblack;
     recorderfo.historyfn.frame.button.colorglyph := ltblack;
-
+    
+    recorderfo.historyfn.dropdown.colorclient := ltblank;
+ 
     recorderfo.cbloop.frame.font.color := ltblack;
     recorderfo.cbtempo.frame.font.color := ltblack;
     recorderfo.bsavetofile.frame.font.color := ltblack;
@@ -1889,6 +1894,9 @@ begin
     filelistfo.list_files.font.color := ltblack;
     filelistfo.tgroupbox1.font.color := ltblack;
     filelistfo.historyfn.frame.button.colorglyph := ltblack;
+    filelistfo.historyfn.dropdown.colorclient := ltblank;
+  
+    
     filelistfo.songdir.frame.button.colorglyph := ltblack;
     filelistfo.list_files.datacols[0].color := cl_white;
     filelistfo.list_files.datacols[0].font.color := ltblack;
@@ -2122,6 +2130,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.historyfn.frame.button.colorglyph := ltblack;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblack;
+    
+    songplayerfo.historyfn.dropdown.colorclient := ltblank;
+    songplayer2fo.historyfn.dropdown.colorclient := ltblank;
 
     songplayerfo.historyfn.font.color := ltblack;
     songplayer2fo.historyfn.font.color := ltblack;
@@ -2223,6 +2234,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     recorderfo.songdir.frame.button.colorglyph := ltblack;
     recorderfo.historyfn.frame.button.colorglyph := ltblack;
+    
+    recorderfo.historyfn.dropdown.colorclient := ltblank;
 
     recorderfo.tfacerecorder.template.fade_color.items[0] := $EDEDED;
     recorderfo.tfacerecorder.template.fade_color.items[1] := $BABABA;
@@ -2336,7 +2349,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     filelistfo.historyfn.frame.button.colorglyph := ltblack;
     filelistfo.songdir.frame.button.colorglyph := ltblack;
-
+    
+    filelistfo.historyfn.dropdown.colorclient := ltblank;
+   
     filelistfo.list_files.datacols[0].color := cl_white;
     filelistfo.list_files.datacols[0].font.color := ltblack;
     filelistfo.list_files.datacols[1].color := cl_white;
@@ -2671,6 +2686,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.historyfn.font.color := ltblank;
     songplayerfo.edvolleft.font.color := ltblank;
     songplayer2fo.edvolleft.font.color := ltblank;
+    
+    songplayerfo.historyfn.dropdown.colorclient := ltblack;
+    songplayer2fo.historyfn.dropdown.colorclient := ltblack;
 
     songplayerfo.edvolright.font.color := ltblank;
     songplayer2fo.edvolright.font.color := ltblank;
@@ -2685,6 +2703,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.historyfn.frame.button.colorglyph := ltblank;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblank;
+    
+    songplayerfo.historyfn.dropdown.colorclient := ltblack;
+    songplayer2fo.historyfn.dropdown.colorclient := ltblack;
+
 
     songplayerfo.cbloop.frame.font.color := ltblank;
     songplayer2fo.cbloop.frame.font.color := ltblank;
@@ -2778,7 +2800,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     recorderfo.songdir.frame.button.colorglyph := ltblank;
     recorderfo.historyfn.frame.button.colorglyph := ltblank;
-
+    
+    recorderfo.historyfn.dropdown.colorclient := ltblack;
+  
     recorderfo.bsavetofile.frame.font.color := ltblank;
      recorderfo.sentcue1.frame.font.color := ltblank;
     recorderfo.blistenin.frame.font.color := ltblank;
@@ -2895,7 +2919,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     filelistfo.tgroupbox1.font.color := ltblank;
     filelistfo.historyfn.frame.button.colorglyph := ltblank;
     filelistfo.songdir.frame.button.colorglyph := ltblank;
-
+    
+    filelistfo.historyfn.dropdown.colorclient := ltblack;
+  
     filelistfo.list_files.datacols[0].color := ltblack;
     filelistfo.list_files.datacols[0].font.color := ltblank;
     filelistfo.list_files.datacols[1].color := ltblack;

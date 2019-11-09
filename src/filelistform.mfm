@@ -528,9 +528,11 @@ object filelistfo: tfilelistfo
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
+      dropdown.cols.colorselect = 15105536
       dropdown.cols.items = <      
         item
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+          colorselect = 15105536
         end>
       dropdown.historymaxcount = 50
       onbeforedropdown = onbefdrop
@@ -545,8 +547,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 7
       visible = False
-      bounds_x = 0
-      bounds_y = 95
+      bounds_x = 54
+      bounds_y = 32
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

@@ -166,7 +166,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 210
       bounds_y = 50
       bounds_cx = 50
-      bounds_cy = 27
+      bounds_cy = 28
       statfile = mainfo.tstatfile1
       font.name = 'stf_default'
       font.localprops = []
@@ -178,14 +178,11 @@ object songplayerfo: tsongplayerfo
       value = 100
       valuedefault = 100
       valuerange = 1
-      valuestart = 0
       valuemin = -Inf
       valuemax = 9999999
       step = 1
-      stepctrlfact = 0
-      stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object button1: tbutton
       Tag = 1
@@ -226,7 +223,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         6
-        13
+        15
         7
         0
       )
@@ -235,9 +232,9 @@ object songplayerfo: tsongplayerfo
       taborder = 3
       hint = ' Enable looping the song. (Pause is not enabled with loop.) '
       bounds_x = 131
-      bounds_y = 51
+      bounds_y = 49
       bounds_cx = 26
-      bounds_cy = 25
+      bounds_cy = 27
       statfile = mainfo.tstatfile1
       onchange = changeloop
       colorglyph = 4539717
@@ -256,17 +253,18 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        0
-        53
         1
+        53
+        2
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 4
       hint = ' Enable stretching (changing tempo) '
       bounds_x = 326
-      bounds_y = 53
+      bounds_y = 52
       bounds_cx = 66
+      bounds_cy = 15
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
     end
@@ -285,7 +283,6 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 438
       bounds_cy = 30
       enabled = False
-      value = 0
       scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
       scrollbar.buttonlength = 12
       scrollbar.buttonendlength = -1
@@ -333,7 +330,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 68
       bounds_y = 4
       bounds_cx = 306
-      bounds_cy = 21
+      bounds_cy = 22
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
@@ -342,12 +339,14 @@ object songplayerfo: tsongplayerfo
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
+      dropdown.cols.colorselect = 15105536
       dropdown.cols.items = <      
         item
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+          colorselect = 15105536
         end>
       dropdown.historymaxcount = 50
-      reffontheight = 14
+      reffontheight = 15
     end
     object songdir: tfilenameedit
       frame.localprops = []
@@ -374,7 +373,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 46
       bounds_y = 4
       bounds_cx = 21
-      bounds_cy = 21
+      bounds_cy = 22
       statfile = mainfo.tstatfile1
       controller.filter = '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'
       controller.filterlist.data = (
@@ -400,7 +399,7 @@ object songplayerfo: tsongplayerfo
         )
       )
       controller.onbeforeexecute = whosent
-      reffontheight = 14
+      reffontheight = 15
     end
     object llength: tstringdisp
       optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_noclampinview]
@@ -415,12 +414,12 @@ object songplayerfo: tsongplayerfo
       bounds_x = 102
       bounds_y = 79
       bounds_cx = 90
-      bounds_cy = 16
+      bounds_cy = 17
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 14
+      reffontheight = 15
     end
     object lposition: tstringdisp
       optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_noclampinview]
@@ -435,12 +434,12 @@ object songplayerfo: tsongplayerfo
       bounds_x = 8
       bounds_y = 79
       bounds_cx = 90
-      bounds_cy = 16
+      bounds_cy = 17
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 14
+      reffontheight = 15
     end
     object tstringdisp1: tstringdisp
       color = -2147483645
@@ -451,10 +450,11 @@ object songplayerfo: tsongplayerfo
       bounds_x = 0
       bounds_y = 27
       bounds_cx = 435
+      bounds_cy = 21
       font.name = 'stf_default'
       font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
     end
     object edvolright: trealspinedit
       Tag = 1
@@ -490,7 +490,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 261
       bounds_y = 50
       bounds_cx = 50
-      bounds_cy = 27
+      bounds_cy = 28
       statfile = mainfo.tstatfile1
       font.name = 'stf_default'
       font.localprops = []
@@ -502,14 +502,11 @@ object songplayerfo: tsongplayerfo
       value = 100
       valuedefault = 100
       valuerange = 1
-      valuestart = 0
       valuemin = -Inf
       valuemax = 9999999
       step = 1
-      stepctrlfact = 0
-      stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object edtempo: trealspinedit
       Tag = 9
@@ -534,7 +531,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 330
       bounds_y = 67
       bounds_cx = 52
-      bounds_cy = 25
+      bounds_cy = 26
       font.name = 'stf_default'
       font.localprops = []
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
@@ -544,14 +541,11 @@ object songplayerfo: tsongplayerfo
       value = 1
       valuedefault = 1
       valuerange = 1
-      valuestart = 0
       valuemin = -Inf
       valuemax = 9999999
       step = 0.01
-      stepctrlfact = 0
-      stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object btinfos: tbutton
       Tag = 9
@@ -589,8 +583,6 @@ object songplayerfo: tsongplayerfo
       bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       valuerange = 100
-      valuestart = 0
-      value = 0
       format = ''
     end
     object vuLeft: tprogressbar
@@ -606,8 +598,6 @@ object songplayerfo: tsongplayerfo
       bar_frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       bar_frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       valuerange = 100
-      valuestart = 0
-      value = 0
       format = ''
     end
     object button2: tbutton
@@ -645,13 +635,14 @@ object songplayerfo: tsongplayerfo
       bounds_x = 380
       bounds_y = 5
       bounds_cx = 50
+      bounds_cy = 22
       font.color = 4013373
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Player 1'
-      reffontheight = 11
+      reffontheight = 13
     end
     object playreverse: tbooleanedit
       color = -2147483645
@@ -666,17 +657,18 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        0
-        43
         1
+        43
+        2
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 19
       hint = ' Enable playing reverse.'
       bounds_x = 208
-      bounds_y = 80
+      bounds_y = 79
       bounds_cx = 56
+      bounds_cy = 15
       onchange = changereverse
       colorglyph = 4539717
     end
@@ -778,7 +770,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         7
-        13
+        15
         8
         0
       )
@@ -787,9 +779,9 @@ object songplayerfo: tsongplayerfo
       taborder = 13
       hint = ' Show wave form in slider '
       bounds_x = 172
-      bounds_y = 51
+      bounds_y = 49
       bounds_cx = 28
-      bounds_cy = 25
+      bounds_cy = 27
       statfile = mainfo.tstatfile1
       onchange = onchachewav
       colorglyph = 4868682
@@ -808,17 +800,18 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        0
-        30
         1
+        30
+        2
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 25
       hint = 'Mono/Stereo'
       bounds_x = 270
-      bounds_y = 80
+      bounds_y = 79
       bounds_cx = 43
+      bounds_cy = 15
       onchange = ChangeStereo2Mono
       colorglyph = 4539717
     end
@@ -840,23 +833,23 @@ object songplayerfo: tsongplayerfo
         bounds_x = 5
         bounds_y = 4
         bounds_cx = 169
-        bounds_cy = 14
+        bounds_cy = 15
         caption = 'Invalid value.  Reset to 100.'
         font.name = 'stf_default'
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 14
+        reffontheight = 15
       end
       object hintlabel2: tlabel
         taborder = 1
         bounds_x = 5
         bounds_y = 18
         bounds_cx = 215
-        bounds_cy = 14
+        bounds_cy = 15
         caption = 'Or press Esc key for previous value.'
         font.name = 'stf_default'
         font.localprops = []
-        reffontheight = 14
+        reffontheight = 15
       end
     end
     object btnPause: tbutton

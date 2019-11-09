@@ -1,1316 +1,520 @@
-[componentpalette]
-order0=0
-order1=0
-order2=0
-order3=0
-order4=0
-order5=0
-order6=0
-order7=0
-order8=0
-order9=0
-order10=0
-order11=0
-order12=0
-order13=0
-order14=0
-order15=0
-order16=0
-[projectoptions]
-projectdir=/home/fred/strumpract/src
-projectfilename=/home/fred/strumpract/src/guitars.mfm
-mainfile=
-targetfile=
-messageoutputfile=
-makecommand=${COMPILER}
-makedir=
-unitdirs=2
- ${MSELIBDIR}kernel/$TARGETOSDIR/
- ${MSELIBDIR}*/
-unitpref=-Fu
-incpref=-Fi
-libpref=-Fl
-objpref=-Fo
-targpref=-o
-befcommand=0
-aftcommand=0
-makeoptions=5
- -l -Mobjfpc -Sh -Fcutf8
- -gl -O-
- -B
- -FUunits
- -O2 -XX -CX -Xs
-makeoptpurpose=0
-compilerused=29
- ${COMPILER} (Default)
- Pascal 1
- Pascal 2
- Pascal 3
- Pascal 4
- Pascal 5
- Pascal 6
- Pascal 7
- Pascal 8
- C 1
- C 2
- C 3
- C 4
- C 5
- C 6
- C 7
- C 8
- Java 1
- Java 2
- Java 3
- Java 4
- Python 1
- Python 2
- Python 3
- Python 4
- Other 1
- Other 2
- Other 3
- Other 4
-debuggerused=6
- ${DEBUGGER} (Default)
- Debugger 1
- Debugger 2
- Debugger 3
- Debugger 4
- None
-exeused=15
- ${EXEEXT} (Default)
- No Extension
- .exe
- .com
- .bin
- .prog
- .pyc
- .class
- .java
- .so
- .dll
- .lib
- .o
- .res
- .inf
-codetemplatedirs=1
- ${TEMPLATEDIR}
-toolmenus=0
-toolfiles=0
-toolparams=0
-fontnames=0
-scriptbeforecopy=
-scriptaftercopy=
-newprojectfiles=0
-newprojectfilesdest=0
-newfinames=3
- MSE Program
- MSE Unit
- MSE Textfile
-newfifilters=3
- "*.pas" "*.pp"
- "*.pas" "*.pp"
- 
-newfiexts=3
- pas
- pas
- 
-newfisources=3
- ${TEMPLATEDIR}/fpc_mse/default/program.pas
- ${TEMPLATEDIR}/fpc_mse/default/unit.pas
- 
-newfonames=11
- Mainform
- Simple Form
- Docking Form
- Datamodule
- Subform
- Scrollboxform
- Tabform
- Dockpanel
- Report
- Scriptform
- Inherited Form
-newfonamebases=11
- form
- form
- form
- module
- form
- form
- form
- form
- report
- script
- form
-newfosources=11
- ${TEMPLATEDIR}fpc_mse/default/mainform.pas
- ${TEMPLATEDIR}fpc_mse/default/simpleform.pas
- ${TEMPLATEDIR}fpc_mse/default/dockingform.pas
- ${TEMPLATEDIR}fpc_mse/default/datamodule.pas
- ${TEMPLATEDIR}fpc_mse/default/subform.pas
- ${TEMPLATEDIR}fpc_mse/default/scrollboxform.pas
- ${TEMPLATEDIR}fpc_mse/default/tabform.pas
- ${TEMPLATEDIR}fpc_mse/default/dockpanelform.pas
- ${TEMPLATEDIR}fpc_mse/default/report.pas
- ${TEMPLATEDIR}fpc_mse/default/pascform.pas
- ${TEMPLATEDIR}fpc_mse/default/inheritedform.pas
-newfoforms=11
- ${TEMPLATEDIR}fpc_mse/default/mainform.mfm
- ${TEMPLATEDIR}fpc_mse/default/simpleform.mfm
- ${TEMPLATEDIR}fpc_mse/default/dockingform.mfm
- ${TEMPLATEDIR}fpc_mse/default/datamodule.mfm
- ${TEMPLATEDIR}fpc_mse/default/subform.mfm
- ${TEMPLATEDIR}fpc_mse/default/scrollboxform.mfm
- ${TEMPLATEDIR}fpc_mse/default/tabform.mfm
- ${TEMPLATEDIR}fpc_mse/default/dockpanelform.mfm
- ${TEMPLATEDIR}fpc_mse/default/report.mfm
- ${TEMPLATEDIR}fpc_mse/default/pascform.mfm
- ${TEMPLATEDIR}fpc_mse/default/inheritedform.mfm
-forcezorder=0
-stripmessageesc=0
-copymessages=0
-closemessages=1
-enablepurpose=0
-enablesource=0
-checkmethods=1
-colorerror=-1610612717
-colorwarning=-1610612712
-colornote=-1610612716
-usercolors=0
-usercolorcomment=0
-formatmacronames=0
-formatmacrovalues=0
-settingsfile=
-settingseditor=0
-settingsdebugger=0
-settingsstorage=0
-settingsprojecttree=0
-settingsautoload=0
-settingsautosave=0
-modulenames=0
-moduletypes=0
-modulefiles=0
-befcommandon=0
-makeoptionson=5
- 4095
- 4095
- 4063
- 34
- 32
-compilerusedon=29
- 69631
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-debuggerusedon=6
- 69631
- 0
- 0
- 0
- 0
- 0
-exeusedon=15
- 69631
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-comment_M=
-comment_B=
-comment_1=
-comment_2=
-comment_3=
-comment_4=
-comment_5=
-comment_6=
-comment_7=
-comment_8=
-comment_9=
-comment_0=
-project_name=
-project_creator=
-project_copyright=
-project_license=
-project_time=
-project_date=
-project_comment=
-aftcommandon=0
-unitdirson=2
- 69631
- 69631
-macroon=0
-macronames=0
-macrovalues=0
-macrogroup=0
-groupcomments=0
-toolsave=0
-toolhide=0
-toolparse=0
-toolmessages=0
-toolshortcuts=0
-fontalias=0
-fontancestors=0
-fontheights=0
-fontwidths=0
-fontoptions=0
-fontxscales=0
-expandprojectfilemacros=0
-loadprojectfile=0
-newinheritedforms=11
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-uid=0
-sourcefilemasks=5
- "*.pas" "*.dpr" "*.lpr" "*.pp" "*.inc"
- "*.c" "*.cc" "*.h"
- "*.java"
- "*.pyw"
- "*.mfm"
-syntaxdeffiles=5
- ${SYNTAXDEFDIR}pascal.sdef
- ${SYNTAXDEFDIR}cpp.sdef
- ${SYNTAXDEFDIR}java.sdef
- ${SYNTAXDEFDIR}python.sdef
- ${SYNTAXDEFDIR}objecttext.sdef
-filemasknames=3
- Source
- Forms
- All Files
-filemasks=3
- "*.pp" "*.pas" "*.inc" "*.dpr" "*.lpr"
- *.mfm
- *
-showgrid=1
-snaptogrid=1
-moveonfirstclick=1
-noformdesignerdocking=0
-componenthints=1
-gridsizex=8
-gridsizey=8
-autoindent=1
-blockindent=1
-linenumberson=0
-rightmarginon=1
-rightmarginchars=80
-scrollheight=0
-tabstops=4
-spacetabs=0
-showtabs=0
-tabindent=0
-editfontname=mseide_source
-editfontheight=0
-editfontwidth=0
-editfontextraspace=0
-editfontcolor=-1879048183
-editbkcolor=-1879048186
-statementcolor=14745599
-pairmarkcolor=-1610612712
-editfontantialiased=1
-editmarkbrackets=1
-editmarkpairwords=1
-fpgdesigner=1
-backupfilecount=2
-encoding=1
-eolstyle=1
-trimtrailingwhitespace=0
-codetemplatedirs=1
- ${TEMPLATEDIR}
-debugcommand=${DEBUGGER}
-debugoptions=
-debugtarget=
-runcommand=
-xtermcommand=xterm -S${PTSN}/${PTSH}
-remoteconnection=
-uploadcommand=
-gdbprocessor=auto
-gdbservercommand=
-gdbservercommandattach=
-beforeconnect=
-afterconnect=
-beforeload=
-afterload=
-beforerun=
-sourcebase=
-sourcedirs=3
- ${MSELIBDIR}kernel/$TARGETOSDIR/
- ${MSELIBDIR}*/
- ./
-defines=0
-progparameters=
-progworkingdirectory=
-envvarnames=0
-envvarvalues=0
-defineson=0
-stoponexception=0
-valuehints=1
-activateonbreak=1
-raiseonbreak=1
-showconsole=0
-externalconsole=0
-settty=1
-gdbdownload=0
-downloadalways=0
-restartgdbbeforeload=0
-startupbkpt=0
-startupbkpton=0
-gdbsimulator=0
-gdbserverstartonce=0
-gdbloadtimeout=
-gdbserverwait=0
-nogdbserverexit=0
-gdbservertty=0
-exceptclassnames=1
- EconvertError
-exceptignore=1
- 0
-nodebugbeginend=0
-fpcgdbworkaround=1
-sigsettings=27
- 1,1,T,F
- 3,3,T,F
- 4,4,T,F
- 6,6,T,F
- 7,7,T,F
- 8,8,T,F
- 9,9,T,F
- 10,10,T,F
- 11,11,T,F
- 12,12,T,F
- 13,13,T,F
- 15,15,T,F
- 16,16,T,F
- 17,17,F,F
- 18,18,T,F
- 19,19,T,F
- 20,20,T,F
- 21,21,T,F
- 22,22,T,F
- 23,23,T,F
- 24,24,T,F
- 25,25,T,F
- 26,26,T,F
- 27,27,T,F
- 28,28,T,F
- 29,29,T,F
- 30,30,T,F
-defaultmake=1
-[breakpoints]
-on=40
- 0
- 0
- 0
- -1
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-path=40
- /home/fred/drumspract/main.pas
- /home/fred/strumpract/uos.pas
- /home/fred/strumpract/uos.pas
- /home/fred/strumpract/src/uos_flat.pas
- /home/fred/strumpract/src/uos_aac.pas
- /home/fred/strumpract_dock/src/songplayer.pas
- /home/fred/strumpract_dock/src/main.pas
- /home/fred/strumpract_dock/src/main.pas
- /home/fred/strumpract_dock/src/main.pas
- /home/fred/strumpract/src/msefiledialog.pas
- /home/fred/strumpract/src/strumpract.pas
- /home/fred/strumpract/src/strumpract.pas
- /home/fred/strumpract/src/main.pas
- /home/fred/strumpract/src/main.pas
- /home/fred/strumpract/src/uos.pas
- /home/fred/strumpract/src/main.pas
- /home/fred/strumpract/src/main.pas
- /home/fred/strumpract/src/songplayer.pas
- /home/fred/strumpract/src/commander.pas
- /home/fred/strumpract/src/drums.pas
- /home/fred/strumpract/src/commander.pas
- /home/fred/strumpract/src/drums.pas
- /home/fred/strumpract/src/drums.pas
- /home/fred/strumpract/src/drums.pas
- /home/fred/strumpract/src/songplayer2.pas
- /home/fred/strumpract/src/songplayer.pas
- /home/fred/strumpract/src/main.pas
- /home/fred/strumpract/src/songplayer2.pas
- /home/fred/strumpract/src/songplayer2.pas
- /home/fred/strumpract/src/main.pas
- /home/fred/strumpract/src/main.pas
- /home/fred/strumpract/src/filelistform.pas
- /home/fred/strumpract/src/filelistform.mfm
- /home/fred/strumpract/src/commander.pas
- /home/fred/strumpract/src/uos.pas
- /home/fred/strumpract/src/waveform.pas
- /home/fred/strumpract/src/songplayer.pas
- /home/fred/strumpract/src/waveform.pas
- /home/fred/strumpract/src/main.pas
- /home/fred/strumpract/src/songplayer.pas
-line=40
- 553
- 6389
- 7495
- 1764
- 764
- 88
- 65
- 137
- 343
- 582
- 12
- 169
- 49
- 1279
- 5714
- 1462
- 128
- 1482
- 332
- 319
- 534
- 553
- 769
- 781
- 701
- 1554
- 2182
- 209
- 1136
- 2674
- 2889
- 398
- 5
- 749
- 1517
- 162
- 1486
- 356
- 3092
- 1667
-address=40
- 4607475
- 7363208
- 7373861
- 7301146
- 0
- 4691710
- 4602208
- 4602256
- 4604924
- 5619168
- 4219248
- 0
- 4602208
- 4617150
- 7356593
- 4619444
- 4602208
- 4715164
- 4739195
- 4667620
- 4742300
- 4671492
- 4675616
- 4675801
- 4653474
- 4716639
- 4635488
- 4646880
- 4661851
- 4647733
- 4652989
- 4411376
- 0
- 4746031
- 7310295
- 4770288
- 4715287
- 0
- 4655993
- 4718440
-addbkpt=40
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-ignore=40
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-condition=40
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-panels=0
-units=
- (
- a=0,8229,6,Pascal Units
- )
-cmodules=
- (
- a=0,8228,6,C Modules
- )
-files=
- (
- a=0,8228,6,Text Files
- )
-[componentstore]
-storedir=/home/fred/msegui/apps/ide/compstore/
-filename=
-[components]
-[selecteditpage]
-colwidth=100
-x=331
-y=131
-cx=704
-cy=473
-[progparams]
-progparamhistory=0
-workdirparamhistory=0
-envvarons=0
-[edit]
-hintwidth=314
-hintheight=57
-finddtext=
-findhistory=0
-findoptions=1
-editpos=0
-sourcefiles=0
-relpaths=0
-ismoduletexts=0
-modules=0
-moduleoptions=0
-visiblemodules=0
-nomenumodules=0
-[sourcefo.files_tab]
-firsttab=0
-index=-1
-[layout]
-windowlayout=536
- [mainfo.basedock]
- splitdir=2
- useroptions=268450944
- [mainfo]
- splitdir=0
- useroptions=301990011
- stackedunder=
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=3
- y=59
- cx=1360
- cy=706
- rcx=0
- rcy=0
- wsize=0
- active=1
- visible=1
- [targetconsolefo]
- splitdir=0
- useroptions=268451945
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=775
- y=363
- cx=497
- cy=314
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [threadsfo]
- splitdir=0
- useroptions=268451945
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=444
- y=431
- cx=418
- cy=126
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [memoryfo]
- splitdir=0
- useroptions=268451963
- stackedunder=dialogfilesfo
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=100
- y=100
- cx=453
- cy=354
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [memoryfo.add]
- value=0
- [memoryfo.memon]
- value=0
- [memoryfo.bitwidth]
- value=0
- [memoryfo.cnt]
- value=0
- [disassfo]
- splitdir=0
- useroptions=268451947
- stackedunder=
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=162
- y=502
- cx=564
- cy=210
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [findinfilefo]
- splitdir=0
- useroptions=268451947
- stackedunder=
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=239
- y=115
- cx=678
- cy=414
- rcx=0
- rcy=0
- [projecttreefo]
- splitdir=0
- useroptions=268484715
- stackedunder=targetconsolefo
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=3
- y=144
- cx=205
- cy=514
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [projecttreefo.grid]
- propcolwidthref=78
- width0=117
- sortdescend0=0
- width1=72
- sortdescend1=0
- sorted=0
- col=0
- row=2
- rowheight=17
- [stackfo]
- splitdir=0
- useroptions=268460137
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=423
- y=321
- cx=344
- cy=155
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [watchpointsfo]
- splitdir=0
- useroptions=268451945
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=537
- y=26
- cx=483
- cy=210
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [watchpointsfo.grid]
- propcolwidthref=332
- sortdescend0=0
- values1=0
- values1_ci=-1
- width1=33
- sortdescend1=0
- values2=0
- width2=149
- sortdescend2=0
- width4=34
- sortdescend4=0
- values5=0
- values5_ci=-1
- width5=38
- sortdescend5=0
- values6=0
- width6=172
- sortdescend6=0
- [breakpointsfo]
- splitdir=0
- useroptions=268451947
- stackedunder=memoryfo
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=107
- y=404
- cx=477
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [breakpointsfo.bkptson]
- value=0
- [objectinspectorfo]
- splitdir=0
- useroptions=268451947
- stackedunder=
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=231
- y=156
- cx=523
- cy=484
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [objectinspectorfo.grid]
- propcolwidthref=513
- width0=212
- sortdescend0=0
- width1=295
- sortdescend1=0
- [symbolfo]
- splitdir=0
- useroptions=268451963
- stackedunder=
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=142
- y=257
- cx=361
- cy=137
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [symbolfo.grid]
- propcolwidthref=207
- values0=18
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- width0=111
- sortdescend0=0
- width1=125
- sortdescend1=0
- [symbolfo.symbol]
- [watchfo]
- splitdir=0
- useroptions=268460137
- parent=mainfo.basedock
- visible=0
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=53
- y=0
- cx=247
- cy=44
- rcx=1262
- rcy=583
- [watchfo.grid]
- propcolwidthref=121
- values0=0
- values0_ci=-1
- sortdescend0=0
- values1=0
- width1=66
- sortdescend1=0
- values3=0
- values3_ci=-1
- sortdescend3=0
- values4=0
- values4_ci=-1
- width4=13
- sortdescend4=0
- [watchfo.watchon]
- [watchfo.expression]
- [watchfo.watcheson]
- value=0
- [messagefo]
- splitdir=0
- useroptions=268517483
- parent=mainfo.basedock
- visible=1
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=243
- cx=1350
- cy=438
- rcx=0
- rcy=0
- [componentstorefo]
- splitdir=0
- useroptions=268460155
- stackedunder=
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=100
- y=100
- cx=445
- cy=354
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [componentstorefo.grid]
- propcolwidthref=435
- width0=111
- sortdescend0=0
- sortdescend1=0
- width2=160
- sortdescend2=0
- width3=185
- sortdescend3=0
- [componentstorefo.storefiledialog]
- filenames=1
-  /home/fred/msegui/apps/ide/compstore/
- filecolwidth=0
- x=0
- y=0
- cx=0
- cy=0
- lastdir=/home/fred/msegui/apps/ide/compstore/
- filehistory=0
- filefilterindex=0
- filefilter=
- [componentstorefo.groupfiledialog]
- filenames=1
-  /home/fred/msegui/apps/ide/compstore/
- filecolwidth=0
- x=0
- y=0
- cx=0
- cy=0
- lastdir=/home/fred/msegui/apps/ide/compstore/
- filehistory=0
- filefilterindex=0
- filefilter=
- [componentstorefo.compfiledialog]
- filenames=0
- filecolwidth=0
- x=0
- y=0
- cx=0
- cy=0
- lastdir=
- filehistory=0
- filefilterindex=0
- filefilter=
- [componentpalettefo]
- splitdir=0
- useroptions=268460139
- stackedunder=
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=200
- y=64
- cx=956
- cy=77
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [componentpalettefo.componentpages]
- activetab=0
- [debuggerfo]
- splitdir=0
- useroptions=24683
- parent=mainfo.basedock
- visible=1
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=0
- cx=1350
- cy=240
- rcx=0
- rcy=0
- [debuggerfo.basedock]
- splitdir=2
- useroptions=268582019
- parent=debuggerfo.container
- visible=1
- mdistate=0
- nx=0
- ny=0
- ncx=1350
- ncy=60
- x=0
- y=0
- cx=1350
- cy=243
- rcx=0
- rcy=0
- [debuggerfo.edit_options]
- value=X
- [debuggerfo.edit_compilernum]
- value=0
- [debuggerfo.edit_compiler]
- value=Pascal
- [debuggerfo.file_history]
- value=/home/fred/strumpract/src/uos.pas
- history=20
-  /home/fred/strumpract/src/uos.pas
-  /home/fred/msegui/lib/common/editwidgets/mselistbrowser.pas
-  /home/fred/strumpract/src/commander.pas
-  /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/drums.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/config.pas
-  /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/msegrids.pas
-  /home/fred/msegui/lib/common/kernel/msegui.pas
-  /home/fred/strumpract/src/waveform.pas
-  /home/fred/strumpract/src/guitars.pas
-  /home/fred/strumpract/src/recorder.pas
-  /home/fred/strumpract/src/status.pas
-  /home/fred/bgramse/bgrabitmap/bgrafpguibitmap.pas
-  /home/fred/bgramse/fpreadpcx.pas
-  /home/fred/bgramse/bgradefaultbitmap.pas
-  /home/fred/bgramse/bgrabitmap/bgrabitmap.pas
-  /home/fred/bgramse/fpwritexpm.pp
-  /home/fred/bgramse/fpwritetga.pp
- [debuggerfo.project_options]
- value=1
- [debuggerfo.hints]
- value=0
- [sourcefo]
- splitdir=0
- useroptions=16489
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=211
- y=144
- cx=1142
- cy=514
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [sourcefo.files_tab]
- firsttab=0
- index=-1
- [cpuc86_64fo]
- irqoff=0
- splitdir=0
- useroptions=268451947
- stackedunder=projecttreefo
- parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=183
- y=113
- cx=352
- cy=277
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
-[targetconsole]
-finddtext=
-findhistory=0
-findoptions=1
+object guitarsfo: tguitarsfo
+  color = -2147483645
+  frame.localprops = []
+  frame.localprops1 = []
+  frame.grip_size = 8
+  frame.grip_grip = stb_dens0
+  frame.grip_face.localprops = []
+  frame.grip_face.template = mainfo.tfacecomp4
+  frame.grip_faceactive.fade_pos.count = 2
+  frame.grip_faceactive.fade_pos.items = (
+    0
+    1
+  )
+  frame.grip_faceactive.fade_color.count = 2
+  frame.grip_faceactive.fade_color.items = (
+    15790320
+    14928017
+  )
+  frame.grip_faceactive.fade_direction = gd_down
+  frame.grip_faceactive.localprops = []
+  frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
+  hint = '  Use this to drag the form. It is disabled if something is playing. '
+  visible = False
+  bounds_x = 429
+  bounds_y = 263
+  bounds_cx = 442
+  bounds_cy = 64
+  bounds_cxmin = 442
+  bounds_cymin = 64
+  bounds_cxmax = 442
+  bounds_cymax = 64
+  container.frame.framei_left = 0
+  container.frame.framei_top = 0
+  container.frame.framei_right = 0
+  container.frame.framei_bottom = 0
+  container.frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    434
+    64
+  )
+  dragdock.splitter_grip = stb_dens0
+  dragdock.facetab = mainfo.tfacebutgray
+  dragdock.faceactivetab = tfaceguitlight
+  dragdock.caption = ' Guit '
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  statfile = mainfo.tstatfile1
+  caption = 'Guitar and Bass tuned strings'
+  icon.origformat = 'jpeg'
+  icon.image = {
+    00000000000000002000000020000000D00B0000000000000000000000000000
+    0000000000000000000000000000000000000000A9ABB501D7D0D501D8CED401
+    D0CDD601CCCCCC01DBD7CC01DBD5CE01CACAD001CCD1D001CED3D401CDD0D401
+    CDCDCD01D3D0CC01D5D0CD01CFCFCF01CBCED201D0D0D008D2D2D201D0D0D001
+    CFCFCF01CECECE01CFCFCF01D1D1D101D4D4D401ADADAD01D2D1D301FDFEF501
+    FFFFF801F6FFFF01ECFBFF01EEF9FF01F2FDFB01F8FFF901F8FBF901FCFEFE01
+    FCFEFF01FDFCFE01FFFFFE02FEFEFE01FDFFFF01FDFDFD08FEFEFE01FDFDFD04
+    FEFEFE02D7D7D701D5D0D201FBFFFB01EEFFF601C8E3ED01A3C5E9019CBEEC01
+    BAD9EE01ECFFFB01FDFCF801FFFDFC01FDFDFD01FCFEFF01FDFFFF01FEFEFE01
+    FBFCFA01FEFFFD01FFFFFF0EFEFEFE01D5D5D501DAD3DA01F4FDFF01C7E1F201
+    9FC6ED017FB3F6017FB5FF0194C3F701BFDFF601FFFFFC01FFFFFE01FFFFFF01
+    FDFFFF01FBFEFF01FBFFFF01FEFFFD01FFFFFB01FFFFFF0EFEFEFE01D5D5D501
+    D5D6D401F1FBFF01ADCBF40187BAF9017AB9FF0181C1FF0189BDF90192BDEE01
+    F8FDFF01FDFDFD01FEFCFB01FDFDFD01FBFEFF01FAFFFF01FDFFFF01FFFFFB01
+    FFFFFF0DFEFEFE02D5D5D501D0D7CA01F3FFFF01AACBF20181BBFC0180BFFB01
+    83B7DF0197C5EE018BC0F901E7F5FF01F6FCFF01FFFEFD01FFFDFC01FDFEFF01
+    FAFEFF01FBFDFE01FFFFFB01FFFFFF0FD7D7D701D1D2CE01F5FAF801B6D4ED01
+    8DC5FF0199CAFC018199AD01A2BED60184BDF501CFE7FD01ECF8FF01FFFFFE01
+    FFFFFB01FFFFFF01FBFEFF01FCFDFF01FFFFFE01FEFEFE0BFDFDFD04D5D5D501
+    D7D0DF01FFFDFE01CCE4FA018EC1FF018CABE2014F4B5E018891A50170A7E401
+    B0D0ED01DAEBF801FDFEFC01FFFEF701FFFCFB01FBFBFF01FDFEFF01FFFEFF01
+    FFFFFF0EFDFDFD01D5D5D501D0D5DE01EEE6DF01ECE3DF019BABC8017EA8E301
+    6698DA018BBCFA0192C4FF01739DC701698DB5018ABDDE01AEDAF701E0E4FC01
+    F6F4FA01F4FFF401FEFFEF01FFF6FE01F4FFF901F6FFFB01FFFEFF01F8FDFE01
+    FFFFFA01FFFFFC01F4FDFF01FFFFFF03FEFEFE02FFFFFF02D4D4D401CDCECC01
+    DFDEDA01C9C9C901B4BDCA01B3CFF20190BEF40193C5FF0192C2F601A3B4DF01
+    A2BAE80185B0D7018DBBDA0190B7DD018CC2EB01B9E7F901FBF8F001FDFCFF01
+    FBFFFC01F8FCF601FCFEFF01FBFEFF01FFFEF901FFFFFC01F8FEFF01FFFFFF03
+    FEFEFE02FFFFFF02D4D4D401DBD6CD01D3D8DB01C4CACF01CFD0CE01F3FEFF01
+    A4C6EA0199C8FB0192BEED014F594D017998AD0182B3E1017D9ECB017886A201
+    7293A7017DA8C901AAC0F001CAE5F301FEFDFF01FFFFFC01F8FDFE01F9FCFF01
+    FFFFFC02FAFDFF01FFFFFF03FEFEFE02FFFFFF02D4D4D401D7D4CC01E7ECEF01
+    CFD4D701E1DED901F8F8F201DCECF901ACCEF2017CA6D501547394016F99BE01
+    82AFE20197B1E701898FA6019BA69E0181A1A6017DA8D30194C9DE01F9F6FF01
+    FFFDFE01F7FFFF01FAFBFF01FFFFFC02FDFCFF01FFFFFF03FEFEFE02FFFFFF02
+    D4D4D401D7D8DC01FDFAFC01F8F7F901FCFEFF01D8D5D101C5C3C2019EADC001
+    86A9D50185A7F3018CC4FF0181BEF60191BBEA015C718C0155636F016E89A301
+    89B6E90190D0EF01F3F6FF01FFF8F901FAFFFF01FDFEFF01FFFDFC01FDFEFA01
+    FFFEFF01FFFFFF03FEFEFE02FFFFFF02D4D4D401D4D5DF01FFFFFE01FFFEFF01
+    F5F9FE01D1D0D201DCD4CD01D9DCE101C4D9F801AAC4EC0186C0F4019ACEFC01
+    7A8FA4016A778D015B6EA1017E9EDF0171A1D5018EC8F201E6F7FF01FFFAFB01
+    FDFFFF01FCFCFF01FFFCFD01FFFFFB01FFFFFF04FEFEFE02FFFFFF02D4D4D401
+    D2D1D301FFFFFF01F7F9FA01FBFFFF01CFD1D101D5D6D401DEDEDE01F2F5F901
+    C1D9F501A8CAF801929CC4013A3844017389A501749CE4017098D3018FBFC501
+    83ACE301CBEBFF01EBF5F501FFFFFF01FBFBFF01FFFFFF01FFFFFE01FDFFFF01
+    FFFFFF03FEFEFE02FFFFFF02D4D4D401DAD4CF01FAFFFF01F5FCFF01FBFDF701
+    F5F9F401E4EDF101EDF0EE01ECE0CE01D9E1D60197B3DC016E8ED5017EA9DC01
+    77B0D7018CB0EC017489CD0173A2D50189A6E301A9D5EC01C7DCDA01FFFAFB01
+    FBFEFF01FCFEFF01FFFDFD01FAFFFE01FFFFFF03FEFEFE02FFFFFF02D4D4D402
+    FFFFFF03FBFBFB01FFFFFF01F6F6F601D2D2D201C8CCDF01C4C4BE01A1C1DE01
+    85BDFF018DBAFE017BADE701699CDB017F94C7017797BA01536975015F646301
+    A19AA101EAE9F301F6FDFF01F9FFFB01FDFFFE01FDFDFD01FCFCFC01FFFFFF01
+    F8F9F701FEFFFD01FFFFFE02D5D6D401D6D6D601FEFEFE01FDFDFD01FFFFFF01
+    FEFEFE01FFFFFF01F7F7F701D4D4D401CBCEDC01CAD0D701E2ECF301A9C6ED01
+    96C2FD01A2B6CF015B5B61016470920192B1E401496076016C7676013A3C3D01
+    494C5001BCC4C301FBFFFF01FAF8FE01FCFCFC01FFFFFF01FAFAFA01FFFFFF01
+    FFFFFE01FCFDFB01FEFFFD01D3D4D201D6D6D601FEFEFE01FDFDFD01FFFFFF01
+    FEFEFE01FFFFFF01FAFAFA01E3E3E301DCD8D301E0E4EF01FEFBFD01D0E0F001
+    94C3F7017B97C001444F6B015D85C0016E88C40152678301525E6201262B2A01
+    43494801383F3A0191959601FCF5FF01F7F6F801FFFEFF01FEFEFE01FFFFFF01
+    FBFBFB01FAFBF901FFFFFE01D2D3D101D5D5D501FFFFFF03FBFBFB01FCFCFC01
+    FFFFFF01F9F9F901FFFFF501F1EDF201D1D4E201B6C6CD017E99B301709ADB01
+    70A3F30179AEED018999C4017B899B01394043013F4344014044450131383501
+    54585901706E7A01EEEFF301FAFCFD01F5F7F801FDFFFF01FAFCFC01FFFFFF02
+    D5D6D401D5D5D501FFFFFF03FCFCFC01FBFBFB01FFFFFF02FAFFFF01F5EEF101
+    CFD1DC01D1D8D501E2E0D501C5D4F4018CACE101ADBCCC01EEF2FD01FBFFFF01
+    D2D3D101544F580126252F01454A4901444B4801383C41013C3F4401B3B6BA01
+    FDFEFF01F9FBFC01FBFDFE01FEFEFE01FBFBFB01D5D6D401D5D5D501FFFFFF01
+    FBFBFB01FFFFFF02FEFEFE01FFFFFF01FEFEFE01F1FBFF01F2F1F501E3DFDE01
+    D5D2CD01DBD8D001FEFCFC01FCFCFF01FBFCFA01FEFBF301FFFFF601FFFEF901
+    EBE5F00176727E0146484801484D4B01282D300153565B013B3E43018D909501
+    F6F7FB01F6F8F901FFFFFF02D5D5D502FFFFFF01FBFBFB01FEFEFE01FFFFFF03
+    FCFCFC01FFFEFF01F8FDFF01E9E8E401EDE8E701EBF0F901F3F9FE01FCFEFE01
+    FAFDFF01FFFFFC01F7F8EE01FDFFFB01FDFDFF01F2F1F501959791013D3E3A01
+    4546500130333B01474A52014A4D5201474A4E01DADCDD01F8F7F901FEFEFE01
+    CDCDCD01D3D3D301FFFFFF01FEFEFE03FDFDFD01FFFFFF02FFFFF701F8FFFF02
+    FFF8F401FFFEFF01F1FEFF01F2FCFC01FFFFF601F7F6FF01FAFFFF01F0FCF601
+    F8FFFF01FDFFFC01FFFFF601B3B1B0015B546301262931014C4F57013E414601
+    3B3E430135363A01ACABAD01FDFDFD01D5D5D502FEFEFE01FFFFFF04FEFEFE01
+    FDFDFD01FFFFFF09F9F9F901FFFFFF02FCFCFC01FFFFFF01F5F5F501CCCCCC01
+    5E636601484D5001494E51015D62650151555A014E5159017A7C8701BDBDC901
+    D4D4D401FDFDFD02FEFEFE02FFFFFF01FEFEFE01FFFFFF01FEFEFE08FFFFFF01
+    FDFDFD01FFFFFF02FAFAFA01FFFFFF02F4F4F401F0F4F501737778012D313201
+    404546012C313401575A62013B3D47013A3C4701D8D8D801FFFFFF0FFEFEFE01
+    FCFCFC01FFFFFF02FCFCFC02FFFFFF02FDFFFF01F7F9F9018C919001474C4B01
+    565B5C01363B3E01393C44013F424A01D7D7D701FFFFFF02FEFEFE02FFFFFF0C
+    FEFEFE01FFFFFF03FEFEFE01FCFCFC01FFFFFF02FEFEFE01FBFEFC01AFB2B001
+    5358570132373801474C4F011B212601D6D6D601FEFEFE01FFFFFF10FDFDFD01
+    FCFCFC01FFFFFF05FAFBF901FFFFFE01FBFEFC01D9DEDC015D6261012B303101
+    4C515401D4D4D401FDFDFD01FEFEFE01FFFFFF0DFCFCFC01FFFFFF01FEFEFE01
+    FCFCFC01FEFEFE01FFFFFF01FDFDFD01FEFEFE01FFFFFF01FDFDFD01F9FAF801
+    FFFFFE01F8FBF901E5E7E7017A7E7F0146494D01D5D5D501FDFDFD04FEFEFE02
+    FFFFFF01FDFDFD09FFFFFF04FDFDFD03F6F5F701FAFAFA01FCFCFC01FDFEFC01
+    FBFBFB01FFFFFF01FDFFFF017B7C8001ADADAD01D4D4D401D2D2D201D1D1D101
+    CFCFCF01D0D0D002D1D1D109D3D3D301CECECE01CDCDCD01D0D0D001CFCFCF01
+    CECECE01D1D1D101D3D3D301CFD1D201D0CFD101CFCFCF01D0D0D003D2D1D301
+    AEADB101
+  }
+  oncreate = oncreateguit
+  onmouseevent = onmousewindow
+  onshow = onvisiblechangeev
+  onhide = onvisiblechangeev
+  moduleclassname = 'tdockform'
+  object tgroupbox1: tgroupbox
+    color = -2147483645
+    frame.localprops = []
+    frame.localprops1 = []
+    face.image.options = [bmo_masked, bmo_graymask]
+    face.image.origformat = 'png'
+    face.image.alignment = [al_stretchx, al_stretchy]
+    face.localprops = [fal_image]
+    face.template = tfaceguit
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 434
+    bounds_cy = 32
+    font.name = 'stf_default'
+    font.localprops = []
+    object tbutton9: tbutton
+      Tag = 6
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 89
+      bounds_y = 4
+      bounds_cx = 54
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '6 Mi/E'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton8: tbutton
+      Tag = 5
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      taborder = 1
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 146
+      bounds_y = 4
+      bounds_cx = 54
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '5 La/A'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton7: tbutton
+      Tag = 4
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      taborder = 2
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 203
+      bounds_y = 4
+      bounds_cx = 54
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '4 Re/D'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton6: tbutton
+      Tag = 3
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      taborder = 3
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 260
+      bounds_y = 4
+      bounds_cx = 54
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '3 Sol/G'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton5: tbutton
+      Tag = 2
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      taborder = 4
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 317
+      bounds_y = 4
+      bounds_cx = 54
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '2 Si/B'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton3: tbutton
+      Tag = 1
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      taborder = 5
+      hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 374
+      bounds_y = 4
+      bounds_cx = 54
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '1 Mi/E'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object loopguit: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = -2147483645
+      frame.caption = 'Loop'
+      frame.captiondist = 2
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        1
+        28
+        1
+      )
+      face.localprops = []
+      face.template = tfaceguitlight
+      taborder = 6
+      hint = ' Enable looping the string. '
+      bounds_x = 20
+      bounds_y = 17
+      bounds_cx = 44
+      statfile = mainfo.tstatfile1
+    end
+    object tstringdisp2: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = tfaceguit
+      taborder = 7
+      hint = ' Tuned Guitar strings '
+      bounds_x = 2
+      bounds_y = 2
+      bounds_cx = 81
+      bounds_cy = 13
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Guitar strings'
+      reffontheight = 11
+    end
+  end
+  object tgroupbox2: tgroupbox
+    color = -2147483645
+    frame.localprops = []
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = tfaceguit
+    taborder = 1
+    bounds_x = 0
+    bounds_y = 32
+    bounds_cx = 434
+    bounds_cy = 32
+    font.name = 'stf_default'
+    font.localprops = []
+    object tbutton16: tbutton
+      Tag = 10
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 158
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '4 Mi/E'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton15: tbutton
+      Tag = 9
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      taborder = 1
+      hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 215
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '3 La/A'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton14: tbutton
+      Tag = 8
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      taborder = 2
+      hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 272
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '2 Re/D'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object tbutton13: tbutton
+      Tag = 7
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = tfaceguit
+      taborder = 3
+      hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
+      bounds_x = 329
+      bounds_y = 4
+      bounds_cx = 56
+      bounds_cy = 23
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '1 Sol/G'
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = doguitarstring
+    end
+    object loopbass: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = -2147483645
+      frame.caption = 'Loop'
+      frame.captiondist = 2
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        1
+        28
+        1
+      )
+      face.localprops = []
+      face.template = tfaceguitlight
+      taborder = 4
+      hint = ' Enable looping the string. '
+      bounds_x = 20
+      bounds_y = 17
+      bounds_cx = 44
+      statfile = mainfo.tstatfile1
+    end
+    object tstringdisp3: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = tfaceguit
+      taborder = 5
+      hint = ' Tuned Bass strings '
+      bounds_x = 9
+      bounds_y = 2
+      bounds_cx = 81
+      bounds_cy = 13
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Bass strings'
+      reffontheight = 11
+    end
+  end
+  object tfaceguitlight: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      14406595
+      16774627
+    )
+    template.fade_direction = gd_down
+    left = 117
+    top = 27
+  end
+  object tfaceguit: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16116442
+      12564394
+    )
+    template.fade_direction = gd_down
+    left = 150
+    top = 20
+  end
+end
