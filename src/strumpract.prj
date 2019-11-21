@@ -1533,7 +1533,7 @@ findhistory=20
  oswav2.y
  paintsliderimage
 findoptions=1
-editpos=63
+editpos=64
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1578,12 +1578,7 @@ editpos=63
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,441
- 0,-1073741823
+ 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1592,11 +1587,17 @@ editpos=63
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,449
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,0
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1660,7 +1661,8 @@ bookmarks59=0
 bookmarks60=0
 bookmarks61=0
 bookmarks62=0
-sourcefiles=63
+bookmarks63=0
+sourcefiles=64
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.pas
  /home/fred/msegui/lib/common/kernel/linux/mseguiintf.pas
@@ -1724,7 +1726,8 @@ sourcefiles=63
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/strumpract.pas
-relpaths=63
+ ${PROJECTDIR}/songplayer.pas
+relpaths=64
  filelistform.pas
  filelistform.pas
  msegui/lib/common/kernel/linux/mseguiintf.pas
@@ -1788,7 +1791,9 @@ relpaths=63
  filelistform.pas
  uos_flat.pas
  strumpract.pas
-ismoduletexts=63
+ songplayer.pas
+ismoduletexts=64
+ 0
  0
  0
  0
@@ -1885,7 +1890,9 @@ nomenumodules=7
  0
  0
 [sourcefo.files_tab]
-order=63
+order=64
+ 53
+ 63
  0
  1
  2
@@ -1896,6 +1903,9 @@ order=63
  7
  8
  9
+ 44
+ 46
+ 56
  48
  59
  61
@@ -1932,27 +1942,23 @@ order=63
  39
  40
  41
- 42
- 43
- 44
- 45
- 52
- 50
  58
- 49
- 51
- 55
- 57
- 47
+ 52
  54
- 53
+ 45
+ 50
+ 55
+ 47
+ 43
+ 51
+ 49
  60
- 46
- 56
-firsttab=9
-index=10
+ 42
+ 57
+firsttab=0
+index=1
 [layout]
-windowlayout=727
+windowlayout=729
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2097,7 +2103,7 @@ windowlayout=727
  sortdescend1=0
  sorted=0
  col=0
- row=4
+ row=7
  rowheight=17
  [stackfo]
  splitdir=0
@@ -2178,7 +2184,7 @@ windowlayout=727
  [objectinspectorfo]
  splitdir=0
  useroptions=268451947
- stackedunder=targetconsolefo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2419,8 +2425,9 @@ windowlayout=727
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/filelistform.pas
- history=3
+ value=/home/fred/strumpract/src/songplayer.pas
+ history=4
+  /home/fred/strumpract/src/uos.pas
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/main.pas
   ${PROJECTDIR}/main.pas
@@ -2445,7 +2452,9 @@ windowlayout=727
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=63
+ order=64
+  53
+  63
   0
   1
   2
@@ -2456,6 +2465,9 @@ windowlayout=727
   7
   8
   9
+  44
+  46
+  56
   48
   59
   61
@@ -2492,25 +2504,21 @@ windowlayout=727
   39
   40
   41
-  42
-  43
-  44
-  45
-  52
-  50
   58
-  49
-  51
-  55
-  57
-  47
+  52
   54
-  53
+  45
+  50
+  55
+  47
+  43
+  51
+  49
   60
-  46
-  56
- firsttab=9
- index=10
+  42
+  57
+ firsttab=0
+ index=1
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
@@ -2626,7 +2634,7 @@ windowlayout=727
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2645,7 +2653,7 @@ windowlayout=727
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2664,7 +2672,7 @@ windowlayout=727
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0

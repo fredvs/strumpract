@@ -443,7 +443,12 @@ begin
   
  // {      
   if (ss_double in info.mouseeventinfopo^.shiftstate) then
-  begin   
+  begin  
+  
+     if filelistfo.tbutton1.face.template = mainfo.tfaceorange then
+    onsent(tbutton1) else
+    if filelistfo.tbutton2.face.template = mainfo.tfaceorange then  onsent(tbutton2)  ;
+   
     
   //  writeln('button 2x click');   
      if commanderfo.tbutton2.face.template = mainfo.tfaceorange then
