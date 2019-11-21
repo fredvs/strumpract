@@ -437,9 +437,9 @@ begin
     edfilescount.Value := list_files.rowcount;
     filescount.Value := IntToStr(edfilescount.Value) + ' files';
     
-    if filelistfo.tbutton1.face.template = mainfo.tfaceorange then
-    onsent(tbutton1) else
-    if filelistfo.tbutton2.face.template = mainfo.tfaceorange then  onsent(tbutton2)  ;
+ //   if filelistfo.tbutton1.face.template = mainfo.tfaceorange then
+ //   onsent(tbutton1) else
+ //   if filelistfo.tbutton2.face.template = mainfo.tfaceorange then  onsent(tbutton2)  ;
   
  // {      
   if (ss_double in info.mouseeventinfopo^.shiftstate) then
