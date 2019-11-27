@@ -214,7 +214,7 @@ begin
 
   incmixinterval := 0;
   
-  if lastrowplayed > filelistfo.list_files.rowcount then lastrowplayed := 1;
+  if lastrowplayed > filelistfo.list_files.rowcount then lastrowplayed := 0;
   
   if lastrowplayed = -1 then 
   begin

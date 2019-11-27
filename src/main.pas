@@ -98,7 +98,7 @@ type
   end;
 
 const
-  versiontext = '1.8.1';
+  versiontext = '1.8.2';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -265,11 +265,11 @@ begin
   aboutfo.Caption := 'About StrumPract';
   aboutfo.about_text.frame.colorclient := $DFFFB2;
   aboutfo.about_text.Value := c_linefeed + 'StrumPract ' + versiontext + ' for ' + platformtext + c_linefeed +
-    'https://github.com/fredvs/strumpract/releases/' + c_linefeed + c_linefeed + 'Compiled with FPC 3.0.4.' +
+    'https://github.com/fredvs/strumpract/releases/' + c_linefeed + c_linefeed + 'Compiled with FPC 3.2.0.' +
     c_linefeed + 'http://www.freepascal.org' + c_linefeed + c_linefeed + 'Graphic widget: MSEgui ' + mseguiversiontext +
-    '.' + c_linefeed + 'http://sourceforge.net/projects/mseide-msegui/' + c_linefeed + c_linefeed +
+    '.' + c_linefeed + 'https://github.com/mse-org/mseide-msegui' + c_linefeed + c_linefeed +
     'Audio library: uos 1.8. (United Openlib of Sound)' + c_linefeed + 'https://github.com/fredvs/uos' + c_linefeed +
-    c_linefeed + 'Copyright 2018' + c_linefeed + 'Fred van Stappen <fiens@hotmail.com>';
+    c_linefeed + 'Copyright 2019' + c_linefeed + 'Fred van Stappen <fiens@hotmail.com>';
   aboutfo.Show(True);
 end;
 
