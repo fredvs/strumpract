@@ -1513,8 +1513,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=57
-finddtext=rowcount
+finddtext=list_files
 findhistory=20
+ list_files
  rowcount
  onstartstop
  historyfn
@@ -1534,9 +1535,49 @@ findhistory=20
  tbutton2
  oswav.y
  writeln
- oswav2.y
 findoptions=1
-editpos=67
+editpos=68
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1564,46 +1605,6 @@ editpos=67
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,436
- 0,216
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1671,7 +1672,8 @@ bookmarks63=0
 bookmarks64=0
 bookmarks65=0
 bookmarks66=0
-sourcefiles=67
+bookmarks67=0
+sourcefiles=68
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/filelistform.pas
  /home/fred/msegui/lib/common/kernel/linux/mseguiintf.pas
@@ -1739,7 +1741,8 @@ sourcefiles=67
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/commander.pas
-relpaths=67
+ ${PROJECTDIR}/filelistform.pas
+relpaths=68
  filelistform.pas
  filelistform.pas
  msegui/lib/common/kernel/linux/mseguiintf.pas
@@ -1807,7 +1810,9 @@ relpaths=67
  main.pas
  filelistform.pas
  commander.pas
-ismoduletexts=67
+ filelistform.pas
+ismoduletexts=68
+ 0
  0
  0
  0
@@ -1908,95 +1913,96 @@ nomenumodules=7
  0
  0
 [sourcefo.files_tab]
-order=67
- 29
- 49
- 13
- 65
- 66
- 3
- 60
- 56
- 23
- 61
- 58
- 17
- 32
- 51
- 7
+order=68
  39
- 31
- 30
- 16
- 47
- 50
- 57
- 6
- 14
- 43
- 33
- 45
- 25
- 26
- 28
- 36
- 5
- 55
- 10
- 52
  54
- 34
- 35
- 59
- 37
- 8
- 22
- 1
- 42
  53
- 64
- 44
- 41
- 19
- 27
- 48
- 12
- 21
- 0
- 46
- 18
- 20
- 11
- 63
- 4
- 15
- 2
+ 25
+ 17
+ 26
+ 66
+ 6
+ 56
  38
  9
- 62
+ 11
+ 12
+ 8
+ 36
+ 34
+ 49
+ 42
+ 19
+ 28
+ 13
+ 63
+ 43
+ 21
+ 45
+ 1
+ 46
+ 33
+ 61
+ 47
+ 18
+ 10
+ 44
+ 55
+ 48
+ 41
+ 23
+ 65
+ 50
+ 57
  24
+ 51
+ 2
+ 20
+ 27
+ 59
+ 60
+ 62
+ 15
+ 58
+ 3
+ 35
+ 4
+ 30
+ 67
+ 0
+ 5
+ 29
  40
+ 7
+ 14
+ 31
+ 32
+ 37
+ 16
+ 22
+ 64
+ 52
 firsttab=0
-index=4
+index=1
 [layout]
-windowlayout=736
+windowlayout=727
  [mainfo.basedock]
  splitdir=2
- useroptions=268450944
+ useroptions=268582016
  [mainfo]
  splitdir=0
- useroptions=301990011
+ useroptions=268435579
  stackedunder=
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=125
- y=46
- cx=1157
- cy=621
+ x=245
+ y=308
+ cx=688
+ cy=62
  rcx=0
  rcy=0
  wsize=0
@@ -2006,33 +2012,33 @@ windowlayout=736
  splitdir=0
  useroptions=268451945
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=493
- y=171
- cx=497
- cy=314
+ x=0
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=444
- y=431
- cx=418
- cy=126
+ x=0
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
  wsize=0
@@ -2043,14 +2049,14 @@ windowlayout=736
  useroptions=268451963
  stackedunder=dialogfilesfo
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
  x=100
  y=100
- cx=453
+ cx=465
  cy=354
  rcx=0
  rcy=0
@@ -2070,15 +2076,15 @@ windowlayout=736
  useroptions=268451947
  stackedunder=
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=162
- y=502
- cx=564
- cy=210
+ x=0
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
  wsize=0
@@ -2087,58 +2093,61 @@ windowlayout=736
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=mainfo
+ stackedunder=
  parent=
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=29
- cx=1368
- cy=710
- rcx=0
- rcy=0
- [projecttreefo]
- splitdir=0
- useroptions=268484715
- parent=mainfo.panel1.container
- visible=1
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
  x=0
  y=0
- cx=205
- cy=449
+ cx=0
+ cy=0
  rcx=0
  rcy=0
+ [projecttreefo]
+ splitdir=0
+ useroptions=268451947
+ stackedunder=memoryfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=546
+ y=378
+ cx=286
+ cy=201
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
  [projecttreefo.grid]
- propcolwidthref=88
- width0=117
+ propcolwidthref=120
+ width0=141
  sortdescend0=0
- width1=82
+ width1=114
  sortdescend1=0
  sorted=0
- col=0
- row=4
+ col=-1073741823
+ row=-1073741823
  rowheight=17
  [stackfo]
  splitdir=0
  useroptions=268460137
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=423
- y=321
- cx=344
- cy=155
+ x=0
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
  wsize=0
@@ -2148,15 +2157,15 @@ windowlayout=736
  splitdir=0
  useroptions=268451945
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=537
- y=26
- cx=483
- cy=210
+ x=0
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
  wsize=0
@@ -2184,16 +2193,16 @@ windowlayout=736
  [breakpointsfo]
  splitdir=0
  useroptions=268451947
- stackedunder=memoryfo
+ stackedunder=projecttreefo
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
  x=107
  y=404
- cx=477
+ cx=636
  cy=128
  rcx=0
  rcy=0
@@ -2205,96 +2214,80 @@ windowlayout=736
  [objectinspectorfo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=316
- y=249
- cx=316
- cy=484
+ x=185
+ y=360
+ cx=254
+ cy=248
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [objectinspectorfo.grid]
- propcolwidthref=291
- width0=129
+ propcolwidthref=244
+ width0=90
  sortdescend0=0
- width1=156
+ width1=148
  sortdescend1=0
  [symbolfo]
  splitdir=0
  useroptions=268451963
  stackedunder=
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=142
- y=257
- cx=361
- cy=137
+ x=0
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
  wsize=0
  active=0
  visible=0
  [symbolfo.grid]
- propcolwidthref=207
- values0=18
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ propcolwidthref=367
+ values0=0
  width0=111
  sortdescend0=0
- width1=125
+ width1=228
  sortdescend1=0
  [symbolfo.symbol]
  [watchfo]
  splitdir=0
  useroptions=268460137
- parent=mainfo.basedock
- visible=0
- mdistate=0
+ parent=
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=53
- y=0
- cx=247
- cy=44
- rcx=1262
- rcy=583
+ x=291
+ y=247
+ cx=310
+ cy=245
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
  [watchfo.grid]
- propcolwidthref=121
+ propcolwidthref=103
  values0=0
  values0_ci=-1
  sortdescend0=0
  values1=0
- width1=66
+ width1=152
  sortdescend1=0
  values3=0
  values3_ci=-1
@@ -2309,34 +2302,37 @@ windowlayout=736
  value=1
  [messagefo]
  splitdir=0
- useroptions=268517483
- parent=mainfo.basedock
- visible=1
- mdistate=0
+ useroptions=268451947
+ stackedunder=
+ parent=
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
  x=0
- y=505
- cx=1147
- cy=91
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
+ wsize=0
+ active=0
+ visible=0
  [componentstorefo]
  splitdir=0
  useroptions=268460155
  stackedunder=
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=100
- y=100
- cx=445
- cy=354
+ x=0
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
  wsize=0
@@ -2344,12 +2340,12 @@ windowlayout=736
  visible=0
  [componentstorefo.grid]
  propcolwidthref=435
- width0=111
+ width0=110
  sortdescend0=0
  sortdescend1=0
- width2=160
+ width2=103
  sortdescend2=0
- width3=185
+ width3=186
  sortdescend3=0
  [componentstorefo.storefiledialog]
  filenames=1
@@ -2396,10 +2392,10 @@ windowlayout=736
  ny=0
  ncx=0
  ncy=0
- x=240
- y=139
- cx=956
- cy=77
+ x=0
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
  wsize=0
@@ -2410,33 +2406,36 @@ windowlayout=736
  [debuggerfo]
  splitdir=0
  useroptions=24683
- parent=mainfo.basedock
- visible=1
- mdistate=0
+ stackedunder=watchfo
+ parent=
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=0
- y=0
- cx=1147
- cy=50
+ x=57
+ y=79
+ cx=1151
+ cy=64
  rcx=0
  rcy=0
+ wsize=0
+ active=0
+ visible=0
  [debuggerfo.basedock]
  splitdir=2
  useroptions=268582019
  parent=debuggerfo.container
  visible=1
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
- ncx=1147
- ncy=53
+ ncx=0
+ ncy=0
  x=0
- y=0
- cx=1147
- cy=53
+ y=47
+ cx=1141
+ cy=15
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2446,114 +2445,109 @@ windowlayout=736
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/commander.pas
- history=8
-  /home/fred/strumpract/src/uos.pas
-  /home/fred/strumpract/src/drums.pas
-  /home/fred/strumpract/src/commander.pas
-  /home/fred/msegui/lib/common/dialogs/msedirtree.pas
-  /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/filelistform.pas
-  /home/fred/strumpract/src/main.pas
-  ${PROJECTDIR}/main.pas
+ value=/home/fred/strumpract/src/guitars.pas
+ history=0
  [debuggerfo.project_options]
- value=1
+ value=M
  [debuggerfo.hints]
  value=1
  [sourcefo]
  splitdir=0
  useroptions=16489
- parent=mainfo.panel1.container
- visible=1
- mdistate=0
+ parent=
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=208
- y=0
- cx=939
- cy=449
+ x=142
+ y=201
+ cx=696
+ cy=352
  rcx=0
  rcy=0
+ wsize=0
+ active=0
+ visible=0
  [sourcefo.files_tab]
- order=67
-  29
-  49
-  13
-  65
-  66
-  3
-  60
-  56
-  23
-  61
-  58
-  17
-  32
-  51
-  7
+ order=68
   39
-  31
-  30
-  16
-  47
-  50
-  57
-  6
-  14
-  43
-  33
-  45
-  25
-  26
-  28
-  36
-  5
-  55
-  10
-  52
   54
-  34
-  35
-  59
-  37
-  8
-  22
-  1
-  42
   53
-  64
-  44
-  41
-  19
-  27
-  48
-  12
-  21
-  0
-  46
-  18
-  20
-  11
-  63
-  4
-  15
-  2
+  25
+  17
+  26
+  66
+  6
+  56
   38
   9
-  62
+  11
+  12
+  8
+  36
+  34
+  49
+  42
+  19
+  28
+  13
+  63
+  43
+  21
+  45
+  1
+  46
+  33
+  61
+  47
+  18
+  10
+  44
+  55
+  48
+  41
+  23
+  65
+  50
+  57
   24
+  51
+  2
+  20
+  27
+  59
+  60
+  62
+  15
+  58
+  3
+  35
+  4
+  30
+  67
+  0
+  5
+  29
   40
+  7
+  14
+  31
+  32
+  37
+  16
+  22
+  64
+  52
  firsttab=0
- index=4
+ index=1
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
  stackedunder=_mse_drumsfo_mse_
  parent=
- mdistate=0
+ mdistate=3
  nx=0
  ny=0
  ncx=0
@@ -2568,25 +2562,28 @@ windowlayout=736
  active=0
  visible=0
  [mainfo.panel1]
- splitdir=1
- useroptions=302087659
- parent=mainfo.basedock
- visible=1
- mdistate=0
+ splitdir=2
+ useroptions=268467691
+ stackedunder=
+ parent=
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
  x=0
- y=53
- cx=1147
- cy=449
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
+ wsize=0
+ active=0
+ visible=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2605,7 +2602,7 @@ windowlayout=736
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2624,7 +2621,7 @@ windowlayout=736
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2643,7 +2640,7 @@ windowlayout=736
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=sourcefo
  parent=
  mdistate=3
  nx=0
@@ -2662,7 +2659,7 @@ windowlayout=736
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2700,7 +2697,7 @@ windowlayout=736
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
