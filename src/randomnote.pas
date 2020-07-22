@@ -93,13 +93,15 @@ type
    procedure pianochord(num, ranchord, ismin : integer);
    procedure guitarchord(num, ranchord, ismin : integer);
    procedure basschord(num, ranchord, ismin : integer);
-   procedure dochordaudio(const sender: TObject);
    procedure showguit(const sender: TObject);
+   procedure onmouseguit(const sender: twidget; var ainfo: mouseeventinfoty);
+   procedure onmousepiano(const sender: twidget; var ainfo: mouseeventinfoty);
   end;
 
 var
   randomnotefo: trandomnotefo;
   chordran: integer;
+  chordmem1, chordmem2, chordmem3 : string;
 
 implementation
 
@@ -2310,7 +2312,9 @@ procedure trandomnotefo.dorandomchord(const Sender: TObject);
 var
   str2, str3: string;
   ismin, x, ranchord: integer;
-begin
+   isminstr: string;
+   
+ begin
 
   x := 0;
   while x < 50 do
@@ -2319,17 +2323,22 @@ begin
     ismin := Random(2);
 
     if ismin = 1 then
-      str3 := 'Major'
-    else
+     begin 
+      isminstr := '';
+      str3 := 'Major';
+     end else
+    begin
+      isminstr := 'm';
       str3 := 'Minor';
-      
+    end; 
+ 
     str3 := lineend + str3; 
 
     if withsharp.Value = false then
     begin
       ranchord := Random(7) + 1;
       if ranchord = 1 then
-        str2   := 'A / La' + str3
+       str2   := 'A / La' + str3
       else if ranchord = 2 then
         str2   := 'B / Si' + str3
       else if ranchord = 3 then
@@ -2376,11 +2385,19 @@ begin
     if TButton(Sender).tag = 0 then
     begin
       if chordran = 1 then 
-        chord1.caption := str2
+      begin
+        chord1.caption := str2;
+        chordmem1 := copy(str2,1,1) + isminstr ;
+      end  
      else if chordran = 2 then
-      chord2.caption := str2
-      else if chordran = 3 then
-        chord3.caption := str2
+      begin
+      chord2.caption := str2;
+      chordmem2 := copy(str2,1,1) + isminstr  ;
+      end else if chordran = 3 then
+      begin
+        chord3.caption := str2;
+        chordmem3 := copy(str2,1,1) + isminstr  ;
+       end 
       else if chordran = 4 then
         chord4.Text := str2
       else if chordran = 5 then
@@ -2792,61 +2809,6 @@ if guitarsfo.visible then guitarsfo.visible := false;
 mainfo.onexit(sender);
 end;
 
-procedure trandomnotefo.dochordaudio(const sender: TObject);
-var
-inindex1, inindex2, inindex3 : integer;
-begin
-
-uos_Stop(10);
-uos_Stop(11);
-uos_Stop(12);
-
-  uos_CreatePlayer(10);
- inindex1 := uos_AddFromSynth(10,la3,-1,-1, 0, -1, 0, -1, -1 ) ;
-
-         {$if defined(cpuarm)}
-  uos_AddIntoDevOut(10, -1, 0.3, -1, -1, 0, -1, -1) ;
-         {$else}
-  uos_AddIntoDevOut(10,-1,-1,-1,-1, 0,-1, -1) ;
-         {$endif}
-         
-   uos_CreatePlayer(11);
- inindex2 := uos_AddFromSynth(11,do4_d,-1,-1, 0, -1, 0, -1, -1 ) ;
-
-         {$if defined(cpuarm)}
-  uos_AddIntoDevOut(11, -1, 0.3, -1, -1, 0, -1, -1) ;
-         {$else}
-  uos_AddIntoDevOut(11,-1,-1,-1,-1, 0,-1, -1) ;
-         {$endif}       
-  
-    uos_CreatePlayer(12);
-  inindex3 := uos_AddFromSynth(12,mi4,-1,-1, 0, -1, 0, -1, -1 ) ;
-
-         {$if defined(cpuarm)}
-  uos_AddIntoDevOut(12, -1, 0.3, -1, -1, 0, -1, -1) ;
-         {$else}
-  uos_AddIntoDevOut(12,-1,-1,-1,-1, 0,-1, -1) ;
-         {$endif}              
-         
-    
-        uos_Play(10);
-        
-       // sleep(250) ; 
-        
-         uos_Play(11);
-        
-       // sleep(250) ; 
-        
-        uos_Play(12);
-      uos_InputSetSynth(12,inindex3, -1, 0.2,0.2, -1,true);     
-  
-         sleep(3000) ; 
-        
-        uos_stop(10);   
-        uos_stop(11);  
-        uos_stop(12);   
-   end;
-
 procedure trandomnotefo.showguit(const sender: TObject);
 begin
         
@@ -2863,6 +2825,82 @@ begin
     guitarsfo.left := 880;
     guitarsfo.visible := true;
     guitarsfo.bringtofront;  
+
+end;
+
+procedure trandomnotefo.onmouseguit(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+
+var
+thedir, afile : string;
+begin
+with ainfo do begin
+  
+   if eventkind in [ek_buttonpress] then begin
+
+if Timage(Sender).tag = 0 then afile := chordmem1 + '_GUIT'
+else if Timage(Sender).tag = 1 then afile := chordmem2 + '_GUIT'
+else if Timage(Sender).tag = 2 then afile := chordmem3 + '_GUIT'
+else afile := '';
+
+thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+       'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.ogg';
+
+ uos_Stop(Timage(Sender).tag + 10);
+
+if uos_CreatePlayer(Timage(Sender).tag + 10) then
+
+ if uos_AddFromFile(Timage(Sender).tag + 10, PChar(thedir)) > -1 then
+
+ 
+   {$if defined(cpuarm)}
+    if uos_AddIntoDevOut(Timage(Sender).tag + 10, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+   {$else}
+    if uos_AddIntoDevOut(Timage(Sender).tag + 10) > -1 then
+    {$endif}
+         
+  uos_Play(Timage(Sender).tag + 10);
+    
+end;
+
+end;
+
+end;
+
+procedure trandomnotefo.onmousepiano(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+var
+thedir, afile : string;
+begin
+with ainfo do begin  
+   if eventkind in [ek_buttonpress] then begin
+
+if Timage(Sender).tag = 0 then afile := chordmem1 + '_PIANO'
+else if Timage(Sender).tag = 1 then afile := chordmem2 + '_PIANO'
+else if Timage(Sender).tag = 2 then afile := chordmem3 + '_PIANO'
+else afile := '';
+
+thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+       'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
+
+ uos_Stop(Timage(Sender).tag + 20);
+
+if uos_CreatePlayer(Timage(Sender).tag + 20) then
+
+ if uos_AddFromFile(Timage(Sender).tag + 20, PChar(thedir)) > -1 then
+
+ 
+   {$if defined(cpuarm)}
+    if uos_AddIntoDevOut(Timage(Sender).tag + 20, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+   {$else}
+    if uos_AddIntoDevOut(Timage(Sender).tag + 20) > -1 then
+    {$endif}
+         
+  uos_Play(Timage(Sender).tag + 20);
+    
+end;
+
+end;
 
 end;
 

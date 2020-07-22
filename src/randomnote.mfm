@@ -571,53 +571,62 @@ object randomnotefo: trandomnotefo
     textflags = [tf_left, tf_top]
     reffontheight = 19
     object timage8: timage
+      Tag = 1
       frame.localprops = []
       frame.localprops1 = []
       taborder = 3
-      bounds_x = 4
-      bounds_y = 22
+      hint = 'Click to listen to the guitar chord'
+      bounds_x = 3
+      bounds_y = 21
       bounds_cx = 130
       bounds_cy = 136
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
     end
     object gelipse2_3: timage
+      Tag = 1
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      bounds_x = 88
-      bounds_y = 73
+      bounds_x = 87
+      bounds_y = 72
       bounds_cx = 22
       bounds_cy = 32
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
     end
     object gelipse2_1: timage
+      Tag = 1
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 1
-      bounds_x = 48
+      bounds_x = 47
+      bounds_y = 72
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object gelipse2_2: timage
+      Tag = 1
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 2
+      bounds_x = 67
       bounds_y = 73
       bounds_cx = 22
       bounds_cy = 32
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
-    end
-    object gelipse2_2: timage
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 2
-      bounds_x = 68
-      bounds_y = 74
-      bounds_cx = 22
-      bounds_cy = 32
-      bitmap.options = [bmo_masked, bmo_graymask]
-      bitmap.origformat = 'png'
-      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
     end
   end
   object guitar3: tstringdisp
@@ -651,53 +660,62 @@ object randomnotefo: trandomnotefo
     textflags = [tf_left, tf_top]
     reffontheight = 19
     object timage12: timage
+      Tag = 2
       frame.localprops = []
       frame.localprops1 = []
       taborder = 3
-      bounds_x = 4
-      bounds_y = 22
+      hint = 'Click to listen to the guitar chord'
+      bounds_x = 3
+      bounds_y = 21
       bounds_cx = 130
       bounds_cy = 136
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
     end
     object gelipse3_3: timage
+      Tag = 2
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      bounds_x = 88
-      bounds_y = 34
+      bounds_x = 87
+      bounds_y = 33
       bounds_cx = 22
       bounds_cy = 32
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
     end
     object gelipse3_2: timage
+      Tag = 2
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 1
-      bounds_x = 68
-      bounds_y = 74
-      bounds_cx = 22
-      bounds_cy = 32
-      bitmap.options = [bmo_masked, bmo_graymask]
-      bitmap.origformat = 'png'
-      bitmap.alignment = [al_stretchx, al_stretchy]
-    end
-    object gelipse3_1: timage
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 2
-      bounds_x = 48
+      bounds_x = 67
       bounds_y = 73
       bounds_cx = 22
       bounds_cy = 32
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object gelipse3_1: timage
+      Tag = 2
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 2
+      bounds_x = 47
+      bounds_y = 72
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
     end
   end
   object piano1: tstringdisp
@@ -733,6 +751,7 @@ object randomnotefo: trandomnotefo
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
+      hint = 'Click to listen to piano chord'
       bounds_x = 1
       bounds_y = 1
       bounds_cx = 270
@@ -5014,14 +5033,16 @@ object randomnotefo: trandomnotefo
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000
       }
+      onmouseevent = onmousepiano
     end
     object elipse1_1: timage
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 1
-      bounds_x = 107
-      bounds_y = 98
+      hint = 'Click to listen to piano chord'
+      bounds_x = 106
+      bounds_y = 97
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
@@ -5190,30 +5211,35 @@ object randomnotefo: trandomnotefo
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000
       }
+      onmouseevent = onmousepiano
     end
     object elipse1_2: timage
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 2
-      bounds_x = 149
-      bounds_y = 27
+      hint = 'Click to listen to piano chord'
+      bounds_x = 148
+      bounds_y = 26
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
     object elipse1_3: timage
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 3
-      bounds_x = 217
-      bounds_y = 94
+      hint = 'Click to listen to piano chord'
+      bounds_x = 216
+      bounds_y = 93
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
   end
   object guitar1: tstringdisp
@@ -5249,8 +5275,9 @@ object randomnotefo: trandomnotefo
     object timage1: timage
       frame.localprops = []
       frame.localprops1 = []
-      bounds_x = 4
-      bounds_y = 22
+      hint = 'Click to listen to the guitar chord'
+      bounds_x = 3
+      bounds_y = 18
       bounds_cx = 130
       bounds_cy = 136
       bitmap.origformat = 'png'
@@ -6888,40 +6915,43 @@ object randomnotefo: trandomnotefo
         9398A401A7AEB801525F79010F214C01011943010014350100173B01011D4C01
         021B450102163A01121C330131363F0198989801F4F4F401
       }
+      onmouseevent = onmouseguit
     end
     object gelipse1_3: timage
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 1
-      bounds_x = 111
-      bounds_y = 116
+      bounds_x = 110
+      bounds_y = 115
       bounds_cx = 22
       bounds_cy = 32
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
     end
     object gelipse1_2: timage
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 2
-      bounds_x = 27
-      bounds_y = 75
+      bounds_x = 26
+      bounds_y = 74
       bounds_cx = 22
       bounds_cy = 32
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
     end
     object gelipse1_1: timage
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 3
-      bounds_x = 6
-      bounds_y = 114
+      bounds_x = 5
+      bounds_y = 113
       bounds_cx = 22
       bounds_cy = 32
       bitmap.options = [bmo_masked, bmo_graymask]
@@ -7087,6 +7117,7 @@ object randomnotefo: trandomnotefo
         0000005FABDFFAFADFAB5F000000000000000000000000000000000000000000
         000000000000000000000000000000000000000000000000
       }
+      onmouseevent = onmouseguit
     end
   end
   object guitar5: tstringdisp
@@ -7243,52 +7274,64 @@ object randomnotefo: trandomnotefo
     textflags = [tf_xcentered]
     reffontheight = 19
     object keyb2: timage
+      Tag = 1
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
+      hint = 'Click to listen to piano chord'
       bounds_x = 1
-      bounds_y = 3
+      bounds_y = 1
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
     object elipse2_1: timage
+      Tag = 1
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 1
-      bounds_x = 0
-      bounds_y = 96
+      hint = 'Click to listen to piano chord'
+      bounds_x = -1
+      bounds_y = 95
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
     object elipse2_2: timage
+      Tag = 1
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 2
-      bounds_x = 40
-      bounds_y = 23
+      hint = 'Click to listen to piano chord'
+      bounds_x = 39
+      bounds_y = 22
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
     object elipse2_3: timage
+      Tag = 1
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 3
-      bounds_x = 107
-      bounds_y = 96
+      hint = 'Click to listen to piano chord'
+      bounds_x = 106
+      bounds_y = 95
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
   end
   object piano3: tstringdisp
@@ -7321,57 +7364,71 @@ object randomnotefo: trandomnotefo
     textflags = [tf_xcentered]
     reffontheight = 19
     object keyb3: timage
+      Tag = 2
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
+      hint = 'Click to listen to piano chord'
       bounds_x = 1
-      bounds_y = 5
+      bounds_y = 1
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
     object elipse3_1: timage
+      Tag = 2
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 1
-      bounds_x = 26
-      bounds_y = 98
+      hint = 'Click to listen to piano chord'
+      bounds_x = 25
+      bounds_y = 97
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
     object elipse3_2: timage
+      Tag = 2
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 2
-      bounds_x = 81
-      bounds_y = 97
+      hint = 'Click to listen to piano chord'
+      bounds_x = 80
+      bounds_y = 96
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
     object elipse3_3: timage
+      Tag = 2
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
       taborder = 3
-      bounds_x = 133
-      bounds_y = 97
+      hint = 'Click to listen to piano chord'
+      bounds_x = 132
+      bounds_y = 96
       bounds_cx = 30
       bounds_cy = 45
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
     end
   end
   object chord1: tbutton
-    Tag = 1
     color = 12895428
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -7398,8 +7455,11 @@ object randomnotefo: trandomnotefo
     font.localprops = [flp_color, flp_height]
   end
   object chord2: tbutton
-    Tag = 2
+    Tag = 1
     color = 12895428
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -7426,8 +7486,11 @@ object randomnotefo: trandomnotefo
     font.localprops = [flp_color, flp_height]
   end
   object chord3: tbutton
-    Tag = 3
+    Tag = 2
     color = 12895428
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
