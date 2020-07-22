@@ -1576,8 +1576,13 @@ begin
  
   if typecolor.Value = 0 then
   begin
-
-    // main
+    randomnotefo.color := $DED9D1;
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.nodrums.frame.font.color := cl_black;
+    randomnotefo.withsharp.frame.font.color := cl_black;
+    randomnotefo.maxnote.frame.font.color := cl_black;
+    
+        // main
     tfacegreen.template.fade_color.items[0] := $C2FF9E;
     tfacegreen.template.fade_color.items[1] := $6EB545;
 
@@ -2032,6 +2037,12 @@ begin
 
   if typecolor.Value = 1 then
   begin
+   randomnotefo.color := cl_ltgray;
+   randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.nodrums.frame.font.color := cl_black;
+    randomnotefo.withsharp.frame.font.color := cl_black;
+    randomnotefo.maxnote.frame.font.color := cl_black;
+    
     // main
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
     tfacebutgray.template.fade_color.items[1] := $9E9E9E;
@@ -2484,6 +2495,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
   if typecolor.Value = 2 then
   begin
+    randomnotefo.color := cl_black;
+    randomnotefo.withrandom.frame.font.color := cl_white;
+    randomnotefo.nodrums.frame.font.color := cl_white;
+    randomnotefo.withsharp.frame.font.color := cl_white;
+    randomnotefo.maxnote.frame.font.color := cl_white;
+    
 
     with spectrum1fo do
     begin

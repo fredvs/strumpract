@@ -1,10 +1,10 @@
 object randomnotefo: trandomnotefo
+  color = 14604753
   visible = False
   bounds_x = 0
   bounds_y = 29
   bounds_cx = 1430
   bounds_cy = 752
-  container.color = 14604753
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
@@ -7463,8 +7463,8 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 29
     hint = 'Launch the randomizer'
-    bounds_x = 1371
-    bounds_y = 13
+    bounds_x = 1376
+    bounds_y = 7
     bounds_cx = 33
     bounds_cy = 34
     state = [as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]

@@ -165,8 +165,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=908
- y=358
+ x=879
+ y=437
  cx=300
  cy=269
 replacedialog=33
@@ -1166,11 +1166,11 @@ line=40
  781
  701
  1554
- 2198
+ 2209
  209
  1136
- 2697
- 2918
+ 2714
+ 2935
  400
  5
  751
@@ -1178,7 +1178,7 @@ line=40
  162
  1486
  356
- 3123
+ 3140
  1667
 address=40
  4607475
@@ -1507,7 +1507,7 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=ntimeract
+finddtext=if typecolor.Value =
 findhistory=20
  ntimeract
  timeract
@@ -1531,8 +1531,8 @@ findhistory=20
  aclients
 findoptions=1
 editpos=2
- 0,132
- 0,0
+ 0,2501
+ 0,2784
 bookmarks0=0
 bookmarks1=0
 sourcefiles=2
@@ -1586,13 +1586,13 @@ windowlayout=627
  ny=0
  ncx=0
  ncy=0
- x=93
- y=78
+ x=123
+ y=186
  cx=1224
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [targetconsolefo]
@@ -1706,7 +1706,7 @@ windowlayout=627
  x=0
  y=0
  cx=205
- cy=548
+ cy=449
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1892,9 +1892,9 @@ windowlayout=627
  ncx=0
  ncy=0
  x=0
- y=615
- cx=1428
- cy=116
+ y=505
+ cx=1212
+ cy=95
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1993,8 +1993,8 @@ windowlayout=627
  ncy=0
  x=0
  y=0
- cx=1428
- cy=61
+ cx=1212
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2009,8 +2009,8 @@ windowlayout=627
  ncy=58
  x=0
  y=-1
- cx=1428
- cy=58
+ cx=1212
+ cy=47
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2022,8 +2022,8 @@ windowlayout=627
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/randomnote.pas
  history=20
-  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/define.inc
   /home/fred/uos/examples/define.inc
   /home/fred/uos/examples/consolesynth.pas
@@ -2058,8 +2058,8 @@ windowlayout=627
  ncy=0
  x=208
  y=0
- cx=1220
- cy=548
+ cx=1004
+ cy=449
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2100,15 +2100,15 @@ windowlayout=627
  ncx=0
  ncy=0
  x=0
- y=64
- cx=1428
- cy=548
+ y=53
+ cx=1212
+ cy=449
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2184,7 +2184,7 @@ windowlayout=627
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

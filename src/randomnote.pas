@@ -2787,6 +2787,8 @@ end;
 
 procedure trandomnotefo.doquit(const sender: TObject);
 begin
+if drumsfo.visible then drumsfo.visible := false;
+if guitarsfo.visible then guitarsfo.visible := false;
 mainfo.onexit(sender);
 end;
 
