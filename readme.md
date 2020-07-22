@@ -15,7 +15,11 @@ and arm RPi. =\> https://github.com/fredvs/strumpract/releases/
 
 Fred van Stappen fiens@hotmail.com
 
-DJ layout:
+DJ layout colorized:
+
+![alt text](https://user-images.githubusercontent.com/3421249/88124912-78e20000-cbce-11ea-8d54-70b984398d63.png)
+
+DJ layout carbon:
 
 ![alt text](https://user-images.githubusercontent.com/3421249/68096426-ec14dc00-feb0-11e9-9b47-2de27b890753.png)
 
@@ -30,3 +34,5 @@ All docked:
 Chords randomizer:
 
 ![alt text](https://user-images.githubusercontent.com/3421249/88121171-37008c00-cbc5-11ea-98b2-a527fa1240a4.png)
+
+
