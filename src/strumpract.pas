@@ -8,7 +8,7 @@ program strumpract;
  {$R dp.res}
 {$endif}
 uses
-
+ //cmem,
  {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}
   Math, 
   filelistform,
@@ -26,6 +26,7 @@ uses
   status,
   spectrum1,
   waveform,
+  randomnote,
   dockpanel1;
 
 begin
@@ -150,12 +151,14 @@ end;
   application.createform(tdockpanel1fo, dockpanel3fo);
   application.createform(tdockpanel1fo, dockpanel4fo);
   application.createform(tdockpanel1fo, dockpanel5fo);
-
+  
   dockpanel1fo.Caption := 'Dock Panel 1';
   dockpanel2fo.Caption := 'Dock Panel 2';
   dockpanel3fo.Caption := 'Dock Panel 3';
   dockpanel4fo.Caption := 'Dock Panel 4';
   dockpanel5fo.Caption := 'Dock Panel 5';
+  
+  application.createform(trandomnotefo, randomnotefo);
 
   application.createform(tmainfo, mainfo);
 

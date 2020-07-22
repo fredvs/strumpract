@@ -258,8 +258,8 @@ object filelistfo: tfilelistfo
       face.localprops = []
       face.template = mainfo.tfacebutgray
       hint = ' To move a row: click+hold into the fixed column and drag the row where you want. '
-      bounds_x = 1
-      bounds_y = 0
+      bounds_x = 2
+      bounds_y = 2
       bounds_cx = 431
       bounds_cy = 100
       anchors = [an_left, an_top, an_right, an_bottom]
@@ -308,6 +308,7 @@ object filelistfo: tfilelistfo
           optionsedit = [scoe_undoonesc, scoe_eatreturn, scoe_exitoncursor, scoe_autoselect, scoe_autoselectonfirstclick, scoe_focusrectonreadonly, scoe_checkbox]
           valuefalse = '0'
           valuetrue = '1'
+          ondrawcell = ondrawcell
         end      
         item
           colorselect = 16763002
@@ -587,8 +588,8 @@ object filelistfo: tfilelistfo
   object tstatfile1: tstatfile
     filename = 'cue.lis'
     options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
-    left = 320
-    top = 39
+    left = 289
+    top = 53
   end
   object tfiledialog1: tfiledialog
     left = 30

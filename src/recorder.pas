@@ -198,7 +198,7 @@ begin
   begin
     temptime := now - timenow;
     DecodeTime(temptime, ho, mi, se, ms);
-    lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+    lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
     timerrec.Enabled := True;
   end
   else
@@ -347,7 +347,7 @@ begin
      temptime := uos_InputPositionTime(therecplayer, InputIndex3);
       ////// Length of input in time
       DecodeTime(temptime, ho, mi, se, ms);
-     lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+     lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
    
         
     end;
@@ -508,7 +508,7 @@ begin
 
       DecodeTime(tottime, ho, mi, se, ms);
 
-      llength.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+      llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
       uos_EndProc(therecplayer, @ClosePlayer1);
 
@@ -618,7 +618,7 @@ begin
       infosfo.infoyear.Caption := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(therecplayerinfo, 0)));
       infosfo.infocom.Caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(therecplayerinfo, 0)));
       infosfo.infotag.Caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(therecplayerinfo, 0)));
-      infosfo.infolength.Caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+      infosfo.infolength.Caption := utf8decode('Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
       infosfo.inforate.Caption := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
       infosfo.infochan.Caption := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
       infosfo.infobpm.Caption := '';
@@ -658,7 +658,7 @@ begin
   begin
     temptime := tottimerec * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms);
-    lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+    lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
   end;
 
@@ -814,7 +814,7 @@ begin
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   if songdir.Value = '' then
-    songdir.Value := ordir + 'sound' + directoryseparator + 'record' + directoryseparator + 'record.wav';
+    songdir.Value := utf8decode(ordir + 'sound' + directoryseparator + 'record' + directoryseparator + 'record.wav');
 
   recorderfo.historyfn.Value := recorderfo.songdir.Value;
 
@@ -958,7 +958,7 @@ begin
   begin
     if avalue > 2 then
     begin
-      hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 2.  Reset to 2.';
+      hintlabel.Caption := utf8decode('"' + IntToStr(trunc(avalue)) + '" is > 2.  Reset to 2.');
       if hintlabel.Width > hintlabel2.Width then
         hintpanel.Width := hintlabel.Width + 10
       else
@@ -989,7 +989,7 @@ begin
 
     if avalue > 100 then
     begin
-      hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 100.  Reset to 100.';
+      hintlabel.Caption := utf8decode('"' + IntToStr(trunc(avalue)) + '" is > 100.  Reset to 100.');
       if hintlabel.Width > hintlabel2.Width then
         hintpanel.Width := hintlabel.Width + 10
       else

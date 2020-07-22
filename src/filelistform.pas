@@ -5,12 +5,12 @@ interface
 
 uses
  msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat,
- msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent, msedatalist,
- mseclasses, msegridsglob, mseforms, msedock, msedragglob, msesimplewidgets,
- msewidgets, mseact, msebitmap, msedataedits, msedatanodes, mseedit,
- msefiledialog, msegrids, mseificomp, mseificompglob, mseifiglob,mselistbrowser,
- msestatfile, msestream, msestrings, msesys, SysUtils,msegraphedits,
- msescrollbar, msedispwidgets, mserichstring,msedropdownlist;
+ msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent,
+  msedatalist,mseclasses, msegridsglob, mseforms, msedock, msedragglob,
+  msesimplewidgets,msewidgets, mseact, msebitmap, msedataedits, msedatanodes,
+  mseedit,msefiledialog, msegrids, mseificomp, mseificompglob, mseifiglob,
+ mselistbrowser,msestatfile, msestream, msestrings, msesys, SysUtils,
+ msegraphedits,msescrollbar, msedispwidgets, mserichstring,msedropdownlist;
 
 type
   tfilelistfo = class(tdockform)
@@ -54,6 +54,8 @@ type
    procedure savelist(const sender: TObject);
    procedure addfile(const sender: TObject);
    procedure oncreate(const sender: TObject);
+   procedure ondrawcell(const sender: tcol; const canvas: tcanvas;
+                   var cellinfo: cellinfoty);
   end;
 
 var
@@ -87,17 +89,17 @@ begin
    ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
    
   if fileexists(ordir+  'ini'  + directoryseparator +  'list.ini') then
-   filelistfo.tstatfile1.readstat(ordir+  'ini'  + directoryseparator +  'list.ini') else
+   filelistfo.tstatfile1.readstat(utf8decode(ordir+  'ini'  + directoryseparator +  'list.ini')) else
    if trim(historyfn.Value) = '' then
    begin
     hasinit := 1;
-    historyfn.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator  ;
+    historyfn.Value := utf8decode(ordir + 'sound' + directoryseparator + 'song' + directoryseparator ) ;
     onchangpath(Sender);
     end;
    
       list_files.fixcols[-1].captions.count:= list_files.rowCount;
  
-  for x := 0 to list_files.rowCount - 1 do list_files.fixcols[-1].captions[x] := inttostr(x+1);
+  for x := 0 to list_files.rowCount - 1 do list_files.fixcols[-1].captions[x] := utf8decode(inttostr(x+1));
 end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
@@ -112,7 +114,7 @@ begin
  list_files.fixcols[-1].captions.count:= list_files.rowCount;
  
   for x := 0 to list_files.rowCount - 1 do 
-      list_files.fixcols[-1].captions[x] := inttostr(x+1);
+      list_files.fixcols[-1].captions[x] := utf8decode(inttostr(x+1));
 
 end;
 
@@ -291,12 +293,12 @@ begin
 
       for x := 0 to datalist_files.Count - 1 do
       begin
-        list_files[0][x] := filenamebase(datalist_files.items[x].Name);
-        list_files[1][x] := fileext(datalist_files.items[x].Name);
-        list_files[2][x] := IntToStr(datalist_files.items[x].extinfo1.size div 1000) + ' Kb';
+        list_files[0][x] := utf8decode(filenamebase(datalist_files.items[x].Name));
+        list_files[1][x] := utf8decode(fileext(datalist_files.items[x].Name));
+        list_files[2][x] := utf8decode(IntToStr(datalist_files.items[x].extinfo1.size div 1000) + ' Kb');
         // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
-        list_files[3][x] := IntToStr(1);
-        list_files[4][x] := historyfn.Value + datalist_files.items[x].Name;
+        list_files[3][x] := utf8decode(IntToStr(1));
+        list_files[4][x] := utf8decode(historyfn.Value + datalist_files.items[x].Name);
       end;
 
       cellpos.row := 0;
@@ -308,9 +310,9 @@ begin
       
        list_files.fixcols[-1].captions.count:= list_files.rowCount;
  
-  for x := 0 to list_files.rowCount - 1 do       list_files.fixcols[-1].captions[x] := inttostr(x+1);
+  for x := 0 to list_files.rowCount - 1 do       list_files.fixcols[-1].captions[x] := utf8decode(inttostr(x+1));
      edfilescount.Value := list_files.rowcount;
-    filescount.Value := IntToStr(edfilescount.Value) + ' files';
+    filescount.Value := utf8decode(IntToStr(edfilescount.Value) + ' files');
 
       // list_files.focusedindex := 0;
       datalist_files.Free();
@@ -416,7 +418,7 @@ begin
         list_files.tag := 1;
         for x := 0 to list_files.rowCount - 1 do
         begin
-          list_files[3][x] := IntToStr(0);
+          list_files[3][x] := utf8decode(IntToStr(0));
         end;
       end
       else
@@ -424,7 +426,7 @@ begin
         list_files.tag := 0;
         for x := 0 to list_files.rowCount - 1 do
         begin
-          list_files[3][x] := IntToStr(1);
+          list_files[3][x] := utf8decode(IntToStr(1));
         end;
       end;
     end;
@@ -435,7 +437,7 @@ begin
   if (info.eventkind = cek_buttonrelease) then
   begin 
     edfilescount.Value := list_files.rowcount;
-    filescount.Value := IntToStr(edfilescount.Value) + ' files';
+    filescount.Value := utf8decode(IntToStr(edfilescount.Value) + ' files');
     
  //   if filelistfo.tbutton1.face.template = mainfo.tfaceorange then
  //   onsent(tbutton1) else
@@ -487,7 +489,7 @@ end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
 begin
-  filescount.Value := IntToStr(edfilescount.Value) + ' files';
+  filescount.Value := utf8decode(IntToStr(edfilescount.Value) + ' files');
 end;
 
 procedure tfilelistfo.ondestr(const Sender: TObject);
@@ -511,7 +513,7 @@ typstat := 3;
 statusfo.caption := 'Cue List';
 statusfo.color := $A7C9B9;
 statusfo.list_files.frame.caption := 'Choose a cue-list';
-statusfo.list_files.path := ordir;
+statusfo.list_files.path := utf8decode(ordir);
 statusfo.list_files.mask :=  '*.lis' ;
 statusfo.layoutname.visible := false;
 statusfo.list_files.visible := true;
@@ -551,22 +553,23 @@ if fileexists(str1) then begin
  
  list_files.rowcount := list_files.rowcount + 1; 
   x := list_files.rowcount-1;
-        
+  
+          
  //    if x > 0 then  list_files[-1][x] := inttostr(x+1);
-        list_files[0][x] := filenamebase(str1);
-        list_files[1][x] := fileext(str1);
-        list_files[2][x] := IntToStr(siz div 1000) + ' Kb';
+        list_files[0][x] := utf8decode(filenamebase(str1));
+        list_files[1][x] := utf8decode(fileext(str1));
+        list_files[2][x] := utf8decode(IntToStr(siz div 1000) + ' Kb');
         // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
-        list_files[3][x] := IntToStr(1);
+        list_files[3][x] := utf8decode(IntToStr(1));
         list_files[4][x] := str1;
   edfilescount.Value := list_files.rowcount;    
-   filescount.Value := IntToStr(edfilescount.Value) + ' files';   
+   filescount.Value := utf8decode(IntToStr(edfilescount.Value) + ' files');   
    
     list_files.fixcols[-1].captions.count:= list_files.rowCount;
  
-  for x := 0 to list_files.rowCount - 1 do list_files.fixcols[-1].captions[x] := inttostr(x+1);
+  for x := 0 to list_files.rowCount - 1 do list_files.fixcols[-1].captions[x] := utf8decode(inttostr(x+1));
      edfilescount.Value := list_files.rowcount;
-    filescount.Value := IntToStr(edfilescount.Value) + ' files';
+    filescount.Value := utf8decode(IntToStr(edfilescount.Value) + ' files');
    
  end;
 end;
@@ -574,8 +577,17 @@ end;
 
 procedure tfilelistfo.oncreate(const sender: TObject);
 begin
- tstatfile1.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +  'ini'  + 
- directoryseparator +  'list.ini';
+ tstatfile1.filename := utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +  'ini'  + 
+ directoryseparator +  'list.ini');
  end;
+
+
+
+procedure tfilelistfo.ondrawcell(const sender: tcol; const canvas: tcanvas;
+               var cellinfo: cellinfoty);
+                               
+begin
+ //pieceslist.paint(canvas,2,nullpoint,cl_default,cl_default,cl_default,0);
+end;
 
 end.

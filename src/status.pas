@@ -26,7 +26,7 @@ uses
  
 procedure tstatusfo.oncreated(const sender: TObject);
 var
-ordir : string;
+ordir : msestring;
 begin
  
 end;
@@ -49,8 +49,8 @@ begin
 ordir := ExtractFilePath(ParamStr(0))
  + 'layout' + directoryseparator;
 if statusfo.layoutname.value <> '' then begin
- ordir := ordir + statusfo.layoutname.value + '.lay';
-mainfo.tstatfile1.writestat(ordir);
+ ordir := ordir + utf8decode(statusfo.layoutname.value + '.lay');
+mainfo.tstatfile1.writestat(utf8decode(ordir));
 end;
 end;
 
@@ -59,8 +59,8 @@ begin
 ordir := ExtractFilePath(ParamStr(0))
  + 'layout' + directoryseparator;
 if assigned(list_files.selectednames) then if list_files.selectednames[0] <> '' then begin
-ordir := ordir + list_files.selectednames[0] ;
-mainfo.tstatfile1.readstat(ordir);
+ordir := ordir + utf8decode(list_files.selectednames[0]) ;
+mainfo.tstatfile1.readstat(utf8decode(ordir));
 end;
 end;
 
@@ -71,8 +71,8 @@ ordir := ExtractFilePath(ParamStr(0))
 if statusfo.layoutname.value <> '' then begin
 //filelistfo.statfile := mainfo.tstatfile1;
 //filelistfo.tstatfile1.writestat(ExtractFilePath(ParamStr(0))+ 'list.ini');
- ordir := ordir + statusfo.layoutname.value + '.lis';
-filelistfo.tstatfile1.writestat(ordir); 
+ ordir := utf8decode(ordir + statusfo.layoutname.value + '.lis');
+filelistfo.tstatfile1.writestat(utf8decode(ordir)); 
 filelistfo.caption := statusfo.layoutname.value;
 
 //filelistfo.statfile := mainfo.tstatfile1;
@@ -86,8 +86,8 @@ ordir := ExtractFilePath(ParamStr(0))
  
 if assigned(list_files.selectednames) then if list_files.selectednames[0] <> '' then begin
 //filelistfo.statfile := filelistfo.tstatfile1;
-ordir := ordir + list_files.selectednames[0] ;
-filelistfo.tstatfile1.readstat(ordir);
+ordir := utf8decode(ordir + list_files.selectednames[0]) ;
+filelistfo.tstatfile1.readstat(utf8decode(ordir));
 
     cellpos.row := 0;
       cellpos.col := 0;
@@ -101,9 +101,9 @@ filelistfo.caption := removefileext(list_files.selectednames[0]);
  filelistfo.list_files.fixcols[-1].captions.count:= filelistfo.list_files.rowCount;
  
   for x := 0 to filelistfo.list_files.rowCount - 1 do 
-        filelistfo.list_files.fixcols[-1].captions[x] := inttostr(x+1);
+        filelistfo.list_files.fixcols[-1].captions[x] := utf8decode(inttostr(x+1));
     
-    filelistfo.filescount.Value := IntToStr(filelistfo.edfilescount.Value) + ' files';
+    filelistfo.filescount.Value := utf8decode(IntToStr(filelistfo.edfilescount.Value) + ' files');
 
 //filelistfo.statfile := mainfo.tstatfile1;
 end;

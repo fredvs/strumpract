@@ -624,11 +624,11 @@ procedure tdrumsfo.onchangetempo(const Sender: TObject);
 begin
   if round(60000 / 4 / edittempo.Value * 1000) > 0 then
 
-    ltempo.Value := 'BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(600000 / 4 / edittempo.Value)) + ' ds'
+    ltempo.Value := utf8decode( 'BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(600000 / 4 / edittempo.Value)) + ' ds')
   else
   begin
     edittempo.Value := 1;
-    ltempo.Value := 'BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(600000 / 4 / edittempo.Value)) + ' ds';
+    ltempo.Value := utf8decode('BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(600000 / 4 / edittempo.Value)) + ' ds');
   end;
 
   if hasinit = 1 then
@@ -885,16 +885,16 @@ begin
   writeln(langcount.text);
 //langcount.value  := 'es';
 // writeln(langcount.text);
-  adrums[4] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
-   langcount.value + directoryseparator + '1.ogg';
-  adrums[5] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
-   langcount.value + directoryseparator + '2.ogg';
-  adrums[6] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
-  langcount.value + directoryseparator + '3.ogg';
-  adrums[7] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
-   langcount.value + directoryseparator + '4.ogg';
-  adrums[8] := ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-   langcount.value + directoryseparator + 'and.ogg';
+  adrums[4] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
+   langcount.value + directoryseparator + '1.ogg');
+  adrums[5] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
+   langcount.value + directoryseparator + '2.ogg');
+  adrums[6] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
+  langcount.value + directoryseparator + '3.ogg');
+  adrums[7] := utf8decode( ordir + 'sound' + directoryseparator + 'voice' + directoryseparator + 
+   langcount.value + directoryseparator + '4.ogg');
+  adrums[8] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
+   langcount.value + directoryseparator + 'and.ogg');
   
   
   if tag = 0 then

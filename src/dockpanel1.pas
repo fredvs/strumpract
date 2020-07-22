@@ -40,8 +40,8 @@ type
     procedure beginlayout();
     procedure endlayout();
   public
-    procedure updatelayout();
-  end;
+    procedure updatelayout(); 
+   end;
 
 const
   emptyheight = 40;

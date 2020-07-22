@@ -88,6 +88,7 @@ type
     procedure ondockrec(const sender: TObject);
     procedure loadlayout(const sender: TObject);
     procedure savelayout(const sender: TObject);
+   procedure onshowrandom(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -126,7 +127,7 @@ var
 implementation
 
 uses
-  config, drums, recorder, songplayer, commander,
+  config, drums, recorder, songplayer, commander, randomnote,
   filelistform, spectrum1, waveform, dockpanel1,
   aboutform, uos_flat, guitars, main_mfm;
   
@@ -401,6 +402,9 @@ begin
     if timerwait.Enabled then
   timerwait.restart // to reset
  else timerwait.Enabled := True;
+ 
+ if randomnotefo.visible = true then
+ randomnotefo.bringtofront;
 
 
 end;
@@ -3190,7 +3194,7 @@ begin
 typstat := 1;
 statusfo.color := $C9BCA7;
 statusfo.list_files.frame.caption := 'Choose a layout';
-statusfo.list_files.path := ordir;
+statusfo.list_files.path := utf8decode(ordir);
 statusfo.layoutname.visible := false;
 statusfo.list_files.visible := true;
 statusfo.activate;
@@ -3206,6 +3210,11 @@ statusfo.layoutname.frame.caption := 'Choose a layout name';
 statusfo.layoutname.visible := true;
 statusfo.list_files.visible := false;
 statusfo.activate;
+end;
+
+procedure tmainfo.onshowrandom(const sender: TObject);
+begin
+ randomnotefo.Visible := not randomnotefo.Visible;
 end;
 
 end.

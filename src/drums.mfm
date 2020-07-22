@@ -20,8 +20,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 598
-  bounds_y = 198
+  bounds_x = 41
+  bounds_y = 385
   bounds_cx = 442
   bounds_cy = 236
   bounds_cxmin = 442
@@ -173,6 +173,7 @@ object drumsfo: tdrumsfo
   oncreate = oncreatedrums
   oncreated = oncreateddrums
   ondestroy = ondestroi
+  onclose = dostop
   onmouseevent = onmousewindow
   onshow = visiblechangeev
   onhide = visiblechangeev
@@ -1704,7 +1705,7 @@ object drumsfo: tdrumsfo
       taborder = 23
       visible = False
       bounds_x = 31
-      bounds_y = 23
+      bounds_y = 17
       bounds_cx = 221
       bounds_cy = 36
       font.color = 5000268

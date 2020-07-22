@@ -753,7 +753,7 @@ begin
         temptime := uos_InputPositionTime(theplayer, Inputindex1);
         ////// Length of input in time
         DecodeTime(temptime, ho, mi, se, ms);
-        lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+        lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
         mixtime := trunc(commanderfo.timemix.Value * 1000) + 100000;
         if mixtime < 150000 then
           mixtime := 150000;
@@ -792,7 +792,7 @@ begin
         temptime := uos_InputPositionTime(theplayer2, Inputindex2);
         ////// Length of input in time
         DecodeTime(temptime, ho, mi, se, ms);
-        lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+        lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
         mixtime := trunc(commanderfo.timemix.Value * 1000) + 100000;
         if mixtime < 150000 then
           mixtime := 150000;
@@ -987,7 +987,7 @@ begin
 
           totsec1 := (ho * 3600) + (mi * 60) + se;
 
-          llength.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+          llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
           uos_EndProc(theplayer, @ClosePlayer1);
 
@@ -1060,7 +1060,7 @@ begin
               btnpause.Visible := True;
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
-            tstringdisp1.Value := 'Playing ' + theplaying1;
+            tstringdisp1.Value := utf8decode('Playing ' + theplaying1);
           end;
 
           if hassent = 1 then  /// cue
@@ -1082,7 +1082,7 @@ begin
             end;
             uos_Pause(theplayer);
             tstringdisp1.face.template := mainfo.tfaceorange;
-            tstringdisp1.Value := 'Loaded ' + theplaying1;
+            tstringdisp1.Value := utf8decode('Loaded ' + theplaying1);
           end;
 
           cbloop.Enabled := False;
@@ -1275,7 +1275,7 @@ begin
 
           totsec2 := (ho * 3600) + (mi * 60) + se;
 
-          llength.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+          llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
           uos_EndProc(theplayer2, @ClosePlayer1);
 
@@ -1349,7 +1349,7 @@ begin
               btnpause.Visible := True;
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
-            tstringdisp1.Value := 'Playing ' + theplaying2;
+            tstringdisp1.Value := utf8decode('Playing ' + theplaying2);
           end;
 
           if hassent = 1 then  /// cue
@@ -1372,7 +1372,7 @@ begin
             end;
             uos_Pause(theplayer2);
             tstringdisp1.face.template := mainfo.tfaceorange;
-            tstringdisp1.Value := 'Loaded ' + theplaying2;
+            tstringdisp1.Value := utf8decode('Loaded ' + theplaying2);
           end;
 
           cbloop.Enabled := False;
@@ -1438,7 +1438,7 @@ begin
 
     iscue1 := False;
 
-    tstringdisp1.Value := 'Playing ' + theplaying1;
+    tstringdisp1.Value := utf8decode('Playing ' + theplaying1);
   end;
 
   if Caption = 'Player 2' then
@@ -1454,7 +1454,7 @@ begin
 
     uos_RePlay(theplayer2);
     iscue2 := False;
-    tstringdisp1.Value := 'Playing ' + theplaying2;
+    tstringdisp1.Value := utf8decode('Playing ' + theplaying2);
   end;
 
 end;
@@ -1493,7 +1493,7 @@ begin
 
     uos_Pause(theplayer);
 
-    tstringdisp1.Value := 'Paused ' + theplaying1;
+    tstringdisp1.Value := utf8decode('Paused ' + theplaying1);
   end;
 
   if Caption = 'Player 2' then
@@ -1512,7 +1512,7 @@ begin
     end;
 
     uos_Pause(theplayer2);
-    tstringdisp1.Value := 'Paused ' + theplaying2;
+    tstringdisp1.Value := utf8decode('Paused ' + theplaying2);
   end;
 
   resetspectrum();
@@ -2141,7 +2141,7 @@ begin
               infosfo.infoyear.Caption := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(theplayerinfo, 0)));
               infosfo.infocom.Caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayerinfo, 0)));
               infosfo.infotag.Caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayerinfo, 0)));
-              infosfo.infolength.Caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+              infosfo.infolength.Caption := utf8decode('Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
               infosfo.inforate.Caption := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(theplayerinfo, 0)));
               infosfo.infochan.Caption := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(theplayerinfo, 0)));
 
@@ -2161,7 +2161,7 @@ begin
 
                 //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
 
-                infosfo.infobpm.Caption := 'BPM: ' + floattostr((uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate)));
+                infosfo.infobpm.Caption := utf8decode('BPM: ' + floattostr((uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate))));
                 ;
 
               end;
@@ -2276,7 +2276,7 @@ begin
               infosfo.infoyear.Caption := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(theplayerinfo2, 0)));
               infosfo.infocom.Caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayerinfo2, 0)));
               infosfo.infotag.Caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayerinfo2, 0)));
-              infosfo.infolength.Caption := 'Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+              infosfo.infolength.Caption := utf8decode('Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
               infosfo.inforate.Caption := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(theplayerinfo2, 0)));
               infosfo.infochan.Caption := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(theplayerinfo2, 0)));
 
@@ -2296,7 +2296,7 @@ begin
 
                 //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
 
-                infosfo.infobpm.Caption := 'BPM: ' + floattostr((uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate)));
+                infosfo.infobpm.Caption := utf8decode('BPM: ' + floattostr((uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate))));
                 ;
 
               end;
@@ -2379,14 +2379,14 @@ begin
   begin
     temptime := tottime1 * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms);
-    lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+    lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
   end;
   
   if Caption = 'Player 2' then
   begin
     temptime := tottime2 * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms);
-    lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+    lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
   end;
    
  end;  
@@ -2473,7 +2473,7 @@ begin
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   if songdir.Value = '' then
-    songdir.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg';
+    songdir.Value := utf8decode( ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg');
 
   // if historyfn.value = '' then
   // historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
@@ -2660,7 +2660,7 @@ begin
   begin
     if avalue > 2 then
     begin
-      hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 2.  Reset to 2.';
+      hintlabel.Caption := utf8decode( '"' + IntToStr(trunc(avalue)) + '" is > 2.  Reset to 2.');
       if hintlabel.Width > hintlabel2.Width then
         hintpanel.Width := hintlabel.Width + 10
       else
@@ -2691,7 +2691,7 @@ begin
 
     if avalue > 100 then
     begin
-      hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 100.  Reset to 100.';
+      hintlabel.Caption := utf8decode('"' + IntToStr(trunc(avalue)) + '" is > 100.  Reset to 100.');
       if hintlabel.Width > hintlabel2.Width then
         hintpanel.Width := hintlabel.Width + 10
       else
@@ -2766,7 +2766,7 @@ begin
         else
         begin
 
-          button2.Caption := IntToStr(round(thebpm));
+          button2.Caption := utf8decode(IntToStr(round(thebpm)));
           drumsfo.edittempo.Value := round(thebpm);
           button2.face.template := mainfo.tfaceorange;
          if timersent.Enabled then
@@ -2794,7 +2794,7 @@ begin
           button2.Caption := 'BPM'
         else
         begin
-          button2.Caption := IntToStr(round(thebpm));
+          button2.Caption := utf8decode(IntToStr(round(thebpm)));
           drumsfo.edittempo.Value := round(thebpm);
           button2.face.template := mainfo.tfaceorange;
 

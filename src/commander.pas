@@ -516,8 +516,8 @@ begin
       else
         songplayerfo.edvolright.Value := trunc(volumeright1.Value * 100);
       //songplayerfo.changevolume(sender)
-      volumeleft1val.Caption := IntToStr(trunc(songplayerfo.edvolleft.Value));
-      volumeright1val.Caption := IntToStr(trunc(songplayerfo.edvolright.Value));
+      volumeleft1val.Caption := utf8decode(IntToStr(trunc(songplayerfo.edvolleft.Value)));
+      volumeright1val.Caption := utf8decode(IntToStr(trunc(songplayerfo.edvolright.Value)));
     end
     else
     begin
@@ -535,8 +535,8 @@ begin
         songplayer2fo.edvolleft.Value := trunc(volumeleft2.Value * 100)
       else
         songplayer2fo.edvolright.Value := trunc(volumeright2.Value * 100);
-      volumeleft2val.Caption := IntToStr(trunc(songplayer2fo.edvolleft.Value));
-      volumeright2val.Caption := IntToStr(trunc(songplayer2fo.edvolright.Value));
+      volumeleft2val.Caption := utf8decode(IntToStr(trunc(songplayer2fo.edvolleft.Value)));
+      volumeright2val.Caption := utf8decode(IntToStr(trunc(songplayer2fo.edvolright.Value)));
     end;
   end;
 end;
@@ -607,7 +607,7 @@ end;
 
 procedure tcommanderfo.onchangevolinput(const Sender: TObject);
 begin
-  tslider3val.Caption := IntToStr(trunc(tslider3.Value * 100));
+  tslider3val.Caption := utf8decode(IntToStr(trunc(tslider3.Value * 100)));
   if (hasinit = 1) and  (butinput.Value = True) then
   begin
     uos_InputSetDSPVolume(theinput, Inputindex4,
@@ -632,7 +632,7 @@ end;
 
 procedure tcommanderfo.onchangevoldrums(const Sender: TObject);
 begin
-  tslider2val.Caption := IntToStr(trunc(tslider2.Value * 100));
+  tslider2val.Caption := utf8decode(IntToStr(trunc(tslider2.Value * 100)));
 
   if hasinit = 1 then
 
@@ -648,15 +648,15 @@ begin
       genvolright.Value := genvolleft.Value
     else
       genvolleft.Value := genvolright.Value;
-    genleftvolvalue.Caption := IntToStr(round(genvolleft.Value * 150));
-    genrightvolvalue.Caption := IntToStr(round(genvolright.Value * 150));
+    genleftvolvalue.Caption := utf8decode(IntToStr(round(genvolleft.Value * 150)));
+    genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 150)));
   end
   else
 
   if (tslider(Sender).tag = 0) then
-    genleftvolvalue.Caption := IntToStr(round(genvolleft.Value * 150))
+    genleftvolvalue.Caption := utf8decode(IntToStr(round(genvolleft.Value * 150)))
   else
-    genrightvolvalue.Caption := IntToStr(round(genvolright.Value * 150));
+    genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 150)));
   //songplayerfo.changevolume(sender)
   if hasinit = 1 then
   begin
@@ -690,7 +690,7 @@ procedure tcommanderfo.onsetvalvol(const Sender: TObject; var avalue: realty; va
 begin
   if avalue > 10000 then
   begin
-    hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 10000.  Reset to 10000.';
+    hintlabel.Caption := utf8decode('"' + IntToStr(trunc(avalue)) + '" is > 10000.  Reset to 10000.');
     if hintlabel.Width > hintlabel2.Width then
       hintpanel.Width := hintlabel.Width + 10
     else

@@ -127,7 +127,7 @@ begin
   else milisec := '0' + IntToStr((trunc(echsec * (i + 1)) mod 60));
   
 
-    echelle[i][0] := IntToStr(trunc(echsec * (i + 1) / 60)) + '.' + milisec;
+    echelle[i][0] := utf8decode(IntToStr(trunc(echsec * (i + 1) / 60)) + '.' + milisec);
 
     echelle.datacols[i].color := cl_gray;
   
@@ -251,12 +251,12 @@ begin
     if (trackbar1.Width div Width) + 1 = 31 then
     begin
       zoomint1 := (trackbar1.Width div Width) + 2;
-      tmainmenu1.menu[2].Caption := ' Now=X' + IntToStr(zoomint1);
+      tmainmenu1.menu[2].Caption := utf8decode(' Now=X' + IntToStr(zoomint1));
     end
     else
     begin
       zoomint1 := (trackbar1.Width div Width) + 1;
-      tmainmenu1.menu[2].Caption := ' Now=X' + IntToStr(zoomint1);
+      tmainmenu1.menu[2].Caption := utf8decode(' Now=X' + IntToStr(zoomint1));
     end;
   end;
 
@@ -265,12 +265,12 @@ begin
     if (trackbar1.Width div Width) + 1 = 31 then
     begin
       zoomint2 := (trackbar1.Width div Width) + 2;
-      tmainmenu1.menu[2].Caption := ' Now=X' + IntToStr(zoomint2);
+      tmainmenu1.menu[2].Caption := utf8decode(' Now=X' + IntToStr(zoomint2));
     end
     else
     begin
       zoomint2 := (trackbar1.Width div Width) + 1;
-      tmainmenu1.menu[2].Caption := ' Now=X' + IntToStr(zoomint2);
+      tmainmenu1.menu[2].Caption := utf8decode(' Now=X' + IntToStr(zoomint2));
     end;
   end;
 
@@ -318,7 +318,7 @@ begin
       begin
      temptime := tottime1 * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms); 
-    songplayerfo.lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+    songplayerfo.lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
     end;
   
     if (tag = 2) and (hascue2 = True) and (totsec2 > 0)
@@ -326,7 +326,7 @@ begin
      begin
         temptime := tottime2 * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms); 
-    songplayer2fo.lposition.Value := format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]);
+    songplayer2fo.lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
     end;
  
   end;

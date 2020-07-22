@@ -45,9 +45,9 @@ object mainfo: tmainfo
   container.frame.sbvert.frameendbutton1.localprops1 = []
   container.bounds = (
     0
-    16
+    17
     454
-    123
+    122
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -180,10 +180,11 @@ object mainfo: tmainfo
     bounds_x = 400
     bounds_y = 7
     bounds_cx = 29
+    bounds_cy = 21
     statfile = tstatfile1
     onchange = onchangevalcolor
     valuemax = 10
-    reffontheight = 14
+    reffontheight = 15
   end
   object tmainmenu1: tmainmenu
     menu.submenu.count = 9
@@ -259,7 +260,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 15
+        submenu.count = 16
         submenu.items = <        
           item
             caption = ' Show All '
@@ -335,6 +336,11 @@ object mainfo: tmainfo
             caption = ' Show WaveForm Rec '
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowwaverec
+          end        
+          item
+            caption = ' Show Chord Randomizer '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onshowrandom
           end>
         caption = ' &Show '
         hint = ' Show/hide windows '
@@ -490,8 +496,8 @@ object mainfo: tmainfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 14
-    top = 18
+    left = 26
+    top = 62
     image = {
       00000000020000001800000018000000B8010000000000000000000000000000
       00000000000000000000000000000000000000005D5D5D09FFFFFF075D5D5D01
