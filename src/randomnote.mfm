@@ -149,6 +149,7 @@ object randomnotefo: trandomnotefo
       10
     )
     taborder = 10
+    hint = 'Randomize the number of chords'
     bounds_x = 264
     bounds_y = 17
     bounds_cx = 153
@@ -210,6 +211,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 1
+    hint = 'Maximum number of chords'
     bounds_x = 62
     bounds_y = 4
     bounds_cx = 179
@@ -241,6 +243,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 2
+    hint = 'Total chords'
     visible = False
     bounds_x = 269
     bounds_y = 68
@@ -257,11 +260,12 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     face.template = mainfo.tfacecomp1
     taborder = 3
+    hint = 'Re-do a randomizer for chord 1'
     bounds_x = 518
     bounds_y = 176
     bounds_cx = 70
     bounds_cy = 158
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = '1'
     font.height = 80
     font.name = 'stf_default'
@@ -274,11 +278,12 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     face.template = mainfo.tfacecomp1
     taborder = 4
+    hint = 'Re-do a randomizer for chord 2'
     bounds_x = 518
     bounds_y = 362
     bounds_cx = 70
     bounds_cy = 158
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = '2'
     font.height = 80
     font.name = 'stf_default'
@@ -291,11 +296,12 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     face.template = mainfo.tfacecomp1
     taborder = 5
+    hint = 'Re-do a randomizer for chord 3'
     bounds_x = 518
     bounds_y = 548
     bounds_cx = 70
     bounds_cy = 158
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = '3'
     font.height = 80
     font.name = 'stf_default'
@@ -410,6 +416,7 @@ object randomnotefo: trandomnotefo
       21
     )
     taborder = 11
+    hint = 'Enable Sharp-Chords #'
     bounds_x = 884
     bounds_y = 4
     bounds_cx = 439
@@ -430,6 +437,7 @@ object randomnotefo: trandomnotefo
       21
     )
     taborder = 12
+    hint = 'Enable random Drums tempo'
     bounds_x = 569
     bounds_y = 4
     bounds_cx = 202
@@ -466,6 +474,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 13
+    hint = 'Tempo of Drums in BPM'
     visible = False
     bounds_x = 556
     bounds_y = 68
@@ -492,10 +501,10 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 14
-    hint = 'Launch the randomizer'
+    hint = 'Clear all chords'
     bounds_x = 69
     bounds_y = 80
-    bounds_cx = 91
+    bounds_cx = 120
     bounds_cy = 49
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Clear'
@@ -519,10 +528,10 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 15
-    hint = 'Launch the randomizer'
-    bounds_x = 187
+    hint = 'Launch the Drums'
+    bounds_x = 174
     bounds_y = 450
-    bounds_cx = 110
+    bounds_cx = 127
     bounds_cy = 49
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Drums'
@@ -7376,7 +7385,6 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 26
-    hint = 'Click to listen to the chord'
     bounds_x = 596
     bounds_y = 176
     bounds_cx = 230
@@ -7405,7 +7413,6 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 27
-    hint = 'Click to listen to the chord'
     bounds_x = 596
     bounds_y = 362
     bounds_cx = 230
@@ -7434,7 +7441,6 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 28
-    hint = 'Click to listen to the chord'
     bounds_x = 596
     bounds_y = 548
     bounds_cx = 230
@@ -7462,7 +7468,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 29
-    hint = 'Launch the randomizer'
+    hint = 'Close all StrumPract (Click the icon in corner of the form to close only Randomizer)'
     bounds_x = 1376
     bounds_y = 7
     bounds_cx = 33
@@ -10960,13 +10966,13 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 33
-    hint = 'Launch the randomizer'
-    bounds_x = 1074
+    hint = 'Launch the Guitar Tuned'
+    bounds_x = 988
     bounds_y = 77
-    bounds_cx = 129
+    bounds_cx = 260
     bounds_cy = 49
     state = [as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Guitar'
+    caption = 'Tuned Guitars'
     font.height = 30
     font.name = 'stf_default'
     font.localprops = [flp_height]
