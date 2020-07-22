@@ -89,6 +89,7 @@ type
     procedure loadlayout(const sender: TObject);
     procedure savelayout(const sender: TObject);
    procedure onshowrandom(const sender: TObject);
+   procedure onrandomlayout(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -133,7 +134,7 @@ uses
   
 procedure tmainfo.ontimeract(const Sender: TObject);
 begin
-activate;
+if randomnotefo.visible = false then activate;
 end;
 
 procedure tmainfo.ontimerwait(const Sender: TObject);
@@ -3215,6 +3216,14 @@ end;
 procedure tmainfo.onshowrandom(const sender: TObject);
 begin
  randomnotefo.Visible := not randomnotefo.Visible;
+end;
+
+procedure tmainfo.onrandomlayout(const sender: TObject);
+begin
+ondockall(sender);
+sleep(200);
+randomnotefo.visible := true;
+randomnotefo.bringtofront;
 end;
 
 end.

@@ -202,7 +202,7 @@ object mainfo: tmainfo
         onexecute = onmaintab
       end    
       item
-        submenu.count = 10
+        submenu.count = 11
         submenu.items = <        
           item
             caption = ' &Dock all visible windows '
@@ -239,6 +239,11 @@ object mainfo: tmainfo
             caption = ' &Record stage '
             state = [as_localcaption, as_localonexecute]
             onexecute = ondockrec
+          end        
+          item
+            caption = ' &Chords Randomizer '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onrandomlayout
           end        
           item
             options = [mao_separator, mao_shortcutcaption]

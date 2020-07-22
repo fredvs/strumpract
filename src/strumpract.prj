@@ -1153,10 +1153,10 @@ line=40
  12
  171
  49
- 1283
+ 1284
  5714
- 1466
- 129
+ 1467
+ 130
  1482
  334
  319
@@ -1166,11 +1166,11 @@ line=40
  781
  701
  1554
- 2197
+ 2198
  209
  1136
- 2696
- 2917
+ 2697
+ 2918
  400
  5
  751
@@ -1178,7 +1178,7 @@ line=40
  162
  1486
  356
- 3122
+ 3123
  1667
 address=40
  4607475
@@ -1507,8 +1507,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=bring
+finddtext=ntimeract
 findhistory=20
+ ntimeract
+ timeract
  bring
  guitarc
  elipse
@@ -1527,11 +1529,9 @@ findhistory=20
  yep
  writeln
  aclients
- dolinkstatreading
- for all
 findoptions=1
 editpos=2
- 0,0
+ 0,132
  0,0
 bookmarks0=0
 bookmarks1=0
@@ -1570,9 +1570,9 @@ nomenumodules=5
  0
 [sourcefo.files_tab]
 firsttab=0
-index=1
+index=0
 [layout]
-windowlayout=657
+windowlayout=627
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1706,7 +1706,7 @@ windowlayout=657
  x=0
  y=0
  cx=205
- cy=526
+ cy=548
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1994,7 +1994,7 @@ windowlayout=657
  x=0
  y=0
  cx=1428
- cy=83
+ cy=61
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2010,7 +2010,7 @@ windowlayout=657
  x=0
  y=-1
  cx=1428
- cy=80
+ cy=58
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2020,13 +2020,13 @@ windowlayout=657
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/randomnote.pas
- history=50
+ value=/home/fred/strumpract/src/main.pas
+ history=20
+  /home/fred/strumpract/src/randomnote.pas
   /home/fred/strumpract/src/define.inc
   /home/fred/uos/examples/define.inc
   /home/fred/uos/examples/consolesynth.pas
   /home/fred/strumpract/src/guitars.pas
-  /home/fred/strumpract/src/randomnote.pas
   /home/fred/ideu/src/objectinspector.pas
   /home/fred/ideu/src/imageselectorform.pas
   /home/fred/freepascal-ootb_305/compiler/systems/t_bsd.pas
@@ -2042,36 +2042,6 @@ windowlayout=657
   /home/fred/bgracontrols/bccombobox.pas
   /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrapath.pas
   /home/fred/Downloads/bgragui-dev-bgragui/bgraguicontrols/msegui/oldbgbutton.pas
-  /home/fred/Downloads/bgragui-dev-bgragui/bgraguicontrols/msegui/mybgbutton.pas
-  /home/fred/Downloads/bgragui-dev-bgragui/bgragui/bgbuttondrawer.pas
-  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bezier.inc
-  /home/fred/mseide-msegui-avantcircular/lib/common/widgets/msechart.pas
-  /home/fred/mseide-msegui/apps/myide/regcomponents.inc
-  /home/fred/ideu/src/plugmanager.pas
-  /home/fred/ideu/src/mseshortcutdialog.pas
-  /home/fred/mseide-msegui/apps/myide/mybutton.pas
-  /home/fred/Downloads/test.mp3
-  /home/fred/ideu/src/templates/fpc_mse/default/dockingform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/inheritedform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/pascform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/simpleform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/project.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/main.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/program.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/mainform.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/pascform.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/program.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/simpleform.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/project.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/main.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/mse_getstrfromint.inc
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/getstrfromint.inc
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/mse_formatfunc.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/formatfunc.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/mse_dbf_str_ru.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/dbf_str_ru.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/mse_dbf_str_pt.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/dbf_str_pt.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2089,12 +2059,12 @@ windowlayout=657
  x=208
  y=0
  cx=1220
- cy=526
+ cy=548
  rcx=0
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=1
+ index=0
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2103,7 +2073,7 @@ windowlayout=657
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2130,15 +2100,15 @@ windowlayout=657
  ncx=0
  ncy=0
  x=0
- y=86
+ y=64
  cx=1428
- cy=526
+ cy=548
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_randomnotefo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2195,7 +2165,7 @@ windowlayout=657
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2214,7 +2184,7 @@ windowlayout=657
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
