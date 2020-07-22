@@ -1538,11 +1538,11 @@ findhistory=20
  yep
 findoptions=1
 editpos=5
- 0,0
- 0,2898
+ 0,-1073741823
+ 32,2842
  0,464
- 0,126
- 16,11
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1559,7 +1559,7 @@ relpaths=5
  randomnote.pas
  commander.pas
  guitars.pas
- ../eschecs_mse/board.mfm
+ eschecs_mse/board.mfm
 ismoduletexts=5
  0
  0
@@ -1595,16 +1595,10 @@ nomenumodules=6
  0
  0
 [sourcefo.files_tab]
-order=5
- 0
- 1
- 4
- 3
- 2
 firsttab=0
-index=2
+index=1
 [layout]
-windowlayout=682
+windowlayout=646
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1712,7 +1706,7 @@ windowlayout=682
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=objectinspectorfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2037,8 +2031,8 @@ windowlayout=682
  mdistate=0
  nx=0
  ny=-1
- ncx=1197
- ncy=43
+ ncx=1428
+ ncy=52
  x=0
  y=-1
  cx=1428
@@ -2052,8 +2046,9 @@ windowlayout=682
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/eschecs_mse/board.mfm
- history=50
+ value=/home/fred/strumpract/src/randomnote.pas
+ history=20
+  /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/randomnote.pas
   /home/fred/strumpract/src/define.inc
@@ -2073,37 +2068,6 @@ windowlayout=682
   /home/fred/freepascal_ootb_305_test/compiler/msgtxt.inc
   /home/fred/bgracontrols/bccombobox.pas
   /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrapath.pas
-  /home/fred/Downloads/bgragui-dev-bgragui/bgraguicontrols/msegui/oldbgbutton.pas
-  /home/fred/Downloads/bgragui-dev-bgragui/bgraguicontrols/msegui/mybgbutton.pas
-  /home/fred/Downloads/bgragui-dev-bgragui/bgragui/bgbuttondrawer.pas
-  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bezier.inc
-  /home/fred/mseide-msegui-avantcircular/lib/common/widgets/msechart.pas
-  /home/fred/mseide-msegui/apps/myide/regcomponents.inc
-  /home/fred/ideu/src/plugmanager.pas
-  /home/fred/ideu/src/mseshortcutdialog.pas
-  /home/fred/mseide-msegui/apps/myide/mybutton.pas
-  /home/fred/Downloads/test.mp3
-  /home/fred/ideu/src/templates/fpc_mse/default/dockingform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/inheritedform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/pascform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/simpleform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/project.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/main.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/program.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/mainform.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/pascform.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/program.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/simpleform.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/project.pas
-  /home/fred/mseide-msegui/apps/ide/templates/default/main.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/mse_getstrfromint.inc
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/getstrfromint.inc
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/mse_formatfunc.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/formatfunc.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/mse_dbf_str_ru.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/dbf_str_ru.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/mse_dbf_str_pt.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/dbf_str_pt.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2125,14 +2089,8 @@ windowlayout=682
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=5
-  0
-  1
-  4
-  3
-  2
  firsttab=0
- index=2
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2252,7 +2210,7 @@ windowlayout=682
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2271,7 +2229,7 @@ windowlayout=682
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0

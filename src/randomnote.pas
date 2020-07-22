@@ -2412,15 +2412,26 @@ var
     else
     begin
     if TButton(Sender).tag = 1 then
-      chord1.caption := str2
+    begin
+      chord1.caption := str2;
+       chordmem1 := copy(str2,1,1) + isminstr ;
+     end  
     else if TButton(Sender).tag = 2 then
-      chord2.caption := str2
+    begin
+      chord2.caption := str2;
+       chordmem2 := copy(str2,1,1) + isminstr ; 
+     end  
     else if TButton(Sender).tag = 3 then
-      chord3.caption := str2
+    begin
+     chordmem3 := copy(str2,1,1) + isminstr ;
+      chord3.caption := str2;
+    end  
     else if TButton(Sender).tag = 4 then
       chord4.Text := str2
     else if TButton(Sender).tag = 5 then
       chord5.Text := str2;
+   
+   
      if  (x = 49) then 
      begin
      pianochord(TButton(Sender).tag, ranchord, ismin); 
