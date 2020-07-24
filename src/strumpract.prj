@@ -166,8 +166,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=879
- y=437
+ x=763
+ y=594
  cx=300
  cy=269
 replacedialog=33
@@ -470,7 +470,7 @@ compnamedialog=5
 bmpfiledialog=62
  [filedialog]
  filenames=1
-  /home/fred/strumpract/src/images/chordsrand.png
+  /home/fred/strumpract/src/images/basschord2.png
  filecolwidth=174
  x=0
  y=0
@@ -478,6 +478,8 @@ bmpfiledialog=62
  cy=0
  lastdir=/home/fred/strumpract/src/images/
  filehistory=50
+  /home/fred/strumpract/src/images/basschord2.png
+  /home/fred/strumpract/src/images/guiaretab2.png
   /home/fred/strumpract/src/images/chordsrand.png
   /home/fred/strumpract/src/elipsepianolight.png
   /home/fred/strumpract/src/basschord2.png
@@ -526,8 +528,6 @@ bmpfiledialog=62
   /home/fred/Images/uos4.jpg
   /home/fred/Images/circlenew4.jpg
   /home/fred/drumspract/uos.jpg
-  /usr/share/icons/hicolor/32x32/actions/presence_online.png
-  /usr/share/icons/hicolor/16x16/animations/aptdaemon-action-waiting.png
  filefilterindex=0
  filefilter="All" "*.jpg" "*.jpeg" "*.bmp" "*.ico" "*.png" "*.pnm" "*.pgm" "*.pbm" "*.tga" "*.tif" "*.tiff" "*.xpm"
 mainfile=${PROJECTNAME}.pas
@@ -1160,9 +1160,9 @@ line=40
  12
  171
  49
- 1284
+ 1286
  5714
- 1467
+ 1469
  130
  1482
  334
@@ -1173,11 +1173,11 @@ line=40
  781
  701
  1554
- 2209
+ 2214
  209
  1136
- 2714
- 2935
+ 2721
+ 2942
  400
  5
  751
@@ -1185,7 +1185,7 @@ line=40
  162
  1486
  356
- 3140
+ 3147
  1667
 address=40
  4607475
@@ -1514,8 +1514,12 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=chordmem1
+finddtext=maxnote
 findhistory=20
+ maxnote
+ guitarsfo.
+ guitarfo.
+ onshowdrums
  chordmem1
  mouseeventinfoty
  ntimeract
@@ -1532,15 +1536,11 @@ findhistory=20
  unicode
  inline
  firstro
- firstfro
- dynarrayelesize
- additempo
- yep
 findoptions=1
 editpos=5
  0,-1073741823
- 32,2842
- 0,464
+ 0,98
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1565,7 +1565,7 @@ ismoduletexts=5
  0
  0
  0
- 0
+ -1
 modules=6
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
@@ -1612,13 +1612,13 @@ windowlayout=646
  ny=0
  ncx=0
  ncy=0
- x=123
- y=186
+ x=96
+ y=144
  cx=1224
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [targetconsolefo]
@@ -1631,7 +1631,7 @@ windowlayout=646
  ncx=0
  ncy=0
  x=384
- y=493
+ y=451
  cx=497
  cy=314
  rcx=0
@@ -1714,8 +1714,8 @@ windowlayout=646
  ncx=0
  ncy=0
  x=0
- y=29
- cx=1440
+ y=16
+ cx=1360
  cy=752
  rcx=0
  rcy=0
@@ -1732,7 +1732,7 @@ windowlayout=646
  x=0
  y=0
  cx=205
- cy=548
+ cy=449
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1822,10 +1822,10 @@ windowlayout=646
  [breakpointsfo.bkptson]
  value=1
  [objectinspectorfo.grid]
- propcolwidthref=824
- width0=365
+ propcolwidthref=809
+ width0=358
  sortdescend0=0
- width1=453
+ width1=445
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1918,9 +1918,9 @@ windowlayout=646
  ncx=0
  ncy=0
  x=0
- y=615
- cx=1428
- cy=116
+ y=505
+ cx=1212
+ cy=95
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2019,8 +2019,8 @@ windowlayout=646
  ncy=0
  x=0
  y=0
- cx=1428
- cy=61
+ cx=1212
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2031,12 +2031,12 @@ windowlayout=646
  mdistate=0
  nx=0
  ny=-1
- ncx=1428
- ncy=52
+ ncx=1197
+ ncy=21
  x=0
  y=-1
- cx=1428
- cy=52
+ cx=1212
+ cy=19
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2048,9 +2048,10 @@ windowlayout=646
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/randomnote.pas
  history=20
+  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/guitars.pas
-  /home/fred/strumpract/src/randomnote.pas
   /home/fred/strumpract/src/define.inc
   /home/fred/uos/examples/define.inc
   /home/fred/uos/examples/consolesynth.pas
@@ -2067,7 +2068,6 @@ windowlayout=646
   /home/fred/uos/src/uos.pas
   /home/fred/freepascal_ootb_305_test/compiler/msgtxt.inc
   /home/fred/bgracontrols/bccombobox.pas
-  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrapath.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2084,8 +2084,8 @@ windowlayout=646
  ncy=0
  x=208
  y=0
- cx=1220
- cy=548
+ cx=1004
+ cy=449
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2126,9 +2126,9 @@ windowlayout=646
  ncx=0
  ncy=0
  x=0
- y=64
- cx=1428
- cy=548
+ y=53
+ cx=1212
+ cy=449
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2219,17 +2219,17 @@ windowlayout=646
  ncy=0
  x=0
  y=29
- cx=1440
- cy=752
+ cx=1360
+ cy=710
  rcx=0
  rcy=0
- wsize=0
+ wsize=6
  active=0
  visible=1
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_randomnotefo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

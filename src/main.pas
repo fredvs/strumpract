@@ -406,6 +406,8 @@ begin
  
  if randomnotefo.visible = true then
  randomnotefo.bringtofront;
+ 
+  randomnotefo.refreshform(sender); 
 
 
 end;
@@ -1581,6 +1583,7 @@ begin
     randomnotefo.nodrums.frame.font.color := cl_black;
     randomnotefo.withsharp.frame.font.color := cl_black;
     randomnotefo.maxnote.frame.font.color := cl_black;
+    randomnotefo.bpm.frame.font.color := cl_black;
     
         // main
     tfacegreen.template.fade_color.items[0] := $C2FF9E;
@@ -2042,6 +2045,8 @@ begin
     randomnotefo.nodrums.frame.font.color := cl_black;
     randomnotefo.withsharp.frame.font.color := cl_black;
     randomnotefo.maxnote.frame.font.color := cl_black;
+    randomnotefo.bpm.frame.font.color := cl_black;
+    
     
     // main
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
@@ -2500,6 +2505,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     randomnotefo.nodrums.frame.font.color := cl_white;
     randomnotefo.withsharp.frame.font.color := cl_white;
     randomnotefo.maxnote.frame.font.color := cl_white;
+    randomnotefo.bpm.frame.font.color := cl_white;
+    
     
 
     with spectrum1fo do

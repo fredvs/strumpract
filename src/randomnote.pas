@@ -96,7 +96,11 @@ type
    procedure showguit(const sender: TObject);
    procedure onmouseguit(const sender: twidget; var ainfo: mouseeventinfoty);
    procedure onmousepiano(const sender: twidget; var ainfo: mouseeventinfoty);
-  end;
+   procedure refreshform(const sender: TObject);
+   procedure onmouseform(const sender: twidget; var ainfo: mouseeventinfoty);
+   procedure ontextmax(const sender: tcustomdataedit; var atext: msestring;
+                   var accept: Boolean);
+    end;
 
 var
   randomnotefo: trandomnotefo;
@@ -2315,7 +2319,7 @@ var
    isminstr: string;
    
  begin
-
+   refreshform(sender);
   x := 0;
   while x < 50 do
   begin
@@ -2407,6 +2411,7 @@ var
       pianochord(chordran, ranchord, ismin);
       guitarchord(chordran, ranchord, ismin); 
       basschord(chordran, ranchord, ismin); 
+       refreshform(sender);
      end;   
      end
     else
@@ -2437,6 +2442,7 @@ var
      pianochord(TButton(Sender).tag, ranchord, ismin); 
      guitarchord(TButton(Sender).tag, ranchord, ismin);  
      basschord(TButton(Sender).tag, ranchord, ismin);  
+      refreshform(sender);
      end;
     end;  
     
@@ -2729,28 +2735,17 @@ begin
     else
       abd[ax].Value := False;
   end; 
-  
-   if guitarsfo.visible then
-  begin
-   guitarsfo.dragdock.float();
-    guitarsfo.top  := 124;
-    guitarsfo.left := 880; 
-    guitarsfo.visible := true;
-    guitarsfo.bringtofront; 
-  end;
-      
-    drumsfo.dragdock.float();
-    drumsfo.top  := 386;
-    drumsfo.left := 40;
-    drumsfo.visible := true;
-    drumsfo.bringtofront;
     
-    bpm.visible := true;
-    bpm.value := (80 + random(80));
-    drumsfo.edittempo.value := bpm.value * 2;
-    drumsfo.dostart(sender);
+ drumsfo.dragdock.float();
+ drumsfo.visible := true;
     
-  end;
+ refreshform(sender); 
+     
+ bpm.visible := true;
+ bpm.value := (80 + random(80));
+ drumsfo.edittempo.value := bpm.value * 2;
+ drumsfo.dostart(sender);
+ end;
 
 end;
 
@@ -2792,50 +2787,50 @@ numchord.visible := false;
   drumsfo.dostop(sender);
   bnbchords.left := 534;
   bnbchords.top := 350;
-  
+  refreshform(sender);
 end;
 
-procedure trandomnotefo.onshowdrums(const sender: TObject);
+procedure trandomnotefo.refreshform(const sender: TObject);
 begin
- if guitarsfo.visible then
+
+if guitarsfo.visible then
   begin
-   guitarsfo.dragdock.float();
-    guitarsfo.top  := 124;
-    guitarsfo.left := 880; 
+    guitarsfo.top  := top + tbutton5.top + 18;
+    guitarsfo.left := left + tbutton5.left; 
     guitarsfo.visible := true;
     guitarsfo.bringtofront; 
   end;
   
-    drumsfo.dragdock.float();
-    drumsfo.top  := 386;
-    drumsfo.left := 40;
+  if drumsfo.visible then
+  begin
+ drumsfo.top  := top +386;
+    drumsfo.left := left + 40;
     drumsfo.visible := true;
-    drumsfo.bringtofront;
+    drumsfo.bringtofront; 
+ end;    
+
+ end;
+
+procedure trandomnotefo.onshowdrums(const sender: TObject);
+begin
+   drumsfo.dragdock.float();
+   drumsfo.visible := true;
+      refreshform(sender); 
 end;
 
 procedure trandomnotefo.doquit(const sender: TObject);
 begin
 if drumsfo.visible then drumsfo.visible := false;
-if guitarsfo.visible then guitarsfo.visible := false;
+//if guitarsfo.visible then guitarsfo.visible := false;
 mainfo.onexit(sender);
 end;
 
 procedure trandomnotefo.showguit(const sender: TObject);
 begin
         
-  if drumsfo.visible then
-  begin
-  drumsfo.dragdock.float();
-    drumsfo.top  := 386;
-    drumsfo.left := 40;
-    drumsfo.visible := true;
-    drumsfo.bringtofront;
-  end;
-    guitarsfo.dragdock.float();
-    guitarsfo.top  := 124;
-    guitarsfo.left := 880;
-    guitarsfo.visible := true;
-    guitarsfo.bringtofront;  
+   guitarsfo.dragdock.float();
+   guitarsfo.visible := true;
+   refreshform(sender); 
 
 end;
 
@@ -2871,6 +2866,8 @@ if uos_CreatePlayer(Timage(Sender).tag + 10) then
     {$endif}
          
   uos_Play(Timage(Sender).tag + 10);
+  
+  refreshform(sender);
     
 end;
 
@@ -2908,11 +2905,29 @@ if uos_CreatePlayer(Timage(Sender).tag + 20) then
     {$endif}
          
   uos_Play(Timage(Sender).tag + 20);
+  
+  refreshform(sender);
     
 end;
 
 end;
 
+end;
+
+procedure trandomnotefo.onmouseform(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+with ainfo do begin  
+   if eventkind in [ek_buttonpress] then begin
+   refreshform(sender);
+end;
+end;
+end;
+
+procedure trandomnotefo.ontextmax(const sender: tcustomdataedit;
+               var atext: msestring; var accept: Boolean);
+begin
+ refreshform(sender);
 end;
 
 end.
