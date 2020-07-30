@@ -3,8 +3,8 @@ object randomnotefo: trandomnotefo
   face.localprops = []
   face.template = guitarsfo.tfaceguit
   visible = False
-  bounds_x = 3
-  bounds_y = 29
+  bounds_x = -3
+  bounds_y = 55
   bounds_cx = 1350
   bounds_cy = 710
   container.frame.localprops = []
@@ -156,8 +156,8 @@ object randomnotefo: trandomnotefo
     )
     taborder = 10
     hint = 'Randomize the number of chords'
-    bounds_x = 264
-    bounds_y = 17
+    bounds_x = 248
+    bounds_y = 16
     bounds_cx = 153
     bounds_cy = 38
     statfile = mainfo.tstatfile1
@@ -178,15 +178,16 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     hint = 'Launch the randomizer'
-    bounds_x = 535
-    bounds_y = 350
-    bounds_cx = 366
-    bounds_cy = 88
+    bounds_x = 16
+    bounds_y = 319
+    bounds_cx = 1310
+    bounds_cy = 106
+    anchors = [an_left, an_top, an_right]
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Randomize'
-    font.height = 60
+    caption = 'Aleatorizar    /    Randomize'
+    font.height = 84
     font.name = 'stf_default'
-    font.localprops = [flp_height]
+    font.localprops = [flp_style, flp_height]
     onexecute = randomnum
   end
   object maxnote: tintegeredit
@@ -254,8 +255,8 @@ object randomnotefo: trandomnotefo
     taborder = 2
     hint = 'Total chords'
     visible = False
-    bounds_x = 269
-    bounds_y = 68
+    bounds_x = 424
+    bounds_y = 1
     bounds_cy = 75
     font.color = 4040192
     font.height = 60
@@ -451,8 +452,8 @@ object randomnotefo: trandomnotefo
     )
     taborder = 12
     hint = 'Enable random Drums tempo'
-    bounds_x = 569
-    bounds_y = 4
+    bounds_x = 597
+    bounds_y = 3
     bounds_cx = 202
     bounds_cy = 61
     statfile = mainfo.tstatfile1
@@ -491,7 +492,7 @@ object randomnotefo: trandomnotefo
     taborder = 13
     hint = 'Tempo of Drums in BPM'
     visible = False
-    bounds_x = 556
+    bounds_x = 583
     bounds_y = 68
     bounds_cx = 233
     bounds_cy = 75
@@ -518,8 +519,8 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 14
     hint = 'Clear all chords'
-    bounds_x = 69
-    bounds_y = 80
+    bounds_x = 205
+    bounds_y = 78
     bounds_cx = 120
     bounds_cy = 49
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -7490,7 +7491,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 27
-    bounds_x = 596
+    bounds_x = 597
     bounds_y = 362
     bounds_cx = 170
     bounds_cy = 158
@@ -10908,5 +10909,67 @@ object randomnotefo: trandomnotefo
     font.name = 'stf_default'
     font.localprops = [flp_height]
     onexecute = showguit
+  end
+  object tstringdisp1: tstringdisp
+    optionswidget1 = [ow1_fontglyphheight]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp1
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775410
+      16763028
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 34
+    bounds_x = 16
+    bounds_y = 66
+    bounds_cx = 1310
+    bounds_cy = 250
+    anchors = [an_left, an_top, an_right]
+    text = 'Los acordes de fortuna'
+    font.height = 110
+    font.style = [fs_italic]
+    font.name = 'stf_default'
+    font.localprops = [flp_style, flp_height]
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 129
+  end
+  object tstringdisp2: tstringdisp
+    optionswidget1 = [ow1_fontglyphheight]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp1
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775410
+      16763028
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 35
+    bounds_x = 16
+    bounds_y = 428
+    bounds_cx = 1310
+    bounds_cy = 250
+    anchors = [an_left, an_top, an_right]
+    text = 'The chords of fortune'
+    font.height = 110
+    font.style = [fs_italic]
+    font.name = 'stf_default'
+    font.localprops = [flp_style, flp_height]
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 129
   end
 end

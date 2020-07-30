@@ -83,6 +83,8 @@ type
    belipse3_1: timage;
    belipse3_2: timage;
    tbutton5: tbutton;
+   tstringdisp1: tstringdisp;
+   tstringdisp2: tstringdisp;
    procedure dorandomchordbut(const Sender: TObject);
     procedure dorandomchord(const Sender: TObject);
     procedure oncreatedev(const Sender: TObject);
@@ -2520,8 +2522,19 @@ if blocked = 0 then begin
 blocked := 1;
  doclear(sender);
  numchord.visible := true;
-  bnbchords.left := 64;
-  bnbchords.top := 184;
+ 
+ tbutton5.visible := false;
+  
+  bnbchords.visible := false;
+ 
+//  bnbchords.left := 64;
+//  bnbchords.top := 184;
+  
+//  bnbchords.width := 400;
+// bnbchords.height := 120;
+tstringdisp1.visible := false;
+tstringdisp2.visible := false;
+
   if withrandom.Value = false then
     numchord.Value := maxnote.Value
   else
@@ -2783,6 +2796,8 @@ blocked := 1;
  bpm.value := (80 + random(80));
  drumsfo.edittempo.value := bpm.value * 2;
  drumsfo.dostart(sender);
+ //bnbchords.visible := true;
+ tbutton5.visible := true;
  end;
  
  blocked := 0;
@@ -2800,6 +2815,8 @@ procedure trandomnotefo.doclear(const sender: TObject);
 begin
 bchord1.Visible := False;
 numchord.visible := false;
+drumsfo.visible := false;
+guitarsfo.visible := false;
   chord1.Visible  := False;
   bchord2.Visible := False;
   chord2.Visible  := False;
@@ -2827,9 +2844,14 @@ numchord.visible := false;
   tbutton3.visible := false;
   tbutton2.visible := false;
   drumsfo.dostop(sender);
-  bnbchords.left := 534;
-  bnbchords.top := 350;
-  refreshform(sender);
+  bnbchords.width := 1310;
+  bnbchords.height := 92;
+  bnbchords.left := 16;
+  bnbchords.top := 326;
+  bnbchords.visible := true;
+  tstringdisp1.visible := true;
+  tstringdisp2.visible := true;
+ // refreshform(sender);
 end;
 
 procedure trandomnotefo.refreshform(const sender: TObject);
@@ -2845,7 +2867,7 @@ if guitarsfo.visible then
   
   if drumsfo.visible then
   begin
- drumsfo.top  := top +386;
+ drumsfo.top  := top +286;
     drumsfo.left := left + 40;
     drumsfo.visible := true;
     drumsfo.bringtofront; 
