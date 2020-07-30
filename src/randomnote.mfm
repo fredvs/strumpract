@@ -140,6 +140,95 @@ object randomnotefo: trandomnotefo
   onclose = onclosev
   onmouseevent = onmouseform
   moduleclassname = 'tdockform'
+  object tbutton5: tbutton
+    color = 12895428
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      14013909
+      10592673
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 33
+    hint = 'Launch the Guitar Tuned'
+    bounds_x = 890
+    bounds_y = 75
+    bounds_cx = 260
+    bounds_cy = 49
+    state = [as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Tuned Guitars'
+    font.height = 30
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    onexecute = showguit
+  end
+  object tstringdisp2: tstringdisp
+    optionswidget1 = [ow1_fontglyphheight]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp1
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775410
+      16763028
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 35
+    bounds_x = 16
+    bounds_y = 428
+    bounds_cx = 1310
+    bounds_cy = 250
+    anchors = [an_left, an_top, an_right]
+    text = 'The chords of chance'
+    font.height = 110
+    font.style = [fs_italic]
+    font.name = 'stf_default'
+    font.localprops = [flp_style, flp_height]
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 129
+  end
+  object tstringdisp1: tstringdisp
+    optionswidget1 = [ow1_fontglyphheight]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp1
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775410
+      16763028
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 34
+    bounds_x = 16
+    bounds_y = 66
+    bounds_cx = 1310
+    bounds_cy = 250
+    anchors = [an_left, an_top, an_right]
+    text = 'Los acordes de la suerte'
+    font.height = 100
+    font.style = [fs_italic]
+    font.name = 'stf_default'
+    font.localprops = [flp_style, flp_height]
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 117
+  end
   object withrandom: tbooleanedit
     color = -2147483645
     frame.caption = ' Random'
@@ -257,13 +346,13 @@ object randomnotefo: trandomnotefo
     visible = False
     bounds_x = 424
     bounds_y = 1
-    bounds_cy = 75
+    bounds_cy = 63
     font.color = 4040192
-    font.height = 60
+    font.height = 50
     font.name = 'stf_default'
     font.localprops = [flp_color, flp_height]
     onchange = refreshform
-    reffontheight = 71
+    reffontheight = 59
   end
   object bchord1: tbutton
     Tag = 1
@@ -10882,94 +10971,5 @@ object randomnotefo: trandomnotefo
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
     end
-  end
-  object tbutton5: tbutton
-    color = 12895428
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      14013909
-      10592673
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 33
-    hint = 'Launch the Guitar Tuned'
-    bounds_x = 890
-    bounds_y = 75
-    bounds_cx = 260
-    bounds_cy = 49
-    state = [as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Tuned Guitars'
-    font.height = 30
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = showguit
-  end
-  object tstringdisp1: tstringdisp
-    optionswidget1 = [ow1_fontglyphheight]
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775410
-      16763028
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    taborder = 34
-    bounds_x = 16
-    bounds_y = 66
-    bounds_cx = 1310
-    bounds_cy = 250
-    anchors = [an_left, an_top, an_right]
-    text = 'Los acordes de fortuna'
-    font.height = 110
-    font.style = [fs_italic]
-    font.name = 'stf_default'
-    font.localprops = [flp_style, flp_height]
-    textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 129
-  end
-  object tstringdisp2: tstringdisp
-    optionswidget1 = [ow1_fontglyphheight]
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775410
-      16763028
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    taborder = 35
-    bounds_x = 16
-    bounds_y = 428
-    bounds_cx = 1310
-    bounds_cy = 250
-    anchors = [an_left, an_top, an_right]
-    text = 'The chords of fortune'
-    font.height = 110
-    font.style = [fs_italic]
-    font.name = 'stf_default'
-    font.localprops = [flp_style, flp_height]
-    textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 129
   end
 end

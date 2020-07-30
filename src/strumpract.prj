@@ -1539,12 +1539,12 @@ findhistory=20
 findoptions=1
 editpos=7
  0,-1073741823
- 26,2839
+ 0,2682
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,171
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1567,7 +1567,7 @@ relpaths=7
  guitars.pas
  eschecs_mse/board.mfm
  guitars.pas
- ../mseide-msegui/lib/common/audio/msepulseglob.pas
+ mseide-msegui/lib/common/audio/msepulseglob.pas
 ismoduletexts=7
  0
  0
@@ -1608,11 +1608,11 @@ nomenumodules=6
 order=7
  0
  1
- 6
- 2
  3
  4
  5
+ 6
+ 2
 firsttab=0
 index=1
 [layout]
@@ -1724,7 +1724,7 @@ windowlayout=654
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=componentpalettefo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1732,7 +1732,7 @@ windowlayout=654
  ncx=0
  ncy=0
  x=0
- y=29
+ y=16
  cx=1360
  cy=752
  rcx=0
@@ -2007,7 +2007,7 @@ windowlayout=654
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_randomnotefo_mse_
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -2022,7 +2022,7 @@ windowlayout=654
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
  activetab=0
  [debuggerfo]
@@ -2050,11 +2050,11 @@ windowlayout=654
  nx=0
  ny=-1
  ncx=1333
- ncy=16
+ ncy=14
  x=0
  y=-1
  cx=1348
- cy=15
+ cy=13
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2110,11 +2110,11 @@ windowlayout=654
  order=7
   0
   1
-  6
-  2
   3
   4
   5
+  6
+  2
  firsttab=0
  index=1
  [confideufo.fontname]
@@ -2179,7 +2179,7 @@ windowlayout=654
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2236,7 +2236,7 @@ windowlayout=654
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2255,7 +2255,7 @@ windowlayout=654
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

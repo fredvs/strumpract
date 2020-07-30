@@ -2566,6 +2566,12 @@ tstringdisp2.visible := false;
     bchord2.Visible := True;
     chord2.Visible  := True;
     
+      application.processmessages;
+     
+    playrandomchords(0);
+    
+     application.processmessages;
+    
     chord2.caption := chord1.caption ;
      x := 0;
     while (x < 10) and (chord2.caption = chord1.caption) do
@@ -2578,6 +2584,12 @@ tstringdisp2.visible := false;
     piano2.Visible := True;
     guitar2.Visible  := True;
     bass2.Visible  := True;
+    
+      application.processmessages;
+     
+    playrandomchords(1);
+    
+     application.processmessages;
     
     chord3.caption := chord2.caption ;
      bchord3.Visible := True;
@@ -2593,6 +2605,12 @@ tstringdisp2.visible := false;
     piano3.Visible := True;
     guitar3.Visible  := True;
     bass3.Visible  := True;
+    
+      application.processmessages;
+     
+    playrandomchords(2);
+    
+     application.processmessages;
 
     bchord4.Visible := True;
     chord4.Visible  := True;
@@ -2618,6 +2636,12 @@ tstringdisp2.visible := false;
     guitar1.Visible  := True;
     bass1.Visible  := True;
     
+      application.processmessages;
+     
+    playrandomchords(0);
+    
+     application.processmessages;
+    
     chord2.caption := chord1.caption ;
     bchord2.Visible := True;
     chord2.Visible  := True;
@@ -2633,6 +2657,12 @@ tstringdisp2.visible := false;
     guitar2.Visible  := True;
     bass2.Visible  := True;
     
+      application.processmessages;
+     
+    playrandomchords(1);
+    
+     application.processmessages;
+    
     chord3.caption := chord2.caption ;
      x := 0;
      bchord3.Visible := True;
@@ -2647,6 +2677,12 @@ tstringdisp2.visible := false;
     piano3.Visible := True;
     guitar3.Visible  := True;
     bass3.Visible  := True;
+    
+      application.processmessages;
+     
+    playrandomchords(2);
+    
+     application.processmessages;
 
     bchord4.Visible := True;
     chord4.Visible  := True;
@@ -2725,6 +2761,13 @@ tstringdisp2.visible := false;
      piano1.Visible := True;
     guitar1.Visible  := True;
      bass1.Visible  := True;  
+     
+       application.processmessages;
+     
+    playrandomchords(0);
+    
+     application.processmessages;
+     
     chord2.caption := chord1.caption ;
     bchord2.Visible := True;
     chord2.Visible  := True;
@@ -2740,6 +2783,12 @@ tstringdisp2.visible := false;
     guitar2.Visible  := True;
     bass2.Visible  := True;
     
+      application.processmessages;
+     
+    playrandomchords(1);
+    
+     application.processmessages;
+    
  
    end
   else if numchord.Value = 1 then
@@ -2751,6 +2800,12 @@ tstringdisp2.visible := false;
      piano1.Visible := True;
     guitar1.Visible  := True;
     bass1.Visible  := True;
+    
+      application.processmessages;
+     
+    playrandomchords(0);
+    
+     application.processmessages;
 
   end;
   
@@ -2816,7 +2871,7 @@ begin
 bchord1.Visible := False;
 numchord.visible := false;
 drumsfo.visible := false;
-guitarsfo.visible := false;
+//guitarsfo.visible := false;
   chord1.Visible  := False;
   bchord2.Visible := False;
   chord2.Visible  := False;
