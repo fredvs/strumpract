@@ -83,6 +83,7 @@ type
    belipse3_1: timage;
    belipse3_2: timage;
    tbutton5: tbutton;
+   procedure dorandomchordbut(const Sender: TObject);
     procedure dorandomchord(const Sender: TObject);
     procedure oncreatedev(const Sender: TObject);
     procedure randomnum(const Sender: TObject);
@@ -100,12 +101,15 @@ type
    procedure onmouseform(const sender: twidget; var ainfo: mouseeventinfoty);
    procedure ontextmax(const sender: tcustomdataedit; var atext: msestring;
                    var accept: Boolean);
+   procedure playrandomchords(thenum : integer);                
+                   
     end;
 
 var
   randomnotefo: trandomnotefo;
   chordran: integer;
   chordmem1, chordmem2, chordmem3 : string;
+  blocked :integer = 0;
 
 implementation
 
@@ -760,7 +764,7 @@ begin
 	 
 	gelipse1_3.visible := false;
 	
-	guitar1.text := '═0═════0═0═0═' + lineend + ' ══════════ 1';
+	guitar1.text := '═0═════0═0═0═' + lineend + ' ══════════  1';
 		  end else
       if num = 2 then 
       begin        
@@ -774,8 +778,8 @@ begin
 	 
 	gelipse2_3.visible := false;
 	
-	guitar2.text := '═0═════0═0═0═' + lineend + ' ══════════ 1';
-       
+	guitar2.text := '═0═════0═0═0═' + lineend + ' ══════════  1';
+	
        end else
         if num = 3 then 
       begin        
@@ -789,7 +793,7 @@ begin
 	 
 	gelipse3_3.visible := false;
 	
-	guitar3.text := '═0═════0═0═0═' + lineend + ' ══════════ 1';
+	guitar3.text := '═0═════0═0═0═' + lineend + ' ══════════  1';
      end;  
       end else
      if ((withsharp.Value = false) and (ranchord = 7) and (ismin = 1 )) or
@@ -1706,8 +1710,8 @@ begin
 	if num = 2 then 
       begin         
           // la
-    belipse2_1.top := 96;
-	belipse2_1.left := 136;
+    belipse2_1.top := 126;
+	belipse2_1.left := 10;
 
 	// do 2
 	belipse2_2.top := 96;
@@ -1816,8 +1820,8 @@ begin
 	if num = 3 then 
     begin 
    // fa#
-    belipse3_1.top := 24;
-	belipse3_1.left := 92;
+    belipse3_1.top := 42;
+	belipse3_1.left := 38;
 
 	// si
 	belipse3_2.top := 96;
@@ -1989,7 +1993,7 @@ begin
     begin 
        // ré
     belipse2_1.top := 128;
-	belipse2_1.left := 38;
+	belipse2_1.left := 36;
 
 	// fa
 	belipse2_2.top := 96;
@@ -2003,7 +2007,7 @@ begin
     begin 
        // ré
     belipse3_1.top := 128;
-	belipse3_1.left := 38;
+	belipse3_1.left := 36;
 
 	// fa
 	belipse3_2.top := 96;
@@ -2310,7 +2314,20 @@ begin
 	belipse3_3.visible := false;
 	end;
 	end;
-end;	  
+end;
+
+procedure trandomnotefo.dorandomchordbut(const Sender: TObject);
+begin
+if blocked = 0 then begin
+blocked := 1;
+dorandomchord(Sender);
+playrandomchords(TButton(Sender).tag-1);
+application.processmessages;
+blocked := 0;
+end;
+end;
+
+	  
 
 procedure trandomnotefo.dorandomchord(const Sender: TObject);
 var
@@ -2499,6 +2516,8 @@ procedure trandomnotefo.randomnum(const Sender: TObject);
 var
    x, ax: integer;
 begin
+if blocked = 0 then begin
+blocked := 1;
  doclear(sender);
  numchord.visible := true;
   bnbchords.left := 64;
@@ -2636,6 +2655,12 @@ begin
     guitar1.Visible  := True;
     bass1.Visible  := True;
     
+     application.processmessages;
+     
+    playrandomchords(0);
+    
+     application.processmessages;
+    
     chord2.caption := chord1.caption ;
      x := 0;
     while (x < 10) and (chord2.caption = chord1.caption) do
@@ -2650,6 +2675,14 @@ begin
     guitar2.Visible  := True;
     
     bass2.Visible  := True;
+    
+     application.processmessages;
+    
+    playrandomchords(1);
+    
+    application.processmessages;
+    
+    
     chord3.caption := chord2.caption ;
      x := 0;
     while (x < 10) and ((chord2.caption = chord3.caption) or (chord1.caption = chord3.caption)) do
@@ -2664,6 +2697,11 @@ begin
    piano3.Visible := True;
     guitar3.Visible  := True;  
    bass3.Visible  := True;
+   
+    application.processmessages;
+    playrandomchords(2);
+     application.processmessages;
+    
   end
   else if numchord.Value = 2 then
   begin
@@ -2745,6 +2783,10 @@ begin
  bpm.value := (80 + random(80));
  drumsfo.edittempo.value := bpm.value * 2;
  drumsfo.dostart(sender);
+ end;
+ 
+ blocked := 0;
+ 
  end;
 
 end;
@@ -2834,6 +2876,63 @@ begin
 
 end;
 
+procedure trandomnotefo.playrandomchords(thenum : integer);
+var
+thedir, afile : string;
+begin
+
+if thenum = 0 then afile := chordmem1 + '_PIANO'
+else if thenum = 1 then afile := chordmem2 + '_PIANO'
+else if thenum = 2 then afile := chordmem3 + '_PIANO'
+else afile := '';
+
+thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+       'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
+
+ uos_Stop(20);
+
+if uos_CreatePlayer(20) then
+
+ if uos_AddFromFile(20, PChar(thedir)) > -1 then
+
+ 
+   {$if defined(cpuarm)}
+    if uos_AddIntoDevOut(20, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+   {$else}
+    if uos_AddIntoDevOut(20) > -1 then
+    {$endif}
+         
+  uos_Play(20);
+  
+  sleep(4500);
+
+if thenum = 0 then afile := chordmem1 + '_GUIT'
+else if thenum = 1 then afile := chordmem2 + '_GUIT'
+else if thenum = 2 then afile := chordmem3 + '_GUIT'
+else afile := '';
+
+thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+       'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.ogg';
+
+ uos_Stop(21);
+
+if uos_CreatePlayer(21) then
+
+ if uos_AddFromFile(21, PChar(thedir)) > -1 then
+
+ 
+   {$if defined(cpuarm)}
+    if uos_AddIntoDevOut(21, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+   {$else}
+    if uos_AddIntoDevOut(21) > -1 then
+    {$endif}
+         
+  uos_Play(21);
+  
+  sleep(6000);
+  
+end;
+
 procedure trandomnotefo.onmouseguit(const sender: twidget;
                var ainfo: mouseeventinfoty);
 
@@ -2843,6 +2942,7 @@ begin
 with ainfo do begin
   
    if eventkind in [ek_buttonpress] then begin
+
 
 if Timage(Sender).tag = 0 then afile := chordmem1 + '_GUIT'
 else if Timage(Sender).tag = 1 then afile := chordmem2 + '_GUIT'
@@ -2882,6 +2982,7 @@ thedir, afile : string;
 begin
 with ainfo do begin  
    if eventkind in [ek_buttonpress] then begin
+
 
 if Timage(Sender).tag = 0 then afile := chordmem1 + '_PIANO'
 else if Timage(Sender).tag = 1 then afile := chordmem2 + '_PIANO'

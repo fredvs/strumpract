@@ -3,7 +3,7 @@ object randomnotefo: trandomnotefo
   face.localprops = []
   face.template = guitarsfo.tfaceguit
   visible = False
-  bounds_x = 0
+  bounds_x = 3
   bounds_y = 29
   bounds_cx = 1350
   bounds_cy = 710
@@ -280,7 +280,7 @@ object randomnotefo: trandomnotefo
     font.height = 80
     font.name = 'stf_default'
     font.localprops = [flp_height]
-    onexecute = dorandomchord
+    onexecute = dorandomchordbut
   end
   object bchord2: tbutton
     Tag = 2
@@ -298,7 +298,7 @@ object randomnotefo: trandomnotefo
     font.height = 80
     font.name = 'stf_default'
     font.localprops = [flp_height]
-    onexecute = dorandomchord
+    onexecute = dorandomchordbut
   end
   object bchord3: tbutton
     Tag = 3
@@ -316,7 +316,7 @@ object randomnotefo: trandomnotefo
     font.height = 80
     font.name = 'stf_default'
     font.localprops = [flp_height]
-    onexecute = dorandomchord
+    onexecute = dorandomchordbut
   end
   object bchord4: tbutton
     Tag = 4
