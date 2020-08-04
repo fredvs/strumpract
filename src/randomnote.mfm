@@ -216,8 +216,8 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 34
-    bounds_x = 16
-    bounds_y = 66
+    bounds_x = 17
+    bounds_y = 67
     bounds_cx = 1310
     bounds_cy = 250
     anchors = [an_left, an_top, an_right]
@@ -267,14 +267,14 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     hint = 'Launch the randomizer'
-    bounds_x = 16
+    bounds_x = 17
     bounds_y = 319
-    bounds_cx = 1310
+    bounds_cx = 908
     bounds_cy = 106
     anchors = [an_left, an_top, an_right]
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Aleatorizar    /    Randomize'
-    font.height = 84
+    caption = 'Aleatorizar / Randomize'
+    font.height = 70
     font.name = 'stf_default'
     font.localprops = [flp_style, flp_height]
     onexecute = randomnum
@@ -7386,7 +7386,7 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = []
       hint = 'Click to listen to piano chord'
       bounds_x = 1
-      bounds_y = 0
+      bounds_y = 1
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
@@ -7548,7 +7548,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 26
-    bounds_x = 596
+    bounds_x = 597
     bounds_y = 176
     bounds_cx = 170
     bounds_cy = 158
@@ -7560,6 +7560,102 @@ object randomnotefo: trandomnotefo
     font.name = 'stf_default'
     font.localprops = [flp_color, flp_height]
     onexecute = refreshform
+    object chord1drop: tdropdownlistedit
+      Tag = 1
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.captiontextflags = [tf_wordbreak]
+      frame.captionpos = cp_left
+      frame.font.color = 5000268
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.button.width = 20
+      frame.button.color = 13421772
+      frame.button.face.fade_direction = gd_down
+      frame.button.face.localprops = [fal_fadirection]
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          width = 20
+          color = 13421772
+          face.fade_direction = gd_down
+          face.localprops = [fal_fadirection]
+          frame.framei_bottom = 2
+          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16774883
+        16774627
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      hint = 'Select a chord'
+      visible = False
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 170
+      bounds_cy = 158
+      anchors = [an_left, an_top, an_right, an_bottom]
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+      font.color = 5000268
+      font.height = 40
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      onchange = onchangechorddrop
+      onmouseevent = onmouseform
+      value = 'G / Sol Minor'
+      dropdown.color = -1610612733
+      dropdown.colorclient = -1610612732
+      dropdown.options = [deo_selectonly, deo_keydropdown]
+      dropdown.dropdownrowcount = 14
+      dropdown.width = 200
+      dropdown.ondropdown = ondropchord
+      dropdown.cols.count = 1
+      dropdown.cols.width = 200
+      dropdown.cols.colorselect = 9737364
+      dropdown.cols.font.height = 24
+      dropdown.cols.font.localprops = [flp_style, flp_height]
+      dropdown.cols.items = <      
+        item
+          width = 200
+          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+          colorselect = 9737364
+          data = (
+            'A / La Major'
+            'A / La Minor'
+            'B / Si Major'
+            'B / Si Minor'
+            'C / Do Major'
+            'C / Do Minor'
+            'D / Re Major'
+            'D / Re Minor'
+            'E / Mi Major'
+            'E / Mi Minor'
+            'F / Fa Major'
+            'F / Fa Minor'
+            'G / Sol Major'
+            'G / Sol Minor'
+          )
+        end>
+      reffontheight = 48
+    end
   end
   object chord2: tbutton
     Tag = 1
@@ -7592,6 +7688,102 @@ object randomnotefo: trandomnotefo
     font.name = 'stf_default'
     font.localprops = [flp_color, flp_height]
     onexecute = refreshform
+    object chord2drop: tdropdownlistedit
+      Tag = 2
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.captiontextflags = [tf_wordbreak]
+      frame.captionpos = cp_left
+      frame.font.color = 5000268
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.button.width = 20
+      frame.button.color = 13421772
+      frame.button.face.fade_direction = gd_down
+      frame.button.face.localprops = [fal_fadirection]
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          width = 20
+          color = 13421772
+          face.fade_direction = gd_down
+          face.localprops = [fal_fadirection]
+          frame.framei_bottom = 2
+          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16774883
+        16774627
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      hint = 'Select a chord'
+      visible = False
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 170
+      bounds_cy = 158
+      anchors = [an_left, an_top, an_right, an_bottom]
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+      font.color = 5000268
+      font.height = 40
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      onchange = onchangechorddrop
+      onmouseevent = onmouseform
+      value = 'G / Sol Minor'
+      dropdown.color = -1610612733
+      dropdown.colorclient = -1610612732
+      dropdown.options = [deo_selectonly, deo_keydropdown]
+      dropdown.dropdownrowcount = 14
+      dropdown.width = 200
+      dropdown.ondropdown = ondropchord
+      dropdown.cols.count = 1
+      dropdown.cols.width = 200
+      dropdown.cols.colorselect = 9737364
+      dropdown.cols.font.height = 24
+      dropdown.cols.font.localprops = [flp_style, flp_height]
+      dropdown.cols.items = <      
+        item
+          width = 200
+          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+          colorselect = 9737364
+          data = (
+            'A / La Major'
+            'A / La Minor'
+            'B / Si Major'
+            'B / Si Minor'
+            'C / Do Major'
+            'C / Do Minor'
+            'D / Re Major'
+            'D / Re Minor'
+            'E / Mi Major'
+            'E / Mi Minor'
+            'F / Fa Major'
+            'F / Fa Minor'
+            'G / Sol Major'
+            'G / Sol Minor'
+          )
+        end>
+      reffontheight = 48
+    end
   end
   object chord3: tbutton
     Tag = 2
@@ -7624,6 +7816,102 @@ object randomnotefo: trandomnotefo
     font.name = 'stf_default'
     font.localprops = [flp_color, flp_height]
     onexecute = refreshform
+    object chord3drop: tdropdownlistedit
+      Tag = 3
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.captiontextflags = [tf_wordbreak]
+      frame.captionpos = cp_left
+      frame.font.color = 5000268
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.button.width = 20
+      frame.button.color = 13421772
+      frame.button.face.fade_direction = gd_down
+      frame.button.face.localprops = [fal_fadirection]
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          width = 20
+          color = 13421772
+          face.fade_direction = gd_down
+          face.localprops = [fal_fadirection]
+          frame.framei_bottom = 2
+          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16774883
+        16774627
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      hint = 'Select a chord'
+      visible = False
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 170
+      bounds_cy = 158
+      anchors = [an_left, an_top, an_right, an_bottom]
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+      font.color = 5000268
+      font.height = 40
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      onchange = onchangechorddrop
+      onmouseevent = onmouseform
+      value = 'G / Sol Minor'
+      dropdown.color = -1610612733
+      dropdown.colorclient = -1610612732
+      dropdown.options = [deo_selectonly, deo_keydropdown]
+      dropdown.dropdownrowcount = 14
+      dropdown.width = 200
+      dropdown.ondropdown = ondropchord
+      dropdown.cols.count = 1
+      dropdown.cols.width = 200
+      dropdown.cols.colorselect = 9737364
+      dropdown.cols.font.height = 24
+      dropdown.cols.font.localprops = [flp_style, flp_height]
+      dropdown.cols.items = <      
+        item
+          width = 200
+          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+          colorselect = 9737364
+          data = (
+            'A / La Major'
+            'A / La Minor'
+            'B / Si Major'
+            'B / Si Minor'
+            'C / Do Major'
+            'C / Do Minor'
+            'D / Re Major'
+            'D / Re Minor'
+            'E / Mi Major'
+            'E / Mi Minor'
+            'F / Fa Major'
+            'F / Fa Minor'
+            'G / Sol Major'
+            'G / Sol Minor'
+          )
+        end>
+      reffontheight = 48
+    end
   end
   object tbutton4: tbutton
     color = 12895428
@@ -10971,5 +11259,33 @@ object randomnotefo: trandomnotefo
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
     end
+  end
+  object btnfixed: tbutton
+    color = 12895428
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      12779422
+      7255365
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 36
+    hint = 'Launch fixed chords'
+    bounds_x = 969
+    bounds_y = 319
+    bounds_cx = 350
+    bounds_cy = 106
+    anchors = [an_left, an_top, an_right]
+    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Fixed'
+    font.height = 70
+    font.name = 'stf_default'
+    font.localprops = [flp_style, flp_height]
+    onexecute = dofixed
   end
 end

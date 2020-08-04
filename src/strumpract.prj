@@ -133,8 +133,9 @@ findinfiledialog=75
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=alsa
+ value=pos(
  history=20
+  pos(
   alsa
   ek_buttonpress
   mouseeventinfoty
@@ -154,7 +155,6 @@ findinfiledialog=75
   istatfile
   objcbase
   latplay
-  uos_AddIntoDevOut
  [findinfileadialogfo]
  stackedunder=
  x=635
@@ -166,8 +166,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=763
- y=496
+ x=839
+ y=557
  cx=300
  cy=269
 replacedialog=33
@@ -781,18 +781,21 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=4
+modulenames=5
  COMMANDERFO
+ DRUMSFO
  GUITARSFO
  MAINFO
  RANDOMNOTEFO
-moduletypes=4
+moduletypes=5
  TCOMMANDERFO
+ TDRUMSFO
  TGUITARSFO
  TMAINFO
  TRANDOMNOTEFO
-modulefiles=4
+modulefiles=5
  /home/fred/strumpract/src/commander.mfm
+ /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/randomnote.mfm
@@ -1517,6 +1520,13 @@ hintheight=200
 finddtext=dorandomchord
 findhistory=20
  dorandomchord
+ chordran
+ chord1drop
+ drumsfo.l
+ ax
+ bnbchords
+ dorandomc
+ chord1.
  belipse1_1
  playrandom
  maxnote
@@ -1529,19 +1539,12 @@ findhistory=20
  timeract
  bring
  guitarc
- elipse
- piano1.vi
- chord3.text
- chord2.text
- chord1.text
- chord1
- drum_beats
 findoptions=1
 editpos=7
- 0,-1073741823
- 0,2682
- 0,-1073741823
- 0,-1073741823
+ 0,0
+ 8,157
+ 0,0
+ 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1557,23 +1560,23 @@ sourcefiles=7
  ${PROJECTDIR}/randomnote.pas
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/guitars.pas
- /home/fred/eschecs_mse/board.mfm
  ${PROJECTDIR}/guitars.pas
- /home/fred/mseide-msegui/lib/common/audio/msepulseglob.pas
+ ${PROJECTDIR}/drums.pas
+ /home/fred/mseide-msegui/lib/common/fpccompatibility/msefptiffcmn.pas
 relpaths=7
  main.pas
  randomnote.pas
  commander.pas
  guitars.pas
- eschecs_mse/board.mfm
  guitars.pas
- mseide-msegui/lib/common/audio/msepulseglob.pas
+ drums.pas
+ mseide-msegui/lib/common/fpccompatibility/msefptiffcmn.pas
 ismoduletexts=7
  0
  0
  0
  0
- -1
+ 0
  0
  0
 modules=6
@@ -1581,8 +1584,8 @@ modules=6
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/randomnote.mfm
  /home/fred/strumpract/src/guitars.mfm
+ /home/fred/strumpract/src/randomnote.mfm
 moduleoptions=6
  0
  0
@@ -1593,14 +1596,14 @@ moduleoptions=6
 visiblemodules=6
  -1
  -1
- 0
+ -1
  0
  -1
  -1
 nomenumodules=6
  0
  0
- -1
+ 0
  -1
  0
  0
@@ -1609,10 +1612,10 @@ order=7
  0
  1
  3
- 4
- 5
- 6
  2
+ 8
+ 7
+ 5
 firsttab=0
 index=1
 [layout]
@@ -1630,13 +1633,13 @@ windowlayout=654
  ny=0
  ncx=0
  ncy=0
- x=61
- y=101
+ x=133
+ y=144
  cx=1224
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [targetconsolefo]
@@ -1750,7 +1753,7 @@ windowlayout=654
  x=0
  y=0
  cx=205
- cy=522
+ cy=446
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1761,7 +1764,7 @@ windowlayout=654
  sortdescend1=0
  sorted=0
  col=0
- row=5
+ row=3
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1841,9 +1844,9 @@ windowlayout=654
  value=1
  [objectinspectorfo.grid]
  propcolwidthref=824
- width0=365
+ width0=366
  sortdescend0=0
- width1=453
+ width1=452
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1936,9 +1939,9 @@ windowlayout=654
  ncx=0
  ncy=0
  x=0
- y=579
- cx=1348
- cy=110
+ y=504
+ cx=1212
+ cy=96
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2037,8 +2040,8 @@ windowlayout=654
  ncy=0
  x=0
  y=0
- cx=1348
- cy=51
+ cx=1212
+ cy=52
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2049,12 +2052,12 @@ windowlayout=654
  mdistate=0
  nx=0
  ny=-1
- ncx=1333
- ncy=14
+ ncx=1212
+ ncy=4
  x=0
  y=-1
- cx=1348
- cy=13
+ cx=1212
+ cy=4
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2102,8 +2105,8 @@ windowlayout=654
  ncy=0
  x=208
  y=0
- cx=1140
- cy=522
+ cx=1004
+ cy=446
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2111,10 +2114,10 @@ windowlayout=654
   0
   1
   3
-  4
-  5
-  6
   2
+  8
+  7
+  5
  firsttab=0
  index=1
  [confideufo.fontname]
@@ -2125,7 +2128,7 @@ windowlayout=654
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2152,9 +2155,9 @@ windowlayout=654
  ncx=0
  ncy=0
  x=0
- y=54
- cx=1348
- cy=522
+ y=55
+ cx=1212
+ cy=446
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2179,7 +2182,7 @@ windowlayout=654
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_randomnotefo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2217,7 +2220,7 @@ windowlayout=654
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2232,30 +2235,11 @@ windowlayout=654
  rcy=0
  wsize=0
  active=0
- visible=0
- [_mse_randomnotefo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=-3
- y=55
- cx=1360
- cy=710
- rcx=0
- rcy=0
- wsize=0
- active=0
  visible=1
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2266,6 +2250,25 @@ windowlayout=654
  y=263
  cx=452
  cy=64
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_randomnotefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=-3
+ y=55
+ cx=1360
+ cy=710
  rcx=0
  rcy=0
  wsize=0
