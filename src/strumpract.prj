@@ -1541,10 +1541,10 @@ findhistory=20
  guitarc
 findoptions=1
 editpos=7
- 0,0
- 8,157
- 0,0
- 0,0
+ 0,-1073741823
+ 0,3328
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1608,18 +1608,10 @@ nomenumodules=6
  0
  0
 [sourcefo.files_tab]
-order=7
- 0
- 1
- 3
- 2
- 8
- 7
- 5
 firsttab=0
 index=1
 [layout]
-windowlayout=654
+windowlayout=646
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1633,8 +1625,8 @@ windowlayout=654
  ny=0
  ncx=0
  ncy=0
- x=133
- y=144
+ x=3
+ y=115
  cx=1224
  cy=621
  rcx=0
@@ -1659,7 +1651,7 @@ windowlayout=654
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -2110,14 +2102,6 @@ windowlayout=654
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=7
-  0
-  1
-  3
-  2
-  8
-  7
-  5
  firsttab=0
  index=1
  [confideufo.fontname]
@@ -2163,7 +2147,7 @@ windowlayout=654
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2239,7 +2223,7 @@ windowlayout=654
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_randomnotefo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0

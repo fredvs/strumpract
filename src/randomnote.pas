@@ -3278,6 +3278,7 @@ begin
   begin
     blocked          := 1;
     doclear(Sender);
+    application.processmessages;
     numchord.Visible := True;
     numchord.Value   := maxnote.Value;
     if numchord.Value = 3 then
@@ -3293,6 +3294,9 @@ begin
       pianochord(1, 1, 1);
       guitarchord(1, 1, 1);
       basschord(1, 1, 1);
+      
+         chordmem1 := 'A';
+        
       application.ProcessMessages;
 
       chord2.Caption     := 'A / La' + lineend + 'Major';
@@ -3303,6 +3307,8 @@ begin
       piano2.Visible     := True;
       guitar2.Visible    := True;
       bass2.Visible      := True;
+      
+       chordmem2 :=  chordmem1;
 
       pianochord(2, 1, 1);
       guitarchord(2, 1, 1);
@@ -3319,6 +3325,8 @@ begin
       piano3.Visible     := True;
       guitar3.Visible    := True;
       bass3.Visible      := True;
+      
+       chordmem3 :=  chordmem1 ;
 
       pianochord(3, 1, 1);
       guitarchord(3, 1, 1);
