@@ -63,7 +63,6 @@ type
     belipse3_1: timage;
     belipse3_2: timage;
     tstringdisp1: tstringdisp;
-    tstringdisp2: tstringdisp;
     chord1drop: tdropdownlistedit;
     chord2drop: tdropdownlistedit;
     chord3drop: tdropdownlistedit;
@@ -3791,6 +3790,8 @@ end;
 procedure trandomnotefo.oncreatedev(const Sender: TObject);
 begin
   randomize;
+  tstringdisp1.text := 'Los acordes de la suerte'  + 
+  lineend + lineend +    '_____________________' + lineend + lineend +  lineend + 'The chords of chance';
   // Visible := False;
   keyb2.bitmap    := keyb1.bitmap;
   keyb3.bitmap    := keyb1.bitmap;
@@ -3869,15 +3870,15 @@ begin
   bnbchords.Visible := False;
   btnfixed.Visible  := False;
   
-    bnbchords.left := 130;
-bnbchords.top := 648;
+ bnbchords.left := 130;
+bnbchords.top := tbutton2.top;
 bnbchords.width := 202;
-bnbchords.height := 44;
+bnbchords.height := tbutton2.height;
 
 btnfixed.left := 338;
 btnfixed.width := 144;
-btnfixed.height := 44;
-btnfixed.top := 648;
+btnfixed.height :=  tbutton2.height;;
+btnfixed.top := bnbchords.top;
 
 bnbchords.font.height := 30;
 btnfixed.font.height := 30;
@@ -3888,8 +3889,7 @@ btnfixed.font.height := 30;
     //  bnbchords.width := 400;
     // bnbchords.height := 120;
     tstringdisp1.Visible := False;
-    tstringdisp2.Visible := False;
-
+   
     if withrandom.Value = False then
       numchord.Value := strtoint(maxnote.Value)
     else
@@ -4135,9 +4135,7 @@ btnfixed.font.height := 30;
 
     end;
     
-    tbutton2.Visible := True;
-
-    if nodrums.Value = True then
+       if nodrums.Value = True then
     begin
       tbutton3.Visible      := True;
       drum_beats[0]         := 'x000x000x000x000'; // closed hat
@@ -4179,6 +4177,8 @@ btnfixed.font.height := 30;
       drumsfo.dostart(Sender);
       //bnbchords.visible := true;
       end;
+       tbutton2.Visible := True;
+       tbutton3.Visible := True;
        tbutton5.Visible := True;
       bnbchords.Visible := true;
       btnfixed.Visible  := true;
@@ -4254,8 +4254,7 @@ btnfixed.font.height := 60;
   bnbchords.Visible    := True;
   btnfixed.Visible     := True;
   tstringdisp1.Visible := True;
-  tstringdisp2.Visible := True;
-  // refreshform(sender);
+   // refreshform(sender);
 end;
 
 procedure trandomnotefo.refreshform(const Sender: TObject);
@@ -4271,7 +4270,7 @@ begin
 
   if drumsfo.Visible then
   begin
-    drumsfo.top     := top + 286;
+    drumsfo.top     := top + 254;
     drumsfo.left    := left + 40;
     drumsfo.Visible := True;
     drumsfo.bringtofront;
@@ -4512,7 +4511,6 @@ begin
     bnbchords.Visible := False;
       btnfixed.Visible  := False;
        tstringdisp1.Visible := False;
-      tstringdisp2.Visible := False;  
     blocked          := 1;
 //    doclear(Sender);
 //    application.processmessages;
@@ -4679,14 +4677,14 @@ begin
       tbutton5.Visible := False;
    
  bnbchords.left := 130;
-bnbchords.top := 648;
+bnbchords.top := tbutton2.top;
 bnbchords.width := 202;
-bnbchords.height := 44;
+bnbchords.height := tbutton2.height;
 
 btnfixed.left := 338;
 btnfixed.width := 144;
-btnfixed.height := 44;
-btnfixed.top := 648;
+btnfixed.height :=  tbutton2.height;;
+btnfixed.top := bnbchords.top;
 
 bnbchords.font.height := 30;
 btnfixed.font.height := 30;

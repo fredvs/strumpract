@@ -3,7 +3,7 @@ object randomnotefo: trandomnotefo
   face.localprops = []
   face.template = guitarsfo.tfaceguit
   visible = False
-  bounds_x = 3
+  bounds_x = -41
   bounds_y = 29
   bounds_cx = 1350
   bounds_cy = 710
@@ -140,60 +140,20 @@ object randomnotefo: trandomnotefo
   onclose = onclosev
   onmouseevent = onmousev
   moduleclassname = 'tdockform'
-  object tstringdisp2: tstringdisp
-    optionswidget1 = [ow1_fontglyphheight]
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775410
-      16763028
-    )
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    taborder = 14
-    bounds_x = 500
-    bounds_y = 359
-    bounds_cx = 846
-    bounds_cy = 342
-    anchors = [an_left, an_top, an_right]
-    text = 'The chords of chance'
-    font.height = 60
-    font.style = [fs_italic]
-    font.name = 'stf_default'
-    font.localprops = [flp_style, flp_height]
-    textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 71
-  end
   object tstringdisp1: tstringdisp
     optionswidget1 = [ow1_fontglyphheight]
     frame.localprops = []
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp1
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775410
-      16763028
-    )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
+    face.template = mainfo.tfaceplayer
     taborder = 13
     bounds_x = 500
-    bounds_y = 6
+    bounds_y = 2
     bounds_cx = 846
-    bounds_cy = 347
-    anchors = [an_left, an_top, an_right]
+    bounds_cy = 706
+    anchors = [an_left, an_top, an_right, an_bottom]
     text = 'Los acordes de la suerte'
     font.height = 60
     font.style = [fs_italic]
@@ -10752,7 +10712,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacegreen
-    taborder = 15
+    taborder = 14
     hint = 'Randomize chords'
     bounds_x = 130
     bounds_y = 650
@@ -10775,7 +10735,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacegreen
-    taborder = 16
+    taborder = 15
     hint = 'Manual fixed chords'
     bounds_x = 339
     bounds_y = 650
@@ -10798,7 +10758,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacebutgray
-    taborder = 17
+    taborder = 16
     hint = ' Tuned guitar string '
     bounds_x = 60
     bounds_y = 540
@@ -10831,7 +10791,7 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 18
+    taborder = 17
     bounds_x = 585
     bounds_y = 496
     bounds_cx = 191
@@ -10971,7 +10931,7 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 19
+    taborder = 18
     visible = False
     bounds_x = 784
     bounds_y = 496
@@ -11063,7 +11023,7 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 20
+    taborder = 19
     visible = False
     bounds_x = 1062
     bounds_y = 496
@@ -11153,7 +11113,7 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 21
+    taborder = 20
     visible = False
     bounds_x = 1216
     bounds_y = 496
@@ -11240,7 +11200,7 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 22
+    taborder = 21
     bounds_x = 585
     bounds_y = 661
     bounds_cx = 191
@@ -11380,7 +11340,7 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 23
+    taborder = 22
     visible = False
     bounds_x = 784
     bounds_y = 661
@@ -11472,7 +11432,7 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 24
+    taborder = 23
     visible = False
     bounds_x = 1062
     bounds_y = 661
@@ -11562,7 +11522,7 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 25
+    taborder = 24
     visible = False
     bounds_x = 1216
     bounds_y = 661
@@ -11639,8 +11599,8 @@ object randomnotefo: trandomnotefo
     frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    face.template = mainfo.tfacecomp1
-    taborder = 26
+    face.template = mainfo.tfaceplayer
+    taborder = 25
     hint = 'Re-do a randomizer for chord 1'
     bounds_x = 510
     bounds_y = 5
@@ -11663,8 +11623,8 @@ object randomnotefo: trandomnotefo
     frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    face.template = mainfo.tfacecomp1
-    taborder = 27
+    face.template = mainfo.tfaceplayer
+    taborder = 26
     hint = 'Re-do a randomizer for chord 5'
     bounds_x = 510
     bounds_y = 662
@@ -11687,8 +11647,8 @@ object randomnotefo: trandomnotefo
     frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    face.template = mainfo.tfacecomp1
-    taborder = 28
+    face.template = mainfo.tfaceplayer
+    taborder = 27
     hint = 'Re-do a randomizer for chord 4'
     bounds_x = 510
     bounds_y = 497
@@ -11711,8 +11671,8 @@ object randomnotefo: trandomnotefo
     frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    face.template = mainfo.tfacecomp1
-    taborder = 29
+    face.template = mainfo.tfaceplayer
+    taborder = 28
     hint = 'Re-do a randomizer for chord 3'
     bounds_x = 510
     bounds_y = 334
@@ -11735,8 +11695,8 @@ object randomnotefo: trandomnotefo
     frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    face.template = mainfo.tfacecomp1
-    taborder = 30
+    face.template = mainfo.tfaceplayer
+    taborder = 29
     hint = 'Re-do a randomizer for chord 2'
     bounds_x = 510
     bounds_y = 172
@@ -11759,7 +11719,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacebutgray
-    taborder = 31
+    taborder = 30
     hint = 'Manual fixed chords'
     bounds_x = 20
     bounds_y = 650
@@ -11782,7 +11742,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacebutgray
-    taborder = 32
+    taborder = 31
     hint = 'Show drums set'
     bounds_x = 179
     bounds_y = 374
@@ -11813,7 +11773,8 @@ object randomnotefo: trandomnotefo
       0
       0
     )
-    taborder = 33
+    taborder = 32
+    onfocus = refreshform
     bounds_x = 25
     bounds_y = 100
     bounds_cx = 456
@@ -11981,7 +11942,8 @@ object randomnotefo: trandomnotefo
       0
       0
     )
-    taborder = 34
+    taborder = 33
+    onfocus = refreshform
     bounds_x = 25
     bounds_y = 2
     bounds_cx = 226
@@ -12081,6 +12043,7 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       onmouseevent = onmousev
+      onclientmouseevent = onmousev
       value = '3'
       dropdown.color = -1610612730
       dropdown.colorclient = -1610612730
@@ -12147,7 +12110,8 @@ object randomnotefo: trandomnotefo
       0
       0
     )
-    taborder = 35
+    taborder = 34
+    onfocus = refreshform
     bounds_x = 256
     bounds_y = 2
     bounds_cx = 226
