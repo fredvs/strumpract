@@ -3,8 +3,8 @@ object randomnotefo: trandomnotefo
   face.localprops = []
   face.template = guitarsfo.tfaceguit
   visible = False
-  bounds_x = -3
-  bounds_y = 55
+  bounds_x = 3
+  bounds_y = 29
   bounds_cx = 1350
   bounds_cy = 710
   container.frame.localprops = []
@@ -138,35 +138,8 @@ object randomnotefo: trandomnotefo
   }
   oncreated = oncreatedev
   onclose = onclosev
-  onmouseevent = onmouseform
+  onmouseevent = onmousev
   moduleclassname = 'tdockform'
-  object tbutton5: tbutton
-    color = 12895428
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      14013909
-      10592673
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 33
-    hint = 'Launch the Guitar Tuned'
-    bounds_x = 890
-    bounds_y = 75
-    bounds_cx = 260
-    bounds_cy = 49
-    state = [as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Tuned Guitars'
-    font.height = 30
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = showguit
-  end
   object tstringdisp2: tstringdisp
     optionswidget1 = [ow1_fontglyphheight]
     frame.localprops = []
@@ -184,19 +157,19 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 35
-    bounds_x = 16
-    bounds_y = 428
-    bounds_cx = 1310
-    bounds_cy = 250
+    taborder = 14
+    bounds_x = 500
+    bounds_y = 359
+    bounds_cx = 846
+    bounds_cy = 342
     anchors = [an_left, an_top, an_right]
     text = 'The chords of chance'
-    font.height = 110
+    font.height = 60
     font.style = [fs_italic]
     font.name = 'stf_default'
     font.localprops = [flp_style, flp_height]
     textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 129
+    reffontheight = 71
   end
   object tstringdisp1: tstringdisp
     optionswidget1 = [ow1_fontglyphheight]
@@ -215,436 +188,19 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 34
-    bounds_x = 17
-    bounds_y = 67
-    bounds_cx = 1310
-    bounds_cy = 250
+    taborder = 13
+    bounds_x = 500
+    bounds_y = 6
+    bounds_cx = 846
+    bounds_cy = 347
     anchors = [an_left, an_top, an_right]
     text = 'Los acordes de la suerte'
-    font.height = 100
+    font.height = 60
     font.style = [fs_italic]
     font.name = 'stf_default'
     font.localprops = [flp_style, flp_height]
     textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 117
-  end
-  object withrandom: tbooleanedit
-    color = -2147483645
-    frame.caption = ' Random'
-    frame.font.height = 30
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
-    frame.outerframe = (
-      0
-      9
-      137
-      10
-    )
-    taborder = 10
-    hint = 'Randomize the number of chords'
-    bounds_x = 248
-    bounds_y = 16
-    bounds_cx = 153
-    bounds_cy = 38
-    statfile = mainfo.tstatfile1
-    onchange = refreshform
-  end
-  object bnbchords: tbutton
-    color = 12895428
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      12779422
-      7255365
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    hint = 'Launch the randomizer'
-    bounds_x = 17
-    bounds_y = 319
-    bounds_cx = 908
-    bounds_cy = 106
-    anchors = [an_left, an_top, an_right]
-    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Aleatorizar / Randomize'
-    font.height = 70
-    font.name = 'stf_default'
-    font.localprops = [flp_style, flp_height]
-    onexecute = randomnum
-  end
-  object maxnote: tintegeredit
-    color = -2147483645
-    frame.caption = 'Max: '
-    frame.captiontextflags = [tf_noselect]
-    frame.captionpos = cp_left
-    frame.font.height = 50
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    frame.outerframe = (
-      140
-      2
-      0
-      2
-    )
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16646123
-      14936240
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 1
-    hint = 'Maximum number of chords'
-    bounds_x = 43
-    bounds_y = 4
-    bounds_cx = 189
-    bounds_cy = 61
-    statfile = mainfo.tstatfile1
-    font.height = 50
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    caretwidth = 0
-    onsettext = ontextmax
-    value = 3
-    valuemin = 1
-    valuemax = 3
-    reffontheight = 59
-  end
-  object numchord: tintegerdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16646123
-      14936240
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 2
-    hint = 'Total chords'
-    visible = False
-    bounds_x = 424
-    bounds_y = 1
-    bounds_cy = 63
-    font.color = 4040192
-    font.height = 50
-    font.name = 'stf_default'
-    font.localprops = [flp_color, flp_height]
-    onchange = refreshform
-    reffontheight = 59
-  end
-  object bchord1: tbutton
-    Tag = 1
-    color = 12895428
-    face.localprops = []
-    face.template = mainfo.tfacecomp1
-    taborder = 3
-    hint = 'Re-do a randomizer for chord 1'
-    bounds_x = 518
-    bounds_y = 176
-    bounds_cx = 70
-    bounds_cy = 158
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = '1'
-    font.height = 80
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = dorandomchordbut
-  end
-  object bchord2: tbutton
-    Tag = 2
-    color = 12895428
-    face.localprops = []
-    face.template = mainfo.tfacecomp1
-    taborder = 4
-    hint = 'Re-do a randomizer for chord 2'
-    bounds_x = 518
-    bounds_y = 362
-    bounds_cx = 70
-    bounds_cy = 158
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = '2'
-    font.height = 80
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = dorandomchordbut
-  end
-  object bchord3: tbutton
-    Tag = 3
-    color = 12895428
-    face.localprops = []
-    face.template = mainfo.tfacecomp1
-    taborder = 5
-    hint = 'Re-do a randomizer for chord 3'
-    bounds_x = 518
-    bounds_y = 548
-    bounds_cx = 70
-    bounds_cy = 158
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = '3'
-    font.height = 80
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = dorandomchordbut
-  end
-  object bchord4: tbutton
-    Tag = 4
-    color = 12895428
-    face.localprops = []
-    face.template = mainfo.tfacecomp1
-    taborder = 6
-    bounds_x = 517
-    bounds_y = 788
-    bounds_cx = 80
-    bounds_cy = 80
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
-    caption = '4'
-    font.height = 80
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = dorandomchord
-  end
-  object bchord5: tbutton
-    Tag = 5
-    color = 12895428
-    face.localprops = []
-    face.template = mainfo.tfacecomp1
-    taborder = 7
-    bounds_x = 517
-    bounds_y = 980
-    bounds_cx = 80
-    bounds_cy = 80
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
-    caption = '5'
-    font.height = 80
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = dorandomchord
-  end
-  object chord4: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775159
-      15586259
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 8
-    visible = False
-    bounds_x = 612
-    bounds_y = 789
-    bounds_cx = 278
-    bounds_cy = 75
-    anchors = [an_left, an_top, an_right]
-    font.color = 33280
-    font.height = 60
-    font.name = 'stf_default'
-    font.localprops = [flp_color, flp_height]
-    textflags = [tf_xcentered, tf_ycentered]
     reffontheight = 71
-  end
-  object chord5: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775159
-      15586259
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 9
-    visible = False
-    bounds_x = 612
-    bounds_y = 977
-    bounds_cx = 278
-    bounds_cy = 75
-    anchors = [an_left, an_top, an_right]
-    font.color = 33280
-    font.height = 60
-    font.name = 'stf_default'
-    font.localprops = [flp_color, flp_height]
-    textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 71
-  end
-  object withsharp: tbooleanedit
-    color = -2147483645
-    frame.caption = ' # (Sharp/Di'#232'se)'
-    frame.font.height = 50
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
-    frame.outerframe = (
-      0
-      21
-      423
-      21
-    )
-    taborder = 11
-    hint = 'Enable Sharp-Chords #'
-    bounds_x = 884
-    bounds_y = 4
-    bounds_cx = 439
-    bounds_cy = 61
-    statfile = mainfo.tstatfile1
-    onchange = refreshform
-  end
-  object nodrums: tbooleanedit
-    color = -2147483645
-    frame.caption = ' Drums'
-    frame.font.height = 50
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
-    frame.outerframe = (
-      0
-      21
-      186
-      21
-    )
-    taborder = 12
-    hint = 'Enable random Drums tempo'
-    bounds_x = 597
-    bounds_y = 3
-    bounds_cx = 202
-    bounds_cy = 61
-    statfile = mainfo.tstatfile1
-    onchange = refreshform
-    value = True
-  end
-  object bpm: tintegerdisp
-    color = -2147483645
-    frame.caption = 'BPM'
-    frame.captionpos = cp_left
-    frame.captiondist = 10
-    frame.font.height = 40
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = commanderfo.tframecomp2
-    frame.outerframe = (
-      98
-      0
-      0
-      0
-    )
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16250871
-      13750737
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 13
-    hint = 'Tempo of Drums in BPM'
-    visible = False
-    bounds_x = 583
-    bounds_y = 68
-    bounds_cx = 233
-    bounds_cy = 75
-    font.color = 4040192
-    font.height = 60
-    font.name = 'stf_default'
-    font.localprops = [flp_color, flp_height]
-    onchange = refreshform
-    reffontheight = 71
-  end
-  object tbutton2: tbutton
-    color = 12895428
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      14013909
-      10592673
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 14
-    hint = 'Clear all chords'
-    bounds_x = 205
-    bounds_y = 78
-    bounds_cx = 120
-    bounds_cy = 49
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Clear'
-    font.height = 30
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = doclear
-  end
-  object tbutton3: tbutton
-    color = 12895428
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      14013909
-      10592673
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 15
-    hint = 'Launch the Drums'
-    bounds_x = 174
-    bounds_y = 450
-    bounds_cx = 127
-    bounds_cy = 49
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Drums'
-    font.height = 30
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    onexecute = onshowdrums
   end
   object guitar2: tstringdisp
     frame.localprops = []
@@ -662,10 +218,9 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 16
     visible = False
-    bounds_x = 1052
-    bounds_y = 362
+    bounds_x = 1062
+    bounds_y = 168
     bounds_cx = 148
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -686,6 +241,7 @@ object randomnotefo: trandomnotefo
       bounds_y = 22
       bounds_cx = 130
       bounds_cy = 136
+      anchors = [an_left, an_top, an_bottom]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
       onmouseevent = onmouseguit
@@ -751,10 +307,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 17
+    taborder = 1
     visible = False
-    bounds_x = 1052
-    bounds_y = 548
+    bounds_x = 1063
+    bounds_y = 332
     bounds_cx = 148
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -775,6 +331,7 @@ object randomnotefo: trandomnotefo
       bounds_y = 22
       bounds_cx = 130
       bounds_cy = 136
+      anchors = [an_left, an_top, an_bottom]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
       onmouseevent = onmouseguit
@@ -840,10 +397,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 18
+    taborder = 2
     visible = False
-    bounds_x = 774
-    bounds_y = 176
+    bounds_x = 784
+    bounds_y = 5
     bounds_cx = 272
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -863,8 +420,10 @@ object randomnotefo: trandomnotefo
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
+      anchors = [an_left, an_top, an_bottom]
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
       bitmap.image = {
         00000000120000000E0100009C00000004700100000000000000000000000000
         0000000000000000000000000000000000000000FDFEFE01F6FDFD01F1FBFB01
@@ -5364,10 +4923,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 19
+    taborder = 3
     visible = False
-    bounds_x = 1052
-    bounds_y = 176
+    bounds_x = 1062
+    bounds_y = 5
     bounds_cx = 148
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -5386,6 +4945,7 @@ object randomnotefo: trandomnotefo
       bounds_y = 22
       bounds_cx = 130
       bounds_cy = 136
+      anchors = [an_left, an_top, an_bottom]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
       bitmap.image = {
@@ -7226,130 +6786,6 @@ object randomnotefo: trandomnotefo
       onmouseevent = onmouseguit
     end
   end
-  object guitar5: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775159
-      15586259
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 20
-    visible = False
-    bounds_x = 1198
-    bounds_y = 935
-    bounds_cx = 140
-    bounds_cy = 158
-    anchors = [an_top, an_right]
-    text = 'X     0   0'#10#9554#9552#9572#9552#9572#9552#9572#9552#9572#9552#9557#10#9474' '#9474' '#9474' '#9474' 0 '#9474#10#9500#9472#9532#9472#9532#9472#9532#9472#9532#9472#9508#10#9474' '#9474' 0 '#9474' '#9474' '#9474#10#9500#9472#9532#9472#9532#9472#9532#9472#9532#9472#9508#10#9474' 0 '#9474' '#9474' '#9474' '#9474#10#9500#9472#9532#9472#9532#9472#9532#9472#9532#9472#9508
-    font.color = -1610612734
-    font.height = 16
-    font.name = 'stf_fixed'
-    font.localprops = [flp_color, flp_height]
-    textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 19
-  end
-  object guitar4: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775159
-      15586259
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 21
-    visible = False
-    bounds_x = 1195
-    bounds_y = 746
-    bounds_cx = 140
-    bounds_cy = 158
-    anchors = [an_top, an_right]
-    text = '0'#9552'0'#9552'='#9552'='#9552'='#9552'0'#10' '#9500#9472#9532#9472#9532#9472#9532#9472#9532#9472#9508'3'#10#9474' '#9474' '#9474' '#9474' '#9474' '#9474#10#9500#9472#9532#9472#9532#9472#9532#9472#9532#9472#9508#10#9474' '#9474' 0 0 0 '#9474#10#9500#9472#9532#9472#9532#9472#9532#9472#9532#9472#9508#10#9474' '#9474' '#9474' '#9474' '#9474' '#9474#10#9500#9472#9532#9472#9532#9472#9532#9472#9532#9472#9508
-    font.color = -1610612734
-    font.height = 16
-    font.name = 'stf_fixed'
-    font.localprops = [flp_color, flp_height]
-    textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 19
-  end
-  object piano5: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775159
-      15586259
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 22
-    visible = False
-    bounds_x = 901
-    bounds_y = 973
-    bounds_cx = 276
-    bounds_cy = 94
-    anchors = [an_top, an_right]
-    text = #9554#9552#9605#9605#9552#9605#9605#9552#9572#9552#9605#9605#9552#9605#9605#9552#9605#9605#9552#9572#9552#9605#9605#9552#9605#9605#9552#9557#10#9474' '#9608#9608' '#9608#9608' '#9474' '#9608#9608' '#9608#9608' '#9608#9608' '#9474' '#9608#9608' '#9608#9608' '#9474#10#9474' '#9608#9608' '#9608#9608' '#9474' '#9608#9608' '#9608#9608' '#9608#9608' '#9474' '#9608#9608' '#9608#9608' '#9474#10#9474'0 '#9615'  '#9615'0'#9474'  '#9615'0 '#9615'  '#9615' '#9474'  '#9615'  '#9615' '#9474#10#9474'_ '#9615'_ '#9615'_'#9474'_ '#9615'_ '#9615'_ '#9615'_'#9474'_ '#9615'_ '#9615'_'#9474
-    font.color = -1610612734
-    font.height = 16
-    font.name = 'stf_fixed'
-    font.localprops = [flp_color, flp_height]
-    textflags = [tf_xcentered]
-    reffontheight = 19
-  end
-  object piano4: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775159
-      15586259
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 23
-    visible = False
-    bounds_x = 900
-    bounds_y = 782
-    bounds_cx = 276
-    bounds_cy = 94
-    anchors = [an_top, an_right]
-    text = #9554#9552#9605#9605#9552#9605#9605#9552#9572#9552#9605#9605#9552#9605#9605#9552#9605#9605#9552#9572#9552#9605#9605#9552#9605#9605#9552#9557#10#9474' '#9608#9608' 0'#9608' '#9474' '#9608#9608' '#9608#9608' '#9608#9608' '#9474' '#9608#9608' '#9608#9608' '#9474#10#9474' '#9608#9608' '#9608#9608' '#9474' '#9608#9608' '#9608#9608' '#9608#9608' '#9474' '#9608#9608' '#9608#9608' '#9474#10#9474'0 '#9615'  '#9615' '#9474'  '#9615'0 '#9615'  '#9615' '#9474'  '#9615'  '#9615' '#9474#10#9474'_ '#9615'_ '#9615'_'#9474'_ '#9615'_ '#9615'_ '#9615'_'#9474'_ '#9615'_ '#9615'_'#9474#10
-    font.color = -1610612734
-    font.height = 16
-    font.name = 'stf_fixed'
-    font.localprops = [flp_color, flp_height]
-    textflags = [tf_xcentered]
-    reffontheight = 19
-  end
   object piano2: tstringdisp
     frame.localprops = []
     frame.localprops1 = []
@@ -7366,10 +6802,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 24
+    taborder = 4
     visible = False
-    bounds_x = 774
-    bounds_y = 362
+    bounds_x = 784
+    bounds_y = 168
     bounds_cx = 272
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -7390,8 +6826,10 @@ object randomnotefo: trandomnotefo
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
+      anchors = [an_left, an_top, an_bottom]
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
       onmouseevent = onmousepiano
     end
     object elipse2_1: timage
@@ -7456,10 +6894,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 25
+    taborder = 5
     visible = False
-    bounds_x = 774
-    bounds_y = 548
+    bounds_x = 785
+    bounds_y = 332
     bounds_cx = 272
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -7480,8 +6918,10 @@ object randomnotefo: trandomnotefo
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
+      anchors = [an_left, an_top, an_bottom]
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
       onmouseevent = onmousepiano
     end
     object elipse3_1: timage
@@ -7547,10 +6987,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 26
-    bounds_x = 597
-    bounds_y = 176
-    bounds_cx = 170
+    taborder = 6
+    bounds_x = 586
+    bounds_y = 5
+    bounds_cx = 191
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -7608,7 +7048,7 @@ object randomnotefo: trandomnotefo
       visible = False
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 170
+      bounds_cx = 191
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -7619,39 +7059,53 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       onchange = onchangechorddrop
-      onmouseevent = onmouseform
+      onmouseevent = onmousev
       value = 'G / Sol Minor'
-      dropdown.color = -1610612733
-      dropdown.colorclient = -1610612732
+      dropdown.color = -1610612730
+      dropdown.colorclient = -1610612730
       dropdown.options = [deo_selectonly, deo_keydropdown]
-      dropdown.dropdownrowcount = 14
+      dropdown.dropdownrowcount = 28
       dropdown.width = 200
       dropdown.ondropdown = ondropchord
       dropdown.cols.count = 1
       dropdown.cols.width = 200
-      dropdown.cols.colorselect = 9737364
+      dropdown.cols.colorselect = -1610612732
       dropdown.cols.font.height = 24
       dropdown.cols.font.localprops = [flp_style, flp_height]
       dropdown.cols.items = <      
         item
           width = 200
           textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
-          colorselect = 9737364
+          colorselect = -1610612732
           data = (
             'A / La Major'
             'A / La Minor'
+            'A / La Major 7'
+            'A / La Minor 7'
             'B / Si Major'
             'B / Si Minor'
+            'B / Si Major 7'
+            'B / Si Minor 7'
             'C / Do Major'
             'C / Do Minor'
+            'C / Do Major 7'
+            'C / Do Minor 7'
             'D / Re Major'
             'D / Re Minor'
+            'D / Re Major 7'
+            'D / Re Minor 7'
             'E / Mi Major'
             'E / Mi Minor'
+            'E / Mi Major 7'
+            'E / Mi Minor 7'
             'F / Fa Major'
             'F / Fa Minor'
+            'F / Fa Major 7'
+            'F / Fa Minor 7'
             'G / Sol Major'
             'G / Sol Minor'
+            'G / Sol Major 7'
+            'G / Sol Minor 7'
           )
         end>
       reffontheight = 48
@@ -7675,10 +7129,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 27
-    bounds_x = 597
-    bounds_y = 362
-    bounds_cx = 170
+    taborder = 7
+    bounds_x = 586
+    bounds_y = 168
+    bounds_cx = 191
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -7736,7 +7190,7 @@ object randomnotefo: trandomnotefo
       visible = False
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 170
+      bounds_cx = 191
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -7747,39 +7201,53 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       onchange = onchangechorddrop
-      onmouseevent = onmouseform
+      onmouseevent = onmousev
       value = 'G / Sol Minor'
-      dropdown.color = -1610612733
-      dropdown.colorclient = -1610612732
+      dropdown.color = -1610612730
+      dropdown.colorclient = -1610612730
       dropdown.options = [deo_selectonly, deo_keydropdown]
-      dropdown.dropdownrowcount = 14
+      dropdown.dropdownrowcount = 28
       dropdown.width = 200
       dropdown.ondropdown = ondropchord
       dropdown.cols.count = 1
       dropdown.cols.width = 200
-      dropdown.cols.colorselect = 9737364
+      dropdown.cols.colorselect = -1610612732
       dropdown.cols.font.height = 24
       dropdown.cols.font.localprops = [flp_style, flp_height]
       dropdown.cols.items = <      
         item
           width = 200
           textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
-          colorselect = 9737364
+          colorselect = -1610612732
           data = (
             'A / La Major'
             'A / La Minor'
+            'A / La Major 7'
+            'A / La Minor 7'
             'B / Si Major'
             'B / Si Minor'
+            'B / Si Major 7'
+            'B / Si Minor 7'
             'C / Do Major'
             'C / Do Minor'
+            'C / Do Major 7'
+            'C / Do Minor 7'
             'D / Re Major'
             'D / Re Minor'
+            'D / Re Major 7'
+            'D / Re Minor 7'
             'E / Mi Major'
             'E / Mi Minor'
+            'E / Mi Major 7'
+            'E / Mi Minor 7'
             'F / Fa Major'
             'F / Fa Minor'
+            'F / Fa Major 7'
+            'F / Fa Minor 7'
             'G / Sol Major'
             'G / Sol Minor'
+            'G / Sol Major 7'
+            'G / Sol Minor 7'
           )
         end>
       reffontheight = 48
@@ -7803,10 +7271,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 28
-    bounds_x = 596
-    bounds_y = 548
-    bounds_cx = 170
+    taborder = 8
+    bounds_x = 586
+    bounds_y = 332
+    bounds_cx = 191
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -7864,7 +7332,7 @@ object randomnotefo: trandomnotefo
       visible = False
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 170
+      bounds_cx = 191
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -7875,39 +7343,53 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       onchange = onchangechorddrop
-      onmouseevent = onmouseform
+      onmouseevent = onmousev
       value = 'G / Sol Minor'
-      dropdown.color = -1610612733
-      dropdown.colorclient = -1610612732
+      dropdown.color = -1610612730
+      dropdown.colorclient = -1610612730
       dropdown.options = [deo_selectonly, deo_keydropdown]
-      dropdown.dropdownrowcount = 14
+      dropdown.dropdownrowcount = 28
       dropdown.width = 200
       dropdown.ondropdown = ondropchord
       dropdown.cols.count = 1
       dropdown.cols.width = 200
-      dropdown.cols.colorselect = 9737364
+      dropdown.cols.colorselect = -1610612732
       dropdown.cols.font.height = 24
       dropdown.cols.font.localprops = [flp_style, flp_height]
       dropdown.cols.items = <      
         item
           width = 200
           textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
-          colorselect = 9737364
+          colorselect = -1610612732
           data = (
             'A / La Major'
             'A / La Minor'
+            'A / La Major 7'
+            'A / La Minor 7'
             'B / Si Major'
             'B / Si Minor'
+            'B / Si Major 7'
+            'B / Si Minor 7'
             'C / Do Major'
             'C / Do Minor'
+            'C / Do Major 7'
+            'C / Do Minor 7'
             'D / Re Major'
             'D / Re Minor'
+            'D / Re Major 7'
+            'D / Re Minor 7'
             'E / Mi Major'
             'E / Mi Minor'
+            'E / Mi Major 7'
+            'E / Mi Minor 7'
             'F / Fa Major'
             'F / Fa Minor'
+            'F / Fa Major 7'
+            'F / Fa Minor 7'
             'G / Sol Major'
             'G / Sol Minor'
+            'G / Sol Major 7'
+            'G / Sol Minor 7'
           )
         end>
       reffontheight = 48
@@ -7927,13 +7409,12 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 29
+    taborder = 9
     hint = 'Close all StrumPract (Click the icon in corner of the form to close only Randomizer)'
-    bounds_x = 1326
-    bounds_y = 2
+    bounds_x = 2
+    bounds_y = 0
     bounds_cx = 20
     bounds_cy = 20
-    anchors = [an_top, an_right]
     state = [as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'X'
     font.height = 16
@@ -7957,10 +7438,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 30
+    taborder = 10
     visible = False
-    bounds_x = 1206
-    bounds_y = 176
+    bounds_x = 1216
+    bounds_y = 5
     bounds_cx = 126
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -7978,6 +7459,7 @@ object randomnotefo: trandomnotefo
       bounds_y = 0
       bounds_cx = 126
       bounds_cy = 156
+      anchors = [an_left, an_top, an_bottom]
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
@@ -11048,7 +10530,7 @@ object randomnotefo: trandomnotefo
         2929292929292929292929292929292929292929292929292929292929292929
         2929292929292929292929292929292929292929295454FFFFFFFF04
       }
-      onmouseevent = onmouseform
+      onmouseevent = onmousev
     end
     object belipse1_3: timage
       color = -2147483645
@@ -11108,10 +10590,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 31
+    taborder = 11
     visible = False
-    bounds_x = 1206
-    bounds_y = 362
+    bounds_x = 1216
+    bounds_y = 168
     bounds_cx = 126
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -11129,10 +10611,11 @@ object randomnotefo: trandomnotefo
       bounds_y = 0
       bounds_cx = 126
       bounds_cy = 156
+      anchors = [an_left, an_top, an_bottom]
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
-      onmouseevent = onmouseform
+      onmouseevent = onmousev
     end
     object belipse2_3: timage
       color = -2147483645
@@ -11192,10 +10675,10 @@ object randomnotefo: trandomnotefo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 32
+    taborder = 12
     visible = False
-    bounds_x = 1206
-    bounds_y = 548
+    bounds_x = 1217
+    bounds_y = 332
     bounds_cx = 126
     bounds_cy = 158
     anchors = [an_top, an_right]
@@ -11213,10 +10696,11 @@ object randomnotefo: trandomnotefo
       bounds_y = 0
       bounds_cx = 126
       bounds_cy = 156
+      anchors = [an_left, an_top, an_bottom]
       bitmap.options = [bmo_masked, bmo_graymask]
       bitmap.origformat = 'png'
       bitmap.alignment = [al_stretchx, al_stretchy]
-      onmouseevent = onmouseform
+      onmouseevent = onmousev
     end
     object belipse3_3: timage
       color = -2147483645
@@ -11260,8 +10744,81 @@ object randomnotefo: trandomnotefo
       bitmap.alignment = [al_stretchx, al_stretchy]
     end
   end
+  object bnbchords: tbutton
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacegreen
+    taborder = 15
+    hint = 'Randomize chords'
+    bounds_x = 130
+    bounds_y = 650
+    bounds_cx = 202
+    bounds_cy = 44
+    state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Randomize'
+    font.height = 30
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = randomnum
+  end
   object btnfixed: tbutton
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacegreen
+    taborder = 16
+    hint = 'Manual fixed chords'
+    bounds_x = 339
+    bounds_y = 650
+    bounds_cx = 144
+    bounds_cy = 44
+    state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Fixed'
+    font.height = 30
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = dofixed
+  end
+  object tbutton5: tbutton
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacebutgray
+    taborder = 17
+    hint = ' Tuned guitar string '
+    bounds_x = 60
+    bounds_y = 540
+    bounds_cx = 377
+    bounds_cy = 71
+    state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Tuned Guitars'
+    font.height = 40
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = showguit
+  end
+  object chord4: tbutton
+    Tag = 2
     color = 12895428
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -11269,23 +10826,1397 @@ object randomnotefo: trandomnotefo
     )
     face.fade_color.count = 2
     face.fade_color.items = (
-      12779422
-      7255365
+      16777215
+      15586259
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 18
+    bounds_x = 585
+    bounds_y = 496
+    bounds_cx = 191
+    bounds_cy = 158
+    anchors = [an_left, an_top, an_right]
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'G#/Sol#'#10'Minor'
+    font.color = 25088
+    font.height = 38
+    font.name = 'stf_default'
+    font.localprops = [flp_color, flp_height]
+    onexecute = refreshform
+    object chord4drop: tdropdownlistedit
+      Tag = 4
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.captiontextflags = [tf_wordbreak]
+      frame.captionpos = cp_left
+      frame.font.color = 5000268
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.button.width = 20
+      frame.button.color = 13421772
+      frame.button.face.fade_direction = gd_down
+      frame.button.face.localprops = [fal_fadirection]
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          width = 20
+          color = 13421772
+          face.fade_direction = gd_down
+          face.localprops = [fal_fadirection]
+          frame.framei_bottom = 2
+          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16774883
+        16774627
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      hint = 'Select a chord'
+      visible = False
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 191
+      bounds_cy = 158
+      anchors = [an_left, an_top, an_right, an_bottom]
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+      font.color = 5000268
+      font.height = 40
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      onchange = onchangechorddrop
+      onmouseevent = onmousev
+      value = 'G / Sol Minor'
+      dropdown.color = -1610612730
+      dropdown.colorclient = -1610612730
+      dropdown.options = [deo_selectonly, deo_keydropdown]
+      dropdown.dropdownrowcount = 28
+      dropdown.width = 200
+      dropdown.ondropdown = ondropchord
+      dropdown.cols.count = 1
+      dropdown.cols.width = 200
+      dropdown.cols.colorselect = -1610612732
+      dropdown.cols.font.height = 24
+      dropdown.cols.font.localprops = [flp_style, flp_height]
+      dropdown.cols.items = <      
+        item
+          width = 200
+          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+          colorselect = -1610612732
+          data = (
+            'A / La Major'
+            'A / La Minor'
+            'A / La Major 7'
+            'A / La Minor 7'
+            'B / Si Major'
+            'B / Si Minor'
+            'B / Si Major 7'
+            'B / Si Minor 7'
+            'C / Do Major'
+            'C / Do Minor'
+            'C / Do Major 7'
+            'C / Do Minor 7'
+            'D / Re Major'
+            'D / Re Minor'
+            'D / Re Major 7'
+            'D / Re Minor 7'
+            'E / Mi Major'
+            'E / Mi Minor'
+            'E / Mi Major 7'
+            'E / Mi Minor 7'
+            'F / Fa Major'
+            'F / Fa Minor'
+            'F / Fa Major 7'
+            'F / Fa Minor 7'
+            'G / Sol Major'
+            'G / Sol Minor'
+            'G / Sol Major 7'
+            'G / Sol Minor 7'
+          )
+        end>
+      reffontheight = 48
+    end
+  end
+  object piano4: tstringdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775159
+      15586259
     )
     face.fade_direction = gd_down
     face.localprops = []
-    taborder = 36
-    hint = 'Launch fixed chords'
-    bounds_x = 969
-    bounds_y = 319
-    bounds_cx = 350
-    bounds_cy = 106
+    taborder = 19
+    visible = False
+    bounds_x = 784
+    bounds_y = 496
+    bounds_cx = 272
+    bounds_cy = 158
+    anchors = [an_top, an_right]
+    font.color = -1610612734
+    font.height = 16
+    font.name = 'stf_fixed'
+    font.localprops = [flp_color, flp_colorbackground, flp_height]
+    textflags = [tf_xcentered]
+    reffontheight = 19
+    object keyb4: timage
+      Tag = 3
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      hint = 'Click to listen to piano chord'
+      bounds_x = 1
+      bounds_y = 1
+      bounds_cx = 270
+      bounds_cy = 156
+      bounds_cymin = 1
+      anchors = [an_left, an_top, an_bottom]
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmousepiano
+    end
+    object elipse4_1: timage
+      Tag = 3
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 1
+      hint = 'Click to listen to piano chord'
+      bounds_x = 25
+      bounds_y = 97
+      bounds_cx = 30
+      bounds_cy = 45
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
+    end
+    object elipse4_2: timage
+      Tag = 3
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 2
+      hint = 'Click to listen to piano chord'
+      bounds_x = 80
+      bounds_y = 96
+      bounds_cx = 30
+      bounds_cy = 45
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
+    end
+    object elipse4_3: timage
+      Tag = 3
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 3
+      hint = 'Click to listen to piano chord'
+      bounds_x = 132
+      bounds_y = 96
+      bounds_cx = 30
+      bounds_cy = 45
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
+    end
+  end
+  object guitar4: tstringdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775159
+      15786714
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 20
+    visible = False
+    bounds_x = 1062
+    bounds_y = 496
+    bounds_cx = 148
+    bounds_cy = 158
+    anchors = [an_top, an_right]
+    text = #9552'0'#9552'0'#9552#9552#9552#9552#9552#9552#9552'0'#9552' '#10' '#9552#9552#9552#9552#9552#9552#9552#9552#9552#9552'  3'
+    font.color = 9502720
+    font.height = 16
+    font.name = 'stf_fixed'
+    font.localprops = [flp_color, flp_height]
+    textflags = [tf_left, tf_top]
+    reffontheight = 19
+    object timage9: timage
+      Tag = 3
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 3
+      hint = 'Click to listen to the guitar chord'
+      bounds_x = 4
+      bounds_y = 22
+      bounds_cx = 130
+      bounds_cy = 136
+      anchors = [an_left, an_top, an_bottom]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object gelipse4_3: timage
+      Tag = 3
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      bounds_x = 87
+      bounds_y = 33
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object gelipse4_2: timage
+      Tag = 3
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 1
+      bounds_x = 67
+      bounds_y = 73
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object gelipse4_1: timage
+      Tag = 3
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 2
+      bounds_x = 47
+      bounds_y = 72
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+  end
+  object bass4: tstringdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775159
+      15786714
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 21
+    visible = False
+    bounds_x = 1216
+    bounds_y = 496
+    bounds_cx = 126
+    bounds_cy = 158
+    anchors = [an_top, an_right]
+    font.color = 9502720
+    font.height = 16
+    font.name = 'stf_fixed'
+    font.localprops = [flp_color, flp_height]
+    textflags = [tf_left, tf_top]
+    reffontheight = 19
+    object timage15: timage
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 3
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 126
+      bounds_cy = 156
+      anchors = [an_left, an_top, an_bottom]
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmousev
+    end
+    object belipse4_3: timage
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      visible = False
+      bounds_x = 88
+      bounds_y = 73
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+    end
+    object belipse4_1: timage
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 1
+      bounds_x = 48
+      bounds_y = 73
+      bounds_cx = 22
+      bounds_cy = 22
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object belipse4_2: timage
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 2
+      visible = False
+      bounds_x = 68
+      bounds_y = 74
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+    end
+  end
+  object chord5: tbutton
+    Tag = 2
+    color = 12895428
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16777215
+      15586259
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 22
+    bounds_x = 585
+    bounds_y = 661
+    bounds_cx = 191
+    bounds_cy = 158
     anchors = [an_left, an_top, an_right]
-    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Fixed'
-    font.height = 70
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'G#/Sol#'#10'Minor'
+    font.color = 25088
+    font.height = 38
     font.name = 'stf_default'
-    font.localprops = [flp_style, flp_height]
-    onexecute = dofixed
+    font.localprops = [flp_color, flp_height]
+    onexecute = refreshform
+    object chord5drop: tdropdownlistedit
+      Tag = 5
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.captiontextflags = [tf_wordbreak]
+      frame.captionpos = cp_left
+      frame.font.color = 5000268
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.button.width = 20
+      frame.button.color = 13421772
+      frame.button.face.fade_direction = gd_down
+      frame.button.face.localprops = [fal_fadirection]
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          width = 20
+          color = 13421772
+          face.fade_direction = gd_down
+          face.localprops = [fal_fadirection]
+          frame.framei_bottom = 2
+          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16774883
+        16774627
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      hint = 'Select a chord'
+      visible = False
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 191
+      bounds_cy = 158
+      anchors = [an_left, an_top, an_right, an_bottom]
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+      font.color = 5000268
+      font.height = 40
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      onchange = onchangechorddrop
+      onmouseevent = onmousev
+      value = 'G / Sol Minor'
+      dropdown.color = -1610612730
+      dropdown.colorclient = -1610612730
+      dropdown.options = [deo_selectonly, deo_keydropdown]
+      dropdown.dropdownrowcount = 28
+      dropdown.width = 200
+      dropdown.ondropdown = ondropchord
+      dropdown.cols.count = 1
+      dropdown.cols.width = 200
+      dropdown.cols.colorselect = -1610612732
+      dropdown.cols.font.height = 24
+      dropdown.cols.font.localprops = [flp_style, flp_height]
+      dropdown.cols.items = <      
+        item
+          width = 200
+          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+          colorselect = -1610612732
+          data = (
+            'A / La Major'
+            'A / La Minor'
+            'A / La Major 7'
+            'A / La Minor 7'
+            'B / Si Major'
+            'B / Si Minor'
+            'B / Si Major 7'
+            'B / Si Minor 7'
+            'C / Do Major'
+            'C / Do Minor'
+            'C / Do Major 7'
+            'C / Do Minor 7'
+            'D / Re Major'
+            'D / Re Minor'
+            'D / Re Major 7'
+            'D / Re Minor 7'
+            'E / Mi Major'
+            'E / Mi Minor'
+            'E / Mi Major 7'
+            'E / Mi Minor 7'
+            'F / Fa Major'
+            'F / Fa Minor'
+            'F / Fa Major 7'
+            'F / Fa Minor 7'
+            'G / Sol Major'
+            'G / Sol Minor'
+            'G / Sol Major 7'
+            'G / Sol Minor 7'
+          )
+        end>
+      reffontheight = 48
+    end
+  end
+  object piano5: tstringdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775159
+      15586259
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 23
+    visible = False
+    bounds_x = 784
+    bounds_y = 661
+    bounds_cx = 272
+    bounds_cy = 158
+    anchors = [an_top, an_right]
+    font.color = -1610612734
+    font.height = 16
+    font.name = 'stf_fixed'
+    font.localprops = [flp_color, flp_colorbackground, flp_height]
+    textflags = [tf_xcentered]
+    reffontheight = 19
+    object keyb5: timage
+      Tag = 4
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      hint = 'Click to listen to piano chord'
+      bounds_x = 1
+      bounds_y = 1
+      bounds_cx = 270
+      bounds_cy = 156
+      bounds_cymin = 1
+      anchors = [an_left, an_top, an_bottom]
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmousepiano
+    end
+    object elipse5_1: timage
+      Tag = 4
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 1
+      hint = 'Click to listen to piano chord'
+      bounds_x = 25
+      bounds_y = 97
+      bounds_cx = 30
+      bounds_cy = 45
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
+    end
+    object elipse5_2: timage
+      Tag = 4
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 2
+      hint = 'Click to listen to piano chord'
+      bounds_x = 80
+      bounds_y = 96
+      bounds_cx = 30
+      bounds_cy = 45
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
+    end
+    object elipse5_3: timage
+      Tag = 4
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 3
+      hint = 'Click to listen to piano chord'
+      bounds_x = 132
+      bounds_y = 96
+      bounds_cx = 30
+      bounds_cy = 45
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      onmouseevent = onmousepiano
+    end
+  end
+  object guitar5: tstringdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775159
+      15786714
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 24
+    visible = False
+    bounds_x = 1062
+    bounds_y = 661
+    bounds_cx = 148
+    bounds_cy = 158
+    anchors = [an_top, an_right]
+    text = #9552'0'#9552'0'#9552#9552#9552#9552#9552#9552#9552'0'#9552' '#10' '#9552#9552#9552#9552#9552#9552#9552#9552#9552#9552'  3'
+    font.color = 9502720
+    font.height = 16
+    font.name = 'stf_fixed'
+    font.localprops = [flp_color, flp_height]
+    textflags = [tf_left, tf_top]
+    reffontheight = 19
+    object timage23: timage
+      Tag = 4
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 3
+      hint = 'Click to listen to the guitar chord'
+      bounds_x = 4
+      bounds_y = 22
+      bounds_cx = 130
+      bounds_cy = 136
+      anchors = [an_left, an_top, an_bottom]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object gelipse5_3: timage
+      Tag = 4
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      bounds_x = 87
+      bounds_y = 33
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object gelipse5_2: timage
+      Tag = 4
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 1
+      bounds_x = 67
+      bounds_y = 73
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object gelipse5_1: timage
+      Tag = 4
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 2
+      bounds_x = 47
+      bounds_y = 72
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+  end
+  object bass5: tstringdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775159
+      15786714
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 25
+    visible = False
+    bounds_x = 1216
+    bounds_y = 661
+    bounds_cx = 126
+    bounds_cy = 158
+    anchors = [an_top, an_right]
+    font.color = 9502720
+    font.height = 16
+    font.name = 'stf_fixed'
+    font.localprops = [flp_color, flp_height]
+    textflags = [tf_left, tf_top]
+    reffontheight = 19
+    object timage27: timage
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 3
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 126
+      bounds_cy = 156
+      anchors = [an_left, an_top, an_bottom]
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmousev
+    end
+    object belipse5_3: timage
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      visible = False
+      bounds_x = 88
+      bounds_y = 73
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+    end
+    object belipse5_1: timage
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 1
+      bounds_x = 48
+      bounds_y = 73
+      bounds_cx = 22
+      bounds_cy = 22
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      onmouseevent = onmouseguit
+    end
+    object belipse5_2: timage
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 2
+      visible = False
+      bounds_x = 68
+      bounds_y = 74
+      bounds_cx = 22
+      bounds_cy = 32
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+    end
+  end
+  object bchord1: tbutton
+    Tag = 1
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacecomp1
+    taborder = 26
+    hint = 'Re-do a randomizer for chord 1'
+    bounds_x = 510
+    bounds_y = 5
+    bounds_cx = 70
+    bounds_cy = 158
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = '1'
+    font.height = 80
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = dorandomchordbut
+  end
+  object bchord5: tbutton
+    Tag = 5
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacecomp1
+    taborder = 27
+    hint = 'Re-do a randomizer for chord 5'
+    bounds_x = 510
+    bounds_y = 662
+    bounds_cx = 70
+    bounds_cy = 158
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = '5'
+    font.height = 80
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = dorandomchordbut
+  end
+  object bchord4: tbutton
+    Tag = 4
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacecomp1
+    taborder = 28
+    hint = 'Re-do a randomizer for chord 4'
+    bounds_x = 510
+    bounds_y = 497
+    bounds_cx = 70
+    bounds_cy = 158
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = '4'
+    font.height = 80
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = dorandomchordbut
+  end
+  object bchord3: tbutton
+    Tag = 3
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacecomp1
+    taborder = 29
+    hint = 'Re-do a randomizer for chord 3'
+    bounds_x = 510
+    bounds_y = 334
+    bounds_cx = 70
+    bounds_cy = 158
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = '3'
+    font.height = 80
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = dorandomchordbut
+  end
+  object bchord2: tbutton
+    Tag = 2
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacecomp1
+    taborder = 30
+    hint = 'Re-do a randomizer for chord 2'
+    bounds_x = 510
+    bounds_y = 172
+    bounds_cx = 70
+    bounds_cy = 158
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = '2'
+    font.height = 80
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = dorandomchordbut
+  end
+  object tbutton2: tbutton
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacebutgray
+    taborder = 31
+    hint = 'Manual fixed chords'
+    bounds_x = 20
+    bounds_y = 650
+    bounds_cx = 100
+    bounds_cy = 44
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Clear'
+    font.height = 30
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = doclear
+  end
+  object tbutton3: tbutton
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfacebutgray
+    taborder = 32
+    hint = 'Show drums set'
+    bounds_x = 179
+    bounds_y = 374
+    bounds_cx = 118
+    bounds_cy = 44
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Drums'
+    font.height = 30
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    imagenr = 27
+    focusrectdist = 0
+    onexecute = onshowdrums
+  end
+  object tgroupbox1: tgroupbox
+    color = -2147483645
+    frame.caption = 'Chords'
+    frame.font.height = 20
+    frame.font.style = [fs_italic]
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_style, flp_height]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    frame.outerframe = (
+      0
+      13
+      0
+      0
+    )
+    taborder = 33
+    bounds_x = 25
+    bounds_y = 100
+    bounds_cx = 456
+    bounds_cy = 92
+    object bool7th: tbooleanedit
+      color = -2147483645
+      frame.caption = ' 7th'
+      frame.font.height = 24
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+      frame.outerframe = (
+        0
+        6
+        50
+        6
+      )
+      hint = 'Enable 7th Chords'
+      bounds_x = 9
+      bounds_y = 53
+      bounds_cx = 66
+      bounds_cy = 31
+      statfile = mainfo.tstatfile1
+      onchange = refreshform
+      enabled = False
+    end
+    object boolminor: tbooleanedit
+      color = -2147483645
+      frame.caption = ' minor'
+      frame.font.height = 24
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+      frame.outerframe = (
+        0
+        6
+        81
+        6
+      )
+      taborder = 1
+      hint = 'Enable Minor Chords'
+      bounds_x = 118
+      bounds_y = 25
+      bounds_cx = 97
+      bounds_cy = 31
+      statfile = mainfo.tstatfile1
+      onchange = refreshform
+      value = True
+      valuedefault = True
+    end
+    object boolmajor: tbooleanedit
+      color = -2147483645
+      frame.caption = ' Major'
+      frame.font.height = 24
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+      frame.outerframe = (
+        0
+        6
+        79
+        6
+      )
+      taborder = 2
+      hint = 'Enable Major Chords'
+      bounds_x = 9
+      bounds_y = 25
+      bounds_cx = 95
+      bounds_cy = 31
+      statfile = mainfo.tstatfile1
+      onchange = refreshform
+      value = True
+      valuedefault = True
+    end
+    object bool9th: tbooleanedit
+      color = -2147483645
+      frame.caption = ' 9th'
+      frame.font.height = 24
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+      frame.outerframe = (
+        0
+        6
+        50
+        6
+      )
+      taborder = 3
+      hint = 'Enable 9th Chords'
+      bounds_x = 118
+      bounds_y = 53
+      bounds_cx = 66
+      bounds_cy = 31
+      statfile = mainfo.tstatfile1
+      onchange = refreshform
+      enabled = False
+    end
+    object withsharp: tbooleanedit
+      color = -2147483645
+      frame.caption = ' # (Sharp)'
+      frame.font.height = 30
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+      frame.outerframe = (
+        0
+        9
+        159
+        10
+      )
+      taborder = 4
+      hint = 'Enable Sharp-Chords #'
+      bounds_x = 257
+      bounds_y = 49
+      bounds_cx = 175
+      bounds_cy = 38
+      statfile = mainfo.tstatfile1
+      onchange = refreshform
+      enabled = False
+    end
+    object bosound: tbooleanedit
+      color = -2147483645
+      frame.caption = ' Sound'
+      frame.font.height = 30
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+      frame.outerframe = (
+        0
+        9
+        107
+        10
+      )
+      taborder = 5
+      hint = 'Enable Sound of Chords'
+      bounds_x = 257
+      bounds_y = 16
+      bounds_cx = 123
+      bounds_cy = 38
+      statfile = mainfo.tstatfile1
+      onchange = refreshform
+      value = True
+      valuedefault = True
+    end
+  end
+  object tgroupbox2: tgroupbox
+    color = -2147483645
+    frame.caption = 'Number'
+    frame.font.height = 20
+    frame.font.style = [fs_italic]
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_style, flp_height]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    frame.outerframe = (
+      0
+      13
+      0
+      0
+    )
+    taborder = 34
+    bounds_x = 25
+    bounds_y = 2
+    bounds_cx = 226
+    bounds_cy = 92
+    object numchord: tintegerdisp
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16646123
+        14936240
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      hint = 'Total chords'
+      visible = False
+      bounds_x = 165
+      bounds_y = 46
+      bounds_cx = 52
+      bounds_cy = 42
+      font.color = 4040192
+      font.height = 32
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      onchange = refreshform
+      reffontheight = 38
+    end
+    object maxnote: tdropdownlistedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.caption = 'Max'
+      frame.captiontextflags = [tf_wordbreak]
+      frame.captionpos = cp_left
+      frame.font.color = 5000268
+      frame.font.height = 32
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.button.width = 20
+      frame.button.color = 13421772
+      frame.button.face.fade_direction = gd_down
+      frame.button.face.localprops = [fal_fadirection]
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = commanderfo.tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          width = 20
+          color = 13421772
+          face.fade_direction = gd_down
+          face.localprops = [fal_fadirection]
+          frame.framei_bottom = 2
+          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.localprops1 = []
+          frame.template = commanderfo.tframecomp2
+        end>
+      frame.outerframe = (
+        70
+        0
+        0
+        1
+      )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16774883
+        16774627
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      taborder = 1
+      hint = 'Maximum number of chords'
+      bounds_x = 10
+      bounds_y = 47
+      bounds_cx = 143
+      bounds_cy = 40
+      statfile = mainfo.tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+      font.color = 5000268
+      font.height = 32
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      onmouseevent = onmousev
+      value = '3'
+      dropdown.color = -1610612730
+      dropdown.colorclient = -1610612730
+      dropdown.options = [deo_selectonly, deo_keydropdown]
+      dropdown.dropdownrowcount = 28
+      dropdown.width = 80
+      dropdown.cols.count = 1
+      dropdown.cols.width = 200
+      dropdown.cols.colorselect = -1610612731
+      dropdown.cols.font.height = 24
+      dropdown.cols.font.localprops = [flp_style, flp_height]
+      dropdown.cols.items = <      
+        item
+          width = 200
+          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
+          colorselect = -1610612731
+          data = (
+            '1'
+            '2'
+            '3'
+            '4'
+            '5'
+          )
+        end>
+      reffontheight = 38
+    end
+    object withrandom: tbooleanedit
+      color = -2147483645
+      frame.caption = ' Random num'
+      frame.font.height = 24
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+      frame.outerframe = (
+        0
+        6
+        172
+        6
+      )
+      taborder = 2
+      hint = 'Randomize the number of chords'
+      bounds_x = 24
+      bounds_y = 18
+      bounds_cx = 188
+      bounds_cy = 31
+      statfile = mainfo.tstatfile1
+      onchange = refreshform
+    end
+  end
+  object tgroupbox3: tgroupbox
+    color = -2147483645
+    frame.caption = 'Drums'
+    frame.font.height = 20
+    frame.font.style = [fs_italic]
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_style, flp_height]
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    frame.outerframe = (
+      0
+      13
+      0
+      0
+    )
+    taborder = 35
+    bounds_x = 256
+    bounds_y = 2
+    bounds_cx = 226
+    bounds_cy = 92
+    object bpm: tintegerdisp
+      color = -2147483645
+      frame.caption = 'BPM'
+      frame.captionpos = cp_left
+      frame.captiondist = 10
+      frame.font.height = 32
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp2
+      frame.outerframe = (
+        81
+        0
+        0
+        0
+      )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16250871
+        13750737
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      hint = 'Tempo of Drums in BPM'
+      visible = False
+      bounds_x = 22
+      bounds_y = 45
+      bounds_cx = 168
+      bounds_cy = 42
+      font.color = 4040192
+      font.height = 32
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      onchange = refreshform
+      reffontheight = 38
+    end
+    object nodrums: tbooleanedit
+      color = -2147483645
+      frame.caption = ' Enable Drums'
+      frame.font.height = 22
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+      frame.outerframe = (
+        0
+        5
+        164
+        5
+      )
+      taborder = 1
+      hint = 'Enable random Drums tempo'
+      bounds_x = 12
+      bounds_y = 18
+      bounds_cx = 180
+      bounds_cy = 29
+      statfile = mainfo.tstatfile1
+      onchange = refreshform
+      value = True
+    end
   end
 end

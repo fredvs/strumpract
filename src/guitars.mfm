@@ -21,8 +21,8 @@ object guitarsfo: tguitarsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
-  bounds_x = 429
-  bounds_y = 263
+  bounds_x = 853
+  bounds_y = 249
   bounds_cx = 442
   bounds_cy = 64
   bounds_cxmin = 442
@@ -45,7 +45,7 @@ object guitarsfo: tguitarsfo
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = tfaceguitlight
   dragdock.caption = ' Guit '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]
   statfile = mainfo.tstatfile1
   caption = 'Guitar and Bass tuned strings'
   icon.origformat = 'jpeg'
@@ -307,17 +307,18 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         28
-        1
+        2
       )
       face.localprops = []
       face.template = tfaceguitlight
       taborder = 6
       hint = ' Enable looping the string. '
       bounds_x = 20
-      bounds_y = 17
+      bounds_y = 16
       bounds_cx = 44
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
     end
     object tstringdisp2: tstringdisp
@@ -332,14 +333,14 @@ object guitarsfo: tguitarsfo
       bounds_x = 2
       bounds_y = 2
       bounds_cx = 81
-      bounds_cy = 13
+      bounds_cy = 15
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Guitar strings'
-      reffontheight = 11
+      reffontheight = 13
     end
   end
   object tgroupbox2: tgroupbox
@@ -452,17 +453,18 @@ object guitarsfo: tguitarsfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
+        2
         28
-        1
+        2
       )
       face.localprops = []
       face.template = tfaceguitlight
       taborder = 4
       hint = ' Enable looping the string. '
       bounds_x = 20
-      bounds_y = 17
+      bounds_y = 16
       bounds_cx = 44
+      bounds_cy = 15
       statfile = mainfo.tstatfile1
     end
     object tstringdisp3: tstringdisp
@@ -477,14 +479,14 @@ object guitarsfo: tguitarsfo
       bounds_x = 9
       bounds_y = 2
       bounds_cx = 81
-      bounds_cy = 13
+      bounds_cy = 15
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Bass strings'
-      reffontheight = 11
+      reffontheight = 13
     end
   end
   object tfaceguitlight: tfacecomp

@@ -166,18 +166,19 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=839
- y=557
+ x=888
+ y=165
  cx=300
  cy=269
 replacedialog=33
  [replacedialogfo.promptonreplace]
  value=1
  [replacedialogfo.selectedonly]
- value=1
+ value=0
  [replacedialogfo.replacetext]
- value=belipse
+ value=;
  history=20
+  ;
   belipse
   chord3.caption
   chord2.caption
@@ -197,7 +198,6 @@ replacedialog=33
   btnStart
   btnStart2
   btnStop
-  btnStop2
  [replacedialogfo]
  stackedunder=
  x=443
@@ -1517,32 +1517,32 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=dorandomchord
+finddtext=GUITARchord
 findhistory=20
+ GUITARchord
+ pianochord
+ ;;
+ bassch
+ playrandomc
+ bosound.v
+ playrandomchords
  dorandomchord
- chordran
- chord1drop
- drumsfo.l
- ax
- bnbchords
- dorandomc
- chord1.
- belipse1_1
- playrandom
+ bnbchords.v
  maxnote
- guitarsfo.
- guitarfo.
- onshowdrums
- chordmem1
- mouseeventinfoty
- ntimeract
- timeract
- bring
- guitarc
+ keyb3
+ bchord3
+ chordmem3
+ basscho
+ bnbchords
+ seven
+ sevee
+ A / La
+ _GUIT
+ basschord
 findoptions=1
 editpos=7
  0,-1073741823
- 0,3328
+ 0,125
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1625,8 +1625,8 @@ windowlayout=646
  ny=0
  ncx=0
  ncy=0
- x=3
- y=115
+ x=53
+ y=54
  cx=1224
  cy=621
  rcx=0
@@ -1651,7 +1651,7 @@ windowlayout=646
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -2002,7 +2002,7 @@ windowlayout=646
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2017,7 +2017,7 @@ windowlayout=646
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
  activetab=0
  [debuggerfo]
@@ -2062,9 +2062,9 @@ windowlayout=646
  value=/home/fred/strumpract/src/randomnote.pas
  history=20
   /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/commander.pas
-  /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/define.inc
   /home/fred/uos/examples/define.inc
   /home/fred/uos/examples/consolesynth.pas
@@ -2147,7 +2147,7 @@ windowlayout=646
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_randomnotefo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2223,15 +2223,15 @@ windowlayout=646
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=429
- y=263
+ x=853
+ y=249
  cx=452
  cy=64
  rcx=0
@@ -2242,15 +2242,15 @@ windowlayout=646
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=-3
- y=55
+ x=3
+ y=29
  cx=1360
  cy=710
  rcx=0

@@ -4,67 +4,19 @@ unit randomnote;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msesimplewidgets,
-  msewidgets,
-  mseedit,
-  msestatfile,
-  msestream,
-  SysUtils,
-  mseact,
-  msedataedits,
-  msedropdownlist,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msedispwidgets,
-  mserichstring,
-  msegraphedits,
-  msescrollbar,
-  msechartedit,
-  msesiggui,
-  msesignal,
-  mseimage;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msesimplewidgets,msewidgets,mseedit,msestatfile,msestream,SysUtils,mseact,
+ msedataedits,msedropdownlist,mseificomp,mseificompglob,mseifiglob,
+ msedispwidgets,mserichstring,msegraphedits,msescrollbar,msechartedit,msesiggui,
+ msesignal,mseimage;
 
 type
   trandomnotefo = class(tdockform)
-    bnbchords: TButton;
-    maxnote: tintegeredit;
-    numchord: tintegerdisp;
-    bchord1: TButton;
-    bchord2: TButton;
-    bchord3: TButton;
-    bchord4: TButton;
-    bchord5: TButton;
-    chord4: tstringdisp;
-    chord5: tstringdisp;
-    withrandom: tbooleanedit;
-    withsharp: tbooleanedit;
-    nodrums: tbooleanedit;
-    bpm: tintegerdisp;
-    tbutton2: TButton;
-    tbutton3: TButton;
     guitar2: tstringdisp;
     guitar3: tstringdisp;
     piano1: tstringdisp;
     guitar1: tstringdisp;
-    guitar5: tstringdisp;
-    guitar4: tstringdisp;
-    piano5: tstringdisp;
-    piano4: tstringdisp;
     keyb1: timage;
     elipse1_1: timage;
     elipse1_2: timage;
@@ -110,13 +62,69 @@ type
     belipse3_3: timage;
     belipse3_1: timage;
     belipse3_2: timage;
-    tbutton5: TButton;
     tstringdisp1: tstringdisp;
     tstringdisp2: tstringdisp;
     chord1drop: tdropdownlistedit;
-    btnfixed: TButton;
     chord2drop: tdropdownlistedit;
     chord3drop: tdropdownlistedit;
+   bnbchords: tbutton;
+   btnfixed: tbutton;
+   tbutton5: tbutton;
+   chord4: tbutton;
+   chord4drop: tdropdownlistedit;
+   piano4: tstringdisp;
+   keyb4: timage;
+   elipse4_1: timage;
+   elipse4_2: timage;
+   elipse4_3: timage;
+   guitar4: tstringdisp;
+   timage9: timage;
+   gelipse4_3: timage;
+   gelipse4_2: timage;
+   gelipse4_1: timage;
+   bass4: tstringdisp;
+   timage15: timage;
+   belipse4_3: timage;
+   belipse4_1: timage;
+   belipse4_2: timage;
+   chord5: tbutton;
+   chord5drop: tdropdownlistedit;
+   piano5: tstringdisp;
+   keyb5: timage;
+   elipse5_1: timage;
+   elipse5_2: timage;
+   elipse5_3: timage;
+   guitar5: tstringdisp;
+   timage23: timage;
+   gelipse5_3: timage;
+   gelipse5_2: timage;
+   gelipse5_1: timage;
+   bass5: tstringdisp;
+   timage27: timage;
+   belipse5_3: timage;
+   belipse5_1: timage;
+   belipse5_2: timage;
+   bchord1: tbutton;
+   bchord5: tbutton;
+   bchord4: tbutton;
+   bchord3: tbutton;
+   bchord2: tbutton;
+   tbutton2: tbutton;
+   tbutton3: tbutton;
+   tgroupbox1: tgroupbox;
+   bool7th: tbooleanedit;
+   boolminor: tbooleanedit;
+   boolmajor: tbooleanedit;
+   bool9th: tbooleanedit;
+   tgroupbox2: tgroupbox;
+   numchord: tintegerdisp;
+   maxnote: tdropdownlistedit;
+   withrandom: tbooleanedit;
+   tgroupbox3: tgroupbox;
+   bpm: tintegerdisp;
+   nodrums: tbooleanedit;
+   withsharp: tbooleanedit;
+   bosound: tbooleanedit;
     procedure dorandomchordbut(const Sender: TObject);
     procedure dorandomchord(const Sender: TObject);
     procedure oncreatedev(const Sender: TObject);
@@ -125,14 +133,14 @@ type
     procedure doclear(const Sender: TObject);
     procedure onshowdrums(const Sender: TObject);
     procedure doquit(const Sender: TObject);
-    procedure pianochord(num, ranchord, ismin: integer);
-    procedure guitarchord(num, ranchord, ismin: integer);
-    procedure basschord(num, ranchord, ismin: integer);
+    procedure pianochord(num, ranchord, ismin, isseven: integer);
+    procedure guitarchord(num, ranchord, ismin, isseven: integer);
+    procedure basschord(num, ranchord, ismin, isseven: integer);
     procedure showguit(const Sender: TObject);
     procedure onmouseguit(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure onmousepiano(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure refreshform(const Sender: TObject);
-    procedure onmouseform(const Sender: twidget; var ainfo: mouseeventinfoty);
+    procedure onmousev(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure ontextmax(const Sender: tcustomdataedit; var atext: msestring; var accept: Boolean);
     procedure playrandomchords(thenum: integer);
 
@@ -145,7 +153,7 @@ var
   randomnotefo: trandomnotefo;
   chordran: integer;
   chorddrop: integer = 0;
-  chordmem1, chordmem2, chordmem3: string;
+  chordmem1, chordmem2, chordmem3, chordmem4, chordmem5: string;
   blocked: integer = 0;
 
 implementation
@@ -157,8 +165,12 @@ uses
   guitars,
   drums;
 
-procedure trandomnotefo.guitarchord(num, ranchord, ismin: integer);
+procedure trandomnotefo.guitarchord(num, ranchord, ismin, isseven: integer);
+var
+ratioheight : double;
 begin
+ratioheight := (bchord1.height /158) ;
+
   if num = 1 then
   begin
     gelipse1_1.Visible := True;
@@ -176,6 +188,16 @@ begin
     gelipse3_1.Visible := True;
     gelipse3_2.Visible := True;
     gelipse3_3.Visible := True;
+  end else if num = 4 then
+  begin
+    gelipse4_1.Visible := True;
+    gelipse4_2.Visible := True;
+    gelipse4_3.Visible := True;
+  end else if num = 5 then
+  begin
+    gelipse5_1.Visible := True;
+    gelipse5_2.Visible := True;
+    gelipse5_3.Visible := True;
   end;
 
   if (ranchord = 1) and (ismin = 1) then
@@ -184,15 +206,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 68;
 
       // 2-2
-      gelipse1_3.top  := 74;
+      gelipse1_3.top  := round(74 *ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -201,15 +223,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 68;
 
       // 2-2
-      gelipse2_3.top  := 74;
+      gelipse2_3.top  := round(74 *ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -218,19 +240,51 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 68;
 
       // 2-2
-      gelipse3_3.top  := 74;
+      gelipse3_3.top  := round(74 *ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := ' X 0       0' + lineend + ' ══════════  0';
+    end else if num = 4 then
+    begin
+      // 4-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 48;
+
+      // 3-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 68;
+
+      // 2-2
+      gelipse4_3.top  := round(74 *ratioheight);
+      gelipse4_3.left := 88;
+
+      guitar4.Text := ' X 0       0' + lineend + ' ══════════  0';
+    end else if num = 5 then
+    begin
+      // 4-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 48;
+
+      // 3-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 68;
+
+      // 2-2
+      gelipse5_3.top  := round(74 *ratioheight);
+      gelipse5_3.left := 88;
+
+      guitar5.Text := ' X 0       0' + lineend + ' ══════════  0';
     end;
+
+
 
   end
   else if (ranchord = 1) and (ismin <> 1) then
@@ -239,15 +293,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 68;
 
       // 2-1
-      gelipse1_3.top  := 32;
+      gelipse1_3.top  := round(32 *ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -256,15 +310,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 68;
 
       // 2-1
-      gelipse2_3.top  := 32;
+      gelipse2_3.top  := round(32 *ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -273,19 +327,49 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 68;
 
       // 2-1
-      gelipse3_3.top  := 32;
+      gelipse3_3.top  := round(32 *ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := ' X 0       0' + lineend + ' ══════════  0';
-    end;
+    end   else if num = 4 then
+    begin
+      // 4-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 48;
+
+      // 3-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 68;
+
+      // 2-1
+      gelipse4_3.top  := round(32 *ratioheight);
+      gelipse4_3.left := 88;
+
+      guitar4.Text := ' X 0       0' + lineend + ' ══════════  0';
+    end   else if num = 5 then
+    begin
+      // 4-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 48;
+
+      // 3-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 68;
+
+      // 2-1
+      gelipse5_3.top  := round(32 *ratioheight);
+      gelipse5_3.left := 88;
+
+      guitar5.Text := ' X 0       0' + lineend + ' ══════════  0';
+    end;   
   end
   else if ((withsharp.Value = False) and (ranchord = 2) and (ismin = 1)) or
     ((withsharp.Value = True) and (ranchord = 3) and (ismin = 1)) then
@@ -294,15 +378,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 68;
 
       // 2-2
-      gelipse1_3.top  := 74;
+      gelipse1_3.top  := round(74 *ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
@@ -311,15 +395,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 68;
 
       // 2-2
-      gelipse2_3.top  := 74;
+      gelipse2_3.top  := round(74 *ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
@@ -328,18 +412,48 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 68;
 
       // 2-2
-      gelipse3_3.top  := 74;
+      gelipse3_3.top  := round(74 *ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
+    end else if num = 4 then
+    begin
+      // 4-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 48;
+
+      // 3-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 68;
+
+      // 2-2
+      gelipse4_3.top  := round(74 *ratioheight);
+      gelipse4_3.left := 88;
+
+      guitar4.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
+    end else if num = 5 then
+    begin
+      // 4-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 48;
+
+      // 3-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 68;
+
+      // 2-2
+      gelipse5_3.top  := round(74 *ratioheight);
+      gelipse5_3.left := 88;
+
+      guitar5.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
     end;
 
   end
@@ -350,15 +464,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 68;
 
       // 2-1
-      gelipse1_3.top  := 32;
+      gelipse1_3.top  := round(32 *ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
@@ -367,15 +481,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 68;
 
       // 2-1
-      gelipse2_3.top  := 32;
+      gelipse2_3.top  := round(32 *ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
@@ -384,18 +498,33 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 68;
 
       // 2-1
-      gelipse3_3.top  := 32;
+      gelipse3_3.top  := round(32 *ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
+    end  else if num = 4 then
+    begin
+      // 4-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 48;
+
+      // 3-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 68;
+
+      // 2-1
+      gelipse4_3.top  := round(32 *ratioheight);
+      gelipse4_3.left := 88;
+
+      guitar4.Text := '═X═0═══════0═ ' + lineend + ' ══════════  2';
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 3) and (ismin = 1)) or
@@ -405,15 +534,15 @@ begin
     if num = 1 then
     begin
       // 5-3
-      gelipse1_1.top  := 114;
+      gelipse1_1.top  := round(114 *ratioheight);
       gelipse1_1.left := 28;
 
       // 4-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 48;
 
       // 2-1
-      gelipse1_3.top  := 32;
+      gelipse1_3.top  := round(32 *ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := ' X         0' + lineend + ' ══════════  0';
@@ -422,15 +551,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := 114;
+      gelipse2_1.top  := round(114 *ratioheight);
       gelipse2_1.left := 28;
 
       // 4-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 48;
 
       // 2-1
-      gelipse2_3.top  := 32;
+      gelipse2_3.top  := round(32 *ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := ' X         0' + lineend + ' ══════════  0';
@@ -439,18 +568,48 @@ begin
     else if num = 3 then
     begin
 
-      gelipse3_1.top  := 114;
+      gelipse3_1.top  := round(114 *ratioheight);
       gelipse3_1.left := 28;
 
       // 4-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 48;
 
       // 2-1
-      gelipse3_3.top  := 32;
+      gelipse3_3.top  := round(32 *ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := ' X         0' + lineend + ' ══════════  0';
+    end  else if num = 4 then
+    begin
+
+      gelipse4_1.top  := round(114 *ratioheight);
+      gelipse4_1.left := 28;
+
+      // 4-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 48;
+
+      // 2-1
+      gelipse4_3.top  := round(32 *ratioheight);
+      gelipse4_3.left := 88;
+
+      guitar4.Text := ' X         0' + lineend + ' ══════════  0';
+    end  else if num = 5 then
+    begin
+
+      gelipse5_1.top  := round(114 *ratioheight);
+      gelipse5_1.left := 28;
+
+      // 4-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 48;
+
+      // 2-1
+      gelipse5_3.top  := round(32 *ratioheight);
+      gelipse5_3.left := 88;
+
+      guitar5.Text := ' X         0' + lineend + ' ══════════  0';
     end;
 
   end
@@ -461,15 +620,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 68;
 
       // 2-1
-      gelipse1_3.top  := 32;
+      gelipse1_3.top  := round(32 *ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := '═X═0═══════0═' + lineend + ' ══════════  3';
@@ -478,15 +637,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 68;
 
       // 2-1
-      gelipse2_3.top  := 32;
+      gelipse2_3.top  := round(32 *ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := '═X═0═══════0═' + lineend + ' ══════════  3';
@@ -495,18 +654,48 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 68;
 
       // 2-1
-      gelipse3_3.top  := 32;
+      gelipse3_3.top  := round(32 *ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := '═X═0═══════0═' + lineend + ' ══════════  3';
+    end  else if num = 4 then
+    begin
+      // 4-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 48;
+
+      // 3-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 68;
+
+      // 2-1
+      gelipse4_3.top  := round(32 *ratioheight);
+      gelipse4_3.left := 88;
+
+      guitar4.Text := '═X═0═══════0═' + lineend + ' ══════════  3';
+    end  else if num = 5 then
+    begin
+      // 4-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 48;
+
+      // 3-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 68;
+
+      // 2-1
+      gelipse5_3.top  := round(32 *ratioheight);
+      gelipse5_3.left := 88;
+
+      guitar5.Text := '═X═0═══════0═' + lineend + ' ══════════  3';
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 4) and (ismin = 1)) or
@@ -516,15 +705,15 @@ begin
     if num = 1 then
     begin
       // 3-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 68;
 
       // 2-3
-      gelipse1_2.top  := 116;
+      gelipse1_2.top  := round(116 *ratioheight);
       gelipse1_2.left := 90;
 
       // 2-1
-      gelipse1_3.top  := 74;
+      gelipse1_3.top  := round(74 *ratioheight);
       gelipse1_3.left := 108;
 
       guitar1.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -533,15 +722,15 @@ begin
     else if num = 2 then
     begin
       // 3-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 68;
 
       // 2-3
-      gelipse2_2.top  := 116;
+      gelipse2_2.top  := round(116 *ratioheight);
       gelipse2_2.left := 90;
 
       // 2-1
-      gelipse2_3.top  := 74;
+      gelipse2_3.top  := round(74 *ratioheight);
       gelipse2_3.left := 108;
 
       guitar2.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -550,18 +739,48 @@ begin
     else if num = 3 then
     begin
       // 3-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 68;
 
       // 2-3
-      gelipse3_2.top  := 116;
+      gelipse3_2.top  := round(116 *ratioheight);
       gelipse3_2.left := 90;
 
       // 2-1
-      gelipse3_3.top  := 74;
+      gelipse3_3.top  := round(74 *ratioheight);
       gelipse3_3.left := 108;
 
       guitar3.Text := ' X X 0      ' + lineend + ' ══════════  0';
+    end  else if num = 4 then
+    begin
+      // 3-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 68;
+
+      // 2-3
+      gelipse4_2.top  := round(116 *ratioheight);
+      gelipse4_2.left := 90;
+
+      // 2-1
+      gelipse4_3.top  := round(74 *ratioheight);
+      gelipse4_3.left := 108;
+
+      guitar4.Text := ' X X 0      ' + lineend + ' ══════════  0';
+    end  else if num = 5 then
+    begin
+      // 3-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 68;
+
+      // 2-3
+      gelipse5_2.top  := round(116 *ratioheight);
+      gelipse5_2.left := 90;
+
+      // 2-1
+      gelipse5_3.top  := round(74 *ratioheight);
+      gelipse5_3.left := 108;
+
+      guitar5.Text := ' X X 0      ' + lineend + ' ══════════  0';
     end;
 
   end
@@ -572,15 +791,15 @@ begin
     if num = 1 then
     begin
       // 3-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 68;
 
       // 2-3
-      gelipse1_2.top  := 116;
+      gelipse1_2.top  := round(116 *ratioheight);
       gelipse1_2.left := 90;
 
       // 2-1
-      gelipse1_3.top  := 32;
+      gelipse1_3.top  := round(32 *ratioheight);
       gelipse1_3.left := 108;
 
       guitar1.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -588,15 +807,15 @@ begin
     else if num = 2 then
     begin
       // 3-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 68;
 
       // 2-3
-      gelipse2_2.top  := 116;
+      gelipse2_2.top  := round(116 *ratioheight);
       gelipse2_2.left := 90;
 
       // 2-1
-      gelipse2_3.top  := 32;
+      gelipse2_3.top  := round(32 *ratioheight);
       gelipse2_3.left := 108;
 
       guitar2.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -605,18 +824,48 @@ begin
     else if num = 3 then
     begin
       // 3-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 68;
 
       // 2-3
-      gelipse3_2.top  := 116;
+      gelipse3_2.top  := round(116 *ratioheight);
       gelipse3_2.left := 90;
 
       // 2-1
-      gelipse3_3.top  := 32;
+      gelipse3_3.top  := round(32 *ratioheight);
       gelipse3_3.left := 108;
 
       guitar3.Text := ' X X 0      ' + lineend + ' ══════════  0';
+    end  else if num = 4 then
+    begin
+      // 3-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 68;
+
+      // 2-3
+      gelipse4_2.top  := round(116 *ratioheight);
+      gelipse4_2.left := 90;
+
+      // 2-1
+      gelipse4_3.top  := round(32 *ratioheight);
+      gelipse4_3.left := 108;
+
+      guitar4.Text := ' X X 0      ' + lineend + ' ══════════  0';
+    end  else if num = 5 then
+    begin
+      // 3-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 68;
+
+      // 2-3
+      gelipse5_2.top  := round(116 *ratioheight);
+      gelipse5_2.left := 90;
+
+      // 2-1
+      gelipse5_3.top  := round(32 *ratioheight);
+      gelipse5_3.left := 108;
+
+      guitar5.Text := ' X X 0      ' + lineend + ' ══════════  0';
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 5) and (ismin = 1)) or
@@ -626,15 +875,15 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 48;
 
       // 3-1
-      gelipse1_3.top  := 30;
+      gelipse1_3.top  := round(30 *ratioheight);
       gelipse1_3.left := 70;
 
       guitar1.Text := ' 0       0 0' + lineend + ' ══════════  0';
@@ -643,15 +892,15 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 48;
 
       // 3-1
-      gelipse2_3.top  := 30;
+      gelipse2_3.top  := round(30 *ratioheight);
       gelipse2_3.left := 70;
       ;
 
@@ -661,18 +910,48 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 48;
 
       // 3-1
-      gelipse3_3.top  := 30;
+      gelipse3_3.top  := round(30 *ratioheight);
       gelipse3_3.left := 70;
 
       guitar3.Text := ' 0       0 0' + lineend + ' ══════════  0';
+    end else if num = 4 then
+    begin
+      // 5-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 26;
+
+      // 4-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 48;
+
+      // 3-1
+      gelipse4_3.top  := round(30 *ratioheight);
+      gelipse4_3.left := 70;
+
+      guitar4.Text := ' 0       0 0' + lineend + ' ══════════  0';
+    end else if num = 5 then
+    begin
+      // 5-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 26;
+
+      // 4-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 48;
+
+      // 3-1
+      gelipse5_3.top  := round(30 *ratioheight);
+      gelipse5_3.left := 70;
+
+      guitar5.Text := ' 0       0 0' + lineend + ' ══════════  0';
     end;
 
   end
@@ -683,11 +962,11 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 48;
 
       gelipse1_3.Visible := False;
@@ -697,11 +976,11 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 48;
 
       gelipse2_3.Visible := False;
@@ -712,16 +991,42 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 48;
 
       gelipse3_3.Visible := False;
 
       guitar3.Text := ' 0     0 0 0' + lineend + ' ══════════  0';
+    end else if num = 4 then
+    begin
+      // 5-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 26;
+
+      // 4-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 48;
+
+      gelipse4_3.Visible := False;
+
+      guitar4.Text := ' 0     0 0 0' + lineend + ' ══════════  0';
+    end else if num = 5 then
+    begin
+      // 5-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 26;
+
+      // 4-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 48;
+
+      gelipse5_3.Visible := False;
+
+      guitar5.Text := ' 0     0 0 0' + lineend + ' ══════════  0';
     end;
 
   end
@@ -732,15 +1037,15 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 48;
 
       // 3-1
-      gelipse1_3.top  := 30;
+      gelipse1_3.top  := round(30 *ratioheight);
       gelipse1_3.left := 70;
 
       guitar1.Text := '═0═══════0═0═' + lineend + ' ══════════  1';
@@ -749,15 +1054,15 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 48;
 
       // 3-1
-      gelipse2_3.top  := 30;
+      gelipse2_3.top  := round(30 *ratioheight);
       gelipse2_3.left := 70;
       ;
 
@@ -767,19 +1072,50 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 48;
 
       // 3-1
-      gelipse3_3.top  := 30;
+      gelipse3_3.top  := round(30 *ratioheight);
       gelipse3_3.left := 70;
 
       guitar3.Text := '═0═══════0═0═' + lineend + ' ══════════  1';
+    end else if num = 4 then
+    begin
+      // 5-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 26;
+
+      // 4-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 48;
+
+      // 3-1
+      gelipse4_3.top  := round(30 *ratioheight);
+      gelipse4_3.left := 70;
+
+      guitar4.Text := '═0═══════0═0═' + lineend + ' ══════════  1';
+    end else if num = 5 then
+    begin
+      // 5-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 26;
+
+      // 4-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 48;
+
+      // 3-1
+      gelipse5_3.top  := round(30 *ratioheight);
+      gelipse5_3.left := 70;
+
+      guitar5.Text := '═0═══════0═0═' + lineend + ' ══════════  1';
     end;
+    
 
   end
   else if ((withsharp.Value = False) and (ranchord = 6) and (ismin <> 1)) or
@@ -789,11 +1125,11 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 48;
 
       gelipse1_3.Visible := False;
@@ -803,11 +1139,11 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 48;
 
       gelipse2_3.Visible := False;
@@ -818,16 +1154,42 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 48;
 
       gelipse3_3.Visible := False;
 
       guitar3.Text := '═0═════0═0═0═' + lineend + ' ══════════  1';
+    end  else if num = 4 then
+    begin
+      // 5-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 26;
+
+      // 4-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 48;
+
+      gelipse4_3.Visible := False;
+
+      guitar3.Text := '═0═════0═0═0═' + lineend + ' ══════════  1';
+    end  else if num = 5 then
+    begin
+      // 5-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 26;
+
+      // 4-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 48;
+
+      gelipse5_3.Visible := False;
+
+      guitar5.Text := '═0═════0═0═0═' + lineend + ' ══════════  1';
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 7) and (ismin = 1)) or
@@ -837,15 +1199,15 @@ begin
     if num = 1 then
     begin
       // 6-3
-      gelipse1_1.top  := 114;
+      gelipse1_1.top  := round(114 *ratioheight);
       gelipse1_1.left := 6;
 
       // 5-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 26;
 
       // 1-3
-      gelipse1_3.top  := 114;
+      gelipse1_3.top  := round(114 *ratioheight);
       gelipse1_3.left := 110;
 
       guitar1.Text := '     0 0 0   ' + lineend + ' ══════════  0';
@@ -854,15 +1216,15 @@ begin
     else if num = 2 then
     begin
       // 6-3
-      gelipse2_1.top  := 114;
+      gelipse2_1.top  := round(114 *ratioheight);
       gelipse2_1.left := 6;
 
       // 5-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 26;
 
       // 1-3
-      gelipse2_3.top  := 114;
+      gelipse2_3.top  := round(114 *ratioheight);
       gelipse2_3.left := 110;
       guitar2.Text    := '     0 0 0   ' + lineend + ' ══════════  0';
 
@@ -870,17 +1232,45 @@ begin
     else if num = 3 then
     begin
       // 6-3
-      gelipse3_1.top  := 114;
+      gelipse3_1.top  := round(114 *ratioheight);
       gelipse3_1.left := 6;
 
       // 5-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 26;
 
       // 1-3
-      gelipse3_3.top  := 114;
+      gelipse3_3.top  := round(114 *ratioheight);
       gelipse3_3.left := 110;
       guitar3.Text    := '     0 0 0   ' + lineend + ' ══════════  0';
+    end  else if num = 4 then
+    begin
+      // 6-3
+      gelipse4_1.top  := round(114 *ratioheight);
+      gelipse4_1.left := 6;
+
+      // 5-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 26;
+
+      // 1-3
+      gelipse4_3.top  := round(114 *ratioheight);
+      gelipse4_3.left := 110;
+      guitar4.Text    := '     0 0 0   ' + lineend + ' ══════════  0';
+    end  else if num = 5 then
+    begin
+      // 6-3
+      gelipse5_1.top  := round(114 *ratioheight);
+      gelipse5_1.left := 6;
+
+      // 5-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 26;
+
+      // 1-3
+      gelipse5_3.top  := round(114 *ratioheight);
+      gelipse5_3.left := 110;
+      guitar5.Text    := '     0 0 0   ' + lineend + ' ══════════  0';
     end;
 
   end
@@ -891,11 +1281,11 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := 74;
+      gelipse1_1.top  := round(74 *ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := 74;
+      gelipse1_2.top  := round(74 *ratioheight);
       gelipse1_2.left := 48;
 
       gelipse1_3.Visible := False;
@@ -905,11 +1295,11 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := 74;
+      gelipse2_1.top  := round(74 *ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := 74;
+      gelipse2_2.top  := round(74 *ratioheight);
       gelipse2_2.left := 48;
 
       gelipse2_3.Visible := False;
@@ -920,16 +1310,42 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := 74;
+      gelipse3_1.top  := round(74 *ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := 74;
+      gelipse3_2.top  := round(74 *ratioheight);
       gelipse3_2.left := 48;
 
       gelipse3_3.Visible := False;
 
       guitar3.Text := '═0═════0═0═0═' + lineend + ' ══════════  3';
+    end  else if num = 4 then
+    begin
+      // 5-2
+      gelipse4_1.top  := round(74 *ratioheight);
+      gelipse4_1.left := 26;
+
+      // 4-2
+      gelipse4_2.top  := round(74 *ratioheight);
+      gelipse4_2.left := 48;
+
+      gelipse4_3.Visible := False;
+
+      guitar4.Text := '═0═════0═0═0═' + lineend + ' ══════════  3';
+    end  else if num = 5 then
+    begin
+      // 5-2
+      gelipse5_1.top  := round(74 *ratioheight);
+      gelipse5_1.left := 26;
+
+      // 4-2
+      gelipse5_2.top  := round(74 *ratioheight);
+      gelipse5_2.left := 48;
+
+      gelipse5_3.Visible := False;
+
+      guitar5.Text := '═0═════0═0═0═' + lineend + ' ══════════  3';
     end;
 
   end
@@ -953,13 +1369,29 @@ begin
     gelipse3_1.Visible := False;
     gelipse3_2.Visible := False;
     gelipse3_3.Visible := False;
+  end else if num = 4 then
+  begin
+    guitar4.Text       := '';
+    gelipse4_1.Visible := False;
+    gelipse4_2.Visible := False;
+    gelipse4_3.Visible := False;
+  end else if num = 5 then
+  begin
+    guitar5.Text       := '';
+    gelipse5_1.Visible := False;
+    gelipse5_2.Visible := False;
+    gelipse5_3.Visible := False;
   end;
 
 end;
 
 
-procedure trandomnotefo.pianochord(num, ranchord, ismin: integer);
+procedure trandomnotefo.pianochord(num, ranchord, ismin, isseven: integer);
+var
+ratioheight : double;
+
 begin
+ratioheight := (bchord1.height /158);
   if num = 1 then
   begin
     elipse1_1.Visible := True;
@@ -977,7 +1409,18 @@ begin
     elipse3_1.Visible := True;
     elipse3_2.Visible := True;
     elipse3_3.Visible := True;
+  end else if num = 4 then
+  begin
+    elipse4_1.Visible := True;
+    elipse4_2.Visible := True;
+    elipse4_3.Visible := True;
+  end else if num = 5 then
+  begin
+    elipse5_1.Visible := True;
+    elipse5_2.Visible := True;
+    elipse5_3.Visible := True;
   end;
+  
 
   if (ranchord = 1) and (ismin = 1) then
     // La maj     
@@ -985,44 +1428,70 @@ begin
     if num = 1 then
     begin
       // la
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 136;
 
       // do# 2
-      elipse1_2.top  := 24;
+      elipse1_2.top  := round(24 *ratioheight);
       elipse1_2.left := 201;
 
       // mi 2
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 240;
     end
     else if num = 2 then
     begin
       // la
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 136;
 
       // do# 2
-      elipse2_2.top  := 24;
+      elipse2_2.top  := round(24 *ratioheight);
       elipse2_2.left := 201;
 
       // mi 2
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 240;
     end
     else if num = 3 then
     begin
       // la
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 136;
 
       // do# 2
-      elipse3_2.top  := 24;
+      elipse3_2.top  := round(24 *ratioheight);
       elipse3_2.left := 201;
 
       // mi 2
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 240;
+    end else if num = 4 then
+    begin
+      // la
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 136;
+
+      // do# 2
+      elipse4_2.top  := round(24 *ratioheight);
+      elipse4_2.left := 201;
+
+      // mi 2
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 240;
+    end else if num = 5 then
+    begin
+      // la
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 136;
+
+      // do# 2
+      elipse5_2.top  := round(24 *ratioheight);
+      elipse5_2.left := 201;
+
+      // mi 2
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 240;
     end;
 
   end
@@ -1032,44 +1501,70 @@ begin
     if num = 1 then
     begin
       // la
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 136;
 
       // do 2
-      elipse1_2.top  := 96;
+      elipse1_2.top  := round(96 *ratioheight);
       elipse1_2.left := 188;
 
       // mi 2
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 240;
     end
     else if num = 2 then
     begin
       // la
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 136;
 
       // do 2
-      elipse2_2.top  := 96;
+      elipse2_2.top  := round(96 *ratioheight);
       elipse2_2.left := 188;
 
       // mi 2
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 240;
     end
     else if num = 3 then
     begin
       // la
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 136;
 
       // do 2
-      elipse3_2.top  := 96;
+      elipse3_2.top  := round(96 *ratioheight);
       elipse3_2.left := 188;
 
       // mi 2
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 240;
+    end else if num = 4 then
+    begin
+      // la
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 136;
+
+      // do 2
+      elipse4_2.top  := round(96 *ratioheight);
+      elipse4_2.left := 188;
+
+      // mi 2
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 240;
+    end else if num = 5 then
+    begin
+      // la
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 136;
+
+      // do 2
+      elipse5_2.top  := round(96 *ratioheight);
+      elipse5_2.left := 188;
+
+      // mi 2
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 240;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 2) and (ismin = 1)) or
@@ -1079,44 +1574,70 @@ begin
     if num = 1 then
     begin
       // fa#
-      elipse1_1.top  := 24;
+      elipse1_1.top  := round(24 *ratioheight);
       elipse1_1.left := 92;
 
       // si
-      elipse1_2.top  := 96;
+      elipse1_2.top  := round(96 *ratioheight);
       elipse1_2.left := 160;
 
       // ré# 2
-      elipse1_3.top  := 24;
+      elipse1_3.top  := round(24 *ratioheight);
       elipse1_3.left := 228;
     end
     else if num = 2 then
     begin
       // fa#
-      elipse2_1.top  := 24;
+      elipse2_1.top  := round(24 *ratioheight);
       elipse2_1.left := 92;
 
       // si
-      elipse2_2.top  := 96;
+      elipse2_2.top  := round(96 *ratioheight);
       elipse2_2.left := 160;
 
       // ré# 2
-      elipse2_3.top  := 24;
+      elipse2_3.top  := round(24 *ratioheight);
       elipse2_3.left := 228;
     end
     else if num = 3 then
     begin
       // fa#
-      elipse3_1.top  := 24;
+      elipse3_1.top  := round(24 *ratioheight);
       elipse3_1.left := 92;
 
       // si
-      elipse3_2.top  := 96;
+      elipse3_2.top  := round(96 *ratioheight);
       elipse3_2.left := 160;
 
       // ré# 2
-      elipse3_3.top  := 24;
+      elipse3_3.top  := round(24 *ratioheight);
       elipse3_3.left := 228;
+    end else if num = 4 then
+    begin
+      // fa#
+      elipse4_1.top  := round(24 *ratioheight);
+      elipse4_1.left := 92;
+
+      // si
+      elipse4_2.top  := round(96 *ratioheight);
+      elipse4_2.left := 160;
+
+      // ré# 2
+      elipse4_3.top  := round(24 *ratioheight);
+      elipse4_3.left := 228;
+    end else if num = 5 then
+    begin
+      // fa#
+      elipse5_1.top  := round(24 *ratioheight);
+      elipse5_1.left := 92;
+
+      // si
+      elipse5_2.top  := round(96 *ratioheight);
+      elipse5_2.left := 160;
+
+      // ré# 2
+      elipse5_3.top  := round(24 *ratioheight);
+      elipse5_3.left := 228;
     end;
 
   end
@@ -1127,44 +1648,70 @@ begin
     if num = 1 then
     begin
       // fa#
-      elipse1_1.top  := 24;
+      elipse1_1.top  := round(24 *ratioheight);
       elipse1_1.left := 92;
 
       // si
-      elipse1_2.top  := 96;
+      elipse1_2.top  := round(96 *ratioheight);
       elipse1_2.left := 160;
 
       // ré 2
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 214;
     end
     else if num = 2 then
     begin
       // fa#
-      elipse2_1.top  := 24;
+      elipse2_1.top  := round(24 *ratioheight);
       elipse2_1.left := 92;
 
       // si
-      elipse2_2.top  := 96;
+      elipse2_2.top  := round(96 *ratioheight);
       elipse2_2.left := 160;
 
       // ré 2
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 214;
     end
     else if num = 3 then
     begin
       // fa#
-      elipse3_1.top  := 24;
+      elipse3_1.top  := round(24 *ratioheight);
       elipse3_1.left := 92;
 
       // si
-      elipse3_2.top  := 96;
+      elipse3_2.top  := round(96 *ratioheight);
       elipse3_2.left := 160;
 
       // ré 2
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 214;
+    end  else if num = 4 then
+    begin
+      // fa#
+      elipse4_1.top  := round(24 *ratioheight);
+      elipse4_1.left := 92;
+
+      // si
+      elipse4_2.top  := round(96 *ratioheight);
+      elipse4_2.left := 160;
+
+      // ré 2
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 214;
+    end  else if num = 5 then
+    begin
+      // fa#
+      elipse5_1.top  := round(24 *ratioheight);
+      elipse5_1.left := 92;
+
+      // si
+      elipse5_2.top  := round(96 *ratioheight);
+      elipse5_2.left := 160;
+
+      // ré 2
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 214;
     end;
 
   end
@@ -1175,44 +1722,70 @@ begin
     if num = 1 then
     begin
       // do
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 0;
 
       // mi
-      elipse1_2.top  := 96;
+      elipse1_2.top  := round(96 *ratioheight);
       elipse1_2.left := 54;
 
       // sol
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 108;
     end
     else if num = 2 then
     begin
       // do
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 0;
 
       // mi
-      elipse2_2.top  := 96;
+      elipse2_2.top  := round(96 *ratioheight);
       elipse2_2.left := 54;
 
       // sol
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 108;
     end
     else if num = 3 then
     begin
       // do
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 0;
 
       // mi
-      elipse3_2.top  := 96;
+      elipse3_2.top  := round(96 *ratioheight);
       elipse3_2.left := 54;
 
       // sol
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 108;
+    end else if num = 4 then
+    begin
+      // do
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 0;
+
+      // mi
+      elipse4_2.top  := round(96 *ratioheight);
+      elipse4_2.left := 54;
+
+      // sol
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 108;
+    end else if num = 5 then
+    begin
+      // do
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 0;
+
+      // mi
+      elipse5_2.top  := round(96 *ratioheight);
+      elipse5_2.left := 54;
+
+      // sol
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 108;
     end;
 
   end
@@ -1223,44 +1796,70 @@ begin
     if num = 1 then
     begin
       // do
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 0;
 
       // ré #
-      elipse1_2.top  := 24;
+      elipse1_2.top  := round(24 *ratioheight);
       elipse1_2.left := 40;
 
       // sol
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 108;
     end
     else if num = 2 then
     begin
       // do
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 0;
 
       // ré #
-      elipse2_2.top  := 24;
+      elipse2_2.top  := round(24 *ratioheight);
       elipse2_2.left := 40;
 
       // sol
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 108;
     end
     else if num = 3 then
     begin
       // do
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 0;
 
       // ré #
-      elipse3_2.top  := 24;
+      elipse3_2.top  := round(24 *ratioheight);
       elipse3_2.left := 40;
 
       // sol
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 108;
+    end  else if num = 4 then
+    begin
+      // do
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 0;
+
+      // ré #
+      elipse4_2.top  := round(24 *ratioheight);
+      elipse4_2.left := 40;
+
+      // sol
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 108;
+    end  else if num = 5 then
+    begin
+      // do
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 0;
+
+      // ré #
+      elipse5_2.top  := round(24 *ratioheight);
+      elipse5_2.left := 40;
+
+      // sol
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 108;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 4) and (ismin = 1)) or
@@ -1270,42 +1869,66 @@ begin
     // ré
     if num = 1 then
     begin
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 28;
 
       // fa #
-      elipse1_2.top  := 26;
+      elipse1_2.top  := round(24 *ratioheight);
       elipse1_2.left := 94;
 
       // la
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 134;
     end
     else if num = 2 then
     begin
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 28;
 
       // fa #
-      elipse2_2.top  := 26;
+      elipse2_2.top  := round(24 *ratioheight);
       elipse2_2.left := 94;
 
       // la
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 134;
     end
     else if num = 3 then
     begin
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 28;
 
       // fa #
-      elipse3_2.top  := 26;
+      elipse3_2.top  := round(24 *ratioheight);
       elipse3_2.left := 94;
 
       // la
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 134;
+    end  else if num = 4 then
+    begin
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 28;
+
+      // fa #
+      elipse4_2.top  := round(24 *ratioheight);
+      elipse4_2.left := 94;
+
+      // la
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 134;
+    end  else if num = 5 then
+    begin
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 28;
+
+      // fa #
+      elipse5_2.top  := round(26 *ratioheight);
+      elipse5_2.left := 94;
+
+      // la
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 134;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 4) and (ismin <> 1)) or
@@ -1315,45 +1938,72 @@ begin
     if num = 1 then
     begin
       // ré
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 28;
 
       // fa
-      elipse1_2.top  := 96;
+      elipse1_2.top  := round(96 *ratioheight);
       elipse1_2.left := 80;
 
       // la
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 134;
     end
     else if num = 2 then
     begin
       // ré
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 28;
 
       // fa
-      elipse2_2.top  := 96;
+      elipse2_2.top  := round(96 *ratioheight);
       elipse2_2.left := 80;
 
       // la
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 134;
     end
     else if num = 3 then
     begin
       // ré
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 28;
 
       // fa
-      elipse3_2.top  := 96;
+      elipse3_2.top  := round(96 *ratioheight);
       elipse3_2.left := 80;
 
       // la
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 134;
+    end  else if num = 4 then
+    begin
+      // ré
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 28;
+
+      // fa
+      elipse4_2.top  := round(96 *ratioheight);
+      elipse4_2.left := 80;
+
+      // la
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 134;
+    end  else if num = 5 then
+    begin
+      // ré
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 28;
+
+      // fa
+      elipse5_2.top  := round(96 *ratioheight);
+      elipse5_2.left := 80;
+
+      // la
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 134;
     end;
+    
   end
   else if ((withsharp.Value = False) and (ranchord = 5) and (ismin = 1)) or
     ((withsharp.Value = True) and (ranchord = 8) and (ismin = 1)) then
@@ -1362,44 +2012,70 @@ begin
     if num = 1 then
     begin
       // mi
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 54;
 
       // sol #
-      elipse1_2.top  := 24;
+      elipse1_2.top  := round(24 *ratioheight);
       elipse1_2.left := 122;
 
       // si
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 162;
     end
     else if num = 2 then
     begin
       // mi
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 54;
 
       // sol #
-      elipse2_2.top  := 24;
+      elipse2_2.top  := round(24 *ratioheight);
       elipse2_2.left := 122;
 
       // si
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 162;
     end
     else if num = 3 then
     begin
       // mi
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 54;
 
       // sol #
-      elipse3_2.top  := 24;
+      elipse3_2.top  := round(24 *ratioheight);
       elipse3_2.left := 122;
 
       // si
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 162;
+    end else if num = 4 then
+    begin
+      // mi
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 54;
+
+      // sol #
+      elipse4_2.top  := round(24 *ratioheight);
+      elipse4_2.left := 122;
+
+      // si
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 162;
+    end else if num = 5 then
+    begin
+      // mi
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 54;
+
+      // sol #
+      elipse5_2.top  := round(24 *ratioheight);
+      elipse5_2.left := 122;
+
+      // si
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 162;
     end;
 
   end
@@ -1410,42 +2086,66 @@ begin
     // mi
     if num = 1 then
     begin
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 54;
 
       // sol
-      elipse1_2.top  := 96;
+      elipse1_2.top  := round(96 *ratioheight);
       elipse1_2.left := 108;
 
       // si
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 162;
     end
     else if num = 2 then
     begin
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 54;
 
       // sol
-      elipse2_2.top  := 96;
+      elipse2_2.top  := round(96 *ratioheight);
       elipse2_2.left := 108;
 
       // si
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 162;
     end
     else if num = 3 then
     begin
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 54;
 
       // sol
-      elipse3_2.top  := 96;
+      elipse3_2.top  := round(96 *ratioheight);
       elipse3_2.left := 108;
 
       // si
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 162;
+    end else if num = 4 then
+    begin
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 54;
+
+      // sol
+      elipse4_2.top  := round(96 *ratioheight);
+      elipse4_2.left := 108;
+
+      // si
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 162;
+    end else if num = 5 then
+    begin
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 54;
+
+      // sol
+      elipse5_2.top  := round(96 *ratioheight);
+      elipse5_2.left := 108;
+
+      // si
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 162;
     end;
 
   end
@@ -1456,44 +2156,70 @@ begin
     if num = 1 then
     begin
       // fa
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 80;
 
       // la
-      elipse1_2.top  := 96;
+      elipse1_2.top  := round(96 *ratioheight);
       elipse1_2.left := 134;
 
       // do 2
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 190;
     end
     else if num = 2 then
     begin
       // fa
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 80;
 
       // la
-      elipse2_2.top  := 96;
+      elipse2_2.top  := round(96 *ratioheight);
       elipse2_2.left := 134;
 
       // do 2
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 190;
     end
     else if num = 3 then
     begin
       // fa
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 80;
 
       // la
-      elipse3_2.top  := 96;
+      elipse3_2.top  := round(96 *ratioheight);
       elipse3_2.left := 134;
 
       // do 2
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 190;
+    end  else if num = 4 then
+    begin
+      // fa
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 80;
+
+      // la
+      elipse4_2.top  := round(96 *ratioheight);
+      elipse4_2.left := 134;
+
+      // do 2
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 190;
+    end  else if num = 5 then
+    begin
+      // fa
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 80;
+
+      // la
+      elipse5_2.top  := round(96 *ratioheight);
+      elipse5_2.left := 134;
+
+      // do 2
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 190;
     end;
 
   end
@@ -1504,44 +2230,70 @@ begin
     if num = 1 then
     begin
       // fa
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 80;
 
       // la
-      elipse1_2.top  := 24;
+      elipse1_2.top  := round(24 *ratioheight);
       elipse1_2.left := 120;
 
       // do 2
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 190;
     end
     else if num = 2 then
     begin
       // fa
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 80;
 
       // la
-      elipse2_2.top  := 24;
+      elipse2_2.top  := round(24 *ratioheight);
       elipse2_2.left := 120;
 
       // do 2
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 190;
     end
     else if num = 3 then
     begin
       // fa
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 80;
 
       // la
-      elipse3_2.top  := 24;
+      elipse3_2.top  := round(24 *ratioheight);
       elipse3_2.left := 120;
 
       // do 2
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 190;
+    end else if num = 4 then
+    begin
+      // fa
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 80;
+
+      // la
+      elipse4_2.top  := round(24 *ratioheight);
+      elipse4_2.left := 120;
+
+      // do 2
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 190;
+    end else if num = 5 then
+    begin
+      // fa
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 80;
+
+      // la
+      elipse5_2.top  := round(24 *ratioheight);
+      elipse5_2.left := 120;
+
+      // do 2
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 190;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 7) and (ismin = 1)) or
@@ -1551,42 +2303,66 @@ begin
     // sol
     if num = 1 then
     begin
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 108;
 
       // si
-      elipse1_2.top  := 96;
+      elipse1_2.top  := round(96 *ratioheight);
       elipse1_2.left := 160;
 
       // ré 2
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 218;
     end
     else if num = 2 then
     begin
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 108;
 
       // si
-      elipse2_2.top  := 96;
+      elipse2_2.top  := round(96 *ratioheight);
       elipse2_2.left := 160;
 
       // ré 2
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 218;
     end
     else if num = 3 then
     begin
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 108;
 
       // si
-      elipse3_2.top  := 96;
+      elipse3_2.top  := round(96 *ratioheight);
       elipse3_2.left := 160;
 
       // ré 2
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 218;
+    end  else if num = 4 then
+    begin
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 108;
+
+      // si
+      elipse4_2.top  := round(96 *ratioheight);
+      elipse4_2.left := 160;
+
+      // ré 2
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 218;
+    end  else if num = 5 then
+    begin
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 108;
+
+      // si
+      elipse5_2.top  := round(96 *ratioheight);
+      elipse5_2.left := 160;
+
+      // ré 2
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 218;
     end;
 
   end
@@ -1597,44 +2373,70 @@ begin
     if num = 1 then
     begin
       // sol
-      elipse1_1.top  := 96;
+      elipse1_1.top  := round(96 *ratioheight);
       elipse1_1.left := 108;
 
       // la#
-      elipse1_2.top  := 24;
+      elipse1_2.top  := round(24 *ratioheight);
       elipse1_2.left := 148;
 
       // ré 2
-      elipse1_3.top  := 96;
+      elipse1_3.top  := round(96 *ratioheight);
       elipse1_3.left := 218;
     end
     else if num = 2 then
     begin
       // sol
-      elipse2_1.top  := 96;
+      elipse2_1.top  := round(96 *ratioheight);
       elipse2_1.left := 108;
 
       // la#
-      elipse2_2.top  := 24;
+      elipse2_2.top  := round(24 *ratioheight);
       elipse2_2.left := 148;
 
       // ré 2
-      elipse2_3.top  := 96;
+      elipse2_3.top  := round(96 *ratioheight);
       elipse2_3.left := 218;
     end
     else if num = 3 then
     begin
       // sol
-      elipse3_1.top  := 96;
+      elipse3_1.top  := round(96 *ratioheight);
       elipse3_1.left := 108;
 
       // la#
-      elipse3_2.top  := 24;
+      elipse3_2.top  := round(24 *ratioheight);
       elipse3_2.left := 148;
 
       // ré 2
-      elipse3_3.top  := 96;
+      elipse3_3.top  := round(96 *ratioheight);
       elipse3_3.left := 218;
+    end  else if num = 4 then
+    begin
+      // sol
+      elipse4_1.top  := round(96 *ratioheight);
+      elipse4_1.left := 108;
+
+      // la#
+      elipse4_2.top  := round(24 *ratioheight);
+      elipse4_2.left := 148;
+
+      // ré 2
+      elipse4_3.top  := round(96 *ratioheight);
+      elipse4_3.left := 218;
+    end  else if num = 5 then
+    begin
+      // sol
+      elipse5_1.top  := round(96 *ratioheight);
+      elipse5_1.left := 108;
+
+      // la#
+      elipse5_2.top  := round(24 *ratioheight);
+      elipse5_2.left := 148;
+
+      // ré 2
+      elipse5_3.top  := round(96 *ratioheight);
+      elipse5_3.left := 218;
     end;
   end
   else if num = 1 then
@@ -1642,7 +2444,7 @@ begin
     elipse1_1.Visible := False;
     elipse1_2.Visible := False;
     elipse1_3.Visible := False;
-  end
+    end
   else if num = 2 then
   begin
     elipse2_1.Visible := False;
@@ -1654,11 +2456,26 @@ begin
     elipse3_1.Visible := False;
     elipse3_2.Visible := False;
     elipse3_3.Visible := False;
+  end else if num = 4 then
+  begin
+    elipse4_1.Visible := False;
+    elipse4_2.Visible := False;
+    elipse4_3.Visible := False;
+  end else if num = 5 then
+  begin
+    elipse5_1.Visible := False;
+    elipse5_2.Visible := False;
+    elipse5_3.Visible := False;
   end;
+  
 end;
 
-procedure trandomnotefo.basschord(num, ranchord, ismin: integer);
+procedure trandomnotefo.basschord(num, ranchord, ismin, isseven: integer);
+var
+ratioheight : double;
 begin
+ratioheight := (bchord1.height /158) ;
+
   if num = 1 then
     belipse1_1.Visible := True// belipse1_2.visible := true;
     // belipse1_3.visible := true;  
@@ -1667,7 +2484,11 @@ begin
     // belipse2_3.visible := true;  
   else if num = 3 then
     belipse3_1.Visible := True// belipse3_2.visible := true;
-    // belipse3_3.visible := true;  
+    // belipse3_3.visible := true; 
+   else if num = 4 then
+    belipse4_1.Visible := True   
+   else if num = 5 then
+    belipse5_1.Visible := True  
   ;
 
   if (ranchord = 1) and (ismin = 1) then
@@ -1676,7 +2497,7 @@ begin
     if num = 1 then
     begin
       // la
-      belipse1_1.top  := 126;
+      belipse1_1.top  := round(130 *ratioheight);
       belipse1_1.left := 10;
 
       // do# 2
@@ -1690,7 +2511,7 @@ begin
     else if num = 2 then
     begin
       // la
-      belipse2_1.top  := 126;
+      belipse2_1.top  := round(130 *ratioheight);
       belipse2_1.left := 10;
 
       // do# 2
@@ -1704,7 +2525,7 @@ begin
     else if num = 3 then
     begin
       // la
-      belipse3_1.top  := 126;
+      belipse3_1.top  := round(130 *ratioheight);
       belipse3_1.left := 10;
 
       // do# 2
@@ -1714,6 +2535,33 @@ begin
       // mi 2
       belipse3_3.top  := 96;
       belipse3_3.left := 240;
+    end
+    else if num = 4 then
+    begin
+      // la
+      belipse4_1.top  := round(130 *ratioheight);
+      belipse4_1.left := 10;
+
+      // do# 2
+      belipse4_2.top  := 24;
+      belipse4_2.left := 201;
+
+      // mi 2
+      belipse4_3.top  := 96;
+      belipse4_3.left := 240;
+    end else if num = 5 then
+    begin
+      // la
+      belipse5_1.top  := round(130 *ratioheight);
+      belipse5_1.left := 10;
+
+      // do# 2
+      belipse5_2.top  := 24;
+      belipse5_2.left := 201;
+
+      // mi 2
+      belipse5_3.top  := 96;
+      belipse5_3.left := 240;
     end;
 
   end
@@ -1723,7 +2571,7 @@ begin
     if num = 1 then
     begin
       // la
-      belipse1_1.top  := 126;
+      belipse1_1.top  := round(130 *ratioheight);
       belipse1_1.left := 10;
 
       // do 2
@@ -1737,7 +2585,7 @@ begin
     else if num = 2 then
     begin
       // la
-      belipse2_1.top  := 126;
+      belipse2_1.top  := round(130 *ratioheight);
       belipse2_1.left := 10;
 
       // do 2
@@ -1751,7 +2599,7 @@ begin
     else if num = 3 then
     begin
       // la
-      belipse3_1.top  := 126;
+      belipse3_1.top  := round(130 *ratioheight);
       belipse3_1.left := 10;
 
       // do 2
@@ -1761,6 +2609,32 @@ begin
       // mi 2
       belipse3_3.top  := 96;
       belipse3_3.left := 240;
+    end else if num = 4 then
+    begin
+      // la
+      belipse4_1.top  := round(130 *ratioheight);
+      belipse4_1.left := 10;
+
+      // do 2
+      belipse4_2.top  := 96;
+      belipse4_2.left := 188;
+
+      // mi 2
+      belipse4_3.top  := 96;
+      belipse4_3.left := 240;
+    end else if num = 5 then
+    begin
+      // la
+      belipse5_1.top  := round(130 *ratioheight);
+      belipse5_1.left := 10;
+
+      // do 2
+      belipse5_2.top  := 96;
+      belipse5_2.left := 188;
+
+      // mi 2
+      belipse5_3.top  := 96;
+      belipse5_3.left := 240;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 2) and (ismin = 1)) or
@@ -1770,7 +2644,7 @@ begin
     if num = 1 then
     begin
       // fa#
-      belipse1_1.top  := 42;
+      belipse1_1.top  := round(42 *ratioheight);
       belipse1_1.left := 38;
 
       // si
@@ -1784,7 +2658,7 @@ begin
     else if num = 2 then
     begin
       // fa#
-      belipse2_1.top  := 42;
+      belipse2_1.top  := round(42 *ratioheight);
       belipse2_1.left := 38;
 
       // si
@@ -1798,7 +2672,7 @@ begin
     else if num = 3 then
     begin
       // fa#
-      belipse3_1.top  := 42;
+      belipse3_1.top  := round(42 *ratioheight);
       belipse3_1.left := 38;
 
       // si
@@ -1808,6 +2682,32 @@ begin
       // ré# 2
       belipse3_3.top  := 24;
       belipse3_3.left := 228;
+    end else if num = 4 then
+    begin
+      // fa#
+      belipse4_1.top  := round(42 *ratioheight);
+      belipse4_1.left := 38;
+
+      // si
+      belipse4_2.top  := 96;
+      belipse4_2.left := 160;
+
+      // ré# 2
+      belipse4_3.top  := 24;
+      belipse4_3.left := 228;
+    end else if num = 5 then
+    begin
+      // fa#
+      belipse5_1.top  := round(42 *ratioheight);
+      belipse5_1.left := 38;
+
+      // si
+      belipse5_2.top  := 96;
+      belipse5_2.left := 160;
+
+      // ré# 2
+      belipse5_3.top  := 24;
+      belipse5_3.left := 228;
     end;
 
   end
@@ -1818,7 +2718,7 @@ begin
     if num = 1 then
     begin
       // fa#
-      belipse1_1.top  := 42;
+      belipse1_1.top  := round(42 *ratioheight);
       belipse1_1.left := 38;
 
       // si
@@ -1832,7 +2732,7 @@ begin
     else if num = 2 then
     begin
       // fa#
-      belipse2_1.top  := 42;
+      belipse2_1.top  := round(42 *ratioheight);
       belipse2_1.left := 38;
 
       // si
@@ -1846,7 +2746,7 @@ begin
     else if num = 3 then
     begin
       // fa#
-      belipse3_1.top  := 42;
+      belipse3_1.top  := round(42 *ratioheight);
       belipse3_1.left := 38;
 
       // si
@@ -1856,8 +2756,33 @@ begin
       // ré 2
       belipse3_3.top  := 96;
       belipse3_3.left := 214;
-    end;
+    end  else if num = 4 then
+    begin
+      // fa#
+      belipse4_1.top  := round(42 *ratioheight);
+      belipse4_1.left := 38;
 
+      // si
+      belipse4_2.top  := 96;
+      belipse4_2.left := 160;
+
+      // ré 2
+      belipse4_3.top  := 96;
+      belipse4_3.left := 214;
+    end  else if num = 5 then
+    begin
+      // fa#
+      belipse5_1.top  := round(42 *ratioheight);
+      belipse5_1.left := 38;
+
+      // si
+      belipse5_2.top  := 96;
+      belipse5_2.left := 160;
+
+      // ré 2
+      belipse5_3.top  := 96;
+      belipse5_3.left := 214;
+    end;
   end
   else if ((withsharp.Value = False) and (ranchord = 3) and (ismin = 1)) or
     ((withsharp.Value = True) and (ranchord = 4) and (ismin = 1)) then
@@ -1866,7 +2791,7 @@ begin
     if num = 1 then
     begin
       // do
-      belipse1_1.top  := 74;
+      belipse1_1.top  := round(74 *ratioheight);
       belipse1_1.left := 38;
 
       // mi
@@ -1880,7 +2805,7 @@ begin
     else if num = 2 then
     begin
       // do
-      belipse2_1.top  := 74;
+      belipse2_1.top  := round(74 *ratioheight);
       belipse2_1.left := 38;
 
       // mi
@@ -1894,7 +2819,7 @@ begin
     else if num = 3 then
     begin
       // do
-      belipse3_1.top  := 74;
+      belipse3_1.top  := round(74 *ratioheight);
       belipse3_1.left := 38;
 
       // mi
@@ -1904,6 +2829,32 @@ begin
       // sol
       belipse3_3.top  := 96;
       belipse3_3.left := 108;
+    end else if num = 4 then
+    begin
+      // do
+      belipse4_1.top  := round(74 *ratioheight);
+      belipse4_1.left := 38;
+
+      // mi
+      belipse4_2.top  := 96;
+      belipse4_2.left := 54;
+
+      // sol
+      belipse4_3.top  := 96;
+      belipse4_3.left := 108;
+    end else if num = 5 then
+    begin
+      // do
+      belipse5_1.top  := round(74 *ratioheight);
+      belipse5_1.left := 38;
+
+      // mi
+      belipse5_2.top  := 96;
+      belipse5_2.left := 54;
+
+      // sol
+      belipse5_3.top  := 96;
+      belipse5_3.left := 108;
     end;
 
   end
@@ -1914,7 +2865,7 @@ begin
     if num = 1 then
     begin
       // do
-      belipse1_1.top  := 74;
+      belipse1_1.top  := round(74 *ratioheight);
       belipse1_1.left := 38;
 
       // ré #
@@ -1928,7 +2879,7 @@ begin
     else if num = 2 then
     begin
       // do
-      belipse2_1.top  := 74;
+      belipse2_1.top  := round(74 *ratioheight);
       belipse2_1.left := 38;
 
       // ré #
@@ -1942,7 +2893,7 @@ begin
     else if num = 3 then
     begin
       // do
-      belipse3_1.top  := 74;
+      belipse3_1.top  := round(74 *ratioheight);
       belipse3_1.left := 38;
 
       // ré #
@@ -1952,6 +2903,32 @@ begin
       // sol
       belipse3_3.top  := 96;
       belipse3_3.left := 108;
+    end else if num = 4 then
+    begin
+      // do
+      belipse4_1.top  := round(74 *ratioheight);
+      belipse4_1.left := 38;
+
+      // ré #
+      belipse4_2.top  := 24;
+      belipse4_2.left := 40;
+
+      // sol
+      belipse4_3.top  := 96;
+      belipse4_3.left := 108;
+    end else if num = 5 then
+    begin
+      // do
+      belipse5_1.top  := round(74 *ratioheight);
+      belipse5_1.left := 38;
+
+      // ré #
+      belipse5_2.top  := 24;
+      belipse5_2.left := 40;
+
+      // sol
+      belipse5_3.top  := 96;
+      belipse5_3.left := 108;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 4) and (ismin = 1)) or
@@ -1961,7 +2938,7 @@ begin
     // ré
     if num = 1 then
     begin
-      belipse1_1.top  := 128;
+      belipse1_1.top  := round(128 *ratioheight);
       belipse1_1.left := 36;
 
       // fa #
@@ -1974,7 +2951,7 @@ begin
     end
     else if num = 2 then
     begin
-      belipse2_1.top  := 128;
+      belipse2_1.top  := round(128 *ratioheight);
       belipse2_1.left := 36;
 
       // fa #
@@ -1987,7 +2964,7 @@ begin
     end
     else if num = 3 then
     begin
-      belipse3_1.top  := 128;
+      belipse3_1.top  := round(128 *ratioheight);
       belipse3_1.left := 36;
 
       // fa #
@@ -1997,6 +2974,30 @@ begin
       // la
       belipse3_3.top  := 96;
       belipse3_3.left := 134;
+    end else if num = 4 then
+    begin
+      belipse4_1.top  := round(128 *ratioheight);
+      belipse4_1.left := 36;
+
+      // fa #
+      belipse4_2.top  := 26;
+      belipse4_2.left := 94;
+
+      // la
+      belipse4_3.top  := 96;
+      belipse4_3.left := 134;
+    end else if num = 5 then
+    begin
+      belipse5_1.top  := round(128 *ratioheight);
+      belipse5_1.left := 36;
+
+      // fa #
+      belipse5_2.top  := 26;
+      belipse5_2.left := 94;
+
+      // la
+      belipse5_3.top  := 96;
+      belipse5_3.left := 134;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 4) and (ismin <> 1)) or
@@ -2006,7 +3007,7 @@ begin
     if num = 1 then
     begin
       // ré
-      belipse1_1.top  := 128;
+      belipse1_1.top  := round(128 *ratioheight);
       belipse1_1.left := 36;
 
       // fa
@@ -2020,7 +3021,7 @@ begin
     else if num = 2 then
     begin
       // ré
-      belipse2_1.top  := 128;
+      belipse2_1.top  := round(128 *ratioheight);
       belipse2_1.left := 36;
 
       // fa
@@ -2034,7 +3035,7 @@ begin
     else if num = 3 then
     begin
       // ré
-      belipse3_1.top  := 128;
+      belipse3_1.top  := round(128 *ratioheight);
       belipse3_1.left := 36;
 
       // fa
@@ -2044,6 +3045,32 @@ begin
       // la
       belipse3_3.top  := 96;
       belipse3_3.left := 134;
+    end else if num = 4 then
+    begin
+      // ré
+      belipse4_1.top  := round(128 *ratioheight);
+      belipse4_1.left := 36;
+
+      // fa
+      belipse4_2.top  := 96;
+      belipse4_2.left := 80;
+
+      // la
+      belipse4_3.top  := 96;
+      belipse4_3.left := 134;
+    end else if num = 5 then
+    begin
+      // ré
+      belipse5_1.top  := round(128 *ratioheight);
+      belipse5_1.left := 36;
+
+      // fa
+      belipse5_2.top  := 96;
+      belipse5_2.left := 80;
+
+      // la
+      belipse5_3.top  := 96;
+      belipse5_3.left := 134;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 5) and (ismin = 1)) or
@@ -2053,7 +3080,7 @@ begin
     if num = 1 then
     begin
       // mi
-      belipse1_1.top  := 42;
+      belipse1_1.top  := round(42 *ratioheight);
       belipse1_1.left := 68;
 
       // sol #
@@ -2067,7 +3094,7 @@ begin
     else if num = 2 then
     begin
       // mi
-      belipse2_1.top  := 42;
+      belipse2_1.top  := round(42 *ratioheight);
       belipse2_1.left := 68;
 
       // sol #
@@ -2081,7 +3108,7 @@ begin
     else if num = 3 then
     begin
       // mi
-      belipse3_1.top  := 42;
+      belipse3_1.top  := round(42 *ratioheight);
       belipse3_1.left := 68;
 
       // sol #
@@ -2091,6 +3118,32 @@ begin
       // si
       belipse3_3.top  := 96;
       belipse3_3.left := 162;
+    end else if num = 4 then
+    begin
+      // mi
+      belipse4_1.top  := round(42 *ratioheight);
+      belipse4_1.left := 68;
+
+      // sol #
+      belipse4_2.top  := 24;
+      belipse4_2.left := 122;
+
+      // si
+      belipse4_3.top  := 96;
+      belipse4_3.left := 162;
+    end else if num = 5 then
+    begin
+      // mi
+      belipse5_1.top  := round(42 *ratioheight);
+      belipse5_1.left := 68;
+
+      // sol #
+      belipse5_2.top  := 24;
+      belipse5_2.left := 122;
+
+      // si
+      belipse5_3.top  := 96;
+      belipse5_3.left := 162;
     end;
 
   end
@@ -2101,7 +3154,7 @@ begin
     // mi
     if num = 1 then
     begin
-      belipse1_1.top  := 42;
+      belipse1_1.top  := round(42 *ratioheight);
       belipse1_1.left := 68;
 
       // sol
@@ -2114,7 +3167,7 @@ begin
     end
     else if num = 2 then
     begin
-      belipse2_1.top  := 42;
+      belipse2_1.top  := round(42 *ratioheight);
       belipse2_1.left := 68;
 
       // sol
@@ -2127,7 +3180,7 @@ begin
     end
     else if num = 3 then
     begin
-      belipse3_1.top  := 42;
+      belipse3_1.top  := round(42 *ratioheight);
       belipse3_1.left := 68;
 
       // sol
@@ -2137,6 +3190,30 @@ begin
       // si
       belipse3_3.top  := 96;
       belipse3_3.left := 162;
+    end else if num = 4 then
+    begin
+      belipse4_1.top  := round(42 *ratioheight);
+      belipse4_1.left := 68;
+
+      // sol
+      belipse4_2.top  := 96;
+      belipse4_2.left := 108;
+
+      // si
+      belipse4_3.top  := 96;
+      belipse4_3.left := 162;
+    end else if num = 5 then
+    begin
+      belipse5_1.top  := round(42 *ratioheight);
+      belipse5_1.left := 68;
+
+      // sol
+      belipse5_2.top  := 96;
+      belipse5_2.left := 108;
+
+      // si
+      belipse5_3.top  := 96;
+      belipse5_3.left := 162;
     end;
 
   end
@@ -2147,7 +3224,7 @@ begin
     if num = 1 then
     begin
       // fa
-      belipse1_1.top  := 8;
+      belipse1_1.top  := round(8 *ratioheight);
       belipse1_1.left := 12;
 
       // la
@@ -2161,7 +3238,7 @@ begin
     else if num = 2 then
     begin
       // fa
-      belipse2_1.top  := 8;
+      belipse2_1.top  := round(8 *ratioheight);
       belipse2_1.left := 12;
 
       // la
@@ -2175,7 +3252,7 @@ begin
     else if num = 3 then
     begin
       // fa
-      belipse3_1.top  := 8;
+      belipse3_1.top  := round(8 *ratioheight);
       belipse3_1.left := 12;
 
       // la
@@ -2185,6 +3262,32 @@ begin
       // do 2
       belipse3_3.top  := 96;
       belipse3_3.left := 190;
+    end else if num = 4 then
+    begin
+      // fa
+      belipse4_1.top  := round(8 *ratioheight);
+      belipse4_1.left := 12;
+
+      // la
+      belipse4_2.top  := 96;
+      belipse4_2.left := 134;
+
+      // do 2
+      belipse4_3.top  := 96;
+      belipse4_3.left := 190;
+    end else if num = 5 then
+    begin
+      // fa
+      belipse5_1.top  := round(8 *ratioheight);
+      belipse5_1.left := 12;
+
+      // la
+      belipse5_2.top  := 96;
+      belipse5_2.left := 134;
+
+      // do 2
+      belipse5_3.top  := 96;
+      belipse5_3.left := 190;
     end;
 
   end
@@ -2195,7 +3298,7 @@ begin
     if num = 1 then
     begin
       // fa
-      belipse1_1.top  := 8;
+      belipse1_1.top  := round(8 *ratioheight);
       belipse1_1.left := 12;
 
       // la
@@ -2209,7 +3312,7 @@ begin
     else if num = 2 then
     begin
       // fa
-      belipse2_1.top  := 8;
+      belipse2_1.top  := round(8 *ratioheight);
       belipse2_1.left := 12;
 
       // la
@@ -2223,7 +3326,7 @@ begin
     else if num = 3 then
     begin
       // fa
-      belipse3_1.top  := 8;
+      belipse3_1.top  := round(8 *ratioheight);
       belipse3_1.left := 12;
 
       // la
@@ -2233,6 +3336,32 @@ begin
       // do 2
       belipse3_3.top  := 96;
       belipse3_3.left := 190;
+    end  else if num = 4 then
+    begin
+      // fa
+      belipse4_1.top  := round(8 *ratioheight);
+      belipse4_1.left := 12;
+
+      // la
+      belipse4_2.top  := 24;
+      belipse4_2.left := 120;
+
+      // do 2
+      belipse4_3.top  := 96;
+      belipse4_3.left := 190;
+    end  else if num = 5 then
+    begin
+      // fa
+      belipse5_1.top  := round(8 *ratioheight);
+      belipse5_1.left := 12;
+
+      // la
+      belipse5_2.top  := 24;
+      belipse5_2.left := 120;
+
+      // do 2
+      belipse5_3.top  := 96;
+      belipse5_3.left := 190;
     end;
   end
   else if ((withsharp.Value = False) and (ranchord = 7) and (ismin = 1)) or
@@ -2242,7 +3371,7 @@ begin
     // sol
     if num = 1 then
     begin
-      belipse1_1.top  := 74;
+      belipse1_1.top  := round(74 *ratioheight);
       belipse1_1.left := 10;
 
       // si
@@ -2255,7 +3384,7 @@ begin
     end
     else if num = 2 then
     begin
-      belipse2_1.top  := 74;
+      belipse2_1.top  := round(74 *ratioheight);
       belipse2_1.left := 10;
 
       // si
@@ -2268,7 +3397,7 @@ begin
     end
     else if num = 3 then
     begin
-      belipse3_1.top  := 74;
+      belipse3_1.top  := round(74 *ratioheight);
       belipse3_1.left := 10;
 
       // si
@@ -2278,6 +3407,30 @@ begin
       // ré 2
       belipse3_3.top  := 96;
       belipse3_3.left := 218;
+    end  else if num = 4 then
+    begin
+      belipse4_1.top  := round(74 *ratioheight);
+      belipse4_1.left := 10;
+
+      // si
+      belipse4_2.top  := 96;
+      belipse4_2.left := 160;
+
+      // ré 2
+      belipse4_3.top  := 96;
+      belipse4_3.left := 218;
+    end  else if num = 5 then
+    begin
+      belipse5_1.top  := round(74 *ratioheight);
+      belipse5_1.left := 10;
+
+      // si
+      belipse5_2.top  := 96;
+      belipse5_2.left := 160;
+
+      // ré 2
+      belipse5_3.top  := 96;
+      belipse5_3.left := 218;
     end;
 
   end
@@ -2288,7 +3441,7 @@ begin
     if num = 1 then
     begin
       // sol
-      belipse1_1.top  := 74;
+      belipse1_1.top  := round(74 *ratioheight);
       belipse1_1.left := 10;
 
       // la#
@@ -2302,7 +3455,7 @@ begin
     else if num = 2 then
     begin
       // sol
-      belipse2_1.top  := 74;
+      belipse2_1.top  := round(74 *ratioheight);
       belipse2_1.left := 10;
 
       // la#
@@ -2316,7 +3469,7 @@ begin
     else if num = 3 then
     begin
       // sol
-      belipse3_1.top  := 74;
+      belipse3_1.top  := round(74 *ratioheight);
       belipse3_1.left := 10;
 
       // la#
@@ -2326,6 +3479,32 @@ begin
       // ré 2
       belipse3_3.top  := 96;
       belipse3_3.left := 218;
+    end  else if num = 4 then
+    begin
+      // sol
+      belipse4_1.top  := round(74 *ratioheight);
+      belipse4_1.left := 10;
+
+      // la#
+      belipse4_2.top  := 24;
+      belipse4_2.left := 148;
+
+      // ré 2
+      belipse4_3.top  := 96;
+      belipse4_3.left := 218;
+    end  else if num = 5 then
+    begin
+      // sol
+      belipse5_1.top  := round(74 *ratioheight);
+      belipse5_1.left := 10;
+
+      // la#
+      belipse5_2.top  := 24;
+      belipse5_2.left := 148;
+
+      // ré 2
+      belipse5_3.top  := 96;
+      belipse5_3.left := 218;
     end;
   end
   else if num = 1 then
@@ -2345,6 +3524,18 @@ begin
     belipse3_1.Visible := False;
     belipse3_2.Visible := False;
     belipse3_3.Visible := False;
+  end
+   else if num = 4 then
+  begin
+    belipse4_1.Visible := False;
+    belipse4_2.Visible := False;
+    belipse4_3.Visible := False;
+  end
+   else if num = 5 then
+  begin
+    belipse5_1.Visible := False;
+    belipse5_2.Visible := False;
+    belipse5_3.Visible := False;
   end;
 end;
 
@@ -2354,7 +3545,10 @@ begin
   begin
     blocked := 1;
     dorandomchord(Sender);
-    playrandomchords(TButton(Sender).tag - 1);
+    
+    if bosound.value then begin
+      playrandomchords(TButton(Sender).tag - 1);
+      end;
     application.ProcessMessages;
     blocked := 0;
   end;
@@ -2363,8 +3557,8 @@ end;
 procedure trandomnotefo.dorandomchord(const Sender: TObject);
 var
   str2, str3: string;
-  ismin, x, ranchord: integer;
-  isminstr: string;
+  ismin, isseven, x, ranchord: integer;
+  isminstr, issevenstr: string;
 begin
   refreshform(Sender);
   x := 0;
@@ -2374,9 +3568,17 @@ begin
     while x < 50 do
     begin
 
-      ismin := Random(2);
+   if (boolmajor.value) and (boolminor.value) then 
 
-      if ismin = 1 then
+      ismin := Random(2) else
+      
+   if (boolmajor.value) and (boolminor.value = false) then     
+      ismin := 1 else
+      
+    if (boolmajor.value = false) and (boolminor.value) then     
+      ismin := 0 else ismin := 1;
+      
+         if ismin = 1 then
       begin
         isminstr := '';
         str3     := 'Major';
@@ -2384,10 +3586,19 @@ begin
       else
       begin
         isminstr := 'm';
-        str3     := 'Minor';
+        str3     := 'minor';
       end;
+      
+       if (bool7th.value) then 
 
-      str3 := lineend + str3;
+      isseven := Random(2) else isseven := 0;
+      
+     // isseven := 0 ;
+      
+      if isseven = 1 then issevenstr := '7' else issevenstr := ''; 
+      
+
+      str3 := lineend + str3 + ' ' + issevenstr;
 
       if withsharp.Value = False then
       begin
@@ -2443,30 +3654,38 @@ begin
         begin
           chord1.Caption   := str2;
           chord1drop.Value := str2;
-          chordmem1        := copy(str2, 1, 1) + isminstr;
+          chordmem1        := copy(str2, 1, 1) + isminstr + issevenstr;
         end
         else if chordran = 2 then
         begin
           chord2.Caption   := str2;
           chord2drop.Value := str2;
-          chordmem2        := copy(str2, 1, 1) + isminstr;
+          chordmem2        := copy(str2, 1, 1) + isminstr  + issevenstr;
         end
         else if chordran = 3 then
         begin
           chord3.Caption   := str2;
           chord3drop.Value := str2;
-          chordmem3        := copy(str2, 1, 1) + isminstr;
+          chordmem3        := copy(str2, 1, 1) + isminstr  + issevenstr;
         end
         else if chordran = 4 then
-          chord4.Text := str2
+         begin
+          chord4.Caption   := str2;
+          chord4drop.Value := str2;
+          chordmem4        := copy(str2, 1, 1) + isminstr  + issevenstr;
+        end
         else if chordran = 5 then
-          chord5.Text := str2;
+         begin
+          chord5.Caption   := str2;
+          chord5drop.Value := str2;
+          chordmem5        := copy(str2, 1, 1) + isminstr  + issevenstr;
+        end;
+       
         if (x = 49) then
         begin
-
-          pianochord(chordran, ranchord, ismin);
-          guitarchord(chordran, ranchord, ismin);
-          basschord(chordran, ranchord, ismin);
+          pianochord(chordran, ranchord, ismin, isseven);
+          guitarchord(chordran, ranchord, ismin, isseven);
+          basschord(chordran, ranchord, ismin, isseven);
           refreshform(Sender);
         end;
       end
@@ -2476,30 +3695,38 @@ begin
         begin
           chord1.Caption   := str2;
           chord1drop.Value := str2;
-          chordmem1        := copy(str2, 1, 1) + isminstr;
+          chordmem1        := copy(str2, 1, 1) + isminstr  + issevenstr;
         end
         else if (TButton(Sender).tag = 2) then
         begin
           chord2.Caption   := str2;
           chord2drop.Value := str2;
-          chordmem2        := copy(str2, 1, 1) + isminstr;
+          chordmem2        := copy(str2, 1, 1) + isminstr  + issevenstr;
         end
         else if (TButton(Sender).tag = 3) then
         begin
-          chordmem3        := copy(str2, 1, 1) + isminstr;
+          chordmem3        := copy(str2, 1, 1) + isminstr  + issevenstr;
           chord3.Caption   := str2;
           chord3drop.Value := str2;
         end
         else if TButton(Sender).tag = 4 then
-          chord4.Text := str2
+          begin
+          chordmem4       := copy(str2, 1, 1) + isminstr  + issevenstr;
+          chord4.Caption   := str2;
+          chord4drop.Value := str2;
+        end
         else if TButton(Sender).tag = 5 then
-          chord5.Text := str2;
+          begin
+          chordmem5        := copy(str2, 1, 1) + isminstr  + issevenstr;
+          chord5.Caption   := str2;
+          chord5drop.Value := str2;
+        end;
 
         if (x = 49) then
         begin
-          pianochord(TButton(Sender).tag, ranchord, ismin);
-          guitarchord(TButton(Sender).tag, ranchord, ismin);
-          basschord(TButton(Sender).tag, ranchord, ismin);
+          pianochord(TButton(Sender).tag, ranchord, ismin, isseven);
+          guitarchord(TButton(Sender).tag, ranchord, ismin, isseven);
+          basschord(TButton(Sender).tag, ranchord, ismin, isseven);
           refreshform(Sender);
         end;
       end;
@@ -2545,12 +3772,17 @@ begin
     else if (tdropdownlistedit(Sender).tag = 2) then
       chordmem2 := copy(tdropdownlistedit(Sender).Value, 1, 1) + isminstr
     else if (tdropdownlistedit(Sender).tag = 3) then
-      chordmem3 := copy(tdropdownlistedit(Sender).Value, 1, 1) + isminstr;
+      chordmem3 := copy(tdropdownlistedit(Sender).Value, 1, 1) + isminstr
+     else if (tdropdownlistedit(Sender).tag = 4) then
+      chordmem4 := copy(tdropdownlistedit(Sender).Value, 1, 1) + isminstr
+     else if (tdropdownlistedit(Sender).tag = 5) then
+      chordmem5 := copy(tdropdownlistedit(Sender).Value, 1, 1) + isminstr;   
+      
 
     application.ProcessMessages;
-    pianochord(tdropdownlistedit(Sender).tag, ranchord, ismin);
-    guitarchord(tdropdownlistedit(Sender).tag, ranchord, ismin);
-    basschord(tdropdownlistedit(Sender).tag, ranchord, ismin);
+    pianochord(tdropdownlistedit(Sender).tag, ranchord, ismin, 0);
+    guitarchord(tdropdownlistedit(Sender).tag, ranchord, ismin, 0);
+    basschord(tdropdownlistedit(Sender).tag, ranchord, ismin, 0);
     refreshform(Sender);
   end;
 
@@ -2562,10 +3794,17 @@ begin
   // Visible := False;
   keyb2.bitmap    := keyb1.bitmap;
   keyb3.bitmap    := keyb1.bitmap;
+  keyb4.bitmap    := keyb1.bitmap;
+  keyb5.bitmap    := keyb1.bitmap;
   timage8.bitmap  := timage1.bitmap;
   timage12.bitmap := timage1.bitmap;
+  timage9.bitmap := timage1.bitmap;
+  timage23.bitmap := timage1.bitmap;
   timage6.bitmap  := timage2.bitmap;
   timage11.bitmap := timage2.bitmap;
+  
+  timage15.bitmap  := timage2.bitmap;
+  timage27.bitmap := timage2.bitmap;
 
   elipse1_2.bitmap := elipse1_1.bitmap;
   elipse1_3.bitmap := elipse1_1.bitmap;
@@ -2575,6 +3814,12 @@ begin
   elipse3_1.bitmap := elipse1_1.bitmap;
   elipse3_2.bitmap := elipse1_1.bitmap;
   elipse3_3.bitmap := elipse1_1.bitmap;
+  elipse4_1.bitmap := elipse1_1.bitmap;
+  elipse4_2.bitmap := elipse1_1.bitmap;
+  elipse4_3.bitmap := elipse1_1.bitmap;
+  elipse5_1.bitmap := elipse1_1.bitmap;
+  elipse5_2.bitmap := elipse1_1.bitmap;
+  elipse5_3.bitmap := elipse1_1.bitmap;
 
   gelipse1_2.bitmap := gelipse1_1.bitmap;
   gelipse1_3.bitmap := gelipse1_1.bitmap;
@@ -2584,6 +3829,13 @@ begin
   gelipse3_1.bitmap := gelipse1_1.bitmap;
   gelipse3_2.bitmap := gelipse1_1.bitmap;
   gelipse3_3.bitmap := gelipse1_1.bitmap;
+   gelipse4_1.bitmap := gelipse1_1.bitmap;
+  gelipse4_2.bitmap := gelipse1_1.bitmap;
+  gelipse4_3.bitmap := gelipse1_1.bitmap;
+  gelipse5_1.bitmap := gelipse1_1.bitmap;
+  gelipse5_2.bitmap := gelipse1_1.bitmap;
+  gelipse5_3.bitmap := gelipse1_1.bitmap;
+
 
   belipse1_1.bitmap := gelipse1_1.bitmap;
   // belipse1_2.bitmap :=  gelipse1_1.bitmap;
@@ -2594,6 +3846,10 @@ begin
   belipse3_1.bitmap := gelipse1_1.bitmap;
   // belipse3_2.bitmap :=  gelipse1_1.bitmap;
   // belipse3_3.bitmap :=  gelipse1_1.bitmap;
+    belipse4_1.bitmap := gelipse1_1.bitmap;  
+    belipse5_1.bitmap := gelipse1_1.bitmap;
+    
+    doclear(Sender);
 
 end;
 
@@ -2610,8 +3866,21 @@ begin
 
     tbutton5.Visible := False;
 
-    bnbchords.Visible := False;
-    btnfixed.Visible  := False;
+  bnbchords.Visible := False;
+  btnfixed.Visible  := False;
+  
+    bnbchords.left := 130;
+bnbchords.top := 648;
+bnbchords.width := 202;
+bnbchords.height := 44;
+
+btnfixed.left := 338;
+btnfixed.width := 144;
+btnfixed.height := 44;
+btnfixed.top := 648;
+
+bnbchords.font.height := 30;
+btnfixed.font.height := 30;
 
     //  bnbchords.left := 64;
     //  bnbchords.top := 184;
@@ -2622,7 +3891,7 @@ begin
     tstringdisp2.Visible := False;
 
     if withrandom.Value = False then
-      numchord.Value := maxnote.Value
+      numchord.Value := strtoint(maxnote.Value)
     else
     begin
 
@@ -2630,15 +3899,30 @@ begin
       while x < 50 do
       begin
 
-        numchord.Value := Random(maxnote.Value) + 1;
+        numchord.Value := Random(strtoint(maxnote.Value)) + 1;
         Inc(x);
         application.ProcessMessages;
         sleep(20);
       end;
     end;
 
-    if numchord.Value = 5 then
+       
+   bchord1.height := (height div numchord.Value) - 10;
+    
+    if numchord.Value > 0 then
     begin
+    
+      bchord1.top := 2;
+      
+      chord1.height := bchord1.height;
+      piano1.height := bchord1.height;
+      bass1.height := bchord1.height;
+      chord1.top := bchord1.top;
+      piano1.top := bchord1.top;
+      bass1.top := bchord1.top;
+      guitar1.height := bchord1.height;
+      guitar1.top := bchord1.top;
+      
       bchord1.Visible := True;
       chord1.Visible  := True;
 
@@ -2649,24 +3933,46 @@ begin
       guitar1.Visible := True;
       bass1.Visible   := True;
 
+     
+      chord1drop.Value   := chord1.Caption;
+      chord1drop.Visible := True;
+
+     
+      application.ProcessMessages;
+      if bosound.value then begin
+      playrandomchords(0);
+
+      application.ProcessMessages;
+      end;
+   end;
+   
+   if numchord.Value > 1 then
+    begin   
+      
+      chord2.Caption := chord1.Caption;
+      x := 0;
+          
+       bchord2.height := bchord1.height;
+      chord2.height := bchord1.height;
+      piano2.height := bchord1.height;
+      bass2.height := bchord1.height;
+    
+      bchord2.top := bchord1.bottom + 10;
+      chord2.top := bchord2.top;
+      piano2.top := bchord2.top;
+      bass2.top := bchord2.top;
+      
+      guitar2.height := bchord1.height;
+      guitar2.top := bchord2.top;
+      
+           
       bchord2.Visible := True;
       chord2.Visible  := True;
-
-      chord1drop.Value   := chord1.Caption;
-      chord1drop.Visible := True;
-
-      application.ProcessMessages;
-
-      playrandomchords(0);
-
-      application.ProcessMessages;
-
-      chord2.Caption := chord1.Caption;
-      x := 0;
-      while (x < 10) and (chord2.Caption = chord1.Caption) do
+       chordran := 2;
+      
+       while (x < 10) and (chord2.Caption = chord1.Caption) do
       begin
-        chordran := 2;
-        dorandomchord(Sender);
+         dorandomchord(Sender);
         Inc(x);
       end;
 
@@ -2676,270 +3982,159 @@ begin
 
       chord2drop.Value   := chord2.Caption;
       chord2drop.Visible := True;
-
+      
+    
       application.ProcessMessages;
 
+      if bosound.value then begin
       playrandomchords(1);
 
       application.ProcessMessages;
-
-      chord3.Caption := chord2.Caption;
-      bchord3.Visible := True;
-      chord3.Visible := True;
-      x := 0;
-      while (x < 10) and ((chord2.Caption = chord3.Caption) or (chord1.Caption = chord3.Caption)) do
-      begin
-        chordran := 3;
-        dorandomchord(Sender);
-        Inc(x);
       end;
-
-      piano3.Visible  := True;
-      guitar3.Visible := True;
-      bass3.Visible   := True;
-
-      chord3drop.Value   := chord3.Caption;
-      chord3drop.Visible := True;
-
-
-      application.ProcessMessages;
-
-      playrandomchords(2);
-
-      application.ProcessMessages;
-
-      bchord4.Visible := True;
-      chord4.Visible  := True;
-      chordran        := 4;
-      dorandomchord(Sender);
-
-      bchord5.Visible := True;
-      chord5.Visible  := True;
-      chordran        := 5;
-      dorandomchord(Sender);
-      piano5.Visible  := True;
-      guitar5.Visible := True;
-
-    end
-    else if numchord.Value = 4 then
-    begin
-      bchord1.Visible := True;
-      chord1.Visible  := True;
-      chordran        := 1;
-      dorandomchord(Sender);
-
-      piano1.Visible  := True;
-      guitar1.Visible := True;
-      bass1.Visible   := True;
-
-      chord1drop.Value   := chord1.Caption;
-      chord1drop.Visible := True;
-
-
-      application.ProcessMessages;
-
-      playrandomchords(0);
-
-      application.ProcessMessages;
-
-      chord2.Caption := chord1.Caption;
-      bchord2.Visible := True;
-      chord2.Visible := True;
-      x := 0;
-      while (x < 10) and (chord2.Caption = chord1.Caption) do
-      begin
-        chordran := 2;
-        dorandomchord(Sender);
-        Inc(x);
-      end;
-
-      piano2.Visible  := True;
-      guitar2.Visible := True;
-      bass2.Visible   := True;
-
-      chord2drop.Value   := chord2.Caption;
-      chord2drop.Visible := True;
-
-
-      application.ProcessMessages;
-
-      playrandomchords(1);
-
-      application.ProcessMessages;
-
-      chord3.Caption := chord2.Caption;
-      x := 0;
-      bchord3.Visible := True;
-      chord3.Visible := True;
-      while (x < 10) and ((chord2.Caption = chord3.Caption) or (chord1.Caption = chord3.Caption)) do
-      begin
-        chordran := 3;
-        dorandomchord(Sender);
-        Inc(x);
-      end;
-
-      piano3.Visible  := True;
-      guitar3.Visible := True;
-      bass3.Visible   := True;
-
-      chord3drop.Value   := chord3.Caption;
-      chord3drop.Visible := True;
-
-
-      application.ProcessMessages;
-
-      playrandomchords(2);
-
-      application.ProcessMessages;
-
-      bchord4.Visible := True;
-      chord4.Visible  := True;
-      chordran        := 4;
-      dorandomchord(Sender);
-
-      piano4.Visible  := True;
-      guitar4.Visible := True;
-
-    end
-    else if numchord.Value = 3 then
-    begin
-      bchord1.Visible := True;
-      chord1.Visible  := True;
-      chordran        := 1;
-      dorandomchord(Sender);
-
-      piano1.Visible  := True;
-      guitar1.Visible := True;
-      bass1.Visible   := True;
-
-      chord1drop.Value   := chord1.Caption;
-      chord1drop.Visible := True;
-
-
-      application.ProcessMessages;
-
-      playrandomchords(0);
-
-      application.ProcessMessages;
-
-      chord2.Caption := chord1.Caption;
-      x        := 0;
-      bchord2.Visible := True;
-      chord2.Visible := True;
-      chordran := 2;
-
-      while (x < 10) and (chord2.Caption = chord1.Caption) do
-      begin
-        dorandomchord(Sender);
-        Inc(x);
-      end;
-      piano2.Visible  := True;
-      guitar2.Visible := True;
-
-      bass2.Visible := True;
-
-      chord2drop.Value   := chord2.Caption;
-      chord2drop.Visible := True;
-
-
-      application.ProcessMessages;
-
-      playrandomchords(1);
-
-      application.ProcessMessages;
-
-
-      chord3.Caption := chord2.Caption;
-      x        := 0;
-      bchord3.Visible := True;
-      chord3.Visible := True;
-      chordran := 3;
-
-      while (x < 10) and ((chord2.Caption = chord3.Caption) or (chord1.Caption = chord3.Caption)) do
-      begin
-        dorandomchord(Sender);
-        Inc(x);
-      end;
-
-      piano3.Visible  := True;
-      guitar3.Visible := True;
-      bass3.Visible   := True;
-
-      chord3drop.Value   := chord3.Caption;
-      chord3drop.Visible := True;
-
-      application.ProcessMessages;
-      playrandomchords(2);
-      application.ProcessMessages;
-
-    end
-    else if numchord.Value = 2 then
-    begin
-      bchord1.Visible := True;
-      chord1.Visible  := True;
-      chordran        := 1;
-      dorandomchord(Sender);
-      piano1.Visible  := True;
-      guitar1.Visible := True;
-      bass1.Visible   := True;
-
-      chord1drop.Value   := chord1.Caption;
-      chord1drop.Visible := True;
-
-      application.ProcessMessages;
-
-      playrandomchords(0);
-
-      application.ProcessMessages;
-
-      chord2.Caption := chord1.Caption;
-      bchord2.Visible := True;
-      chord2.Visible := True;
-      x := 0;
-      while (x < 10) and (chord2.Caption = chord1.Caption) do
-      begin
-        chordran := 2;
-        dorandomchord(Sender);
-        Inc(x);
-      end;
-
-      piano2.Visible  := True;
-      guitar2.Visible := True;
-      bass2.Visible   := True;
-
-      chord2drop.Value   := chord2.Caption;
-      chord2drop.Visible := True;
-
-
-      application.ProcessMessages;
-
-      playrandomchords(1);
-
-      application.ProcessMessages;
-
-    end
-    else if numchord.Value = 1 then
-    begin
-      bchord1.Visible := True;
-      chord1.Visible  := True;
-      chordran        := 1;
-      dorandomchord(Sender);
-      piano1.Visible  := True;
-      guitar1.Visible := True;
-      bass1.Visible   := True;
-
-      chord1drop.Value   := chord1.Caption;
-      chord1drop.Visible := True;
-
-
-      application.ProcessMessages;
-
-      playrandomchords(0);
-
-      application.ProcessMessages;
 
     end;
+    
+    if numchord.Value > 2 then
+    begin
+      chord3.Caption := chord2.Caption;
+      bchord3.Visible := True;
+      chord3.Visible := True;
+      x := 0;
+          
+      bchord3.height := bchord1.height;
+      chord3.height := bchord1.height;
+      piano3.height := bchord1.height;
+      bass3.height := bchord1.height;
+    
+      bchord3.top := bchord2.bottom + 10;
+      chord3.top := bchord3.top;
+      piano3.top := bchord3.top;
+      bass3.top := bchord3.top;
+      
+      guitar3.height := bchord1.height;
+      guitar3.top := bchord3.top; 
+      
+      chordran := 3;
+      
+        while (x < 10) and ((chord2.Caption = chord3.Caption) or (chord1.Caption = chord3.Caption)) do
+      begin
+        dorandomchord(Sender);
+        Inc(x);
+      end;
+      piano3.Visible  := True;
+      guitar3.Visible := True;
+      bass3.Visible   := True;
+      
+      chord3drop.Value   := chord3.Caption;
+      chord3drop.Visible := True;
 
+      application.ProcessMessages;
+
+     if bosound.value then begin
+      playrandomchords(2);
+
+      application.ProcessMessages;
+      end;
+      
+    end;
+    
+     if numchord.Value > 3 then
+    begin  
+      
+     chord4.Caption := chord3.Caption;
+      bchord4.Visible := True;
+      chord4.Visible := True;
+      x := 0;
+          
+      bchord4.height := bchord1.height;
+      chord4.height := bchord1.height;
+      piano4.height := bchord1.height;
+      bass4.height := bchord1.height;
+    
+      bchord4.top := bchord3.bottom + 10;
+      chord4.top := bchord4.top;
+      piano4.top := bchord4.top;
+      bass4.top := bchord4.top;
+      
+      guitar4.height := bchord1.height;
+      guitar4.top := bchord4.top; 
+      
+        chordran := 4;
+      
+        while (x < 10) and ((chord3.Caption = chord4.Caption) or (chord1.Caption = chord4.Caption)) do
+      begin
+        dorandomchord(Sender);
+        Inc(x);
+      end;
+      
+      piano4.Visible  := True;
+      guitar4.Visible := True;
+      bass4.Visible   := True;
+
+      chord4drop.Value   := chord4.Caption;
+      chord4drop.Visible := True;
+
+      application.ProcessMessages;
+
+       if bosound.value then begin
+      playrandomchords(3);
+
+      application.ProcessMessages;
+      end;
+      
+    end;  
+      
+     if numchord.Value > 4 then
+    begin    
+      bchord5.Visible := True;
+      chord5.Visible  := True;
+        chord5.Caption := chord4.Caption;
+     
+      x := 0;
+          
+      bchord5.height := bchord1.height;
+      chord5.height := bchord1.height;
+      piano5.height := bchord1.height;
+      bass5.height := bchord1.height;
+    
+      bchord5.top := bchord4.bottom + 10;
+      chord5.top := bchord5.top;
+      piano5.top := bchord5.top;
+      bass5.top := bchord5.top;
+      
+      guitar5.height := bchord1.height;
+      guitar5.top := bchord5.top; 
+      
+         chordran := 5;
+      
+        while (x < 10) and ((chord5.Caption = chord4.Caption) or (chord1.Caption = chord5.Caption)) do
+      begin
+        dorandomchord(Sender);
+        Inc(x);
+      end;
+      
+      piano5.Visible  := True;
+      guitar5.Visible := True;
+      bass5.Visible   := True;
+
+      chord5drop.Value   := chord5.Caption;
+      
+      chord5drop.width := chord5.width;
+      
+      chord5drop.Visible := True;
+
+
+      application.ProcessMessages;
+
+       if bosound.value then begin
+      playrandomchords(4);
+
+      application.ProcessMessages;
+      end;
+      
+
+    end;
+    
     tbutton2.Visible := True;
 
     if nodrums.Value = True then
@@ -2984,6 +4179,8 @@ begin
       drumsfo.dostart(Sender);
       //bnbchords.visible := true;
       tbutton5.Visible := True;
+      bnbchords.Visible := true;
+      btnfixed.Visible  := true;
     end;
 
     blocked := 0;
@@ -3004,9 +4201,12 @@ begin
   drumsfo.Visible      := False;
   //guitarsfo.visible := false;
   chord1.Visible       := False;
+  
   chord1drop.Visible   := False;
   chord2drop.Visible   := False;
   chord3drop.Visible   := False;
+  chord4drop.Visible   := False;
+  chord5drop.Visible   := False;
   bchord2.Visible      := False;
   chord2.Visible       := False;
   bchord3.Visible      := False;
@@ -3028,15 +4228,30 @@ begin
   bass1.Visible        := False;
   bass2.Visible        := False;
   bass3.Visible        := False;
+  bass4.Visible        := False;
+  bass5.Visible        := False;
   bpm.Visible          := False;
   drumsfo.Visible      := False;
   tbutton3.Visible     := False;
   tbutton2.Visible     := False;
   drumsfo.dostop(Sender);
   //bnbchords.width := 1310;
-  bnbchords.Height     := 92;
-  bnbchords.left       := 16;
-  bnbchords.top        := 326;
+  //bnbchords.Height     := 92;
+  //bnbchords.left       := 16;
+  //bnbchords.top        := 326;
+  bnbchords.left := 20;
+bnbchords.top := 272;
+bnbchords.width := 462;
+bnbchords.height := 102;
+
+btnfixed.left := 20;
+btnfixed.width := 462;
+btnfixed.height := 102;
+btnfixed.top := 382;
+
+bnbchords.font.height := 60;
+btnfixed.font.height := 60;
+
   bnbchords.Visible    := True;
   btnfixed.Visible     := True;
   tstringdisp1.Visible := True;
@@ -3050,7 +4265,7 @@ begin
   if guitarsfo.Visible then
   begin
     guitarsfo.top     := top + tbutton5.top + 18;
-    guitarsfo.left    := left + tbutton5.left;
+    guitarsfo.left    := left + 40;
     guitarsfo.Visible := True;
     guitarsfo.bringtofront;
   end;
@@ -3100,6 +4315,10 @@ begin
     afile := chordmem2 + '_PIANO'
   else if thenum = 2 then
     afile := chordmem3 + '_PIANO'
+   else if thenum = 3 then
+    afile := chordmem4 + '_PIANO'  
+    else if thenum = 4 then
+    afile := chordmem5 + '_PIANO' 
   else
     afile := '';
 
@@ -3129,6 +4348,10 @@ begin
     afile := chordmem2 + '_GUIT'
   else if thenum = 2 then
     afile := chordmem3 + '_GUIT'
+   else if thenum = 3 then
+    afile := chordmem4 + '_GUIT'  
+   else if thenum = 4 then
+    afile := chordmem5 + '_GUIT' 
   else
     afile := '';
 
@@ -3168,6 +4391,10 @@ begin
         afile := chordmem2 + '_GUIT'
       else if Timage(Sender).tag = 2 then
         afile := chordmem3 + '_GUIT'
+      else if Timage(Sender).tag = 3 then
+        afile := chordmem4 + '_GUIT'  
+        else if Timage(Sender).tag = 4 then
+        afile := chordmem5 + '_GUIT'
       else
         afile := '';
 
@@ -3209,6 +4436,10 @@ begin
         afile := chordmem2 + '_PIANO'
       else if Timage(Sender).tag = 2 then
         afile := chordmem3 + '_PIANO'
+      else if Timage(Sender).tag = 3 then
+        afile := chordmem4 + '_PIANO' 
+      else if Timage(Sender).tag = 4 then
+        afile := chordmem5 + '_PIANO'   
       else
         afile := '';
 
@@ -3236,7 +4467,8 @@ begin
 
 end;
 
-procedure trandomnotefo.onmouseform(const Sender: twidget; var ainfo: mouseeventinfoty);
+procedure trandomnotefo.onmousev(const Sender: twidget;
+               var ainfo: mouseeventinfoty);
 begin
   with ainfo do
     if eventkind in [ek_buttonpress] then
@@ -3262,7 +4494,9 @@ begin
       blocked := 1;
       dorandomchord(Sender);
       application.ProcessMessages;
-      playrandomchords(tdropdownlistedit(Sender).tag - 1);
+      if bosound.value then begin
+       playrandomchords(tdropdownlistedit(Sender).tag - 1);
+      end;
       application.ProcessMessages;
       refreshform(Sender);
       blocked := 0;
@@ -3276,12 +4510,28 @@ var
 begin
   if blocked = 0 then
   begin
+    bnbchords.Visible := False;
+      btnfixed.Visible  := False;
+       tstringdisp1.Visible := False;
+      tstringdisp2.Visible := False;  
     blocked          := 1;
-    doclear(Sender);
-    application.processmessages;
+//    doclear(Sender);
+//    application.processmessages;
     numchord.Visible := True;
-    numchord.Value   := maxnote.Value;
-    if numchord.Value = 3 then
+    numchord.Value   := strtoint(maxnote.Value);
+    
+    bchord1.height := (height div numchord.Value) - 10;
+     bchord1.top := 2;
+      chord1.height := bchord1.height;
+      piano1.height := bchord1.height;
+      bass1.height := bchord1.height;
+      chord1.top := bchord1.top;
+      piano1.top := bchord1.top;
+      bass1.top := bchord1.top;
+      guitar1.height := bchord1.height;
+      guitar1.top := bchord1.top;
+    
+    if numchord.Value > 0 then
     begin
       bchord1.Visible    := True;
       chord1.Visible     := True;
@@ -3291,14 +4541,27 @@ begin
       bass1.Visible      := True;
       chord1drop.Visible := True;
       chord1drop.Value   := 'A / La Major';
-      pianochord(1, 1, 1);
-      guitarchord(1, 1, 1);
-      basschord(1, 1, 1);
+      pianochord(1, 1, 1, 0);
+      guitarchord(1, 1, 1, 0);
+      basschord(1, 1, 1, 0);
+      chordmem1 := 'A';
+       application.ProcessMessages;
+     end;  
+   
+    if numchord.Value > 1 then
+    begin     
+      bchord2.height := bchord1.height;
+      chord2.height := bchord1.height;
+      piano2.height := bchord1.height;
+      bass2.height := bchord1.height;
+    
+      bchord2.top := bchord1.bottom + 10;
+      chord2.top := bchord2.top;
+      piano2.top := bchord2.top;
+      bass2.top := bchord2.top;
       
-         chordmem1 := 'A';
-        
-      application.ProcessMessages;
-
+      guitar2.height := bchord1.height;
+      guitar2.top := bchord2.top;
       chord2.Caption     := 'A / La' + lineend + 'Major';
       chord2drop.Value   := chord1drop.Value;
       chord2drop.Visible := True;
@@ -3310,13 +4573,27 @@ begin
       
        chordmem2 :=  chordmem1;
 
-      pianochord(2, 1, 1);
-      guitarchord(2, 1, 1);
-      basschord(2, 1, 1);
+      pianochord(2, 1, 1, 0);
+      guitarchord(2, 1, 1, 0);
+      basschord(2, 1, 1, 0);
 
       application.ProcessMessages;
+    end;
 
-
+     if numchord.Value > 2 then
+    begin
+          bchord3.height := bchord1.height;
+      chord3.height := bchord1.height;
+      piano3.height := bchord1.height;
+      bass3.height := bchord1.height;
+    
+      bchord3.top := bchord2.bottom + 10;
+      chord3.top := bchord3.top;
+      piano3.top := bchord3.top;
+      bass3.top := bchord3.top;
+      
+      guitar3.height := bchord1.height;
+      guitar3.top := bchord3.top;
       chord3.Caption     := chord2.Caption;
       chord3drop.Value   := chord1drop.Value;
       chord3drop.Visible := True;
@@ -3328,22 +4605,94 @@ begin
       
        chordmem3 :=  chordmem1 ;
 
-      pianochord(3, 1, 1);
-      guitarchord(3, 1, 1);
-      basschord(3, 1, 1);
+      pianochord(3, 1, 1, 0);
+      guitarchord(3, 1, 1, 0);
+      basschord(3, 1, 1, 0);
 
       application.ProcessMessages;
-
-      tbutton5.Visible := False;
-
-      bnbchords.Visible := False;
-      btnfixed.Visible  := False;
-
-      tstringdisp1.Visible := False;
-      tstringdisp2.Visible := False;
-
     end;
-  end;
+    
+    if numchord.Value > 3 then
+    begin
+          bchord4.height := bchord1.height;
+      chord4.height := bchord1.height;
+      piano4.height := bchord1.height;
+      bass4.height := bchord1.height;
+    
+      bchord4.top := bchord3.bottom + 10;
+      chord4.top := bchord4.top;
+      piano4.top := bchord4.top;
+      bass4.top := bchord4.top;
+      
+      guitar4.height := bchord1.height;
+      guitar4.top := bchord4.top;
+      chord4.Caption     := chord1.Caption;
+      chord4drop.Value   := chord1drop.Value;
+      chord4drop.Visible := True;
+      bchord4.Visible    := True;
+      chord4.Visible     := True;
+      piano4.Visible     := True;
+      guitar4.Visible    := True;
+      bass4.Visible      := True;
+      
+       chordmem4 :=  chordmem1 ;
+
+      pianochord(4, 1, 1, 0);
+      guitarchord(4, 1, 1, 0);
+      basschord(4, 1, 1, 0);
+
+      application.ProcessMessages;
+    end;  
+    
+    
+       if numchord.Value > 4 then
+    begin
+          bchord5.height := bchord1.height;
+      chord5.height := bchord1.height;
+      piano5.height := bchord1.height;
+      bass5.height := bchord1.height;
+    
+      bchord5.top := bchord4.bottom + 10;
+      chord5.top := bchord5.top;
+      piano5.top := bchord5.top;
+      bass5.top := bchord5.top;
+      
+      guitar5.height := bchord1.height;
+      guitar5.top := bchord5.top;
+      chord5.Caption     := chord1.Caption;
+      chord5drop.Value   := chord1drop.Value;
+      chord5drop.Visible := True;
+      bchord5.Visible    := True;
+      chord5.Visible     := True;
+      piano5.Visible     := True;
+      guitar5.Visible    := True;
+      bass5.Visible      := True;
+      
+       chordmem5 :=  chordmem1 ;
+
+      pianochord(5, 1, 1, 0);
+      guitarchord(5, 1, 1, 0);
+      basschord(5, 1, 1, 0);
+
+      application.ProcessMessages;
+    end; 
+ 
+      tbutton5.Visible := False;
+   
+ bnbchords.left := 130;
+bnbchords.top := 648;
+bnbchords.width := 202;
+bnbchords.height := 44;
+
+btnfixed.left := 338;
+btnfixed.width := 144;
+btnfixed.height := 44;
+btnfixed.top := 648;
+
+bnbchords.font.height := 30;
+btnfixed.font.height := 30;
+
+ end;
   tbutton2.Visible := True;
 
   if nodrums.Value = True then
@@ -3388,6 +4737,8 @@ begin
   end;
   tbutton3.Visible := True;
   tbutton5.Visible := True;
+  bnbchords.Visible := true;
+  btnfixed.Visible  := true;
 
   refreshform(Sender);
   blocked := 0;
