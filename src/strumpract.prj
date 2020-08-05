@@ -166,8 +166,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=152
- y=135
+ x=784
+ y=164
  cx=300
  cy=269
 replacedialog=33
@@ -1175,8 +1175,8 @@ line=40
  319
  536
  553
- 769
- 781
+ 773
+ 785
  701
  1554
  2254
@@ -1520,8 +1520,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=randomnotefo
+finddtext=doclear
 findhistory=20
+ doclear
+ drumsfo.
  randomnotefo
  bnbchords.t
  drumsfo
@@ -1540,18 +1542,16 @@ findhistory=20
  chordmem3
  basscho
  bnbchords
- seven
- sevee
 findoptions=1
 editpos=8
- 0,2539
- 0,3784
+ 0,-1073741823
+ 0,4740
+ 0,-1073741823
+ 0,-1073741823
+ 0,16
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,0
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1630,7 +1630,7 @@ order=8
  5
  6
 firsttab=0
-index=0
+index=2
 [layout]
 windowlayout=674
  [mainfo.basedock]
@@ -1652,7 +1652,7 @@ windowlayout=674
  cy=621
  rcx=0
  rcy=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [targetconsolefo]
@@ -1766,7 +1766,7 @@ windowlayout=674
  x=0
  y=0
  cx=205
- cy=446
+ cy=513
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1952,9 +1952,9 @@ windowlayout=674
  ncx=0
  ncy=0
  x=0
- y=504
- cx=1212
- cy=96
+ y=579
+ cx=1348
+ cy=110
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2053,8 +2053,8 @@ windowlayout=674
  ncy=0
  x=0
  y=0
- cx=1212
- cy=52
+ cx=1348
+ cy=60
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2069,8 +2069,8 @@ windowlayout=674
  ncy=12
  x=0
  y=-1
- cx=1212
- cy=4
+ cx=1348
+ cy=12
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2080,11 +2080,11 @@ windowlayout=674
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/strumpract/src/randomnote.pas
  history=20
-  /home/fred/strumpract/src/randomnote.pas
   /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/randomnote.pas
   /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/define.inc
   /home/fred/uos/examples/define.inc
@@ -2118,8 +2118,8 @@ windowlayout=674
  ncy=0
  x=208
  y=0
- cx=1004
- cy=446
+ cx=1140
+ cy=513
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2133,7 +2133,7 @@ windowlayout=674
   5
   6
  firsttab=0
- index=0
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2169,9 +2169,9 @@ windowlayout=674
  ncx=0
  ncy=0
  x=0
- y=55
- cx=1212
- cy=446
+ y=63
+ cx=1348
+ cy=513
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]

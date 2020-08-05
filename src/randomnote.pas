@@ -146,6 +146,7 @@ type
     procedure ondropchord(const Sender: twidget; const dropdown: tdropdownlist);
     procedure onchangechorddrop(const Sender: TObject);
     procedure dofixed(const Sender: TObject);
+   procedure doinit(const sender: TObject);
   end;
 
 var
@@ -3850,7 +3851,7 @@ begin
     belipse4_1.bitmap := gelipse1_1.bitmap;  
     belipse5_1.bitmap := gelipse1_1.bitmap;
     
-    doclear(Sender);
+    doinit(Sender);
 
 end;
 
@@ -4190,7 +4191,7 @@ end;
 
 procedure trandomnotefo.onclosev(const Sender: TObject);
 begin
-  doclear(Sender);
+  doinit(Sender);
 end;
 
 procedure trandomnotefo.doclear(const Sender: TObject);
@@ -4238,23 +4239,7 @@ begin
   //bnbchords.Height     := 92;
   //bnbchords.left       := 16;
   //bnbchords.top        := 326;
-  bnbchords.left := 20;
-bnbchords.top := 272;
-bnbchords.width := 462;
-bnbchords.height := 102;
-
-btnfixed.left := 20;
-btnfixed.width := 462;
-btnfixed.height := 102;
-btnfixed.top := 382;
-
-bnbchords.font.height := 60;
-btnfixed.font.height := 60;
-
-  bnbchords.Visible    := True;
-  btnfixed.Visible     := True;
-  tstringdisp1.Visible := True;
-   // refreshform(sender);
+  // refreshform(sender);
 end;
 
 procedure trandomnotefo.refreshform(const Sender: TObject);
@@ -4282,7 +4267,13 @@ procedure trandomnotefo.onshowdrums(const Sender: TObject);
 begin
   drumsfo.dragdock.float();
   drumsfo.Visible := True;
+  bpm.Visible := True;
+  
+ bpm.Value   := round(drumsfo.edittempo.Value / 2);
+  
+  
   refreshform(Sender);
+  
 end;
 
 procedure trandomnotefo.doquit(const Sender: TObject);
@@ -4512,8 +4503,8 @@ begin
       btnfixed.Visible  := False;
        tstringdisp1.Visible := False;
     blocked          := 1;
-//    doclear(Sender);
-//    application.processmessages;
+   doclear(Sender);
+    application.processmessages;
     numchord.Visible := True;
     numchord.Value   := strtoint(maxnote.Value);
     
@@ -4591,7 +4582,7 @@ begin
       
       guitar3.height := bchord1.height;
       guitar3.top := bchord3.top;
-      chord3.Caption     := chord2.Caption;
+      chord3.Caption     := chord1.Caption;
       chord3drop.Value   := chord1drop.Value;
       chord3drop.Visible := True;
       bchord3.Visible    := True;
@@ -4632,6 +4623,8 @@ begin
       guitar4.Visible    := True;
       bass4.Visible      := True;
       
+       application.ProcessMessages;
+      
        chordmem4 :=  chordmem1 ;
 
       pianochord(4, 1, 1, 0);
@@ -4664,6 +4657,8 @@ begin
       piano5.Visible     := True;
       guitar5.Visible    := True;
       bass5.Visible      := True;
+      
+       application.ProcessMessages;
       
        chordmem5 :=  chordmem1 ;
 
@@ -4739,6 +4734,27 @@ btnfixed.font.height := 30;
 
   refreshform(Sender);
   blocked := 0;
+end;
+
+procedure trandomnotefo.doinit(const sender: TObject);
+begin
+doclear(Sender);
+ bnbchords.left := 20;
+bnbchords.top := 272;
+bnbchords.width := 462;
+bnbchords.height := 102;
+
+btnfixed.left := 20;
+btnfixed.width := 462;
+btnfixed.height := 102;
+btnfixed.top := 382;
+
+bnbchords.font.height := 60;
+btnfixed.font.height := 60;
+
+  bnbchords.Visible    := True;
+  btnfixed.Visible     := True;
+  tstringdisp1.Visible := True;
 end;
 
 end.

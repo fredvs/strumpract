@@ -11732,7 +11732,7 @@ object randomnotefo: trandomnotefo
     font.localprops = [flp_height]
     imagenr = 27
     focusrectdist = 0
-    onexecute = doclear
+    onexecute = doinit
   end
   object tbutton3: tbutton
     color = -2147483645

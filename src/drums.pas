@@ -197,7 +197,7 @@ implementation
 
 uses
   main, uos_flat, commander, config, dockpanel1,
-  drums_mfm;
+  drums_mfm, randomnote;
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
 begin
@@ -630,9 +630,13 @@ begin
     edittempo.Value := 1;
     ltempo.Value := utf8decode('BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(600000 / 4 / edittempo.Value)) + ' ds');
   end;
-
-  if hasinit = 1 then
+  
+   if hasinit = 1 then
   begin
+  
+   if randomnotefo.visible then randomnotefo.bpm.value := round(edittempo.Value / 2);
+
+
     //TimerTick.Interval := trunc(edittempo.Value * 1000);
     TimerTick.Interval := round(60000 / 4 / edittempo.Value * 1000);
 
