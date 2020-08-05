@@ -1517,8 +1517,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=GUITARchord
+finddtext=drumsfo
 findhistory=20
+ drumsfo
  GUITARchord
  pianochord
  ;;
@@ -1538,11 +1539,10 @@ findhistory=20
  sevee
  A / La
  _GUIT
- basschord
 findoptions=1
 editpos=7
  0,-1073741823
- 0,125
+ 0,4184
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1631,7 +1631,7 @@ windowlayout=646
  cy=621
  rcx=0
  rcy=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [targetconsolefo]
@@ -1745,7 +1745,7 @@ windowlayout=646
  x=0
  y=0
  cx=205
- cy=446
+ cy=513
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1931,9 +1931,9 @@ windowlayout=646
  ncx=0
  ncy=0
  x=0
- y=504
- cx=1212
- cy=96
+ y=579
+ cx=1348
+ cy=110
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2002,7 +2002,7 @@ windowlayout=646
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=objectinspectorfo
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -2017,7 +2017,7 @@ windowlayout=646
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
  activetab=0
  [debuggerfo]
@@ -2032,8 +2032,8 @@ windowlayout=646
  ncy=0
  x=0
  y=0
- cx=1212
- cy=52
+ cx=1348
+ cy=60
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2048,8 +2048,8 @@ windowlayout=646
  ncy=4
  x=0
  y=-1
- cx=1212
- cy=4
+ cx=1348
+ cy=12
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2097,8 +2097,8 @@ windowlayout=646
  ncy=0
  x=208
  y=0
- cx=1004
- cy=446
+ cx=1140
+ cy=513
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2139,9 +2139,9 @@ windowlayout=646
  ncx=0
  ncy=0
  x=0
- y=55
- cx=1212
- cy=446
+ y=63
+ cx=1348
+ cy=513
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2223,7 +2223,7 @@ windowlayout=646
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2242,7 +2242,7 @@ windowlayout=646
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

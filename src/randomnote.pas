@@ -4178,12 +4178,11 @@ btnfixed.font.height := 30;
       drumsfo.edittempo.Value := bpm.Value * 2;
       drumsfo.dostart(Sender);
       //bnbchords.visible := true;
-      tbutton5.Visible := True;
+      end;
+       tbutton5.Visible := True;
       bnbchords.Visible := true;
       btnfixed.Visible  := true;
-    end;
-
-    blocked := 0;
+      blocked := 0;
 
   end;
 
