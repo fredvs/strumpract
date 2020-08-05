@@ -3,7 +3,7 @@ object randomnotefo: trandomnotefo
   face.localprops = []
   face.template = guitarsfo.tfaceguit
   visible = False
-  bounds_x = -41
+  bounds_x = 0
   bounds_y = 29
   bounds_cx = 1350
   bounds_cy = 710
@@ -6954,7 +6954,7 @@ object randomnotefo: trandomnotefo
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'G#/Sol#'#10'Minor'
+    caption = 'G#/Sol#'#10'minor'
     font.color = 25088
     font.height = 38
     font.name = 'stf_default'
@@ -7017,12 +7017,12 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
-      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
       onmouseevent = onmousev
-      value = 'G / Sol Minor'
-      dropdown.color = -1610612730
-      dropdown.colorclient = -1610612730
+      value = 'G / Sol minor'
+      dropdown.color = -1610612732
+      dropdown.colorclient = 16250871
       dropdown.options = [deo_selectonly, deo_keydropdown]
       dropdown.dropdownrowcount = 28
       dropdown.width = 200
@@ -7035,37 +7035,36 @@ object randomnotefo: trandomnotefo
       dropdown.cols.items = <      
         item
           width = 200
-          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
           colorselect = -1610612732
           data = (
             'A / La Major'
-            'A / La Minor'
+            'A / La minor'
             'A / La Major 7'
-            'A / La Minor 7'
+            'A / La minor 7'
             'B / Si Major'
-            'B / Si Minor'
+            'B / Si minor'
             'B / Si Major 7'
-            'B / Si Minor 7'
+            'B / Si minor 7'
             'C / Do Major'
-            'C / Do Minor'
+            'C / Do minor'
             'C / Do Major 7'
-            'C / Do Minor 7'
+            'C / Do minor 7'
             'D / Re Major'
-            'D / Re Minor'
+            'D / Re minor'
             'D / Re Major 7'
-            'D / Re Minor 7'
+            'D / Re minor 7'
             'E / Mi Major'
-            'E / Mi Minor'
+            'E / Mi minor'
             'E / Mi Major 7'
-            'E / Mi Minor 7'
+            'E / Mi minor 7'
             'F / Fa Major'
-            'F / Fa Minor'
+            'F / Fa minor'
             'F / Fa Major 7'
-            'F / Fa Minor 7'
+            'F / Fa minor 7'
             'G / Sol Major'
-            'G / Sol Minor'
+            'G / Sol minor'
             'G / Sol Major 7'
-            'G / Sol Minor 7'
+            'G / Sol minor 7'
           )
         end>
       reffontheight = 48
@@ -7096,7 +7095,7 @@ object randomnotefo: trandomnotefo
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'G#/Sol#'#10'Minor'
+    caption = 'G#/Sol#'#10'minor'
     font.color = 25088
     font.height = 38
     font.name = 'stf_default'
@@ -7159,12 +7158,12 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
-      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
       onmouseevent = onmousev
-      value = 'G / Sol Minor'
-      dropdown.color = -1610612730
-      dropdown.colorclient = -1610612730
+      value = 'G / Sol minor'
+      dropdown.color = -1610612732
+      dropdown.colorclient = 16250871
       dropdown.options = [deo_selectonly, deo_keydropdown]
       dropdown.dropdownrowcount = 28
       dropdown.width = 200
@@ -7177,37 +7176,36 @@ object randomnotefo: trandomnotefo
       dropdown.cols.items = <      
         item
           width = 200
-          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
           colorselect = -1610612732
           data = (
             'A / La Major'
-            'A / La Minor'
+            'A / La minor'
             'A / La Major 7'
-            'A / La Minor 7'
+            'A / La minor 7'
             'B / Si Major'
-            'B / Si Minor'
+            'B / Si minor'
             'B / Si Major 7'
-            'B / Si Minor 7'
+            'B / Si minor 7'
             'C / Do Major'
-            'C / Do Minor'
+            'C / Do minor'
             'C / Do Major 7'
-            'C / Do Minor 7'
+            'C / Do minor 7'
             'D / Re Major'
-            'D / Re Minor'
+            'D / Re minor'
             'D / Re Major 7'
-            'D / Re Minor 7'
+            'D / Re minor 7'
             'E / Mi Major'
-            'E / Mi Minor'
+            'E / Mi minor'
             'E / Mi Major 7'
-            'E / Mi Minor 7'
+            'E / Mi minor 7'
             'F / Fa Major'
-            'F / Fa Minor'
+            'F / Fa minor'
             'F / Fa Major 7'
-            'F / Fa Minor 7'
+            'F / Fa minor 7'
             'G / Sol Major'
-            'G / Sol Minor'
+            'G / Sol minor'
             'G / Sol Major 7'
-            'G / Sol Minor 7'
+            'G / Sol minor 7'
           )
         end>
       reffontheight = 48
@@ -7238,7 +7236,7 @@ object randomnotefo: trandomnotefo
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'G#/Sol#'#10'Minor'
+    caption = 'G#/Sol#'#10'minor'
     font.color = 25088
     font.height = 38
     font.name = 'stf_default'
@@ -7301,12 +7299,12 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
-      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
       onmouseevent = onmousev
-      value = 'G / Sol Minor'
-      dropdown.color = -1610612730
-      dropdown.colorclient = -1610612730
+      value = 'G / Sol minor'
+      dropdown.color = -1610612732
+      dropdown.colorclient = 16250871
       dropdown.options = [deo_selectonly, deo_keydropdown]
       dropdown.dropdownrowcount = 28
       dropdown.width = 200
@@ -7319,37 +7317,36 @@ object randomnotefo: trandomnotefo
       dropdown.cols.items = <      
         item
           width = 200
-          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
           colorselect = -1610612732
           data = (
             'A / La Major'
-            'A / La Minor'
+            'A / La minor'
             'A / La Major 7'
-            'A / La Minor 7'
+            'A / La minor 7'
             'B / Si Major'
-            'B / Si Minor'
+            'B / Si minor'
             'B / Si Major 7'
-            'B / Si Minor 7'
+            'B / Si minor 7'
             'C / Do Major'
-            'C / Do Minor'
+            'C / Do minor'
             'C / Do Major 7'
-            'C / Do Minor 7'
+            'C / Do minor 7'
             'D / Re Major'
-            'D / Re Minor'
+            'D / Re minor'
             'D / Re Major 7'
-            'D / Re Minor 7'
+            'D / Re minor 7'
             'E / Mi Major'
-            'E / Mi Minor'
+            'E / Mi minor'
             'E / Mi Major 7'
-            'E / Mi Minor 7'
+            'E / Mi minor 7'
             'F / Fa Major'
-            'F / Fa Minor'
+            'F / Fa minor'
             'F / Fa Major 7'
-            'F / Fa Minor 7'
+            'F / Fa minor 7'
             'G / Sol Major'
-            'G / Sol Minor'
+            'G / Sol minor'
             'G / Sol Major 7'
-            'G / Sol Minor 7'
+            'G / Sol minor 7'
           )
         end>
       reffontheight = 48
@@ -10798,7 +10795,7 @@ object randomnotefo: trandomnotefo
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'G#/Sol#'#10'Minor'
+    caption = 'G#/Sol#'#10'minor'
     font.color = 25088
     font.height = 38
     font.name = 'stf_default'
@@ -10861,12 +10858,12 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
-      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
       onmouseevent = onmousev
-      value = 'G / Sol Minor'
-      dropdown.color = -1610612730
-      dropdown.colorclient = -1610612730
+      value = 'G / Sol minor'
+      dropdown.color = -1610612732
+      dropdown.colorclient = 16250871
       dropdown.options = [deo_selectonly, deo_keydropdown]
       dropdown.dropdownrowcount = 28
       dropdown.width = 200
@@ -10879,37 +10876,36 @@ object randomnotefo: trandomnotefo
       dropdown.cols.items = <      
         item
           width = 200
-          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
           colorselect = -1610612732
           data = (
             'A / La Major'
-            'A / La Minor'
+            'A / La minor'
             'A / La Major 7'
-            'A / La Minor 7'
+            'A / La minor 7'
             'B / Si Major'
-            'B / Si Minor'
+            'B / Si minor'
             'B / Si Major 7'
-            'B / Si Minor 7'
+            'B / Si minor 7'
             'C / Do Major'
-            'C / Do Minor'
+            'C / Do minor'
             'C / Do Major 7'
-            'C / Do Minor 7'
+            'C / Do minor 7'
             'D / Re Major'
-            'D / Re Minor'
+            'D / Re minor'
             'D / Re Major 7'
-            'D / Re Minor 7'
+            'D / Re minor 7'
             'E / Mi Major'
-            'E / Mi Minor'
+            'E / Mi minor'
             'E / Mi Major 7'
-            'E / Mi Minor 7'
+            'E / Mi minor 7'
             'F / Fa Major'
-            'F / Fa Minor'
+            'F / Fa minor'
             'F / Fa Major 7'
-            'F / Fa Minor 7'
+            'F / Fa minor 7'
             'G / Sol Major'
-            'G / Sol Minor'
+            'G / Sol minor'
             'G / Sol Major 7'
-            'G / Sol Minor 7'
+            'G / Sol minor 7'
           )
         end>
       reffontheight = 48
@@ -11207,7 +11203,7 @@ object randomnotefo: trandomnotefo
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'G#/Sol#'#10'Minor'
+    caption = 'G#/Sol#'#10'minor'
     font.color = 25088
     font.height = 38
     font.name = 'stf_default'
@@ -11270,12 +11266,12 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
-      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
       onmouseevent = onmousev
-      value = 'G / Sol Minor'
-      dropdown.color = -1610612730
-      dropdown.colorclient = -1610612730
+      value = 'G / Sol minor'
+      dropdown.color = -1610612732
+      dropdown.colorclient = 16250871
       dropdown.options = [deo_selectonly, deo_keydropdown]
       dropdown.dropdownrowcount = 28
       dropdown.width = 200
@@ -11288,37 +11284,36 @@ object randomnotefo: trandomnotefo
       dropdown.cols.items = <      
         item
           width = 200
-          textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
           colorselect = -1610612732
           data = (
             'A / La Major'
-            'A / La Minor'
+            'A / La minor'
             'A / La Major 7'
-            'A / La Minor 7'
+            'A / La minor 7'
             'B / Si Major'
-            'B / Si Minor'
+            'B / Si minor'
             'B / Si Major 7'
-            'B / Si Minor 7'
+            'B / Si minor 7'
             'C / Do Major'
-            'C / Do Minor'
+            'C / Do minor'
             'C / Do Major 7'
-            'C / Do Minor 7'
+            'C / Do minor 7'
             'D / Re Major'
-            'D / Re Minor'
+            'D / Re minor'
             'D / Re Major 7'
-            'D / Re Minor 7'
+            'D / Re minor 7'
             'E / Mi Major'
-            'E / Mi Minor'
+            'E / Mi minor'
             'E / Mi Major 7'
-            'E / Mi Minor 7'
+            'E / Mi minor 7'
             'F / Fa Major'
-            'F / Fa Minor'
+            'F / Fa minor'
             'F / Fa Major 7'
-            'F / Fa Minor 7'
+            'F / Fa minor 7'
             'G / Sol Major'
-            'G / Sol Minor'
+            'G / Sol minor'
             'G / Sol Major 7'
-            'G / Sol Minor 7'
+            'G / Sol minor 7'
           )
         end>
       reffontheight = 48
@@ -11817,7 +11812,7 @@ object randomnotefo: trandomnotefo
         6
       )
       taborder = 1
-      hint = 'Enable Minor Chords'
+      hint = 'Enable minor Chords'
       bounds_x = 118
       bounds_y = 25
       bounds_cx = 97

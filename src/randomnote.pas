@@ -4268,12 +4268,8 @@ begin
   drumsfo.dragdock.float();
   drumsfo.Visible := True;
   bpm.Visible := True;
-  
- bpm.Value   := round(drumsfo.edittempo.Value / 2);
-  
-  
+  bpm.Value   := round(drumsfo.edittempo.Value / 2);
   refreshform(Sender);
-  
 end;
 
 procedure trandomnotefo.doquit(const Sender: TObject);
@@ -4286,11 +4282,9 @@ end;
 
 procedure trandomnotefo.showguit(const Sender: TObject);
 begin
-
   guitarsfo.dragdock.float();
   guitarsfo.Visible := True;
   refreshform(Sender);
-
 end;
 
 procedure trandomnotefo.playrandomchords(thenum: integer);
@@ -4313,6 +4307,8 @@ begin
 
   thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
     'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
+    
+  if fileexists(thedir) then begin  
 
   uos_Stop(20);
 
@@ -4330,6 +4326,8 @@ begin
         uos_Play(20);
 
   sleep(4500);
+  
+  end;
 
   if thenum = 0 then
     afile := chordmem1 + '_GUIT'
@@ -4347,6 +4345,9 @@ begin
   thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
     'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.ogg';
 
+ if fileexists(thedir) then begin  
+
+
   uos_Stop(21);
 
   if uos_CreatePlayer(21) then
@@ -4363,6 +4364,8 @@ begin
         uos_Play(21);
 
   sleep(6000);
+  
+  end;
 
 end;
 
@@ -4390,6 +4393,8 @@ begin
       thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
         'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.ogg';
 
+     if fileexists(thedir) then begin  
+
       uos_Stop(Timage(Sender).tag + 10);
 
       if uos_CreatePlayer(Timage(Sender).tag + 10) then
@@ -4405,6 +4410,7 @@ begin
 
             uos_Play(Timage(Sender).tag + 10);
 
+      end;
       refreshform(Sender);
 
     end;
@@ -4435,6 +4441,9 @@ begin
       thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
         'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
 
+ if fileexists(thedir) then begin  
+
+
       uos_Stop(Timage(Sender).tag + 20);
 
       if uos_CreatePlayer(Timage(Sender).tag + 20) then
@@ -4450,6 +4459,7 @@ begin
 
             uos_Play(Timage(Sender).tag + 20);
 
+     end;
       refreshform(Sender);
 
     end;
