@@ -101,7 +101,7 @@ type
   end;
 
 const 
-  versiontext = '1.8.2';
+  versiontext = '2.0.0';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -227,6 +227,7 @@ end;
 procedure resizealltab();
 begin
 
+
 {
  mainfo.width := fowidth ;
  filelistfo.height := filelistfoheight + tabheight;;
@@ -280,7 +281,7 @@ begin
                               c_linefeed + c_linefeed +
                               'Audio library: uos 1.8. (United Openlib of Sound)' + c_linefeed +
                               'https://github.com/fredvs/uos' + c_linefeed +
-                              c_linefeed + 'Copyright 2019' + c_linefeed +
+                              c_linefeed + 'Copyright 2020' + c_linefeed +
                               'Fred van Stappen <fiens@hotmail.com>';
   aboutfo.Show(True);
 end;
@@ -576,6 +577,7 @@ begin
         Inc(i1);
       until sizeisequal(container.paintsize, si1) or (i1 > 8);
     end;
+
 
 
 {
@@ -1755,6 +1757,7 @@ begin
       songplayer2fo.tfacegreen.template.fade_color.items[1] := $6EB545;
 
 
+
 {
     wavefo.waveon.frame.font.color := ltblack;
     wavefo.waveon.color := $F9FFC2;
@@ -2110,6 +2113,7 @@ begin
       tfacebutltgray.template.fade_color.items[0] := $FAFAFA;
       tfacebutltgray.template.fade_color.items[1] := $D1D1D1;
 
+
 {
 tfacegreen.template.fade_color.items[0] := $FDFDFD ;
 tfacegreen.template.fade_color.items[1] := $DDDDDD ;
@@ -2223,6 +2227,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
       songplayerfo.btinfos.font.color := ltblack;
       songplayer2fo.btinfos.font.color := ltblack;
+
 
 {
     wavefo.waveon.frame.font.color := ltblack;
@@ -2883,6 +2888,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       // light
       drumsfo.tfacecomp3.template.fade_color.items[0] := $BABABA;
       drumsfo.tfacecomp3.template.fade_color.items[1] := $5A5A5A;
+
 
 
 {  wavefo.waveon.frame.font.color := ltblank;

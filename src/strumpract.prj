@@ -166,8 +166,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=784
- y=164
+ x=617
+ y=449
  cx=300
  cy=269
 replacedialog=33
@@ -291,7 +291,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=0
+ index=2
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -312,7 +312,7 @@ options=114
  index=0
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=1
+ index=2
  [projectoptionsfo]
  stackedunder=
  x=188
@@ -814,13 +814,11 @@ makeoptionson=9
  4095
  4095
 compilerusedon=29
- 3111
+ 3107
  0
  16
- 0
- 0
+ 4
  8
- 0
  64
  128
  0
@@ -843,13 +841,15 @@ compilerusedon=29
  0
  0
  0
+ 0
+ 0
 debuggerusedon=6
- 3840
+ 3848
  0
  0
  0
  0
- 255
+ 247
 exeusedon=14
  3903
  0
@@ -1520,8 +1520,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=Minor
+finddtext=copyright
 findhistory=20
+ copyright
+ coptright
  Minor
  minor
  uos_pl
@@ -1540,16 +1542,14 @@ findhistory=20
  bnbchords.v
  maxnote
  keyb3
- bchord3
- chordmem3
 findoptions=1
 editpos=8
+ 0,5
+ 0,7
  0,-1073741823
- 0,4450
+ 0,-1073741823
  0,0
- 0,-1073741823
- 0,13
- 0,-1073741823
+ 33,9
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1630,7 +1630,7 @@ order=8
  5
  6
 firsttab=0
-index=3
+index=6
 [layout]
 windowlayout=674
  [mainfo.basedock]
@@ -1646,13 +1646,13 @@ windowlayout=674
  ny=0
  ncx=0
  ncy=0
- x=3
- y=41
+ x=92
+ y=62
  cx=1224
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [targetconsolefo]
@@ -1664,8 +1664,8 @@ windowlayout=674
  ny=0
  ncx=0
  ncy=0
- x=384
- y=451
+ x=402
+ y=235
  cx=497
  cy=314
  rcx=0
@@ -1766,7 +1766,7 @@ windowlayout=674
  x=0
  y=0
  cx=205
- cy=513
+ cy=448
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1857,9 +1857,9 @@ windowlayout=674
  value=1
  [objectinspectorfo.grid]
  propcolwidthref=824
- width0=366
+ width0=362
  sortdescend0=0
- width1=452
+ width1=456
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1952,9 +1952,9 @@ windowlayout=674
  ncx=0
  ncy=0
  x=0
- y=579
- cx=1348
- cy=110
+ y=504
+ cx=1212
+ cy=96
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2053,8 +2053,8 @@ windowlayout=674
  ncy=0
  x=0
  y=0
- cx=1348
- cy=60
+ cx=1212
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2065,12 +2065,12 @@ windowlayout=674
  mdistate=0
  nx=0
  ny=-1
- ncx=1348
- ncy=12
+ ncx=1197
+ ncy=0
  x=0
  y=-1
- cx=1348
- cy=12
+ cx=1212
+ cy=-2
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2080,11 +2080,14 @@ windowlayout=674
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/randomnote.mfm
+ value=/home/fred/strumpract/src/drums.pas
  history=20
   /home/fred/strumpract/src/guitars.pas
+  /home/fred/mseide-msegui/lib/common/fpccompatibility/msefptiffcmn.pas
   /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/drums.pas
   /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/define.inc
   /home/fred/uos/examples/define.inc
@@ -2099,11 +2102,8 @@ windowlayout=674
   /home/fred/Downloads/lazpaint-upstream-master/lazpaint/ugeometricbrush.pas
   /home/fred/ideu/src/ideusettings.pas
   /home/fred/lazpaint/lazpaint/lazpaint.lpr
-  /home/fred/uos/src/uos.pas
-  /home/fred/freepascal_ootb_305_test/compiler/msgtxt.inc
-  /home/fred/bgracontrols/bccombobox.pas
  [debuggerfo.project_options]
- value=1
+ value=6
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2118,8 +2118,8 @@ windowlayout=674
  ncy=0
  x=208
  y=0
- cx=1140
- cy=513
+ cx=1004
+ cy=448
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2133,7 +2133,7 @@ windowlayout=674
   5
   6
  firsttab=0
- index=3
+ index=6
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2169,9 +2169,9 @@ windowlayout=674
  ncx=0
  ncy=0
  x=0
- y=63
- cx=1348
- cy=513
+ y=53
+ cx=1212
+ cy=448
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2272,7 +2272,7 @@ windowlayout=674
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2291,7 +2291,7 @@ windowlayout=674
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
