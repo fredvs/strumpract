@@ -8,7 +8,7 @@ Like:
 -   Play audio files and loop it.
 -   DJ console for auto-mixing, with 2 players and direct-output of mic.
 -   Record your ideas-jam.
--   Chords randomizer for jaming.
+-   Chords randomizer for jamming.
 
 There are compiled executable for Linux 32/64, Windows 32/64, FreeBSD 64
 and arm RPi. =\> https://github.com/fredvs/strumpract/releases/
