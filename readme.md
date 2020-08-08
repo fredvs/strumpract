@@ -33,6 +33,6 @@ All docked:
 
 Chords randomizer:
 
-![alt text](https://user-images.githubusercontent.com/3421249/88121171-37008c00-cbc5-11ea-98b2-a527fa1240a4.png)
+![alt text](https://user-images.githubusercontent.com/3421249/89698734-0a69a580-d923-11ea-8ec0-ba58ed2698de.png)
 
 
