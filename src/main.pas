@@ -92,6 +92,7 @@ type
     procedure onshowrandom(Const sender: TObject);
     procedure onrandomlayout(Const sender: TObject);
    procedure showimagedancer(const sender: TObject);
+   procedure onimagedancer(const sender: TObject);
     private 
       flayoutlock: int32;
     protected 
@@ -3340,6 +3341,21 @@ procedure tmainfo.showimagedancer(const sender: TObject);
 begin
 imagedancerfo.visible := true;
 imagedancerfo.bringtofront;
+end;
+
+procedure tmainfo.onimagedancer(const sender: TObject);
+begin
+if (tmenuitem(Sender).tag = 0) then
+begin
+imagedancerfo.caption := 'Fractal Tree by Lainz';
+dancernum := 0;
+end else
+if (tmenuitem(Sender).tag = 1) then
+begin
+imagedancerfo.caption := 'Super Formula';
+dancernum := 1;
+end;
+imagedancerfo.tpaintbox1.invalidate;
 end;
 
 end.

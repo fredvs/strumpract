@@ -390,7 +390,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint]
       end    
       item
-        submenu.count = 2
+        submenu.count = 3
         submenu.items = <        
           item
             caption = ' &Audio '
@@ -418,6 +418,23 @@ object mainfo: tmainfo
             caption = ' Color '
             state = [as_localcaption, as_localonexecute]
             onexecute = changecolors
+          end        
+          item
+            submenu.count = 2
+            submenu.items = <            
+              item
+                caption = ' Fractal Tree '
+                state = [as_localcaption, as_localonexecute]
+                onexecute = onimagedancer
+              end            
+              item
+                caption = ' Super Formula '
+                state = [as_localcaption, as_localtag, as_localonexecute]
+                tag = 1
+                onexecute = onimagedancer
+              end>
+            caption = ' Image Dancer '
+            state = [as_localcaption]
           end>
         caption = ' &Config '
         hint = ' Configuration of sound and colors '

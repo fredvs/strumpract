@@ -134,8 +134,9 @@ findinfiledialog=75
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=vuLeft
+ value=.tag
  history=20
+  .tag
   vuLeft
   pos(
   alsa
@@ -148,7 +149,6 @@ findinfiledialog=75
   pdynarraytypeinfo
   dynarrayelesize
   additempo
-  .tag
   random
   selectcell
   list_files
@@ -815,7 +815,7 @@ makeoptionson=11
  2
  2
  192
- 1022
+ 1018
  0
  3327
  4095
@@ -1177,10 +1177,10 @@ line=40
  12
  173
  49
- 1287
+ 1288
  5714
- 1470
- 131
+ 1471
+ 132
  1500
  334
  319
@@ -1190,11 +1190,11 @@ line=40
  785
  701
  1572
- 2255
+ 2256
  209
  1136
- 2782
- 3003
+ 2783
+ 3004
  400
  5
  751
@@ -1202,7 +1202,7 @@ line=40
  162
  1504
  356
- 3208
+ 3209
  1685
 address=40
  4607475
@@ -1531,8 +1531,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=ShowLevel
+finddtext=.tag
 findhistory=20
+ .tag
  vuLeft
  copyright
  coptright
@@ -1552,16 +1553,16 @@ findhistory=20
  playrandomchords
  dorandomchord
  bnbchords.v
- maxnote
 findoptions=1
-editpos=9
- 0,-1073741823
- 0,-1073741823
+editpos=10
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,0
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1573,7 +1574,8 @@ bookmarks5=0
 bookmarks6=0
 bookmarks7=0
 bookmarks8=0
-sourcefiles=9
+bookmarks9=0
+sourcefiles=10
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/randomnote.pas
  ${PROJECTDIR}/commander.pas
@@ -1583,7 +1585,8 @@ sourcefiles=9
  ${PROJECTDIR}/imagedancer.pas
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/songplayer.pas
-relpaths=9
+ ${PROJECTDIR}/commander.pas
+relpaths=10
  main.pas
  randomnote.pas
  commander.pas
@@ -1593,7 +1596,9 @@ relpaths=9
  imagedancer.pas
  strumpract.pas
  songplayer.pas
-ismoduletexts=9
+ commander.pas
+ismoduletexts=10
+ 0
  0
  0
  0
@@ -1640,20 +1645,21 @@ nomenumodules=8
  0
  0
 [sourcefo.files_tab]
-order=9
+order=10
  0
- 1
  2
- 7
- 8
  3
+ 8
+ 9
  4
  5
  6
+ 7
+ 1
 firsttab=0
-index=8
+index=5
 [layout]
-windowlayout=694
+windowlayout=695
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1797,7 +1803,7 @@ windowlayout=694
  width1=82
  sortdescend1=0
  sorted=0
- col=0
+ col=1
  row=7
  rowheight=16
  [stackfo]
@@ -2101,17 +2107,17 @@ windowlayout=694
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/imagedancer.pas
+ value=/home/fred/strumpract/src/drums.pas
  history=20
-  /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/drums.pas
+  /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/strumpract.pas
+  /home/fred/strumpract/src/imagedancer.pas
   /home/fred/testbgra/main.pas
   /home/fred/testbgra/fractal_tree.pas
   /home/fred/bgracontrols/bgravirtualscreen.pas
   /home/fred/mclasses.pas
   /home/fred/eschecs_mse/board.pas
-  /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/randomnote.pas
   /home/fred/strumpract/src/define.inc
   /home/fred/uos/examples/define.inc
@@ -2144,18 +2150,19 @@ windowlayout=694
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=9
+ order=10
   0
-  1
   2
-  7
-  8
   3
+  8
+  9
   4
   5
   6
+  7
+  1
  firsttab=0
- index=8
+ index=5
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2332,7 +2339,7 @@ windowlayout=694
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
