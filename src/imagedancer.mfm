@@ -25,5 +25,16 @@ object imagedancerfo: timagedancerfo
     bounds_cx = 444
     bounds_cy = 352
     anchors = [an_left, an_top, an_right, an_bottom]
+    object dancnum: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      visible = False
+      bounds_x = 283
+      bounds_y = 40
+      bounds_cx = 30
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      reffontheight = 15
+    end
   end
 end

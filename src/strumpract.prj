@@ -556,7 +556,7 @@ makeoptions=11
  -WG
  -B
  -sh
- -O2 -XX -Xs -CX
+ -O3 -XX -Xs -CX
  -vewinh
  -FUunits
  -dclass_bridge
@@ -1177,9 +1177,9 @@ line=40
  12
  173
  49
- 1288
+ 1307
  5714
- 1471
+ 1490
  132
  1500
  334
@@ -1190,11 +1190,11 @@ line=40
  785
  701
  1572
- 2256
+ 2275
  209
  1136
- 2783
- 3004
+ 2802
+ 3023
  400
  5
  751
@@ -1202,7 +1202,7 @@ line=40
  162
  1504
  356
- 3209
+ 3228
  1685
 address=40
  4607475
@@ -1555,16 +1555,16 @@ findhistory=20
  bnbchords.v
 findoptions=1
 editpos=10
+ 28,416
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,0
+ 0,23
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,0
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1647,17 +1647,17 @@ nomenumodules=8
 [sourcefo.files_tab]
 order=10
  0
- 2
  3
  8
+ 7
+ 1
  9
  4
  5
  6
- 7
- 1
+ 2
 firsttab=0
-index=5
+index=0
 [layout]
 windowlayout=695
  [mainfo.basedock]
@@ -2050,7 +2050,7 @@ windowlayout=695
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2065,9 +2065,9 @@ windowlayout=695
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=1
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -2107,8 +2107,9 @@ windowlayout=695
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/drums.pas
+ value=/home/fred/strumpract/src/main.pas
  history=20
+  /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/drums.pas
   /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/strumpract.pas
@@ -2128,7 +2129,6 @@ windowlayout=695
   /home/fred/uos/examples/uos.pas
   /home/fred/lazarus/2.0.6/ide/lazarus.pp
   /home/fred/freepascal-ootb_320/packages/gtk2/src/buildgtk2.pp
-  /home/fred/freepascal-ootb_320/packages/gtk2/src/gtk2x11/gdk2x.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2152,17 +2152,17 @@ windowlayout=695
  [sourcefo.files_tab]
  order=10
   0
-  2
   3
   8
+  7
+  1
   9
   4
   5
   6
-  7
-  1
+  2
  firsttab=0
- index=5
+ index=0
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2206,7 +2206,7 @@ windowlayout=695
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2320,7 +2320,7 @@ windowlayout=695
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
@@ -2339,7 +2339,7 @@ windowlayout=695
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
