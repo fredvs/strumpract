@@ -1,0 +1,29 @@
+object imagedancerfo: timagedancerfo
+  visible = False
+  bounds_x = 403
+  bounds_y = 251
+  bounds_cx = 446
+  bounds_cy = 354
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    446
+    354
+  )
+  statfile = mainfo.tstatfile1
+  caption = 'Fractal Tree by Lainz'
+  moduleclassname = 'tdockform'
+  object tpaintbox1: tpaintbox
+    optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
+    frame.localprops = []
+    frame.localprops1 = []
+    onpaint = onpaint_tpaintbox1
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 444
+    bounds_cy = 352
+    anchors = [an_left, an_top, an_right, an_bottom]
+  end
+end

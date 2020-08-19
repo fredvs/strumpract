@@ -112,7 +112,6 @@ var
   Equalizer_Bands: array[1..10] of equalizer_band_type;
   thearray: array of cfloat;
   thearray2: array of cfloat;
-
   arl, arr, arl2, arr2: flo64arty;
   songplayerfo: tsongplayerfo;
   songplayer2fo: tsongplayerfo;
@@ -177,7 +176,7 @@ var
 implementation
 
 uses
-  main, commander, config, waveform, filelistform, drums, spectrum1, dockpanel1,
+  main, imagedancer, commander, config, waveform, filelistform, drums, spectrum1, dockpanel1,
   songplayer_mfm;
 
 function DSPStereo2Mono(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
@@ -672,6 +671,7 @@ begin
 
     leftlev := uos_InputGetLevelLeft(theplayer, Inputindex1);
     rightlev := uos_InputGetLevelRight(theplayer, Inputindex1);
+         
   end;
 
   if Caption = 'Player 2' then
@@ -814,6 +814,8 @@ begin
 end;
 
 procedure tsongplayerfo.LoopProcPlayer1();
+var
+temp : double;
 
 begin
 
@@ -825,6 +827,22 @@ begin
 
   if (commanderfo.vuin.Value = True) and (Visible = True) then
     ShowLevel(nil);
+    
+  if imagedancerfo.Visible = True then
+    begin
+     temp := ((uos_InputGetLevelLeft(theplayer, Inputindex1) +
+     uos_InputGetLevelRight(theplayer, Inputindex1)) / 2) +
+     ((uos_InputGetLevelLeft(theplayer2, Inputindex2) +
+     uos_InputGetLevelRight(theplayer2, Inputindex2)) / 2)
+     ;
+     
+     if temp <>  multiplier then
+     begin
+      multiplier:= temp;
+      imagedancerfo.tpaintbox1.invalidate;
+     end;
+    end;
+       
 
   if Caption = 'Player 1' then
     if (spectrum1fo.spect1.Value = True) and (spectrum1fo.Visible = True) and (configfo.speccalc.Value = True) then

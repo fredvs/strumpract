@@ -91,6 +91,7 @@ type
     procedure savelayout(Const sender: TObject);
     procedure onshowrandom(Const sender: TObject);
     procedure onrandomlayout(Const sender: TObject);
+   procedure showimagedancer(const sender: TObject);
     private 
       flayoutlock: int32;
     protected 
@@ -130,7 +131,7 @@ var
 implementation
 
 uses 
-config, drums, recorder, songplayer, commander, randomnote, 
+config, drums, recorder, songplayer, commander, randomnote, imagedancer,
 filelistform, spectrum1, waveform, dockpanel1, 
 aboutform, uos_flat, guitars, main_mfm;
 
@@ -3333,6 +3334,12 @@ begin
   sleep(200);
   randomnotefo.visible := true;
   randomnotefo.bringtofront;
+end;
+
+procedure tmainfo.showimagedancer(const sender: TObject);
+begin
+imagedancerfo.visible := true;
+imagedancerfo.bringtofront;
 end;
 
 end.

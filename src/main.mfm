@@ -265,7 +265,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 16
+        submenu.count = 17
         submenu.items = <        
           item
             caption = ' Show All '
@@ -346,6 +346,11 @@ object mainfo: tmainfo
             caption = ' Show Chord Randomizer '
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowrandom
+          end        
+          item
+            caption = ' Show Image Dancer'
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showimagedancer
           end>
         caption = ' &Show '
         hint = ' Show/hide windows '

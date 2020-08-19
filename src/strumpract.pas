@@ -22,6 +22,7 @@ uses
   config,
   guitars,
   recorder,
+  imagedancer,
   infos,
   status,
   spectrum1,
@@ -159,6 +160,7 @@ end;
   dockpanel5fo.Caption := 'Dock Panel 5';
   
   application.createform(trandomnotefo, randomnotefo);
+  application.createform(timagedancerfo, imagedancerfo);
 
   application.createform(tmainfo, mainfo);
 
