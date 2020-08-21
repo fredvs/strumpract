@@ -331,9 +331,12 @@ begin
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
+  
+  application.processmessages;
   uos_free();
   Timerwait.Free;
   Timeract.Free;
+  
 end;
 
 procedure tmainfo.oncreatedform(const Sender: TObject);
@@ -454,6 +457,11 @@ begin
   begin
     imagedancerfo.Caption := 'Super Formula';
     dancernum := 1;
+  end
+   else if imagedancerfo.dancnum.Value = 2 then
+  begin
+    imagedancerfo.Caption := 'Hyper formula';
+    dancernum := 2;
   end;
 
 
@@ -3399,6 +3407,12 @@ begin
     imagedancerfo.Caption := 'Super Formula';
     dancernum := 1;
     imagedancerfo.dancnum.Value := 1;
+  end 
+   else if (tmenuitem(Sender).tag = 2) then
+  begin
+    imagedancerfo.Caption := 'Hyper formula';
+    dancernum := 2;
+    imagedancerfo.dancnum.Value := 2;
   end;
   imagedancerfo.tpaintbox1.invalidate;
 end;

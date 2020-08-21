@@ -420,7 +420,7 @@ object mainfo: tmainfo
             onexecute = changecolors
           end        
           item
-            submenu.count = 2
+            submenu.count = 3
             submenu.items = <            
               item
                 caption = ' Fractal Tree '
@@ -431,6 +431,12 @@ object mainfo: tmainfo
                 caption = ' Super Formula '
                 state = [as_localcaption, as_localtag, as_localonexecute]
                 tag = 1
+                onexecute = onimagedancer
+              end            
+              item
+                caption = ' Hyper Formula '
+                state = [as_localcaption, as_localtag, as_localonexecute]
+                tag = 2
                 onexecute = onimagedancer
               end>
             caption = ' Image Dancer '

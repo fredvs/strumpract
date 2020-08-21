@@ -99,23 +99,23 @@ end;
 
 // Fractal Tree
 
-procedure drawTree(x1, y1, angle, depth, multiplier: single; bgra: tbgrabitmap);
+procedure drawTree(x1, y1, angle, depth, multiplierdraw: single; bgra: tbgrabitmap);
 var
   x2, y2: single;
 begin
   if (depth > 0) then
   begin
-    x2 := x1 + (cos(angle * deg_to_rad) * depth * multiplier);
-    y2 := y1 + (sin(angle * deg_to_rad) * depth * multiplier);
+    x2 := x1 + (cos(angle * deg_to_rad) * depth * multiplierdraw);
+    y2 := y1 + (sin(angle * deg_to_rad) * depth * multiplierdraw);
 
-    bgra.DrawLineAntialias(x1, y1, x2, y2, cl_dkgreen, depth, False);
+    bgra.DrawLineAntialias(x1, y1, x2, y2, round(cl_yellow * multiplier / 20), depth, False);
 
     // Use even values without randomness to get a 'real' fractal image
 
-    drawTree(x2, y2, angle - randomrange(15, 50), depth - 1.44, multiplier, bgra);
-    drawTree(x2, y2, angle + randomrange(10, 25), depth - 0.72, multiplier, bgra);
-    drawTree(x2, y2, angle - randomrange(10, 25), depth - 3, multiplier, bgra);
-    drawTree(x2, y2, angle + randomrange(15, 50), depth - 4, multiplier, bgra);
+    drawTree(x2, y2, angle - randomrange(15, 50), depth - 1.44, multiplierdraw, bgra);
+    drawTree(x2, y2, angle + randomrange(10, 25), depth - 0.72, multiplierdraw, bgra);
+    drawTree(x2, y2, angle - randomrange(10, 25), depth - 3, multiplierdraw, bgra);
+    drawTree(x2, y2, angle + randomrange(15, 50), depth - 4, multiplierdraw, bgra);
   end;
 end;
 
@@ -126,31 +126,44 @@ var
   x: double = 0;
   y: double = 0;
   Bitmap: tbgrabitmap;
+  init: double = 0;
+  I, z : integer;
 begin
   Bitmap := tbgrabitmap.Create(Sender.bounds_cx, Sender.bounds_cy);
 
-  if dancernum = 0 then
+  if dancernum = 0 then // Fractral Tree
   begin
 
-    multiplier := multiplier * Sender.bounds_cy / 50;
+   // multiplier := multiplier * Sender.bounds_cy / 50;
 
     Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, cl_dkgreen, BGRA(0, 0, 0),
       gtLinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
-    drawTree(Bitmap.Width div 2, Bitmap.Height, -91, 9, multiplier, Bitmap);
+    drawTree(Bitmap.Width div 2, Bitmap.Height, -91, 9, multiplier * Sender.bounds_cy / 50, Bitmap);
 
   end
   else
   if dancernum = 1 then // Super Formula
   begin
-    Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, cl_dkred, BGRA(0, 0, 0),
+  {
+    Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, BGRA(round(155 * multiplier), 
+    round(200 * multiplier) , round(255 * multiplier)) , BGRA(round(155 * multiplier), 
+    round(200 * multiplier) , round(255 * multiplier)),
       gtLinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
+}
+
+    Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE ,  $FF9D4D,
+      gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
     theta := 0.01; // prevent starting line
     Bitmap.Canvas2D.resetTransform;
     Bitmap.Canvas2D.translate(Width div 2, Height div 2);
-    Bitmap.Canvas2D.lineWidth := 2;
-    Bitmap.Canvas2D.strokeStyle(BGRAwhite);
+    
+    y := round(4 * multiplier);
+    
+    if y = 0 then y := 1;
+    Bitmap.Canvas2D.lineWidth := y;
+    Bitmap.Canvas2D.strokeStyle(round(cl_yellow * multiplier / 20));
     Bitmap.Canvas2D.beginPath;
     while (theta <= 2 * pi) do
     begin
@@ -170,7 +183,42 @@ begin
     Bitmap.Canvas2D.closePath; // prevent holes
     Bitmap.Canvas2D.stroke;
 
-  end;
+  end
+  else
+  if dancernum = 2 then // Hyper formula
+  begin
+   Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFF4DE, $FFC68A,
+      gtLinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
+
+   theta := 0.01; // prevent starting line
+    Bitmap.Canvas2D.resetTransform;
+    Bitmap.Canvas2D.translate(Width div 2, Height div 2);
+    
+    y := round(4 * multiplier);
+    
+    if y = 0 then y := 1;
+    Bitmap.Canvas2D.lineWidth := y;
+    Bitmap.Canvas2D.strokeStyle(round(cl_yellow * multiplier / 20));
+    Bitmap.Canvas2D.beginPath;
+    while (theta <= 2 * pi) do
+    begin
+
+      rad   := r(theta, 1, // a - size and control spikes
+        1,   // b - size and control spikes
+        18,   // m - number of spikes
+        0.5, // n1 - roundness
+        tan(multiplier * 10) * 0.5 + 0.5, // n2 - shape
+        tan(multiplier * 10) * 0.5 + 0.5 // n3 - shape
+        );
+      x     := rad * cos(theta) * (Width div 4);
+      y     := rad * sin(theta) * (Height div 4);
+      Bitmap.Canvas2D.lineTo(x, y);
+      theta += 0.01;           // resolution of the drawing
+    end;
+    Bitmap.Canvas2D.closePath; // prevent holes
+    Bitmap.Canvas2D.stroke;
+   
+  end;       
 
   Bitmap.draw(acanvas, 0, 0, False);
   Bitmap.Free;

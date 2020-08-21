@@ -2523,6 +2523,11 @@ end;
 
 procedure tsongplayerfo.ondestr(const Sender: TObject);
 begin
+   uos_Stop(theplayer);
+    uos_Stop(theplayer2);
+    application.processmessages;
+  Timerwait.enabled := false;
+  Timerwait.enabled := false;
   Timerwait.Free;
   timersent.Free;
 end;
