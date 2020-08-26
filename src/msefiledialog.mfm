@@ -1680,29 +1680,21 @@ object filedialogfo: Tfiledialogfo
     fixrows.count = 1
     fixrows.items = <    
       item
-        face.localprops = []
-        face.template = mainfo.tfacebutgray
         height = 17
         numstep = 1
         captions.count = 4
         captions.items = <        
           item
             caption = 'Name'
-            face.localprops = []
-            face.template = mainfo.tfacebutgray
             options = [dco_colsort, dco_hintclippedtext]
           end        
           item
             caption = 'Ext'
-            face.localprops = []
-            face.template = mainfo.tfacebutgray
             hint = 'File extension '
             options = [dco_colsort, dco_hintclippedtext]
           end        
           item
             caption = 'Size'
-            face.localprops = []
-            face.template = mainfo.tfacebutgray
             hint = ' Size in Kb of the file '
             options = [dco_colsort, dco_hintclippedtext]
           end        
