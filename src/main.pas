@@ -468,7 +468,7 @@ begin
   if imagedancerfo.Visible = True then
   begin
     multiplier := 0.7;
-    imagedancerfo.tpaintbox1.invalidate;
+    imagedancerfo.invalidate;
   end;
 
   if randomnotefo.Visible = True then
@@ -3414,7 +3414,7 @@ begin
     dancernum := 2;
     imagedancerfo.dancnum.Value := 2;
   end;
-  imagedancerfo.tpaintbox1.invalidate;
+  imagedancerfo.invalidate;
 end;
 
 end.

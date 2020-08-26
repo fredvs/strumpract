@@ -7,13 +7,14 @@ uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,Math,
  msesimplewidgets,msewidgets, mseact, msedataedits, msedropdownlist, mseedit,
-  mseificomp, mseificompglob, mseifiglob, msestatfile, msestream, sysutils;
+ mseificomp, mseificompglob, mseifiglob, msestatfile, msestream, sysutils;
 
 type
   timagedancerfo = class(tdockform)
-    tpaintbox1: tpaintbox;
    dancnum: tintegeredit;
-    procedure onpaint_tpaintbox1(const Sender: twidget; const acanvas: tcanvas);
+    procedure onpaint_imagedancerfo(const Sender: twidget;
+                   const acanvas: tcanvas);
+   procedure onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
   end;
 
 const
@@ -119,12 +120,14 @@ begin
   end;
 end;
 
-procedure timagedancerfo.onpaint_tpaintbox1(const Sender: twidget; const acanvas: tcanvas);
+procedure timagedancerfo.onpaint_imagedancerfo(const Sender: twidget;
+               const acanvas: tcanvas);
 var
   theta: double;
   rad: double;
   x: double = 0;
   y: double = 0;
+  y2: double = 0;
   Bitmap: tbgrabitmap;
   init: double = 0;
   I, z : integer;
@@ -159,10 +162,10 @@ begin
     Bitmap.Canvas2D.resetTransform;
     Bitmap.Canvas2D.translate(Width div 2, Height div 2);
     
-    y := round(4 * multiplier);
+    y2 := round(4 * multiplier);
     
-    if y = 0 then y := 1;
-    Bitmap.Canvas2D.lineWidth := y;
+    if y2 = 0 then y2 := 1;
+    Bitmap.Canvas2D.lineWidth := y2;
     Bitmap.Canvas2D.strokeStyle(round(cl_yellow * multiplier / 20));
     Bitmap.Canvas2D.beginPath;
     while (theta <= 2 * pi) do
@@ -187,31 +190,34 @@ begin
   else
   if dancernum = 2 then // Hyper formula
   begin
-   Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFF4DE, $FFC68A,
+   Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, cl_dkred, cl_black,
       gtLinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
    theta := 0.01; // prevent starting line
     Bitmap.Canvas2D.resetTransform;
     Bitmap.Canvas2D.translate(Width div 2, Height div 2);
     
-    y := round(4 * multiplier);
+    y2 := round(4 * multiplier);
     
-    if y = 0 then y := 1;
-    Bitmap.Canvas2D.lineWidth := y;
+    if y2 = 0 then y2 := 1;
+    Bitmap.Canvas2D.lineWidth := y2;
     Bitmap.Canvas2D.strokeStyle(round(cl_yellow * multiplier / 20));
     Bitmap.Canvas2D.beginPath;
+     y2 := round(15 * multiplier);
+     if y2 < 3 then y2 := 3;
+     
     while (theta <= 2 * pi) do
     begin
 
       rad   := r(theta, 1, // a - size and control spikes
         1,   // b - size and control spikes
-        18,   // m - number of spikes
+        y2 ,   // m - number of spikes
         0.5, // n1 - roundness
-        tan(multiplier * 10) * 0.5 + 0.5, // n2 - shape
-        tan(multiplier * 10) * 0.5 + 0.5 // n3 - shape
+        tan(multiplier * 8) * 0.5 + 0.5, // n2 - shape
+        tan(multiplier * 8) * 0.5 + 0.5 // n3 - shape
         );
-      x     := rad * cos(theta) * (Width div 4);
-      y     := rad * sin(theta) * (Height div 4);
+      x     := round(multiplier * 5 * rad * cos(theta) * (Width div 4));
+      y     := round(multiplier* 5 * rad * sin(theta) * (Height div 4));
       Bitmap.Canvas2D.lineTo(x, y);
       theta += 0.01;           // resolution of the drawing
     end;
@@ -222,6 +228,31 @@ begin
 
   Bitmap.draw(acanvas, 0, 0, False);
   Bitmap.Free;
+end;
+
+procedure timagedancerfo.onmouse(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+
+with ainfo do
+    if eventkind in [ek_buttonpress] then
+      begin
+      if tag = 0 then
+      begin
+      tag := 1;
+      options := [fo_maximized,fo_autoreadstat,fo_autowritestat,fo_savepos,
+      fo_savezorder,fo_savestate];
+      invalidate;
+      end
+      else
+      begin
+      tag := 0; 
+      options := [fo_autoreadstat,fo_autowritestat,
+      fo_savepos,fo_savezorder,fo_savestate];
+      invalidate;  
+      end
+   				  
+      end;
 end;
 
 end.

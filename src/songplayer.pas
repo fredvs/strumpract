@@ -839,7 +839,7 @@ begin
      if temp <>  multiplier then
      begin
       multiplier:= temp;
-      imagedancerfo.tpaintbox1.invalidate;
+      imagedancerfo.invalidate;
      end;
     end;
        
@@ -1902,7 +1902,7 @@ begin
   rect1.pos := nullpoint;
   rect1.size := trackbar1.paintsize;
   
-  application.processmessages;
+ // application.processmessages;
 
 
   with sliderimage.bitmap do
@@ -2524,8 +2524,7 @@ end;
 procedure tsongplayerfo.ondestr(const Sender: TObject);
 begin
    uos_Stop(theplayer);
-    uos_Stop(theplayer2);
-    application.processmessages;
+   uos_Stop(theplayer2);
   Timerwait.enabled := false;
   Timerwait.enabled := false;
   Timerwait.Free;
