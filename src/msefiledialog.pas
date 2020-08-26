@@ -1680,9 +1680,9 @@ procedure tfiledialogfo.listviewonlistread(Const sender: tobject);
 var 
   x, y : integer;
   info: fileinfoty;
- thedir : string;
+  thedir : string;
 begin
-   with listview do
+  with listview do
     begin
       dir.value := directory;
       //  if fa_dir in finclude then begin
@@ -1691,48 +1691,59 @@ begin
           filename.value := directory;
         end;
     end;
- 
-   list_log.rowcount := listview.rowcount;
-   
-     for x := 0 to listview.rowcount - 1 do
-        begin
-        list_log[0][x] := '';
-        list_log[1][x] := '';
-        list_log[2][x] := '';
-        list_log[3][x] := '';
-        list_log[4][x] := '';
-        end;                  
-   
+
+  list_log.rowcount := listview.rowcount;
+
+  for x := 0 to listview.rowcount - 1 do
+    begin
+      list_log[0][x] := '';
+      list_log[1][x] := '';
+      list_log[2][x] := '';
+      list_log[3][x] := '';
+      list_log[4][x] := '';
+    end;
+
   if  listview.rowcount > 0 then
     begin
-     // list_log.visible := true;
-     
+      // list_log.visible := true;
+
       for x := 0 to listview.rowcount - 1 do
         begin
-        list_log[4][x] := inttostr(x);
-        list_log[0][x] := '     ' + utf8decode(filenamebase(listview.itemlist[x].caption));
-        list_log[1][x] := utf8decode(fileext(listview.itemlist[x].caption));
-           
-        if list_log[1][x] <> '' then
-        thedir :=  dir.value + directoryseparator + trim(list_log[0][x]) + '.' + list_log[1][x]
-        else thedir :=  dir.value + directoryseparator + trim(list_log[0][x]);
-       
-        getfileinfo(utf8decode(thedir) , info);
-        
-       if not listview.filelist.isdir(x) then
-      begin   
-        if info.extinfo1.size > 0 then
-        begin
-        if info.extinfo1.size Div 1000 > 0 then y := info.extinfo1.size Div 1000 else y := 1;
-        end else y := 0;
-         list_log[2][x] := utf8decode(IntToStr(y) + ' Kb');
-          end;                  
-      
-       list_log[3][x] := formatdatetime('YY-MM-DD hh:mm:ss',info.extinfo1.modtime);
-  
-       end;         
-      end;
-   end;
+          list_log[4][x] := inttostr(x);
+         
+         if not listview.filelist.isdir(x) then
+            begin
+          list_log[0][x] := '     ' + utf8decode(filenamebase(listview.itemlist[x].caption));
+          list_log[1][x] := utf8decode(fileext(listview.itemlist[x].caption));
+
+          if list_log[1][x] <> '' then
+            thedir :=  dir.value + directoryseparator + trim(list_log[0][x]) + '.' + list_log[1][x]
+          else thedir :=  dir.value + directoryseparator + trim(list_log[0][x]);
+          end else
+          begin
+          list_log[0][x] := '     ' +utf8decode(listview.itemlist[x].caption);
+          list_log[1][x] := '';
+          thedir :=  dir.value + directoryseparator + trim(list_log[0][x]);
+          end;
+
+          getfileinfo(utf8decode(trim(thedir)) , info);
+
+          if not listview.filelist.isdir(x) then
+            begin
+              if info.extinfo1.size > 0 then
+                begin
+                  if info.extinfo1.size div 1000 > 0 then y := info.extinfo1.size Div 1000
+                  else y := 1;
+                end
+              else y := 0;
+              list_log[2][x] := utf8decode(IntToStr(y) + ' Kb');
+            end;
+
+          list_log[3][x] := formatdatetime('YY-MM-DD hh:mm:ss',info.extinfo1.modtime);
+
+        end;
+    end;
+end;
 
 procedure tfiledialogfo.updatefiltertext;
 begin
