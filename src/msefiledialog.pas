@@ -1728,8 +1728,6 @@ begin
 
           getfileinfo(utf8decode(trim(thedir)) , info);
           
-          writeln(thedir);
-
           if not listview.filelist.isdir(x) then
             begin
               if info.extinfo1.size > 0 then

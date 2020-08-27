@@ -790,11 +790,14 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=2
+ FILEDIALOGFO
  FILEDIALOGRES
-moduletypes=1
+moduletypes=2
+ TFILEDIALOGFO
  TFILEDIALOGRES
-modulefiles=1
+modulefiles=2
+ /home/fred/strumpract/src/msefiledialog.mfm
  /home/fred/strumpract/src/msefiledialogres.mfm
 befcommandon=0
 makeoptionson=11
@@ -1525,8 +1528,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=1024
+finddtext=writeln
 findhistory=20
+ writeln
  1024
  kb
  .mask
@@ -1535,7 +1539,6 @@ findhistory=20
  draw
  ondrawev
  ondrawc
- writeln
  list_log
  focus
  select
@@ -1548,44 +1551,53 @@ findhistory=20
  .top
  .create
 findoptions=1
-editpos=1
- 0,0
+editpos=2
+ 0,2
+ 0,1727
 bookmarks0=0
-sourcefiles=1
+bookmarks1=0
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
-relpaths=1
+ ${PROJECTDIR}/msefiledialog.pas
+relpaths=2
  strumpract.pas
-ismoduletexts=1
+ msefiledialog.pas
+ismoduletexts=2
  0
-modules=5
+ 0
+modules=6
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/msefiledialogres.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/msefiledialog.mfm
+moduleoptions=6
  0
  0
  0
  0
  0
-visiblemodules=5
+ 0
+visiblemodules=6
  0
  0
  0
  0
  0
-nomenumodules=5
+ -1
+nomenumodules=6
  -1
  -1
  -1
  -1
+ 0
  0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=1
 [layout]
-windowlayout=627
+windowlayout=676
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1625,7 +1637,7 @@ windowlayout=627
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -2019,11 +2031,11 @@ windowlayout=627
  nx=0
  ny=0
  ncx=1197
- ncy=57
+ ncy=56
  x=0
  y=0
  cx=1212
- cy=56
+ cy=55
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2033,28 +2045,58 @@ windowlayout=627
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/strumpract.pas
- history=20
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/atest/test.prj
-  /home/fred/ideu/src/ideU.prj
-  /home/fred/mseide-msegui/apps/ide/mseide.prj
-  /home/fred/uos/examples/simpleplayer.prj
-  /home/fred/ideu_ok/src/ideU.prj
-  /home/fred/eschecs_mse/eschecs.prj
-  /home/fred/mselang-master/src/mselang.prj
-  /home/fred/mseide-msegui/apps/ide/mseide_zeos.prj
-  /home/fred/strumpract/src/strumpract.prj
-  /home/fred/ideu_badplug/src/demos/voiceassist/helloworld/helloworld.prj
-  /home/fred/xtop/src/ptop.prj
-  /home/fred/xtop/src/jtop.prj
-  /home/fred/idegraeme/mseide.prj
-  /home/fred/fptop/src/jtop.prj
-  /home/fred/fptop/src/ptop.prj
-  /home/fred/ptop_fred/ptop.prj
-  /home/fred/eschecs_mse_argh/eschecs.prj
-  /home/fred/Downloads/jcf-cli-master/CommandLine/Lazarus/jcf.prj
-  /home/fred/mseuniverse/samples/widgets/grids/chessboard/chessboard.prj
+ value=/home/fred/strumpract/src/msefiledialog.pas
+ history=50
+  /home/fred/ideu/src/msefiledialog.pas
+  /home/fred/ideu/src/make.pas
+  /home/fred/strumpract/src/msefiledialog.pas
+  /home/fred/strumpract/src/status.pas
+  /home/fred/ideu/src/breakpointsform.pas
+  /home/fred/ideu/src/mselistbrowser.pas
+  /home/fred/ideu/src/objectinspector.pas
+  /home/fred/strumpract/src/msegrids.pas
+  /home/fred/strumpract/src/filelistform.pas
+  /home/fred/testbgra/fractal_tree/main.pas
+  /home/fred/strumpract/src/imagedancer.pas
+  /home/fred/testbgra/main.pas
+  /home/fred/testbgra/fractal_tree.pas
+  /home/fred/bgracontrols/bgravirtualscreen.pas
+  /home/fred/mclasses.pas
+  /home/fred/eschecs_mse/board.pas
+  /home/fred/strumpract/src/guitars.pas
+  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/define.inc
+  /home/fred/uos/examples/define.inc
+  /home/fred/uos/examples/consolesynth.pas
+  /home/fred/ideu/src/imageselectorform.pas
+  /home/fred/freepascal-ootb_305/compiler/systems/t_bsd.pas
+  /home/fred/uos/examples/uos.pas
+  /home/fred/lazarus/2.0.6/ide/lazarus.pp
+  /home/fred/freepascal-ootb_320/packages/gtk2/src/buildgtk2.pp
+  /home/fred/freepascal-ootb_320/packages/gtk2/src/gtk2x11/gdk2x.pas
+  /home/fred/Downloads/lazpaint-upstream-master/lazpaint/ugeometricbrush.pas
+  /home/fred/ideu/src/ideusettings.pas
+  /home/fred/lazpaint/lazpaint/lazpaint.lpr
+  /home/fred/uos/src/uos.pas
+  /home/fred/freepascal_ootb_305_test/compiler/msgtxt.inc
+  /home/fred/bgracontrols/bccombobox.pas
+  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrapath.pas
+  /home/fred/Downloads/bgragui-dev-bgragui/bgraguicontrols/msegui/oldbgbutton.pas
+  /home/fred/Downloads/bgragui-dev-bgragui/bgraguicontrols/msegui/mybgbutton.pas
+  /home/fred/Downloads/bgragui-dev-bgragui/bgragui/bgbuttondrawer.pas
+  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bezier.inc
+  /home/fred/mseide-msegui-avantcircular/lib/common/widgets/msechart.pas
+  /home/fred/mseide-msegui/apps/myide/regcomponents.inc
+  /home/fred/ideu/src/plugmanager.pas
+  /home/fred/ideu/src/mseshortcutdialog.pas
+  /home/fred/mseide-msegui/apps/myide/mybutton.pas
+  /home/fred/Downloads/test.mp3
+  /home/fred/ideu/src/templates/fpc_mse/default/dockingform.pas
+  /home/fred/ideu/src/templates/fpc_mse/default/inheritedform.pas
+  /home/fred/ideu/src/templates/fpc_mse/default/pascform.pas
+  /home/fred/ideu/src/templates/fpc_mse/default/simpleform.pas
+  /home/fred/ideu/src/templates/fpc_mse/default/project.pas
+  /home/fred/ideu/src/templates/fpc_mse/default/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2077,7 +2119,7 @@ windowlayout=627
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2213,6 +2255,25 @@ windowlayout=627
  wsize=0
  active=0
  visible=0
+ [_mse_filedialogfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=mainfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=224
+ y=157
+ cx=564
+ cy=332
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0
