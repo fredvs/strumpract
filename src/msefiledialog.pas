@@ -1718,24 +1718,23 @@ begin
           if tmp <> '' then tmp := '.' + tmp;
           
           list_log[1][x] := utf8decode(tmp);
-
-          if list_log[1][x] <> '' then
-            thedir :=  dir.value + directoryseparator + trim(list_log[0][x]) + '.' + list_log[1][x]
-          else thedir :=  dir.value + directoryseparator + trim(list_log[0][x]);
+          thedir :=  dir.value + trim(list_log[0][x] + tmp) ;
           end else
           begin
           list_log[0][x] := '     ' +utf8decode(listview.itemlist[x].caption);
           list_log[1][x] := '';
-          thedir :=  dir.value + directoryseparator + trim(list_log[0][x]);
+          thedir :=  dir.value +  trim(list_log[0][x]);
           end;
 
           getfileinfo(utf8decode(trim(thedir)) , info);
+          
+          writeln(thedir);
 
           if not listview.filelist.isdir(x) then
             begin
               if info.extinfo1.size > 0 then
                 begin
-                  if info.extinfo1.size div 1000 > 0 then y := info.extinfo1.size Div 1024
+                  if info.extinfo1.size div 1024 > 0 then y := info.extinfo1.size Div 1024
                   else y := 1;
                 end
               else y := 0;
