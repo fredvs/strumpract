@@ -16,13 +16,13 @@ interface
 
 uses
  mseglob, mseguiglob, mseforms, classes, mclasses, mseclasses, msewidgets,
-  msegrids,mselistbrowser, mseedit, msesimplewidgets, msedataedits, msedialog,
-  msetypes,msestrings, msesystypes, msesys, msedispwidgets, msedatalist,
-  msestat, msestatfile,msebitmap, msedatanodes, msefileutils, msedropdownlist,
-  mseevent, msegraphedits,mseeditglob, msesplitter, msemenus, msegridsglob,
-  msegraphics, msegraphutils,msedirtree, msewidgetgrid, mseact, mseapplication,
-  msegui, mseificomp,mseificompglob, mseifiglob, msestream, sysutils,
-  msemenuwidgets, msescrollbar,mserichstring, msedragglob;
+ msegrids,mselistbrowser, mseedit, msesimplewidgets, msedataedits, msedialog,
+ msetypes,msestrings, msesystypes, msesys, msedispwidgets, msedatalist,msestat,
+  msestatfile,msebitmap, msedatanodes, msefileutils, msedropdownlist,mseevent,
+  msegraphedits,mseeditglob, msesplitter, msemenus, msegridsglob,msegraphics,
+  msegraphutils,msedirtree, msewidgetgrid, mseact, mseapplication,msegui,
+  mseificomp,mseificompglob, mseifiglob, msestream, sysutils,msemenuwidgets,
+  msescrollbar,mserichstring, msedragglob;
 
 const 
   defaultlistviewoptionsfile = defaultlistviewoptions + [lvo_readonly];
@@ -1680,7 +1680,7 @@ procedure tfiledialogfo.listviewonlistread(Const sender: tobject);
 var 
   x, y, z : integer;
   info: fileinfoty;
-  thedir, thestrnum : string;
+  thedir, thestrnum, tmp : string;
 begin
   with listview do
     begin
@@ -1714,7 +1714,10 @@ begin
          if not listview.filelist.isdir(x) then
             begin
           list_log[0][x] := '     ' + utf8decode(filenamebase(listview.itemlist[x].caption));
-          list_log[1][x] := utf8decode(fileext(listview.itemlist[x].caption));
+          tmp := fileext(listview.itemlist[x].caption);
+          if tmp <> '' then tmp := '.' + tmp;
+          
+          list_log[1][x] := utf8decode(tmp);
 
           if list_log[1][x] <> '' then
             thedir :=  dir.value + directoryseparator + trim(list_log[0][x]) + '.' + list_log[1][x]
@@ -1732,7 +1735,7 @@ begin
             begin
               if info.extinfo1.size > 0 then
                 begin
-                  if info.extinfo1.size div 1000 > 0 then y := info.extinfo1.size Div 1000
+                  if info.extinfo1.size div 1000 > 0 then y := info.extinfo1.size Div 1024
                   else y := 1;
                 end
               else y := 0;
@@ -1741,11 +1744,10 @@ begin
               
                z := Length(thestrnum) ; 
                
-               if z < 6 then 
-                for y := 0 to 5 - z do
-                  thestrnum := ' ' + thestrnum; // for sorting numbers
-              
-              
+               if z < 7 then 
+                for y := 0 to 6 - z do
+                  thestrnum := ' ' + thestrnum;
+                           
               list_log[2][x] := thestrnum + ' Kb';
             end;
 
@@ -2124,50 +2126,91 @@ begin
     end;
 end;
 
-procedure tfiledialogfo.ondrawcell(const sender: tcol; const canvas: tcanvas;
-               var cellinfo: cellinfoty);
-var
-aicon: integer;
+procedure tfiledialogfo.ondrawcell(Const sender: tcol; Const canvas: tcanvas;
+                                   Var cellinfo: cellinfoty);
+var 
+  aicon: integer;
 
 begin
 
+  if (list_log[1][cellinfo.cell.row] = '') and (list_log[2][cellinfo.cell.row] = '')  then aicon := 
+                                                                                                   0
+  else
+    if (lowercase(list_log[1][cellinfo.cell.row]) = '.txt') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.pdf') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.ini') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.md') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.htlm') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.inc') then aicon := 2
+  else
+    if (lowercase(list_log[1][cellinfo.cell.row]) = '.pas') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.lpi') or 
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.lpr') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.prj') or 
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.pp') then aicon := 8
+   else 
+   if (lowercase(list_log[1][cellinfo.cell.row]) = '.lps') or 
+      (lowercase(list_log[1][cellinfo.cell.row]) = '.mfm')  then aicon := 9
+    else
+    if (lowercase(list_log[1][cellinfo.cell.row]) = '.java') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.js') or 
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.class') then aicon := 10
+   else   
+       if (lowercase(list_log[1][cellinfo.cell.row]) = '.c') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.cc') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.cpp') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.h') then aicon := 11
+   else   
+       if (lowercase(list_log[1][cellinfo.cell.row]) = '.py') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.pyc') then aicon := 12
+   else    
+    if (lowercase(list_log[1][cellinfo.cell.row]) = '.wav') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.m4a') or 
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.mp3') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.opus') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.flac') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.ogg') then aicon := 3
+  else
+    if (lowercase(list_log[1][cellinfo.cell.row]) = '.avi') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.mp4') then aicon := 4
+  else
+    if (lowercase(list_log[1][cellinfo.cell.row]) = '.png') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.jpeg') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.ico') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.webp') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.bmp') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.tiff') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.gif') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.svg') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.jpg') then aicon := 7
+  else
+    if (lowercase(list_log[1][cellinfo.cell.row]) = '') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.exe') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.com') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.bat') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.bin') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.dll') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.pyc') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.res') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.so') then aicon := 5
+  else
+    if (lowercase(list_log[1][cellinfo.cell.row]) = '.zip') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.iso') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.cab') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.torrent') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.7z') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.txz') or 
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.rpm') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.tar') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.gz') or
+       (lowercase(list_log[1][cellinfo.cell.row]) = '.deb') then aicon := 6
+  else
+    aicon := 1;
 
-if (list_log[1][cellinfo.cell.row] = '') and (list_log[2][cellinfo.cell.row] = '')  then aicon := 0 else
-if (lowercase(list_log[1][cellinfo.cell.row]) = 'txt') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'inc') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'pas') then aicon := 2 else
-if (lowercase(list_log[1][cellinfo.cell.row]) = 'wav') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'mp3') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'opus') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'flac') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'ogg') then aicon := 3 else
-if (lowercase(list_log[1][cellinfo.cell.row]) = 'avi') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'mp4') then aicon := 4 else
-if (lowercase(list_log[1][cellinfo.cell.row]) = 'png') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'bmp') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'tiff') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'gif') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'svg') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'jpg') then aicon := 7 else
-if (lowercase(list_log[1][cellinfo.cell.row]) = '') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'exe') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'com') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'bat') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'bin') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'dll') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'pyc') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'res') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'so') then aicon := 5 else
-if (lowercase(list_log[1][cellinfo.cell.row]) = 'zip') or
-(lowercase(list_log[1][cellinfo.cell.row]) = 'tar') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'gz') or 
-(lowercase(list_log[1][cellinfo.cell.row]) = 'deb') then aicon := 6 else
- aicon := 1;
- 
- iconslist.paint(canvas, aicon, nullpoint, cl_default,
-     cl_default, cl_default, 0);
+  iconslist.paint(canvas, aicon, nullpoint, cl_default,
+                  cl_default, cl_default, 0);
 
-  end;
+end;
 
 
 { tfiledialogcontroller }

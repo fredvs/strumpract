@@ -132,7 +132,7 @@ type
   end;
 
 const
-  versiontext = '2.0.0';
+  versiontext = '2.2.0';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -3355,8 +3355,10 @@ begin
 
   typstat        := 1;
   statusfo.color := $C9BCA7;
-  statusfo.list_files.frame.Caption := 'Choose a layout';
+  statusfo.Caption := 'Load Layout';
+ // statusfo.list_files.frame.Caption := 'Choose a layout';
   statusfo.list_files.path := utf8decode(ordir);
+  statusfo.list_files.mask :=  '*.lay' ;
   statusfo.layoutname.Visible := False;
   statusfo.list_files.Visible := True;
   statusfo.activate;
@@ -3365,11 +3367,12 @@ end;
 procedure tmainfo.savelayout(const Sender: TObject);
 begin
   typstat          := 0;
-  statusfo.Caption := 'Layout';
+  statusfo.Caption := 'Save Layout';
   statusfo.color   := $C9BCA7;
   statusfo.layoutname.Value := 'mylayout';
-  statusfo.layoutname.frame.Caption := 'Choose a layout name';
+ // statusfo.layoutname.frame.Caption := 'Choose a layout name';
   statusfo.layoutname.Visible := True;
+   statusfo.list_files.mask :=  '*.lay' ;
   statusfo.list_files.Visible := False;
   statusfo.activate;
 end;

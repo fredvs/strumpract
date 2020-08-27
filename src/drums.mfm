@@ -20,8 +20,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.localprops = []
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 41
-  bounds_y = 385
+  bounds_x = 18
+  bounds_y = 475
   bounds_cx = 442
   bounds_cy = 236
   bounds_cxmin = 442

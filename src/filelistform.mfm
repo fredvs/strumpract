@@ -28,6 +28,7 @@ object filelistfo: tfilelistfo
   )
   dragdock.onbeforedragbegin = befdrag
   dragdock.onafterdragover = afterdrag
+  dragdock.onafterdragend = afterdragend
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = guitarsfo.tfaceguitlight
@@ -258,14 +259,14 @@ object filelistfo: tfilelistfo
       face.localprops = []
       face.template = mainfo.tfacebutgray
       hint = ' To move a row: click+hold into the fixed column and drag the row where you want. '
-      bounds_x = 2
-      bounds_y = 2
-      bounds_cx = 431
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 432
       bounds_cy = 100
-      anchors = [an_left, an_top, an_right, an_bottom]
+      anchors = [an_top, an_bottom]
       font.name = 'stf_default'
       font.localprops = []
-      optionsgrid = [og_rowmoving, og_rowdeleting, og_selectedrowsdeleting, og_focuscellonenter, og_savestate, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
+      optionsgrid = [og_rowmoving, og_keyrowmoving, og_rowinserting, og_rowdeleting, og_selectedrowsdeleting, og_focuscellonenter, og_savestate, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
       datacols.count = 5
       datacols.colorselect = 16763002
       datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
@@ -276,27 +277,93 @@ object filelistfo: tfilelistfo
       datacols.items = <      
         item
           colorselect = 16763002
-          width = 257
+          width = 249
           options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_cancopy, co_canpaste, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          datalist.data = (
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+          )
           valuefalse = '0'
           valuetrue = '1'
         end      
         item
           colorselect = 16763002
-          width = 44
+          width = 40
           options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          datalist.data = (
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+          )
           valuefalse = '0'
           valuetrue = '1'
         end      
         item
           colorselect = 16763002
-          width = 65
+          width = 77
           options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
           textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          datalist.data = (
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+          )
           valuefalse = '0'
           valuetrue = '1'
         end      
@@ -306,6 +373,28 @@ object filelistfo: tfilelistfo
           textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           optionsedit = [scoe_undoonesc, scoe_eatreturn, scoe_exitoncursor, scoe_autoselect, scoe_autoselectonfirstclick, scoe_focusrectonreadonly, scoe_checkbox]
+          datalist.data = (
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+          )
           valuefalse = '0'
           valuetrue = '1'
           ondrawcell = ondrawcell
@@ -316,6 +405,28 @@ object filelistfo: tfilelistfo
           options = [co_readonly, co_nofocus, co_invisible, co_savevalue, co_savestate, co_mousescrollrow]
           widthmin = 0
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
+          datalist.data = (
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+          )
           valuefalse = '0'
           valuetrue = '1'
         end>
@@ -338,28 +449,31 @@ object filelistfo: tfilelistfo
               caption = 'Name of sound'
               face.localprops = []
               face.template = mainfo.tfacebutgray
+              options = [dco_colsort, dco_wholecellsortclick, dco_hintclippedtext]
             end          
             item
               caption = 'Ext'
               face.localprops = []
               face.template = mainfo.tfacebutgray
               hint = 'File extension '
+              options = [dco_colsort, dco_wholecellsortclick, dco_hintclippedtext]
             end          
             item
               caption = 'Size'
               face.localprops = []
               face.template = mainfo.tfacebutgray
               hint = ' Size in Kb of the file '
+              options = [dco_colsort, dco_wholecellsortclick, dco_hintclippedtext]
             end          
             item
+              color = 14737632
               caption = 'Mix'
-              face.localprops = []
-              face.template = mainfo.tfacebutgray
               hint = ' Include for mix.  Clicking on the fixed cell ---> select all/none. '
             end>
           font.name = 'stf_default'
           font.localprops = []
         end>
+      rowcount = 20
       rowcolors.count = 3
       rowcolors.items = (
         2752308

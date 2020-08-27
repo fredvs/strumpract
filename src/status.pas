@@ -2,20 +2,24 @@ unit status;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,mseact, msefileutils,
- msedataedits,msedropdownlist,mseedit,mseificomp,mseificompglob,mseifiglob,
- msestatfile,msestream,sysutils,msesimplewidgets,msebitmap,msedatanodes,
- msefiledialog,msegrids,mselistbrowser,msesys;
+ msegridsglob,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,
+ msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,
+ mseforms,mseact,msefileutils,msedataedits,msedropdownlist,mseedit,mseificomp,
+ mseificompglob,mseifiglob,msestatfile,msestream,sysutils,msesimplewidgets,
+ msebitmap,msedatanodes,msefiledialog,msegrids,mselistbrowser,msesys,
+ msedispwidgets, mserichstring;
 type
  tstatusfo = class(tmseform)
    layoutname: tstringedit;
-   tbutton1: tbutton;
-   tbutton2: tbutton;
    list_files: tfilelistview;
+   ok: tbutton;
+   cancel: tbutton;
+   tstringdisp1: tstringdisp;
    procedure oncreated(const sender: TObject);
    procedure onok(const sender: TObject);
    procedure oncancel(const sender: TObject);
+   procedure onitemev(const sender: tcustomlistview; const index: Integer;
+                   var info: celleventinfoty);
  end;
 var
  statusfo: tstatusfo;
@@ -28,7 +32,6 @@ procedure tstatusfo.oncreated(const sender: TObject);
 var
 ordir : msestring;
 begin
- 
 end;
 
 procedure tstatusfo.oncancel(const sender: TObject);
@@ -109,9 +112,17 @@ filelistfo.caption := removefileext(list_files.selectednames[0]);
 end;
 end;
 
-
-
 close;
+end;
+
+procedure tstatusfo.onitemev(const sender: tcustomlistview;
+               const index: Integer; var info: celleventinfoty);
+begin
+  if (info.eventkind = cek_buttonrelease) then
+ begin
+ if (list_files.rowcount > 0) and
+ (ss_double in info.mouseeventinfopo^.shiftstate) then onok(sender);
+ end;
 end;
 
 end.

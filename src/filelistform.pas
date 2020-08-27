@@ -61,6 +61,9 @@ type
     procedure oncreate(Const sender: TObject);
     procedure ondrawcell(Const sender: tcol; Const canvas: tcanvas;
                          Var cellinfo: cellinfoty);
+   procedure afterdragend(const asender: TObject; const apos: pointty;
+                   var adragobject: tdragobject; const accepted: Boolean;
+                   var processed: Boolean);
   end;
 
 var 
@@ -284,9 +287,10 @@ end;
 
 procedure tfilelistfo.onchangpath(Const Sender: TObject);
 var 
-  x: integer;
+  x, y, z: integer;
   datalist_files: tfiledatalist;
   cellpos: gridcoordty;
+  thestrnum : string;
 begin
   if hasinit = 1 then
     begin
@@ -313,9 +317,26 @@ begin
             begin
               list_files[0][x] := utf8decode(filenamebase(datalist_files.items[x].Name));
               list_files[1][x] := utf8decode(fileext(datalist_files.items[x].Name));
-              list_files[2][x] := utf8decode(IntToStr(datalist_files.items[x].extinfo1.size Div 1000
-                                  ) + ' Kb');
-              // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
+              
+              if datalist_files.items[x].extinfo1.size > 0 then
+                begin
+                  if datalist_files.items[x].extinfo1.size Div 1024 > 0 then y := 
+                  datalist_files.items[x].extinfo1.size Div 1024
+                  else y := 1;
+                end
+              else y := 0;
+              
+              thestrnum := IntToStr(y);
+              
+               z := Length(thestrnum) ; 
+               
+               if z < 7 then 
+                for y := 0 to 6 - z do
+                  thestrnum := ' ' + thestrnum;
+                           
+              list_files[2][x] := utf8decode(thestrnum + ' Kb');
+              
+                 // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
               list_files[3][x] := utf8decode(IntToStr(1));
               list_files[4][x] := utf8decode(historyfn.Value + datalist_files.items[x].Name);
             end;
@@ -373,7 +394,8 @@ begin
 
       //  bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
       bounds_cxmax := fowidth;
-      bounds_cymax := rect1.cy - 60;
+    //  bounds_cymax := rect1.cy - 60;
+      bounds_cymax := 0;
     end;
 end;
 
@@ -467,6 +489,7 @@ begin
   if (info.eventkind = cek_buttonrelease) then
     begin
 
+{
       if  (cellpos.row = -1) and  (cellpos.col < 3)
 
         then
@@ -484,8 +507,9 @@ begin
           list_files.datacols.sortcol := info.cell.col ;
         end;
 
-      edfilescount.Value := list_files.rowcount;
-      filescount.Value := utf8decode(IntToStr(edfilescount.Value) + ' files');
+}
+//      edfilescount.Value := list_files.rowcount;
+//      filescount.Value := utf8decode(IntToStr(edfilescount.Value) + ' files');
 
       //   if filelistfo.tbutton1.face.template = mainfo.tfaceorange then
       //   onsent(tbutton1) else
@@ -561,9 +585,9 @@ begin
   ordir := ExtractFilePath(ParamStr(0))
            + 'list' + directoryseparator;
   typstat := 3;
-  statusfo.caption := 'Cue List';
+  statusfo.caption := 'Load Cue List';
   statusfo.color := $A7C9B9;
-  statusfo.list_files.frame.caption := 'Choose a cue-list';
+  //statusfo.list_files.frame.caption := 'Choose a cue-list';
   statusfo.list_files.path := utf8decode(ordir);
   statusfo.list_files.mask :=  '*.lis' ;
   statusfo.layoutname.visible := false;
@@ -574,10 +598,10 @@ end;
 procedure tfilelistfo.savelist(Const sender: TObject);
 begin
   typstat := 2;
-  statusfo.caption := 'Cue List';
+  statusfo.caption := 'Save Cue List';
   statusfo.color := $A7C9B9;
   statusfo.layoutname.value := 'mycuelist';
-  statusfo.layoutname.frame.caption := 'Choose a cue-list name';
+  //statusfo.layoutname.frame.caption := 'Choose a cue-list name';
   statusfo.layoutname.visible := true;
   statusfo.list_files.visible := false;
   statusfo.activate;
@@ -585,10 +609,11 @@ end;
 
 procedure tfilelistfo.addfile(Const sender: TObject);
 var 
-  x, siz : integer;
+  x, siz, y, z: integer;
   str1: filenamety;
   info: fileinfoty;
   res : modalresultty;
+  thestrnum : string;
 begin
 
   thesender := 4;
@@ -613,7 +638,27 @@ begin
           //    if x > 0 then  list_files[-1][x] := inttostr(x+1);
           list_files[0][x] := utf8decode(filenamebase(str1));
           list_files[1][x] := utf8decode(fileext(str1));
-          list_files[2][x] := utf8decode(IntToStr(siz Div 1000) + ' Kb');
+          
+            if siz > 0 then
+                begin
+                  if siz Div 1024 > 0 then y := 
+                  siz Div 1024
+                  else siz := 1;
+                end
+              else siz := 0;
+              
+              thestrnum := IntToStr(siz);
+              
+               z := Length(thestrnum) ; 
+               
+               if z < 7 then 
+                for y := 0 to 6 - z do
+                  thestrnum := ' ' + thestrnum;
+                           
+              list_files[2][x] := utf8decode(thestrnum + ' Kb');
+          
+          
+       //   list_files[2][x] := utf8decode(IntToStr(siz Div 1000) + ' Kb');
           // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
           list_files[3][x] := utf8decode(IntToStr(1));
           list_files[4][x] := str1;
@@ -645,6 +690,22 @@ procedure tfilelistfo.ondrawcell(Const sender: tcol; Const canvas: tcanvas;
 
 begin
   //pieceslist.paint(canvas,2,nullpoint,cl_default,cl_default,cl_default,0);
+end;
+
+procedure tfilelistfo.afterdragend(const asender: TObject; const apos: pointty;
+               var adragobject: tdragobject; const accepted: Boolean;
+               var processed: Boolean);
+begin
+ if parentwidget = nil then
+    begin
+      //rect1 := application.screenrect(window);
+
+      //  bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
+      bounds_cxmax := fowidth;
+      //bounds_cymax := rect1.cy - 60;
+      bounds_cymax := 0;
+      bounds_cy := fowidth;
+    end;
 end;
 
 end.
