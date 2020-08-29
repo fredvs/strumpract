@@ -95,9 +95,9 @@ findinfiledialog=76
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=0
- [findinfileadialogfo.inprojectdir]
  value=1
+ [findinfileadialogfo.inprojectdir]
+ value=0
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
@@ -112,10 +112,10 @@ findinfiledialog=76
  filenames=1
   /home/fred/mseuniverse/
  filecolwidth=174
- x=0
- y=0
- cx=0
- cy=0
+ x=432
+ y=215
+ cx=496
+ cy=105
  filehistory=14
   /home/fred/mseuniverse/
   /home/fred/mseide-msegui/
@@ -132,7 +132,7 @@ findinfiledialog=76
   /usr/share/fpcsrc/
   /home/fred/designer_ext/
  filefilterindex=0
- filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
+ filefilter="*.pas" "*.pp" "*.inc" "*.mfm" 
  [findinfileadialogfo.findtext]
  value=tusfo.list_files.frame.caption
  history=20
@@ -167,8 +167,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=111
- y=389
+ x=891
+ y=191
  cx=300
  cy=269
 replacedialog=33
@@ -790,15 +790,9 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
- FILEDIALOGFO
- FILEDIALOGRES
-moduletypes=2
- TFILEDIALOGFO
- TFILEDIALOGRES
-modulefiles=2
- /home/fred/strumpract/src/msefiledialog.mfm
- /home/fred/strumpract/src/msefiledialogres.mfm
+modulenames=0
+moduletypes=0
+modulefiles=0
 befcommandon=0
 makeoptionson=11
  4095
@@ -1528,8 +1522,17 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=writeln
+finddtext=visible = f
 findhistory=20
+ visible = f
+ visible := f
+ filedialog1
+ fdk_dir
+ fkk_dir
+ filedialogkindty
+ troller.Execute(dialogkind
+ function filedialog1(dialog: tfiledialogfo;
+ if (filename.Value <> '') or (fdo_acceptempty in dialogoptions)
  writeln
  1024
  kb
@@ -1541,63 +1544,30 @@ findhistory=20
  ondrawc
  list_log
  focus
- select
- create
- filelist
- rowcount
- list_log.top
- fileext
- count
- .top
- .create
 findoptions=1
 editpos=2
- 0,2
- 0,1727
+ 0,-1073741823
+ 22,134
 bookmarks0=0
 bookmarks1=0
 sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/msefiledialog.pas
+ ${PROJECTDIR}/main.pas
 relpaths=2
  strumpract.pas
- msefiledialog.pas
+ main.pas
 ismoduletexts=2
  0
  0
-modules=6
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/drums.mfm
- /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/msefiledialogres.mfm
- /home/fred/strumpract/src/msefiledialog.mfm
-moduleoptions=6
- 0
- 0
- 0
- 0
- 0
- 0
-visiblemodules=6
- 0
- 0
- 0
- 0
- 0
- -1
-nomenumodules=6
- -1
- -1
- -1
- -1
- 0
- 0
+modules=0
+moduleoptions=0
+visiblemodules=0
+nomenumodules=0
 [sourcefo.files_tab]
 firsttab=0
 index=1
 [layout]
-windowlayout=676
+windowlayout=532
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1731,7 +1701,7 @@ windowlayout=676
  x=0
  y=0
  cx=205
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1741,8 +1711,8 @@ windowlayout=676
  width1=82
  sortdescend1=0
  sorted=0
- col=1
- row=-1073741823
+ col=0
+ row=5
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2019,7 +1989,7 @@ windowlayout=676
  x=0
  y=0
  cx=1212
- cy=51
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2031,11 +2001,11 @@ windowlayout=676
  nx=0
  ny=0
  ncx=1197
- ncy=56
+ ncy=50
  x=0
  y=0
  cx=1212
- cy=55
+ cy=48
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2045,11 +2015,13 @@ windowlayout=676
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/msefiledialog.pas
- history=50
+ value=/home/fred/strumpract/src/main.pas
+ history=20
+  /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/strumpract.pas
+  /home/fred/strumpract/src/msefiledialog.pas
   /home/fred/ideu/src/msefiledialog.pas
   /home/fred/ideu/src/make.pas
-  /home/fred/strumpract/src/msefiledialog.pas
   /home/fred/strumpract/src/status.pas
   /home/fred/ideu/src/breakpointsform.pas
   /home/fred/ideu/src/mselistbrowser.pas
@@ -2065,38 +2037,6 @@ windowlayout=676
   /home/fred/eschecs_mse/board.pas
   /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/randomnote.pas
-  /home/fred/strumpract/src/define.inc
-  /home/fred/uos/examples/define.inc
-  /home/fred/uos/examples/consolesynth.pas
-  /home/fred/ideu/src/imageselectorform.pas
-  /home/fred/freepascal-ootb_305/compiler/systems/t_bsd.pas
-  /home/fred/uos/examples/uos.pas
-  /home/fred/lazarus/2.0.6/ide/lazarus.pp
-  /home/fred/freepascal-ootb_320/packages/gtk2/src/buildgtk2.pp
-  /home/fred/freepascal-ootb_320/packages/gtk2/src/gtk2x11/gdk2x.pas
-  /home/fred/Downloads/lazpaint-upstream-master/lazpaint/ugeometricbrush.pas
-  /home/fred/ideu/src/ideusettings.pas
-  /home/fred/lazpaint/lazpaint/lazpaint.lpr
-  /home/fred/uos/src/uos.pas
-  /home/fred/freepascal_ootb_305_test/compiler/msgtxt.inc
-  /home/fred/bgracontrols/bccombobox.pas
-  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrapath.pas
-  /home/fred/Downloads/bgragui-dev-bgragui/bgraguicontrols/msegui/oldbgbutton.pas
-  /home/fred/Downloads/bgragui-dev-bgragui/bgraguicontrols/msegui/mybgbutton.pas
-  /home/fred/Downloads/bgragui-dev-bgragui/bgragui/bgbuttondrawer.pas
-  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bezier.inc
-  /home/fred/mseide-msegui-avantcircular/lib/common/widgets/msechart.pas
-  /home/fred/mseide-msegui/apps/myide/regcomponents.inc
-  /home/fred/ideu/src/plugmanager.pas
-  /home/fred/ideu/src/mseshortcutdialog.pas
-  /home/fred/mseide-msegui/apps/myide/mybutton.pas
-  /home/fred/Downloads/test.mp3
-  /home/fred/ideu/src/templates/fpc_mse/default/dockingform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/inheritedform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/pascform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/simpleform.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/project.pas
-  /home/fred/ideu/src/templates/fpc_mse/default/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2114,7 +2054,7 @@ windowlayout=676
  x=208
  y=0
  cx=1004
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2128,7 +2068,7 @@ windowlayout=676
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=0
  nx=0
@@ -2155,125 +2095,11 @@ windowlayout=676
  ncx=0
  ncy=0
  x=0
- y=54
+ y=53
  cx=1212
- cy=450
+ cy=451
  rcx=0
  rcy=0
- [_mse_mainfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=349
- y=91
- cx=464
- cy=139
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [_mse_commanderfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_filedialogres_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=493
- y=316
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [_mse_recorderfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=447
- y=365
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [_mse_drumsfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=18
- y=475
- cx=452
- cy=236
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [_mse_filedialogres_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=confdebuggerfo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=423
- y=381
- cx=245
- cy=117
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [_mse_filedialogfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=mainfo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=224
- y=157
- cx=564
- cy=332
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
 [targetconsole]
 finddtext=
 findhistory=0

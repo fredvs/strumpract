@@ -16,9 +16,9 @@ object filedialogfo: Tfiledialogfo
   bounds_x = 224
   bounds_y = 157
   bounds_cx = 554
-  bounds_cy = 332
+  bounds_cy = 303
   bounds_cxmin = 360
-  bounds_cymin = 150
+  bounds_cymin = 50
   container.optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_mousetransparent, ow_destroywidgets]
   container.frame.localprops = []
   container.frame.localprops1 = []
@@ -27,7 +27,7 @@ object filedialogfo: Tfiledialogfo
     0
     0
     554
-    332
+    303
   )
   options = [fo_screencentered, fo_closeonesc, fo_localshortcuts, fo_autoreadstat, fo_autowritestat, fo_savepos]
   caption = 'Select a file'
@@ -1167,7 +1167,7 @@ object filedialogfo: Tfiledialogfo
   end
   object tlayouter2: tlayouter
     bounds_x = 2
-    bounds_y = 281
+    bounds_y = 252
     bounds_cx = 551
     bounds_cy = 49
     anchors = [an_left, an_right, an_bottom]
@@ -1346,7 +1346,7 @@ object filedialogfo: Tfiledialogfo
       face.localprops = [fal_fadirection]
       taborder = 3
       bounds_x = 496
-      bounds_y = 23
+      bounds_y = 19
       bounds_cx = 51
       bounds_cy = 26
       bounds_cxmin = 35
@@ -1395,7 +1395,7 @@ object filedialogfo: Tfiledialogfo
       hint = ' The selected directory '
       visible = False
       bounds_x = 0
-      bounds_y = 0
+      bounds_y = 1
       bounds_cx = 428
       bounds_cy = 27
       anchors = [an_left, an_top, an_right]
@@ -1597,7 +1597,7 @@ object filedialogfo: Tfiledialogfo
     bounds_x = 0
     bounds_y = 40
     bounds_cx = 554
-    bounds_cy = 238
+    bounds_cy = 209
     anchors = [an_top, an_bottom]
     font.name = 'stf_default'
     font.localprops = []
