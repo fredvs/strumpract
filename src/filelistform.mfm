@@ -10,8 +10,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 252
-  bounds_y = 310
+  bounds_x = 659
+  bounds_y = 216
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -277,7 +277,7 @@ object filelistfo: tfilelistfo
       datacols.items = <      
         item
           colorselect = 16763002
-          width = 249
+          width = 268
           options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_cancopy, co_canpaste, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           datalist.data = (
@@ -338,9 +338,9 @@ object filelistfo: tfilelistfo
         end      
         item
           colorselect = 16763002
-          width = 77
+          width = 58
           options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
-          textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+          textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           datalist.data = (
             ''

@@ -1159,7 +1159,7 @@ line=41
  65
  137
  343
- 586
+ 587
  12
  173
  49
@@ -1181,7 +1181,7 @@ line=41
  1136
  2810
  3031
- 423
+ 456
  5
  751
  1517
@@ -1522,8 +1522,12 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=visible = f
+finddtext=list_f
 findhistory=20
+ list_f
+ htlm
+ uses
+ images
  visible = f
  visible := f
  filedialog1
@@ -1540,34 +1544,51 @@ findhistory=20
  filter.
  info: celleventinfot
  draw
- ondrawev
- ondrawc
- list_log
- focus
 findoptions=1
-editpos=2
+editpos=3
  0,-1073741823
- 22,134
+ 0,134
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+sourcefiles=3
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
-relpaths=2
+ ${PROJECTDIR}/msefiledialog.mfm
+relpaths=3
  strumpract.pas
  main.pas
-ismoduletexts=2
+ msefiledialog.mfm
+ismoduletexts=3
  0
  0
-modules=0
-moduleoptions=0
-visiblemodules=0
-nomenumodules=0
+ 0
+modules=4
+ /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/commander.mfm
+ /home/fred/strumpract/src/drums.mfm
+ /home/fred/strumpract/src/recorder.mfm
+moduleoptions=4
+ 0
+ 0
+ 0
+ 0
+visiblemodules=4
+ 0
+ 0
+ 0
+ 0
+nomenumodules=4
+ -1
+ -1
+ -1
+ -1
 [sourcefo.files_tab]
 firsttab=0
 index=1
 [layout]
-windowlayout=532
+windowlayout=605
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1581,8 +1602,8 @@ windowlayout=532
  ny=0
  ncx=0
  ncy=0
- x=39
- y=68
+ x=23
+ y=29
  cx=1224
  cy=621
  rcx=0
@@ -1607,7 +1628,7 @@ windowlayout=532
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1712,7 +1733,7 @@ windowlayout=532
  sortdescend1=0
  sorted=0
  col=0
- row=5
+ row=4
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2001,11 +2022,11 @@ windowlayout=532
  nx=0
  ny=0
  ncx=1197
- ncy=50
+ ncy=48
  x=0
  y=0
  cx=1212
- cy=48
+ cy=46
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2016,27 +2037,24 @@ windowlayout=532
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
- history=20
+ history=17
   /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/msefiledialog.pas
-  /home/fred/ideu/src/msefiledialog.pas
-  /home/fred/ideu/src/make.pas
-  /home/fred/strumpract/src/status.pas
-  /home/fred/ideu/src/breakpointsform.pas
-  /home/fred/ideu/src/mselistbrowser.pas
-  /home/fred/ideu/src/objectinspector.pas
-  /home/fred/strumpract/src/msegrids.pas
-  /home/fred/strumpract/src/filelistform.pas
-  /home/fred/testbgra/fractal_tree/main.pas
-  /home/fred/strumpract/src/imagedancer.pas
-  /home/fred/testbgra/main.pas
-  /home/fred/testbgra/fractal_tree.pas
-  /home/fred/bgracontrols/bgravirtualscreen.pas
-  /home/fred/mclasses.pas
-  /home/fred/eschecs_mse/board.pas
-  /home/fred/strumpract/src/guitars.pas
-  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/ideu/src/msefiledialogres.mfm
+  /home/fred/new_msefiledialogx/msefiledialogres.mfm
+  /home/fred/new_msefiledialog2/msefiledialogres.mfm
+  /home/fred/msefiledialog2new/msefiledialogres.mfm
+  /home/fred/ideu/src/sourcepage.mfm
+  /home/fred/strumpract/src/msefiledialogres.mfm
+  /home/fred/strumpract/src/dialogfiles.mfm
+  /home/fred/ideu/src/sourceform.mfm
+  /home/fred/ideu/src/actionsmodule.mfm
+  /home/fred/ideu/src/main.mfm
+  /home/fred/mseide-msegui/apps/ide/sourceform.mfm
+  /home/fred/mseide-msegui/apps/ide/actionsmodule.mfm
+  /home/fred/atest/main.mfm
+  /home/fred/ideu_ok/src/sourceform.mfm
+  /home/fred/ideu_ok/src/actionsmodule.mfm
+  /home/fred/ideu_ok/src/main.mfm
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2100,6 +2118,82 @@ windowlayout=532
  cy=451
  rcx=0
  rcy=0
+ [_mse_mainfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_drumsfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=349
+ y=91
+ cx=464
+ cy=139
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
+ [_mse_commanderfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=493
+ y=316
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
+ [_mse_recorderfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_commanderfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=447
+ y=365
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
+ [_mse_drumsfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_recorderfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=18
+ y=475
+ cx=452
+ cy=236
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
 [targetconsole]
 finddtext=
 findhistory=0

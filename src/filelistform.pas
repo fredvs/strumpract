@@ -6,6 +6,7 @@ unit filelistform;
 interface
 
 uses 
+math,
 msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat, 
 msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent, 
 msedatalist, mseclasses, msegridsglob, mseforms, msedock, msedragglob, 
@@ -287,10 +288,10 @@ end;
 
 procedure tfilelistfo.onchangpath(Const Sender: TObject);
 var 
-  x, y, z: integer;
+  x, y, y2, z: integer;
   datalist_files: tfiledatalist;
   cellpos: gridcoordty;
-  thestrnum : string;
+  thestrnum, thestrx, thestrext, thestrfract : string;
 begin
   if hasinit = 1 then
     begin
@@ -317,29 +318,62 @@ begin
             begin
               list_files[0][x] := utf8decode(filenamebase(datalist_files.items[x].Name));
               list_files[1][x] := utf8decode(fileext(datalist_files.items[x].Name));
-              
-              if datalist_files.items[x].extinfo1.size > 0 then
-                begin
-                  if datalist_files.items[x].extinfo1.size Div 1024 > 0 then y := 
-                  datalist_files.items[x].extinfo1.size Div 1024
-                  else y := 1;
-                end
-              else y := 0;
-              
-              thestrnum := IntToStr(y);
-              
-               z := Length(thestrnum) ; 
-               
-               if z < 7 then 
-                for y := 0 to 6 - z do
-                  thestrnum := ' ' + thestrnum;
-                           
-              list_files[2][x] := utf8decode(thestrnum + ' Kb');
-              
-                 // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
-              list_files[3][x] := utf8decode(IntToStr(1));
-              list_files[4][x] := utf8decode(historyfn.Value + datalist_files.items[x].Name);
-            end;
+         
+           //
+                 if not datalist_files.isdir(x) then
+      begin
+
+        if datalist_files.items[x].extinfo1.size div 1000000000 > 0 then
+        begin
+          y2        := Trunc(Frac(datalist_files.items[x].extinfo1.size / 1000000000) * Power(10, 1));
+          y         := datalist_files.items[x].extinfo1.size div 1000000000;
+          thestrx   := '~';
+          thestrext := ' GB';
+        end
+        else if datalist_files.items[x].extinfo1.size div 1000000 > 0 then
+        begin
+          y2        := Trunc(Frac(datalist_files.items[x].extinfo1.size / 1000000) * Power(10, 1));
+          y         := datalist_files.items[x].extinfo1.size div 1000000;
+          thestrx   := '_';
+          thestrext := ' MB';
+        end
+        else if datalist_files.items[x].extinfo1.size div 1000 > 0 then
+        begin
+          y2        := Trunc(Frac(datalist_files.items[x].extinfo1.size / 1000) * Power(10, 1));
+          y         := datalist_files.items[x].extinfo1.size div 1000;
+          thestrx   := '^';
+          thestrext := ' KB';
+        end
+        else
+        begin
+          y2        := 0;
+          y         := datalist_files.items[x].extinfo1.size;
+          thestrx   := ' ';
+          thestrext := ' B';
+        end;
+
+
+        thestrnum := IntToStr(y);
+
+        z := Length(thestrnum);
+
+        if z < 15 then
+          for y := 0 to 14 - z do
+            thestrnum := ' ' + thestrnum;
+
+        if y2 > 0 then
+          thestrfract := '.' + IntToStr(y2)
+        else
+          thestrfract := '';
+
+
+        list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
+      end;
+           
+      list_files[3][x] := utf8decode(IntToStr(1));
+      list_files[4][x] := utf8decode(historyfn.Value + datalist_files.items[x].Name);
+           
+       end;
 
           cellpos.row := 0;
           cellpos.col := 0;
@@ -366,7 +400,6 @@ procedure tfilelistfo.onafterdialog(Const Sender: tfiledialogcontroller; Var are
 ;
 begin
   //list_files.path := dir.value;
-
 end;
 
 procedure tfilelistfo.befdrag(Const asender: TObject; Const apos: pointty; Var adragobject:

@@ -15,6 +15,7 @@ unit msefiledialog;
 interface
 
 uses
+  math,
   mseglob,
   mseguiglob,
   mseforms,
@@ -644,7 +645,6 @@ uses
   msebits,
   mseactions,
   msestringenter,
-  msefiledialogres,
   msekeyboard,
   msestockobjects,
   msesysintf,
@@ -657,6 +657,7 @@ type
 
 procedure getfileicon(const info: fileinfoty; var imagelist: timagelist; out imagenr: integer);
 begin
+{
   with info do
   begin
     //  imagelist:= nil;
@@ -676,6 +677,7 @@ begin
             );
       end;
   end;
+  }
 end;
 
 procedure updatefileinfo(const item: tlistitem; const info: fileinfoty; const withicon: Boolean);
@@ -1458,14 +1460,13 @@ end;
 
 procedure tfiledialogfo.listviewonlistread(const Sender: TObject);
 var
-  x, y, z: integer;
+  x, y, y2, z: integer;
   info: fileinfoty;
-  thedir, thestrnum, tmp: string;
+  thedir, thestrnum, thestrfract, thestrx, thestrext, tmp, tmp2: string;
 begin
   with listview do
   begin
     dir.Value        := directory;
-    //  if fa_dir in finclude then begin
     if fdo_directory in self.dialogoptions then
       filename.Value := directory;
   end;
@@ -1494,7 +1495,9 @@ begin
           tmp := '.' + tmp;
 
         list_log[1][x] := utf8decode(tmp);
-        thedir         := dir.Value + trim(list_log[0][x] + tmp);
+
+        thedir := dir.Value + trim(list_log[0][x] + tmp);
+
       end
       else
       begin
@@ -1507,31 +1510,57 @@ begin
 
       if not listview.filelist.isdir(x) then
       begin
-        if info.extinfo1.size > 0 then
+
+        if info.extinfo1.size div 1000000000 > 0 then
         begin
-          if info.extinfo1.size div 1024 > 0 then
-            y := info.extinfo1.size div 1024
-          else
-            y := 1;
+          y2        := Trunc(Frac(info.extinfo1.size / 1000000000) * Power(10, 1));
+          y         := info.extinfo1.size div 1000000000;
+          thestrx   := '~';
+          thestrext := ' GB';
+        end
+        else if info.extinfo1.size div 1000000 > 0 then
+        begin
+          y2        := Trunc(Frac(info.extinfo1.size / 1000000) * Power(10, 1));
+          y         := info.extinfo1.size div 1000000;
+          thestrx   := '_';
+          thestrext := ' MB';
+        end
+        else if info.extinfo1.size div 1000 > 0 then
+        begin
+          y2        := Trunc(Frac(info.extinfo1.size / 1000) * Power(10, 1));
+          y         := info.extinfo1.size div 1000;
+          thestrx   := '^';
+          thestrext := ' KB';
         end
         else
-          y := 0;
+        begin
+          y2        := 0;
+          y         := info.extinfo1.size;
+          thestrx   := ' ';
+          thestrext := ' B';
+        end;
+
 
         thestrnum := IntToStr(y);
 
         z := Length(thestrnum);
 
-        if z < 7 then
-          for y := 0 to 6 - z do
+        if z < 15 then
+          for y := 0 to 14 - z do
             thestrnum := ' ' + thestrnum;
 
-        list_log[2][x] := thestrnum + ' Kb';
+        if y2 > 0 then
+          thestrfract := '.' + IntToStr(y2)
+        else
+          thestrfract := '';
+
+
+        list_log[2][x] := thestrx + thestrnum + thestrfract + thestrext;
       end;
 
       list_log[3][x] := formatdatetime('YY-MM-DD hh:mm:ss', info.extinfo1.modtime);
 
-    end// list_log.visible := true;
-  ;
+    end;
 end;
 
 procedure tfiledialogfo.updatefiltertext;
@@ -1861,7 +1890,7 @@ begin
     (lowercase(list_log[1][cellinfo.cell.row]) = '.pdf') or
     (lowercase(list_log[1][cellinfo.cell.row]) = '.ini') or
     (lowercase(list_log[1][cellinfo.cell.row]) = '.md') or
-    (lowercase(list_log[1][cellinfo.cell.row]) = '.htlm') or
+    (lowercase(list_log[1][cellinfo.cell.row]) = '.html') or
     (lowercase(list_log[1][cellinfo.cell.row]) = '.inc') then
     aicon := 2
   else if (lowercase(list_log[1][cellinfo.cell.row]) = '.pas') or

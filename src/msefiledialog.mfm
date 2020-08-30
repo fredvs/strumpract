@@ -13,8 +13,8 @@ object filedialogfo: Tfiledialogfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 224
-  bounds_y = 157
+  bounds_x = 467
+  bounds_y = 323
   bounds_cx = 554
   bounds_cy = 303
   bounds_cxmin = 360
@@ -1155,9 +1155,6 @@ object filedialogfo: Tfiledialogfo
       end>
     optionsgrid = [og_focuscellonenter, og_mousescrollcol]
     options = [lvo_readonly, lvo_horz, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_hintclippedtext]
-    itemlist.imagelist = filedialogres.images
-    itemlist.imagewidth = 16
-    itemlist.imageheight = 16
     cellwidthmin = 50
     onselectionchanged = listviewselectionchanged
     onitemevent = listviewitemevent
