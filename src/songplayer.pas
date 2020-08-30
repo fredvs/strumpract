@@ -109,6 +109,7 @@ type
   end;
 
 var
+  theinc : integer = 0;
   Equalizer_Bands: array[1..10] of equalizer_band_type;
   thearray: array of cfloat;
   thearray2: array of cfloat;
@@ -836,13 +837,18 @@ begin
      uos_InputGetLevelRight(theplayer2, Inputindex2)) / 2)
      ;
      
+     if theinc > 3 then
+     begin
+      theinc := 0;
      if temp <>  multiplier then
      begin
       multiplier:= temp;
       imagedancerfo.invalidate;
      end;
+     end;
+       inc(theinc); 
     end;
-       
+    
 
   if Caption = 'Player 1' then
     if (spectrum1fo.spect1.Value = True) and (spectrum1fo.Visible = True) and (configfo.speccalc.Value = True) then
