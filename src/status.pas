@@ -6,7 +6,7 @@ uses
  msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,
  mseforms,mseact,msefileutils,msedataedits,msedropdownlist,mseedit,mseificomp,
  mseificompglob,mseifiglob,msestatfile,msestream,sysutils,msesimplewidgets,
- msebitmap,msedatanodes,msefiledialog,msegrids,mselistbrowser,msesys,
+ msebitmap,msedatanodes,msefiledialogx,msegrids,mselistbrowser,msesys,
  msedispwidgets, mserichstring;
 type
  tstatusfo = class(tmseform)

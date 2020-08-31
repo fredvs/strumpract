@@ -7,7 +7,7 @@ uses
  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, math,
   mseevent,mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,
-  msedataedits,msefiledialog, msegrids, mselistbrowser, msesys, SysUtils,
+  msedataedits,msefiledialogx, msegrids, mselistbrowser, msesys, SysUtils,
   msegraphedits,mseificomp, mseificompglob, mseifiglob, msescrollbar,
   msedragglob, mseact,mseedit, msestatfile, msestream, msestrings, msebitmap,
   msedatanodes,msedispwidgets, mserichstring;

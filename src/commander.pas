@@ -6,7 +6,7 @@ uses
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
   math,msegui, msetimer, msegraphics, msegraphutils, mseevent, mseclasses,
   mseforms,msedock, msedragglob, msesimplewidgets, msewidgets, mseact,
-  msebitmap,msedataedits, msedatanodes, mseedit, msefiledialog, msegrids,
+  msebitmap,msedataedits, msedatanodes, mseedit, msefiledialogx, msegrids,
   mseificomp,mseificompglob, mseifiglob, mselistbrowser, msestatfile, msestream,
   msestrings,msesys, SysUtils, msegraphedits, msescrollbar, msedispwidgets,
   mserichstring;

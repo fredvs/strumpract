@@ -157,6 +157,7 @@ var
   hasinit: integer = 0;
   maxheightfo: integer;
   norefresh: Boolean = False;
+  thesender : integer;
 
 implementation
 
@@ -2003,7 +2004,7 @@ begin
     filelistfo.historyfn.dropdown.colorclient := ltblank;
 
 
-    filelistfo.songdir.frame.button.colorglyph := ltblack;
+   // filelistfo.songdir.frame.button.colorglyph := ltblack;
     filelistfo.list_files.datacols[0].color := cl_white;
     filelistfo.list_files.datacols[0].font.color := ltblack;
     filelistfo.list_files.datacols[1].color := cl_white;
@@ -2486,7 +2487,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     filelistfo.tgroupbox1.font.color := ltblack;
 
     filelistfo.historyfn.frame.button.colorglyph := ltblack;
-    filelistfo.songdir.frame.button.colorglyph   := ltblack;
+    //filelistfo.songdir.frame.button.colorglyph   := ltblack;
 
     filelistfo.historyfn.dropdown.colorclient := ltblank;
 
@@ -3084,7 +3085,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     filelistfo.tgroupbox1.font.color           := ltblank;
     filelistfo.historyfn.frame.button.colorglyph := ltblank;
-    filelistfo.songdir.frame.button.colorglyph := ltblank;
+    //filelistfo.songdir.frame.button.colorglyph := ltblank;
 
     filelistfo.historyfn.dropdown.colorclient := ltblack;
 

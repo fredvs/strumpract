@@ -4,7 +4,7 @@ interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,mseact,
- msebitmap,msedataedits,msedatanodes,mseedit,msefiledialog,msegrids,mseificomp,
+ msebitmap,msedataedits,msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,
  mseificompglob,mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,
  msesys,sysutils,msesimplewidgets;
 type

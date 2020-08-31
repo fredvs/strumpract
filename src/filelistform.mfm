@@ -114,77 +114,6 @@ object filelistfo: tfilelistfo
     anchors = [an_left, an_top, an_bottom]
     font.name = 'stf_default'
     font.localprops = []
-    object songdir: tfilenameedit
-      cursor = cr_arrow
-      frame.levelo = 0
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameo_left = 1
-      frame.frameo_right = 1
-      frame.frameimage_list = commanderfo.timagelist2
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.colorclient = -2147483645
-      frame.localprops = [frl_frameimagelist]
-      frame.localprops1 = []
-      frame.buttons.count = 1
-      frame.buttons.items = <      
-        item
-          face.localprops = []
-          face.template = mainfo.tfacebutgray
-          frame.localprops = []
-          frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
-          imagenr = 17
-        end>
-      frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfacebutgray
-      frame.button.frame.localprops = []
-      frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
-      frame.button.imagenr = 17
-      taborder = 1
-      hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
-      bounds_x = 3
-      bounds_y = 100
-      bounds_cx = 23
-      bounds_cy = 24
-      anchors = [an_left, an_bottom]
-      statfile = mainfo.tstatfile1
-      cursorreadonly = cr_arrow
-      controller.filter = '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'
-      controller.filterlist.data = (
-        (
-          'MS wav'
-          '"*.wav" "*.WAV"'
-        )
-        (
-          'Ogg Vorbis'
-          '"*.ogg" "*.OGG"'
-        )
-        (
-          'Flac'
-          '"*.flac" "*.FLAC"'
-        )
-        (
-          'MP3'
-          '"*.mp3" "*.MP3"'
-        )
-        (
-          'All audio files'
-          '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'
-        )
-      )
-      controller.options = [fdo_directory, fdo_savelastdir]
-      controller.historymaxcount = 100
-      controller.onbeforeexecute = whosent
-      controller.onafterexecute = onafterdialog
-      reffontheight = 15
-    end
     object tbutton1: tbutton
       color = -2147483645
       frame.captiondist = 0
@@ -197,7 +126,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange
-      taborder = 3
+      taborder = 2
       hint = ' Sent selected song to cue for Player 1 '
       bounds_x = 352
       bounds_y = 100
@@ -224,7 +153,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 4
+      taborder = 3
       hint = ' Sent selected song to cue for Player 2 '
       bounds_x = 392
       bounds_y = 100
@@ -493,7 +422,7 @@ object filelistfo: tfilelistfo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 5
+      taborder = 4
       hint = ' Number of files in the list '
       bounds_x = 290
       bounds_y = 104
@@ -507,7 +436,7 @@ object filelistfo: tfilelistfo
     object edfilescount: tintegeredit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 6
+      taborder = 5
       visible = False
       bounds_x = 259
       bounds_y = 41
@@ -529,7 +458,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 8
+      taborder = 7
       hint = ' Load custom play-list '
       bounds_x = 160
       bounds_y = 100
@@ -555,7 +484,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 9
+      taborder = 8
       hint = ' Save custom play-list '
       bounds_x = 246
       bounds_y = 100
@@ -581,7 +510,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
-      taborder = 10
+      taborder = 9
       hint = ' Add file in custom play-list '
       bounds_x = 203
       bounds_y = 100
@@ -629,7 +558,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutltgray
-      taborder = 2
+      taborder = 1
       hint = ' History of Directories '
       bounds_x = 27
       bounds_y = 100
@@ -654,16 +583,43 @@ object filelistfo: tfilelistfo
       onafterclosedropdown = onaftdrop
       reffontheight = 15
     end
+    object tbutton6: tbutton
+      Tag = 1
+      color = -2147483645
+      frame.captiondist = 0
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_height]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfacebutgray
+      taborder = 10
+      hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
+      bounds_x = 3
+      bounds_y = 100
+      bounds_cx = 23
+      bounds_cy = 24
+      anchors = [an_right, an_bottom]
+      state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      caption = '...'
+      captiondist = 0
+      imagenr = 27
+      focusrectdist = 0
+      onexecute = opendir
+    end
     object hintpanel: tgroupbox
       frame.localprops = []
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceorange
-      taborder = 7
+      taborder = 6
       visible = False
-      bounds_x = 1
-      bounds_y = 91
+      bounds_x = 0
+      bounds_y = 92
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

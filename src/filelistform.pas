@@ -5,15 +5,14 @@ unit filelistform;
 
 interface
 
-uses 
-math,
-msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication, msestat, 
-msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent, 
-msedatalist, mseclasses, msegridsglob, mseforms, msedock, msedragglob, 
-msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits, msedatanodes, 
-mseedit, msefiledialog, msegrids, mseificomp, mseificompglob, mseifiglob, 
-mselistbrowser, msestatfile, msestream, msestrings, msesys, SysUtils, 
-msegraphedits, msescrollbar, msedispwidgets, mserichstring, msedropdownlist;
+uses
+ math,msetypes, mseglob, mseguiglob, mseguiintf, msetimer, mseapplication,
+  msestat,msemenus, msefileutils, msegui, msegraphics, msegraphutils, mseevent,
+ msedatalist, mseclasses, msegridsglob, mseforms, msedock, msedragglob,
+ msesimplewidgets, msewidgets, mseact, msebitmap, msedataedits, msedatanodes,
+ mseedit, msefiledialogx, msegrids, mseificomp, mseificompglob, mseifiglob,
+ mselistbrowser, msestatfile, msestream, msestrings, msesys, SysUtils,
+ msegraphedits, msescrollbar, msedispwidgets, mserichstring, msedropdownlist;
 
 type 
   tfilelistfo = class(tdockform)
@@ -21,7 +20,6 @@ type
     Timercount: Ttimer;
     tfacecomp1: tfacecomp;
     tgroupbox1: tgroupbox;
-    songdir: tfilenameedit;
     historyfn: thistoryedit;
     tbutton1: TButton;
     tbutton2: TButton;
@@ -35,6 +33,7 @@ type
     tbutton5: tbutton;
     tstatfile1: tstatfile;
     tfiledialog1: tfiledialog;
+   tbutton6: tbutton;
     procedure formcreated(Const Sender: TObject);
     procedure visiblechangeev(Const Sender: TObject);
     procedure onsent(Const Sender: TObject);
@@ -65,6 +64,7 @@ type
    procedure afterdragend(const asender: TObject; const apos: pointty;
                    var adragobject: tdragobject; const accepted: Boolean;
                    var processed: Boolean);
+   procedure opendir(const sender: TObject);
   end;
 
 var 
@@ -649,13 +649,12 @@ var
   thestrnum : string;
 begin
 
-  thesender := 4;
-
+  tfiledialog1.controller.captionopen := 'Open Audio File';
+  
   tfiledialog1.controller.filter := 
-                                 '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'
-  ;
+                                 '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'  ;
 
-  if tfiledialog1.controller.execute(str1) then
+  if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     begin
 
       if fileexists(str1) then
@@ -739,6 +738,19 @@ begin
       bounds_cymax := 0;
       bounds_cy := fowidth;
     end;
+end;
+
+procedure tfilelistfo.opendir(const sender: TObject);
+begin
+  tfiledialog1.controller.captiondir  := 'Open Audio Directory';
+if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
+    begin
+    historyfn.Value :=tfiledialog1.controller.filename;
+    
+    onchangpath(Sender);
+       
+     end;
+
 end;
 
 end.
