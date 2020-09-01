@@ -618,6 +618,7 @@ type
     procedure oncellevplaces(const Sender: TObject; var info: celleventinfoty);
     procedure ondrawcellplace(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
     procedure onlayout(const Sender: tcustomgrid);
+   procedure onformcreated(const sender: TObject);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -1532,23 +1533,7 @@ begin
     list_log[4][x] := '';
   end;
 
-  places[0][0] := '      Home';
-  places[1][0] := sys_getuserhomedir;
-  places[0][1] := '      Desktop';
-  places[1][1] := sys_getuserhomedir + directoryseparator + 'Desktop';
-  places[0][2] := '      Music';
-  places[1][2] := sys_getuserhomedir + directoryseparator + 'Music';
-  places[0][3] := '      Pictures';
-  places[1][3] := sys_getuserhomedir + directoryseparator + 'Pictures';
-  places[0][4] := '      Videos';
-  places[1][4] := sys_getuserhomedir + directoryseparator + 'Videos';
-  places[0][5] := '      Documents';
-  places[1][5] := sys_getuserhomedir + directoryseparator + 'Documents';
-  places[0][6] := '      Downloads';
-  places[1][6] := sys_getuserhomedir + directoryseparator + 'Downloads';
-
-
-  y  := 0;
+   y  := 0;
   x2 := 0;
 
   //  dir.frame.caption := 'Directory with 0 files';
@@ -2063,6 +2048,24 @@ procedure tfiledialogfo.onlayout(const Sender: tcustomgrid);
 begin
   listview.left     := list_log.left;
   tsplitter1.Height := list_log.Height;
+end;
+
+procedure tfiledialogfo.onformcreated(const sender: TObject);
+begin
+  places[0][0] := '      Home';
+  places[1][0] := sys_getuserhomedir;
+  places[0][1] := '      Desktop';
+  places[1][1] := sys_getuserhomedir + directoryseparator + 'Desktop';
+  places[0][2] := '      Music';
+  places[1][2] := sys_getuserhomedir + directoryseparator + 'Music';
+  places[0][3] := '      Pictures';
+  places[1][3] := sys_getuserhomedir + directoryseparator + 'Pictures';
+  places[0][4] := '      Videos';
+  places[1][4] := sys_getuserhomedir + directoryseparator + 'Videos';
+  places[0][5] := '      Documents';
+  places[1][5] := sys_getuserhomedir + directoryseparator + 'Documents';
+  places[0][6] := '      Downloads';
+  places[1][6] := sys_getuserhomedir + directoryseparator + 'Downloads';
 end;
 
 { tfiledialogcontroller }

@@ -860,7 +860,7 @@ begin
      
      historyfn.Value := utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
    + 'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' 
-   + UTF8Decode(formatdatetime('YYYY_MM_DD_HH_mm_ss',now)) +'.wav');
+   + UTF8Decode(formatdatetime('YY_MM_DD_HH_mm_ss',now)) +'.wav');
      
      
      uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
