@@ -6,11 +6,11 @@ interface
 uses
  ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
  mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, math,
-  mseevent,mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,
-  msedataedits,msefiledialogx, msegrids, mselistbrowser, msesys, SysUtils,
-  msegraphedits,mseificomp, mseificompglob, mseifiglob, msescrollbar,
-  msedragglob, mseact,mseedit, msestatfile, msestream, msestrings, msebitmap,
-  msedatanodes,msedispwidgets, mserichstring;
+ mseevent,mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,
+ msedataedits,msefiledialogx, msegrids, mselistbrowser, msesys, SysUtils,
+ msegraphedits,mseificomp, mseificompglob, mseifiglob, msescrollbar,msedragglob,
+ mseact,mseedit, msestatfile, msestream, msestrings, msebitmap,msedatanodes,
+ msedispwidgets, mserichstring, msedropdownlist, msegridsglob;
 
 type
   trecorderfo = class(tdockform)
@@ -22,8 +22,6 @@ type
     tfacerecrev: tfacecomp;
     tgroupbox1: tgroupbox;
     tfacerecorder: tfacecomp;
-    tlabel2: tlabel;
-    tlabel28: tlabel;
     tbutton3: TButton;
     tbutton2: TButton;
     blistenin: tbooleanedit;
@@ -40,9 +38,7 @@ type
     btnStart: TButton;
     btnResume: TButton;
     btnPause: TButton;
-    tlabel27: tlabel;
     historyfn: thistoryedit;
-    songdir: tfilenameedit;
     llength: tstringdisp;
     lposition: tstringdisp;
     tstringdisp2: tstringdisp;
@@ -54,6 +50,8 @@ type
     hintlabel: tlabel;
     hintlabel2: tlabel;
    sentcue1: tbooleanedit;
+   tbutton6: tbutton;
+   tfiledialog1: tfiledialog;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -85,6 +83,7 @@ type
     procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
    procedure oncreated(const sender: TObject);
+   procedure onex(const sender: TObject);
   end;
 
  equalizer_band_type = record
@@ -536,7 +535,7 @@ begin
       end;
       lposition.face.template := tfacereclight;
       cbloop.Enabled := False;
-      songdir.Value := historyfn.Value;
+      //songdir.Value := historyfn.Value;
       historyfn.hint := historyfn.Value;
       if timerwait.Enabled then
   timerwait.restart // to reset
@@ -811,12 +810,12 @@ begin
     label6.Enabled := False;
   end;
 
-  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+ // ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
-  if songdir.Value = '' then
-    songdir.Value := utf8decode(ordir + 'sound' + directoryseparator + 'record' + directoryseparator + 'record.wav');
+//  if songdir.Value = '' then
+//    songdir.Value := utf8decode(ordir + 'sound' + directoryseparator + 'record' + directoryseparator + 'record.wav');
 
-  recorderfo.historyfn.Value := recorderfo.songdir.Value;
+//  recorderfo.historyfn.Value := recorderfo.songdir.Value;
 
 end;
 
@@ -1043,6 +1042,16 @@ if devin < 0 then
   btnStart.enabled := false;
   btinfos.enabled := false;
   end;
+end;
+
+procedure trecorderfo.onex(const sender: TObject);
+begin
+  tfiledialog1.controller.captionopen  := 'Open Audio File';
+   tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
+    begin
+    historyfn.Value :=tfiledialog1.controller.filename;
+    end;
 end;
 
 

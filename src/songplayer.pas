@@ -10,7 +10,8 @@ uses
  msewidgets, msedataedits, msefiledialogx, msegrids, mselistbrowser, msesys,
  SysUtils, msegraphedits, msedragglob, mseact, mseedit, mseificomp,
  mseificompglob, mseifiglob, msestatfile, msestream, msestrings, msescrollbar,
- msebitmap, msedatanodes, msedispwidgets, mserichstring;
+ msebitmap, msedatanodes, msedispwidgets, mserichstring, msedropdownlist,
+  msegridsglob;
 
 type
   tsongplayerfo = class(tdockform)
@@ -25,7 +26,6 @@ type
     cbtempo: tbooleanedit;
     trackbar1: tslider;
     historyfn: thistoryedit;
-    songdir: tfilenameedit;
     llength: tstringdisp;
     lposition: tstringdisp;
     tstringdisp1: tstringdisp;
@@ -52,6 +52,8 @@ type
     BtnCue: TButton;
     setmono: tbooleanedit;
     ttimer1: ttimer;
+   tbutton6: tbutton;
+   tfiledialog1: tfiledialog;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -97,6 +99,7 @@ type
     procedure ongetbpm(const Sender: TObject);
 
    procedure ontimerwaveform(const sender: TObject);
+   procedure opendir(const sender: TObject);
   protected
     procedure paintsliderimage(const canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const canvas: tcanvas; const arect: rectty);
@@ -821,7 +824,7 @@ temp : double;
 begin
 
 if (commanderfo.timermix.Enabled = false) or 
-((commanderfo.timermix.Enabled = true) and (commanderfo.guimix.value = false) ) then
+((commanderfo.timermix.Enabled = true) and (configfo.guimix.value = false) ) then
 begin
   if (Visible = True) then
     ShowPosition(nil);
@@ -1110,7 +1113,7 @@ begin
           end;
 
           cbloop.Enabled := False;
-          songdir.Value := historyfn.Value;
+          //songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
           if timerwait.Enabled then
   timerwait.restart // to reset
@@ -1400,7 +1403,7 @@ begin
           end;
 
           cbloop.Enabled := False;
-          songdir.Value := historyfn.Value;
+          //songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
           if timerwait.Enabled then
   timerwait.restart // to reset
@@ -2496,13 +2499,13 @@ begin
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
-  if songdir.Value = '' then
-    songdir.Value := utf8decode( ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg');
+ // if songdir.Value = '' then
+ //   songdir.Value := utf8decode( ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg');
 
   // if historyfn.value = '' then
   // historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
 
-  historyfn.Value := songdir.Value;
+ // historyfn.Value := songdir.Value;
 
 end;
 
@@ -2840,5 +2843,17 @@ procedure tsongplayerfo.ontimerwaveform(const sender: TObject);
 begin
 onwavform(sender);
 end;
+
+procedure tsongplayerfo.opendir(const sender: TObject);
+begin
+  tfiledialog1.controller.captionopen  := 'Open Audio File';
+   tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
+    begin
+    historyfn.Value :=tfiledialog1.controller.filename;
+    end;
+
+end;
+
 
 end.

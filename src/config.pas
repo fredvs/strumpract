@@ -21,6 +21,7 @@ type
    speccalc: tbooleanedit;
    defdevin: tlabel;
    defdevout: tlabel;
+   guimix: tbooleanedit;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);

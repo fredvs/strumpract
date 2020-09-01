@@ -11,8 +11,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = tfacegriptab
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 493
-  bounds_y = 316
+  bounds_x = 332
+  bounds_y = 296
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -226,7 +226,7 @@ object commanderfo: tcommanderfo
       bounds_x = 9
       bounds_y = 3
       bounds_cx = 47
-      bounds_cy = 16
+      bounds_cy = 14
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
@@ -537,37 +537,6 @@ object commanderfo: tcommanderfo
       value = 'General'
       reffontheight = 13
     end
-    object linkvolgen: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'L+R'
-      frame.captionpos = cp_left
-      frame.captiondist = 3
-      frame.font.color = 4013373
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        26
-        1
-        0
-        2
-      )
-      face.localprops = []
-      face.template = mainfo.tfacebutltgray
-      taborder = 3
-      hint = ' Link left and right volume general '
-      bounds_x = 6
-      bounds_y = 17
-      bounds_cx = 39
-      bounds_cy = 15
-      statfile = mainfo.tstatfile1
-      colorglyph = 4868682
-      value = True
-    end
     object genleftvolvalue: tbutton
       frame.framei_left = 4
       frame.framei_top = 2
@@ -631,6 +600,141 @@ object commanderfo: tcommanderfo
       font.localprops = [flp_color, flp_height]
       onexecute = onresetgenvol
     end
+    object timage2: timage
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 6
+      bounds_x = 4
+      bounds_y = 18
+      bounds_cx = 28
+      bounds_cy = 12
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      bitmap.image = {
+        00000000120000002B0000001400000090070000000000000000000000000000
+        000000000000000000000000000000000000000000000030FFFFFF0B00000001
+        FFFFFF14FEFEFE0100000009FFFFFF02ECECEC01E9E9E901F0F0F001EDEDED01
+        ECECEC01EBEBEB02EAEAEA01F1F1F101FFFFFF03F4F4F401EAEAEA01E3E3E301
+        DADADA01D8D8D803D9D9D903DADADA03DCDCDC02DDDDDD01E1E1E101EBEBEB01
+        ECECEC01F9F9F901FDFDFD0100000007F1F1F101EDEDED01DCDCDC01BABABA01
+        A1A1A101979797019494940193939303A2A2A201DDDDDD01FFFFFF02E4E4E401
+        C1C1C101A0A0A0018E8E8E018686860185858501868686018585850186868603
+        87878701868686018787870188888801878787028A8A8A0192929201AAAAAA01
+        CACACA01DCDCDC01DFDFDF0100000005F0F0F001E2E2E201BBBBBB018F8F8F01
+        7A7A7A017474740173737301727272017373730285858501C7C7C701FFFFFF02
+        D8D8D801A1A1A1017E7E7E01747474017272720A737373067777770185858501
+        ACACAC01D0D0D001DDDDDD0100000003FFFFFF01E8E8E801BABABA0184848401
+        7373730174747401777777017B7B7B017C7C7C017D7D7D0183838301B6B6B601
+        FCFCFC01FFFFFF01E8E8E8019D9D9D017777770172727201747474017A7A7A01
+        7E7E7E0180808003828282038383830384848403838383017C7C7C0176767601
+        737373017E7E7E01ABABAB01D8D8D801F8F8F80100000002F6F6F601D0D0D001
+        8989890173737301767676018E8E8E01AEAEAE01C2C2C201C8C8C802CFCFCF01
+        EDEDED01FFFFFF01F8F8F801AEAEAE0179797901727272017979790197979701
+        BABABA01CCCCCC01D1D1D101D2D2D202D3D3D301D4D4D402D6D6D603D8D8D803
+        D3D3D301BDBDBD0198989801797979017373730184848401C7C7C701ECECEC01
+        00000001FFFFFF01EFEFEF01ACACAC01777777017474740194949401D3D3D301
+        EDEDED01F9F9F901FFFFFF05D3D3D3018A8A8A017373730177777701A1A1A101
+        DCDCDC01F4F4F401FFFFFF0EFCFCFC01DFDFDF019D9D9D017777770176767601
+        A5A5A501E8E8E801FFFFFF02E9E9E90192929201737373017E7E7E01C1C1C101
+        FCFCFC01FFFFFF01FEFEFE01FFFFFF05C1C1C1017C7C7C017373730186868601
+        CDCDCD01FFFFFF06F9F9F901F4F4F401F6F6F601FFFFFF09C7C7C70180808001
+        737373018E8E8E01E5E5E501FFFFFF01F9F9F901DADADA018585850173737301
+        8A8A8A01D2D2D201FFFFFF0200000004FFFFFF02B7B7B7017C7C7C0179797901
+        97979701E8E8E801FFFFFF0200000002FFFFFF01F9F9F901C2C2C201B2B2B201
+        B4B4B401D1D1D101FFFFFF0200000004FFFFFF02D1D1D1018C8C8C0173737301
+        85858501D9D9D901F8F8F802D9D9D90185858501737373018C8C8C01D1D1D101
+        FFFFFF0200000004FFFFFF02D0D0D001B4B4B401B2B2B201C2C2C201F9F9F901
+        FFFFFF0100000002FFFFFF02E8E8E80197979701797979017C7C7C01B5B5B501
+        FFFFFF0200000004FFFFFF02D2D2D2018A8A8A017373730184848401D7D7D701
+        F6F6F601FFFFFF01E5E5E5018E8E8E017373730180808001C7C7C701FFFFFF09
+        F6F6F601F5F5F501F9F9F901FFFFFF06CDCDCD0186868601737373017B7B7B01
+        BFBFBF01FFFFFF05FEFEFE01FFFFFF01FCFCFC01C1C1C1017E7E7E0173737301
+        8C8C8C01E4E4E401FFFFFF02E8E8E801A5A5A50176767601777777019D9D9D01
+        DFDFDF01FCFCFC01FFFFFF0EF4F4F401DCDCDC01A1A1A1017777770173737301
+        88888801D1D1D101FFFFFF05F9F9F901EDEDED01D3D3D3019494940174747401
+        76767601A2A2A201F0F0F001FFFFFF0100000001ECECEC01C7C7C70184848401
+        737373017979790198989801BDBDBD01D3D3D301D8D8D803D6D6D603D4D4D402
+        D3D3D301D2D2D202D1D1D101CCCCCC01BABABA01979797017979790172727201
+        78787801ABABAB01F4F4F401FFFFFF01F0F0F001CFCFCF01C8C8C802C2C2C201
+        AEAEAE018E8E8E01767676017373730183838301C5C5C501F6F6F601FFFFFF01
+        00000001F7F7F701D8D8D801ABABAB017E7E7E0173737301767676017C7C7C01
+        838383018484840383838303828282038080800182828201808080017E7E7E01
+        7A7A7A017474740173737301777777019B9B9B01DEDEDE01FFFFFF02BDBDBD01
+        848484017D7D7D017C7C7C017B7B7B0177777701737373027F7F7F01B1B1B101
+        E0E0E001F9F9F90100000003DDDDDD01D0D0D001ACACAC018585850177777701
+        7373730472727204737373017272720173737306767676017F7F7F01A2A2A201
+        D5D5D501FFFFFF02D7D7D7019191910173737303727272017373730178787801
+        87878701B2B2B201DCDCDC01E9E9E90100000005DFDFDF01DCDCDC01CACACA01
+        AAAAAA01929292018A8A8A0188888802898989038A8A8A028B8B8B018C8C8C01
+        8B8B8B018C8C8C018E8E8E018F8F8F0195959501A5A5A501C5C5C501E6E6E601
+        FEFEFE01FFFFFF01EBEBEB01B5B5B50196969601939393029494940195959501
+        9D9D9D01B2B2B201CFCFCF01E4E4E401E9E9E90100000007FDFDFD01F9F9F901
+        ECECEC01EBEBEB01E1E1E101DDDDDD01DEDEDE01DFDFDF02E0E0E002E1E1E101
+        E2E2E201E3E3E302E4E4E401E5E5E501E6E6E601ECECEC01E0E0E001F6F6F601
+        FFFFFF03F8F8F801ECECEC01EBEBEB02ECECEC02F0F0F001EDEDED01EAEAEA01
+        FFFFFF0200000009FEFEFE01FFFFFF12F9F9F901FFFFFF0100000001FFFFFF0B
+        0000003070030000000000000000000000000000000000000000000000000000
+        00000000000000000000000000000000000000000000000000010229555A5A5A
+        5A5A4A0700010633575A5A5A5A5A5A5A5A5A5A5A5A5A5A592401000000000000
+        00000000157380B6F2FAFAFAFAFAE361095187C4F6FAFAFAFAFAFAFAFAFAFAFA
+        FAFAFAF8B0731500000000000000001494F5FEFEFFFFFFFFFFFFFFC071DBFEFE
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEF594140000000000001493F4FFFFFF
+        FFFFFFFFFFFFFFF2EAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF493
+        1400000000158FF4FFFFFFFFFFFFFFFFFDDBF7FFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFF48F1500000058F4FFFFFFFFFEFEFEFEFEE45EDBFF
+        FFFFFFFFFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFFFFFFFFF45800001DA7FDFF
+        FFFFFCB68080807F675CE3FFFFFFFFE89A8080808285858584808080808080B6
+        FCFFFFFFFDA71D0039F1FFFFFFFCB72B0101010109A0F9FFFFFFF17C1702010B
+        59A2A6A6901A02010101012BB5FBFFFFFFF1390039F1FFFFFFD8440100000000
+        0ABBFFFFFFFFE42B0100001DCDFDFFFFF7970800000000012FCFFFFFFFF13900
+        39F1FFFFFFCF2F01000000000897F7FFFFFDCD1D0000012BE4FFFFFFFFBB0A00
+        0000000144D8FFFFFFF1390039F1FFFFFFFBB52B01010101021A90A6A6A2590B
+        0102177CF1FFFFFFFAA70A010101012BB7FCFFFFFFF139001DA7FDFFFFFFFCB6
+        80808080808084858585828080809AE8FFFFFFFFE667687F808080B6FCFFFFFF
+        FEC328000058F4FFFFFFFFFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFFFFFFFFFE
+        D15CE4FEFEFEFEFEFFFFFFFFF46D080000158FF4FFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFE979C3FCFFFFFFFFFFFFFFFFF48F15000000001493
+        F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE3A3A1F3FFFFFFFFFFFF
+        FFFFF493140000000000001494F5FEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE
+        FEDB647DE8FEFFFFFFFFFFFFFEF5941400000000000000001573B0F8FAFAFAFA
+        FAFAFAFAFAFAFAFAFAFAF2997F51085FE3FAFAFAFAFAFAD18D73150000000000
+        00000000000124595A5A5A5A5A5A5A5A5A5A5A5A5A5A5514010100074A5A5A5A
+        5A5A5A3C0B010000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000000000000000
+      }
+    end
+    object linkvolgen: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = '        '
+      frame.captionpos = cp_left
+      frame.captiondist = 3
+      frame.font.color = 4013373
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        29
+        1
+        0
+        2
+      )
+      face.localprops = []
+      face.template = mainfo.tfacebutltgray
+      taborder = 3
+      hint = ' Link left and right volume general '
+      bounds_x = 6
+      bounds_y = 18
+      bounds_cx = 42
+      bounds_cy = 15
+      statfile = mainfo.tstatfile1
+      colorglyph = 4868682
+      value = True
+    end
   end
   object tgroupboxplayers: tgroupbox
     color = -2147483645
@@ -648,11 +752,114 @@ object commanderfo: tcommanderfo
     bounds_y = 0
     bounds_cx = 283
     bounds_cy = 126
+    object timage1: timage
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 31
+      bounds_x = 124
+      bounds_y = 20
+      bounds_cx = 31
+      bounds_cy = 12
+      bitmap.options = [bmo_masked, bmo_graymask]
+      bitmap.origformat = 'png'
+      bitmap.alignment = [al_stretchx, al_stretchy]
+      bitmap.image = {
+        00000000120000002B0000001400000090070000000000000000000000000000
+        000000000000000000000000000000000000000000000030FFFFFF0B00000001
+        FFFFFF14FEFEFE0100000009FFFFFF02ECECEC01E9E9E901F0F0F001EDEDED01
+        ECECEC01EBEBEB02EAEAEA01F1F1F101FFFFFF03F4F4F401EAEAEA01E3E3E301
+        DADADA01D8D8D803D9D9D903DADADA03DCDCDC02DDDDDD01E1E1E101EBEBEB01
+        ECECEC01F9F9F901FDFDFD0100000007F1F1F101EDEDED01DCDCDC01BABABA01
+        A1A1A101979797019494940193939303A2A2A201DDDDDD01FFFFFF02E4E4E401
+        C1C1C101A0A0A0018E8E8E018686860185858501868686018585850186868603
+        87878701868686018787870188888801878787028A8A8A0192929201AAAAAA01
+        CACACA01DCDCDC01DFDFDF0100000005F0F0F001E2E2E201BBBBBB018F8F8F01
+        7A7A7A017474740173737301727272017373730285858501C7C7C701FFFFFF02
+        D8D8D801A1A1A1017E7E7E01747474017272720A737373067777770185858501
+        ACACAC01D0D0D001DDDDDD0100000003FFFFFF01E8E8E801BABABA0184848401
+        7373730174747401777777017B7B7B017C7C7C017D7D7D0183838301B6B6B601
+        FCFCFC01FFFFFF01E8E8E8019D9D9D017777770172727201747474017A7A7A01
+        7E7E7E0180808003828282038383830384848403838383017C7C7C0176767601
+        737373017E7E7E01ABABAB01D8D8D801F8F8F80100000002F6F6F601D0D0D001
+        8989890173737301767676018E8E8E01AEAEAE01C2C2C201C8C8C802CFCFCF01
+        EDEDED01FFFFFF01F8F8F801AEAEAE0179797901727272017979790197979701
+        BABABA01CCCCCC01D1D1D101D2D2D202D3D3D301D4D4D402D6D6D603D8D8D803
+        D3D3D301BDBDBD0198989801797979017373730184848401C7C7C701ECECEC01
+        00000001FFFFFF01EFEFEF01ACACAC01777777017474740194949401D3D3D301
+        EDEDED01F9F9F901FFFFFF05D3D3D3018A8A8A017373730177777701A1A1A101
+        DCDCDC01F4F4F401FFFFFF0EFCFCFC01DFDFDF019D9D9D017777770176767601
+        A5A5A501E8E8E801FFFFFF02E9E9E90192929201737373017E7E7E01C1C1C101
+        FCFCFC01FFFFFF01FEFEFE01FFFFFF05C1C1C1017C7C7C017373730186868601
+        CDCDCD01FFFFFF06F9F9F901F4F4F401F6F6F601FFFFFF09C7C7C70180808001
+        737373018E8E8E01E5E5E501FFFFFF01F9F9F901DADADA018585850173737301
+        8A8A8A01D2D2D201FFFFFF0200000004FFFFFF02B7B7B7017C7C7C0179797901
+        97979701E8E8E801FFFFFF0200000002FFFFFF01F9F9F901C2C2C201B2B2B201
+        B4B4B401D1D1D101FFFFFF0200000004FFFFFF02D1D1D1018C8C8C0173737301
+        85858501D9D9D901F8F8F802D9D9D90185858501737373018C8C8C01D1D1D101
+        FFFFFF0200000004FFFFFF02D0D0D001B4B4B401B2B2B201C2C2C201F9F9F901
+        FFFFFF0100000002FFFFFF02E8E8E80197979701797979017C7C7C01B5B5B501
+        FFFFFF0200000004FFFFFF02D2D2D2018A8A8A017373730184848401D7D7D701
+        F6F6F601FFFFFF01E5E5E5018E8E8E017373730180808001C7C7C701FFFFFF09
+        F6F6F601F5F5F501F9F9F901FFFFFF06CDCDCD0186868601737373017B7B7B01
+        BFBFBF01FFFFFF05FEFEFE01FFFFFF01FCFCFC01C1C1C1017E7E7E0173737301
+        8C8C8C01E4E4E401FFFFFF02E8E8E801A5A5A50176767601777777019D9D9D01
+        DFDFDF01FCFCFC01FFFFFF0EF4F4F401DCDCDC01A1A1A1017777770173737301
+        88888801D1D1D101FFFFFF05F9F9F901EDEDED01D3D3D3019494940174747401
+        76767601A2A2A201F0F0F001FFFFFF0100000001ECECEC01C7C7C70184848401
+        737373017979790198989801BDBDBD01D3D3D301D8D8D803D6D6D603D4D4D402
+        D3D3D301D2D2D202D1D1D101CCCCCC01BABABA01979797017979790172727201
+        78787801ABABAB01F4F4F401FFFFFF01F0F0F001CFCFCF01C8C8C802C2C2C201
+        AEAEAE018E8E8E01767676017373730183838301C5C5C501F6F6F601FFFFFF01
+        00000001F7F7F701D8D8D801ABABAB017E7E7E0173737301767676017C7C7C01
+        838383018484840383838303828282038080800182828201808080017E7E7E01
+        7A7A7A017474740173737301777777019B9B9B01DEDEDE01FFFFFF02BDBDBD01
+        848484017D7D7D017C7C7C017B7B7B0177777701737373027F7F7F01B1B1B101
+        E0E0E001F9F9F90100000003DDDDDD01D0D0D001ACACAC018585850177777701
+        7373730472727204737373017272720173737306767676017F7F7F01A2A2A201
+        D5D5D501FFFFFF02D7D7D7019191910173737303727272017373730178787801
+        87878701B2B2B201DCDCDC01E9E9E90100000005DFDFDF01DCDCDC01CACACA01
+        AAAAAA01929292018A8A8A0188888802898989038A8A8A028B8B8B018C8C8C01
+        8B8B8B018C8C8C018E8E8E018F8F8F0195959501A5A5A501C5C5C501E6E6E601
+        FEFEFE01FFFFFF01EBEBEB01B5B5B50196969601939393029494940195959501
+        9D9D9D01B2B2B201CFCFCF01E4E4E401E9E9E90100000007FDFDFD01F9F9F901
+        ECECEC01EBEBEB01E1E1E101DDDDDD01DEDEDE01DFDFDF02E0E0E002E1E1E101
+        E2E2E201E3E3E302E4E4E401E5E5E501E6E6E601ECECEC01E0E0E001F6F6F601
+        FFFFFF03F8F8F801ECECEC01EBEBEB02ECECEC02F0F0F001EDEDED01EAEAEA01
+        FFFFFF0200000009FEFEFE01FFFFFF12F9F9F901FFFFFF0100000001FFFFFF0B
+        0000003070030000000000000000000000000000000000000000000000000000
+        00000000000000000000000000000000000000000000000000010229555A5A5A
+        5A5A4A0700010633575A5A5A5A5A5A5A5A5A5A5A5A5A5A592401000000000000
+        00000000157380B6F2FAFAFAFAFAE361095187C4F6FAFAFAFAFAFAFAFAFAFAFA
+        FAFAFAF8B0731500000000000000001494F5FEFEFFFFFFFFFFFFFFC071DBFEFE
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEF594140000000000001493F4FFFFFF
+        FFFFFFFFFFFFFFF2EAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF493
+        1400000000158FF4FFFFFFFFFFFFFFFFFDDBF7FFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFF48F1500000058F4FFFFFFFFFEFEFEFEFEE45EDBFF
+        FFFFFFFFFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFFFFFFFFF45800001DA7FDFF
+        FFFFFCB68080807F675CE3FFFFFFFFE89A8080808285858584808080808080B6
+        FCFFFFFFFDA71D0039F1FFFFFFFCB72B0101010109A0F9FFFFFFF17C1702010B
+        59A2A6A6901A02010101012BB5FBFFFFFFF1390039F1FFFFFFD8440100000000
+        0ABBFFFFFFFFE42B0100001DCDFDFFFFF7970800000000012FCFFFFFFFF13900
+        39F1FFFFFFCF2F01000000000897F7FFFFFDCD1D0000012BE4FFFFFFFFBB0A00
+        0000000144D8FFFFFFF1390039F1FFFFFFFBB52B01010101021A90A6A6A2590B
+        0102177CF1FFFFFFFAA70A010101012BB7FCFFFFFFF139001DA7FDFFFFFFFCB6
+        80808080808084858585828080809AE8FFFFFFFFE667687F808080B6FCFFFFFF
+        FEC328000058F4FFFFFFFFFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFEFFFFFFFFFE
+        D15CE4FEFEFEFEFEFFFFFFFFF46D080000158FF4FFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFE979C3FCFFFFFFFFFFFFFFFFF48F15000000001493
+        F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE3A3A1F3FFFFFFFFFFFF
+        FFFFF493140000000000001494F5FEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE
+        FEDB647DE8FEFFFFFFFFFFFFFEF5941400000000000000001573B0F8FAFAFAFA
+        FAFAFAFAFAFAFAFAFAFAF2997F51085FE3FAFAFAFAFAFAD18D73150000000000
+        00000000000124595A5A5A5A5A5A5A5A5A5A5A5A5A5A5514010100074A5A5A5A
+        5A5A5A3C0B010000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000000000000000
+      }
+    end
     object timemix: trealspinedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = -2147483645
-      frame.caption = 'MT'
       frame.captionpos = cp_left
       frame.font.color = 4342338
       frame.font.height = 10
@@ -668,20 +875,14 @@ object commanderfo: tcommanderfo
       frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
-      frame.buttonsize = 20
-      frame.outerframe = (
-        18
-        0
-        0
-        0
-      )
+      frame.buttonsize = 39
       face.localprops = []
       face.template = mainfo.tfaceplayer
       hint = ' Change mixing time in 1/100 second '
-      bounds_x = 104
-      bounds_y = 68
-      bounds_cx = 70
-      bounds_cy = 24
+      bounds_x = 100
+      bounds_y = 50
+      bounds_cx = 79
+      bounds_cy = 32
       statfile = mainfo.tstatfile1
       font.colorselect = 2105625
       font.colorselectbackground = 14015399
@@ -710,9 +911,9 @@ object commanderfo: tcommanderfo
       taborder = 3
       hint = ' Stop player '
       bounds_x = 4
-      bounds_y = 16
+      bounds_y = 2
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 2
@@ -730,9 +931,9 @@ object commanderfo: tcommanderfo
       taborder = 5
       hint = ' Resume player '
       bounds_x = 4
-      bounds_y = 41
+      bounds_y = 33
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute, as_localonafterexecute]
       imagelist = mainfo.buttonicons
       imagenr = 28
@@ -751,9 +952,9 @@ object commanderfo: tcommanderfo
       taborder = 2
       hint = ' Load and Start Player '
       bounds_x = 4
-      bounds_y = 66
+      bounds_y = 64
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -773,9 +974,9 @@ object commanderfo: tcommanderfo
       taborder = 6
       hint = ' Left Volume Player 1 '
       bounds_x = 41
-      bounds_y = 16
+      bounds_y = 4
       bounds_cx = 25
-      bounds_cy = 94
+      bounds_cy = 106
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = setvolume
@@ -823,9 +1024,9 @@ object commanderfo: tcommanderfo
       taborder = 7
       hint = ' Right Volume Player 1 '
       bounds_x = 67
-      bounds_y = 16
+      bounds_y = 4
       bounds_cx = 25
-      bounds_cy = 94
+      bounds_cy = 106
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = setvolume
@@ -869,10 +1070,10 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceorange
       taborder = 1
       hint = '  Start Player 1 --> MIX --> Stop Player 2 '
-      bounds_x = 102
-      bounds_y = 93
-      bounds_cx = 37
-      bounds_cy = 28
+      bounds_x = 100
+      bounds_y = 84
+      bounds_cx = 39
+      bounds_cy = 40
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -890,10 +1091,10 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerbut
       taborder = 8
       hint = '  Start Player 2 --> MIX --> Stop Player 1 '
-      bounds_x = 142
-      bounds_y = 93
-      bounds_cx = 37
-      bounds_cy = 28
+      bounds_x = 140
+      bounds_y = 84
+      bounds_cx = 39
+      bounds_cy = 40
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -914,9 +1115,9 @@ object commanderfo: tcommanderfo
       taborder = 9
       hint = ' Right Volume Player 2 '
       bounds_x = 215
-      bounds_y = 16
+      bounds_y = 4
       bounds_cx = 25
-      bounds_cy = 94
+      bounds_cy = 106
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = setvolume
@@ -964,9 +1165,9 @@ object commanderfo: tcommanderfo
       taborder = 10
       hint = ' Left Volume Player 2 '
       bounds_x = 189
-      bounds_y = 16
+      bounds_y = 4
       bounds_cx = 25
-      bounds_cy = 94
+      bounds_cy = 106
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = setvolume
@@ -1012,9 +1213,9 @@ object commanderfo: tcommanderfo
       taborder = 11
       hint = ' Cue-Load-Pause Player '
       bounds_x = 4
-      bounds_y = 91
+      bounds_y = 95
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 34
@@ -1033,9 +1234,9 @@ object commanderfo: tcommanderfo
       taborder = 12
       hint = ' Load and Start Player '
       bounds_x = 251
-      bounds_y = 66
+      bounds_y = 64
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -1054,9 +1255,9 @@ object commanderfo: tcommanderfo
       taborder = 13
       hint = ' Cue-Load-Pause Player '
       bounds_x = 251
-      bounds_y = 91
+      bounds_y = 95
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 34
@@ -1075,9 +1276,9 @@ object commanderfo: tcommanderfo
       taborder = 14
       hint = ' Stop player '
       bounds_x = 251
-      bounds_y = 16
+      bounds_y = 2
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 2
@@ -1096,9 +1297,9 @@ object commanderfo: tcommanderfo
       taborder = 16
       hint = ' Resume player '
       bounds_x = 251
-      bounds_y = 41
+      bounds_y = 33
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute, as_localonafterexecute]
       imagelist = mainfo.buttonicons
       imagenr = 28
@@ -1117,7 +1318,7 @@ object commanderfo: tcommanderfo
       bounds_x = 103
       bounds_y = 3
       bounds_cx = 75
-      bounds_cy = 18
+      bounds_cy = 14
       font.color = 3881787
       font.height = 10
       font.name = 'stf_default'
@@ -1196,8 +1397,7 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'L+R'
-      frame.captionpos = cp_left
+      frame.caption = '      '
       frame.captiondist = 3
       frame.font.color = 4013373
       frame.font.height = 10
@@ -1206,18 +1406,18 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        26
-        1
         0
+        1
+        23
         2
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 21
       hint = ' Link left and right volume Player 1 '
-      bounds_x = 46
-      bounds_y = 1
-      bounds_cx = 39
+      bounds_x = 104
+      bounds_y = 20
+      bounds_cx = 36
       bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
@@ -1227,7 +1427,7 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'L+R'
+      frame.caption = '      '
       frame.captionpos = cp_left
       frame.captiondist = 3
       frame.font.color = 4013373
@@ -1237,7 +1437,7 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        26
+        23
         1
         0
         2
@@ -1246,9 +1446,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 22
       hint = ' Link left and right volume Player 2 '
-      bounds_x = 195
-      bounds_y = 1
-      bounds_cx = 39
+      bounds_x = 140
+      bounds_y = 20
+      bounds_cx = 36
       bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
@@ -1258,7 +1458,7 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'View meter'
+      frame.caption = 'VU'
       frame.captionpos = cp_left
       frame.captiondist = 3
       frame.font.color = 4013373
@@ -1268,7 +1468,7 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        62
+        19
         1
         0
         2
@@ -1277,9 +1477,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 23
       hint = ' View Meters on/off '
-      bounds_x = 103
-      bounds_y = 20
-      bounds_cx = 75
+      bounds_x = 145
+      bounds_y = 34
+      bounds_cx = 32
       bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
@@ -1289,8 +1489,7 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Auto mix'
-      frame.captionpos = cp_left
+      frame.caption = 'AM'
       frame.captiondist = 3
       frame.font.color = 4013373
       frame.font.height = 10
@@ -1299,18 +1498,18 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        50
-        1
         0
+        1
+        21
         2
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 24
       hint = ' Auto Mixing on/off '
-      bounds_x = 110
-      bounds_y = 35
-      bounds_cx = 63
+      bounds_x = 104
+      bounds_y = 34
+      bounds_cx = 34
       bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
@@ -1474,9 +1673,9 @@ object commanderfo: tcommanderfo
       taborder = 4
       hint = ' Pause player '
       bounds_x = 4
-      bounds_y = 41
+      bounds_y = 33
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 1
@@ -1495,9 +1694,9 @@ object commanderfo: tcommanderfo
       taborder = 15
       hint = ' Pause player '
       bounds_x = 251
-      bounds_y = 41
+      bounds_y = 33
       bounds_cx = 28
-      bounds_cy = 24
+      bounds_cy = 29
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 1
@@ -1512,15 +1711,15 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceorange
       taborder = 25
       visible = False
-      bounds_x = 45
-      bounds_y = 61
+      bounds_x = 193
+      bounds_y = 80
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
       font.localprops = []
       object hintlabel: tlabel
-        bounds_x = 3
-        bounds_y = 2
+        bounds_x = 26
+        bounds_y = 1
         bounds_cx = 169
         bounds_cy = 15
         caption = 'Invalid value.  Reset to 100.'
@@ -1541,38 +1740,6 @@ object commanderfo: tcommanderfo
         reffontheight = 15
       end
     end
-    object guimix: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'No GUI/mix'
-      frame.captionpos = cp_left
-      frame.captiondist = 3
-      frame.font.color = 4013373
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        61
-        1
-        0
-        2
-      )
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 31
-      hint = 'No graphic-anim while mixing (if cpu too low) '
-      bounds_x = 103
-      bounds_y = 51
-      bounds_cx = 74
-      bounds_cy = 15
-      statfile = mainfo.tstatfile1
-      colorglyph = 4868682
-      value = True
-      valuedefault = True
-    end
   end
   object tfacecomp7: tfacecomp
     template.fade_pos.count = 2
@@ -1586,8 +1753,8 @@ object commanderfo: tcommanderfo
       15921906
     )
     template.fade_direction = gd_left
-    left = 209
-    top = 10
+    left = 311
+    top = 32
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -1601,8 +1768,8 @@ object commanderfo: tcommanderfo
       10921638
     )
     template.fade_direction = gd_down
-    left = 233
-    top = 7
+    left = 321
+    top = 27
   end
   object tframecomp1: tframecomp
     template.framei_left = 4
@@ -1615,8 +1782,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 222
-    top = 10
+    left = 315
+    top = 20
   end
   object timagelist2: timagelist
     width = 4
@@ -1626,8 +1793,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 121
-    top = 33
+    left = 307
+    top = 29
     image = {
       00000000020000000C0000000C00000010010000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -1651,8 +1818,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 18
-    top = 11
+    left = 310
+    top = 31
     image = {
       00000000020000000C0000000C000000E8000000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -1678,8 +1845,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 163
-    top = 15
+    left = 300
+    top = 25
   end
   object tfaceslider: tfacecomp
     template.image.origformat = 'png'
@@ -2108,8 +2275,8 @@ object commanderfo: tcommanderfo
       B8B9B801B8B8B701B6B7B701B6B5B501B4B4B501B3B3B401B2B3B301B1B1B101
       B0B0B0018B8B8B01
     }
-    left = 324
-    top = 39
+    left = 310
+    top = 29
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -2130,8 +2297,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 281
-    top = 24
+    left = 307
+    top = 39
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -2145,8 +2312,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 275
-    top = 34
+    left = 281
+    top = 41
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -2575,7 +2742,7 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
-    left = 284
-    top = 39
+    left = 299
+    top = 36
   end
 end

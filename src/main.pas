@@ -1779,8 +1779,8 @@ begin
     waveforec.sliderimage.bitmap.Canvas.color := $F9FFC2;
 
 
-    songplayerfo.songdir.frame.button.colorglyph  := ltblack;
-    songplayer2fo.songdir.frame.button.colorglyph := ltblack;
+    //songplayerfo.songdir.frame.button.colorglyph  := ltblack;
+    //songplayer2fo.songdir.frame.button.colorglyph := ltblack;
 
     songplayerfo.historyfn.frame.button.colorglyph  := ltblack;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblack;
@@ -1884,7 +1884,7 @@ begin
 
     recorderfo.blistenin.colorglyph := ltblack;
 
-    recorderfo.songdir.frame.button.colorglyph   := ltblack;
+  // recorderfo.songdir.frame.button.colorglyph   := ltblack;
     recorderfo.historyfn.frame.button.colorglyph := ltblack;
 
     recorderfo.historyfn.dropdown.colorclient := ltblank;
@@ -1894,10 +1894,8 @@ begin
     recorderfo.bsavetofile.frame.font.color := ltblack;
     recorderfo.sentcue1.frame.font.color := ltblack;
     recorderfo.blistenin.frame.font.color := ltblack;
-    recorderfo.tlabel27.font.color     := ltblack;
     recorderfo.label6.font.color       := ltblack;
-    recorderfo.tlabel28.font.color     := ltblack;
-    recorderfo.tlabel2.font.color      := ltblack;
+    //recorderfo.tlabel2.font.color      := ltblack;
     recorderfo.btinfos.font.color      := ltblack;
     recorderfo.button1.font.color      := ltblack;
     recorderfo.tstringdisp2.font.color := ltblack;
@@ -1957,8 +1955,8 @@ begin
     commanderfo.automix.colorglyph       := ltblack;
     commanderfo.automix.frame.font.color := ltblack;
 
-    commanderfo.guimix.colorglyph       := ltblack;
-    commanderfo.guimix.frame.font.color := ltblack;
+   // configfo.guimix.colorglyph       := ltblack;
+  //  configfo.guimix.frame.font.color := ltblack;
 
     commanderfo.linkvol.colorglyph       := ltblack;
     commanderfo.linkvol.frame.font.color := ltblack;
@@ -2262,8 +2260,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.edtempo.frame.colorglyph     := ltblack;
     songplayer2fo.edtempo.frame.colorglyph    := ltblack;
 
-    songplayerfo.songdir.frame.button.colorglyph  := ltblack;
-    songplayer2fo.songdir.frame.button.colorglyph := ltblack;
+   // songplayerfo.songdir.frame.button.colorglyph  := ltblack;
+   // songplayer2fo.songdir.frame.button.colorglyph := ltblack;
 
     songplayerfo.historyfn.frame.button.colorglyph  := ltblack;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblack;
@@ -2355,10 +2353,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     recorderfo.bsavetofile.frame.font.color := ltblack;
     recorderfo.sentcue1.frame.font.color := ltblack;
     recorderfo.blistenin.frame.font.color := ltblack;
-    recorderfo.tlabel27.font.color     := ltblack;
     recorderfo.label6.font.color       := ltblack;
-    recorderfo.tlabel28.font.color     := ltblack;
-    recorderfo.tlabel2.font.color      := ltblack;
     recorderfo.btinfos.font.color      := ltblack;
     recorderfo.button1.font.color      := ltblack;
     recorderfo.tstringdisp2.font.color := ltblack;
@@ -2371,8 +2366,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     recorderfo.sentcue1.colorglyph    := ltblack;
     recorderfo.blistenin.colorglyph   := ltblack;
 
-    recorderfo.songdir.frame.button.colorglyph   := ltblack;
-    recorderfo.historyfn.frame.button.colorglyph := ltblack;
+     recorderfo.historyfn.frame.button.colorglyph := ltblack;
 
     recorderfo.historyfn.dropdown.colorclient := ltblank;
 
@@ -2445,8 +2439,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.automix.frame.font.color := ltblack;
 
 
-    commanderfo.guimix.colorglyph       := ltblack;
-    commanderfo.guimix.frame.font.color := ltblack;
+  //  configfo.guimix.colorglyph       := ltblack;
+  //  configfo.guimix.frame.font.color := ltblack;
 
     commanderfo.linkvol.colorglyph       := ltblack;
     commanderfo.linkvol.frame.font.color := ltblack;
@@ -2864,8 +2858,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.btinfos.font.color  := ltblank;
     songplayer2fo.btinfos.font.color := ltblank;
 
-    songplayerfo.songdir.frame.button.colorglyph  := ltblank;
-    songplayer2fo.songdir.frame.button.colorglyph := ltblank;
+  //  songplayerfo.songdir.frame.button.colorglyph  := ltblank;
+  //  songplayer2fo.songdir.frame.button.colorglyph := ltblank;
 
     songplayerfo.historyfn.frame.button.colorglyph  := ltblank;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblank;
@@ -2965,7 +2959,6 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     recorderfo.sentcue1.colorglyph    := ltblank;
     recorderfo.blistenin.colorglyph   := ltblank;
 
-    recorderfo.songdir.frame.button.colorglyph   := ltblank;
     recorderfo.historyfn.frame.button.colorglyph := ltblank;
 
     recorderfo.historyfn.dropdown.colorclient := ltblack;
@@ -2973,10 +2966,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     recorderfo.bsavetofile.frame.font.color := ltblank;
     recorderfo.sentcue1.frame.font.color := ltblank;
     recorderfo.blistenin.frame.font.color := ltblank;
-    recorderfo.tlabel27.font.color     := ltblank;
     recorderfo.label6.font.color       := ltblank;
-    recorderfo.tlabel28.font.color     := ltblank;
-    recorderfo.tlabel2.font.color      := ltblank;
     recorderfo.btinfos.font.color      := ltblank;
     recorderfo.button1.font.color      := ltblank;
     recorderfo.tstringdisp2.font.color := ltblank;
@@ -3041,8 +3031,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.automix.colorglyph       := ltblank;
     commanderfo.automix.frame.font.color := ltblank;
 
-    commanderfo.guimix.colorglyph       := ltblank;
-    commanderfo.guimix.frame.font.color := ltblank;
+   // configfo.guimix.colorglyph       := ltblank;
+   // configfo.guimix.frame.font.color := ltblank;
 
     commanderfo.linkvol.colorglyph       := ltblank;
     commanderfo.linkvol.frame.font.color := ltblank;

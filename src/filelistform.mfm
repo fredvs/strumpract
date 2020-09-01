@@ -10,8 +10,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.template = tfacecomp1
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
   visible = False
-  bounds_x = 659
-  bounds_y = 216
+  bounds_x = 741
+  bounds_y = 84
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -602,7 +602,7 @@ object filelistfo: tfilelistfo
       bounds_y = 100
       bounds_cx = 23
       bounds_cy = 24
-      anchors = [an_right, an_bottom]
+      anchors = [an_left, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '...'
       captiondist = 0
@@ -618,8 +618,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 0
-      bounds_y = 92
+      bounds_x = 2
+      bounds_y = 54
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

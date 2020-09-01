@@ -1,7 +1,7 @@
 object configfo: tconfigfo
   visible = False
-  bounds_x = 402
-  bounds_y = 207
+  bounds_x = 403
+  bounds_y = 225
   bounds_cx = 358
   bounds_cy = 200
   bounds_cxmin = 358
@@ -95,7 +95,7 @@ object configfo: tconfigfo
     frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
-      18
+      19
       0
       0
     )
@@ -113,9 +113,9 @@ object configfo: tconfigfo
     face.localprops = []
     taborder = 1
     bounds_x = 10
-    bounds_y = 1
+    bounds_y = 0
     bounds_cx = 337
-    bounds_cy = 87
+    bounds_cy = 88
     object latrec: trealspinedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -142,7 +142,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        17
+        18
         0
         0
       )
@@ -161,21 +161,18 @@ object configfo: tconfigfo
       hint = ' Change latency of Recorder/Direct Input.  ---->  -1 = Latency suggested. '
       bounds_x = 228
       bounds_y = 31
-      bounds_cy = 48
+      bounds_cy = 50
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = changelatrec
       value = -1
       valuedefault = -1
       valuerange = 1
-      valuestart = 0
       valuemin = -1
       valuemax = 10
       step = 0.001
-      stepctrlfact = 0
-      stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object latplay: trealspinedit
       color = -2147483645
@@ -203,7 +200,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        17
+        18
         0
         0
       )
@@ -223,21 +220,18 @@ object configfo: tconfigfo
       hint = ' Change latency of Players.  ---->  -1 = Latency suggested. '
       bounds_x = 119
       bounds_y = 31
-      bounds_cy = 48
+      bounds_cy = 50
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = changelatplay
       value = -1
       valuedefault = -1
       valuerange = 1
-      valuestart = 0
       valuemin = -1
       valuemax = 10
       step = 0.001
-      stepctrlfact = 0
-      stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
     object latdrums: trealspinedit
       color = -2147483645
@@ -265,7 +259,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        17
+        18
         0
         0
       )
@@ -285,29 +279,26 @@ object configfo: tconfigfo
       hint = ' Change latency of Drums.  ---->  -1 = Latency suggested. Need to close-reload Strumpract to feel the change. '
       bounds_x = 10
       bounds_y = 31
-      bounds_cy = 48
+      bounds_cy = 50
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       onchange = changelatdrums
       value = -1
       valuedefault = -1
       valuerange = 1
-      valuestart = 0
       valuemin = -1
       valuemax = 10
       step = 0.001
-      stepctrlfact = 0
-      stepshiftfact = 0
       wheelsensitivity = 1
-      reffontheight = 14
+      reffontheight = 15
     end
   end
   object tbutton1: tbutton
     frame.localprops = []
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp2
-    bounds_x = 147
-    bounds_y = 175
+    bounds_x = 141
+    bounds_y = 173
     bounds_cx = 70
     bounds_cy = 21
     state = [as_localcaption]
@@ -319,10 +310,10 @@ object configfo: tconfigfo
     bounds_x = 8
     bounds_y = 95
     bounds_cx = 121
-    bounds_cy = 14
+    bounds_cy = 15
     caption = 'Suggested latency: '
     textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 14
+    reffontheight = 15
   end
   object speccalc: tbooleanedit
     frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -345,8 +336,8 @@ object configfo: tconfigfo
     face.template = mainfo.tfacecomp5
     taborder = 3
     hint = 'Enable Spectrum calculation'
-    bounds_x = 88
-    bounds_y = 145
+    bounds_x = 17
+    bounds_y = 141
     bounds_cx = 191
     bounds_cy = 24
     statfile = mainfo.tstatfile1
@@ -358,17 +349,48 @@ object configfo: tconfigfo
     bounds_x = 11
     bounds_y = 120
     bounds_cx = 134
-    bounds_cy = 14
+    bounds_cy = 15
     caption = 'Default Device IN = -1'
-    reffontheight = 14
+    reffontheight = 15
   end
   object defdevout: tlabel
     taborder = 5
     bounds_x = 194
     bounds_y = 120
     bounds_cx = 146
-    bounds_cy = 14
+    bounds_cy = 15
     caption = 'Default Device OUT = -1'
-    reffontheight = 14
+    reffontheight = 15
+  end
+  object guimix: tbooleanedit
+    color = -2147483645
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.colorclient = 16580582
+    frame.caption = 'No GUI/mix'
+    frame.captiondist = 3
+    frame.font.color = 4013373
+    frame.font.height = 12
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_color, flp_height]
+    frame.localprops = [frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      0
+      2
+      73
+      3
+    )
+    face.localprops = []
+    face.template = mainfo.tfaceplayerlight
+    taborder = 6
+    hint = 'No graphic-anim while mixing (if cpu too low) '
+    bounds_x = 243
+    bounds_y = 144
+    bounds_cx = 86
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    colorglyph = 8026746
+    value = True
+    valuedefault = True
   end
 end

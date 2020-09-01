@@ -26,7 +26,7 @@ object spectrum1fo: tspectrum1fo
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
   dragdock.caption = ' Spect '
-  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint, od_childicons]
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
   dragdock.bandgap = 1
   font.name = 'stf_default'
   font.localprops = []
@@ -142,15 +142,15 @@ object spectrum1fo: tspectrum1fo
       frame.template = mainfo.tframecomp1
       frame.outerframe = (
         0
-        8
+        9
         0
         0
       )
       taborder = 1
       bounds_x = 1
-      bounds_y = 1
+      bounds_y = 0
       bounds_cx = 216
-      bounds_cy = 127
+      bounds_cy = 128
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_height]
@@ -164,22 +164,16 @@ object spectrum1fo: tspectrum1fo
         taborder = 1
         hint = ' Left Frequency spectrum '
         bounds_x = 4
-        bounds_y = 27
+        bounds_y = 28
         bounds_cx = 215
         bounds_cy = 101
         traces.count = 1
         traces.chartkind = tck_bar
         traces.xserstart = 0.02
-        traces.xstart = 0
-        traces.ystart = 0
         traces.xrange = 1
         traces.xserrange = 0.9
         traces.yrange = 1
-        traces.image_widthmm = 0
-        traces.image_heighthmm = 0
         traces.bar_width = 10
-        traces.legend_x = 0
-        traces.legend_y = 0
         traces.items = <        
           item
             color = -2147483647
@@ -187,35 +181,29 @@ object spectrum1fo: tspectrum1fo
             xserrange = 0.9
             xserstart = 0.02
             xrange = 1
-            xstart = 0
             yrange = 1
-            ystart = 0
             chartkind = tck_bar
             bar_width = 10
           end>
         colorchart = -1879048187
         framechart.localprops = []
         framechart.localprops1 = []
-        xstart = 0
-        ystart = 0
         xrange = 1
         yrange = 1
-        xdials.start = 0
         xdials.range = 1
-        ydials.start = 0
         ydials.range = 1
       end
       object labelleft: tlabel
         color = -2147483645
         bounds_x = 4
-        bounds_y = 16
+        bounds_y = 17
         bounds_cx = 211
-        bounds_cy = 10
+        bounds_cy = 12
         caption = '31   62   125  250  500  1k   2k   4k   8k   16k'
         font.height = 9
         font.name = 'stf_default'
         font.localprops = [flp_height]
-        reffontheight = 10
+        reffontheight = 12
       end
     end
     object groupbox2: tgroupbox
@@ -230,14 +218,14 @@ object spectrum1fo: tspectrum1fo
       frame.template = mainfo.tframecomp1
       frame.outerframe = (
         0
-        8
+        9
         0
         0
       )
       bounds_x = 215
-      bounds_y = 1
+      bounds_y = 0
       bounds_cx = 216
-      bounds_cy = 127
+      bounds_cy = 128
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_height]
@@ -251,22 +239,16 @@ object spectrum1fo: tspectrum1fo
         taborder = 1
         hint = ' Right Frequency spectrum '
         bounds_x = 3
-        bounds_y = 27
+        bounds_y = 28
         bounds_cx = 215
         bounds_cy = 101
         traces.count = 1
         traces.chartkind = tck_bar
         traces.xserstart = 0.02
-        traces.xstart = 0
-        traces.ystart = 0
         traces.xrange = 1
         traces.xserrange = 0.9
         traces.yrange = 1
-        traces.image_widthmm = 0
-        traces.image_heighthmm = 0
         traces.bar_width = 10
-        traces.legend_x = 0
-        traces.legend_y = 0
         traces.items = <        
           item
             color = -2147483647
@@ -274,9 +256,7 @@ object spectrum1fo: tspectrum1fo
             xserrange = 0.9
             xserstart = 0.02
             xrange = 1
-            xstart = 0
             yrange = 1
-            ystart = 0
             chartkind = tck_bar
             bar_width = 10
           end>
@@ -285,33 +265,28 @@ object spectrum1fo: tspectrum1fo
         framechart.colorhlwidth = 0
         framechart.localprops = [frl_colordkwidth, frl_colorhlwidth]
         framechart.localprops1 = []
-        xstart = 0
-        ystart = 0
         xrange = 1
         yrange = 1
-        xdials.start = 0
         xdials.range = 1
-        ydials.start = 0
         ydials.range = 1
       end
       object labelright: tlabel
         color = -2147483645
         bounds_x = 4
-        bounds_y = 16
+        bounds_y = 17
         bounds_cx = 211
-        bounds_cy = 10
+        bounds_cy = 12
         caption = '31   62   125  250  500  1k   2k   4k   8k   16k'
         font.height = 9
         font.name = 'stf_default'
         font.localprops = [flp_height]
-        reffontheight = 10
+        reffontheight = 12
       end
     end
   end
   object spect1: tbooleanedit
-    color = 13818021
+    color = -2147483645
     frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.colorclient = -2147483647
     frame.caption = 'Enable'
     frame.font.color = 2039583
     frame.font.height = 10
@@ -322,14 +297,17 @@ object spectrum1fo: tspectrum1fo
     frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
-      0
-      36
       1
+      36
+      2
     )
+    face.localprops = []
+    face.template = mainfo.tfaceplayer
     hint = 'Enable Spectrum rendering'
     bounds_x = 9
-    bounds_y = 3
+    bounds_y = 2
     bounds_cx = 49
+    bounds_cy = 15
     statfile = mainfo.tstatfile1
     colorglyph = 4539717
     onsetvalue = onshowspec

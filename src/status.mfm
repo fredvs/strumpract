@@ -109,9 +109,6 @@ object statusfo: tstatusfo
       end>
     optionsgrid = [og_focuscellonenter, og_autoappend, og_sorted, og_mousescrollcol]
     options = [lvo_readonly, lvo_horz, lvo_drawfocus, lvo_focusselect, lvo_mouseselect, lvo_keyselect, lvo_locate, lvo_hintclippedtext]
-    itemlist.imagelist = filedialogres.images
-    itemlist.imagewidth = 16
-    itemlist.imageheight = 16
     cellwidthmin = 50
     onitemevent = onitemev
     optionsfile = [flvo_checksubdir]

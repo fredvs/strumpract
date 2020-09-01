@@ -743,7 +743,8 @@ end;
 procedure tfilelistfo.opendir(const sender: TObject);
 begin
   tfiledialog1.controller.captiondir  := 'Open Audio Directory';
-if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
+  
+ if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
     begin
     historyfn.Value :=tfiledialog1.controller.filename;
     

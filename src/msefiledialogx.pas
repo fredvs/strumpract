@@ -38,7 +38,7 @@ uses
  msegraphedits,mseeditglob,msesplitter,msemenus,msegridsglob,msegraphics,
  msegraphutils,msedirtree,msewidgetgrid,mseact,mseapplication,msegui,mseificomp,
  mseificompglob,mseifiglob,msestream,SysUtils,msemenuwidgets,msescrollbar,
- msedragglob, msefiledialog;
+ msedragglob;
 
 const
   defaultlistviewoptionsfile = defaultlistviewoptions + [lvo_readonly, lvo_horz];
