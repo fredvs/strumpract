@@ -122,6 +122,7 @@ type
     procedure onrandomlayout(const Sender: TObject);
     procedure showimagedancer(const Sender: TObject);
     procedure onimagedancer(const Sender: TObject);
+    procedure ondancerlayout(const Sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -157,7 +158,7 @@ var
   hasinit: integer = 0;
   maxheightfo: integer;
   norefresh: Boolean = False;
-  thesender : integer;
+  thesender: integer;
 
 implementation
 
@@ -268,7 +269,6 @@ end;
 
 procedure resizealltab();
 begin
-
 {
  mainfo.width := fowidth ;
  filelistfo.height := filelistfoheight + tabheight;;
@@ -332,12 +332,12 @@ begin
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
-  
-  application.processmessages;
+
+  application.ProcessMessages;
   uos_free();
   Timerwait.Free;
   Timeract.Free;
-  
+
 end;
 
 procedure tmainfo.oncreatedform(const Sender: TObject);
@@ -459,7 +459,7 @@ begin
     imagedancerfo.Caption := 'Super Formula';
     dancernum := 1;
   end
-   else if imagedancerfo.dancnum.Value = 2 then
+  else if imagedancerfo.dancnum.Value = 2 then
   begin
     imagedancerfo.Caption := 'Hyper formula';
     dancernum := 2;
@@ -1169,6 +1169,8 @@ begin
   // basedock.anchors := [an_left,an_top]  ;
 
   norefresh := True;
+  
+  imagedancerfo.Visible := False;
 
   dockpanel1fo.Visible  := False;
   dockpanel2fo.Visible  := False;
@@ -1794,7 +1796,7 @@ begin
     songplayer2fo.edvolleft.font.color := ltblack;
 
     recorderfo.edvol.font.color   := ltblack;
-    recorderfo.edvolr.font.color   := ltblack;
+    recorderfo.edvolr.font.color  := ltblack;
     recorderfo.edtempo.font.color := ltblack;
 
     songplayerfo.edvolright.font.color  := ltblack;
@@ -1885,23 +1887,23 @@ begin
 
     recorderfo.blistenin.colorglyph := ltblack;
 
-  // recorderfo.songdir.frame.button.colorglyph   := ltblack;
+    // recorderfo.songdir.frame.button.colorglyph   := ltblack;
     recorderfo.historyfn.frame.button.colorglyph := ltblack;
 
     recorderfo.historyfn.dropdown.colorclient := ltblank;
 
-    recorderfo.cbloop.frame.font.color := ltblack;
-    recorderfo.cbtempo.frame.font.color := ltblack;
+    recorderfo.cbloop.frame.font.color      := ltblack;
+    recorderfo.cbtempo.frame.font.color     := ltblack;
     recorderfo.bsavetofile.frame.font.color := ltblack;
-    recorderfo.sentcue1.frame.font.color := ltblack;
-    recorderfo.blistenin.frame.font.color := ltblack;
-//    recorderfo.label6.font.color       := ltblack;
+    recorderfo.sentcue1.frame.font.color    := ltblack;
+    recorderfo.blistenin.frame.font.color   := ltblack;
+    //    recorderfo.label6.font.color       := ltblack;
     //recorderfo.tlabel2.font.color      := ltblack;
-    recorderfo.btinfos.font.color      := ltblack;
-    recorderfo.button1.font.color      := ltblack;
-    recorderfo.tstringdisp2.font.color := ltblack;
-    recorderfo.llength.font.color      := ltblack;
-    recorderfo.lposition.font.color    := ltblack;
+    recorderfo.btinfos.font.color           := ltblack;
+    recorderfo.button1.font.color           := ltblack;
+    recorderfo.tstringdisp2.font.color      := ltblack;
+    recorderfo.llength.font.color           := ltblack;
+    recorderfo.lposition.font.color         := ltblack;
 
     // rev
     recorderfo.tfacerecrev.template.fade_color.items[0] := $D9C1C1;
@@ -1956,8 +1958,8 @@ begin
     commanderfo.automix.colorglyph       := ltblack;
     commanderfo.automix.frame.font.color := ltblack;
 
-   // configfo.guimix.colorglyph       := ltblack;
-  //  configfo.guimix.frame.font.color := ltblack;
+    // configfo.guimix.colorglyph       := ltblack;
+    //  configfo.guimix.frame.font.color := ltblack;
 
     commanderfo.linkvol.colorglyph       := ltblack;
     commanderfo.linkvol.frame.font.color := ltblack;
@@ -2003,7 +2005,7 @@ begin
     filelistfo.historyfn.dropdown.colorclient := ltblank;
 
 
-   // filelistfo.songdir.frame.button.colorglyph := ltblack;
+    // filelistfo.songdir.frame.button.colorglyph := ltblack;
     filelistfo.list_files.datacols[0].color := cl_white;
     filelistfo.list_files.datacols[0].font.color := ltblack;
     filelistfo.list_files.datacols[1].color := cl_white;
@@ -2254,7 +2256,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
 
     recorderfo.edvol.frame.colorglyph   := ltblack;
-     recorderfo.edvolr.frame.colorglyph   := ltblack;
+    recorderfo.edvolr.frame.colorglyph  := ltblack;
     recorderfo.edtempo.frame.colorglyph := ltblack;
 
     songplayerfo.edvolright.frame.colorglyph  := ltblack;
@@ -2262,8 +2264,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.edtempo.frame.colorglyph     := ltblack;
     songplayer2fo.edtempo.frame.colorglyph    := ltblack;
 
-   // songplayerfo.songdir.frame.button.colorglyph  := ltblack;
-   // songplayer2fo.songdir.frame.button.colorglyph := ltblack;
+    // songplayerfo.songdir.frame.button.colorglyph  := ltblack;
+    // songplayer2fo.songdir.frame.button.colorglyph := ltblack;
 
     songplayerfo.historyfn.frame.button.colorglyph  := ltblack;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblack;
@@ -2350,17 +2352,17 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     // recorder
     recorderfo.font.color := ltblack;
 
-    recorderfo.cbloop.frame.font.color := ltblack;
-    recorderfo.cbtempo.frame.font.color := ltblack;
+    recorderfo.cbloop.frame.font.color      := ltblack;
+    recorderfo.cbtempo.frame.font.color     := ltblack;
     recorderfo.bsavetofile.frame.font.color := ltblack;
-    recorderfo.sentcue1.frame.font.color := ltblack;
-    recorderfo.blistenin.frame.font.color := ltblack;
- //   recorderfo.label6.font.color       := ltblack;
-    recorderfo.btinfos.font.color      := ltblack;
-    recorderfo.button1.font.color      := ltblack;
-    recorderfo.tstringdisp2.font.color := ltblack;
-    recorderfo.llength.font.color      := ltblack;
-    recorderfo.lposition.font.color    := ltblack;
+    recorderfo.sentcue1.frame.font.color    := ltblack;
+    recorderfo.blistenin.frame.font.color   := ltblack;
+    //   recorderfo.label6.font.color       := ltblack;
+    recorderfo.btinfos.font.color           := ltblack;
+    recorderfo.button1.font.color           := ltblack;
+    recorderfo.tstringdisp2.font.color      := ltblack;
+    recorderfo.llength.font.color           := ltblack;
+    recorderfo.lposition.font.color         := ltblack;
 
     recorderfo.cbloop.colorglyph      := ltblack;
     recorderfo.cbtempo.colorglyph     := ltblack;
@@ -2368,7 +2370,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     recorderfo.sentcue1.colorglyph    := ltblack;
     recorderfo.blistenin.colorglyph   := ltblack;
 
-     recorderfo.historyfn.frame.button.colorglyph := ltblack;
+    recorderfo.historyfn.frame.button.colorglyph := ltblack;
 
     recorderfo.historyfn.dropdown.colorclient := ltblank;
 
@@ -2441,8 +2443,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.automix.frame.font.color := ltblack;
 
 
-  //  configfo.guimix.colorglyph       := ltblack;
-  //  configfo.guimix.frame.font.color := ltblack;
+    //  configfo.guimix.colorglyph       := ltblack;
+    //  configfo.guimix.frame.font.color := ltblack;
 
     commanderfo.linkvol.colorglyph       := ltblack;
     commanderfo.linkvol.frame.font.color := ltblack;
@@ -2835,9 +2837,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.edvolleft.frame.colorglyph  := ltblank;
     songplayer2fo.edvolleft.frame.colorglyph := ltblank;
 
-    recorderfo.edvol.frame.colorglyph   := ltblank;
-     recorderfo.edvolr.frame.colorglyph   := ltblank;
-   
+    recorderfo.edvol.frame.colorglyph  := ltblank;
+    recorderfo.edvolr.frame.colorglyph := ltblank;
+
     recorderfo.edtempo.frame.colorglyph := ltblank;
 
 
@@ -2862,8 +2864,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.btinfos.font.color  := ltblank;
     songplayer2fo.btinfos.font.color := ltblank;
 
-  //  songplayerfo.songdir.frame.button.colorglyph  := ltblank;
-  //  songplayer2fo.songdir.frame.button.colorglyph := ltblank;
+    //  songplayerfo.songdir.frame.button.colorglyph  := ltblank;
+    //  songplayer2fo.songdir.frame.button.colorglyph := ltblank;
 
     songplayerfo.historyfn.frame.button.colorglyph  := ltblank;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblank;
@@ -2968,14 +2970,14 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     recorderfo.historyfn.dropdown.colorclient := ltblack;
 
     recorderfo.bsavetofile.frame.font.color := ltblank;
-    recorderfo.sentcue1.frame.font.color := ltblank;
-    recorderfo.blistenin.frame.font.color := ltblank;
-   // recorderfo.label6.font.color       := ltblank;
-    recorderfo.btinfos.font.color      := ltblank;
-    recorderfo.button1.font.color      := ltblank;
-    recorderfo.tstringdisp2.font.color := ltblank;
-    recorderfo.llength.font.color      := ltblank;
-    recorderfo.lposition.font.color    := ltblank;
+    recorderfo.sentcue1.frame.font.color    := ltblank;
+    recorderfo.blistenin.frame.font.color   := ltblank;
+    // recorderfo.label6.font.color       := ltblank;
+    recorderfo.btinfos.font.color           := ltblank;
+    recorderfo.button1.font.color           := ltblank;
+    recorderfo.tstringdisp2.font.color      := ltblank;
+    recorderfo.llength.font.color           := ltblank;
+    recorderfo.lposition.font.color         := ltblank;
 
     recorderfo.tfacerecorder.template.fade_color.items[0] := $5A5A5A;
     recorderfo.tfacerecorder.template.fade_color.items[1] := $2A2A2A;
@@ -3035,8 +3037,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.automix.colorglyph       := ltblank;
     commanderfo.automix.frame.font.color := ltblank;
 
-   // configfo.guimix.colorglyph       := ltblank;
-   // configfo.guimix.frame.font.color := ltblank;
+    // configfo.guimix.colorglyph       := ltblank;
+    // configfo.guimix.frame.font.color := ltblank;
 
     commanderfo.linkvol.colorglyph       := ltblank;
     commanderfo.linkvol.frame.font.color := ltblank;
@@ -3077,7 +3079,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     // file list
     //filelistfo.list_files.fixrows[-1][0].font.color := ltblack;
 
-    filelistfo.tgroupbox1.font.color           := ltblank;
+    filelistfo.tgroupbox1.font.color := ltblank;
     filelistfo.historyfn.frame.button.colorglyph := ltblank;
     //filelistfo.songdir.frame.button.colorglyph := ltblank;
 
@@ -3218,6 +3220,8 @@ begin
   interv := (rect1.cx - (songplayerfo.Width + recorderfo.Width + 20)) div 2;
 
   wavefo.Visible := False;
+  imagedancerfo.Visible := False;
+
 
   beginlayout();
 
@@ -3348,12 +3352,12 @@ var
 begin
   ordir := ExtractFilePath(ParamStr(0)) + 'layout' + directoryseparator;
 
-  typstat        := 1;
-  statusfo.color := $C9BCA7;
+  typstat          := 1;
+  statusfo.color   := $C9BCA7;
   statusfo.Caption := 'Load Layout';
- // statusfo.list_files.frame.Caption := 'Choose a layout';
+  // statusfo.list_files.frame.Caption := 'Choose a layout';
   statusfo.list_files.path := utf8decode(ordir);
-  statusfo.list_files.mask :=  '*.lay' ;
+  statusfo.list_files.mask := '"*.lay"';
   statusfo.layoutname.Visible := False;
   statusfo.list_files.Visible := True;
   statusfo.activate;
@@ -3365,9 +3369,9 @@ begin
   statusfo.Caption := 'Save Layout';
   statusfo.color   := $C9BCA7;
   statusfo.layoutname.Value := 'mylayout';
- // statusfo.layoutname.frame.Caption := 'Choose a layout name';
+  // statusfo.layoutname.frame.Caption := 'Choose a layout name';
   statusfo.layoutname.Visible := True;
-   statusfo.list_files.mask :=  '*.lay' ;
+  statusfo.list_files.mask := '"*.lay"';
   statusfo.list_files.Visible := False;
   statusfo.activate;
 end;
@@ -3379,7 +3383,23 @@ end;
 
 procedure tmainfo.onrandomlayout(const Sender: TObject);
 begin
-  ondockall(Sender);
+  dockpanel1fo.Visible := False;
+  dockpanel2fo.Visible := False;
+  dockpanel3fo.Visible := False;
+  dockpanel4fo.Visible := False;
+  dockpanel5fo.Visible := False;
+  imagedancerfo.Visible := False;
+
+  hideall(nil);
+
+  commanderfo.Visible := True;
+  filelistfo.Visible  := True;
+
+  songplayerfo.Visible  := True;
+  songplayer2fo.Visible := True;
+
+  ondockall(nil);
+
   sleep(200);
   randomnotefo.Visible := True;
   randomnotefo.bringtofront;
@@ -3405,14 +3425,45 @@ begin
     imagedancerfo.Caption := 'Super Formula';
     dancernum := 1;
     imagedancerfo.dancnum.Value := 1;
-  end 
-   else if (tmenuitem(Sender).tag = 2) then
+  end
+  else if (tmenuitem(Sender).tag = 2) then
   begin
     imagedancerfo.Caption := 'Hyper formula';
     dancernum := 2;
     imagedancerfo.dancnum.Value := 2;
   end;
   imagedancerfo.invalidate;
+end;
+
+procedure tmainfo.ondancerlayout(const Sender: TObject);
+begin
+  dockpanel1fo.Visible := False;
+  dockpanel2fo.Visible := False;
+  dockpanel3fo.Visible := False;
+  dockpanel4fo.Visible := False;
+  dockpanel5fo.Visible := False;
+
+  hideall(nil);
+
+  commanderfo.Visible := True;
+  filelistfo.Visible  := True;
+
+  songplayerfo.Visible  := True;
+  songplayer2fo.Visible := True;
+
+  ondockall(nil);
+
+  left := 200;
+  top := 30;
+
+  imagedancerfo.Height := Height;
+  imagedancerfo.top    := top;
+  imagedancerfo.left   := right + 10;
+  imagedancerfo.Width  := Height;
+  imagedancerfo.top  := top;
+
+  imagedancerfo.Visible := True;
+
 end;
 
 end.

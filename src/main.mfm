@@ -814,7 +814,7 @@ object mainfo: tmainfo
         onexecute = onmaintab
       end    
       item
-        submenu.count = 11
+        submenu.count = 12
         submenu.items = <        
           item
             caption = ' &Dock all visible windows '
@@ -856,6 +856,11 @@ object mainfo: tmainfo
             caption = ' &Chords Randomizer '
             state = [as_localcaption, as_localonexecute]
             onexecute = onrandomlayout
+          end        
+          item
+            caption = ' &Image Dancer '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = ondancerlayout
           end        
           item
             options = [mao_separator, mao_shortcutcaption]
