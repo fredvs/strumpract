@@ -31,7 +31,6 @@ type
     edtempo: trealspinedit;
     button1: TButton;
     cbloop: tbooleanedit;
-    label6: tlabel;
     cbtempo: tbooleanedit;
     trackbar1: tslider;
     btnStop: TButton;
@@ -52,6 +51,7 @@ type
    sentcue1: tbooleanedit;
    tbutton6: tbutton;
    tfiledialog1: tfiledialog;
+   edvolr: trealspinedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -451,7 +451,7 @@ begin
       ////////// VolLeft : Left volume
       ////////// VolRight : Right volume
 
-      uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvol.Value / 100, True);
+      uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvolr.Value / 100, True);
       /// Set volume
       ////////// PlayerIndex3 : Index of a existing Player
       ////////// InputIndex3 : InputIndex of a existing Input
@@ -577,8 +577,7 @@ end;
 procedure trecorderfo.changevolume(const Sender: TObject);
 begin
   uos_InputSetDSPVolume(therecplayer, InputIndex3,
-    edvol.Value / 100, edvol.Value / 100, True);
-
+    edvol.Value / 100, edvolr.Value / 100, True);
 end;
 
 procedure trecorderfo.onreset(const Sender: TObject);
@@ -807,7 +806,7 @@ begin
     edtempo.Enabled := False;
     cbtempo.Enabled := False;
     Button1.Enabled := False;
-    label6.Enabled := False;
+    //label6.Enabled := False;
   end;
 
  // ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
@@ -852,17 +851,23 @@ begin
     lposition.face.template := mainfo.tfaceorange;
 
     //historyfn.font.color := cl_black;
- if sentcue1.value = true then songplayerfo.historyfn.Value := historyfn.Value;
-   
-    recpan.Visible := True;
+     recpan.Visible := True;
 
     recpan.font.color := cl_black;
-    
-    if sentcue1.value = true then songplayerfo.historyfn.Value := historyfn.Value;
-    
+       
     if bsavetofile.Value then
-      uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
+    begin
+     
+     historyfn.Value := utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
+   + 'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' 
+   + UTF8Decode(formatdatetime('YYYY_MM_DD_HH_mm_ss',now)) +'.wav');
+     
+     
+     uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
+     if sentcue1.value = true then songplayerfo.historyfn.Value := historyfn.Value;
+    end;  
 
+    
     OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
     uos_outputsetenable(therecplayer, OutputIndex3, blistenin.Value);
@@ -897,7 +902,7 @@ begin
 
     uos_LoopProcIn(therecplayer, InputIndex3, @LoopProcPlayer1);
 
-    uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvol.Value / 100, True);
+    uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvolr.Value / 100, True);
     
      if configfo.speccalc.Value = True then
             for i := 1 to 10 do
@@ -1046,6 +1051,14 @@ end;
 
 procedure trecorderfo.onex(const sender: TObject);
 begin
+   tfiledialog1.controller.basedir  :=
+   utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
+   + 'sound' + directoryseparator + 'record'  + directoryseparator);
+   
+    tfiledialog1.controller.filename  :=
+   utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
+   + 'sound' + directoryseparator + 'record'  + directoryseparator);
+   
   tfiledialog1.controller.captionopen  := 'Open Audio File';
    tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
 if tfiledialog1.controller.Execute(fdk_open) = mr_ok then

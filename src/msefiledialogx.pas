@@ -31,14 +31,54 @@ interface
 {$endif}
 
 uses
- Math,mseglob,mseguiglob,mseforms,Classes,mclasses,mseclasses,msewidgets,
- msegrids,mselistbrowser,mseedit,msesimplewidgets,msedataedits,msedialog,
- msetypes,msestrings,msesystypes,msesys,msedispwidgets,msedatalist,msestat,
- msestatfile,msebitmap,msedatanodes,msefileutils,msedropdownlist,mseevent,
- msegraphedits,mseeditglob,msesplitter,msemenus,msegridsglob,msegraphics,
- msegraphutils,msedirtree,msewidgetgrid,mseact,mseapplication,msegui,mseificomp,
- mseificompglob,mseifiglob,msestream,SysUtils,msemenuwidgets,msescrollbar,
- msedragglob;
+  Math,
+  mseglob,
+  mseguiglob,
+  mseforms,
+  Classes,
+  mclasses,
+  mseclasses,
+  msewidgets,
+  msegrids,
+  mselistbrowser,
+  mseedit,
+  msesimplewidgets,
+  msedataedits,
+  msedialog,
+  msetypes,
+  msestrings,
+  msesystypes,
+  msesys,
+  msedispwidgets,
+  msedatalist,
+  msestat,
+  msestatfile,
+  msebitmap,
+  msedatanodes,
+  msefileutils,
+  msedropdownlist,
+  mseevent,
+  msegraphedits,
+  mseeditglob,
+  msesplitter,
+  msemenus,
+  msegridsglob,
+  msegraphics,
+  msegraphutils,
+  msedirtree,
+  msewidgetgrid,
+  mseact,
+  mseapplication,
+  msegui,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestream,
+  SysUtils,
+  msemenuwidgets,
+  msescrollbar,
+  msedragglob,
+  msefiledialog;
 
 const
   defaultlistviewoptionsfile = defaultlistviewoptions + [lvo_readonly, lvo_horz];
@@ -545,8 +585,8 @@ type
     ok: TButton;
     bcompact: tbooleanedit;
     places: tstringgrid;
-   tsplitter1: tsplitter;
-   listview: tfilelistview;
+    tsplitter1: tsplitter;
+    listview: tfilelistview;
     procedure createdironexecute(const Sender: TObject);
     procedure listviewselectionchanged(const Sender: tcustomlistview);
     procedure listviewitemevent(const Sender: tcustomlistview; const index: integer; var info: celleventinfoty);
@@ -577,7 +617,7 @@ type
     procedure onbefdrop(const Sender: TObject);
     procedure oncellevplaces(const Sender: TObject; var info: celleventinfoty);
     procedure ondrawcellplace(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
-   procedure onlayout(const sender: tcustomgrid);
+    procedure onlayout(const Sender: tcustomgrid);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -764,7 +804,7 @@ begin
       Height          := 308;
       list_log.Height := Height - list_log.top - 10;
       listview.Height := list_log.Height;
-      places.Height := list_log.Height;
+      places.Height   := list_log.Height;
     end;
     showhidden.Value := not (fa_hidden in excludeattrib);
     Show(True);
@@ -1455,8 +1495,8 @@ end;
 
 procedure tfiledialogfo.dironsetvalue(const Sender: TObject; var avalue: mseString; var accept: Boolean);
 begin
-   places.defocuscell;
- places.datacols.clearselection;
+  places.defocuscell;
+  places.datacols.clearselection;
 
   accept := tryreadlist(avalue, True);
   if accept then
@@ -1813,17 +1853,18 @@ var
 begin
 
   if (info.eventkind = cek_buttonrelease) then
-    if (cellpos.row > -1) then
+    if (info.cell.row > -1) then
     begin
+      cellpos      := info.cell;
       cellpos.col  := 0;
       cellpos2.col := 0;
 
-      cellpos := info.cell;
       places.defocuscell;
       places.datacols.clearselection;
-
-      y := StrToInt(list_log[4][cellpos.row]);
+      
+       y := StrToInt(list_log[4][cellpos.row]);
       cellpos2.row := y;
+
 
       if listview.filelist.isdir(y) then
       begin
@@ -2018,10 +2059,10 @@ begin
 
 end;
 
-procedure tfiledialogfo.onlayout(const sender: tcustomgrid);
+procedure tfiledialogfo.onlayout(const Sender: tcustomgrid);
 begin
-listview.left := list_log.left;
-tsplitter1.height := list_log.height;
+  listview.left     := list_log.left;
+  tsplitter1.Height := list_log.Height;
 end;
 
 { tfiledialogcontroller }

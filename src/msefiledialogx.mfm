@@ -69,7 +69,6 @@ object filedialogfo: Tfiledialogfo
     cellheight = 15
     optionsgrid = [og_colsizing, og_focuscellonenter, og_mousescrollcol]
     options = [lvo_readonly, lvo_horz, lvo_drawfocus, lvo_mouseselect, lvo_keyselect, lvo_multiselect, lvo_locate, lvo_hintclippedtext]
-    cellwidthmin = 50
     onselectionchanged = listviewselectionchanged
     onitemevent = listviewitemevent
     filelist.options = [flo_sortname, flo_sorttype]
@@ -232,8 +231,8 @@ object filedialogfo: Tfiledialogfo
     )
     face.fade_color.count = 2
     face.fade_color.items = (
-      16773342
-      16767661
+      -1610612730
+      14408667
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]

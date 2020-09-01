@@ -1794,6 +1794,7 @@ begin
     songplayer2fo.edvolleft.font.color := ltblack;
 
     recorderfo.edvol.font.color   := ltblack;
+    recorderfo.edvolr.font.color   := ltblack;
     recorderfo.edtempo.font.color := ltblack;
 
     songplayerfo.edvolright.font.color  := ltblack;
@@ -1894,7 +1895,7 @@ begin
     recorderfo.bsavetofile.frame.font.color := ltblack;
     recorderfo.sentcue1.frame.font.color := ltblack;
     recorderfo.blistenin.frame.font.color := ltblack;
-    recorderfo.label6.font.color       := ltblack;
+//    recorderfo.label6.font.color       := ltblack;
     //recorderfo.tlabel2.font.color      := ltblack;
     recorderfo.btinfos.font.color      := ltblack;
     recorderfo.button1.font.color      := ltblack;
@@ -2253,6 +2254,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
 
     recorderfo.edvol.frame.colorglyph   := ltblack;
+     recorderfo.edvolr.frame.colorglyph   := ltblack;
     recorderfo.edtempo.frame.colorglyph := ltblack;
 
     songplayerfo.edvolright.frame.colorglyph  := ltblack;
@@ -2353,7 +2355,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     recorderfo.bsavetofile.frame.font.color := ltblack;
     recorderfo.sentcue1.frame.font.color := ltblack;
     recorderfo.blistenin.frame.font.color := ltblack;
-    recorderfo.label6.font.color       := ltblack;
+ //   recorderfo.label6.font.color       := ltblack;
     recorderfo.btinfos.font.color      := ltblack;
     recorderfo.button1.font.color      := ltblack;
     recorderfo.tstringdisp2.font.color := ltblack;
@@ -2834,6 +2836,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.edvolleft.frame.colorglyph := ltblank;
 
     recorderfo.edvol.frame.colorglyph   := ltblank;
+     recorderfo.edvolr.frame.colorglyph   := ltblank;
+   
     recorderfo.edtempo.frame.colorglyph := ltblank;
 
 
@@ -2966,7 +2970,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     recorderfo.bsavetofile.frame.font.color := ltblank;
     recorderfo.sentcue1.frame.font.color := ltblank;
     recorderfo.blistenin.frame.font.color := ltblank;
-    recorderfo.label6.font.color       := ltblank;
+   // recorderfo.label6.font.color       := ltblank;
     recorderfo.btinfos.font.color      := ltblank;
     recorderfo.button1.font.color      := ltblank;
     recorderfo.tstringdisp2.font.color := ltblank;
