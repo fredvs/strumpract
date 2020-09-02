@@ -572,11 +572,11 @@ object filelistfo: tfilelistfo
       dropdown.options = [deo_keydropdown, deo_autosavehistory, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
-      dropdown.cols.colorselect = 15105536
+      dropdown.cols.colorselect = 15113541
       dropdown.cols.items = <      
         item
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
-          colorselect = 15105536
+          colorselect = 15113541
         end>
       dropdown.historymaxcount = 50
       onbeforedropdown = onbefdrop
