@@ -13,7 +13,6 @@ type
    layoutname: tstringedit;
    ok: tbutton;
    cancel: tbutton;
-   tstringdisp1: tstringdisp;
    procedure oncreated(const sender: TObject);
    procedure onok(const sender: TObject);
    procedure oncancel(const sender: TObject);

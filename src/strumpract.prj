@@ -791,18 +791,21 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=3
+modulenames=4
  FILELISTFO
  MAINFO
  FILEDIALOGFO
-moduletypes=3
+ STATUSFO
+moduletypes=4
  TFILELISTFO
  TMAINFO
  TFILEDIALOGFO
-modulefiles=3
+ TSTATUSFO
+modulefiles=4
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/msefiledialogx.mfm
+ /home/fred/strumpract/src/status.mfm
 befcommandon=0
 makeoptionson=11
  4095
@@ -1534,31 +1537,36 @@ findhistory=20
  htlm
  uses
 findoptions=1
-editpos=4
+editpos=5
  0,-1073741823
  0,10
  0,-1073741823
  0,-1073741823
+ 0,16
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
-sourcefiles=4
+bookmarks4=0
+sourcefiles=5
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/msefiledialogx.pas
  /home/fred/mseide-msegui/lib/common/editwidgets/msedataedits.pas
-relpaths=4
+ ${PROJECTDIR}/status.pas
+relpaths=5
  main.pas
  filelistform.pas
  msefiledialogx.pas
  mseide-msegui/lib/common/editwidgets/msedataedits.pas
-ismoduletexts=4
+ status.pas
+ismoduletexts=5
  0
  0
  0
  0
-modules=7
+ 0
+modules=8
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1566,7 +1574,8 @@ modules=7
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/msefiledialogx.mfm
-moduleoptions=7
+ /home/fred/strumpract/src/status.mfm
+moduleoptions=8
  0
  0
  0
@@ -1574,7 +1583,8 @@ moduleoptions=7
  0
  0
  0
-visiblemodules=7
+ 0
+visiblemodules=8
  -1
  0
  0
@@ -1582,19 +1592,27 @@ visiblemodules=7
  0
  -1
  -1
-nomenumodules=7
+ -1
+nomenumodules=8
  0
  -1
  -1
  -1
  -1
+ 0
  0
  0
 [sourcefo.files_tab]
+order=5
+ 0
+ 1
+ 4
+ 2
+ 3
 firsttab=0
-index=1
+index=2
 [layout]
-windowlayout=665
+windowlayout=690
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1739,7 +1757,7 @@ windowlayout=665
  sortdescend1=0
  sorted=0
  col=0
- row=4
+ row=9
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2028,11 +2046,11 @@ windowlayout=665
  nx=0
  ny=0
  ncx=1333
- ncy=56
+ ncy=55
  x=0
  y=0
  cx=1348
- cy=55
+ cy=54
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2042,7 +2060,7 @@ windowlayout=665
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/filelistform.pas
+ value=/home/fred/strumpract/src/status.pas
  history=20
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/guitars.pas
@@ -2085,8 +2103,14 @@ windowlayout=665
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=5
+  0
+  1
+  4
+  2
+  3
  firsttab=0
- index=1
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2130,7 +2154,7 @@ windowlayout=665
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filedialogfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2225,7 +2249,7 @@ windowlayout=665
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_filedialogfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2244,7 +2268,7 @@ windowlayout=665
  [_mse_filedialogfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_statusfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2255,6 +2279,25 @@ windowlayout=665
  y=278
  cx=618
  cy=335
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_statusfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=442
+ y=259
+ cx=298
+ cy=60
  rcx=0
  rcy=0
  wsize=0

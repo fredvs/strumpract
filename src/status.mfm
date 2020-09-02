@@ -3,21 +3,19 @@ object statusfo: tstatusfo
   face.localprops = []
   face.template = mainfo.tfaceplayer
   visible = False
-  bounds_x = 460
-  bounds_y = 258
+  bounds_x = 442
+  bounds_y = 259
   bounds_cx = 288
-  bounds_cy = 140
+  bounds_cy = 60
   bounds_cxmin = 288
-  bounds_cymin = 140
   bounds_cxmax = 288
-  bounds_cymax = 140
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     288
-    140
+    60
   )
   optionswindow = [wo_dialog, wo_windowcentermessage]
   font.name = 'stf_default'
@@ -54,19 +52,6 @@ object statusfo: tstatusfo
   windowopacity = -Inf
   oncreate = oncreated
   moduleclassname = 'tmseform'
-  object tstringdisp1: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    face.localprops = []
-    face.template = mainfo.tfaceplayer
-    taborder = 3
-    bounds_x = 0
-    bounds_y = 0
-    bounds_cx = 288
-    bounds_cy = 140
-    anchors = []
-    reffontheight = 15
-  end
   object ok: tbutton
     optionswidget1 = []
     color = -2147483645
@@ -87,12 +72,11 @@ object statusfo: tstatusfo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 1
-    bounds_x = 160
-    bounds_y = 2
-    bounds_cx = 49
-    bounds_cy = 20
+    bounds_x = 212
+    bounds_y = 4
+    bounds_cx = 72
+    bounds_cy = 24
     bounds_cxmin = 35
-    anchors = [an_right, an_bottom]
     state = [as_default, as_localdefault, as_localcaption, as_localcolor, as_localonexecute]
     caption = '&Ok'
     onexecute = onok
@@ -117,25 +101,36 @@ object statusfo: tstatusfo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 2
-    bounds_x = 221
-    bounds_y = 2
-    bounds_cx = 54
-    bounds_cy = 20
+    bounds_x = 212
+    bounds_y = 30
+    bounds_cx = 72
+    bounds_cy = 24
     bounds_cxmin = 35
-    anchors = [an_top, an_right]
     state = [as_localcaption, as_localcolor]
     caption = '&Cancel'
     modalresult = mr_cancel
   end
   object layoutname: tstringedit
-    frame.captiontextflags = [tf_bottom]
-    frame.localprops = []
+    frame.levelo = 0
+    frame.localprops = [frl_levelo]
     frame.localprops1 = []
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16777215
+      13224393
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
     visible = False
-    bounds_x = 40
-    bounds_y = 62
-    bounds_cx = 214
-    bounds_cy = 38
+    bounds_x = 4
+    bounds_y = 5
+    bounds_cx = 204
+    bounds_cy = 49
     font.height = 16
     font.name = 'stf_default'
     font.localprops = [flp_height]
