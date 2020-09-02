@@ -214,7 +214,8 @@ type
     fcaptiondir: msestring;
     finclude: fileattributesty;
     fexclude: fileattributesty;
-    fonbeforeexecute: filedialogbeforeexecuteeventty;
+    
+     fonbeforeexecute: filedialogbeforeexecuteeventty;
     fonafterexecute: filedialogafterexecuteeventty;
     fongetfilename: setstringeventty;
     fongetfileicon: getfileiconeventty;
@@ -2342,6 +2343,7 @@ function tfiledialogcontroller.Execute(var avalue: filenamety; const dialogkind:
 begin
   Result := Execute(avalue, dialogkind, acaption, foptions);
 end;
+
 
 function tfiledialogcontroller.getfilename: filenamety;
 begin
