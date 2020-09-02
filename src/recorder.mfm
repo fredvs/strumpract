@@ -555,11 +555,11 @@ object recorderfo: trecorderfo
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
-      dropdown.cols.colorselect = 15105536
+      dropdown.cols.colorselect = 15117413
       dropdown.cols.items = <      
         item
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
-          colorselect = 15105536
+          colorselect = 15117413
         end>
       dropdown.historymaxcount = 50
       reffontheight = 15
@@ -809,8 +809,8 @@ object recorderfo: trecorderfo
       face.template = mainfo.tfaceorange
       taborder = 22
       visible = False
-      bounds_x = 132
-      bounds_y = 57
+      bounds_x = 143
+      bounds_y = 54
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
