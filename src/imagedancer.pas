@@ -190,7 +190,7 @@ begin
   else
   if dancernum = 2 then // Hyper formula
   begin
-   Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, cl_dkred, cl_black,
+   Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, cl_black, cl_black,
       gtLinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
    theta := 0.01; // prevent starting line

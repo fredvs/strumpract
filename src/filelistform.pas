@@ -743,6 +743,7 @@ end;
 procedure tfilelistfo.opendir(const sender: TObject);
 begin
   tfiledialog1.controller.captiondir  := 'Open Audio Directory';
+  tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   
  if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
     begin

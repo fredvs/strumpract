@@ -3371,7 +3371,7 @@ begin
   statusfo.layoutname.Value := 'mylayout';
   // statusfo.layoutname.frame.Caption := 'Choose a layout name';
   statusfo.layoutname.Visible := True;
-  statusfo.list_files.mask := '"*.lay"';
+  statusfo.list_files.mask := 'Layout ("*.lay")';
   statusfo.list_files.Visible := False;
   statusfo.activate;
 end;

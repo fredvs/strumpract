@@ -618,7 +618,7 @@ type
     procedure oncellevplaces(const Sender: TObject; var info: celleventinfoty);
     procedure ondrawcellplace(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
     procedure onlayout(const Sender: tcustomgrid);
-   procedure onformcreated(const sender: TObject);
+    procedure onformcreated(const Sender: TObject);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -766,18 +766,16 @@ begin
     if (afilter = nil) or (afilter^ = '') or
       (filter.dropdown.ItemIndex >= 0) and
       (afilter^ = filter.dropdown.cols[1][filter.dropdown.ItemIndex]) then
-    begin
-      if filename.Visible = False then
-        filter.Value := ''
-      else
-        updatefiltertext;
-    end
+      updatefiltertext//  if filename.Visible = False then
+      //    filter.Value := ''
+      //  else
+
     else
     begin
-      if filename.Visible = False then
-        filter.Value := ''
-      else
-        filter.Value := afilter^;
+      //  if filename.Visible = False then
+      //    filter.Value := ''
+      //  else
+      filter.Value  := afilter^;
       listview.mask := afilter^;
     end;
     if history <> nil then
@@ -1533,7 +1531,7 @@ begin
     list_log[4][x] := '';
   end;
 
-   y  := 0;
+  y  := 0;
   x2 := 0;
 
   //  dir.frame.caption := 'Directory with 0 files';
@@ -1837,17 +1835,19 @@ var
   str1: string;
 begin
 
-  if (info.eventkind = cek_buttonrelease) then
+  if (list_log.rowcount > 0) and ((info.eventkind = cek_buttonrelease) or (info.eventkind = cek_keyup)) then
     if (info.cell.row > -1) then
     begin
-      cellpos      := info.cell;
+
+      cellpos := info.cell;
+
       cellpos.col  := 0;
       cellpos2.col := 0;
 
       places.defocuscell;
       places.datacols.clearselection;
-      
-       y := StrToInt(list_log[4][cellpos.row]);
+
+      y := StrToInt(list_log[4][cellpos.row]);
       cellpos2.row := y;
 
 
@@ -1855,30 +1855,47 @@ begin
       begin
         listview.defocuscell;
         listview.datacols.clearselection;
-        list_log.datacols.clearselection;
-        list_log.defocuscell;
         str1 := filepath(dir.Value + listview.filelist[y].Name);
 
-        if (ss_double in info
-          .mouseeventinfopo^.shiftstate) then
-          okonexecute(Sender)// listview.selectcell(cellpos2, csm_select, False);  
-        else
+        if (info.eventkind = cek_buttonrelease) then
+        begin
+          if (ss_double in info
+            .mouseeventinfopo^.shiftstate) then
+            okonexecute(Sender)
+          else
+          begin
+            changedir(str1);
+            filename.value := '';
+          end;
+            
+        end
+        else if info.keyeventinfopo^.key = key_return then
+        begin
           changedir(str1);
-
+          filename.value := '';
+        end;  
+ 
       end
       else
       begin
 
         listview.defocuscell;
-        list_log.defocuscell;
         listview.datacols.clearselection;
         listview.selectcell(cellpos2, csm_select, False);
-        list_log.datacols.clearselection;
-        list_log.selectcell(cellpos, csm_select, False);
 
-        if (listview.rowcount > 0) and (list_log.rowcount > 0) and (not listview.filelist.isdir(y)) and (ss_double in info
-          .mouseeventinfopo^.shiftstate) then
+        if (info.eventkind = cek_buttonrelease) then
+        begin
+          if (listview.rowcount > 0) and (list_log.rowcount > 0) and
+            (not listview.filelist.isdir(y)) and
+            (ss_double in info.mouseeventinfopo^.shiftstate) then
+            okonexecute(Sender);
+        end
+        else
+        if (listview.rowcount > 0) and (list_log.rowcount > 0) and
+          (not listview.filelist.isdir(y)) and
+          (info.keyeventinfopo^.key = key_return) then
           okonexecute(Sender);
+
       end;
     end;
 end;
@@ -2002,7 +2019,7 @@ var
   str1: string;
 begin
 
-  if (info.eventkind = cek_buttonrelease) then
+  if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_keyup) then
   begin
     cellpos   := info.cell;
     dir.Value := places[1][cellpos.row] + directoryseparator;
@@ -2012,10 +2029,12 @@ begin
       dir.Value := listview.directory;
       course(listview.directory);
     end;
+    
+    filename.value := '';
 
-    places.defocuscell;
-    places.datacols.clearselection;
-    places.selectcell(cellpos, csm_select, False);
+    //  places.defocuscell;
+    //  places.datacols.clearselection;
+    //  places.selectcell(cellpos, csm_select, False);
   end;
 end;
 
@@ -2050,7 +2069,7 @@ begin
   tsplitter1.Height := list_log.Height;
 end;
 
-procedure tfiledialogfo.onformcreated(const sender: TObject);
+procedure tfiledialogfo.onformcreated(const Sender: TObject);
 begin
   places[0][0] := '      Home';
   places[1][0] := sys_getuserhomedir;
@@ -2205,7 +2224,6 @@ begin
     begin
       fo.filter.Visible   := False;
       fo.filename.Visible := False;
-      //acaption2           := 'Choose a Directory';
     end;
 
     if dialogkind <> fdk_none then
