@@ -7,40 +7,12 @@ unit main;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  msegraphedits,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msechart,
-  status,
-  msedock,
-  msedataedits,
-  mseedit,
-  msestatfile,
-  SysUtils,
-  Classes,
-  Math,
-  msebitmap,
-  msesys,
-  msemenus,
-  msestream,
-  msegrids,
-  mselistbrowser,
-  mseact,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestrings;
+ msetypes,mseglob,mseguiglob,msegraphedits,mseguiintf,mseapplication,msestat,
+ msegui,msetimer,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,
+ msechart,status,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,
+ msebitmap,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
+ mseificompglob,mseifiglob,msestrings, msedatanodes, msedragglob,
+  msedropdownlist, msefiledialogx, msegridsglob;
 
 type
   tmainfo = class(tmainform)
@@ -69,6 +41,7 @@ type
     tfacebutltgray: tfacecomp;
     buttonicons: timagelist;
     tfaceplayerbut: tfacecomp;
+   tfiledialog1: tfiledialog;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -3351,28 +3324,25 @@ var
   ordir: string;
 begin
   ordir := ExtractFilePath(ParamStr(0)) + 'layout' + directoryseparator;
-
-  typstat          := 1;
-  statusfo.color   := $C9BCA7;
-  statusfo.Caption := 'Load Layout';
-  // statusfo.list_files.frame.Caption := 'Choose a layout';
-  statusfo.list_files.path := utf8decode(ordir);
-  statusfo.list_files.mask := '"*.lay"';
-  statusfo.layoutname.Visible := False;
-  statusfo.list_files.Visible := True;
-  statusfo.activate;
+  tfiledialog1.controller.captionopen := 'Open Layout File';
+    
+  tfiledialog1.controller.filter := '"*.lay"';
+  tfiledialog1.controller.filename := ordir;
+  
+  if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
+   if fileexists(tfiledialog1.controller.filename) then
+ mainfo.tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));
+  
 end;
 
 procedure tmainfo.savelayout(const Sender: TObject);
 begin
   typstat          := 0;
-  statusfo.Caption := 'Save Layout';
+  statusfo.Caption := 'Save Layout as';
   statusfo.color   := $C9BCA7;
   statusfo.layoutname.Value := 'mylayout';
-  // statusfo.layoutname.frame.Caption := 'Choose a layout name';
+  //statusfo.layoutname.frame.Caption := 'Choose a layout name';
   statusfo.layoutname.Visible := True;
-  statusfo.list_files.mask := 'Layout ("*.lay")';
-  statusfo.list_files.Visible := False;
   statusfo.activate;
 end;
 

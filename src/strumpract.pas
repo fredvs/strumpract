@@ -8,7 +8,7 @@ program strumpract;
  {$R dp.res}
 {$endif}
 uses
- //cmem,
+  // cmem,
  {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}
   Math, 
   filelistform,

@@ -611,32 +611,49 @@ begin
   bounds_cy := 128;
 end;
 
-procedure tfilelistfo.loadlist(Const sender: TObject);
-var 
-  ordir : string;
+procedure tfilelistfo.loadlist(const Sender: TObject);
+var
+x : integer;ordir : string;
+cellpos: gridcoordty;
+
 begin
-  ordir := ExtractFilePath(ParamStr(0))
-           + 'list' + directoryseparator;
-  typstat := 3;
-  statusfo.caption := 'Load Cue List';
-  statusfo.color := $A7C9B9;
-  //statusfo.list_files.frame.caption := 'Choose a cue-list';
-  statusfo.list_files.path := utf8decode(ordir);
-  statusfo.list_files.mask :=  '*.lis' ;
-  statusfo.layoutname.visible := false;
-  statusfo.list_files.visible := true;
-  statusfo.activate;
+  ordir := ExtractFilePath(ParamStr(0)) + 'list' + directoryseparator;
+  tfiledialog1.controller.captionopen := 'Open List File';
+    
+  tfiledialog1.controller.filter := '"*.lis"';
+  tfiledialog1.controller.filename := ordir;
+  
+  if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
+    if fileexists(tfiledialog1.controller.filename) then
+  begin  
+    
+ filelistfo.tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));
+  cellpos.row := 0;
+      cellpos.col := 0;
+
+      filelistfo.list_files.selectcell(cellpos, csm_select, False);
+
+      filelistfo.edfilescount.Value := filelistfo.list_files.rowcount;
+
+filelistfo.caption := removefileext(tfiledialog1.controller.filename);
+
+ filelistfo.list_files.fixcols[-1].captions.count:= filelistfo.list_files.rowCount;
+ 
+  for x := 0 to filelistfo.list_files.rowCount - 1 do 
+        filelistfo.list_files.fixcols[-1].captions[x] := utf8decode(inttostr(x+1));
+    
+    filelistfo.filescount.Value := utf8decode(IntToStr(filelistfo.edfilescount.Value) + ' files');
+end;
 end;
 
 procedure tfilelistfo.savelist(Const sender: TObject);
 begin
   typstat := 2;
-  statusfo.caption := 'Save Cue List';
+  statusfo.caption := 'Save Cue List as';
   statusfo.color := $A7C9B9;
   statusfo.layoutname.value := 'mycuelist';
   //statusfo.layoutname.frame.caption := 'Choose a cue-list name';
   statusfo.layoutname.visible := true;
-  statusfo.list_files.visible := false;
   statusfo.activate;
 end;
 

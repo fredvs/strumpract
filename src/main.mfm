@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 349
-  bounds_y = 91
+  bounds_x = 416
+  bounds_y = 175
   bounds_cx = 454
   bounds_cy = 139
   bounds_cxmin = 454
@@ -759,8 +759,8 @@ object mainfo: tmainfo
     frame.grip_options = [go_closebutton, go_buttonhints, go_showsplitcaption]
     frame.grip_face.localprops = []
     frame.grip_face.template = tfacecomp4
-    bounds_x = 0
-    bounds_y = 0
+    bounds_x = -3
+    bounds_y = -2
     bounds_cx = 454
     bounds_cy = 120
     font.name = 'stf_default'
@@ -3279,5 +3279,9 @@ object mainfo: tmainfo
     template.fade_direction = gd_down
     left = 106
     top = 16
+  end
+  object tfiledialog1: tfiledialog
+    left = 248
+    top = 81
   end
 end

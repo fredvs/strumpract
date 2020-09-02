@@ -59,60 +59,12 @@ object statusfo: tstatusfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    taborder = 4
+    taborder = 3
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 288
     bounds_cy = 140
     anchors = []
-    reffontheight = 15
-  end
-  object list_files: tfilelistview
-    optionswidget = [ow_mousefocus, ow_arrowfocus, ow_focusbackonesc, ow_mousewheel, ow_destroywidgets]
-    color = -2147483645
-    frame.captiontextflags = [tf_xcentered]
-    frame.captionpos = cp_top
-    frame.localprops = []
-    frame.localprops1 = []
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      -1610612730
-      10592673
-    )
-    face.localprops = [fal_fadirection]
-    taborder = 1
-    bounds_x = 0
-    bounds_y = 0
-    bounds_cx = 288
-    bounds_cy = 140
-    anchors = []
-    datarowlinecolor = -1610612731
-    datacollinecolor = -1610612731
-    cellwidth = 283
-    cellheight = 20
-    fixrows.count = 1
-    fixrows.items = <    
-      item
-        height = 20
-        textflags = [tf_ycentered]
-        captions.count = 1
-        captions.items = <        
-          item
-            caption = '         Choose a file'
-            textflags = [tf_ycentered]
-          end>
-      end>
-    optionsgrid = [og_focuscellonenter, og_autoappend, og_sorted, og_mousescrollcol]
-    options = [lvo_readonly, lvo_horz, lvo_drawfocus, lvo_focusselect, lvo_mouseselect, lvo_keyselect, lvo_locate, lvo_hintclippedtext]
-    cellwidthmin = 50
-    onitemevent = onitemev
-    optionsfile = [flvo_checksubdir]
-    filelist.options = [flo_sortname, flo_sorttype]
     reffontheight = 15
   end
   object ok: tbutton
@@ -134,8 +86,8 @@ object statusfo: tstatusfo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 2
-    bounds_x = 161
+    taborder = 1
+    bounds_x = 160
     bounds_y = 2
     bounds_cx = 49
     bounds_cy = 20
@@ -164,7 +116,7 @@ object statusfo: tstatusfo
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
-    taborder = 3
+    taborder = 2
     bounds_x = 221
     bounds_y = 2
     bounds_cx = 54
@@ -176,21 +128,14 @@ object statusfo: tstatusfo
     modalresult = mr_cancel
   end
   object layoutname: tstringedit
-    frame.caption = 'Choose a layout name'
     frame.captiontextflags = [tf_bottom]
     frame.localprops = []
     frame.localprops1 = []
-    frame.outerframe = (
-      0
-      18
-      0
-      0
-    )
     visible = False
     bounds_x = 40
-    bounds_y = 44
+    bounds_y = 62
     bounds_cx = 214
-    bounds_cy = 56
+    bounds_cy = 38
     font.height = 16
     font.name = 'stf_default'
     font.localprops = [flp_height]

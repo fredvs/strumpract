@@ -569,7 +569,7 @@ object filelistfo: tfilelistfo
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
       onchange = onchangpath
-      dropdown.options = [deo_keydropdown, deo_cliphint]
+      dropdown.options = [deo_keydropdown, deo_autosavehistory, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
       dropdown.cols.colorselect = 15105536
