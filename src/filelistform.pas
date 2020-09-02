@@ -337,7 +337,8 @@ begin
       Caption := tosysfilepath(historyfn.Value);
 
       list_files.rowcount := datalist_files.Count;
-
+      
+    
       for x := 0 to datalist_files.Count - 1 do
       begin
         list_files[0][x] := utf8decode(filenamebase(datalist_files.items[x].Name));
@@ -497,6 +498,21 @@ begin
 
 
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
+  
+   if (cellpos.col = -1) then
+   begin
+    list_files.datacols[0].options :=  list_files.datacols[0].options +  
+    [co_nosort];
+    list_files.datacols[1].options :=  list_files.datacols[1].options +  
+    [co_nosort]; 
+    list_files.datacols[2].options :=  list_files.datacols[2].options +  
+    [co_nosort];  
+    list_files.datacols[3].options :=  list_files.datacols[3].options +  
+    [co_nosort];  
+   
+    end 
+    else
+    
     if (cellpos.row = -1) and (cellpos.col = 3) then
     begin
       // writeln(inttostr(cellpos.col) + ' ' + inttostr(cellpos.row));
@@ -517,8 +533,17 @@ begin
     begin
       cellpos.col := 0;
       list_files.selectcell(cellpos, csm_select, False);
-    end// writeln('button release 1');
-  ;
+    end else
+    begin
+     list_files.datacols[0].options :=  list_files.datacols[0].options -  
+    [co_nosort];
+    list_files.datacols[1].options :=  list_files.datacols[1].options -  
+    [co_nosort]; 
+    list_files.datacols[2].options :=  list_files.datacols[2].options -  
+    [co_nosort];  
+    list_files.datacols[3].options :=  list_files.datacols[3].options -  
+    [co_nosort];  
+      end;
 
   if (info.eventkind = cek_buttonrelease) then
   begin
