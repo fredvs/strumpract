@@ -337,8 +337,8 @@ begin
       Caption := tosysfilepath(historyfn.Value);
 
       list_files.rowcount := datalist_files.Count;
-      
-    
+
+
       for x := 0 to datalist_files.Count - 1 do
       begin
         list_files[0][x] := utf8decode(filenamebase(datalist_files.items[x].Name));
@@ -498,21 +498,20 @@ begin
 
 
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
-  
-   if (cellpos.col = -1) then
-   begin
-    list_files.datacols[0].options :=  list_files.datacols[0].options +  
-    [co_nosort];
-    list_files.datacols[1].options :=  list_files.datacols[1].options +  
-    [co_nosort]; 
-    list_files.datacols[2].options :=  list_files.datacols[2].options +  
-    [co_nosort];  
-    list_files.datacols[3].options :=  list_files.datacols[3].options +  
-    [co_nosort];  
-   
-    end 
+
+    if (cellpos.col = -1) then
+    begin
+      list_files.datacols[0].options := list_files.datacols[0].options +
+        [co_nosort];
+      list_files.datacols[1].options := list_files.datacols[1].options +
+        [co_nosort];
+      list_files.datacols[2].options := list_files.datacols[2].options +
+        [co_nosort];
+      list_files.datacols[3].options := list_files.datacols[3].options +
+        [co_nosort];
+
+    end
     else
-    
     if (cellpos.row = -1) and (cellpos.col = 3) then
     begin
       // writeln(inttostr(cellpos.col) + ' ' + inttostr(cellpos.row));
@@ -533,17 +532,18 @@ begin
     begin
       cellpos.col := 0;
       list_files.selectcell(cellpos, csm_select, False);
-    end else
+    end
+    else
     begin
-     list_files.datacols[0].options :=  list_files.datacols[0].options -  
-    [co_nosort];
-    list_files.datacols[1].options :=  list_files.datacols[1].options -  
-    [co_nosort]; 
-    list_files.datacols[2].options :=  list_files.datacols[2].options -  
-    [co_nosort];  
-    list_files.datacols[3].options :=  list_files.datacols[3].options -  
-    [co_nosort];  
-      end;
+      list_files.datacols[0].options := list_files.datacols[0].options -
+        [co_nosort];
+      list_files.datacols[1].options := list_files.datacols[1].options -
+        [co_nosort];
+      list_files.datacols[2].options := list_files.datacols[2].options -
+        [co_nosort];
+      list_files.datacols[3].options := list_files.datacols[3].options -
+        [co_nosort];
+    end;
 
   if (info.eventkind = cek_buttonrelease) then
   begin
@@ -589,8 +589,7 @@ begin
 
         commanderfo.onstartstop(commanderfo.tbutton2)//   writeln('onstartstop(tbutton2)');  
 
-      else
-      if commanderfo.tbutton3.face.template = mainfo.tfaceorange then
+      else if commanderfo.tbutton3.face.template = mainfo.tfaceorange then
 
         commanderfo.onstartstop(commanderfo.tbutton3)//  writeln('onstartstop(tbutton3)');  
       ;
@@ -680,11 +679,10 @@ end;
 
 procedure tfilelistfo.addfile(const Sender: TObject);
 var
-  x, siz, y, z: integer;
-  str1: filenamety;
+  x, x2, siz, y, y2, z: integer;
   info: fileinfoty;
   res: modalresultty;
-  thestrnum: string;
+  thestrnum, thestrx, thestrext, thestrfract: string;
 begin
 
   tfiledialog1.controller.captionopen := 'Open Audio File';
@@ -693,46 +691,78 @@ begin
     '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"';
 
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
-    if fileexists(str1) then
+    if fileexists(tfiledialog1.controller.filename) then
     begin
-      getfileinfo(str1, info);
+      getfileinfo(tfiledialog1.controller.filename, info);
 
       siz := info.extinfo1.size;
+
+      list_files.datacols[0].options := list_files.datacols[0].options +
+        [co_nosort];
+      list_files.datacols[1].options := list_files.datacols[1].options +
+        [co_nosort];
+      list_files.datacols[2].options := list_files.datacols[2].options +
+        [co_nosort];
+      list_files.datacols[3].options := list_files.datacols[3].options +
+        [co_nosort];
 
       list_files.rowcount := list_files.rowcount + 1;
       x := list_files.rowcount - 1;
 
+    //    if x > 0 then  list_files[-1][x] := inttostr(x+1);
+      list_files[0][x] := utf8decode(filenamebase(tfiledialog1.controller.filename));
+      list_files[1][x] := utf8decode(fileext(tfiledialog1.controller.filename));
 
-      //    if x > 0 then  list_files[-1][x] := inttostr(x+1);
-      list_files[0][x] := utf8decode(filenamebase(str1));
-      list_files[1][x] := utf8decode(fileext(str1));
-
-      if siz > 0 then
+      if siz div 1000000000 > 0 then
       begin
-        if siz div 1024 > 0 then
-          y   :=
-            siz div 1024
-        else
-          siz := 1;
+        y2        := Trunc(Frac(siz / 1000000000) * Power(10, 1));
+        y         := siz div 1000000000;
+        thestrx   := '~';
+        thestrext := ' GB';
+      end
+      else if siz div 1000000 > 0 then
+      begin
+        y2        := Trunc(Frac(siz / 1000000) * Power(10, 1));
+        y         := siz div 1000000;
+        thestrx   := '_';
+        thestrext := ' MB';
+      end
+      else if siz div 1000 > 0 then
+      begin
+        y2        := Trunc(Frac(siz) * Power(10, 1));
+        y         := siz div 1000;
+        thestrx   := '^';
+        thestrext := ' KB';
       end
       else
-        siz := 0;
+      begin
+        y2        := 0;
+        y         := siz;
+        thestrx   := ' ';
+        thestrext := ' B';
+      end;
 
-      thestrnum := IntToStr(siz);
+      thestrnum := IntToStr(y);
 
       z := Length(thestrnum);
 
-      if z < 7 then
-        for y := 0 to 6 - z do
+      if z < 15 then
+        for y := 0 to 14 - z do
           thestrnum := ' ' + thestrnum;
 
-      list_files[2][x] := utf8decode(thestrnum + ' Kb');
+      if y2 > 0 then
+        thestrfract := '.' + IntToStr(y2)
+      else
+        thestrfract := '';
+
+
+      list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
 
 
       //   list_files[2][x] := utf8decode(IntToStr(siz Div 1000) + ' Kb');
       // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
       list_files[3][x]   := utf8decode(IntToStr(1));
-      list_files[4][x]   := str1;
+      list_files[4][x]   := tfiledialog1.controller.filename;
       edfilescount.Value := list_files.rowcount;
       filescount.Value   := utf8decode(IntToStr(edfilescount.Value) + ' files');
 
