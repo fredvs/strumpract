@@ -1550,7 +1550,7 @@ editpos=11
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,80
+ 0,61
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1780,7 +1780,7 @@ windowlayout=703
  x=0
  y=0
  cx=205
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2068,7 +2068,7 @@ windowlayout=703
  x=0
  y=0
  cx=1348
- cy=50
+ cy=49
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2080,11 +2080,11 @@ windowlayout=703
  nx=0
  ny=0
  ncx=1333
- ncy=42
+ ncy=36
  x=0
  y=0
- cx=1348
- cy=40
+ cx=1333
+ cy=34
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2133,7 +2133,7 @@ windowlayout=703
  x=208
  y=0
  cx=1140
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2147,7 +2147,7 @@ windowlayout=703
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2174,9 +2174,9 @@ windowlayout=703
  ncx=0
  ncy=0
  x=0
- y=53
+ y=52
  cx=1348
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2258,7 +2258,7 @@ windowlayout=703
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0

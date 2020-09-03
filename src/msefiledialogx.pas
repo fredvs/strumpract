@@ -2069,14 +2069,15 @@ procedure tfiledialogfo.onlateral(const sender: TObject; var avalue: Boolean;
                var accept: Boolean);
 begin
 
- if avalue then
+ if not avalue then
   begin
     places.Visible := true;
-    list_log.invalidate;
     tsplitter1.left := 110;
     tsplitter1.visible := true;
     
-    list_log.left := tsplitter1.left+tsplitter1.width;
+     list_log.left := tsplitter1.left+tsplitter1.width;
+ 
+      list_log.invalidate;
      
     listview.left   := list_log.left;
     listview.invalidate;
@@ -2101,8 +2102,12 @@ begin
     listview.Width   := list_log.Width;
     listview.left   := list_log.left;
     listview.invalidate;
-  
-  end;
+   end;
+   
+       list_log.datacols[0].width := list_log.width -
+     list_log.datacols[1].width - list_log.datacols[2].width - 
+     list_log.datacols[3].width - 20;
+ 
 
 end;
 
