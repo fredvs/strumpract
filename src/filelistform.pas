@@ -639,6 +639,7 @@ var
 begin
   ordir := ExtractFilePath(ParamStr(0)) + 'list' + directoryseparator;
   tfiledialog1.controller.captionopen := 'Open List File';
+  tfiledialog1.controller.fontcolor := cl_black;
 
   tfiledialog1.controller.filter   := '"*.lis"';
   tfiledialog1.controller.filename := ordir;
@@ -686,6 +687,8 @@ var
 begin
 
   tfiledialog1.controller.captionopen := 'Open Audio File';
+  
+  tfiledialog1.controller.fontcolor := cl_black;
 
   tfiledialog1.controller.filter :=
     '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"';
@@ -806,6 +809,8 @@ procedure tfilelistfo.opendir(const Sender: TObject);
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
   tfiledialog1.controller.filter     := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+  tfiledialog1.controller.fontcolor := cl_black;
+
 
   if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
   begin

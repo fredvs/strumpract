@@ -1060,6 +1060,7 @@ begin
    + 'sound' + directoryseparator + 'record'  + directoryseparator);
    
   tfiledialog1.controller.captionopen  := 'Open Audio File';
+  tfiledialog1.controller.fontcolor := cl_black;
    tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
 if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     begin

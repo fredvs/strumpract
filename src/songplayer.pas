@@ -2848,6 +2848,8 @@ procedure tsongplayerfo.opendir(const sender: TObject);
 begin
   tfiledialog1.controller.captionopen  := 'Open Audio File';
    tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+   tfiledialog1.controller.fontcolor := cl_black;
+
 if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     begin
     historyfn.Value :=tfiledialog1.controller.filename;

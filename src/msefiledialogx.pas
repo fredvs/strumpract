@@ -159,6 +159,8 @@ type
     fgroup: integer;
     ffontname: msestring;
     ffontheight: integer;
+    ffontcolor: colorty;
+    fbackcolor: colorty;
     fonchange: proceventty;
     ffilenames: filenamearty;
     ffilterlist: tdoublemsestringdatalist;
@@ -241,6 +243,8 @@ type
     property basedir: filenamety read fbasedir write fbasedir;
     property fontheight: integer read ffontheight write ffontheight;
     property fontname: msestring read ffontname write ffontname;
+    property fontcolor: colorty read ffontcolor write ffontcolor;
+    property backcolor: colorty read fbackcolor write fbackcolor;
     property filter: filenamety read ffilter write ffilter;
     property filterlist: tdoublemsestringdatalist read ffilterlist write setfilterlist;
     property filterindex: integer read ffilterindex write ffilterindex default 0;
@@ -1609,7 +1613,7 @@ begin
   filter.initfocus;
    tsplitter2.left := 430;
    filter.frame.caption := '&Filter';
-   
+
 end;
 
 procedure tfiledialogfo.filteronsetvalue(const Sender: TObject; var avalue: msestring; var accept: Boolean);
@@ -2253,9 +2257,16 @@ begin
         fo.font.Height := fontheight
       else
         fo.font.Height := 20;
+        
+    if fontcolor > 0 then
+       fo.font.color := fontcolor;    
+       
+    if backcolor > 0 then  fo.container.color := backcolor;       
 
     if fontname <> '' then
       fo.font.Name := ansistring(fontname);
+      
+      
 
     if (dialogkind in [fdk_dir]) or (fdo_directory in aoptions) then
     begin

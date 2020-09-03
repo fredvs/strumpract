@@ -133,10 +133,11 @@ findinfiledialog=77
   /usr/share/fpcsrc/
   /home/fred/designer_ext/
  filefilterindex=0
- filefilter=
+ filefilter="*.pas" "*.pp" "*.inc" "*.mfm" 
  [findinfileadialogfo.findtext]
- value=point
+ value=filedialog
  history=20
+  filedialog
   point
   thistorycontroller
   dialogfiles
@@ -156,7 +157,6 @@ findinfiledialog=77
   info.eventkind =
   info.eventkind = cek_buttonrelease
   cek_buttonrelease
-  filetype
  [findinfileadialogfo]
  stackedunder=
  x=635
@@ -1543,18 +1543,23 @@ findhistory=20
  thesender
  imagedancerfo
 findoptions=1
-editpos=11
+editpos=16
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 11,45
+ 0,812
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 17,2
+ 0,3328
+ 0,1063
+ 0,2851
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1566,7 +1571,12 @@ bookmarks7=0
 bookmarks8=0
 bookmarks9=0
 bookmarks10=0
-sourcefiles=11
+bookmarks11=0
+bookmarks12=0
+bookmarks13=0
+bookmarks14=0
+bookmarks15=0
+sourcefiles=16
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/msefiledialogx.pas
@@ -1578,7 +1588,12 @@ sourcefiles=11
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/recorder.pas
-relpaths=11
+ /home/fred/mseide-msegui/apps/ide/actionsmodule.pas
+ /home/fred/mseide-msegui/apps/ide/actionsmodule.mfm
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/recorder.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=16
  main.pas
  filelistform.pas
  msefiledialogx.pas
@@ -1590,7 +1605,12 @@ relpaths=11
  recorder.pas
  songplayer.pas
  recorder.pas
-ismoduletexts=11
+ ../mseide-msegui/apps/ide/actionsmodule.pas
+ ../mseide-msegui/apps/ide/actionsmodule.mfm
+ main.pas
+ recorder.pas
+ songplayer.pas
+ismoduletexts=16
  0
  0
  0
@@ -1599,6 +1619,11 @@ ismoduletexts=11
  0
  0
  0
+ 0
+ 0
+ 0
+ 0
+ -1
  0
  0
  0
@@ -1643,10 +1668,27 @@ nomenumodules=9
  0
  0
 [sourcefo.files_tab]
-firsttab=0
-index=6
+order=16
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 13
+ 14
+ 15
+ 11
+ 12
+ 7
+ 8
+ 9
+ 10
+firsttab=3
+index=11
 [layout]
-windowlayout=703
+windowlayout=720
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1754,7 +1796,7 @@ windowlayout=703
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -2078,13 +2120,13 @@ windowlayout=703
  visible=1
  mdistate=0
  nx=0
- ny=-1
+ ny=-2
  ncx=1333
- ncy=33
+ ncy=28
  x=0
- y=-2
+ y=-3
  cx=1333
- cy=34
+ cy=29
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2094,7 +2136,7 @@ windowlayout=703
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/filelistform.pas
+ value=/home/fred/mseide-msegui/apps/ide/actionsmodule.mfm
  history=20
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/msefiledialogx.pas
@@ -2137,8 +2179,25 @@ windowlayout=703
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- firsttab=0
- index=6
+ order=16
+  0
+  1
+  2
+  3
+  4
+  5
+  6
+  13
+  14
+  15
+  11
+  12
+  7
+  8
+  9
+  10
+ firsttab=3
+ index=11
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2334,7 +2393,7 @@ windowlayout=703
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=findinfilefo
  parent=
  mdistate=3
  nx=0

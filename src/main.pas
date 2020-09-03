@@ -3325,6 +3325,8 @@ var
 begin
   ordir := ExtractFilePath(ParamStr(0)) + 'layout' + directoryseparator;
   tfiledialog1.controller.captionopen := 'Open Layout File';
+  tfiledialog1.controller.fontcolor := cl_black;
+
     
   tfiledialog1.controller.filter := '"*.lay"';
   tfiledialog1.controller.filename := ordir;
