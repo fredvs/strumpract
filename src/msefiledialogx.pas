@@ -31,14 +31,54 @@ interface
 {$endif}
 
 uses
- Math,mseglob,mseguiglob,mseforms,Classes,mclasses,mseclasses,msewidgets,
- msegrids,mselistbrowser,mseedit,msesimplewidgets,msedataedits,msedialog,
- msetypes,msestrings,msesystypes,msesys,msedispwidgets,msedatalist,msestat,
- msestatfile,msebitmap,msedatanodes,msefileutils,msedropdownlist,mseevent,
- msegraphedits,mseeditglob,msesplitter,msemenus,msegridsglob,msegraphics,
- msegraphutils,msedirtree,msewidgetgrid,mseact,mseapplication,msegui,mseificomp,
- mseificompglob,mseifiglob,msestream,SysUtils,msemenuwidgets,msescrollbar,
- msedragglob,msefiledialog;
+  Math,
+  mseglob,
+  mseguiglob,
+  mseforms,
+  Classes,
+  mclasses,
+  mseclasses,
+  msewidgets,
+  msegrids,
+  mselistbrowser,
+  mseedit,
+  msesimplewidgets,
+  msedataedits,
+  msedialog,
+  msetypes,
+  msestrings,
+  msesystypes,
+  msesys,
+  msedispwidgets,
+  msedatalist,
+  msestat,
+  msestatfile,
+  msebitmap,
+  msedatanodes,
+  msefileutils,
+  msedropdownlist,
+  mseevent,
+  msegraphedits,
+  mseeditglob,
+  msesplitter,
+  msemenus,
+  msegridsglob,
+  msegraphics,
+  msegraphutils,
+  msedirtree,
+  msewidgetgrid,
+  mseact,
+  mseapplication,
+  msegui,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestream,
+  SysUtils,
+  msemenuwidgets,
+  msescrollbar,
+  msedragglob,
+  msefiledialog;
 
 const
   defaultlistviewoptionsfile = defaultlistviewoptions + [lvo_readonly, lvo_horz];
@@ -550,9 +590,9 @@ type
     places: tstringgrid;
     tsplitter1: tsplitter;
     listview: tfilelistview;
-   blateral: tbooleanedit;
-   iconslist: timagelist;
-   tsplitter2: tsplitter;
+    blateral: tbooleanedit;
+    iconslist: timagelist;
+    tsplitter2: tsplitter;
     procedure createdironexecute(const Sender: TObject);
     procedure listviewselectionchanged(const Sender: tcustomlistview);
     procedure listviewitemevent(const Sender: tcustomlistview; const index: integer; var info: celleventinfoty);
@@ -585,8 +625,7 @@ type
     procedure ondrawcellplace(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
     procedure onlayout(const Sender: tcustomgrid);
     procedure onformcreated(const Sender: TObject);
-   procedure onlateral(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
+    procedure onlateral(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -735,8 +774,8 @@ begin
       (filter.dropdown.ItemIndex >= 0) and
       (afilter^ = filter.dropdown.cols[1][filter.dropdown.ItemIndex]) then
       updatefiltertext//  if filename.Visible = False then
-      //    filter.Value := ''
-      //  else
+    //    filter.Value := ''
+    //  else
 
     else
     begin
@@ -1523,10 +1562,10 @@ begin
           tmp := '.' + tmp;
         list_log[1][x] := utf8decode(tmp);
         list_log[0][x] := list_log[0][x] + list_log[1][x];
-     end;
-      
-    //  thedir := dir.Value + trim(list_log[0][x]);
-      
+      end;
+
+      //  thedir := dir.Value + trim(list_log[0][x]);
+
       thedir := dir.Value + (listview.itemlist[x].Caption);
 
       getfileinfo(utf8decode(trim(thedir)), info);
@@ -1563,7 +1602,6 @@ begin
           thestrext := ' B ';
         end;
 
-
         thestrnum := IntToStr(y);
 
         z := Length(thestrnum);
@@ -1589,9 +1627,9 @@ begin
     listview.Width := list_log.Width;
     listview.invalidate;
   end;
-  
-    list_log.defocuscell;
-    list_log.datacols.clearselection;
+
+  list_log.defocuscell;
+  list_log.datacols.clearselection;
 
   dir.frame.Caption := 'Directory with ' + IntToStr(list_log.rowcount - x2) + ' files';
 
@@ -1611,9 +1649,8 @@ procedure tfiledialogfo.filteronafterclosedropdown(const Sender: TObject);
 begin
   updatefiltertext;
   filter.initfocus;
-   tsplitter2.left := 430;
-   filter.frame.caption := '&Filter';
-
+  tsplitter2.left      := 420;
+  filter.frame.Caption := '&Filter';
 end;
 
 procedure tfiledialogfo.filteronsetvalue(const Sender: TObject; var avalue: msestring; var accept: Boolean);
@@ -1807,7 +1844,7 @@ var
   cellpos, cellpos2: gridcoordty;
   x, y: integer;
   str1: string;
- begin
+begin
 
   if (list_log.rowcount > 0) and ((info.eventkind = cek_buttonrelease) or (info.eventkind = cek_keyup)) then
     if (info.cell.row > -1) then
@@ -1824,7 +1861,6 @@ var
       y := StrToInt(list_log[4][cellpos.row]);
       cellpos2.row := y;
 
-
       if listview.filelist.isdir(y) then
       begin
         listview.defocuscell;
@@ -1839,24 +1875,20 @@ var
           else
           begin
             changedir(str1);
-            filename.value := '';
+            filename.Value := '';
           end;
-            
         end
         else if info.keyeventinfopo^.key = key_return then
         begin
           changedir(str1);
-          filename.value := '';
-        end;  
- 
+          filename.Value := '';
+        end;
       end
       else
       begin
-
         listview.defocuscell;
         listview.datacols.clearselection;
         listview.selectcell(cellpos2, csm_select, False);
-
         if (info.eventkind = cek_buttonrelease) then
         begin
           if (listview.rowcount > 0) and (list_log.rowcount > 0) and
@@ -1864,12 +1896,10 @@ var
             (ss_double in info.mouseeventinfopo^.shiftstate) then
             okonexecute(Sender);
         end
-        else
-        if (listview.rowcount > 0) and (list_log.rowcount > 0) and
+        else if (listview.rowcount > 0) and (list_log.rowcount > 0) and
           (not listview.filelist.isdir(y)) and
           (info.keyeventinfopo^.key = key_return) then
           okonexecute(Sender);
-
       end;
     end;
 end;
@@ -1877,7 +1907,7 @@ end;
 procedure tfiledialogfo.ondrawcell(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
 var
   aicon: integer;
-  apoint : pointty;
+  apoint: pointty;
 begin
 
   if (list_log[1][cellinfo.cell.row] = '') and (list_log[2][cellinfo.cell.row] = '') then
@@ -1954,9 +1984,9 @@ begin
     aicon := 6
   else
     aicon := 1;
-    
-    apoint.x := 2;
-    apoint.y := 1;
+
+  apoint.x := 2;
+  apoint.y := 1;
 
   iconslist.paint(Canvas, aicon, apoint, cl_default,
     cl_default, cl_default, 0);
@@ -1986,8 +2016,8 @@ end;
 
 procedure tfiledialogfo.onbefdrop(const Sender: TObject);
 begin
-  tsplitter2.left := 200;
-  filter.frame.caption := '';
+  tsplitter2.left      := 200;
+  filter.frame.Caption := '';
   //filter.Width := 400;
   //filter.right := width - 20;
 end;
@@ -2001,38 +2031,38 @@ begin
 
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_keyup) then
   begin
-    cellpos   := info.cell;
-    
-    if directoryexists(places[1][cellpos.row] + directoryseparator) then
-    
-    begin
-    
-    dir.Value := places[1][cellpos.row] + directoryseparator;
+    cellpos := info.cell;
 
-    if tryreadlist(dir.Value, True) then
+    if directoryexists(places[1][cellpos.row] + directoryseparator) then
     begin
-      dir.Value := listview.directory;
-      course(listview.directory);
-    end;
-    
-    filename.value := '';
-    
-    list_log.defocuscell;
-    list_log.datacols.clearselection;
-    
-    end else
+
+      dir.Value := places[1][cellpos.row] + directoryseparator;
+
+      if tryreadlist(dir.Value, True) then
+      begin
+        dir.Value := listview.directory;
+        course(listview.directory);
+      end;
+
+      filename.Value := '';
+
+      list_log.defocuscell;
+      list_log.datacols.clearselection;
+
+    end
+    else
     begin
-    places.defocuscell;
-    places.datacols.clearselection;
+      places.defocuscell;
+      places.datacols.clearselection;
     end;
-    
+
   end;
 end;
 
 procedure tfiledialogfo.ondrawcellplace(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
 var
   aicon: integer;
-  apoint : pointty;
+  apoint: pointty;
 begin
 
   if cellinfo.cell.row = 0 then
@@ -2049,9 +2079,9 @@ begin
     aicon := 2
   else if cellinfo.cell.row = 6 then
     aicon := 15;
-    
-    apoint.x := 2;
-    apoint.y := 3;
+
+  apoint.x := 2;
+  apoint.y := 3;
 
   iconslist.paint(Canvas, aicon, apoint, cl_default,
     cl_default, cl_default, 0);
@@ -2082,49 +2112,46 @@ begin
   places[1][6] := sys_getuserhomedir + directoryseparator + 'Downloads';
 end;
 
-procedure tfiledialogfo.onlateral(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
+procedure tfiledialogfo.onlateral(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
 
- if not avalue then
+  if not avalue then
   begin
-    places.Visible := true;
-    tsplitter1.left := 110;
-    tsplitter1.visible := true;
-    
-     list_log.left := tsplitter1.left+tsplitter1.width;
- 
-      list_log.invalidate;
-     
-    listview.left   := list_log.left;
+    places.Visible     := True;
+    tsplitter1.left    := 110;
+    tsplitter1.Visible := True;
+
+    list_log.left := tsplitter1.left + tsplitter1.Width;
+
+    list_log.invalidate;
+
+    listview.left := list_log.left;
     listview.invalidate;
-  
-    
+
   end
   else
   begin
-  
-    places.Visible := false;
-    
+
+    places.Visible := False;
+
     tsplitter1.left := 0;
     list_log.invalidate;
-    
-    list_log.Width := width;
-    
-    
-    tsplitter1.visible := false;
-   
+
+    list_log.Width := Width;
+
+
+    tsplitter1.Visible := False;
+
     list_log.left := 0;
-    
-    listview.Width   := list_log.Width;
-    listview.left   := list_log.left;
+
+    listview.Width := list_log.Width;
+    listview.left  := list_log.left;
     listview.invalidate;
-   end;
-   
-       list_log.datacols[0].width := list_log.width -
-     list_log.datacols[1].width - list_log.datacols[2].width - 
-     list_log.datacols[3].width - 20;
- 
+  end;
+
+  list_log.datacols[0].Width := list_log.Width -
+    list_log.datacols[1].Width - list_log.datacols[2].Width -
+    list_log.datacols[3].Width - 20;
 
 end;
 
@@ -2257,22 +2284,20 @@ begin
         fo.font.Height := fontheight
       else
         fo.font.Height := 20;
-        
+
     if fontcolor > 0 then
-       fo.font.color := fontcolor;    
-       
-    if backcolor > 0 then  fo.container.color := backcolor;       
+      fo.font.color := fontcolor;
+
+    if backcolor > 0 then
+      fo.container.color := backcolor;
 
     if fontname <> '' then
       fo.font.Name := ansistring(fontname);
-      
-      
+
 
     if (dialogkind in [fdk_dir]) or (fdo_directory in aoptions) then
-    begin
-     // fo.filter.Visible   := False;
-      fo.filename.Visible := False;
-    end;
+      fo.filename.Visible := False// fo.filter.Visible   := False;
+    ;
 
     if dialogkind <> fdk_none then
       if dialogkind in [fdk_save, fdk_new] then

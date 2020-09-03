@@ -497,21 +497,22 @@ begin
   cellpos := info.cell;
 
 
+  if (info.eventkind = cek_buttonpress) and (cellpos.col = -1) then
+  begin
+    list_files.datacols[0].options := list_files.datacols[0].options +
+      [co_nosort];
+    list_files.datacols[1].options := list_files.datacols[1].options +
+      [co_nosort];
+    list_files.datacols[2].options := list_files.datacols[2].options +
+      [co_nosort];
+    list_files.datacols[3].options := list_files.datacols[3].options +
+      [co_nosort];
+
+  end
+  else
+
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
 
-    if (cellpos.col = -1) then
-    begin
-      list_files.datacols[0].options := list_files.datacols[0].options +
-        [co_nosort];
-      list_files.datacols[1].options := list_files.datacols[1].options +
-        [co_nosort];
-      list_files.datacols[2].options := list_files.datacols[2].options +
-        [co_nosort];
-      list_files.datacols[3].options := list_files.datacols[3].options +
-        [co_nosort];
-
-    end
-    else
     if (cellpos.row = -1) and (cellpos.col = 3) then
     begin
       // writeln(inttostr(cellpos.col) + ' ' + inttostr(cellpos.row));
@@ -687,7 +688,7 @@ var
 begin
 
   tfiledialog1.controller.captionopen := 'Open Audio File';
-  
+
   tfiledialog1.controller.fontcolor := cl_black;
 
   tfiledialog1.controller.filter :=
@@ -712,7 +713,7 @@ begin
       list_files.rowcount := list_files.rowcount + 1;
       x := list_files.rowcount - 1;
 
-    //    if x > 0 then  list_files[-1][x] := inttostr(x+1);
+      //    if x > 0 then  list_files[-1][x] := inttostr(x+1);
       list_files[0][x] := utf8decode(filenamebase(tfiledialog1.controller.filename));
       list_files[1][x] := utf8decode(fileext(tfiledialog1.controller.filename));
 
@@ -809,7 +810,7 @@ procedure tfilelistfo.opendir(const Sender: TObject);
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
   tfiledialog1.controller.filter     := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
-  tfiledialog1.controller.fontcolor := cl_black;
+  tfiledialog1.controller.fontcolor  := cl_black;
 
 
   if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then

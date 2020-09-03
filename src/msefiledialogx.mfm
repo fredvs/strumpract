@@ -171,9 +171,9 @@ object filedialogfo: Tfiledialogfo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 6
-    bounds_x = 432
+    bounds_x = 422
     bounds_y = 44
-    bounds_cx = 172
+    bounds_cx = 182
     bounds_cy = 40
     anchors = [an_top, an_right]
     ondataentered = filepathentered
@@ -242,7 +242,7 @@ object filedialogfo: Tfiledialogfo
     onshowhint = dirshowhint
     bounds_x = 4
     bounds_y = 44
-    bounds_cx = 426
+    bounds_cx = 416
     bounds_cy = 40
     anchors = [an_left, an_top, an_right]
     textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
@@ -366,7 +366,7 @@ object filedialogfo: Tfiledialogfo
     )
     taborder = 7
     hint = 'Show hidden files'
-    bounds_x = 488
+    bounds_x = 480
     bounds_y = 38
     bounds_cx = 95
     bounds_cy = 17
@@ -646,7 +646,7 @@ object filedialogfo: Tfiledialogfo
     )
     taborder = 13
     hint = 'Switch to compact layout'
-    bounds_x = 280
+    bounds_x = 312
     bounds_y = 38
     bounds_cx = 70
     bounds_cy = 17
@@ -770,7 +770,7 @@ object filedialogfo: Tfiledialogfo
     )
     taborder = 17
     hint = 'Hide / Show Lateral panel '
-    bounds_x = 160
+    bounds_x = 200
     bounds_y = 38
     bounds_cx = 77
     bounds_cy = 17
@@ -778,7 +778,7 @@ object filedialogfo: Tfiledialogfo
   end
   object tsplitter2: tsplitter
     taborder = 18
-    bounds_x = 430
+    bounds_x = 420
     bounds_y = 60
     bounds_cx = 2
     bounds_cy = 24
