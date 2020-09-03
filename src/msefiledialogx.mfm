@@ -1,8 +1,8 @@
 object filedialogfo: Tfiledialogfo
   optionswidget = [ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_destroywidgets, ow_hinton]
   visible = False
-  bounds_x = 396
-  bounds_y = 278
+  bounds_x = 394
+  bounds_y = 97
   bounds_cx = 608
   bounds_cy = 335
   bounds_cxmin = 608
@@ -114,13 +114,14 @@ object filedialogfo: Tfiledialogfo
     face.localprops = [fal_fadirection]
     taborder = 5
     hint = 'Click button on right corner to show the history of files.'
-    bounds_x = 183
+    bounds_x = 4
     bounds_y = 292
-    bounds_cx = 423
+    bounds_cx = 600
     bounds_cy = 38
     anchors = [an_left, an_right, an_bottom]
     optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
     optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+    textflags = [tf_xcentered, tf_ycentered, tf_noselect]
     oncopytoclipboard = copytoclip
     onpastefromclipboard = pastefromclip
     onsetvalue = filenamesetvalue
@@ -170,11 +171,11 @@ object filedialogfo: Tfiledialogfo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     taborder = 6
-    bounds_x = 4
-    bounds_y = 292
-    bounds_cx = 174
-    bounds_cy = 38
-    anchors = [an_left, an_bottom]
+    bounds_x = 432
+    bounds_y = 44
+    bounds_cx = 172
+    bounds_cy = 40
+    anchors = [an_top, an_right]
     ondataentered = filepathentered
     onsetvalue = filteronsetvalue
     dropdown.options = [deo_keydropdown, deo_cliphint]
@@ -240,9 +241,9 @@ object filedialogfo: Tfiledialogfo
     taborder = 1
     onshowhint = dirshowhint
     bounds_x = 4
-    bounds_y = 46
-    bounds_cx = 602
-    bounds_cy = 39
+    bounds_y = 44
+    bounds_cx = 426
+    bounds_cy = 40
     anchors = [an_left, an_top, an_right]
     textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
     dropdown.options = [deo_selectonly, deo_keydropdown]
@@ -361,12 +362,12 @@ object filedialogfo: Tfiledialogfo
       0
       2
       82
-      2
+      3
     )
     taborder = 7
     hint = 'Show hidden files'
-    bounds_x = 448
-    bounds_y = 40
+    bounds_x = 488
+    bounds_y = 38
     bounds_cx = 95
     bounds_cy = 17
     anchors = [an_top, an_right]
@@ -641,15 +642,14 @@ object filedialogfo: Tfiledialogfo
       0
       2
       57
-      2
+      3
     )
     taborder = 13
     hint = 'Switch to compact layout'
-    bounds_x = 328
-    bounds_y = 40
+    bounds_x = 280
+    bounds_y = 38
     bounds_cx = 70
     bounds_cy = 17
-    anchors = [an_top, an_right]
     onsetvalue = onsetcomp
   end
   object places: tstringgrid
@@ -766,16 +766,25 @@ object filedialogfo: Tfiledialogfo
       0
       2
       64
-      2
+      3
     )
     taborder = 17
     hint = 'Hide / Show Lateral panel '
-    bounds_x = 200
-    bounds_y = 40
+    bounds_x = 160
+    bounds_y = 38
     bounds_cx = 77
     bounds_cy = 17
-    anchors = [an_top, an_right]
     onsetvalue = onlateral
+  end
+  object tsplitter2: tsplitter
+    taborder = 18
+    bounds_x = 430
+    bounds_y = 60
+    bounds_cx = 2
+    bounds_cy = 24
+    options = [spo_hmove, spo_hprop, spo_dockleft, spo_docktop, spo_dockright, spo_dockbottom]
+    linkleft = dir
+    linkright = filter
   end
   object iconslist: timagelist
     width = 18

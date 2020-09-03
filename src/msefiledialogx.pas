@@ -548,6 +548,7 @@ type
     listview: tfilelistview;
    blateral: tbooleanedit;
    iconslist: timagelist;
+   tsplitter2: tsplitter;
     procedure createdironexecute(const Sender: TObject);
     procedure listviewselectionchanged(const Sender: tcustomlistview);
     procedure listviewitemevent(const Sender: tcustomlistview; const index: integer; var info: celleventinfoty);
@@ -1584,6 +1585,9 @@ begin
     listview.Width := list_log.Width;
     listview.invalidate;
   end;
+  
+    list_log.defocuscell;
+    list_log.datacols.clearselection;
 
   dir.frame.Caption := 'Directory with ' + IntToStr(list_log.rowcount - x2) + ' files';
 
@@ -1603,7 +1607,9 @@ procedure tfiledialogfo.filteronafterclosedropdown(const Sender: TObject);
 begin
   updatefiltertext;
   filter.initfocus;
-  filter.Width := 174;
+   tsplitter2.left := 430;
+   filter.frame.caption := '&Filter';
+   
 end;
 
 procedure tfiledialogfo.filteronsetvalue(const Sender: TObject; var avalue: msestring; var accept: Boolean);
@@ -1976,7 +1982,10 @@ end;
 
 procedure tfiledialogfo.onbefdrop(const Sender: TObject);
 begin
-  filter.Width := 400;
+  tsplitter2.left := 200;
+  filter.frame.caption := '';
+  //filter.Width := 400;
+  //filter.right := width - 20;
 end;
 
 procedure tfiledialogfo.oncellevplaces(const Sender: TObject; var info: celleventinfoty);
@@ -2003,6 +2012,10 @@ begin
     end;
     
     filename.value := '';
+    
+    list_log.defocuscell;
+    list_log.datacols.clearselection;
+    
     end else
     begin
     places.defocuscell;
@@ -2246,7 +2259,7 @@ begin
 
     if (dialogkind in [fdk_dir]) or (fdo_directory in aoptions) then
     begin
-      fo.filter.Visible   := False;
+     // fo.filter.Visible   := False;
       fo.filename.Visible := False;
     end;
 
