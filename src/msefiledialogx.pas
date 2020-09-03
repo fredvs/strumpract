@@ -31,54 +31,14 @@ interface
 {$endif}
 
 uses
-  Math,
-  mseglob,
-  mseguiglob,
-  mseforms,
-  Classes,
-  mclasses,
-  mseclasses,
-  msewidgets,
-  msegrids,
-  mselistbrowser,
-  mseedit,
-  msesimplewidgets,
-  msedataedits,
-  msedialog,
-  msetypes,
-  msestrings,
-  msesystypes,
-  msesys,
-  msedispwidgets,
-  msedatalist,
-  msestat,
-  msestatfile,
-  msebitmap,
-  msedatanodes,
-  msefileutils,
-  msedropdownlist,
-  mseevent,
-  msegraphedits,
-  mseeditglob,
-  msesplitter,
-  msemenus,
-  msegridsglob,
-  msegraphics,
-  msegraphutils,
-  msedirtree,
-  msewidgetgrid,
-  mseact,
-  mseapplication,
-  msegui,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestream,
-  SysUtils,
-  msemenuwidgets,
-  msescrollbar,
-  msedragglob,
-  msefiledialog;
+ Math,mseglob,mseguiglob,mseforms,Classes,mclasses,mseclasses,msewidgets,
+ msegrids,mselistbrowser,mseedit,msesimplewidgets,msedataedits,msedialog,
+ msetypes,msestrings,msesystypes,msesys,msedispwidgets,msedatalist,msestat,
+ msestatfile,msebitmap,msedatanodes,msefileutils,msedropdownlist,mseevent,
+ msegraphedits,mseeditglob,msesplitter,msemenus,msegridsglob,msegraphics,
+ msegraphutils,msedirtree,msewidgetgrid,mseact,mseapplication,msegui,mseificomp,
+ mseificompglob,mseifiglob,msestream,SysUtils,msemenuwidgets,msescrollbar,
+ msedragglob,msefiledialog;
 
 const
   defaultlistviewoptionsfile = defaultlistviewoptions + [lvo_readonly, lvo_horz];
@@ -214,8 +174,7 @@ type
     fcaptiondir: msestring;
     finclude: fileattributesty;
     fexclude: fileattributesty;
-    
-     fonbeforeexecute: filedialogbeforeexecuteeventty;
+    fonbeforeexecute: filedialogbeforeexecuteeventty;
     fonafterexecute: filedialogafterexecuteeventty;
     fongetfilename: setstringeventty;
     fongetfileicon: getfileiconeventty;
@@ -579,7 +538,6 @@ type
     filter: tdropdownlistedit;
     showhidden: tbooleanedit;
     list_log: tstringgrid;
-    iconslist: timagelist;
     home: TButton;
     createdir: TButton;
     cancel: TButton;
@@ -588,6 +546,8 @@ type
     places: tstringgrid;
     tsplitter1: tsplitter;
     listview: tfilelistview;
+   blateral: tbooleanedit;
+   iconslist: timagelist;
     procedure createdironexecute(const Sender: TObject);
     procedure listviewselectionchanged(const Sender: tcustomlistview);
     procedure listviewitemevent(const Sender: tcustomlistview; const index: integer; var info: celleventinfoty);
@@ -620,6 +580,8 @@ type
     procedure ondrawcellplace(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
     procedure onlayout(const Sender: tcustomgrid);
     procedure onformcreated(const Sender: TObject);
+   procedure onlateral(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -1545,21 +1507,22 @@ begin
       if listview.filelist.isdir(x) then
       begin
         Inc(x2);
-        list_log[0][x] := '     ' + utf8decode(listview.itemlist[x].Caption);
+        list_log[0][x] := '       ' + utf8decode(listview.itemlist[x].Caption);
         list_log[1][x] := '';
-        thedir         := dir.Value + trim(list_log[0][x]);
       end
       else
       begin
-        list_log[0][x] := '     ' + utf8decode(filenamebase(listview.itemlist[x].Caption));
+        list_log[0][x] := '  .    ' + utf8decode(filenamebase(listview.itemlist[x].Caption));
         tmp := fileext(listview.itemlist[x].Caption);
         if tmp <> '' then
           tmp := '.' + tmp;
-
         list_log[1][x] := utf8decode(tmp);
-
-        thedir := dir.Value + trim(list_log[0][x] + tmp);
-      end;
+        list_log[0][x] := list_log[0][x] + list_log[1][x];
+     end;
+      
+    //  thedir := dir.Value + trim(list_log[0][x]);
+      
+      thedir := dir.Value + (listview.itemlist[x].Caption);
 
       getfileinfo(utf8decode(trim(thedir)), info);
 
@@ -1571,28 +1534,28 @@ begin
           y2        := Trunc(Frac(info.extinfo1.size / 1000000000) * Power(10, 1));
           y         := info.extinfo1.size div 1000000000;
           thestrx   := '~';
-          thestrext := ' GB';
+          thestrext := ' GB ';
         end
         else if info.extinfo1.size div 1000000 > 0 then
         begin
           y2        := Trunc(Frac(info.extinfo1.size / 1000000) * Power(10, 1));
           y         := info.extinfo1.size div 1000000;
           thestrx   := '_';
-          thestrext := ' MB';
+          thestrext := ' MB ';
         end
         else if info.extinfo1.size div 1000 > 0 then
         begin
           y2        := Trunc(Frac(info.extinfo1.size / 1000) * Power(10, 1));
           y         := info.extinfo1.size div 1000;
           thestrx   := '^';
-          thestrext := ' KB';
+          thestrext := ' KB ';
         end
         else
         begin
           y2        := 0;
           y         := info.extinfo1.size;
           thestrx   := ' ';
-          thestrext := ' B';
+          thestrext := ' B ';
         end;
 
 
@@ -1834,7 +1797,7 @@ var
   cellpos, cellpos2: gridcoordty;
   x, y: integer;
   str1: string;
-begin
+ begin
 
   if (list_log.rowcount > 0) and ((info.eventkind = cek_buttonrelease) or (info.eventkind = cek_keyup)) then
     if (info.cell.row > -1) then
@@ -1904,11 +1867,11 @@ end;
 procedure tfiledialogfo.ondrawcell(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
 var
   aicon: integer;
+  apoint : pointty;
 begin
 
   if (list_log[1][cellinfo.cell.row] = '') and (list_log[2][cellinfo.cell.row] = '') then
-    aicon :=
-      0
+    aicon := 0
   else if (lowercase(list_log[1][cellinfo.cell.row]) = '.txt') or
     (lowercase(list_log[1][cellinfo.cell.row]) = '.pdf') or
     (lowercase(list_log[1][cellinfo.cell.row]) = '.ini') or
@@ -1981,8 +1944,11 @@ begin
     aicon := 6
   else
     aicon := 1;
+    
+    apoint.x := 2;
+    apoint.y := 1;
 
-  iconslist.paint(Canvas, aicon, nullpoint, cl_default,
+  iconslist.paint(Canvas, aicon, apoint, cl_default,
     cl_default, cl_default, 0);
 
 end;
@@ -2023,6 +1989,11 @@ begin
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_keyup) then
   begin
     cellpos   := info.cell;
+    
+    if directoryexists(places[1][cellpos.row] + directoryseparator) then
+    
+    begin
+    
     dir.Value := places[1][cellpos.row] + directoryseparator;
 
     if tryreadlist(dir.Value, True) then
@@ -2032,16 +2003,19 @@ begin
     end;
     
     filename.value := '';
-
-    //  places.defocuscell;
-    //  places.datacols.clearselection;
-    //  places.selectcell(cellpos, csm_select, False);
+    end else
+    begin
+    places.defocuscell;
+    places.datacols.clearselection;
+    end;
+    
   end;
 end;
 
 procedure tfiledialogfo.ondrawcellplace(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
 var
   aicon: integer;
+  apoint : pointty;
 begin
 
   if cellinfo.cell.row = 0 then
@@ -2058,8 +2032,11 @@ begin
     aicon := 2
   else if cellinfo.cell.row = 6 then
     aicon := 15;
+    
+    apoint.x := 2;
+    apoint.y := 3;
 
-  iconslist.paint(Canvas, aicon, nullpoint, cl_default,
+  iconslist.paint(Canvas, aicon, apoint, cl_default,
     cl_default, cl_default, 0);
 
 end;
@@ -2072,20 +2049,61 @@ end;
 
 procedure tfiledialogfo.onformcreated(const Sender: TObject);
 begin
-  places[0][0] := '      Home';
+  places[0][0] := '       Home';
   places[1][0] := sys_getuserhomedir;
-  places[0][1] := '      Desktop';
+  places[0][1] := '       Desktop';
   places[1][1] := sys_getuserhomedir + directoryseparator + 'Desktop';
-  places[0][2] := '      Music';
+  places[0][2] := '       Music';
   places[1][2] := sys_getuserhomedir + directoryseparator + 'Music';
-  places[0][3] := '      Pictures';
+  places[0][3] := '       Pictures';
   places[1][3] := sys_getuserhomedir + directoryseparator + 'Pictures';
-  places[0][4] := '      Videos';
+  places[0][4] := '       Videos';
   places[1][4] := sys_getuserhomedir + directoryseparator + 'Videos';
-  places[0][5] := '      Documents';
+  places[0][5] := '       Documents';
   places[1][5] := sys_getuserhomedir + directoryseparator + 'Documents';
-  places[0][6] := '      Downloads';
+  places[0][6] := '       Downloads';
   places[1][6] := sys_getuserhomedir + directoryseparator + 'Downloads';
+end;
+
+procedure tfiledialogfo.onlateral(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+
+ if avalue then
+  begin
+    places.Visible := true;
+    list_log.invalidate;
+    tsplitter1.left := 110;
+    tsplitter1.visible := true;
+    
+    list_log.left := tsplitter1.left+tsplitter1.width;
+     
+    listview.left   := list_log.left;
+    listview.invalidate;
+  
+    
+  end
+  else
+  begin
+  
+    places.Visible := false;
+    
+    tsplitter1.left := 0;
+    list_log.invalidate;
+    
+    list_log.Width := width;
+    
+    
+    tsplitter1.visible := false;
+   
+    list_log.left := 0;
+    
+    listview.Width   := list_log.Width;
+    listview.left   := list_log.left;
+    listview.invalidate;
+  
+  end;
+
 end;
 
 { tfiledialogcontroller }
@@ -2343,7 +2361,6 @@ function tfiledialogcontroller.Execute(var avalue: filenamety; const dialogkind:
 begin
   Result := Execute(avalue, dialogkind, acaption, foptions);
 end;
-
 
 function tfiledialogcontroller.getfilename: filenamety;
 begin
