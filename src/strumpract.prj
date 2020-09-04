@@ -791,9 +791,12 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=0
-moduletypes=0
-modulefiles=0
+modulenames=1
+ GUITARSFO
+moduletypes=1
+ TGUITARSFO
+modulefiles=1
+ /home/fred/strumpract/src/guitars.mfm
 befcommandon=0
 makeoptionson=11
  4095
@@ -1525,22 +1528,27 @@ findhistory=20
  images
  filedial
 findoptions=1
-editpos=3
- 0,0
- 0,353
+editpos=4
+ 0,-1073741823
+ 0,-1073741823
  0,14
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
-sourcefiles=3
+bookmarks3=0
+sourcefiles=4
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/songplayer.pas
-relpaths=3
+ ${PROJECTDIR}/guitars.pas
+relpaths=4
  main.pas
  filelistform.pas
  songplayer.pas
-ismoduletexts=3
+ guitars.pas
+ismoduletexts=4
+ 0
  0
  0
  0
@@ -1549,8 +1557,8 @@ modules=6
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/guitars.mfm
 moduleoptions=6
  0
  0
@@ -1564,14 +1572,14 @@ visiblemodules=6
  0
  0
  0
- 0
+ -1
 nomenumodules=6
  -1
  -1
  -1
  -1
  -1
- -1
+ 0
 [sourcefo.files_tab]
 firsttab=0
 index=2
@@ -1710,7 +1718,7 @@ windowlayout=646
  x=0
  y=0
  cx=205
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1998,7 +2006,7 @@ windowlayout=646
  x=0
  y=0
  cx=1348
- cy=50
+ cy=49
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2008,13 +2016,13 @@ windowlayout=646
  visible=1
  mdistate=0
  nx=0
- ny=-4
+ ny=-5
  ncx=1333
- ncy=15
+ ncy=16
  x=0
  y=-5
  cx=1333
- cy=16
+ cy=14
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2024,12 +2032,12 @@ windowlayout=646
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/recorder.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=20
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/msefiledialogx.pas
   /home/fred/strumpract/src/recorder.pas
-  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/status.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/mseide-msegui/lib/common/editwidgets/msedataedits.pas
@@ -2063,7 +2071,7 @@ windowlayout=646
  x=208
  y=0
  cx=1140
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2077,7 +2085,7 @@ windowlayout=646
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2104,15 +2112,15 @@ windowlayout=646
  ncx=0
  ncy=0
  x=0
- y=53
+ y=52
  cx=1348
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2131,7 +2139,7 @@ windowlayout=646
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2150,7 +2158,7 @@ windowlayout=646
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2166,20 +2174,20 @@ windowlayout=646
  wsize=0
  active=0
  visible=0
- [_mse_drumsfo_mse_]
+ [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=18
- y=475
+ x=741
+ y=84
  cx=452
- cy=236
+ cy=128
  rcx=0
  rcy=0
  wsize=0
@@ -2188,7 +2196,7 @@ windowlayout=646
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2203,21 +2211,21 @@ windowlayout=646
  rcy=0
  wsize=0
  active=0
- visible=0
- [_mse_filelistfo_mse_]
+ visible=1
+ [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=741
- y=84
+ x=18
+ y=475
  cx=452
- cy=128
+ cy=236
  rcx=0
  rcy=0
  wsize=0
