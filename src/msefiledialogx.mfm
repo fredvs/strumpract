@@ -107,8 +107,8 @@ object filedialogfo: Tfiledialogfo
     )
     face.fade_color.count = 2
     face.fade_color.items = (
-      16777215
-      14408667
+      16773859
+      16767144
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]

@@ -168,8 +168,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=983
- y=102
+ x=701
+ y=192
  cx=300
  cy=269
 replacedialog=33
@@ -316,7 +316,7 @@ options=114
  firsttab=0
  index=2
  [projectoptionsfo]
- stackedunder=
+ stackedunder=finddialogfo
  x=188
  y=91
  cx=818
@@ -818,7 +818,7 @@ makeoptionson=11
  0
  0
  192
- 1021
+ 1017
  0
  4095
  4095
@@ -1520,8 +1520,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=er.history
+finddtext=visible :=
 findhistory=20
+ visible :=
+ visible =
  er.history
  history
  ' KB'
@@ -1530,7 +1532,6 @@ findhistory=20
  layoutname.frame
  filter.v
  visible = false
- visible =
  .visible =
  .mask:=
  mask
@@ -1541,20 +1542,19 @@ findhistory=20
  images
  filedial
  thesender
- imagedancerfo
 findoptions=1
 editpos=16
  0,-1073741823
  0,-1073741823
+ 0,2217
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,512
- 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,8
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1579,7 +1579,7 @@ bookmarks15=0
 sourcefiles=16
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/msefiledialogx.pas
+ /home/fred/strumpract/src/msefiledialogx.pas
  /home/fred/mseide-msegui/lib/common/editwidgets/msedataedits.pas
  ${PROJECTDIR}/status.pas
  ${PROJECTDIR}/filelistform.pas
@@ -1676,17 +1676,17 @@ order=16
  4
  5
  6
+ 8
+ 9
+ 10
  12
+ 7
  13
  14
  15
- 10
  11
- 7
- 8
- 9
-firsttab=3
-index=5
+firsttab=0
+index=2
 [layout]
 windowlayout=720
  [mainfo.basedock]
@@ -2122,11 +2122,11 @@ windowlayout=720
  nx=0
  ny=-3
  ncx=1333
- ncy=25
+ ncy=17
  x=0
  y=-3
  cx=1333
- cy=23
+ cy=15
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2136,12 +2136,12 @@ windowlayout=720
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/filelistform.pas
+ value=/home/fred/strumpract/src/msefiledialogx.pas
  history=20
+  /home/fred/strumpract/src/msefiledialogx.pas
+  /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/filelistform.pas
-  /home/fred/strumpract/src/msefiledialogx.pas
   /home/fred/strumpract/src/status.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/mseide-msegui/lib/common/editwidgets/msedataedits.pas
@@ -2187,17 +2187,17 @@ windowlayout=720
   4
   5
   6
+  8
+  9
+  10
   12
+  7
   13
   14
   15
-  10
   11
-  7
-  8
-  9
- firsttab=3
- index=5
+ firsttab=0
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2279,7 +2279,7 @@ windowlayout=720
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filedialogfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2336,7 +2336,7 @@ windowlayout=720
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_filedialogfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2393,7 +2393,7 @@ windowlayout=720
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

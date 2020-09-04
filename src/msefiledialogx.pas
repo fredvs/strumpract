@@ -773,7 +773,8 @@ begin
     if (afilter = nil) or (afilter^ = '') or
       (filter.dropdown.ItemIndex >= 0) and
       (afilter^ = filter.dropdown.cols[1][filter.dropdown.ItemIndex]) then
-      updatefiltertext//  if filename.Visible = False then
+      updatefiltertext
+      //  if filename.Visible = False then
     //    filter.Value := ''
     //  else
 
@@ -2294,11 +2295,14 @@ begin
     if fontname <> '' then
       fo.font.Name := ansistring(fontname);
 
-
     if (dialogkind in [fdk_dir]) or (fdo_directory in aoptions) then
-      fo.filename.Visible := False// fo.filter.Visible   := False;
-    ;
-
+    begin
+      fo.filename.Visible := False;
+      // fo.filter.Visible   := False;
+      fo.dir.face.fade_color[0] := $FFF2E3; 
+      fo.dir.face.fade_color[1] := $FFD8A8; 
+    end;  
+  
     if dialogkind <> fdk_none then
       if dialogkind in [fdk_save, fdk_new] then
         system.include(aoptions, fdo_save)
