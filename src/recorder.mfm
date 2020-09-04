@@ -901,6 +901,7 @@ object recorderfo: trecorderfo
     top = 3
   end
   object tfiledialog1: tfiledialog
+    statfile = filelistfo.tstatfile1
     left = 219
     top = 34
   end

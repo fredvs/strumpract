@@ -403,20 +403,27 @@ begin
       cellpos.row := 0;
       cellpos.col := 0;
 
-      list_files.selectcell(cellpos, csm_select, False);
+    //  list_files.selectcell(cellpos, csm_select, False);
 
       edfilescount.Value := list_files.rowcount;
 
       list_files.fixcols[-1].captions.Count := list_files.rowCount;
-
-      for x := 0 to list_files.rowCount - 1 do
+     
+     for x := 0 to list_files.rowCount - 1 do
+      begin
         list_files.fixcols[-1].captions[x] := utf8decode(IntToStr(x + 1));
+        list_files.rowcolorstate[x]:= -1;
+      end;      
+        
       edfilescount.Value := list_files.rowcount;
       filescount.Value   := utf8decode(IntToStr(edfilescount.Value) + ' files');
 
       // list_files.focusedindex := 0;
       datalist_files.Free();
       onfloat(nil);
+      list_files.defocuscell;
+      list_files.datacols.clearselection;
+
     end;
 end;
 
@@ -649,22 +656,28 @@ begin
     if fileexists(tfiledialog1.controller.filename) then
     begin
 
-      filelistfo.tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));
+      tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));
       cellpos.row := 0;
       cellpos.col := 0;
 
-      filelistfo.list_files.selectcell(cellpos, csm_select, False);
+      list_files.selectcell(cellpos, csm_select, False);
 
-      filelistfo.edfilescount.Value := filelistfo.list_files.rowcount;
+      edfilescount.Value := filelistfo.list_files.rowcount;
 
-      filelistfo.Caption := removefileext(tfiledialog1.controller.filename);
+      Caption := removefileext(tfiledialog1.controller.filename);
 
-      filelistfo.list_files.fixcols[-1].captions.Count := filelistfo.list_files.rowCount;
+      list_files.fixcols[-1].captions.Count := filelistfo.list_files.rowCount;
 
-      for x := 0 to filelistfo.list_files.rowCount - 1 do
-        filelistfo.list_files.fixcols[-1].captions[x] := utf8decode(IntToStr(x + 1));
-
-      filelistfo.filescount.Value := utf8decode(IntToStr(filelistfo.edfilescount.Value) + ' files');
+      filescount.Value := utf8decode(IntToStr(filelistfo.edfilescount.Value) + ' files');
+      list_files.defocuscell;
+      list_files.datacols.clearselection;
+      
+       for x := 0 to list_files.rowCount - 1 do
+      begin
+        list_files.fixcols[-1].captions[x] := utf8decode(IntToStr(x + 1));
+        list_files.rowcolorstate[x]:= -1;
+      end;  
+      
     end;
 end;
 
@@ -772,10 +785,17 @@ begin
 
       list_files.fixcols[-1].captions.Count := list_files.rowCount;
 
-      for x := 0 to list_files.rowCount - 1 do
-        list_files.fixcols[-1].captions[x] := utf8decode(IntToStr(x + 1));
       edfilescount.Value := list_files.rowcount;
       filescount.Value   := utf8decode(IntToStr(edfilescount.Value) + ' files');
+      
+      list_files.defocuscell;
+      list_files.datacols.clearselection;
+      
+       for x := 0 to list_files.rowCount - 1 do
+      begin
+        list_files.fixcols[-1].captions[x] := utf8decode(IntToStr(x + 1));
+        list_files.rowcolorstate[x]:= -1;
+      end;  
 
     end;
 end;
@@ -807,6 +827,8 @@ begin
 end;
 
 procedure tfilelistfo.opendir(const Sender: TObject);
+var
+x : integer;
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
   tfiledialog1.controller.filter     := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
@@ -820,7 +842,15 @@ begin
       tfiledialog1.controller.history;
 
     onchangpath(Sender);
-
+    
+    list_files.defocuscell;
+    list_files.datacols.clearselection;
+    
+     for x := 0 to list_files.rowCount - 1 do
+      begin
+        list_files.rowcolorstate[x]:= -1;
+      end;  
+        
   end;
 
 end;

@@ -1067,7 +1067,6 @@ if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     historyfn.Value :=tfiledialog1.controller.filename;
       historyfn.dropdown.history :=
       tfiledialog1.controller.history;
-
     end;
 end;
 

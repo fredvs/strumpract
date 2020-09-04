@@ -132,6 +132,7 @@ object filedialogfo: Tfiledialogfo
       item
         textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
       end>
+    onafterclosedropdown = afterclosedrop
     reffontheight = 15
   end
   object filter: tdropdownlistedit
@@ -176,7 +177,6 @@ object filedialogfo: Tfiledialogfo
     bounds_cx = 182
     bounds_cy = 40
     anchors = [an_top, an_right]
-    ondataentered = filepathentered
     onsetvalue = filteronsetvalue
     dropdown.options = [deo_keydropdown, deo_cliphint]
     dropdown.cols.count = 2

@@ -101,10 +101,10 @@ findinfiledialog=77
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
- value="*.pas" "*.pp" "*.inc" "*.mfm" 
+ value="*.pas" "*.pp" "*.inc" 
  history=5
-  "*.pas" "*.pp" "*.inc" "*.mfm" 
   "*.pas" "*.pp" "*.inc" 
+  "*.pas" "*.pp" "*.inc" "*.mfm" 
   "*.pas" "*.pp" "*.inc"
   "*.pas" "*.pp" "*.inc" "*.mfm" "*.*"
   "*.pas" "*.pp" "*.inc" "*.mfm"
@@ -135,8 +135,12 @@ findinfiledialog=77
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm" 
  [findinfileadialogfo.findtext]
- value=filedialog
+ value=list_files.defocuscell
  history=20
+  list_files.defocuscell
+  rowcol
+  .color
+  er.Exe
   filedialog
   point
   thistorycontroller
@@ -153,10 +157,6 @@ findinfiledialog=77
   msefiledia
   tusfo.list_files.frame.caption
   statusfo
-  .mask
-  info.eventkind =
-  info.eventkind = cek_buttonrelease
-  cek_buttonrelease
  [findinfileadialogfo]
  stackedunder=
  x=635
@@ -168,8 +168,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=701
- y=192
+ x=849
+ y=217
  cx=300
  cy=269
 replacedialog=33
@@ -316,7 +316,7 @@ options=114
  firsttab=0
  index=2
  [projectoptionsfo]
- stackedunder=finddialogfo
+ stackedunder=
  x=188
  y=91
  cx=818
@@ -791,34 +791,16 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=6
- FILELISTFO
- MAINFO
- FILEDIALOGFO
- RECORDERFO
- SONGPLAYERFO
- STATUSFO
-moduletypes=6
- TFILELISTFO
- TMAINFO
- TFILEDIALOGFO
- TRECORDERFO
- TSONGPLAYERFO
- TSTATUSFO
-modulefiles=6
- /home/fred/strumpract/src/filelistform.mfm
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/msefiledialogx.mfm
- /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/songplayer.mfm
- /home/fred/strumpract/src/status.mfm
+modulenames=0
+moduletypes=0
+modulefiles=0
 befcommandon=0
 makeoptionson=11
  4095
  0
  0
  192
- 1017
+ 1021
  0
  4095
  4095
@@ -1186,7 +1168,7 @@ line=36
  209
  1136
  2974
- 457
+ 464
  5
  752
  1517
@@ -1520,8 +1502,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=visible :=
+finddtext=color
 findhistory=20
+ color
  visible :=
  visible =
  er.history
@@ -1541,154 +1524,59 @@ findhistory=20
  edvol
  images
  filedial
- thesender
 findoptions=1
-editpos=16
- 0,-1073741823
- 0,-1073741823
- 0,2217
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+editpos=3
+ 0,0
+ 0,353
+ 0,14
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-bookmarks7=0
-bookmarks8=0
-bookmarks9=0
-bookmarks10=0
-bookmarks11=0
-bookmarks12=0
-bookmarks13=0
-bookmarks14=0
-bookmarks15=0
-sourcefiles=16
+sourcefiles=3
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
- /home/fred/strumpract/src/msefiledialogx.pas
- /home/fred/mseide-msegui/lib/common/editwidgets/msedataedits.pas
- ${PROJECTDIR}/status.pas
- ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/recorder.pas
- /home/fred/mseide-msegui/apps/ide/actionsmodule.pas
- /home/fred/mseide-msegui/apps/ide/actionsmodule.mfm
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/songplayer.pas
-relpaths=16
+relpaths=3
  main.pas
  filelistform.pas
- msefiledialogx.pas
- mseide-msegui/lib/common/editwidgets/msedataedits.pas
- status.pas
- filelistform.pas
- filelistform.pas
  songplayer.pas
- recorder.pas
- songplayer.pas
- recorder.pas
- mseide-msegui/apps/ide/actionsmodule.pas
- mseide-msegui/apps/ide/actionsmodule.mfm
- main.pas
- recorder.pas
- songplayer.pas
-ismoduletexts=16
+ismoduletexts=3
  0
  0
  0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- -1
- 0
- 0
- 0
-modules=9
+modules=6
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/filelistform.mfm
- /home/fred/strumpract/src/msefiledialogx.mfm
- /home/fred/strumpract/src/status.mfm
- /home/fred/strumpract/src/songplayer.mfm
-moduleoptions=9
+moduleoptions=6
  0
  0
  0
  0
  0
  0
+visiblemodules=6
  0
  0
  0
-visiblemodules=9
- -1
  0
  0
- -1
  0
+nomenumodules=6
  -1
  -1
  -1
  -1
-nomenumodules=9
- 0
  -1
  -1
- 0
- -1
- 0
- 0
- 0
- 0
 [sourcefo.files_tab]
-order=16
- 0
- 1
- 2
- 3
- 4
- 5
- 6
- 8
- 9
- 10
- 12
- 7
- 13
- 14
- 15
- 11
 firsttab=0
 index=2
 [layout]
-windowlayout=720
+windowlayout=646
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1803,10 +1691,10 @@ windowlayout=720
  ny=0
  ncx=0
  ncy=0
- x=239
- y=115
- cx=1056
- cy=414
+ x=0
+ y=29
+ cx=1360
+ cy=710
  rcx=0
  rcy=0
  [projecttreefo]
@@ -1822,7 +1710,7 @@ windowlayout=720
  x=0
  y=0
  cx=205
- cy=526
+ cy=525
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2110,7 +1998,7 @@ windowlayout=720
  x=0
  y=0
  cx=1348
- cy=49
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2120,13 +2008,13 @@ windowlayout=720
  visible=1
  mdistate=0
  nx=0
- ny=-3
+ ny=-4
  ncx=1333
- ncy=17
+ ncy=15
  x=0
- y=-3
+ y=-5
  cx=1333
- cy=15
+ cy=16
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2136,10 +2024,10 @@ windowlayout=720
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/msefiledialogx.pas
+ value=/home/fred/strumpract/src/recorder.pas
  history=20
-  /home/fred/strumpract/src/msefiledialogx.pas
   /home/fred/strumpract/src/filelistform.pas
+  /home/fred/strumpract/src/msefiledialogx.pas
   /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/status.pas
@@ -2175,27 +2063,10 @@ windowlayout=720
  x=208
  y=0
  cx=1140
- cy=526
+ cy=525
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=16
-  0
-  1
-  2
-  3
-  4
-  5
-  6
-  8
-  9
-  10
-  12
-  7
-  13
-  14
-  15
-  11
  firsttab=0
  index=2
  [confideufo.fontname]
@@ -2206,7 +2077,7 @@ windowlayout=720
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=0
  nx=0
@@ -2233,15 +2104,15 @@ windowlayout=720
  ncx=0
  ncy=0
  x=0
- y=52
+ y=53
  cx=1348
- cy=526
+ cy=525
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2256,11 +2127,11 @@ windowlayout=720
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2294,11 +2165,11 @@ windowlayout=720
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2317,7 +2188,7 @@ windowlayout=720
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2336,7 +2207,7 @@ windowlayout=720
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filedialogfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2351,64 +2222,7 @@ windowlayout=720
  rcy=0
  wsize=0
  active=0
- visible=1
- [_mse_filedialogfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_statusfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=394
- y=97
- cx=618
- cy=335
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_statusfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=442
- y=259
- cx=298
- cy=60
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_songplayerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=targetconsolefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=258
- y=219
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
+ visible=0
 [targetconsole]
 finddtext=
 findhistory=0

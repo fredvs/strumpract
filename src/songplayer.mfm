@@ -898,6 +898,7 @@ object songplayerfo: tsongplayerfo
     top = 94
   end
   object tfiledialog1: tfiledialog
+    statfile = filelistfo.tstatfile1
     left = 287
     top = 20
   end

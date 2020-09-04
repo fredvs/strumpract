@@ -195,7 +195,7 @@ object filelistfo: tfilelistfo
       anchors = [an_top, an_bottom]
       font.name = 'stf_default'
       font.localprops = []
-      optionsgrid = [og_rowmoving, og_keyrowmoving, og_rowinserting, og_rowdeleting, og_selectedrowsdeleting, og_focuscellonenter, og_savestate, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
+      optionsgrid = [og_rowmoving, og_keyrowmoving, og_rowinserting, og_rowdeleting, og_focuscellonenter, og_savestate, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
       datacols.count = 5
       datacols.colorselect = 16763002
       datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
@@ -268,7 +268,7 @@ object filelistfo: tfilelistfo
         item
           colorselect = 16763002
           width = 58
-          options = [co_readonly, co_nofocus, co_savevalue, co_savestate, co_mousescrollrow]
+          options = [co_readonly, co_nofocus, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           datalist.data = (
@@ -299,6 +299,7 @@ object filelistfo: tfilelistfo
         item
           colorselect = 16763002
           width = 28
+          options = [co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           optionsedit = [scoe_undoonesc, scoe_eatreturn, scoe_exitoncursor, scoe_autoselect, scoe_autoselectonfirstclick, scoe_focusrectonreadonly, scoe_checkbox]
@@ -331,7 +332,7 @@ object filelistfo: tfilelistfo
         item
           colorselect = 16763002
           width = 1
-          options = [co_readonly, co_nofocus, co_invisible, co_savevalue, co_savestate, co_mousescrollrow]
+          options = [co_readonly, co_nofocus, co_invisible, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           widthmin = 0
           optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           datalist.data = (
@@ -618,8 +619,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 0
-      bounds_y = 92
+      bounds_x = 1
+      bounds_y = 91
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
@@ -662,6 +663,7 @@ object filelistfo: tfilelistfo
     top = 53
   end
   object tfiledialog1: tfiledialog
+    statfile = mainfo.tstatfile1
     left = 30
     top = 42
   end

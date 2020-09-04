@@ -626,6 +626,7 @@ type
     procedure onlayout(const Sender: tcustomgrid);
     procedure onformcreated(const Sender: TObject);
     procedure onlateral(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+   procedure afterclosedrop(const sender: TObject);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -774,15 +775,8 @@ begin
       (filter.dropdown.ItemIndex >= 0) and
       (afilter^ = filter.dropdown.cols[1][filter.dropdown.ItemIndex]) then
       updatefiltertext
-      //  if filename.Visible = False then
-    //    filter.Value := ''
-    //  else
-
-    else
+      else
     begin
-      //  if filename.Visible = False then
-      //    filter.Value := ''
-      //  else
       filter.Value  := afilter^;
       listview.mask := afilter^;
     end;
@@ -806,13 +800,14 @@ begin
     finally
       finit := False;
     end;
-    if filename.Visible = False then
+    
+    if filename.tag = 1  then
     begin
-      Height          := 308;
-      list_log.Height := Height - list_log.top - 10;
-      listview.Height := list_log.Height;
-      places.Height   := list_log.Height;
-    end;
+    filename.frame.caption := 'Selected Directory';    
+    filename.value := ExtractFilePath(filename.value);
+    end else
+    filename.frame.caption := 'Selected File';
+    
     showhidden.Value := not (fa_hidden in excludeattrib);
     Show(True);
     Result      := window.modalresult;
@@ -864,11 +859,7 @@ begin
         filterindex, filter, colwidth,
         includeattrib, excludeattrib, history, historymaxcount, str1, aoptions,
         adefaultext, imagelist, ongetfileicon, oncheckfile);
-
-
-      //  dialog.listview.options := [lvo_readonly,lvo_horz,lvo_drawfocus,lvo_mouseselect,lvo_keyselect,lvo_multiselect,lvo_locate,lvo_hintclippedtext];
-
-    finally
+   finally
       dialog.Free;
     end;
   finally
@@ -890,7 +881,6 @@ begin
     filterindex,
     filter, colwidth, includeattrib, excludeattrib, history, historymaxcount,
     imagelist, ongetfileicon, oncheckfile);
-
 
   if Result = mr_ok then
     if (high(ar1) > 0) or (fdo_quotesingle in aoptions) then
@@ -1433,6 +1423,7 @@ begin
   newdir := '';
   avalue := trim(avalue);
   unquotefilename(avalue, fselectednames);
+  
   if (fdo_single in dialogoptions) and (high(fselectednames) > 0) then
   begin
     with stockobjects do
@@ -1498,6 +1489,7 @@ procedure tfiledialogfo.filepathentered(const Sender: TObject);
 begin
   tryreadlist(listview.directory, True);
   // readlist;
+   if filename.tag = 1 then filename.value := dir.value;
 end;
 
 procedure tfiledialogfo.dironsetvalue(const Sender: TObject; var avalue: mseString; var accept: Boolean);
@@ -1509,6 +1501,8 @@ begin
   if accept then
     course(avalue);
   listview.directory := avalue;
+  if filename.tag = 1 then filename.value := dir.value else    
+    filename.Value := '';
 end;
 
 procedure tfiledialogfo.listviewonlistread(const Sender: TObject);
@@ -1542,8 +1536,6 @@ begin
   y  := 0;
   x2 := 0;
 
-  //  dir.frame.caption := 'Directory with 0 files';
-
   if listview.rowcount > 0 then
     for x := 0 to listview.rowcount - 1 do
     begin
@@ -1564,8 +1556,6 @@ begin
         list_log[1][x] := utf8decode(tmp);
         list_log[0][x] := list_log[0][x] + list_log[1][x];
       end;
-
-      //  thedir := dir.Value + trim(list_log[0][x]);
 
       thedir := dir.Value + (listview.itemlist[x].Caption);
 
@@ -1631,8 +1621,11 @@ begin
 
   list_log.defocuscell;
   list_log.datacols.clearselection;
-
+  
   dir.frame.Caption := 'Directory with ' + IntToStr(list_log.rowcount - x2) + ' files';
+  
+   if filename.tag = 1 then filename.value := dir.value else    
+    filename.Value := '';
 
 end;
 
@@ -1666,9 +1659,9 @@ var
   str1: filenamety;
 begin
 
-  if (filename.Value <> '') or (fdo_acceptempty in dialogoptions) or (filename.Visible = False) then
+  if (filename.Value <> '') or (fdo_acceptempty in dialogoptions) or (filename.tag = 1) then
   begin
-    if (fdo_directory in dialogoptions) or (filename.Visible = False) then
+    if (fdo_directory in dialogoptions) or (filename.tag = 1) then
       str1 := quotefilename(listview.directory)
     else
     begin
@@ -1747,12 +1740,13 @@ begin
     //  showhidden.frame.caption:= captions[sc_show_hidden_fileshk];
     ok.Caption           := modalresulttext[mr_ok];
     cancel.Caption       := modalresulttext[mr_cancel];
-
+    
     // caption := 'Select a file';
   end;
   back.tag    := Ord(sc_back);
   forward.tag := Ord(sc_forward);
   up.tag      := Ord(sc_up);
+  
 end;
 
 procedure tfiledialogfo.dirshowhint(const Sender: TObject; var info: hintinfoty);
@@ -1902,6 +1896,9 @@ begin
           (info.keyeventinfopo^.key = key_return) then
           okonexecute(Sender);
       end;
+      
+      if filename.tag = 1 then filename.value := dir.value;
+      
     end;
 end;
 
@@ -2019,8 +2016,6 @@ procedure tfiledialogfo.onbefdrop(const Sender: TObject);
 begin
   tsplitter2.left      := 200;
   filter.frame.Caption := '';
-  //filter.Width := 400;
-  //filter.right := width - 20;
 end;
 
 procedure tfiledialogfo.oncellevplaces(const Sender: TObject; var info: celleventinfoty);
@@ -2044,8 +2039,9 @@ begin
         dir.Value := listview.directory;
         course(listview.directory);
       end;
-
-      filename.Value := '';
+       
+         if filename.tag = 1 then filename.value := dir.value else    
+        filename.Value := '';
 
       list_log.defocuscell;
       list_log.datacols.clearselection;
@@ -2121,30 +2117,19 @@ begin
     places.Visible     := True;
     tsplitter1.left    := 110;
     tsplitter1.Visible := True;
-
     list_log.left := tsplitter1.left + tsplitter1.Width;
-
     list_log.invalidate;
-
     listview.left := list_log.left;
     listview.invalidate;
-
   end
   else
   begin
-
     places.Visible := False;
-
     tsplitter1.left := 0;
     list_log.invalidate;
-
     list_log.Width := Width;
-
-
     tsplitter1.Visible := False;
-
     list_log.left := 0;
-
     listview.Width := list_log.Width;
     listview.left  := list_log.left;
     listview.invalidate;
@@ -2156,12 +2141,17 @@ begin
 
 end;
 
+procedure tfiledialogfo.afterclosedrop(const sender: TObject);
+begin
+if filename.tag = 1 then
+filename.value := dir.value;
+end;
+
 { tfiledialogcontroller }
 
 constructor tfiledialogcontroller.Create(const aowner: tmsecomponent = nil; const onchange: proceventty = nil);
 begin
   foptions := defaultfiledialogoptions;
-
   fhistorymaxcount := defaulthistorymaxcount;
   fowner           := aowner;
   ffilterlist      := tdoublemsestringdatalist.Create;
@@ -2194,10 +2184,7 @@ begin
   fwindowrect.cy := reader.readinteger('cy', fwindowrect.cy);
   fcolwidth      := reader.readinteger('filecolwidth', fcolwidth);
   if fdo_chdir in foptions then
-    trysetcurrentdirmse(flastdir)//  try
-  //  except
-  //  end;
-  ;
+    trysetcurrentdirmse(flastdir);
 end;
 
 procedure tfiledialogcontroller.readstatoptions(const reader: tstatreader);
@@ -2297,10 +2284,8 @@ begin
 
     if (dialogkind in [fdk_dir]) or (fdo_directory in aoptions) then
     begin
-      fo.filename.Visible := False;
-      // fo.filter.Visible   := False;
-      fo.dir.face.fade_color[0] := $FFF2E3; 
-      fo.dir.face.fade_color[1] := $FFD8A8; 
+    fo.filename.tag := 1;
+    fo.filename.value := fo.dir.value;
     end;  
   
     if dialogkind <> fdk_none then
