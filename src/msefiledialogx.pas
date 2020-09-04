@@ -1283,6 +1283,8 @@ begin
       //   filename.value:= ''; //dir chanaged
     ;
   end;
+  
+  if filename.tag = 1 then filename.value := dir.value;  
 end;
 
 function tfiledialogfo.changedir(const adir: filenamety): Boolean;
@@ -1290,9 +1292,13 @@ begin
   Result := tryreadlist(filepath(adir), True);
   if Result then
     course(adir);
+    
+    
   with listview do
     if filelist.Count > 0 then
       focuscell(makegridcoord(0, 0));
+      
+     
 end;
 
 procedure tfiledialogfo.listviewitemevent(const Sender: tcustomlistview; const index: integer; var info: celleventinfoty);

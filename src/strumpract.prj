@@ -1540,7 +1540,7 @@ bookmarks3=0
 sourcefiles=4
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/songplayer.pas
+ /home/fred/strumpract/src/songplayer.pas
  ${PROJECTDIR}/guitars.pas
 relpaths=4
  main.pas
@@ -2018,11 +2018,11 @@ windowlayout=646
  nx=0
  ny=-5
  ncx=1333
- ncy=16
+ ncy=14
  x=0
  y=-5
  cx=1333
- cy=14
+ cy=12
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
