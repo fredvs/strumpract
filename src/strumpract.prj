@@ -85,7 +85,7 @@ order16=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
-findinfiledialog=77
+findinfiledialog=78
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -95,9 +95,9 @@ findinfiledialog=77
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=0
- [findinfileadialogfo.inprojectdir]
  value=1
+ [findinfileadialogfo.inprojectdir]
+ value=0
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
@@ -110,13 +110,14 @@ findinfiledialog=77
   "*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/mseide-msegui/
+  /home/fred/aatest/
  filecolwidth=150
  x=432
  y=215
  cx=608
  cy=308
- filehistory=15
+ filehistory=16
+  /home/fred/aatest/
   /home/fred/mseide-msegui/
   /home/fred/msefiledialogx/
   /home/fred/mseuniverse/
@@ -133,7 +134,7 @@ findinfiledialog=77
   /usr/share/fpcsrc/
   /home/fred/designer_ext/
  filefilterindex=0
- filefilter="*.pas" "*.pp" "*.inc" "*.mfm" 
+ filefilter="*.pas" "*.pp" "*.inc" 
  [findinfileadialogfo.findtext]
  value=list_files.defocuscell
  history=20
@@ -1530,9 +1531,9 @@ findhistory=20
 findoptions=1
 editpos=4
  0,-1073741823
- 0,-1073741823
- 0,14
- 0,-1073741823
+ 0,0
+ 0,4
+ 0,7
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1540,7 +1541,7 @@ bookmarks3=0
 sourcefiles=4
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
- /home/fred/strumpract/src/songplayer.pas
+ ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/guitars.pas
 relpaths=4
  main.pas
@@ -1582,9 +1583,9 @@ nomenumodules=6
  0
 [sourcefo.files_tab]
 firsttab=0
-index=2
+index=1
 [layout]
-windowlayout=646
+windowlayout=676
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2016,13 +2017,13 @@ windowlayout=646
  visible=1
  mdistate=0
  nx=0
- ny=-5
+ ny=-6
  ncx=1333
- ncy=14
+ ncy=7
  x=0
- y=-5
+ y=-6
  cx=1333
- cy=12
+ cy=5
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2032,28 +2033,58 @@ windowlayout=646
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
- history=20
-  /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/filelistform.pas
+ value=/home/fred/strumpract/src/filelistform.pas
+ history=50
+  /home/fred/strumpract/src/spectrum1.pas
+  /home/fred/msefiledialogx/src/main.pas
+  /home/fred/strumpract/src/aboutform.pas
+  /home/fred/ideu/src/msefiledialog.pas
+  /home/fred/strumpract/src/imagedancer.pas
+  /home/fred/strumpract/src/dockpanel1.pas
+  /home/fred/strumpract/src/config.pas
   /home/fred/strumpract/src/msefiledialogx.pas
-  /home/fred/strumpract/src/recorder.pas
+  /home/fred/msefiledialogx/src/demo_msefiledialogx.pas
+  /home/fred/mseide-msegui/lib/common/dialogs/msefiledialog.pas
+  /home/fred/msefiledialogx/src/msefiledialogres.pas
+  /home/fred/msefiledialogx/src/msefiledialogx.pas
+  /home/fred/msefiledialogx/msefiledialogx.pas
+  /home/fred/msefiledialogx/main.pas
+  /home/fred/msefiledialogx/demo_msefiledialogx.pas
+  /home/fred/ideu/src/selectsubmoduledialogform_mfm.pas
+  /home/fred/new_msefiledialog2/msefiledialog2_mfm.pas
+  /home/fred/new_msefiledialog2/msefiledialogres.mfm
+  /home/fred/ideu/src/regcomponents.inc
+  /home/fred/msefiledialog2new/msefiledialog2.pas
+  /home/fred/msefiledialog2new/new_msefiledialog2.pas
+  /home/fred/msefiledialog2new/msefiledialog2_mfm.pas
+  /home/fred/msefiledialog2new/msefiledialog_mfm.pas
+  /home/fred/msefiledialog2new/msefiledialog2.mfm
+  /home/fred/msefiledialog2.pas
+  /home/fred/strumpract/src/msefiledialog.pas
+  /home/fred/ideu/src/make.pas
   /home/fred/strumpract/src/status.pas
-  /home/fred/strumpract/src/main.pas
-  /home/fred/mseide-msegui/lib/common/editwidgets/msedataedits.pas
+  /home/fred/ideu/src/breakpointsform.pas
+  /home/fred/ideu/src/mselistbrowser.pas
+  /home/fred/ideu/src/objectinspector.pas
+  /home/fred/strumpract/src/msegrids.pas
+  /home/fred/strumpract/src/filelistform.pas
+  /home/fred/testbgra/fractal_tree/main.pas
+  /home/fred/testbgra/main.pas
+  /home/fred/testbgra/fractal_tree.pas
+  /home/fred/bgracontrols/bgravirtualscreen.pas
+  /home/fred/mclasses.pas
+  /home/fred/eschecs_mse/board.pas
   /home/fred/strumpract/src/guitars.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/mseide-msegui/lib/common/dialogs/msefiledialog.mfm
-  /home/fred/atest/test.prj
-  /home/fred/ideu/src/ideU.prj
-  /home/fred/mseide-msegui/apps/ide/mseide.prj
-  /home/fred/uos/examples/simpleplayer.prj
-  /home/fred/ideu_ok/src/ideU.prj
-  /home/fred/eschecs_mse/eschecs.prj
-  /home/fred/mselang-master/src/mselang.prj
-  /home/fred/mseide-msegui/apps/ide/mseide_zeos.prj
-  /home/fred/strumpract/src/strumpract.prj
-  /home/fred/ideu_badplug/src/demos/voiceassist/helloworld/helloworld.prj
+  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/define.inc
+  /home/fred/uos/examples/define.inc
+  /home/fred/uos/examples/consolesynth.pas
+  /home/fred/ideu/src/imageselectorform.pas
+  /home/fred/freepascal-ootb_305/compiler/systems/t_bsd.pas
+  /home/fred/uos/examples/uos.pas
+  /home/fred/lazarus/2.0.6/ide/lazarus.pp
+  /home/fred/freepascal-ootb_320/packages/gtk2/src/buildgtk2.pp
+  /home/fred/freepascal-ootb_320/packages/gtk2/src/gtk2x11/gdk2x.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2076,7 +2107,7 @@ windowlayout=646
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=2
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]

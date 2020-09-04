@@ -802,11 +802,7 @@ begin
     end;
     
     if filename.tag = 1  then
-    begin
-    filename.frame.caption := 'Selected Directory';    
     filename.value := ExtractFilePath(filename.value);
-    end else
-    filename.frame.caption := 'Selected File';
     
     showhidden.Value := not (fa_hidden in excludeattrib);
     Show(True);
@@ -2292,8 +2288,14 @@ begin
     begin
     fo.filename.tag := 1;
     fo.filename.value := fo.dir.value;
-    end;  
-  
+    fo.filename.frame.caption := 'Selected Directory';      
+    end else
+    if (dialogkind in [fdk_save]) then
+    fo.filename.frame.caption := 'Save File as' else
+    if (dialogkind in [fdk_new]) then
+    fo.filename.frame.caption := 'New File Name' else
+    fo.filename.frame.caption := 'Selected File';      
+   
     if dialogkind <> fdk_none then
       if dialogkind in [fdk_save, fdk_new] then
         system.include(aoptions, fdo_save)
