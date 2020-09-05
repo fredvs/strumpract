@@ -48,6 +48,7 @@ object filedialogfo: Tfiledialogfo
   oncreate = oncreat
   oncreated = onformcreated
   onkeydown = listviewonkeydown
+  onresize = onresize
   onlayout = layoutev
   left = 239
   top = 138
@@ -472,7 +473,7 @@ object filedialogfo: Tfiledialogfo
         colorselect = 16770239
         coloractive = 16770239
         colorfocused = 16770239
-        width = 10
+        width = 14
         options = [co_readonly, co_invisible, co_focusselect, co_mouseselect, co_keyselect, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
         optionsedit1 = [oe1_noselectall, oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
         valuefalse = '0'
@@ -601,7 +602,6 @@ object filedialogfo: Tfiledialogfo
     bounds_y = 1
     bounds_cx = 98
     bounds_cy = 30
-    anchors = [an_top, an_right]
     state = [as_localcaption, as_localonexecute]
     caption = '&Cancel'
     modalresult = mr_cancel
@@ -628,7 +628,6 @@ object filedialogfo: Tfiledialogfo
     bounds_y = 1
     bounds_cx = 64
     bounds_cy = 30
-    anchors = [an_top, an_right]
     state = [as_localcaption, as_localonexecute]
     caption = '&OK'
     onexecute = okonexecute

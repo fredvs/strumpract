@@ -594,6 +594,7 @@ type
     procedure onformcreated(const Sender: TObject);
     procedure onlateral(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
    procedure afterclosedrop(const sender: TObject);
+   procedure onresize(const sender: TObject);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -2041,6 +2042,11 @@ procedure tfiledialogfo.onlayout(const Sender: tcustomgrid);
 begin
   listview.left     := list_log.left;
   tsplitter1.Height := list_log.Height;
+   list_log.datacols[0].Width := list_log.Width -
+    list_log.datacols[1].Width - list_log.datacols[2].Width -
+    list_log.datacols[3].Width - 20;
+    
+  // application.processmessages;
 end;
 
 procedure tfiledialogfo.onformcreated(const Sender: TObject);
@@ -2158,6 +2164,15 @@ procedure tfiledialogfo.afterclosedrop(const sender: TObject);
 begin
 if filename.tag = 1 then
 filename.value := dir.value;
+end;
+
+procedure tfiledialogfo.onresize(const sender: TObject);
+begin
+  list_log.datacols[0].Width := list_log.Width -
+    list_log.datacols[1].Width - list_log.datacols[2].Width -
+    list_log.datacols[3].Width - 20;
+    
+   application.processmessages;
 end;
 
 { tfiledialogcontroller }
