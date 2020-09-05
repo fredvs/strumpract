@@ -1538,9 +1538,9 @@ findoptions=1
 editpos=5
  0,-1073741823
  0,-1073741823
- 0,1
+ 0,0
  0,-1073741823
- 0,2
+ 0,3
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1549,9 +1549,9 @@ bookmarks4=0
 sourcefiles=5
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/songplayer.pas
+ /home/fred/strumpract/src/songplayer.pas
  ${PROJECTDIR}/guitars.pas
- ${PROJECTDIR}/dockpanel1.pas
+ /home/fred/strumpract/src/dockpanel1.pas
 relpaths=5
  main.pas
  filelistform.pas
@@ -1740,7 +1740,7 @@ windowlayout=671
  x=0
  y=0
  cx=205
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2028,7 +2028,7 @@ windowlayout=671
  x=0
  y=0
  cx=1348
- cy=50
+ cy=49
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2038,13 +2038,13 @@ windowlayout=671
  visible=1
  mdistate=0
  nx=0
- ny=-8
+ ny=-9
  ncx=1333
  ncy=0
  x=0
  y=-9
  cx=1333
- cy=1
+ cy=-2
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2093,7 +2093,7 @@ windowlayout=671
  x=208
  y=0
  cx=1140
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2113,7 +2113,7 @@ windowlayout=671
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2140,9 +2140,9 @@ windowlayout=671
  ncx=0
  ncy=0
  x=0
- y=53
+ y=52
  cx=1348
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2167,7 +2167,7 @@ windowlayout=671
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0

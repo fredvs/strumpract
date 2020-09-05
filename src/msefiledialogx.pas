@@ -170,6 +170,9 @@ type
     fshowhidden: boolean;
     ffilterindex: integer;
     fcolwidth: integer;
+    fcolsizewidth: integer;
+    fcolextwidth: integer;
+    fcoldatewidth: integer;
     fwindowrect: rectty;
     fhistorymaxcount: integer;
     fhistory: msestringarty;
@@ -770,12 +773,14 @@ begin
     
     if filename.tag = 1  then
     filename.value := ExtractFilePath(filename.value);
-    
+ 
     abool := true;
    
+  if blateral.value then onlateral(nil,abool,abool);
+  if bcompact.value then onsetcomp(nil,abool,abool);
   if showhidden.value then showhiddenonsetvalue(nil,abool,abool);
-    
-  //  showhidden.Value := not (fa_hidden in excludeattrib);
+   //  showhidden.Value := not (fa_hidden in excludeattrib);
+ 
     Show(True);
     Result      := window.modalresult;
     if Result <> mr_ok then
@@ -2067,7 +2072,6 @@ end;
 procedure tfiledialogfo.onformcreated(const Sender: TObject);
 var
 x : integer = 0;
-abool : boolean;
 begin
   if directoryexists(sys_getuserhomedir) then
   begin
@@ -2112,12 +2116,9 @@ begin
   end;
   
   places.rowcount := x + 1;
-  
-  abool := true;
-  
-  if blateral.value then onlateral(Sender,abool,abool);
-  if bcompact.value then onsetcomp(Sender,abool,abool);
-  
+ 
+  application.processmessages;
+ 
 end;
 
 procedure tfiledialogfo.onlateral(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -2138,17 +2139,23 @@ begin
     tsplitter1.Visible := False;
     list_log.left := 0;
   end;
+  
+    tsplitter1.invalidate;
+    list_log.invalidate;
     
     listview.left := list_log.left;
     
-    if not list_log.visible then listview.Width := list_log.Width;
+    if not list_log.visible then listview.Width := list_log.Width
+    else listview.Width := 40;
   
   list_log.datacols[0].Width := list_log.Width -
     list_log.datacols[1].Width - list_log.datacols[2].Width -
     list_log.datacols[3].Width - 20;
-   
+ 
     listview.invalidate;
     list_log.invalidate;
+       tsplitter1.invalidate;
+ 
 
 end;
 
@@ -2197,6 +2204,10 @@ begin
   fshowhidden        := reader.readboolean('showhidden', fshowhidden);
   fcompact        := reader.readboolean('compact', fcompact);
   fpanel        := reader.readboolean('panel', fpanel);
+  fcolsizewidth := reader.readinteger('colsizewidth', fcolsizewidth);
+  fcolextwidth := reader.readinteger('colextwidth', fcolextwidth);
+  fcoldatewidth := reader.readinteger('coldatewidth', fcoldatewidth);
+
   
   if fdo_chdir in foptions then
     trysetcurrentdirmse(flastdir);
@@ -2227,6 +2238,9 @@ begin
   writer.writeboolean('panel', fpanel);
   writer.writeboolean('compact', fcompact);
   writer.writeboolean('showhidden', fshowhidden);
+  writer.writeinteger('colsizewidth', fcolsizewidth);
+  writer.writeinteger('colextwidth', fcolextwidth);
+  writer.writeinteger('coldatewidth', fcoldatewidth);
 end;
 
 procedure tfiledialogcontroller.writestatoptions(const writer: tstatwriter);
@@ -2237,9 +2251,6 @@ begin
     writer.writearray('filehistory', fhistory);
   writer.writeinteger('filefilterindex', ffilterindex);
   writer.writemsestring('filefilter', ffilter);
-  writer.writeboolean('panel', fpanel);
-  writer.writeboolean('compact', fcompact);
-  writer.writeboolean('showhidden', fshowhidden);
 end;
 
 procedure tfiledialogcontroller.componentevent(const event: tcomponentevent);
@@ -2290,8 +2301,20 @@ begin
     arb := ffilterlist.asarrayb;
 
     fo.blateral.value := fpanel;
+     
     fo.bcompact.value := fcompact;
     fo.showhidden.value := fshowhidden;
+    
+    if fcolextwidth > 0 then 
+    fo.list_log.datacols[1].width  := fcolextwidth;
+    if fcolsizewidth > 0 then
+    fo.list_log.datacols[2].width  := fcolsizewidth;
+    if fcoldatewidth > 0 then
+    fo.list_log.datacols[3].width  := fcoldatewidth;
+    
+     fo.list_log.datacols[0].Width := fo.list_log.Width -
+    fo.list_log.datacols[1].Width - fo.list_log.datacols[2].Width -
+    fo.list_log.datacols[3].Width - 20;
    
     if fontheight > 0 then
       if fontheight < 21 then
@@ -2347,13 +2370,14 @@ begin
         flastdir := getcurrentdirmse
       else
         flastdir := fo.dir.Value;
-      fpanel := fo.blateral.Value;
-      
+        
       fpanel := fo.blateral.value;
       fcompact := fo.bcompact.value ;
       fshowhidden := fo.showhidden.value;
-  
-     end;   
+      fcolextwidth  := fo.list_log.datacols[1].width ;
+      fcolsizewidth := fo.list_log.datacols[2].width ;
+      fcoldatewidth := fo.list_log.datacols[3].width ;
+      end;   
 
   finally
     fo.Free;
