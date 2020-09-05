@@ -2120,26 +2120,26 @@ begin
     tsplitter1.left    := 110;
     tsplitter1.Visible := True;
     list_log.left := tsplitter1.left + tsplitter1.Width;
-    list_log.invalidate;
-    listview.left := list_log.left;
-    listview.invalidate;
-  end
+   end
   else
   begin
     places.Visible := False;
     tsplitter1.left := 0;
-    list_log.invalidate;
     list_log.Width := Width;
     tsplitter1.Visible := False;
     list_log.left := 0;
-    listview.Width := list_log.Width;
-    listview.left  := list_log.left;
-    listview.invalidate;
   end;
-
+    
+    listview.left := list_log.left;
+    
+    if not list_log.visible then listview.Width := list_log.Width;
+  
   list_log.datacols[0].Width := list_log.Width -
     list_log.datacols[1].Width - list_log.datacols[2].Width -
     list_log.datacols[3].Width - 20;
+   
+    listview.invalidate;
+    list_log.invalidate;
 
 end;
 
