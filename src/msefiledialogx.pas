@@ -576,7 +576,6 @@ type
     procedure okonexecute(const Sender: TObject);
     procedure layoutev(const Sender: TObject);
     procedure showhiddenonsetvalue(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
-    procedure formoncreate(const Sender: TObject);
     procedure dirshowhint(const Sender: TObject; var info: hintinfoty);
     procedure copytoclip(const Sender: TObject; var avalue: msestring);
     procedure pastefromclip(const Sender: TObject; var avalue: msestring);
@@ -584,7 +583,6 @@ type
     procedure backexe(const Sender: TObject);
     procedure forwardexe(const Sender: TObject);
     procedure buttonshowhint(const Sender: TObject; var ainfo: hintinfoty);
-
     procedure oncellev(const Sender: TObject; var info: celleventinfoty);
     procedure ondrawcell(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
     procedure onsetcomp(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -1703,30 +1701,6 @@ begin
   listview.readlist;
 end;
 
-procedure tfiledialogfo.formoncreate(const Sender: TObject);
-begin
-  fcourseid := -1;
-
-  with stockobjects do
-  begin
-    // dir.frame.caption:= captions[sc_dirhk];
-    home.Caption         := captions[sc_homehk];
-    //  up.caption:= captions[sc_uphk];
-    createdir.Caption    := captions[sc_new_dirhk];
-    // filename.frame.caption:= captions[sc_namehk];
-    filter.frame.Caption := captions[sc_filterhk];
-    //  showhidden.frame.caption:= captions[sc_show_hidden_fileshk];
-    ok.Caption           := modalresulttext[mr_ok];
-    cancel.Caption       := modalresulttext[mr_cancel];
-    
-    // caption := 'Select a file';
-  end;
-  back.tag    := Ord(sc_back);
-  forward.tag := Ord(sc_forward);
-  up.tag      := Ord(sc_up);
-  
-end;
-
 procedure tfiledialogfo.dirshowhint(const Sender: TObject; var info: hintinfoty);
 begin
   if dir.editor.textclipped then
@@ -2073,6 +2047,27 @@ procedure tfiledialogfo.onformcreated(const Sender: TObject);
 var
 x : integer = 0;
 begin
+  fcourseid := -1;
+
+  with stockobjects do
+  begin
+    // dir.frame.caption:= captions[sc_dirhk];
+    home.Caption         := captions[sc_homehk];
+    //  up.caption:= captions[sc_uphk];
+    createdir.Caption    := captions[sc_new_dirhk];
+    // filename.frame.caption:= captions[sc_namehk];
+    filter.frame.Caption := captions[sc_filterhk];
+    //  showhidden.frame.caption:= captions[sc_show_hidden_fileshk];
+    ok.Caption           := modalresulttext[mr_ok];
+    cancel.Caption       := modalresulttext[mr_cancel];
+    
+    // caption := 'Select a file';
+  end;
+  
+  back.tag    := Ord(sc_back);
+  forward.tag := Ord(sc_forward);
+  up.tag      := Ord(sc_up);
+
   if directoryexists(sys_getuserhomedir) then
   begin
   places[0][x] := '       Home';
