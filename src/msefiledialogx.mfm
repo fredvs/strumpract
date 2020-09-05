@@ -47,7 +47,6 @@ object filedialogfo: Tfiledialogfo
   windowopacity = -Inf
   oncreate = oncreat
   oncreated = onformcreated
-  onloaded = formoncreate
   onkeydown = listviewonkeydown
   onlayout = layoutev
   left = 239
