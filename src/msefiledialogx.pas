@@ -2023,21 +2023,25 @@ procedure tfiledialogfo.ondrawcellplace(const Sender: tcol; const Canvas: tcanva
 var
   aicon: integer;
   apoint: pointty;
+  astr : msestring;
 begin
 
-  if cellinfo.cell.row = 0 then
+  astr := trim(places[0][cellinfo.cell.row]);
+
+
+  if astr = 'Home' then
     aicon := 13
-  else if cellinfo.cell.row = 1 then
+  else if astr = 'Desktop' then
     aicon := 14
-  else if cellinfo.cell.row = 2 then
+  else if astr = 'Music' then
     aicon := 3
-  else if cellinfo.cell.row = 3 then
+  else if astr = 'Pictures' then
     aicon := 7
-  else if cellinfo.cell.row = 4 then
+  else if astr = 'Videos' then
     aicon := 4
-  else if cellinfo.cell.row = 5 then
+  else if astr = 'Documents' then
     aicon := 2
-  else if cellinfo.cell.row = 6 then
+  else if astr = 'Downloads' then
     aicon := 15;
 
   apoint.x := 2;
