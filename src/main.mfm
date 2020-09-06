@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 416
-  bounds_y = 175
+  bounds_x = 384
+  bounds_y = 309
   bounds_cx = 454
   bounds_cy = 139
   bounds_cxmin = 454
@@ -3281,6 +3281,9 @@ object mainfo: tmainfo
     top = 16
   end
   object tfiledialog1: tfiledialog
+    controller.panel = False
+    controller.compact = False
+    controller.showhidden = False
     left = 248
     top = 81
   end

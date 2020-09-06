@@ -595,6 +595,7 @@ type
     procedure onlateral(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
    procedure afterclosedrop(const sender: TObject);
    procedure onresize(const sender: TObject);
+   procedure onchangdir(const sender: TObject);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -1280,7 +1281,7 @@ begin
     if iscellclick(info) then
       if filelist.isdir(index) then
       begin
-        str1 := filepath(directory + filelist[index].Name);
+        str1 := tosysfilepath(filepath(directory + filelist[index].Name));
         changedir(str1);
       end
       else
@@ -1494,9 +1495,9 @@ begin
 
   with listview do
   begin
-    dir.Value        := directory;
+    dir.Value        := tosysfilepath(directory);
     if fdo_directory in self.dialogoptions then
-      filename.Value := directory;
+      filename.Value := tosysfilepath(directory);
   end;
 
   list_log.rowcount := listview.rowcount;
@@ -1521,22 +1522,24 @@ begin
       if listview.filelist.isdir(x) then
       begin
         Inc(x2);
-        list_log[0][x] := '       ' + utf8decode(listview.itemlist[x].Caption);
+        list_log[0][x] := '       ' + msestring(listview.itemlist[x].Caption);
         list_log[1][x] := '';
       end
       else
       begin
-        list_log[0][x] := '  .    ' + utf8decode(filenamebase(listview.itemlist[x].Caption));
+        list_log[0][x] := '  .    ' + msestring(filenamebase(listview.itemlist[x].Caption));
         tmp := fileext(listview.itemlist[x].Caption);
         if tmp <> '' then
           tmp := '.' + tmp;
-        list_log[1][x] := utf8decode(tmp);
+        list_log[1][x] := msestring(tmp);
         list_log[0][x] := list_log[0][x] + list_log[1][x];
       end;
+      
+      dir.Value := tosysfilepath(dir.Value) ;
 
-      thedir := dir.Value + (listview.itemlist[x].Caption);
+      thedir := tosysfilepath(dir.Value + (listview.itemlist[x].Caption));
 
-      getfileinfo(utf8decode(trim(thedir)), info);
+      getfileinfo(msestring(trim(thedir)), info);
 
       if not listview.filelist.isdir(x) then
       begin
@@ -1601,7 +1604,7 @@ begin
   
   dir.frame.Caption := 'Directory with ' + IntToStr(list_log.rowcount - x2) + ' files';
   
-   if filename.tag = 1 then filename.value := dir.value else    
+   if filename.tag = 1 then filename.value := (dir.value) else    
     filename.Value := '';
 
 end;
@@ -1724,7 +1727,7 @@ begin
   places.datacols.clearselection;
   if tryreadlist(sys_getuserhomedir, True) then
   begin
-    dir.Value := listview.directory;
+    dir.Value := tosysfilepath(listview.directory);
     course(listview.directory);
   end;
 end;
@@ -1813,7 +1816,7 @@ begin
       begin
         listview.defocuscell;
         listview.datacols.clearselection;
-        str1 := filepath(dir.Value + listview.filelist[y].Name);
+        str1 := tosysfilepath(filepath(dir.Value + listview.filelist[y].Name));
 
         if (info.eventkind = cek_buttonrelease) then
         begin
@@ -1850,8 +1853,13 @@ begin
           okonexecute(Sender);
       end;
       
-      if filename.tag = 1 then filename.value := dir.value;
+       dir.value := tosysfilepath(dir.value);
       
+       if filename.tag = 1 then filename.value := dir.value;
+          
+      filename.value := tosysfilepath(filename.value);
+      
+     
     end;
 end;
 
@@ -1982,20 +1990,22 @@ begin
   begin
     cellpos := info.cell;
 
-    if directoryexists(places[1][cellpos.row] + directoryseparator) then
+    if directoryexists(tosysfilepath(places[1][cellpos.row] + directoryseparator)) then
     begin
 
-      dir.Value := places[1][cellpos.row] + directoryseparator;
+      dir.Value := tosysfilepath(places[1][cellpos.row] + directoryseparator);
 
       if tryreadlist(dir.Value, True) then
       begin
-        dir.Value := listview.directory;
+        dir.Value := tosysfilepath(listview.directory);
         course(listview.directory);
       end;
        
          if filename.tag = 1 then filename.value := dir.value else    
         filename.Value := '';
-
+        
+        filename.Value := tosysfilepath(filename.Value);
+       
       list_log.defocuscell;
       list_log.datacols.clearselection;
 
@@ -2074,46 +2084,46 @@ begin
   forward.tag := Ord(sc_forward);
   up.tag      := Ord(sc_up);
 
-  if directoryexists(sys_getuserhomedir) then
+  if directoryexists(tosysfilepath(sys_getuserhomedir)) then
   begin
   places[0][x] := '       Home';
-  places[1][x] := sys_getuserhomedir;
+  places[1][x] := msestring(tosysfilepath(sys_getuserhomedir));
   inc(x);
   end;
-  if directoryexists(sys_getuserhomedir + directoryseparator + 'Desktop') then
+  if directoryexists(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Desktop')) then
   begin
   places[0][x] := '       Desktop';
-  places[1][x] := sys_getuserhomedir + directoryseparator + 'Desktop';
+  places[1][x] := msestring(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Desktop'));
   inc(x);
   end;
-  if directoryexists(sys_getuserhomedir + directoryseparator + 'Music') then
+  if directoryexists(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Music')) then
   begin
   places[0][2] := '       Music';
-  places[1][2] := sys_getuserhomedir + directoryseparator + 'Music';
+  places[1][2] := msestring(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Music'));
   inc(x);
   end;
-  if directoryexists(sys_getuserhomedir + directoryseparator + 'Pictures') then
+  if directoryexists(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Pictures')) then
   begin
   places[0][3] := '       Pictures';
-  places[1][3] := sys_getuserhomedir + directoryseparator + 'Pictures';
+  places[1][3] := msestring(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Pictures'));
   inc(x);
   end;
-  if directoryexists(sys_getuserhomedir + directoryseparator + 'Videos') then
+  if directoryexists(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Videos')) then
   begin
   places[0][x] := '       Videos';
-  places[1][x] := sys_getuserhomedir + directoryseparator + 'Videos';
+  places[1][x] := msestring(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Videos'));
   inc(x);
   end;
-  if directoryexists(sys_getuserhomedir + directoryseparator + 'Documents') then
+  if directoryexists(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Documents')) then
   begin
   places[0][x] := '       Documents';
-  places[1][x] := sys_getuserhomedir + directoryseparator + 'Documents';
+  places[1][x] := msestring(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Documents'));
   inc(x);
   end;
-  if directoryexists(sys_getuserhomedir + directoryseparator + 'Downloads') then
+  if directoryexists(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Downloads')) then
   begin
   places[0][x] := '       Downloads';
-  places[1][x] := sys_getuserhomedir + directoryseparator + 'Downloads';
+  places[1][x] := msestring(tosysfilepath(sys_getuserhomedir + directoryseparator + 'Downloads'));
   end;
   
   places.rowcount := x + 1;
@@ -2164,6 +2174,7 @@ procedure tfiledialogfo.afterclosedrop(const sender: TObject);
 begin
 if filename.tag = 1 then
 filename.value := dir.value;
+filename.value := tosysfilepath(filename.value);
 end;
 
 procedure tfiledialogfo.onresize(const sender: TObject);
@@ -2173,6 +2184,11 @@ begin
     list_log.datacols[3].Width - 20;
     
    application.processmessages;
+end;
+
+procedure tfiledialogfo.onchangdir(const sender: TObject);
+begin
+//dir.value := tosysfilepath(dir.value);
 end;
 
 { tfiledialogcontroller }

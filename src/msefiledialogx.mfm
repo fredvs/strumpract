@@ -1,8 +1,8 @@
 object filedialogfo: Tfiledialogfo
   optionswidget = [ow_arrowfocus, ow_arrowfocusin, ow_arrowfocusout, ow_subfocus, ow_destroywidgets, ow_hinton]
   visible = False
-  bounds_x = 394
-  bounds_y = 97
+  bounds_x = 383
+  bounds_y = 143
   bounds_cx = 608
   bounds_cy = 335
   bounds_cxmin = 608
@@ -247,6 +247,7 @@ object filedialogfo: Tfiledialogfo
     bounds_cy = 40
     anchors = [an_left, an_top, an_right]
     textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
+    onchange = onchangdir
     dropdown.options = [deo_selectonly, deo_keydropdown]
     onsetvalue = dironsetvalue
     reffontheight = 15

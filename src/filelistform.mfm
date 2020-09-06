@@ -620,7 +620,7 @@ object filelistfo: tfilelistfo
       taborder = 6
       visible = False
       bounds_x = 1
-      bounds_y = 91
+      bounds_y = 93
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
@@ -664,7 +664,11 @@ object filelistfo: tfilelistfo
   end
   object tfiledialog1: tfiledialog
     statfile = mainfo.tstatfile1
+    controller.panel = False
+    controller.compact = False
+    controller.showhidden = False
+    controller.options = [fdo_sysfilename, fdo_savelastdir]
     left = 30
-    top = 42
+    top = 29
   end
 end

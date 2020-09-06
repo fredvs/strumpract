@@ -396,7 +396,7 @@ begin
         end;
 
         list_files[3][x] := utf8decode(IntToStr(1));
-        list_files[4][x] := utf8decode(historyfn.Value + datalist_files.items[x].Name);
+        list_files[4][x] := utf8decode(tosysfilepath(historyfn.Value + datalist_files.items[x].Name));
 
       end;
 
@@ -621,6 +621,7 @@ end;
 procedure tfilelistfo.onaftdrop(const Sender: TObject);
 begin
   historyfn.Width := 128;
+  historyfn.Value := tosysfilepath(extractfilepath(historyfn.Value ));
 end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
@@ -829,15 +830,36 @@ end;
 procedure tfilelistfo.opendir(const Sender: TObject);
 var
 x : integer;
+ ara, arb: msestringarty;
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
+  
+   setlength(ara, 6);
+  setlength(arb, 6);
+
+  ara[0] := 'All Audio';
+  ara[1] := 'Mp3"';
+  ara[2] := 'Wav';
+  ara[3] := 'Ogg';
+  ara[4] := 'Flac';
+  ara[5] := 'All';
+
+  arb[0] := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+  arb[1] := '"*.mp3"';
+  arb[2] := '"*.wav"';
+  arb[3] := '"*.ogg"';
+  arb[4] := '"*.flac"';
+  arb[5] := '"*.*"';
+  
+  tfiledialog1.controller.filterlist.asarraya := ara;
+  tfiledialog1.controller.filterlist.asarrayb := arb;
+  
   tfiledialog1.controller.filter     := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   tfiledialog1.controller.fontcolor  := cl_black;
 
-
   if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
   begin
-    historyfn.Value := tfiledialog1.controller.filename;
+    historyfn.Value := tosysfilepath(tfiledialog1.controller.filename);
     historyfn.dropdown.history :=
       tfiledialog1.controller.history;
 
@@ -849,8 +871,7 @@ begin
      for x := 0 to list_files.rowCount - 1 do
       begin
         list_files.rowcolorstate[x]:= -1;
-      end;  
-        
+      end;         
   end;
 
 end;

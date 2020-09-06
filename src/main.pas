@@ -12,7 +12,7 @@ uses
  msechart,status,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,
  msebitmap,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
  mseificompglob,mseifiglob,msestrings, msedatanodes, msedragglob,
-  msedropdownlist, msefiledialogx, msegridsglob;
+ msedropdownlist, msefiledialogx, msegridsglob, msetraywidget;
 
 type
   tmainfo = class(tmainform)
