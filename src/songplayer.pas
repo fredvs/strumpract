@@ -2161,7 +2161,7 @@ begin
 
               DecodeTime(temptimeinfo, ho, mi, se, ms);
 
-              infosfo.infofile.Caption := 'File: ' + extractfilename(historyfn.Value);
+              infosfo.infofile.Caption := 'File: ' + msestring(extractfilename(historyfn.Value));
               infosfo.infoname.Caption := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(theplayerinfo, 0)));
               infosfo.infoartist.Caption := 'Artist: ' + msestring(ansistring(uos_InputGetTagArtist(theplayerinfo, 0)));
               infosfo.infoalbum.Caption := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(theplayerinfo, 0)));

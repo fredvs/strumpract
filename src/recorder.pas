@@ -858,7 +858,7 @@ begin
     if bsavetofile.Value then
     begin
      
-     historyfn.Value := utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
+     historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
    + 'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' 
    + UTF8Decode(formatdatetime('YY_MM_DD_HH_mm_ss',now)) +'.wav');
      
