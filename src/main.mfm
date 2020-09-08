@@ -3280,11 +3280,15 @@ object mainfo: tmainfo
     left = 106
     top = 16
   end
-  object tfiledialog1: tfiledialog
-    controller.panel = False
+  object tfiledialog1: tfiledialogx
+    statfile = tstatfile1
+    controller.fontheight = 0
+    controller.fontcolor = 0
+    controller.backcolor = 0
+    controller.nopanel = False
     controller.compact = False
     controller.showhidden = False
-    left = 248
-    top = 81
+    left = 162
+    top = 69
   end
 end

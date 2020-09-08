@@ -897,9 +897,15 @@ object songplayerfo: tsongplayerfo
     left = 127
     top = 94
   end
-  object tfiledialog1: tfiledialog
-    statfile = filelistfo.tstatfile1
-    left = 287
-    top = 20
+  object tfiledialog1: tfiledialogx
+    statfile = mainfo.tstatfile1
+    controller.fontheight = 0
+    controller.fontcolor = 0
+    controller.backcolor = 0
+    controller.nopanel = False
+    controller.compact = False
+    controller.showhidden = False
+    left = 94
+    top = 38
   end
 end

@@ -662,13 +662,15 @@ object filelistfo: tfilelistfo
     left = 289
     top = 53
   end
-  object tfiledialog1: tfiledialog
-    statfile = mainfo.tstatfile1
-    controller.panel = False
+  object tfiledialog1: tfiledialogx
+    statfile = tstatfile1
+    controller.fontheight = 0
+    controller.fontcolor = 0
+    controller.backcolor = 0
+    controller.nopanel = False
     controller.compact = False
     controller.showhidden = False
-    controller.options = [fdo_sysfilename, fdo_savelastdir]
-    left = 30
-    top = 29
+    left = 60
+    top = 2
   end
 end

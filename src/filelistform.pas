@@ -6,49 +6,13 @@ unit filelistform;
 interface
 
 uses
-  Math,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  msetimer,
-  mseapplication,
-  msestat,
-  msemenus,
-  msefileutils,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  msedatalist,
-  mseclasses,
-  msegridsglob,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist;
+ Math,msetypes,mseglob,mseguiglob,mseguiintf,msetimer,mseapplication,msestat,
+ msemenus,msefileutils,msegui,msegraphics,msegraphutils,mseevent,msedatalist,
+ mseclasses,msegridsglob,mseforms,msedock,msedragglob,msesimplewidgets,
+ msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,msefiledialogx,
+ msegrids,mseificomp,mseificompglob,mseifiglob,mselistbrowser,msestatfile,
+ msestream,msestrings,msesys,SysUtils,msegraphedits,msescrollbar,msedispwidgets,
+ mserichstring,msedropdownlist;
 
 type
   tfilelistfo = class(tdockform)
@@ -68,8 +32,8 @@ type
     tbutton4: TButton;
     tbutton5: TButton;
     tstatfile1: tstatfile;
-    tfiledialog1: tfiledialog;
     tbutton6: TButton;
+   tfiledialog1: tfiledialogx;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);

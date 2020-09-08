@@ -50,8 +50,8 @@ type
     hintlabel2: tlabel;
    sentcue1: tbooleanedit;
    tbutton6: tbutton;
-   tfiledialog1: tfiledialog;
    edvolr: trealspinedit;
+   tfiledialog1: tfiledialogx;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);

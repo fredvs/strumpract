@@ -900,9 +900,15 @@ object recorderfo: trecorderfo
     left = 106
     top = 3
   end
-  object tfiledialog1: tfiledialog
-    statfile = filelistfo.tstatfile1
-    left = 219
-    top = 34
+  object tfiledialog1: tfiledialogx
+    statfile = mainfo.tstatfile1
+    controller.fontheight = 0
+    controller.fontcolor = 0
+    controller.backcolor = 0
+    controller.nopanel = False
+    controller.compact = False
+    controller.showhidden = False
+    left = 260
+    top = 21
   end
 end

@@ -41,7 +41,7 @@ type
     tfacebutltgray: tfacecomp;
     buttonicons: timagelist;
     tfaceplayerbut: tfacecomp;
-   tfiledialog1: tfiledialog;
+   tfiledialog1: tfiledialogx;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);

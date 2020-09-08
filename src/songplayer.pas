@@ -11,7 +11,7 @@ uses
  SysUtils, msegraphedits, msedragglob, mseact, mseedit, mseificomp,
  mseificompglob, mseifiglob, msestatfile, msestream, msestrings, msescrollbar,
  msebitmap, msedatanodes, msedispwidgets, mserichstring, msedropdownlist,
-  msegridsglob;
+ msegridsglob;
 
 type
   tsongplayerfo = class(tdockform)
@@ -53,7 +53,7 @@ type
     setmono: tbooleanedit;
     ttimer1: ttimer;
    tbutton6: tbutton;
-   tfiledialog1: tfiledialog;
+   tfiledialog1: tfiledialogx;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
