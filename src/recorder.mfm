@@ -903,8 +903,9 @@ object recorderfo: trecorderfo
   object tfiledialog1: tfiledialogx
     statfile = mainfo.tstatfile1
     controller.fontheight = 0
-    controller.fontcolor = 0
-    controller.backcolor = 0
+    controller.fontname = 'stf_default'
+    controller.fontcolor = -1610612734
+    controller.backcolor = -2147483647
     controller.nopanel = False
     controller.icon.options = [bmo_masked]
     controller.icon.origformat = 'png'
@@ -952,7 +953,7 @@ object recorderfo: trecorderfo
     }
     controller.compact = False
     controller.showhidden = False
-    left = 260
-    top = 21
+    left = 58
+    top = 38
   end
 end
