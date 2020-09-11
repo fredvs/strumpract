@@ -69,6 +69,7 @@ var
 implementation
 
 uses
+  imagedancer,
   songplayer,
   commander,
   dockpanel1,
@@ -794,9 +795,14 @@ end;
 procedure tfilelistfo.opendir(const Sender: TObject);
 var
 x : integer;
+dancv : boolean = false;
  ara, arb: msestringarty;
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
+  
+ dancv := imagedancerfo.visible;
+ 
+ imagedancerfo.visible := false;
   
    setlength(ara, 6);
   setlength(arb, 6);
@@ -821,6 +827,8 @@ begin
   tfiledialog1.controller.filter     := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   tfiledialog1.controller.fontcolor  := cl_black;
 
+  imagedancerfo.visible := dancv;
+  
   if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
   begin
     historyfn.Value := tosysfilepath(tfiledialog1.controller.filename);
@@ -837,6 +845,8 @@ begin
         list_files.rowcolorstate[x]:= -1;
       end;         
   end;
+  
+  imagedancerfo.visible := dancv;
 
 end;
 

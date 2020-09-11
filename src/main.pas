@@ -3322,7 +3322,10 @@ end;
 procedure tmainfo.loadlayout(const Sender: TObject);
 var
   ordir: string;
+  dancv : boolean = false;
 begin
+  dancv := imagedancerfo.visible;
+  imagedancerfo.visible := false;
   ordir := ExtractFilePath(ParamStr(0)) + 'layout' + directoryseparator;
   tfiledialog1.controller.captionopen := 'Open Layout File';
   tfiledialog1.controller.fontcolor := cl_black;
@@ -3330,11 +3333,13 @@ begin
     
   tfiledialog1.controller.filter := '"*.lay"';
   tfiledialog1.controller.filename := ordir;
+  
+    imagedancerfo.visible := dancv;
 
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
    if fileexists(tfiledialog1.controller.filename) then
  mainfo.tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));
-  
+    imagedancerfo.visible := dancv;
 end;
 
 procedure tmainfo.savelayout(const Sender: TObject);

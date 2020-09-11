@@ -501,6 +501,7 @@ bmpfiledialog=70
  lastdir=/home/fred/ideu/src/
  filehistory=50
   /home/fred/ideu/src/ideu24.png
+  /home/fred/ideu/src/ideu64.png
   /home/fred/Pictures/imagesideu/beauty.png
   /home/fred/ideu/src/ideu.png
   /home/fred/strumpract/src/images/dancer.png
@@ -549,7 +550,6 @@ bmpfiledialog=70
   /home/fred/Documents/vertslider.png
   /home/fred/uos/uos.jpg
   /home/fred/uos/uos.bmp
-  /home/fred/Documents/record.png
  filefilterindex=0
  filefilter="All" "*.jpg" "*.jpeg" "*.bmp" "*.ico" "*.png" "*.pnm" "*.pgm" "*.pbm" "*.tga" "*.tif" "*.tiff" "*.xpm"
 mainfile=${PROJECTNAME}.pas
@@ -836,7 +836,7 @@ makeoptionson=11
  0
  0
  192
- 957
+ 953
  0
  4095
  4095
@@ -1204,7 +1204,7 @@ line=36
  209
  1136
  2974
- 428
+ 429
  5
  752
  1517
@@ -1538,38 +1538,29 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=utf8decode
-findhistory=20
- utf8decode
- tosy
- color
- visible :=
- visible =
- er.history
- history
- ' KB'
- getfilename
- tfiledi
- layoutname.frame
- filter.v
- visible = false
- .visible =
- .mask:=
- mask
- showall
- hideall
- record
- edvol
+finddtext=*.lay
+findhistory=1
+ *.lay
 findoptions=1
-editpos=8
+editpos=18
  0,-1073741823
  0,-1073741823
- 0,13
- 0,-1073741823
- 0,18
- 0,6
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,4
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,3341
+ 0,829
+ 0,2
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1578,7 +1569,17 @@ bookmarks4=0
 bookmarks5=0
 bookmarks6=0
 bookmarks7=0
-sourcefiles=8
+bookmarks8=0
+bookmarks9=0
+bookmarks10=0
+bookmarks11=0
+bookmarks12=0
+bookmarks13=0
+bookmarks14=0
+bookmarks15=0
+bookmarks16=0
+bookmarks17=0
+sourcefiles=18
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/songplayer.pas
@@ -1587,7 +1588,17 @@ sourcefiles=8
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/aboutform.pas
  ${PROJECTDIR}/aboutform.pas
-relpaths=8
+ ${PROJECTDIR}/recorder.mfm
+ ${PROJECTDIR}/guitars.mfm
+ ${PROJECTDIR}/guitars.pas
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/filelistform.pas
+ ${PROJECTDIR}/recorder.pas
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/filelistform.pas
+ ${PROJECTDIR}/recorder.pas
+relpaths=18
  main.pas
  filelistform.pas
  songplayer.pas
@@ -1596,7 +1607,27 @@ relpaths=8
  recorder.pas
  aboutform.pas
  aboutform.pas
-ismoduletexts=8
+ recorder.mfm
+ guitars.mfm
+ guitars.pas
+ main.pas
+ songplayer.pas
+ filelistform.pas
+ recorder.pas
+ main.pas
+ filelistform.pas
+ recorder.pas
+ismoduletexts=18
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ -1
+ -1
  0
  0
  0
@@ -1642,17 +1673,36 @@ nomenumodules=8
  0
  0
 [sourcefo.files_tab]
-firsttab=0
-index=5
+order=18
+ 0
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+ 10
+ 15
+ 16
+ 17
+ 11
+ 12
+ 13
+ 14
+firsttab=5
+index=11
 [layout]
-windowlayout=738
+windowlayout=727
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
  [mainfo]
  splitdir=0
  useroptions=301990011
- stackedunder=
+ stackedunder=finddialogfo
  parent=
  mdistate=0
  nx=0
@@ -1779,7 +1829,7 @@ windowlayout=738
  x=0
  y=0
  cx=205
- cy=451
+ cy=450
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1789,8 +1839,8 @@ windowlayout=738
  width1=82
  sortdescend1=0
  sorted=0
- col=1
- row=-1073741823
+ col=0
+ row=7
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1869,10 +1919,10 @@ windowlayout=738
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=547
- width0=243
+ propcolwidthref=532
+ width0=236
  sortdescend0=0
- width1=298
+ width1=290
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2060,15 +2110,15 @@ windowlayout=738
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=277
- y=271
+ x=240
+ y=139
  cx=956
  cy=77
  rcx=0
@@ -2091,7 +2141,7 @@ windowlayout=738
  x=0
  y=0
  cx=1212
- cy=50
+ cy=51
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2103,7 +2153,7 @@ windowlayout=738
  nx=0
  ny=0
  ncx=1197
- ncy=58
+ ncy=57
  x=0
  y=0
  cx=1212
@@ -2117,58 +2167,28 @@ windowlayout=738
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/recorder.pas
- history=50
-  /home/fred/ideu/src/ideu24.png
-  /home/fred/Pictures/imagesideu/beauty.png
-  /home/fred/ideu/src/ideu.png
-  /home/fred/strumpract/src/images/dancer.png
-  /home/fred/strumpract/src/images/logo_uos2.png
-  /home/fred/strumpract/src/images/logo_uos.png
-  /home/fred/Documents/spectrum.png
-  /home/fred/strumpract/src/images/link.png
-  /home/fred/strumpract/src/images/basschord2.png
-  /home/fred/strumpract/src/images/guiaretab2.png
-  /home/fred/strumpract/src/images/chordsrand.png
-  /home/fred/strumpract/src/elipsepianolight.png
-  /home/fred/strumpract/src/basschord2.png
-  /home/fred/strumpract/src/guiaretab3.png
-  /home/fred/strumpract/src/guiaretab2.png
-  /home/fred/strumpract/src/elipsepiano.png
-  /home/fred/strumpract/src/pianokeyb.png
-  /home/fred/strumpract/src/uos.png
-  /home/fred/uos/uos.png
-  /home/fred/Images/start.png
-  /home/fred/Images/uosicon24.png
-  /home/fred/Images/uosicon32.png
-  /home/fred/Images/wave.png
-  /home/fred/Images/spectrum.png
-  /home/fred/Images/gnome-multimedia.png
-  /home/fred/Images/uos.jpg
-  /home/fred/Images/uosicon.png
-  /home/fred/Images/config.png
-  /home/fred/Images/uos2.bmp
-  /home/fred/Images/comm3.png
-  /home/fred/Images/comm2.png
-  /home/fred/Images/play22.png
-  /home/fred/Images/play1.png
-  /home/fred/Images/comm.png
-  /home/fred/Images/play2.png
-  /home/fred/Documents/filelist.png
-  /home/fred/Images/guittrans.png
-  /home/fred/Images/drums2.png
-  /home/fred/Documents/vertslidernew2dark.png
-  /home/fred/Documents/butslider2.png
-  /home/fred/Documents/vertslidernew2.png
-  /home/fred/Documents/buslider.png
-  /home/fred/Documents/vertslidernew.png
-  /home/fred/Documents/vertslidernewgreen.png
-  /home/fred/Documents/vertslider3.png
-  /home/fred/Documents/vertslider2.png
-  /home/fred/Documents/vertslider.png
-  /home/fred/uos/uos.jpg
-  /home/fred/uos/uos.bmp
-  /home/fred/Documents/record.png
+ value=/home/fred/strumpract/src/main.pas
+ history=20
+  /home/fred/strumpract/src/guitars.pas
+  /home/fred/atest/test.prj
+  /home/fred/ideu/src/ideU.prj
+  /home/fred/mseide-msegui/apps/ide/mseide.prj
+  /home/fred/uos/examples/simpleplayer.prj
+  /home/fred/ideu_ok/src/ideU.prj
+  /home/fred/eschecs_mse/eschecs.prj
+  /home/fred/mselang-master/src/mselang.prj
+  /home/fred/mseide-msegui/apps/ide/mseide_zeos.prj
+  /home/fred/strumpract/src/strumpract.prj
+  /home/fred/ideu_badplug/src/demos/voiceassist/helloworld/helloworld.prj
+  /home/fred/xtop/src/ptop.prj
+  /home/fred/xtop/src/jtop.prj
+  /home/fred/idegraeme/mseide.prj
+  /home/fred/fptop/src/jtop.prj
+  /home/fred/fptop/src/ptop.prj
+  /home/fred/ptop_fred/ptop.prj
+  /home/fred/eschecs_mse_argh/eschecs.prj
+  /home/fred/Downloads/jcf-cli-master/CommandLine/Lazarus/jcf.prj
+  /home/fred/mseuniverse/samples/widgets/grids/chessboard/chessboard.prj
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2186,12 +2206,31 @@ windowlayout=738
  x=208
  y=0
  cx=1004
- cy=451
+ cy=450
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- firsttab=0
- index=5
+ order=18
+  0
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  15
+  16
+  17
+  11
+  12
+  13
+  14
+ firsttab=5
+ index=11
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2200,7 +2239,7 @@ windowlayout=738
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2227,9 +2266,9 @@ windowlayout=738
  ncx=0
  ncy=0
  x=0
- y=53
+ y=54
  cx=1212
- cy=451
+ cy=450
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2245,7 +2284,7 @@ windowlayout=738
  x=384
  y=309
  cx=464
- cy=139
+ cy=96
  rcx=0
  rcy=0
  wsize=0
@@ -2254,7 +2293,7 @@ windowlayout=738
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2311,7 +2350,7 @@ windowlayout=738
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2330,7 +2369,7 @@ windowlayout=738
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_about_form_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2349,7 +2388,7 @@ windowlayout=738
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_about_form_mse_
  parent=
  mdistate=3
  nx=0
@@ -2368,7 +2407,7 @@ windowlayout=738
  [_mse_about_form_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

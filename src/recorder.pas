@@ -113,7 +113,7 @@ var
 implementation
 
 uses
-  main, config, dockpanel1, spectrum1, waveform, songplayer,
+  imagedancer,main, config, dockpanel1, spectrum1, waveform, songplayer,
   recorder_mfm;
   
 procedure trecorderfo.InitDrawLive();
@@ -1050,7 +1050,11 @@ if devin < 0 then
 end;
 
 procedure trecorderfo.onex(const sender: TObject);
+var
+dancv : boolean = false;
 begin
+dancv := imagedancerfo.visible;
+  imagedancerfo.visible := false;
    tfiledialog1.controller.basedir  :=
    utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
    + 'sound' + directoryseparator + 'record'  + directoryseparator);
@@ -1062,12 +1066,15 @@ begin
   tfiledialog1.controller.captionopen  := 'Open Audio File';
   tfiledialog1.controller.fontcolor := cl_black;
    tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+   
+   imagedancerfo.visible := dancv;  
 if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     begin
     historyfn.Value :=tfiledialog1.controller.filename;
       historyfn.dropdown.history :=
       tfiledialog1.controller.history;
     end;
+  imagedancerfo.visible := dancv;    
 end;
 
 

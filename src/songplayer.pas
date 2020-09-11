@@ -847,7 +847,7 @@ begin
      begin
       multiplier:= temp;
       imagedancerfo.invalidate;
-     end;
+      end;
      end;
        inc(theinc); 
     end;
@@ -2845,18 +2845,22 @@ onwavform(sender);
 end;
 
 procedure tsongplayerfo.opendir(const sender: TObject);
+var
+dancv : boolean = false;
 begin
+ dancv := imagedancerfo.visible;
+  imagedancerfo.visible := false;
   tfiledialog1.controller.captionopen  := 'Open Audio File';
    tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
    tfiledialog1.controller.fontcolor := cl_black;
-
+  imagedancerfo.visible := dancv;
 if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     begin
     historyfn.Value :=tfiledialog1.controller.filename;
       historyfn.dropdown.history :=
       tfiledialog1.controller.history;
     end;
-
+  imagedancerfo.visible := dancv;
 end;
 
 
