@@ -1573,15 +1573,15 @@ findhistory=13
  invalidate
 findoptions=1
 editpos=9
- 0,37
- 0,844
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,3432
  0,-1073741823
  0,-1073741823
- 0,22
  0,-1073741823
- 0,52
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1667,11 +1667,11 @@ order=9
  1
  2
  3
- 8
- 6
  7
- 4
+ 8
  5
+ 6
+ 4
 firsttab=0
 index=3
 [layout]
@@ -2158,6 +2158,7 @@ windowlayout=746
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
  history=20
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/imagedancer.pas
   /home/fred/uos/examples/simpledrums_fpGUI.pas
   /home/fred/uos/examples/testfpguistream.lpi
@@ -2177,7 +2178,6 @@ windowlayout=746
   /home/fred/mseide-msegui/lib/common/regcomponents/regfiledialogx.pas
   /home/fred/mseide-msegui/lib/common/regcomponents/regifirem.pas
   /home/fred/msefiledialogx/src/msefiledialogresx_mfm.pas
-  /home/fred/msefiledialogx/src/msefiledialogresx.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2204,11 +2204,11 @@ windowlayout=746
   1
   2
   3
-  8
-  6
   7
-  4
+  8
   5
+  6
+  4
  firsttab=0
  index=3
  [confideufo.fontname]
@@ -2254,7 +2254,7 @@ windowlayout=746
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2273,7 +2273,7 @@ windowlayout=746
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2349,7 +2349,7 @@ windowlayout=746
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2368,7 +2368,7 @@ windowlayout=746
  [_mse_wavefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2387,7 +2387,7 @@ windowlayout=746
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2406,7 +2406,7 @@ windowlayout=746
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_wavefo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
