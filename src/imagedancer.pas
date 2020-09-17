@@ -253,8 +253,6 @@ if isbuzy = false then begin
 end;
 
 function timagedancerfo.execute(thread: tmsethread): integer;
-var
-acanvas : tcanvas;
 begin
 
 repeat

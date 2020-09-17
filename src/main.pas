@@ -3420,9 +3420,15 @@ begin
   dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
+ 
 
-  hideall(nil);
-
+  wavefo.visible := false;
+  wavefo2.visible := false;
+  drumsfo.visible := false;
+  recorderfo.visible := false;
+   guitarsfo.visible := false;
+    spectrum1fo.visible := false;
+    spectrum2fo.visible := false;
   commanderfo.Visible := True;
   filelistfo.Visible  := True;
 
