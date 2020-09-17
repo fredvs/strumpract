@@ -1,5 +1,4 @@
 object imagedancerfo: timagedancerfo
-  onpaint = onpaint_imagedancerfo
   visible = False
   bounds_x = 403
   bounds_y = 251
@@ -7,7 +6,6 @@ object imagedancerfo: timagedancerfo
   bounds_cy = 354
   container.frame.localprops = []
   container.frame.localprops1 = []
-  container.onpaint = onpaint_imagedancerfo
   container.bounds = (
     0
     0
@@ -94,6 +92,8 @@ object imagedancerfo: timagedancerfo
     0000000000000000000000000000000000000000000000000000000000000000
     000000000000000000000000
   }
+  oncreated = ocreat
+  ondestroy = ondestroy
   moduleclassname = 'tdockform'
   object dancnum: tintegeredit
     frame.localprops = []
@@ -105,5 +105,16 @@ object imagedancerfo: timagedancerfo
     bounds_cy = 21
     statfile = mainfo.tstatfile1
     reffontheight = 15
+  end
+  object tpaintbox1: tpaintbox
+    optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
+    frame.localprops = []
+    frame.localprops1 = []
+    taborder = 1
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 446
+    bounds_cy = 354
+    anchors = []
   end
 end

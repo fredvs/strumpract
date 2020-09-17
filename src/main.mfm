@@ -747,6 +747,7 @@ object mainfo: tmainfo
   oncreate = oncreateform
   oncreated = oncreatedform
   ondestroy = dodestroy
+  onclose = onclose
   onresize = onresized
   moduleclassname = 'tmainform'
   object basedock: tdockpanel

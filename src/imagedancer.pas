@@ -4,17 +4,29 @@ unit imagedancer;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msethread,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,Math,
  msesimplewidgets,msewidgets, mseact, msedataedits, msedropdownlist, mseedit,
  mseificomp, mseificompglob, mseifiglob, msestatfile, msestream, sysutils;
+ 
+type
+  pInvalidateImage = procedure of object;
 
 type
   timagedancerfo = class(tdockform)
+    
    dancnum: tintegeredit;
-    procedure onpaint_imagedancerfo(const Sender: twidget;
+   tpaintbox1: tpaintbox;
+   procedure onpaint_imagedancerfo(const Sender: twidget;
                    const acanvas: tcanvas);
    procedure onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
+   Procedure InvalidateImage;
+   procedure ondestroy(const sender: TObject);
+   procedure ocreat(const sender: TObject);
+   protected
+     thethread : tmsethread; 
+   function execute(thread: tmsethread): integer;
+  
   end;
 
 const
@@ -27,7 +39,9 @@ var
   MIN_LOG: double = 0.0;
   MAX_R: double = 100.0;
   dancernum: integer = 0;
-
+  isbuzy : boolean = false;
+  evPauseImage: PRTLEvent;// for pausing
+  statusanim : integer = -1;
 
 implementation
 
@@ -132,6 +146,11 @@ var
   init: double = 0;
   I, z : integer;
 begin
+
+if isbuzy = false then begin
+
+    isbuzy := true;
+
   Bitmap := tbgrabitmap.Create(Sender.bounds_cx, Sender.bounds_cy);
 
   if dancernum = 0 then // Fractral Tree
@@ -228,7 +247,30 @@ begin
 
   Bitmap.draw(acanvas, 0, 0, False);
   Bitmap.Free;
+  isbuzy := false;
+  end;
+    
 end;
+
+function timagedancerfo.execute(thread: tmsethread): integer;
+var
+acanvas : tcanvas;
+begin
+
+repeat
+
+if (isbuzy = false) and (visible = true) then
+begin
+application.queueasynccall(@InvalidateImage);
+ RTLeventResetEvent(evPauseImage);
+RTLeventWaitFor(evPauseImage);// is there a pause waiting ?
+RTLeventSetEvent(evPauseImage);   
+end;
+sleep(10);
+ until statusanim = 0;
+
+end;
+ 
 
 procedure timagedancerfo.onmouse(const sender: twidget;
                var ainfo: mouseeventinfoty);
@@ -253,6 +295,28 @@ with ainfo do
       end
    				  
       end;
+end;
+
+Procedure timagedancerfo.InvalidateImage;
+begin
+onpaint_imagedancerfo(tpaintbox1, tpaintbox1.getcanvas);
+end;
+
+procedure timagedancerfo.ondestroy(const sender: TObject);
+begin
+  statusanim := 0;
+  RTLeventSetEvent(evPauseimage);
+ thethread.terminate();
+ application.waitforthread(thethread);
+ thethread.destroy();
+ RTLeventdestroy(evPauseImage);
+end;
+
+procedure timagedancerfo.ocreat(const sender: TObject);
+begin
+ evPauseImage := RTLEventCreate;
+ thethread:= tmsethread.create(@execute);
+ RTLeventResetEvent(evPauseImage);
 end;
 
 end.

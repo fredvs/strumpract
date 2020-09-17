@@ -96,6 +96,7 @@ type
     procedure showimagedancer(const Sender: TObject);
     procedure onimagedancer(const Sender: TObject);
     procedure ondancerlayout(const Sender: TObject);
+   procedure onclose(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -301,7 +302,7 @@ end;
 
 procedure tmainfo.dodestroy(const Sender: TObject);
 begin
-
+  statusanim := 0;
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
@@ -3164,7 +3165,7 @@ end;
 
 procedure tmainfo.onexit(const Sender: TObject);
 begin
-  Close;
+ close;
 end;
 
 procedure tmainfo.showpan4(const Sender: TObject);
@@ -3440,6 +3441,11 @@ begin
   imagedancerfo.top  := top;
 
   imagedancerfo.Visible := True;
+
+end;
+
+procedure tmainfo.onclose(const sender: TObject);
+begin
 
 end;
 
