@@ -3421,14 +3421,15 @@ begin
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
  
-
   wavefo.visible := false;
   wavefo2.visible := false;
+  waveforec.visible := false;
   drumsfo.visible := false;
   recorderfo.visible := false;
    guitarsfo.visible := false;
     spectrum1fo.visible := false;
     spectrum2fo.visible := false;
+    spectrumrecfo.visible := false;
   commanderfo.Visible := True;
   filelistfo.Visible  := True;
 

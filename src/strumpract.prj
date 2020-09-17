@@ -308,7 +308,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=3
+ index=2
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -839,7 +839,7 @@ makeoptionson=11
  0
  0
  192
- 953
+ 957
  0
  4095
  4095
@@ -1572,16 +1572,18 @@ findhistory=13
  evPause
  invalidate
 findoptions=1
-editpos=9
+editpos=11
+ 0,-1073741823
+ 0,0
+ 0,-1073741823
+ 0,3422
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,3432
- 0,-1073741823
+ 0,38
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,12
+ 0,57
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1591,7 +1593,9 @@ bookmarks5=0
 bookmarks6=0
 bookmarks7=0
 bookmarks8=0
-sourcefiles=9
+bookmarks9=0
+bookmarks10=0
+sourcefiles=11
  ${PROJECTDIR}/imagedancer.pas
  ${PROJECTDIR}/songplayer.pas
  /home/fred/uos/examples/simpleplayer_fpGUI.pas
@@ -1601,7 +1605,9 @@ sourcefiles=9
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/strumpract.pas
-relpaths=9
+ ${PROJECTDIR}/waveform.pas
+ ${PROJECTDIR}/strumpract.pas
+relpaths=11
  imagedancer.pas
  songplayer.pas
  uos/examples/simpleplayer_fpGUI.pas
@@ -1611,7 +1617,11 @@ relpaths=9
  waveform.pas
  guitars.pas
  strumpract.pas
-ismoduletexts=9
+ waveform.pas
+ strumpract.pas
+ismoduletexts=11
+ 0
+ 0
  0
  0
  0
@@ -1662,20 +1672,22 @@ nomenumodules=9
  -1
  0
 [sourcefo.files_tab]
-order=9
+order=11
  0
  1
  2
  3
- 7
- 8
- 5
+ 9
+ 10
  6
  4
+ 8
+ 5
+ 7
 firsttab=0
 index=3
 [layout]
-windowlayout=746
+windowlayout=748
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1737,7 +1749,7 @@ windowlayout=746
  [memoryfo]
  splitdir=0
  useroptions=268451963
- stackedunder=dialogfilesfo
+ stackedunder=confcompilerfo
  parent=
  mdistate=0
  nx=0
@@ -2199,16 +2211,18 @@ windowlayout=746
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=9
+ order=11
   0
   1
   2
   3
-  7
-  8
-  5
+  9
+  10
   6
   4
+  8
+  5
+  7
  firsttab=0
  index=3
  [confideufo.fontname]
@@ -2406,7 +2420,7 @@ windowlayout=746
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
