@@ -4,10 +4,11 @@ unit imagedancer;
 interface
 
 uses
- msethread,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,Math,
- msesimplewidgets,msewidgets, mseact, msedataedits, msedropdownlist, mseedit,
- mseificomp, mseificompglob, mseifiglob, msestatfile, msestream, sysutils;
+ msethread,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,
+ msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ Math,msesimplewidgets,msewidgets, mseact, msedataedits, msedropdownlist,
+  mseedit,mseificomp, mseificompglob, mseifiglob, msestatfile, msestream,
+  sysutils, mseopenglwidget, msewindowwidget;
  
 type
   pInvalidateImage = procedure of object;
@@ -17,15 +18,30 @@ type
     
    dancnum: tintegeredit;
    tpaintbox1: tpaintbox;
+   openglwidget: topenglwidget;
    procedure onpaint_imagedancerfo(const Sender: twidget;
                    const acanvas: tcanvas);
    procedure onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
    Procedure InvalidateImage;
    procedure ondestroy(const sender: TObject);
    procedure ocreat(const sender: TObject);
+   procedure onshow(const sender: TObject);
+   procedure rotentexe(const sender: tobject);
+
+   procedure clientrectchangedexe(const sender: tcustomwindowwidget);
+   procedure createwinidexe(const sender: tcustomwindowwidget;
+                   const aparent: winidty; const awidgetrect: rectty;
+                   var aid: winidty);
+   procedure onrenderexe(const sender: tcustomopenglwidget;
+                   const aupdaterect: rectty);
    protected
      thethread : tmsethread; 
    function execute(thread: tmsethread): integer;
+   
+   private
+   rendercount: integer;
+   renderstart: longword;
+   frotx,froty,frotz: real;
   
   end;
 
@@ -49,6 +65,7 @@ uses
   BGRABitmap,
   BGRABitmapTypes,
   bgragraphics,
+  msegl,mseglu,msesysutils,
   imagedancer_mfm;
 
 // Super Formula 
@@ -257,7 +274,7 @@ begin
 
 repeat
 
-if (isbuzy = false) and (visible = true) then
+if (isbuzy = false) and (visible = true) and (tpaintbox1.visible = true)  then
 begin
 application.queueasynccall(@InvalidateImage);
  RTLeventResetEvent(evPauseImage);
@@ -315,6 +332,82 @@ begin
  evPauseImage := RTLEventCreate;
  thethread:= tmsethread.create(@execute);
  RTLeventResetEvent(evPauseImage);
+end;
+
+procedure timagedancerfo.onshow(const sender: TObject);
+begin
+openglwidget.fpsmax:= 30;
+renderstart:= timestamp;
+end;
+
+procedure timagedancerfo.clientrectchangedexe(const sender: tcustomwindowwidget);
+begin
+ glmatrixmode(gl_projection);
+ glloadidentity();
+ gluperspective(45,sender.aspect,1,10);
+ glmatrixmode(gl_modelview);
+end;
+
+procedure timagedancerfo.createwinidexe(const sender: tcustomwindowwidget;
+               const aparent: winidty; const awidgetrect: rectty;
+               var aid: winidty);
+begin
+{ does not work
+ glenable(gl_blend);
+ glblendfunc(gl_src_alpha_saturate,gl_one);
+ glenable(gl_polygon_smooth);
+}
+ glmatrixmode(gl_modelview);
+ glloadidentity();
+ gltranslatef(0,0,-2);
+end;
+
+
+procedure timagedancerfo.onrenderexe(const sender: tcustomopenglwidget;
+               const aupdaterect: rectty);
+var
+ lwo1: longword;
+ int1: integer;
+begin
+if openglwidget.visible then
+begin
+
+ glclear(gl_color_buffer_bit);
+ 
+ if multiplier < 0.1 then multiplier := 0;
+ 
+ glpushmatrix();
+ glrotatef(multiplier*360,1,0,0);
+ glrotatef(multiplier*360,0,1,0);
+ glrotatef(multiplier*360,0,0,1);
+
+ glbegin(gl_quads);
+   glcolor3f(1,0,0);
+   glvertex3f(-0.5,-0.5,0);
+   glcolor3f(0,1,0);
+   glvertex3f(0.5,-0.5,0);
+   glcolor3f(0,0,1);
+   glvertex3f(0.5,0.5,0);
+   glcolor3f(1,1,1);
+   glvertex3f(-0.5,0.5,0);
+ glend();
+ glpopmatrix();
+
+ inc(rendercount);
+ int1:= integer(sender.rendertimestampus-renderstart);
+ if int1 > 1000000 then begin
+  //fpsdisp.value:= (rendercount*1000000)/int1;
+  rendercount:= 0;
+  renderstart:= sender.rendertimestampus;
+ end;
+end; 
+end;
+
+procedure timagedancerfo.rotentexe(const sender: tobject);
+begin
+ frotx:= 0;
+ froty:= 0;
+ frotz:= 0;
 end;
 
 end.

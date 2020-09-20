@@ -94,6 +94,7 @@ object imagedancerfo: timagedancerfo
   }
   oncreated = ocreat
   ondestroy = ondestroy
+  onshow = onshow
   moduleclassname = 'tdockform'
   object dancnum: tintegeredit
     frame.localprops = []
@@ -111,10 +112,30 @@ object imagedancerfo: timagedancerfo
     frame.localprops = []
     frame.localprops1 = []
     taborder = 1
+    visible = False
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 446
     bounds_cy = 354
     anchors = []
+  end
+  object openglwidget: topenglwidget
+    frame.leveli = -1
+    frame.framei_left = 10
+    frame.framei_top = 10
+    frame.framei_right = 10
+    frame.framei_bottom = 10
+    frame.localprops = [frl_leveli, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+    frame.localprops1 = []
+    taborder = 2
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 442
+    bounds_cy = 354
+    anchors = [an_left, an_right]
+    onrender = onrenderexe
+    fpsmax = 30
+    oncreatewinid = createwinidexe
+    onclientrectchanged = clientrectchangedexe
   end
 end

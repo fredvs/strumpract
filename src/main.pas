@@ -422,28 +422,40 @@ begin
   else
     timerwait.Enabled := True;
 
-
+ if imagedancerfo.dancnum.Value = 3 then
+  begin
+    imagedancerfo.Caption := 'Dancing Square';
+    imagedancerfo.openglwidget.visible := true;
+    imagedancerfo.tpaintbox1.visible := false;
+    dancernum := 3;
+  end else
   if imagedancerfo.dancnum.Value = 0 then
   begin
     imagedancerfo.Caption := 'Fractal Tree by Lainz';
     dancernum := 0;
+    imagedancerfo.openglwidget.visible := false;
+    imagedancerfo.tpaintbox1.visible := true;
   end
   else if imagedancerfo.dancnum.Value = 1 then
   begin
     imagedancerfo.Caption := 'Super Formula';
     dancernum := 1;
+    imagedancerfo.openglwidget.visible := false;
+    imagedancerfo.tpaintbox1.visible := true;
   end
   else if imagedancerfo.dancnum.Value = 2 then
   begin
     imagedancerfo.Caption := 'Hyper formula';
     dancernum := 2;
+    imagedancerfo.openglwidget.visible := false;
+    imagedancerfo.tpaintbox1.visible := true;
   end;
 
 
   if imagedancerfo.Visible = True then
   begin
     multiplier := 0.7;
-    imagedancerfo.invalidate;
+   // imagedancerfo.invalidate;
   end;
 
   if randomnotefo.Visible = True then
@@ -3391,26 +3403,39 @@ end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
 begin
+  if (tmenuitem(Sender).tag = 3) then
+  begin
+    imagedancerfo.Caption := 'Dancing Square';
+    imagedancerfo.openglwidget.visible := true;
+    imagedancerfo.tpaintbox1.visible := false;
+    dancernum := 3;
+    imagedancerfo.dancnum.Value := 3;
+  end
+  else
   if (tmenuitem(Sender).tag = 0) then
   begin
     imagedancerfo.Caption := 'Fractal Tree by Lainz';
+    imagedancerfo.openglwidget.visible := false;
+    imagedancerfo.tpaintbox1.visible := true;
     dancernum := 0;
     imagedancerfo.dancnum.Value := 0;
-
   end
   else if (tmenuitem(Sender).tag = 1) then
   begin
     imagedancerfo.Caption := 'Super Formula';
+    imagedancerfo.openglwidget.visible := false;
+    imagedancerfo.tpaintbox1.visible := true;
     dancernum := 1;
     imagedancerfo.dancnum.Value := 1;
   end
   else if (tmenuitem(Sender).tag = 2) then
   begin
     imagedancerfo.Caption := 'Hyper formula';
+    imagedancerfo.openglwidget.visible := false;
+    imagedancerfo.tpaintbox1.visible := true;
     dancernum := 2;
     imagedancerfo.dancnum.Value := 2;
   end;
-  imagedancerfo.invalidate;
 end;
 
 procedure tmainfo.ondancerlayout(const Sender: TObject);

@@ -97,7 +97,7 @@ type
     procedure doplayerstop(const Sender: TObject);
     procedure ClosePlayer1();
     procedure showposition(const Sender: TObject);
-    procedure showlevel(const Sender: TObject);
+    procedure showlevel(const Sender: TObject; const l1, r1, l2, r2  : double);
     procedure LoopProcPlayer1();
 
     procedure oninfowav(const Sender: TObject);
@@ -685,74 +685,46 @@ begin
 
 end;
 
-procedure tsongplayerfo.ShowLevel(const Sender: TObject);
-var
-  leftlev, rightlev: double;
+procedure tsongplayerfo.showlevel(const Sender: TObject; const l1, r1, l2, r2 : double);
+  
 begin
 
-  vuLeft.Visible  := True;
-  vuRight.Visible := True;
-
-  if Caption = 'Player 1' then
-  begin
-    if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+  if (Caption = 'Player 1') then
     begin
-      commanderfo.vuLeft.Visible  := True;
-      commanderfo.vuRight.Visible := True;
-    end
-    else
+    if (l1 >= 0) and (l1 <= 1) then
     begin
-      commanderfo.vuLeft.Visible  := False;
-      commanderfo.vuRight.Visible := False;
-    end;
-
-    leftlev  := uos_InputGetLevelLeft(theplayer, Inputindex1);
-    rightlev := uos_InputGetLevelRight(theplayer, Inputindex1);
-
-  end;
-
+     vuLeft.Value := l1;
+      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+        commanderfo.vuLeft.Value := l1;
+    end;  
+    
+    if (r1 >= 0) and (r1 <= 1) then
+    begin
+     vuright.Value := r1;
+      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+        commanderfo.vuright.Value := r1;
+    end;    
+     
+    end; 
+    
   if Caption = 'Player 2' then
-  begin
-    if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
     begin
-      commanderfo.vuLeft2.Visible  := True;
-      commanderfo.vuRight2.Visible := True;
-    end
-    else
+    if (l2 >= 0) and (l2 <= 1) then
     begin
-      commanderfo.vuLeft2.Visible  := False;
-      commanderfo.vuRight2.Visible := False;
-    end;
-
-    leftlev  := uos_InputGetLevelLeft(theplayer2, Inputindex2);
-    rightlev := uos_InputGetLevelRight(theplayer2, Inputindex2);
-  end;
-
-
-  if (leftlev >= 0) and (leftlev < 1) then
-  begin
-    vuLeft.Value := leftlev;
-    if Caption = 'Player 1' then
+     vuLeft.Value := l2;
       if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
-        commanderfo.vuLeft.Value := leftlev;
-
-    if Caption = 'Player 2' then
+        commanderfo.vuLeft2.Value := l2;
+    end;  
+    
+    if (r2 >= 0) and (r2 <= 1) then
+    begin
+     vuright.Value := l2;
       if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
-        commanderfo.vuLeft2.Value := leftlev;
-  end;
-
-  if (rightlev >= 0) and (rightlev < 1) then
-  begin
-    vuright.Value := rightlev;
-    if Caption = 'Player 1' then
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
-        commanderfo.vuright.Value := rightlev;
-
-    if Caption = 'Player 2' then
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
-        commanderfo.vuright2.Value := rightlev;
-  end;
-
+        commanderfo.vuright2.Value := r2;
+    end;    
+     
+    end;       
+   
 end;
 
 procedure tsongplayerfo.ShowPosition(const Sender: TObject);
@@ -849,26 +821,38 @@ end;
 
 procedure tsongplayerfo.LoopProcPlayer1();
 var
-  temp: double;
+  temp, ll1, ll2, lr1, lr2: double;
 begin
 
   if (commanderfo.timermix.Enabled = False) or
     ((commanderfo.timermix.Enabled = True) and (configfo.guimix.Value = False)) then
   begin
+    
     if (Visible = True) then
       ShowPosition(nil);
 
+if ((commanderfo.vuin.Value = True) and (Visible = True)) or 
+ ((imagedancerfo.Visible = True))
+ then
+ begin
+  ll1 := uos_InputGetLevelLeft(theplayer, Inputindex1);
+  lr1 := uos_InputGetLevelright(theplayer, Inputindex1);
+  ll2 := uos_InputGetLevelLeft(theplayer2, Inputindex2);
+  lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
+  
+   multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
+           
+ 
     if (commanderfo.vuin.Value = True) and (Visible = True) then
-      ShowLevel(nil);
+      ShowLevel(nil,ll1,lr1,ll2,lr2);
 
-    if imagedancerfo.Visible = True then
-            begin
-          multiplier := ((uos_InputGetLevelLeft(theplayer, Inputindex1) +
-            uos_InputGetLevelRight(theplayer, Inputindex1)) / 2) +
-            ((uos_InputGetLevelLeft(theplayer2, Inputindex2) +
-            uos_InputGetLevelRight(theplayer2, Inputindex2)) / 2);
-          if isbuzy = false then RTLeventSetEvent(evPauseimage); // to resume
-            end;
+    if (imagedancerfo.Visible = True) and (isbuzy = false) and 
+    (imagedancerfo.tpaintbox1.visible = true) then
+            begin 
+            //  multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
+              RTLeventSetEvent(evPauseimage); // to resume
+           end;
+  end;
 
     if Caption = 'Player 1' then
       if (spectrum1fo.spect1.Value = True) and (spectrum1fo.Visible = True) and

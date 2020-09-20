@@ -1039,8 +1039,14 @@ object mainfo: tmainfo
             onexecute = changecolors
           end        
           item
-            submenu.count = 3
+            submenu.count = 4
             submenu.items = <            
+              item
+                caption = ' Dancing Square '
+                state = [as_localcaption, as_localtag, as_localonexecute]
+                tag = 3
+                onexecute = onimagedancer
+              end            
               item
                 caption = ' Fractal Tree '
                 state = [as_localcaption, as_localonexecute]
