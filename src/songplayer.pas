@@ -2811,22 +2811,18 @@ begin
 end;
 
 procedure tsongplayerfo.opendir(const Sender: TObject);
-var
-  dancv: Boolean = False;
 begin
-  dancv := imagedancerfo.Visible;
-  imagedancerfo.Visible := False;
-  tfiledialog1.controller.captionopen := 'Open Audio File';
+   tfiledialog1.controller.captionopen := 'Open Audio File';
   tfiledialog1.controller.filter := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   tfiledialog1.controller.fontcolor := cl_black;
-  imagedancerfo.Visible := dancv;
+ 
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
   begin
     historyfn.Value := tfiledialog1.controller.filename;
     historyfn.dropdown.history :=
       tfiledialog1.controller.history;
   end;
-  imagedancerfo.Visible := dancv;
+  
 end;
 
 

@@ -764,7 +764,6 @@ object mainfo: tmainfo
     bounds_y = 0
     bounds_cx = 454
     bounds_cy = 79
-    anchors = []
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
@@ -884,7 +883,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 17
+        submenu.count = 19
         submenu.items = <        
           item
             caption = ' Show All '
@@ -970,6 +969,40 @@ object mainfo: tmainfo
             caption = ' Show Image Dancer'
             state = [as_localcaption, as_localonexecute]
             onexecute = showimagedancer
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            submenu.count = 5
+            submenu.items = <            
+              item
+                caption = ' Show Dock Panel 1 '
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan1
+              end            
+              item
+                caption = ' Show Dock Panel 2 '
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan2
+              end            
+              item
+                caption = ' Show Dock Panel 3 '
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan3
+              end            
+              item
+                caption = ' Show Dock Panel 4 '
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan4
+              end            
+              item
+                caption = ' Show Dock Panel 5 '
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan5
+              end>
+            caption = ' &Panels '
+            state = [as_localcaption]
           end>
         caption = ' &Show '
         hint = ' Show/hide windows '
@@ -977,39 +1010,36 @@ object mainfo: tmainfo
         onexecute = showall
       end    
       item
-        submenu.count = 5
+        submenu.count = 4
         submenu.items = <        
           item
-            caption = ' Show Dock Panel 1 '
-            state = [as_localcaption, as_localonexecute]
-            onexecute = showpan1
+            caption = ' Dancing Square '
+            state = [as_checked, as_localchecked, as_localcaption, as_localtag, as_localonexecute]
+            tag = 3
+            onexecute = onimagedancer
           end        
           item
-            caption = ' Show Dock Panel 2 '
+            caption = ' Fractal Tree '
             state = [as_localcaption, as_localonexecute]
-            onexecute = showpan2
+            onexecute = onimagedancer
           end        
           item
-            caption = ' Show Dock Panel 3 '
-            state = [as_localcaption, as_localonexecute]
-            onexecute = showpan3
+            caption = ' Super Formula '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 1
+            onexecute = onimagedancer
           end        
           item
-            caption = ' Show Dock Panel 4 '
-            state = [as_localcaption, as_localonexecute]
-            onexecute = showpan4
-          end        
-          item
-            caption = ' Show Dock Panel 5 '
-            state = [as_localcaption, as_localonexecute]
-            onexecute = showpan5
+            caption = ' Hyper Formula '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 2
+            onexecute = onimagedancer
           end>
-        caption = ' &Panels '
-        hint = ' Show/hide extra Dock Panels '
-        state = [as_localcaption, as_localhint]
+        caption = ' &Dancer '
+        state = [as_localcaption]
       end    
       item
-        submenu.count = 3
+        submenu.count = 2
         submenu.items = <        
           item
             caption = ' &Audio '
@@ -1037,35 +1067,6 @@ object mainfo: tmainfo
             caption = ' Color '
             state = [as_localcaption, as_localonexecute]
             onexecute = changecolors
-          end        
-          item
-            submenu.count = 4
-            submenu.items = <            
-              item
-                caption = ' Dancing Square '
-                state = [as_localcaption, as_localtag, as_localonexecute]
-                tag = 3
-                onexecute = onimagedancer
-              end            
-              item
-                caption = ' Fractal Tree '
-                state = [as_localcaption, as_localonexecute]
-                onexecute = onimagedancer
-              end            
-              item
-                caption = ' Super Formula '
-                state = [as_localcaption, as_localtag, as_localonexecute]
-                tag = 1
-                onexecute = onimagedancer
-              end            
-              item
-                caption = ' Hyper Formula '
-                state = [as_localcaption, as_localtag, as_localonexecute]
-                tag = 2
-                onexecute = onimagedancer
-              end>
-            caption = ' Image Dancer '
-            state = [as_localcaption]
           end>
         caption = ' &Config '
         hint = ' Configuration of sound and colors '

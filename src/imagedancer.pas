@@ -377,16 +377,16 @@ begin
  if multiplier < 0.1 then multiplier := 0;
  
  glpushmatrix();
- glrotatef(multiplier*360,1,0,0);
- glrotatef(multiplier*360,0,1,0);
- glrotatef(multiplier*360,0,0,1);
+ glrotatef(multiplier*360,1,multiplier,multiplier);
+ glrotatef(multiplier*360,multiplier,1,multiplier);
+ glrotatef(multiplier*360,multiplier,multiplier,1);
 
  glbegin(gl_quads);
-   glcolor3f(1,0,0);
+   glcolor3f(1,0,multiplier);
    glvertex3f(-0.5,-0.5,0);
-   glcolor3f(0,1,0);
+   glcolor3f(multiplier,1,0);
    glvertex3f(0.5,-0.5,0);
-   glcolor3f(0,0,1);
+   glcolor3f(multiplier,multiplier,1);
    glvertex3f(0.5,0.5,0);
    glcolor3f(1,1,1);
    glvertex3f(-0.5,0.5,0);
