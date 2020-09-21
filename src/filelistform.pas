@@ -354,8 +354,7 @@ begin
             thestrfract := '.' + IntToStr(y2)
           else
             thestrfract := '';
-
-
+        
           list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
         end;
 

@@ -34,6 +34,7 @@ type
                    var aid: winidty);
    procedure onrenderexe(const sender: tcustomopenglwidget;
                    const aupdaterect: rectty);
+   procedure onhide(const sender: TObject);
    protected
      thethread : tmsethread; 
    function execute(thread: tmsethread): integer;
@@ -63,6 +64,7 @@ implementation
 
 uses
   BGRABitmap,
+  main,
   BGRABitmapTypes,
   bgragraphics,
   msegl,mseglu,msesysutils,
@@ -338,8 +340,9 @@ procedure timagedancerfo.onshow(const sender: TObject);
 begin
 openglwidget.fpsmax:= 30;
 renderstart:= timestamp;
+ mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Hide Image Dancer ';
 end;
-
+ 
 procedure timagedancerfo.clientrectchangedexe(const sender: tcustomwindowwidget);
 begin
  glmatrixmode(gl_projection);
@@ -408,6 +411,11 @@ begin
  frotx:= 0;
  froty:= 0;
  frotz:= 0;
+end;
+
+procedure timagedancerfo.onhide(const sender: TObject);
+begin
+ mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Show Image Dancer ';
 end;
 
 end.

@@ -140,6 +140,8 @@ object randomnotefo: trandomnotefo
   oncreated = oncreatedev
   onclose = onclosev
   onmouseevent = onmousev
+  onshow = onshowrand
+  onhide = onhide
   moduleclassname = 'tdockform'
   object tstringdisp1: tstringdisp
     optionswidget1 = [ow1_fontglyphheight]

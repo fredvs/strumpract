@@ -161,6 +161,8 @@ type
     procedure doconfig(Const sender: TObject);
     procedure onconfigtext(Const sender: TObject);
 
+   procedure onhide(const sender: TObject);
+   procedure onshowrand(const sender: TObject);
   end;
 
 var 
@@ -4949,6 +4951,17 @@ begin
   tstringdisp1.text := tmemoedit1.value;
   pconfigtext.visible := false;
   application.processmessages;
+end;
+
+procedure trandomnotefo.onhide(const sender: TObject);
+begin
+mainfo.tmainmenu1.menu[3].submenu[15].Caption := ' Show Chords Randomizer ';
+ 
+end;
+
+procedure trandomnotefo.onshowrand(const sender: TObject);
+begin
+mainfo.tmainmenu1.menu[3].submenu[15].Caption := ' Hide Chords Randomizer ';
 end;
 
 end.

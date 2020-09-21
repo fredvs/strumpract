@@ -133,6 +133,7 @@ object imagedancerfo: timagedancerfo
     bounds_cx = 442
     bounds_cy = 354
     anchors = [an_left, an_right]
+    onhide = onhide
     onrender = onrenderexe
     fpsmax = 30
     oncreatewinid = createwinidexe

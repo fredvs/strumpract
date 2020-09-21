@@ -3391,7 +3391,8 @@ end;
 
 procedure tmainfo.showimagedancer(const Sender: TObject);
 begin
-  imagedancerfo.Visible := True;
+imagedancerfo.Visible := not imagedancerfo.Visible;
+if imagedancerfo.Visible then
   imagedancerfo.bringtofront;
 end;
 
