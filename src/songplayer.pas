@@ -2471,15 +2471,10 @@ begin
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
-  // if songdir.Value = '' then
-  //   songdir.Value := utf8decode( ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg');
+   if historyfn.value = '' then
+  historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.ogg';
 
-  // if historyfn.value = '' then
-  // historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
-
-  // historyfn.Value := songdir.Value;
-
-end;
+ end;
 
 procedure tsongplayerfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin

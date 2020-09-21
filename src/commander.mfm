@@ -891,8 +891,8 @@ object commanderfo: tcommanderfo
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       ontextedited = ontextedit
       onsetvalue = onsetvalvol
-      value = 300
-      valuedefault = 300
+      value = 200
+      valuedefault = 200
       valuerange = 1
       valuemin = -Inf
       valuemax = 10000
