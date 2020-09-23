@@ -176,8 +176,9 @@ if isbuzy = false then begin
 if (Bitmap.width <> Sender.bounds_cx) or (Bitmap.height <> Sender.bounds_cy)
 then
 begin 
- bitmap.free;
- Bitmap := tbgrabitmap.Create(Sender.bounds_cx, Sender.bounds_cy);
+ bitmap.SetSize(Sender.bounds_cx, Sender.bounds_cy);
+ //bitmap.free;
+ //Bitmap := tbgrabitmap.Create(Sender.bounds_cx, Sender.bounds_cy);
  end;
  
   if dancernum = 0 then // Fractral Tree
