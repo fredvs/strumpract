@@ -852,7 +852,7 @@ if ((commanderfo.vuin.Value = True) and (Visible = True)) or
             //  multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
               RTLeventSetEvent(evPauseimage); // to resume
            end;
-  end;
+    end;
 
     if Caption = 'Player 1' then
       if (spectrum1fo.spect1.Value = True) and (spectrum1fo.Visible = True) and

@@ -59,7 +59,7 @@ var
   isbuzy : boolean = false;
   evPauseImage: PRTLEvent;// for pausing
   statusanim : integer = -1;
-
+ 
 implementation
 
 uses
@@ -69,6 +69,10 @@ uses
   bgragraphics,
   msegl,mseglu,msesysutils,
   imagedancer_mfm;
+  
+var
+ Bitmap: tbgrabitmap;
+  
 
 // Super Formula 
 
@@ -161,17 +165,21 @@ var
   x: double = 0;
   y: double = 0;
   y2: double = 0;
-  Bitmap: tbgrabitmap;
   init: double = 0;
   I, z : integer;
 begin
 
 if isbuzy = false then begin
 
-    isbuzy := true;
+  isbuzy := true;
 
-  Bitmap := tbgrabitmap.Create(Sender.bounds_cx, Sender.bounds_cy);
-
+if (Bitmap.width <> Sender.bounds_cx) or (Bitmap.width <> Sender.bounds_cx)
+then
+begin 
+ bitmap.free;
+ Bitmap := tbgrabitmap.Create(Sender.bounds_cx, Sender.bounds_cy);
+ end;
+ 
   if dancernum = 0 then // Fractral Tree
   begin
 
@@ -186,13 +194,7 @@ if isbuzy = false then begin
   else
   if dancernum = 1 then // Super Formula
   begin
-  {
-    Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, BGRA(round(155 * multiplier), 
-    round(200 * multiplier) , round(255 * multiplier)) , BGRA(round(155 * multiplier), 
-    round(200 * multiplier) , round(255 * multiplier)),
-      gtLinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
-}
-
+ 
     Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE ,  $FF9D4D,
       gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
@@ -228,6 +230,7 @@ if isbuzy = false then begin
   else
   if dancernum = 2 then // Hyper formula
   begin
+    
    Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, cl_black, cl_black,
       gtLinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
@@ -265,7 +268,6 @@ if isbuzy = false then begin
   end;       
 
   Bitmap.draw(acanvas, 0, 0, False);
-  Bitmap.Free;
   isbuzy := false;
   end;
     
@@ -326,6 +328,7 @@ begin
  thethread.terminate();
  application.waitforthread(thethread);
  thethread.destroy();
+   Bitmap.Free;
  RTLeventdestroy(evPauseImage);
 end;
 
@@ -334,13 +337,15 @@ begin
  evPauseImage := RTLEventCreate;
  thethread:= tmsethread.create(@execute);
  RTLeventResetEvent(evPauseImage);
+ Bitmap := tbgrabitmap.Create(1000,600);
+ 
 end;
 
 procedure timagedancerfo.onshow(const sender: TObject);
 begin
 openglwidget.fpsmax:= 30;
 renderstart:= timestamp;
- mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Hide Image Dancer ';
+mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Hide Image Dancer ';
 end;
  
 procedure timagedancerfo.clientrectchangedexe(const sender: tcustomwindowwidget);
