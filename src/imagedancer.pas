@@ -173,7 +173,7 @@ if isbuzy = false then begin
 
   isbuzy := true;
 
-if (Bitmap.width <> Sender.bounds_cx) or (Bitmap.width <> Sender.bounds_cx)
+if (Bitmap.width <> Sender.bounds_cx) or (Bitmap.height <> Sender.bounds_cy)
 then
 begin 
  bitmap.free;
