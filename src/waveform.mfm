@@ -29,9 +29,9 @@ object wavefo: twavefo
   container.frame.sbvert.width = 1
   container.bounds = (
     0
-    16
+    17
     434
-    94
+    93
   )
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
@@ -130,7 +130,6 @@ object wavefo: twavefo
     bounds_cx = 432
     bounds_cy = 80
     enabled = False
-    value = 0
     scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
     scrollbar.buttonlength = 2
     scrollbar.buttonminlength = 1
@@ -162,7 +161,7 @@ object wavefo: twavefo
     frame.localprops1 = []
     enabled = False
     bounds_x = 0
-    bounds_y = 78
+    bounds_y = 77
     bounds_cx = 432
     bounds_cy = 16
     anchors = [an_left, an_bottom]
@@ -179,9 +178,9 @@ object wavefo: twavefo
       -1610612732
     )
     datarowlinecolor = -1879048167
-    datarowheight = 14
+    datarowheight = 15
     statpriority = 1
-    reffontheight = 14
+    reffontheight = 15
   end
   object sliderimage: tbitmapcomp
     left = 72
@@ -195,6 +194,12 @@ object wavefo: twavefo
     top = 44
   end
   object tmainmenu1: tmainmenu
+    popupfacetemplate = mainfo.tfacebutgray
+    popupitemfacetemplate = mainfo.tfacebutgray
+    popupitemfacetemplateactive = mainfo.tfacebutgray
+    facetemplate = mainfo.tfacebutgray
+    itemfacetemplate = mainfo.tfacebutgray
+    itemfacetemplateactive = mainfo.tfacebutgray
     menu.submenu.count = 9
     menu.submenu.items = <    
       item
@@ -246,6 +251,7 @@ object wavefo: twavefo
         state = [as_checked, as_localinvisible, as_localchecked, as_localcaption, as_localhint, as_localonexecute]
         options = [mao_checkbox, mao_shortcutcaption]
       end>
+    menu.state = [as_localcolorglyph]
     left = 299
     top = 44
   end

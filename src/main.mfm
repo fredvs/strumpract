@@ -800,6 +800,12 @@ object mainfo: tmainfo
     reffontheight = 15
   end
   object tmainmenu1: tmainmenu
+    popupfacetemplate = tfacebutgray
+    popupitemfacetemplate = tfacebutgray
+    popupitemfacetemplateactive = tfacebutgray
+    facetemplate = tfacebutgray
+    itemfacetemplate = tfacebutgray
+    itemfacetemplateactive = tfacebutgray
     menu.submenu.count = 9
     menu.submenu.items = <    
       item

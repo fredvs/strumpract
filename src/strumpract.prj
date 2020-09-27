@@ -815,15 +815,30 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
+modulenames=7
+ DOCKPANEL1FO
+ FILELISTFO
  IMAGEDANCERFO
  MAINFO
-moduletypes=2
+ FILEDIALOGFO
+ SONGPLAYERFO
+ WAVEFO
+moduletypes=7
+ TDOCKPANEL1FO
+ TFILELISTFO
  TIMAGEDANCERFO
  TMAINFO
-modulefiles=2
+ TFILEDIALOGFO
+ TSONGPLAYERFO
+ TWAVEFO
+modulefiles=7
+ /home/fred/strumpract/src/dockpanel1.mfm
+ /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/imagedancer.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/mseide-msegui/lib/common/dialogx/msefiledialogx.mfm
+ /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/waveform.mfm
 befcommandon=0
 makeoptionson=11
  4095
@@ -1199,8 +1214,8 @@ line=35
  1549
  209
  1136
- 2987
- 428
+ 3030
+ 431
  5
  752
  1517
@@ -1557,8 +1572,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=timerw
+finddtext=if typecolor.Value =
 findhistory=20
+ font.colo
  timerw
  imagedan
  select
@@ -1578,55 +1594,113 @@ findhistory=20
  RTLevent
  RTLeventResetEvent
  replay(
- evpause
 findoptions=1
-editpos=2
- 0,244
- 0,180
+editpos=8
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 43,82
+ 0,-1073741823
+ 0,-1073741823
+ 0,340
+ 0,2795
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+bookmarks3=0
+bookmarks4=0
+bookmarks5=0
+bookmarks6=0
+bookmarks7=0
+sourcefiles=8
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/imagedancer.pas
-relpaths=2
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/filelistform.pas
+ ${PROJECTDIR}/waveform.pas
+ ${PROJECTDIR}/dockpanel1.pas
+ /home/fred/mseide-msegui/lib/common/dialogx/msefiledialogx.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=8
  main.pas
  imagedancer.pas
-ismoduletexts=2
+ main.pas
+ filelistform.pas
+ waveform.pas
+ dockpanel1.pas
+ ../mseide-msegui/lib/common/dialogx/msefiledialogx.pas
+ songplayer.pas
+ismoduletexts=8
  0
  0
-modules=6
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+modules=11
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/imagedancer.mfm
-moduleoptions=6
+ /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/waveform.mfm
+ /home/fred/strumpract/src/dockpanel1.mfm
+ /home/fred/mseide-msegui/lib/common/dialogx/msefiledialogx.mfm
+ /home/fred/strumpract/src/songplayer.mfm
+moduleoptions=11
  0
  0
  0
  0
  0
  0
-visiblemodules=6
+ 0
+ 0
+ 0
+ 0
+ 0
+visiblemodules=11
  -1
  0
  0
  0
  -1
  -1
-nomenumodules=6
+ -1
+ -1
+ -1
+ -1
+ -1
+nomenumodules=11
  0
  -1
  -1
  -1
  -1
+ 0
+ 0
+ 0
+ 0
+ 0
  0
 [sourcefo.files_tab]
+order=8
+ 2
+ 3
+ 7
+ 5
+ 0
+ 6
+ 1
+ 4
 firsttab=0
 index=1
 [layout]
-windowlayout=679
+windowlayout=783
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1760,7 +1834,7 @@ windowlayout=679
  x=0
  y=0
  cx=205
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1771,7 +1845,7 @@ windowlayout=679
  sortdescend1=0
  sorted=0
  col=0
- row=5
+ row=10
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2081,7 +2155,7 @@ windowlayout=679
  x=0
  y=0
  cx=1212
- cy=51
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2093,11 +2167,11 @@ windowlayout=679
  nx=0
  ny=0
  ncx=1197
- ncy=49
+ ncy=37
  x=0
  y=0
  cx=1212
- cy=48
+ cy=35
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2107,10 +2181,11 @@ windowlayout=679
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/imagedancer.pas
+ value=/home/fred/strumpract/src/filelistform.pas
  history=20
-  /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/imagedancer.pas
+  /home/fred/strumpract/src/main.pas
   /home/fred/atest/test.prj
   /home/fred/ideu/src/ideU.prj
   /home/fred/mseide-msegui/apps/ide/mseide.prj
@@ -2128,7 +2203,6 @@ windowlayout=679
   /home/fred/fptop/src/ptop.prj
   /home/fred/ptop_fred/ptop.prj
   /home/fred/eschecs_mse_argh/eschecs.prj
-  /home/fred/Downloads/jcf-cli-master/CommandLine/Lazarus/jcf.prj
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2146,10 +2220,19 @@ windowlayout=679
  x=208
  y=0
  cx=1004
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=8
+  2
+  3
+  7
+  5
+  0
+  6
+  1
+  4
  firsttab=0
  index=1
  [confideufo.fontname]
@@ -2187,9 +2270,9 @@ windowlayout=679
  ncx=0
  ncy=0
  x=0
- y=54
+ y=53
  cx=1212
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2290,7 +2373,7 @@ windowlayout=679
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2301,6 +2384,101 @@ windowlayout=679
  y=251
  cx=456
  cy=354
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_filelistfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=741
+ y=84
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_wavefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_dockpanel1fo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=347
+ y=305
+ cx=452
+ cy=110
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_dockpanel1fo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_filedialogfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=462
+ y=211
+ cx=464
+ cy=96
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_filedialogfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_songplayerfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=326
+ y=209
+ cx=618
+ cy=484
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_songplayerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_filelistfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=258
+ y=219
+ cx=452
+ cy=128
  rcx=0
  rcy=0
  wsize=0

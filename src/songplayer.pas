@@ -2810,6 +2810,10 @@ begin
    tfiledialog1.controller.captionopen := 'Open Audio File';
   tfiledialog1.controller.filter := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   tfiledialog1.controller.fontcolor := cl_black;
+   if mainfo.typecolor.Value = 2 then
+   tfiledialog1.controller.backcolor := $A6A6A6
+  else
+   tfiledialog1.controller.backcolor := cl_default;
  
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
   begin

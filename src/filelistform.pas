@@ -91,6 +91,9 @@ begin
   Timercount.Enabled  := False;
   Timercount.options  := [to_single];
   Timercount.ontimer  := @ontimercount;
+  
+  list_files.hint := ' To move a row: click+hold into the fixed column ' + lineend +
+  ' and drag the row where you want. ';
 
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
@@ -612,6 +615,11 @@ begin
   ordir := ExtractFilePath(ParamStr(0)) + 'list' + directoryseparator;
   tfiledialog1.controller.captionopen := 'Open List File';
   tfiledialog1.controller.fontcolor := cl_black;
+    if mainfo.typecolor.Value = 2 then
+   tfiledialog1.controller.backcolor := $A6A6A6
+  else
+   tfiledialog1.controller.backcolor := cl_default;
+
 
   tfiledialog1.controller.filter   := '"*.lis"';
   tfiledialog1.controller.filename := ordir;
@@ -667,6 +675,11 @@ begin
   tfiledialog1.controller.captionopen := 'Open Audio File';
 
   tfiledialog1.controller.fontcolor := cl_black;
+   if mainfo.typecolor.Value = 2 then
+   tfiledialog1.controller.backcolor := $A6A6A6
+  else
+   tfiledialog1.controller.backcolor := cl_default;
+
 
   tfiledialog1.controller.filter :=
     '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"';
@@ -796,7 +809,12 @@ x : integer;
  ara, arb: msestringarty;
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
-   
+  
+   if mainfo.typecolor.Value = 2 then
+   tfiledialog1.controller.backcolor := $A6A6A6
+  else
+   tfiledialog1.controller.backcolor := cl_default;
+
   setlength(ara, 6);
   setlength(arb, 6);
 

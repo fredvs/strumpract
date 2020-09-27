@@ -363,6 +363,7 @@ object filelistfo: tfilelistfo
       fixcols.count = 1
       fixcols.items = <      
         item
+          colorselect = -1610612733
           width = 18
           font.height = 8
           font.name = 'stf_default'
@@ -396,7 +397,6 @@ object filelistfo: tfilelistfo
               options = [dco_colsort, dco_wholecellsortclick, dco_hintclippedtext]
             end          
             item
-              color = 14737632
               caption = 'Mix'
               hint = ' Include for mix.  Clicking on the fixed cell ---> select all/none. '
             end>
@@ -410,6 +410,7 @@ object filelistfo: tfilelistfo
         16744576
         28173
       )
+      zebra_start = 1
       datarowheight = 17
       statfile = tstatfile1
       statpriority = 1
@@ -619,8 +620,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 0
-      bounds_y = 91
+      bounds_x = 1
+      bounds_y = 92
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

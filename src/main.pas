@@ -1638,6 +1638,20 @@ begin
 
   if typecolor.Value = 0 then
   begin
+    filelistfo.list_files.fixrows.color := cl_default;
+    filelistfo.list_files.fixrows[-1].font.color := cl_default;
+    
+    filelistfo.list_files.fixcols.color := cl_default;
+    filelistfo.list_files.fixcols[-1].font.color := cl_default;
+    filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
+   
+    tmainmenu1.menu.font.color := cl_black;
+    tmainmenu1.menu.colorglyph := cl_black;
+    tmainmenu1.menu.colorglyphactive := cl_black;
+    wavefo.tmainmenu1.menu.colorglyph := cl_black;
+    wavefo.tmainmenu1.menu.colorglyphactive := cl_black;
+    wavefo2.tmainmenu1.menu.colorglyph := cl_black;
+    wavefo2.tmainmenu1.menu.colorglyphactive := cl_black;
     randomnotefo.color := $DED9D1;
     randomnotefo.tstringdisp1.font.color := cl_black;
     randomnotefo.bchord1.font.color := cl_black;
@@ -2119,7 +2133,22 @@ begin
 
   if typecolor.Value = 1 then
   begin
+    filelistfo.list_files.fixrows.color := cl_default;
+    filelistfo.list_files.fixrows[-1].font.color := cl_black;
+    
+     filelistfo.list_files.fixcols.color := cl_default;
+    filelistfo.list_files.fixcols[-1].font.color := cl_default;
+    filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
+      
+    wavefo.tmainmenu1.menu.colorglyph := cl_black;
+    tmainmenu1.menu.colorglyph := cl_black;
+    tmainmenu1.menu.colorglyphactive := cl_black;
+    wavefo.tmainmenu1.menu.colorglyphactive := cl_black;
+    wavefo2.tmainmenu1.menu.colorglyph := cl_black;
+    wavefo2.tmainmenu1.menu.colorglyphactive := cl_black;
+  
     randomnotefo.color := cl_ltgray;
+    tmainmenu1.menu.font.color := cl_black;
     randomnotefo.tstringdisp1.font.color := cl_black;
     randomnotefo.bchord1.font.color := cl_black;
     randomnotefo.bchord2.font.color := cl_black;
@@ -2600,7 +2629,21 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
   if typecolor.Value = 2 then
   begin
+    filelistfo.list_files.fixrows.color := $575757;
+    filelistfo.list_files.fixrows[-1].font.color := cl_white;
+    
+    filelistfo.list_files.fixcols.color := $575757;
+    filelistfo.list_files.fixcols[-1].font.color := cl_white;
+    filelistfo.list_files.fixcols[-1].colorselect := cl_dkgray;
+      
     randomnotefo.color := cl_black;
+    tmainmenu1.menu.font.color := cl_white;
+    tmainmenu1.menu.colorglyph := cl_white;
+    tmainmenu1.menu.colorglyphactive := cl_white;
+    wavefo.tmainmenu1.menu.colorglyph := cl_white;
+    wavefo.tmainmenu1.menu.colorglyphactive := cl_white;
+    wavefo2.tmainmenu1.menu.colorglyph := cl_white;
+    wavefo2.tmainmenu1.menu.colorglyphactive := cl_white;
     randomnotefo.tstringdisp1.font.color := cl_white;
     randomnotefo.bchord1.font.color := cl_white;
     randomnotefo.bchord2.font.color := cl_white;

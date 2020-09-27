@@ -216,6 +216,11 @@ object dockpanel1fo: tdockpanel1fo
     dockingareacaption = 'Drag a form here using right-border grip.'
   end
   object tmainmenu1: tmainmenu
+    popupfacetemplate = mainfo.tfacebutgray
+    popupitemfacetemplate = mainfo.tfacebutgray
+    facetemplate = mainfo.tfacebutgray
+    itemfacetemplate = mainfo.tfacebutgray
+    itemfacetemplateactive = mainfo.tfacebutgray
     menu.submenu.count = 2
     menu.submenu.items = <    
       item
