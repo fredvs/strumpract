@@ -331,7 +331,7 @@ options=114
  firsttab=0
  index=2
  [projectoptionsfo]
- stackedunder=finddialogfo
+ stackedunder=
  x=188
  y=91
  cx=818
@@ -1235,7 +1235,7 @@ line=35
  1549
  209
  1136
- 3057
+ 3061
  431
  5
  752
@@ -1626,24 +1626,24 @@ findhistory=1
  if typecolor
 findoptions=1
 editpos=18
- 9,6
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,5
+ 0,-1073741823
+ 0,-1073741823
  0,340
+ 0,6
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,28
- 0,5
+ 0,-1073741823
+ 33,2674
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,1
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1777,26 +1777,26 @@ nomenumodules=13
  0
 [sourcefo.files_tab]
 order=18
+ 12
+ 10
  7
- 9
- 0
- 17
+ 14
+ 3
  15
  4
- 5
- 12
- 1
- 10
- 2
- 13
  11
+ 9
+ 2
+ 0
  8
- 16
- 3
+ 13
+ 1
  6
- 14
+ 17
+ 5
+ 16
 firsttab=2
-index=2
+index=3
 [layout]
 windowlayout=831
  [mainfo.basedock]
@@ -2265,11 +2265,11 @@ windowlayout=831
  nx=0
  ny=0
  ncx=1197
- ncy=23
+ ncy=21
  x=0
  y=0
  cx=1212
- cy=21
+ cy=19
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2281,6 +2281,7 @@ windowlayout=831
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
  history=20
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/spectrum1.pas
@@ -2300,7 +2301,6 @@ windowlayout=831
   /home/fred/uos/src/uos.lpk
   /home/fred/uos/readme.md
   /home/fred/ideu/src/componentpaletteform.pas
-  /home/fred/ideu/src/confideu.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2323,26 +2323,26 @@ windowlayout=831
  rcy=0
  [sourcefo.files_tab]
  order=18
+  12
+  10
   7
-  9
-  0
-  17
+  14
+  3
   15
   4
-  5
-  12
-  1
-  10
-  2
-  13
   11
+  9
+  2
+  0
   8
-  16
-  3
+  13
+  1
   6
-  14
+  17
+  5
+  16
  firsttab=2
- index=2
+ index=3
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2500,7 +2500,7 @@ windowlayout=831
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filedialogfo_mse_
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2538,7 +2538,7 @@ windowlayout=831
  [_mse_dockpanel1fo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_filedialogfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2614,7 +2614,7 @@ windowlayout=831
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_wavefo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0

@@ -1670,6 +1670,8 @@ begin
 
   if typecolor.Value = 0 then
   begin
+    font.color  := cl_black;
+    
     wavefo.container.color  := cl_default;
     wavefo2.container.color := cl_default;
 
@@ -2174,8 +2176,9 @@ begin
 
   if typecolor.Value = 1 then
   begin
-
-    spectrum1fo.container.color   := cl_default;
+     font.color  := cl_black;
+    
+     spectrum1fo.container.color   := cl_default;
     spectrum2fo.container.color   := cl_default;
     spectrumrecfo.container.color := cl_default;
     commanderfo.container.color   := cl_default;
@@ -2679,6 +2682,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
   if typecolor.Value = 2 then
   begin
+    font.color  := cl_white;
     wavefo.container.color        := $575757;
     wavefo2.container.color       := $575757;
     spectrum1fo.container.color   := $575757;
