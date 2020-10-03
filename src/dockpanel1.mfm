@@ -204,9 +204,9 @@ object dockpanel1fo: tdockpanel1fo
     dragdock.splitter_grip = stb_dens50
     dragdock.splitter_color = 16119285
     dragdock.splitter_colorgrip = 11053224
-    dragdock.tab_face = mainfo.tfacecomp5
+    dragdock.tab_face = mainfo.tfacebutgray
     dragdock.tab_frametab = mainfo.tframecomp1
-    dragdock.tab_facetab = mainfo.tfacecomp7
+    dragdock.tab_facetab = mainfo.tfacebutgray
     dragdock.tab_size = 24
     dragdock.tab_sizemin = 24
     dragdock.splitdir = sd_horz

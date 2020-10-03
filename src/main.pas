@@ -7,12 +7,46 @@ unit main;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,msegraphedits,mseguiintf,mseapplication,msestat,
- msegui,msetimer,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,
- msechart,status,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,
- msebitmap,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
- mseificompglob,mseifiglob,msestrings, msedatanodes, msedragglob,
- msedropdownlist, msefiledialogx, msegridsglob, msetraywidget;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  msegraphedits,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msegui,
+  msetimer,
+  msegraphics,
+  msegraphutils,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  msechart,
+  status,
+  msedock,
+  msedataedits,
+  mseedit,
+  msestatfile,
+  SysUtils,
+  Classes,
+  Math,
+  msebitmap,
+  msesys,
+  msemenus,
+  msestream,
+  msegrids,
+  mselistbrowser,
+  mseact,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestrings,
+  msedatanodes,
+  msedragglob,
+  msedropdownlist,
+  msefiledialogx,
+  msegridsglob,
+  msetraywidget;
 
 type
   tmainfo = class(tmainform)
@@ -41,7 +75,7 @@ type
     tfacebutltgray: tfacecomp;
     buttonicons: timagelist;
     tfaceplayerbut: tfacecomp;
-   tfiledialog1: tfiledialogx;
+    tfiledialog1: tfiledialogx;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -96,7 +130,7 @@ type
     procedure showimagedancer(const Sender: TObject);
     procedure onimagedancer(const Sender: TObject);
     procedure ondancerlayout(const Sender: TObject);
-   procedure onclose(const sender: TObject);
+    procedure onclose(const Sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -303,7 +337,7 @@ end;
 procedure tmainfo.dodestroy(const Sender: TObject);
 begin
   statusanim := 0;
-  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir      := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
 
@@ -422,39 +456,37 @@ begin
   else
     timerwait.Enabled := True;
 
- if imagedancerfo.dancnum.Value = 3 then
+  if imagedancerfo.dancnum.Value = 3 then
   begin
     imagedancerfo.Caption := 'Dancing Square';
-    imagedancerfo.openglwidget.visible := true;
-    imagedancerfo.tpaintbox1.visible := false;
+    imagedancerfo.openglwidget.Visible := True;
+    imagedancerfo.tpaintbox1.Visible := False;
     dancernum := 3;
-  end else
-  if imagedancerfo.dancnum.Value = 0 then
+  end
+  else if imagedancerfo.dancnum.Value = 0 then
   begin
     imagedancerfo.Caption := 'Fractal Tree by Lainz';
     dancernum := 0;
-    imagedancerfo.openglwidget.visible := false;
-    imagedancerfo.tpaintbox1.visible := true;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
   end
   else if imagedancerfo.dancnum.Value = 1 then
   begin
     imagedancerfo.Caption := 'Super Formula';
     dancernum := 1;
-    imagedancerfo.openglwidget.visible := false;
-    imagedancerfo.tpaintbox1.visible := true;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
   end
   else if imagedancerfo.dancnum.Value = 2 then
   begin
     imagedancerfo.Caption := 'Hyper formula';
     dancernum := 2;
-    imagedancerfo.openglwidget.visible := false;
-    imagedancerfo.tpaintbox1.visible := true;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
   end;
 
   if imagedancerfo.Visible = True then
-  begin
     multiplier := 0.7;
-  end;
 
   if randomnotefo.Visible = True then
     randomnotefo.bringtofront;
@@ -1153,7 +1185,7 @@ begin
   // basedock.anchors := [an_left,an_top]  ;
 
   norefresh := True;
-  
+
   imagedancerfo.Visible := False;
 
   dockpanel1fo.Visible  := False;
@@ -1588,7 +1620,7 @@ begin
   wavefo2.Visible     := False;
   waveforec.Visible   := False;
   norefresh           := False;
-   endlayout();
+  endlayout();
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
@@ -1638,13 +1670,22 @@ begin
 
   if typecolor.Value = 0 then
   begin
-    filelistfo.list_files.fixrows.color := cl_default;
+    wavefo.container.color  := cl_default;
+    wavefo2.container.color := cl_default;
+
+    spectrum1fo.container.color   := cl_default;
+    spectrum2fo.container.color   := cl_default;
+    spectrumrecfo.container.color := cl_default;
+    commanderfo.container.color   := cl_default;
+    guitarsfo.container.color     := cl_default;
+
+    filelistfo.list_files.fixrows.color          := cl_default;
     filelistfo.list_files.fixrows[-1].font.color := cl_default;
-    
-    filelistfo.list_files.fixcols.color := cl_default;
-    filelistfo.list_files.fixcols[-1].font.color := cl_default;
+
+    filelistfo.list_files.fixcols.color           := cl_default;
+    filelistfo.list_files.fixcols[-1].font.color  := cl_default;
     filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
-   
+
     tmainmenu1.menu.font.color := cl_black;
     tmainmenu1.menu.colorglyph := cl_black;
     tmainmenu1.menu.colorglyphactive := cl_black;
@@ -2133,21 +2174,30 @@ begin
 
   if typecolor.Value = 1 then
   begin
+
+    spectrum1fo.container.color   := cl_default;
+    spectrum2fo.container.color   := cl_default;
+    spectrumrecfo.container.color := cl_default;
+    commanderfo.container.color   := cl_default;
+    guitarsfo.container.color     := cl_default;
+
+    wavefo.container.color  := cl_default;
+    wavefo2.container.color := cl_default;
     filelistfo.list_files.fixrows.color := cl_default;
     filelistfo.list_files.fixrows[-1].font.color := cl_black;
-    
-     filelistfo.list_files.fixcols.color := cl_default;
-    filelistfo.list_files.fixcols[-1].font.color := cl_default;
+
+    filelistfo.list_files.fixcols.color           := cl_default;
+    filelistfo.list_files.fixcols[-1].font.color  := cl_default;
     filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
-      
-    wavefo.tmainmenu1.menu.colorglyph := cl_black;
-    tmainmenu1.menu.colorglyph := cl_black;
-    tmainmenu1.menu.colorglyphactive := cl_black;
+
+    wavefo.tmainmenu1.menu.colorglyph  := cl_black;
+    tmainmenu1.menu.colorglyph         := cl_black;
+    tmainmenu1.menu.colorglyphactive   := cl_black;
     wavefo.tmainmenu1.menu.colorglyphactive := cl_black;
     wavefo2.tmainmenu1.menu.colorglyph := cl_black;
     wavefo2.tmainmenu1.menu.colorglyphactive := cl_black;
-  
-    randomnotefo.color := cl_ltgray;
+
+    randomnotefo.color         := cl_ltgray;
     tmainmenu1.menu.font.color := cl_black;
     randomnotefo.tstringdisp1.font.color := cl_black;
     randomnotefo.bchord1.font.color := cl_black;
@@ -2629,14 +2679,23 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
   if typecolor.Value = 2 then
   begin
-    filelistfo.list_files.fixrows.color := $575757;
+    wavefo.container.color        := $575757;
+    wavefo2.container.color       := $575757;
+    spectrum1fo.container.color   := $575757;
+    spectrum2fo.container.color   := $575757;
+    spectrumrecfo.container.color := $575757;
+    commanderfo.container.color   := $575757;
+    guitarsfo.container.color     := $575757;
+
+
+    filelistfo.list_files.fixrows.color          := $575757;
     filelistfo.list_files.fixrows[-1].font.color := cl_white;
-    
-    filelistfo.list_files.fixcols.color := $575757;
-    filelistfo.list_files.fixcols[-1].font.color := cl_white;
+
+    filelistfo.list_files.fixcols.color           := $575757;
+    filelistfo.list_files.fixcols[-1].font.color  := cl_white;
     filelistfo.list_files.fixcols[-1].colorselect := cl_dkgray;
-      
-    randomnotefo.color := cl_black;
+
+    randomnotefo.color         := cl_black;
     tmainmenu1.menu.font.color := cl_white;
     tmainmenu1.menu.colorglyph := cl_white;
     tmainmenu1.menu.colorglyphactive := cl_white;
@@ -3218,7 +3277,7 @@ end;
 
 procedure tmainfo.onexit(const Sender: TObject);
 begin
- close;
+  Close;
 end;
 
 procedure tmainfo.showpan4(const Sender: TObject);
@@ -3246,7 +3305,7 @@ begin
 
   interv := (rect1.cx - (songplayerfo.Width + recorderfo.Width + 20)) div 2;
 
-  wavefo.Visible := False;
+  wavefo.Visible        := False;
   imagedancerfo.Visible := False;
 
 
@@ -3376,20 +3435,19 @@ end;
 procedure tmainfo.loadlayout(const Sender: TObject);
 var
   ordir: string;
- 
 begin
-   ordir := ExtractFilePath(ParamStr(0)) + 'layout' + directoryseparator;
+  ordir := ExtractFilePath(ParamStr(0)) + 'layout' + directoryseparator;
   tfiledialog1.controller.captionopen := 'Open Layout File';
   tfiledialog1.controller.fontcolor := cl_black;
 
-    
-  tfiledialog1.controller.filter := '"*.lay"';
+
+  tfiledialog1.controller.filter   := '"*.lay"';
   tfiledialog1.controller.filename := ordir;
-  
+
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
-   if fileexists(tfiledialog1.controller.filename) then
- mainfo.tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));
-    
+    if fileexists(tfiledialog1.controller.filename) then
+      mainfo.tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));
+
 end;
 
 procedure tmainfo.savelayout(const Sender: TObject);
@@ -3410,11 +3468,11 @@ end;
 
 procedure tmainfo.onrandomlayout(const Sender: TObject);
 begin
-  dockpanel1fo.Visible := False;
-  dockpanel2fo.Visible := False;
-  dockpanel3fo.Visible := False;
-  dockpanel4fo.Visible := False;
-  dockpanel5fo.Visible := False;
+  dockpanel1fo.Visible  := False;
+  dockpanel2fo.Visible  := False;
+  dockpanel3fo.Visible  := False;
+  dockpanel4fo.Visible  := False;
+  dockpanel5fo.Visible  := False;
   imagedancerfo.Visible := False;
 
   hideall(nil);
@@ -3434,9 +3492,9 @@ end;
 
 procedure tmainfo.showimagedancer(const Sender: TObject);
 begin
-imagedancerfo.Visible := not imagedancerfo.Visible;
-if imagedancerfo.Visible then
-  imagedancerfo.bringtofront;
+  imagedancerfo.Visible := not imagedancerfo.Visible;
+  if imagedancerfo.Visible then
+    imagedancerfo.bringtofront;
 end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
@@ -3444,38 +3502,37 @@ begin
   if (tmenuitem(Sender).tag = 3) then
   begin
     imagedancerfo.Caption := 'Dancing Square';
-    imagedancerfo.openglwidget.visible := true;
-    imagedancerfo.tpaintbox1.visible := false;
+    imagedancerfo.openglwidget.Visible := True;
+    imagedancerfo.tpaintbox1.Visible := False;
     dancernum := 3;
     imagedancerfo.dancnum.Value := 3;
   end
-  else
-  if (tmenuitem(Sender).tag = 0) then
+  else if (tmenuitem(Sender).tag = 0) then
   begin
     imagedancerfo.Caption := 'Fractal Tree by Lainz';
-    imagedancerfo.openglwidget.visible := false;
-    imagedancerfo.tpaintbox1.visible := true;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 0;
     imagedancerfo.dancnum.Value := 0;
   end
   else if (tmenuitem(Sender).tag = 1) then
   begin
     imagedancerfo.Caption := 'Super Formula';
-    imagedancerfo.openglwidget.visible := false;
-    imagedancerfo.tpaintbox1.visible := true;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 1;
     imagedancerfo.dancnum.Value := 1;
   end
   else if (tmenuitem(Sender).tag = 2) then
   begin
     imagedancerfo.Caption := 'Hyper formula';
-    imagedancerfo.openglwidget.visible := false;
-    imagedancerfo.tpaintbox1.visible := true;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 2;
     imagedancerfo.dancnum.Value := 2;
   end;
-  
-  imagedancerfo.visible := true;
+
+  imagedancerfo.Visible := True;
 end;
 
 procedure tmainfo.ondancerlayout(const Sender: TObject);
@@ -3485,18 +3542,18 @@ begin
   dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
- 
-  wavefo.visible := false;
-  wavefo2.visible := false;
-  waveforec.visible := false;
-  drumsfo.visible := false;
-  recorderfo.visible := false;
-   guitarsfo.visible := false;
-    spectrum1fo.visible := false;
-    spectrum2fo.visible := false;
-    spectrumrecfo.visible := false;
-  commanderfo.Visible := True;
-  filelistfo.Visible  := True;
+
+  wavefo.Visible        := False;
+  wavefo2.Visible       := False;
+  waveforec.Visible     := False;
+  drumsfo.Visible       := False;
+  recorderfo.Visible    := False;
+  guitarsfo.Visible     := False;
+  spectrum1fo.Visible   := False;
+  spectrum2fo.Visible   := False;
+  spectrumrecfo.Visible := False;
+  commanderfo.Visible   := True;
+  filelistfo.Visible    := True;
 
   songplayerfo.Visible  := True;
   songplayer2fo.Visible := True;
@@ -3504,19 +3561,19 @@ begin
   ondockall(nil);
 
   left := 200;
-  top := 30;
+  top  := 30;
 
   imagedancerfo.Height := Height;
   imagedancerfo.top    := top;
   imagedancerfo.left   := right + 10;
   imagedancerfo.Width  := Height;
-  imagedancerfo.top  := top;
+  imagedancerfo.top    := top;
 
   imagedancerfo.Visible := True;
 
 end;
 
-procedure tmainfo.onclose(const sender: TObject);
+procedure tmainfo.onclose(const Sender: TObject);
 begin
 
 end;
