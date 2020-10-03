@@ -6,19 +6,9 @@ object songplayerfo: tsongplayerfo
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
   frame.grip_face.localprops = []
-  frame.grip_face.template = mainfo.tfacecomp4
-  frame.grip_faceactive.fade_pos.count = 2
-  frame.grip_faceactive.fade_pos.items = (
-    0
-    1
-  )
-  frame.grip_faceactive.fade_color.count = 2
-  frame.grip_faceactive.fade_color.items = (
-    15790320
-    12108892
-  )
-  frame.grip_faceactive.fade_direction = gd_down
+  frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
+  frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
   bounds_x = 258

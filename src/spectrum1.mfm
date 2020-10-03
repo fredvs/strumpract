@@ -4,7 +4,9 @@ object spectrum1fo: tspectrum1fo
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
   frame.grip_face.localprops = []
-  frame.grip_face.template = mainfo.tfacecomp4
+  frame.grip_face.template = mainfo.tfacebutgray
+  frame.grip_faceactive.localprops = []
+  frame.grip_faceactive.template = mainfo.tfacebutgray
   visible = False
   bounds_x = 78
   bounds_y = 103

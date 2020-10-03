@@ -332,14 +332,12 @@ object configfo: tconfigfo
       178
       0
     )
-    face.localprops = []
-    face.template = mainfo.tfacecomp5
     taborder = 3
     hint = 'Enable Spectrum calculation'
     bounds_x = 17
-    bounds_y = 141
-    bounds_cx = 191
-    bounds_cy = 24
+    bounds_y = 144
+    bounds_cx = 194
+    bounds_cy = 17
     statfile = mainfo.tstatfile1
     colorglyph = 4539717
     value = True
@@ -376,17 +374,15 @@ object configfo: tconfigfo
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      2
+      1
       73
-      3
+      1
     )
-    face.localprops = []
-    face.template = mainfo.tfaceplayerlight
     taborder = 6
     hint = 'No graphic-anim while mixing (if cpu too low) '
     bounds_x = 243
     bounds_y = 144
-    bounds_cx = 86
+    bounds_cx = 88
     bounds_cy = 17
     statfile = mainfo.tstatfile1
     colorglyph = 8026746

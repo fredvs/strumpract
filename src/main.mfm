@@ -1070,12 +1070,12 @@ object mainfo: tmainfo
                 state = [as_localcaption, as_localonexecute]
                 onexecute = changecarbon
               end>
-            caption = ' Color '
+            caption = ' &Style '
             state = [as_localcaption, as_localonexecute]
             onexecute = changecolors
           end>
         caption = ' &Config '
-        hint = ' Configuration of sound and colors '
+        hint = ' Configuration of sound and style '
         state = [as_localcaption, as_localhint]
       end    
       item

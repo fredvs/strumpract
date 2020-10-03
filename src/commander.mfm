@@ -6,9 +6,9 @@ object commanderfo: tcommanderfo
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
   frame.grip_face.localprops = []
-  frame.grip_face.template = mainfo.tfacecomp4
+  frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
-  frame.grip_faceactive.template = tfacegriptab
+  frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
   bounds_x = 332

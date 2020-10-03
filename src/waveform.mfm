@@ -4,9 +4,9 @@ object wavefo: twavefo
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
   frame.grip_face.localprops = []
-  frame.grip_face.template = filelistfo.tfacecomp1
+  frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
-  frame.grip_faceactive.template = mainfo.tfacecomp4
+  frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip to drag the form '
   visible = False
   bounds_x = 347

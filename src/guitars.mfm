@@ -5,19 +5,9 @@ object guitarsfo: tguitarsfo
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
   frame.grip_face.localprops = []
-  frame.grip_face.template = mainfo.tfacecomp4
-  frame.grip_faceactive.fade_pos.count = 2
-  frame.grip_faceactive.fade_pos.items = (
-    0
-    1
-  )
-  frame.grip_faceactive.fade_color.count = 2
-  frame.grip_faceactive.fade_color.items = (
-    15790320
-    14928017
-  )
-  frame.grip_faceactive.fade_direction = gd_down
+  frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
+  frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
