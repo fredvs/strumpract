@@ -1014,7 +1014,7 @@ object mainfo: tmainfo
         onexecute = showall
       end    
       item
-        submenu.count = 4
+        submenu.count = 5
         submenu.items = <        
           item
             caption = ' Dancing Square '
@@ -1037,6 +1037,12 @@ object mainfo: tmainfo
             caption = ' Hyper Formula '
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 2
+            onexecute = onimagedancer
+          end        
+          item
+            caption = ' Atom '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 4
             onexecute = onimagedancer
           end>
         caption = ' &Dancer '

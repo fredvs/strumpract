@@ -3503,6 +3503,15 @@ end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
 begin
+ if (tmenuitem(Sender).tag = 4) then
+  begin
+    imagedancerfo.Caption := 'Dancing Atom by Winni';
+    imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.tpaintbox1.Visible := true;
+    dancernum := 4;
+    imagedancerfo.dancnum.Value := 4;
+  end 
+  else
   if (tmenuitem(Sender).tag = 3) then
   begin
     imagedancerfo.Caption := 'Dancing Square';
