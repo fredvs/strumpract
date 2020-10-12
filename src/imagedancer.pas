@@ -117,7 +117,6 @@ implementation
 
 uses
   main,
-  //BGRAGraphicControl,
   msegl,
   mseglu,
   msesysutils,
@@ -134,8 +133,9 @@ var
   lightness: word;
 begin
   HSL       := BGRAToHSLA(Pix);
-  lightNess := maxSmallint div 4 + random(maxSmallint div 4);
-  Result    := HSLAToBGRA(HSLA(HSL.hue, HSL.saturation, lightness));
+ // lightNess := maxSmallint div 4 + random(maxSmallint div 4);
+  lightNess := maxSmallint div 4 + round(maxSmallint / 4* multiplier);
+   Result    := HSLAToBGRA(HSLA(HSL.hue, HSL.saturation, lightness));
 end;
 
 function getRandomHue(area: integer): TBGRAPixel;
@@ -150,8 +150,9 @@ begin
     offset := 180 + offset;
   if offset > 360 then
     offset := offset - 360;
-  hue      := offset + random(range) - range div 2;
-  HSL      := HSLA(round(hue / 360 * $FFFF), $FFFF, maxSmallint);
+ // hue      := offset + random(range) - range div 2;
+   hue      := offset + round(range*multiplier) - range div 2;
+   HSL      := HSLA(round(hue / 360 * $FFFF), $FFFF, maxSmallint);
   Result   := HSLAToBGRA(HSL);
 end;
 
@@ -207,14 +208,19 @@ begin
   for i := 0 to MaxRing do
     with Rings[i] do
     begin
-      radius       := MinRadius + i * 20 + random(11) - 5;
-      ColBright    := GetRandomHue(i);
-      ColDark      := GetRandomDark(ColBright);
-      LineWidth    := Random(7) + 2; // 2..8
-      SegmentCount := random(4) + 3; // 3 .. 6
-      Segments     := CreateSegments(SegmentCount);
-      speed        := random(11) + 1;
-      Clockwise    := boolean(random(2));
+     // radius       := MinRadius + i * 20 + random(11) - 5;
+        radius       := MinRadius + round(i * 30 * multiplier);
+    
+     ColBright    := GetRandomHue(i);
+     ColDark      := GetRandomDark(ColBright);
+    //  LineWidth    := Random(7) + 2; // 2..8
+       LineWidth    := round(7 * multiplier) + 1;
+   //   SegmentCount := random(4) + 3; // 3 .. 6
+        SegmentCount := round(5 * multiplier) + 1;
+        Segments     := CreateSegments(SegmentCount);
+    //  speed        := random(11) + 1;
+        speed        := round(12 * multiplier);
+        Clockwise    := boolean(random(2));
     end// with
   ;    // i
 end;
@@ -276,9 +282,7 @@ var
   sinus, cosinus: single;
 begin
   //turn := TimerTic  mod 360;
-
   turn := round(TimerTic * multiplier * 10) mod 360;
-
 
   setlength(poly, 0);
   for angle := 90 + 45 to 360 + 45 do
@@ -504,6 +508,8 @@ begin
       Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, BGRA(0, 10, 80), BGRABlack,
         gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
+     InitRings;   
+     
       for i := 0 to MaxRing do
         for m := 0 to rings[i].SegmentCount - 1 do
         begin

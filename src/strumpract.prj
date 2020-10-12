@@ -1602,13 +1602,13 @@ findhistory=3
  if typecolor
 findoptions=1
 editpos=7
- 0,-1073741823
- 0,70
- 0,-1073741823
+ 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 32,233
+ 0,-1073741823
+ 0,-1073741823
+ 0,319
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1626,7 +1626,7 @@ sourcefiles=7
  ${PROJECTDIR}/imagedancer.pas
 relpaths=7
  main.pas
- ../../../usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
+ ../../usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
  songplayer.pas
  commander.pas
  main.pas
@@ -1683,7 +1683,7 @@ windowlayout=698
  [mainfo]
  splitdir=0
  useroptions=301990011
- stackedunder=beautyfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2159,6 +2159,7 @@ windowlayout=698
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/imagedancer.pas
  history=20
+  /home/fred/strumpract/src/imagedancer.pas
   /usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
   /home/fred/strumpract/src/dockpanel1.pas
   /home/fred/strumpract/src/main.pas
@@ -2178,7 +2179,6 @@ windowlayout=698
   /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/opengl.pas
   /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/openglwidget.pas
   /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
-  /home/fred/mseide-msegui/apps/ide/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2359,7 +2359,7 @@ windowlayout=698
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
