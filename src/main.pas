@@ -7,46 +7,12 @@ unit main;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  msegraphedits,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msechart,
-  status,
-  msedock,
-  msedataedits,
-  mseedit,
-  msestatfile,
-  SysUtils,
-  Classes,
-  Math,
-  msebitmap,
-  msesys,
-  msemenus,
-  msestream,
-  msegrids,
-  mselistbrowser,
-  mseact,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestrings,
-  msedatanodes,
-  msedragglob,
-  msedropdownlist,
-  msefiledialogx,
-  msegridsglob,
-  msetraywidget;
+ msetypes,mseglob,mseguiglob,msegraphedits,mseguiintf,mseapplication,msestat,
+ msegui,msetimer,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,
+ msechart,status,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,
+ msebitmap,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
+ mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,msedropdownlist,
+ msefiledialogx,msegridsglob,msetraywidget;
 
 type
   tmainfo = class(tmainform)
@@ -76,6 +42,7 @@ type
     buttonicons: timagelist;
     tfaceplayerbut: tfacecomp;
     tfiledialog1: tfiledialogx;
+    dancnum: tintegeredit;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -455,29 +422,29 @@ begin
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
-
-  if imagedancerfo.dancnum.Value = 3 then
+    
+  if dancnum.Value = 3 then
   begin
     imagedancerfo.Caption := 'Dancing Square';
     imagedancerfo.openglwidget.Visible := True;
     imagedancerfo.tpaintbox1.Visible := False;
     dancernum := 3;
   end
-  else if imagedancerfo.dancnum.Value = 0 then
+  else if dancnum.Value = 0 then
   begin
     imagedancerfo.Caption := 'Fractal Tree by Lainz';
     dancernum := 0;
     imagedancerfo.openglwidget.Visible := False;
     imagedancerfo.tpaintbox1.Visible := True;
   end
-  else if imagedancerfo.dancnum.Value = 1 then
+  else if dancnum.Value = 1 then
   begin
     imagedancerfo.Caption := 'Super Formula';
     dancernum := 1;
     imagedancerfo.openglwidget.Visible := False;
     imagedancerfo.tpaintbox1.Visible := True;
   end
-  else if imagedancerfo.dancnum.Value = 2 then
+  else if dancnum.Value = 2 then
   begin
     imagedancerfo.Caption := 'Hyper formula';
     dancernum := 2;
@@ -3509,7 +3476,7 @@ begin
     imagedancerfo.openglwidget.Visible := false;
     imagedancerfo.tpaintbox1.Visible := true;
     dancernum := 4;
-    imagedancerfo.dancnum.Value := 4;
+    dancnum.Value := 4;
   end 
   else
   if (tmenuitem(Sender).tag = 3) then
@@ -3518,7 +3485,7 @@ begin
     imagedancerfo.openglwidget.Visible := True;
     imagedancerfo.tpaintbox1.Visible := False;
     dancernum := 3;
-    imagedancerfo.dancnum.Value := 3;
+    dancnum.Value := 3;
   end
   else if (tmenuitem(Sender).tag = 0) then
   begin
@@ -3526,7 +3493,7 @@ begin
     imagedancerfo.openglwidget.Visible := False;
     imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 0;
-    imagedancerfo.dancnum.Value := 0;
+    dancnum.Value := 0;
   end
   else if (tmenuitem(Sender).tag = 1) then
   begin
@@ -3534,7 +3501,7 @@ begin
     imagedancerfo.openglwidget.Visible := False;
     imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 1;
-    imagedancerfo.dancnum.Value := 1;
+    dancnum.Value := 1;
   end
   else if (tmenuitem(Sender).tag = 2) then
   begin
@@ -3542,7 +3509,7 @@ begin
     imagedancerfo.openglwidget.Visible := False;
     imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 2;
-    imagedancerfo.dancnum.Value := 2;
+    dancnum.Value := 2;
   end;
 
   imagedancerfo.Visible := True;

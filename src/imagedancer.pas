@@ -4,40 +4,12 @@ unit imagedancer;
 interface
 
 uses
-  bgragraphics,
-  BGRABitmap,
-  BGRADefaultBitmap,
-  BGRABitmapTypes,
-  msethread,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  Math,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msedataedits,
-  msedropdownlist,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  SysUtils,
-  mseopenglwidget,
-  msewindowwidget;
+ bgragraphics,BGRABitmap,BGRADefaultBitmap,BGRABitmapTypes,msethread,msetypes,
+ mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,Math,
+ msesimplewidgets,msewidgets,mseact,msedataedits,msedropdownlist,mseedit,
+ mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
+ mseopenglwidget,msewindowwidget;
 
 type
   pInvalidateImage = procedure of object;
@@ -45,14 +17,13 @@ type
 type
   timagedancerfo = class(tdockform)
 
-    dancnum: tintegeredit;
     tpaintbox1: tpaintbox;
     openglwidget: topenglwidget;
     procedure onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure InvalidateImage;
     procedure ondestroy(const Sender: TObject);
-    procedure ocreat(const Sender: TObject);
+    procedure oncreat(const Sender: TObject);
     procedure onshow(const Sender: TObject);
     procedure rotentexe(const Sender: TObject);
 
@@ -102,6 +73,8 @@ var
   Rings: array[0..MaxRing] of TRing;
   Center: TPointF;
   TimerTic: integer = 0;
+  
+  TimerTicinterval: integer = 0;
 
   imagedancerfo: timagedancerfo;
   multiplier: double;
@@ -186,6 +159,8 @@ begin
 
   for i := 0 to high(ar) do
     ar[i] := random(seglen);
+    
+  // ar[i] := round(seglen * multiplier);
   dumbsort;
   setlength(Result, numparts);
   i       := 0;
@@ -209,17 +184,18 @@ begin
     with Rings[i] do
     begin
      // radius       := MinRadius + i * 20 + random(11) - 5;
-        radius       := MinRadius + round(i * 30 * multiplier);
+    radius       := MinRadius + round(i * 34 * multiplier);
     
      ColBright    := GetRandomHue(i);
+  //    ColBright    := GetRandomHue(round(i * multiplier));
      ColDark      := GetRandomDark(ColBright);
     //  LineWidth    := Random(7) + 2; // 2..8
-       LineWidth    := round(7 * multiplier) + 1;
+       LineWidth    := round(8 * multiplier) + 1;
    //   SegmentCount := random(4) + 3; // 3 .. 6
-        SegmentCount := round(5 * multiplier) + 1;
+        SegmentCount := round(7 * multiplier) + 1;
         Segments     := CreateSegments(SegmentCount);
     //  speed        := random(11) + 1;
-        speed        := round(12 * multiplier);
+        speed        := round(12 * multiplier) + 1;
         Clockwise    := boolean(random(2));
     end// with
   ;    // i
@@ -297,7 +273,7 @@ begin
   img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 20)), 2);
   poly1 := rotatePoly(poly, 240 + turn, center);
   img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 30)), 2);
-  Img.FillEllipseAntialias(Center.x, Center.y, 10, 10, getRandomHue(round(multiplier * 100)));
+  Img.FillEllipseAntialias(Center.x, Center.y, 10, 10, getRandomHue(round(multiplier * 40)));
   setlength(poly, 0);
   for angle := 90 + 45 downto 90 do
   begin
@@ -306,7 +282,7 @@ begin
     poly[high(poly)] := PointF(cosinus * rx + Center.x, sinus * ry + Center.y);
   end;
   poly1 := rotatePoly(poly, 240 + turn, center);
-  img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 10)), 2);
+  img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 30)), 2);
 
 end;
 
@@ -599,7 +575,7 @@ begin
   RTLeventdestroy(evPauseImage);
 end;
 
-procedure timagedancerfo.ocreat(const Sender: TObject);
+procedure timagedancerfo.oncreat(const Sender: TObject);
 begin
   evPauseImage := RTLEventCreate;
   thethread    := tmsethread.Create(@Execute);
@@ -607,7 +583,7 @@ begin
   Bitmap       := tbgrabitmap.Create(1000, 600);
   InitRings;
   center       := PointF(Width / 2, Height / 2);
-
+ 
 end;
 
 procedure timagedancerfo.onshow(const Sender: TObject);

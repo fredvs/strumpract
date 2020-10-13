@@ -13,7 +13,7 @@ object imagedancerfo: timagedancerfo
     354
   )
   statfile = mainfo.tstatfile1
-  caption = 'Fractal Tree by Lainz'
+  caption = 'Dancing Square'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
   icon.image = {
@@ -92,26 +92,14 @@ object imagedancerfo: timagedancerfo
     0000000000000000000000000000000000000000000000000000000000000000
     000000000000000000000000
   }
-  oncreated = ocreat
+  oncreated = oncreat
   ondestroy = ondestroy
   onshow = onshow
   moduleclassname = 'tdockform'
-  object dancnum: tintegeredit
-    frame.localprops = []
-    frame.localprops1 = []
-    visible = False
-    bounds_x = 283
-    bounds_y = 40
-    bounds_cx = 30
-    bounds_cy = 21
-    statfile = mainfo.tstatfile1
-    reffontheight = 15
-  end
   object tpaintbox1: tpaintbox
     optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
     frame.localprops = []
     frame.localprops1 = []
-    taborder = 1
     visible = False
     bounds_x = 0
     bounds_y = 0
@@ -127,7 +115,7 @@ object imagedancerfo: timagedancerfo
     frame.framei_bottom = 10
     frame.localprops = [frl_leveli, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
     frame.localprops1 = []
-    taborder = 2
+    taborder = 1
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 442

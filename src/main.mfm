@@ -781,6 +781,21 @@ object mainfo: tmainfo
     dragdock.onchildfloat = updatedockev
     statfile = tstatfile1
     dockingareacaption = 'Drag a form here using right-border grip.'
+    object dancnum: tintegeredit
+      color = 1001216
+      frame.localprops = []
+      frame.localprops1 = []
+      visible = False
+      bounds_x = 398
+      bounds_y = 43
+      bounds_cx = 29
+      bounds_cy = 21
+      statfile = tstatfile1
+      value = 3
+      valuedefault = 3
+      valuemax = 100
+      reffontheight = 15
+    end
   end
   object typecolor: tintegeredit
     color = 1001216
@@ -1120,8 +1135,8 @@ object mainfo: tmainfo
     options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev
-    left = 360
-    top = 7
+    left = 259
+    top = 11
   end
   object tframecomp1: tframecomp
     template.framei_left = 4

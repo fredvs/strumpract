@@ -850,8 +850,17 @@ if ((commanderfo.vuin.Value = True) and (Visible = True)) or
     (imagedancerfo.tpaintbox1.visible = true) then
             begin 
             //  multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
-            if dancernum = 4 then  inc(TimerTic);    
-              RTLeventSetEvent(evPauseimage); // to resume
+            if dancernum = 4 then 
+            begin
+            inc(TimerTicinterval);
+             if TimerTicinterval = 3 then
+            begin 
+             inc(TimerTic);  
+             TimerTicinterval := 0;
+            end; 
+            end;
+            RTLeventSetEvent(evPauseimage); // to resume 
+             
            end;
     end;
 
