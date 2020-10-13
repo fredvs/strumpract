@@ -1602,13 +1602,13 @@ findhistory=3
  if typecolor
 findoptions=1
 editpos=7
- 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,319
+ 0,-1073741823
+ 11,308
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1626,7 +1626,7 @@ sourcefiles=7
  ${PROJECTDIR}/imagedancer.pas
 relpaths=7
  main.pas
- ../../usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
+ ../usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
  songplayer.pas
  commander.pas
  main.pas

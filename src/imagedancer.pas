@@ -292,12 +292,12 @@ begin
     poly[high(poly)] := PointF(cosinus * rx + Center.x, sinus * ry + Center.y);
   end;
   poly1 := rotatePoly(poly, turn, center);
-  img.DrawPolyLineAntialias(poly1, cssWhite, 2);
+  img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 10)), 2);
   poly1 := rotatePoly(poly, -60 + turn, center);
-  img.DrawPolyLineAntialias(poly1, cssWhite, 2);
+  img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 20)), 2);
   poly1 := rotatePoly(poly, 240 + turn, center);
-  img.DrawPolyLineAntialias(poly1, cssWhite, 2);
-  Img.FillEllipseAntialias(Center.x, Center.y, 10, 10, cssWhite);
+  img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 30)), 2);
+  Img.FillEllipseAntialias(Center.x, Center.y, 10, 10, getRandomHue(round(multiplier * 100)));
   setlength(poly, 0);
   for angle := 90 + 45 downto 90 do
   begin
@@ -306,7 +306,7 @@ begin
     poly[high(poly)] := PointF(cosinus * rx + Center.x, sinus * ry + Center.y);
   end;
   poly1 := rotatePoly(poly, 240 + turn, center);
-  img.DrawPolyLineAntialias(poly1, cssWhite, 2);
+  img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 10)), 2);
 
 end;
 
