@@ -4,12 +4,40 @@ unit imagedancer;
 interface
 
 uses
- bgragraphics,BGRABitmap,BGRADefaultBitmap,BGRABitmapTypes,msethread,msetypes,
- mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,Math,
- msesimplewidgets,msewidgets,mseact,msedataedits,msedropdownlist,mseedit,
- mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
- mseopenglwidget,msewindowwidget;
+  bgragraphics,
+  BGRABitmap,
+  BGRADefaultBitmap,
+  BGRABitmapTypes,
+  msethread,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  Math,
+  msesimplewidgets,
+  msewidgets,
+  mseact,
+  msedataedits,
+  msedropdownlist,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestatfile,
+  msestream,
+  SysUtils,
+  mseopenglwidget,
+  msewindowwidget;
 
 type
   pInvalidateImage = procedure of object;
@@ -73,7 +101,7 @@ var
   Rings: array[0..MaxRing] of TRing;
   Center: TPointF;
   TimerTic: integer = 0;
-  
+
   TimerTicinterval: integer = 0;
 
   imagedancerfo: timagedancerfo;
@@ -98,6 +126,7 @@ uses
 var
   Bitmap: tbgrabitmap;
 
+
 // Atom
 
 function GetRandomDark(Pix: TBGRAPixel): TBGRAPixel;
@@ -106,9 +135,9 @@ var
   lightness: word;
 begin
   HSL       := BGRAToHSLA(Pix);
- // lightNess := maxSmallint div 4 + random(maxSmallint div 4);
-  lightNess := maxSmallint div 4 + round(maxSmallint / 4* multiplier);
-   Result    := HSLAToBGRA(HSLA(HSL.hue, HSL.saturation, lightness));
+  // lightNess := maxSmallint div 4 + random(maxSmallint div 4);
+  lightNess := maxSmallint div 4 + round(maxSmallint / 4 * multiplier);
+  Result    := HSLAToBGRA(HSLA(HSL.hue, HSL.saturation, lightness));
 end;
 
 function getRandomHue(area: integer): TBGRAPixel;
@@ -123,9 +152,9 @@ begin
     offset := 180 + offset;
   if offset > 360 then
     offset := offset - 360;
- // hue      := offset + random(range) - range div 2;
-   hue      := offset + round(range*multiplier) - range div 2;
-   HSL      := HSLA(round(hue / 360 * $FFFF), $FFFF, maxSmallint);
+  // hue      := offset + random(range) - range div 2;
+  hue      := offset + round(range * multiplier) - range div 2;
+  HSL      := HSLA(round(hue / 360 * $FFFF), $FFFF, maxSmallint);
   Result   := HSLAToBGRA(HSL);
 end;
 
@@ -159,11 +188,11 @@ begin
 
   for i := 0 to high(ar) do
     ar[i] := random(seglen);
-    
+
   // ar[i] := round(seglen * multiplier);
   dumbsort;
   setlength(Result, numparts);
-  i       := 0;
+  i := 0;
   while i < high(ar) do
   begin
     Result[i div 2].Start := ar[i];
@@ -183,20 +212,20 @@ begin
   for i := 0 to MaxRing do
     with Rings[i] do
     begin
-     // radius       := MinRadius + i * 20 + random(11) - 5;
-    radius       := MinRadius + round(i * 34 * multiplier);
-    
-     ColBright    := GetRandomHue(i);
-  //    ColBright    := GetRandomHue(round(i * multiplier));
-     ColDark      := GetRandomDark(ColBright);
-    //  LineWidth    := Random(7) + 2; // 2..8
-       LineWidth    := round(8 * multiplier) + 1;
-   //   SegmentCount := random(4) + 3; // 3 .. 6
-        SegmentCount := round(7 * multiplier) + 1;
-        Segments     := CreateSegments(SegmentCount);
-    //  speed        := random(11) + 1;
-        speed        := round(12 * multiplier) + 1;
-        Clockwise    := boolean(random(2));
+      // radius       := MinRadius + i * 20 + random(11) - 5;
+      radius := MinRadius + round(i * 34 * multiplier);
+
+      ColBright    := GetRandomHue(i);
+      //    ColBright    := GetRandomHue(round(i * multiplier));
+      ColDark      := GetRandomDark(ColBright);
+      //  LineWidth    := Random(7) + 2; // 2..8
+      LineWidth    := round(8 * multiplier) + 1;
+      //   SegmentCount := random(4) + 3; // 3 .. 6
+      SegmentCount := round(7 * multiplier) + 1;
+      Segments     := CreateSegments(SegmentCount);
+      //  speed        := random(11) + 1;
+      speed        := round(12 * multiplier) + 1;
+      Clockwise    := boolean(random(2));
     end// with
   ;    // i
 end;
@@ -285,6 +314,53 @@ begin
   img.DrawPolyLineAntialias(poly1, getRandomHue(round(multiplier * 30)), 2);
 
 end;
+
+// Spiral
+
+function createSpiral(Center: TPointF; AngleOffset, rotations, MaxRadius, MinRadius: single; clockwise: Boolean): ArrayOfTPointF;
+var
+  sinus, cosinus, RadiusStep, ro: single;
+  Steps, i, sign: integer;
+begin
+  Steps      := round(rotations * 360);
+  RadiusStep := (MaxRadius - MinRadius) / steps;
+  ro         := MaxRadius;
+  setLength(Result, steps);
+  if clockwise then
+    sign := +1
+  else
+    sign := -1;
+  for i  := 0 to steps - 1 do
+  begin
+    Math.sincos((sign * i + AngleOffset) * deg2Rad, sinus, cosinus);
+    Result[i].x := ro * cosinus + Center.x;
+    Result[i].y := ro * sinus + Center.y;
+    incF(ro, -RadiusStep);
+  end;
+end;
+
+
+procedure DrawSpiral(Img: TBGRAbitmap);
+var
+  spiral: ArrayOfTPointF;
+  turn: integer;
+  rot: Boolean;
+begin
+  turn := round(multiplier * TimerTic) mod 360;
+
+  if odd(TimerTic) then
+    rot := True
+  else
+    rot := False;
+
+  spiral := createSpiral(center, -10 * Turn, 20, imagedancerfo.tpaintbox1.Width, 0, rot);
+
+  bitmap.DrawPolyLineAntialias(spiral, getRandomHue(round(multiplier * 30)), round(multiplier * 14));
+
+  //bitmap.DrawPolyLineAntialias(spiral,cssred,round(1 * 14));
+
+end;
+
 
 // Super Formula 
 
@@ -481,11 +557,13 @@ begin
     else if dancernum = 4 then // Atom
     begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
-      Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, BGRA(0, 10, 80), BGRABlack,
-        gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
+      //   Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, BGRA(0, 10, 80), BGRABlack,
+      //     gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
-     InitRings;   
-     
+      bitmap.Fill(cssBlack);
+
+      InitRings;
+
       for i := 0 to MaxRing do
         for m := 0 to rings[i].SegmentCount - 1 do
         begin
@@ -509,9 +587,15 @@ begin
 
           end; // k
         end    // m
-      ;  // i
+      ;        // i
       DrawAtom(Bitmap);
 
+    end
+    else if dancernum = 5 then // Spiral
+    begin
+      center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
+      bitmap.Fill(cssBlack);
+      DrawSpiral(bitmap);
     end;
 
     Bitmap.draw(acanvas, 0, 0, False);
@@ -583,7 +667,7 @@ begin
   Bitmap       := tbgrabitmap.Create(1000, 600);
   InitRings;
   center       := PointF(Width / 2, Height / 2);
- 
+
 end;
 
 procedure timagedancerfo.onshow(const Sender: TObject);

@@ -430,6 +430,20 @@ begin
     imagedancerfo.tpaintbox1.Visible := False;
     dancernum := 3;
   end
+  else if dancnum.Value = 4 then
+  begin
+    imagedancerfo.Caption := 'Dancing Atom by Winni';
+    dancernum := 4;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
+  end
+   else if dancnum.Value = 5 then
+  begin
+    imagedancerfo.Caption := 'Dancing Spiral';
+    dancernum := 5;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
+  end
   else if dancnum.Value = 0 then
   begin
     imagedancerfo.Caption := 'Fractal Tree by Lainz';
@@ -3470,6 +3484,15 @@ end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
 begin
+   if (tmenuitem(Sender).tag = 5) then
+  begin
+    imagedancerfo.Caption := 'Dancing Spiral';
+    imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.tpaintbox1.Visible := true;
+    dancernum := 5;
+    dancnum.Value := 5;
+  end 
+  else  
  if (tmenuitem(Sender).tag = 4) then
   begin
     imagedancerfo.Caption := 'Dancing Atom by Winni';

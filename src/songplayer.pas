@@ -859,6 +859,12 @@ if ((commanderfo.vuin.Value = True) and (Visible = True)) or
              TimerTicinterval := 0;
             end; 
             end;
+            
+             if dancernum = 5 then 
+            begin
+            inc(TimerTic);  
+            end; 
+          
             RTLeventSetEvent(evPauseimage); // to resume 
              
            end;
