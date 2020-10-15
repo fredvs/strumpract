@@ -151,8 +151,9 @@ findinfiledialog=92
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" 
  [findinfileadialogfo.findtext]
- value=createspiral
+ value=CSSDodgerBlue
  history=20
+  CSSDodgerBlue
   createspiral
   MaxWord
   GLext,
@@ -172,9 +173,8 @@ findinfiledialog=92
   tfiledialog
   utf8decode
   utf
-  tosys
  [findinfileadialogfo]
- stackedunder=finddialogfo
+ stackedunder=
  x=635
  y=252
  cx=339
@@ -1194,9 +1194,9 @@ line=35
  343
  587
  173
- 1258
+ 1265
  5714
- 1441
+ 1448
  46
  1493
  335
@@ -1209,7 +1209,7 @@ line=35
  1565
  209
  1136
- 3042
+ 3049
  431
  5
  752
@@ -1605,14 +1605,15 @@ findhistory=7
  isbuzy
  if typecolor
 findoptions=1
-editpos=7
- 0,3497
- 0,0
- 0,858
+editpos=8
+ 0,440
+ 0,-1073741823
+ 14,813
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,316
+ 0,628
+ 0,62
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1620,7 +1621,8 @@ bookmarks3=0
 bookmarks4=0
 bookmarks5=0
 bookmarks6=0
-sourcefiles=7
+bookmarks7=0
+sourcefiles=8
  ${PROJECTDIR}/main.pas
  /usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
  ${PROJECTDIR}/songplayer.pas
@@ -1628,15 +1630,18 @@ sourcefiles=7
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/imagedancer.pas
-relpaths=7
+ /usr/local/codetyphon/CodeOcean/pl_BGRAbitmap/samples/bgralape/bgralapesys.pas
+relpaths=8
  main.pas
- ../../../usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
+ ../../usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
  songplayer.pas
  commander.pas
  strumpract.pas
  filelistform.pas
  imagedancer.pas
-ismoduletexts=7
+ ../../../usr/local/codetyphon/CodeOcean/pl_BGRAbitmap/samples/bgralape/bgralapesys.pas
+ismoduletexts=8
+ 0
  0
  0
  0
@@ -1677,18 +1682,10 @@ nomenumodules=7
  0
  0
 [sourcefo.files_tab]
-order=7
- 0
- 3
- 4
- 1
- 2
- 5
- 6
 firsttab=0
-index=6
+index=2
 [layout]
-windowlayout=706
+windowlayout=698
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1796,7 +1793,7 @@ windowlayout=706
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1805,7 +1802,7 @@ windowlayout=706
  ncy=0
  x=239
  y=115
- cx=678
+ cx=1076
  cy=414
  rcx=0
  rcy=0
@@ -2169,10 +2166,10 @@ windowlayout=706
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/imagedancer.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=20
-  /usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
   /home/fred/strumpract/src/imagedancer.pas
+  /usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
   /home/fred/strumpract/src/dockpanel1.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/filelistform.pas
@@ -2212,16 +2209,8 @@ windowlayout=706
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=7
-  0
-  3
-  4
-  1
-  2
-  5
-  6
  firsttab=0
- index=6
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2284,7 +2273,7 @@ windowlayout=706
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2360,7 +2349,7 @@ windowlayout=706
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2379,7 +2368,7 @@ windowlayout=706
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=findinfilefo
  parent=
  mdistate=3
  nx=0

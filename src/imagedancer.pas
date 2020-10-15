@@ -317,27 +317,49 @@ end;
 
 // Spiral
 
-function createSpiral(Center: TPointF; AngleOffset, rotations, MaxRadius, MinRadius: single; clockwise: Boolean): ArrayOfTPointF;
-var
-  sinus, cosinus, RadiusStep, ro: single;
-  Steps, i, sign: integer;
+function createSpiral (Center: TPointF; AngleOffset,rotations,MaxRadius,
+                       MinRadius: Single;clockwise: Boolean) : ArrayOfTPointF;
+var sinus,cosinus,RadiusStep,ro : Single;
+    Steps,i,sign : integer;
 begin
-  Steps      := round(rotations * 360);
-  RadiusStep := (MaxRadius - MinRadius) / steps;
-  ro         := MaxRadius;
-  setLength(Result, steps);
-  if clockwise then
-    sign := +1
-  else
-    sign := -1;
-  for i  := 0 to steps - 1 do
-  begin
-    Math.sincos((sign * i + AngleOffset) * deg2Rad, sinus, cosinus);
-    Result[i].x := ro * cosinus + Center.x;
-    Result[i].y := ro * sinus + Center.y;
-    incF(ro, -RadiusStep);
-  end;
-end;
+   Steps := round (rotations*360);
+   RadiusStep := (MaxRadius - MinRadius)/steps;
+   ro := MaxRadius;
+   setLength(result,steps);
+   if clockwise then sign := +1 else sign := -1;
+   for i  := 0 to steps - 1 do
+      begin
+      math.sincos ((sign*i+AngleOffset) *deg2Rad,sinus,cosinus);
+      result[i].x := ro*cosinus+Center.x;
+      result[i].y := ro* sinus+Center.y;
+      incF (ro, -RadiusStep);
+      end;
+end;  
+
+procedure DrawIncreasing(img:TBGRABitmap; ar:ArrayOfTPointF; Lmax,Lmin: Integer;
+                         Col:TBGRAPixel);
+var step : integer;
+    L, Lstep : single;
+    done : boolean = false;
+    i : Integer = 0;
+    hi : Integer;
+begin
+step := length(ar) div 100;
+Lstep := (Lmax -lmin) / Length(ar);
+
+while not done do
+ begin
+ if i + step <= high(ar) then hi := i+step
+   else
+     begin
+     hi := high(ar);
+     done := true;
+		 end;
+ L := LMax - hi * Lstep;
+ img.DrawPolyLineAntialias(ar[i..hi],col ,L);
+ inc(i,step);
+ end;
+end;                             
 
 
 procedure DrawSpiral(Img: TBGRAbitmap);
@@ -346,18 +368,26 @@ var
   turn: integer;
   rot: Boolean;
 begin
-  turn := round(multiplier * TimerTic) mod 360;
+  turn := (TimerTic) mod 360;
 
-  if odd(TimerTic) then
+  if multiplier > 0.3 then
     rot := True
   else
     rot := False;
 
+// rot := False;
+
   spiral := createSpiral(center, -10 * Turn, 20, imagedancerfo.tpaintbox1.Width, 0, rot);
 
-  bitmap.DrawPolyLineAntialias(spiral, getRandomHue(round(multiplier * 30)), round(multiplier * 14));
+  // bitmap.DrawPolyLineAntialias(spiral, getRandomHue(round(multiplier * 30)), round(multiplier * 14));
 
-  //bitmap.DrawPolyLineAntialias(spiral,cssred,round(1 * 14));
+bitmap.DrawPolyLineAntialias(spiral, getRandomHue(round(multiplier * 30)), round(1 * 14));
+
+
+  //bitmap.DrawPolyLineAntialias(spiral, cssyellow, round(multiplier * 14));
+  
+
+//  bitmap.DrawPolyLineAntialias(spiral,cssred,round(1 * 14));
 
 end;
 
@@ -457,6 +487,7 @@ var
   col: TBGRAPixel;
   start, stop: single;
   LocalSpeed, Delta: single;
+  spi : ArrayOfTPointF;   
 begin
 
   if isbuzy = False then
@@ -591,7 +622,15 @@ begin
       DrawAtom(Bitmap);
 
     end
-    else if dancernum = 5 then // Spiral
+    else if dancernum = 5 then // Spiral 1
+    begin
+      center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
+      spi := createSpiral (Center,timertic mod 360 * 10,10,Bitmap.Width*0.75,0,true);
+      bitmap.Fill(cssBlack);
+     DrawIncreasing(Bitmap,spi,30,10,GetRandomHue(30+ round(0*10))) ;
+     
+    end 
+    else if dancernum = 6 then // Spiral 2
     begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
       bitmap.Fill(cssBlack);

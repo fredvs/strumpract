@@ -1029,7 +1029,7 @@ object mainfo: tmainfo
         onexecute = showall
       end    
       item
-        submenu.count = 6
+        submenu.count = 7
         submenu.items = <        
           item
             caption = ' Square '
@@ -1061,9 +1061,15 @@ object mainfo: tmainfo
             onexecute = onimagedancer
           end        
           item
-            caption = ' Spiral '
+            caption = ' Spiral 1 '
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 5
+            onexecute = onimagedancer
+          end        
+          item
+            caption = ' Spiral 2 '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 6
             onexecute = onimagedancer
           end>
         caption = ' &Dancer '
