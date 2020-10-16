@@ -1067,7 +1067,7 @@ object mainfo: tmainfo
             onexecute = onimagedancer
           end        
           item
-            caption = ' Spiral Color '
+            caption = ' Spiral Rainbow '
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 6
             onexecute = onimagedancer

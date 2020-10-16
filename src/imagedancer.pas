@@ -659,7 +659,7 @@ begin
       bitmap.Fill(cssBlack);
      DrawIncreasing(Bitmap,spi,30,10,GetRandomHue(30+ round(0*10))) ;
      end 
-    else if dancernum = 6 then // Spiral Color
+    else if dancernum = 6 then // Spiral Raindow
     begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
       spi := createSpiral (Center,timertic mod 360 * 10,10,Bitmap.Width*0.75,0,true);

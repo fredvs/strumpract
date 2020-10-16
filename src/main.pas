@@ -446,7 +446,7 @@ begin
   end
    else if dancnum.Value = 6 then
   begin
-    imagedancerfo.Caption := 'Dancing Spiral Color by Winni';
+    imagedancerfo.Caption := 'Dancing Spiral Rainbow by Winni';
     dancernum := 6;
     imagedancerfo.openglwidget.Visible := False;
     imagedancerfo.tpaintbox1.Visible := True;
@@ -3509,7 +3509,7 @@ if (tmenuitem(Sender).tag = 7) then
   else
  if (tmenuitem(Sender).tag = 6) then
   begin
-    imagedancerfo.Caption := 'Dancing Spiral Color by Winni';
+    imagedancerfo.Caption := 'Dancing Spiral Rainbow by Winni';
     imagedancerfo.openglwidget.Visible := false;
     imagedancerfo.tpaintbox1.Visible := true;
     dancernum := 6;
