@@ -354,13 +354,51 @@ while not done do
      begin
      hi := high(ar);
      done := true;
-		 end;
+	 end;
  L := LMax - hi * Lstep;
  img.DrawPolyLineAntialias(ar[i..hi],col ,L);
  inc(i,step);
  end;
 end;                             
 
+function wrapTo360 (Hue : integer) : integer; inline;
+begin
+Result := hue;
+if hue >= 360 then dec(result,360) else
+   if hue < 0 then inc(result,360);
+end; 
+
+procedure DrawIncreasing2(img:TBGRABitmap; ar:ArrayOfTPointF; Lmax,Lmin: Integer);
+var step : integer;
+    L, Lstep : single;
+    done : boolean = false;
+    i : Integer = 0;
+    hi, hue : Integer;
+    cssCol: TBGRAPixel;
+begin
+ step :=  3;// length(ar) div 1000;
+Lstep := (Lmax -lmin) / Length(ar);
+while not done do
+ begin
+ if i + step <= high(ar) then hi := i+step
+   else
+     begin
+     hi := high(ar);
+     done := true;
+		 end;
+ L := LMax - hi * Lstep;
+
+ hue := hi mod 360 - 140;
+ hue := hue - hi div 360*5;// outer lines are a little bit "slow"
+ hue := wrapTo360(hue);
+// hue := round( hue * multiplier);
+// cssCol := HSLAToBGRA(HSLA(round(hue /360 * $FFFF ),$FFFF,maxSmallint)); 
+ cssCol := HSLAToBGRA(HSLA(round(hue /360 * round( $FFFF * multiplier* 2)),$FFFF,maxSmallint));
+ img.DrawPolyLineAntialias(ar[i..hi],csscol ,L);
+ inc(i,step);
+ end;
+end;
+                 
 
 procedure DrawSpiral(Img: TBGRAbitmap);
 var
@@ -378,16 +416,8 @@ begin
 // rot := False;
 
   spiral := createSpiral(center, -10 * Turn, 20, imagedancerfo.tpaintbox1.Width, 0, rot);
-
-  // bitmap.DrawPolyLineAntialias(spiral, getRandomHue(round(multiplier * 30)), round(multiplier * 14));
-
-bitmap.DrawPolyLineAntialias(spiral, getRandomHue(round(multiplier * 30)), round(1 * 14));
-
-
-  //bitmap.DrawPolyLineAntialias(spiral, cssyellow, round(multiplier * 14));
-  
-
-//  bitmap.DrawPolyLineAntialias(spiral,cssred,round(1 * 14));
+ 
+  bitmap.DrawPolyLineAntialias(spiral, getRandomHue(round(multiplier * 30)), round(1 * 14));
 
 end;
 
@@ -622,15 +652,21 @@ begin
       DrawAtom(Bitmap);
 
     end
-    else if dancernum = 5 then // Spiral 1
+    else if dancernum = 5 then // Spiral Hue
     begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
       spi := createSpiral (Center,timertic mod 360 * 10,10,Bitmap.Width*0.75,0,true);
       bitmap.Fill(cssBlack);
      DrawIncreasing(Bitmap,spi,30,10,GetRandomHue(30+ round(0*10))) ;
-     
+     end 
+    else if dancernum = 6 then // Spiral Color
+    begin
+      center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
+      spi := createSpiral (Center,timertic mod 360 * 10,10,Bitmap.Width*0.75,0,true);
+      bitmap.Fill(cssBlack);
+      DrawIncreasing2(Bitmap,spi,30,10);
     end 
-    else if dancernum = 6 then // Spiral 2
+    else if dancernum = 7 then // Spiral Move
     begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
       bitmap.Fill(cssBlack);

@@ -860,7 +860,7 @@ if ((commanderfo.vuin.Value = True) and (Visible = True)) or
             end; 
             end;
             
-             if (dancernum = 5) or (dancernum = 6) then 
+             if (dancernum = 5) or (dancernum = 6) or (dancernum = 7) then 
             begin
             inc(TimerTic);  
             end; 

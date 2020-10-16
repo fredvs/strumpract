@@ -439,15 +439,22 @@ begin
   end
    else if dancnum.Value = 5 then
   begin
-    imagedancerfo.Caption := 'Dancing Spiral 1 by Winni';
+    imagedancerfo.Caption := 'Dancing Spiral Hue by Winni';
     dancernum := 5;
     imagedancerfo.openglwidget.Visible := False;
     imagedancerfo.tpaintbox1.Visible := True;
   end
    else if dancnum.Value = 6 then
   begin
-    imagedancerfo.Caption := 'Dancing Spiral 2 by Winni';
+    imagedancerfo.Caption := 'Dancing Spiral Color by Winni';
     dancernum := 6;
+    imagedancerfo.openglwidget.Visible := False;
+    imagedancerfo.tpaintbox1.Visible := True;
+  end
+   else if dancnum.Value = 7 then
+  begin
+    imagedancerfo.Caption := 'Dancing Spiral Move by Winni';
+    dancernum := 7;
     imagedancerfo.openglwidget.Visible := False;
     imagedancerfo.tpaintbox1.Visible := True;
   end
@@ -3491,9 +3498,18 @@ end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
 begin
+if (tmenuitem(Sender).tag = 7) then
+  begin
+    imagedancerfo.Caption := 'Dancing Spiral Move by Winni';
+    imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.tpaintbox1.Visible := true;
+    dancernum := 7;
+    dancnum.Value := 7;
+  end 
+  else
  if (tmenuitem(Sender).tag = 6) then
   begin
-    imagedancerfo.Caption := 'Dancing Spiral 2 by Winni';
+    imagedancerfo.Caption := 'Dancing Spiral Color by Winni';
     imagedancerfo.openglwidget.Visible := false;
     imagedancerfo.tpaintbox1.Visible := true;
     dancernum := 6;
@@ -3502,7 +3518,7 @@ begin
   else  
    if (tmenuitem(Sender).tag = 5) then
   begin
-    imagedancerfo.Caption := 'Dancing Spiral 1 by Winni';
+    imagedancerfo.Caption := 'Dancing Spiral Hue by Winni';
     imagedancerfo.openglwidget.Visible := false;
     imagedancerfo.tpaintbox1.Visible := true;
     dancernum := 5;
