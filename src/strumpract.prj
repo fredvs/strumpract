@@ -1606,17 +1606,14 @@ findhistory=7
  isbuzy
  if typecolor
 findoptions=1
-editpos=10
- 0,3519
+editpos=7
  0,-1073741823
  0,832
- 0,0
  0,-1073741823
  0,0
- 0,674
  0,-1073741823
  0,-1073741823
- 0,821
+ 0,0
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1624,35 +1621,23 @@ bookmarks3=0
 bookmarks4=0
 bookmarks5=0
 bookmarks6=0
-bookmarks7=0
-bookmarks8=0
-bookmarks9=0
-sourcefiles=10
+sourcefiles=7
  ${PROJECTDIR}/main.pas
- /usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/imagedancer.pas
- /usr/local/codetyphon/CodeOcean/pl_BGRAbitmap/samples/bgralape/bgralapesys.pas
  ${PROJECTDIR}/songplayer.pas
- /home/fred/mseide-msegui/lib/common/opengl/msegl.pas
-relpaths=10
+relpaths=7
  main.pas
- usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
  songplayer.pas
  commander.pas
  strumpract.pas
  filelistform.pas
  imagedancer.pas
- usr/local/codetyphon/CodeOcean/pl_BGRAbitmap/samples/bgralape/bgralapesys.pas
  songplayer.pas
- ../mseide-msegui/lib/common/opengl/msegl.pas
-ismoduletexts=10
- 0
- 0
- 0
+ismoduletexts=7
  0
  0
  0
@@ -1693,21 +1678,18 @@ nomenumodules=7
  0
  0
 [sourcefo.files_tab]
-order=10
+order=7
  0
- 7
+ 5
+ 6
  8
- 1
  2
  3
  4
- 5
- 6
- 9
 firsttab=0
-index=8
+index=3
 [layout]
-windowlayout=709
+windowlayout=706
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2173,8 +2155,8 @@ windowlayout=709
  mdistate=0
  nx=0
  ny=0
- ncx=1205
- ncy=3
+ ncx=1348
+ ncy=8
  x=0
  y=0
  cx=1348
@@ -2188,8 +2170,9 @@ windowlayout=709
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/imagedancer.pas
+ value=/usr/local/codetyphon/CodeOcean/pl_BGRAbitmap/samples/bgralape/bgralapesys.pas
  history=20
+  /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/imagedancer.pas
@@ -2209,7 +2192,6 @@ windowlayout=709
   /home/fred/strumpract/src/randomnote.pas
   /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/main.pas
   /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/opengl.pas
-  /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/openglwidget.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2231,19 +2213,16 @@ windowlayout=709
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=10
+ order=7
   0
-  7
+  5
+  6
   8
-  1
   2
   3
   4
-  5
-  6
-  9
  firsttab=0
- index=8
+ index=3
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2287,7 +2266,7 @@ windowlayout=709
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2382,7 +2361,7 @@ windowlayout=709
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2401,7 +2380,7 @@ windowlayout=709
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
