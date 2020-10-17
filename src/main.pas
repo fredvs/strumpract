@@ -422,12 +422,27 @@ begin
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
-    
+  
+    if dancnum.Value = 9 then
+  begin
+    imagedancerfo.Caption := 'Dancing Lines';
+    imagedancerfo.openglwidget.Visible := True;
+    //imagedancerfo.tpaintbox1.Visible := False;
+    dancernum := 9;
+  end  else  
+   if dancnum.Value = 8 then
+  begin
+    imagedancerfo.Caption := 'Dancing Triangle';
+    imagedancerfo.openglwidget.Visible := True;
+    //imagedancerfo.tpaintbox1.Visible := False;
+    dancernum := 8;
+  end  
+  else
   if dancnum.Value = 3 then
   begin
     imagedancerfo.Caption := 'Dancing Square';
     imagedancerfo.openglwidget.Visible := True;
-    imagedancerfo.tpaintbox1.Visible := False;
+    //imagedancerfo.tpaintbox1.Visible := False;
     dancernum := 3;
   end
   else if dancnum.Value = 4 then
@@ -435,49 +450,49 @@ begin
     imagedancerfo.Caption := 'Dancing Atom by Winni';
     dancernum := 4;
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+    //imagedancerfo.tpaintbox1.Visible := True;
   end
    else if dancnum.Value = 5 then
   begin
     imagedancerfo.Caption := 'Dancing Spiral Hue by Winni';
     dancernum := 5;
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
   end
    else if dancnum.Value = 6 then
   begin
     imagedancerfo.Caption := 'Dancing Spiral Rainbow by Winni';
     dancernum := 6;
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
   end
    else if dancnum.Value = 7 then
   begin
     imagedancerfo.Caption := 'Dancing Spiral Move by Winni';
     dancernum := 7;
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
   end
   else if dancnum.Value = 0 then
   begin
     imagedancerfo.Caption := 'Fractal Tree by Lainz';
     dancernum := 0;
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
   end
   else if dancnum.Value = 1 then
   begin
     imagedancerfo.Caption := 'Super Formula';
     dancernum := 1;
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
   end
   else if dancnum.Value = 2 then
   begin
     imagedancerfo.Caption := 'Hyper formula';
     dancernum := 2;
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
   end;
 
   if imagedancerfo.Visible = True then
@@ -3498,11 +3513,29 @@ end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
 begin
+if (tmenuitem(Sender).tag = 9) then
+  begin
+    imagedancerfo.Caption := 'Dancing Lines';
+    imagedancerfo.openglwidget.Visible := true;
+   // imagedancerfo.tpaintbox1.Visible := true;
+    dancernum := 9;
+    dancnum.Value := 9;
+  end 
+  else
+if (tmenuitem(Sender).tag = 8) then
+  begin
+    imagedancerfo.Caption := 'Dancing Triangle';
+    imagedancerfo.openglwidget.Visible := true;
+   // imagedancerfo.tpaintbox1.Visible := true;
+    dancernum := 8;
+    dancnum.Value := 8;
+  end 
+  else
 if (tmenuitem(Sender).tag = 7) then
   begin
     imagedancerfo.Caption := 'Dancing Spiral Move by Winni';
     imagedancerfo.openglwidget.Visible := false;
-    imagedancerfo.tpaintbox1.Visible := true;
+   // imagedancerfo.tpaintbox1.Visible := true;
     dancernum := 7;
     dancnum.Value := 7;
   end 
@@ -3511,7 +3544,7 @@ if (tmenuitem(Sender).tag = 7) then
   begin
     imagedancerfo.Caption := 'Dancing Spiral Rainbow by Winni';
     imagedancerfo.openglwidget.Visible := false;
-    imagedancerfo.tpaintbox1.Visible := true;
+   // imagedancerfo.tpaintbox1.Visible := true;
     dancernum := 6;
     dancnum.Value := 6;
   end 
@@ -3520,7 +3553,7 @@ if (tmenuitem(Sender).tag = 7) then
   begin
     imagedancerfo.Caption := 'Dancing Spiral Hue by Winni';
     imagedancerfo.openglwidget.Visible := false;
-    imagedancerfo.tpaintbox1.Visible := true;
+   // imagedancerfo.tpaintbox1.Visible := true;
     dancernum := 5;
     dancnum.Value := 5;
   end 
@@ -3529,7 +3562,7 @@ if (tmenuitem(Sender).tag = 7) then
   begin
     imagedancerfo.Caption := 'Dancing Atom by Winni';
     imagedancerfo.openglwidget.Visible := false;
-    imagedancerfo.tpaintbox1.Visible := true;
+   // imagedancerfo.tpaintbox1.Visible := true;
     dancernum := 4;
     dancnum.Value := 4;
   end 
@@ -3538,7 +3571,7 @@ if (tmenuitem(Sender).tag = 7) then
   begin
     imagedancerfo.Caption := 'Dancing Square';
     imagedancerfo.openglwidget.Visible := True;
-    imagedancerfo.tpaintbox1.Visible := False;
+   // imagedancerfo.tpaintbox1.Visible := False;
     dancernum := 3;
     dancnum.Value := 3;
   end
@@ -3546,7 +3579,7 @@ if (tmenuitem(Sender).tag = 7) then
   begin
     imagedancerfo.Caption := 'Fractal Tree by Lainz';
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 0;
     dancnum.Value := 0;
   end
@@ -3554,7 +3587,7 @@ if (tmenuitem(Sender).tag = 7) then
   begin
     imagedancerfo.Caption := 'Super Formula';
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 1;
     dancnum.Value := 1;
   end
@@ -3562,7 +3595,7 @@ if (tmenuitem(Sender).tag = 7) then
   begin
     imagedancerfo.Caption := 'Hyper formula';
     imagedancerfo.openglwidget.Visible := False;
-    imagedancerfo.tpaintbox1.Visible := True;
+   // imagedancerfo.tpaintbox1.Visible := True;
     dancernum := 2;
     dancnum.Value := 2;
   end;

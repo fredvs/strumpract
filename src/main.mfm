@@ -1029,12 +1029,24 @@ object mainfo: tmainfo
         onexecute = showall
       end    
       item
-        submenu.count = 8
+        submenu.count = 10
         submenu.items = <        
           item
             caption = ' Square '
             state = [as_checked, as_localchecked, as_localcaption, as_localtag, as_localonexecute]
             tag = 3
+            onexecute = onimagedancer
+          end        
+          item
+            caption = ' Triangle '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 8
+            onexecute = onimagedancer
+          end        
+          item
+            caption = ' Lines '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 9
             onexecute = onimagedancer
           end        
           item

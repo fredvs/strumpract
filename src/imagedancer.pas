@@ -45,7 +45,6 @@ type
 type
   timagedancerfo = class(tdockform)
 
-    tpaintbox1: tpaintbox;
     openglwidget: topenglwidget;
     procedure onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -152,7 +151,7 @@ begin
     offset := 180 + offset;
   if offset > 360 then
     offset := offset - 360;
-  // hue      := offset + random(range) - range div 2;
+  // hue      := offset + (range) - range div 2;
   hue      := offset + round(range * multiplier) - range div 2;
   HSL      := HSLA(round(hue / 360 * $FFFF), $FFFF, maxSmallint);
   Result   := HSLAToBGRA(HSL);
@@ -408,16 +407,16 @@ var
 begin
   turn := (TimerTic) mod 360;
 
-  if multiplier > 0.3 then
+  if multiplier > 0.75 then
     rot := True
   else
     rot := False;
 
-// rot := False;
+ rot := False;
 
-  spiral := createSpiral(center, -10 * Turn, 20, imagedancerfo.tpaintbox1.Width, 0, rot);
- 
-  bitmap.DrawPolyLineAntialias(spiral, getRandomHue(round(multiplier * 30)), round(1 * 14));
+ spiral := createSpiral(center, -10 * Turn, imagedancerfo.Width div 30, imagedancerfo.Width, 0, rot);
+  // spiral := createSpiral(center, -10 * Turn, 20, imagedancerfo.tpaintbox1.Width, 0, rot);
+  bitmap.DrawPolyLineAntialias(spiral, getRandomHue(40), round(1 * 14));
 
 end;
 
@@ -655,20 +654,25 @@ begin
     else if dancernum = 5 then // Spiral Hue
     begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
-      spi := createSpiral (Center,timertic mod 360 * 10,10,Bitmap.Width*0.75,0,true);
+      spi := createSpiral (Center,timertic mod 360 * 10,Bitmap.height div 60,Bitmap.Width*0.75,0,true);
       bitmap.Fill(cssBlack);
-     DrawIncreasing(Bitmap,spi,30,10,GetRandomHue(30+ round(0*10))) ;
+  //   DrawIncreasing(Bitmap,spi,30,10,GetRandomHue(30)) ;
+     
+       DrawIncreasing(Bitmap,spi,Bitmap.width div 20,Bitmap.Width div 50,GetRandomHue(30+ round(0*2))) ;
      end 
     else if dancernum = 6 then // Spiral Raindow
     begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
-      spi := createSpiral (Center,timertic mod 360 * 10,10,Bitmap.Width*0.75,0,true);
+      spi := createSpiral (Center,timertic mod 360 * 10,Bitmap.height div 60,Bitmap.Width*0.75,0,true);
       bitmap.Fill(cssBlack);
-      DrawIncreasing2(Bitmap,spi,30,10);
+      DrawIncreasing2(Bitmap,spi,Bitmap.width div 20,Bitmap.width div 60);
+
+    //  DrawIncreasing2(Bitmap,spi,30,10);
+ 
     end 
     else if dancernum = 7 then // Spiral Move
     begin
-      center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
+      center := PointF(Bitmap.Width / 2*multiplier*1.5, Bitmap.Height / 2*multiplier*1.5);
       bitmap.Fill(cssBlack);
       DrawSpiral(bitmap);
     end;
@@ -684,7 +688,7 @@ begin
 
   repeat
 
-    if (isbuzy = False) and (Visible = True) and (tpaintbox1.Visible = True) then
+    if (isbuzy = False) and (Visible = True) and (openglwidget.Visible = false) then
     begin
       application.queueasynccall(@InvalidateImage);
       RTLeventResetEvent(evPauseImage);
@@ -720,7 +724,7 @@ end;
 
 procedure timagedancerfo.InvalidateImage;
 begin
-  onpaint_imagedancerfo(tpaintbox1, tpaintbox1.getcanvas);
+  onpaint_imagedancerfo(imagedancerfo, imagedancerfo.getcanvas);
 end;
 
 procedure timagedancerfo.ondestroy(const Sender: TObject);
@@ -790,8 +794,13 @@ begin
     glrotatef(multiplier * 360, 1, multiplier, multiplier);
     glrotatef(multiplier * 360, multiplier, 1, multiplier);
     glrotatef(multiplier * 360, multiplier, multiplier, 1);
-
-    glbegin(gl_quads);
+  
+    if dancernum = 8 then  glbegin(GL_TRIANGLES)
+    else    
+    if dancernum = 3 then  glbegin(gl_quads)
+    else    
+    if dancernum = 9 then  glbegin(GL_LINES);
+   
     glcolor3f(1, 0, multiplier);
     glvertex3f(-0.5, -0.5, 0);
     glcolor3f(multiplier, 1, 0);

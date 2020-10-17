@@ -845,9 +845,9 @@ if ((commanderfo.vuin.Value = True) and (Visible = True)) or
  
     if (commanderfo.vuin.Value = True) and (Visible = True) then
       ShowLevel(nil,ll1,lr1,ll2,lr2);
-
-    if (imagedancerfo.Visible = True) and (isbuzy = false) and 
-    (imagedancerfo.tpaintbox1.visible = true) then
+      
+     if (imagedancerfo.Visible = True) and (isbuzy = false) and 
+    (imagedancerfo.openglwidget.visible = false) then
             begin 
             //  multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
             if dancernum = 4 then 
