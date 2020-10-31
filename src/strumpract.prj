@@ -820,16 +820,25 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=4
+ IMAGEDANCERFO
  MAINFO
-moduletypes=1
+ RECORDERFO
+ SONGPLAYERFO
+moduletypes=4
+ TIMAGEDANCERFO
  TMAINFO
-modulefiles=1
+ TRECORDERFO
+ TSONGPLAYERFO
+modulefiles=4
+ /home/fred/strumpract/src/imagedancer.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/recorder.mfm
+ /home/fred/strumpract/src/songplayer.mfm
 befcommandon=0
 makeoptionson=12
  4095
- 4
+ 0
  0
  192
  0
@@ -1191,7 +1200,7 @@ line=35
  5714
  1470
  46
- 1493
+ 1492
  335
  319
  537
@@ -1199,7 +1208,7 @@ line=35
  773
  785
  701
- 1565
+ 1564
  209
  1136
  3071
@@ -1208,9 +1217,9 @@ line=35
  752
  1517
  162
- 1497
+ 1496
  356
- 1678
+ 1677
 address=35
  4603313
  7398231
@@ -1588,8 +1597,11 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=TBGRADefaultBitmap.InternalArc(
-findhistory=9
+finddtext=onrenderexe
+findhistory=12
+ onrenderexe
+ loopproc
+ imagedan
  TBGRADefaultBitmap.InternalArc(
  psSolid
  dancernum
@@ -1600,49 +1612,78 @@ findhistory=9
  isbuzy
  if typecolor
 findoptions=1
-editpos=2
+editpos=5
  0,-1073741823
  0,0
+ 0,886
+ 53,167
+ 0,776
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+bookmarks3=0
+bookmarks4=0
+sourcefiles=5
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
-relpaths=2
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/recorder.pas
+ ${PROJECTDIR}/imagedancer.pas
+relpaths=5
  strumpract.pas
  main.pas
-ismoduletexts=2
+ songplayer.pas
+ recorder.pas
+ imagedancer.pas
+ismoduletexts=5
  0
  0
-modules=5
+ 0
+ 0
+ 0
+modules=7
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/imagedancer.mfm
+moduleoptions=7
  0
  0
  0
  0
  0
-visiblemodules=5
+ 0
+ 0
+visiblemodules=7
  -1
  0
  0
- 0
- 0
-nomenumodules=5
+ -1
  0
  -1
  -1
+nomenumodules=7
+ 0
  -1
  -1
+ 0
+ -1
+ 0
+ 0
 [sourcefo.files_tab]
+order=5
+ 2
+ 4
+ 3
+ 0
+ 1
 firsttab=0
-index=1
+index=2
 [layout]
-windowlayout=660
+windowlayout=704
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1682,7 +1723,7 @@ windowlayout=660
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1787,7 +1828,7 @@ windowlayout=660
  sortdescend1=0
  sorted=0
  col=0
- row=8
+ row=6
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2123,7 +2164,7 @@ windowlayout=660
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/strumpract/src/recorder.pas
  history=20
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/songplayer.pas
@@ -2166,8 +2207,14 @@ windowlayout=660
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=5
+  2
+  4
+  3
+  0
+  1
  firsttab=0
- index=1
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2211,7 +2258,7 @@ windowlayout=660
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2249,7 +2296,7 @@ windowlayout=660
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2264,11 +2311,11 @@ windowlayout=660
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2303,6 +2350,44 @@ windowlayout=660
  wsize=0
  active=0
  visible=0
+ [_mse_songplayerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_recorderfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=258
+ y=219
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_imagedancerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=mainfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=403
+ y=251
+ cx=456
+ cy=354
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0

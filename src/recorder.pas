@@ -4,20 +4,56 @@ unit recorder;
 interface
 
 uses
- ctypes, uos_flat, infos, msetimer, msetypes, mseglob, mseguiglob, mseguiintf,
- mseapplication, msestat, msemenus, msegui, msegraphics, msegraphutils, math,
- mseevent,mseclasses, mseforms, msedock, msesimplewidgets, msewidgets,
- msedataedits,msefiledialogx, msegrids, mselistbrowser, msesys, SysUtils,
- msegraphedits,mseificomp, mseificompglob, mseifiglob, msescrollbar,msedragglob,
- mseact,mseedit, msestatfile, msestream, msestrings, msebitmap,msedatanodes,
- msedispwidgets, mserichstring, msedropdownlist, msegridsglob;
+  ctypes,
+  uos_flat,
+  infos,
+  msetimer,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  Math,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msesimplewidgets,
+  msewidgets,
+  msedataedits,
+  msefiledialogx,
+  msegrids,
+  mselistbrowser,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msedragglob,
+  mseact,
+  mseedit,
+  msestatfile,
+  msestream,
+  msestrings,
+  msebitmap,
+  msedatanodes,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist,
+  msegridsglob;
 
 type
   trecorderfo = class(tdockform)
     Timerwait: Ttimer;
     Timerrec: Ttimer;
     Timersent: Ttimer;
-
     tfacereclight: tfacecomp;
     tfacerecrev: tfacecomp;
     tgroupbox1: tgroupbox;
@@ -48,10 +84,10 @@ type
     hintpanel: tgroupbox;
     hintlabel: tlabel;
     hintlabel2: tlabel;
-   sentcue1: tbooleanedit;
-   tbutton6: tbutton;
-   edvolr: trealspinedit;
-   tfiledialog1: tfiledialogx;
+    sentcue1: tbooleanedit;
+    tbutton6: TButton;
+    edvolr: trealspinedit;
+    tfiledialog1: tfiledialogx;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -78,32 +114,32 @@ type
     procedure ShowSpectrum(const Sender: TObject);
     procedure resetspectrum();
     procedure InitDrawLive();
-    procedure DrawLive(lv,rv : double);
+    procedure DrawLive(lv, rv: double);
     procedure afterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
-    procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
+    procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
-   procedure oncreated(const sender: TObject);
-   procedure onex(const sender: TObject);
+    procedure oncreated(const Sender: TObject);
+    procedure onex(const Sender: TObject);
   end;
 
- equalizer_band_type = record
+  equalizer_band_type = record
     lo_freq, hi_freq: integer;
     Text: string[10];
   end;
-  
+
 var
   timenow: ttime;
-   arrecl, arrecr : flo64arty;
-   rectrecform: rectty;
-   xreclive : integer;
-   islive : boolean = true;
-   Equalizer_Bands: array[1..10] of equalizer_band_type;
-    thearrayrec: array of cfloat;
-   tottimerec: ttime;
-   recorderfo: trecorderfo;
+  arrecl, arrecr: flo64arty;
+  rectrecform: rectty;
+  xreclive: integer;
+  islive: Boolean = True;
+  Equalizer_Bands: array[1..10] of equalizer_band_type;
+  thearrayrec: array of cfloat;
+  tottimerec: ttime;
+  recorderfo: trecorderfo;
   thedialogform: tfiledialogfo;
   initplay: integer = 1;
-  isrecording: boolean = False;
+  isrecording: Boolean = False;
   therecplayer: integer = 24;
   therecplayerinfo: integer = 25;
   plugIndex3, PluginIndex3: integer;
@@ -113,73 +149,79 @@ var
 implementation
 
 uses
-  main, config, dockpanel1, spectrum1, waveform, songplayer,
+  main,
+  config,
+  dockpanel1,
+  spectrum1,
+  waveform,
+  songplayer,
+  imagedancer,
   recorder_mfm;
-  
+
 procedure trecorderfo.InitDrawLive();
 const
   transpcolor = cl_gray;
 begin
 
-  if  (as_checked in waveforec.tmainmenu1.menu[0].state) then
+  if (as_checked in waveforec.tmainmenu1.menu[0].state) then
   begin
-    waveforec.trackbar1.Width := waveforec.width -10;
-    waveforec.trackbar1.height := waveforec.height - 18;
+    waveforec.trackbar1.Width  := waveforec.Width - 10;
+    waveforec.trackbar1.Height := waveforec.Height - 18;
     waveforec.trackbar1.invalidate();
-    
-    rectrecform.pos := nullpoint;
+
+    rectrecform.pos  := nullpoint;
     rectrecform.size := waveforec.trackbar1.paintsize;
-    
-    xreclive := 1 ;
-    
-     waveforec.TrackBar1.Value := 0;
+
+    xreclive := 1;
+
+    waveforec.TrackBar1.Value := 0;
 
     with waveforec.sliderimage.bitmap do
     begin
-      size := rectrecform.size;
+      size   := rectrecform.size;
       init(transpcolor);
-       masked := true;
-       transparentcolor := transpcolor;
+      masked := True;
+      transparentcolor := transpcolor;
     end;
-  
+
   end;
 
-end;  
+end;
 
-procedure trecorderfo.DrawLive(lv,rv : double);
+procedure trecorderfo.DrawLive(lv, rv: double);
 var
   poswavrec, poswavrec2: pointty;
 begin
-      
-    waveforec.sliderimage.bitmap.masked := false; 
-    
-      poswavrec.x := xreclive;
-      poswavrec2.x := poswavrec.x;
 
-        
- //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
+  waveforec.sliderimage.bitmap.masked := False;
 
-          poswavrec.y := (waveforec.trackbar1.Height div 2) - 2;
-          poswavrec2.y := ((rectrecform.cy div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
+  poswavrec.x  := xreclive;
+  poswavrec2.x := poswavrec.x;
 
-          // if mainfo.typecolor.Value = 0 then
-          waveforec.sliderimage.bitmap.canvas.drawline(poswavrec, poswavrec2, $AC99D6);
-          //  else
-          //    canvas.drawline(poswav, poswav2, $6A6A6A);
 
-          poswavrec.y := (waveforec.trackbar1.Height div 2);
+  //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
 
-          poswavrec2.y := poswavrec.y + (round((rv) * ((waveforec.trackbar1.Height div 2) - 3)));
+  poswavrec.y  := (waveforec.trackbar1.Height div 2) - 2;
+  poswavrec2.y := ((rectrecform.cy div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
 
-          //  if mainfo.typecolor.Value = 0 then
-          waveforec.sliderimage.bitmap.canvas.drawline(poswavrec, poswavrec2, $AC79D6);
-          //  else
-          //    canvas.drawline(poswav, poswav2, $8A8A8A);
+  // if mainfo.typecolor.Value = 0 then
+  waveforec.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC99D6);
+  //  else
+  //    canvas.drawline(poswav, poswav2, $6A6A6A);
 
-      
-    xreclive := xreclive +1;
- 
-      end;
+  poswavrec.y := (waveforec.trackbar1.Height div 2);
+
+  poswavrec2.y := poswavrec.y + (round((rv) * ((waveforec.trackbar1.Height div 2) - 3)));
+
+  //  if mainfo.typecolor.Value = 0 then
+  waveforec.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
+  //  else
+  //    canvas.drawline(poswav, poswav2, $8A8A8A);
+
+
+  xreclive := xreclive + 1;
+
+end;
 
 
 procedure trecorderfo.ontimersent(const Sender: TObject);
@@ -195,38 +237,34 @@ begin
   timerrec.Enabled := False;
   if isrecording then
   begin
-    temptime := now - timenow;
+    temptime         := now - timenow;
     DecodeTime(temptime, ho, mi, se, ms);
-    lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
+    lposition.Value  := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
     timerrec.Enabled := True;
   end
   else
-    lposition.Value := '00:00:00.000';
+    lposition.Value  := '00:00:00.000';
 end;
 
 procedure trecorderfo.ontimerwait(const Sender: TObject);
 begin
-//  timerwait.Enabled := False;
+  //  timerwait.Enabled := False;
   btnStart.Enabled := True;
-  btnStop.Enabled := True;
+  btnStop.Enabled  := True;
   if cbloop.Value = False then
     btnPause.Enabled := True
   else
     btnPause.Enabled := False;
-  btnresume.Enabled := False;
-  cbloop.Enabled := False;
-  trackbar1.Enabled := True;
+  btnresume.Enabled  := False;
+  cbloop.Enabled     := False;
+  trackbar1.Enabled  := True;
 
 end;
 
 procedure trecorderfo.ChangePlugSetSoundTouch(const Sender: TObject);
 begin
   if (trim(PChar(ansistring(recorderfo.historyfn.Value))) <> '') and fileexists(ansistring(recorderfo.historyfn.Value)) then
-  begin
-
     uos_SetPluginSoundTouch(therecplayer, PluginIndex3, edtempo.Value, 1, cbtempo.Value);
-
-  end;
 end;
 
 
@@ -240,19 +278,19 @@ begin
   tbutton2.Enabled := False;
   tbutton3.Enabled := True;
 
-  vuright.Value := 0;
-  vuleft.Value := 0;
-  vuLeft.Visible := False;
-  vuRight.Visible := False;
-  btnStart.Enabled := True;
-  btnStop.Enabled := False;
-  btnPause.Enabled := False;
-  btnresume.Enabled := False;
-  cbloop.Enabled := True;
-  trackbar1.Value := 0;
-  trackbar1.Enabled := False;
+  vuright.Value       := 0;
+  vuleft.Value        := 0;
+  vuLeft.Visible      := False;
+  vuRight.Visible     := False;
+  btnStart.Enabled    := True;
+  btnStop.Enabled     := False;
+  btnPause.Enabled    := False;
+  btnresume.Enabled   := False;
+  cbloop.Enabled      := True;
+  trackbar1.Value     := 0;
+  trackbar1.Enabled   := False;
   bsavetofile.Enabled := True;
-  lposition.Value := '00:00:00.000';
+  lposition.Value     := '00:00:00.000';
   lposition.face.template := tfacereclight;
   historyfn.face.template := tfacereclight;
 
@@ -262,48 +300,63 @@ begin
 
   recpan.Visible := False;
 
-  llength.Value := '00:00:00.000';
+  llength.Value           := '00:00:00.000';
   lposition.face.template := tfacereclight;
   historyfn.face.template := tfacereclight;
-  
-    tbutton3.visible := true;
-    tbutton2.visible := false;
-    
-     resetspectrum();
-     InitDrawLive();
+
+  tbutton3.Visible := True;
+  tbutton2.Visible := False;
+
+  resetspectrum();
+  InitDrawLive();
 
 end;
 
 procedure trecorderfo.ShowLevel;
 var
   leftlev, rightlev: double;
-   rat: integer;
+  rat: integer;
 begin
-  vuLeft.Visible := True;
+  vuLeft.Visible  := True;
   vuRight.Visible := True;
-  
- 
-  leftlev := uos_InputGetLevelLeft(therecplayer, Inputindex3);
+
+  leftlev  := uos_InputGetLevelLeft(therecplayer, Inputindex3);
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
- 
-if waveforec.visible = true then begin
   
-   if  (as_checked in waveforec.tmainmenu1.menu[0].state) then
-   begin
-            if (xreclive ) > (waveforec.Width - 10) then
-          begin
-            InitDrawLive();       
-           end;
-         
-      waveforec.TrackBar1.Value := xreclive / (waveforec.TrackBar1.Width );  
-     DrawLive(leftlev,rightlev);   
+  multiplier := ((leftlev + rightlev) / 2);
+ 
+ if (imagedancerfo.Visible = True) and (isbuzy = False) and
+    (imagedancerfo.openglwidget.Visible = False) then
+  begin
+   if dancernum = 4 then
+    begin
+      Inc(TimerTicinterval);
+      if TimerTicinterval = 3 then
+      begin
+        Inc(TimerTic);
+        TimerTicinterval := 0;
+      end;
     end;
-    
-end;   
+
+    if (dancernum = 5) or (dancernum = 6) or (dancernum = 7) then
+      Inc(TimerTic);
+
+    RTLeventSetEvent(evPauseimage); // to resume 
+
+  end;
+
+  if waveforec.Visible = True then
+    if (as_checked in waveforec.tmainmenu1.menu[0].state) then
+    begin
+      if (xreclive) > (waveforec.Width - 10) then
+        InitDrawLive();
+
+      waveforec.TrackBar1.Value := xreclive / (waveforec.TrackBar1.Width);
+      DrawLive(leftlev, rightlev);
+    end;
 
   if (leftlev >= 0) and (leftlev <= 1) then
-  begin
-{
+    vuLeft.Value := leftlev{
     if leftlev < 0.80 then
       vuLeft.bar_face.template := mainfo.tfacegreen
     else
@@ -311,14 +364,10 @@ end;
       vuLeft.bar_face.template := mainfo.tfaceorange
     else
       vuLeft.bar_face.template := mainfo.tfacered;
- }
-
-    vuLeft.Value := leftlev;
-  end;
+ };
 
   if (rightlev >= 0) and (rightlev <= 1) then
-  begin
-  {
+    vuRight.Value := rightlev{
     if rightlev < 0.80 then
       vuRight.bar_face.template := mainfo.tfacegreen
     else
@@ -326,9 +375,7 @@ end;
       vuRight.bar_face.template := mainfo.tfaceorange
     else
       vuRight.bar_face.template := mainfo.tfacered;
-      }
-    vuRight.Value := rightlev;
-  end;
+      };
 end;
 
 procedure trecorderfo.ShowPosition;
@@ -338,19 +385,16 @@ var
 begin
 
   if (TrackBar1.Tag = 0) then
-  begin
     if uos_InputPosition(therecplayer, InputIndex3) > 0 then
     begin
 
-     TrackBar1.Value := uos_InputPosition(therecplayer, InputIndex3) / inputlength;
-     temptime := uos_InputPositionTime(therecplayer, InputIndex3);
+      TrackBar1.Value := uos_InputPosition(therecplayer, InputIndex3) / inputlength;
+      temptime        := uos_InputPositionTime(therecplayer, InputIndex3);
       ////// Length of input in time
       DecodeTime(temptime, ho, mi, se, ms);
-     lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
-   
-        
+      lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
+
     end;
-  end;
 
 end;
 
@@ -359,25 +403,26 @@ begin
   ShowLevel;
 
   if isrecording = False then
-     ShowPosition;
-  
-   if (spectrumrecfo.spect1.Value = True) and (spectrumrecfo.Visible = True) and 
-   (configfo.speccalc.Value = True) then
+    ShowPosition;
+
+  if (spectrumrecfo.spect1.Value = True) and (spectrumrecfo.Visible = True) and
+    (configfo.speccalc.Value = True) then
     ShowSpectrum(nil);
- end;
+end;
 
 procedure trecorderfo.doplayerstart(const Sender: TObject);
 var
   samformat, i: shortint;
   ho, mi, se, ms: word;
-   tottime: ttime;
+  tottime: ttime;
 begin
   if fileexists(PChar(ansistring(historyfn.Value))) then
   begin
     samformat := 0;
-    
-    if sentcue1.value = true then songplayerfo.historyfn.Value := historyfn.Value;
- 
+
+    if sentcue1.Value = True then
+      songplayerfo.historyfn.Value := historyfn.Value;
+
     //  songdir.hint := songdir.value;
 
 
@@ -487,10 +532,10 @@ begin
       /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
       /// SoundTouch plugin should be the last added.
       if configfo.speccalc.Value = True then
-            for i := 1 to 10 do
-     uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
-      
-      
+        for i := 1 to 10 do
+          uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
+
+
       if plugsoundtouch = True then
       begin
         PlugInIndex3 := uos_AddPlugin(therecplayer, 'soundtouch', uos_InputGetSampleRate(therecplayer, InputIndex3), -1);
@@ -516,9 +561,9 @@ begin
 
       btinfos.Enabled := True;
 
-      trackbar1.Value := 0;
+      trackbar1.Value   := 0;
       trackbar1.Enabled := True;
-      btnStop.Enabled := True;
+      btnStop.Enabled   := True;
       btnresume.Enabled := False;
       InitDrawLive();
       if cbloop.Value = True then
@@ -529,15 +574,16 @@ begin
       else
       begin
         uos_Play(therecplayer);  /////// everything is ready, here we are, lets play it...
-        btnpause.Enabled := True;
+        btnpause.Enabled      := True;
       end;
       lposition.face.template := tfacereclight;
-      cbloop.Enabled := False;
+      cbloop.Enabled          := False;
       //songdir.Value := historyfn.Value;
-      historyfn.hint := historyfn.Value;
+      historyfn.hint          := historyfn.Value;
       if timerwait.Enabled then
-  timerwait.restart // to reset
- else timerwait.Enabled := True;
+        timerwait.restart // to reset
+      else
+        timerwait.Enabled := True;
     end
     else
     begin
@@ -551,32 +597,32 @@ end;
 
 procedure trecorderfo.doplayeresume(const Sender: TObject);
 begin
-  btnStop.Enabled := True;
-  btnPause.Enabled := True;
+  btnStop.Enabled   := True;
+  btnPause.Enabled  := True;
   btnresume.Enabled := False;
   uos_RePlay(therecplayer);
 end;
 
 procedure trecorderfo.doplayerpause(const Sender: TObject);
 begin
-  vuLeft.Visible := False;
-  vuRight.Visible := False;
-  btnStop.Enabled := True;
-  btnPause.Enabled := False;
+  vuLeft.Visible    := False;
+  vuRight.Visible   := False;
+  btnStop.Enabled   := True;
+  btnPause.Enabled  := False;
   btnresume.Enabled := True;
   uos_Pause(therecplayer);
 end;
 
 procedure trecorderfo.doplayerstop(const Sender: TObject);
-begin 
-  cbloop.Enabled := true;
+begin
+  cbloop.Enabled := True;
   uos_Stop(therecplayer);
 end;
 
 procedure trecorderfo.changevolume(const Sender: TObject);
 begin
   uos_InputSetDSPVolume(therecplayer, InputIndex3,
-  edvol.Value / 100, edvolr.Value / 100, True);
+    edvol.Value / 100, edvolr.Value / 100, True);
 end;
 
 procedure trecorderfo.onreset(const Sender: TObject);
@@ -608,17 +654,17 @@ begin
 
       DecodeTime(temptimeinfo, ho, mi, se, ms);
 
-      infosfo.infofile.Caption := 'File: ' + extractfilename(historyfn.Value);
-      infosfo.infoname.Caption := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(therecplayerinfo, 0)));
+      infosfo.infofile.Caption   := 'File: ' + extractfilename(historyfn.Value);
+      infosfo.infoname.Caption   := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(therecplayerinfo, 0)));
       infosfo.infoartist.Caption := 'Artist: ' + msestring(ansistring(uos_InputGetTagArtist(therecplayerinfo, 0)));
-      infosfo.infoalbum.Caption := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(therecplayerinfo, 0)));
-      infosfo.infoyear.Caption := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(therecplayerinfo, 0)));
-      infosfo.infocom.Caption := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(therecplayerinfo, 0)));
-      infosfo.infotag.Caption := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(therecplayerinfo, 0)));
+      infosfo.infoalbum.Caption  := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(therecplayerinfo, 0)));
+      infosfo.infoyear.Caption   := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(therecplayerinfo, 0)));
+      infosfo.infocom.Caption    := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(therecplayerinfo, 0)));
+      infosfo.infotag.Caption    := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(therecplayerinfo, 0)));
       infosfo.infolength.Caption := utf8decode('Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
-      infosfo.inforate.Caption := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
-      infosfo.infochan.Caption := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
-      infosfo.infobpm.Caption := '';
+      infosfo.inforate.Caption   := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
+      infosfo.infochan.Caption   := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
+      infosfo.infobpm.Caption    := '';
 
       uos_play(therecplayerinfo);
       uos_Stop(therecplayerinfo);
@@ -653,7 +699,7 @@ var
 begin
   if (trackbar1.tag = 1) and (inputlength > 0) then
   begin
-    temptime := tottimerec * TrackBar1.Value;
+    temptime        := tottimerec * TrackBar1.Value;
     DecodeTime(temptime, ho, mi, se, ms);
     lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
@@ -665,36 +711,33 @@ end;
 procedure trecorderfo.visiblechangeev(const Sender: TObject);
 begin
 
-  if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(dockpanel3fo))
- and (assigned(dockpanel4fo)) and (assigned(dockpanel5fo)) then
+  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-  if Visible then
-  begin
-    mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Hide Recorder ';
-  end
-  else
-  begin
-    mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Show Recorder ';
-    uos_Stop(therecplayer);
+    if Visible then
+      mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Hide Recorder '
+    else
+    begin
+      mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Show Recorder ';
+      uos_Stop(therecplayer);
+    end;
+    if norefresh = False then
+    begin
+      mainfo.updatelayout();
+      if dockpanel1fo.Visible then
+        dockpanel1fo.updatelayout();
+      if dockpanel2fo.Visible then
+        dockpanel2fo.updatelayout();
+
+      if dockpanel3fo.Visible then
+        dockpanel3fo.updatelayout();
+
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayout();
+
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayout();
+    end;
   end;
-if norefresh = false then
-begin
-  mainfo.updatelayout();
-  if dockpanel1fo.Visible then
-    dockpanel1fo.updatelayout();
-  if dockpanel2fo.Visible then
-    dockpanel2fo.updatelayout();
-
-  if dockpanel3fo.Visible then
-    dockpanel3fo.updatelayout();
-    
- if dockpanel4fo.Visible then
-    dockpanel4fo.updatelayout();
-
-  if dockpanel5fo.Visible then
-    dockpanel5fo.updatelayout();   
-end;  
-end;  
 end;
 
 procedure trecorderfo.resetspectrum();
@@ -702,103 +745,101 @@ var
   i: integer = 0;
 begin
 
-   while i < 10 do
+  while i < 10 do
+  begin
+    arrecl[i] := 0;
+    arrecr[i] := 0;
+    Inc(i);
+  end;
+
+  spectrumrecfo.tchartleft.traces[0].ydata  := arrecl;
+  spectrumrecfo.tchartright.traces[0].ydata := arrecr;
+
+end;
+
+procedure trecorderfo.ShowSpectrum(const Sender: TObject);
+var
+  i, x: integer;
+begin
+  if uos_getstatus(therecplayer) > 0 then
+  begin
+    thearrayrec := uos_InputFiltersGetLevelArray(therecplayer, InputIndex3);
+    x           := 0;
+    i           := 0;
+    while x < length(thearrayrec) - 1 do
     begin
-      arrecl[i] := 0;
-      arrecr[i] := 0;
+      arrecl[i] := thearrayrec[x];
+      arrecr[i] := thearrayrec[x + 1];
+      x         := x + 2;
       Inc(i);
     end;
 
-    spectrumrecfo.tchartleft.traces[0].ydata := arrecl;
+    spectrumrecfo.tchartleft.traces[0].ydata  := arrecl;
     spectrumrecfo.tchartright.traces[0].ydata := arrecr;
- 
- end;
- 
-procedure trecorderfo.ShowSpectrum(const Sender: TObject);
-
-var
-  i, x: integer;
-
-begin
-    if uos_getstatus(therecplayer) > 0 then
-    begin
-      thearrayrec := uos_InputFiltersGetLevelArray(therecplayer, InputIndex3);
-      x := 0;
-      i := 0;
-      while x < length(thearrayrec) - 1 do
-      begin
-        arrecl[i] := thearrayrec[x];
-        arrecr[i] := thearrayrec[x + 1];
-        x := x + 2;
-        Inc(i);
-      end;
-
-      spectrumrecfo.tchartleft.traces[0].ydata := arrecl;
-      spectrumrecfo.tchartright.traces[0].ydata := arrecr;
-    end;
   end;
+end;
 
 procedure trecorderfo.onplayercreate(const Sender: TObject);
 var
   ordir: string;
 begin
 
-   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
-  [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+  SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+    [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
- Equalizer_Bands[1].lo_freq := 18;
-  Equalizer_Bands[1].hi_freq := 46;
-  Equalizer_Bands[1].Text := '31';
-  Equalizer_Bands[2].lo_freq := 47;
-  Equalizer_Bands[2].hi_freq := 94;
-  Equalizer_Bands[2].Text := '62';
-  Equalizer_Bands[3].lo_freq := 95;
-  Equalizer_Bands[3].hi_freq := 188;
-  Equalizer_Bands[3].Text := '125';
-  Equalizer_Bands[4].lo_freq := 189;
-  Equalizer_Bands[4].hi_freq := 375;
-  Equalizer_Bands[4].Text := '250';
-  Equalizer_Bands[5].lo_freq := 376;
-  Equalizer_Bands[5].hi_freq := 750;
-  Equalizer_Bands[5].Text := '500';
-  Equalizer_Bands[6].lo_freq := 751;
-  Equalizer_Bands[6].hi_freq := 1500;
-  Equalizer_Bands[6].Text := '1K';
-  Equalizer_Bands[7].lo_freq := 1501;
-  Equalizer_Bands[7].hi_freq := 3000;
-  Equalizer_Bands[7].Text := '2K';
-  Equalizer_Bands[8].lo_freq := 3001;
-  Equalizer_Bands[8].hi_freq := 6000;
-  Equalizer_Bands[8].Text := '4K';
-  Equalizer_Bands[9].lo_freq := 6001;
-  Equalizer_Bands[9].hi_freq := 12000;
-  Equalizer_Bands[9].Text := '8K';
+  Equalizer_Bands[1].lo_freq  := 18;
+  Equalizer_Bands[1].hi_freq  := 46;
+  Equalizer_Bands[1].Text     := '31';
+  Equalizer_Bands[2].lo_freq  := 47;
+  Equalizer_Bands[2].hi_freq  := 94;
+  Equalizer_Bands[2].Text     := '62';
+  Equalizer_Bands[3].lo_freq  := 95;
+  Equalizer_Bands[3].hi_freq  := 188;
+  Equalizer_Bands[3].Text     := '125';
+  Equalizer_Bands[4].lo_freq  := 189;
+  Equalizer_Bands[4].hi_freq  := 375;
+  Equalizer_Bands[4].Text     := '250';
+  Equalizer_Bands[5].lo_freq  := 376;
+  Equalizer_Bands[5].hi_freq  := 750;
+  Equalizer_Bands[5].Text     := '500';
+  Equalizer_Bands[6].lo_freq  := 751;
+  Equalizer_Bands[6].hi_freq  := 1500;
+  Equalizer_Bands[6].Text     := '1K';
+  Equalizer_Bands[7].lo_freq  := 1501;
+  Equalizer_Bands[7].hi_freq  := 3000;
+  Equalizer_Bands[7].Text     := '2K';
+  Equalizer_Bands[8].lo_freq  := 3001;
+  Equalizer_Bands[8].hi_freq  := 6000;
+  Equalizer_Bands[8].Text     := '4K';
+  Equalizer_Bands[9].lo_freq  := 6001;
+  Equalizer_Bands[9].hi_freq  := 12000;
+  Equalizer_Bands[9].Text     := '8K';
   Equalizer_Bands[10].lo_freq := 12001;
   Equalizer_Bands[10].hi_freq := 20000;
-  Equalizer_Bands[10].Text := '16K';
+  Equalizer_Bands[10].Text    := '16K';
 
   setlength(arrecl, 10);
   setlength(arrecr, 10);
 
 
-  Caption := 'Recorder';
-  Timerwait := ttimer.Create(nil);
+  Caption           := 'Recorder';
+  Timerwait         := ttimer.Create(nil);
   Timerwait.interval := 100000;
   Timerwait.Enabled := False;
   Timerwait.options := [to_single];
   Timerwait.ontimer := @ontimerwait;
 
-  Timerrec := ttimer.Create(nil);
+  Timerrec          := ttimer.Create(nil);
   Timerrec.interval := 100000;
-  Timerrec.Enabled := False;
+  Timerrec.Enabled  := False;
   //Timerrec.options := [to_single];
-  Timerrec.ontimer := @ontimerrec;
+  Timerrec.ontimer  := @ontimerrec;
 
-  Timersent := ttimer.Create(nil);
+  Timersent          := ttimer.Create(nil);
   Timersent.interval := 2500000;
-  Timersent.Enabled := False;
-  Timersent.ontimer := @ontimersent;
-  Timersent.options := [to_single];
+  Timersent.Enabled  := False;
+  Timersent.ontimer  := @ontimersent;
+  Timersent.options  := [to_single];
 
   if plugsoundtouch = False then
   begin
@@ -808,12 +849,12 @@ begin
     //label6.Enabled := False;
   end;
 
- // ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+    // ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
-//  if songdir.Value = '' then
-//    songdir.Value := utf8decode(ordir + 'sound' + directoryseparator + 'record' + directoryseparator + 'record.wav');
+    //  if songdir.Value = '' then
+    //    songdir.Value := utf8decode(ordir + 'sound' + directoryseparator + 'record' + directoryseparator + 'record.wav');
 
-//  recorderfo.historyfn.Value := recorderfo.songdir.Value;
+    //  recorderfo.historyfn.Value := recorderfo.songdir.Value;
 
 end;
 
@@ -832,16 +873,16 @@ end;
 
 procedure trecorderfo.dorecorderstart(const Sender: TObject);
 var
-i : integer;
+  i: integer;
 begin
   // if (bsavetofile.value = True) or (blistenin.value = True) then begin
-  
+
   uos_Stop(therecplayer); // done by  uos_CreatePlayer() but faster if already done before (no check)
 
   if uos_CreatePlayer(therecplayer) then
   begin
-    cbloop.Enabled := False;
-    isrecording := True;
+    cbloop.Enabled   := False;
+    isrecording      := True;
     tbutton2.Enabled := True;
     tbutton3.Enabled := False;
     btnStart.Enabled := False;
@@ -851,23 +892,22 @@ begin
     lposition.face.template := mainfo.tfaceorange;
 
     //historyfn.font.color := cl_black;
-     recpan.Visible := True;
+    recpan.Visible := True;
 
     recpan.font.color := cl_black;
-       
+
     if bsavetofile.Value then
     begin
-     
-     historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
-   + 'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' 
-   + UTF8Decode(formatdatetime('YY_MM_DD_HH_mm_ss',now)) +'.wav');
-     
-     
-     uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
-     if sentcue1.value = true then songplayerfo.historyfn.Value := historyfn.Value;
-    end;  
 
-    
+      historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' + UTF8Decode(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.wav');
+
+
+      uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
+      if sentcue1.Value = True then
+        songplayerfo.historyfn.Value := historyfn.Value;
+    end;
+
+
     OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
     uos_outputsetenable(therecplayer, OutputIndex3, blistenin.Value);
@@ -903,35 +943,35 @@ begin
     uos_LoopProcIn(therecplayer, InputIndex3, @LoopProcPlayer1);
 
     uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvolr.Value / 100, True);
-    
-     if configfo.speccalc.Value = True then
-            for i := 1 to 10 do
-     uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
 
-       if plugsoundtouch = True then
-      begin
-        PlugInIndex3 := uos_AddPlugin(therecplayer, 'soundtouch', uos_InputGetSampleRate(therecplayer, InputIndex3), -1);
-        ChangePlugSetSoundTouch(self); //// custom procedure to Change plugin settings
-      end;
+    if configfo.speccalc.Value = True then
+      for i := 1 to 10 do
+        uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
+
+    if plugsoundtouch = True then
+    begin
+      PlugInIndex3 := uos_AddPlugin(therecplayer, 'soundtouch', uos_InputGetSampleRate(therecplayer, InputIndex3), -1);
+      ChangePlugSetSoundTouch(self); //// custom procedure to Change plugin settings
+    end;
 
     /////// procedure to execute when stream is terminated
     uos_EndProc(therecplayer, @ClosePlayer1);
     ///// Assign the procedure of object to execute at end
     //////////// PlayerIndex : Index of a existing Player
     //////////// ClosePlayer1 : procedure of object to execute inside the loop
-    
+
     llength.Value := '00:00:00.000';
-    
+
     InitDrawLive();
 
     uos_Play(therecplayer);  /////// everything is ready to play...
 
     bsavetofile.Enabled := False;
-    
-    tbutton2.visible := true;
-    tbutton3.visible := false;
 
-    timenow := now;
+    tbutton2.Visible := True;
+    tbutton3.Visible := False;
+
+    timenow          := now;
     timerrec.Enabled := True;
   end;
 end;
@@ -961,7 +1001,7 @@ begin
     onsliderchange(Sender);
 end;
 
-procedure trecorderfo.onsetvalvol(const Sender: TObject; var avalue: realty; var accept: boolean);
+procedure trecorderfo.onsetvalvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
   if (trealspinedit(Sender).tag = 9) then
   begin
@@ -974,8 +1014,9 @@ begin
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
       if timersent.Enabled then
-  timersent.restart // to reset
- else timersent.Enabled := True;
+        timersent.restart // to reset
+      else
+        timersent.Enabled := True;
       avalue := 2;
     end;
 
@@ -987,9 +1028,10 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-       if timersent.Enabled then
-  timersent.restart // to reset
- else timersent.Enabled := True;
+      if timersent.Enabled then
+        timersent.restart // to reset
+      else
+        timersent.Enabled := True;
       avalue := 0.4;
     end;
   end
@@ -1004,9 +1046,10 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-       if timersent.Enabled then
-  timersent.restart // to reset
- else timersent.Enabled := True;
+      if timersent.Enabled then
+        timersent.restart // to reset
+      else
+        timersent.Enabled := True;
       avalue := 100;
     end;
 
@@ -1018,9 +1061,10 @@ begin
       else
         hintpanel.Width := hintlabel2.Width + 10;
       hintpanel.Visible := True;
-       if timersent.Enabled then
-  timersent.restart // to reset
- else timersent.Enabled := True;
+      if timersent.Enabled then
+        timersent.restart // to reset
+      else
+        timersent.Enabled := True;
       avalue := 0;
     end;
   end;
@@ -1037,45 +1081,45 @@ begin
     else
       hintpanel.Width := hintlabel2.Width + 10;
     hintpanel.Visible := True;
-     if timersent.Enabled then
-  timersent.restart // to reset
- else timersent.Enabled := True;
+    if timersent.Enabled then
+      timersent.restart // to reset
+    else
+      timersent.Enabled := True;
     atext := '100';
   end;
 end;
 
-procedure trecorderfo.oncreated(const sender: TObject);
+procedure trecorderfo.oncreated(const Sender: TObject);
 begin
-if devin < 0 then
+  if devin < 0 then
   begin
-  tbutton3.enabled := false;
-  btnStart.enabled := false;
-  btinfos.enabled := false;
+    tbutton3.Enabled := False;
+    btnStart.Enabled := False;
+    btinfos.Enabled  := False;
   end;
 end;
 
-procedure trecorderfo.onex(const sender: TObject);
+procedure trecorderfo.onex(const Sender: TObject);
 begin
-   tfiledialog1.controller.basedir  :=
-   utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
-   + 'sound' + directoryseparator + 'record'  + directoryseparator);
-   
-    tfiledialog1.controller.filename  :=
-   utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))
-   + 'sound' + directoryseparator + 'record'  + directoryseparator);
-   
-  tfiledialog1.controller.captionopen  := 'Open Audio File';
-  tfiledialog1.controller.fontcolor := cl_black;
-   tfiledialog1.controller.filter  := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
- 
-if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
-    begin
-    historyfn.Value :=tfiledialog1.controller.filename;
-      historyfn.dropdown.history :=
+  tfiledialog1.controller.basedir :=
+    utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'sound' + directoryseparator + 'record' + directoryseparator);
+
+  tfiledialog1.controller.filename :=
+    utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'sound' + directoryseparator + 'record' + directoryseparator);
+
+  tfiledialog1.controller.captionopen := 'Open Audio File';
+  tfiledialog1.controller.fontcolor   := cl_black;
+  tfiledialog1.controller.filter      := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+
+  if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
+  begin
+    historyfn.Value := tfiledialog1.controller.filename;
+    historyfn.dropdown.history :=
       tfiledialog1.controller.history;
-    end;
-  
+  end;
+
 end;
 
 
 end.
+

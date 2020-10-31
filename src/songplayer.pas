@@ -841,8 +841,7 @@ if ((commanderfo.vuin.Value = True) and (Visible = True)) or
   lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
   
    multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
-           
- 
+  
     if (commanderfo.vuin.Value = True) and (Visible = True) then
       ShowLevel(nil,ll1,lr1,ll2,lr2);
       
