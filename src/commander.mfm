@@ -1784,8 +1784,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 315
-    top = 20
+    left = 271
+    top = 11
   end
   object timagelist2: timagelist
     width = 4

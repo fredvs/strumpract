@@ -186,8 +186,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=588
- y=496
+ x=775
+ y=257
  cx=300
  cy=269
 replacedialog=33
@@ -820,21 +820,30 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=4
+modulenames=7
+ COMMANDERFO
  IMAGEDANCERFO
  MAINFO
  RECORDERFO
  SONGPLAYERFO
-moduletypes=4
+ SPECTRUM1FO
+ WAVEFO
+moduletypes=7
+ TCOMMANDERFO
  TIMAGEDANCERFO
  TMAINFO
  TRECORDERFO
  TSONGPLAYERFO
-modulefiles=4
+ TSPECTRUM1FO
+ TWAVEFO
+modulefiles=7
+ /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/imagedancer.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/spectrum1.mfm
+ /home/fred/strumpract/src/waveform.mfm
 befcommandon=0
 makeoptionson=12
  4095
@@ -1200,7 +1209,7 @@ line=35
  5714
  1470
  46
- 1492
+ 1457
  335
  319
  537
@@ -1208,18 +1217,18 @@ line=35
  773
  785
  701
- 1564
+ 1529
  209
  1136
- 3071
+ 3080
  431
  5
  752
  1517
  162
- 1496
+ 1461
  356
- 1677
+ 1636
 address=35
  4603313
  7398231
@@ -1597,8 +1606,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=onrenderexe
-findhistory=12
+finddtext=wavefo.tmainmenu1
+findhistory=13
+ wavefo.tmainmenu1
  onrenderexe
  loopproc
  imagedan
@@ -1612,36 +1622,51 @@ findhistory=12
  isbuzy
  if typecolor
 findoptions=1
-editpos=5
- 0,-1073741823
+editpos=8
  0,0
- 0,886
- 53,167
- 0,776
+ 0,2208
+ 0,745
+ 0,-1073741823
+ 0,-1073741823
+ 0,4
+ 0,4
+ 0,615
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-sourcefiles=5
+bookmarks5=0
+bookmarks6=0
+bookmarks7=0
+sourcefiles=8
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/imagedancer.pas
-relpaths=5
+ ${PROJECTDIR}/spectrum1.pas
+ ${PROJECTDIR}/waveform.pas
+ ${PROJECTDIR}/commander.pas
+relpaths=8
  strumpract.pas
  main.pas
  songplayer.pas
  recorder.pas
  imagedancer.pas
-ismoduletexts=5
+ spectrum1.pas
+ waveform.pas
+ commander.pas
+ismoduletexts=8
  0
  0
  0
  0
  0
-modules=7
+ 0
+ 0
+ 0
+modules=9
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1649,7 +1674,9 @@ modules=7
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/imagedancer.mfm
-moduleoptions=7
+ /home/fred/strumpract/src/spectrum1.mfm
+ /home/fred/strumpract/src/waveform.mfm
+moduleoptions=9
  0
  0
  0
@@ -1657,33 +1684,42 @@ moduleoptions=7
  0
  0
  0
-visiblemodules=7
- -1
  0
  0
- -1
- 0
- -1
- -1
-nomenumodules=7
- 0
+visiblemodules=9
  -1
  -1
  0
  -1
+ 0
+ -1
+ -1
+ -1
+ -1
+nomenumodules=9
+ 0
+ 0
+ -1
+ 0
+ -1
+ 0
+ 0
  0
  0
 [sourcefo.files_tab]
-order=5
+order=8
+ 3
+ 1
+ 7
+ 0
+ 5
+ 6
  2
  4
- 3
- 0
- 1
 firsttab=0
-index=2
+index=6
 [layout]
-windowlayout=704
+windowlayout=745
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1828,7 +1864,7 @@ windowlayout=704
  sortdescend1=0
  sorted=0
  col=0
- row=6
+ row=1
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2164,8 +2200,10 @@ windowlayout=704
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/recorder.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=20
+  /home/fred/strumpract/src/strumpract.pas
+  /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/mseide-msegui/lib/common/sysutils/mseprocutils.pas
@@ -2184,8 +2222,6 @@ windowlayout=704
   /home/fred/mseide-msegui/lib/common/opengl/mseopengl.pas
   /home/fred/ideu/src/ideusettings.pas
   /home/fred/strumpract/src/randomnote.pas
-  /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/main.pas
-  /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/opengl.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2207,14 +2243,17 @@ windowlayout=704
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=5
+ order=8
+  3
+  1
+  7
+  0
+  5
+  6
   2
   4
-  3
-  0
-  1
  firsttab=0
- index=2
+ index=6
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2258,7 +2297,7 @@ windowlayout=704
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2277,7 +2316,7 @@ windowlayout=704
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2292,11 +2331,11 @@ windowlayout=704
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2315,7 +2354,7 @@ windowlayout=704
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2353,7 +2392,7 @@ windowlayout=704
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2372,7 +2411,7 @@ windowlayout=704
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2383,6 +2422,44 @@ windowlayout=704
  y=251
  cx=456
  cy=354
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_spectrum1fo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_wavefo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=78
+ y=103
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_wavefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=347
+ y=305
+ cx=452
+ cy=110
  rcx=0
  rcy=0
  wsize=0

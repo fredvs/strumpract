@@ -1703,6 +1703,8 @@ begin
     tmainmenu1.menu.colorglyphactive := cl_black;
     wavefo.tmainmenu1.menu.colorglyph := cl_black;
     wavefo.tmainmenu1.menu.colorglyphactive := cl_black;
+    waveforec.tmainmenu1.menu.colorglyph := cl_black;
+    waveforec.tmainmenu1.menu.colorglyphactive := cl_black;
     wavefo2.tmainmenu1.menu.colorglyph := cl_black;
     wavefo2.tmainmenu1.menu.colorglyphactive := cl_black;
     randomnotefo.color := $DED9D1;
@@ -2209,6 +2211,10 @@ begin
     wavefo.tmainmenu1.menu.colorglyphactive := cl_black;
     wavefo2.tmainmenu1.menu.colorglyph := cl_black;
     wavefo2.tmainmenu1.menu.colorglyphactive := cl_black;
+    
+    waveforec.tmainmenu1.menu.colorglyph := cl_black;
+    waveforec.tmainmenu1.menu.colorglyphactive := cl_black;
+
 
     randomnotefo.color         := cl_ltgray;
     tmainmenu1.menu.font.color := cl_black;
@@ -2717,6 +2723,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     wavefo.tmainmenu1.menu.colorglyphactive := cl_white;
     wavefo2.tmainmenu1.menu.colorglyph := cl_white;
     wavefo2.tmainmenu1.menu.colorglyphactive := cl_white;
+    waveforec.tmainmenu1.menu.colorglyph := cl_white;
+    waveforec.tmainmenu1.menu.colorglyphactive := cl_white;
+   
     randomnotefo.tstringdisp1.font.color := cl_white;
     randomnotefo.bchord1.font.color := cl_white;
     randomnotefo.bchord2.font.color := cl_white;

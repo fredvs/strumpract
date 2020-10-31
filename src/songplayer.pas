@@ -54,7 +54,6 @@ type
   tsongplayerfo = class(tdockform)
     Timerwait: Ttimer;
     Timersent: Ttimer;
-
     tgroupbox1: tgroupbox;
     edvolleft: trealspinedit;
     edtempo: trealspinedit;
@@ -69,7 +68,6 @@ type
     edvolright: trealspinedit;
     tfaceslider: tfacecomp;
     btinfos: TButton;
-
     tfacebuttonslider: tfacecomp;
     tfacegreen: tfacecomp;
     waveformcheck: tbooleanedit;
@@ -97,11 +95,9 @@ type
     procedure doplayerstop(const Sender: TObject);
     procedure ClosePlayer1();
     procedure showposition(const Sender: TObject);
-    procedure showlevel(const Sender: TObject; const l1, r1, l2, r2  : double);
+    procedure showlevel(const Sender: TObject; const l1, r1, l2, r2: double);
     procedure LoopProcPlayer1();
-
     procedure oninfowav(const Sender: TObject);
-
     procedure onwavform(const Sender: TObject);
     procedure onreset(const Sender: TObject);
     procedure changevolume(const Sender: TObject);
@@ -124,23 +120,19 @@ type
     procedure DrawWaveForm();
     procedure FormDrawWaveForm();
     procedure changereverse(const Sender: TObject);
-
     procedure ChangeStereo2Mono(const Sender: TObject);
     procedure ShowSpectrum(const Sender: TObject);
-
     procedure resetspectrum();
-
     procedure onchachewav(const Sender: TObject);
     procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure ongetbpm(const Sender: TObject);
-
     procedure ontimerwaveform(const Sender: TObject);
     procedure opendir(const Sender: TObject);
+
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
-
   end;
 
   equalizer_band_type = record
@@ -161,15 +153,11 @@ var
   theplayer: integer = 20;
   theplayerinfo: integer = 21;
   theplaying1: string = '';
-
   theplayer2: integer = 22;
   theplayerinfo2: integer = 23;
-
   theplayerinfoform: integer = 26;
   theplayerinfoform2: integer = 27;
-
   theplaying2: string = '';
-
   iscue1: Boolean = False;
   hasmixed1: Boolean = False;
   hasfocused1: Boolean = False;
@@ -177,34 +165,24 @@ var
   plugindex1, PluginIndex2: integer;
   Inputindex1, DSPIndex1, DSPIndex11, Outputindex1, Inputlength1: integer;
   poswav1, chan1: integer;
-
   waveformdata1: array of cfloat;
   waveformdata2: array of cfloat;
-
   waveformdataform1: array of cfloat;
   waveformdataform2: array of cfloat;
-
   buzywaveform1: Boolean = False;
   buzywaveform2: Boolean = False;
-
   initwaveform1: Boolean = False;
   initwaveform2: Boolean = False;
-
   hascue: Boolean = False;
   hascue2: Boolean = False;
-
   totsec1: integer = 0;
   totsec2: integer = 0;
-
   tottime1: ttime;
   tottime2: ttime;
-
   DrawWaveFormbusy1: Boolean = False;
   DrawWaveFormbusy2: Boolean = False;
-
   FormDrawWaveFormbusy1: Boolean = False;
   FormDrawWaveFormbusy2: Boolean = False;
-
   iscue2: Boolean = False;
   iswav2: Boolean = False;
   hasmixed2: Boolean = False;
@@ -212,7 +190,6 @@ var
   plugindex2, PluginIndex3: integer;
   Inputindex2, DSPIndex2, DSPIndex22, Outputindex2, Inputlength2: integer;
   poswav2, chan2: integer;
-
 
 implementation
 
@@ -357,7 +334,6 @@ begin
       end;
     end;
 
-
     if (cbloop.Value = False) and (iscue1 = False) then
       btnPause.Enabled := True
     else
@@ -380,7 +356,6 @@ begin
     trackbar1.Enabled        := True;
     wavefo.trackbar1.Enabled := True;
   end;
-
 
   if Caption = 'Player 2' then
   begin
@@ -412,7 +387,6 @@ begin
       end;
     end;
 
-
     if (cbloop.Value = False) and (iscue2 = False) then
       btnPause.Enabled := True
     else
@@ -435,9 +409,7 @@ begin
     trackbar1.Enabled := True;
     wavefo2.trackbar1.Enabled := True;
   end;
-
 end;
-
 
 procedure tsongplayerfo.ChangePlugSetSoundTouch(const Sender: TObject);
 begin
@@ -685,46 +657,45 @@ begin
 
 end;
 
-procedure tsongplayerfo.showlevel(const Sender: TObject; const l1, r1, l2, r2 : double);
-  
+procedure tsongplayerfo.showlevel(const Sender: TObject; const l1, r1, l2, r2: double);
 begin
 
   if (Caption = 'Player 1') then
-    begin
+  begin
     if (l1 >= 0) and (l1 <= 1) then
     begin
-     vuLeft.Value := l1;
+      vuLeft.Value := l1;
       if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
         commanderfo.vuLeft.Value := l1;
-    end;  
-    
+    end;
+
     if (r1 >= 0) and (r1 <= 1) then
     begin
-     vuright.Value := r1;
+      vuright.Value := r1;
       if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
         commanderfo.vuright.Value := r1;
-    end;    
-     
-    end; 
-    
+    end;
+
+  end;
+
   if Caption = 'Player 2' then
-    begin
+  begin
     if (l2 >= 0) and (l2 <= 1) then
     begin
-     vuLeft.Value := l2;
+      vuLeft.Value := l2;
       if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
         commanderfo.vuLeft2.Value := l2;
-    end;  
-    
+    end;
+
     if (r2 >= 0) and (r2 <= 1) then
     begin
-     vuright.Value := l2;
+      vuright.Value := l2;
       if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
         commanderfo.vuright2.Value := r2;
-    end;    
-     
-    end;       
-   
+    end;
+
+  end;
+
 end;
 
 procedure tsongplayerfo.ShowPosition(const Sender: TObject);
@@ -827,46 +798,43 @@ begin
   if (commanderfo.timermix.Enabled = False) or
     ((commanderfo.timermix.Enabled = True) and (configfo.guimix.Value = False)) then
   begin
-    
+
     if (Visible = True) then
       ShowPosition(nil);
 
-if ((commanderfo.vuin.Value = True) and (Visible = True)) or 
- ((imagedancerfo.Visible = True))
- then
- begin
-  ll1 := uos_InputGetLevelLeft(theplayer, Inputindex1);
-  lr1 := uos_InputGetLevelright(theplayer, Inputindex1);
-  ll2 := uos_InputGetLevelLeft(theplayer2, Inputindex2);
-  lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
-  
-   multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
-  
-    if (commanderfo.vuin.Value = True) and (Visible = True) then
-      ShowLevel(nil,ll1,lr1,ll2,lr2);
-      
-     if (imagedancerfo.Visible = True) and (isbuzy = false) and 
-    (imagedancerfo.openglwidget.visible = false) then
-            begin 
-            //  multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
-            if dancernum = 4 then 
-            begin
-            inc(TimerTicinterval);
-             if TimerTicinterval = 3 then
-            begin 
-             inc(TimerTic);  
-             TimerTicinterval := 0;
-            end; 
-            end;
-            
-             if (dancernum = 5) or (dancernum = 6) or (dancernum = 7) then 
-            begin
-            inc(TimerTic);  
-            end; 
-          
-            RTLeventSetEvent(evPauseimage); // to resume 
-             
-           end;
+    if ((commanderfo.vuin.Value = True) and (Visible = True)) or
+      ((imagedancerfo.Visible = True)) then
+    begin
+      ll1 := uos_InputGetLevelLeft(theplayer, Inputindex1);
+      lr1 := uos_InputGetLevelright(theplayer, Inputindex1);
+      ll2 := uos_InputGetLevelLeft(theplayer2, Inputindex2);
+      lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
+
+      multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
+
+      if (commanderfo.vuin.Value = True) and (Visible = True) then
+        ShowLevel(nil, ll1, lr1, ll2, lr2);
+
+      if (imagedancerfo.Visible = True) and (isbuzy = False) and
+        (imagedancerfo.openglwidget.Visible = False) then
+      begin
+        //  multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
+        if dancernum = 4 then
+        begin
+          Inc(TimerTicinterval);
+          if TimerTicinterval = 3 then
+          begin
+            Inc(TimerTic);
+            TimerTicinterval := 0;
+          end;
+        end;
+
+        if (dancernum = 5) or (dancernum = 6) or (dancernum = 7) then
+          Inc(TimerTic);
+
+        RTLeventSetEvent(evPauseimage); // to resume 
+
+      end;
     end;
 
     if Caption = 'Player 1' then
@@ -875,7 +843,7 @@ if ((commanderfo.vuin.Value = True) and (Visible = True)) or
         ShowSpectrum(nil);
 
     if Caption = 'Player 2' then
-      if (spectrum2fo.spect1.Value = True) and (spectrum2fo.Visible = True) and 
+      if (spectrum2fo.spect1.Value = True) and (spectrum2fo.Visible = True) and
         (configfo.speccalc.Value = True) then
         ShowSpectrum(nil);
   end;
@@ -899,9 +867,6 @@ begin
       if fileexists(historyfn.Value) then
       begin
         samformat := 0;
-
-        //  songdir.hint := songdir.value;
-
 
         // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
         // If PlayerIndex exists already, it will be overwritten...
@@ -994,7 +959,6 @@ begin
 
           uos_InputSetDSP(theplayer, Inputindex1, DSPindex1, playreverse.Value);
 
-
           // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
           DSPindex11 := uos_InputAddDSP(theplayer, Inputindex1, nil, @DSPStereo2Mono, nil, nil);
           uos_InputSetDSP(theplayer, Inputindex1, DSPindex11, setmono.Value);
@@ -1033,7 +997,6 @@ begin
           llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
           uos_EndProc(theplayer, @ClosePlayer1);
-
           /// procedure to execute when stream is terminated
           // Assign the procedure of object to execute at end
           // PlayerIndex : Index of a existing Player
@@ -1137,8 +1100,6 @@ begin
             timerwait.Enabled     := True;
           lposition.face.template := mainfo.tfaceplayerrev;
 
-          //  application.ProcessMessages;
-
           hascue := True;
 
           oninfowav(Sender);
@@ -1184,7 +1145,7 @@ begin
 
         // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
         // If PlayerIndex exists already, it will be overwritten...
-         uos_Stop(theplayer2); // done by  uos_CreatePlayer() but faster if already done before (no check)
+        uos_Stop(theplayer2); // done by  uos_CreatePlayer() but faster if already done before (no check)
 
         if uos_CreatePlayer(theplayer2) then
           // Create the player.
@@ -1280,7 +1241,7 @@ begin
           if configfo.speccalc.Value = True then
             for i := 1 to 10 do
               uos_InputAddFilter(theplayer2, Inputindex2, Equalizer_Bands[i].lo_freq,
-               Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
+                Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
 
 
 {
@@ -1299,7 +1260,7 @@ begin
           if plugsoundtouch = True then
           begin
             PluginIndex3 := uos_AddPlugin(theplayer2, 'soundtouch',
-             uos_InputGetSampleRate(theplayer2, Inputindex2), -1);
+              uos_InputGetSampleRate(theplayer2, Inputindex2), -1);
             ChangePlugSetSoundTouch(self); // custom procedure to Change plugin settings
           end;
 
@@ -1354,7 +1315,7 @@ begin
           if Sender <> nil then
           begin
             if (TButton(Sender).tag = 0) or (TButton(Sender).tag = 2) or
-             (TButton(Sender).tag = 4) then
+              (TButton(Sender).tag = 4) then
               hassent := 0;
             if (TButton(Sender).tag = 1) or (TButton(Sender).tag = 5) then
               hassent := 1;
@@ -1572,11 +1533,6 @@ end;
 procedure tsongplayerfo.changevolume(const Sender: TObject);
 begin
 
-  //if edvolleft.Value := '' then edvolleft.Value := 0;
-  //if edvolright.Value := '' then edvolright.Value := 0;
-
-  // if edvolleft.value > 100 then edvolleft.value := 100;
-
   if hasinit = 1 then
   begin
     if (trealspinedit(Sender).tag = 0) then
@@ -1635,7 +1591,6 @@ begin
 
         poswav.x := 6;
         poswav.y := (trackbar1.Height div 2) - 2;
-
 
         poswav2.x := 6;
         //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdata1[poswav.x * 2]) * ((trackbar1.Height div 2) - 3));
@@ -1731,11 +1686,8 @@ begin
           ;
           Inc(poswav.x, 1);
         end;
-
       end;
-
   end;
-
 end;
 
 
@@ -1751,7 +1703,6 @@ begin
 
       poswav.x := 6;
       poswav.y := (wavefo.trackbar1.Height div 2) - 2;
-
 
       poswav2.x := 6;
 
@@ -1802,7 +1753,6 @@ begin
 
       poswav.x := 6;
       poswav.y := (wavefo2.trackbar1.Height div 2) - 2;
-
 
       poswav2.x := 6;
       //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform2[poswav.x * 2]) * ((wavefo2.trackbar1.Height div 2) - 3));
@@ -1870,7 +1820,6 @@ end;
 
 procedure tsongplayerfo.GetWaveDataform();
 begin
-
   if Caption = 'Player 1' then
 
     if as_checked in wavefo.tmainmenu1.menu[0].state then
@@ -1916,9 +1865,6 @@ begin
     //  writeln(inttostr(length(waveformdata1)));
     rect1.pos  := nullpoint;
     rect1.size := trackbar1.paintsize;
-
-    // application.processmessages;
-
 
     with sliderimage.bitmap do
     begin
@@ -1998,23 +1944,11 @@ begin
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
 
-      //   if initwaveform1 = False then
-      //   thebuffer := uos_File2Buffer(pchar(historyfn.Value), 0, thebufferinfos, -1, -1);
-
-      // initwaveform1 := true;
-
-      //  ttimer1.enabled := true;
-
-      //{
-
       uos_Stop(theplayerinfoform);
       if uos_CreatePlayer(theplayerinfoform) then
         // Create the player.
         // PlayerIndex : from 0 to what your computer can do !
         // If PlayerIndex exists already, it will be overwriten...
-
-        //  if uos_AddFromMemoryBuffer(theplayerinfoform,thebuffer,thebufferinfos, -1, 1024)> -1 then
-
 
         if uos_AddFromFile(theplayerinfoform, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
         begin
@@ -2046,8 +1980,6 @@ begin
           uos_Play(theplayerinfoform);  /// everything is ready, here we are, lets do it...
 
         end;
-
-      //   }
     end;
 
   if (Caption = 'Player 2') and (as_checked in wavefo2.tmainmenu1.menu[0].state) and (buzywaveform2 = False) then
@@ -2056,19 +1988,12 @@ begin
 
       uos_Stop(theplayerinfoform2);
 
-      //  if initwaveform2 = False then
-
-      //  thebuffer2 := uos_File2Buffer(pchar(historyfn.Value), 0, thebufferinfos2, -1, -1);
-
       initwaveform2 := True;
-
 
       if uos_CreatePlayer(theplayerinfoform2) then
         // Create the player.
         // PlayerIndex : from 0 to what your computer can do !
         // If PlayerIndex exists already, it will be overwriten...
-
-        //  if uos_AddFromMemoryBuffer(theplayerinfoform2,thebuffer2,thebufferinfos2, -1, 1024)> -1 then
 
         if uos_AddFromFile(theplayerinfoform2, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
         begin
@@ -2100,12 +2025,7 @@ begin
 
         end;
     end;
-
 end;
-
-
-//
-
 
 procedure tsongplayerfo.oninfowav(const Sender: TObject);
 var
@@ -2214,7 +2134,6 @@ begin
               infosfo.Show(True);
             end
             else
-
             if (waveformcheck.Value = True) and (iswav = False) then
             begin
 
@@ -2304,7 +2223,6 @@ begin
               infosfo.inforate.Caption   := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(theplayerinfo2, 0)));
               infosfo.infochan.Caption   := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(theplayerinfo2, 0)));
 
-
               uos_play(theplayerinfo2);
               uos_Stop(theplayerinfo2);
 
@@ -2350,7 +2268,6 @@ begin
               infosfo.Show(True);
             end
             else
-
             if (waveformcheck.Value = True) and (iswav2 = False) then
             begin
 
@@ -2486,10 +2403,10 @@ begin
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
-   if historyfn.value = '' then
-  historyfn.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.ogg';
+  if historyfn.Value = '' then
+    historyfn.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg';
 
- end;
+end;
 
 procedure tsongplayerfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
@@ -2516,7 +2433,7 @@ procedure tsongplayerfo.ondestr(const Sender: TObject);
 begin
   uos_Stop(theplayer);
   uos_Stop(theplayer2);
-  statusanim := 0;
+  statusanim        := 0;
   Timerwait.Enabled := False;
   Timerwait.Enabled := False;
   Timerwait.Free;
@@ -2812,7 +2729,6 @@ begin
         end;
       end;
     end;
-
 end;
 
 procedure tsongplayerfo.ontimerwaveform(const Sender: TObject);
@@ -2822,23 +2738,21 @@ end;
 
 procedure tsongplayerfo.opendir(const Sender: TObject);
 begin
-   tfiledialog1.controller.captionopen := 'Open Audio File';
-  tfiledialog1.controller.filter := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
-  tfiledialog1.controller.fontcolor := cl_black;
-   if mainfo.typecolor.Value = 2 then
-   tfiledialog1.controller.backcolor := $A6A6A6
+  tfiledialog1.controller.captionopen := 'Open Audio File';
+  tfiledialog1.controller.filter      := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+  tfiledialog1.controller.fontcolor   := cl_black;
+  if mainfo.typecolor.Value = 2 then
+    tfiledialog1.controller.backcolor := $A6A6A6
   else
-   tfiledialog1.controller.backcolor := cl_default;
- 
+    tfiledialog1.controller.backcolor := cl_default;
+
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
   begin
     historyfn.Value := tfiledialog1.controller.filename;
     historyfn.dropdown.history :=
       tfiledialog1.controller.history;
   end;
-  
 end;
-
 
 end.
 
