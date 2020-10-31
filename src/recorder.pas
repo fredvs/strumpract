@@ -408,8 +408,6 @@ begin
       // OutputIndex3 := uos_AddIntoDevOut(PlayerIndex3) ;
       //// add a Output into device with default parameters
 
-
-
       OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
         uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024, -1);
 
@@ -570,14 +568,15 @@ begin
 end;
 
 procedure trecorderfo.doplayerstop(const Sender: TObject);
-begin
+begin 
+  cbloop.Enabled := true;
   uos_Stop(therecplayer);
 end;
 
 procedure trecorderfo.changevolume(const Sender: TObject);
 begin
   uos_InputSetDSPVolume(therecplayer, InputIndex3,
-    edvol.Value / 100, edvolr.Value / 100, True);
+  edvol.Value / 100, edvolr.Value / 100, True);
 end;
 
 procedure trecorderfo.onreset(const Sender: TObject);
@@ -836,11 +835,12 @@ var
 i : integer;
 begin
   // if (bsavetofile.value = True) or (blistenin.value = True) then begin
-
+  
   uos_Stop(therecplayer); // done by  uos_CreatePlayer() but faster if already done before (no check)
 
   if uos_CreatePlayer(therecplayer) then
   begin
+    cbloop.Enabled := False;
     isrecording := True;
     tbutton2.Enabled := True;
     tbutton3.Enabled := False;
@@ -908,6 +908,11 @@ begin
             for i := 1 to 10 do
      uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
 
+       if plugsoundtouch = True then
+      begin
+        PlugInIndex3 := uos_AddPlugin(therecplayer, 'soundtouch', uos_InputGetSampleRate(therecplayer, InputIndex3), -1);
+        ChangePlugSetSoundTouch(self); //// custom procedure to Change plugin settings
+      end;
 
     /////// procedure to execute when stream is terminated
     uos_EndProc(therecplayer, @ClosePlayer1);

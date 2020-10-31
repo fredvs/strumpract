@@ -382,7 +382,7 @@ object recorderfo: trecorderfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Strch'
+      frame.caption = 'Strech'
       frame.captionpos = cp_left
       frame.captiondist = 3
       frame.font.color = 2368548
@@ -392,7 +392,7 @@ object recorderfo: trecorderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        34
+        41
         2
         0
         2
@@ -401,9 +401,9 @@ object recorderfo: trecorderfo
       face.template = tfacereclight
       taborder = 9
       hint = ' Enable stretching (changing temo) '
-      bounds_x = 317
+      bounds_x = 312
       bounds_y = 31
-      bounds_cx = 47
+      bounds_cx = 54
       bounds_cy = 16
       onchange = ChangePlugSetSoundTouch
     end
@@ -809,8 +809,8 @@ object recorderfo: trecorderfo
       face.template = mainfo.tfaceorange
       taborder = 22
       visible = False
-      bounds_x = 143
-      bounds_y = 54
+      bounds_x = 139
+      bounds_y = 60
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

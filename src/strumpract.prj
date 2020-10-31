@@ -86,7 +86,7 @@ order17=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
-findinfiledialog=93
+findinfiledialog=94
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -113,7 +113,7 @@ findinfiledialog=93
  filenamescust=1
   /home/fred/mseide-msegui/
  filenames=1
-  /usr/local/codetyphon/CodeOcean/
+  /home/fred/freepascal-ootb_322test/
  filecolwidth=150
  x=432
  y=215
@@ -129,12 +129,13 @@ findinfiledialog=93
  coldatewidth=126
  splitterplaces=236
  splitterlateral=126
- filehistory=19
+ filehistory=20
+  /home/fred/freepascal-ootb_322test/
+  /home/fred/mseide-msegui/
   /usr/local/codetyphon/CodeOcean/
   /home/fred/mseuniverse/
   /usr/local/codetyphon/
   /home/fred/bgrabitmap/
-  /home/fred/mseide-msegui/
   /home/fred/uos/src/
   /home/fred/aatest/
   /home/fred/msefiledialogx/
@@ -152,8 +153,14 @@ findinfiledialog=93
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=opengl
+ value=XkbForceBell
  history=20
+  XkbForceBell
+  xbell
+  guii_beep
+  loadlibrary
+  psSolid
+  FPCanvas
   opengl
   openglwidget
   CSSDodgerBlue
@@ -168,12 +175,6 @@ findinfiledialog=93
   imagedancer,
   datacols[0]
   datacols[-1]
-  datacols
-  imagedancerfo.dancnum.Value
-  queueasynccall
-  canvas
-  thread
-  tfiledialog
  [findinfileadialogfo]
  stackedunder=
  x=635
@@ -185,8 +186,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=743
- y=343
+ x=588
+ y=496
  cx=300
  cy=269
 replacedialog=33
@@ -319,7 +320,7 @@ options=114
  sortdescend1=0
  [projectoptionsfo.ttabwidget1]
  firsttab=0
- index=1
+ index=0
  [projectoptionsfo.filefiltergrid]
  propcolwidthref=734
  width0=112
@@ -819,25 +820,16 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=4
- COMMANDERFO
- IMAGEDANCERFO
+modulenames=1
  MAINFO
- SONGPLAYERFO
-moduletypes=4
- TCOMMANDERFO
- TIMAGEDANCERFO
+moduletypes=1
  TMAINFO
- TSONGPLAYERFO
-modulefiles=4
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/imagedancer.mfm
+modulefiles=1
  /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/songplayer.mfm
 befcommandon=0
 makeoptionson=12
  4095
- 0
+ 4
  0
  192
  0
@@ -879,12 +871,12 @@ compilerusedon=29
  0
  0
 debuggerusedon=6
- 3840
+ 3844
  0
  0
  0
  0
- 255
+ 251
 exeusedon=14
  3903
  0
@@ -922,7 +914,7 @@ project_comment=
 aftcommandon=0
 unitdirson=6
  987135
- 983167
+ 983295
  983040
  199872
  197439
@@ -1596,8 +1588,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=dancernum
-findhistory=7
+finddtext=TBGRADefaultBitmap.InternalArc(
+findhistory=9
+ TBGRADefaultBitmap.InternalArc(
+ psSolid
  dancernum
  dancnum
  typecolor.value
@@ -1606,90 +1600,49 @@ findhistory=7
  isbuzy
  if typecolor
 findoptions=1
-editpos=7
- 0,-1073741823
- 0,832
- 0,-1073741823
- 0,0
- 0,-1073741823
+editpos=2
  0,-1073741823
  0,0
 bookmarks0=0
 bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-sourcefiles=7
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/commander.pas
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/imagedancer.pas
- ${PROJECTDIR}/songplayer.pas
-relpaths=7
- main.pas
- songplayer.pas
- commander.pas
+ ${PROJECTDIR}/main.pas
+relpaths=2
  strumpract.pas
- filelistform.pas
- imagedancer.pas
- songplayer.pas
-ismoduletexts=7
+ main.pas
+ismoduletexts=2
  0
  0
- 0
- 0
- 0
- 0
- 0
-modules=7
+modules=5
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
- /home/fred/strumpract/src/imagedancer.mfm
- /home/fred/strumpract/src/songplayer.mfm
-moduleoptions=7
+moduleoptions=5
  0
  0
  0
  0
  0
- 0
- 0
-visiblemodules=7
+visiblemodules=5
  -1
  0
  0
  0
  0
- -1
- -1
-nomenumodules=7
- 0
+nomenumodules=5
  0
  -1
  -1
  -1
- 0
- 0
+ -1
 [sourcefo.files_tab]
-order=7
- 0
- 5
- 6
- 8
- 2
- 3
- 4
 firsttab=0
-index=3
+index=1
 [layout]
-windowlayout=706
+windowlayout=660
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1823,7 +1776,7 @@ windowlayout=706
  x=0
  y=0
  cx=205
- cy=519
+ cy=525
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1834,7 +1787,7 @@ windowlayout=706
  sortdescend1=0
  sorted=0
  col=0
- row=14
+ row=8
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1873,14 +1826,14 @@ windowlayout=706
  active=0
  visible=0
  [watchpointsfo.grid]
- propcolwidthref=352
+ propcolwidthref=332
  sortdescend0=0
  values1=0
  values1_ci=-1
  width1=33
  sortdescend1=0
  values2=0
- width2=158
+ width2=149
  sortdescend2=0
  width4=34
  sortdescend4=0
@@ -1889,7 +1842,7 @@ windowlayout=706
  width5=38
  sortdescend5=0
  values6=0
- width6=184
+ width6=172
  sortdescend6=0
  [breakpointsfo]
  splitdir=0
@@ -1980,7 +1933,7 @@ windowlayout=706
  rcx=1262
  rcy=583
  [watchfo.grid]
- propcolwidthref=111
+ propcolwidthref=121
  values0=0
  values0_ci=-1
  sortdescend0=0
@@ -2009,9 +1962,9 @@ windowlayout=706
  ncx=0
  ncy=0
  x=0
- y=582
+ y=581
  cx=1348
- cy=107
+ cy=108
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2144,7 +2097,7 @@ windowlayout=706
  x=0
  y=0
  cx=1348
- cy=57
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2155,12 +2108,12 @@ windowlayout=706
  mdistate=0
  nx=0
  ny=0
- ncx=1348
- ncy=8
+ ncx=1333
+ ncy=0
  x=0
  y=0
  cx=1348
- cy=8
+ cy=-2
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2170,16 +2123,16 @@ windowlayout=706
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/usr/local/codetyphon/CodeOcean/pl_BGRAbitmap/samples/bgralape/bgralapesys.pas
+ value=/home/fred/strumpract/src/main.pas
  history=20
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/songplayer.pas
-  /usr/local/codetyphon/fpcsrc/rtl/win/wininc/defines.inc
-  /home/fred/strumpract/src/dockpanel1.pas
-  /home/fred/strumpract/src/waveform.pas
+  /home/fred/mseide-msegui/lib/common/sysutils/mseprocutils.pas
+  /home/fred/strumpract/src/imagedancer.pas
+  /home/fred/mseide-msegui/lib/common/kernel/linux/cwstring.pas
+  /home/fred/bgrabitmap/bgradefaultbitmap.pas
+  /home/fred/bgrabitmap/bgraanimatedgif.pas
+  /home/fred/strumpract/src/define.inc
   /home/fred/uos/examples/uos_flat.pas
   /home/fred/Downloads/lazpaint-dev-lazpaint/lazpaint/umainformlayout.pas
   /home/fred/strumpract/src/config.pas
@@ -2209,20 +2162,12 @@ windowlayout=706
  x=208
  y=0
  cx=1140
- cy=519
+ cy=525
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=7
-  0
-  5
-  6
-  8
-  2
-  3
-  4
  firsttab=0
- index=3
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2258,15 +2203,15 @@ windowlayout=706
  ncx=0
  ncy=0
  x=0
- y=60
+ y=53
  cx=1348
- cy=519
+ cy=525
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2358,44 +2303,6 @@ windowlayout=706
  wsize=0
  active=0
  visible=0
- [_mse_imagedancerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=403
- y=251
- cx=456
- cy=354
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_songplayerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=targetconsolefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=258
- y=219
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
 [targetconsole]
 finddtext=
 findhistory=0
