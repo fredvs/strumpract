@@ -585,13 +585,15 @@ begin
       uos_CreatePlayer(theinput);
       // writeln('ok create');
 
-      OutputIndex4 := uos_AddIntoDevOut(theinput, -1, configfo.latrec.Value, -1, -1, -1, -1, -1);
+      OutputIndex4 := uos_AddIntoDevOut(theinput, configfo.devoutcfg.value, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
       // writeln('OutputIndex4 = ' + inttostr(OutputIndex4));
       // uos_outputsetenable(theinput,OutputIndex4,true);
 
-      InputIndex4 := uos_AddFromDevIn(theinput);
-
+     // InputIndex4 := uos_AddFromDevIn(theinput);
+      
+      InputIndex4 :=  uos_AddFromDevIn(theinput, configfo.devincfg.value, -1, -1, -1, -1, -1, -1);
+ 
       //  writeln('InputIndex4 = ' + inttostr(InputIndex4));
 
       uos_InputAddDSP1ChanTo2Chan(theinput, InputIndex4);

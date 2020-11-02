@@ -453,7 +453,7 @@ begin
       // OutputIndex3 := uos_AddIntoDevOut(PlayerIndex3) ;
       //// add a Output into device with default parameters
 
-      OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
+      OutputIndex3 := uos_AddIntoDevOut(therecplayer,configfo.devoutcfg.value, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
         uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024, -1);
 
       //// add a Output into device with custom parameters
@@ -908,14 +908,14 @@ begin
     end;
 
 
-    OutputIndex3 := uos_AddIntoDevOut(therecplayer, -1, configfo.latrec.Value, -1, -1, -1, -1, -1);
+    OutputIndex3 := uos_AddIntoDevOut(therecplayer, configfo.devoutcfg.value, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
     uos_outputsetenable(therecplayer, OutputIndex3, blistenin.Value);
 
-    InputIndex3 := uos_AddFromDevIn(therecplayer);
+    InputIndex3 :=  uos_AddFromDevIn(therecplayer, configfo.devincfg.value, -1, -1, -1, -1, -1, -1);
     /// add Input from mic/aux into IN device with default parameters
 
-    //    In1Index := uos_AddFromDevIn(0, -1, -1, -1, -1, 1, -1);
+    //    In1Index := uos_AddFromDevIn(therecplayer, configfo.devincfg.value, -1, -1, -1, 1, -1);
     /// add Input from mic/aux into IN device with custom parameters
     //////////// PlayerIndex : Index of a existing Player
     //////////// Device ( -1 is default Input device )

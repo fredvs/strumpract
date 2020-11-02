@@ -890,7 +890,7 @@ begin
         if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
 
           // this for a dummy endless input, must be last input
-          if uos_AddIntoDevOut(i, -1, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then
+          if uos_AddIntoDevOut(i, configfo.devoutcfg.value, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then
 
             begin
 
@@ -970,7 +970,7 @@ begin
               if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
                 // this for a dummy endless input, must be last input
 
-                if uos_AddIntoDevOut(i, -1, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then;
+                if uos_AddIntoDevOut(i, configfo.devoutcfg.value, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then;
 
       end;
   tag := 1;

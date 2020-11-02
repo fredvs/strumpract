@@ -1,20 +1,16 @@
 object configfo: tconfigfo
   visible = False
-  bounds_x = 403
-  bounds_y = 225
-  bounds_cx = 358
-  bounds_cy = 200
-  bounds_cxmin = 358
-  bounds_cymin = 200
-  bounds_cxmax = 358
-  bounds_cymax = 200
+  bounds_x = 157
+  bounds_y = 164
+  bounds_cx = 1000
+  bounds_cy = 540
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
-    358
-    200
+    1000
+    540
   )
   optionswindow = [wo_dialog]
   font.name = 'stf_default'
@@ -112,8 +108,8 @@ object configfo: tconfigfo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 1
-    bounds_x = 10
-    bounds_y = 0
+    bounds_x = 15
+    bounds_y = 5
     bounds_cx = 337
     bounds_cy = 88
     object latrec: trealspinedit
@@ -294,12 +290,9 @@ object configfo: tconfigfo
     end
   end
   object tbutton1: tbutton
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    bounds_x = 141
-    bounds_y = 173
-    bounds_cx = 70
+    bounds_x = 933
+    bounds_y = 11
+    bounds_cx = 51
     bounds_cy = 21
     state = [as_localcaption]
     caption = 'OK'
@@ -307,8 +300,8 @@ object configfo: tconfigfo
   end
   object lsuglat: tlabel
     taborder = 2
-    bounds_x = 8
-    bounds_y = 95
+    bounds_x = 15
+    bounds_y = 100
     bounds_cx = 121
     bounds_cy = 15
     caption = 'Suggested latency: '
@@ -318,7 +311,7 @@ object configfo: tconfigfo
   object speccalc: tbooleanedit
     frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
     frame.colorclient = 15592941
-    frame.caption = 'Enable Spectrum Calculation'
+    frame.caption = 'Spectrum Calculation'
     frame.font.color = 2039583
     frame.font.height = 12
     frame.font.name = 'stf_default'
@@ -329,23 +322,23 @@ object configfo: tconfigfo
     frame.outerframe = (
       0
       0
-      178
+      133
       0
     )
     taborder = 3
     hint = 'Enable Spectrum calculation'
-    bounds_x = 17
-    bounds_y = 144
-    bounds_cx = 194
-    bounds_cy = 17
+    bounds_x = 741
+    bounds_y = 39
+    bounds_cx = 149
+    bounds_cy = 19
     statfile = mainfo.tstatfile1
     colorglyph = 4539717
     value = True
   end
   object defdevin: tlabel
     taborder = 4
-    bounds_x = 11
-    bounds_y = 120
+    bounds_x = 372
+    bounds_y = 36
     bounds_cx = 134
     bounds_cy = 15
     caption = 'Default Device IN = -1'
@@ -353,8 +346,8 @@ object configfo: tconfigfo
   end
   object defdevout: tlabel
     taborder = 5
-    bounds_x = 194
-    bounds_y = 120
+    bounds_x = 546
+    bounds_y = 36
     bounds_cx = 146
     bounds_cy = 15
     caption = 'Default Device OUT = -1'
@@ -363,7 +356,6 @@ object configfo: tconfigfo
   object guimix: tbooleanedit
     color = -2147483645
     frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.colorclient = 16580582
     frame.caption = 'No GUI/mix'
     frame.captiondist = 3
     frame.font.color = 4013373
@@ -374,19 +366,251 @@ object configfo: tconfigfo
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      1
+      0
       73
-      1
+      0
     )
     taborder = 6
     hint = 'No graphic-anim while mixing (if cpu too low) '
-    bounds_x = 243
-    bounds_y = 144
+    bounds_x = 741
+    bounds_y = 64
     bounds_cx = 88
-    bounds_cy = 17
+    bounds_cy = 19
     statfile = mainfo.tstatfile1
     colorglyph = 8026746
     value = True
     valuedefault = True
+  end
+  object tbutton2: tbutton
+    taborder = 7
+    hint = 'Re-load Devices Info'
+    bounds_x = 894
+    bounds_y = 70
+    bounds_cx = 92
+    bounds_cy = 34
+    state = [as_localcaption, as_localhint, as_localonexecute]
+    caption = 'Devices Info'
+    onexecute = oncheckdevices
+  end
+  object infos_grid: tstringgrid
+    frame.localprops = []
+    frame.localprops1 = []
+    taborder = 8
+    bounds_x = 0
+    bounds_y = 123
+    bounds_cx = 1000
+    bounds_cy = 409
+    anchors = [an_top]
+    optionsgrid = [og_colsizing, og_focuscellonenter, og_autofirstrow, og_autoappend, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
+    datacols.count = 13
+    datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+    datacols.items = <    
+      item
+        width = 30
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 218
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 40
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 45
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 48
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 54
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 59
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 82
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 92
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 87
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 85
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 59
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end    
+      item
+        width = 70
+        options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
+        valuefalse = '0'
+        valuetrue = '1'
+      end>
+    fixrows.count = 1
+    fixrows.items = <    
+      item
+        height = 17
+        captions.count = 13
+        captions.items = <        
+          item
+            caption = 'Dev'
+          end        
+          item
+            caption = 'Name'
+          end        
+          item
+            caption = 'DefIn'
+          end        
+          item
+            caption = 'DefOut'
+          end        
+          item
+            caption = 'ChanIn'
+          end        
+          item
+            caption = 'ChanOut'
+          end        
+          item
+            caption = 'SamRate'
+          end        
+          item
+            caption = 'LatHighIn'
+            hint = 'Latency High IN'
+          end        
+          item
+            caption = 'LatHighOut'
+            hint = 'Latency High Out'
+          end        
+          item
+            caption = 'LatLowIn'
+            hint = 'Latency Low In'
+          end        
+          item
+            caption = 'LatLowOut'
+            hint = 'Latency Low Out'
+          end        
+          item
+            caption = 'HostAPI'
+            hint = 'Host API name'
+          end        
+          item
+            caption = 'Dev Type'
+            hint = 'Device Type'
+          end>
+        captionsfix.count = 13
+        captionsfix.items = <        
+          item
+            caption = 'Dev'
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end        
+          item
+          end>
+      end>
+    datarowheight = 17
+    reffontheight = 15
+  end
+  object devincfg: tintegeredit
+    frame.caption = 'Device IN to use: '
+    frame.captionpos = cp_left
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.outerframe = (
+      109
+      0
+      0
+      0
+    )
+    taborder = 9
+    hint = 'Device IN to use'
+    bounds_x = 370
+    bounds_y = 60
+    bounds_cx = 139
+    bounds_cy = 21
+    statfile = mainfo.tstatfile1
+    value = -1
+    valuedefault = -1
+    valuemin = -1
+    reffontheight = 15
+  end
+  object devoutcfg: tintegeredit
+    frame.caption = 'Device OUT to use: '
+    frame.captionpos = cp_left
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.outerframe = (
+      121
+      0
+      0
+      0
+    )
+    taborder = 10
+    hint = 'Device OUT to use'
+    bounds_x = 545
+    bounds_y = 60
+    bounds_cx = 153
+    bounds_cy = 21
+    statfile = mainfo.tstatfile1
+    value = -1
+    valuedefault = -1
+    valuemin = -1
+    reffontheight = 15
   end
 end

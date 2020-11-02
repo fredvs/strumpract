@@ -58,7 +58,7 @@ begin
       if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
 
           {$if defined(cpuarm)}
-        if uos_AddIntoDevOut(TButton(Sender).tag + 9, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+        if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
          {$else}
           if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
          {$endif}
@@ -78,7 +78,7 @@ begin
         if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
 
         {$if defined(cpuarm)}
-          if uos_AddIntoDevOut(TButton(Sender).tag + 9, -1, 0.3, -1, -1, -1, -1,-1) > -1 then
+          if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1,-1) > -1 then
          {$else}
             if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
          {$endif}

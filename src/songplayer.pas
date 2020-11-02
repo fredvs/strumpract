@@ -896,7 +896,7 @@ begin
           if configfo.latplay.Value < 0 then
             configfo.latplay.Value := -1;
 
-          Outputindex1 := uos_AddIntoDevOut(theplayer, -1, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
+          Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
             uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8, -1);
 
           // add a Output into device with custom parameters
@@ -1172,7 +1172,7 @@ begin
           if configfo.latplay.Value < 0 then
             configfo.latplay.Value := -1;
 
-          Outputindex2 := uos_AddIntoDevOut(theplayer2, -1, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
+          Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
             uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 16, -1);
 
           // add a Output into device with custom parameters

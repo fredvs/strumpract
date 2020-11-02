@@ -3225,6 +3225,7 @@ end;
 
 procedure tmainfo.onmenuaudio(const Sender: TObject);
 begin
+  configfo.oncheckdevices(nil);
   configfo.Show(True);
 end;
 

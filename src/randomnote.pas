@@ -177,6 +177,7 @@ implementation
 uses 
 randomnote_mfm, 
 main, 
+config,
 uos_flat, 
 guitars, 
 drums;
@@ -4483,9 +4484,10 @@ begin
 
 
    {$if defined(cpuarm)}
-          if uos_AddIntoDevOut(20, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+          if uos_AddIntoDevOut(20, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
    {$else}
-            if uos_AddIntoDevOut(20) > -1 then
+         if uos_AddIntoDevOut(20, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+
     {$endif}
 
               uos_Play(20);
@@ -4522,9 +4524,9 @@ begin
 
 
    {$if defined(cpuarm)}
-          if uos_AddIntoDevOut(21, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+          if uos_AddIntoDevOut(21, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
    {$else}
-            if uos_AddIntoDevOut(21) > -1 then
+           if uos_AddIntoDevOut(21, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
     {$endif}
 
               uos_Play(21);
@@ -4620,10 +4622,10 @@ begin
 
 
    {$if defined(cpuarm)}
-                if uos_AddIntoDevOut(Timage(Sender).tag + 20, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+                if uos_AddIntoDevOut(Timage(Sender).tag + 20, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
    {$else}
-                  if uos_AddIntoDevOut(Timage(Sender).tag + 20) > -1 then
-    {$endif}
+                 if uos_AddIntoDevOut(Timage(Sender).tag + 20, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+   {$endif}
 
                     uos_Play(Timage(Sender).tag + 20);
 
