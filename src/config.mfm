@@ -108,8 +108,8 @@ object configfo: tconfigfo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 1
-    bounds_x = 15
-    bounds_y = 5
+    bounds_x = 387
+    bounds_y = 6
     bounds_cx = 337
     bounds_cy = 88
     object latrec: trealspinedit
@@ -300,7 +300,7 @@ object configfo: tconfigfo
   end
   object lsuglat: tlabel
     taborder = 2
-    bounds_x = 15
+    bounds_x = 390
     bounds_y = 100
     bounds_cx = 121
     bounds_cy = 15
@@ -337,8 +337,8 @@ object configfo: tconfigfo
   end
   object defdevin: tlabel
     taborder = 4
-    bounds_x = 372
-    bounds_y = 36
+    bounds_x = 12
+    bounds_y = 78
     bounds_cx = 134
     bounds_cy = 15
     caption = 'Default Device IN = -1'
@@ -346,8 +346,8 @@ object configfo: tconfigfo
   end
   object defdevout: tlabel
     taborder = 5
-    bounds_x = 546
-    bounds_y = 36
+    bounds_x = 196
+    bounds_y = 78
     bounds_cx = 146
     bounds_cy = 15
     caption = 'Default Device OUT = -1'
@@ -406,7 +406,7 @@ object configfo: tconfigfo
     datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
     datacols.items = <    
       item
-        width = 30
+        width = 31
         options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
         valuefalse = '0'
         valuetrue = '1'
@@ -454,7 +454,7 @@ object configfo: tconfigfo
         valuetrue = '1'
       end    
       item
-        width = 92
+        width = 89
         options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
         valuefalse = '0'
         valuetrue = '1'
@@ -490,10 +490,10 @@ object configfo: tconfigfo
         captions.count = 13
         captions.items = <        
           item
-            caption = 'Dev'
+            caption = 'Num'
           end        
           item
-            caption = 'Name'
+            caption = 'Device Name'
           end        
           item
             caption = 'DefIn'
@@ -579,9 +579,9 @@ object configfo: tconfigfo
       0
     )
     taborder = 9
-    hint = 'Device IN to use'
-    bounds_x = 370
-    bounds_y = 60
+    hint = 'Device IN to use ( -1 = default )'
+    bounds_x = 12
+    bounds_y = 40
     bounds_cx = 139
     bounds_cy = 21
     statfile = mainfo.tstatfile1
@@ -602,9 +602,9 @@ object configfo: tconfigfo
       0
     )
     taborder = 10
-    hint = 'Device OUT to use'
-    bounds_x = 545
-    bounds_y = 60
+    hint = 'Device OUT to use ( -1 = default )'
+    bounds_x = 196
+    bounds_y = 40
     bounds_cx = 153
     bounds_cy = 21
     statfile = mainfo.tstatfile1

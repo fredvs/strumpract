@@ -165,7 +165,7 @@ object recorderfo: trecorderfo
       bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
-      imagenr = 2
+      imagenr = 35
       focusrectdist = 0
       onexecute = doplayerstop
     end
@@ -413,9 +413,9 @@ object recorderfo: trecorderfo
       face.template = tfacereclight
       taborder = 10
       hint = ' Position of sound '
-      bounds_x = 13
+      bounds_x = 6
       bounds_y = 100
-      bounds_cx = 324
+      bounds_cx = 330
       bounds_cy = 22
       enabled = False
       scrollbar.buttonlength = 18
@@ -683,7 +683,7 @@ object recorderfo: trecorderfo
       visible = False
       bounds_x = 6
       bounds_y = 98
-      bounds_cx = 332
+      bounds_cx = 330
       bounds_cy = 24
       font.name = 'stf_default'
       font.localprops = []
