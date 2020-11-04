@@ -46,7 +46,7 @@ var
 implementation
 
 uses
-  uos_flat, main, dockpanel1,
+  uos_flat, main, dockpanel1, config,
   guitars_mfm;
 
 procedure tguitarsfo.doguitarstring(const Sender: TObject);
@@ -60,8 +60,8 @@ begin
           {$if defined(cpuarm)}
         if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
          {$else}
-          if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
-         {$endif}
+            if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+        {$endif}
 
             uos_Play(TButton(Sender).tag + 9);
   end

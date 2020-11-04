@@ -311,7 +311,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=2
+ index=0
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -834,24 +834,12 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=5
- CONFIGFO
- DRUMSFO
+modulenames=1
  MAINFO
- RECORDERFO
- WAVEFO
-moduletypes=5
- TCONFIGFO
- TDRUMSFO
+moduletypes=1
  TMAINFO
- TRECORDERFO
- TWAVEFO
-modulefiles=5
- /home/fred/strumpract/src/config.mfm
- /home/fred/strumpract/src/drums.mfm
+modulefiles=1
  /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/waveform.mfm
 befcommandon=0
 makeoptionson=12
  4095
@@ -1614,8 +1602,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=wavefo.tmainmenu1
-findhistory=13
+finddtext=configfo
+findhistory=14
+ configfo
  wavefo.tmainmenu1
  onrenderexe
  loopproc
@@ -1630,103 +1619,45 @@ findhistory=13
  isbuzy
  if typecolor
 findoptions=1
-editpos=12
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+editpos=2
  0,0
- 0,-1073741823
- 0,0
- 0,-1073741823
+ 0,92
 bookmarks0=0
 bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-bookmarks7=0
-bookmarks8=0
-bookmarks9=0
-bookmarks10=0
-bookmarks11=0
-sourcefiles=12
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/drums.pas
- ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/uos_flat.pas
- ${PROJECTDIR}/uos.pas
- ${PROJECTDIR}/waveform.pas
- ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/config.pas
- ${PROJECTDIR}/drums.pas
- ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/main.pas
-relpaths=12
+relpaths=2
  strumpract.pas
  main.pas
- drums.pas
- recorder.pas
- uos_flat.pas
- uos.pas
- waveform.pas
- recorder.pas
- config.pas
- drums.pas
- songplayer.pas
- main.pas
-ismoduletexts=12
+ismoduletexts=2
  0
  0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=6
+modules=4
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/waveform.mfm
- /home/fred/strumpract/src/config.mfm
-moduleoptions=6
+moduleoptions=4
  0
  0
  0
  0
- 0
- 0
-visiblemodules=6
- -1
- 0
- -1
- -1
- -1
- -1
-nomenumodules=6
- 0
+visiblemodules=4
  -1
  0
  0
  0
+nomenumodules=4
  0
+ -1
+ -1
+ -1
 [sourcefo.files_tab]
-firsttab=7
-index=8
+firsttab=0
+index=1
 [layout]
-windowlayout=679
+windowlayout=641
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1860,7 +1791,7 @@ windowlayout=679
  x=0
  y=0
  cx=205
- cy=519
+ cy=524
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1871,7 +1802,7 @@ windowlayout=679
  sortdescend1=0
  sorted=0
  col=0
- row=10
+ row=8
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2046,9 +1977,9 @@ windowlayout=679
  ncx=0
  ncy=0
  x=0
- y=582
+ y=581
  cx=1356
- cy=107
+ cy=108
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2181,7 +2112,7 @@ windowlayout=679
  x=0
  y=0
  cx=1356
- cy=57
+ cy=51
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2192,12 +2123,12 @@ windowlayout=679
  mdistate=0
  nx=0
  ny=0
- ncx=1356
- ncy=60
+ ncx=1341
+ ncy=54
  x=0
  y=0
  cx=1356
- cy=60
+ cy=53
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2207,14 +2138,10 @@ windowlayout=679
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/config.pas
+ value=/home/fred/strumpract/src/main.pas
  history=20
-  /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/recorder.pas
-  /home/fred/strumpract/src/drums.pas
-  /home/fred/strumpract/src/status.pas
-  /home/fred/strumpract/src/waveform.pas
-  /home/fred/strumpract/src/imagedancer.pas
+  /home/fred/strumpract/src/strumpract.pas
+  /home/fred/strumpract/src/config.pas
   /home/fred/uos/examples/deviceinfos_fpGUI.pas
   /home/fred/uos/readme_examples.txt
   /home/fred/freepascal-ootb_320test/rtl/unix/sysutils.pp
@@ -2229,6 +2156,10 @@ windowlayout=679
   /home/fred/roland/graphh.inc
   /home/fred/freepascal-ootb_322/packages/graph/src/inc/graphh.inc
   /home/fred/freepascal-ootb_322/packages/graph/src/inc/graph.inc
+  /home/fred/freepascal-ootb_322/packages/graph/src/inc/fontdata.inc
+  /home/fred/freepascal-ootb_322/packages/graph/src/ptcgraph/ptcgraph.pp
+  /home/fred/roland/ptcgraph.pp
+  /home/fred/alsa_sound_stereo/src/alsa_sound.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2246,12 +2177,12 @@ windowlayout=679
  x=208
  y=0
  cx=1148
- cy=519
+ cy=524
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- firsttab=7
- index=8
+ firsttab=0
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2260,7 +2191,7 @@ windowlayout=679
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2287,15 +2218,15 @@ windowlayout=679
  ncx=0
  ncy=0
  x=0
- y=60
+ y=54
  cx=1356
- cy=519
+ cy=524
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2333,7 +2264,7 @@ windowlayout=679
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_wavefo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2348,7 +2279,7 @@ windowlayout=679
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2367,45 +2298,7 @@ windowlayout=679
  rcy=0
  wsize=0
  active=0
- visible=1
- [_mse_wavefo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=targetconsolefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=347
- y=305
- cx=452
- cy=110
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_configfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=mainfo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=157
- y=164
- cx=1010
- cy=540
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
+ visible=0
 [targetconsole]
 finddtext=
 findhistory=0
