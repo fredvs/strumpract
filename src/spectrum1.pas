@@ -22,6 +22,7 @@ type
    procedure onformcreated(const sender: TObject);
    procedure onshowspec(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
+   procedure crea(const sender: TObject);
   end;
  
  
@@ -88,5 +89,10 @@ if avalue = false then
  if caption = 'Spectrum Player 2' then songplayer2fo.resetspectrum() else
 if caption = 'Spectrum Recorder' then recorderfo.resetspectrum()  ;
  end;
+
+procedure tspectrum1fo.crea(const sender: TObject);
+begin
+windowopacity := 0;
+end;
 
 end.

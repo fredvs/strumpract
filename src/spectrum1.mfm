@@ -65,6 +65,7 @@ object spectrum1fo: tspectrum1fo
     FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     FFFFFF00
   }
+  oncreate = crea
   oncreated = onformcreated
   onshow = onvisiblechange
   onhide = onvisiblechange

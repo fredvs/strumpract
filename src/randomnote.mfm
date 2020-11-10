@@ -137,6 +137,7 @@ object randomnotefo: trandomnotefo
     EAEAEA01C5C5C501F1F1F103CACACA01E9E9E901F1F1F102EDEDED01C5C5C501
     F1F1F103CECECE01E3E3E301F1F1F102F0F0F001C9C9C901F1F1F103D2D2D201
   }
+  oncreate = crea
   oncreated = oncreatedev
   onclose = onclosev
   onmouseevent = onmousev

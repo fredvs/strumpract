@@ -262,6 +262,7 @@ end;
 
 procedure tdockpanel1fo.oncreate(const Sender: TObject);
 begin
+  windowopacity := 0;
   flayoutlock := 0;
   Timerwaitdp := ttimer.Create(nil);
   Timerwaitdp.options := [to_single];

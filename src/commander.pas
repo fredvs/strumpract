@@ -137,6 +137,7 @@ type
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure resetvolume(const Sender: TObject);
     procedure onsetvu(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+   procedure oncre(const sender: TObject);
   end;
 
 var
@@ -866,6 +867,11 @@ begin
       tslider3.Value      := 1;
     end;
 
+end;
+
+procedure tcommanderfo.oncre(const sender: TObject);
+begin
+windowopacity := 0;
 end;
 
 

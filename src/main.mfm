@@ -3349,4 +3349,11 @@ object mainfo: tmainfo
     left = 223
     top = 37
   end
+  object ttimer1: ttimer
+    interval = 100000
+    ontimer = ontimertransp
+    enabled = True
+    left = 170
+    top = 42
+  end
 end

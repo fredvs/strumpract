@@ -125,8 +125,10 @@ var
   ordir: string;
   i: integer;
 begin
+  windowopacity := 0;
+  
   Caption := 'Guitar and Bass tuned strings';
-
+  
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   aguitar[0] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '1_MI_E.ogg';

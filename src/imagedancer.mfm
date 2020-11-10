@@ -92,6 +92,7 @@ object imagedancerfo: timagedancerfo
     0000000000000000000000000000000000000000000000000000000000000000
     000000000000000000000000
   }
+  oncreate = crea
   oncreated = oncreat
   ondestroy = ondestroy
   onshow = onshow

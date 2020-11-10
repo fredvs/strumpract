@@ -85,6 +85,7 @@ object commanderfo: tcommanderfo
     FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     FFFFFFFFFFFFFFFFFFFFFFFF
   }
+  oncreate = oncre
   oncreated = formcreated
   ondestroy = ondest
   onshow = visiblechangeev

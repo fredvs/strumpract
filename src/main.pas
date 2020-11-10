@@ -43,6 +43,7 @@ type
     tfaceplayerbut: tfacecomp;
     tfiledialog1: tfiledialogx;
     dancnum: tintegeredit;
+   ttimer1: ttimer;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -98,6 +99,7 @@ type
     procedure onimagedancer(const Sender: TObject);
     procedure ondancerlayout(const Sender: TObject);
     procedure onclose(const Sender: TObject);
+   procedure ontimertransp(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -255,6 +257,7 @@ procedure tmainfo.oncreateform(const Sender: TObject);
 var
   rect1: rectty;
 begin
+ windowopacity := 0;
 
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
@@ -3653,6 +3656,33 @@ end;
 
 procedure tmainfo.onclose(const Sender: TObject);
 begin
+
+end;
+
+procedure tmainfo.ontimertransp(const sender: TObject);
+begin
+windowopacity := windowopacity + 0.1;
+
+dockpanel1fo.windowopacity := dockpanel1fo.windowopacity + 0.1;
+dockpanel2fo.windowopacity := dockpanel2fo.windowopacity + 0.1;
+dockpanel3fo.windowopacity := dockpanel3fo.windowopacity + 0.1;
+commanderfo.windowopacity := commanderfo.windowopacity + 0.1;
+songplayerfo.windowopacity := songplayerfo.windowopacity + 0.1;
+songplayer2fo.windowopacity := songplayer2fo.windowopacity + 0.1;
+filelistfo.windowopacity := filelistfo.windowopacity + 0.1;
+wavefo.windowopacity := wavefo.windowopacity + 0.1;
+wavefo2.windowopacity := wavefo2.windowopacity + 0.1;
+waveforec.windowopacity := waveforec.windowopacity + 0.1;
+spectrum1fo.windowopacity := spectrum1fo.windowopacity + 0.1;
+spectrum2fo.windowopacity := spectrum2fo.windowopacity + 0.1;
+spectrumrecfo.windowopacity := spectrumrecfo.windowopacity + 0.1;
+drumsfo.windowopacity := drumsfo.windowopacity + 0.1;
+randomnotefo.windowopacity := randomnotefo.windowopacity + 0.1;
+guitarsfo.windowopacity := guitarsfo.windowopacity + 0.1;
+recorderfo.windowopacity := recorderfo.windowopacity + 0.1;
+imagedancerfo.windowopacity := imagedancerfo.windowopacity + 0.1;
+
+if windowopacity = 1 then ttimer1.enabled := false;
 
 end;
 

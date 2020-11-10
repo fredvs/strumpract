@@ -988,6 +988,8 @@ var
   i1: int32;
 begin
   // visible := false;
+   windowopacity := 0;
+  
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
                    [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 

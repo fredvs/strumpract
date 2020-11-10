@@ -2376,6 +2376,8 @@ procedure tsongplayerfo.onplayercreate(const Sender: TObject);
 var
   ordir: string;
 begin
+  windowopacity := 0;
+
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 

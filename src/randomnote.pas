@@ -163,6 +163,7 @@ type
 
    procedure onhide(const sender: TObject);
    procedure onshowrand(const sender: TObject);
+   procedure crea(const sender: TObject);
   end;
 
 var 
@@ -4964,6 +4965,11 @@ end;
 procedure trandomnotefo.onshowrand(const sender: TObject);
 begin
 mainfo.tmainmenu1.menu[3].submenu[15].Caption := ' Hide Chords Randomizer ';
+end;
+
+procedure trandomnotefo.crea(const sender: TObject);
+begin
+windowopacity := 0;
 end;
 
 end.

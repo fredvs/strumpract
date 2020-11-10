@@ -58,6 +58,7 @@ type
     procedure createwinidexe(const Sender: tcustomwindowwidget; const aparent: winidty; const awidgetrect: rectty; var aid: winidty);
     procedure onrenderexe(const Sender: tcustomopenglwidget; const aupdaterect: rectty);
     procedure onhide(const Sender: TObject);
+   procedure crea(const sender: TObject);
   protected
     thethread: tmsethread;
     function Execute(thread: tmsethread): integer;
@@ -833,6 +834,11 @@ end;
 procedure timagedancerfo.onhide(const Sender: TObject);
 begin
   mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Show Image Dancer ';
+end;
+
+procedure timagedancerfo.crea(const sender: TObject);
+begin
+windowopacity := 0;
 end;
 
 end.

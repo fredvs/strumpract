@@ -31,6 +31,7 @@ type
     procedure onsliderchange(const Sender: TObject);
     procedure onafterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
    procedure oncreated(const sender: TObject);
+   procedure crea(const sender: TObject);
   end;
 
 var
@@ -350,6 +351,11 @@ begin
       Width := fowidth;
       Height := wavefoheight;
     end;
+end;
+
+procedure twavefo.crea(const sender: TObject);
+begin
+windowopacity := 0;
 end;
 
 

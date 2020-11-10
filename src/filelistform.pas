@@ -779,6 +779,7 @@ end;
 
 procedure tfilelistfo.oncreate(const Sender: TObject);
 begin
+  windowopacity := 0;
   tstatfile1.filename := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini' +
     directoryseparator + 'list.ini');
 end;
