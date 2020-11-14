@@ -90,7 +90,10 @@ const
 {$endif}
 
 {$IF DEFINED(synthesizer)}
-const// musical note ==> frequency in hertz
+const
+// musical note ==> frequency in hertz
+// Latin: Do, Ré, Mi, Fa, Sol, La, Si 
+// Dièse = _d example la0_d 
 la0  = 55.0; 
 la0_d = 58.3;
 si0 = 61.7;
@@ -152,6 +155,70 @@ fa4_d = 1480.0;
 sol4 = 1568.0;
 sol4_d = 1661.2;
 la5 = 1760.0;
+
+// English musique note
+// A, B, C, D, E, F, G
+a0  = 55.0; 
+a0_s = 58.3;
+b0 = 61.7;
+c0 =  65.4;
+c0_s = 69.3;
+d0 = 73.4;
+d0_s =77.8;
+e0  =82.4;
+f0  = 87.3; 
+f0_s = 92.5;
+g0 = 98.0;
+g0_s = 103.8;
+a1  = 110.0; 
+a1_s = 116.5;
+b1 = 123.5;
+c1 =  130.8;
+c1_s = 138.6;
+d1 = 146.8;
+d1_s =155.6;
+e1  =164.8;
+f1  = 174.6; 
+f1_s = 185.0;
+g1 = 196.0;
+g1_s = 207.7;
+a2 = 220.0; 
+a2_s = 233.1;
+b2 = 2246.9;
+c2 =  261.6;
+c2_s = 277.2;
+d2 = 293.7;
+d2_s =311.1;
+e2  =329.6;
+f2  = 349.2; 
+f2_s = 370.0;
+g2 = 392.0;
+g2_s = 415.3;
+a3  = 440.0;
+a3_s = 466.2;
+b3 = 493.9;
+c3 =  523.3;
+c3_s = 554.4;
+d3 = 587.3;
+d3_s = 622.3;
+e3 = 659.3;
+f3  = 698.5;
+f3_s = 740.0;
+g3 = 784.0;
+g3_s = 830.6;
+a4 = 880.0;
+a4_s = 932.4;
+b4 = 987.8;
+c4 =  1046.6;
+c4_s = 1108.8;
+d4 = 1174.6;
+d4_s = 1244.6;
+e4 = 1318.6;
+f4  = 1397.0;
+f4_s = 1480.0;
+g4 = 1568.0;
+g4_s = 1661.2;
+a5 = 1760.0;
 {$endif}
 
 {$IF DEFINED(shout)}
@@ -369,7 +436,8 @@ type
   typLsine, typRsine: cint32;
   freqLsine, freqRsine: cfloat;
   dursine, posdursine: cint32;
-  harmonic : cint32;
+  harmonic: cint32;
+  evenharm: shortint; 
 {$endif}
   
 {$if defined(cpu64)}
@@ -597,7 +665,8 @@ type
   {$endif}
   {$IF DEFINED(synthesizer)}
   procedure ReadSynth(x : integer); 
-  procedure FillLookupTable(x, TypeWave, Channel,  AHarmonics: Integer);
+  procedure FillLookupTable(x, typewave, channel,  
+            AHarmonics: Integer; EvenHarmonics: shortint);
   {$endif}
   procedure ReadEndless(x : integer); 
   procedure ReadMem(x : integer); 
@@ -800,36 +869,43 @@ function AddFromEndlessMuted(Channels : cint32; FramesCount: cint32): cint32;
 
 {$IF DEFINED(synthesizer)}
 function AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: integer;
- FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration : cint32; NbHarmonic: cint32;
+ FrequencyL, FrequencyR: float; VolumeL, VolumeR: float;
+ duration : cint32; NbHarmonics: cint32; EvenHarmonics: cint32;
  OutputIndex: cint32;  SampleFormat: cint32 ; SampleRate: cint32 ; FramesCount : cint32): cint32;
 // Add a input from Synthesizer with custom parameters
-// Channels : default : -1 (2) (1 = mono, 2 = stereo)
-// WaveTypeL : default : -1 (0) (0 = sine-wave 1 = square-wave, used for mono and stereo) 
-// WaveTypeR : default : -1 (0) (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
-// FrequencyL : default : -1 (440 htz) (Left frequency, used for mono)
-// FrequencyR : default : -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
-// VolumeL : default : -1 (= 1) (from 0 to 1) => volume left
-// VolumeR : default : -1 (= 1) (from 0 to 1) => volume rigth (ignored for mono)
-// Duration : default :  -1 (= 1000)  => duration in msec (0 = endless)
-// NbHarmonic : default :  -1 (= 0) Number of Harmonic (0 to 5)
-// OutputIndex : Output index of used output// -1: all output, -2: no output, other cint32 refer to a existing OutputIndex  (if multi-output then OutName = name of each output separeted by ';')
-// SampleFormat : default : -1 (0: Float32) (0: Float32, 1:Int32, 2:Int16)
-// SampleRate : delault : -1 (44100)
-// FramesCount : -1 default : 1024
-//  result :  Input Index in array  -1 = error
+// Channels: default: -1 (2) (1 = mono, 2 = stereo)
+// WaveTypeL: default: -1 (0) (0 = sine-wave 1 = square-wave, used for mono and stereo) 
+// WaveTypeR: default: -1 (0) (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
+// FrequencyL: default: -1 (440 htz) (Left frequency, used for mono)
+// FrequencyR: default: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
+// VolumeL: default: -1 (= 1) (from 0 to 1) => volume left
+// VolumeR: default: -1 (= 1) (from 0 to 1) => volume rigth (ignored for mono)
+// Duration: default:  -1 (= 1000)  => duration in msec (0 = endless)
+// NbHarmonics: default:  -1 (= 0) Number of Harmonics
+// EvenHarmonics: default: -1 (= 0) (0 = all harmonics, 1 = Only even harmonics)
+// OutputIndex: Output index of used output
+            // -1: all output, -2: no output, other cint32 refer to 
+            // a existing OutputIndex 
+            // (if multi-output then OutName = name of each output separeted by ';')
+// SampleFormat: default : -1 (0: Float32) (0: Float32, 1:Int32, 2:Int16)
+// SampleRate: delault : -1 (44100)
+// FramesCount: -1 default : 1024
+//  result:  Input Index in array  -1 = error
   
 procedure InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: integer;
- FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; NbHarmonic: cint32; Enable: boolean);
+ FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; 
+  NbHarmonic: cint32; EvenHarmonics: cint32; Enable: boolean);
 // InputIndex: one existing input index   
-// WaveTypeL : do not change: -1 (0 = sine-wave 1 = square-wave, used for mono and stereo) 
-// WaveTypeR : do not change: -1 (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
-// FrequencyL : do not change: -1 (Left frequency, used for mono)
-// FrequencyR : do not change: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
-// VolumeL : do not change: -1 (= 1) (from 0 to 1) => volume left
-// VolumeR : do not change: -1 (from 0 to 1) => volume rigth (ignored for mono)
-// Duration : in msec (-1 = do not change)
-// NbHarmonic : Number of Harmony (-1 not change) (0 to 5 harmonies)
-// Enable : true or false ;
+// WaveTypeL: do not change: -1 (0 = sine-wave 1 = square-wave, used for mono and stereo) 
+// WaveTypeR: do not change: -1 (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
+// FrequencyL: do not change: -1 (Left frequency, used for mono)
+// FrequencyR: do not change: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
+// VolumeL: do not change: -1 (= 1) (from 0 to 1) => volume left
+// VolumeR: do not change: -1 (from 0 to 1) => volume rigth (ignored for mono)
+// Duration: in msec (-1 = do not change)
+// NbHarmonic: Number of Harmonics (-1 not change)
+// EvenHarmonics: default: -1 (= 0) (0 = all harmonics, 1 = Only even harmonics)
+// Enable: true or false ;
 {$endif}
 
 function AddFromFile(Filename: Pchar; OutputIndex: cint32;
@@ -1068,7 +1144,7 @@ function InputAddFilter(InputIndex: cint32; LowFrequency: cint32;
 // HighFrequency : Highest frequency of filter
 // Gain : gain to apply to filter
 // TypeFilter: Type of filter : default = -1 = fBandSelect (fBandAll = 0, fBandSelect = 1, fBandReject = 2
-// fBandPass = 3, fHighPass = 4, fLowPass = 5)
+// fBandPass = 3, fLowPass = 4, fHighPass = 5)
 // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
 // LoopProc : external procedure of object to synchronize after DSP done
 //  result :  otherwise index of DSPIn in array
@@ -1083,7 +1159,7 @@ procedure InputSetFilter(InputIndex: cint32; FilterIndex: cint32;
 // HighFrequency : Highest frequency of filter ( -1 : current HighFrequency )
 // Gain : gain to apply to filter
 // TypeFilter: Type of filter : ( -1 = current filter ) (fBandAll = 0, fBandSelect = 1, fBandReject = 2
-// fBandPass = 3, fHighPass = 4, fLowPass = 5)
+// fBandPass = 3, fLowPass = 4, fHighPass = 5)
 // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
 // LoopProc : external procedure of object to synchronize after DSP done
 // Enable :  Filter enabled
@@ -1097,7 +1173,7 @@ function OutputAddFilter(OutputIndex: cint32; LowFrequency: cint32;
 // HighFrequency : Highest frequency of filter
 // Gain : gain to apply to filter
 // TypeFilter: Type of filter : default = -1 = fBandSelect (fBandAll = 0, fBandSelect = 1, fBandReject = 2
-// fBandPass = 3, fHighPass = 4, fLowPass = 5)
+// fBandPass = 3, fLowPass = 4, fHighPass = 5)
 // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
 // LoopProc : external procedure of object to synchronize after DSP done
 //  result : index of DSPOut in array
@@ -1112,7 +1188,7 @@ procedure OutputSetFilter(OutputIndex: cint32; FilterIndex: cint32;
 // HighFrequency : Highest frequency of filter ( -1 : current HighFrequency )
 // Gain : gain to apply to filter
 // TypeFilter: Type of filter : ( -1 = current filter ) (fBandAll = 0, fBandSelect = 1, fBandReject = 2
-// fBandPass = 3, fHighPass = 4, fLowPass = 5)
+// fBandPass = 3, fLowPass = 4, fHighPass = 5)
 // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
 // Enable :  Filter enabled
 // LoopProc : external procedure of object to synchronize after DSP done
@@ -1315,8 +1391,9 @@ const
   fBandSelect = 1;
   fBandReject = 2;
   fBandPass = 3;
-  fHighPass = 4;
-  fLowPass = 5;
+  fLowPass = 4;
+  fHighPass = 5;
+  
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   MSG_CUSTOM1 = FPGM_USER + 1;
   {$endif}
@@ -2518,7 +2595,7 @@ procedure Tuos_Player.InputSetFilter(InputIndex: cint32; FilterIndex: cint32;
 // HighFrequency : Highest frequency of filter ( default = -1 : current HighFrequency )
 // Gain  : Gain to apply ( -1 = current gain)  ( 0 = silence, 1 = no gain, < 1 = less gain, > 1 = more gain)
 // TypeFilter: Type of filter : ( default = -1 = current filter ) (fBandAll = 0, fBandSelect = 1, fBandReject = 2
-// fBandPass = 3, fHighPass = 4, fLowPass = 5)
+// fBandPass = 3, fLowPass = 4, fHighPass = 5)
 // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
 // LoopProc : external procedure of object to synchronize after DSP done
 // Enable :  Filter enabled
@@ -2557,6 +2634,7 @@ begin
   1:// DSPFFTBandSelect := DSPFFTBandReject + DSPFFTBandPass
   begin
 //  DSPFFTBandReject
+    
   StreamIn[InputIndex].DSP[FilterIndex].fftdata.C :=
   Tan(Pi * (HighFrequency - LowFrequency + 1) /
   StreamIn[InputIndex].Data.SampleRate);
@@ -2621,6 +2699,7 @@ begin
 
   3://  DSPFFTBandPass
   begin
+  
   StreamIn[InputIndex].DSP[FilterIndex].fftdata.C :=
   1 / Tan(Pi * (HighFrequency - LowFrequency + 1) /
   StreamIn[InputIndex].Data.SampleRate);
@@ -2643,8 +2722,9 @@ begin
 
   4://  DSPFFTLowPass
   begin
+    
   StreamIn[InputIndex].DSP[FilterIndex].fftdata.C :=
-  1 / Tan(Pi * HighFrequency / StreamIn[InputIndex].Data.SampleRate);
+  1 / Tan(Pi * LowFrequency / StreamIn[InputIndex].Data.SampleRate);
   
   StreamIn[InputIndex].DSP[FilterIndex].fftdata.a3[0] :=
   1 / (1 + Sqrt(2) * StreamIn[InputIndex].DSP[FilterIndex].fftdata.C +
@@ -2668,7 +2748,7 @@ begin
   5://  DSPFFTHighPass
   begin
    StreamIn[InputIndex].DSP[FilterIndex].fftdata.C :=
-   Tan(Pi * LowFrequency / StreamIn[InputIndex].Data.SampleRate);
+   Tan(Pi * HighFrequency / StreamIn[InputIndex].Data.SampleRate);
   
   StreamIn[InputIndex].DSP[FilterIndex].fftdata.a3[0] :=
   1 / (1 + Sqrt(2) * StreamIn[InputIndex].DSP[FilterIndex].fftdata.C +
@@ -2703,7 +2783,7 @@ procedure Tuos_Player.OutputSetFilter(OutputIndex: cint32; FilterIndex: cint32;
 // LowFrequency : Lowest frequency of filter
 // HighFrequency : Highest frequency of filter
 // TypeFilter: Type of filter : default = -1 = actual filter (fBandAll = 0, fBandSelect = 1, fBandReject = 2
-// fBandPass = 3, fHighPass = 4, fLowPass = 5)
+// fBandPass = 3, fLowPass = 4, fHighPass = 5)
 // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
 // Enable :  Filter enabled
 // LoopProc : external procedure of object to synchronize after DSP done
@@ -2734,6 +2814,7 @@ begin
   1:// DSPFFTBandSelect := DSPFFTBandReject + DSPFFTBandPass
   begin
 //  DSPFFTBandReject
+  
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C :=
   Tan(Pi * (HighFrequency - LowFrequency + 1) /
   StreamOut[OutputIndex].Data.SampleRate);
@@ -2753,6 +2834,7 @@ begin
   (1 - StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C) *
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.a3[0];
 //  DSPFFTBandPass
+ 
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C2 :=
   1 / Tan(Pi * (HighFrequency - LowFrequency + 1) /
   StreamOut[OutputIndex].Data.SampleRate);
@@ -2798,6 +2880,7 @@ begin
 
   3://  DSPFFTBandPass
   begin
+   
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C :=
   1 / Tan(Pi * (HighFrequency - LowFrequency + 1) /
   StreamOut[OutputIndex].Data.SampleRate);
@@ -2820,9 +2903,9 @@ begin
 
   4://  DSPFFTLowPass
   begin
+   
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C :=
-  1 / Tan(Pi * (HighFrequency - LowFrequency + 1) /
-  StreamOut[OutputIndex].Data.SampleRate);
+  1 / Tan(Pi * LowFrequency / StreamOut[OutputIndex].Data.SampleRate);
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.a3[0] :=
   1 / (1 + Sqrt(2) * StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C +
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C *
@@ -2844,9 +2927,9 @@ begin
 
   5://  DSPFFTHighPass
   begin
+   
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C :=
-  Tan(Pi * (HighFrequency - LowFrequency + 1) /
-  StreamOut[OutputIndex].Data.SampleRate);
+  Tan(Pi * HighFrequency / StreamOut[OutputIndex].Data.SampleRate);
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.a3[0] :=
   1 / (1 + Sqrt(2) * StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C +
   StreamOut[OutputIndex].DSP[FilterIndex].fftdata.C *
@@ -4164,7 +4247,7 @@ function Tuos_Player.InputAddFilter(InputIndex: cint32; LowFrequency: cint32;
 // HighFrequency : Highest frequency of filter
 // Gain : gain to apply to filter ( 1 = no gain )
 // TypeFilter: Type of filter : default = -1 = fBandSelect (fBandAll = 0, fBandSelect = 1, fBandReject = 2
-// fBandPass = 3, fHighPass = 4, fLowPass = 5)
+// fBandPass = 3, fLowPass = 4, fHighPass = 5)
 // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
 // LoopProc : external procedure of object to synchronize after DSP done
 //  result : index of DSPIn in array
@@ -4199,7 +4282,7 @@ function Tuos_Player.OutputAddFilter(OutputIndex: cint32; LowFrequency: cint32;
 // LowFrequency : Lowest frequency of filter
 // HighFrequency : Highest frequency of filter
 // TypeFilter: Type of filter : default = -1 = fBandSelect (fBandAll = 0, fBandSelect = 1, fBandReject = 2
-// fBandPass = 3, fHighPass = 4, fLowPass = 5)
+// fBandPass = 3, fLowPass = 4, fHighPass = 5)
 // AlsoBuf : The filter alter buffer aswell ( otherwise, only result is filled in fft.data )
 // LoopProc : external procedure of object to synchronize after DSP done
 //  result :  index of DSPOut in array
@@ -4373,23 +4456,25 @@ end;
 
 {$IF DEFINED(synthesizer)}
 function Tuos_Player.AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: integer;
- FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration : cint32; NbHarmonic: cint32;
+ FrequencyL, FrequencyR: float; VolumeL, VolumeR: float;
+ duration : cint32; NbHarmonics: cint32; EvenHarmonics: cint32;
  OutputIndex: cint32;  SampleFormat: cint32 ; SampleRate: cint32 ; FramesCount : cint32): cint32;
 // Add a input from Synthesizer with custom parameters
-// Channels : default : -1 (2) (1 = mono, 2 = stereo)
-// WaveTypeL : default : -1 (0) (0 = sine-wave 1 = square-wave, used for mono and stereo) 
-// WaveTypeR : default : -1 (0) (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
-// FrequencyL : default : -1 (440 htz) (Left frequency, used for mono)
-// FrequencyR : default : -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
-// VolumeL : default : -1 (= 1) (from 0 to 1) => volume left
-// VolumeR : default : -1 (= 1) (from 0 to 1) => volume rigth (ignored for mono)
-// Duration : default :  -1 (= 1000)  => duration in msec (0 = endless)
-// NbHarmonic : default :  -1 (= 0) Number of Harmonic (0 to 5)
-// OutputIndex : Output index of used output// -1: all output, -2: no output, other cint32 refer to a existing OutputIndex  (if multi-output then OutName = name of each output separeted by ';')
-// SampleFormat : default : -1 (0: Float32) (0: Float32, 1:Int32, 2:Int16)
-// SampleRate : delault : -1 (44100)
-// FramesCount : -1 default : 1024
-//  result :  Input Index in array  -1 = error
+// Channels: default: -1 (2) (1 = mono, 2 = stereo)
+// WaveTypeL: default: -1 (0) (0 = sine-wave 1 = square-wave, used for mono and stereo) 
+// WaveTypeR: default: -1 (0) (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
+// FrequencyL: default: -1 (440 htz) (Left frequency, used for mono)
+// FrequencyR: default: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
+// VolumeL: default: -1 (= 1) (from 0 to 1) => volume left
+// VolumeR: default: -1 (= 1) (from 0 to 1) => volume rigth (ignored for mono)
+// Duration: default:  -1 (= 1000)  => duration in msec (0 = endless)
+// NbHarmonics: default:  -1 (= 0) Number of Harmonies
+// EvenHarmonics: default: -1 (= 0) (0 = all harmonics, 1 = Only even harmonics)
+// OutputIndex: Output index of used output// -1: all output, -2: no output, other cint32 refer to a existing OutputIndex  (if multi-output then OutName = name of each output separeted by ';')
+// SampleFormat: default : -1 (0: Float32) (0: Float32, 1:Int32, 2:Int16)
+// SampleRate: delault : -1 (44100)
+// FramesCount: -1 default : 1024
+//  result:  Input Index in array  -1 = error
  
 var
   x : cint32;
@@ -4405,10 +4490,6 @@ begin
   StreamIn[x].Data.PositionEnable := 0;
   StreamIn[x].Data.levelArrayEnable := 0;
   
-  if NbHarmonic < 1 then
-  StreamIn[x].data.harmonic := 0 else
-  StreamIn[x].data.harmonic := NbHarmonic; 
-
   if channels < 1 then
   StreamIn[x].data.channels := 2 else
   StreamIn[x].data.channels := channels;
@@ -4437,10 +4518,16 @@ begin
   StreamIn[x].Data.typRsine := 0 else
   StreamIn[x].Data.typRsine := 1;
   
-  StreamIn[x].Data.harmonic := 0 ;
-
   StreamIn[x].Data.PosInTableLeft := 0;
   StreamIn[x].Data.PosInTableRight := 0;
+  
+  if NbHarmonics < 1 then
+  StreamIn[x].data.harmonic := 0 else
+  StreamIn[x].data.harmonic := NbHarmonics; 
+  
+  if EvenHarmonics < 1 then
+  StreamIn[x].data.evenharm := 0 else
+  StreamIn[x].data.evenharm := 1;
     
   SetLength(StreamIn[x].Data.Buffer, StreamIn[x].Data.Wantframes* StreamIn[x].Data.channels);
   
@@ -4470,15 +4557,15 @@ begin
   StreamIn[x].LoopProc := nil;
   StreamIn[x].Data.Enabled := True;
   
-  FillLookupTable(x, StreamIn[x].Data.typLsine, 1,StreamIn[x].data.harmonic);
-  FillLookupTable(x, StreamIn[x].Data.typRsine, 2,StreamIn[x].data.harmonic);
+  FillLookupTable(x, StreamIn[x].Data.typLsine, 1,StreamIn[x].data.harmonic, StreamIn[x].data.evenharm);
+  FillLookupTable(x, StreamIn[x].Data.typRsine, 2,StreamIn[x].data.harmonic, StreamIn[x].data.evenharm);
     
   Result := x;
 end;
 
 procedure Tuos_Player.InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: integer;
- FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32;
-  NbHarmonic: cint32; Enable: boolean);
+ FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; 
+  NbHarmonic: cint32; EvenHarmonics: cint32; Enable: boolean);
 // InputIndex: one existing input index   
 // WaveTypeL : do not change: -1 (0 = sine-wave 1 = square-wave, used for mono and stereo) 
 // WaveTypeR : do not change: -1 (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
@@ -4487,7 +4574,8 @@ procedure Tuos_Player.InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: in
 // VolumeL : do not change: -1 (= 1) (from 0 to 1) => volume left
 // VolumeR : do not change: -1 (from 0 to 1) => volume rigth (ignored for mono)
 // Duration : in msec (-1 = do not change)
-// NbHarmonic : Number of Harmony (-1 not change) (0 to 5 harmonies)
+// NbHarmonic : Number of Harmonies (-1 not change)
+// EvenHarmonics: default: -1 (= 0) (0 = all harmonics, 1 = Only even harmonics)
 // Enable : true or false ;
 
 var
@@ -4498,6 +4586,14 @@ begin
  if NbHarmonic <> -1 then 
  begin
  StreamIn[InputIndex].Data.harmonic := NbHarmonic;
+ newtable := true;
+ end;
+ 
+ if EvenHarmonics <> - 1 then
+ begin
+ if EvenHarmonics = 0 then
+ StreamIn[InputIndex].data.evenharm := 0 else
+ StreamIn[InputIndex].data.evenharm := 1;
  newtable := true;
  end;
   
@@ -4533,12 +4629,15 @@ begin
  StreamIn[InputIndex].Data.Vright := VolumeR;
  end;
  
- if Duration <> -1 then  StreamIn[InputIndex].Data.dursine := trunc( StreamIn[InputIndex].Data.SampleRate * duration / 1000);  
+ if Duration <> -1 then  StreamIn[InputIndex].Data.dursine := 
+ trunc( StreamIn[InputIndex].Data.SampleRate * duration / 1000);  
  
  if newtable then
  begin
-  FillLookupTable(InputIndex,StreamIn[InputIndex].Data.typLsine, 1, StreamIn[InputIndex].Data.harmonic);
-  FillLookupTable(InputIndex,StreamIn[InputIndex].Data.typRsine, 2, StreamIn[InputIndex].Data.harmonic);
+  FillLookupTable(InputIndex,StreamIn[InputIndex].Data.typLsine, 1,
+   StreamIn[InputIndex].Data.harmonic, StreamIn[InputIndex].data.evenharm);
+  FillLookupTable(InputIndex,StreamIn[InputIndex].Data.typRsine, 2,
+   StreamIn[InputIndex].Data.harmonic, StreamIn[InputIndex].data.evenharm);
  end; 
   
 end;
@@ -6971,7 +7070,8 @@ begin
 end;
  
 {$IF DEFINED(synthesizer)}
-procedure Tuos_Player.FillLookupTable(x, typewave, channel, AHarmonics: Integer);
+procedure Tuos_Player.FillLookupTable(x, typewave, channel, AHarmonics: Integer;
+ EvenHarmonics : shortint);
 var i, j, l: Integer;
     nPI_l, attenuation: Double;
 begin
@@ -6987,30 +7087,30 @@ begin
    if channel = 2 then
     StreamIn[x].Data.LookupTableRight[i]:=sin(i*nPI_l);
   end;
-
+  
   if typewave = 1 then
   begin
    if channel = 1 then
-   if (i < 256) or ((i > 512) and (i < 778))  then
-    StreamIn[x].Data.LookupTableLeft[i]:= 1.0
-   else
-   StreamIn[x].Data.LookupTableLeft[i]:= -1.0;  
-   
-   if channel = 2 then  
-   if (i < 256) or ((i > 512) and (i < 778))  then
-    StreamIn[x].Data.LookupTableRight[i]:= 1.0   else
-   StreamIn[x].Data.LookupTableRight[i]:= -1.0;   
+   begin
+   if sin(i*nPI_l) >= 0 then
+    StreamIn[x].Data.LookupTableLeft[i]:= 1 else
+    StreamIn[x].Data.LookupTableLeft[i]:=-1 ;
+   end; 
+   if channel = 2 then
+   begin
+   if sin(i*nPI_l) >= 0 then
+    StreamIn[x].Data.LookupTableRight[i]:= 1 else
+    StreamIn[x].Data.LookupTableRight[i]:=-1 ;
+    end; 
   end;
-  
 end;
     
  if AHarmonics > 0 then   
   for j:=1 to AHarmonics do
     begin
-  // if ((j mod 2) =1) then 
-     if 1 = 1 then
+     if ((((j mod 2) =1) and (EvenHarmonics=1)) or (EvenHarmonics=0)) then
        begin
-          attenuation := power(j+1, 5);
+          attenuation := power(j+1, 4);
           nPI_l:=2*j*pi/l;
           for i:=0 to l-1 do
           begin
@@ -7024,6 +7124,27 @@ end;
             StreamIn[x].Data.LookupTableRight[i]:=
             StreamIn[x].Data.LookupTableRight[i]+sin(i*nPI_l)/attenuation;
           end;
+          
+          if typewave = 1 then
+          begin
+          if channel = 1 then
+          begin
+          if sin(i*nPI_l) >= 0 then
+            StreamIn[x].Data.LookupTableLeft[i]:=
+            StreamIn[x].Data.LookupTableLeft[i]+(1/attenuation) else
+            StreamIn[x].Data.LookupTableLeft[i]:=
+            StreamIn[x].Data.LookupTableLeft[i]+(-1/attenuation);
+           end ;
+          if channel = 2 then
+          begin
+          if sin(i*nPI_l) >= 0 then
+            StreamIn[x].Data.LookupTableRight[i]:=
+            StreamIn[x].Data.LookupTableRight[i]+(1/attenuation) else
+            StreamIn[x].Data.LookupTableRight[i]:=
+            StreamIn[x].Data.LookupTableRight[i]+(-1/attenuation);
+           end ;
+          end; 
+          
          end; 
         end;
     end;
@@ -7061,11 +7182,11 @@ begin
   aStepL:=(aFreqL*1024/StreamIn[x].Data.samplerate);
   aStepR:=(aFreqR*1024/StreamIn[x].Data.samplerate);;
   
-  x2 := 0 ;
-   
   StreamIn[x].Data.posdursine := 
   StreamIn[x].Data.posdursine + (StreamIn[x].Data.WantFrames div chan);
 
+  x2 := 0 ;
+  
   if (StreamIn[x].Data.posdursine <= StreamIn[x].Data.dursine) or (StreamIn[x].Data.dursine = 0) then
   begin
  

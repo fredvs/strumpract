@@ -153,8 +153,9 @@ findinfiledialog=94
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=GetInfoDevice
+ value=filter
  history=20
+  filter
   GetInfoDevice
   devin
   devout
@@ -174,11 +175,10 @@ findinfiledialog=94
   GL, GLext, GLU
   hide play
   hide dock
-  select
  [findinfileadialogfo]
  stackedunder=
- x=635
- y=252
+ x=340
+ y=261
  cx=339
  cy=308
 finddialog=8
@@ -186,8 +186,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=775
- y=257
+ x=1027
+ y=255
  cx=300
  cy=269
 replacedialog=33
@@ -1235,7 +1235,7 @@ line=35
  587
  173
  1290
- 5714
+ 5721
  1473
  47
  1457
@@ -1635,8 +1635,12 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=configfo
-findhistory=14
+finddtext=filter
+findhistory=18
+ filter
+ BandFilter
+ bandpass
+ Equalizer_Bands
  configfo
  wavefo.tmainmenu1
  onrenderexe
@@ -1652,12 +1656,16 @@ findhistory=14
  isbuzy
  if typecolor
 findoptions=1
-editpos=14
+editpos=18
+ 0,-1073741823
+ 0,-1073741823
+ 0,3
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1681,12 +1689,16 @@ bookmarks10=0
 bookmarks11=0
 bookmarks12=0
 bookmarks13=0
-sourcefiles=14
+bookmarks14=0
+bookmarks15=0
+bookmarks16=0
+bookmarks17=0
+sourcefiles=18
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/drums.pas
+ /home/fred/strumpract/src/drums.pas
  ${PROJECTDIR}/dockpanel1.pas
- /home/fred/strumpract/src/commander.pas
+ ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/guitars.pas
  ${PROJECTDIR}/imagedancer.pas
@@ -1696,7 +1708,11 @@ sourcefiles=14
  ${PROJECTDIR}/spectrum1.pas
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/define.inc
-relpaths=14
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/uos_flat.pas
+ ${PROJECTDIR}/uos.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=18
  strumpract.pas
  main.pas
  drums.pas
@@ -1711,7 +1727,15 @@ relpaths=14
  spectrum1.pas
  waveform.pas
  define.inc
-ismoduletexts=14
+ songplayer.pas
+ uos_flat.pas
+ uos.pas
+ songplayer.pas
+ismoduletexts=18
+ 0
+ 0
+ 0
+ 0
  0
  0
  0
@@ -1779,25 +1803,29 @@ nomenumodules=12
  0
  0
 [sourcefo.files_tab]
-order=14
+order=18
  0
  1
- 4
- 13
  11
- 10
+ 15
+ 17
+ 2
+ 8
  3
+ 14
+ 5
  12
+ 10
+ 4
+ 16
+ 9
+ 13
  6
  7
- 8
- 9
- 2
- 5
 firsttab=0
-index=2
+index=5
 [layout]
-windowlayout=808
+windowlayout=812
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2262,13 +2290,13 @@ windowlayout=808
  visible=1
  mdistate=0
  nx=0
- ny=0
+ ny=-5
  ncx=1341
- ncy=48
+ ncy=35
  x=0
- y=0
+ y=-5
  cx=1341
- cy=46
+ cy=33
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2278,9 +2306,15 @@ windowlayout=808
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/commander.pas
+ value=/home/fred/strumpract/src/drums.pas
  history=20
-  /home/fred/strumpract/src/commander.pas
+  /home/fred/strumpract/src/drums.pas
+  /home/fred/strumpract/src/define.inc
+  /home/fred/strumpract/src/waveform.pas
+  /home/fred/strumpract/src/songplayer.pas
+  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/uos.pas
+  /home/fred/uos/examples/uos.pas
   /home/fred/uos_blaazwave/src/uos.pas
   /home/fred/strumpract/src/dockpanel1.pas
   /home/fred/alsa_sound/src/alsa_sound.pas
@@ -2294,12 +2328,6 @@ windowlayout=808
   /home/fred/freepascal-ootb_320test/rtl/unix/sysutils.pp
   /home/fred/alsa_soundnew/src/alsa_sound.pas
   /home/fred/freepascal-ootb_322test/rtl/objpas/math.pp
-  /home/fred/roland/ptcwrapper.pp
-  /home/fred/roland/nero5_test.pas
-  /home/fred/roland/ptccrt.pp
-  /home/fred/freepascal-ootb_322/packages/graph/src/ptcgraph/ptccrt.pp
-  /home/fred/roland/fontdata.inc
-  /home/fred/roland/graph.inc
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2321,23 +2349,27 @@ windowlayout=808
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=14
+ order=18
   0
   1
-  4
-  13
   11
-  10
+  15
+  17
+  2
+  8
   3
+  14
+  5
   12
+  10
+  4
+  16
+  9
+  13
   6
   7
-  8
-  9
-  2
-  5
  firsttab=0
- index=2
+ index=5
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]

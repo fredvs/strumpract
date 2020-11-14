@@ -965,8 +965,8 @@ begin
 
           if configfo.speccalc.Value = True then
             for i := 1 to 10 do
-              uos_InputAddFilter(theplayer, InputIndex1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
-
+        uos_InputAddFilter(theplayer, InputIndex1, Equalizer_Bands[i].lo_freq, 
+        Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
 
   { // add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
@@ -2472,12 +2472,12 @@ begin
   Equalizer_Bands[7].hi_freq  := 3000;
   Equalizer_Bands[7].Text     := '2K';
   Equalizer_Bands[8].lo_freq  := 3001;
-  Equalizer_Bands[8].hi_freq  := 6000;
+  Equalizer_Bands[8].hi_freq  := 4000;
   Equalizer_Bands[8].Text     := '4K';
-  Equalizer_Bands[9].lo_freq  := 6001;
-  Equalizer_Bands[9].hi_freq  := 12000;
-  Equalizer_Bands[9].Text     := '8K';
-  Equalizer_Bands[10].lo_freq := 12001;
+  Equalizer_Bands[9].lo_freq  := 4001;
+  Equalizer_Bands[9].hi_freq  := 6000;
+  Equalizer_Bands[9].Text     := '6K';
+  Equalizer_Bands[10].lo_freq := 6001;
   Equalizer_Bands[10].hi_freq := 20000;
   Equalizer_Bands[10].Text    := '16K';
 
