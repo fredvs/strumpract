@@ -902,7 +902,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 19
+        submenu.count = 22
         submenu.items = <        
           item
             caption = ' Show All '
@@ -980,6 +980,21 @@ object mainfo: tmainfo
             onexecute = onshowwaverec
           end        
           item
+            caption = ' Show Equalizer 1 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showequalizer1
+          end        
+          item
+            caption = ' Show Equalizer 2 '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showequalizer2
+          end        
+          item
+            caption = ' Show Equalizer Rec '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showequalizerrec
+          end        
+          item
             caption = ' Show Chord Randomizer '
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowrandom
@@ -1026,7 +1041,6 @@ object mainfo: tmainfo
         caption = ' &Show '
         hint = ' Show/hide windows '
         state = [as_localcaption, as_localhint, as_localonexecute]
-        onexecute = showall
       end    
       item
         submenu.count = 10

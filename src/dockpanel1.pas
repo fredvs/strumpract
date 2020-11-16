@@ -32,8 +32,7 @@ type
     procedure layoutchanged(const Sender: tdockcontroller);
     procedure onfloat(const Sender: TObject);
     procedure onvisiblech(const Sender: TObject);
-    procedure befdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var processed: boolean);
-    procedure afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var processed: boolean);
+    
   private
     flayoutlock: int32;
   protected
@@ -321,59 +320,50 @@ end;
 
 procedure tdockpanel1fo.onvisiblech(const Sender: TObject);
 begin
+
   if assigned(mainfo) then
   begin
     if Caption = 'Dock Panel 1' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[0].Caption := ' Hide Dock Panel 1 '
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[0].Caption := ' Hide Dock Panel 1 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[0].Caption := ' Show Dock Panel 1 ';
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[0].Caption := ' Show Dock Panel 1 ';
     end;
 
     if Caption = 'Dock Panel 2' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[1].Caption := ' Hide Dock Panel 2 '
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[1].Caption := ' Hide Dock Panel 2 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[1].Caption := ' Show Dock Panel 2 ';
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[1].Caption := ' Show Dock Panel 2 ';
     end;
 
     if Caption = 'Dock Panel 3' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[2].Caption := ' Hide Dock Panel 3 '
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[2].Caption := ' Hide Dock Panel 3 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[2].Caption := ' Show Dock Panel 3 ';
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[2].Caption := ' Show Dock Panel 3 ';
     end;
     
      if Caption = 'Dock Panel 4' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[3].Caption := ' Hide Dock Panel 4 '
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[3].Caption := ' Hide Dock Panel 4 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[3].Caption := ' Show Dock Panel 4 ';
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[3].Caption := ' Show Dock Panel 4 ';
     end;
     
      if Caption = 'Dock Panel 5' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[4].Caption := ' Hide Dock Panel 5 '
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[4].Caption := ' Hide Dock Panel 5 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[18].submenu[4].Caption := ' Show Dock Panel 5 ';
+        mainfo.tmainmenu1.menu[3].submenu[21].submenu[4].Caption := ' Show Dock Panel 5 ';
     end;
   end;
+  
 end;
-
-procedure tdockpanel1fo.befdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var processed: boolean);
-
-begin
-end;
-
-procedure tdockpanel1fo.afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var processed: boolean);
-begin
-end;
-
-
 
 end.

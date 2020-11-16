@@ -71,7 +71,6 @@ object spectrum1fo: tspectrum1fo
   onhide = onvisiblechange
   moduleclassname = 'tdockform'
   object fond: tgroupbox
-    taborder = 1
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 432
@@ -93,7 +92,7 @@ object spectrum1fo: tspectrum1fo
         0
       )
       taborder = 1
-      bounds_x = 1
+      bounds_x = 0
       bounds_y = 0
       bounds_cx = 216
       bounds_cy = 128
@@ -108,19 +107,19 @@ object spectrum1fo: tspectrum1fo
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin, frl_colorclient]
         frame.localprops1 = []
-        taborder = 1
         hint = ' Left Frequency spectrum '
         bounds_x = 2
         bounds_y = 28
-        bounds_cx = 215
+        bounds_cx = 212
         bounds_cy = 101
         traces.count = 1
         traces.chartkind = tck_bar
+        traces.options = [cto_smooth]
         traces.xserstart = 0.02
         traces.xrange = 1
         traces.xserrange = 0.9
         traces.yrange = 1
-        traces.bar_width = 19
+        traces.bar_width = 18
         traces.items = <        
           item
             color = -2147483647
@@ -130,7 +129,8 @@ object spectrum1fo: tspectrum1fo
             xrange = 1
             yrange = 1
             chartkind = tck_bar
-            bar_width = 19
+            options = [cto_smooth]
+            bar_width = 18
           end>
         colorchart = -1879048187
         framechart.localprops = []
@@ -142,11 +142,12 @@ object spectrum1fo: tspectrum1fo
       end
       object labelleft: tlabel
         color = -2147483645
+        taborder = 1
         bounds_x = 4
         bounds_y = 17
-        bounds_cx = 211
+        bounds_cx = 205
         bounds_cy = 12
-        caption = '31   62   125  250  500  1k   2k   4k   8k   16k'
+        caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
         font.height = 9
         font.name = 'stf_default'
         font.localprops = [flp_height]
@@ -169,33 +170,47 @@ object spectrum1fo: tspectrum1fo
         0
         0
       )
-      bounds_x = 215
+      bounds_x = 216
       bounds_y = 0
       bounds_cx = 216
       bounds_cy = 128
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_height]
+      object labelright: tlabel
+        color = -2147483645
+        bounds_x = 4
+        bounds_y = 17
+        bounds_cx = 205
+        bounds_cy = 12
+        caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
+        font.height = 9
+        font.name = 'stf_default'
+        font.localprops = [flp_height]
+        reffontheight = 12
+      end
       object tchartright: tchart
         color = -1879048187
         frame.colordkwidth = 0
         frame.colorhlwidth = 0
+        frame.colorclient = -2147483645
         frame.optionsskin = [fso_flat]
-        frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
+        frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin, frl_colorclient]
         frame.localprops1 = []
         taborder = 1
         hint = ' Right Frequency spectrum '
         bounds_x = 2
         bounds_y = 28
-        bounds_cx = 217
+        bounds_cx = 212
         bounds_cy = 101
         traces.count = 1
         traces.chartkind = tck_bar
+        traces.options = [cto_smooth]
         traces.xserstart = 0.02
         traces.xrange = 1
         traces.xserrange = 0.9
         traces.yrange = 1
-        traces.bar_width = 19
+        traces.bar_width = 18
         traces.items = <        
           item
             color = -2147483647
@@ -205,59 +220,47 @@ object spectrum1fo: tspectrum1fo
             xrange = 1
             yrange = 1
             chartkind = tck_bar
-            bar_width = 19
+            options = [cto_smooth]
+            bar_width = 18
           end>
         colorchart = -1879048187
-        framechart.colordkwidth = 0
-        framechart.colorhlwidth = 0
-        framechart.localprops = [frl_colordkwidth, frl_colorhlwidth]
+        framechart.localprops = []
         framechart.localprops1 = []
         xrange = 1
         yrange = 1
         xdials.range = 1
         ydials.range = 1
       end
-      object labelright: tlabel
-        color = -2147483645
-        bounds_x = 4
-        bounds_y = 17
-        bounds_cx = 211
-        bounds_cy = 12
-        caption = '31   62   125  250  500  1k   2k   4k   8k   16k'
-        font.height = 9
-        font.name = 'stf_default'
-        font.localprops = [flp_height]
-        reffontheight = 12
-      end
     end
-  end
-  object spect1: tbooleanedit
-    color = -2147483645
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.caption = 'Enable'
-    frame.font.color = 2039583
-    frame.font.height = 10
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color, flp_height]
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = commanderfo.tframecomp2
-    frame.outerframe = (
-      0
-      1
-      36
-      2
-    )
-    face.localprops = []
-    face.template = mainfo.tfaceplayer
-    hint = 'Enable Spectrum rendering'
-    bounds_x = 9
-    bounds_y = 2
-    bounds_cx = 49
-    bounds_cy = 15
-    statfile = mainfo.tstatfile1
-    colorglyph = 4539717
-    onsetvalue = onshowspec
-    value = True
+    object Spect1: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.caption = 'Enable'
+      frame.font.color = 2039583
+      frame.font.colorbackground = -2147483645
+      frame.font.height = 10
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_colorbackground, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = commanderfo.tframecomp2
+      frame.outerframe = (
+        0
+        0
+        36
+        0
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayer
+      taborder = 2
+      hint = 'Enable Spectrum rendering'
+      bounds_x = 10
+      bounds_y = 0
+      bounds_cx = 49
+      bounds_cy = 15
+      statfile = mainfo.tstatfile1
+      colorglyph = 4539717
+      value = True
+    end
   end
 end

@@ -4,46 +4,12 @@ unit commander;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  Math,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  mseimage;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
+ msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
+ msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
+ mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
+ msegraphedits,msescrollbar,msedispwidgets,mserichstring,mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -463,7 +429,9 @@ end;
 
 procedure tcommanderfo.visiblechangeev(const Sender: TObject);
 begin
-  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
+  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and 
+  (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and 
+  (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
     if Visible then
       mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Hide Commander '

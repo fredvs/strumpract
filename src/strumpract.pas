@@ -28,6 +28,7 @@ uses
   spectrum1,
   waveform,
   randomnote,
+  equalizer,
   dockpanel1;
 
 begin
@@ -38,8 +39,8 @@ begin
 
   application.createform(tspectrum1fo, spectrum1fo);
   application.createform(tspectrum1fo, spectrum2fo);
-   application.createform(tspectrum1fo, spectrumrecfo);
-
+  application.createform(tspectrum1fo, spectrumrecfo);
+    
   spectrum1fo.Caption := 'Spectrum Player 1';
   spectrum2fo.Caption := 'Spectrum Player 2';
 
@@ -48,13 +49,30 @@ begin
   
   spectrumrecfo.Caption := 'Spectrum Recorder';
    spectrumrecfo.dragdock.Caption := 'SpR';
-   
+ 
+  application.createform(tequalizerfo, equalizerfo1);
+  application.createform(tequalizerfo, equalizerfo2);
+  application.createform(tequalizerfo, equalizerforec);
+    
+  equalizerfo1.Caption := 'Equalizer Player 1';
+  equalizerfo2.Caption := 'Equalizer Player 2';
+  equalizerforec.Caption := 'Equalizer Recorder';
 
+//  equalizerfo1.dragdock.Caption := 'Eq1';
+//  equalizerfo2.dragdock.Caption := 'Eq2';
+//  equalizerforec.dragdock.Caption := 'EqR';
+ 
+ equalizerfo1.groupbox1.frame.Caption := 'Player 1 Left';
+  equalizerfo1.groupbox2.frame.Caption := 'Player 1 Right';
+  equalizerfo2.groupbox1.frame.Caption := 'Player 2 Left';
+  equalizerfo2.groupbox2.frame.Caption := 'Player 2 Right';
+  equalizerforec.groupbox1.frame.Caption := 'Recorder Left';
+  equalizerforec.groupbox2.frame.Caption := 'Recorder Right';
+ 
   spectrum1fo.groupbox1.frame.Caption := 'Player 1 Left';
   spectrum1fo.groupbox2.frame.Caption := 'Player 1 Right';
   spectrum2fo.groupbox1.frame.Caption := 'Player 2 Left';
   spectrum2fo.groupbox2.frame.Caption := 'Player 2 Right';
-  
   spectrumrecfo.groupbox1.frame.Caption := 'Recorder Left';
   spectrumrecfo.groupbox2.frame.Caption := 'Recorder Right';
 
@@ -131,8 +149,7 @@ tmainmenu1.menu[6].state := [as_invisible,as_localinvisible];
 tmainmenu1.menu[7].state := [as_invisible,as_localinvisible];
 tmainmenu1.menu[8].state := [as_invisible,as_localinvisible];
 end;
-  
-  
+    
     application.createform(tcommanderfo, commanderfo);
   commanderfo.dragdock.Caption := 'Com';
 

@@ -9,15 +9,15 @@ uses
 
 type
  tspectrum1fo = class(tdockform)
-   spect1: tbooleanedit;
    fond: tgroupbox;
    groupbox1: tgroupbox;
-   labelleft: tlabel;
    tchartleft: tchart;
    groupbox2: tgroupbox;
-   labelright: tlabel;
-   tchartright: tchart;
     
+   labelright: tlabel;
+   labelleft: tlabel;
+   tchartright: tchart;
+   Spect1: tbooleanedit;
    procedure onvisiblechange(const sender: TObject);
    procedure onformcreated(const sender: TObject);
    procedure onshowspec(const sender: TObject; var avalue: Boolean;
@@ -65,8 +65,10 @@ begin
  if assigned(mainfo) then  mainfo.updatelayout();
  if assigned(dockpanel1fo) then  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
   if assigned(dockpanel2fo) then if dockpanel2fo.visible then dockpanel2fo.updatelayout();
+ if assigned(dockpanel3fo) then if dockpanel3fo.visible then dockpanel3fo.updatelayout();
+ if assigned(dockpanel4fo) then if dockpanel4fo.visible then dockpanel4fo.updatelayout();
+ if assigned(dockpanel5fo) then if dockpanel5fo.visible then dockpanel5fo.updatelayout();
   
-  if assigned(dockpanel3fo) then if dockpanel3fo.visible then dockpanel3fo.updatelayout();
 end;  
 end;
 

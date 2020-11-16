@@ -129,14 +129,16 @@ type
     procedure ongetbpm(const Sender: TObject);
     procedure ontimerwaveform(const Sender: TObject);
     procedure opendir(const Sender: TObject);
-
+    procedure changefrequency(asender, aindex: integer; gainl, gainr: double);
+    procedure setequalizerenable(asender: integer; avalue: Boolean);
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
   end;
 
   equalizer_band_type = record
-    lo_freq, hi_freq: integer;
+    theindex: integer;
+    lo_freq, hi_freq: cfloat;
     Text: string[10];
   end;
 
@@ -200,6 +202,7 @@ uses
   config,
   waveform,
   filelistform,
+  equalizer,
   drums,
   spectrum1,
   dockpanel1,
@@ -896,7 +899,7 @@ begin
           if configfo.latplay.Value < 0 then
             configfo.latplay.Value := -1;
 
-          Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
+          Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
             uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8, -1);
 
           // add a Output into device with custom parameters
@@ -964,11 +967,23 @@ begin
           uos_InputSetDSP(theplayer, Inputindex1, DSPindex11, setmono.Value);
 
           if configfo.speccalc.Value = True then
-            for i := 1 to 10 do
-        uos_InputAddFilter(theplayer, InputIndex1, Equalizer_Bands[i].lo_freq, 
-        Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
+          begin
+            for i := 1 to 10 do // equalizer
+              Equalizer_Bands[i].theindex :=
+                uos_InputAddFilter(theplayer, InputIndex1,
+                1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+                1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
 
-  { // add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
+            for i := 1 to 10 do // spectrum BandPass
+              uos_InputAddFilter(theplayer, InputIndex1,
+                3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+                3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
+
+            equalizerfo1.onchangeall();
+          end;
+
+
+            { // add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
   begin
    PlugInindex1 := uos_AddPlugin(Playerindex1, 'bs2b',
@@ -1172,7 +1187,7 @@ begin
           if configfo.latplay.Value < 0 then
             configfo.latplay.Value := -1;
 
-          Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
+          Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
             uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 16, -1);
 
           // add a Output into device with custom parameters
@@ -1239,11 +1254,20 @@ begin
           uos_InputSetDSP(theplayer2, Inputindex2, DSPindex22, setmono.Value);
 
           if configfo.speccalc.Value = True then
+          begin
+            for i := 1 to 10 do // equalizer
+              Equalizer_Bands[i].theindex :=
+                uos_InputAddFilter(theplayer2, InputIndex2,
+                1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+                1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
+
             for i := 1 to 10 do
-              uos_InputAddFilter(theplayer2, Inputindex2, Equalizer_Bands[i].lo_freq,
-                Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
+              uos_InputAddFilter(theplayer2, Inputindex2,
+                3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+                3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
 
-
+            equalizerfo2.onchangeall();
+          end;
 {
    // add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
@@ -1528,6 +1552,68 @@ begin
     hasmixed2 := True;
     uos_Stop(theplayer2);
   end;
+end;
+
+procedure tsongplayerfo.setequalizerenable(asender: integer; avalue: Boolean);
+var
+  aplayer: integer;
+  x: integer;
+  avalset: Boolean;
+begin
+  if asender = 1 then
+    aplayer := theplayer
+  else if asender = 2 then
+    aplayer := theplayer2;
+
+  if avalue then
+    avalset := False
+  else
+    avalset := True;
+
+  for x := 1 to 10 do
+    uos_InputSetFilter(aplayer, Inputindex1, Equalizer_Bands[x].theindex, -1, -1, -1, -1, -1, -1, -1, -1, True, nil, avalset);
+
+end;
+
+procedure tsongplayerfo.changefrequency(asender, aindex: integer; gainl, gainr: double);
+var
+  gainl2, gainr2: double;
+  aplayer: integer;
+  isenable: Boolean = False;
+begin
+  if asender = 1 then
+    isenable := equalizerfo1.EQEN.Value;
+  if asender = 2 then
+    isenable := equalizerfo2.EQEN.Value;
+
+  //if isenable then isenable := false else isenable := true;
+
+  if asender = 1 then
+    aplayer := theplayer
+  else if asender = 2 then
+    aplayer := theplayer2;
+  begin
+
+    if gainl = 0 then
+      gainl2 := 1
+    else if gainl > 0 then
+      gainl2 := gainl
+    else
+      gainl2 := 1 - gainl;
+
+    if gainr = 0 then
+      gainr2 := 1
+    else if gainr > 0 then
+      gainr2 := gainr
+    else
+      gainr2 := 1 - gainr;
+
+    //  if (btnStart.Enabled = true) then
+    uos_InputSetFilter(aplayer, Inputindex1, Equalizer_Bands[aindex].theindex, -1, -1, -1, Gainl, -1, -1, -1, Gainr,
+      True, nil, isenable);
+  end;
+  // end;  
+
 end;
 
 procedure tsongplayerfo.changevolume(const Sender: TObject);
@@ -2133,8 +2219,7 @@ begin
               // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
               infosfo.Show(True);
             end
-            else
-            if (waveformcheck.Value = True) and (iswav = False) then
+            else if (waveformcheck.Value = True) and (iswav = False) then
             begin
 
               chan1 := uos_InputGetChannels(theplayerinfo, 0);
@@ -2267,8 +2352,7 @@ begin
               // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
               infosfo.Show(True);
             end
-            else
-            if (waveformcheck.Value = True) and (iswav2 = False) then
+            else if (waveformcheck.Value = True) and (iswav2 = False) then
             begin
 
               chan2 := uos_InputGetChannels(theplayerinfo2, 0);
@@ -2478,7 +2562,7 @@ begin
   Equalizer_Bands[9].hi_freq  := 6000;
   Equalizer_Bands[9].Text     := '6K';
   Equalizer_Bands[10].lo_freq := 6001;
-  Equalizer_Bands[10].hi_freq := 20000;
+  Equalizer_Bands[10].hi_freq := 16000;
   Equalizer_Bands[10].Text    := '16K';
 
   setlength(arl, 10);

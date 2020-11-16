@@ -162,7 +162,8 @@ end;
 procedure twavefo.onvisiblech(const Sender: TObject);
 begin
 
-  if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(dockpanel3fo))
+  if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and
+   (assigned(dockpanel3fo))
  and (assigned(dockpanel4fo)) and (assigned(dockpanel5fo)) then
   begin
     if (tag = 1) then
@@ -187,7 +188,6 @@ if norefresh = false then
 begin
 
     mainfo.updatelayout();
-
 
     if dockpanel1fo.Visible then
       dockpanel1fo.updatelayout();

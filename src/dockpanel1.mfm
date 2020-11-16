@@ -198,8 +198,6 @@ object dockpanel1fo: tdockpanel1fo
     font.name = 'stf_default'
     font.xscale = 1
     font.localprops = [flp_xscale]
-    dragdock.onbeforedragbegin = befdrag
-    dragdock.onafterdragdrop = afterdrag
     dragdock.splitter_size = 4
     dragdock.splitter_grip = stb_dens50
     dragdock.splitter_color = 16119285

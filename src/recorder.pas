@@ -533,8 +533,9 @@ begin
       /// SoundTouch plugin should be the last added.
       if configfo.speccalc.Value = True then
         for i := 1 to 10 do
-          uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
-
+     uos_InputAddFilter(therecplayer, InputIndex3, 
+    3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+    3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
 
       if plugsoundtouch = True then
       begin
@@ -711,7 +712,9 @@ end;
 procedure trecorderfo.visiblechangeev(const Sender: TObject);
 begin
 
-  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
+  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
+   (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) 
+   and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
     if Visible then
       mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Hide Recorder '
@@ -946,8 +949,11 @@ begin
     uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvolr.Value / 100, True);
 
     if configfo.speccalc.Value = True then
-      for i := 1 to 10 do
-        uos_InputAddFilter(therecplayer, InputIndex3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, 3, False, nil);
+               for i := 1 to 10 do
+     uos_InputAddFilter(therecplayer, InputIndex3, 
+    3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+    3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
+
 
     if plugsoundtouch = True then
     begin

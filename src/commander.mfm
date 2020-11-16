@@ -11,8 +11,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 332
-  bounds_y = 296
+  bounds_x = 144
+  bounds_y = 143
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -1785,8 +1785,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 271
-    top = 11
+    left = 203
+    top = 7
   end
   object timagelist2: timagelist
     width = 4
@@ -2315,8 +2315,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 281
-    top = 41
+    left = 69
+    top = 27
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -2745,7 +2745,7 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
-    left = 299
-    top = 36
+    left = 69
+    top = 15
   end
 end

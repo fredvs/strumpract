@@ -117,6 +117,11 @@ begin
   if dockpanel2fo.visible then dockpanel2fo.updatelayout();
   
   if dockpanel3fo.visible then dockpanel3fo.updatelayout();
+   if assigned(dockpanel4fo) then 
+   if dockpanel4fo.visible then dockpanel4fo.updatelayout();
+ if assigned(dockpanel5fo) then
+  if dockpanel5fo.visible then dockpanel5fo.updatelayout();
+
 end;  
 end;
 
