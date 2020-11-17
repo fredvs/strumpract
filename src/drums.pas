@@ -1403,19 +1403,6 @@ begin
           abd[ax].frame.colorclient := cl_white;
         end;
     end;
-
-
-
-
-{
-for i := 0 to 3 do
-
- begin
-  uos_Playnofree(i);
-  if i < 4 then sleep(250) else sleep(300) ;
-  end;
-}
-
 end;
 
 procedure tdrumsfo.oncreateddrums(Const Sender: TObject);

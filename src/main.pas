@@ -7,46 +7,12 @@ unit main;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  msegraphedits,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msechart,
-  status,
-  msedock,
-  msedataedits,
-  mseedit,
-  msestatfile,
-  SysUtils,
-  Classes,
-  Math,
-  msebitmap,
-  msesys,
-  msemenus,
-  msestream,
-  msegrids,
-  mselistbrowser,
-  mseact,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestrings,
-  msedatanodes,
-  msedragglob,
-  msedropdownlist,
-  msefiledialogx,
-  msegridsglob,
-  msetraywidget;
+ msetypes,mseglob,mseguiglob,msegraphedits,mseguiintf,mseapplication,msestat,
+ msegui,msetimer,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,
+ msechart,status,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,
+ msebitmap,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
+ mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,msedropdownlist,
+ msefiledialogx,msegridsglob,msetraywidget;
 
 type
   tmainfo = class(tmainform)
@@ -78,6 +44,7 @@ type
     tfiledialog1: tfiledialogx;
     dancnum: tintegeredit;
     ttimer1: ttimer;
+   tfaceplayer2: tfacecomp;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -121,6 +88,7 @@ type
     procedure onshowwave1(const Sender: TObject);
     procedure onshowwaverec(const Sender: TObject);
     procedure ondockplayers(const Sender: TObject);
+    procedure ondockplayersx2(const Sender: TObject);
     procedure ondockjam(const Sender: TObject);
     procedure dragfloat(const Sender: TObject);
     procedure onexit(const Sender: TObject);
@@ -376,7 +344,6 @@ begin
       {$endif}
     showall(Sender);
     ondockall(Sender);
-
   end;
 
   if (filelistfo.Visible) then
@@ -719,8 +686,9 @@ end;
 procedure tmainfo.onfloatall(const Sender: TObject);
 var
   decorationheight, posi: int32;
-  leftdec: integer = 70;
-  topdec: integer = 40;
+  leftdec: integer = 40;
+  leftposi: integer;
+  topdec: integer = 30;
 begin
   // basedock.anchors := [an_left,an_top]  ;
 
@@ -729,8 +697,8 @@ begin
   beginlayout();
 
   norefresh := True;
-
-  if drumsfo.Visible then
+  
+   if drumsfo.Visible then
     drumsfo.dragdock.float();
 
   if guitarsfo.Visible then
@@ -747,7 +715,16 @@ begin
 
   if spectrumrecfo.Visible then
     spectrumrecfo.dragdock.float();
+    
+   if equalizerfo1.Visible then
+    equalizerfo1.dragdock.float();
 
+  if equalizerfo2.Visible then
+    equalizerfo2.dragdock.float();
+
+  if equalizerforec.Visible then
+    equalizerforec.dragdock.float();
+  
   if songplayer2fo.Visible then
     songplayer2fo.dragdock.float();
 
@@ -774,8 +751,6 @@ begin
 
   if waveforec.Visible then
     waveforec.dragdock.float();
-
-  norefresh := False;
 
   wavefo2.bounds_cxmax := 0;
   wavefo2.bounds_cymax := 0;
@@ -805,85 +780,152 @@ begin
   top  := 0;
 
   endlayout();
-
-  if drumsfo.Visible then
-    drumsfo.left := leftdec;
-
-  if guitarsfo.Visible then
-    guitarsfo.left := drumsfo.left + leftdec;
-
-  if songplayerfo.Visible then
-    songplayerfo.left := guitarsfo.left + leftdec;
-
-  if songplayer2fo.Visible then
-    songplayer2fo.left := songplayerfo.left + leftdec;
-
-  if recorderfo.Visible then
-    recorderfo.left := songplayer2fo.left + leftdec;
-
-  if spectrumrecfo.Visible then
-    spectrumrecfo.left := recorderfo.left + leftdec;
-
-  if filelistfo.Visible then
+  
+  leftposi := 0;
+  
+   if filelistfo.Visible then
   begin
-    filelistfo.Height := 300;
-    filelistfo.left   := spectrumrecfo.left + leftdec;
+    filelistfo.left := leftposi + leftdec;
+    leftposi := filelistfo.left;
   end;
 
-  if commanderfo.Visible then
-    commanderfo.left := filelistfo.left + leftdec;
+  if drumsfo.Visible then
+  begin
+    drumsfo.left := leftposi + leftdec;
+    leftposi := drumsfo.left;
+  end;  
 
-  if spectrum1fo.Visible then
-    spectrum1fo.left := commanderfo.left + leftdec;
-
-  if spectrum2fo.Visible then
-    spectrum2fo.left := spectrum1fo.left + leftdec;
-
-  if wavefo.Visible then
-    wavefo.left := spectrum2fo.left + leftdec;
-
-  if wavefo2.Visible then
-    wavefo2.left := wavefo.left + leftdec;
-
+  if guitarsfo.Visible then
+   begin
+    guitarsfo.left := leftposi + leftdec;
+    leftposi := guitarsfo.left;
+  end;
+  
+   if spectrumrecfo.Visible then
+   begin
+    spectrumrecfo.left := leftposi + leftdec;
+    leftposi := spectrumrecfo.left;
+  end;
+    
+  if equalizerforec.Visible then
+  begin
+    equalizerforec.left := leftposi + leftdec;
+    leftposi := equalizerforec.left;
+  end;
+     
   if waveforec.Visible then
-    waveforec.left := wavefo2.left + leftdec;
+  begin
+    waveforec.left := leftposi + leftdec;
+    leftposi := waveforec.left;
+  end;
+  
+   if recorderfo.Visible then
+   begin
+    recorderfo.left := leftposi + leftdec;
+    leftposi := recorderfo.left;
+  end;
+  
+  if spectrum1fo.Visible then
+  begin
+    spectrum1fo.left := leftposi + leftdec;
+    leftposi := spectrum1fo.left;
+  end;
+       
+  if equalizerfo1.Visible then
+  begin
+    equalizerfo1.left := leftposi + leftdec;
+    leftposi := equalizerfo1.left;
+  end; 
+  
+  if wavefo.Visible then
+ begin
+    wavefo.left := leftposi + leftdec;
+    leftposi := wavefo.left;
+  end;
 
+  if songplayerfo.Visible then
+   begin
+    songplayerfo.left := leftposi + leftdec;
+    leftposi := songplayerfo.left;
+  end;
+    
+   if spectrum2fo.Visible then
+ begin
+    spectrum2fo.left := leftposi + leftdec;
+    leftposi := spectrum2fo.left;
+  end;
+       
+   if equalizerfo2.Visible then
+  begin
+    equalizerfo2.left := leftposi + leftdec;
+    leftposi := equalizerfo2.left;
+  end;
+  
+   if wavefo2.Visible then
+  begin
+    wavefo2.left := leftposi + leftdec;
+    leftposi := wavefo2.left;
+  end;
+  
+  if songplayer2fo.Visible then
+   begin
+    songplayer2fo.left := leftposi + leftdec;
+    leftposi := songplayer2fo.left;
+  end;
+    
+     
+  if commanderfo.Visible then
+  begin
+    commanderfo.left := leftposi + leftdec;
+    leftposi := commanderfo.left;
+  end;
+        
   top := 0;
+  
+  posi := 124;
+  
+  if filelistfo.Visible then
+  begin
+    filelistfo.top := posi;
+    posi           := filelistfo.top + topdec;
+    filelistfo.activate;
+  end;
 
   if drumsfo.Visible then
   begin
-    drumsfo.top := 120;
+    drumsfo.top := posi;
     posi        := drumsfo.top + topdec;
     drumsfo.activate;
-  end
-  else
-    posi := top + 120;
-
+  end;
+  
   if guitarsfo.Visible then
   begin
     guitarsfo.top := posi;
     posi          := guitarsfo.top + topdec;
     guitarsfo.activate;
   end;
-
-  if songplayerfo.Visible then
+  
+    if spectrumrecfo.Visible then
   begin
-    songplayerfo.top := posi;
-    posi := songplayerfo.top + topdec;
-    songplayerfo.activate;
-  end
-  else
-    posi := top + topdec;
-
-  if songplayer2fo.Visible then
+    spectrumrecfo.top := posi;
+    posi := spectrumrecfo.top + topdec;
+    spectrumrecfo.activate;
+  end;
+    
+    if equalizerforec.Visible then
   begin
-    songplayer2fo.top := posi;
-    posi := songplayer2fo.top + +topdec;
-    songplayer2fo.activate;
-  end
-  else
-    posi := top + topdec;
-
+    equalizerforec.top := posi;
+    posi := equalizerforec.top + topdec;
+    equalizerforec.activate;
+  end;  
+  
+  if waveforec.Visible then
+  begin
+    waveforec.top := posi;
+     posi := waveforec.top + topdec;
+     waveforec.activate;
+  end;
+   
   if recorderfo.Visible then
   begin
     recorderfo.top := posi;
@@ -891,60 +933,48 @@ begin
     recorderfo.activate;
   end;
 
-  if spectrumrecfo.Visible then
-  begin
-    spectrumrecfo.top := posi;
-    posi := spectrumrecfo.top + topdec;
-    spectrumrecfo.activate;
-  end
-  else
-    posi := top + topdec;
-
-  if filelistfo.Visible then
-  begin
-    filelistfo.top := posi;
-    posi           := filelistfo.top + topdec;
-    filelistfo.activate;
-  end
-  else
-    posi := top + topdec;
-
-  if commanderfo.Visible then
-  begin
-    commanderfo.top := posi;
-    posi := commanderfo.top + +topdec;
-    commanderfo.activate;
-  end
-  else
-    posi := top + topdec;
-
   if spectrum1fo.Visible then
   begin
     spectrum1fo.top := posi;
     posi := spectrum1fo.top + topdec;
     spectrum1fo.activate;
-  end
-  else
-    posi := top + topdec;
-
-  if spectrum2fo.Visible then
+  end;
+    
+  if equalizerfo1.Visible then
   begin
-    spectrum2fo.top := posi;
-    posi := spectrum2fo.top + topdec;
-    spectrum2fo.activate;
-  end
-  else
-    posi := top + topdec;
-
-  if wavefo.Visible then
+    equalizerfo1.top := posi;
+    posi := equalizerfo1.top + topdec;
+    equalizerfo1.activate;
+  end;  
+  
+    if wavefo.Visible then
   begin
     wavefo.top := posi;
     posi       := wavefo.top + topdec;
     wavefo.activate;
-  end
-  else
-    posi := top + topdec;
+  end;
+  
+   if songplayerfo.Visible then
+  begin
+    songplayerfo.top := posi;
+    posi := songplayerfo.top + topdec;
+    songplayerfo.activate;
+  end;
 
+   if spectrum2fo.Visible then
+  begin
+    spectrum2fo.top := posi;
+    posi := spectrum2fo.top + topdec;
+    spectrum2fo.activate;
+  end;
+    
+    if equalizerfo2.Visible then
+  begin
+    equalizerfo2.top := posi;
+    posi := equalizerfo2.top + topdec;
+    equalizerfo2.activate;
+  end;   
+  
   if wavefo2.Visible then
   begin
     wavefo2.top := posi;
@@ -952,10 +982,18 @@ begin
     wavefo2.activate;
   end;
 
-  if waveforec.Visible then
+  if songplayer2fo.Visible then
   begin
-    waveforec.top := posi;
-    waveforec.activate;
+    songplayer2fo.top := posi;
+    posi := songplayer2fo.top + +topdec;
+    songplayer2fo.activate;
+  end;
+    
+  if commanderfo.Visible then
+  begin
+    commanderfo.top := posi;
+    posi := commanderfo.top + +topdec;
+    commanderfo.activate;
   end;
 
   norefresh := False;
@@ -971,12 +1009,13 @@ begin
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
 
+    norefresh := False;
+
   if timeract.Enabled then
     timeract.restart // to reset
   else
     timeract.Enabled := True;
-
-end;
+ end;
 
 procedure tmainfo.dragfloat(const Sender: TObject);
 begin
@@ -1288,6 +1327,14 @@ begin
 
 end;
 
+procedure tmainfo.ondockplayersx2(const Sender: TObject); // DJ LayoutX2
+begin
+ondockplayers(Sender);
+sleep(100);
+application.processmessages;
+ondockplayers(Sender);
+end;
+
 procedure tmainfo.ondockplayers(const Sender: TObject); // DJ Layout
 var
   pt1: pointty;
@@ -1349,11 +1396,11 @@ begin
   wavefo.dragdock.float();
   wavefo2.dragdock.float();
 
+   beginlayout();
   basedock.dragdock.currentsplitdir := sd_horz;
   decorationheight := window.decoratedbounds_cy - Height;
   
-  beginlayout();
-
+ 
   with dockpanel1fo do
   begin
 
@@ -1403,13 +1450,14 @@ begin
     //  dockpanel2fo.Timerwaitdp.Enabled := True;
   end;
   
+   
   basedock.dragdock.currentsplitdir := sd_horz;
   commanderfo.parentwidget          := basedock;
-
+  
   rect1 := application.screenrect(window);
 
   interv := (rect1.cx - (3 * foWidth)) div 2;
-
+   
   dockpanel1fo.left := 0;
   dockpanel1fo.top  := 0;
 
@@ -1420,8 +1468,10 @@ begin
   
   filelistfo.Height := dockpanel1fo.height - commanderfo.height -
    decorationheight - (decorationheight div 2);
-
-  left := filelistfo.left;
+  
+   //filelistfo.Height := 400;
+ 
+   left := filelistfo.left;
   top  := filelistfo.Height + (decorationheight * 2) - 4;
  
   dockpanel2fo.top := dockpanel1fo.top;
@@ -1429,6 +1479,9 @@ begin
   dockpanel2fo.left := filelistfo.right + interv;
 
   interv := ((rect1.cy - (dockpanel1fo.height) - ( 4 * decorationheight)) div 2) ;
+  
+   endlayout();
+
 
   wavefo2.bounds_cxmax := 0;
   wavefo2.bounds_cymax := 0;
@@ -1447,10 +1500,9 @@ begin
   wavefo.left  := 0;
   wavefo2.left := 0;
 
+  application.processmessages;
   //  visible:= true;
 
-  endlayout();
-  
   dockpanel1fo.Visible := True;
   dockpanel2fo.Visible := True;
   wavefo.Visible       := True;
@@ -1509,15 +1561,23 @@ begin
     songplayer2fo.parentwidget := basedock;
   if commanderfo.Visible then
     commanderfo.parentwidget   := basedock;
+ 
   if spectrum1fo.Visible then
     spectrum1fo.parentwidget   := basedock;
-
-  if spectrum2fo.Visible then
+    if equalizerfo1.Visible then
+    equalizerfo1.parentwidget   := basedock;
+ 
+   if spectrum2fo.Visible then
     spectrum2fo.parentwidget := basedock;
-
-  if spectrumrecfo.Visible then
+  if equalizerfo2.Visible then
+    equalizerfo2.parentwidget   := basedock;
+    
+   if spectrumrecfo.Visible then
     spectrumrecfo.parentwidget := basedock;
 
+ if equalizerforec.Visible then
+    equalizerforec.parentwidget   := basedock;
+  
   if wavefo.Visible then
     wavefo.parentwidget := basedock;
 
@@ -1529,6 +1589,7 @@ begin
 
   if recorderfo.Visible then
     recorderfo.parentwidget := basedock;
+  
   if guitarsfo.Visible then
     guitarsfo.parentwidget  := basedock;
 
@@ -1546,11 +1607,47 @@ begin
     filelistfo.pos := pt1;
     pt1.y          := pt1.y + filelistfo.Height + decorationheight;
   end;
+  
+   if spectrum1fo.Visible then
+  begin
+    spectrum1fo.pos := pt1;
+    pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
+  end;
+  
+   if equalizerfo1.Visible then
+  begin
+    equalizerfo1.pos := pt1;
+    pt1.y           := pt1.y + equalizerfo1.Height + decorationheight;
+  end;
+
+  if wavefo.Visible then
+  begin
+    wavefo.pos := pt1;
+    pt1.y      := pt1.y + wavefo.Height + decorationheight;
+  end;
 
   if songplayerfo.Visible then
   begin
     songplayerfo.pos := pt1;
     pt1.y := pt1.y + songplayerfo.Height + decorationheight;
+  end;
+  
+  if spectrum2fo.Visible then
+  begin
+    spectrum2fo.pos := pt1;
+    pt1.y           := pt1.y + spectrum2fo.Height + decorationheight;
+  end;
+  
+   if equalizerfo2.Visible then
+  begin
+    equalizerfo2.pos := pt1;
+    pt1.y           := pt1.y + equalizerfo2.Height + decorationheight;
+  end;
+  
+   if wavefo2.Visible then
+  begin
+    wavefo2.pos := pt1;
+    pt1.y       := pt1.y + wavefo2.Height + decorationheight;
   end;
 
   if songplayer2fo.Visible then
@@ -1565,34 +1662,16 @@ begin
     pt1.y           := pt1.y + commanderfo.Height + decorationheight;
   end;
 
-  if spectrum1fo.Visible then
-  begin
-    spectrum1fo.pos := pt1;
-    pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
-  end;
-
-  if spectrum2fo.Visible then
-  begin
-    spectrum2fo.pos := pt1;
-    pt1.y           := pt1.y + spectrum2fo.Height + decorationheight;
-  end;
-
   if spectrumrecfo.Visible then
   begin
     spectrumrecfo.pos := pt1;
-    pt1.y := pt1.y + spectrumrecfo.Height + decorationheight;
+    pt1.y           := pt1.y + spectrumrecfo.Height + decorationheight;
   end;
-
-  if wavefo.Visible then
+  
+   if equalizerforec.Visible then
   begin
-    wavefo.pos := pt1;
-    pt1.y      := pt1.y + wavefo.Height + decorationheight;
-  end;
-
-  if wavefo2.Visible then
-  begin
-    wavefo2.pos := pt1;
-    pt1.y       := pt1.y + wavefo2.Height + decorationheight;
+    equalizerforec.pos := pt1;
+    pt1.y           := pt1.y + equalizerforec.Height + decorationheight;
   end;
 
   if recorderfo.Visible then
@@ -1691,6 +1770,9 @@ begin
   commanderfo.Show();
   guitarsfo.Show();
   recorderfo.Show();
+  equalizerfo1.Show();
+  equalizerfo2.Show();
+  equalizerforec.Show();
   spectrum1fo.Show();
   spectrum2fo.Show();
   spectrumrecfo.Show();
@@ -1729,6 +1811,9 @@ begin
   wavefo.Visible      := False;
   wavefo2.Visible     := False;
   waveforec.Visible   := False;
+  equalizerfo1.Visible   := False;
+  equalizerfo2.Visible   := False;
+  equalizerforec.Visible   := False;
   norefresh           := False;
   endlayout();
   if timerwait.Enabled then

@@ -865,7 +865,7 @@ object mainfo: tmainfo
           item
             caption = ' D&J Console '
             state = [as_localcaption, as_localonexecute]
-            onexecute = ondockplayers
+            onexecute = ondockplayersx2
           end        
           item
             caption = ' &Record stage '
@@ -1334,8 +1334,8 @@ object mainfo: tmainfo
       11317382
     )
     template.fade_direction = gd_down
-    left = 66
-    top = 20
+    left = 29
+    top = 48
   end
   object tfaceplayerlight: tfacecomp
     template.fade_pos.count = 2
@@ -3369,5 +3369,20 @@ object mainfo: tmainfo
     enabled = True
     left = 170
     top = 42
+  end
+  object tfaceplayer2: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      15258032
+      12561553
+    )
+    template.fade_direction = gd_down
+    left = 82
+    top = 49
   end
 end

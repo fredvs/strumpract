@@ -54,15 +54,15 @@ begin
   application.createform(tequalizerfo, equalizerfo2);
   application.createform(tequalizerfo, equalizerforec);
     
+  equalizerfo1.dragdock.Caption := 'Eq1';
+  equalizerfo2.dragdock.Caption := 'Eq2';
+  equalizerforec.dragdock.Caption := 'EqR';
+  
   equalizerfo1.Caption := 'Equalizer Player 1';
   equalizerfo2.Caption := 'Equalizer Player 2';
   equalizerforec.Caption := 'Equalizer Recorder';
-
-//  equalizerfo1.dragdock.Caption := 'Eq1';
-//  equalizerfo2.dragdock.Caption := 'Eq2';
-//  equalizerforec.dragdock.Caption := 'EqR';
  
- equalizerfo1.groupbox1.frame.Caption := 'Player 1 Left';
+  equalizerfo1.groupbox1.frame.Caption := 'Player 1 Left';
   equalizerfo1.groupbox2.frame.Caption := 'Player 1 Right';
   equalizerfo2.groupbox1.frame.Caption := 'Player 2 Left';
   equalizerfo2.groupbox2.frame.Caption := 'Player 2 Right';
