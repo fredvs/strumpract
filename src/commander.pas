@@ -80,6 +80,7 @@ type
     vuLeft: tprogressbar;
     timage1: timage;
     timage2: timage;
+   tfacecomp3: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -604,6 +605,7 @@ end;
 
 procedure tcommanderfo.doplaydrums(const Sender: TObject);
 begin
+  drumsfo.activate;
   drumsfo.dostart(Sender);
 end;
 

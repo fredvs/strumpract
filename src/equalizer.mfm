@@ -24,6 +24,7 @@ object equalizerfo: tequalizerfo
     434
     142
   )
+  dragdock.splitter_grip = stb_default
   dragdock.faceactivetab = mainfo.tfacebutltgray
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
   dragdock.bandgap = 1
@@ -75,7 +76,7 @@ object equalizerfo: tequalizerfo
   object groupbox1: tgroupbox
     color = -2147483645
     frame.hiddenedges = [edg_bottom]
-    frame.caption = 'Player 1 Left'
+    frame.caption = 'Left'
     frame.captiontextflags = [tf_xcentered, tf_bottom]
     frame.captionpos = cp_top
     frame.captionoffset = 0
@@ -582,13 +583,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -1091,13 +1092,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -1600,13 +1601,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -2109,13 +2110,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -2618,13 +2619,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -3127,13 +3128,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -3636,13 +3637,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -4145,13 +4146,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -4654,13 +4655,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -5164,13 +5165,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -5203,7 +5204,7 @@ object equalizerfo: tequalizerfo
   object groupbox2: tgroupbox
     color = -2147483645
     frame.hiddenedges = [edg_bottom]
-    frame.caption = 'Player 1 Left'
+    frame.caption = 'Right'
     frame.captiontextflags = [tf_xcentered, tf_bottom]
     frame.captionpos = cp_top
     frame.captionoffset = 0
@@ -5710,13 +5711,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -6219,13 +6220,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -6728,13 +6729,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -7237,13 +7238,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -7746,13 +7747,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -8255,13 +8256,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -8764,13 +8765,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -9273,13 +9274,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -9782,13 +9783,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -10291,13 +10292,13 @@ object equalizerfo: tequalizerfo
         frame.frameimage_top = -4
         frame.frameimage_right = -4
         frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+        frame.optionsskin = [fso_flat]
         frame.localprops = [frl_frameimagelist, frl_optionsskin]
         frame.localprops1 = []
         face.localprops = []
         face.template = mainfo.tfacebutltgray
         taborder = 1
-        hint = ' Click to switch to 100% <> 0%   '
+        hint = ' Reset to 0 gain '
         bounds_x = 0
         bounds_y = 100
         bounds_cx = 21
@@ -10330,7 +10331,7 @@ object equalizerfo: tequalizerfo
   object EQEN: tbooleanedit
     color = -2147483645
     frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.caption = 'Enable'
+    frame.caption = 'Equalizer Player 1'
     frame.font.color = 2039583
     frame.font.colorbackground = -2147483645
     frame.font.height = 10
@@ -10342,16 +10343,16 @@ object equalizerfo: tequalizerfo
     frame.outerframe = (
       0
       1
-      36
+      91
       2
     )
     face.localprops = []
     face.template = mainfo.tfaceplayer
     taborder = 1
     hint = 'Enable Equalizer'
-    bounds_x = 4
-    bounds_y = -1
-    bounds_cx = 49
+    bounds_x = 164
+    bounds_y = 0
+    bounds_cx = 104
     bounds_cy = 15
     statfile = mainfo.tstatfile1
     onchange = changenab

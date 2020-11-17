@@ -43,7 +43,11 @@ begin
     
   spectrum1fo.Caption := 'Spectrum Player 1';
   spectrum2fo.Caption := 'Spectrum Player 2';
-
+  
+  spectrum1fo.Spect1.frame.caption := 'Spectrum Player 1';
+  spectrum2fo.Spect1.frame.caption := 'Spectrum Player 2';
+  spectrumrecfo.Spect1.frame.caption := 'Spectrum Recorder';
+ 
   spectrum1fo.dragdock.Caption := 'Sp1';
   spectrum2fo.dragdock.Caption := 'Sp2';
   
@@ -62,20 +66,10 @@ begin
   equalizerfo2.Caption := 'Equalizer Player 2';
   equalizerforec.Caption := 'Equalizer Recorder';
  
-  equalizerfo1.groupbox1.frame.Caption := 'Player 1 Left';
-  equalizerfo1.groupbox2.frame.Caption := 'Player 1 Right';
-  equalizerfo2.groupbox1.frame.Caption := 'Player 2 Left';
-  equalizerfo2.groupbox2.frame.Caption := 'Player 2 Right';
-  equalizerforec.groupbox1.frame.Caption := 'Recorder Left';
-  equalizerforec.groupbox2.frame.Caption := 'Recorder Right';
- 
-  spectrum1fo.groupbox1.frame.Caption := 'Player 1 Left';
-  spectrum1fo.groupbox2.frame.Caption := 'Player 1 Right';
-  spectrum2fo.groupbox1.frame.Caption := 'Player 2 Left';
-  spectrum2fo.groupbox2.frame.Caption := 'Player 2 Right';
-  spectrumrecfo.groupbox1.frame.Caption := 'Recorder Left';
-  spectrumrecfo.groupbox2.frame.Caption := 'Recorder Right';
-
+  equalizerfo1.eqen.frame.caption := 'Equalizer Player 1';
+  equalizerfo2.eqen.frame.caption := 'Equalizer Player 2';
+  equalizerforec.eqen.frame.caption := 'Equalizer Recorder';
+  
   application.createform(tfilelistfo, filelistfo);
 
   filelistfo.dragdock.Caption := 'Fil';

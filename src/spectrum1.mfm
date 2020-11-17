@@ -24,7 +24,7 @@ object spectrum1fo: tspectrum1fo
     434
     128
   )
-  dragdock.splitter_grip = stb_dens0
+  dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
   dragdock.caption = ' Spect '
@@ -78,7 +78,7 @@ object spectrum1fo: tspectrum1fo
     object groupbox1: tgroupbox
       color = -2147483645
       frame.hiddenedges = [edg_bottom]
-      frame.caption = 'Player 1 Left'
+      frame.caption = 'Left'
       frame.captiontextflags = [tf_xcentered, tf_bottom]
       frame.captionpos = cp_top
       frame.captionoffset = 0
@@ -157,7 +157,7 @@ object spectrum1fo: tspectrum1fo
     object groupbox2: tgroupbox
       color = -2147483645
       frame.hiddenedges = [edg_bottom]
-      frame.caption = 'Player 1 Right'
+      frame.caption = 'Right'
       frame.captiontextflags = [tf_xcentered, tf_bottom]
       frame.captionpos = cp_top
       frame.captionoffset = 0
@@ -235,7 +235,7 @@ object spectrum1fo: tspectrum1fo
     object Spect1: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.caption = 'Enable'
+      frame.caption = 'Spectrum Player 1'
       frame.font.color = 2039583
       frame.font.colorbackground = -2147483645
       frame.font.height = 10
@@ -247,16 +247,16 @@ object spectrum1fo: tspectrum1fo
       frame.outerframe = (
         0
         0
-        36
+        94
         0
       )
       face.localprops = []
       face.template = mainfo.tfaceplayer
       taborder = 2
       hint = 'Enable Spectrum rendering'
-      bounds_x = 10
+      bounds_x = 162
       bounds_y = 0
-      bounds_cx = 49
+      bounds_cx = 107
       bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = 4539717

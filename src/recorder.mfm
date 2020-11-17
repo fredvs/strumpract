@@ -268,7 +268,7 @@ object recorderfo: trecorderfo
       frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
-      frame.buttonsize = 20
+      frame.buttonsize = 30
       frame.buttonslast = True
       face.localprops = []
       face.template = tfacerecrev
@@ -279,6 +279,8 @@ object recorderfo: trecorderfo
       bounds_cx = 48
       bounds_cy = 64
       statfile = mainfo.tstatfile1
+      textflags = [tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = changevolume
       ontextedited = ontextedit
       onsetvalue = onsetvalvol
@@ -776,7 +778,7 @@ object recorderfo: trecorderfo
       frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
-      frame.buttonsize = 20
+      frame.buttonsize = 30
       frame.buttonpos = sbp_left
       frame.buttonslast = True
       face.localprops = []
@@ -788,6 +790,8 @@ object recorderfo: trecorderfo
       bounds_cx = 48
       bounds_cy = 64
       statfile = mainfo.tstatfile1
+      textflags = [tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = changevolume
       ontextedited = ontextedit
       onsetvalue = onsetvalvol
@@ -809,16 +813,16 @@ object recorderfo: trecorderfo
       face.template = mainfo.tfaceorange
       taborder = 22
       visible = False
-      bounds_x = 139
-      bounds_y = 60
+      bounds_x = 89
+      bounds_y = 40
       bounds_cx = 221
-      bounds_cy = 36
+      bounds_cy = 52
       font.name = 'stf_default'
       font.localprops = []
       object hintlabel: tlabel
         color = -2147483645
-        bounds_x = 5
-        bounds_y = 4
+        bounds_x = 21
+        bounds_y = 9
         bounds_cx = 169
         bounds_cy = 15
         caption = 'Invalid value.  Reset to 100.'
@@ -830,8 +834,8 @@ object recorderfo: trecorderfo
       object hintlabel2: tlabel
         color = -2147483645
         taborder = 1
-        bounds_x = 5
-        bounds_y = 18
+        bounds_x = 2
+        bounds_y = 29
         bounds_cx = 215
         bounds_cy = 15
         caption = 'Or press Esc key for previous value.'

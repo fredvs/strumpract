@@ -31,7 +31,7 @@ object songplayerfo: tsongplayerfo
     434
     128
   )
-  dragdock.splitter_grip = stb_dens0
+  dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
   dragdock.caption = ' Play1 '

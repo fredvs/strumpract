@@ -27,7 +27,7 @@ object commanderfo: tcommanderfo
     434
     128
   )
-  dragdock.splitter_grip = stb_dens0
+  dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfacebutltgray
   dragdock.caption = ' Com '
@@ -246,7 +246,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
@@ -387,7 +387,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
@@ -548,7 +548,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
@@ -580,7 +580,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
@@ -1527,7 +1527,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
@@ -1558,7 +1558,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
@@ -1589,7 +1589,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
@@ -1620,7 +1620,7 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.optionsskin = [fso_flat, fso_nomouseanim, fso_nofocusanim]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
@@ -2745,6 +2745,22 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
+    left = 69
+    top = 15
+  end
+  object tfacecomp3: tfacecomp
+    template.image.origformat = 'png'
+    template.image.alignment = [al_stretchx]
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      750389
+      16749824
+    )
     left = 69
     top = 15
   end

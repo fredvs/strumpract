@@ -29,7 +29,7 @@ object filelistfo: tfilelistfo
   dragdock.onbeforedragbegin = befdrag
   dragdock.onafterdragover = afterdrag
   dragdock.onafterdragend = afterdragend
-  dragdock.splitter_grip = stb_dens0
+  dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = guitarsfo.tfaceguitlight
   dragdock.caption = ' Files '
