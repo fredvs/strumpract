@@ -45,7 +45,7 @@ var
 implementation
 
 uses
-spectrum1, config_mfm;
+spectrum1, commander, songplayer, config_mfm;
 
 procedure tconfigfo.changelatplay(const Sender: TObject);
 begin
@@ -104,6 +104,14 @@ spectrum1fo.tchartleft.traces[0].color := tcoloredit1.value;
 spectrum1fo.tchartright.traces[0].color := tcoloredit2.value;
 spectrum2fo.tchartleft.traces[0].color := tcoloredit12.value;
 spectrum2fo.tchartright.traces[0].color := tcoloredit22.value;
+commanderfo.vuleft.bar_face.fade_color.items[0]    := configfo.tcoloredit1.value;
+commanderfo.vuleft2.bar_face.fade_color.items[0]   := configfo.tcoloredit12.value;
+commanderfo.vuright.bar_face.fade_color.items[0]   := configfo.tcoloredit2.value;
+commanderfo.vuright2.bar_face.fade_color.items[0]  := configfo.tcoloredit22.value;
+songplayerfo.vuleft.bar_face.fade_color.items[0]   := configfo.tcoloredit1.value;
+songplayer2fo.vuleft.bar_face.fade_color.items[0]  := configfo.tcoloredit12.value;
+songplayerfo.vuright.bar_face.fade_color.items[0]  := configfo.tcoloredit2.value;
+songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.value;
 end;
 
 

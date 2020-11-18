@@ -1861,7 +1861,6 @@ var
   ltblack: integer = $2D2D2D;
   thecolor1 : integer = $2D2D2D;
   thecolor2 : integer = $2D2D2D;
-  
   asliders: tasliders;
   asliders2: tasliders;
   aslidersr: tasliders;
@@ -1873,6 +1872,16 @@ begin
   wavefo.trackbar1.face.template    := tfaceplayer;
   wavefo2.trackbar1.face.template   := tfaceplayer;
   waveforec.trackbar1.face.template := recorderfo.tfacerecorder;
+  
+ commanderfo.vuleft.bar_face.fade_color.items[0]    := configfo.tcoloredit1.value;
+commanderfo.vuleft2.bar_face.fade_color.items[0]   := configfo.tcoloredit12.value;
+commanderfo.vuright.bar_face.fade_color.items[0]   := configfo.tcoloredit2.value;
+commanderfo.vuright2.bar_face.fade_color.items[0]  := configfo.tcoloredit22.value;
+songplayerfo.vuleft.bar_face.fade_color.items[0]   := configfo.tcoloredit1.value;
+songplayer2fo.vuleft.bar_face.fade_color.items[0]  := configfo.tcoloredit12.value;
+songplayerfo.vuright.bar_face.fade_color.items[0]  := configfo.tcoloredit2.value;
+songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.value;
+
 
   with equalizerfo1 do
   begin
@@ -2486,17 +2495,7 @@ begin
     
     aboutfo.font.color := cl_black;
     // configfo.font.color := ltblack;
-    
-
-    commanderfo.vuleft.bar_face.fade_color.items[0]    := $CEB2D6;
-    commanderfo.vuleft2.bar_face.fade_color.items[0]   := $CEB2D6;
-    commanderfo.vuright.bar_face.fade_color.items[0]   := $CEB2D6;
-    commanderfo.vuright2.bar_face.fade_color.items[0]  := $CEB2D6;
-    songplayerfo.vuleft.bar_face.fade_color.items[0]   := $CEB2D6;
-    songplayer2fo.vuleft.bar_face.fade_color.items[0]  := $CEB2D6;
-    songplayerfo.vuright.bar_face.fade_color.items[0]  := $CEB2D6;
-    songplayer2fo.vuright.bar_face.fade_color.items[0] := $CEB2D6;
-
+   
     with spectrum1fo do
     begin
       tchartleft.color      :=  $D2D8A5;
@@ -3046,15 +3045,6 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED;
     commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA;
 
-    commanderfo.vuleft.bar_face.fade_color.items[0]    := $EDEDED;
-    commanderfo.vuleft2.bar_face.fade_color.items[0]   := $EDEDED;
-    commanderfo.vuright.bar_face.fade_color.items[0]   := $EDEDED;
-    commanderfo.vuright2.bar_face.fade_color.items[0]  := $EDEDED;
-    songplayerfo.vuleft.bar_face.fade_color.items[0]   := $EDEDED;
-    songplayer2fo.vuleft.bar_face.fade_color.items[0]  := $EDEDED;
-    songplayerfo.vuright.bar_face.fade_color.items[0]  := $EDEDED;
-    songplayer2fo.vuright.bar_face.fade_color.items[0] := $EDEDED;
-
     filelistfo.list_files.font.color := ltblack;
     filelistfo.tgroupbox1.font.color := ltblack;
 
@@ -3116,15 +3106,6 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     drumsfo.loop_resume.imagenrdisabled := -2;
     drumsfo.loop_start.imagenrdisabled  := -2;
     drumsfo.loop_stop.imagenrdisabled   := -2;
-
-    commanderfo.vuleft.bar_face.fade_color.items[0]    := $6A6A6A;
-    commanderfo.vuleft2.bar_face.fade_color.items[0]   := $6A6A6A;
-    commanderfo.vuright.bar_face.fade_color.items[0]   := $6A6A6A;
-    commanderfo.vuright2.bar_face.fade_color.items[0]  := $6A6A6A;
-    songplayerfo.vuleft.bar_face.fade_color.items[0]   := $6A6A6A;
-    songplayer2fo.vuleft.bar_face.fade_color.items[0]  := $6A6A6A;
-    songplayerfo.vuright.bar_face.fade_color.items[0]  := $6A6A6A;
-    songplayer2fo.vuright.bar_face.fade_color.items[0] := $6A6A6A;
 
     with spectrum1fo do
     begin
@@ -3337,15 +3318,6 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       spect1.frame.colorclient := $4A4A4A;
       spect1.color      := $3A3A3A;
     end;
-
-    commanderfo.vuleft.bar_face.fade_color.items[0]    := $aAaAaA;
-    commanderfo.vuleft2.bar_face.fade_color.items[0]   := $aAaAaA;
-    commanderfo.vuright.bar_face.fade_color.items[0]   := $aAaAaA;
-    commanderfo.vuright2.bar_face.fade_color.items[0]  := $aAaAaA;
-    songplayerfo.vuleft.bar_face.fade_color.items[0]   := $aAaAaA;
-    songplayer2fo.vuleft.bar_face.fade_color.items[0]  := $aAaAaA;
-    songplayerfo.vuright.bar_face.fade_color.items[0]  := $aAaAaA;
-    songplayer2fo.vuright.bar_face.fade_color.items[0] := $aAaAaA;
 
     tfacebutgray.template.fade_color.items[0] := $888888;
     tfacebutgray.template.fade_color.items[1] := $2A2A2A;

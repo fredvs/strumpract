@@ -138,9 +138,7 @@ begin
 
   if avalue = False then
   begin
-    with commanderfo do
-    begin
-      vuLeft.Visible   := False;
+     vuLeft.Visible   := False;
       vuRight.Visible  := False;
      // vuLeft.Value     := 0;
      // vuRight.Value    := 0;
@@ -148,8 +146,7 @@ begin
       vuRight2.Visible := False;
      // vuLeft2.Value    := 0;
      // vuRight2.Value   := 0;
-    end;
-    with songplayerfo do
+   with songplayerfo do
     begin
       vuLeft.Visible  := False;
       vuRight.Visible := False;
@@ -166,13 +163,11 @@ begin
   end
   else
   begin
-    with commanderfo do
-    begin
-      vuLeft.Visible   := True;
+     vuLeft.Visible   := True;
       vuRight.Visible  := True;
       vuLeft2.Visible  := True;
       vuRight2.Visible := True;
-    end;
+  
     with songplayerfo do
     begin
       vuLeft.Visible  := True;
