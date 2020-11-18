@@ -14,7 +14,7 @@ object mainfo: tmainfo
   face.localprops = [fal_fadirection]
   visible = False
   bounds_x = 384
-  bounds_y = 309
+  bounds_y = 315
   bounds_cx = 454
   bounds_cy = 96
   bounds_cxmin = 454
@@ -41,6 +41,7 @@ object mainfo: tmainfo
   container.frame.sbvert.face1.localprops = []
   container.frame.sbvert.facebutton.localprops = []
   container.frame.sbvert.facebutton.template = tfacecomp7
+  container.frame.sbvert.frameendbutton1.colorclient = -2147483645
   container.frame.sbvert.frameendbutton1.localprops = []
   container.frame.sbvert.frameendbutton1.localprops1 = []
   container.bounds = (
@@ -819,7 +820,7 @@ object mainfo: tmainfo
     facetemplate = tfacebutgray
     itemfacetemplate = tfacebutgray
     itemfacetemplateactive = tfacebutgray
-    menu.submenu.count = 9
+    menu.submenu.count = 11
     menu.submenu.items = <    
       item
         caption = ' &Dock '
@@ -832,6 +833,9 @@ object mainfo: tmainfo
         hint = ' One form with tabs '
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onmaintab
+      end    
+      item
+        options = [mao_separator, mao_shortcutcaption]
       end    
       item
         submenu.count = 12
@@ -870,7 +874,7 @@ object mainfo: tmainfo
           item
             caption = ' &Record stage '
             state = [as_localcaption, as_localonexecute]
-            onexecute = ondockrec
+            onexecute = ondockrec2
           end        
           item
             caption = ' &Chords Randomizer '
@@ -1108,38 +1112,30 @@ object mainfo: tmainfo
         state = [as_localcaption]
       end    
       item
-        submenu.count = 2
+        submenu.count = 3
         submenu.items = <        
           item
-            caption = ' &Audio '
-            state = [as_localcaption, as_localonexecute]
-            onexecute = onmenuaudio
-          end        
-          item
-            submenu.count = 3
-            submenu.items = <            
-              item
-                caption = ' Colorized '
-                state = [as_localcaption, as_localonexecute]
-                onexecute = changecolors
-              end            
-              item
-                caption = ' Silver '
-                state = [as_localcaption, as_localonexecute]
-                onexecute = changesilver
-              end            
-              item
-                caption = ' Carbon '
-                state = [as_localcaption, as_localonexecute]
-                onexecute = changecarbon
-              end>
-            caption = ' &Style '
+            caption = ' Colorized '
             state = [as_localcaption, as_localonexecute]
             onexecute = changecolors
+          end        
+          item
+            caption = ' Silver '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = changesilver
+          end        
+          item
+            caption = ' Carbon '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = changecarbon
           end>
+        caption = ' &Style '
+        state = [as_localcaption]
+      end    
+      item
         caption = ' &Config '
-        hint = ' Configuration of sound and style '
-        state = [as_localcaption, as_localhint]
+        state = [as_localcaption, as_localonexecute]
+        onexecute = onmenuaudio
       end    
       item
         caption = ' &About '
@@ -1151,7 +1147,7 @@ object mainfo: tmainfo
         options = [mao_separator, mao_shortcutcaption]
       end    
       item
-        caption = ' &Exit '
+        caption = '     &Exit     '
         hint = ' Terminate StrumPract '
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onexit

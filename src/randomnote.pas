@@ -4958,13 +4958,13 @@ end;
 
 procedure trandomnotefo.onhide(const sender: TObject);
 begin
-mainfo.tmainmenu1.menu[3].submenu[15].Caption := ' Show Chords Randomizer ';
+mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Show Chords Randomizer ';
  
 end;
 
 procedure trandomnotefo.onshowrand(const sender: TObject);
 begin
-mainfo.tmainmenu1.menu[3].submenu[15].Caption := ' Hide Chords Randomizer ';
+mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Hide Chords Randomizer ';
 end;
 
 procedure trandomnotefo.crea(const sender: TObject);

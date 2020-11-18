@@ -342,24 +342,24 @@ if Visible then
   begin
    if assigned(mainfo) then
    if caption = 'Equalizer Player 1' then
-    mainfo.tmainmenu1.menu[3].submenu[15].Caption := ' Hide Equalizer 1 '
+    mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Hide Equalizer 1 '
     else
     if caption = 'Equalizer Player 2' then
-      mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Hide Equalizer 2 '
+      mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Hide Equalizer 2 '
     else  
      if caption = 'Equalizer Recorder' then
-      mainfo.tmainmenu1.menu[3].submenu[17].Caption := ' Hide Equalizer Rec ' 
+      mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Hide Equalizer Rec ' 
   end
   else
   begin
    // dostop(Sender);
   if assigned(mainfo) then  
   if caption = 'Equalizer Player 1' then
-    mainfo.tmainmenu1.menu[3].submenu[15].Caption := ' Show Equalizer 1 '
+    mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Show Equalizer 1 '
     else  if caption = 'Equalizer Player 2' then
-    mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Show Equalizer 2 '
+    mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Equalizer 2 '
     else  if caption = 'Equalizer Recorder' then
-    mainfo.tmainmenu1.menu[3].submenu[17].Caption := ' Show Equalizer Rec ';
+    mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec ';
   end;
 if norefresh = false then
 begin

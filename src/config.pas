@@ -19,10 +19,8 @@ type
     latdrums: trealspinedit;
     tbutton1: TButton;
     lsuglat: tlabel;
-   speccalc: tbooleanedit;
    defdevin: tlabel;
    defdevout: tlabel;
-   guimix: tbooleanedit;
    tbutton2: tbutton;
    infos_grid: tstringgrid;
    devincfg: tintegeredit;

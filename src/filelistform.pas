@@ -439,9 +439,9 @@ begin
     dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
     if Visible then
-      mainfo.tmainmenu1.menu[3].submenu[3].Caption := ' Hide File List '
+      mainfo.tmainmenu1.menu[4].submenu[3].Caption := ' Hide File List '
     else
-      mainfo.tmainmenu1.menu[3].submenu[3].Caption := ' Show File List ';
+      mainfo.tmainmenu1.menu[4].submenu[3].Caption := ' Show File List ';
     if norefresh = False then
     begin
       mainfo.updatelayout();

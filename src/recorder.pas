@@ -152,6 +152,7 @@ uses
   main,
   config,
   dockpanel1,
+  commander,
   spectrum1,
   waveform,
   songplayer,
@@ -406,7 +407,7 @@ begin
     ShowPosition;
 
   if (spectrumrecfo.spect1.Value = True) and (spectrumrecfo.Visible = True) and
-    (configfo.speccalc.Value = True) then
+    (commanderfo.speccalc.Value = True) then
     ShowSpectrum(nil);
 end;
 
@@ -531,7 +532,7 @@ begin
   }
       /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
       /// SoundTouch plugin should be the last added.
-      if configfo.speccalc.Value = True then
+      if commanderfo.speccalc.Value = True then
         for i := 1 to 10 do
      uos_InputAddFilter(therecplayer, InputIndex3, 
     3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
@@ -717,10 +718,10 @@ begin
    and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
     if Visible then
-      mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Hide Recorder '
+      mainfo.tmainmenu1.menu[4].submenu[7].Caption := ' Hide Recorder '
     else
     begin
-      mainfo.tmainmenu1.menu[3].submenu[7].Caption := ' Show Recorder ';
+      mainfo.tmainmenu1.menu[4].submenu[7].Caption := ' Show Recorder ';
       uos_Stop(therecplayer);
     end;
     if norefresh = False then
@@ -948,7 +949,7 @@ begin
 
     uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvolr.Value / 100, True);
 
-    if configfo.speccalc.Value = True then
+    if commanderfo.speccalc.Value = True then
                for i := 1 to 10 do
      uos_InputAddFilter(therecplayer, InputIndex3, 
     3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,

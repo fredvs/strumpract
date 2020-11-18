@@ -78,9 +78,11 @@ type
     tslider2val: TButton;
     tslider3val: TButton;
     vuLeft: tprogressbar;
-    timage1: timage;
     timage2: timage;
    tfacecomp3: tfacecomp;
+   nameplayers2: tstringdisp;
+   guimix: tbooleanedit;
+   speccalc: tbooleanedit;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -105,6 +107,7 @@ type
     procedure resetvolume(const Sender: TObject);
     procedure onsetvu(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
    procedure oncre(const sender: TObject);
+   procedure onchangevuset(const sender: TObject);
   end;
 
 var
@@ -115,6 +118,7 @@ var
   thetypemix: integer = 0;
   theinput: integer = 30;
   lastrowplayed: integer = -1;
+  vuinvar: boolean = false;
 
 implementation
 
@@ -435,9 +439,9 @@ begin
   (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
     if Visible then
-      mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Hide Commander '
+      mainfo.tmainmenu1.menu[4].submenu[6].Caption := ' Hide Commander '
     else
-      mainfo.tmainmenu1.menu[3].submenu[6].Caption := ' Show Commander ';
+      mainfo.tmainmenu1.menu[4].submenu[6].Caption := ' Show Commander ';
     if norefresh = False then
     begin
       mainfo.updatelayout();
@@ -842,6 +846,11 @@ end;
 procedure tcommanderfo.oncre(const sender: TObject);
 begin
 windowopacity := 0;
+end;
+
+procedure tcommanderfo.onchangevuset(const sender: TObject);
+begin
+vuinvar := vuin.value;
 end;
 
 

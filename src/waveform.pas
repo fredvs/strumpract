@@ -168,21 +168,21 @@ begin
   begin
     if (tag = 1) then
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[12].Caption := ' Hide WaveForm 1 '
+        mainfo.tmainmenu1.menu[4].submenu[12].Caption := ' Hide WaveForm 1 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[12].Caption := ' Show WaveForm 1 ';
+        mainfo.tmainmenu1.menu[4].submenu[12].Caption := ' Show WaveForm 1 ';
 
     if (tag = 2) then
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[13].Caption := ' Hide WaveForm 2 '
+        mainfo.tmainmenu1.menu[4].submenu[13].Caption := ' Hide WaveForm 2 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[13].Caption := ' Show WaveForm 2 ';
+        mainfo.tmainmenu1.menu[4].submenu[13].Caption := ' Show WaveForm 2 ';
         
       if (Caption = 'Wave Recorder') then
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[14].Caption := ' Hide WaveForm Rec '
+        mainfo.tmainmenu1.menu[4].submenu[14].Caption := ' Hide WaveForm Rec '
       else
-        mainfo.tmainmenu1.menu[3].submenu[14].Caption := ' Show WaveForm Rec ';    
+        mainfo.tmainmenu1.menu[4].submenu[14].Caption := ' Show WaveForm Rec ';    
 
 if norefresh = false then
 begin

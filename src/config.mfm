@@ -108,8 +108,8 @@ object configfo: tconfigfo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 1
-    bounds_x = 387
-    bounds_y = 6
+    bounds_x = 451
+    bounds_y = 5
     bounds_cx = 337
     bounds_cy = 88
     object latrec: trealspinedit
@@ -300,7 +300,7 @@ object configfo: tconfigfo
   end
   object lsuglat: tlabel
     taborder = 2
-    bounds_x = 390
+    bounds_x = 455
     bounds_y = 100
     bounds_cx = 121
     bounds_cy = 15
@@ -308,35 +308,8 @@ object configfo: tconfigfo
     textflags = [tf_xcentered, tf_ycentered]
     reffontheight = 15
   end
-  object speccalc: tbooleanedit
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.colorclient = 15592941
-    frame.caption = 'Spectrum Calculation'
-    frame.font.color = 2039583
-    frame.font.height = 12
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color, flp_height]
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = commanderfo.tframecomp2
-    frame.outerframe = (
-      0
-      0
-      133
-      0
-    )
-    taborder = 3
-    hint = 'Enable Spectrum calculation'
-    bounds_x = 741
-    bounds_y = 39
-    bounds_cx = 149
-    bounds_cy = 19
-    statfile = mainfo.tstatfile1
-    colorglyph = 4539717
-    value = True
-  end
   object defdevin: tlabel
-    taborder = 4
+    taborder = 3
     bounds_x = 12
     bounds_y = 78
     bounds_cx = 134
@@ -345,7 +318,7 @@ object configfo: tconfigfo
     reffontheight = 15
   end
   object defdevout: tlabel
-    taborder = 5
+    taborder = 4
     bounds_x = 196
     bounds_y = 78
     bounds_cx = 146
@@ -353,36 +326,8 @@ object configfo: tconfigfo
     caption = 'Default Device OUT = -1'
     reffontheight = 15
   end
-  object guimix: tbooleanedit
-    color = -2147483645
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.caption = 'No GUI/mix'
-    frame.captiondist = 3
-    frame.font.color = 4013373
-    frame.font.height = 12
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color, flp_height]
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist]
-    frame.outerframe = (
-      0
-      0
-      73
-      0
-    )
-    taborder = 6
-    hint = 'No graphic-anim while mixing (if cpu too low) '
-    bounds_x = 741
-    bounds_y = 64
-    bounds_cx = 88
-    bounds_cy = 19
-    statfile = mainfo.tstatfile1
-    colorglyph = 8026746
-    value = True
-    valuedefault = True
-  end
   object tbutton2: tbutton
-    taborder = 7
+    taborder = 5
     hint = 'Re-load Devices Info'
     bounds_x = 894
     bounds_y = 70
@@ -395,7 +340,7 @@ object configfo: tconfigfo
   object infos_grid: tstringgrid
     frame.localprops = []
     frame.localprops1 = []
-    taborder = 8
+    taborder = 6
     bounds_x = 0
     bounds_y = 123
     bounds_cx = 1000
@@ -578,7 +523,7 @@ object configfo: tconfigfo
       0
       0
     )
-    taborder = 9
+    taborder = 7
     hint = 'Device IN to use ( -1 = default )'
     bounds_x = 12
     bounds_y = 40
@@ -601,7 +546,7 @@ object configfo: tconfigfo
       0
       0
     )
-    taborder = 10
+    taborder = 8
     hint = 'Device OUT to use ( -1 = default )'
     bounds_x = 196
     bounds_y = 40

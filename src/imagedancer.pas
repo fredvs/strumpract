@@ -754,7 +754,7 @@ procedure timagedancerfo.onshow(const Sender: TObject);
 begin
   openglwidget.fpsmax := 30;
   renderstart         := timestamp;
-  mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Hide Image Dancer ';
+  mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Hide Image Dancer ';
 end;
 
 procedure timagedancerfo.clientrectchangedexe(const Sender: tcustomwindowwidget);
@@ -833,7 +833,7 @@ end;
 
 procedure timagedancerfo.onhide(const Sender: TObject);
 begin
-  mainfo.tmainmenu1.menu[3].submenu[16].Caption := ' Show Image Dancer ';
+  mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Image Dancer ';
 end;
 
 procedure timagedancerfo.crea(const sender: TObject);

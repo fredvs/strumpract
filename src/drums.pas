@@ -821,12 +821,12 @@ begin
     begin
       if Visible then
         begin
-          mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Hide Drums ';
+          mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Hide Drums ';
         end
       else
         begin
           // dostop(Sender);
-          mainfo.tmainmenu1.menu[3].submenu[2].Caption := ' Show Drums ';
+          mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Show Drums ';
         end;
 
       if norefresh = false then

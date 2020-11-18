@@ -251,38 +251,35 @@ end;
 function DSPReverseBefore1(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 begin
   if (Data.position > Data.OutFrames div Data.channels) then
-    uos_InputSeek(theplayer, InputIndex1, Data.position - (Data.OutFrames div Data.ratio));
+    uos_InputSeek(theplayer, InputIndex1, Data.position - 
+    (Data.OutFrames div Data.ratio));
 end;
 
 function DSPReverseBefore2(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 begin
   if (Data.position > Data.OutFrames div Data.channels) then
-    uos_InputSeek(theplayer2, InputIndex2, Data.position - (Data.OutFrames div Data.ratio));
+    uos_InputSeek(theplayer2, InputIndex2, Data.position -
+     (Data.OutFrames div Data.ratio));
 end;
 
 function DSPReverseAfter(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 var
   x: integer = 0;
+  lengthbuf : integer;
   arfl: TDArFloat;
 begin
-  if (Data.position > Data.OutFrames div Data.channels) then
+ lengthbuf := length(Data.Buffer);
+   
+   if (Data.position > lengthbuf div Data.channels) then
   begin
-    SetLength(arfl, Data.outframes);
-     {
-       while x < Data.outframes do
-     begin
-     arfl[x] := 0.0;
-     x := x +1;
-     end;
-     }
+     SetLength(arfl, lengthbuf);
+     x := 0;
 
-    x := 0;
-
-    while x < Data.outframes - 1 do
+    while x < lengthbuf - 1 do
     begin
-      arfl[x]     := (Data.Buffer[Data.outframes - x - 2]);
-      arfl[x + 1] := (Data.Buffer[Data.outframes - x - 1]);
-      x           := x + 2;
+    arfl[x] :=  Data.Buffer[lengthbuf - x] ;
+    arfl[x+1] := Data.Buffer[lengthbuf - x - 1]  ;
+    inc(x,2);
     end;
     Result := arfl;
   end
@@ -668,14 +665,14 @@ begin
     if (l1 >= 0) and (l1 <= 1) then
     begin
       vuLeft.Value := l1;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (vuinvar = True) then
         commanderfo.vuLeft.Value := l1;
     end;
 
     if (r1 >= 0) and (r1 <= 1) then
     begin
       vuright.Value := r1;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (vuinvar = True) then
         commanderfo.vuright.Value := r1;
     end;
 
@@ -686,14 +683,14 @@ begin
     if (l2 >= 0) and (l2 <= 1) then
     begin
       vuLeft.Value := l2;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (vuinvar = True) then
         commanderfo.vuLeft2.Value := l2;
     end;
 
     if (r2 >= 0) and (r2 <= 1) then
     begin
       vuright.Value := l2;
-      if (commanderfo.Visible) and (commanderfo.vuin.Value = True) then
+      if (commanderfo.Visible) and (vuinvar = True) then
         commanderfo.vuright2.Value := r2;
     end;
 
@@ -799,13 +796,13 @@ var
 begin
 
   if (commanderfo.timermix.Enabled = False) or
-    ((commanderfo.timermix.Enabled = True) and (configfo.guimix.Value = False)) then
+    ((commanderfo.timermix.Enabled = True) and (commanderfo.guimix.Value = True)) then
   begin
 
     if (Visible = True) then
       ShowPosition(nil);
 
-    if ((commanderfo.vuin.Value = True) and (Visible = True)) or
+    if ((vuinvar = True) and (Visible = True)) or
       ((imagedancerfo.Visible = True)) then
     begin
       ll1 := uos_InputGetLevelLeft(theplayer, Inputindex1);
@@ -815,7 +812,7 @@ begin
 
       multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
 
-      if (commanderfo.vuin.Value = True) and (Visible = True) then
+      if (vuinvar = True) and (Visible = True) then
         ShowLevel(nil, ll1, lr1, ll2, lr2);
 
       if (imagedancerfo.Visible = True) and (isbuzy = False) and
@@ -842,12 +839,12 @@ begin
 
     if Caption = 'Player 1' then
       if (spectrum1fo.spect1.Value = True) and (spectrum1fo.Visible = True) and
-        (configfo.speccalc.Value = True) then
+        (commanderfo.speccalc.Value = True) then
         ShowSpectrum(nil);
 
     if Caption = 'Player 2' then
       if (spectrum2fo.spect1.Value = True) and (spectrum2fo.Visible = True) and
-        (configfo.speccalc.Value = True) then
+        (commanderfo.speccalc.Value = True) then
         ShowSpectrum(nil);
   end;
 end;
@@ -966,21 +963,19 @@ begin
           DSPindex11 := uos_InputAddDSP(theplayer, Inputindex1, nil, @DSPStereo2Mono, nil, nil);
           uos_InputSetDSP(theplayer, Inputindex1, DSPindex11, setmono.Value);
 
-          if configfo.speccalc.Value = True then
-          begin
-            for i := 1 to 10 do // equalizer
-              Equalizer_Bands[i].theindex :=
-                uos_InputAddFilter(theplayer, InputIndex1,
-                1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
-                1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
+          for i := 1 to 10 do // equalizer
+            Equalizer_Bands[i].theindex :=
+              uos_InputAddFilter(theplayer, InputIndex1,
+              1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+              1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
 
+          equalizerfo1.onchangeall();
+
+          if commanderfo.speccalc.Value = True then
             for i := 1 to 10 do // spectrum BandPass
               uos_InputAddFilter(theplayer, InputIndex1,
                 3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
                 3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
-
-            equalizerfo1.onchangeall();
-          end;
 
 
             { // add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
@@ -1253,21 +1248,19 @@ begin
           DSPindex22 := uos_InputAddDSP(theplayer2, Inputindex2, nil, @DSPStereo2Mono, nil, nil);
           uos_InputSetDSP(theplayer2, Inputindex2, DSPindex22, setmono.Value);
 
-          if configfo.speccalc.Value = True then
-          begin
-            for i := 1 to 10 do // equalizer
-              Equalizer_Bands[i].theindex :=
-                uos_InputAddFilter(theplayer2, InputIndex2,
-                1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
-                1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
+          for i := 1 to 10 do // equalizer
+            Equalizer_Bands[i].theindex :=
+              uos_InputAddFilter(theplayer2, InputIndex2,
+              1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+              1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
 
+          equalizerfo2.onchangeall();
+
+          if commanderfo.speccalc.Value = True then
             for i := 1 to 10 do
               uos_InputAddFilter(theplayer2, Inputindex2,
                 3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
                 3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
-
-            equalizerfo2.onchangeall();
-          end;
 {
    // add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
   if plugbs2b = true then
@@ -2423,20 +2416,20 @@ begin
   begin
     if Caption = 'Player 1' then
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[4].Caption := ' Hide Player 1 '
+        mainfo.tmainmenu1.menu[4].submenu[4].Caption := ' Hide Player 1 '
       else
       begin
         uos_Stop(theplayer);
-        mainfo.tmainmenu1.menu[3].submenu[4].Caption := ' Show Player 1 ';
+        mainfo.tmainmenu1.menu[4].submenu[4].Caption := ' Show Player 1 ';
       end;
 
     if Caption = 'Player 2' then
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[5].Caption := ' Hide Player 2 '
+        mainfo.tmainmenu1.menu[4].submenu[5].Caption := ' Hide Player 2 '
       else
       begin
         uos_Stop(theplayer2);
-        mainfo.tmainmenu1.menu[3].submenu[5].Caption := ' Show Player 2 ';
+        mainfo.tmainmenu1.menu[4].submenu[5].Caption := ' Show Player 2 ';
       end;
     if norefresh = False then
     begin
@@ -2449,7 +2442,6 @@ begin
         dockpanel3fo.updatelayout();
       if dockpanel4fo.Visible then
         dockpanel4fo.updatelayout();
-
       if dockpanel5fo.Visible then
         dockpanel5fo.updatelayout();
     end;
@@ -2461,7 +2453,7 @@ var
   ordir: string;
 begin
   windowopacity := 0;
-
+  
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 

@@ -326,41 +326,41 @@ begin
     if Caption = 'Dock Panel 1' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[0].Caption := ' Hide Dock Panel 1 '
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[0].Caption := ' Hide Dock Panel 1 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[0].Caption := ' Show Dock Panel 1 ';
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[0].Caption := ' Show Dock Panel 1 ';
     end;
 
     if Caption = 'Dock Panel 2' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[1].Caption := ' Hide Dock Panel 2 '
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[1].Caption := ' Hide Dock Panel 2 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[1].Caption := ' Show Dock Panel 2 ';
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[1].Caption := ' Show Dock Panel 2 ';
     end;
 
     if Caption = 'Dock Panel 3' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[2].Caption := ' Hide Dock Panel 3 '
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[2].Caption := ' Hide Dock Panel 3 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[2].Caption := ' Show Dock Panel 3 ';
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[2].Caption := ' Show Dock Panel 3 ';
     end;
     
      if Caption = 'Dock Panel 4' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[3].Caption := ' Hide Dock Panel 4 '
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[3].Caption := ' Hide Dock Panel 4 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[3].Caption := ' Show Dock Panel 4 ';
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[3].Caption := ' Show Dock Panel 4 ';
     end;
     
      if Caption = 'Dock Panel 5' then
     begin
       if Visible then
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[4].Caption := ' Hide Dock Panel 5 '
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[4].Caption := ' Hide Dock Panel 5 '
       else
-        mainfo.tmainmenu1.menu[3].submenu[21].submenu[4].Caption := ' Show Dock Panel 5 ';
+        mainfo.tmainmenu1.menu[4].submenu[21].submenu[4].Caption := ' Show Dock Panel 5 ';
     end;
   end;
   

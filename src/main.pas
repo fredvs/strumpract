@@ -93,6 +93,7 @@ type
     procedure dragfloat(const Sender: TObject);
     procedure onexit(const Sender: TObject);
     procedure ondockrec(const Sender: TObject);
+    procedure ondockrec2(const Sender: TObject);
     procedure loadlayout(const Sender: TObject);
     procedure savelayout(const Sender: TObject);
     procedure onshowrandom(const Sender: TObject);
@@ -2388,6 +2389,7 @@ begin
 
     // commander
     commanderfo.nameplayers.font.color := ltblack;
+    commanderfo.nameplayers2.font.color := ltblack;
     commanderfo.namedrums.font.color  := ltblack;
     commanderfo.namegen.font.color    := ltblack;
     commanderfo.nameinput.font.color  := ltblack;
@@ -2395,7 +2397,9 @@ begin
     commanderfo.genrightvolvalue.font.color := ltblack;
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
-
+    commanderfo.speccalc.colorglyph       := ltblack;
+    commanderfo.speccalc.frame.font.color := ltblack;
+   
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
 
@@ -2412,8 +2416,8 @@ begin
     commanderfo.automix.colorglyph       := ltblack;
     commanderfo.automix.frame.font.color := ltblack;
 
-    // configfo.guimix.colorglyph       := ltblack;
-    //  configfo.guimix.frame.font.color := ltblack;
+    commanderfo.guimix.colorglyph       := ltblack;
+    commanderfo.guimix.frame.font.color := ltblack;
 
     commanderfo.linkvol.colorglyph       := ltblack;
     commanderfo.linkvol.frame.font.color := ltblack;
@@ -2958,6 +2962,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     
     // commander
     commanderfo.nameplayers.font.color := ltblack;
+    commanderfo.nameplayers2.font.color := ltblack;
     commanderfo.namedrums.font.color        := ltblack;
     commanderfo.namegen.font.color          := ltblack;
     commanderfo.nameinput.font.color        := ltblack;
@@ -2985,15 +2990,18 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
-
+    
+     commanderfo.speccalc.colorglyph       := ltblack;
+    commanderfo.speccalc.frame.font.color := ltblack;
+   
     commanderfo.butinput.colorglyph       := ltblack;
     commanderfo.butinput.frame.font.color := ltblack;
 
     commanderfo.automix.colorglyph       := ltblack;
     commanderfo.automix.frame.font.color := ltblack;
 
-    //  configfo.guimix.colorglyph       := ltblack;
-    //  configfo.guimix.frame.font.color := ltblack;
+    commanderfo.guimix.colorglyph       := ltblack;
+    commanderfo.guimix.frame.font.color := ltblack;
 
     commanderfo.linkvol.colorglyph       := ltblack;
     commanderfo.linkvol.frame.font.color := ltblack;
@@ -3664,6 +3672,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     // commander
     commanderfo.nameplayers.font.color := ltblank;
+    commanderfo.nameplayers2.font.color := ltblank;
     commanderfo.namedrums.font.color   := ltblank;
 
     commanderfo.namegen.font.color          := ltblank;
@@ -3684,15 +3693,18 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.vuin.colorglyph       := ltblank;
     commanderfo.vuin.frame.font.color := ltblank;
-
+    
+    commanderfo.speccalc.colorglyph       := ltblank;
+    commanderfo.speccalc.frame.font.color := ltblank;
+   
     commanderfo.butinput.colorglyph       := ltblank;
     commanderfo.butinput.frame.font.color := ltblank;
 
     commanderfo.automix.colorglyph       := ltblank;
     commanderfo.automix.frame.font.color := ltblank;
 
-    // configfo.guimix.colorglyph       := ltblank;
-    // configfo.guimix.frame.font.color := ltblank;
+    commanderfo.guimix.colorglyph       := ltblank;
+    commanderfo.guimix.frame.font.color := ltblank;
 
     commanderfo.linkvol.colorglyph       := ltblank;
     commanderfo.linkvol.frame.font.color := ltblank;
@@ -3857,6 +3869,14 @@ end;
 procedure tmainfo.showpan5(const Sender: TObject);
 begin
   dockpanel5fo.Visible := not dockpanel5fo.Visible;
+end;
+
+procedure tmainfo.ondockrec2(const Sender: TObject);
+begin
+ondockrec(Sender);
+sleep(100);
+application.processmessages;
+ondockrec(Sender);
 end;
 
 procedure tmainfo.ondockrec(const Sender: TObject); // Record Stage layout
