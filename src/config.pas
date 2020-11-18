@@ -9,7 +9,7 @@ uses
  mseforms,mseact, msedataedits, mseedit, mseificomp, mseificompglob,mseifiglob,
  msestatfile,msestream, msestrings, SysUtils, msesimplewidgets,msegraphedits,
  msescrollbar, msedragglob, msegrids, msegridsglob, msedispwidgets,
- mserichstring, msedropdownlist;
+ mserichstring, msedropdownlist, msecolordialog;
 
 type
   tconfigfo = class(tmseform)
@@ -25,11 +25,17 @@ type
    infos_grid: tstringgrid;
    devincfg: tintegeredit;
    devoutcfg: tintegeredit;
+   tcoloredit2: tcoloredit;
+   tcoloredit1: tcoloredit;
+   tcoloredit22: tcoloredit;
+   tcoloredit12: tcoloredit;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
   
    procedure oncheckdevices(const sender: TObject);
+   procedure onsetcolor1(const sender: TObject; var avalue: colorty;
+                   var accept: Boolean);
   end;
 
 var
@@ -39,7 +45,7 @@ var
 implementation
 
 uses
-  config_mfm;
+spectrum1, config_mfm;
 
 procedure tconfigfo.changelatplay(const Sender: TObject);
 begin
@@ -89,6 +95,15 @@ infos_grid.rowcount := UOSDeviceCount;
       infos_grid[12][x] := UOSDeviceInfos[x].DeviceType;
       Inc(x);
     end; 
+end;
+
+procedure tconfigfo.onsetcolor1(const sender: TObject; var avalue: colorty;
+               var accept: Boolean);
+begin
+spectrum1fo.tchartleft.traces[0].color := tcoloredit1.value;
+spectrum1fo.tchartright.traces[0].color := tcoloredit2.value;
+spectrum2fo.tchartleft.traces[0].color := tcoloredit12.value;
+spectrum2fo.tchartright.traces[0].color := tcoloredit22.value;
 end;
 
 

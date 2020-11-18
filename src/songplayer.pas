@@ -1687,11 +1687,11 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
 
-            Canvas.drawline(poswav, poswav2, $AC99D6);
-
+            Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.value);
+                    
             //      if mainfo.typecolor.Value <> 2 then
             //    canvas.drawline(poswav2, poswav3,cl_black) else
-            Canvas.drawline(poswav2, poswav3, $F0F0F0);
+            Canvas.drawline(poswav2, poswav3, $F0F0F0); // frame of wave
 
             poswav.y := (trackbar1.Height div 2);
 
@@ -1702,7 +1702,7 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
             // if mainfo.typecolor.Value = 0 then
-            Canvas.drawline(poswav, poswav2, $AC99D6);
+            Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.value);
             //     if mainfo.typecolor.Value <> 2 then
             //   canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1738,7 +1738,7 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
             // if mainfo.typecolor.Value = 0 then
-            Canvas.drawline(poswav, poswav2, $AC99D6);
+            Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.value);
             //     if mainfo.typecolor.Value <> 2 then
             //   canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1751,7 +1751,7 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
             // if mainfo.typecolor.Value = 0 then
-            Canvas.drawline(poswav, poswav2, $AC99D6);
+            Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.value);
             //    if mainfo.typecolor.Value <> 2 then
             //  canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1799,7 +1799,7 @@ begin
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
           // if mainfo.typecolor.Value = 0 then
-          Canvas.drawline(poswav, poswav2, $AC99D6);
+          Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.value);
 
           //  if mainfo.typecolor.Value <> 2 then
           //   canvas.drawline(poswav2, poswav3,cl_black) else
@@ -1813,7 +1813,7 @@ begin
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
           // if mainfo.typecolor.Value = 0 then
-          Canvas.drawline(poswav, poswav2, $AC99D6);
+          Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.value);
           //   if mainfo.typecolor.Value <> 2 then
           //  canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1849,7 +1849,7 @@ begin
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
           // if mainfo.typecolor.Value = 0 then
-          Canvas.drawline(poswav, poswav2, $AC99D6);
+          Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.value);
           //  if mainfo.typecolor.Value <> 2 then
           // canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1861,7 +1861,7 @@ begin
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
           // if mainfo.typecolor.Value = 0 then
-          Canvas.drawline(poswav, poswav2, $AC99D6);
+          Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.value);
           //    if mainfo.typecolor.Value <> 2 then
           // canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);

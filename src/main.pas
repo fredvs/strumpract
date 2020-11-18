@@ -166,8 +166,7 @@ uses
 
 procedure tmainfo.ontimeract(const Sender: TObject);
 begin
-  if randomnotefo.Visible = False then
-    activate;
+  if randomnotefo.Visible = False then activate;
 end;
 
 procedure tmainfo.ontimerwait(const Sender: TObject);
@@ -1463,7 +1462,7 @@ begin
   dockpanel1fo.top  := 0;
 
   filelistfo.left   := commanderfo.Width + interv;
-  filelistfo.top    := 0;
+  filelistfo.top    := commanderfo.height + round(2.5*decorationheight)-2;
   
   decorationheight := window.decoratedbounds_cy - Height;
   
@@ -1473,7 +1472,8 @@ begin
    //filelistfo.Height := 400;
  
    left := filelistfo.left;
-  top  := filelistfo.Height + (decorationheight * 2) - 4;
+ // top  := filelistfo.Height + (decorationheight * 2) - 4;
+    top  := 0;
  
   dockpanel2fo.top := dockpanel1fo.top;
 
@@ -2488,16 +2488,16 @@ begin
 
     with spectrum1fo do
     begin
-      tchartleft.color      := $D2D8A5;
+      tchartleft.color      :=  $D2D8A5;
       tchartleft.colorchart          := $D2D8A5;
       tchartleft.traces[0].chartkind := tck_bar;
-      tchartleft.traces[0].color     := $C69EFF;
+      tchartleft.traces[0].color     := configfo.tcoloredit1.value;
       labelleft.font.color           := thecolor1;
 
       tchartright.color      := $D2D8A5;     
       tchartright.colorchart          := $D2D8A5;
       tchartright.traces[0].chartkind := tck_bar;
-      tchartright.traces[0].color     := $C69EFF;
+      tchartright.traces[0].color     := configfo.tcoloredit2.value;
       labelright.font.color           := thecolor1;
 
       fond.color        := $D2D8A5;
@@ -2516,13 +2516,13 @@ begin
       tchartleft.color      := $D2D8A5;     
       tchartleft.colorchart          := $D2D8A5;
       tchartleft.traces[0].chartkind := tck_bar;
-      tchartleft.traces[0].color     := $C69EFF;
+      tchartleft.traces[0].color     := configfo.tcoloredit12.value;
       labelleft.font.color           := thecolor2;
 
       tchartright.color      := $D2D8A5;     
       tchartright.colorchart          := $D2D8A5;
       tchartright.traces[0].chartkind := tck_bar;
-      tchartright.traces[0].color     := $C69EFF;
+      tchartright.traces[0].color     := configfo.tcoloredit22.value;
       labelright.font.color           := thecolor2;
 
       fond.color        := $D2D8A5;
@@ -3109,12 +3109,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     begin
 
       tchartleft.colorchart      := cl_background;
-      tchartleft.traces[0].color := $9A9A9A;
+      tchartleft.traces[0].color := configfo.tcoloredit1.value;
       labelleft.font.color       := ltblack;
        tchartleft.color      := cl_default;     
         tchartright.color      := cl_default;     
        tchartright.colorchart      := cl_background;
-      tchartright.traces[0].color := $9A9A9A;
+       tchartright.traces[0].color     := configfo.tcoloredit2.value;
       labelright.font.color       := ltblack;
 
       fond.color := cl_default;
@@ -3132,7 +3132,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     with spectrum2fo do
     begin
       tchartleft.colorchart      := cl_background;
-      tchartleft.traces[0].color := $9A9A9A;
+      tchartleft.traces[0].color := configfo.tcoloredit12.value;
       labelleft.font.color       := ltblack;
       
         tchartleft.color      := cl_default;     
@@ -3140,7 +3140,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
 
       tchartright.colorchart := cl_background;
-      tchartright.traces[0].color := $9A9A9A;
+      tchartright.traces[0].color := configfo.tcoloredit22.value;
       labelright.font.color := ltblack;
       fond.color        := cl_default;
       groupbox1.color   := cl_default;
@@ -3243,7 +3243,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       // labelright.color := $3A3A3A;
       tchartleft.color      := $3A3A3A;
       tchartleft.colorchart      := $3A3A3A;
-      tchartleft.traces[0].color := $7A7A7A;
+      tchartleft.traces[0].color :=  configfo.tcoloredit1.value;
       labelleft.font.color       := ltblank;
       
         tchartleft.color      := $3A3A3A;     
@@ -3251,7 +3251,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
       tchartleft.color      := $3A3A3A;
       tchartright.colorchart      := $3A3A3A;
-      tchartright.traces[0].color := $7A7A7A;
+      tchartright.traces[0].color := configfo.tcoloredit2.value;
       labelright.font.color       := ltblank;
 
       fond.color      := $3A3A3A;
@@ -3270,12 +3270,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     with spectrum2fo do
     begin
       tchartleft.colorchart       := $3A3A3A;
-      tchartleft.traces[0].color  := $7A7A7A;
+      tchartleft.traces[0].color  := configfo.tcoloredit12.value;
       labelleft.font.color        := ltblank;
       //  labelleft.color := $3A3A3A;
       //   labelright.color := $3A3A3A;
       tchartright.colorchart      := $3A3A3A;
-      tchartright.traces[0].color := $7A7A7A;
+      tchartright.traces[0].color := configfo.tcoloredit22.value;
       labelright.font.color       := ltblank;
        tchartleft.color      := $3A3A3A;     
         tchartright.color      := $3A3A3A;     
