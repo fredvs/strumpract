@@ -279,10 +279,12 @@ begin
   tbutton2.Enabled := False;
   tbutton3.Enabled := True;
 
-  vuright.Value       := 0;
-  vuleft.Value        := 0;
-  vuLeft.Visible      := False;
-  vuRight.Visible     := False;
+  vuright.value    := 0;
+  vuleft.value     := 0;
+  vuright.Height    := 0;
+  vuleft.Height     := 0;
+  //vuLeft.Visible      := False;
+  //vuRight.Visible     := False;
   btnStart.Enabled    := True;
   btnStop.Enabled     := False;
   btnPause.Enabled    := False;
@@ -607,8 +609,10 @@ end;
 
 procedure trecorderfo.doplayerpause(const Sender: TObject);
 begin
-  vuLeft.Visible    := False;
-  vuRight.Visible   := False;
+  //vuLeft.Visible    := False;
+  //vuRight.Visible   := False;
+  vuright.Value       := 0;
+  vuleft.Value        := 0;
   btnStop.Enabled   := True;
   btnPause.Enabled  := False;
   btnresume.Enabled := True;

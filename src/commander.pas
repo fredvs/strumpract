@@ -118,7 +118,7 @@ var
   thetypemix: integer = 0;
   theinput: integer = 30;
   lastrowplayed: integer = -1;
-  vuinvar: boolean = false;
+  vuinvar: boolean = true;
 
 implementation
 
@@ -135,32 +135,33 @@ uses
 
 procedure tcommanderfo.onsetvu(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
+
   if avalue = False then
   begin
     with commanderfo do
     begin
       vuLeft.Visible   := False;
       vuRight.Visible  := False;
-      vuLeft.Value     := 0;
-      vuRight.Value    := 0;
+     // vuLeft.Value     := 0;
+     // vuRight.Value    := 0;
       vuLeft2.Visible  := False;
       vuRight2.Visible := False;
-      vuLeft2.Value    := 0;
-      vuRight2.Value   := 0;
+     // vuLeft2.Value    := 0;
+     // vuRight2.Value   := 0;
     end;
     with songplayerfo do
     begin
       vuLeft.Visible  := False;
       vuRight.Visible := False;
-      vuLeft.Value    := 0;
-      vuRight.Value   := 0;
+     /// vuLeft.Value    := 0;
+      // vuRight.Value   := 0;
     end;
     with songplayer2fo do
     begin
       vuLeft.Visible  := False;
       vuRight.Visible := False;
-      vuLeft.Value    := 0;
-      vuRight.Value   := 0;
+     // vuLeft.Value    := 0;
+     // vuRight.Value   := 0;
     end;
   end
   else
@@ -221,7 +222,8 @@ end;
 
 procedure tcommanderfo.onstartstop(const Sender: TObject);
 var
-  fromplay: integer;
+  fromplay, x: integer;
+  
 begin
   totmixinterval := round(timemix.Value / 10);
 
@@ -239,11 +241,29 @@ begin
   filelistfo.list_files.rowcolorstate[lastrowplayed] := -1;
 
   lastrowplayed := filelistfo.list_files.focusedcell.row;
-  if mainfo.typecolor.Value = 2 then
-    filelistfo.list_files.rowcolorstate[lastrowplayed] := 2
-  else
-    filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
 
+ if lastrowplayed <> -1 then
+    if mainfo.typecolor.Value = 2 then
+    begin
+        for x := 0 to filelistfo.list_files.rowcount -1 do
+     filelistfo.list_files.rowfontstate[x] := 1; 
+     
+    filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
+    filelistfo.list_files.rowfontstate[lastrowplayed] := 1; 
+    
+   // filelistfo.list_files.datacols[3].colorselect := $707070; 
+   // filelistfo.list_files.datacols[3].color := $707070;
+       
+        
+     end  
+    else
+      begin
+      for x := 0 to filelistfo.list_files.rowcount -1 do
+      filelistfo.list_files.rowfontstate[x] := 0;  
+       filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
+    filelistfo.list_files.rowfontstate[lastrowplayed] := 0;   
+      end;
+      
   maxvolleft1  := 1;
   maxvolright1 := 1;
 

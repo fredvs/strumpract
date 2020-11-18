@@ -346,7 +346,7 @@ object configfo: tconfigfo
     bounds_cx = 1000
     bounds_cy = 409
     anchors = [an_top]
-    optionsgrid = [og_colsizing, og_focuscellonenter, og_autofirstrow, og_autoappend, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
+    optionsgrid = [og_colsizing, og_focuscellonenter, og_autofirstrow, og_autoappend, og_colchangeontabkey, og_wrapcol, og_mousescrollcol]
     datacols.count = 13
     datacols.options = [co_readonly, co_savevalue, co_savestate, co_mousescrollrow]
     datacols.items = <    

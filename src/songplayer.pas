@@ -512,10 +512,10 @@ begin
       hasmixed2   := False;
     end;
 
-  vuright.Value   := 0;
+  //vuright.Value   := 0;
   vuRight.Visible := False;
 
-  vuleft.Value   := 0;
+  //vuleft.Value   := 0;
   vuleft.Visible := False;
 
   button2.Caption := 'BPM';
@@ -559,6 +559,10 @@ begin
 
       btnPause.Visible  := True;
       btnresume.Visible := False;
+      //vuright.value    := 0;
+      //vuleft.value     := 0;
+      //vuright.Height    := 0;
+      //vuleft.Height     := 0;
       vuLeft.Visible    := False;
       vuRight.Visible   := False;
     end;
@@ -1025,6 +1029,13 @@ begin
           wavefo.Caption           := 'Wave1 of ' + historyfn.Value;
 
           theplaying1 := historyfn.Value;
+          
+          if vuinvar then begin
+       vuLeft.Visible  := true;
+       vuRight.Visible := true;
+       commanderfo.vuLeft.Visible  := true;
+        commanderfo.vuRight.Visible := true;
+       end; 
 
           with commanderfo do
           begin
@@ -1311,6 +1322,13 @@ begin
 
           theplaying2     := historyfn.Value;
           wavefo2.Caption := 'Wave2 of ' + historyfn.Value;
+          
+          if vuinvar then begin
+       vuLeft.Visible  := true;
+       vuRight.Visible := true;
+       commanderfo.vuLeft2.Visible  := true;
+        commanderfo.vuRight2.Visible := true;
+       end; 
 
           with commanderfo do
           begin
@@ -1437,13 +1455,20 @@ begin
 
   if Caption = 'Player 1' then
   begin
+  
+   if vuinvar then begin
+       vuLeft.Visible  := true;
+       vuRight.Visible := true;
+       commanderfo.vuLeft.Visible  := true;
+        commanderfo.vuRight.Visible := true;
+       end; 
 
     with commanderfo do
     begin
       btnStop.Enabled   := True;
       btnPause.Enabled  := True;
       btnresume.Enabled := False;
-
+      
       btnPause.Visible  := True;
       btnresume.Visible := False;
     end;
@@ -1457,6 +1482,13 @@ begin
 
   if Caption = 'Player 2' then
   begin
+    if vuinvar then begin
+       vuLeft.Visible  := true;
+       vuRight.Visible := true;
+       commanderfo.vuLeft2.Visible  := true;
+        commanderfo.vuRight2.Visible := true;
+       end; 
+  
     with commanderfo do
     begin
       btnStop2.Enabled   := True;
@@ -1477,8 +1509,10 @@ procedure tsongplayerfo.doplayerpause(const Sender: TObject);
 begin
   vuLeft.Visible  := False;
   vuRight.Visible := False;
-  vuright.Height  := 0;
-  vuleft.Height   := 0;
+  //vuright.value    := 0;
+  //vuleft.value     := 0;
+  //vuright.Height    := 0;
+  //vuleft.Height     := 0;
 
   btnStop.Enabled   := True;
   btnPause.Enabled  := False;
@@ -1496,8 +1530,10 @@ begin
     begin
       vuLeft.Visible    := False;
       vuRight.Visible   := False;
-      vuright.Height    := 0;
-      vuleft.Height     := 0;
+     // vuright.value    := 0;
+     // vuleft.value     := 0;
+     // vuright.Height    := 0;
+     // vuleft.Height     := 0;
       btnStop.Enabled   := True;
       btnPause.Enabled  := False;
       btnresume.Enabled := True;
@@ -1516,8 +1552,10 @@ begin
     begin
       vuLeft2.Visible    := False;
       vuRight2.Visible   := False;
-      vuright2.Height    := 0;
-      vuleft2.Height     := 0;
+      //vuright2.value    := 0;
+      //vuleft2.value     := 0;
+      //vuright2.Height    := 0;
+      //vuleft2.Height     := 0;
       btnStop2.Enabled   := True;
       btnPause2.Enabled  := False;
       btnresume2.Enabled := True;

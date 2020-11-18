@@ -2037,7 +2037,12 @@ begin
     filelistfo.list_files.fixcols.color           := cl_default;
     filelistfo.list_files.fixcols[-1].font.color  := cl_default;
     filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
-
+   
+      for x := 0 to filelistfo.list_files.rowcount -1 do
+     filelistfo.list_files.rowfontstate[x] := 0;  
+     
+    filelistfo.list_files.datacols.colorselect := $FFC87A;   
+ 
     tmainmenu1.menu.font.color := cl_black;
     tmainmenu1.menu.colorglyph := cl_black;
     tmainmenu1.menu.colorglyphactive := cl_black;
@@ -2474,8 +2479,14 @@ begin
     filelistfo.list_files.datacols[3].font.color := ltblack;
     filelistfo.list_files.datacols[3].colorselect := $EDEDED;
     filelistfo.list_files.datacols[3].colorglyph := ltblack;
+  
+    filelistfo.list_files.datacols[0].colorselect := $FFC87A;   
+    filelistfo.list_files.datacols[1].colorselect := $FFC87A; 
+    filelistfo.list_files.datacols[2].colorselect := $FFC87A; 
+    
     aboutfo.font.color := cl_black;
     // configfo.font.color := ltblack;
+    
 
     commanderfo.vuleft.bar_face.fade_color.items[0]    := $CEB2D6;
     commanderfo.vuleft2.bar_face.fade_color.items[0]   := $CEB2D6;
@@ -2621,6 +2632,12 @@ begin
     filelistfo.list_files.fixcols.color           := cl_default;
     filelistfo.list_files.fixcols[-1].font.color  := cl_default;
     filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
+    
+       for x := 0 to filelistfo.list_files.rowcount -1 do
+     filelistfo.list_files.rowfontstate[x] := 0;  
+     
+    filelistfo.list_files.datacols.colorselect := $FFC87A;   
+ 
 
     wavefo.tmainmenu1.menu.colorglyph  := cl_black;
     tmainmenu1.menu.colorglyph         := cl_black;
@@ -3057,7 +3074,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     filelistfo.list_files.datacols[3].colorglyph  := ltblack;
     filelistfo.list_files.datacols[3].colorselect := $EDEDED;
-
+    
+    filelistfo.list_files.datacols[0].colorselect := $FFC87A;   
+    filelistfo.list_files.datacols[1].colorselect := $FFC87A; 
+    filelistfo.list_files.datacols[2].colorselect := $FFC87A; 
+  
     aboutfo.font.color := cl_black;
     // configfo.font.color := ltblack;
 
@@ -3761,16 +3782,30 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     filelistfo.list_files.datacols[3].font.color := ltblank;
     filelistfo.list_files.datacols[3].colorglyph := ltblank;
 
+    // filelistfo.list_files.datacols[0].colorselect := $B55B00;   
+   // filelistfo.list_files.datacols[1].colorselect := $B55B00; 
+   // filelistfo.list_files.datacols[2].colorselect := $B55B00; 
+    
+    for x := 0 to filelistfo.list_files.rowcount -1 do
+     filelistfo.list_files.rowfontstate[x] := 1;  
+     
+    filelistfo.list_files.datacols.colorselect := $B55B00;   
     filelistfo.list_files.datacols[3].colorselect := $707070;
-
-    aboutfo.font.color := cl_black;
+          
+     aboutfo.font.color := cl_black;
   end;
 
   if lastrowplayed <> -1 then
     if typecolor.Value = 2 then
-      filelistfo.list_files.rowcolorstate[lastrowplayed] := 2
+    begin
+      filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
+        filelistfo.list_files.rowfontstate[lastrowplayed] := 1;  
+      end  
     else
+      begin
       filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
+       filelistfo.list_files.rowfontstate[lastrowplayed] := 0;
+      end;
 
   songplayerfo.DrawWaveForm();
   songplayer2fo.DrawWaveForm();
