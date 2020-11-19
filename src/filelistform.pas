@@ -559,11 +559,11 @@ begin
 
 
       //  writeln('button 2x click');   
-      if commanderfo.tbutton2.face.template = mainfo.tfaceorange then
+      if commanderfo.tbutton2.face.template = mainfo.tfaceorange2 then
 
         commanderfo.onstartstop(commanderfo.tbutton2)//   writeln('onstartstop(tbutton2)');  
 
-      else if commanderfo.tbutton3.face.template = mainfo.tfaceorange then
+      else if commanderfo.tbutton3.face.template = mainfo.tfaceorange2 then
 
         commanderfo.onstartstop(commanderfo.tbutton3)//  writeln('onstartstop(tbutton3)');  
       ;

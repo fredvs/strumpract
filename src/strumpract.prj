@@ -153,8 +153,17 @@ findinfiledialog=94
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=vuright
+ value=tbutton3.visible
  history=20
+  tbutton3.visible
+  onstartstop
+  focus
+  tfaceplayerlight
+  llength
+  lposition
+  tbutton2.face.template
+  cbloop.en
+  cbloop
   vuright
   vuLeft.Visible
   vuin
@@ -166,15 +175,6 @@ findinfiledialog=94
   stg_checkedradio
   glyph
   speccalc
-  guimix
-  dockpanel3fo
-  menu[3].submenu
-  asliders
-  floattos
-  filter
-  GetInfoDevice
-  devin
-  devout
  [findinfileadialogfo]
  stackedunder=
  x=649
@@ -186,8 +186,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=813
- y=656
+ x=891
+ y=425
  cx=300
  cy=269
 replacedialog=33
@@ -408,13 +408,13 @@ stringlisteditor=5
  y=203
  cx=275
  cy=237
-imagelisteditor=82
+imagelisteditor=85
  [imagelisteditorfo.statfile1]
  currentversion=0
  [imagelisteditorfo.filedialog]
  filenamescust=0
  filenames=1
-  /home/fred/Pictures/imagesideu/stop2_24.png
+  /home/fred/Pictures/images/mixright.png
  filecolwidth=150
  x=0
  y=0
@@ -430,8 +430,11 @@ imagelisteditor=82
  coldatewidth=126
  splitterplaces=243
  splitterlateral=126
- lastdir=/home/fred/Pictures/imagesideu/
- filehistory=45
+ lastdir=/home/fred/Pictures/images/
+ filehistory=48
+  /home/fred/Pictures/images/mixright.png
+  /home/fred/Pictures/images/mixleft.png
+  /home/fred/Pictures/images/beauty.png
   /home/fred/Pictures/imagesideu/stop2_24.png
   /home/fred/Pictures/imagesideu/stop_24.png
   /home/fred/Pictures/imagesideu/stop_64.png
@@ -484,8 +487,8 @@ imagelisteditor=82
  [imagelisteditorfo.stretch]
  value=0
  [imagelisteditorfo]
- x=352
- y=263
+ x=376
+ y=291
  cx=508
  cy=355
  wsize=0
@@ -837,28 +840,31 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=5
+modulenames=6
  COMMANDERFO
  CONFIGFO
+ FILELISTFO
  MAINFO
+ RANDOMNOTEFO
  SONGPLAYERFO
- SPECTRUM1FO
-moduletypes=5
+moduletypes=6
  TCOMMANDERFO
  TCONFIGFO
+ TFILELISTFO
  TMAINFO
+ TRANDOMNOTEFO
  TSONGPLAYERFO
- TSPECTRUM1FO
-modulefiles=5
+modulefiles=6
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/config.mfm
+ /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/randomnote.mfm
  /home/fred/strumpract/src/songplayer.mfm
- /home/fred/strumpract/src/spectrum1.mfm
 befcommandon=0
 makeoptionson=12
  4095
- 0
+ 4
  0
  192
  0
@@ -900,12 +906,12 @@ compilerusedon=29
  0
  0
 debuggerusedon=6
- 3840
+ 3844
  0
  0
  0
  0
- 255
+ 251
 exeusedon=14
  3903
  0
@@ -1213,27 +1219,27 @@ line=33
  587
  184
  5721
- 1599
- 1516
- 322
+ 1600
+ 1522
+ 311
  319
- 526
+ 556
  553
  773
  785
  701
- 1592
+ 1598
  209
  1136
- 3534
+ 3565
  431
  5
- 744
+ 774
  1517
  163
- 1520
+ 1526
  362
- 1756
+ 1762
 address=33
  4606912
  7398231
@@ -1617,64 +1623,74 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=vuleft
+finddtext=vuin
 findhistory=20
+ vuin
+ timemix.Value
+ timermix
+ tbutton2
+ commander.tbutton2
+ initvolleft2
+ maxvolleft1
+ tfaceplayerlight
+ lposition
+ llength
+ tfaceorange
+ tfaceor
+ tfacered
+ tstringdisp1
+ tfacegreen
+ status
  vuleft
  colorselect
  rowcolors
  list_files
- dj
- timerwait
- timeract
- tchartleft
- spectrum
- paintsliderimage
- DrawWaveForm
- wavefo
- ondockr
- stage
- reverse
- speccalc
- vuin
- nameplayers
- guimix
- onfloat
 findoptions=1
-editpos=6
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,0
- 0,5
- 0,0
+editpos=8
+ 0,4
+ 35,493
+ 0,3707
+ 0,3
+ 0,781
+ 0,1014
+ 0,561
+ 0,4347
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
 bookmarks5=0
-sourcefiles=6
+bookmarks6=0
+bookmarks7=0
+sourcefiles=8
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/config.pas
  ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/spectrum1.pas
-relpaths=6
+ ${PROJECTDIR}/uos.pas
+ ${PROJECTDIR}/filelistform.pas
+ ${PROJECTDIR}/randomnote.pas
+relpaths=8
  strumpract.pas
  commander.pas
  main.pas
  config.pas
  songplayer.pas
- spectrum1.pas
-ismoduletexts=6
+ uos.pas
+ filelistform.pas
+ randomnote.pas
+ismoduletexts=8
  0
  0
  0
  0
  0
  0
-modules=8
+ 0
+ 0
+modules=9
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1682,8 +1698,9 @@ modules=8
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/config.mfm
  /home/fred/strumpract/src/songplayer.mfm
- /home/fred/strumpract/src/spectrum1.mfm
-moduleoptions=8
+ /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/randomnote.mfm
+moduleoptions=9
  0
  0
  0
@@ -1692,7 +1709,8 @@ moduleoptions=8
  0
  0
  0
-visiblemodules=8
+ 0
+visiblemodules=9
  -1
  -1
  0
@@ -1701,27 +1719,31 @@ visiblemodules=8
  -1
  -1
  -1
-nomenumodules=8
+ 0
+nomenumodules=9
  0
  0
  -1
  -1
  -1
+ 0
  0
  0
  0
 [sourcefo.files_tab]
-order=6
+order=8
  0
  1
- 2
+ 7
+ 6
  5
+ 2
  3
  4
 firsttab=0
-index=3
+index=1
 [layout]
-windowlayout=724
+windowlayout=775
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1735,8 +1757,8 @@ windowlayout=724
  ny=0
  ncx=0
  ncy=0
- x=37
- y=320
+ x=95
+ y=115
  cx=1224
  cy=621
  rcx=0
@@ -1829,7 +1851,7 @@ windowlayout=724
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1866,7 +1888,7 @@ windowlayout=724
  sortdescend1=0
  sorted=0
  col=0
- row=13
+ row=5
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2187,12 +2209,12 @@ windowlayout=724
  mdistate=0
  nx=0
  ny=0
- ncx=1197
- ncy=14
+ ncx=1356
+ ncy=15
  x=0
  y=0
  cx=1212
- cy=12
+ cy=8
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2202,10 +2224,9 @@ windowlayout=724
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/spectrum1.pas
- history=20
+ value=/home/fred/strumpract/src/commander.pas
+ history=50
   /home/fred/strumpract/src/config.pas
-  /home/fred/strumpract/src/main.pas
   /home/fred/uos/examples/simpleplayer_fpGUI.pas
   /home/fred/strumpract/src/equalizer.pas
   /home/fred/uos/examples/main_fp.pas
@@ -2224,6 +2245,37 @@ windowlayout=724
   /home/fred/mseide-msegui/apps/ide/main.pas
   /home/fred/mseide-msegui/msegui.svg
   /home/fred/strumpract/src/guitars.pas
+  /home/fred/uos/examples/deviceinfos_fpGUI.pas
+  /home/fred/uos/readme_examples.txt
+  /home/fred/freepascal-ootb_320test/rtl/unix/sysutils.pp
+  /home/fred/alsa_soundnew/src/alsa_sound.pas
+  /home/fred/freepascal-ootb_322test/rtl/objpas/math.pp
+  /home/fred/roland/ptcwrapper.pp
+  /home/fred/roland/nero5_test.pas
+  /home/fred/roland/ptccrt.pp
+  /home/fred/freepascal-ootb_322/packages/graph/src/ptcgraph/ptccrt.pp
+  /home/fred/roland/fontdata.inc
+  /home/fred/roland/graph.inc
+  /home/fred/roland/graphh.inc
+  /home/fred/freepascal-ootb_322/packages/graph/src/inc/graphh.inc
+  /home/fred/freepascal-ootb_322/packages/graph/src/inc/graph.inc
+  /home/fred/freepascal-ootb_322/packages/graph/src/inc/fontdata.inc
+  /home/fred/freepascal-ootb_322/packages/graph/src/ptcgraph/ptcgraph.pp
+  /home/fred/roland/ptcgraph.pp
+  /home/fred/alsa_sound_stereo/src/alsa_sound.pas
+  /home/fred/alsa_sound_stereo/src/alsa_sound_test.pas
+  /home/fred/alsa_beep/alsa_beep.pas
+  /home/fred/bgrabitmap/bgradefaultbitmap.pas
+  /home/fred/bgrabitmap/bgraanimatedgif.pas
+  /home/fred/uos/examples/uos_flat.pas
+  /home/fred/Downloads/lazpaint-dev-lazpaint/lazpaint/umainformlayout.pas
+  /home/fred/strumpract/src/spectrum1.pas
+  /home/fred/ideu/src/define.inc
+  /home/fred/ideu/src/objectinspector.pas
+  /home/fred/mseide-msegui/lib/common/opengl/mseopengl.pas
+  /home/fred/ideu/src/ideusettings.pas
+  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2245,15 +2297,17 @@ windowlayout=724
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=6
+ order=8
   0
   1
-  2
+  7
+  6
   5
+  2
   3
   4
  firsttab=0
- index=3
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2297,7 +2351,7 @@ windowlayout=724
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2354,7 +2408,7 @@ windowlayout=724
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_configfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2392,7 +2446,7 @@ windowlayout=724
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2411,25 +2465,6 @@ windowlayout=724
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=351
- y=344
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_spectrum1fo_mse_]
- splitdir=0
- useroptions=268451963
  stackedunder=objectinspectorfo
  parent=
  mdistate=3
@@ -2437,8 +2472,8 @@ windowlayout=724
  ny=0
  ncx=0
  ncy=0
- x=351
- y=240
+ x=108
+ y=342
  cx=452
  cy=128
  rcx=0
@@ -2446,6 +2481,44 @@ windowlayout=724
  wsize=0
  active=0
  visible=1
+ [_mse_filelistfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=findinfilefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=741
+ y=84
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_randomnotefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=0
+ y=29
+ cx=1360
+ cy=710
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
 [targetconsole]
 finddtext=
 findhistory=0

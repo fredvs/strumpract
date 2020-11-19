@@ -353,6 +353,7 @@ begin
     end;
 
     cbloop.Enabled           := False;
+    cbloop.visible           := False;
     trackbar1.Enabled        := True;
     wavefo.trackbar1.Enabled := True;
   end;
@@ -404,7 +405,7 @@ begin
       btnresume.Visible := False;
       btnresume.Enabled := False;
     end;
-
+    cbloop.visible           := False; 
     cbloop.Enabled    := False;
     trackbar1.Enabled := True;
     wavefo2.trackbar1.Enabled := True;
@@ -602,13 +603,13 @@ begin
     wavefo2.container.frame.scrollpos_x := 0;
     wavefo2.trackbar1.Enabled := False;
   end;
-
+  cbloop.visible    := true;
   cbloop.Enabled    := True;
   trackbar1.Value   := 0;
   trackbar1.Enabled := False;
 
   lposition.Value         := '00:00:00.000';
-  lposition.face.template := mainfo.tfaceplayer;
+  lposition.face.template := mainfo.tfaceplayerrev;
 
   DrawWaveForm();
 
@@ -783,6 +784,8 @@ begin
           Inputlength2 - mixtime) then
         begin
           hasmixed2   := True;
+          commanderfo.tbutton2.visible := true;
+          commanderfo.tbutton3.visible := true;
           commanderfo.onstartstop(nil);
           hasfocused2 := True;
           filelistfo.onsent(nil);
@@ -1108,10 +1111,11 @@ begin
               btnpause.Enabled := False;
             end;
             uos_Pause(theplayer);
-            tstringdisp1.face.template := mainfo.tfaceorange;
+            tstringdisp1.face.template := mainfo.tfaceorange2;
             tstringdisp1.Value         := utf8decode('Loaded ' + theplaying1);
           end;
-
+           
+          cbloop.visible           := False;
           cbloop.Enabled := False;
           //songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
@@ -1119,7 +1123,7 @@ begin
             timerwait.restart // to reset
           else
             timerwait.Enabled     := True;
-          lposition.face.template := mainfo.tfaceplayerrev;
+          lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue := True;
 
@@ -1402,18 +1406,20 @@ begin
               btnpause.Enabled := False;
             end;
             uos_Pause(theplayer2);
-            tstringdisp1.face.template := mainfo.tfaceorange;
+            tstringdisp1.face.template := mainfo.tfaceorange2;
             tstringdisp1.Value         := utf8decode('Loaded ' + theplaying2);
           end;
 
           cbloop.Enabled := False;
+          cbloop.visible           := False;
           //songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
           if timerwait.Enabled then
             timerwait.restart // to reset
           else
             timerwait.Enabled     := True;
-          lposition.face.template := mainfo.tfaceplayerrev;
+            
+          lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue2 := True;
           oninfowav(Sender);
@@ -1522,7 +1528,7 @@ begin
   btnresume.Visible := True;
 
   tstringdisp1.face.template := mainfo.tfacered;
-  lposition.face.template    := mainfo.tfaceplayer;
+  lposition.face.template    := mainfo.tfaceplayerrev;
 
   if Caption = 'Player 1' then
   begin

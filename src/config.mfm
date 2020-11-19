@@ -108,7 +108,7 @@ object configfo: tconfigfo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 1
-    bounds_x = 185
+    bounds_x = 182
     bounds_y = 3
     bounds_cx = 337
     bounds_cy = 88
@@ -290,6 +290,9 @@ object configfo: tconfigfo
     end
   end
   object tbutton1: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
     bounds_x = 933
     bounds_y = 11
     bounds_cx = 51
@@ -300,7 +303,7 @@ object configfo: tconfigfo
   end
   object lsuglat: tlabel
     taborder = 2
-    bounds_x = 190
+    bounds_x = 182
     bounds_y = 99
     bounds_cx = 121
     bounds_cy = 15
@@ -319,7 +322,7 @@ object configfo: tconfigfo
   end
   object defdevout: tlabel
     taborder = 4
-    bounds_x = 15
+    bounds_x = 19
     bounds_y = 90
     bounds_cx = 146
     bounds_cy = 15
@@ -327,6 +330,9 @@ object configfo: tconfigfo
     reffontheight = 15
   end
   object tbutton2: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
     taborder = 5
     hint = 'Re-load Devices Info'
     bounds_x = 907
@@ -577,7 +583,7 @@ object configfo: tconfigfo
       0
     )
     taborder = 9
-    bounds_x = 534
+    bounds_x = 535
     bounds_y = 62
     bounds_cx = 172
     bounds_cy = 39
@@ -631,8 +637,8 @@ object configfo: tconfigfo
       0
     )
     taborder = 11
-    bounds_x = 713
-    bounds_y = 61
+    bounds_x = 714
+    bounds_y = 62
     bounds_cx = 172
     bounds_cy = 39
     value = 9424076
@@ -660,7 +666,7 @@ object configfo: tconfigfo
     )
     taborder = 12
     bounds_x = 714
-    bounds_y = 17
+    bounds_y = 18
     bounds_cx = 172
     bounds_cy = 39
     value = 11255766

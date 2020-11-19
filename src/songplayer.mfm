@@ -11,8 +11,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 351
-  bounds_y = 344
+  bounds_x = 108
+  bounds_y = 342
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -347,8 +347,10 @@ object songplayerfo: tsongplayerfo
       bounds_y = 27
       bounds_cx = 435
       bounds_cy = 21
+      font.color = -1610612734
+      font.colorselect = -1610612734
       font.name = 'stf_default'
-      font.localprops = []
+      font.localprops = [flp_color, flp_colorbackground, flp_colorselect]
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
@@ -709,7 +711,7 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 24
       hint = 'Mono/Stereo'
-      bounds_x = 86
+      bounds_x = 87
       bounds_y = 50
       bounds_cx = 30
       bounds_cy = 15
@@ -769,7 +771,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceplayerlight
+      face.template = mainfo.tfaceplayerrev
       taborder = 8
       hint = ' Position of sound '
       bounds_x = 316
@@ -790,7 +792,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceplayerlight
+      face.template = mainfo.tfaceplayerrev
       taborder = 7
       hint = ' Lenght of sound '
       bounds_x = 316
@@ -812,8 +814,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 16
       visible = False
-      bounds_x = 105
-      bounds_y = 54
+      bounds_x = 92
+      bounds_y = 55
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

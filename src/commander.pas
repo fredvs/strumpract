@@ -79,10 +79,14 @@ type
     tslider3val: TButton;
     vuLeft: tprogressbar;
     timage2: timage;
-   tfacecomp3: tfacecomp;
-   nameplayers2: tstringdisp;
-   guimix: tbooleanedit;
-   speccalc: tbooleanedit;
+    tfacecomp3: tfacecomp;
+    nameplayers2: tstringdisp;
+    guimix: tbooleanedit;
+    speccalc: tbooleanedit;
+   tbutton4: tbutton;
+   tbutton5: tbutton;
+   tbutton6: tbutton;
+   directmix: tbooleanedit;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -106,8 +110,13 @@ type
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure resetvolume(const Sender: TObject);
     procedure onsetvu(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
-   procedure oncre(const sender: TObject);
-   procedure onchangevuset(const sender: TObject);
+    procedure oncre(const Sender: TObject);
+    procedure onchangevuset(const Sender: TObject);
+   procedure onpausemix(const sender: TObject);
+   procedure onresumemix(const sender: TObject);
+   procedure ondirectmix(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
+   procedure onchangedirectmix(const sender: TObject);
   end;
 
 var
@@ -118,7 +127,7 @@ var
   thetypemix: integer = 0;
   theinput: integer = 30;
   lastrowplayed: integer = -1;
-  vuinvar: boolean = true;
+  vuinvar: Boolean = True;
 
 implementation
 
@@ -138,46 +147,53 @@ begin
 
   if avalue = False then
   begin
-     vuLeft.Visible   := False;
-      vuRight.Visible  := False;
-     // vuLeft.Value     := 0;
-     // vuRight.Value    := 0;
-      vuLeft2.Visible  := False;
-      vuRight2.Visible := False;
-     // vuLeft2.Value    := 0;
-     // vuRight2.Value   := 0;
-   with songplayerfo do
+    vuLeft.Visible   := False;
+    vuRight.Visible  := False;
+    // vuLeft.Value     := 0;
+    // vuRight.Value    := 0;
+    vuLeft2.Visible  := False;
+    vuRight2.Visible := False;
+    // vuLeft2.Value    := 0;
+    // vuRight2.Value   := 0;
+    with songplayerfo do
     begin
       vuLeft.Visible  := False;
       vuRight.Visible := False;
-     /// vuLeft.Value    := 0;
+      /// vuLeft.Value    := 0;
       // vuRight.Value   := 0;
     end;
     with songplayer2fo do
     begin
       vuLeft.Visible  := False;
       vuRight.Visible := False;
-     // vuLeft.Value    := 0;
-     // vuRight.Value   := 0;
+      // vuLeft.Value    := 0;
+      // vuRight.Value   := 0;
     end;
   end
   else
   begin
-     vuLeft.Visible   := True;
-      vuRight.Visible  := True;
-      vuLeft2.Visible  := True;
-      vuRight2.Visible := True;
   
+  if uos_GetStatus(theplayer) = 1 then
+    begin 
+    vuLeft.Visible   := True;
+    vuRight.Visible  := True;
     with songplayerfo do
     begin
       vuLeft.Visible  := True;
       vuRight.Visible := True;
     end;
-    with songplayer2fo do
+  end;  
+    
+ if uos_GetStatus(theplayer2) = 1 then
+   begin 
+    vuLeft2.Visible   := True;
+    vuRight2.Visible  := True;   
+   with songplayer2fo do
     begin
       vuLeft.Visible  := True;
       vuRight.Visible := True;
     end;
+  end;
   end;
 
 end;
@@ -186,8 +202,6 @@ procedure tcommanderfo.formcreated(const Sender: TObject);
 begin
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
-
-
   Timermix           := ttimer.Create(nil);
   Timermix.interval  := 100000;
   //Timermix.options := [to_single];
@@ -218,8 +232,9 @@ end;
 procedure tcommanderfo.onstartstop(const Sender: TObject);
 var
   fromplay, x: integer;
-  
 begin
+
+if directmix.value then totmixinterval := 1 else
   totmixinterval := round(timemix.Value / 10);
 
   incmixinterval := 0;
@@ -237,28 +252,27 @@ begin
 
   lastrowplayed := filelistfo.list_files.focusedcell.row;
 
- if lastrowplayed <> -1 then
+  if lastrowplayed <> -1 then
     if mainfo.typecolor.Value = 2 then
     begin
-        for x := 0 to filelistfo.list_files.rowcount -1 do
-     filelistfo.list_files.rowfontstate[x] := 1; 
-     
-    filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
-    filelistfo.list_files.rowfontstate[lastrowplayed] := 1; 
-    
-   // filelistfo.list_files.datacols[3].colorselect := $707070; 
-   // filelistfo.list_files.datacols[3].color := $707070;
-       
-        
-     end  
+      for x := 0 to filelistfo.list_files.rowcount - 1 do
+        filelistfo.list_files.rowfontstate[x] := 1;
+
+      filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
+      filelistfo.list_files.rowfontstate[lastrowplayed]  := 1;
+
+      // filelistfo.list_files.datacols[3].colorselect := $707070; 
+      // filelistfo.list_files.datacols[3].color := $707070;
+
+    end
     else
-      begin
-      for x := 0 to filelistfo.list_files.rowcount -1 do
-      filelistfo.list_files.rowfontstate[x] := 0;  
-       filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
-    filelistfo.list_files.rowfontstate[lastrowplayed] := 0;   
-      end;
-      
+    begin
+      for x := 0 to filelistfo.list_files.rowcount - 1 do
+        filelistfo.list_files.rowfontstate[x]           := 0;
+      filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
+      filelistfo.list_files.rowfontstate[lastrowplayed] := 0;
+    end;
+
   maxvolleft1  := 1;
   maxvolright1 := 1;
 
@@ -270,7 +284,6 @@ begin
 
   initvolleft2  := 0;
   initvolright2 := 0;
-
 
   if Sender <> nil then
   begin
@@ -287,7 +300,7 @@ begin
   if fromplay = 0 then
   begin
     tbutton2.face.template := mainfo.tfacebutgray;
-    tbutton3.face.template := mainfo.tfaceorange;
+    tbutton3.face.template := mainfo.tfaceorange2;
 
     filelistfo.tbutton2.face.template := mainfo.tfaceorange;
     filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
@@ -315,6 +328,7 @@ begin
 
     hasmixed2        := True;
     timermix.Enabled := True;
+     
   end
   else
   begin
@@ -323,7 +337,7 @@ begin
     volumeleft2.Value  := 0;
     volumeright2.Value := 0;
     tbutton3.face.template := mainfo.tfacebutgray;
-    tbutton2.face.template := mainfo.tfaceorange;
+    tbutton2.face.template := mainfo.tfaceorange2;
     filelistfo.tbutton1.face.template := mainfo.tfaceorange;
     filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
     //volumeleft2.value := 1;
@@ -347,6 +361,22 @@ begin
     //  filelistfo.list_files.rowcolorstate[4]:= 0;
 
   end;
+  
+//tbutton2.width := 26;
+//tbutton2.left := 100;
+//tbutton3.width := 26;
+//tbutton3.left := 154;
+
+application.processmessages;
+
+//tbutton2.visible := false;
+//tbutton3.visible := false;
+tbutton4.visible := true;
+tbutton5.visible := false;
+tbutton6.visible := false;
+
+//tbutton4.imagenr := 1; 
+//tbutton4.imagenr := 30; // resume
 
 end;
 
@@ -389,16 +419,26 @@ begin
         volumeright2.Value := 0;
         songplayer2fo.doplayerstop(Sender);
         muststop           := 1;
+        volumeleft1.Value := maxvolleft1;
       end;
 
       if muststop = 1 then
+      begin
         timermix.Enabled := False;
+        tbutton4.visible := false;
+        tbutton4.imagenr := 1; 
+        incmixinterval := 0;
+      end;  
     end
     else
     begin
       volumeright2.Value := 0;
       songplayer2fo.doplayerstop(Sender);
+      volumeleft1.Value := maxvolleft1;
       timermix.Enabled   := False;
+      tbutton4.visible := false;
+      tbutton5.visible := false;
+      tbutton6.visible := false;
     end;
   end
   else  /// player 2 --> 1
@@ -421,6 +461,8 @@ begin
     else
     begin
       volumeleft1.Value := 0;
+      volumeleft2.Value := maxvolleft2;
+  
       songplayerfo.doplayerstop(Sender);
       muststop          := 1;
     end;
@@ -431,17 +473,29 @@ begin
     begin
       volumeright1.Value := 0;
       songplayerfo.doplayerstop(Sender);
+      volumeleft2.Value := maxvolleft2;
       muststop           := 1;
     end;
 
     if muststop = 1 then
+    begin
       timermix.Enabled := False;
+      tbutton4.visible := false;
+      tbutton5.visible := false;
+      tbutton6.visible := false;
+      incmixinterval := 0;
+    end;  
+      
   end
   else
   begin
     volumeright1.Value := 0;
     songplayerfo.doplayerstop(Sender);
+    volumeleft2.Value := maxvolleft2;
     timermix.Enabled   := False;
+    tbutton4.visible := false;
+    tbutton5.visible := false;
+    tbutton6.visible := false; 
   end;
   //filelistfo.list_files.rowcolorstate[4]:= 0;
 end;
@@ -449,9 +503,9 @@ end;
 
 procedure tcommanderfo.visiblechangeev(const Sender: TObject);
 begin
-  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and 
-  (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and 
-  (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
+  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
+    (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and
+    (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
     if Visible then
       mainfo.tmainmenu1.menu[4].submenu[6].Caption := ' Hide Commander '
@@ -574,15 +628,15 @@ begin
       uos_CreatePlayer(theinput);
       // writeln('ok create');
 
-      OutputIndex4 := uos_AddIntoDevOut(theinput, configfo.devoutcfg.value, configfo.latrec.Value, -1, -1, -1, -1, -1);
+      OutputIndex4 := uos_AddIntoDevOut(theinput, configfo.devoutcfg.Value, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
       // writeln('OutputIndex4 = ' + inttostr(OutputIndex4));
       // uos_outputsetenable(theinput,OutputIndex4,true);
 
-     // InputIndex4 := uos_AddFromDevIn(theinput);
-      
-      InputIndex4 :=  uos_AddFromDevIn(theinput, configfo.devincfg.value, -1, -1, -1, -1, -1, -1);
- 
+      // InputIndex4 := uos_AddFromDevIn(theinput);
+
+      InputIndex4 := uos_AddFromDevIn(theinput, configfo.devincfg.Value, -1, -1, -1, -1, -1, -1);
+
       //  writeln('InputIndex4 = ' + inttostr(InputIndex4));
 
       uos_InputAddDSP1ChanTo2Chan(theinput, InputIndex4);
@@ -659,8 +713,7 @@ begin
     genleftvolvalue.Caption := utf8decode(IntToStr(round(genvolleft.Value * 150)));
     genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 150)));
   end
-  else
-  if (tslider(Sender).tag = 0) then
+  else if (tslider(Sender).tag = 0) then
     genleftvolvalue.Caption  := utf8decode(IntToStr(round(genvolleft.Value * 150)))
   else
     genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 150)));
@@ -858,14 +911,62 @@ begin
 
 end;
 
-procedure tcommanderfo.oncre(const sender: TObject);
+procedure tcommanderfo.oncre(const Sender: TObject);
 begin
-windowopacity := 0;
+  windowopacity := 0;
 end;
 
-procedure tcommanderfo.onchangevuset(const sender: TObject);
+procedure tcommanderfo.onchangevuset(const Sender: TObject);
 begin
-vuinvar := vuin.value;
+  vuinvar := vuin.Value;
+end;
+
+procedure tcommanderfo.onpausemix(const sender: TObject);
+begin
+timermix.enabled := false;
+tbutton4.visible := false;
+tbutton5.visible := true;
+tbutton6.visible := true;
+end;
+
+procedure tcommanderfo.onresumemix(const sender: TObject);
+begin
+if thetypemix <> TButton(Sender).tag
+then
+begin
+
+ incmixinterval := totmixinterval - incmixinterval;
+if TButton(Sender).tag = 0 then
+  begin
+    tbutton2.face.template := mainfo.tfacebutgray;
+    tbutton3.face.template := mainfo.tfaceorange2;
+    filelistfo.tbutton2.face.template := mainfo.tfaceorange;
+    filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
+   end 
+   else begin
+   tbutton2.face.template := mainfo.tfaceorange2;
+    tbutton3.face.template := mainfo.tfacebutgray;
+    filelistfo.tbutton2.face.template := mainfo.tfacebutgray;
+    filelistfo.tbutton1.face.template := mainfo.tfaceorange;
+    end;
+end;   
+
+thetypemix := TButton(Sender).tag;
+timermix.enabled := true;
+tbutton4.visible := true;
+tbutton5.visible := false;
+tbutton6.visible := false;
+end;
+
+procedure tcommanderfo.ondirectmix(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+end;
+
+procedure tcommanderfo.onchangedirectmix(const sender: TObject);
+begin
+if directmix.value then totmixinterval := 1 else
+  totmixinterval := round(timemix.Value / 10);
 end;
 
 
