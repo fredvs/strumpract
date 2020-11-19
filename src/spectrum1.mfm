@@ -8,8 +8,8 @@ object spectrum1fo: tspectrum1fo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacebutgray
   visible = False
-  bounds_x = 78
-  bounds_y = 103
+  bounds_x = 351
+  bounds_y = 240
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442

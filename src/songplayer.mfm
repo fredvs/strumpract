@@ -11,8 +11,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 258
-  bounds_y = 219
+  bounds_x = 351
+  bounds_y = 344
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -153,7 +153,7 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       face.template = mainfo.tfaceplayerrev
       hint = ' Change Left volume '
-      bounds_x = 246
+      bounds_x = 121
       bounds_y = 50
       bounds_cx = 44
       bounds_cy = 45
@@ -185,9 +185,9 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayer
       taborder = 2
       hint = ' Reset to tempo original '
-      bounds_x = 347
-      bounds_y = 64
-      bounds_cx = 32
+      bounds_x = 229
+      bounds_y = 63
+      bounds_cx = 38
       bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
@@ -234,7 +234,6 @@ object songplayerfo: tsongplayerfo
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
       frame.caption = 'Str'
-      frame.captiondist = 0
       frame.font.color = 4013373
       frame.font.height = 10
       frame.font.name = 'stf_default'
@@ -243,17 +242,17 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
-        16
+        2
+        17
         2
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 4
       hint = ' Enable stretching (changing tempo) '
-      bounds_x = 347
-      bounds_y = 49
-      bounds_cx = 29
+      bounds_x = 231
+      bounds_y = 48
+      bounds_cx = 30
       bounds_cy = 15
       onchange = ChangePlugSetSoundTouch
       colorglyph = 4539717
@@ -338,48 +337,6 @@ object songplayerfo: tsongplayerfo
       dropdown.historymaxcount = 50
       reffontheight = 15
     end
-    object llength: tstringdisp
-      optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_noclampinview]
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 7
-      hint = ' Lenght of sound '
-      bounds_x = 120
-      bounds_y = 73
-      bounds_cx = 116
-      bounds_cy = 22
-      font.height = 15
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      value = '00:00:00.000'
-      reffontheight = 18
-    end
-    object lposition: tstringdisp
-      optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_noclampinview]
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 8
-      hint = ' Position of sound '
-      bounds_x = 120
-      bounds_y = 49
-      bounds_cx = 116
-      bounds_cy = 22
-      font.height = 15
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      value = '00:00:00.000'
-      reffontheight = 18
-    end
     object tstringdisp1: tstringdisp
       color = -2147483645
       face.localprops = []
@@ -426,13 +383,14 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerrev
       taborder = 10
       hint = ' Change Right volume '
-      bounds_x = 292
+      bounds_x = 166
       bounds_y = 50
       bounds_cx = 44
       bounds_cy = 45
       statfile = mainfo.tstatfile1
+      font.height = 12
       font.name = 'stf_default'
-      font.localprops = []
+      font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
       caretwidth = 0
       onchange = changevolume
@@ -467,13 +425,15 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerrev
       taborder = 1
       hint = ' Change tempo of song '
-      bounds_x = 380
+      bounds_x = 269
       bounds_y = 50
-      bounds_cx = 50
+      bounds_cx = 44
       bounds_cy = 45
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = []
-      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       caretwidth = 0
       onchange = ChangePlugSetSoundTouch
       onsetvalue = onsetvalvol
@@ -484,7 +444,7 @@ object songplayerfo: tsongplayerfo
       valuemax = 9999999
       step = 0.01
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 13
     end
     object btinfos: tbutton
       Tag = 9
@@ -511,7 +471,7 @@ object songplayerfo: tsongplayerfo
     end
     object vuRight: tprogressbar
       taborder = 14
-      bounds_x = 338
+      bounds_x = 220
       bounds_y = 50
       bounds_cx = 5
       bounds_cy = 45
@@ -526,7 +486,7 @@ object songplayerfo: tsongplayerfo
     end
     object vuLeft: tprogressbar
       taborder = 15
-      bounds_x = 239
+      bounds_x = 214
       bounds_y = 50
       bounds_cx = 5
       bounds_cy = 45
@@ -550,9 +510,9 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayer
       taborder = 17
       hint = ' Detect BMP from current position and set it to Drums tempo. '
-      bounds_x = 347
-      bounds_y = 79
-      bounds_cx = 32
+      bounds_x = 229
+      bounds_y = 78
+      bounds_cx = 38
       bounds_cy = 16
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'BPM'
@@ -756,43 +716,6 @@ object songplayerfo: tsongplayerfo
       onchange = ChangeStereo2Mono
       colorglyph = 4539717
     end
-    object hintpanel: tgroupbox
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceorange
-      taborder = 16
-      visible = False
-      bounds_x = 194
-      bounds_y = 54
-      bounds_cx = 221
-      bounds_cy = 36
-      font.name = 'stf_default'
-      font.localprops = []
-      object hintlabel: tlabel
-        bounds_x = 5
-        bounds_y = 4
-        bounds_cx = 169
-        bounds_cy = 15
-        caption = 'Invalid value.  Reset to 100.'
-        font.name = 'stf_default'
-        font.localprops = []
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
-      end
-      object hintlabel2: tlabel
-        taborder = 1
-        bounds_x = 5
-        bounds_y = 18
-        bounds_cx = 215
-        bounds_cy = 15
-        caption = 'Or press Esc key for previous value.'
-        font.name = 'stf_default'
-        font.localprops = []
-        reffontheight = 15
-      end
-    end
     object btnPause: tbutton
       color = -2147483645
       frame.localprops = [frl_optionsskin]
@@ -839,6 +762,85 @@ object songplayerfo: tsongplayerfo
       focusrectdist = 0
       onexecute = opendir
     end
+    object lposition: tstringdisp
+      optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_noclampinview]
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 8
+      hint = ' Position of sound '
+      bounds_x = 316
+      bounds_y = 50
+      bounds_cx = 114
+      bounds_cy = 22
+      font.height = 15
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = '00:00:00.000'
+      reffontheight = 18
+    end
+    object llength: tstringdisp
+      optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_noclampinview]
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 7
+      hint = ' Lenght of sound '
+      bounds_x = 316
+      bounds_y = 73
+      bounds_cx = 114
+      bounds_cy = 22
+      font.height = 15
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = '00:00:00.000'
+      reffontheight = 18
+    end
+    object hintpanel: tgroupbox
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceorange
+      taborder = 16
+      visible = False
+      bounds_x = 105
+      bounds_y = 54
+      bounds_cx = 221
+      bounds_cy = 36
+      font.name = 'stf_default'
+      font.localprops = []
+      object hintlabel: tlabel
+        bounds_x = 5
+        bounds_y = 4
+        bounds_cx = 169
+        bounds_cy = 15
+        caption = 'Invalid value.  Reset to 100.'
+        font.name = 'stf_default'
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 15
+      end
+      object hintlabel2: tlabel
+        taborder = 1
+        bounds_x = 5
+        bounds_y = 18
+        bounds_cx = 215
+        bounds_cy = 15
+        caption = 'Or press Esc key for previous value.'
+        font.name = 'stf_default'
+        font.localprops = []
+        reffontheight = 15
+      end
+    end
   end
   object tfaceslider: tfacecomp
     template.image.source = sliderimage
@@ -859,8 +861,8 @@ object songplayerfo: tsongplayerfo
   object tfacebuttonslider: tfacecomp
     template.fade_direction = gd_down
     template.onafterpaint = faceafterpaintbut
-    left = 262
-    top = 26
+    left = 280
+    top = 23
   end
   object tfacegreen: tfacecomp
     template.image.source = sliderimage
@@ -875,7 +877,7 @@ object songplayerfo: tsongplayerfo
       7255365
     )
     template.fade_direction = gd_down
-    left = 272
+    left = 310
     top = 7
   end
   object sliderimage: tbitmapcomp

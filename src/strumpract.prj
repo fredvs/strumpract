@@ -837,18 +837,24 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=3
+modulenames=5
  COMMANDERFO
  CONFIGFO
  MAINFO
-moduletypes=3
+ SONGPLAYERFO
+ SPECTRUM1FO
+moduletypes=5
  TCOMMANDERFO
  TCONFIGFO
  TMAINFO
-modulefiles=3
+ TSONGPLAYERFO
+ TSPECTRUM1FO
+modulefiles=5
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/config.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/spectrum1.mfm
 befcommandon=0
 makeoptionson=12
  4095
@@ -1634,78 +1640,103 @@ findhistory=20
  guimix
  onfloat
 findoptions=1
-editpos=4
- 0,3
- 0,186
- 13,1869
- 0,104
+editpos=6
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,0
+ 0,5
+ 0,0
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
-sourcefiles=4
+bookmarks4=0
+bookmarks5=0
+sourcefiles=6
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/config.pas
-relpaths=4
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/spectrum1.pas
+relpaths=6
  strumpract.pas
  commander.pas
  main.pas
  config.pas
-ismoduletexts=4
+ songplayer.pas
+ spectrum1.pas
+ismoduletexts=6
  0
  0
  0
  0
-modules=6
+ 0
+ 0
+modules=8
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/config.mfm
-moduleoptions=6
+ /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/spectrum1.mfm
+moduleoptions=8
  0
  0
  0
  0
  0
  0
-visiblemodules=6
+ 0
+ 0
+visiblemodules=8
  -1
  -1
  0
  0
  0
  -1
-nomenumodules=6
+ -1
+ -1
+nomenumodules=8
  0
  0
  -1
  -1
  -1
+ 0
+ 0
  0
 [sourcefo.files_tab]
+order=6
+ 0
+ 1
+ 2
+ 5
+ 3
+ 4
 firsttab=0
-index=2
+index=3
 [layout]
-windowlayout=709
+windowlayout=724
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
  [mainfo]
  splitdir=0
  useroptions=301990011
- stackedunder=finddialogfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=36
- y=83
+ x=37
+ y=320
  cx=1224
  cy=621
  rcx=0
@@ -1730,7 +1761,7 @@ windowlayout=709
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1798,7 +1829,7 @@ windowlayout=709
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_configfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1835,7 +1866,7 @@ windowlayout=709
  sortdescend1=0
  sorted=0
  col=0
- row=1
+ row=13
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2157,11 +2188,11 @@ windowlayout=709
  nx=0
  ny=0
  ncx=1197
- ncy=20
+ ncy=14
  x=0
  y=0
  cx=1212
- cy=18
+ cy=12
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2171,9 +2202,10 @@ windowlayout=709
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
- history=50
+ value=/home/fred/strumpract/src/spectrum1.pas
+ history=20
   /home/fred/strumpract/src/config.pas
+  /home/fred/strumpract/src/main.pas
   /home/fred/uos/examples/simpleplayer_fpGUI.pas
   /home/fred/strumpract/src/equalizer.pas
   /home/fred/uos/examples/main_fp.pas
@@ -2192,37 +2224,6 @@ windowlayout=709
   /home/fred/mseide-msegui/apps/ide/main.pas
   /home/fred/mseide-msegui/msegui.svg
   /home/fred/strumpract/src/guitars.pas
-  /home/fred/uos/examples/deviceinfos_fpGUI.pas
-  /home/fred/uos/readme_examples.txt
-  /home/fred/freepascal-ootb_320test/rtl/unix/sysutils.pp
-  /home/fred/alsa_soundnew/src/alsa_sound.pas
-  /home/fred/freepascal-ootb_322test/rtl/objpas/math.pp
-  /home/fred/roland/ptcwrapper.pp
-  /home/fred/roland/nero5_test.pas
-  /home/fred/roland/ptccrt.pp
-  /home/fred/freepascal-ootb_322/packages/graph/src/ptcgraph/ptccrt.pp
-  /home/fred/roland/fontdata.inc
-  /home/fred/roland/graph.inc
-  /home/fred/roland/graphh.inc
-  /home/fred/freepascal-ootb_322/packages/graph/src/inc/graphh.inc
-  /home/fred/freepascal-ootb_322/packages/graph/src/inc/graph.inc
-  /home/fred/freepascal-ootb_322/packages/graph/src/inc/fontdata.inc
-  /home/fred/freepascal-ootb_322/packages/graph/src/ptcgraph/ptcgraph.pp
-  /home/fred/roland/ptcgraph.pp
-  /home/fred/alsa_sound_stereo/src/alsa_sound.pas
-  /home/fred/alsa_sound_stereo/src/alsa_sound_test.pas
-  /home/fred/alsa_beep/alsa_beep.pas
-  /home/fred/bgrabitmap/bgradefaultbitmap.pas
-  /home/fred/bgrabitmap/bgraanimatedgif.pas
-  /home/fred/uos/examples/uos_flat.pas
-  /home/fred/Downloads/lazpaint-dev-lazpaint/lazpaint/umainformlayout.pas
-  /home/fred/strumpract/src/spectrum1.pas
-  /home/fred/ideu/src/define.inc
-  /home/fred/ideu/src/objectinspector.pas
-  /home/fred/mseide-msegui/lib/common/opengl/mseopengl.pas
-  /home/fred/ideu/src/ideusettings.pas
-  /home/fred/strumpract/src/randomnote.pas
-  /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2244,8 +2245,15 @@ windowlayout=709
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=6
+  0
+  1
+  2
+  5
+  3
+  4
  firsttab=0
- index=2
+ index=3
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2289,7 +2297,7 @@ windowlayout=709
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2346,7 +2354,7 @@ windowlayout=709
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_configfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2384,7 +2392,7 @@ windowlayout=709
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2395,6 +2403,44 @@ windowlayout=709
  y=172
  cx=1010
  cy=540
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_songplayerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=351
+ y=344
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_spectrum1fo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=351
+ y=240
+ cx=452
+ cy=128
  rcx=0
  rcy=0
  wsize=0
