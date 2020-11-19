@@ -776,9 +776,9 @@ object commanderfo: tcommanderfo
       face.localprops = []
       face.template = mainfo.tfaceplayer
       hint = ' Change mixing time in 1/100 second '
-      bounds_x = 104
-      bounds_y = 42
-      bounds_cx = 54
+      bounds_x = 101
+      bounds_y = 51
+      bounds_cx = 59
       bounds_cy = 30
       statfile = mainfo.tstatfile1
       font.colorselect = 2105625
@@ -968,9 +968,9 @@ object commanderfo: tcommanderfo
       taborder = 1
       hint = '  Start Player 1 --> MIX --> Stop Player 2 '
       bounds_x = 100
-      bounds_y = 73
+      bounds_y = 83
       bounds_cx = 39
-      bounds_cy = 50
+      bounds_cy = 39
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -989,9 +989,9 @@ object commanderfo: tcommanderfo
       taborder = 8
       hint = '  Start Player 2 --> MIX --> Stop Player 1 '
       bounds_x = 140
-      bounds_y = 73
+      bounds_y = 83
       bounds_cx = 39
-      bounds_cy = 50
+      bounds_cy = 39
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -1313,7 +1313,7 @@ object commanderfo: tcommanderfo
       taborder = 21
       hint = ' Lock left and right volume Player 1 '
       bounds_x = 104
-      bounds_y = 2
+      bounds_y = 4
       bounds_cx = 39
       bounds_cy = 15
       statfile = mainfo.tstatfile1
@@ -1344,7 +1344,7 @@ object commanderfo: tcommanderfo
       taborder = 22
       hint = ' Lock left and right volume Player 2 '
       bounds_x = 141
-      bounds_y = 2
+      bounds_y = 4
       bounds_cx = 36
       bounds_cy = 15
       statfile = mainfo.tstatfile1
@@ -1375,7 +1375,7 @@ object commanderfo: tcommanderfo
       taborder = 23
       hint = ' View Meters on/off '
       bounds_x = 145
-      bounds_y = 27
+      bounds_y = 36
       bounds_cx = 32
       bounds_cy = 15
       statfile = mainfo.tstatfile1
@@ -1406,7 +1406,7 @@ object commanderfo: tcommanderfo
       taborder = 24
       hint = ' Auto Mixing on/off '
       bounds_x = 104
-      bounds_y = 27
+      bounds_y = 36
       bounds_cx = 34
       bounds_cy = 15
       statfile = mainfo.tstatfile1
@@ -1603,43 +1603,6 @@ object commanderfo: tcommanderfo
       focusrectdist = 0
       onexecute = doplayerpause
     end
-    object hintpanel: tgroupbox
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceorange
-      taborder = 25
-      visible = False
-      bounds_x = 195
-      bounds_y = 17
-      bounds_cx = 221
-      bounds_cy = 36
-      font.name = 'stf_default'
-      font.localprops = []
-      object hintlabel: tlabel
-        bounds_x = 26
-        bounds_y = 1
-        bounds_cx = 169
-        bounds_cy = 15
-        caption = 'Invalid value.  Reset to 100.'
-        font.name = 'stf_default'
-        font.localprops = []
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
-      end
-      object hintlabel2: tlabel
-        taborder = 1
-        bounds_x = 3
-        bounds_y = 17
-        bounds_cx = 215
-        bounds_cy = 15
-        caption = 'Or press Esc key for previous value.'
-        font.name = 'stf_default'
-        font.localprops = []
-        reffontheight = 15
-      end
-    end
     object nameplayers2: tstringdisp
       color = -2147483645
       frame.localprops = []
@@ -1684,7 +1647,7 @@ object commanderfo: tcommanderfo
       taborder = 32
       hint = 'Graphic-anim while mixing (if cpu too low set it off) '
       bounds_x = 104
-      bounds_y = 14
+      bounds_y = 20
       bounds_cx = 37
       bounds_cy = 15
       statfile = mainfo.tstatfile1
@@ -1714,7 +1677,7 @@ object commanderfo: tcommanderfo
       taborder = 33
       hint = ' Enable Spectrum Frequencies Calculation '
       bounds_x = 146
-      bounds_y = 14
+      bounds_y = 20
       bounds_cx = 31
       bounds_cy = 15
       statfile = mainfo.tstatfile1
@@ -1733,9 +1696,9 @@ object commanderfo: tcommanderfo
       taborder = 35
       hint = ' Pause Mixing '
       bounds_x = 100
-      bounds_y = 73
+      bounds_y = 83
       bounds_cx = 39
-      bounds_cy = 50
+      bounds_cy = 39
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 37
@@ -1754,9 +1717,9 @@ object commanderfo: tcommanderfo
       taborder = 36
       hint = ' Pause Mixing '
       bounds_x = 140
-      bounds_y = 73
+      bounds_y = 83
       bounds_cx = 39
-      bounds_cy = 50
+      bounds_cy = 39
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 36
@@ -1774,9 +1737,9 @@ object commanderfo: tcommanderfo
       taborder = 34
       hint = ' Pause Mixing '
       bounds_x = 100
-      bounds_y = 73
+      bounds_y = 83
       bounds_cx = 79
-      bounds_cy = 50
+      bounds_cy = 39
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 1
@@ -1807,12 +1770,49 @@ object commanderfo: tcommanderfo
       taborder = 37
       hint = ' Direct MIX (0 second time) '
       bounds_x = 163
-      bounds_y = 44
+      bounds_y = 53
       bounds_cy = 26
       statfile = mainfo.tstatfile1
       onchange = onchangedirectmix
       colorglyph = 4868682
       onsetvalue = ondirectmix
+    end
+    object hintpanel: tgroupbox
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceorange
+      taborder = 25
+      visible = False
+      bounds_x = 29
+      bounds_y = 47
+      bounds_cx = 221
+      bounds_cy = 36
+      font.name = 'stf_default'
+      font.localprops = []
+      object hintlabel: tlabel
+        bounds_x = 26
+        bounds_y = 1
+        bounds_cx = 169
+        bounds_cy = 15
+        caption = 'Invalid value.  Reset to 100.'
+        font.name = 'stf_default'
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 15
+      end
+      object hintlabel2: tlabel
+        taborder = 1
+        bounds_x = 3
+        bounds_y = 17
+        bounds_cx = 215
+        bounds_cy = 15
+        caption = 'Or press Esc key for previous value.'
+        font.name = 'stf_default'
+        font.localprops = []
+        reffontheight = 15
+      end
     end
   end
   object tfacecomp7: tfacecomp

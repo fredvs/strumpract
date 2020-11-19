@@ -1647,14 +1647,14 @@ findhistory=20
  list_files
 findoptions=1
 editpos=8
- 0,4
- 35,493
- 0,3707
- 0,3
- 0,781
- 0,1014
- 0,561
- 0,4347
+ 0,-1073741823
+ 0,482
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1731,19 +1731,10 @@ nomenumodules=9
  0
  0
 [sourcefo.files_tab]
-order=8
- 0
- 1
- 7
- 6
- 5
- 2
- 3
- 4
 firsttab=0
 index=1
 [layout]
-windowlayout=775
+windowlayout=736
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1851,7 +1842,7 @@ windowlayout=775
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2209,12 +2200,12 @@ windowlayout=775
  mdistate=0
  nx=0
  ny=0
- ncx=1356
- ncy=15
+ ncx=1197
+ ncy=6
  x=0
  y=0
  cx=1212
- cy=8
+ cy=4
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2225,7 +2216,8 @@ windowlayout=775
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/commander.pas
- history=50
+ history=20
+  /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/config.pas
   /home/fred/uos/examples/simpleplayer_fpGUI.pas
   /home/fred/strumpract/src/equalizer.pas
@@ -2245,37 +2237,6 @@ windowlayout=775
   /home/fred/mseide-msegui/apps/ide/main.pas
   /home/fred/mseide-msegui/msegui.svg
   /home/fred/strumpract/src/guitars.pas
-  /home/fred/uos/examples/deviceinfos_fpGUI.pas
-  /home/fred/uos/readme_examples.txt
-  /home/fred/freepascal-ootb_320test/rtl/unix/sysutils.pp
-  /home/fred/alsa_soundnew/src/alsa_sound.pas
-  /home/fred/freepascal-ootb_322test/rtl/objpas/math.pp
-  /home/fred/roland/ptcwrapper.pp
-  /home/fred/roland/nero5_test.pas
-  /home/fred/roland/ptccrt.pp
-  /home/fred/freepascal-ootb_322/packages/graph/src/ptcgraph/ptccrt.pp
-  /home/fred/roland/fontdata.inc
-  /home/fred/roland/graph.inc
-  /home/fred/roland/graphh.inc
-  /home/fred/freepascal-ootb_322/packages/graph/src/inc/graphh.inc
-  /home/fred/freepascal-ootb_322/packages/graph/src/inc/graph.inc
-  /home/fred/freepascal-ootb_322/packages/graph/src/inc/fontdata.inc
-  /home/fred/freepascal-ootb_322/packages/graph/src/ptcgraph/ptcgraph.pp
-  /home/fred/roland/ptcgraph.pp
-  /home/fred/alsa_sound_stereo/src/alsa_sound.pas
-  /home/fred/alsa_sound_stereo/src/alsa_sound_test.pas
-  /home/fred/alsa_beep/alsa_beep.pas
-  /home/fred/bgrabitmap/bgradefaultbitmap.pas
-  /home/fred/bgrabitmap/bgraanimatedgif.pas
-  /home/fred/uos/examples/uos_flat.pas
-  /home/fred/Downloads/lazpaint-dev-lazpaint/lazpaint/umainformlayout.pas
-  /home/fred/strumpract/src/spectrum1.pas
-  /home/fred/ideu/src/define.inc
-  /home/fred/ideu/src/objectinspector.pas
-  /home/fred/mseide-msegui/lib/common/opengl/mseopengl.pas
-  /home/fred/ideu/src/ideusettings.pas
-  /home/fred/strumpract/src/randomnote.pas
-  /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/help/tutorials/widgets/opengl/openglwidget/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2297,15 +2258,6 @@ windowlayout=775
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=8
-  0
-  1
-  7
-  6
-  5
-  2
-  3
-  4
  firsttab=0
  index=1
  [confideufo.fontname]
@@ -2351,7 +2303,7 @@ windowlayout=775
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2408,7 +2360,7 @@ windowlayout=775
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_configfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2427,7 +2379,7 @@ windowlayout=775
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2446,7 +2398,7 @@ windowlayout=775
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2465,7 +2417,7 @@ windowlayout=775
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2484,7 +2436,7 @@ windowlayout=775
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2503,7 +2455,7 @@ windowlayout=775
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
