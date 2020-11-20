@@ -142,7 +142,7 @@ object wavefo: twavefo
     scrollbar.face1.image.source = sliderimage
     scrollbar.face1.framei_right = -6
     scrollbar.face1.localprops = [fal_framei_right, fal_image]
-    scrollbar.face1.template = mainfo.tfacegreen
+    scrollbar.face1.template = songplayerfo.tfacegreen
     scrollbar.color = -2147483645
     scrollbar.onafterevent = onafterev
   end

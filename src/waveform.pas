@@ -4,11 +4,11 @@ unit waveform;
 interface
 
 uses
-  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, math,
-  mseact, msegui, SysUtils, msegraphics, msegraphutils, mseevent, mseclasses,
-  mseforms, msedock, msegraphedits, mseificomp, mseificompglob, mseifiglob,
-  msescrollbar, msebitmap, msetimer, msesimplewidgets, msewidgets, msegrids,
-  msedataedits, msedropdownlist, mseedit, msestatfile, msestream;
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+  math,mseact, msegui, SysUtils, msegraphics, msegraphutils, mseevent,
+  mseclasses,mseforms, msedock, msegraphedits, mseificomp, mseificompglob,
+  mseifiglob,msescrollbar, msebitmap, msetimer, msesimplewidgets, msewidgets,
+  msegrids,msedataedits, msedropdownlist, mseedit, msestatfile, msestream;
 
 type
   twavefo = class(tdockform)

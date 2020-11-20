@@ -4,51 +4,13 @@ unit songplayer;
 interface
 
 uses
-  ctypes,
-  uos_flat,
-  infos,
-  msetimer,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  msefileutils,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  Math,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msesimplewidgets,
-  msewidgets,
-  msedataedits,
-  msefiledialogx,
-  msegrids,
-  mselistbrowser,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msedragglob,
-  mseact,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  msestrings,
-  msescrollbar,
-  msebitmap,
-  msedatanodes,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  msegridsglob;
+ ctypes,uos_flat,infos,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
+ msefileutils,mseapplication,msestat,msemenus,msegui,msegraphics,Math,
+ msegraphutils,mseevent,mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
+ msedataedits,msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,
+ msegraphedits,msedragglob,mseact,mseedit,mseificomp,mseificompglob,mseifiglob,
+ msestatfile,msestream,msestrings,msescrollbar,msebitmap,msedatanodes,
+ msedispwidgets,mserichstring,msedropdownlist,msegridsglob;
 
 type
   tsongplayerfo = class(tdockform)
@@ -89,6 +51,7 @@ type
     ttimer1: ttimer;
     tbutton6: TButton;
     tfiledialog1: tfiledialogx;
+   tfacegreendark: tfacecomp;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);

@@ -2224,10 +2224,10 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
     songplayer2fo.tfaceslider.template.fade_color.items[0] := $F9FFC2;
     songplayer2fo.tfaceslider.template.fade_color.items[1] := $C4C999;
 
-    songplayerfo.tfacegreen.template.fade_color.items[0]  := $C2FF9E;
-    songplayerfo.tfacegreen.template.fade_color.items[1]  := $6EB545;
-    songplayer2fo.tfacegreen.template.fade_color.items[0] := $C2FF9E;
-    songplayer2fo.tfacegreen.template.fade_color.items[1] := $6EB545;
+   // songplayerfo.tfacegreen.template.fade_color.items[0]  := $C2FF9E;
+  //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $6EB545;
+  //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $C2FF9E;
+  //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $6EB545;
 {
     wavefo.waveon.frame.font.color := ltblack;
     wavefo.waveon.color := $F9FFC2;
@@ -2835,10 +2835,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.tfaceslider.template.fade_color.items[0] := $EDEDED;
     songplayer2fo.tfaceslider.template.fade_color.items[1] := $BABABA;
 
-    songplayerfo.tfacegreen.template.fade_color.items[0]  := $FCFCFC;
-    songplayerfo.tfacegreen.template.fade_color.items[1]  := $DDDDDD;
-    songplayer2fo.tfacegreen.template.fade_color.items[0] := $FCFCFC;
-    songplayer2fo.tfacegreen.template.fade_color.items[1] := $DDDDDD;
+  //  songplayerfo.tfacegreen.template.fade_color.items[0]  := $FCFCFC;
+  //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $DDDDDD;
+  //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $FCFCFC;
+  //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $DDDDDD;
 
     tfaceplayerrev.template.fade_color.items[0] := $BABABA;
     tfaceplayerrev.template.fade_color.items[1] := $EDEDED;
@@ -3527,10 +3527,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.tfaceslider.template.fade_color.items[0] := $5A5A5A;
     songplayer2fo.tfaceslider.template.fade_color.items[1] := $2A2A2A;
 
-    songplayerfo.tfacegreen.template.fade_color.items[0]  := $AAAAAA;
-    songplayerfo.tfacegreen.template.fade_color.items[1]  := $5A5A5A;
-    songplayer2fo.tfacegreen.template.fade_color.items[0] := $AAAAAA;
-    songplayer2fo.tfacegreen.template.fade_color.items[1] := $5A5A5A;
+  //  songplayerfo.tfacegreen.template.fade_color.items[0]  := $AAAAAA;
+  //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $5A5A5A;
+  //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $AAAAAA;
+  //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $5A5A5A;
 
     tfaceplayerrev.template.fade_color.items[0] := $2A2A2A;
     tfaceplayerrev.template.fade_color.items[1] := $5A5A5A;

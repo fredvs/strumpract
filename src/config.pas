@@ -25,17 +25,25 @@ type
    infos_grid: tstringgrid;
    devincfg: tintegeredit;
    devoutcfg: tintegeredit;
-   tcoloredit2: tcoloredit;
+   tgroupbox2: tgroupbox;
    tcoloredit1: tcoloredit;
-   tcoloredit22: tcoloredit;
+   tcoloredit2: tcoloredit;
+   dbkl1: tbooleanedit;
+   tgroupbox3: tgroupbox;
+   dbkl2: tbooleanedit;
    tcoloredit12: tcoloredit;
+   tcoloredit22: tcoloredit;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
+    procedure onsetcolor();
   
    procedure oncheckdevices(const sender: TObject);
    procedure onsetcolor1(const sender: TObject; var avalue: colorty;
                    var accept: Boolean);
+   procedure onsetback(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
+   procedure onchangeback(const sender: TObject);
   end;
 
 var
@@ -45,7 +53,7 @@ var
 implementation
 
 uses
-spectrum1, commander, songplayer, config_mfm;
+spectrum1, waveform, commander, songplayer, config_mfm;
 
 procedure tconfigfo.changelatplay(const Sender: TObject);
 begin
@@ -97,8 +105,7 @@ infos_grid.rowcount := UOSDeviceCount;
     end; 
 end;
 
-procedure tconfigfo.onsetcolor1(const sender: TObject; var avalue: colorty;
-               var accept: Boolean);
+procedure tconfigfo.onsetcolor();
 begin
 spectrum1fo.tchartleft.traces[0].color := tcoloredit1.value;
 spectrum1fo.tchartright.traces[0].color := tcoloredit2.value;
@@ -112,6 +119,39 @@ songplayerfo.vuleft.bar_face.fade_color.items[0]   := configfo.tcoloredit1.value
 songplayer2fo.vuleft.bar_face.fade_color.items[0]  := configfo.tcoloredit12.value;
 songplayerfo.vuright.bar_face.fade_color.items[0]  := configfo.tcoloredit2.value;
 songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.value;
+
+if dbkl1.value then
+wavefo.trackbar1.scrollbar.face1.template := songplayerfo.tfacegreendark
+else wavefo.trackbar1.scrollbar.face1.template := songplayerfo.tfacegreen;
+
+if dbkl2.value then
+wavefo2.trackbar1.scrollbar.face1.template := songplayerfo.tfacegreendark
+else wavefo2.trackbar1.scrollbar.face1.template := songplayerfo.tfacegreen;
+
+if dbkl1.value then
+songplayerfo.trackbar1.scrollbar.face1.template := songplayerfo.tfacegreendark
+else songplayerfo.trackbar1.scrollbar.face1.template := songplayerfo.tfacegreen;
+
+if dbkl2.value then
+songplayer2fo.trackbar1.scrollbar.face1.template := songplayerfo.tfacegreendark
+else songplayer2fo.trackbar1.scrollbar.face1.template := songplayerfo.tfacegreen;
+end;
+
+procedure tconfigfo.onsetcolor1(const sender: TObject; var avalue: colorty;
+               var accept: Boolean);
+begin
+//onsetcolor;
+end;
+
+procedure tconfigfo.onsetback(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+//onsetcolor;
+end;
+
+procedure tconfigfo.onchangeback(const sender: TObject);
+begin
+onsetcolor;
 end;
 
 

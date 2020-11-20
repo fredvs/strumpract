@@ -15,7 +15,7 @@ object configfo: tconfigfo
   optionswindow = [wo_dialog]
   font.name = 'stf_default'
   font.localprops = []
-  caption = 'Audio Configuration'
+  caption = 'Configuration'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
   icon.image = {
@@ -109,7 +109,7 @@ object configfo: tconfigfo
     face.localprops = []
     taborder = 1
     bounds_x = 182
-    bounds_y = 3
+    bounds_y = 18
     bounds_cx = 337
     bounds_cy = 88
     object latrec: trealspinedit
@@ -293,9 +293,9 @@ object configfo: tconfigfo
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    bounds_x = 933
-    bounds_y = 11
-    bounds_cx = 51
+    bounds_x = 949
+    bounds_y = 6
+    bounds_cx = 39
     bounds_cy = 21
     state = [as_localcaption]
     caption = 'OK'
@@ -303,8 +303,8 @@ object configfo: tconfigfo
   end
   object lsuglat: tlabel
     taborder = 2
-    bounds_x = 182
-    bounds_y = 99
+    bounds_x = 180
+    bounds_y = 119
     bounds_cx = 121
     bounds_cy = 15
     caption = 'Suggested latency: '
@@ -313,8 +313,8 @@ object configfo: tconfigfo
   end
   object defdevin: tlabel
     taborder = 3
-    bounds_x = 19
-    bounds_y = 38
+    bounds_x = 13
+    bounds_y = 36
     bounds_cx = 134
     bounds_cy = 15
     caption = 'Default Device IN = -1'
@@ -322,8 +322,8 @@ object configfo: tconfigfo
   end
   object defdevout: tlabel
     taborder = 4
-    bounds_x = 19
-    bounds_y = 90
+    bounds_x = 13
+    bounds_y = 85
     bounds_cx = 146
     bounds_cy = 15
     caption = 'Default Device OUT = -1'
@@ -335,12 +335,12 @@ object configfo: tconfigfo
     frame.localprops1 = []
     taborder = 5
     hint = 'Re-load Devices Info'
-    bounds_x = 907
-    bounds_y = 55
-    bounds_cx = 86
+    bounds_x = 33
+    bounds_y = 104
+    bounds_cx = 99
     bounds_cy = 35
     state = [as_localcaption, as_localhint, as_localonexecute]
-    caption = 'Devices Info'
+    caption = 'Refresh Info'
     onexecute = oncheckdevices
   end
   object infos_grid: tstringgrid
@@ -348,9 +348,9 @@ object configfo: tconfigfo
     frame.localprops1 = []
     taborder = 6
     bounds_x = 0
-    bounds_y = 123
+    bounds_y = 144
     bounds_cx = 1000
-    bounds_cy = 409
+    bounds_cy = 388
     anchors = [an_top]
     optionsgrid = [og_colsizing, og_focuscellonenter, og_autofirstrow, og_autoappend, og_colchangeontabkey, og_wrapcol, og_mousescrollcol]
     datacols.count = 13
@@ -531,8 +531,8 @@ object configfo: tconfigfo
     )
     taborder = 7
     hint = 'Device IN to use ( -1 = default )'
-    bounds_x = 29
-    bounds_y = 11
+    bounds_x = 23
+    bounds_y = 9
     bounds_cx = 139
     bounds_cy = 21
     statfile = mainfo.tstatfile1
@@ -554,8 +554,8 @@ object configfo: tconfigfo
     )
     taborder = 8
     hint = 'Device OUT to use ( -1 = default )'
-    bounds_x = 16
-    bounds_y = 60
+    bounds_x = 10
+    bounds_y = 58
     bounds_cx = 153
     bounds_cy = 21
     statfile = mainfo.tstatfile1
@@ -564,114 +564,207 @@ object configfo: tconfigfo
     valuemin = -1
     reffontheight = 15
   end
-  object tcoloredit2: tcoloredit
-    frame.caption = 'Player 1 Color of Wave Right'
+  object tgroupbox2: tgroupbox
+    frame.caption = 'Wave Colors of Player 1'
+    frame.captiontextflags = [tf_bottom]
+    frame.captionpos = cp_top
+    frame.captiondist = 10
+    frame.captionoffset = 8
     frame.localprops = []
-    frame.localprops1 = []
-    frame.buttons.count = 2
-    frame.buttons.items = <    
-      item
-      end    
-      item
-        imagenr = 17
-      end>
-    frame.buttonellipse.imagenr = 17
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
-      18
+      19
       0
       0
     )
     taborder = 9
-    bounds_x = 535
-    bounds_y = 62
-    bounds_cx = 172
-    bounds_cy = 39
-    value = 13744312
-    onsetvalue = onsetcolor1
-    reffontheight = 15
+    bounds_x = 534
+    bounds_y = 8
+    bounds_cx = 194
+    bounds_cy = 130
+    object tcoloredit1: tcoloredit
+      frame.caption = 'Color of Wave Left'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.buttons.count = 2
+      frame.buttons.items = <      
+        item
+        end      
+        item
+          imagenr = 17
+        end>
+      frame.buttonellipse.imagenr = 17
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      bounds_x = 10
+      bounds_y = 42
+      bounds_cx = 172
+      bounds_cy = 39
+      onchange = onchangeback
+      value = 13872086
+      onsetvalue = onsetcolor1
+      reffontheight = 15
+    end
+    object tcoloredit2: tcoloredit
+      frame.caption = 'Color of Wave Right'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.buttons.count = 2
+      frame.buttons.items = <      
+        item
+        end      
+        item
+          imagenr = 17
+        end>
+      frame.buttonellipse.imagenr = 17
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      taborder = 1
+      bounds_x = 10
+      bounds_y = 84
+      bounds_cx = 172
+      bounds_cy = 39
+      onchange = onchangeback
+      value = 13744312
+      onsetvalue = onsetcolor1
+      reffontheight = 15
+    end
+    object dbkl1: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Dark background'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        110
+        3
+      )
+      taborder = 2
+      hint = 'Dark bakground of wave'
+      bounds_x = 34
+      bounds_y = 23
+      bounds_cx = 123
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      onchange = onchangeback
+      colorglyph = 4868682
+    end
   end
-  object tcoloredit1: tcoloredit
-    frame.caption = 'PLayer 1 Color of Wave Left'
+  object tgroupbox3: tgroupbox
+    frame.caption = 'Wave Colors of Player 2'
+    frame.captiontextflags = [tf_bottom]
+    frame.captionpos = cp_top
+    frame.captiondist = 10
+    frame.captionoffset = 8
     frame.localprops = []
-    frame.localprops1 = []
-    frame.buttons.count = 2
-    frame.buttons.items = <    
-      item
-      end    
-      item
-        imagenr = 17
-      end>
-    frame.buttonellipse.imagenr = 17
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
-      18
+      19
       0
       0
     )
     taborder = 10
-    bounds_x = 535
-    bounds_y = 18
-    bounds_cx = 172
-    bounds_cy = 39
-    value = 13872086
-    onsetvalue = onsetcolor1
-    reffontheight = 15
-  end
-  object tcoloredit22: tcoloredit
-    frame.caption = 'Player 2 Color of Wave Right'
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.buttons.count = 2
-    frame.buttons.items = <    
-      item
-      end    
-      item
-        imagenr = 17
-      end>
-    frame.buttonellipse.imagenr = 17
-    frame.outerframe = (
-      0
-      18
-      0
-      0
-    )
-    taborder = 11
-    bounds_x = 714
-    bounds_y = 62
-    bounds_cx = 172
-    bounds_cy = 39
-    value = 9424076
-    valuedefault = -1610612720
-    onsetvalue = onsetcolor1
-    reffontheight = 15
-  end
-  object tcoloredit12: tcoloredit
-    frame.caption = 'PLayer 2 Color of Wave Left'
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.buttons.count = 2
-    frame.buttons.items = <    
-      item
-      end    
-      item
-        imagenr = 17
-      end>
-    frame.buttonellipse.imagenr = 17
-    frame.outerframe = (
-      0
-      18
-      0
-      0
-    )
-    taborder = 12
-    bounds_x = 714
-    bounds_y = 18
-    bounds_cx = 172
-    bounds_cy = 39
-    value = 11255766
-    valuedefault = -1610612721
-    onsetvalue = onsetcolor1
-    reffontheight = 15
+    bounds_x = 742
+    bounds_y = 8
+    bounds_cx = 194
+    bounds_cy = 130
+    object dbkl2: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Dark background'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        110
+        3
+      )
+      hint = 'Dark bakground of wave'
+      bounds_x = 34
+      bounds_y = 23
+      bounds_cx = 123
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      onchange = onchangeback
+      colorglyph = 4868682
+      onsetvalue = onsetback
+    end
+    object tcoloredit12: tcoloredit
+      frame.caption = 'PLayer 2 Color of Wave Left'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.buttons.count = 2
+      frame.buttons.items = <      
+        item
+        end      
+        item
+          imagenr = 17
+        end>
+      frame.buttonellipse.imagenr = 17
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      taborder = 1
+      bounds_x = 10
+      bounds_y = 42
+      bounds_cx = 172
+      bounds_cy = 39
+      onchange = onchangeback
+      value = 11255766
+      valuedefault = -1610612721
+      onsetvalue = onsetcolor1
+      reffontheight = 15
+    end
+    object tcoloredit22: tcoloredit
+      frame.caption = 'Player 2 Color of Wave Right'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.buttons.count = 2
+      frame.buttons.items = <      
+        item
+        end      
+        item
+          imagenr = 17
+        end>
+      frame.buttonellipse.imagenr = 17
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      taborder = 2
+      bounds_x = 10
+      bounds_y = 84
+      bounds_cx = 172
+      bounds_cy = 39
+      onchange = onchangeback
+      value = 9424076
+      valuedefault = -1610612720
+      onsetvalue = onsetcolor1
+      reffontheight = 15
+    end
   end
 end

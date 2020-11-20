@@ -282,7 +282,7 @@ object songplayerfo: tsongplayerfo
       scrollbar.face1.image.source = sliderimage
       scrollbar.face1.framei_right = -6
       scrollbar.face1.localprops = [fal_framei_right, fal_image]
-      scrollbar.face1.template = mainfo.tfacegreen
+      scrollbar.face1.template = tfacegreen
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = tfacebuttonslider
       scrollbar.framebutton.colorclient = -2147483645
@@ -948,5 +948,21 @@ object songplayerfo: tsongplayerfo
     controller.showhidden = False
     left = 49
     top = 14
+  end
+  object tfacegreendark: tfacecomp
+    template.image.source = sliderimage
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      28173
+      2968092
+    )
+    template.fade_direction = gd_down
+    left = 161
+    top = 9
   end
 end
