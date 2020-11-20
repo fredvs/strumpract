@@ -87,6 +87,7 @@ type
    tbutton5: tbutton;
    tbutton6: tbutton;
    directmix: tbooleanedit;
+   timagelist1: timagelist;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

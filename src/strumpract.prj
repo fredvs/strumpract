@@ -186,8 +186,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=974
- y=336
+ x=788
+ y=363
  cx=300
  cy=269
 replacedialog=33
@@ -408,13 +408,13 @@ stringlisteditor=5
  y=203
  cx=275
  cy=237
-imagelisteditor=85
+imagelisteditor=87
  [imagelisteditorfo.statfile1]
  currentversion=0
  [imagelisteditorfo.filedialog]
  filenamescust=0
  filenames=1
-  /home/fred/Pictures/images/mixright.png
+  /home/fred/Pictures/images/mixright32.png
  filecolwidth=150
  x=0
  y=0
@@ -431,7 +431,13 @@ imagelisteditor=85
  splitterplaces=243
  splitterlateral=126
  lastdir=/home/fred/Pictures/images/
- filehistory=48
+ filehistory=50
+  /home/fred/Pictures/images/mixright32.png
+  /home/fred/Pictures/images/mixleft32.png
+  /home/fred/Pictures/images/mix3right2.png
+  /home/fred/Pictures/images/mix3left2.png
+  /home/fred/Pictures/images/mix3right.png
+  /home/fred/Pictures/images/mix3left.png
   /home/fred/Pictures/images/mixright.png
   /home/fred/Pictures/images/mixleft.png
   /home/fred/Pictures/images/beauty.png
@@ -476,10 +482,6 @@ imagelisteditor=85
   /home/fred/Bureau/line1.png
   /home/fred/Bureau/line5.png
   /home/fred/Bureau/line0.png
-  /home/fred/Bureau/line7.png
-  /home/fred/Bureau/line6.png
-  /home/fred/Bureau/line7.jpg
-  /home/fred/Documents/record.png
  filefilterindex=0
  filefilter="All" "*.jpg" "*.jpeg" "*.bmp" "*.ico" "*.png" "*.pnm" "*.pgm" "*.pbm" "*.tga" "*.tif" "*.tiff" "*.xpm"
  [imagelisteditorfo.transparentcolor]
@@ -1223,26 +1225,26 @@ line=33
  184
  5721
  1600
- 1485
- 311
+ 1489
+ 312
  319
- 556
+ 557
  553
  773
  785
  701
- 1561
+ 1565
  209
  1136
  3565
  431
  5
- 774
+ 775
  1517
  163
- 1489
+ 1493
  362
- 1725
+ 1729
 address=33
  4606912
  7398231
@@ -1626,8 +1628,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=tfacegreen
+finddtext=AddIntoDevOut
 findhistory=20
+ AddIntoDevOut
+ reverse
  tfacegreen
  vuin
  timemix.Value
@@ -1646,21 +1650,19 @@ findhistory=20
  status
  vuleft
  colorselect
- rowcolors
- list_files
 findoptions=1
 editpos=11
  0,-1073741823
- 0,467
- 0,-1073741823
- 0,121
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 66,888
  0,-1073741823
- 0,35
- 0,25
- 0,30
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1766,7 +1768,7 @@ order=11
  6
  7
 firsttab=0
-index=4
+index=7
 [layout]
 windowlayout=767
  [mainfo.basedock]
@@ -1782,8 +1784,8 @@ windowlayout=767
  ny=0
  ncx=0
  ncy=0
- x=92
- y=155
+ x=97
+ y=115
  cx=1224
  cy=621
  rcx=0
@@ -1992,10 +1994,10 @@ windowlayout=767
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=532
- width0=302
+ propcolwidthref=547
+ width0=311
  sortdescend0=0
- width1=224
+ width1=230
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2192,7 +2194,7 @@ windowlayout=767
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=targetconsolefo
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -2207,9 +2209,9 @@ windowlayout=767
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=4
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -2235,11 +2237,11 @@ windowlayout=767
  nx=0
  ny=0
  ncx=1197
- ncy=4
+ ncy=0
  x=0
  y=0
  cx=1212
- cy=2
+ cy=-2
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2249,9 +2251,11 @@ windowlayout=767
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/waveform.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=20
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/commander.pas
+  /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/config.pas
   /home/fred/uos/examples/simpleplayer_fpGUI.pas
   /home/fred/strumpract/src/equalizer.pas
@@ -2269,8 +2273,6 @@ windowlayout=767
   /home/fred/alsa_sound/src/alsa_sound.pas
   /home/fred/alsa_sound/README.md
   /home/fred/mseide-msegui/apps/ide/main.pas
-  /home/fred/mseide-msegui/msegui.svg
-  /home/fred/strumpract/src/guitars.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2305,7 +2307,7 @@ windowlayout=767
   6
   7
  firsttab=0
- index=4
+ index=7
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2349,7 +2351,7 @@ windowlayout=767
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2406,7 +2408,7 @@ windowlayout=767
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_configfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2463,7 +2465,7 @@ windowlayout=767
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_wavefo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2482,7 +2484,7 @@ windowlayout=767
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=3
  nx=0

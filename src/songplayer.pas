@@ -4,13 +4,51 @@ unit songplayer;
 interface
 
 uses
- ctypes,uos_flat,infos,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
- msefileutils,mseapplication,msestat,msemenus,msegui,msegraphics,Math,
- msegraphutils,mseevent,mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
- msedataedits,msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,
- msegraphedits,msedragglob,mseact,mseedit,mseificomp,mseificompglob,mseifiglob,
- msestatfile,msestream,msestrings,msescrollbar,msebitmap,msedatanodes,
- msedispwidgets,mserichstring,msedropdownlist,msegridsglob;
+  ctypes,
+  uos_flat,
+  infos,
+  msetimer,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  msefileutils,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  Math,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msesimplewidgets,
+  msewidgets,
+  msedataedits,
+  msefiledialogx,
+  msegrids,
+  mselistbrowser,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msedragglob,
+  mseact,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestatfile,
+  msestream,
+  msestrings,
+  msescrollbar,
+  msebitmap,
+  msedatanodes,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist,
+  msegridsglob;
 
 type
   tsongplayerfo = class(tdockform)
@@ -51,7 +89,7 @@ type
     ttimer1: ttimer;
     tbutton6: TButton;
     tfiledialog1: tfiledialogx;
-   tfacegreendark: tfacecomp;
+    tfacegreendark: tfacecomp;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -214,35 +252,35 @@ end;
 function DSPReverseBefore1(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 begin
   if (Data.position > Data.OutFrames div Data.channels) then
-    uos_InputSeek(theplayer, InputIndex1, Data.position - 
-    (Data.OutFrames div Data.ratio));
+    uos_InputSeek(theplayer, InputIndex1, Data.position -
+      (Data.OutFrames div Data.ratio));
 end;
 
 function DSPReverseBefore2(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 begin
   if (Data.position > Data.OutFrames div Data.channels) then
     uos_InputSeek(theplayer2, InputIndex2, Data.position -
-     (Data.OutFrames div Data.ratio));
+      (Data.OutFrames div Data.ratio));
 end;
 
 function DSPReverseAfter(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 var
   x: integer = 0;
-  lengthbuf : integer;
+  lengthbuf: integer;
   arfl: TDArFloat;
 begin
- lengthbuf := length(Data.Buffer);
-   
-   if (Data.position > lengthbuf div Data.channels) then
+  lengthbuf := length(Data.Buffer);
+
+  if (Data.position > lengthbuf div Data.channels) then
   begin
-     SetLength(arfl, lengthbuf);
-     x := 0;
+    SetLength(arfl, lengthbuf);
+    x := 0;
 
     while x < lengthbuf - 1 do
     begin
-    arfl[x] :=  Data.Buffer[lengthbuf - x] ;
-    arfl[x+1] := Data.Buffer[lengthbuf - x - 1]  ;
-    inc(x,2);
+        arfl[x]     := Data.Buffer[lengthbuf - x];
+        arfl[x + 1] := Data.Buffer[lengthbuf - x - 1];
+      Inc(x, 2);
     end;
     Result := arfl;
   end
@@ -316,7 +354,7 @@ begin
     end;
 
     cbloop.Enabled           := False;
-    cbloop.visible           := False;
+    cbloop.Visible           := False;
     trackbar1.Enabled        := True;
     wavefo.trackbar1.Enabled := True;
   end;
@@ -368,7 +406,7 @@ begin
       btnresume.Visible := False;
       btnresume.Enabled := False;
     end;
-    cbloop.visible           := False; 
+    cbloop.Visible := False;
     cbloop.Enabled    := False;
     trackbar1.Enabled := True;
     wavefo2.trackbar1.Enabled := True;
@@ -566,7 +604,7 @@ begin
     wavefo2.container.frame.scrollpos_x := 0;
     wavefo2.trackbar1.Enabled := False;
   end;
-  cbloop.visible    := true;
+  cbloop.Visible := True;
   cbloop.Enabled    := True;
   trackbar1.Value   := 0;
   trackbar1.Enabled := False;
@@ -747,8 +785,8 @@ begin
           Inputlength2 - mixtime) then
         begin
           hasmixed2   := True;
-          commanderfo.tbutton2.visible := true;
-          commanderfo.tbutton3.visible := true;
+          commanderfo.tbutton2.Visible := True;
+          commanderfo.tbutton3.Visible := True;
           commanderfo.onstartstop(nil);
           hasfocused2 := True;
           filelistfo.onsent(nil);
@@ -848,8 +886,9 @@ begin
           // PlayerIndex : from 0 to what your computer can do !
           // If PlayerIndex exists already, it will be overwriten...
 
-          Inputindex1 := uos_AddFromFile(theplayer, PChar(ansistring(historyfn.Value)), -1, samformat, 1024 * 8);
-
+        Inputindex1 := uos_AddFromFile(theplayer, PChar(ansistring(historyfn.Value)), -1, 
+        samformat, -1);
+   
         // add input from audio file with custom parameters
         // FileName : filename of audio file
         // PlayerIndex : Index of a existing Player
@@ -867,17 +906,19 @@ begin
             configfo.latplay.Value := -1;
 
           Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
-            uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8, -1);
+       //     uos_InputGetChannels(theplayer, Inputindex1), samformat,-1, -1);
+            uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 16, -1);
 
-          // add a Output into device with custom parameters
-          // PlayerIndex : Index of a existing Player
-          // Device ( -1 is default Output device )
-          // Latency  ( -1 is latency suggested ) )
-          // SampleRate : delault : -1 (44100)   /// here default samplerate of input
+
+          // Add a Output into Device Output
+          // Device ( -1 is default device )
+          // Latency  ( -1 is latency suggested )
+          // SampleRate : delault : -1 (44100)
           // Channels : delault : -1 (2:stereo) (0: no channels, 1:mono, 2:stereo, ...)
-          // SampleFormat : -1 default : Int16 : (0: Float32, 1:Int32, 2:Int16)
-          // FramesCount : default : -1 (65536)
-          //  result : -1 nothing created, otherwise Output Index in array
+          // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
+          // FramesCount : default : -1 (= 65536)
+          // ChunkCount : default : -1 (= 512)
+          //  result :  Output Index in array  -1 = error
 
           uos_InputSetLevelEnable(theplayer, Inputindex1, 2);
           // set calculation of level/volume (usefull for showvolume procedure)
@@ -914,20 +955,6 @@ begin
           // VolLeft : Left volume
           // VolRight : Right volume
           // Enable : Enabled
-
-          DSPindex1 := uos_InputAddDSP(theplayer, Inputindex1, @DSPReverseBefore1, @DSPReverseAfter, nil, nil);
-          // add a custom DSP procedure for input
-          // Playerindex1 : Index of a existing Player
-          // Inputindex1: InputIndex of existing input
-          // BeforeFunc : function to do before the buffer is filled
-          // AfterFunc : function to do after the buffer is filled
-          // EndedFunc : function to do at end of thread
-          // LoopProc : external procedure to do after the buffer is filled
-
-          // set the parameters of custom DSP
-          //  playreverse.value := false;
-
-          uos_InputSetDSP(theplayer, Inputindex1, DSPindex1, playreverse.Value);
 
           // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
           DSPindex11 := uos_InputAddDSP(theplayer, Inputindex1, nil, @DSPStereo2Mono, nil, nil);
@@ -976,6 +1003,20 @@ begin
 
           llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
+          DSPindex1 := uos_InputAddDSP(theplayer, Inputindex1, @DSPReverseBefore1, @DSPReverseAfter, nil, nil);
+          // add a custom DSP procedure for input
+          // Playerindex1 : Index of a existing Player
+          // Inputindex1: InputIndex of existing input
+          // BeforeFunc : function to do before the buffer is filled
+          // AfterFunc : function to do after the buffer is filled
+          // EndedFunc : function to do at end of thread
+          // LoopProc : external procedure to do after the buffer is filled
+
+          // set the parameters of custom DSP
+          //  playreverse.value := false;
+
+          uos_InputSetDSP(theplayer, Inputindex1, DSPindex1, playreverse.Value);
+
           uos_EndProc(theplayer, @ClosePlayer1);
           /// procedure to execute when stream is terminated
           // Assign the procedure of object to execute at end
@@ -995,13 +1036,14 @@ begin
           wavefo.Caption           := 'Wave1 of ' + historyfn.Value;
 
           theplaying1 := historyfn.Value;
-          
-          if vuinvar then begin
-       vuLeft.Visible  := true;
-       vuRight.Visible := true;
-       commanderfo.vuLeft.Visible  := true;
-        commanderfo.vuRight.Visible := true;
-       end; 
+
+          if vuinvar then
+          begin
+            vuLeft.Visible  := True;
+            vuRight.Visible := True;
+            commanderfo.vuLeft.Visible := True;
+            commanderfo.vuRight.Visible := True;
+          end;
 
           with commanderfo do
           begin
@@ -1077,8 +1119,8 @@ begin
             tstringdisp1.face.template := mainfo.tfaceorange2;
             tstringdisp1.Value         := utf8decode('Loaded ' + theplaying1);
           end;
-           
-          cbloop.visible           := False;
+
+          cbloop.Visible := False;
           cbloop.Enabled := False;
           //songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
@@ -1139,8 +1181,8 @@ begin
           // Create the player.
           // PlayerIndex : from 0 to what your computer can do !
           // If PlayerIndex exists already, it will be overwriten...
-
-          Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)), -1, samformat, 1024 * 8);
+              
+     Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)), -1, samformat, -1);
 
         // add input from audio file with custom parameters
         // FileName : filename of audio file
@@ -1162,16 +1204,17 @@ begin
 
           Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
             uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 16, -1);
+            //uos_InputGetChannels(theplayer2, Inputindex2), samformat, -1, -1);
 
-          // add a Output into device with custom parameters
-          // PlayerIndex : Index of a existing Player
-          // Device ( -1 is default Output device )
-          // Latency  ( -1 is latency suggested ) )
-          // SampleRate : delault : -1 (44100)   /// here default samplerate of input
+
+          // Add a Output into Device Output
+          // Device ( -1 is default device )
+          // Latency  ( -1 is latency suggested )
+          // SampleRate : delault : -1 (44100)
           // Channels : delault : -1 (2:stereo) (0: no channels, 1:mono, 2:stereo, ...)
-          // SampleFormat : -1 default : Int16 : (0: Float32, 1:Int32, 2:Int16)
-          // FramesCount : default : -1 (65536)
-          //  result : -1 nothing created, otherwise Output Index in array
+          // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
+          // FramesCount : default : -1 (= 65536)
+          // ChunkCount : default : -1 (= 512)
 
           uos_InputSetLevelEnable(theplayer2, Inputindex2, 2);
           // set calculation of level/volume (usefull for showvolume procedure)
@@ -1209,18 +1252,6 @@ begin
           // VolLeft : Left volume
           // VolRight : Right volume
           // Enable : Enabled
-
-          DSPindex2 := uos_InputAddDSP(theplayer2, Inputindex2, @DSPReverseBefore2, @DSPReverseAfter, nil, nil);
-          // add a custom DSP procedure for input
-          // Playerindex2 : Index of a existing Player
-          // Inputindex2: InputIndex of existing input
-          // BeforeFunc : function to do before the buffer is filled
-          // AfterFunc : function to do after the buffer is filled
-          // EndedFunc : function to do at end of thread
-          // LoopProc : external procedure to do after the buffer is filled
-
-          // set the parameters of custom DSP
-          uos_InputSetDSP(theplayer2, Inputindex2, DSPindex2, playreverse.Value);
 
           // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
           DSPindex22 := uos_InputAddDSP(theplayer2, Inputindex2, nil, @DSPStereo2Mono, nil, nil);
@@ -1271,6 +1302,19 @@ begin
 
           llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
+          DSPindex2 := uos_InputAddDSP(theplayer2, Inputindex2, @DSPReverseBefore2, @DSPReverseAfter, nil, nil);
+          // add a custom DSP procedure for input
+          // Playerindex2 : Index of a existing Player
+          // Inputindex2: InputIndex of existing input
+          // BeforeFunc : function to do before the buffer is filled
+          // AfterFunc : function to do after the buffer is filled
+          // EndedFunc : function to do at end of thread
+          // LoopProc : external procedure to do after the buffer is filled
+
+          // set the parameters of custom DSP
+          uos_InputSetDSP(theplayer2, Inputindex2, DSPindex2, playreverse.Value);
+
+
           uos_EndProc(theplayer2, @ClosePlayer1);
 
           /// procedure to execute when stream is terminated
@@ -1289,13 +1333,14 @@ begin
 
           theplaying2     := historyfn.Value;
           wavefo2.Caption := 'Wave2 of ' + historyfn.Value;
-          
-          if vuinvar then begin
-       vuLeft.Visible  := true;
-       vuRight.Visible := true;
-       commanderfo.vuLeft2.Visible  := true;
-        commanderfo.vuRight2.Visible := true;
-       end; 
+
+          if vuinvar then
+          begin
+            vuLeft.Visible  := True;
+            vuRight.Visible := True;
+            commanderfo.vuLeft2.Visible := True;
+            commanderfo.vuRight2.Visible := True;
+          end;
 
           with commanderfo do
           begin
@@ -1374,14 +1419,14 @@ begin
           end;
 
           cbloop.Enabled := False;
-          cbloop.visible           := False;
+          cbloop.Visible := False;
           //songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
           if timerwait.Enabled then
             timerwait.restart // to reset
           else
-            timerwait.Enabled     := True;
-            
+            timerwait.Enabled := True;
+
           lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue2 := True;
@@ -1424,20 +1469,21 @@ begin
 
   if Caption = 'Player 1' then
   begin
-  
-   if vuinvar then begin
-       vuLeft.Visible  := true;
-       vuRight.Visible := true;
-       commanderfo.vuLeft.Visible  := true;
-        commanderfo.vuRight.Visible := true;
-       end; 
+
+    if vuinvar then
+    begin
+      vuLeft.Visible  := True;
+      vuRight.Visible := True;
+      commanderfo.vuLeft.Visible := True;
+      commanderfo.vuRight.Visible := True;
+    end;
 
     with commanderfo do
     begin
       btnStop.Enabled   := True;
       btnPause.Enabled  := True;
       btnresume.Enabled := False;
-      
+
       btnPause.Visible  := True;
       btnresume.Visible := False;
     end;
@@ -1451,13 +1497,14 @@ begin
 
   if Caption = 'Player 2' then
   begin
-    if vuinvar then begin
-       vuLeft.Visible  := true;
-       vuRight.Visible := true;
-       commanderfo.vuLeft2.Visible  := true;
-        commanderfo.vuRight2.Visible := true;
-       end; 
-  
+    if vuinvar then
+    begin
+      vuLeft.Visible  := True;
+      vuRight.Visible := True;
+      commanderfo.vuLeft2.Visible := True;
+      commanderfo.vuRight2.Visible := True;
+    end;
+
     with commanderfo do
     begin
       btnStop2.Enabled   := True;
@@ -1499,10 +1546,10 @@ begin
     begin
       vuLeft.Visible    := False;
       vuRight.Visible   := False;
-     // vuright.value    := 0;
-     // vuleft.value     := 0;
-     // vuright.Height    := 0;
-     // vuleft.Height     := 0;
+      // vuright.value    := 0;
+      // vuleft.value     := 0;
+      // vuright.Height    := 0;
+      // vuleft.Height     := 0;
       btnStop.Enabled   := True;
       btnPause.Enabled  := False;
       btnresume.Enabled := True;
@@ -1694,8 +1741,8 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
 
-            Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.value);
-                    
+            Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.Value);
+
             //      if mainfo.typecolor.Value <> 2 then
             //    canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0); // frame of wave
@@ -1709,7 +1756,7 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
             // if mainfo.typecolor.Value = 0 then
-            Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.value);
+            Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.Value);
             //     if mainfo.typecolor.Value <> 2 then
             //   canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1745,7 +1792,7 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
             // if mainfo.typecolor.Value = 0 then
-            Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.value);
+            Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.Value);
             //     if mainfo.typecolor.Value <> 2 then
             //   canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1758,7 +1805,7 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
             // if mainfo.typecolor.Value = 0 then
-            Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.value);
+            Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.Value);
             //    if mainfo.typecolor.Value <> 2 then
             //  canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1806,7 +1853,7 @@ begin
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
           // if mainfo.typecolor.Value = 0 then
-          Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.value);
+          Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.Value);
 
           //  if mainfo.typecolor.Value <> 2 then
           //   canvas.drawline(poswav2, poswav3,cl_black) else
@@ -1820,7 +1867,7 @@ begin
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
           // if mainfo.typecolor.Value = 0 then
-          Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.value);
+          Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.Value);
           //   if mainfo.typecolor.Value <> 2 then
           //  canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1856,7 +1903,7 @@ begin
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
           // if mainfo.typecolor.Value = 0 then
-          Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.value);
+          Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.Value);
           //  if mainfo.typecolor.Value <> 2 then
           // canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -1868,7 +1915,7 @@ begin
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
           // if mainfo.typecolor.Value = 0 then
-          Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.value);
+          Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.Value);
           //    if mainfo.typecolor.Value <> 2 then
           // canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
@@ -2460,7 +2507,7 @@ var
   ordir: string;
 begin
   windowopacity := 0;
-  
+
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
