@@ -4,12 +4,46 @@ unit commander;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
- msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
- msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
- msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
- mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
- msegraphedits,msescrollbar,msedispwidgets,mserichstring,mseimage;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  Math,
+  msegui,
+  msetimer,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msedragglob,
+  msesimplewidgets,
+  msewidgets,
+  mseact,
+  msebitmap,
+  msedataedits,
+  msedatanodes,
+  mseedit,
+  msefiledialogx,
+  msegrids,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  mselistbrowser,
+  msestatfile,
+  msestream,
+  msestrings,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -48,7 +82,6 @@ type
     btnStop2: TButton;
     btnPause2: TButton;
     btnResume2: TButton;
-    nameplayers: tstringdisp;
     namedrums: tstringdisp;
     tfacegriptab: tfacecomp;
     tfacesliderdark: tfacecomp;
@@ -58,12 +91,6 @@ type
     tgroupall: tgroupbox;
     genvolright: tslider;
     genvolleft: tslider;
-    namegen: tstringdisp;
-    linkvol: tbooleanedit;
-    linkvolgen: tbooleanedit;
-    linkvol2: tbooleanedit;
-    vuin: tbooleanedit;
-    automix: tbooleanedit;
     nameinput: tstringdisp;
     butinput: tbooleanedit;
     genleftvolvalue: TButton;
@@ -78,16 +105,32 @@ type
     tslider2val: TButton;
     tslider3val: TButton;
     vuLeft: tprogressbar;
-    timage2: timage;
     tfacecomp3: tfacecomp;
-    nameplayers2: tstringdisp;
-    guimix: tbooleanedit;
+    tbutton4: TButton;
+    tbutton5: TButton;
+    tbutton6: TButton;
+    timagelist1: timagelist;
+    tstringdisp1: tstringdisp;
+    directmix: tbooleanedit;
+    vuin: tbooleanedit;
+    automix: tbooleanedit;
     speccalc: tbooleanedit;
-   tbutton4: tbutton;
-   tbutton5: tbutton;
-   tbutton6: tbutton;
-   directmix: tbooleanedit;
-   timagelist1: timagelist;
+    guimix: tbooleanedit;
+    linkvol2: tbooleanedit;
+    linkvol: tbooleanedit;
+    linkvolb: TButton;
+    linkvol2b: TButton;
+    speccalcb: TButton;
+    guimixb: TButton;
+    vuinb: TButton;
+    automixb: TButton;
+    directmixb: TButton;
+    linkvolgen: tbooleanedit;
+    linkvolgenb: TButton;
+    tfacebutgray: tfacecomp;
+    tfacegreen: tfacecomp;
+    tfacegreendark: tfacecomp;
+    ttimer1: ttimer;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -113,11 +156,12 @@ type
     procedure onsetvu(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure oncre(const Sender: TObject);
     procedure onchangevuset(const Sender: TObject);
-   procedure onpausemix(const sender: TObject);
-   procedure onresumemix(const sender: TObject);
-   procedure ondirectmix(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onchangedirectmix(const sender: TObject);
+    procedure onpausemix(const Sender: TObject);
+    procedure onresumemix(const Sender: TObject);
+    procedure ondirectmix(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onchangedirectmix(const Sender: TObject);
+    procedure onexecbutlght(const Sender: TObject);
+    procedure ontimerinit(const Sender: TObject);
   end;
 
 var
@@ -146,57 +190,6 @@ uses
 procedure tcommanderfo.onsetvu(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
 
-  if avalue = False then
-  begin
-    vuLeft.Visible   := False;
-    vuRight.Visible  := False;
-    // vuLeft.Value     := 0;
-    // vuRight.Value    := 0;
-    vuLeft2.Visible  := False;
-    vuRight2.Visible := False;
-    // vuLeft2.Value    := 0;
-    // vuRight2.Value   := 0;
-    with songplayerfo do
-    begin
-      vuLeft.Visible  := False;
-      vuRight.Visible := False;
-      /// vuLeft.Value    := 0;
-      // vuRight.Value   := 0;
-    end;
-    with songplayer2fo do
-    begin
-      vuLeft.Visible  := False;
-      vuRight.Visible := False;
-      // vuLeft.Value    := 0;
-      // vuRight.Value   := 0;
-    end;
-  end
-  else
-  begin
-  
-  if uos_GetStatus(theplayer) = 1 then
-    begin 
-    vuLeft.Visible   := True;
-    vuRight.Visible  := True;
-    with songplayerfo do
-    begin
-      vuLeft.Visible  := True;
-      vuRight.Visible := True;
-    end;
-  end;  
-    
- if uos_GetStatus(theplayer2) = 1 then
-   begin 
-    vuLeft2.Visible   := True;
-    vuRight2.Visible  := True;   
-   with songplayer2fo do
-    begin
-      vuLeft.Visible  := True;
-      vuRight.Visible := True;
-    end;
-  end;
-  end;
-
 end;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -222,6 +215,8 @@ begin
     tslider3val.Enabled := False;
   end;
 
+  ttimer1.Enabled := True;
+
 end;
 
 procedure tcommanderfo.ontimersent(const Sender: TObject);
@@ -235,8 +230,10 @@ var
   fromplay, x: integer;
 begin
 
-if directmix.value then totmixinterval := 1 else
-  totmixinterval := round(timemix.Value / 10);
+  if directmix.Value then
+    totmixinterval := 1
+  else
+    totmixinterval := round(timemix.Value / 10);
 
   incmixinterval := 0;
 
@@ -329,7 +326,7 @@ if directmix.value then totmixinterval := 1 else
 
     hasmixed2        := True;
     timermix.Enabled := True;
-     
+
   end
   else
   begin
@@ -362,22 +359,22 @@ if directmix.value then totmixinterval := 1 else
     //  filelistfo.list_files.rowcolorstate[4]:= 0;
 
   end;
-  
-//tbutton2.width := 26;
-//tbutton2.left := 100;
-//tbutton3.width := 26;
-//tbutton3.left := 154;
 
-application.processmessages;
+  //tbutton2.width := 26;
+  //tbutton2.left := 100;
+  //tbutton3.width := 26;
+  //tbutton3.left := 154;
 
-//tbutton2.visible := false;
-//tbutton3.visible := false;
-tbutton4.visible := true;
-tbutton5.visible := false;
-tbutton6.visible := false;
+  application.ProcessMessages;
 
-//tbutton4.imagenr := 1; 
-//tbutton4.imagenr := 30; // resume
+  //tbutton2.visible := false;
+  //tbutton3.visible := false;
+  tbutton4.Visible := True;
+  tbutton5.Visible := False;
+  tbutton6.Visible := False;
+
+  //tbutton4.imagenr := 1; 
+  //tbutton4.imagenr := 30; // resume
 
 end;
 
@@ -420,26 +417,26 @@ begin
         volumeright2.Value := 0;
         songplayer2fo.doplayerstop(Sender);
         muststop           := 1;
-        volumeleft1.Value := maxvolleft1;
+        volumeleft1.Value  := maxvolleft1;
       end;
 
       if muststop = 1 then
       begin
         timermix.Enabled := False;
-        tbutton4.visible := false;
-        tbutton4.imagenr := 1; 
-        incmixinterval := 0;
-      end;  
+        tbutton4.Visible := False;
+        tbutton4.imagenr := 1;
+        incmixinterval   := 0;
+      end;
     end
     else
     begin
       volumeright2.Value := 0;
       songplayer2fo.doplayerstop(Sender);
-      volumeleft1.Value := maxvolleft1;
+      volumeleft1.Value  := maxvolleft1;
       timermix.Enabled   := False;
-      tbutton4.visible := false;
-      tbutton5.visible := false;
-      tbutton6.visible := false;
+      tbutton4.Visible   := False;
+      tbutton5.Visible   := False;
+      tbutton6.Visible   := False;
     end;
   end
   else  /// player 2 --> 1
@@ -463,9 +460,9 @@ begin
     begin
       volumeleft1.Value := 0;
       volumeleft2.Value := maxvolleft2;
-  
+
       songplayerfo.doplayerstop(Sender);
-      muststop          := 1;
+      muststop := 1;
     end;
 
     if ((totmixinterval - incmixinterval) / totmixinterval) - initvolright1 > 0 then
@@ -474,29 +471,29 @@ begin
     begin
       volumeright1.Value := 0;
       songplayerfo.doplayerstop(Sender);
-      volumeleft2.Value := maxvolleft2;
+      volumeleft2.Value  := maxvolleft2;
       muststop           := 1;
     end;
 
     if muststop = 1 then
     begin
       timermix.Enabled := False;
-      tbutton4.visible := false;
-      tbutton5.visible := false;
-      tbutton6.visible := false;
-      incmixinterval := 0;
-    end;  
-      
+      tbutton4.Visible := False;
+      tbutton5.Visible := False;
+      tbutton6.Visible := False;
+      incmixinterval   := 0;
+    end;
+
   end
   else
   begin
     volumeright1.Value := 0;
     songplayerfo.doplayerstop(Sender);
-    volumeleft2.Value := maxvolleft2;
+    volumeleft2.Value  := maxvolleft2;
     timermix.Enabled   := False;
-    tbutton4.visible := false;
-    tbutton5.visible := false;
-    tbutton6.visible := false; 
+    tbutton4.Visible   := False;
+    tbutton5.Visible   := False;
+    tbutton6.Visible   := False;
   end;
   //filelistfo.list_files.rowcolorstate[4]:= 0;
 end;
@@ -920,54 +917,315 @@ end;
 procedure tcommanderfo.onchangevuset(const Sender: TObject);
 begin
   vuinvar := vuin.Value;
-end;
-
-procedure tcommanderfo.onpausemix(const sender: TObject);
-begin
-timermix.enabled := false;
-tbutton4.visible := false;
-tbutton5.visible := true;
-tbutton6.visible := true;
-end;
-
-procedure tcommanderfo.onresumemix(const sender: TObject);
-begin
-if thetypemix <> TButton(Sender).tag
-then
-begin
-
- incmixinterval := totmixinterval - incmixinterval;
-if TButton(Sender).tag = 0 then
+  if vuinvar = False then
   begin
-    tbutton2.face.template := mainfo.tfacebutgray;
-    tbutton3.face.template := mainfo.tfaceorange2;
-    filelistfo.tbutton2.face.template := mainfo.tfaceorange;
-    filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
-   end 
-   else begin
-   tbutton2.face.template := mainfo.tfaceorange2;
-    tbutton3.face.template := mainfo.tfacebutgray;
-    filelistfo.tbutton2.face.template := mainfo.tfacebutgray;
-    filelistfo.tbutton1.face.template := mainfo.tfaceorange;
+    vuLeft.Visible   := False;
+    vuRight.Visible  := False;
+    // vuLeft.Value     := 0;
+    // vuRight.Value    := 0;
+    vuLeft2.Visible  := False;
+    vuRight2.Visible := False;
+    // vuLeft2.Value    := 0;
+    // vuRight2.Value   := 0;
+    with songplayerfo do
+    begin
+      vuLeft.Visible  := False;
+      vuRight.Visible := False;
+      /// vuLeft.Value    := 0;
+      // vuRight.Value   := 0;
     end;
-end;   
+    with songplayer2fo do
+    begin
+      vuLeft.Visible  := False;
+      vuRight.Visible := False;
+      // vuLeft.Value    := 0;
+      // vuRight.Value   := 0;
+    end;
+  end
+  else
+  begin
 
-thetypemix := TButton(Sender).tag;
-timermix.enabled := true;
-tbutton4.visible := true;
-tbutton5.visible := false;
-tbutton6.visible := false;
+    if uos_GetStatus(theplayer) = 1 then
+    begin
+      vuLeft.Visible  := True;
+      vuRight.Visible := True;
+      with songplayerfo do
+      begin
+        vuLeft.Visible  := True;
+        vuRight.Visible := True;
+      end;
+    end;
+
+    if uos_GetStatus(theplayer2) = 1 then
+    begin
+      vuLeft2.Visible  := True;
+      vuRight2.Visible := True;
+      with songplayer2fo do
+      begin
+        vuLeft.Visible  := True;
+        vuRight.Visible := True;
+      end;
+    end;
+  end;
 end;
 
-procedure tcommanderfo.ondirectmix(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
+procedure tcommanderfo.onpausemix(const Sender: TObject);
+begin
+  timermix.Enabled := False;
+  tbutton4.Visible := False;
+  tbutton5.Visible := True;
+  tbutton6.Visible := True;
+end;
+
+procedure tcommanderfo.onresumemix(const Sender: TObject);
+begin
+  if thetypemix <> TButton(Sender).tag then
+  begin
+
+    incmixinterval := totmixinterval - incmixinterval;
+    if TButton(Sender).tag = 0 then
+    begin
+      tbutton2.face.template := mainfo.tfacebutgray;
+      tbutton3.face.template := mainfo.tfaceorange2;
+      filelistfo.tbutton2.face.template := mainfo.tfaceorange;
+      filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
+    end
+    else
+    begin
+      tbutton2.face.template := mainfo.tfaceorange2;
+      tbutton3.face.template := mainfo.tfacebutgray;
+      filelistfo.tbutton2.face.template := mainfo.tfacebutgray;
+      filelistfo.tbutton1.face.template := mainfo.tfaceorange;
+    end;
+  end;
+
+  thetypemix       := TButton(Sender).tag;
+  timermix.Enabled := True;
+  tbutton4.Visible := True;
+  tbutton5.Visible := False;
+  tbutton6.Visible := False;
+end;
+
+procedure tcommanderfo.ondirectmix(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
 end;
 
-procedure tcommanderfo.onchangedirectmix(const sender: TObject);
+procedure tcommanderfo.onchangedirectmix(const Sender: TObject);
 begin
-if directmix.value then totmixinterval := 1 else
-  totmixinterval := round(timemix.Value / 10);
+  if directmix.Value then
+    totmixinterval := 1
+  else
+    totmixinterval := round(timemix.Value / 10);
+end;
+
+procedure tcommanderfo.onexecbutlght(const Sender: TObject);
+begin
+
+  if TButton(Sender).Name = 'linkvolgenb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      linkvolgen.Value    := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      linkvolgen.Value    := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'linkvolb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      linkvol.Value       := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      linkvol.Value       := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'guimixb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      guimix.Value        := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      guimix.Value        := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'speccalcb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      speccalc.Value      := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      speccalc.Value      := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'linkvol2b' then
+    if TButton(Sender).tag = 0 then
+    begin
+      linkvol2.Value      := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      linkvol2.Value      := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'automixb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      automix.Value       := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      automix.Value       := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'vuinb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      vuin.Value          := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      vuin.Value          := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'directmixb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      directmix.Value     := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      directmix.Value     := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
+end;
+
+procedure tcommanderfo.ontimerinit(const Sender: TObject);
+begin
+
+  if linkvolgen.Value then
+  begin
+    linkvolgenb.tag           := 1;
+    linkvolgenb.face.template := tfacegreen;
+  end
+  else
+  begin
+    linkvolgenb.tag           := 0;
+    linkvolgenb.face.template := tfacebutgray;
+  end;
+
+  if linkvol.Value then
+  begin
+    linkvolb.tag           := 1;
+    linkvolb.face.template := tfacegreen;
+  end
+  else
+  begin
+    linkvolb.tag           := 0;
+    linkvolb.face.template := tfacebutgray;
+  end;
+
+  if guimix.Value then
+  begin
+    guimixb.tag           := 1;
+    guimixb.face.template := tfacegreen;
+  end
+  else
+  begin
+    guimixb.tag           := 0;
+    guimixb.face.template := tfacebutgray;
+  end;
+
+  if speccalc.Value then
+  begin
+    speccalcb.tag           := 1;
+    speccalcb.face.template := tfacegreen;
+  end
+  else
+  begin
+    speccalcb.tag           := 0;
+    speccalcb.face.template := tfacebutgray;
+  end;
+
+  if linkvol2.Value then
+  begin
+    linkvol2b.tag           := 1;
+    linkvol2b.face.template := tfacegreen;
+  end
+  else
+  begin
+    linkvol2b.tag           := 0;
+    linkvol2b.face.template := tfacebutgray;
+  end;
+
+  if automix.Value then
+  begin
+    automixb.tag           := 1;
+    automixb.face.template := tfacegreen;
+  end
+  else
+  begin
+    automixb.tag           := 0;
+    automixb.face.template := tfacebutgray;
+  end;
+
+  if vuin.Value then
+  begin
+    vuinb.tag           := 1;
+    vuinb.face.template := tfacegreen;
+  end
+  else
+  begin
+    vuinb.tag           := 0;
+    vuinb.face.template := tfacebutgray;
+  end;
+
+  if directmix.Value then
+  begin
+    directmixb.tag           := 1;
+    directmixb.face.template := tfacegreen;
+  end
+  else
+  begin
+    directmixb.tag           := 0;
+    directmixb.face.template := tfacebutgray;
+  end;
+
 end;
 
 

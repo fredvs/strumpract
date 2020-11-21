@@ -7,12 +7,46 @@ unit main;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,msegraphedits,mseguiintf,mseapplication,msestat,
- msegui,msetimer,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,
- msechart,status,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,
- msebitmap,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
- mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,msedropdownlist,
- msefiledialogx,msegridsglob,msetraywidget;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  msegraphedits,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msegui,
+  msetimer,
+  msegraphics,
+  msegraphutils,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  msechart,
+  status,
+  msedock,
+  msedataedits,
+  mseedit,
+  msestatfile,
+  SysUtils,
+  Classes,
+  Math,
+  msebitmap,
+  msesys,
+  msemenus,
+  msestream,
+  msegrids,
+  mselistbrowser,
+  mseact,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestrings,
+  msedatanodes,
+  msedragglob,
+  msedropdownlist,
+  msefiledialogx,
+  msegridsglob,
+  msetraywidget;
 
 type
   tmainfo = class(tmainform)
@@ -44,8 +78,8 @@ type
     tfiledialog1: tfiledialogx;
     dancnum: tintegeredit;
     ttimer1: ttimer;
-   tfaceplayer2: tfacecomp;
-   tfaceorange2: tfacecomp;
+    tfaceplayer2: tfacecomp;
+    tfaceorange2: tfacecomp;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -104,9 +138,9 @@ type
     procedure ondancerlayout(const Sender: TObject);
     procedure onclose(const Sender: TObject);
     procedure ontimertransp(const Sender: TObject);
-   procedure showequalizer1(const sender: TObject);
-   procedure showequalizer2(const sender: TObject);
-   procedure showequalizerrec(const sender: TObject);
+    procedure showequalizer1(const Sender: TObject);
+    procedure showequalizer2(const Sender: TObject);
+    procedure showequalizerrec(const Sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -167,7 +201,8 @@ uses
 
 procedure tmainfo.ontimeract(const Sender: TObject);
 begin
-  if randomnotefo.Visible = False then activate;
+  if randomnotefo.Visible = False then
+    activate;
 end;
 
 procedure tmainfo.ontimerwait(const Sender: TObject);
@@ -698,8 +733,8 @@ begin
   beginlayout();
 
   norefresh := True;
-  
-   if drumsfo.Visible then
+
+  if drumsfo.Visible then
     drumsfo.dragdock.float();
 
   if guitarsfo.Visible then
@@ -716,8 +751,8 @@ begin
 
   if spectrumrecfo.Visible then
     spectrumrecfo.dragdock.float();
-    
-   if equalizerfo1.Visible then
+
+  if equalizerfo1.Visible then
     equalizerfo1.dragdock.float();
 
   if equalizerfo2.Visible then
@@ -725,7 +760,7 @@ begin
 
   if equalizerforec.Visible then
     equalizerforec.dragdock.float();
-  
+
   if songplayer2fo.Visible then
     songplayer2fo.dragdock.float();
 
@@ -781,110 +816,110 @@ begin
   top  := 0;
 
   endlayout();
-  
+
   leftposi := 0;
-  
-   if filelistfo.Visible then
+
+  if filelistfo.Visible then
   begin
     filelistfo.left := leftposi + leftdec;
-    leftposi := filelistfo.left;
+    leftposi        := filelistfo.left;
   end;
 
   if drumsfo.Visible then
   begin
     drumsfo.left := leftposi + leftdec;
-    leftposi := drumsfo.left;
-  end;  
+    leftposi     := drumsfo.left;
+  end;
 
   if guitarsfo.Visible then
-   begin
+  begin
     guitarsfo.left := leftposi + leftdec;
-    leftposi := guitarsfo.left;
+    leftposi       := guitarsfo.left;
   end;
-  
-   if spectrumrecfo.Visible then
-   begin
+
+  if spectrumrecfo.Visible then
+  begin
     spectrumrecfo.left := leftposi + leftdec;
-    leftposi := spectrumrecfo.left;
+    leftposi           := spectrumrecfo.left;
   end;
-    
+
   if equalizerforec.Visible then
   begin
     equalizerforec.left := leftposi + leftdec;
     leftposi := equalizerforec.left;
   end;
-     
+
   if waveforec.Visible then
   begin
     waveforec.left := leftposi + leftdec;
-    leftposi := waveforec.left;
+    leftposi       := waveforec.left;
   end;
-  
-   if recorderfo.Visible then
-   begin
+
+  if recorderfo.Visible then
+  begin
     recorderfo.left := leftposi + leftdec;
-    leftposi := recorderfo.left;
+    leftposi        := recorderfo.left;
   end;
-  
+
   if spectrum1fo.Visible then
   begin
     spectrum1fo.left := leftposi + leftdec;
-    leftposi := spectrum1fo.left;
+    leftposi         := spectrum1fo.left;
   end;
-       
+
   if equalizerfo1.Visible then
   begin
     equalizerfo1.left := leftposi + leftdec;
-    leftposi := equalizerfo1.left;
-  end; 
-  
+    leftposi          := equalizerfo1.left;
+  end;
+
   if wavefo.Visible then
- begin
+  begin
     wavefo.left := leftposi + leftdec;
-    leftposi := wavefo.left;
+    leftposi    := wavefo.left;
   end;
 
   if songplayerfo.Visible then
-   begin
+  begin
     songplayerfo.left := leftposi + leftdec;
-    leftposi := songplayerfo.left;
+    leftposi          := songplayerfo.left;
   end;
-    
-   if spectrum2fo.Visible then
- begin
+
+  if spectrum2fo.Visible then
+  begin
     spectrum2fo.left := leftposi + leftdec;
-    leftposi := spectrum2fo.left;
+    leftposi         := spectrum2fo.left;
   end;
-       
-   if equalizerfo2.Visible then
+
+  if equalizerfo2.Visible then
   begin
     equalizerfo2.left := leftposi + leftdec;
-    leftposi := equalizerfo2.left;
+    leftposi          := equalizerfo2.left;
   end;
-  
-   if wavefo2.Visible then
+
+  if wavefo2.Visible then
   begin
     wavefo2.left := leftposi + leftdec;
-    leftposi := wavefo2.left;
+    leftposi     := wavefo2.left;
   end;
-  
+
   if songplayer2fo.Visible then
-   begin
+  begin
     songplayer2fo.left := leftposi + leftdec;
-    leftposi := songplayer2fo.left;
+    leftposi           := songplayer2fo.left;
   end;
-    
-     
+
+
   if commanderfo.Visible then
   begin
     commanderfo.left := leftposi + leftdec;
-    leftposi := commanderfo.left;
+    leftposi         := commanderfo.left;
   end;
-        
+
   top := 0;
-  
+
   posi := 124;
-  
+
   if filelistfo.Visible then
   begin
     filelistfo.top := posi;
@@ -898,35 +933,35 @@ begin
     posi        := drumsfo.top + topdec;
     drumsfo.activate;
   end;
-  
+
   if guitarsfo.Visible then
   begin
     guitarsfo.top := posi;
     posi          := guitarsfo.top + topdec;
     guitarsfo.activate;
   end;
-  
-    if spectrumrecfo.Visible then
+
+  if spectrumrecfo.Visible then
   begin
     spectrumrecfo.top := posi;
     posi := spectrumrecfo.top + topdec;
     spectrumrecfo.activate;
   end;
-    
-    if equalizerforec.Visible then
+
+  if equalizerforec.Visible then
   begin
     equalizerforec.top := posi;
     posi := equalizerforec.top + topdec;
     equalizerforec.activate;
-  end;  
-  
+  end;
+
   if waveforec.Visible then
   begin
     waveforec.top := posi;
-     posi := waveforec.top + topdec;
-     waveforec.activate;
+    posi          := waveforec.top + topdec;
+    waveforec.activate;
   end;
-   
+
   if recorderfo.Visible then
   begin
     recorderfo.top := posi;
@@ -940,42 +975,42 @@ begin
     posi := spectrum1fo.top + topdec;
     spectrum1fo.activate;
   end;
-    
+
   if equalizerfo1.Visible then
   begin
     equalizerfo1.top := posi;
     posi := equalizerfo1.top + topdec;
     equalizerfo1.activate;
-  end;  
-  
-    if wavefo.Visible then
+  end;
+
+  if wavefo.Visible then
   begin
     wavefo.top := posi;
     posi       := wavefo.top + topdec;
     wavefo.activate;
   end;
-  
-   if songplayerfo.Visible then
+
+  if songplayerfo.Visible then
   begin
     songplayerfo.top := posi;
     posi := songplayerfo.top + topdec;
     songplayerfo.activate;
   end;
 
-   if spectrum2fo.Visible then
+  if spectrum2fo.Visible then
   begin
     spectrum2fo.top := posi;
     posi := spectrum2fo.top + topdec;
     spectrum2fo.activate;
   end;
-    
-    if equalizerfo2.Visible then
+
+  if equalizerfo2.Visible then
   begin
     equalizerfo2.top := posi;
     posi := equalizerfo2.top + topdec;
     equalizerfo2.activate;
-  end;   
-  
+  end;
+
   if wavefo2.Visible then
   begin
     wavefo2.top := posi;
@@ -989,7 +1024,7 @@ begin
     posi := songplayer2fo.top + +topdec;
     songplayer2fo.activate;
   end;
-    
+
   if commanderfo.Visible then
   begin
     commanderfo.top := posi;
@@ -1010,13 +1045,13 @@ begin
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
 
-    norefresh := False;
+  norefresh := False;
 
   if timeract.Enabled then
     timeract.restart // to reset
   else
     timeract.Enabled := True;
- end;
+end;
 
 procedure tmainfo.dragfloat(const Sender: TObject);
 begin
@@ -1051,7 +1086,7 @@ begin
 
     if spectrumrecfo.parentwidget = basedock then
       spectrumrecfo.dragdock.float();
-      
+
     if equalizerfo1.parentwidget = basedock then
       equalizerfo1.dragdock.float();
 
@@ -1060,7 +1095,7 @@ begin
 
     if equalizerforec.parentwidget = basedock then
       equalizerforec.dragdock.float();
-   
+
     if wavefo.parentwidget = basedock then
       wavefo.dragdock.float();
 
@@ -1079,63 +1114,63 @@ var
   decorationheight: integer = 5;
 begin
   // basedock.anchors := [an_left,an_top]  ;
-  
+
   imagedancerfo.Visible := False;
 
-  dockpanel3fo.Visible  := False;
-  dockpanel4fo.Visible  := False;
-  dockpanel5fo.Visible  := False;
- 
-  spectrum1fo.Visible   := True;
-  spectrum2fo.Visible   := True;
-  
+  dockpanel3fo.Visible := False;
+  dockpanel4fo.Visible := False;
+  dockpanel5fo.Visible := False;
+
+  spectrum1fo.Visible := True;
+  spectrum2fo.Visible := True;
+
   recorderfo.dragdock.float();
-  recorderfo.Visible       := False;
-  
+  recorderfo.Visible := False;
+
   recorderfo.dragdock.float();
-  recorderfo.Visible       := False;
- 
+  recorderfo.Visible := False;
+
   equalizerforec.dragdock.float();
-  equalizerforec.Visible       := False;
- 
+  equalizerforec.Visible := False;
+
   spectrumrecfo.dragdock.float();
-  spectrumrecfo.Visible       := False;
-  
+  spectrumrecfo.Visible := False;
+
   waveforec.dragdock.float();
-  waveforec.Visible       := False;
-  
+  waveforec.Visible := False;
+
   waveforec.dragdock.float();
-  waveforec.Visible       := False;
-  
+  waveforec.Visible := False;
+
   wavefo.dragdock.float();
-  wavefo.Visible       := False; 
-  
+  wavefo.Visible := False;
+
   wavefo2.dragdock.float();
-  wavefo2.Visible       := False; 
-  
+  wavefo2.Visible := False;
+
   songplayerfo.Visible  := True;
-  songplayer2fo.Visible := true;
-  drumsfo.Visible       := true;
-  guitarsfo.Visible       := true;
-  equalizerfo1.Visible   := True;
-  equalizerfo2.Visible   := True;
-   
+  songplayer2fo.Visible := True;
+  drumsfo.Visible       := True;
+  guitarsfo.Visible     := True;
+  equalizerfo1.Visible  := True;
+  equalizerfo2.Visible  := True;
+
   commanderfo.Visible := True;
 
   commanderfo.automix.Value := True;
 
   filelistfo.Visible := True;
-  decorationheight := window.decoratedbounds_cy - Height;
+  decorationheight   := window.decoratedbounds_cy - Height;
 
   commanderfo.automix.Value := True;
 
- 
+
   beginlayout();
 
   norefresh := True;
 
   basedock.dragdock.currentsplitdir := sd_horz;
- 
+
 {
   with dockpanel3fo do
   begin
@@ -1176,20 +1211,20 @@ begin
 
     spectrum1fo.Visible      := True;
     spectrum1fo.parentwidget := basedock;
-    
+
     equalizerfo1.Visible      := True;
     equalizerfo1.parentwidget := basedock;
-    
+
     pt1 := nullpoint;
 
-     spectrum1fo.pos := pt1;
-      pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
-         
-     equalizerfo1.pos := pt1;
-      pt1.y           := pt1.y + equalizerfo1.Height + decorationheight;
-   
-       songplayerfo.pos := pt1;
-  
+    spectrum1fo.pos := pt1;
+    pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
+
+    equalizerfo1.pos := pt1;
+    pt1.y := pt1.y + equalizerfo1.Height + decorationheight;
+
+    songplayerfo.pos := pt1;
+
     if dockpanel1fo.Timerwaitdp.Enabled then
       dockpanel1fo.Timerwaitdp.restart // to reset
     else
@@ -1210,7 +1245,7 @@ begin
 
     spectrum2fo.Visible      := True;
     spectrum2fo.parentwidget := basedock;
-    
+
     equalizerfo2.Visible      := True;
     equalizerfo2.parentwidget := basedock;
 
@@ -1218,12 +1253,12 @@ begin
 
     spectrum2fo.pos := pt1;
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
-    
+
     equalizerfo2.pos := pt1;
-    pt1.y           := pt1.y + equalizerfo2.Height + decorationheight;
+    pt1.y := pt1.y + equalizerfo2.Height + decorationheight;
 
     songplayer2fo.pos := pt1;
-  
+
     if dockpanel2fo.Timerwaitdp.Enabled then
       dockpanel2fo.Timerwaitdp.restart // to reset
     else
@@ -1265,20 +1300,20 @@ begin
   end;
 }
 
-   filelistfo.Visible  := True;
-   commanderfo.Visible := True;
+  filelistfo.Visible  := True;
+  commanderfo.Visible := True;
 
-   drumsfo.Visible      := True;
-    drumsfo.parentwidget := basedock;
+  drumsfo.Visible      := True;
+  drumsfo.parentwidget := basedock;
 
-    guitarsfo.Visible      := True;
-    guitarsfo.parentwidget := basedock;
-  
-  filelistfo.bounds_cxmax := fowidth;
-  filelistfo.bounds_cymax := filelistfoheight;
-  filelistfo.Width        := fowidth;
-  filelistfo.Height       := filelistfoheight;
-  filelistfo.parentwidget := basedock;
+  guitarsfo.Visible      := True;
+  guitarsfo.parentwidget := basedock;
+
+  filelistfo.bounds_cxmax  := fowidth;
+  filelistfo.bounds_cymax  := filelistfoheight;
+  filelistfo.Width         := fowidth;
+  filelistfo.Height        := filelistfoheight;
+  filelistfo.parentwidget  := basedock;
   commanderfo.parentwidget := basedock;
 
   pt1 := nullpoint;
@@ -1288,13 +1323,13 @@ begin
 
   commanderfo.pos := pt1;
   pt1.y           := pt1.y + commanderfo.Height + decorationheight;
-  
+
   drumsfo.pos := pt1;
-  pt1.y       := pt1.y + drumsfo.Height + decorationheight; 
- 
+  pt1.y       := pt1.y + drumsfo.Height + decorationheight;
+
   guitarsfo.pos := pt1;
-  
-   dockpanel1fo.left := 0;
+
+  dockpanel1fo.left := 0;
   dockpanel1fo.top  := 0;
 
   // dockpanel3fo.left := 0;
@@ -1310,11 +1345,11 @@ begin
   //dockpanel4fo.left := left;
   // dockpanel4fo.top  := songplayerfo.Height + songplayerfo.Height + 30 + (2 * decorationheight);
 
-   norefresh := False;
- 
+  norefresh := False;
+
   endlayout();
- // sleep(1);
-// application.ProcessMessages;
+  // sleep(1);
+  // application.ProcessMessages;
 
   if timeract.Enabled then
     timeract.restart // to reset
@@ -1330,10 +1365,10 @@ end;
 
 procedure tmainfo.ondockplayersx2(const Sender: TObject); // DJ LayoutX2
 begin
-ondockplayers(Sender);
-sleep(100);
-application.processmessages;
-ondockplayers(Sender);
+  ondockplayers(Sender);
+  sleep(100);
+  application.ProcessMessages;
+  ondockplayers(Sender);
 end;
 
 procedure tmainfo.ondockplayers(const Sender: TObject); // DJ Layout
@@ -1353,55 +1388,55 @@ begin
   dockpanel5fo.Visible  := False;
   spectrum1fo.Visible   := True;
   //spectrum1fo.dragdock.float();
-  
-  spectrum2fo.Visible   := True;
+
+  spectrum2fo.Visible := True;
   //spectrum1fo.dragdock.float();
-  
-  songplayerfo.Visible  := True;
+
+  songplayerfo.Visible := True;
   //spectrum1fo.dragdock.float();
-  
+
   songplayer2fo.Visible := True;
   //spectrum1fo.dragdock.float();
-   
+
   guitarsfo.dragdock.float();
-  guitarsfo.Visible        := False;
-    
+  guitarsfo.Visible := False;
+
   drumsfo.dragdock.float();
-  drumsfo.Visible       := False;
-   
+  drumsfo.Visible := False;
+
   recorderfo.dragdock.float();
-  recorderfo.Visible       := False;
-  
-  equalizerfo1.Visible   := True;
-  equalizerfo2.Visible   := True;
- 
+  recorderfo.Visible := False;
+
+  equalizerfo1.Visible := True;
+  equalizerfo2.Visible := True;
+
   equalizerforec.dragdock.float();
   equalizerforec.Visible := False;
- 
+
   spectrumrecfo.dragdock.float();
   spectrumrecfo.Visible := False;
-   
+
   waveforec.dragdock.float();
   waveforec.Visible := False;
-   
+
   commanderfo.Visible := True;
 
   commanderfo.automix.Value := True;
 
   filelistfo.Visible := True;
-  
+
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
-  
+
   filelistfo.dragdock.float();
   wavefo.dragdock.float();
   wavefo2.dragdock.float();
 
-   beginlayout();
+  beginlayout();
   basedock.dragdock.currentsplitdir := sd_horz;
   decorationheight := window.decoratedbounds_cy - Height;
-  
- 
+
+
   with dockpanel1fo do
   begin
 
@@ -1410,7 +1445,7 @@ begin
     songplayerfo.parentwidget := basedock;
 
     spectrum1fo.parentwidget := basedock;
-    
+
     equalizerfo1.parentwidget := basedock;
 
     //{
@@ -1418,13 +1453,13 @@ begin
 
     spectrum1fo.pos := pt1;
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
-    
-     equalizerfo1.pos := pt1;
-    pt1.y           := pt1.y + equalizerfo1.Height + decorationheight;
+
+    equalizerfo1.pos := pt1;
+    pt1.y := pt1.y + equalizerfo1.Height + decorationheight;
 
     songplayerfo.pos := pt1;
-  
-     // dockpanel1fo.Timerwaitdp.Enabled := False;
+
+    // dockpanel1fo.Timerwaitdp.Enabled := False;
     // dockpanel1fo.Timerwaitdp.Enabled := True;
   end;
 
@@ -1432,77 +1467,77 @@ begin
   begin
     // dragfloat(dockpanel2fo);
     songplayer2fo.parentwidget := basedock;
-    spectrum2fo.parentwidget := basedock;
-    equalizerfo2.parentwidget := basedock;
+    spectrum2fo.parentwidget   := basedock;
+    equalizerfo2.parentwidget  := basedock;
 
     //{
     pt1 := nullpoint;
 
     spectrum2fo.pos := pt1;
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
-    
+
     equalizerfo2.pos := pt1;
-    pt1.y           := pt1.y + equalizerfo2.Height + decorationheight;
+    pt1.y := pt1.y + equalizerfo2.Height + decorationheight;
 
 
     songplayer2fo.pos := pt1;
- 
+
     //  dockpanel2fo.Timerwaitdp.Enabled := False;
     //  dockpanel2fo.Timerwaitdp.Enabled := True;
   end;
-  
-   
+
+
   basedock.dragdock.currentsplitdir := sd_horz;
   commanderfo.parentwidget          := basedock;
-  
+
   rect1 := application.screenrect(window);
 
   interv := (rect1.cx - (3 * foWidth)) div 2;
-   
+
   dockpanel1fo.left := 0;
   dockpanel1fo.top  := 0;
 
-  filelistfo.left   := commanderfo.Width + interv;
-  filelistfo.top    := commanderfo.height + round(2.5*decorationheight)-2;
-  
+  filelistfo.left := commanderfo.Width + interv;
+  filelistfo.top  := commanderfo.Height + round(2.5 * decorationheight) - 2;
+
   decorationheight := window.decoratedbounds_cy - Height;
-  
-  filelistfo.Height := dockpanel1fo.height - commanderfo.height -
-   decorationheight - (decorationheight div 2);
-  
-   //filelistfo.Height := 400;
- 
-   left := filelistfo.left;
- // top  := filelistfo.Height + (decorationheight * 2) - 4;
-    top  := 0;
- 
+
+  filelistfo.Height := dockpanel1fo.Height - commanderfo.Height -
+    decorationheight - (decorationheight div 2);
+
+  //filelistfo.Height := 400;
+
+  left := filelistfo.left;
+  // top  := filelistfo.Height + (decorationheight * 2) - 4;
+  top  := 0;
+
   dockpanel2fo.top := dockpanel1fo.top;
 
   dockpanel2fo.left := filelistfo.right + interv;
 
-  interv := ((rect1.cy - (dockpanel1fo.height) - ( 4 * decorationheight)) div 2) ;
-  
-   endlayout();
+  interv := ((rect1.cy - (dockpanel1fo.Height) - (4 * decorationheight)) div 2);
+
+  endlayout();
 
 
   wavefo2.bounds_cxmax := 0;
   wavefo2.bounds_cymax := 0;
-  wavefo.bounds_cxmax := 0;
-  wavefo.bounds_cymax := 0;
+  wavefo.bounds_cxmax  := 0;
+  wavefo.bounds_cymax  := 0;
 
   wavefo.Width   := dockpanel2fo.right - 2;
   wavefo2.Width  := wavefo.Width;
   wavefo.Height  := interv;
   wavefo2.Height := interv;
 
-  wavefo.top := dockpanel1fo.bottom +  ( 2 * decorationheight);
+  wavefo.top := dockpanel1fo.bottom + (2 * decorationheight);
 
   wavefo2.top := wavefo.bottom + decorationheight;
 
   wavefo.left  := 0;
   wavefo2.left := 0;
 
-  application.processmessages;
+  application.ProcessMessages;
   //  visible:= true;
 
   dockpanel1fo.Visible := True;
@@ -1512,7 +1547,7 @@ begin
 
   //application.ProcessMessages;
 
-   Visible := True;
+  Visible := True;
 
   if timeract.Enabled then
     timeract.restart // to reset
@@ -1563,23 +1598,23 @@ begin
     songplayer2fo.parentwidget := basedock;
   if commanderfo.Visible then
     commanderfo.parentwidget   := basedock;
- 
+
   if spectrum1fo.Visible then
-    spectrum1fo.parentwidget   := basedock;
-    if equalizerfo1.Visible then
-    equalizerfo1.parentwidget   := basedock;
- 
-   if spectrum2fo.Visible then
-    spectrum2fo.parentwidget := basedock;
+    spectrum1fo.parentwidget  := basedock;
+  if equalizerfo1.Visible then
+    equalizerfo1.parentwidget := basedock;
+
+  if spectrum2fo.Visible then
+    spectrum2fo.parentwidget  := basedock;
   if equalizerfo2.Visible then
-    equalizerfo2.parentwidget   := basedock;
-    
-   if spectrumrecfo.Visible then
+    equalizerfo2.parentwidget := basedock;
+
+  if spectrumrecfo.Visible then
     spectrumrecfo.parentwidget := basedock;
 
- if equalizerforec.Visible then
-    equalizerforec.parentwidget   := basedock;
-  
+  if equalizerforec.Visible then
+    equalizerforec.parentwidget := basedock;
+
   if wavefo.Visible then
     wavefo.parentwidget := basedock;
 
@@ -1591,9 +1626,9 @@ begin
 
   if recorderfo.Visible then
     recorderfo.parentwidget := basedock;
-  
+
   if guitarsfo.Visible then
-    guitarsfo.parentwidget  := basedock;
+    guitarsfo.parentwidget := basedock;
 
   //{
   pt1 := nullpoint;
@@ -1609,17 +1644,17 @@ begin
     filelistfo.pos := pt1;
     pt1.y          := pt1.y + filelistfo.Height + decorationheight;
   end;
-  
-   if spectrum1fo.Visible then
+
+  if spectrum1fo.Visible then
   begin
     spectrum1fo.pos := pt1;
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
   end;
-  
-   if equalizerfo1.Visible then
+
+  if equalizerfo1.Visible then
   begin
     equalizerfo1.pos := pt1;
-    pt1.y           := pt1.y + equalizerfo1.Height + decorationheight;
+    pt1.y := pt1.y + equalizerfo1.Height + decorationheight;
   end;
 
   if wavefo.Visible then
@@ -1633,20 +1668,20 @@ begin
     songplayerfo.pos := pt1;
     pt1.y := pt1.y + songplayerfo.Height + decorationheight;
   end;
-  
+
   if spectrum2fo.Visible then
   begin
     spectrum2fo.pos := pt1;
     pt1.y           := pt1.y + spectrum2fo.Height + decorationheight;
   end;
-  
-   if equalizerfo2.Visible then
+
+  if equalizerfo2.Visible then
   begin
     equalizerfo2.pos := pt1;
-    pt1.y           := pt1.y + equalizerfo2.Height + decorationheight;
+    pt1.y := pt1.y + equalizerfo2.Height + decorationheight;
   end;
-  
-   if wavefo2.Visible then
+
+  if wavefo2.Visible then
   begin
     wavefo2.pos := pt1;
     pt1.y       := pt1.y + wavefo2.Height + decorationheight;
@@ -1667,13 +1702,13 @@ begin
   if spectrumrecfo.Visible then
   begin
     spectrumrecfo.pos := pt1;
-    pt1.y           := pt1.y + spectrumrecfo.Height + decorationheight;
+    pt1.y := pt1.y + spectrumrecfo.Height + decorationheight;
   end;
-  
-   if equalizerforec.Visible then
+
+  if equalizerforec.Visible then
   begin
     equalizerforec.pos := pt1;
-    pt1.y           := pt1.y + equalizerforec.Height + decorationheight;
+    pt1.y := pt1.y + equalizerforec.Height + decorationheight;
   end;
 
   if recorderfo.Visible then
@@ -1813,9 +1848,9 @@ begin
   wavefo.Visible      := False;
   wavefo2.Visible     := False;
   waveforec.Visible   := False;
-  equalizerfo1.Visible   := False;
-  equalizerfo2.Visible   := False;
-  equalizerforec.Visible   := False;
+  equalizerfo1.Visible := False;
+  equalizerfo2.Visible := False;
+  equalizerforec.Visible := False;
   norefresh           := False;
   endlayout();
   if timerwait.Enabled then
@@ -1860,8 +1895,8 @@ procedure tmainfo.onchangevalcolor(const Sender: TObject);
 var
   ltblank: integer = $F0F0F0;
   ltblack: integer = $2D2D2D;
-  thecolor1 : integer = $2D2D2D;
-  thecolor2 : integer = $2D2D2D;
+  thecolor1: integer = $2D2D2D;
+  thecolor2: integer = $2D2D2D;
   asliders: tasliders;
   asliders2: tasliders;
   aslidersr: tasliders;
@@ -1873,15 +1908,15 @@ begin
   wavefo.trackbar1.face.template    := tfaceplayer;
   wavefo2.trackbar1.face.template   := tfaceplayer;
   waveforec.trackbar1.face.template := recorderfo.tfacerecorder;
-  
- commanderfo.vuleft.bar_face.fade_color.items[0]    := configfo.tcoloredit1.value;
-commanderfo.vuleft2.bar_face.fade_color.items[0]   := configfo.tcoloredit12.value;
-commanderfo.vuright.bar_face.fade_color.items[0]   := configfo.tcoloredit2.value;
-commanderfo.vuright2.bar_face.fade_color.items[0]  := configfo.tcoloredit22.value;
-songplayerfo.vuleft.bar_face.fade_color.items[0]   := configfo.tcoloredit1.value;
-songplayer2fo.vuleft.bar_face.fade_color.items[0]  := configfo.tcoloredit12.value;
-songplayerfo.vuright.bar_face.fade_color.items[0]  := configfo.tcoloredit2.value;
-songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.value;
+
+  commanderfo.vuleft.bar_face.fade_color.items[0]    := configfo.tcoloredit1.Value;
+  commanderfo.vuleft2.bar_face.fade_color.items[0]   := configfo.tcoloredit12.Value;
+  commanderfo.vuright.bar_face.fade_color.items[0]   := configfo.tcoloredit2.Value;
+  commanderfo.vuright2.bar_face.fade_color.items[0]  := configfo.tcoloredit22.Value;
+  songplayerfo.vuleft.bar_face.fade_color.items[0]   := configfo.tcoloredit1.Value;
+  songplayer2fo.vuleft.bar_face.fade_color.items[0]  := configfo.tcoloredit12.Value;
+  songplayerfo.vuright.bar_face.fade_color.items[0]  := configfo.tcoloredit2.Value;
+  songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.Value;
 
 
   with equalizerfo1 do
@@ -2047,12 +2082,12 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
     filelistfo.list_files.fixcols.color           := cl_default;
     filelistfo.list_files.fixcols[-1].font.color  := cl_default;
     filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
-   
-      for x := 0 to filelistfo.list_files.rowcount -1 do
-     filelistfo.list_files.rowfontstate[x] := 0;  
-     
-    filelistfo.list_files.datacols.colorselect := $FFC87A;   
- 
+
+    for x := 0 to filelistfo.list_files.rowcount - 1 do
+      filelistfo.list_files.rowfontstate[x] := 0;
+
+    filelistfo.list_files.datacols.colorselect := $FFC87A;
+
     tmainmenu1.menu.font.color := cl_black;
     tmainmenu1.menu.colorglyph := cl_black;
     tmainmenu1.menu.colorglyphactive := cl_black;
@@ -2100,9 +2135,9 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
     tfacered.template.fade_color.items[1] := $FF7878;
 
     // players
-   // songplayerfo.font.color  := ltblack;
-   // songplayer2fo.font.color := ltblack;
-    
+    // songplayerfo.font.color  := ltblack;
+    // songplayer2fo.font.color := ltblack;
+
     songplayerfo.font.color  := thecolor1;
     songplayer2fo.font.color := thecolor2;
 
@@ -2224,10 +2259,10 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
     songplayer2fo.tfaceslider.template.fade_color.items[0] := $F9FFC2;
     songplayer2fo.tfaceslider.template.fade_color.items[1] := $C4C999;
 
-   // songplayerfo.tfacegreen.template.fade_color.items[0]  := $C2FF9E;
-  //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $6EB545;
-  //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $C2FF9E;
-  //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $6EB545;
+    // songplayerfo.tfacegreen.template.fade_color.items[0]  := $C2FF9E;
+    //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $6EB545;
+    //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $C2FF9E;
+    //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $6EB545;
 {
     wavefo.waveon.frame.font.color := ltblack;
     wavefo.waveon.color := $F9FFC2;
@@ -2377,15 +2412,15 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
     begin
       tlabel3.font.color := ltblack;
       tlabel2.font.color := ltblack;
-      fond.color        := $EDC0C0;
-      groupbox1.color   := $EDC0C0;
-      groupbox2.color   := $EDC0C0;
+      fond.color         := $EDC0C0;
+      groupbox1.color    := $EDC0C0;
+      groupbox2.color    := $EDC0C0;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-      EQEN.colorglyph := ltblack;
+      EQEN.colorglyph    := ltblack;
       EQEN.frame.colorclient := $EDC0C0;
-      EQEN.color      := $EDC0C0;
-      EQEN.frame.font.color      := cl_black;
+      EQEN.color         := $EDC0C0;
+      EQEN.frame.font.color := cl_black;
       EQEN.face.template := recorderfo.tfacerecorder;
     end;
 
@@ -2403,21 +2438,21 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
     end;
 
     // commander
-    commanderfo.nameplayers.font.color := ltblack;
-    commanderfo.nameplayers2.font.color := ltblack;
+    //   commanderfo.nameplayers.font.color := ltblack;
+    //   commanderfo.nameplayers2.font.color := ltblack;
     commanderfo.namedrums.font.color  := ltblack;
-    commanderfo.namegen.font.color    := ltblack;
+    // commanderfo.namegen.font.color    := ltblack;
     commanderfo.nameinput.font.color  := ltblack;
     commanderfo.genleftvolvalue.font.color := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
-    commanderfo.directmix.colorglyph       := ltblack;
+    commanderfo.directmix.colorglyph  := ltblack;
     commanderfo.directmix.frame.font.color := ltblack;
-        
+
     commanderfo.speccalc.colorglyph       := ltblack;
     commanderfo.speccalc.frame.font.color := ltblack;
-   
+
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
 
@@ -2482,37 +2517,37 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
 
 
     // filelistfo.songdir.frame.button.colorglyph := ltblack;
-    filelistfo.list_files.datacols[0].color := cl_white;
-    filelistfo.list_files.datacols[0].font.color := ltblack;
-    filelistfo.list_files.datacols[1].color := cl_white;
-    filelistfo.list_files.datacols[1].font.color := ltblack;
-    filelistfo.list_files.datacols[2].color := cl_white;
-    filelistfo.list_files.datacols[2].font.color := ltblack;
-    filelistfo.list_files.datacols[3].color := cl_white;
-    filelistfo.list_files.datacols[3].font.color := ltblack;
+    filelistfo.list_files.datacols[0].color       := cl_white;
+    filelistfo.list_files.datacols[0].font.color  := ltblack;
+    filelistfo.list_files.datacols[1].color       := cl_white;
+    filelistfo.list_files.datacols[1].font.color  := ltblack;
+    filelistfo.list_files.datacols[2].color       := cl_white;
+    filelistfo.list_files.datacols[2].font.color  := ltblack;
+    filelistfo.list_files.datacols[3].color       := cl_white;
+    filelistfo.list_files.datacols[3].font.color  := ltblack;
     filelistfo.list_files.datacols[3].colorselect := $EDEDED;
-    filelistfo.list_files.datacols[3].colorglyph := ltblack;
-  
-    filelistfo.list_files.datacols[0].colorselect := $FFC87A;   
-    filelistfo.list_files.datacols[1].colorselect := $FFC87A; 
-    filelistfo.list_files.datacols[2].colorselect := $FFC87A; 
-    
+    filelistfo.list_files.datacols[3].colorglyph  := ltblack;
+
+    filelistfo.list_files.datacols[0].colorselect := $FFC87A;
+    filelistfo.list_files.datacols[1].colorselect := $FFC87A;
+    filelistfo.list_files.datacols[2].colorselect := $FFC87A;
+
     aboutfo.font.color := cl_black;
     // configfo.font.color := ltblack;
-   
+
     with spectrum1fo do
     begin
-      tchartleft.color      :=  $D2D8A5;
-      tchartleft.colorchart          := $D2D8A5;
+      tchartleft.color           := $D2D8A5;
+      tchartleft.colorchart      := $D2D8A5;
       tchartleft.traces[0].chartkind := tck_bar;
-      tchartleft.traces[0].color     := configfo.tcoloredit1.value;
-      labelleft.font.color           := thecolor1;
+      tchartleft.traces[0].color := configfo.tcoloredit1.Value;
+      labelleft.font.color       := thecolor1;
 
-      tchartright.color      := $D2D8A5;     
-      tchartright.colorchart          := $D2D8A5;
+      tchartright.color           := $D2D8A5;
+      tchartright.colorchart      := $D2D8A5;
       tchartright.traces[0].chartkind := tck_bar;
-      tchartright.traces[0].color     := configfo.tcoloredit2.value;
-      labelright.font.color           := thecolor1;
+      tchartright.traces[0].color := configfo.tcoloredit2.Value;
+      labelright.font.color       := thecolor1;
 
       fond.color        := $D2D8A5;
       groupbox1.color   := $D2D8A5;
@@ -2527,17 +2562,17 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
 
     with spectrum2fo do
     begin
-      tchartleft.color      := $D2D8A5;     
-      tchartleft.colorchart          := $D2D8A5;
+      tchartleft.color           := $D2D8A5;
+      tchartleft.colorchart      := $D2D8A5;
       tchartleft.traces[0].chartkind := tck_bar;
-      tchartleft.traces[0].color     := configfo.tcoloredit12.value;
-      labelleft.font.color           := thecolor2;
+      tchartleft.traces[0].color := configfo.tcoloredit12.Value;
+      labelleft.font.color       := thecolor2;
 
-      tchartright.color      := $D2D8A5;     
-      tchartright.colorchart          := $D2D8A5;
+      tchartright.color           := $D2D8A5;
+      tchartright.colorchart      := $D2D8A5;
       tchartright.traces[0].chartkind := tck_bar;
-      tchartright.traces[0].color     := configfo.tcoloredit22.value;
-      labelright.font.color           := thecolor2;
+      tchartright.traces[0].color := configfo.tcoloredit22.Value;
+      labelright.font.color       := thecolor2;
 
       fond.color        := $D2D8A5;
       groupbox1.color   := $D2D8A5;
@@ -2556,9 +2591,9 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
       tchartleft.traces[0].chartkind := tck_bar;
       tchartleft.traces[0].color     := $C69EFF;
       labelleft.font.color           := ltblack;
-      
-        tchartleft.color      := $EDC0C0;     
-        tchartright.color      := $EDC0C0;     
+
+      tchartleft.color  := $EDC0C0;
+      tchartright.color := $EDC0C0;
 
       tchartright.colorchart := $EDC0C0;
       tchartright.traces[0].chartkind := tck_bar;
@@ -2573,11 +2608,10 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
       groupbox2.frame.font.color := ltblack;
       spect1.frame.colorclient := cl_default;
       spect1.color      := cl_default;
-      
-       spect1.face.template := recorderfo.tfacerecorder;
-   // spect1.face.template := recorderfo.tfacerecorder;
 
-      
+      spect1.face.template := recorderfo.tfacerecorder;
+      // spect1.face.template := recorderfo.tfacerecorder;
+
     end;
 
     songplayerfo.btnresume.imagenrdisabled  := -2;
@@ -2635,12 +2669,12 @@ songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.valu
     filelistfo.list_files.fixcols.color           := cl_default;
     filelistfo.list_files.fixcols[-1].font.color  := cl_default;
     filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
-    
-       for x := 0 to filelistfo.list_files.rowcount -1 do
-     filelistfo.list_files.rowfontstate[x] := 0;  
-     
-    filelistfo.list_files.datacols.colorselect := $FFC87A;   
- 
+
+    for x := 0 to filelistfo.list_files.rowcount - 1 do
+      filelistfo.list_files.rowfontstate[x] := 0;
+
+    filelistfo.list_files.datacols.colorselect := $FFC87A;
+
 
     wavefo.tmainmenu1.menu.colorglyph  := cl_black;
     tmainmenu1.menu.colorglyph         := cl_black;
@@ -2710,7 +2744,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     tfacered.template.fade_color.items[1] := $FF7878;
 }
 
- tfacegreen.template.fade_color.items[0] := $C2FF9E;
+    tfacegreen.template.fade_color.items[0] := $C2FF9E;
     tfacegreen.template.fade_color.items[1] := $6EB545;
 
     tfaceorange.template.fade_color.items[0] := $FFF9F0;
@@ -2835,10 +2869,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.tfaceslider.template.fade_color.items[0] := $EDEDED;
     songplayer2fo.tfaceslider.template.fade_color.items[1] := $BABABA;
 
-  //  songplayerfo.tfacegreen.template.fade_color.items[0]  := $FCFCFC;
-  //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $DDDDDD;
-  //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $FCFCFC;
-  //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $DDDDDD;
+    //  songplayerfo.tfacegreen.template.fade_color.items[0]  := $FCFCFC;
+    //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $DDDDDD;
+    //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $FCFCFC;
+    //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $DDDDDD;
 
     tfaceplayerrev.template.fade_color.items[0] := $BABABA;
     tfaceplayerrev.template.fade_color.items[1] := $EDEDED;
@@ -2993,12 +3027,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       aslidersr[x].scrollbar.face.template := commanderfo.tfaceslider;
       aslidersr[x].scrollbar.face1.template := commanderfo.tfaceslider;
     end;
-    
+
     // commander
-    commanderfo.nameplayers.font.color := ltblack;
-    commanderfo.nameplayers2.font.color := ltblack;
+    //  commanderfo.nameplayers.font.color := ltblack;
+    //  commanderfo.nameplayers2.font.color := ltblack;
     commanderfo.namedrums.font.color        := ltblack;
-    commanderfo.namegen.font.color          := ltblack;
+    //  commanderfo.namegen.font.color          := ltblack;
     commanderfo.nameinput.font.color        := ltblack;
     commanderfo.genleftvolvalue.font.color  := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
@@ -3012,7 +3046,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.tslider2val.font.color := ltblack;
     commanderfo.tslider3val.font.color := ltblack;
 
-    commanderfo.timemix.font.color := ltblack;
+    commanderfo.timemix.font.color       := ltblack;
     commanderfo.timemix.frame.colorglyph := ltblack;
     commanderfo.timemix.frame.font.color := ltblack;
 
@@ -3024,13 +3058,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
-    
+
     commanderfo.directmix.colorglyph       := ltblack;
     commanderfo.directmix.frame.font.color := ltblack;
-    
+
     commanderfo.speccalc.colorglyph       := ltblack;
     commanderfo.speccalc.frame.font.color := ltblack;
-   
+
     commanderfo.butinput.colorglyph       := ltblack;
     commanderfo.butinput.frame.font.color := ltblack;
 
@@ -3085,11 +3119,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     filelistfo.list_files.datacols[3].colorglyph  := ltblack;
     filelistfo.list_files.datacols[3].colorselect := $EDEDED;
-    
-    filelistfo.list_files.datacols[0].colorselect := $FFC87A;   
-    filelistfo.list_files.datacols[1].colorselect := $FFC87A; 
-    filelistfo.list_files.datacols[2].colorselect := $FFC87A; 
-  
+
+    filelistfo.list_files.datacols[0].colorselect := $FFC87A;
+    filelistfo.list_files.datacols[1].colorselect := $FFC87A;
+    filelistfo.list_files.datacols[2].colorselect := $FFC87A;
+
     aboutfo.font.color := cl_black;
     // configfo.font.color := ltblack;
 
@@ -3132,13 +3166,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     begin
 
       tchartleft.colorchart      := cl_background;
-      tchartleft.traces[0].color := configfo.tcoloredit1.value;
+      tchartleft.traces[0].color := configfo.tcoloredit1.Value;
       labelleft.font.color       := ltblack;
-       tchartleft.color      := cl_default;     
-        tchartright.color      := cl_default;     
-       tchartright.colorchart      := cl_background;
-       tchartright.traces[0].color     := configfo.tcoloredit2.value;
-      labelright.font.color       := ltblack;
+      tchartleft.color           := cl_default;
+      tchartright.color          := cl_default;
+      tchartright.colorchart     := cl_background;
+      tchartright.traces[0].color := configfo.tcoloredit2.Value;
+      labelright.font.color      := ltblack;
 
       fond.color := cl_default;
 
@@ -3155,15 +3189,15 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     with spectrum2fo do
     begin
       tchartleft.colorchart      := cl_background;
-      tchartleft.traces[0].color := configfo.tcoloredit12.value;
+      tchartleft.traces[0].color := configfo.tcoloredit12.Value;
       labelleft.font.color       := ltblack;
-      
-        tchartleft.color      := cl_default;     
-        tchartright.color      := cl_default;     
+
+      tchartleft.color  := cl_default;
+      tchartright.color := cl_default;
 
 
       tchartright.colorchart := cl_background;
-      tchartright.traces[0].color := configfo.tcoloredit22.value;
+      tchartright.traces[0].color := configfo.tcoloredit22.Value;
       labelright.font.color := ltblack;
       fond.color        := cl_default;
       groupbox1.color   := cl_default;
@@ -3182,9 +3216,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       tchartleft.colorchart      := cl_background;
       tchartleft.traces[0].color := $9A9A9A;
       labelleft.font.color       := ltblack;
-      
-      tchartleft.color      := cl_default;     
-      tchartright.color      := cl_default;     
+
+      tchartleft.color  := cl_default;
+      tchartright.color := cl_default;
 
 
       tchartright.colorchart := cl_background;
@@ -3264,18 +3298,18 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     begin
       // labelleft.color := $3A3A3A;
       // labelright.color := $3A3A3A;
-      tchartleft.color      := $3A3A3A;
+      tchartleft.color           := $3A3A3A;
       tchartleft.colorchart      := $3A3A3A;
-      tchartleft.traces[0].color :=  configfo.tcoloredit1.value;
+      tchartleft.traces[0].color := configfo.tcoloredit1.Value;
       labelleft.font.color       := ltblank;
-      
-        tchartleft.color      := $3A3A3A;     
-        tchartright.color      := $3A3A3A;     
 
-      tchartleft.color      := $3A3A3A;
-      tchartright.colorchart      := $3A3A3A;
-      tchartright.traces[0].color := configfo.tcoloredit2.value;
-      labelright.font.color       := ltblank;
+      tchartleft.color  := $3A3A3A;
+      tchartright.color := $3A3A3A;
+
+      tchartleft.color       := $3A3A3A;
+      tchartright.colorchart := $3A3A3A;
+      tchartright.traces[0].color := configfo.tcoloredit2.Value;
+      labelright.font.color  := ltblank;
 
       fond.color      := $3A3A3A;
       groupbox1.color := $3A3A3A;
@@ -3292,16 +3326,16 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     with spectrum2fo do
     begin
-      tchartleft.colorchart       := $3A3A3A;
-      tchartleft.traces[0].color  := configfo.tcoloredit12.value;
-      labelleft.font.color        := ltblank;
+      tchartleft.colorchart := $3A3A3A;
+      tchartleft.traces[0].color := configfo.tcoloredit12.Value;
+      labelleft.font.color := ltblank;
       //  labelleft.color := $3A3A3A;
       //   labelright.color := $3A3A3A;
-      tchartright.colorchart      := $3A3A3A;
-      tchartright.traces[0].color := configfo.tcoloredit22.value;
-      labelright.font.color       := ltblank;
-       tchartleft.color      := $3A3A3A;     
-        tchartright.color      := $3A3A3A;     
+      tchartright.colorchart := $3A3A3A;
+      tchartright.traces[0].color := configfo.tcoloredit22.Value;
+      labelright.font.color := ltblank;
+      tchartleft.color  := $3A3A3A;
+      tchartright.color := $3A3A3A;
 
 
       fond.color        := $3A3A3A;
@@ -3325,9 +3359,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       tchartright.colorchart      := $3A3A3A;
       tchartright.traces[0].color := $7A7A7A;
       labelright.font.color       := ltblank;
-      
-       tchartleft.color      := $3A3A3A;     
-       tchartright.color      := $3A3A3A;     
+
+      tchartleft.color  := $3A3A3A;
+      tchartright.color := $3A3A3A;
 
       fond.color        := $3A3A3A;
       groupbox1.frame.font.color := ltblank;
@@ -3365,9 +3399,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     tfacegreen.template.fade_color.items[0] := $C2FF9E;
     tfacegreen.template.fade_color.items[1] := $6EB545;
 
-  //  tfaceorange.template.fade_color.items[0] := $FFF9F0;
-  //  tfaceorange.template.fade_color.items[1] := $FF9D14;
-    
+    //  tfaceorange.template.fade_color.items[0] := $FFF9F0;
+    //  tfaceorange.template.fade_color.items[1] := $FF9D14;
+
     tfaceorange.template.fade_color.items[0] := $D97E00;
     tfaceorange.template.fade_color.items[1] := $6E4000;
 
@@ -3527,10 +3561,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayer2fo.tfaceslider.template.fade_color.items[0] := $5A5A5A;
     songplayer2fo.tfaceslider.template.fade_color.items[1] := $2A2A2A;
 
-  //  songplayerfo.tfacegreen.template.fade_color.items[0]  := $AAAAAA;
-  //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $5A5A5A;
-  //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $AAAAAA;
-  //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $5A5A5A;
+    //  songplayerfo.tfacegreen.template.fade_color.items[0]  := $AAAAAA;
+    //  songplayerfo.tfacegreen.template.fade_color.items[1]  := $5A5A5A;
+    //  songplayer2fo.tfacegreen.template.fade_color.items[0] := $AAAAAA;
+    //  songplayer2fo.tfacegreen.template.fade_color.items[1] := $5A5A5A;
 
     tfaceplayerrev.template.fade_color.items[0] := $2A2A2A;
     tfaceplayerrev.template.fade_color.items[1] := $5A5A5A;
@@ -3695,12 +3729,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     end;
 
     // commander
-    commanderfo.nameplayers.font.color := ltblank;
-    commanderfo.nameplayers2.font.color := ltblank;
-    commanderfo.namedrums.font.color   := ltblank;
+    // commanderfo.nameplayers.font.color := ltblank;
+    // commanderfo.nameplayers2.font.color := ltblank;
+    commanderfo.namedrums.font.color := ltblank;
 
-    commanderfo.namegen.font.color          := ltblank;
-    commanderfo.nameinput.font.color        := ltblank;
+    //commanderfo.namegen.font.color          := ltblank;
+    // commanderfo.nameinput.font.color        := ltblank;
     commanderfo.genleftvolvalue.font.color  := ltblank;
     commanderfo.genrightvolvalue.font.color := ltblank;
 
@@ -3717,13 +3751,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.vuin.colorglyph       := ltblank;
     commanderfo.vuin.frame.font.color := ltblank;
-    
+
     commanderfo.directmix.colorglyph       := ltblank;
     commanderfo.directmix.frame.font.color := ltblank;
-       
+
     commanderfo.speccalc.colorglyph       := ltblank;
     commanderfo.speccalc.frame.font.color := ltblank;
-   
+
     commanderfo.butinput.colorglyph       := ltblank;
     commanderfo.butinput.frame.font.color := ltblank;
 
@@ -3789,29 +3823,29 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     filelistfo.list_files.datacols[3].colorglyph := ltblank;
 
     // filelistfo.list_files.datacols[0].colorselect := $B55B00;   
-   // filelistfo.list_files.datacols[1].colorselect := $B55B00; 
-   // filelistfo.list_files.datacols[2].colorselect := $B55B00; 
-    
-    for x := 0 to filelistfo.list_files.rowcount -1 do
-     filelistfo.list_files.rowfontstate[x] := 1;  
-     
-    filelistfo.list_files.datacols.colorselect := $B55B00;   
+    // filelistfo.list_files.datacols[1].colorselect := $B55B00; 
+    // filelistfo.list_files.datacols[2].colorselect := $B55B00; 
+
+    for x := 0 to filelistfo.list_files.rowcount - 1 do
+      filelistfo.list_files.rowfontstate[x] := 1;
+
+    filelistfo.list_files.datacols.colorselect    := $B55B00;
     filelistfo.list_files.datacols[3].colorselect := $707070;
-          
-     aboutfo.font.color := cl_black;
+
+    aboutfo.font.color := cl_black;
   end;
 
   if lastrowplayed <> -1 then
     if typecolor.Value = 2 then
     begin
       filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
-        filelistfo.list_files.rowfontstate[lastrowplayed] := 1;  
-      end  
+      filelistfo.list_files.rowfontstate[lastrowplayed]  := 1;
+    end
     else
-      begin
+    begin
       filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
-       filelistfo.list_files.rowfontstate[lastrowplayed] := 0;
-      end;
+      filelistfo.list_files.rowfontstate[lastrowplayed]  := 0;
+    end;
 
   songplayerfo.DrawWaveForm();
   songplayer2fo.DrawWaveForm();
@@ -3914,10 +3948,10 @@ end;
 
 procedure tmainfo.ondockrec2(const Sender: TObject);
 begin
-ondockrec(Sender);
-sleep(100);
-application.processmessages;
-ondockrec(Sender);
+  ondockrec(Sender);
+  sleep(100);
+  application.ProcessMessages;
+  ondockrec(Sender);
 end;
 
 procedure tmainfo.ondockrec(const Sender: TObject); // Record Stage layout
@@ -3935,70 +3969,70 @@ begin
 
   interv := (rect1.cx - (songplayerfo.Width + recorderfo.Width + 20)) div 2;
 
-   imagedancerfo.Visible := False;
-  
-   drumsfo.dragdock.float();
-    drumsfo.Visible := False;
-   
-   guitarsfo.dragdock.float();
-   guitarsfo.Visible := False;
+  imagedancerfo.Visible := False;
 
-   spectrum2fo.dragdock.float();
-     spectrum2fo.Visible   := False;
-   
-     songplayer2fo.dragdock.float();
+  drumsfo.dragdock.float();
+  drumsfo.Visible := False;
+
+  guitarsfo.dragdock.float();
+  guitarsfo.Visible := False;
+
+  spectrum2fo.dragdock.float();
+  spectrum2fo.Visible := False;
+
+  songplayer2fo.dragdock.float();
   songplayer2fo.Visible := False;
- 
-   wavefo2.dragdock.float();
-  wavefo2.Visible       := False;
-  
-   commanderfo.dragdock.float();
-   commanderfo.Visible := False;
- 
+
+  wavefo2.dragdock.float();
+  wavefo2.Visible := False;
+
+  commanderfo.dragdock.float();
+  commanderfo.Visible := False;
+
   filelistfo.dragdock.float();
-    filelistfo.Visible  := False;
- 
+  filelistfo.Visible := False;
+
   equalizerfo2.dragdock.float();
-  equalizerfo2.Visible   := false;
-    
-  dockpanel2fo.Visible  := False;
-  dockpanel3fo.Visible  := False;
-  dockpanel4fo.Visible  := False;
-  dockpanel5fo.Visible  := False;
-  
-  spectrum1fo.Visible   := True;
-  songplayerfo.Visible  := True;
-  wavefo.Visible        := true;
-  waveforec.Visible       := true;
-  recorderfo.Visible       := true;
+  equalizerfo2.Visible := False;
+
+  dockpanel2fo.Visible := False;
+  dockpanel3fo.Visible := False;
+  dockpanel4fo.Visible := False;
+  dockpanel5fo.Visible := False;
+
+  spectrum1fo.Visible    := True;
+  songplayerfo.Visible   := True;
+  wavefo.Visible         := True;
+  waveforec.Visible      := True;
+  recorderfo.Visible     := True;
   equalizerfo1.Visible   := True;
-  equalizerforec.Visible := true;
- 
-  spectrumrecfo.Visible := true;
-  
-   norefresh := True;
+  equalizerforec.Visible := True;
+
+  spectrumrecfo.Visible := True;
+
+  norefresh := True;
 
   commanderfo.automix.Value := False;
 
   songplayerfo.edvolleft.Value  := 100;
   songplayerfo.edvolright.Value := 100;
-  
+
   recorderfo.sentcue1.Value := True;
- 
+
   beginlayout();
 
   with dockpanel1fo do
   begin
-     //  dragfloat(dockpanel1fo);
-   visible := true; 
+    //  dragfloat(dockpanel1fo);
+    Visible := True;
 
     songplayerfo.Visible      := True;
     songplayerfo.parentwidget := basedock;
 
     spectrum1fo.Visible      := True;
     spectrum1fo.parentwidget := basedock;
-    
-     equalizerfo1.Visible      := True;
+
+    equalizerfo1.Visible      := True;
     equalizerfo1.parentwidget := basedock;
 
     //{
@@ -4008,7 +4042,7 @@ begin
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
 
     equalizerfo1.pos := pt1;
-    pt1.y           := pt1.y + equalizerfo1.Height + decorationheight;
+    pt1.y := pt1.y + equalizerfo1.Height + decorationheight;
 
     songplayerfo.pos := pt1;
     pt1.y := pt1.y + songplayerfo.Height + decorationheight;
@@ -4029,7 +4063,7 @@ begin
 
   equalizerforec.Visible      := True;
   equalizerforec.parentwidget := basedock;
-  
+
   waveforec.bounds_cxmax := fowidth;
   waveforec.bounds_cymax := wavefoheight;
   waveforec.Width        := fowidth;
@@ -4039,23 +4073,23 @@ begin
   waveforec.parentwidget := basedock;
 
   pt1 := nullpoint;
-  
+
   spectrumrecfo.pos := pt1;
-  pt1.y          := pt1.y + spectrumrecfo.Height + decorationheight;
+  pt1.y := pt1.y + spectrumrecfo.Height + decorationheight;
 
   equalizerforec.pos := pt1;
-  pt1.y          := pt1.y + equalizerforec.Height + decorationheight;
-  
+  pt1.y := pt1.y + equalizerforec.Height + decorationheight;
+
   recorderfo.pos := pt1;
   pt1.y          := pt1.y + recorderfo.Height + decorationheight;
 
   waveforec.pos := pt1;
-  
+
   left := interv;
   top  := decorationheight + 4;
 
   dockpanel1fo.left := recorderfo.Width + 10 + interv;
- 
+
   wavefo.dragdock.float();
   wavefo.left := left;
 
@@ -4063,12 +4097,12 @@ begin
 
   wavefo.Height := songplayerfoheight;
 
-  wavefo.top := equalizerforec.height + (3 * songplayerfoheight) + (2 *decorationheight);
- 
-  dockpanel1fo.top  := equalizerforec.height - (decorationheight div 2) + 8 ;
-  
-   endlayout();
-  
+  wavefo.top := equalizerforec.Height + (3 * songplayerfoheight) + (2 * decorationheight);
+
+  dockpanel1fo.top := equalizerforec.Height - (decorationheight div 2) + 8;
+
+  endlayout();
+
   norefresh := False;
   dockpanel1fo.activate;
   wavefo.activate;
@@ -4245,15 +4279,15 @@ begin
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
 
-  wavefo.Visible        := False;
-  wavefo2.Visible       := False;
-  waveforec.Visible     := False;
-  drumsfo.Visible       := False;
-  recorderfo.Visible    := False;
-  equalizerfo1.Visible    := False;
-  equalizerfo2.Visible    := False;
-  equalizerforec.Visible    := False;
-  
+  wavefo.Visible         := False;
+  wavefo2.Visible        := False;
+  waveforec.Visible      := False;
+  drumsfo.Visible        := False;
+  recorderfo.Visible     := False;
+  equalizerfo1.Visible   := False;
+  equalizerfo2.Visible   := False;
+  equalizerforec.Visible := False;
+
   guitarsfo.Visible     := False;
   spectrum1fo.Visible   := False;
   spectrum2fo.Visible   := False;
@@ -4288,48 +4322,48 @@ procedure tmainfo.ontimertransp(const Sender: TObject);
 begin
   windowopacity := windowopacity + 0.1;
 
-  dockpanel1fo.windowopacity  := dockpanel1fo.windowopacity + 0.1;
-  dockpanel2fo.windowopacity  := dockpanel2fo.windowopacity + 0.1;
-  dockpanel3fo.windowopacity  := dockpanel3fo.windowopacity + 0.1;
-  dockpanel4fo.windowopacity  := dockpanel4fo.windowopacity + 0.1;
-  dockpanel5fo.windowopacity  := dockpanel5fo.windowopacity + 0.1;
-  commanderfo.windowopacity   := commanderfo.windowopacity + 0.1;
-  songplayerfo.windowopacity  := songplayerfo.windowopacity + 0.1;
-  songplayer2fo.windowopacity := songplayer2fo.windowopacity + 0.1;
-  filelistfo.windowopacity    := filelistfo.windowopacity + 0.1;
-  wavefo.windowopacity        := wavefo.windowopacity + 0.1;
-  wavefo2.windowopacity       := wavefo2.windowopacity + 0.1;
-  waveforec.windowopacity     := waveforec.windowopacity + 0.1;
-  spectrum1fo.windowopacity   := spectrum1fo.windowopacity + 0.1;
-  spectrum2fo.windowopacity   := spectrum2fo.windowopacity + 0.1;
-  spectrumrecfo.windowopacity := spectrumrecfo.windowopacity + 0.1;
+  dockpanel1fo.windowopacity   := dockpanel1fo.windowopacity + 0.1;
+  dockpanel2fo.windowopacity   := dockpanel2fo.windowopacity + 0.1;
+  dockpanel3fo.windowopacity   := dockpanel3fo.windowopacity + 0.1;
+  dockpanel4fo.windowopacity   := dockpanel4fo.windowopacity + 0.1;
+  dockpanel5fo.windowopacity   := dockpanel5fo.windowopacity + 0.1;
+  commanderfo.windowopacity    := commanderfo.windowopacity + 0.1;
+  songplayerfo.windowopacity   := songplayerfo.windowopacity + 0.1;
+  songplayer2fo.windowopacity  := songplayer2fo.windowopacity + 0.1;
+  filelistfo.windowopacity     := filelistfo.windowopacity + 0.1;
+  wavefo.windowopacity         := wavefo.windowopacity + 0.1;
+  wavefo2.windowopacity        := wavefo2.windowopacity + 0.1;
+  waveforec.windowopacity      := waveforec.windowopacity + 0.1;
+  spectrum1fo.windowopacity    := spectrum1fo.windowopacity + 0.1;
+  spectrum2fo.windowopacity    := spectrum2fo.windowopacity + 0.1;
+  spectrumrecfo.windowopacity  := spectrumrecfo.windowopacity + 0.1;
   equalizerfo1.windowopacity   := equalizerfo1.windowopacity + 0.1;
   equalizerfo2.windowopacity   := equalizerfo2.windowopacity + 0.1;
   equalizerforec.windowopacity := equalizerforec.windowopacity + 0.1;
-  drumsfo.windowopacity       := drumsfo.windowopacity + 0.1;
-  randomnotefo.windowopacity  := randomnotefo.windowopacity + 0.1;
-  guitarsfo.windowopacity     := guitarsfo.windowopacity + 0.1;
-  recorderfo.windowopacity    := recorderfo.windowopacity + 0.1;
-  imagedancerfo.windowopacity := imagedancerfo.windowopacity + 0.1;
+  drumsfo.windowopacity        := drumsfo.windowopacity + 0.1;
+  randomnotefo.windowopacity   := randomnotefo.windowopacity + 0.1;
+  guitarsfo.windowopacity      := guitarsfo.windowopacity + 0.1;
+  recorderfo.windowopacity     := recorderfo.windowopacity + 0.1;
+  imagedancerfo.windowopacity  := imagedancerfo.windowopacity + 0.1;
 
   if windowopacity = 1 then
     ttimer1.Enabled := False;
 
 end;
 
-procedure tmainfo.showequalizer1(const sender: TObject);
+procedure tmainfo.showequalizer1(const Sender: TObject);
 begin
   equalizerfo1.Visible := not equalizerfo1.Visible;
 end;
 
-procedure tmainfo.showequalizer2(const sender: TObject);
+procedure tmainfo.showequalizer2(const Sender: TObject);
 begin
   equalizerfo2.Visible := not equalizerfo2.Visible;
 end;
 
-procedure tmainfo.showequalizerrec(const sender: TObject);
+procedure tmainfo.showequalizerrec(const Sender: TObject);
 begin
-   equalizerforec.Visible := not equalizerforec.Visible;
+  equalizerforec.Visible := not equalizerforec.Visible;
 end;
 
 end.

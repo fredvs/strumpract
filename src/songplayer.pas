@@ -58,8 +58,6 @@ type
     edvolleft: trealspinedit;
     edtempo: trealspinedit;
     button1: TButton;
-    cbloop: tbooleanedit;
-    cbtempo: tbooleanedit;
     trackbar1: tslider;
     historyfn: thistoryedit;
     llength: tstringdisp;
@@ -69,8 +67,6 @@ type
     tfaceslider: tfacecomp;
     btinfos: TButton;
     tfacebuttonslider: tfacecomp;
-    tfacegreen: tfacecomp;
-    waveformcheck: tbooleanedit;
     tstringdisp2: tstringdisp;
     sliderimage: tbitmapcomp;
     vuRight: tprogressbar;
@@ -79,17 +75,26 @@ type
     hintlabel: tlabel;
     hintlabel2: tlabel;
     button2: TButton;
-    playreverse: tbooleanedit;
     btnStop: TButton;
     btnPause: TButton;
     btnResume: TButton;
     btnStart: TButton;
     BtnCue: TButton;
-    setmono: tbooleanedit;
     ttimer1: ttimer;
     tbutton6: TButton;
     tfiledialog1: tfiledialogx;
-    tfacegreendark: tfacecomp;
+    cbloopb: TButton;
+    tstringdisp3: tstringdisp;
+    setmono: tbooleanedit;
+    waveformcheck: tbooleanedit;
+    playreverse: tbooleanedit;
+    cbloop: tbooleanedit;
+    playreverseb: TButton;
+    waveformcheckb: TButton;
+    setmonob: TButton;
+    cbtempo: tbooleanedit;
+    cbtempob: TButton;
+    ttimer2: ttimer;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -132,6 +137,8 @@ type
     procedure opendir(const Sender: TObject);
     procedure changefrequency(asender, aindex: integer; gainl, gainr: double);
     procedure setequalizerenable(asender: integer; avalue: Boolean);
+    procedure onexecbutlght(const Sender: TObject);
+    procedure ontimercheck(const Sender: TObject);
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
@@ -278,8 +285,8 @@ begin
 
     while x < lengthbuf - 1 do
     begin
-        arfl[x]     := Data.Buffer[lengthbuf - x];
-        arfl[x + 1] := Data.Buffer[lengthbuf - x - 1];
+      arfl[x]     := Data.Buffer[lengthbuf - x];
+      arfl[x + 1] := Data.Buffer[lengthbuf - x - 1];
       Inc(x, 2);
     end;
     Result := arfl;
@@ -354,6 +361,7 @@ begin
     end;
 
     cbloop.Enabled           := False;
+    cbloopb.Enabled          := False;
     cbloop.Visible           := False;
     trackbar1.Enabled        := True;
     wavefo.trackbar1.Enabled := True;
@@ -407,6 +415,7 @@ begin
       btnresume.Enabled := False;
     end;
     cbloop.Visible := False;
+    cbloopb.Enabled   := False;
     cbloop.Enabled    := False;
     trackbar1.Enabled := True;
     wavefo2.trackbar1.Enabled := True;
@@ -605,6 +614,7 @@ begin
     wavefo2.trackbar1.Enabled := False;
   end;
   cbloop.Visible := True;
+  cbloopb.Enabled   := True;
   cbloop.Enabled    := True;
   trackbar1.Value   := 0;
   trackbar1.Enabled := False;
@@ -886,9 +896,9 @@ begin
           // PlayerIndex : from 0 to what your computer can do !
           // If PlayerIndex exists already, it will be overwriten...
 
-        Inputindex1 := uos_AddFromFile(theplayer, PChar(ansistring(historyfn.Value)), -1, 
-        samformat, -1);
-   
+          Inputindex1 := uos_AddFromFile(theplayer, PChar(ansistring(historyfn.Value)), -1,
+            samformat, -1);
+
         // add input from audio file with custom parameters
         // FileName : filename of audio file
         // PlayerIndex : Index of a existing Player
@@ -906,7 +916,7 @@ begin
             configfo.latplay.Value := -1;
 
           Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
-       //     uos_InputGetChannels(theplayer, Inputindex1), samformat,-1, -1);
+            //     uos_InputGetChannels(theplayer, Inputindex1), samformat,-1, -1);
             uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 16, -1);
 
 
@@ -1181,8 +1191,8 @@ begin
           // Create the player.
           // PlayerIndex : from 0 to what your computer can do !
           // If PlayerIndex exists already, it will be overwriten...
-              
-     Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)), -1, samformat, -1);
+
+          Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)), -1, samformat, -1);
 
         // add input from audio file with custom parameters
         // FileName : filename of audio file
@@ -1204,7 +1214,7 @@ begin
 
           Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
             uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 16, -1);
-            //uos_InputGetChannels(theplayer2, Inputindex2), samformat, -1, -1);
+          //uos_InputGetChannels(theplayer2, Inputindex2), samformat, -1, -1);
 
 
           // Add a Output into Device Output
@@ -1418,10 +1428,11 @@ begin
             tstringdisp1.Value         := utf8decode('Loaded ' + theplaying2);
           end;
 
-          cbloop.Enabled := False;
-          cbloop.Visible := False;
+          cbloop.Enabled  := False;
+          cbloopb.Enabled := False;
+          cbloop.Visible  := False;
           //songdir.Value := historyfn.Value;
-          historyfn.hint := historyfn.Value;
+          historyfn.hint  := historyfn.Value;
           if timerwait.Enabled then
             timerwait.restart // to reset
           else
@@ -2616,6 +2627,8 @@ begin
 
   setlength(arl2, 10);
   setlength(arr2, 10);
+
+  ttimer2.Enabled := True;
 end;
 
 procedure tsongplayerfo.faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
@@ -2884,6 +2897,140 @@ begin
     historyfn.dropdown.history :=
       tfiledialog1.controller.history;
   end;
+end;
+
+procedure tsongplayerfo.onexecbutlght(const Sender: TObject);
+begin
+  if TButton(Sender).Name = 'cbloopb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      cbloop.Value        := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := commanderfo.tfacegreen;
+    end
+    else
+    begin
+      cbloop.Value        := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := commanderfo.tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'playreverseb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      playreverse.Value   := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := commanderfo.tfacegreen;
+    end
+    else
+    begin
+      playreverse.Value   := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := commanderfo.tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'waveformcheckb' then
+    if TButton(Sender).tag = 0 then
+    begin
+      waveformcheck.Value           := True;
+      TButton(Sender).tag           := 1;
+      TButton(Sender).face.template := commanderfo.tfacegreen;
+    end
+    else
+    begin
+      waveformcheck.Value           := False;
+      TButton(Sender).tag           := 0;
+      TButton(Sender).face.template := commanderfo.tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'setmonob' then
+    if TButton(Sender).tag = 0 then
+    begin
+      setmono.Value       := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := commanderfo.tfacegreen;
+    end
+    else
+    begin
+      setmono.Value       := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := commanderfo.tfacebutgray;
+    end;
+
+  if TButton(Sender).Name = 'cbtempob' then
+    if TButton(Sender).tag = 0 then
+    begin
+      cbtempo.Value       := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := commanderfo.tfacegreen;
+    end
+    else
+    begin
+      cbtempo.Value       := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := commanderfo.tfacebutgray;
+    end;
+
+end;
+
+procedure tsongplayerfo.ontimercheck(const Sender: TObject);
+begin
+
+  if cbloop.Value then
+  begin
+    cbloopb.tag           := 1;
+    cbloopb.face.template := commanderfo.tfacegreen;
+  end
+  else
+  begin
+    cbloopb.tag           := 0;
+    cbloopb.face.template := commanderfo.tfacebutgray;
+  end;
+
+  if playreverse.Value then
+  begin
+    playreverseb.tag           := 1;
+    playreverseb.face.template := commanderfo.tfacegreen;
+  end
+  else
+  begin
+    playreverseb.tag           := 0;
+    playreverseb.face.template := commanderfo.tfacebutgray;
+  end;
+
+  if waveformcheck.Value then
+  begin
+    waveformcheckb.tag           := 1;
+    waveformcheckb.face.template := commanderfo.tfacegreen;
+  end
+  else
+  begin
+    waveformcheckb.tag           := 0;
+    waveformcheckb.face.template := commanderfo.tfacebutgray;
+  end;
+
+  if setmono.Value then
+  begin
+    setmonob.tag           := 1;
+    setmonob.face.template := commanderfo.tfacegreen;
+  end
+  else
+  begin
+    setmonob.tag           := 0;
+    setmonob.face.template := commanderfo.tfacebutgray;
+  end;
+
+  if cbtempo.Value then
+  begin
+    cbtempob.tag           := 1;
+    cbtempob.face.template := commanderfo.tfacegreen;
+  end
+  else
+  begin
+    cbtempob.tag           := 0;
+    cbtempob.face.template := commanderfo.tfacebutgray;
+  end;
+
 end;
 
 end.
