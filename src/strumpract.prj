@@ -186,8 +186,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=908
- y=206
+ x=408
+ y=280
  cx=300
  cy=269
 replacedialog=33
@@ -842,15 +842,18 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
- SONGPLAYERFO
+modulenames=3
+ COMMANDERFO
  MAINFO
-moduletypes=2
- TSONGPLAYERFO
+ SONGPLAYERFO
+moduletypes=3
+ TCOMMANDERFO
  TMAINFO
-modulefiles=2
- /home/fred/strumpract/src/songplayer.mfm
+ TSONGPLAYERFO
+modulefiles=3
+ /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/songplayer.mfm
 befcommandon=0
 makeoptionson=12
  4095
@@ -1211,9 +1214,9 @@ line=33
  5721
  1600
  1467
- 284
+ 253
  319
- 529
+ 498
  553
  773
  785
@@ -1224,7 +1227,7 @@ line=33
  3572
  431
  5
- 747
+ 716
  1517
  163
  1471
@@ -1613,8 +1616,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=edvolleft
+finddtext=nameplayers
 findhistory=20
+ nameplayers
  edvolleft
  reverse
  addfromf
@@ -1625,7 +1629,6 @@ findhistory=20
  guimix
  cbloop
  onexecbutlght
- nameplayers
  initcheck
  namegen
  AddIntoDevOut
@@ -1636,26 +1639,31 @@ findhistory=20
  commander.tbutton2
  initvolleft2
 findoptions=1
-editpos=4
+editpos=5
  0,-1073741823
- 0,277
- 0,-1073741823
- 0,4024
+ 0,261
+ 0,12
+ 0,2444
+ 65,11
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
-sourcefiles=4
+bookmarks4=0
+sourcefiles=5
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/main.pas
-relpaths=4
+ ${PROJECTDIR}/commander.pas
+relpaths=5
  strumpract.pas
  songplayer.pas
  uos_flat.pas
  main.pas
-ismoduletexts=4
+ commander.pas
+ismoduletexts=5
+ 0
  0
  0
  0
@@ -1674,26 +1682,27 @@ moduleoptions=5
  0
 visiblemodules=5
  -1
- 0
+ -1
  0
  0
  -1
 nomenumodules=5
  0
- -1
+ 0
  -1
  -1
  0
 [sourcefo.files_tab]
-order=4
+order=5
  0
  1
- 3
+ 4
  2
+ 3
 firsttab=0
-index=2
+index=4
 [layout]
-windowlayout=665
+windowlayout=666
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1707,8 +1716,8 @@ windowlayout=665
  ny=0
  ncx=0
  ncy=0
- x=29
- y=90
+ x=48
+ y=261
  cx=1224
  cy=621
  rcx=0
@@ -1838,7 +1847,7 @@ windowlayout=665
  sortdescend1=0
  sorted=0
  col=0
- row=9
+ row=1
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1917,10 +1926,10 @@ windowlayout=665
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=547
- width0=302
+ propcolwidthref=532
+ width0=294
  sortdescend0=0
- width1=239
+ width1=232
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2176,6 +2185,7 @@ windowlayout=665
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
  history=20
+  /home/fred/strumpract/src/uos_flat.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/main.pas
@@ -2195,7 +2205,6 @@ windowlayout=665
   /home/fred/strumpract/src/uos.pas
   /home/fred/uos/examples/uos.pas
   /home/fred/strumpract/src/define.inc
-  /home/fred/uos_blaazwave/src/uos.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2217,13 +2226,14 @@ windowlayout=665
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=4
+ order=5
   0
   1
-  3
+  4
   2
+  3
  firsttab=0
- index=2
+ index=4
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2267,7 +2277,7 @@ windowlayout=665
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2286,7 +2296,7 @@ windowlayout=665
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2301,11 +2311,11 @@ windowlayout=665
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0

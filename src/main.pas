@@ -2439,10 +2439,10 @@ begin
     end;
 
     // commander
-    //   commanderfo.nameplayers.font.color := ltblack;
-    //   commanderfo.nameplayers2.font.color := ltblack;
+    commanderfo.nameplayers.font.color := ltblack;
+    commanderfo.nameplayers2.font.color := ltblack;
     commanderfo.namedrums.font.color  := ltblack;
-    // commanderfo.namegen.font.color    := ltblack;
+    commanderfo.namegen.font.color    := ltblack;
     commanderfo.nameinput.font.color  := ltblack;
     commanderfo.genleftvolvalue.font.color := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
@@ -3035,10 +3035,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     end;
 
     // commander
-    //  commanderfo.nameplayers.font.color := ltblack;
-    //  commanderfo.nameplayers2.font.color := ltblack;
+    commanderfo.nameplayers.font.color := ltblack;
+    commanderfo.nameplayers2.font.color := ltblack;
     commanderfo.namedrums.font.color        := ltblack;
-    //  commanderfo.namegen.font.color          := ltblack;
+    commanderfo.namegen.font.color          := ltblack;
     commanderfo.nameinput.font.color        := ltblack;
     commanderfo.genleftvolvalue.font.color  := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
@@ -3736,12 +3736,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     end;
 
     // commander
-    // commanderfo.nameplayers.font.color := ltblank;
-    // commanderfo.nameplayers2.font.color := ltblank;
+    commanderfo.nameplayers.font.color := ltblank;
+    commanderfo.nameplayers2.font.color := ltblank;
     commanderfo.namedrums.font.color := ltblank;
 
-    //commanderfo.namegen.font.color          := ltblank;
-    // commanderfo.nameinput.font.color        := ltblank;
+    commanderfo.namegen.font.color          := ltblank;
+    commanderfo.nameinput.font.color        := ltblank;
     commanderfo.genleftvolvalue.font.color  := ltblank;
     commanderfo.genrightvolvalue.font.color := ltblank;
 

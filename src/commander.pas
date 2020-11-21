@@ -4,46 +4,12 @@ unit commander;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  Math,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  mseimage;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
+ msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
+ msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
+ mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
+ msegraphedits,msescrollbar,msedispwidgets,mserichstring,mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -131,6 +97,9 @@ type
     tfacegreen: tfacecomp;
     tfacegreendark: tfacecomp;
     ttimer1: ttimer;
+   nameplayers: tstringdisp;
+   nameplayers2: tstringdisp;
+   namegen: tstringdisp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

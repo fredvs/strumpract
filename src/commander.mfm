@@ -1701,48 +1701,6 @@ object commanderfo: tcommanderfo
       font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
-    object nameplayers2: tstringdisp
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 37
-      hint = 'Player 2'
-      bounds_x = 192
-      bounds_y = 3
-      bounds_cx = 32
-      bounds_cy = 14
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      value = 'Play2'
-      reffontheight = 13
-    end
-    object nameplayers: tstringdisp
-      color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 38
-      hint = 'Player 1'
-      bounds_x = 42
-      bounds_y = 3
-      bounds_cx = 32
-      bounds_cy = 14
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      textflags = [tf_xcentered, tf_ycentered]
-      value = 'Play1'
-      reffontheight = 13
-    end
     object hintpanel: tgroupbox
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
@@ -1785,8 +1743,8 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       taborder = 29
       visible = False
-      bounds_x = -35
-      bounds_y = 40
+      bounds_x = 18
+      bounds_y = 47
       bounds_cx = 84
       bounds_cy = 83
       reffontheight = 15
@@ -2035,6 +1993,48 @@ object commanderfo: tcommanderfo
         colorglyph = 4868682
         value = True
       end
+    end
+    object nameplayers: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 37
+      hint = 'Player 1'
+      bounds_x = 42
+      bounds_y = 3
+      bounds_cx = 32
+      bounds_cy = 14
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Play1'
+      reffontheight = 13
+    end
+    object nameplayers2: tstringdisp
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 38
+      hint = 'Player 2'
+      bounds_x = 192
+      bounds_y = 3
+      bounds_cx = 32
+      bounds_cy = 14
+      font.color = 3881787
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Play2'
+      reffontheight = 13
     end
   end
   object tfacecomp7: tfacecomp
