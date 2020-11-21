@@ -151,7 +151,7 @@ type
   end;
 
 const
-  versiontext = '2.4.0';
+  versiontext = '2.6.0';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;
@@ -175,6 +175,7 @@ var
   plugsoundtouch: Boolean = False;
   ordir: string;
   hasinit: integer = 0;
+  oktimer: integer = 0;
   maxheightfo: integer;
   norefresh: Boolean = False;
   thesender: integer;
@@ -211,7 +212,8 @@ var
   i1, visiblecount: int32;
   rect1: rectty;
 begin
-
+if oktimer = 0 then
+begin
   //{
   children1    := basedock.dragdock.getitems();
   visiblecount := 0;
@@ -279,7 +281,7 @@ begin
 
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayout();
-
+end;
 end;
 
 procedure resizeall();
@@ -368,6 +370,8 @@ var
 begin
   Caption := 'StrumPract ' + versiontext;
   beginlayout();
+  
+  oktimer := 1;
 
   Visible := True;
 
@@ -379,7 +383,8 @@ begin
       configfo.latrec.Value := 0.3;
       {$endif}
     showall(Sender);
-    ondockall(Sender);
+     ondockall(Sender);
+    oktimer := 1;
   end;
 
   if (filelistfo.Visible) then
@@ -462,6 +467,8 @@ begin
   end;
 
   endlayout();
+  
+  oktimer := 0;
 
   if timerwait.Enabled then
     timerwait.restart // to reset
@@ -543,9 +550,10 @@ begin
     multiplier := 0.7;
 
   if randomnotefo.Visible = True then
+  begin
     randomnotefo.bringtofront;
-
-  randomnotefo.refreshform(Sender);
+    randomnotefo.refreshform(Sender);
+  end;
 
 end;
 
@@ -727,7 +735,9 @@ var
   topdec: integer = 30;
 begin
   // basedock.anchors := [an_left,an_top]  ;
-
+  
+    oktimer := 1;
+ 
   decorationheight := window.decoratedbounds_cy - Height;
 
   beginlayout();
@@ -1034,11 +1044,7 @@ begin
 
   norefresh := False;
   //  activate;
-  if timerwait.Enabled then
-    timerwait.restart // to reset
-  else
-    timerwait.Enabled := True;
-
+ 
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -1046,6 +1052,14 @@ begin
   dockpanel5fo.Visible := False;
 
   norefresh := False;
+  
+   oktimer := 0;
+ 
+  if timerwait.Enabled then
+    timerwait.restart // to reset
+  else
+    timerwait.Enabled := True;
+ 
 
   if timeract.Enabled then
     timeract.restart // to reset
@@ -1114,8 +1128,10 @@ var
   decorationheight: integer = 5;
 begin
   // basedock.anchors := [an_left,an_top]  ;
-
-  imagedancerfo.Visible := False;
+  
+   oktimer := 1;
+ 
+   imagedancerfo.Visible := False;
 
   dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
@@ -1330,14 +1346,14 @@ begin
   guitarsfo.pos := pt1;
 
   dockpanel1fo.left := 0;
-  dockpanel1fo.top  := 0;
+  dockpanel1fo.top  := decorationheight;
 
   // dockpanel3fo.left := 0;
   // dockpanel3fo.top  := songplayerfo.Height + 
   // songplayerfo.Height + 30 + (2 * decorationheight);
 
   left := dockpanel1fo.Width + 10;
-  top  := 0;
+  top  := decorationheight;
 
   dockpanel2fo.left := left + Width + 8;
   dockpanel2fo.top  := dockpanel1fo.top;
@@ -1351,10 +1367,13 @@ begin
   // sleep(1);
   // application.ProcessMessages;
 
-  if timeract.Enabled then
-    timeract.restart // to reset
+  oktimer := 0;
+ 
+  if timerwait.Enabled then
+    timerwait.restart // to reset
   else
-    timeract.Enabled := True;
+    timerwait.Enabled := True;
+
 
   if timerwait.Enabled then
     timerwait.restart // to reset
@@ -1366,7 +1385,7 @@ end;
 procedure tmainfo.ondockplayersx2(const Sender: TObject); // DJ LayoutX2
 begin
   ondockplayers(Sender);
-  sleep(100);
+  sleep(200);
   application.ProcessMessages;
   ondockplayers(Sender);
 end;
@@ -1381,8 +1400,10 @@ begin
   // basedock.anchors := [an_left,an_top]  ;
 
   norefresh := True;
-
-  imagedancerfo.Visible := False;
+  
+   oktimer := 1;
+ 
+   imagedancerfo.Visible := False;
   dockpanel3fo.Visible  := False;
   dockpanel4fo.Visible  := False;
   dockpanel5fo.Visible  := False;
@@ -1432,11 +1453,11 @@ begin
   wavefo.dragdock.float();
   wavefo2.dragdock.float();
 
-  beginlayout();
   basedock.dragdock.currentsplitdir := sd_horz;
   decorationheight := window.decoratedbounds_cy - Height;
-
-
+  
+  beginlayout();
+  
   with dockpanel1fo do
   begin
 
@@ -1493,32 +1514,33 @@ begin
   rect1 := application.screenrect(window);
 
   interv := (rect1.cx - (3 * foWidth)) div 2;
+  
+  decorationheight := window.decoratedbounds_cy - Height;
 
   dockpanel1fo.left := 0;
-  dockpanel1fo.top  := 0;
+  dockpanel1fo.top  := decorationheight;
 
   filelistfo.left := commanderfo.Width + interv;
   filelistfo.top  := commanderfo.Height + round(2.5 * decorationheight) - 2;
 
-  decorationheight := window.decoratedbounds_cy - Height;
-
-  filelistfo.Height := dockpanel1fo.Height - commanderfo.Height -
-    decorationheight - (decorationheight div 2);
+   filelistfo.Height := (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height)
+   - commanderfo.Height - (decorationheight div 2);
 
   //filelistfo.Height := 400;
 
   left := filelistfo.left;
   // top  := filelistfo.Height + (decorationheight * 2) - 4;
-  top  := 0;
+  top  := decorationheight;
 
   dockpanel2fo.top := dockpanel1fo.top;
 
   dockpanel2fo.left := filelistfo.right + interv;
 
-  interv := ((rect1.cy - (dockpanel1fo.Height) - (4 * decorationheight)) div 2);
-
-  endlayout();
-
+   endlayout();
+  
+   interv := ((rect1.cy - (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height)
+   
+    - (decorationheight * 5)) div 2);
 
   wavefo2.bounds_cxmax := 0;
   wavefo2.bounds_cymax := 0;
@@ -1530,7 +1552,9 @@ begin
   wavefo.Height  := interv;
   wavefo2.Height := interv;
 
-  wavefo.top := dockpanel1fo.bottom + (2 * decorationheight);
+  wavefo.top := songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height
+   
+     + (3 * decorationheight);
 
   wavefo2.top := wavefo.bottom + decorationheight;
 
@@ -1549,10 +1573,13 @@ begin
 
   Visible := True;
 
-  if timeract.Enabled then
-    timeract.restart // to reset
+   oktimer := 0;
+ 
+  if timerwait.Enabled then
+    timerwait.restart // to reset
   else
-    timeract.Enabled := True;
+    timerwait.Enabled := True;
+
 
   norefresh := False;
 
@@ -1564,6 +1591,7 @@ var
   decorationheight: integer = 5;
   rect1: rectty;
 begin
+  oktimer := 1;
   // basedock.anchors := [an_left,an_top]  ;
   decorationheight := window.decoratedbounds_cy - Height;
   norefresh        := True;
@@ -1729,12 +1757,6 @@ begin
 
   endlayout();
 
-
-  if timerwait.Enabled then
-    timerwait.restart // to reset
-  else
-    timerwait.Enabled := True;
-
   norefresh := False;
 
   left := (rect1.cx - Width) div 2;
@@ -1744,6 +1766,13 @@ begin
   dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
+  
+oktimer := 0;  
+
+ if timerwait.Enabled then
+    timerwait.restart // to reset
+  else
+    timerwait.Enabled := True;
 
   if timeract.Enabled then
     timeract.restart // to reset
@@ -1782,11 +1811,22 @@ begin
   waveforec.bounds_cy := wavefoheight;
 
   beginlayout();
+  oktimer := 1;
+
   ondockall(Sender);
-  // otherwise the close button are hidden
+  oktimer := 1;
+
+    // otherwise the close button are hidden
   basedock.dragdock.currentsplitdir := sd_tabed;
   sleep(1);
   endlayout();
+  
+   oktimer := 0;
+ 
+  if timerwait.Enabled then
+    timerwait.restart // to reset
+  else
+    timerwait.Enabled := True;
 
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
@@ -3969,6 +4009,9 @@ var
   interv: integer;
   decorationheight: integer = 5;
 begin
+
+ oktimer := 1;
+ 
   // basedock.anchors := [an_left,an_top]  ;
   basedock.dragdock.currentsplitdir := sd_horz;
   decorationheight := window.decoratedbounds_cy - Height;
@@ -4121,10 +4164,13 @@ begin
   else
     timeract.Enabled := True;
 
+  oktimer := 0;
+ 
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
+
 
 end;
 
@@ -4178,8 +4224,17 @@ begin
 
   songplayerfo.Visible  := True;
   songplayer2fo.Visible := True;
+  
+  oktimer := 1;
 
   ondockall(nil);
+  
+   oktimer := 0;
+  
+   if timerwait.Enabled then
+    timerwait.restart // to reset
+  else
+    timerwait.Enabled := True;
 
   sleep(200);
   randomnotefo.Visible := True;
@@ -4305,8 +4360,18 @@ begin
 
   songplayerfo.Visible  := True;
   songplayer2fo.Visible := True;
+  
+  oktimer := 1;
 
   ondockall(nil);
+  
+   oktimer := 0;
+  
+   if timerwait.Enabled then
+    timerwait.restart // to reset
+  else
+    timerwait.Enabled := True;
+
 
   left := 200;
   top  := 30;

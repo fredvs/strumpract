@@ -100,6 +100,7 @@ type
    nameplayers: tstringdisp;
    nameplayers2: tstringdisp;
    namegen: tstringdisp;
+   tfaceorange: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

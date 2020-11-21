@@ -810,7 +810,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceorange
+      face.template = commanderfo.tfaceorange
       taborder = 22
       visible = False
       bounds_x = 89

@@ -59,6 +59,8 @@ type
     procedure onafterev(const Sender: tcustomscrollbar; const akind: scrolleventty; const avalue: real);
     procedure oncreated(const Sender: TObject);
     procedure crea(const Sender: TObject);
+    procedure onresiztimer(const Sender: TObject);
+
   end;
 
 var
@@ -91,8 +93,15 @@ begin
 
 end;
 
-
 procedure twavefo.onresiz(const Sender: TObject);
+begin
+  if ttimer1.Enabled then
+    ttimer1.restart // to reset
+  else
+    ttimer1.Enabled := True;
+end;
+
+procedure twavefo.onresiztimer(const Sender: TObject);
 begin
 
   trackbar1.Width := Width - 15;
@@ -109,11 +118,8 @@ begin
     trackbar1.Height := waveforec.Height - 18;
     echelle.Visible  := False;
   end;
-
-  if ttimer1.Enabled then
-    ttimer1.restart // to reset
-  else
-    ttimer1.Enabled := True;
+  
+  onzoom(Sender);
 
 end;
 

@@ -1706,7 +1706,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       frame.template = tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceorange
+      face.template = tfaceorange
       taborder = 20
       visible = False
       bounds_x = 33
@@ -3443,7 +3443,22 @@ object commanderfo: tcommanderfo
   object ttimer1: ttimer
     options = [to_single]
     ontimer = ontimerinit
-    left = 258
-    top = 54
+    left = 328
+    top = 38
+  end
+  object tfaceorange: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16775664
+      16751892
+    )
+    template.fade_direction = gd_down
+    left = 288
+    top = 11
   end
 end

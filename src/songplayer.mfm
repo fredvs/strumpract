@@ -346,6 +346,7 @@ object songplayerfo: tsongplayerfo
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       caretwidth = 0
       onchange = changevolume
       ontextedited = ontextedit
@@ -968,11 +969,11 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceorange
+      face.template = commanderfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 50
-      bounds_y = 28
+      bounds_x = 98
+      bounds_y = 55
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

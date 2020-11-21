@@ -142,7 +142,7 @@ object wavefo: twavefo
     scrollbar.face1.image.source = sliderimage
     scrollbar.face1.framei_right = -6
     scrollbar.face1.localprops = [fal_framei_right, fal_image]
-    scrollbar.face1.template = songplayerfo.tfacegreen
+    scrollbar.face1.template = commanderfo.tfacegreen
     scrollbar.color = -2147483645
     scrollbar.onafterevent = onafterev
   end
@@ -191,7 +191,7 @@ object wavefo: twavefo
   object ttimer1: ttimer
     interval = 500000
     options = [to_single]
-    ontimer = onzoom
+    ontimer = onresiztimer
     left = 23
     top = 44
   end

@@ -18,27 +18,19 @@ Fred van Stappen fiens@hotmail.com
 
 DJ layout colorized:
 
-![alt text](https://user-images.githubusercontent.com/3421249/88124912-78e20000-cbce-11ea-8d54-70b984398d63.png)
-
-DJ layout silver:
-
-![alt text](https://user-images.githubusercontent.com/3421249/89722538-f7220d00-d9ea-11ea-9f8f-94f12ec4d496.png)
+![alt text](https://user-images.githubusercontent.com/3421249/99883934-b2815100-2c2a-11eb-9709-e6eb5748f13a.png)
 
 DJ layout carbon:
 
-![alt text](https://user-images.githubusercontent.com/3421249/68096426-ec14dc00-feb0-11e9-9b47-2de27b890753.png)
+![alt text](https://user-images.githubusercontent.com/3421249/99883940-bb722280-2c2a-11eb-9055-56dcc509baa0.png)
 
 Jam layout:
 
-![alt text](https://user-images.githubusercontent.com/3421249/68096427-f040f980-feb0-11e9-9025-1e4316a8d4a1.png)
+![alt text](https://user-images.githubusercontent.com/3421249/99883960-de9cd200-2c2a-11eb-943a-55d128e03afa.png)
 
 All docked colorized:
 
 ![alt text](https://user-images.githubusercontent.com/3421249/89722588-a3fc8a00-d9eb-11ea-86cb-aba8dad9e2ce.png)
-
-All docked carbon:
-
-![alt text](https://user-images.githubusercontent.com/3421249/68096431-f505ad80-feb0-11e9-8c90-2a33827911b9.png)
 
 All tab:
 
@@ -51,4 +43,8 @@ All float:
 Chords randomizer:
 
 ![alt text](https://user-images.githubusercontent.com/3421249/89698734-0a69a580-d923-11ea-8ec0-ba58ed2698de.png)
+
+Image Dancer:
+
+![alt text](https://user-images.githubusercontent.com/3421249/99883946-ca58d500-2c2a-11eb-92fb-12c3d5b0956b.png)
 

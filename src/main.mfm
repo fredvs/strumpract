@@ -1147,7 +1147,7 @@ object mainfo: tmainfo
         options = [mao_separator, mao_shortcutcaption]
       end    
       item
-        caption = '     &Exit     '
+        caption = '     &Exit   '
         hint = ' Terminate StrumPract '
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onexit
