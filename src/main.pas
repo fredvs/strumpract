@@ -2823,11 +2823,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.playreverse.colorglyph  := ltblack;
     songplayer2fo.playreverse.colorglyph := ltblack;
-
+}
     songplayerfo.edvolleft.frame.colorglyph  := ltblack;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
 
-   }
+   
     recorderfo.edvol.frame.colorglyph   := ltblack;
     recorderfo.edvolr.frame.colorglyph  := ltblack;
     recorderfo.edtempo.frame.colorglyph := ltblack;
@@ -3500,10 +3500,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.playreverse.colorglyph  := ltblank;
     songplayer2fo.playreverse.colorglyph := ltblank;
-
+}
     songplayerfo.edvolleft.frame.colorglyph  := ltblank;
     songplayer2fo.edvolleft.frame.colorglyph := ltblank;
-}
+
     recorderfo.edvol.frame.colorglyph  := ltblank;
     recorderfo.edvolr.frame.colorglyph := ltblank;
 

@@ -971,8 +971,8 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 51
-      bounds_y = 55
+      bounds_x = 50
+      bounds_y = 28
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
