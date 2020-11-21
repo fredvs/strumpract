@@ -897,7 +897,7 @@ begin
           // If PlayerIndex exists already, it will be overwriten...
 
           Inputindex1 := uos_AddFromFile(theplayer, PChar(ansistring(historyfn.Value)), -1,
-            samformat, -1);
+            samformat, 1024 * 8);
 
         // add input from audio file with custom parameters
         // FileName : filename of audio file
@@ -917,7 +917,7 @@ begin
 
           Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
             //     uos_InputGetChannels(theplayer, Inputindex1), samformat,-1, -1);
-            uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 16, -1);
+            uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8, -1);
 
 
           // Add a Output into Device Output
@@ -1192,7 +1192,8 @@ begin
           // PlayerIndex : from 0 to what your computer can do !
           // If PlayerIndex exists already, it will be overwriten...
 
-          Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)), -1, samformat, -1);
+          Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)),
+           -1, samformat, 1024 * 8);
 
         // add input from audio file with custom parameters
         // FileName : filename of audio file
@@ -1213,9 +1214,8 @@ begin
             configfo.latplay.Value := -1;
 
           Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
-            uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 16, -1);
+            uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 8, -1);
           //uos_InputGetChannels(theplayer2, Inputindex2), samformat, -1, -1);
-
 
           // Add a Output into Device Output
           // Device ( -1 is default device )

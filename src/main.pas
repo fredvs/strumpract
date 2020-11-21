@@ -2163,11 +2163,11 @@ begin
     songplayerfo.llength.font.color  := thecolor1;
     songplayer2fo.llength.font.color := thecolor2;
 
-    songplayerfo.cbloop.frame.font.color  := thecolor1;
-    songplayer2fo.cbloop.frame.font.color := thecolor2;
+   // songplayerfo.cbloop.frame.font.color  := thecolor1;
+   // songplayer2fo.cbloop.frame.font.color := thecolor2;
 
-    songplayerfo.cbtempo.frame.font.color  := thecolor1;
-    songplayer2fo.cbtempo.frame.font.color := thecolor2;
+   // songplayerfo.cbtempo.frame.font.color  := thecolor1;
+   // songplayer2fo.cbtempo.frame.font.color := thecolor2;
 
     songplayerfo.waveformcheck.frame.font.color  := thecolor1;
     songplayer2fo.waveformcheck.frame.font.color := thecolor2;
@@ -2175,8 +2175,8 @@ begin
     songplayerfo.playreverse.frame.font.color  := thecolor1;
     songplayer2fo.playreverse.frame.font.color := thecolor2;
 
-    songplayerfo.setmono.frame.font.color  := thecolor1;
-    songplayer2fo.setmono.frame.font.color := thecolor2;
+   // songplayerfo.setmono.frame.font.color  := thecolor1;
+   // songplayer2fo.setmono.frame.font.color := thecolor2;
 
     songplayerfo.tstringdisp2.font.color  := thecolor1;
     songplayer2fo.tstringdisp2.font.color := thecolor2;
@@ -2190,13 +2190,14 @@ begin
     songplayerfo.tstringdisp1.color  := cl_black;
     songplayer2fo.tstringdisp1.color := cl_black;
 
+{
     songplayerfo.cbloop.colorglyph         := thecolor1;
     songplayer2fo.cbloop.colorglyph        := thecolor2;
     songplayerfo.cbtempo.colorglyph        := thecolor1;
     songplayer2fo.cbtempo.colorglyph       := thecolor2;
     songplayerfo.waveformcheck.colorglyph  := thecolor1;
     songplayer2fo.waveformcheck.colorglyph := thecolor2;
-
+}
     songplayerfo.playreverse.frame.font.color  := thecolor1;
     songplayer2fo.playreverse.frame.font.color := thecolor2;
 
@@ -2445,6 +2446,7 @@ begin
     commanderfo.nameinput.font.color  := ltblack;
     commanderfo.genleftvolvalue.font.color := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
+    {
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
     commanderfo.directmix.colorglyph  := ltblack;
@@ -2452,7 +2454,8 @@ begin
 
     commanderfo.speccalc.colorglyph       := ltblack;
     commanderfo.speccalc.frame.font.color := ltblack;
-
+    }
+    
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
 
@@ -2465,7 +2468,7 @@ begin
 
     commanderfo.butinput.colorglyph       := ltblack;
     commanderfo.butinput.frame.font.color := ltblack;
-
+{
     commanderfo.automix.colorglyph       := ltblack;
     commanderfo.automix.frame.font.color := ltblack;
 
@@ -2480,7 +2483,7 @@ begin
 
     commanderfo.linkvolgen.colorglyph       := ltblack;
     commanderfo.linkvolgen.frame.font.color := ltblack;
-
+}
     commanderfo.timemix.font.color := ltblack;
 
     commanderfo.timemix.frame.colorglyph := ltblack;
@@ -2776,20 +2779,20 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.llength.font.color  := cl_default;
     songplayer2fo.llength.font.color := cl_default;
 
-    songplayerfo.cbloop.frame.font.color  := ltblack;
-    songplayer2fo.cbloop.frame.font.color := ltblack;
+   // songplayerfo.cbloop.frame.font.color  := ltblack;
+   // songplayer2fo.cbloop.frame.font.color := ltblack;
 
-    songplayerfo.cbtempo.frame.font.color  := ltblack;
-    songplayer2fo.cbtempo.frame.font.color := ltblack;
+   // songplayerfo.cbtempo.frame.font.color  := ltblack;
+  //  songplayer2fo.cbtempo.frame.font.color := ltblack;
 
-    songplayerfo.waveformcheck.frame.font.color  := ltblack;
-    songplayer2fo.waveformcheck.frame.font.color := ltblack;
+    //songplayerfo.waveformcheck.frame.font.color  := ltblack;
+   // songplayer2fo.waveformcheck.frame.font.color := ltblack;
 
-    songplayerfo.playreverse.frame.font.color  := ltblack;
-    songplayer2fo.playreverse.frame.font.color := ltblack;
+   // songplayerfo.playreverse.frame.font.color  := ltblack;
+   // songplayer2fo.playreverse.frame.font.color := ltblack;
 
-    songplayerfo.setmono.frame.font.color  := ltblack;
-    songplayer2fo.setmono.frame.font.color := ltblack;
+   // songplayerfo.setmono.frame.font.color  := ltblack;
+   // songplayer2fo.setmono.frame.font.color := ltblack;
 
     songplayerfo.tstringdisp2.font.color  := ltblack;
     songplayer2fo.tstringdisp2.font.color := ltblack;
@@ -2799,7 +2802,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.button2.font.color  := ltblack;
     songplayer2fo.button2.font.color := ltblack;
-
+  
+  
+{
     songplayerfo.cbloop.colorglyph         := ltblack;
     songplayer2fo.cbloop.colorglyph        := ltblack;
     songplayerfo.cbtempo.colorglyph        := ltblack;
@@ -2822,6 +2827,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.edvolleft.frame.colorglyph  := ltblack;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
 
+   }
     recorderfo.edvol.frame.colorglyph   := ltblack;
     recorderfo.edvolr.frame.colorglyph  := ltblack;
     recorderfo.edtempo.frame.colorglyph := ltblack;
@@ -3055,7 +3061,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
-
+{
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
 
@@ -3064,10 +3070,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.speccalc.colorglyph       := ltblack;
     commanderfo.speccalc.frame.font.color := ltblack;
-
+}
     commanderfo.butinput.colorglyph       := ltblack;
     commanderfo.butinput.frame.font.color := ltblack;
-
+{
     commanderfo.automix.colorglyph       := ltblack;
     commanderfo.automix.frame.font.color := ltblack;
 
@@ -3082,7 +3088,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.linkvolgen.colorglyph       := ltblack;
     commanderfo.linkvolgen.frame.font.color := ltblack;
-
+}
     commanderfo.volumeleft1.scrollbar.face.template   := commanderfo.tfaceslider;
     commanderfo.volumeleft1.scrollbar.face1.template  := commanderfo.tfaceslider;
     commanderfo.volumeleft2.scrollbar.face.template   := commanderfo.tfaceslider;
@@ -3475,6 +3481,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.llength.font.color  := ltblank;
     songplayer2fo.llength.font.color := ltblank;
 
+{
     songplayerfo.cbloop.colorglyph         := ltblank;
     songplayer2fo.cbloop.colorglyph        := ltblank;
     songplayerfo.cbtempo.colorglyph        := ltblank;
@@ -3496,7 +3503,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.edvolleft.frame.colorglyph  := ltblank;
     songplayer2fo.edvolleft.frame.colorglyph := ltblank;
-
+}
     recorderfo.edvol.frame.colorglyph  := ltblank;
     recorderfo.edvolr.frame.colorglyph := ltblank;
 
@@ -3533,7 +3540,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.historyfn.dropdown.colorclient  := ltblack;
     songplayer2fo.historyfn.dropdown.colorclient := ltblack;
 
-
+{
     songplayerfo.cbloop.frame.font.color  := ltblank;
     songplayer2fo.cbloop.frame.font.color := ltblank;
 
@@ -3548,7 +3555,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.setmono.frame.font.color  := ltblank;
     songplayer2fo.setmono.frame.font.color := ltblank;
-
+}
     songplayerfo.tstringdisp2.font.color  := ltblank;
     songplayer2fo.tstringdisp2.font.color := ltblank;
 
@@ -3748,7 +3755,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.tslider3val.font.color := ltblank;
 
     commanderfo.timemix.font.color := ltblank;
-
+{
     commanderfo.vuin.colorglyph       := ltblank;
     commanderfo.vuin.frame.font.color := ltblank;
 
@@ -3757,13 +3764,14 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.speccalc.colorglyph       := ltblank;
     commanderfo.speccalc.frame.font.color := ltblank;
-
+}
     commanderfo.butinput.colorglyph       := ltblank;
     commanderfo.butinput.frame.font.color := ltblank;
 
     commanderfo.automix.colorglyph       := ltblank;
     commanderfo.automix.frame.font.color := ltblank;
 
+{
     commanderfo.guimix.colorglyph       := ltblank;
     commanderfo.guimix.frame.font.color := ltblank;
 
@@ -3775,7 +3783,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.linkvolgen.colorglyph       := ltblank;
     commanderfo.linkvolgen.frame.font.color := ltblank;
-
+}
     commanderfo.timemix.frame.colorglyph := ltblank;
 
     commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED;
