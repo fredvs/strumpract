@@ -261,6 +261,7 @@ begin
   if (Data.position > Data.OutFrames div Data.channels) then
     uos_InputSeek(theplayer, InputIndex1, Data.position -
       (Data.OutFrames div Data.ratio));
+       // writeln('position: ' + inttostr(Data.position));
 end;
 
 function DSPReverseBefore2(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
@@ -268,7 +269,7 @@ begin
   if (Data.position > Data.OutFrames div Data.channels) then
     uos_InputSeek(theplayer2, InputIndex2, Data.position -
       (Data.OutFrames div Data.ratio));
-end;
+      end;
 
 function DSPReverseAfter(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 var
@@ -276,17 +277,21 @@ var
   lengthbuf: integer;
   arfl: TDArFloat;
 begin
-  lengthbuf := length(Data.Buffer);
-
+  lengthbuf := length(Data.Buffer) div 2;
+    
   if (Data.position > lengthbuf div Data.channels) then
   begin
     SetLength(arfl, lengthbuf);
     x := 0;
-
-    while x < lengthbuf - 1 do
+   { 
+    writeln('length buff: ' + inttostr(lengthbuf));
+    writeln('length OutFrames: ' + inttostr(Data.OutFrames));
+    writeln('length ratio: ' + inttostr(Data.ratio));
+    }
+      while x < lengthbuf do
     begin
-      arfl[x]     := Data.Buffer[lengthbuf - x];
-      arfl[x + 1] := Data.Buffer[lengthbuf - x - 1];
+      arfl[x]     := Data.Buffer[lengthbuf - x -1];
+      arfl[x + 1] := Data.Buffer[lengthbuf - x - 2];
       Inc(x, 2);
     end;
     Result := arfl;
