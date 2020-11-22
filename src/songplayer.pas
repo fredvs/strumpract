@@ -290,8 +290,8 @@ begin
     }
       while x < lengthbuf do
     begin
-      arfl[x]     := Data.Buffer[lengthbuf - x -1];
-      arfl[x + 1] := Data.Buffer[lengthbuf - x - 2];
+      arfl[x]     := Data.Buffer[lengthbuf - x - 2];
+      arfl[x + 1] := Data.Buffer[lengthbuf - x - 1];
       Inc(x, 2);
     end;
     Result := arfl;

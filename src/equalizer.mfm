@@ -111,7 +111,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -621,7 +620,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -1130,7 +1128,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -1639,7 +1636,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -2148,7 +2144,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -2657,7 +2652,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -3166,7 +3160,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -3675,7 +3668,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -4184,7 +4176,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -4693,7 +4684,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -5240,7 +5230,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -5749,7 +5738,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -6258,7 +6246,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -6767,7 +6754,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -7276,7 +7262,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -7785,7 +7770,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -8294,7 +8278,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -8803,7 +8786,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -9312,7 +9294,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
@@ -9821,7 +9802,6 @@ object equalizerfo: tequalizerfo
         frame.captiondist = 0
         frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        hint = ' Left Volume Player 1 '
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
