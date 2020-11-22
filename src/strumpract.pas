@@ -7,6 +7,7 @@ program strumpract;
 {$ifdef mswindows}
  {$R dp.res}
 {$endif}
+
 uses
   // cmem,
  {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}

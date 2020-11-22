@@ -327,6 +327,7 @@ begin
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
   
   multiplier := ((leftlev + rightlev) / 2);
+  if multiplier > 1 then multiplier := 1;
  
  if (imagedancerfo.Visible = True) and (isbuzy = False) and
     (imagedancerfo.openglwidget.Visible = False) then

@@ -741,7 +741,9 @@ end;
 
 procedure timagedancerfo.oncreat(const Sender: TObject);
 begin
-  evPauseImage := RTLEventCreate;
+   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+   [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+   evPauseImage := RTLEventCreate;
   thethread    := tmsethread.Create(@Execute);
   RTLeventResetEvent(evPauseImage);
   Bitmap       := tbgrabitmap.Create(1000, 600);

@@ -834,6 +834,9 @@ begin
       lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
 
       multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
+      
+      if multiplier > 1 then multiplier := 1;
+      if multiplier < 0 then multiplier := 0;
 
       if (vuinvar = True) and (Visible = True) then
         ShowLevel(nil, ll1, lr1, ll2, lr2);
