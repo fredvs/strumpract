@@ -6,9 +6,10 @@ unit filelistform;
 interface
 
 uses
+  {$ifdef unix}baseunix,{$endif}
  Math,msetypes,mseglob,mseguiglob,mseguiintf,msetimer,mseapplication,msestat,
  msemenus,msefileutils,msegui,msegraphics,msegraphutils,mseevent,msedatalist,
- mseclasses,msegridsglob,mseforms,msedock,msedragglob,msesimplewidgets,
+ mseclasses,msegridsglob,mseforms,msedock,msedragglob,msesimplewidgets,mclasses,
  msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,msefiledialogx,
  msegrids,mseificomp,mseificompglob,mseifiglob,mselistbrowser,msestatfile,
  msestream,msestrings,msesys,SysUtils,msegraphedits,msescrollbar,msedispwidgets,
@@ -281,10 +282,18 @@ end;
 
 procedure tfilelistfo.onchangpath(const Sender: TObject);
 var
-  x, y, y2, z: integer;
-  datalist_files: tfiledatalist;
+  x, y, y2, z, fsize: integer;
+ // datalist_files: tfiledatalist;
   cellpos: gridcoordty;
   thestrnum, thestrx, thestrext, thestrfract: string;
+   datalist_files : TStringList;
+   SR      : TSearchRec;
+  {$ifdef unix}  
+  info: Stat;
+   {$else} 
+  info: fileinfoty;
+  {$endif}
+   
 begin
   if hasinit = 1 then
     if directoryexists(tosysfilepath(historyfn.Value)) then
@@ -292,14 +301,16 @@ begin
       list_files.tag := 0;
 
       historyfn.hint := ' Selected: ' + historyfn.Value + ' ';
-
-      datalist_files := tfiledatalist.Create();
-
-      datalist_files.adddirectory(historyfn.Value, fil_ext1,
-        '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"'
-        );
-
-      datalist_files.options := [flo_sortname, flo_sorttype];
+      
+       datalist_files:=TStringList.Create;
+    try
+          if FindFirst(historyfn.Value + '*.*', faArchive, SR) = 0 then
+          begin
+            repeat
+                 datalist_files.Add(SR.Name); //Fill the list
+            until FindNext(SR) <> 0;
+            FindClose(SR);
+          end;
 
       Caption := tosysfilepath(historyfn.Value);
 
@@ -308,38 +319,48 @@ begin
 
       for x := 0 to datalist_files.Count - 1 do
       begin
-        list_files[0][x] := msestring(filenamebase(datalist_files.items[x].Name));
-        list_files[1][x] := msestring(fileext(datalist_files.items[x].Name));
+        list_files[0][x] := msestring(filenamebase(datalist_files[x]));
+        list_files[1][x] := msestring(fileext(datalist_files[x]));
+        
+        writeln(datalist_files[x]);
 
-
-        if not datalist_files.isdir(x) then
-        begin
-
-          if datalist_files.items[x].extinfo1.size div 1000000000 > 0 then
+        {$ifdef unix}
+        FpStat(trim(historyfn.Value + directoryseparator + datalist_files[x]), info); 
+        {$else} 
+         getfileinfo(msestring(trim(historyfn.Value + directoryseparator + datalist_files[x])), info);
+        {$endif}
+    
+        {$ifdef unix}  
+        fsize := info.st_size;
+        {$else} 
+         fsize := info.extinfo1.size;
+        {$endif}
+      
+          if fsize div 1000000000 > 0 then
           begin
-            y2        := Trunc(Frac(datalist_files.items[x].extinfo1.size / 1000000000) * Power(10, 1));
-            y         := datalist_files.items[x].extinfo1.size div 1000000000;
+            y2        := Trunc(Frac(fsize / 1000000000) * Power(10, 1));
+            y         := fsize div 1000000000;
             thestrx   := '~';
             thestrext := ' GB';
           end
-          else if datalist_files.items[x].extinfo1.size div 1000000 > 0 then
+          else if fsize div 1000000 > 0 then
           begin
-            y2        := Trunc(Frac(datalist_files.items[x].extinfo1.size / 1000000) * Power(10, 1));
-            y         := datalist_files.items[x].extinfo1.size div 1000000;
+            y2        := Trunc(Frac(fsize / 1000000) * Power(10, 1));
+            y         := fsize div 1000000;
             thestrx   := '_';
             thestrext := ' MB';
           end
-          else if datalist_files.items[x].extinfo1.size div 1000 > 0 then
+          else if fsize div 1000 > 0 then
           begin
-            y2        := Trunc(Frac(datalist_files.items[x].extinfo1.size / 1000) * Power(10, 1));
-            y         := datalist_files.items[x].extinfo1.size div 1000;
+            y2        := Trunc(Frac(fsize / 1000) * Power(10, 1));
+            y         := fsize div 1000;
             thestrx   := '^';
             thestrext := ' KB';
           end
           else
           begin
             y2        := 0;
-            y         := datalist_files.items[x].extinfo1.size;
+            y         := fsize;
             thestrx   := ' ';
             thestrext := ' B';
           end;
@@ -358,11 +379,9 @@ begin
           else
             thestrfract := '';
         
-          list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
-        end;
-
+        list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
         list_files[3][x] := msestring(IntToStr(1));
-        list_files[4][x] := msestring(tosysfilepath(historyfn.Value + datalist_files.items[x].Name));
+        list_files[4][x] := msestring(tosysfilepath(historyfn.Value + datalist_files[x]));
 
       end;
 
@@ -385,7 +404,13 @@ begin
       filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files');
 
       // list_files.focusedindex := 0;
-      datalist_files.Free();
+      
+      //datalist_files.Free();
+      
+       finally
+     datalist_files.Free;
+    end;
+       
       onfloat(nil);
       list_files.defocuscell;
       list_files.datacols.clearselection;
