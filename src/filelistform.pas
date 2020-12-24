@@ -322,7 +322,7 @@ begin
         list_files[0][x] := msestring(filenamebase(datalist_files[x]));
         list_files[1][x] := msestring(fileext(datalist_files[x]));
         
-        writeln(datalist_files[x]);
+       // writeln(datalist_files[x]);
 
         {$ifdef unix}
         FpStat(trim(historyfn.Value + directoryseparator + datalist_files[x]), info); 
