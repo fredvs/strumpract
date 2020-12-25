@@ -307,7 +307,11 @@ begin
           if FindFirst(historyfn.Value + '*.*', faArchive, SR) = 0 then
           begin
             repeat
-                 datalist_files.Add(SR.Name); //Fill the list
+          if (fileext(SR.Name) = lowercase('mp3')) or 
+          (fileext(SR.Name) = lowercase('wav')) or
+          (fileext(SR.Name) = lowercase('flac')) or
+          (fileext(SR.Name) = lowercase('ogg')) 
+           then  datalist_files.Add(SR.Name); //Fill the list
             until FindNext(SR) <> 0;
             FindClose(SR);
           end;

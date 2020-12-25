@@ -1010,7 +1010,7 @@ begin
          {$endif}
      {$ENDIF}
 
-         {$if defined(cpu64) and defined(linux) }
+    {$if defined(CPUAMD64) and defined(linux) }
   lib1 := ordir + 'lib/Linux/64bit/LibPortaudio-64.so';
   lib2 := ordir + 'lib/Linux/64bit/LibSndFile-64.so';
   lib3 := ordir + 'lib/Linux/64bit/LibMpg123-64.so';
@@ -1027,6 +1027,12 @@ begin
   lib2 := ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so';
   lib3 := ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so';
   lib4 := ordir + 'lib/Linux/arm_raspberrypi/libsoundtouch-arm.so';
+  {$ENDIF}
+  {$if defined(linux) and defined(cpuaarch64)}
+  lib1 := ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so';
+  lib2 := ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so';
+  lib3 := ordir + 'lib/Linux/aarch64_raspberrypi/libmpg123_aarch64.so';
+  lib4 := ordir + 'lib/Linux/aarch64_raspberrypi/libsoundtouch_aarch64.so';
   {$ENDIF}
 
       {$IFDEF freebsd}
@@ -1448,6 +1454,9 @@ end;
 
 procedure tdrumsfo.ondestroi(Const Sender: TObject);
 begin
+ Timerpause.enabled := false;
+ Timertick.enabled := false;
+ timersent.enabled := false;
   Timerpause.Free;
   Timertick.Free;
   timersent.Free;

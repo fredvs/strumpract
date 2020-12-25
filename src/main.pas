@@ -356,8 +356,10 @@ begin
 
   filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
 
-  application.ProcessMessages;
+ // application.ProcessMessages;
   uos_free();
+  Timerwait.enabled := false;
+  Timeract.enabled := false;
   Timerwait.Free;
   Timeract.Free;
 
@@ -377,7 +379,7 @@ begin
 
   if not fileexists(tstatfile1.filename) then
   begin
-     {$if defined(cpuarm)}
+     {$if defined(cpuarm) or defined(cpuaarch64)}
       configfo.latdrums.Value := 0.08;
       configfo.latplay.Value := 0.3;
       configfo.latrec.Value := 0.3;

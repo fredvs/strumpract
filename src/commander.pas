@@ -576,6 +576,9 @@ end;
 
 procedure tcommanderfo.ondest(const Sender: TObject);
 begin
+  Timermix.Enabled := false;
+  timersent.Enabled := false;
+  
   Timermix.Free;
   timersent.Free;
 end;
