@@ -4,50 +4,13 @@ unit recorder;
 interface
 
 uses
-  ctypes,
-  uos_flat,
-  infos,
-  msetimer,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  Math,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msesimplewidgets,
-  msewidgets,
-  msedataedits,
-  msefiledialogx,
-  msegrids,
-  mselistbrowser,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msescrollbar,
-  msedragglob,
-  mseact,
-  mseedit,
-  msestatfile,
-  msestream,
-  msestrings,
-  msebitmap,
-  msedatanodes,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  msegridsglob;
+ ctypes,uos_flat,infos,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
+ mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,Math,mseevent,
+ mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
+ msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,msegraphedits,
+ mseificomp,mseificompglob,mseifiglob,msescrollbar,msedragglob,mseact,mseedit,
+ msestatfile,msestream,msestrings,msebitmap,msedatanodes,msedispwidgets,
+ mserichstring,msedropdownlist,msegridsglob;
 
 type
   trecorderfo = class(tdockform)
@@ -88,6 +51,9 @@ type
     tbutton6: TButton;
     edvolr: trealspinedit;
     tfiledialog1: tfiledialogx;
+   tgroupbox2: tgroupbox;
+   bwav: tbooleaneditradio;
+   bogg: tbooleaneditradio;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -883,7 +849,8 @@ end;
 
 procedure trecorderfo.dorecorderstart(const Sender: TObject);
 var
-  i: integer;
+  i, outformat: integer;
+  outformatst : string;
 begin
   // if (bsavetofile.value = True) or (blistenin.value = True) then begin
 
@@ -908,11 +875,24 @@ begin
 
     if bsavetofile.Value then
     begin
+    
+    if bwav.value then 
+     begin
+    outformatst := 'wav';
+    outformat := 0; 
+    end else
+    begin
+    outformatst := 'ogg';
+    outformat := 3;
+    end; 
 
-      historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' + UTF8Decode(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.wav');
+      historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 
+      'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' +
+       UTF8Decode(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.' + outformatst );
 
 
-      uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)));
+      uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)), 
+       -1, -1, -1, 4096, outformat);
       if sentcue1.Value = True then
         songplayerfo.historyfn.Value := historyfn.Value;
     end;

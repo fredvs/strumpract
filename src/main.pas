@@ -2372,7 +2372,12 @@ begin
     recorderfo.cbtempo.colorglyph     := ltblack;
     recorderfo.bsavetofile.colorglyph := ltblack;
     recorderfo.sentcue1.colorglyph    := ltblack;
-
+   
+    recorderfo.bwav.colorglyph      := ltblack;
+    recorderfo.bogg.colorglyph      := ltblack;
+    recorderfo.bwav.frame.font.color      := ltblack;
+    recorderfo.bogg.frame.font.color      := ltblack;
+        
     recorderfo.blistenin.colorglyph := ltblack;
 
     // recorderfo.songdir.frame.button.colorglyph   := ltblack;
@@ -2966,6 +2971,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     // recorder
     recorderfo.font.color := ltblack;
+    
+    recorderfo.bwav.colorglyph      := ltblack;
+    recorderfo.bogg.colorglyph      := ltblack;
+    recorderfo.bwav.frame.font.color      := ltblack;
+    recorderfo.bogg.frame.font.color      := ltblack;
+   
 
     recorderfo.cbloop.frame.font.color      := ltblack;
     recorderfo.cbtempo.frame.font.color     := ltblack;
@@ -3667,6 +3678,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     recorderfo.cbloop.frame.font.color  := ltblank;
     recorderfo.cbtempo.frame.font.color := ltblank;
+    
+    recorderfo.bwav.colorglyph      := ltblank;
+    recorderfo.bogg.colorglyph      := ltblank;
+    recorderfo.bwav.frame.font.color      := ltblank;
+    recorderfo.bogg.frame.font.color      := ltblank;
+   
 
     recorderfo.cbloop.colorglyph      := ltblank;
     recorderfo.cbtempo.colorglyph     := ltblank;

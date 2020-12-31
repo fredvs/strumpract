@@ -9,8 +9,8 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
-  bounds_x = 507
-  bounds_y = 302
+  bounds_x = 483
+  bounds_y = 113
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -193,41 +193,11 @@ object recorderfo: trecorderfo
       taborder = 2
       hint = ' Listen to the input while recording. WARNING: Use headphones or set volume output low. '
       bounds_x = 255
-      bounds_y = 29
+      bounds_y = 34
       bounds_cx = 51
       bounds_cy = 16
       statfile = mainfo.tstatfile1
       onchange = onlistenin
-      value = True
-    end
-    object bsavetofile: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Save'
-      frame.captionpos = cp_left
-      frame.captiondist = 3
-      frame.font.color = 2368548
-      frame.font.height = 11
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        33
-        2
-        0
-        2
-      )
-      face.localprops = []
-      face.template = tfacereclight
-      taborder = 3
-      hint = ' Save recording to file '
-      bounds_x = 260
-      bounds_y = 44
-      bounds_cx = 46
-      bounds_cy = 16
-      statfile = mainfo.tstatfile1
       value = True
     end
     object btinfos: tbutton
@@ -313,10 +283,10 @@ object recorderfo: trecorderfo
       face.template = tfacerecrev
       taborder = 6
       hint = ' Change tempo of song '
-      bounds_x = 316
-      bounds_y = 49
+      bounds_x = 311
+      bounds_y = 43
       bounds_cx = 62
-      bounds_cy = 40
+      bounds_cy = 32
       onchange = ChangePlugSetSoundTouch
       onsetvalue = onsetvalvol
       value = 1
@@ -339,10 +309,10 @@ object recorderfo: trecorderfo
       face.template = tfacerecorder
       taborder = 7
       hint = ' Reset to tempo original '
-      bounds_x = 384
-      bounds_y = 55
-      bounds_cx = 43
-      bounds_cy = 26
+      bounds_x = 316
+      bounds_y = 77
+      bounds_cx = 59
+      bounds_cy = 15
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Reset'
       font.height = 11
@@ -404,7 +374,7 @@ object recorderfo: trecorderfo
       taborder = 9
       hint = ' Enable stretching (changing temo) '
       bounds_x = 312
-      bounds_y = 31
+      bounds_y = 26
       bounds_cx = 54
       bounds_cy = 16
       onchange = ChangePlugSetSoundTouch
@@ -548,7 +518,7 @@ object recorderfo: trecorderfo
       hint = ' Choose a filename for saving  '
       bounds_x = 82
       bounds_y = 3
-      bounds_cx = 346
+      bounds_cx = 290
       bounds_cy = 22
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -611,9 +581,9 @@ object recorderfo: trecorderfo
       face.template = tfacerecrev
       taborder = 18
       hint = ' Input recorder '
-      bounds_x = 372
-      bounds_y = 28
-      bounds_cx = 56
+      bounds_x = 376
+      bounds_y = 8
+      bounds_cx = 52
       bounds_cy = 15
       font.color = 3881787
       font.height = 10
@@ -813,8 +783,8 @@ object recorderfo: trecorderfo
       face.template = commanderfo.tfaceorange
       taborder = 22
       visible = False
-      bounds_x = 89
-      bounds_y = 40
+      bounds_x = 91
+      bounds_y = 14
       bounds_cx = 221
       bounds_cy = 52
       font.name = 'stf_default'
@@ -843,6 +813,94 @@ object recorderfo: trecorderfo
         font.localprops = []
         reffontheight = 15
       end
+    end
+    object tgroupbox2: tgroupbox
+      color = -2147483645
+      frame.caption = 'Out'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.outerframe = (
+        0
+        9
+        0
+        0
+      )
+      taborder = 26
+      bounds_x = 380
+      bounds_y = 37
+      bounds_cx = 50
+      bounds_cy = 53
+      object bwav: tbooleaneditradio
+        frame.caption = 'wav'
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
+        frame.outerframe = (
+          0
+          2
+          27
+          2
+        )
+        face.localprops = []
+        face.template = tfacereclight
+        bounds_x = 3
+        bounds_y = 14
+        bounds_cx = 40
+        bounds_cy = 17
+        statfile = mainfo.tstatfile1
+        value = True
+      end
+      object bogg: tbooleaneditradio
+        frame.caption = 'ogg'
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
+        frame.outerframe = (
+          0
+          2
+          26
+          2
+        )
+        face.localprops = []
+        face.template = tfacereclight
+        taborder = 1
+        bounds_x = 3
+        bounds_y = 31
+        bounds_cx = 39
+        bounds_cy = 17
+        statfile = mainfo.tstatfile1
+      end
+    end
+    object bsavetofile: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Save'
+      frame.captionpos = cp_left
+      frame.captiondist = 3
+      frame.font.color = 2368548
+      frame.font.height = 11
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        33
+        2
+        0
+        2
+      )
+      face.localprops = []
+      face.template = tfacereclight
+      taborder = 3
+      hint = ' Save recording to file '
+      bounds_x = 381
+      bounds_y = 25
+      bounds_cx = 46
+      bounds_cy = 16
+      statfile = mainfo.tstatfile1
+      value = True
     end
   end
   object tfacereclight: tfacecomp
