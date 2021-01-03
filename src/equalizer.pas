@@ -101,7 +101,7 @@ var
 implementation
 
 uses
-commander, songplayer, main, dockpanel1,
+commander, songplayer, recorder, main, dockpanel1,
   equalizer_mfm;
 
 procedure tequalizerfo.oncrea(const Sender: TObject);
@@ -275,9 +275,17 @@ if iscreated then begin
   songplayer2fo.changefrequency(2, tagsender, again, -1) else
   songplayer2fo.changefrequency(2, tagsender-10, -1, again)
   end;
+  
+  if Caption = 'Equalizer Recorder' then
+  begin
+  if tagsender < 11 then
+  recorderfo.changefrequency(2, tagsender, again, -1) else
+  recorderfo.changefrequency(2, tagsender-10, -1, again)
+  end;
    
  end;
  end;
+ 
 end;
 
 procedure tequalizerfo.created(const sender: TObject);

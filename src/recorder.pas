@@ -78,6 +78,8 @@ type
     procedure onlistenin(const Sender: TObject);
     procedure ondest(const Sender: TObject);
     procedure ShowSpectrum(const Sender: TObject);
+    procedure changefrequency(asender, aindex: integer; gainl, gainr: double);
+    procedure setequalizerenable(asender: integer; avalue: Boolean);
     procedure resetspectrum();
     procedure InitDrawLive();
     procedure DrawLive(lv, rv: double);
@@ -88,8 +90,9 @@ type
     procedure onex(const Sender: TObject);
   end;
 
-  equalizer_band_type = record
-    lo_freq, hi_freq: integer;
+ equalizer_band_type = record
+    theindex: integer;
+    lo_freq, hi_freq: cfloat;
     Text: string[10];
   end;
 
@@ -122,6 +125,7 @@ uses
   spectrum1,
   waveform,
   songplayer,
+  equalizer,
   imagedancer,
   recorder_mfm;
 
@@ -407,7 +411,7 @@ begin
       //// If PlayerIndex exists already, it will be overwriten...
       tbutton3.Enabled := False;
 
-    InputIndex3 := uos_AddFromFile(therecplayer, PChar(ansistring(historyfn.Value)), -1, samformat, 1024);
+    InputIndex3 := uos_AddFromFile(therecplayer, PChar(ansistring(historyfn.Value)), -1, samformat, 1024*4);
 
     //// add input from audio file with custom parameters
     ////////// FileName : filename of audio file
@@ -424,7 +428,7 @@ begin
       //// add a Output into device with default parameters
 
       OutputIndex3 := uos_AddIntoDevOut(therecplayer,configfo.devoutcfg.value, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
-        uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024, -1);
+        uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024*4, -1);
 
       //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
@@ -472,40 +476,22 @@ begin
       ////////// VolRight : Right volume
       ////////// Enable : Enabled
 
-     {
-   DSPIndex3 := uos_InputAddDSP(PlayerIndex3, InputIndex3, @DSPReverseBefore,   @DSPReverseAfter, nil, nil);
-      ///// add a custom DSP procedure for input
-    ////////// PlayerIndex3 : Index of a existing Player
-    ////////// InputIndex3: InputIndex of existing input
-    ////////// BeforeFunc : function to do before the buffer is filled
-    ////////// AfterFunc : function to do after the buffer is filled
-    ////////// EndedFunc : function to do at end of thread
-    ////////// LoopProc : external procedure to do after the buffer is filled
+    for i := 1 to 10 do // equalizer
+            Equalizer_Bands[i].theindex :=
+              uos_InputAddFilter(therecplayer, InputIndex3,
+              1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+              1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
 
-   //// set the parameters of custom DSP
-   uos_InputSetDSP(PlayerIndex3, InputIndex3, DSPIndex3, checkbox1.value);
+          equalizerforec.onchangeall();
 
-   // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
-   DSPIndex2 := uos_InputAddDSP(PlayerIndex3, InputIndex3, nil, @DSPStereo2Mono, nil, nil);
-    uos_InputSetDSP(PlayerIndex3, InputIndex3, DSPIndex2, chkstereo2mono.value);
-
-   ///// add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
-  if plugbs2b = true then
-  begin
-   PlugInIndex3 := uos_AddPlugin(PlayerIndex3, 'bs2b',
-   uos_InputGetSampleRate(PlayerIndex3, InputIndex3) , -1);
-   uos_SetPluginbs2b(PlayerIndex3, PluginIndex3, -1 , -1, -1, chkst2b.value);
-  end;
-
-
-  }
-      /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
-      /// SoundTouch plugin should be the last added.
-      if commanderfo.speccalc.Value = True then
+       if commanderfo.speccalc.Value = True then // spectrum
         for i := 1 to 10 do
      uos_InputAddFilter(therecplayer, InputIndex3, 
     3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
     3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
+
+          /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
+      /// SoundTouch plugin should be the last added.
 
       if plugsoundtouch = True then
       begin
@@ -1090,6 +1076,38 @@ begin
     btnStart.Enabled := False;
     btinfos.Enabled  := False;
   end;
+  
+   Equalizer_Bands[1].lo_freq  := 18;
+  Equalizer_Bands[1].hi_freq  := 46;
+  Equalizer_Bands[1].Text     := '31';
+  Equalizer_Bands[2].lo_freq  := 47;
+  Equalizer_Bands[2].hi_freq  := 94;
+  Equalizer_Bands[2].Text     := '62';
+  Equalizer_Bands[3].lo_freq  := 95;
+  Equalizer_Bands[3].hi_freq  := 188;
+  Equalizer_Bands[3].Text     := '125';
+  Equalizer_Bands[4].lo_freq  := 189;
+  Equalizer_Bands[4].hi_freq  := 375;
+  Equalizer_Bands[4].Text     := '250';
+  Equalizer_Bands[5].lo_freq  := 376;
+  Equalizer_Bands[5].hi_freq  := 750;
+  Equalizer_Bands[5].Text     := '500';
+  Equalizer_Bands[6].lo_freq  := 751;
+  Equalizer_Bands[6].hi_freq  := 1500;
+  Equalizer_Bands[6].Text     := '1K';
+  Equalizer_Bands[7].lo_freq  := 1501;
+  Equalizer_Bands[7].hi_freq  := 3000;
+  Equalizer_Bands[7].Text     := '2K';
+  Equalizer_Bands[8].lo_freq  := 3001;
+  Equalizer_Bands[8].hi_freq  := 4000;
+  Equalizer_Bands[8].Text     := '4K';
+  Equalizer_Bands[9].lo_freq  := 4001;
+  Equalizer_Bands[9].hi_freq  := 6000;
+  Equalizer_Bands[9].Text     := '6K';
+  Equalizer_Bands[10].lo_freq := 6001;
+  Equalizer_Bands[10].hi_freq := 16000;
+  Equalizer_Bands[10].Text    := '16K';
+
 end;
 
 procedure trecorderfo.onex(const Sender: TObject);
@@ -1111,6 +1129,55 @@ begin
       tfiledialog1.controller.history;
   end;
 
+end;
+
+procedure trecorderfo.changefrequency(asender, aindex: integer; gainl, gainr: double);
+var
+  gainl2, gainr2: double;
+  aplayer: integer;
+  isenable: Boolean = False;
+begin
+    isenable := equalizerforec.EQEN.Value;
+   //if isenable then isenable := false else isenable := true;
+
+    aplayer := therecplayer;
+
+    if gainl = 0 then
+      gainl2 := 1
+    else if gainl > 0 then
+      gainl2 := gainl
+    else
+      gainl2 := 1 - gainl;
+
+    if gainr = 0 then
+      gainr2 := 1
+    else if gainr > 0 then
+      gainr2 := gainr
+    else
+      gainr2 := 1 - gainr;
+
+    //  if (btnStart.Enabled = true) then
+    uos_InputSetFilter(aplayer, InputIndex3, Equalizer_Bands[aindex].theindex, -1, -1, -1, Gainl, -1, -1, -1, Gainr,
+      True, nil, isenable);
+  end;
+ 
+
+procedure trecorderfo.setequalizerenable(asender: integer; avalue: Boolean);
+var
+  aplayer: integer;
+  x: integer;
+  avalset: Boolean;
+begin
+ 
+ aplayer := therecplayer;
+
+  if avalue then
+    avalset := False
+  else
+    avalset := True;
+
+  for x := 1 to 10 do
+    uos_InputSetFilter(aplayer, InputIndex3, Equalizer_Bands[x].theindex, -1, -1, -1, -1, -1, -1, -1, -1, True, nil, avalset);
 end;
 
 
