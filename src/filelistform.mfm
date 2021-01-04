@@ -585,7 +585,7 @@ object filelistfo: tfilelistfo
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
-      onchange = onchangpath
+      onchange = onchangpathfromhist
       dropdown.options = [deo_keydropdown, deo_autosavehistory, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
@@ -635,8 +635,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 1
-      bounds_y = 92
+      bounds_x = -7
+      bounds_y = 51
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

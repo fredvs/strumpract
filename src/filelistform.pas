@@ -7,13 +7,50 @@ interface
 
 uses
   {$ifdef unix}baseunix,{$endif}
- Math,msetypes,mseglob,mseguiglob,mseguiintf,msetimer,mseapplication,msestat,
- msemenus,msefileutils,msegui,msegraphics,msegraphutils,mseevent,msedatalist,
- mseclasses,msegridsglob,mseforms,msedock,msedragglob,msesimplewidgets,mclasses,
- msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,msefiledialogx,
- msegrids,mseificomp,mseificompglob,mseifiglob,mselistbrowser,msestatfile,
- msestream,msestrings,msesys,SysUtils,msegraphedits,msescrollbar,msedispwidgets,
- mserichstring,msedropdownlist;
+  Math,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  msetimer,
+  mseapplication,
+  msestat,
+  msemenus,
+  msefileutils,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  msedatalist,
+  mseclasses,
+  msegridsglob,
+  mseforms,
+  msedock,
+  msedragglob,
+  msesimplewidgets,
+  mclasses,
+  msewidgets,
+  mseact,
+  msebitmap,
+  msedataedits,
+  msedatanodes,
+  mseedit,
+  msefiledialogx,
+  msegrids,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  mselistbrowser,
+  msestatfile,
+  msestream,
+  msestrings,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist;
 
 type
   tfilelistfo = class(tdockform)
@@ -34,14 +71,15 @@ type
     tbutton5: TButton;
     tstatfile1: tstatfile;
     tbutton6: TButton;
-   tfiledialog1: tfiledialogx;
+    tfiledialog1: tfiledialogx;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
     procedure ontimercount(const Sender: TObject);
     procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
-    procedure onchangpath(const Sender: TObject);
+    procedure onchangpathfromhist(const Sender: TObject);
+    procedure onchangpath(const Sender: TObject; findex: integer);
     procedure onafterdialog(const Sender: tfiledialogcontroller; var aresult: modalresultty);
     procedure befdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var processed: Boolean);
     procedure ondoc(const Sender: TObject);
@@ -92,9 +130,9 @@ begin
   Timercount.Enabled  := False;
   Timercount.options  := [to_single];
   Timercount.ontimer  := @ontimercount;
-  
+
   list_files.hint := ' To move a row: click+hold into the fixed column ' + lineend +
-  ' and drag the row where you want. ';
+    ' and drag the row where you want. ';
 
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
@@ -106,7 +144,7 @@ begin
     hasinit         := 1;
     historyfn.Value := msestring(ordir + 'sound' + directoryseparator + 'song' +
       directoryseparator);
-    onchangpath(Sender);
+    onchangpath(Sender, 0);
   end;
 
   list_files.fixcols[-1].captions.Count := list_files.rowCount;
@@ -185,8 +223,8 @@ begin
         begin
 
           Inc(thecaution);
-          
-         if (thefocusedcell.row + 1 < list_files.rowcount) then
+
+          if (thefocusedcell.row + 1 < list_files.rowcount) then
           begin
             if (list_files[3][thefocusedcell.row + 1] = '1') then
               mustmix := True;
@@ -280,66 +318,114 @@ begin
   thesender := 5;
 end;
 
-procedure tfilelistfo.onchangpath(const Sender: TObject);
+procedure tfilelistfo.onchangpathfromhist(const Sender: TObject);
+begin
+  onchangpath(Sender, 0);
+end;
+
+procedure tfilelistfo.onchangpath(const Sender: TObject; findex: integer);
 var
   x, y, y2, z, fsize: integer;
- // datalist_files: tfiledatalist;
+  // datalist_files: tfiledatalist;
+  strfilter1, strfilter2, strfilter3, strfilter4: string;
   cellpos: gridcoordty;
   thestrnum, thestrx, thestrext, thestrfract: string;
-   datalist_files : TStringList;
-   SR      : TSearchRec;
+  datalist_files: TStringList;
+  SR: TSearchRec;
   {$ifdef unix}  
   info: Stat;
-   {$else} 
+   {$else}
   info: fileinfoty;
   {$endif}
-   
 begin
   if hasinit = 1 then
     if directoryexists(tosysfilepath(historyfn.Value)) then
     begin
       list_files.tag := 0;
 
-      historyfn.hint := ' Selected: ' + historyfn.Value + ' ';
-      
-       datalist_files:=TStringList.Create;
-    try
-          if FindFirst(historyfn.Value + '*.*', faArchive, SR) = 0 then
-          begin
-            repeat
-          if (fileext(SR.Name) = lowercase('mp3')) or 
-          (fileext(SR.Name) = lowercase('wav')) or
-          (fileext(SR.Name) = lowercase('flac')) or
-          (fileext(SR.Name) = lowercase('ogg')) 
-           then  datalist_files.Add(SR.Name); //Fill the list
-            until FindNext(SR) <> 0;
-            FindClose(SR);
-          end;
-
-      Caption := tosysfilepath(historyfn.Value);
-
-      list_files.rowcount := datalist_files.Count;
-
-
-      for x := 0 to datalist_files.Count - 1 do
+      if findex = 0 then
       begin
-        list_files[0][x] := msestring(filenamebase(datalist_files[x]));
-        list_files[1][x] := msestring(fileext(datalist_files[x]));
-        
-       // writeln(datalist_files[x]);
+        strfilter1 := 'mp3';
+        strfilter2 := 'wav';
+        strfilter3 := 'ogg';
+        strfilter4 := 'flac';
+      end
+      else if findex = 1 then
+      begin
+        strfilter1 := 'mp3';
+        strfilter2 := 'mp3';
+        strfilter3 := 'mp3';
+        strfilter4 := 'mp3';
+      end
+      else if findex = 2 then
+      begin
+        strfilter1 := 'wav';
+        strfilter2 := 'wav';
+        strfilter3 := 'wav';
+        strfilter4 := 'wav';
+      end
+      else if findex = 3 then
+      begin
+        strfilter1 := 'ogg';
+        strfilter2 := 'ogg';
+        strfilter3 := 'ogg';
+        strfilter4 := 'ogg';
+      end
+      else if findex = 4 then
+      begin
+        strfilter1 := 'flac';
+        strfilter2 := 'flac';
+        strfilter3 := 'flac';
+        strfilter4 := 'flac';
+      end
+      else
+      begin
+        strfilter1 := 'mp3';
+        strfilter2 := 'wav';
+        strfilter3 := 'ogg';
+        strfilter4 := 'flac';
+      end;
+
+      historyfn.hint := ' Selected: ' + historyfn.Value + ' ';
+
+      datalist_files := TStringList.Create;
+      try
+        if FindFirst(historyfn.Value + '*.*', faArchive, SR) = 0 then
+        begin
+          repeat
+            if (lowercase(fileext(SR.Name)) = strfilter1) or
+              (lowercase(fileext(SR.Name)) = strfilter2) or
+              (lowercase(fileext(SR.Name)) = strfilter3) or
+              (lowercase(fileext(SR.Name)) = strfilter4) then
+              datalist_files.Add(SR.Name); //Fill the list
+          until FindNext(SR) <> 0;
+          FindClose(SR);
+        end;
+
+        Caption := tosysfilepath(historyfn.Value);
+
+        list_files.rowcount := datalist_files.Count;
+
+
+        for x := 0 to datalist_files.Count - 1 do
+        begin
+          list_files[0][x] := msestring(filenamebase(datalist_files[x]));
+          list_files[1][x] := msestring(fileext(datalist_files[x]));
+
+          // writeln(datalist_files[x]);
 
         {$ifdef unix}
         FpStat(trim(historyfn.Value + directoryseparator + datalist_files[x]), info); 
-        {$else} 
-         getfileinfo(msestring(trim(historyfn.Value + directoryseparator + datalist_files[x])), info);
+        {$else}
+          getfileinfo(msestring(trim(historyfn.Value + directoryseparator + datalist_files[x])), info);
         {$endif}
-    
+
         {$ifdef unix}  
         fsize := info.st_size;
-        {$else} 
-         fsize := info.extinfo1.size;
+        {$else}
+          fsize := info.extinfo1.size;
         {$endif}
-      
+
           if fsize div 1000000000 > 0 then
           begin
             y2        := Trunc(Frac(fsize / 1000000000) * Power(10, 1));
@@ -382,39 +468,39 @@ begin
             thestrfract := '.' + IntToStr(y2)
           else
             thestrfract := '';
-        
-        list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
-        list_files[3][x] := msestring(IntToStr(1));
-        list_files[4][x] := msestring(tosysfilepath(historyfn.Value + datalist_files[x]));
 
+          list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
+          list_files[3][x] := msestring(IntToStr(1));
+          list_files[4][x] := msestring(tosysfilepath(historyfn.Value + datalist_files[x]));
+
+        end;
+
+        cellpos.row := 0;
+        cellpos.col := 0;
+
+        //  list_files.selectcell(cellpos, csm_select, False);
+
+        edfilescount.Value := list_files.rowcount;
+
+        list_files.fixcols[-1].captions.Count := list_files.rowCount;
+
+        for x := 0 to list_files.rowCount - 1 do
+        begin
+          list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
+          list_files.rowcolorstate[x]        := -1;
+        end;
+
+        edfilescount.Value := list_files.rowcount;
+        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files');
+
+        // list_files.focusedindex := 0;
+
+        //datalist_files.Free();
+
+      finally
+        datalist_files.Free;
       end;
 
-      cellpos.row := 0;
-      cellpos.col := 0;
-
-    //  list_files.selectcell(cellpos, csm_select, False);
-
-      edfilescount.Value := list_files.rowcount;
-
-      list_files.fixcols[-1].captions.Count := list_files.rowCount;
-     
-     for x := 0 to list_files.rowCount - 1 do
-      begin
-        list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
-        list_files.rowcolorstate[x]:= -1;
-      end;      
-        
-      edfilescount.Value := list_files.rowcount;
-      filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files');
-
-      // list_files.focusedindex := 0;
-      
-      //datalist_files.Free();
-      
-       finally
-     datalist_files.Free;
-    end;
-       
       onfloat(nil);
       list_files.defocuscell;
       list_files.datacols.clearselection;
@@ -512,7 +598,6 @@ begin
 
   end
   else
-
   if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
 
     if (cellpos.row = -1) and (cellpos.col = 3) then
@@ -616,7 +701,7 @@ end;
 procedure tfilelistfo.onaftdrop(const Sender: TObject);
 begin
   historyfn.Width := 128;
-  historyfn.Value := tosysfilepath(extractfilepath(historyfn.Value ));
+  historyfn.Value := tosysfilepath(extractfilepath(historyfn.Value));
 end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
@@ -644,10 +729,10 @@ begin
   ordir := ExtractFilePath(ParamStr(0)) + 'list' + directoryseparator;
   tfiledialog1.controller.captionopen := 'Open List File';
   tfiledialog1.controller.fontcolor := cl_black;
-    if mainfo.typecolor.Value = 2 then
-   tfiledialog1.controller.backcolor := $A6A6A6
+  if mainfo.typecolor.Value = 2 then
+    tfiledialog1.controller.backcolor := $A6A6A6
   else
-   tfiledialog1.controller.backcolor := cl_default;
+    tfiledialog1.controller.backcolor := cl_default;
 
 
   tfiledialog1.controller.filter   := '"*.lis"';
@@ -672,13 +757,13 @@ begin
       filescount.Value := msestring(IntToStr(filelistfo.edfilescount.Value) + ' files');
       list_files.defocuscell;
       list_files.datacols.clearselection;
-      
-       for x := 0 to list_files.rowCount - 1 do
+
+      for x := 0 to list_files.rowCount - 1 do
       begin
         list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
-        list_files.rowcolorstate[x]:= -1;
-      end;  
-      
+        list_files.rowcolorstate[x]        := -1;
+      end;
+
     end;
 end;
 
@@ -703,11 +788,11 @@ begin
 
   tfiledialog1.controller.captionopen := 'Open Audio File';
 
-  tfiledialog1.controller.fontcolor := cl_black;
-   if mainfo.typecolor.Value = 2 then
-   tfiledialog1.controller.backcolor := $A6A6A6
+  tfiledialog1.controller.fontcolor   := cl_black;
+  if mainfo.typecolor.Value = 2 then
+    tfiledialog1.controller.backcolor := $A6A6A6
   else
-   tfiledialog1.controller.backcolor := cl_default;
+    tfiledialog1.controller.backcolor := cl_default;
 
 
   tfiledialog1.controller.filter :=
@@ -793,22 +878,22 @@ begin
 
       edfilescount.Value := list_files.rowcount;
       filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files');
-      
+
       list_files.defocuscell;
       list_files.datacols.clearselection;
-      
-       for x := 0 to list_files.rowCount - 1 do
+
+      for x := 0 to list_files.rowCount - 1 do
       begin
         list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
-        list_files.rowcolorstate[x]:= -1;
-      end;  
+        list_files.rowcolorstate[x]        := -1;
+      end;
 
     end;
 end;
 
 procedure tfilelistfo.oncreate(const Sender: TObject);
 begin
-  windowopacity := 0;
+  windowopacity       := 0;
   tstatfile1.filename := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini' +
     directoryseparator + 'list.ini');
 end;
@@ -835,15 +920,15 @@ end;
 
 procedure tfilelistfo.opendir(const Sender: TObject);
 var
-x : integer;
- ara, arb: msestringarty;
+  x: integer;
+  ara, arb: msestringarty;
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
-  
-   if mainfo.typecolor.Value = 2 then
-   tfiledialog1.controller.backcolor := $A6A6A6
+
+  if mainfo.typecolor.Value = 2 then
+    tfiledialog1.controller.backcolor := $A6A6A6
   else
-   tfiledialog1.controller.backcolor := cl_default;
+    tfiledialog1.controller.backcolor := cl_default;
 
   setlength(ara, 6);
   setlength(arb, 6);
@@ -861,12 +946,12 @@ begin
   arb[3] := '"*.ogg"';
   arb[4] := '"*.flac"';
   arb[5] := '"*.*"';
-  
+
   tfiledialog1.controller.filterlist.asarraya := ara;
   tfiledialog1.controller.filterlist.asarrayb := arb;
-  
-  tfiledialog1.controller.filter     := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
-  tfiledialog1.controller.fontcolor  := cl_black;
+
+  tfiledialog1.controller.filter    := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+  tfiledialog1.controller.fontcolor := cl_black;
 
   if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
   begin
@@ -874,17 +959,16 @@ begin
     historyfn.dropdown.history :=
       tfiledialog1.controller.history;
 
-    onchangpath(Sender);
-    
+    // writeln(inttostr(tfiledialog1.controller.filterindex));
+    onchangpath(Sender, tfiledialog1.controller.filterindex);
+
     list_files.defocuscell;
     list_files.datacols.clearselection;
-    
-     for x := 0 to list_files.rowCount - 1 do
-      begin
-        list_files.rowcolorstate[x]:= -1;
-      end;         
+
+    for x := 0 to list_files.rowCount - 1 do
+      list_files.rowcolorstate[x] := -1;
   end;
- 
+
 end;
 
 end.
