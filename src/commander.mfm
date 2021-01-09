@@ -11,8 +11,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 392
-  bounds_y = 29
+  bounds_x = 388
+  bounds_y = 138
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -1566,11 +1566,11 @@ object commanderfo: tcommanderfo
       face.localprops = []
       taborder = 33
       hint = 'Graphic-anim while mixing (if cpu too low set it off) '
-      bounds_x = 101
-      bounds_y = 6
+      bounds_x = 186
+      bounds_y = 4
       bounds_cx = 40
       bounds_cy = 17
-      state = [as_localcaption, as_localhint, as_localonexecute]
+      state = [as_invisible, as_localinvisible, as_localcaption, as_localhint, as_localonexecute]
       caption = 'GMix'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
@@ -1606,8 +1606,8 @@ object commanderfo: tcommanderfo
       face.localprops = []
       taborder = 34
       hint = ' View Meters on/off '
-      bounds_x = 142
-      bounds_y = 26
+      bounds_x = 101
+      bounds_y = 6
       bounds_cx = 40
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -1647,7 +1647,7 @@ object commanderfo: tcommanderfo
       face.localprops = []
       taborder = 35
       hint = ' Auto Mixing on/off '
-      bounds_x = 101
+      bounds_x = 121
       bounds_y = 26
       bounds_cx = 40
       bounds_cy = 17

@@ -50,7 +50,7 @@ ordir := ExtractFilePath(ParamStr(0))
  + 'layout' + directoryseparator;
 if statusfo.layoutname.value <> '' then begin
  ordir := ordir + utf8decode(statusfo.layoutname.value + '.lay');
-mainfo.tstatfile1.writestat(utf8decode(ordir));
+//mainfo.tstatfile1.writestat(utf8decode(ordir));
 end;
 end;
 
@@ -60,7 +60,7 @@ ordir := ExtractFilePath(ParamStr(0))
  + 'list' + directoryseparator;
 if statusfo.layoutname.value <> '' then begin
  ordir := utf8decode(ordir + statusfo.layoutname.value + '.lis');
-filelistfo.tstatfile1.writestat(utf8decode(ordir)); 
+//filelistfo.tstatfile1.writestat(utf8decode(ordir)); 
 filelistfo.caption := statusfo.layoutname.value;
 end;
 end;

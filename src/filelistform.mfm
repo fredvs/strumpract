@@ -36,7 +36,7 @@ object filelistfo: tfilelistfo
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]
   dragdock.onfloat = onfloat
   dragdock.ondock = ondock
-  statfile = mainfo.tstatfile1
+  statfile = tstatfile1
   caption = 'Audio files'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
@@ -635,8 +635,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = -7
-      bounds_y = 51
+      bounds_x = 0
+      bounds_y = 92
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
@@ -674,7 +674,7 @@ object filelistfo: tfilelistfo
   end
   object tstatfile1: tstatfile
     filename = 'cue.lis'
-    options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
+    options = [sfo_transaction, sfo_savedata, sfo_autowritestat, sfo_activatorread, sfo_activatorwrite]
     left = 289
     top = 53
   end

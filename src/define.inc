@@ -29,4 +29,3 @@
 {.$DEFINE noiseremoval} // uncomment to enable Noise Removal DSP
 
 {.$DEFINE synthesizer} // uncomment to enable Synthesizer
-

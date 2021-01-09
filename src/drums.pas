@@ -1460,6 +1460,7 @@ begin
   Timerpause.Free;
   Timertick.Free;
   timersent.Free;
+   uos_free();
 end;
 
 procedure tdrumsfo.onchangevol(Const Sender: TObject);
