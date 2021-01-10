@@ -185,11 +185,7 @@ begin
     tslider3val.Enabled := False;
   end;
 
-  guimix.value := false;
-  
   ttimer1.Enabled := True;
-  
-  
 
 end;
 
@@ -1136,9 +1132,7 @@ begin
     linkvolb.tag           := 0;
     linkvolb.face.template := tfacebutgray;
   end;
-  
-  guimix.value := false;
- 
+
   if guimix.Value then
   begin
     guimixb.tag           := 1;

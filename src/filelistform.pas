@@ -134,6 +134,7 @@ begin
   list_files.hint := ' To move a row: click+hold into the fixed column ' + lineend +
     ' and drag the row where you want. ';
 
+
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   if fileexists(ordir + 'ini' + directoryseparator + 'list.ini') then

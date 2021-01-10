@@ -9,7 +9,7 @@ program strumpract;
 {$endif}
 
 uses
-  
+  // cmem,
  {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}
   Math, 
   filelistform,
@@ -74,7 +74,6 @@ begin
   application.createform(tfilelistfo, filelistfo);
 
   filelistfo.dragdock.Caption := 'Fil';
-   filelistfo.Caption := 'Audio File List';
   application.createform(tdrumsfo, drumsfo);
 
   drumsfo.dragdock.Caption := 'Dru';

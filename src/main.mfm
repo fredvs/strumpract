@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 415
-  bounds_y = 86
+  bounds_x = 384
+  bounds_y = 315
   bounds_cx = 454
   bounds_cy = 96
   bounds_cxmin = 454
@@ -1172,7 +1172,7 @@ object mainfo: tmainfo
   end
   object tstatfile1: tstatfile
     filename = 'stat.ini'
-    options = [sfo_transaction, sfo_savedata, sfo_autowritestat, sfo_activatorread, sfo_activatorwrite]
+    options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
     onstatbeforeread = beforereadev
     onstatafterread = afterreadev
     left = 259
@@ -3760,7 +3760,7 @@ object mainfo: tmainfo
       16751892
     )
     template.fade_direction = gd_down
-    left = 145
-    top = 38
+    left = 286
+    top = 45
   end
 end
