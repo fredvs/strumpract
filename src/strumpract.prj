@@ -96,9 +96,9 @@ findinfiledialog=96
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=1
- [findinfileadialogfo.inprojectdir]
  value=0
+ [findinfileadialogfo.inprojectdir]
+ value=1
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
@@ -155,8 +155,9 @@ findinfiledialog=96
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=create file
+ value=Turtle
  history=20
+  Turtle
   create file
   to create file
   cpuarm
@@ -176,7 +177,6 @@ findinfiledialog=96
   fil_ext1
   .adddirectory
   fpfstat
-  multiplier :=
  [findinfileadialogfo]
  stackedunder=
  x=506
@@ -1631,8 +1631,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=imagedancerfo.Caption
+finddtext=imagedancer
 findhistory=20
+ imagedancer
+ imagerdandcer
  SIZEOF_SEM
  onchangpath
  Equalizer_Bands
@@ -1651,33 +1653,41 @@ findhistory=20
  msethread
  uos_AddIntoDevOut
  cpuarm
- arm
- find
 findoptions=1
-editpos=5
+editpos=7
  0,-1073741823
  0,-1073741823
- 0,719
+ 0,-1073741823
+ 0,-1073741823
  0,0
- 0,-1073741823
+ 0,5
+ 0,4344
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-sourcefiles=5
+bookmarks5=0
+bookmarks6=0
+sourcefiles=7
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/imagedancer.pas
  ${PROJECTDIR}/define.inc
  ${PROJECTDIR}/define.inc
-relpaths=5
+ ${PROJECTDIR}/define.inc
+ ${PROJECTDIR}/main.pas
+relpaths=7
  strumpract.pas
  main.pas
  imagedancer.pas
  define.inc
  define.inc
-ismoduletexts=5
+ define.inc
+ main.pas
+ismoduletexts=7
+ 0
+ 0
  0
  0
  0
@@ -1712,10 +1722,18 @@ nomenumodules=6
  -1
  0
 [sourcefo.files_tab]
+order=7
+ 0
+ 1
+ 2
+ 4
+ 5
+ 6
+ 3
 firsttab=0
-index=2
+index=5
 [layout]
-windowlayout=679
+windowlayout=687
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1823,7 +1841,7 @@ windowlayout=679
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -2196,7 +2214,7 @@ windowlayout=679
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/imagedancer.pas
+ value=/home/fred/strumpract/src/main.pas
  history=20
   /home/fred/strumpract/src/define.inc
   /home/fred/strumpract/src/imagedancer.pas
@@ -2239,8 +2257,16 @@ windowlayout=679
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=7
+  0
+  1
+  2
+  4
+  5
+  6
+  3
  firsttab=0
- index=2
+ index=5
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2284,7 +2310,7 @@ windowlayout=679
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=findinfilefo
  parent=
  mdistate=3
  nx=0
@@ -2379,7 +2405,7 @@ windowlayout=679
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0

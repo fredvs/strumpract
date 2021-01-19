@@ -482,7 +482,7 @@ begin
     
   if dancnum.Value = 10 then
   begin
-    imagedancerfo.Caption := 'Dancing Turtle 1';
+    imagedancerfo.Caption := 'Dancing Turtle by Lainz';
     imagedancerfo.openglwidget.Visible := false;
     dancernum := 10;
   end 
@@ -4280,7 +4280,7 @@ procedure tmainfo.onimagedancer(const Sender: TObject);
 begin
 if (tmenuitem(Sender).tag = 10) then
   begin
-    imagedancerfo.Caption := 'Dancing Turle 1';
+    imagedancerfo.Caption := 'Dancing Turtle by Lainz';
     imagedancerfo.openglwidget.Visible := false;
     // imagedancerfo.tpaintbox1.Visible := true;
     dancernum     := 10;
