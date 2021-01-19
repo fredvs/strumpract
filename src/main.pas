@@ -479,8 +479,14 @@ begin
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
-
-  if dancnum.Value = 9 then
+    
+  if dancnum.Value = 10 then
+  begin
+    imagedancerfo.Caption := 'Dancing Turtle 1';
+    imagedancerfo.openglwidget.Visible := false;
+    dancernum := 10;
+  end 
+  else if dancnum.Value = 9 then
   begin
     imagedancerfo.Caption := 'Dancing Lines';
     imagedancerfo.openglwidget.Visible := True;
@@ -4272,7 +4278,15 @@ end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
 begin
-  if (tmenuitem(Sender).tag = 9) then
+if (tmenuitem(Sender).tag = 10) then
+  begin
+    imagedancerfo.Caption := 'Dancing Turle 1';
+    imagedancerfo.openglwidget.Visible := false;
+    // imagedancerfo.tpaintbox1.Visible := true;
+    dancernum     := 10;
+    dancnum.Value := 10;
+  end
+  else if (tmenuitem(Sender).tag = 9) then
   begin
     imagedancerfo.Caption := 'Dancing Lines';
     imagedancerfo.openglwidget.Visible := True;

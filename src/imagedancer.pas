@@ -53,10 +53,16 @@ type
     procedure oncreat(const Sender: TObject);
     procedure onshow(const Sender: TObject);
     procedure rotentexe(const Sender: TObject);
-
     procedure clientrectchangedexe(const Sender: tcustomwindowwidget);
     procedure createwinidexe(const Sender: tcustomwindowwidget; const aparent: winidty; const awidgetrect: rectty; var aid: winidty);
     procedure onrenderexe(const Sender: tcustomopenglwidget; const aupdaterect: rectty);
+ 
+    procedure move(Bitmap: TBGRABitmap; distance: single);
+    procedure rotate(Bitmap: TBGRABitmap; angle: single);
+    procedure translate(Bitmap: TBGRABitmap; x: single; y: single);
+    procedure reset(Bitmap: TBGRABitmap);
+    procedure set_color(Bitmap: TBGRABitmap; r, g, b, a: byte);
+ 
     procedure onhide(const Sender: TObject);
    procedure crea(const sender: TObject);
   protected
@@ -101,6 +107,10 @@ var
   Rings: array[0..MaxRing] of TRing;
   Center: TPointF;
   TimerTic: integer = 0;
+  gAngle : single = 0;
+  centerX:   integer = 0;
+  centery:   integer = 0;
+ 
 
   TimerTicinterval: integer = 0;
 
@@ -505,6 +515,39 @@ begin
   end;
 end;
 
+// Turtle
+
+procedure timagedancerfo.move(Bitmap: TBGRABitmap; distance: single);
+begin
+  Bitmap.Canvas2D.beginPath;
+  Bitmap.Canvas2D.moveTo(0, 0);
+  Bitmap.Canvas2D.translate(distance, 0);
+  Bitmap.Canvas2D.lineTo(0, 0);
+  Bitmap.Canvas2D.stroke;
+end;
+
+procedure timagedancerfo.rotate(Bitmap: TBGRABitmap; angle: single);
+begin
+  Bitmap.Canvas2D.rotate(angle * pi / 180);
+end;
+
+procedure timagedancerfo.translate(Bitmap: TBGRABitmap; x: single; y: single);
+begin
+  Bitmap.Canvas2D.translate(x, y);
+end;
+
+procedure timagedancerfo.reset(Bitmap: TBGRABitmap);
+begin
+  Bitmap.Canvas2D.resetTransform;
+end;
+
+procedure timagedancerfo.set_color(Bitmap: TBGRABitmap; r, g, b, a: byte);
+begin
+  Bitmap.Canvas2D.strokeStyle(BGRA(r, g, b, a));
+end;     
+
+/////
+
 procedure timagedancerfo.onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
 var
   theta: double;
@@ -676,7 +719,29 @@ begin
       center := PointF(Bitmap.Width / 2*multiplier*1.5, Bitmap.Height / 2*multiplier*1.5);
       bitmap.Fill(cssBlack);
       DrawSpiral(bitmap);
-    end;
+    end
+    else if dancernum = 10 then // turtle 1
+    begin
+    //  Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE, $FF9D4D,
+     //   gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
+       bitmap.Fill(cssBlack);
+ 
+       set_color(Bitmap, round(230), round(150), round(200), 255);
+        centerX := Width div 2;
+        centerY := Height div 2;
+        if multiplier > 0.4 then        
+        gAngle := gAngle + (multiplier * 0.1) else
+        gAngle := gAngle - (multiplier * 0.1);
+        
+        if (gAngle >= 360) or (gAngle < 0)  then gAngle := 0;
+        reset(Bitmap);
+        translate(Bitmap, centerX, centerY);
+        for i := 1 to 490 do
+         begin
+         move(Bitmap, i);
+         rotate(Bitmap, gAngle);
+         end;    
+       end;
 
     Bitmap.draw(acanvas, 0, 0, False);
     isbuzy := False;
@@ -749,6 +814,8 @@ begin
   Bitmap       := tbgrabitmap.Create(1000, 600);
   InitRings;
   center       := PointF(Width / 2, Height / 2);
+  
+  randomize;
 
 end;
 
