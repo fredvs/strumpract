@@ -1109,7 +1109,7 @@ object mainfo: tmainfo
             onexecute = onimagedancer
           end        
           item
-            caption = ' Turtle 1 '
+            caption = ' Turtle '
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 10
             onexecute = onimagedancer

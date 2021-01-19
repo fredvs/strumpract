@@ -1657,11 +1657,11 @@ findoptions=1
 editpos=7
  0,-1073741823
  0,-1073741823
+ 7,726
  0,-1073741823
  0,-1073741823
- 0,0
- 0,5
- 0,4344
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1722,18 +1722,10 @@ nomenumodules=6
  -1
  0
 [sourcefo.files_tab]
-order=7
- 0
- 1
- 2
- 4
- 5
- 6
- 3
 firsttab=0
-index=5
+index=2
 [layout]
-windowlayout=687
+windowlayout=679
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1841,7 +1833,7 @@ windowlayout=687
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=targetconsolefo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2214,10 +2206,10 @@ windowlayout=687
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/strumpract/src/imagedancer.pas
  history=20
-  /home/fred/strumpract/src/define.inc
   /home/fred/strumpract/src/imagedancer.pas
+  /home/fred/strumpract/src/define.inc
   /home/fred/strumpract/src/main.pas
   /home/fred/freepascal-ootb_322test/compiler/llvm/agllvm.pas
   /home/fred/strumpract/src/recorder.pas
@@ -2257,16 +2249,8 @@ windowlayout=687
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=7
-  0
-  1
-  2
-  4
-  5
-  6
-  3
  firsttab=0
- index=5
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2310,7 +2294,7 @@ windowlayout=687
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2405,7 +2389,7 @@ windowlayout=687
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

@@ -743,9 +743,13 @@ begin
         if (gAngle >= 360) or (gAngle < 0)  then gAngle := 0;
         reset(Bitmap);
         translate(Bitmap, centerX, centerY);
+       
         for i := 1 to 490 do
          begin
-         move(Bitmap, i);
+       //   set_color(Bitmap, i div 2, round(256*multiplier), 244, 255);
+           set_color(Bitmap, i div 2, round(128), round(150*multiplier), 255);
+      
+           move(Bitmap, i);
          rotate(Bitmap, gAngle);
          end;    
        end;
