@@ -556,7 +556,7 @@ var
   y: double = 0;
   y2: double = 0;
   init: double = 0;
-  i, k, m, z, offset: integer;
+  i, j, k, m, z, offset: integer;
   col: TBGRAPixel;
   start, stop: single;
   LocalSpeed, Delta: single;
@@ -724,14 +724,21 @@ begin
     begin
     //  Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE, $FF9D4D,
      //   gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
-       bitmap.Fill(cssBlack);
+      bitmap.Fill(cssBlack);
  
-       set_color(Bitmap, round(230), round(150), round(200), 255);
+      set_color(Bitmap, 255, round(128*multiplier), 64, 255);
+       
+     //  set_color(Bitmap, 255, 128, 64, 255);
+  
         centerX := Width div 2;
         centerY := Height div 2;
-        if multiplier > 0.4 then        
-        gAngle := gAngle + (multiplier * 0.1) else
-        gAngle := gAngle - (multiplier * 0.1);
+        if multiplier > 0.4 then  
+        begin
+        //bitmap.Fill(cssBlack);      
+        gAngle := gAngle + (multiplier * 0.2)
+        end else
+        
+        gAngle := gAngle - (multiplier);
         
         if (gAngle >= 360) or (gAngle < 0)  then gAngle := 0;
         reset(Bitmap);

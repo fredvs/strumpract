@@ -1657,9 +1657,9 @@ findoptions=1
 editpos=5
  0,-1073741823
  0,-1073741823
+ 0,719
  0,0
  0,-1073741823
- 12,15
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1712,16 +1712,10 @@ nomenumodules=6
  -1
  0
 [sourcefo.files_tab]
-order=5
- 0
- 1
- 2
- 4
- 3
 firsttab=0
-index=3
+index=2
 [layout]
-windowlayout=685
+windowlayout=679
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2202,8 +2196,9 @@ windowlayout=685
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/define.inc
+ value=/home/fred/strumpract/src/imagedancer.pas
  history=20
+  /home/fred/strumpract/src/define.inc
   /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/freepascal-ootb_322test/compiler/llvm/agllvm.pas
@@ -2223,7 +2218,6 @@ windowlayout=685
   /home/fred/msemartin/msegui/lib/common/kernel/msestreaming.pas
   /home/fred/msemartin/msegui/lib/common/kernel/msearrayprops.pas
   /home/fred/msemartin/msegui/lib/common/fpccompatibility/mclasses.pas
-  /home/fred/uos/src/uos_flat.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2245,14 +2239,8 @@ windowlayout=685
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=5
-  0
-  1
-  2
-  4
-  3
  firsttab=0
- index=3
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
