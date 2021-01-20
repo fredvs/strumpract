@@ -724,9 +724,9 @@ begin
     begin
     //  Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE, $FF9D4D,
      //   gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
-      bitmap.Fill(cssBlack);
+      bitmap.Fill(CSSblack);
  
-      set_color(Bitmap, 255, round(128*multiplier), 64, 255);
+   //   set_color(Bitmap, 255, round(128*multiplier), 64, 255);
        
      //  set_color(Bitmap, 255, 128, 64, 255);
   
@@ -750,7 +750,46 @@ begin
            set_color(Bitmap, i div 2, round(128), round(150*multiplier), 255);
       
            move(Bitmap, i);
-         rotate(Bitmap, gAngle);
+          //   set_color(Bitmap, round(256), i div 2, round(150*multiplier), 255);
+          rotate(Bitmap, gAngle);
+         end;    
+       end else
+        if dancernum = 11 then // turtle 2
+    begin
+    //  Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE, $FF9D4D,
+     //   gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
+      bitmap.Fill(CSSblack);
+ 
+   //   set_color(Bitmap, 255, round(128*multiplier), 64, 255);
+       
+     //  set_color(Bitmap, 255, 128, 64, 255);
+  
+        centerX := Width div 2;
+        centerY := Height div 2;
+     //{
+        if multiplier > 0.4 then  
+        begin
+        //bitmap.Fill(cssBlack);      
+        gAngle := gAngle + (multiplier * 0.2)
+        end else
+        
+        gAngle := gAngle - (multiplier);
+       // }
+        
+       // gAngle := gAngle + (0.2);
+        
+        if (gAngle >= 360) or (gAngle < 0)  then gAngle := 0;
+        reset(Bitmap);
+        translate(Bitmap, centerX, centerY);
+       
+        for i := 1 to 490 do
+         begin
+          set_color(Bitmap, i div 2, round(150*multiplier), 244, 255);
+      //     set_color(Bitmap, i div 2, round(128), round(150*multiplier), 255);
+      
+           move(Bitmap, round(i*multiplier*2));
+          //   set_color(Bitmap, round(256), i div 2, round(150*multiplier), 255);
+          rotate(Bitmap, gAngle);
          end;    
        end;
 
@@ -764,7 +803,6 @@ function timagedancerfo.Execute(thread: tmsethread): integer;
 begin
 
   repeat
-
     if (isbuzy = False) and (Visible = True) and (openglwidget.Visible = false) then
     begin
       application.queueasynccall(@InvalidateImage);
@@ -772,7 +810,7 @@ begin
       RTLeventWaitFor(evPauseImage);// is there a pause waiting ?
       RTLeventSetEvent(evPauseImage);
     end;
-    sleep(10);
+    sleep(30);
   until statusanim = 0;
 
 end;

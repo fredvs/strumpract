@@ -1221,7 +1221,7 @@ line=33
  587
  185
  5730
- 1639
+ 1645
  1470
  254
  319
@@ -1233,7 +1233,7 @@ line=33
  1546
  209
  1136
- 3634
+ 3640
  509
  5
  720
@@ -1631,8 +1631,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=imagedancer
+finddtext=imagedancerfo.Caption
 findhistory=20
+ imagedancerfo.Caption
  imagedancer
  imagerdandcer
  SIZEOF_SEM
@@ -1652,16 +1653,16 @@ findhistory=20
  addintofile
  msethread
  uos_AddIntoDevOut
- cpuarm
 findoptions=1
-editpos=7
+editpos=8
+ 0,-1073741823
+ 0,4288
+ 5,802
  0,-1073741823
  0,-1073741823
- 7,726
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,79
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1669,7 +1670,8 @@ bookmarks3=0
 bookmarks4=0
 bookmarks5=0
 bookmarks6=0
-sourcefiles=7
+bookmarks7=0
+sourcefiles=8
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/imagedancer.pas
@@ -1677,7 +1679,8 @@ sourcefiles=7
  ${PROJECTDIR}/define.inc
  ${PROJECTDIR}/define.inc
  ${PROJECTDIR}/main.pas
-relpaths=7
+ /home/fred/bgrabitmap-master/bgrabitmap/csscolorconst.inc
+relpaths=8
  strumpract.pas
  main.pas
  imagedancer.pas
@@ -1685,7 +1688,9 @@ relpaths=7
  define.inc
  define.inc
  main.pas
-ismoduletexts=7
+ ../bgrabitmap-master/bgrabitmap/csscolorconst.inc
+ismoduletexts=8
+ 0
  0
  0
  0
@@ -1708,12 +1713,12 @@ moduleoptions=6
  0
  0
 visiblemodules=6
- -1
  0
  0
  0
  0
- -1
+ 0
+ 0
 nomenumodules=6
  0
  -1
@@ -1722,17 +1727,26 @@ nomenumodules=6
  -1
  0
 [sourcefo.files_tab]
+order=8
+ 0
+ 1
+ 2
+ 7
+ 3
+ 4
+ 5
+ 6
 firsttab=0
 index=2
 [layout]
-windowlayout=679
+windowlayout=688
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
  [mainfo]
  splitdir=0
  useroptions=301990011
- stackedunder=
+ stackedunder=confideufo
  parent=
  mdistate=0
  nx=0
@@ -1745,9 +1759,9 @@ windowlayout=679
  cy=621
  rcx=0
  rcy=0
- wsize=6
- active=1
- visible=1
+ wsize=5
+ active=0
+ visible=0
  [targetconsolefo]
  splitdir=0
  useroptions=268451945
@@ -1763,9 +1777,9 @@ windowlayout=679
  cy=314
  rcx=0
  rcy=0
- wsize=0
+ wsize=5
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1949,10 +1963,10 @@ windowlayout=679
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=538
- width0=239
+ propcolwidthref=523
+ width0=232
  sortdescend0=0
- width1=293
+ width1=285
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2249,6 +2263,15 @@ windowlayout=679
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=8
+  0
+  1
+  2
+  7
+  3
+  4
+  5
+  6
  firsttab=0
  index=2
  [confideufo.fontname]
@@ -2294,7 +2317,7 @@ windowlayout=679
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -2309,7 +2332,7 @@ windowlayout=679
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2389,7 +2412,7 @@ windowlayout=679
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2404,7 +2427,7 @@ windowlayout=679
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
 [targetconsole]
 finddtext=
 findhistory=0

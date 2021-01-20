@@ -1047,7 +1047,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 11
+        submenu.count = 12
         submenu.items = <        
           item
             caption = ' Square '
@@ -1109,9 +1109,15 @@ object mainfo: tmainfo
             onexecute = onimagedancer
           end        
           item
-            caption = ' Turtle '
+            caption = ' Turtle 1 '
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 10
+            onexecute = onimagedancer
+          end        
+          item
+            caption = ' Turtle 2 '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 11
             onexecute = onimagedancer
           end>
         caption = ' &Dancer '
