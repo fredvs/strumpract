@@ -1,6 +1,8 @@
 unit imagedancer;
 
-{$ifdef FPC}{$mode objfpc}{$h+}{$endif}
+
+{$mode objfpc}{$H+}
+{$modeswitch advancedrecords} 
 interface
 
 uses
@@ -38,6 +40,21 @@ uses
   SysUtils,
   mseopenglwidget,
   msewindowwidget;
+  
+type
+  TProp = record
+    thecolor: integer;
+    x, y: single;
+  end;
+
+  { TData }
+
+  TData = record
+    data: array of TProp;
+    procedure Push(aData: TProp);
+    function Pop: TProp;
+  end;             
+  
 
 type
   pInvalidateImage = procedure of object;
@@ -56,7 +73,7 @@ type
     procedure clientrectchangedexe(const Sender: tcustomwindowwidget);
     procedure createwinidexe(const Sender: tcustomwindowwidget; const aparent: winidty; const awidgetrect: rectty; var aid: winidty);
     procedure onrenderexe(const Sender: tcustomopenglwidget; const aupdaterect: rectty);
- 
+    procedure FractalcirclesRedraw(Sender: TObject; Bitmap: TBGRABitmap);
     procedure move(Bitmap: TBGRABitmap; distance: single);
     procedure rotate(Bitmap: TBGRABitmap; angle: single);
     procedure translate(Bitmap: TBGRABitmap; x: single; y: single);
@@ -70,10 +87,17 @@ type
     function Execute(thread: tmsethread): integer;
 
   private
+    zoom: single; 
+    increase: byte;
+    decrease: boolean;
+     thecolor: Byte;
+    myData: TData;
+    x2, y2: single;  
+    
+    
     rendercount: integer;
     renderstart: longword;
     frotx, froty, frotz: real;
-
   end;
 
 type
@@ -95,13 +119,16 @@ type
     Segments: TSegmentAr;
     Speed: integer;        // 1..10;
   end;
-
+ 
 const
   deg_to_rad = pi / 180;
   MaxRing    = 7;
   MinRadius  = 90;
   Deg2Rad    = pi / 180;
   Rad2Deg    = 180 / pi;
+  ColorStep = 10;
+  FractalDepth = 7;
+  ColorGamma = 1.5;       
 
 var
   Rings: array[0..MaxRing] of TRing;
@@ -110,10 +137,7 @@ var
   gAngle : single = 0;
   centerX:   integer = 0;
   centery:   integer = 0;
- 
-
   TimerTicinterval: integer = 0;
-
   imagedancerfo: timagedancerfo;
   multiplier: double;
   MAX_LOG: double = 0.0;
@@ -135,7 +159,22 @@ uses
 
 var
   Bitmap: tbgrabitmap;
+  
+// Fractal circles
 
+{ TData }
+
+procedure TData.Push(aData: TProp);
+begin
+  SetLength(data, Length(data)+1);
+  data[Length(data)-1] := aData;
+end;
+
+function TData.Pop: TProp;
+begin
+  Result := data[Length(data)-1];
+  SetLength(data, Length(data)-1);
+end;       
 
 // Atom
 
@@ -515,6 +554,90 @@ begin
   end;
 end;
 
+// Fractal circles
+procedure timagedancerfo.fractalcirclesRedraw(Sender: TObject; Bitmap: TBGRABitmap);
+
+procedure Translatefc(toX, toY: single);
+begin
+  x2 += toX;
+  y2 += toY;
+end;
+
+procedure push();
+var
+  prop: TProp;
+begin
+  prop.thecolor:=thecolor;
+  prop.x := x2;
+  prop.y := y2;
+  mydata.Push(prop);
+end;
+
+procedure pop();
+var
+  prop: TProp;
+begin
+  prop := mydata.Pop;
+  x2 := prop.x;
+  y2 := prop.y;
+  thecolor := prop.thecolor;
+end;
+
+
+
+procedure Circles(w: single);
+
+procedure Ellipse(ax, ay, aw, ah: single);
+begin
+  ax += x2;
+  ay += y2;
+//  Bitmap.EllipseAntialias(ax, ay, aw / 2, ah / 2,BGRA(thecolor * 3, thecolor div 3, thecolor), w / 8, BGRA(thecolor div 2, thecolor div 3, thecolor));
+
+ Bitmap.EllipseAntialias(ax, ay, aw / 2, ah / 2,
+ BGRA(round(thecolor * 3 * multiplier),
+  round(thecolor) , round(thecolor)),
+   w / 8,
+   
+//   BGRA(round(thecolor * multiplier) div 2, 
+//  round(thecolor * multiplier) div 3, round(thecolor * multiplier)));
+ 
+ BGRA(thecolor div 2, thecolor div 3, thecolor)); 
+ 
+  
+// BGRA(round(thecolor * 3 * multiplier), round(thecolor + 10), round(thecolor -10)));
+
+
+end;
+
+begin
+  if (w > 1) then
+  begin
+    if (not decrease) and (thecolor + increase > 255) then
+      decrease := true;
+    if (decrease) and (thecolor - increase < 0) then
+      decrease := false;
+    if decrease then
+      thecolor -= increase
+    else
+      thecolor += increase;
+    Ellipse(w / 2, 0, w, w);
+    Circles(w / 2);
+    push();
+    Translatefc(w, 0);
+    Ellipse(w / 2, 0, w, w);
+    Circles(w / 2);
+    pop();
+  end;
+end;
+
+begin
+  Bitmap.Fill(VGAPurple);
+  x2 := 0;
+  y2 := 0;
+  Translatefc(0, Height / 2);
+  circles(width * zoom);
+end;                              
+
 // Turtle
 
 procedure timagedancerfo.move(Bitmap: TBGRABitmap; distance: single);
@@ -554,7 +677,6 @@ var
   rad: double;
   x: double = 0;
   y: double = 0;
-  y2: double = 0;
   init: double = 0;
   i, j, k, m, z, offset: integer;
   col: TBGRAPixel;
@@ -766,7 +888,7 @@ begin
   
         centerX := Width div 2;
         centerY := Height div 2;
-     //{
+     {
         if multiplier > 0.4 then  
         begin
         //bitmap.Fill(cssBlack);      
@@ -774,15 +896,15 @@ begin
         end else
         
         gAngle := gAngle - (multiplier);
-       // }
+       }
         
-       // gAngle := gAngle + (0.2);
+      gAngle := gAngle + (0.2);
         
         if (gAngle >= 360) or (gAngle < 0)  then gAngle := 0;
         reset(Bitmap);
         translate(Bitmap, centerX, centerY);
        
-        for i := 1 to 490 do
+        for i := 1 to 490*2 do
          begin
           set_color(Bitmap, i div 2, round(150*multiplier), 244, 255);
       //     set_color(Bitmap, i div 2, round(128), round(150*multiplier), 255);
@@ -791,6 +913,33 @@ begin
           //   set_color(Bitmap, round(256), i div 2, round(150*multiplier), 255);
           rotate(Bitmap, gAngle);
          end;    
+       end else
+        if dancernum = 12 then // fractal circles
+    begin
+    //  Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE, $FF9D4D,
+     //   gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
+    //  bitmap.Fill(CSSpurple);
+ 
+ // if (multiplier >= 0.4) then
+ //  zoom := zoom * (1.015 * multiplier) else
+//   zoom := zoom - (1.015 * multiplier);
+   
+   
+     if (multiplier >= 0.4) then
+     zoom := zoom + (multiplier / 10)
+     else zoom :=  zoom - (multiplier / 10) ;
+    
+  //   if (multiplier >= 0.4) then
+   
+    //zoom *= 1.015;
+    
+    // else zoom := 0.1 ; 
+   
+  if (zoom < 0) then zoom := 0 ;
+  
+   if (zoom > 2) then zoom := 1;
+  
+   FractalcirclesRedraw(Sender, Bitmap);        
        end;
 
     Bitmap.draw(acanvas, 0, 0, False);
@@ -863,7 +1012,11 @@ begin
   Bitmap       := tbgrabitmap.Create(1000, 600);
   InitRings;
   center       := PointF(Width / 2, Height / 2);
-  
+  zoom := 1;
+  thecolor := 0;
+  x2 := 0;
+  y2 := 0;
+  increase := 1;      
   randomize;
 
 end;
