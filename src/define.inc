@@ -11,6 +11,7 @@
 {.$DEFINE java}   // uncomment for building uos java library
 {.$DEFINE fpgui}   // uncomment if FPC version < 2.7.1 and using fpGUI widget
 {$DEFINE mse}   // uncomment when using a mse project, msethreads and msetimers.
+{.$DEFINE usequeue}   // uncomment to use Thread.Queue instead of Thread.Synchronize for fpc threads.
 
 {$DEFINE portaudio} // uncomment to enable portaudio In/Out sound port
 {$DEFINE sndfile} // uncomment to enable sndfile (wav, ogg, flac audio file)

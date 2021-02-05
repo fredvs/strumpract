@@ -923,16 +923,19 @@ end;
 procedure tdrumsfo.createvoiceplayers;
 var 
   i: integer;
+   ordir: string;
   timerisenabled: boolean = False;
 begin
 
   if timertick.Enabled = True then
     timerisenabled := True;
   timertick.Enabled := False;
-
-  writeln(langcount.text);
+  
+//  writeln(langcount.text);
   //langcount.value  := 'es';
   // writeln(langcount.text);
+   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  
   adrums[4] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
                langcount.value + directoryseparator + '1.ogg');
   adrums[5] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
@@ -943,7 +946,6 @@ begin
                langcount.value + directoryseparator + '4.ogg');
   adrums[8] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
                langcount.value + directoryseparator + 'and.ogg');
-
 
   if tag = 0 then
     for i := 4 to 8 do

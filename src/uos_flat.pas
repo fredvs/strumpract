@@ -192,7 +192,7 @@ a5 = 1760.0;
  TProc = JMethodID ;
   {$else}
  TProc = procedure of object;
-  {$endif}
+ {$endif}
 
  type
   {$if not defined(fs32bit)}
@@ -445,8 +445,8 @@ function uos_AddFromDevIn(PlayerIndex: cint32; Device: cint32; Latency: CDouble;
 // SampleFormat : default : -1 (2:Int16) (0: Float32, 1:Int32, 2:Int16)
 // FramesCount : default : -1 (4096)
 // ChunkCount : default : -1 (= 512)
-//  result :  Output Index in array
-// example : OutputIndex1 := uos_AddFromDevIn(0,-1,-1,-1,-1,-1,-1);
+//  result :  Input Index in array
+// example : InputIndex1 := uos_AddFromDevIn(0,-1,-1,-1,-1,-1,-1);
 
 function uos_AddFromDevIn(PlayerIndex: cint32): cint32;
 // Add a Input from Device Input with default parameters
@@ -459,7 +459,7 @@ function uos_AddFromEndlessMuted(PlayerIndex: cint32; Channels : cint32; FramesC
 // Channels = Channels of input-to-follow.
  
 {$IF DEFINED(synthesizer)}
-function uos_AddFromSynth(PlayerIndex: cint32; Channels: integer; WaveTypeL, WaveTypeR: integer;
+function uos_AddFromSynth(PlayerIndex: cint32; Channels: integer; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float;
  duration : cint32; NbHarmonics: cint32; EvenHarmonics: cint32;
  OutputIndex: cint32;  SampleFormat: cint32 ; SampleRate: cint32 ; FramesCount : cint32): cint32;
@@ -483,7 +483,7 @@ function uos_AddFromSynth(PlayerIndex: cint32; Channels: integer; WaveTypeL, Wav
 // FramesCount: -1 default : 1024
 //  result:  Input Index in array  -1 = error
 
-procedure uos_InputSetSynth(PlayerIndex: cint32; InputIndex: cint32; WaveTypeL, WaveTypeR: integer;
+procedure uos_InputSetSynth(PlayerIndex: cint32; InputIndex: cint32; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; 
   NbHarmonic: cint32; EvenHarmonics: cint32; Enable: boolean);
 // InputIndex: one existing input index   
@@ -1377,7 +1377,7 @@ function uos_AddFromEndlessMuted(PlayerIndex: cint32; Channels : cint32; FramesC
 end; 
 
 {$IF DEFINED(synthesizer)}
-function uos_AddFromSynth(PlayerIndex: cint32; Channels: integer; WaveTypeL, WaveTypeR: integer;
+function uos_AddFromSynth(PlayerIndex: cint32; Channels: integer; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float;
  duration : cint32; NbHarmonics: cint32; EvenHarmonics: cint32;
  OutputIndex: cint32;  SampleFormat: cint32 ; SampleRate: cint32 ; FramesCount : cint32): cint32;
@@ -1410,7 +1410,7 @@ function uos_AddFromSynth(PlayerIndex: cint32; Channels: integer; WaveTypeL, Wav
   SampleFormat, SampleRate,  FramesCount) ;
 end;
 
-procedure uos_InputSetSynth(PlayerIndex: cint32; InputIndex: cint32; WaveTypeL, WaveTypeR: integer;
+procedure uos_InputSetSynth(PlayerIndex: cint32; InputIndex: cint32; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; 
   NbHarmonic: cint32; EvenHarmonics: cint32; Enable: boolean);
 // InputIndex: one existing input index   
@@ -2434,7 +2434,7 @@ end;
 procedure uos_Free();
 var
 x : integer;
-nt : integer = 100;
+nt : shortint = 100;
 begin
 
 // needed for MSE and if some players are still playing

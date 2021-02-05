@@ -888,7 +888,7 @@ begin
   
         centerX := Width div 2;
         centerY := Height div 2;
-     {
+     //{
         if multiplier > 0.4 then  
         begin
         //bitmap.Fill(cssBlack);      
@@ -896,9 +896,9 @@ begin
         end else
         
         gAngle := gAngle - (multiplier);
-       }
+      // }
         
-      gAngle := gAngle + (0.2);
+    //  gAngle := gAngle + (0.2);
         
         if (gAngle >= 360) or (gAngle < 0)  then gAngle := 0;
         reset(Bitmap);

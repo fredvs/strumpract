@@ -288,8 +288,8 @@ type
   Encoding: cint32;
   bitrate: cint32;
   Length: cint32;//  length samples total ;
-  LibOpen: integer; 
-  Ratio: integer;  
+  LibOpen: shortint; 
+  Ratio: byte;  
 end;  
 
 type
@@ -380,7 +380,7 @@ type
   wSamplesPerSec: cint32;
   wBitsPerSample: word;
   wChannels: word;
-  FileFormat: integer;
+  FileFormat: shortint;
   Data: TFileStream;
   DataMS: TMemoryStream;
   end;
@@ -389,7 +389,7 @@ type
   Tuos_Data = record// Global data
   Enabled: boolean;
   
-  TypePut: integer;
+  TypePut: shortint;
 // -1 : nothing. 
 // for Input  : 0: from audio encoded file, 1: from input device (like mic),
 //              2: from internet audio stream, 3: from Synthesizer, 4: from memory buffer,
@@ -398,7 +398,7 @@ type
 //              3: into memory buffer, 4: into wav file from memorystream, 5: into memorystream,
 //              6: into ogg file from filestream, 7: into ogg memorystream    
   Seekable: boolean;
-  Status: integer;
+  Status: byte;
   
   Buffer: TDArFloat;
   MemoryBuffer: TDArFloat;
@@ -425,10 +425,10 @@ type
   
   levelfiltersar : TDArFloat;
 
-  PositionEnable : integer;
-  LevelEnable : integer;
+  PositionEnable : shortint;
+  LevelEnable : shortint;
   LevelLeft, LevelRight: cfloat;
-  levelArrayEnable : integer;
+  levelArrayEnable : shortint;
   
 {$IF DEFINED(synthesizer)}
   LookupTableLeft, LookupTableRight: array [0..1023] of  CFloat;
@@ -479,8 +479,8 @@ type
   Encoding: cint32;
   bitrate: cint32;
   Length: cint32;//  length samples total 
-  LibOpen: integer;// -1: nothing open, 0: sndfile open, 1: mpg123 open, 2: aac open, 3: cdrom, 4: opus
-  Ratio: integer;//  if mpg123 or aac then ratio := 2
+  LibOpen: shortint;// -1: nothing open, 0: sndfile open, 1: mpg123 open, 2: aac open, 3: cdrom, 4: opus
+  Ratio: byte;//  if mpg123 or aac then ratio := 2
   
   BPM : cfloat;
   numbuf : integer;
@@ -502,7 +502,7 @@ type
   Tuos_FFT = class(TObject)
   public
   
-  TypeFilterL, TypeFilterR: integer;
+  TypeFilterL, TypeFilterR: byte;
   LowFrequencyL, HighFrequencyL: cfloat;
   LowFrequencyR, HighFrequencyR: cfloat;
   GainL, GainR: cfloat;
@@ -881,14 +881,14 @@ function AddFromEndlessMuted(Channels : cint32; FramesCount: cint32): cint32;
 // Channels = Channels of input-to-follow.
 
 {$IF DEFINED(synthesizer)}
-function AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: integer;
+function AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float;
  duration : cint32; NbHarmonics: cint32; EvenHarmonics: cint32;
  OutputIndex: cint32;  SampleFormat: cint32 ; SampleRate: cint32 ; FramesCount : cint32): cint32;
 // Add a input from Synthesizer with custom parameters
 // Channels: default: -1 (2) (1 = mono, 2 = stereo)
-// WaveTypeL: default: -1 (0) (0 = sine-wave 1 = square-wave, used for mono and stereo) 
-// WaveTypeR: default: -1 (0) (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
+// WaveTypeL: default: -1 (0) (0 = sine-wave, 1 = square-wave, 2= triangle, used for mono and stereo) 
+// WaveTypeR: default: -1 (0) (0 = sine-wave, 1 = square-wave, 2= triangle, used for stereo, ignored for mono) 
 // FrequencyL: default: -1 (440 htz) (Left frequency, used for mono)
 // FrequencyR: default: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
 // VolumeL: default: -1 (= 1) (from 0 to 1) => volume left
@@ -904,8 +904,11 @@ function AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: integer;
 // SampleRate: delault : -1 (44100)
 // FramesCount: -1 default : 1024
 //  result:  Input Index in array  -1 = error
+
+function InputGetBuffer(InputIndex: cint32): TDArFloat;
+// Get current buffer
   
-procedure InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: integer;
+procedure InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; 
   NbHarmonic: cint32; EvenHarmonics: cint32; Enable: boolean);
 // InputIndex: one existing input index   
@@ -1046,6 +1049,14 @@ function InputPosition(InputIndex: cint32): cint32;
 // InputIndex : InputIndex of existing input
 // result : current postion in sample
 
+function InputPositionSeconds(InputIndex: cint32): float;
+// InputIndex : InputIndex of existing input
+//  result : current postion of Input in seconds
+
+function InputPositionTime(InputIndex: cint32): TTime;
+// InputIndex : InputIndex of existing input
+//  result : current postion of Input in time format
+
 procedure InputSetFrameCount(InputIndex: cint32 ; framecount : cint32);
 // set number of frames to be done. (usefull for recording and level precision)
 
@@ -1090,14 +1101,6 @@ function InputGetBPM(InputIndex: cint32): float;
 // InputIndex : InputIndex of existing input
 // result : left level from 0 to 1
 {$endif}   
-
-function InputPositionSeconds(InputIndex: cint32): float;
-// InputIndex : InputIndex of existing input
-//  result : current postion of Input in seconds
-
-function InputPositionTime(InputIndex: cint32): TTime;
-// InputIndex : InputIndex of existing input
-//  result : current postion of Input in time format
 
 function InputUpdateTag(InputIndex: cint32): boolean;
 
@@ -3352,7 +3355,7 @@ function SoundTouchPlug(bufferin: TDArFloat; plugHandle: THandle; notneeded :Tt_
   notused1: float; notused2: float; notused3: float;  notused4: float;
   notused5: float; notused6: float; notused7: float;  notused8: float): TDArFloat;
 var
- ratio : integer;
+ ratio : shortint;
  numoutbuf, x1, x2: cint32;
   BufferplugFLTMP: TDArFloat;
   BufferplugFL: TDArFloat;
@@ -3468,7 +3471,7 @@ function GetBPMPlug(bufferin: TDArFloat; plugHandle: THandle; notneeded :Tt_bs2b
   numframes: float; loop: float; notused3: float;  notused4: float;
   notused5: float; notused6: float; notused7: float;  notused8: float): TDArFloat;
 var
- ratio : integer;
+ ratio : shortint;
  begin
  
  case inputData.LibOpen of
@@ -4869,14 +4872,14 @@ begin
 end;
 
 {$IF DEFINED(synthesizer)}
-function Tuos_Player.AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: integer;
+function Tuos_Player.AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float;
  duration : cint32; NbHarmonics: cint32; EvenHarmonics: cint32;
  OutputIndex: cint32;  SampleFormat: cint32 ; SampleRate: cint32 ; FramesCount : cint32): cint32;
 // Add a input from Synthesizer with custom parameters
 // Channels: default: -1 (2) (1 = mono, 2 = stereo)
-// WaveTypeL: default: -1 (0) (0 = sine-wave 1 = square-wave, used for mono and stereo) 
-// WaveTypeR: default: -1 (0) (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
+// WaveTypeL: default: -1 (0) (0 = sine-wave 1 = square-wave, 2 = triangle, used for mono and stereo) 
+// WaveTypeR: default: -1 (0) (0 = sine-wave 1 = square-wave,2 = triangle used, used for stereo, ignored for mono) 
 // FrequencyL: default: -1 (440 htz) (Left frequency, used for mono)
 // FrequencyR: default: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
 // VolumeL: default: -1 (= 1) (from 0 to 1) => volume left
@@ -4926,11 +4929,11 @@ begin
   
   if WaveTypeL < 1 then 
   StreamIn[x].Data.typLsine := 0 else
-  StreamIn[x].Data.typLsine := 1;
+  StreamIn[x].Data.typLsine := WaveTypeL;
   
   if WaveTypeR < 1 then 
   StreamIn[x].Data.typRsine := 0 else
-  StreamIn[x].Data.typRsine := 1;
+  StreamIn[x].Data.typRsine := WaveTypeR;
   
   StreamIn[x].Data.PosInTableLeft := 0;
   StreamIn[x].Data.PosInTableRight := 0;
@@ -4964,7 +4967,11 @@ begin
   StreamIn[x].Data.Status := 1;
   StreamIn[x].Data.TypePut := 3;
   StreamIn[x].Data.HandleSt := pchar('synth');
-  StreamIn[x].Data.ratio := 2;
+ 
+  if (StreamIn[x].Data.SampleFormat = 2) then
+  StreamIn[x].Data.ratio := StreamIn[x].data.channels
+  else StreamIn[x].Data.ratio := 2;
+ 
   StreamIn[x].Data.Output := OutputIndex;
   StreamIn[x].Data.seekable := False;
   StreamIn[x].Data.LibOpen := -1;
@@ -4977,7 +4984,13 @@ begin
   Result := x;
 end;
 
-procedure Tuos_Player.InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: integer;
+function Tuos_Player.InputGetBuffer(InputIndex: cint32): TDArFloat;
+// Get current buffer
+begin
+result := StreamIn[InputIndex].data.Buffer;
+end;
+
+procedure Tuos_Player.InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; 
   NbHarmonic: cint32; EvenHarmonics: cint32; Enable: boolean);
 // InputIndex: one existing input index   
@@ -7551,7 +7564,7 @@ begin
   
 for i:=0 to l-1 do  
 begin 
-  if typewave = 0 then
+  if typewave = 0 then // sine
   begin
    if channel = 1 then
     StreamIn[x].Data.LookupTableLeft[i]:=sin(i*nPI_l);
@@ -7559,7 +7572,7 @@ begin
     StreamIn[x].Data.LookupTableRight[i]:=sin(i*nPI_l);
   end;
   
-  if typewave = 1 then
+  if typewave = 1 then // square
   begin
    if channel = 1 then
    begin
@@ -7574,6 +7587,19 @@ begin
     StreamIn[x].Data.LookupTableRight[i]:=-1 ;
     end; 
   end;
+  
+  if typewave = 2 then // triangle
+  begin
+   if channel = 1 then
+   begin
+    StreamIn[x].Data.LookupTableLeft[i]:= ((l - i)/(l/2))-1;
+   end; 
+   if channel = 2 then
+   begin
+   StreamIn[x].Data.LookupTableRight[i]:= ((l - i)/(l/2))-1;
+    end; 
+  end;
+    
 end;
     
  if AHarmonics > 0 then   
@@ -7661,8 +7687,8 @@ begin
   if (StreamIn[x].Data.posdursine <= StreamIn[x].Data.dursine) or (StreamIn[x].Data.dursine = 0) then
   begin
  
-  while x2 < (length(StreamIn[x].Data.Buffer)) - (chan * 512)  do
-  begin
+  while x2 < (length(StreamIn[x].Data.Buffer) div chan)  do
+ begin
   
   sf2:= 0;
   sf1:= 0;
@@ -7850,7 +7876,7 @@ begin
   {$IF not DEFINED(Library)}
   if (StreamOut[x].DSP[x3].LoopProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,StreamOut[x].DSP[x3].LoopProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,StreamOut[x].DSP[x3].LoopProc);
   {$else}
  {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
  begin
@@ -7859,7 +7885,7 @@ begin
   fpgPostMessage(self, refer, MSG_CUSTOM1, msg);
   end;
  {$else}
-  thethread.synchronize(thethread,StreamOut[x].DSP[x3].LoopProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,StreamOut[x].DSP[x3].LoopProc);
   {$endif}
   {$endif}
 
@@ -7869,9 +7895,9 @@ begin
   {$else}
   if (StreamOut[x].DSP[x3].LoopProc <> nil) then
   {$IF FPC_FULLVERSION >= 20701}
-  thethread.synchronize(thethread,@StreamOut[x].DSP[x3].LoopProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@StreamOut[x].DSP[x3].LoopProcjava);
   {$else}
-  thethread.synchronize(thethread,@StreamOut[x].DSP[x3].LoopProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@StreamOut[x].DSP[x3].LoopProcjava);
   {$endif}
   {$endif}
   
@@ -7950,7 +7976,7 @@ begin
     {$IF not DEFINED(Library)}
   if (StreamIn[x].DSP[x2].LoopProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,StreamIn[x].DSP[x2].LoopProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,StreamIn[x].DSP[x2].LoopProc);
   {$else}
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   begin
@@ -7959,7 +7985,7 @@ begin
   fpgPostMessage(self, refer, MSG_CUSTOM1, msg);
   end;
   {$else}
-  thethread.synchronize(thethread,StreamIn[x].DSP[x2].LoopProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,StreamIn[x].DSP[x2].LoopProc);
   {$endif}
   {$endif}
   {$elseif not DEFINED(java)}
@@ -7968,9 +7994,9 @@ begin
   {$else}
   if (StreamIn[x].DSP[x2].LoopProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@Streamin[x].DSP[x2].LoopProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@Streamin[x].DSP[x2].LoopProcjava);
   {$else}
-  thethread.synchronize(thethread,@Streamin[x].DSP[x2].LoopProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@Streamin[x].DSP[x2].LoopProcjava);
   {$endif}
   {$endif}
   {$endif}
@@ -8039,7 +8065,7 @@ begin
 
 //  Execute LoopEndProc procedure
    {$IF FPC_FULLVERSION>=20701}
-   thethread.synchronize(thethread,LoopEndProc);
+   thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,LoopEndProc);
    {$else}
    {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
    begin
@@ -8047,7 +8073,7 @@ begin
    fpgPostMessage(self, refer, MSG_CUSTOM1, msg);
    end;
    {$else}
-   thethread.synchronize(thethread,LoopEndProc);
+   thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,LoopEndProc);
    {$endif}
    {$endif}
    {$elseif not DEFINED(java)}
@@ -8057,9 +8083,9 @@ begin
    if LoopEndProc <> nil then
 
    {$IF FPC_FULLVERSION>=20701}
-   thethread.synchronize(thethread,@endprocjava);
+   thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@endprocjava);
    {$else}
-   thethread.synchronize(thethread,@endprocjava);//  Execute EndProc procedure
+   thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@endprocjava);//  Execute EndProc procedure
    {$endif}
    {$endif}
    {$endif}
@@ -8074,7 +8100,7 @@ begin
 
  {$IF not DEFINED(Library)}
   if EndProc <> nil then
-   thethread.synchronize(thethread,EndProc);//  Execute EndProc procedure
+   thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,EndProc);//  Execute EndProc procedure
 
    //thethread.queue(thethread,EndProc);//  Execute EndProc procedure
 
@@ -8083,7 +8109,7 @@ begin
   EndProc;
   {$else}
   if (EndProc <> nil) then
-  thethread.synchronize(thethread,@endprocjava);//  Execute EndProc procedure
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@endprocjava);//  Execute EndProc procedure
  
   {$endif}
 
@@ -8145,9 +8171,9 @@ begin
   {$IF not DEFINED(Library)}
   if EndProc <> nil then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,EndProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,EndProc);
   {$else}
-  thethread.synchronize(thethread,EndProc);//  Execute EndProc procedure
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,EndProc);//  Execute EndProc procedure
   {$endif}
 
   {$elseif not DEFINED(java)}
@@ -8156,9 +8182,9 @@ begin
   {$else}
   if (EndProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@endprocjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@endprocjava);
   {$else}
-  thethread.synchronize(thethread,@endprocjava);//  Execute EndProc procedure
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@endprocjava);//  Execute EndProc procedure
   {$endif}
 
   {$endif}
@@ -8378,7 +8404,7 @@ begin
   {$IF not DEFINED(Library)}
   if StreamIn[x].LoopProc <> nil then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,StreamIn[x].LoopProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,StreamIn[x].LoopProc);
   {$else}
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   begin
@@ -8387,7 +8413,7 @@ begin
   fpgPostMessage(self, refer, MSG_CUSTOM1, msg);
   end;
   {$else}
-  thethread.synchronize(thethread,StreamIn[x].LoopProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,StreamIn[x].LoopProc);
   {$endif}
   {$endif}
 
@@ -8397,9 +8423,9 @@ begin
   {$else}
   if (StreamIn[x].LoopProc <> nil) then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@Streamin[x].LoopProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@Streamin[x].LoopProcjava);
   {$else}
-  thethread.synchronize(thethread,@Streamin[x].LoopProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@Streamin[x].LoopProcjava);
   {$endif}
   {$endif}
    {$endif}
@@ -8422,7 +8448,7 @@ begin
   if BeginProc <> nil then
 //  Execute BeginProc procedure
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,BeginProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,BeginProc);
   {$else}
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   begin
@@ -8430,7 +8456,7 @@ begin
   fpgPostMessage(self, refer, MSG_CUSTOM1, msg);
   end;
   {$else}
-  thethread.synchronize(thethread,BeginProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,BeginProc);
   {$endif}
   {$endif}
   {$elseif not DEFINED(java)}
@@ -8439,9 +8465,9 @@ begin
   {$else}
   if BeginProc <> nil then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@BeginProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@BeginProcjava);
   {$else}
-  thethread.synchronize(thethread,@BeginProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@BeginProcjava);
   {$endif}
   {$endif}
   {$endif}
@@ -8463,7 +8489,7 @@ begin
   if LoopBeginProc <> nil then
 //  Execute BeginProc procedure
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,LoopBeginProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,LoopBeginProc);
   {$else}
   {$IF (FPC_FULLVERSION < 20701) and DEFINED(fpgui)}
   begin
@@ -8471,7 +8497,7 @@ begin
   fpgPostMessage(self, refer, MSG_CUSTOM1, msg);
   end;
   {$else}
-  thethread.synchronize(thethread,LoopBeginProc);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,LoopBeginProc);
   {$endif}
   {$endif}
   {$elseif not DEFINED(java)}
@@ -8480,9 +8506,9 @@ begin
   {$else}
   if loopBeginProc <> nil then
   {$IF FPC_FULLVERSION>=20701}
-  thethread.synchronize(thethread,@loopBeginProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@loopBeginProcjava);
   {$else}
-  thethread.synchronize(thethread,@loopBeginProcjava);
+  thethread.{$IF DEFINED(usequeue)}Queue{$else}Synchronize{$endif}(thethread,@loopBeginProcjava);
   {$endif}
   {$endif}
   {$endif}
