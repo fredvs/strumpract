@@ -12,7 +12,7 @@ Like:
 -   Image Dancer.
 
 There are compiled executable for Linux 32/64, Windows 32/64, FreeBSD 64
-and arm RPi. =\> https://github.com/fredvs/strumpract/releases/
+and arm-aarch64 Rpi 32/64. =\> https://github.com/fredvs/strumpract/releases/
 
 Fred van Stappen fiens@hotmail.com
 

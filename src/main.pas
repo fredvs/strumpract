@@ -344,7 +344,7 @@ begin
     c_linefeed + c_linefeed +
     'Audio library: uos 1.8. (United Openlib of Sound)' + c_linefeed +
     'https://github.com/fredvs/uos' + c_linefeed +
-    c_linefeed + 'Copyright 2020' + c_linefeed +
+    c_linefeed + 'Copyright 2021' + c_linefeed +
     'Fred van Stappen <fiens@hotmail.com>';
   aboutfo.Show(True);
 end;

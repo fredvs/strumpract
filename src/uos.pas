@@ -880,6 +880,9 @@ function AddFromEndlessMuted(Channels : cint32; FramesCount: cint32): cint32;
 // FramesCount = FramesCount of input-to-follow 
 // Channels = Channels of input-to-follow.
 
+function InputGetBuffer(InputIndex: cint32): TDArFloat;
+// Get current buffer
+
 {$IF DEFINED(synthesizer)}
 function AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float;
@@ -887,8 +890,8 @@ function AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: shortint;
  OutputIndex: cint32;  SampleFormat: cint32 ; SampleRate: cint32 ; FramesCount : cint32): cint32;
 // Add a input from Synthesizer with custom parameters
 // Channels: default: -1 (2) (1 = mono, 2 = stereo)
-// WaveTypeL: default: -1 (0) (0 = sine-wave, 1 = square-wave, 2= triangle, used for mono and stereo) 
-// WaveTypeR: default: -1 (0) (0 = sine-wave, 1 = square-wave, 2= triangle, used for stereo, ignored for mono) 
+// WaveTypeL: default: -1 (0) (0 = sine-wave, 1 = square-wave, 2= triangle, 3=sawtooth used for mono and stereo) 
+// WaveTypeR: default: -1 (0) (0 = sine-wave, 1 = square-wave, 2= triangle, , 3=sawtooth used for stereo, ignored for mono) 
 // FrequencyL: default: -1 (440 htz) (Left frequency, used for mono)
 // FrequencyR: default: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
 // VolumeL: default: -1 (= 1) (from 0 to 1) => volume left
@@ -905,15 +908,12 @@ function AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: shortint;
 // FramesCount: -1 default : 1024
 //  result:  Input Index in array  -1 = error
 
-function InputGetBuffer(InputIndex: cint32): TDArFloat;
-// Get current buffer
-  
 procedure InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; 
   NbHarmonic: cint32; EvenHarmonics: cint32; Enable: boolean);
 // InputIndex: one existing input index   
-// WaveTypeL: do not change: -1 (0 = sine-wave 1 = square-wave, used for mono and stereo) 
-// WaveTypeR: do not change: -1 (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
+// WaveTypeL: do not change: -1 (0 = sine-wave 1 = square-wave, 2= triangle, 3=sawtooth used for mono and stereo) 
+// WaveTypeR: do not change: -1 (0 = sine-wave 1 = square-wave, 2= triangle, 3=sawtooth used for stereo, ignored for mono) 
 // FrequencyL: do not change: -1 (Left frequency, used for mono)
 // FrequencyR: do not change: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
 // VolumeL: do not change: -1 (= 1) (from 0 to 1) => volume left
@@ -4819,6 +4819,12 @@ begin
 end;
 {$endif}
 
+function Tuos_Player.InputGetBuffer(InputIndex: cint32): TDArFloat;
+// Get current buffer
+begin
+result := StreamIn[InputIndex].data.Buffer;
+end;
+
 function Tuos_Player.AddFromEndlessMuted(Channels : cint32; FramesCount: cint32): cint32;
 // Add a input from Endless Muted dummy sine wav
 // FramesCountByChan = FramesCount of input-to-follow div channels of input-to-follow.
@@ -4878,8 +4884,8 @@ function Tuos_Player.AddFromSynth(Channels: integer; WaveTypeL, WaveTypeR: short
  OutputIndex: cint32;  SampleFormat: cint32 ; SampleRate: cint32 ; FramesCount : cint32): cint32;
 // Add a input from Synthesizer with custom parameters
 // Channels: default: -1 (2) (1 = mono, 2 = stereo)
-// WaveTypeL: default: -1 (0) (0 = sine-wave 1 = square-wave, 2 = triangle, used for mono and stereo) 
-// WaveTypeR: default: -1 (0) (0 = sine-wave 1 = square-wave,2 = triangle used, used for stereo, ignored for mono) 
+// WaveTypeL: default: -1 (0) (0 = sine-wave 1 = square-wave, 2 = triangle, 2= triangle, 3=sawtooth used for mono and stereo) 
+// WaveTypeR: default: -1 (0) (0 = sine-wave 1 = square-wave,2 = triangle, 2= triangle, 3=sawtooth used, used for stereo, ignored for mono) 
 // FrequencyL: default: -1 (440 htz) (Left frequency, used for mono)
 // FrequencyR: default: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
 // VolumeL: default: -1 (= 1) (from 0 to 1) => volume left
@@ -4984,18 +4990,12 @@ begin
   Result := x;
 end;
 
-function Tuos_Player.InputGetBuffer(InputIndex: cint32): TDArFloat;
-// Get current buffer
-begin
-result := StreamIn[InputIndex].data.Buffer;
-end;
-
 procedure Tuos_Player.InputSetSynth(InputIndex: cint32; WaveTypeL, WaveTypeR: shortint;
  FrequencyL, FrequencyR: float; VolumeL, VolumeR: float; duration: cint32; 
   NbHarmonic: cint32; EvenHarmonics: cint32; Enable: boolean);
 // InputIndex: one existing input index   
-// WaveTypeL : do not change: -1 (0 = sine-wave 1 = square-wave, used for mono and stereo) 
-// WaveTypeR : do not change: -1 (0 = sine-wave 1 = square-wave, used for stereo, ignored for mono) 
+// WaveTypeL : do not change: -1 (0 = sine-wave 1 = square-wave, 2 = triangle, 2= triangle, 3=sawtooth used for mono and stereo) 
+// WaveTypeR : do not change: -1 (0 = sine-wave 1 = square-wave, 2 = triangle, 2= triangle, 3=sawtooth used for stereo, ignored for mono) 
 // FrequencyL : do not change: -1 (Left frequency, used for mono)
 // FrequencyR : do not change: -1 (440 htz) (Right frequency, used for stereo, ignored for mono)
 // VolumeL : do not change: -1 (= 1) (from 0 to 1) => volume left
@@ -7558,49 +7558,90 @@ procedure Tuos_Player.FillLookupTable(x, typewave, channel, AHarmonics: Integer;
  EvenHarmonics : shortint);
 var i, j, l: Integer;
     nPI_l, attenuation: Double;
+    thesample: single;
 begin
   l:=1024; 
   nPI_l:=2*PI/l;
-  
-for i:=0 to l-1 do  
-begin 
-  if typewave = 0 then // sine
-  begin
-   if channel = 1 then
-    StreamIn[x].Data.LookupTableLeft[i]:=sin(i*nPI_l);
-   if channel = 2 then
-    StreamIn[x].Data.LookupTableRight[i]:=sin(i*nPI_l);
-  end;
-  
-  if typewave = 1 then // square
-  begin
-   if channel = 1 then
-   begin
-   if sin(i*nPI_l) >= 0 then
-    StreamIn[x].Data.LookupTableLeft[i]:= 1 else
-    StreamIn[x].Data.LookupTableLeft[i]:=-1 ;
-   end; 
-   if channel = 2 then
-   begin
-   if sin(i*nPI_l) >= 0 then
-    StreamIn[x].Data.LookupTableRight[i]:= 1 else
-    StreamIn[x].Data.LookupTableRight[i]:=-1 ;
-    end; 
-  end;
+ 
+  for i:=0 to l-1 do  
+   begin    
+   if typewave = 0 then  // sine
+    begin
+      thesample   := sin(i * nPI_l);
+      if thesample > 1 then
+        thesample := 1;
+      if thesample < -1 then
+        thesample := -1;
+
+      if Channel = 1 then
+        StreamIn[x].Data.LookupTableLeft[i]  := thesample;
+        //   writeln( floattostr((LookupTableLeft[i])) + ' left ');
+     
+      if Channel = 2 then
+        StreamIn[x].Data.LookupTableRight[i] := thesample;
+        //  writeln(  'right  ' + floattostr((LookupTableRight[i])));
+     
+    end;
+
+     if typewave = 1 then // square
+    begin
+      if sin(i * nPI_l) >= 0 then
+        thesample := 1
+      else
+        thesample := -1;
+
+      if Channel = 1 then
+        StreamIn[x].Data.LookupTableLeft[i]  := thesample;
+      if Channel = 2 then
+        StreamIn[x].Data.LookupTableRight[i] := thesample;
+    end;
   
   if typewave = 2 then // triangle
-  begin
-   if channel = 1 then
-   begin
-    StreamIn[x].Data.LookupTableLeft[i]:= ((l - i)/(l/2))-1;
-   end; 
-   if channel = 2 then
-   begin
-   StreamIn[x].Data.LookupTableRight[i]:= ((l - i)/(l/2))-1;
-    end; 
-  end;
+    begin
+      if Channel = 1 then
+      begin
+        if i < (l div 2) + 1 then
+          thesample := (((l - (i * 2)) / (l / 2))) - 1
+        else
+          thesample := StreamIn[x].Data.LookupTableLeft[l - i];
+        if thesample > 1 then
+          thesample := 1;
+        if thesample < -1 then
+          thesample := -1;
+        StreamIn[x].Data.LookupTableLeft[i] := thesample;
+        //writeln( floattostr((LookupTableLeft[i])) + ' left '); 
+      end;
+
+      if Channel = 2 then
+      begin
+        if i < (l div 2) + 1 then
+          thesample := (((l - (i * 2)) / (l / 2))) - 1
+        else
+          thesample := StreamIn[x].Data.LookupTableRight[l - i];
+        if thesample > 1 then
+          thesample := 1;
+        if thesample < -1 then
+          thesample := -1;
+        StreamIn[x].Data.LookupTableRight[i] := thesample;
+        // writeln( floattostr((LookupTableright[i])) + ' right '); 
+      end;
+    end;
+
+    if typewave = 3 then // Sawtooth
+    begin
+      thesample :=  ((l - i) / (l / 2)) - 1;
+        if thesample > 1 then
+          thesample := 1;
+        if thesample < -1 then
+          thesample := -1;
+      
+      if Channel = 1 then
+        StreamIn[x].Data.LookupTableLeft[i]  := thesample;
+      if Channel = 2 then
+        StreamIn[x].Data.LookupTableRight[i] := thesample;
+    end;
     
-end;
+  end;  
     
  if AHarmonics > 0 then   
   for j:=1 to AHarmonics do
@@ -8661,9 +8702,11 @@ if err > 0 then
   inc(theinc);
   if theinc > StreamIn[x2].Data.numbuf then status := 0 ;
   end;
-
+   
    SetLength(Streamout[x].BufferOut^,length(Streamout[x].BufferOut^) + wantframestemp );
-
+   
+  Streamout[x].Data.posmem := length(Streamout[x].BufferOut^) -  wantframestemp;
+      
   for x2 := 0 to (wantframestemp) -1 do begin
    Streamout[x].BufferOut^[Streamout[x].Data.posmem + x2] := StreamOut[x].Data.Buffer[x2];
   end;
