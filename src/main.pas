@@ -46,6 +46,11 @@ uses
   msedropdownlist,
   msefiledialogx,
   msegridsglob,
+  
+   {$IFDEF unix}
+   dynlibs,
+   {$ENDIF} 
+  
   msetraywidget;
 
 type
@@ -369,7 +374,27 @@ procedure tmainfo.oncreatedform(const Sender: TObject);
 var
   x: integer;
   haswav: Boolean = False;
+  
+  {$IFDEF unix}
+ bo : boolean;
+gl_Handle:TLibHandle=dynlibs.NilHandle;
+{$ENDIF} 
+
 begin
+
+{$IFDEF unix}
+  gl_Handle := DynLibs.SafeLoadLibrary('libGL.so.1'); 
+  // check if gl is installed
+  if gl_Handle  <> DynLibs.NilHandle then bo := true
+  else bo := false;
+  if bo then DynLibs.UnloadLibrary(gl_Handle) else
+  begin
+  mainfo.tmainmenu1.menu[5].submenu[0].visible := false;
+  mainfo.tmainmenu1.menu[5].submenu[1].visible := false;
+  mainfo.tmainmenu1.menu[5].submenu[2].visible := false;
+  end;
+  {$ENDIF} 
+
   Caption := 'StrumPract ' + versiontext;
   beginlayout();
   
@@ -4291,7 +4316,21 @@ begin
 end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
+{$IFDEF unix}
+var
+bo : boolean;
+gl_Handle:TLibHandle=dynlibs.NilHandle;
+{$ENDIF} 
+
 begin
+
+{$IFDEF unix}
+  gl_Handle := DynLibs.SafeLoadLibrary('libGL.so.1'); // check if gl is installed
+ if gl_Handle  <> DynLibs.NilHandle then bo := true
+  else bo := false;
+  if bo then    DynLibs.UnloadLibrary(gl_Handle);
+ {$ENDIF} 
+
 if (tmenuitem(Sender).tag = 12) then
   begin
     imagedancerfo.Caption := 'Dancing Fractal Circles by Lainz';
@@ -4319,19 +4358,31 @@ if (tmenuitem(Sender).tag = 11) then
   end
   else if (tmenuitem(Sender).tag = 9) then
   begin
+   {$IFDEF unix} 
+  if bo then begin
+  {$ENDIF} 
     imagedancerfo.Caption := 'Dancing Lines';
     imagedancerfo.openglwidget.Visible := True;
     // imagedancerfo.tpaintbox1.Visible := true;
     dancernum     := 9;
     dancnum.Value := 9;
+    {$IFDEF unix} 
+  end;
+  {$ENDIF}  
   end
   else if (tmenuitem(Sender).tag = 8) then
   begin
+     {$IFDEF unix} 
+  if bo then begin
+  {$ENDIF} 
     imagedancerfo.Caption := 'Dancing Triangle';
     imagedancerfo.openglwidget.Visible := True;
     // imagedancerfo.tpaintbox1.Visible := true;
     dancernum     := 8;
     dancnum.Value := 8;
+     {$IFDEF unix} 
+  end;
+  {$ENDIF} 
   end
   else if (tmenuitem(Sender).tag = 7) then
   begin
@@ -4367,11 +4418,18 @@ if (tmenuitem(Sender).tag = 11) then
   end
   else if (tmenuitem(Sender).tag = 3) then
   begin
+  
+  {$IFDEF unix} 
+  if bo then begin
+  {$ENDIF} 
     imagedancerfo.Caption := 'Dancing Square';
     imagedancerfo.openglwidget.Visible := True;
     // imagedancerfo.tpaintbox1.Visible := False;
     dancernum     := 3;
     dancnum.Value := 3;
+  {$IFDEF unix} 
+   end;
+  {$ENDIF}   
   end
   else if (tmenuitem(Sender).tag = 0) then
   begin

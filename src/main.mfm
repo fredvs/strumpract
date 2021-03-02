@@ -792,8 +792,8 @@ object mainfo: tmainfo
       bounds_cx = 29
       bounds_cy = 21
       statfile = tstatfile1
-      value = 3
-      valuedefault = 3
+      value = 1
+      valuedefault = 1
       valuemax = 100
       reffontheight = 15
     end
