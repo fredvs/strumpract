@@ -2541,6 +2541,8 @@ begin
     commanderfo.nameinput.font.color  := ltblack;
     commanderfo.genleftvolvalue.font.color := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
+    commanderfo.sysvolbut.font.color := ltblack;
+    
     {
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
@@ -2590,6 +2592,10 @@ begin
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
+    
+    commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
+
 
     commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
@@ -3143,6 +3149,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.nameinput.font.color        := ltblack;
     commanderfo.genleftvolvalue.font.color  := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
+    commanderfo.sysvolbut.font.color := ltblack;
 
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
@@ -3159,6 +3166,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
+    
+    commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
 
     commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
@@ -3851,6 +3861,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.nameinput.font.color        := ltblank;
     commanderfo.genleftvolvalue.font.color  := ltblank;
     commanderfo.genrightvolvalue.font.color := ltblank;
+    commanderfo.sysvolbut.font.color := ltblank;
 
     commanderfo.volumeleft1val.font.color := ltblank;
     commanderfo.volumeleft2val.font.color := ltblank;
@@ -3900,6 +3911,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfacesliderdark;
     commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfacesliderdark;
+    
+    commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfacesliderdark;
+    commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfacesliderdark;
 
     commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfacesliderdark;
     commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfacesliderdark;

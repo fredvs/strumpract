@@ -13,6 +13,7 @@ uses
  {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}
   Math, 
   filelistform,
+  // msegraphics,
   msegui,
   main,
   aboutform,
@@ -35,6 +36,8 @@ uses
 begin
     SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
   [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+  
+  //flushgdi:= false; 
   
   application.createform(tconfigfo, configfo);
 

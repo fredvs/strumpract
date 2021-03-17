@@ -4,6 +4,9 @@ unit commander;
 interface
 
 uses
+ {$if defined(linux)}
+  alsa_mixer,
+ {$ENDIF}
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
  msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
@@ -101,6 +104,8 @@ type
    nameplayers2: tstringdisp;
    namegen: tstringdisp;
    tfaceorange: tfacecomp;
+   sysvol: tslider;
+   sysvolbut: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -123,7 +128,6 @@ type
     procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure resetvolume(const Sender: TObject);
-    procedure onsetvu(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure oncre(const Sender: TObject);
     procedure onchangevuset(const Sender: TObject);
     procedure onpausemix(const Sender: TObject);
@@ -132,6 +136,8 @@ type
     procedure onchangedirectmix(const Sender: TObject);
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimerinit(const Sender: TObject);
+   procedure onsetsysvol(const sender: TObject; var avalue: realty;
+                   var accept: Boolean);
   end;
 
 var
@@ -140,6 +146,7 @@ var
   initvolleft1, initvolright1, initvolleft2, initvolright2: double;
   maxvolleft1, maxvolright1, maxvolleft2, maxvolright2: double;
   thetypemix: integer = 0;
+  docallback : boolean = false;
   theinput: integer = 30;
   lastrowplayed: integer = -1;
   vuinvar: Boolean = True;
@@ -154,13 +161,25 @@ uses
   config,
   recorder,
   dockpanel1,
-  main,
+  main, ctypes,
   commander_mfm;
 
-procedure tcommanderfo.onsetvu(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
-begin
-
-end;
+{$if defined(linux)}
+ 
+function mixelemcallback(elem: Psnd_mixer_elem_t;
+				       mask: cuint): cint; cdecl;
+  begin
+  if docallback then
+  begin
+    commanderfo.sysvol.value := ALSAmixerGetVolume(0) / 100;
+    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
+  end;
+    // writeln('New Volume left = ' + IntToStr(ALSAmixerGetVolume(0)) + '/100');
+  // writeln('New Volume right = ' + IntToStr(ALSAmixerGetVolume(1)) + '/100');
+  end;
+  
+ {$ENDIF}
+ 
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
 begin
@@ -186,8 +205,14 @@ begin
   end;
 
   ttimer1.Enabled := True;
-
-end;
+  
+   {$if defined(linux)}
+    sysvol.value := ALSAmixerGetVolume(0)/100;
+    sysvolbut.caption := inttostr(round(sysvol.value*10));
+    ALSAmixerSetCallBack(@mixelemcallback); 
+    docallback := true;
+   {$ENDIF}
+ end;
 
 procedure tcommanderfo.ontimersent(const Sender: TObject);
 begin
@@ -576,6 +601,7 @@ end;
 
 procedure tcommanderfo.ondest(const Sender: TObject);
 begin
+  docallback := false;
   Timermix.Enabled := false;
   timersent.Enabled := false;
   
@@ -681,13 +707,13 @@ begin
       genvolright.Value := genvolleft.Value
     else
       genvolleft.Value  := genvolright.Value;
-    genleftvolvalue.Caption := utf8decode(IntToStr(round(genvolleft.Value * 150)));
-    genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 150)));
+    genleftvolvalue.Caption := utf8decode(IntToStr(round(genvolleft.Value * 15)));
+    genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 15)));
   end
   else if (tslider(Sender).tag = 0) then
-    genleftvolvalue.Caption  := utf8decode(IntToStr(round(genvolleft.Value * 150)))
+    genleftvolvalue.Caption  := utf8decode(IntToStr(round(genvolleft.Value * 15)))
   else
-    genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 150)));
+    genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 15)));
   //songplayerfo.changevolume(sender)
   if hasinit = 1 then
   begin
@@ -1201,6 +1227,17 @@ begin
 
 end;
 
+procedure tcommanderfo.onsetsysvol(const sender: TObject; var avalue: realty;
+               var accept: Boolean);
+begin
+  sysvolbut.caption := inttostr(round(avalue*10));
+  {$if defined(linux)}
+    docallback := false;
+    ALSAmixerSetVolume(0, round(avalue * 100));
+    ALSAmixerSetVolume(1, round(avalue * 100));
+    docallback := true;
+  {$ENDIF}
+end;
 
 end.
 

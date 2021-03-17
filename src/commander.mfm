@@ -11,8 +11,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 392
-  bounds_y = 29
+  bounds_x = 425
+  bounds_y = 162
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -430,9 +430,9 @@ object commanderfo: tcommanderfo
       frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.template = tframecomp2
       hint = ' Right Volume General in % '
-      bounds_x = 26
+      bounds_x = 34
       bounds_y = 18
-      bounds_cx = 23
+      bounds_cx = 16
       bounds_cy = 90
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -478,9 +478,9 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp2
       taborder = 1
       hint = ' Left Volume General in % '
-      bounds_x = 2
+      bounds_x = 18
       bounds_y = 18
-      bounds_cx = 23
+      bounds_cx = 16
       bounds_cy = 90
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -516,62 +516,46 @@ object commanderfo: tcommanderfo
       direction = gd_up
     end
     object genleftvolvalue: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
       taborder = 2
       hint = ' General left volume. Click to reset to 100%.  '
-      bounds_x = 0
+      bounds_x = 18
       bounds_y = 108
-      bounds_cx = 26
+      bounds_cx = 16
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
-      caption = '100'
+      caption = '10'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
       font.color = 3881787
-      font.height = 9
+      font.height = 8
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       onexecute = onresetgenvol
     end
     object genrightvolvalue: tbutton
       Tag = 1
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
       taborder = 3
       hint = ' General right volume. Click to reset to 100%.  '
-      bounds_x = 26
+      bounds_x = 34
       bounds_y = 108
-      bounds_cx = 26
+      bounds_cx = 16
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
-      caption = '100'
+      caption = '10'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
       font.color = 3881787
-      font.height = 9
+      font.height = 8
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       onexecute = onresetgenvol
@@ -637,6 +621,75 @@ object commanderfo: tcommanderfo
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Gen'
       reffontheight = 13
+    end
+    object sysvol: tslider
+      color = 13357471
+      frame.levelo = 0
+      frame.colordkwidth = 0
+      frame.colorhlwidth = 0
+      frame.captiondist = 0
+      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.template = tframecomp2
+      taborder = 6
+      hint = 'System Master Volume'
+      bounds_x = 0
+      bounds_y = 18
+      bounds_cx = 17
+      bounds_cy = 90
+      statfile = mainfo.tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
+      value = 0.666666
+      scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
+      scrollbar.buttonlength = 17
+      scrollbar.buttonminlength = -1
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face.template = tfaceslider
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfaceslider
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacebutton
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.localprops = [frl_hiddenedges]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.frameendbutton1.optionsskin = [fso_flat]
+      scrollbar.frameendbutton1.colorclient = -2147483645
+      scrollbar.frameendbutton1.colordkwidth = 0
+      scrollbar.frameendbutton1.colorhlwidth = 0
+      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
+      scrollbar.frameendbutton1.localprops1 = []
+      scrollbar.frameendbutton2.optionsskin = [fso_flat]
+      scrollbar.frameendbutton2.colorclient = -2147483645
+      scrollbar.frameendbutton2.colordkwidth = 0
+      scrollbar.frameendbutton2.colorhlwidth = 0
+      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
+      scrollbar.frameendbutton2.localprops1 = []
+      onsetvalue = onsetsysvol
+      direction = gd_up
+    end
+    object sysvolbut: tbutton
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfacebutltgray
+      taborder = 7
+      hint = 'Systeme Master Volume'
+      bounds_x = 0
+      bounds_y = 108
+      bounds_cx = 17
+      bounds_cy = 17
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = '10'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+      font.color = 3881787
+      font.height = 8
+      font.name = 'stf_default'
+      font.localprops = [flp_color, flp_height]
     end
   end
   object tgroupboxplayers: tgroupbox
@@ -1743,8 +1796,8 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       taborder = 29
       visible = False
-      bounds_x = 18
-      bounds_y = 47
+      bounds_x = 74
+      bounds_y = 38
       bounds_cx = 84
       bounds_cy = 83
       reffontheight = 15
@@ -1807,7 +1860,6 @@ object commanderfo: tcommanderfo
         statfile = mainfo.tstatfile1
         onchange = onchangevuset
         colorglyph = 4868682
-        onsetvalue = onsetvu
       end
       object automix: tbooleanedit
         color = -2147483645
