@@ -4065,7 +4065,7 @@ end;
 
 procedure tmainfo.onexit(const Sender: TObject);
 begin
-  //AEndpoint.free;
+ 
   Close;
 end;
 
@@ -4532,7 +4532,7 @@ end;
 procedure tmainfo.onclose(const Sender: TObject);
 begin
  {$if defined(windows)}
- AEndpoint.free;
+ WINmixerFreeCallback();
  {$ENDIF}
 end;
 

@@ -314,7 +314,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=0
+ index=2
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -1633,10 +1633,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=close;
+finddtext=AEndpoint
 findhistory=20
- close;
  AEndpoint
+ close;
  .close
  genleftvolvalue
  genvolleft
@@ -1660,8 +1660,8 @@ editpos=7
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,5
- 0,179
+ 0,4534
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1675,7 +1675,7 @@ sourcefiles=7
  ${PROJECTDIR}/strumpract.pas
  /home/fred/mseide-msegui/lib/common/widgets/mseforms.pas
  ${PROJECTDIR}/win_mixer.pas
- ${PROJECTDIR}/main.pas
+ /home/fred/strumpract/src/main.pas
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/alsa_mixer.pas
@@ -1857,7 +1857,7 @@ windowlayout=660
  x=0
  y=0
  cx=205
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2178,7 +2178,7 @@ windowlayout=660
  x=0
  y=0
  cx=1212
- cy=51
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2190,11 +2190,11 @@ windowlayout=660
  nx=0
  ny=0
  ncx=1197
- ncy=57
+ ncy=54
  x=0
  y=0
  cx=1212
- cy=56
+ cy=52
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2206,6 +2206,7 @@ windowlayout=660
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
  history=20
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/commander.pas
   /home/fred/atest/test.prj
   /home/fred/ideu/src/ideU.prj
@@ -2225,9 +2226,8 @@ windowlayout=660
   /home/fred/ptop_fred/ptop.prj
   /home/fred/eschecs_mse_argh/eschecs.prj
   /home/fred/Downloads/jcf-cli-master/CommandLine/Lazarus/jcf.prj
-  /home/fred/mseuniverse/samples/widgets/grids/chessboard/chessboard.prj
  [debuggerfo.project_options]
- value=1
+ value=5
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2243,7 +2243,7 @@ windowlayout=660
  x=208
  y=0
  cx=1004
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2284,9 +2284,9 @@ windowlayout=660
  ncx=0
  ncy=0
  x=0
- y=54
+ y=53
  cx=1212
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]

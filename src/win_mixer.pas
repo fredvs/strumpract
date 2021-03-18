@@ -112,19 +112,23 @@ type
  procedure WINmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = right volume
                                                     // volume from 0 to 100 
 
+ procedure WINmixerFreeCallback();
+
 var
- // AEndpoint : TEndpointVolumeCallback;
   wm_MasterVolLeft, wm_MasterVolRight : integer; 
   wm_MasterMuted : boolean;
-  AEndpoint : TEndpointVolumeCallback;
-
+  
 implementation
 
 var
- // AEndpoint : TEndpointVolumeCallback;
   ACallBack : TProc;
+  AEndpoint : TEndpointVolumeCallback;
+
+procedure WINmixerFreeCallback();
+begin
+if assigned(AEndpoint) then AEndpoint.free;
+end;
  
-//procedure WINmixerSetVolume(fLevelDB: single);
 procedure WINmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = right volume
 var
   pEndpointVolume: IAudioEndpointVolume;
@@ -148,7 +152,6 @@ var
   Dev: IMMDevice;
   avol : single;
 begin
- 
   OleCheck(CoCreateInstance(CLASS_IMMDeviceEnumerator, nil, CLSCTX_INPROC_SERVER,
    IID_IMMDeviceEnumerator, LDeviceEnumerator)); 
   OleCheck(LDeviceEnumerator.GetDefaultAudioEndpoint(0, 0, dev));
