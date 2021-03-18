@@ -7,6 +7,9 @@ uses
  {$if defined(linux)}
   alsa_mixer,
  {$ENDIF}
+ {$if defined(windows)}
+  win_mixer,
+ {$ENDIF}
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
  msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
@@ -165,20 +168,26 @@ uses
   commander_mfm;
 
 {$if defined(linux)}
- 
-function mixelemcallback(elem: Psnd_mixer_elem_t;
-				       mask: cuint): cint; cdecl;
+procedure mixelemcallback;
   begin
   if docallback then
   begin
     commanderfo.sysvol.value := ALSAmixerGetVolume(0) / 100;
     commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
   end;
-    // writeln('New Volume left = ' + IntToStr(ALSAmixerGetVolume(0)) + '/100');
-  // writeln('New Volume right = ' + IntToStr(ALSAmixerGetVolume(1)) + '/100');
   end;
-  
- {$ENDIF}
+{$ENDIF}
+
+{$if defined(windows)}
+procedure mixelemcallback;
+  begin
+  if docallback then
+  begin
+    commanderfo.sysvol.value := wm_MasterVolLeft / 100;
+    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
+  end;
+  end;
+{$ENDIF}
  
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -212,7 +221,14 @@ begin
     ALSAmixerSetCallBack(@mixelemcallback); 
     docallback := true;
    {$ENDIF}
- end;
+ 
+   {$if defined(windows)}
+    sysvol.value := WinmixerGetVolume(0)/100;
+    sysvolbut.caption := inttostr(round(sysvol.value*10));
+     WinMixerSetCallBack(@mixelemcallback); // gives memory leak
+     docallback := true;
+   {$ENDIF}
+  end;
 
 procedure tcommanderfo.ontimersent(const Sender: TObject);
 begin
@@ -1235,6 +1251,12 @@ begin
     docallback := false;
     ALSAmixerSetVolume(0, round(avalue * 100));
     ALSAmixerSetVolume(1, round(avalue * 100));
+    docallback := true;
+  {$ENDIF}
+  
+  {$if defined(windows)}
+    docallback := false;
+    WINmixerSetVolume(0, round(avalue * 100));
     docallback := true;
   {$ENDIF}
 end;

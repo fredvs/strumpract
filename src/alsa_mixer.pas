@@ -114,13 +114,18 @@ type
   snd_mixer_selem_id_t = record
   end;
   
+  TProc = Procedure;
+  
   TCallbackThread = class(TThread)
     protected
       procedure Execute; override;
     public
       Constructor Create(CreateSuspended : boolean);
     end;
-      
+    
+function mixelemcallback(elem: Psnd_mixer_elem_t;
+				       mask: cuint): cint; cdecl;
+       
 // Dynamic load : Vars that will hold our dynamically loaded ALSA methods...
 var
   CallbackThread : TCallbackThread;
@@ -158,13 +163,13 @@ var
   ReferenceCounter: integer = 0;  // Reference counter
   
   hmixcallback : Psnd_mixer_t;
-  thecallback: snd_mixer_elem_callback_t;				  
+  thecallback: TProc;				  
 
 function ALSAmixerGetVolume(chan:integer): integer; // chan 0 = left, chan 1 = right
 
 procedure ALSAmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = right volume
                                                      // volume from 0 to 100 
-procedure ALSAmixerSetCallBack(callback: snd_mixer_elem_callback_t);
+procedure ALSAmixerSetCallBack(callback: TProc);
 
 implementation
   
@@ -239,6 +244,12 @@ constructor TCallbackThread.Create(CreateSuspended : boolean);
     FreeOnTerminate := True;
   end; 
   
+function mixelemcallback(elem: Psnd_mixer_elem_t;
+				       mask: cuint): cint; cdecl;
+  begin
+   thecallback;
+  end;    
+  
 procedure TCallbackThread.Execute;
   var
    sid : Psnd_mixer_selem_id_t;
@@ -257,12 +268,12 @@ begin
   snd_mixer_selem_id_set_index(sid, 0);
   snd_mixer_selem_id_set_name(sid, 'Master');
   elem := snd_mixer_find_selem(hmixcallback, sid);
-  snd_mixer_elem_set_callback(elem, thecallback);
+  snd_mixer_elem_set_callback(elem, @mixelemcallback);
  
   while (not Terminated) do
       begin
           i := snd_mixer_wait(hmixcallback, -1); 
-          if i >= 0 then (snd_mixer_handle_events(hmixcallback));
+          if i >= 0 then snd_mixer_handle_events(hmixcallback);
       end;
   end;
  
@@ -366,7 +377,7 @@ begin
   // am_unload;  // Unload library if param CloseLib is true
 end; 
 
-procedure ALSAmixerSetCallBack(callback: snd_mixer_elem_callback_t );
+procedure ALSAmixerSetCallBack(callback: TProc);
 var
    sid : Psnd_mixer_selem_id_t;
    elem : Psnd_mixer_elem_t;

@@ -7,6 +7,9 @@ unit main;
 interface
 
 uses
+  {$ifdef windows}
+  win_mixer,
+  {$endif}
   msetypes,
   mseglob,
   mseguiglob,
@@ -4062,6 +4065,7 @@ end;
 
 procedure tmainfo.onexit(const Sender: TObject);
 begin
+  //AEndpoint.free;
   Close;
 end;
 
@@ -4527,7 +4531,9 @@ end;
 
 procedure tmainfo.onclose(const Sender: TObject);
 begin
-
+ {$if defined(windows)}
+ AEndpoint.free;
+ {$ENDIF}
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);
