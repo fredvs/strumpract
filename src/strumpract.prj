@@ -96,9 +96,9 @@ findinfiledialog=97
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=1
- [findinfileadialogfo.inprojectdir]
  value=0
+ [findinfileadialogfo.inprojectdir]
+ value=1
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
@@ -156,8 +156,9 @@ findinfiledialog=97
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=fpAlsa
+ value=restart
  history=20
+  restart
   fpAlsa
   snd_pcm_open
   snd_mixer_open
@@ -177,7 +178,6 @@ findinfiledialog=97
   tgroupbox1.
   tgroupbox1.face.fade_pos.count
   guimixb
-  tfilelistfo.onchangpath
  [findinfileadialogfo]
  stackedunder=
  x=506
@@ -851,11 +851,17 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=3
+ COMMANDERFO
+ DRUMSFO
  MAINFO
-moduletypes=1
+moduletypes=3
+ TCOMMANDERFO
+ TDRUMSFO
  TMAINFO
-modulefiles=1
+modulefiles=3
+ /home/fred/strumpract/src/commander.mfm
+ /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/main.mfm
 befcommandon=0
 makeoptionson=14
@@ -1223,9 +1229,9 @@ line=34
  5734
  1681
  1470
- 295
+ 279
  319
- 540
+ 524
  553
  773
  785
@@ -1236,7 +1242,7 @@ line=34
  3686
  509
  5
- 762
+ 746
  1518
  169
  1474
@@ -1636,8 +1642,11 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=onclose
+finddtext=callback
 findhistory=20
+ callback
+ 1=2
+ 1 = 2
  onclose
  .close
  AEndpoint
@@ -1655,22 +1664,39 @@ findhistory=20
  synth
  synchronize
  Input
- DSPReverseAfter
- playreverse
- LoopProcIn
 findoptions=1
-editpos=2
- 0,0
- 39,3
+editpos=6
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 25,16989
+ 0,657
+ 0,1234
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+bookmarks3=0
+bookmarks4=0
+bookmarks5=0
+sourcefiles=6
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
-relpaths=2
+ ${PROJECTDIR}/win_mixer.pas
+ ${PROJECTDIR}/msegui.pas
+ ${PROJECTDIR}/drums.pas
+ ${PROJECTDIR}/commander.pas
+relpaths=6
  strumpract.pas
  main.pas
-ismoduletexts=2
+ win_mixer.pas
+ msegui.pas
+ drums.pas
+ commander.pas
+ismoduletexts=6
+ 0
+ 0
+ 0
+ 0
  0
  0
 modules=5
@@ -1687,19 +1713,19 @@ moduleoptions=5
  0
 visiblemodules=5
  -1
- 0
- 0
+ -1
+ -1
  0
  0
 nomenumodules=5
  0
- -1
- -1
+ 0
+ 0
  -1
  -1
 [sourcefo.files_tab]
 firsttab=0
-index=1
+index=5
 [layout]
 windowlayout=660
  [mainfo.basedock]
@@ -1715,8 +1741,8 @@ windowlayout=660
  ny=0
  ncx=0
  ncy=0
- x=120
- y=72
+ x=130
+ y=176
  cx=1224
  cy=621
  rcx=0
@@ -1809,7 +1835,7 @@ windowlayout=660
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1846,7 +1872,7 @@ windowlayout=660
  sortdescend1=0
  sorted=0
  col=0
- row=15
+ row=1
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2125,7 +2151,7 @@ windowlayout=660
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2140,9 +2166,9 @@ windowlayout=660
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=5
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -2168,11 +2194,11 @@ windowlayout=660
  nx=0
  ny=0
  ncx=1197
- ncy=22
+ ncy=16
  x=0
  y=0
  cx=1212
- cy=20
+ cy=14
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2182,28 +2208,28 @@ windowlayout=660
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/mseide-msegui/lib/common/widgets/mseforms.pas
+ value=/home/fred/strumpract/src/commander.pas
  history=20
-  /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/alsa_mixer.pas
+  /home/fred/strumpract/src/msegui.pas
   /home/fred/strumpract/src/win_mixer.pas
-  /home/fred/strumpract/src/commander.pas
-  /home/fred/atest/test.prj
-  /home/fred/ideu/src/ideU.prj
-  /home/fred/mseide-msegui/apps/ide/mseide.prj
-  /home/fred/uos/examples/simpleplayer.prj
-  /home/fred/ideu_ok/src/ideU.prj
-  /home/fred/eschecs_mse/eschecs.prj
-  /home/fred/mselang-master/src/mselang.prj
-  /home/fred/mseide-msegui/apps/ide/mseide_zeos.prj
-  /home/fred/strumpract/src/strumpract.prj
-  /home/fred/ideu_badplug/src/demos/voiceassist/helloworld/helloworld.prj
-  /home/fred/xtop/src/ptop.prj
-  /home/fred/xtop/src/jtop.prj
-  /home/fred/idegraeme/mseide.prj
-  /home/fred/fptop/src/jtop.prj
-  /home/fred/fptop/src/ptop.prj
+  /home/fred/ideu/src/msegui.pas
+  /home/fred/ideu/src/msegraphics.pas
+  /home/fred/ideu/src/plugmanager.pas
+  /home/fred/win_mixer/src/win_mixer_test.pas
+  /home/fred/win_mixer/src/win_mixer.pas
+  /home/fred/strumpract/src/win_mixer_test.pas
+  /home/fred/win_mixer/src/alsa_mixer.pas
+  /home/fred/sound_win/AudioEndpoint.pas
+  /home/fred/sound_win/win_mixer.pas
+  /home/fred/alsa_mixer/src/alsa_mixer.pas
+  /home/fred/strumpract/src/alsa_mixer.pas
+  /home/fred/strumpract/src/alsa_mixer_test.pas
+  /home/fred/strumpract/src/uos_portaudio.pas
+  /home/fred/alsa_sound/src/alsa_sound.pas
+  /home/fred/Downloads/fpalsa-1.0.27.2.fp0/src/mixer.inc
+  /home/fred/strumpract/src/msex11gdi.pas
+  /home/fred/WavvieW/src/msex11gdi.pas
+  /home/fred/WavvieW/src/mseguiintf.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2226,7 +2252,7 @@ windowlayout=660
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=1
+ index=5
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2235,7 +2261,7 @@ windowlayout=660
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2270,7 +2296,7 @@ windowlayout=660
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2289,26 +2315,26 @@ windowlayout=660
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=425
- y=162
+ x=409
+ y=72
  cx=452
  cy=128
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2327,7 +2353,7 @@ windowlayout=660
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
@@ -2342,11 +2368,11 @@ windowlayout=660
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0

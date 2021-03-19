@@ -4,15 +4,10 @@ unit commander;
 interface
 
 uses
- {$if defined(linux)}
-  alsa_mixer,
- {$ENDIF}
- {$if defined(windows)}
-  win_mixer,
- {$ENDIF}
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
- msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
- msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
+ {$if defined(linux)}alsa_mixer,{$ENDIF}{$if defined(windows)}win_mixer,
+ {$ENDIF}msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
+ Math,msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
+ msedock,msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
  msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
  mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
  msegraphedits,msescrollbar,msedispwidgets,mserichstring,mseimage;
@@ -109,6 +104,7 @@ type
    tfaceorange: tfacecomp;
    sysvol: tslider;
    sysvolbut: tbutton;
+   timercallback: ttimer;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -141,6 +137,7 @@ type
     procedure ontimerinit(const Sender: TObject);
    procedure onsetsysvol(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
+   procedure dotimercallback(const sender: TObject);
   end;
 
 var
@@ -167,26 +164,13 @@ uses
   main, ctypes,
   commander_mfm;
 
-{$if defined(linux)}
+{$if defined(linux) or defined(windows)}
 procedure mixelemcallback;
   begin
-  if docallback then
-  begin
-    commanderfo.sysvol.value := ALSAmixerGetVolume(0) / 100;
-    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
-  end;
-  end;
-{$ENDIF}
-
-{$if defined(windows)}
-procedure mixelemcallback;
-  begin
-  if docallback then
-  begin
-    commanderfo.sysvol.value := wm_MasterVolLeft / 100;
-    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
-  end;
-  end;
+    if commanderfo.timercallback.Enabled then
+        commanderfo.timercallback.restart // to reset
+      else commanderfo.timercallback.Enabled := True;
+  end;  
 {$ENDIF}
  
 
@@ -1259,6 +1243,25 @@ begin
     WINmixerSetVolume(0, round(avalue * 100));
     docallback := true;
   {$ENDIF}
+end;
+
+procedure tcommanderfo.dotimercallback(const sender: TObject);
+begin
+{$if defined(linux)}
+  if docallback then
+  begin
+    commanderfo.sysvol.value := ALSAmixerGetVolume(0) / 100;
+    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
+  end;
+{$ENDIF}
+
+{$if defined(windows)}
+ if docallback then
+  begin
+    commanderfo.sysvol.value := wm_MasterVolLeft / 100;
+    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
+  end;
+ {$ENDIF}
 end;
 
 end.

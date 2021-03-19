@@ -11,8 +11,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 425
-  bounds_y = 162
+  bounds_x = 409
+  bounds_y = 72
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -3512,5 +3512,12 @@ object commanderfo: tcommanderfo
     template.fade_direction = gd_down
     left = 288
     top = 11
+  end
+  object timercallback: ttimer
+    interval = 500000
+    options = [to_single]
+    ontimer = dotimercallback
+    left = 116
+    top = 74
   end
 end
