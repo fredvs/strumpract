@@ -166,13 +166,15 @@ uses
 
 {$if defined(linux) or defined(windows)}
 procedure mixelemcallback;
+ begin
+ if docallback then
   begin
-    if commanderfo.timercallback.Enabled then
+     if commanderfo.timercallback.Enabled then
         commanderfo.timercallback.restart // to reset
       else commanderfo.timercallback.Enabled := True;
-  end;  
+   end; 
+ end;   
 {$ENDIF}
- 
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
 begin
