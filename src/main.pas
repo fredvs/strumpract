@@ -4531,9 +4531,6 @@ end;
 
 procedure tmainfo.onclose(const Sender: TObject);
 begin
- {$if defined(windows)}
- WINmixerFreeCallback();
- {$ENDIF}
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);

@@ -37,8 +37,6 @@ begin
     SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
   [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
   
-  //flushgdi:= false; 
-  
   application.createform(tconfigfo, configfo);
 
   application.createform(tspectrum1fo, spectrum1fo);

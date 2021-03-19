@@ -1,4 +1,4 @@
-{ Thanks to PCurtis@Lazarus forum }
+{ Thanks to PCurtis and Engkin @Lazarus forum }
 
 { FredvS fiens@hotmail.com 2021 }
 
@@ -34,7 +34,13 @@ type
   IAudioEndpointVolumeCallback = interface(IUnknown)
     ['{657804FA-D6AD-4496-8A60-352752AF4F89}']
     function OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall;
-  end;
+   end;
+  
+  IAudioEndpointVolumeCallbackEx = interface(IUnknown)
+    ['{CD3ADF09-CBA1-4854-B364-B1FF03FF941B}']
+    procedure RegisterCallback;
+    procedure UnregisterCallback;
+   end;
   
    IAudioEndpointVolume = interface(IUnknown)
     ['{5CDF2C82-841E-4546-9722-0CF74078229A}']
@@ -73,7 +79,6 @@ type
     function GetState(out State: Integer): HRESULT; stdcall;
   end;
 
-
   IMMDeviceCollection = interface(IUnknown)
   ['{0BD7A1BE-7A1A-44DB-8397-CC5392387B5E}']
   end;
@@ -95,25 +100,27 @@ type
   
 type
 Tproc = procedure;  
-
-type
- TEndpointVolumeCallback = class(TInterfacedObject, IAudioEndpointVolumeCallback)
-    FDeviceEnumerator: IMMDeviceEnumerator;
-    FMMDevice: IMMDevice;
-    FAudioEndpointVolume: IAudioEndpointVolume;
-    function OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall; 
-    procedure Init();
- end; 
  
- procedure WINmixerSetCallBack(callback: Tproc);
+ TEndpointVolumeCallback = class(TInterfacedObject, IAudioEndpointVolumeCallback, 
+                                    IAudioEndpointVolumeCallbackEx)
+        FDeviceEnumerator: IMMDeviceEnumerator;
+        FMMDevice: IMMDevice;
+        FAudioEndpointVolume: IAudioEndpointVolume;
+        FCallback: TProc;
+        function OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall;
+        procedure RegisterCallback;
+        procedure UnregisterCallback;
+        constructor Create(ACallBack: TProc);
+        destructor Destroy;override;
+     end;
+ 
+ procedure WINmixerSetCallBack(callback: Tproc); // Assign a procedure as callback for master-mixer
  
  function WINmixerGetVolume(chan:integer): integer; // chan 0 = left, chan 1 = right
 
  procedure WINmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = right volume
-                                                    // volume from 0 to 100 
-
- procedure WINmixerFreeCallback();
-
+                                                   // volume from 0 to 100 
+ 
 var
   wm_MasterVolLeft, wm_MasterVolRight : integer; 
   wm_MasterMuted : boolean;
@@ -121,13 +128,7 @@ var
 implementation
 
 var
-  ACallBack : TProc;
-  AEndpoint : TEndpointVolumeCallback;
-
-procedure WINmixerFreeCallback();
-begin
-if assigned(AEndpoint) then AEndpoint.free;
-end;
+ AEndpoint: IAudioEndpointVolumeCallbackEx = nil;
  
 procedure WINmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = right volume
 var
@@ -164,32 +165,51 @@ end;
  
 procedure WINmixerSetCallBack(callback: Tproc);
 begin
- AEndpoint := TEndpointVolumeCallback.create();
- AEndpoint.init();
- ACallBack := callback; 
+ AEndpoint := TEndpointVolumeCallback.create(Callback);
 end;
-
- procedure TEndpointVolumeCallback.Init();
- begin
-   OleCheck(CoCreateInstance(CLASS_IMMDeviceEnumerator, nil, CLSCTX_INPROC_SERVER,
+ 
+constructor TEndpointVolumeCallback.Create(ACallBack: TProc);
+begin
+  inherited Create;
+  FCallback := ACallBack;
+  OleCheck(CoCreateInstance(CLASS_IMMDeviceEnumerator, nil, CLSCTX_INPROC_SERVER,
     IID_IMMDeviceEnumerator, FDeviceEnumerator));
   OleCheck(FDeviceEnumerator.GetDefaultAudioEndpoint(0, 0, FMMDevice));
   OleCheck(FMMDevice.Activate(IID_IAudioEndpointVolume, CLSCTX_INPROC_SERVER, nil, FAudioEndpointVolume));
+ 
+  RegisterCallback;
+end;
+
+destructor TEndpointVolumeCallback.Destroy;
+begin
+  inherited Destroy;
+end;
+ 
+procedure TEndpointVolumeCallback.RegisterCallback;
+begin
   OleCheck(FAudioEndpointVolume.RegisterControlChangeNotify(self));
- end;
+end;
+ 
+procedure TEndpointVolumeCallback.UnregisterCallback;
+begin
+  OleCheck(FAudioEndpointVolume.UnregisterControlChangeNotify(Self));
+end;
  
 function TEndpointVolumeCallback.OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall;
 begin
   wm_MasterVolLeft := Round(100 * pNotify^.fMasterVolume);
   wm_MasterVolRight := wm_MasterVolLeft; // todo
   wm_MasterMuted := pNotify^.bMuted;
-  ACallBack;
+ 
+  FCallBack;
+  Result := 0;
 end;
 
 initialization
  CoInitialize(nil);
 
-finalization  
+finalization
+if AEndpoint <> nil then AEndpoint.UnregisterCallback;
  CoUninitialize;
  AEndpoint := nil;
 

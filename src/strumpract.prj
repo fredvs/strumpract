@@ -287,9 +287,9 @@ options=114
  sortdescend6=0
  [projectoptionsfo.macrosplitter]
  x=0
- y=170
+ y=189
  xprop=1
- yprop=0.34462151394422
+ yprop=0.34532374100719
  [projectoptionsfo.macrogrid]
  propcolwidthref=540
  sortdescend0=0
@@ -341,7 +341,7 @@ options=114
  x=188
  y=91
  cx=818
- cy=561
+ cy=615
 programparameters=18
  [programparametersfo.grid]
  propcolwidthref=304
@@ -606,7 +606,7 @@ objpref=-Fo
 targpref=-o
 befcommand=0
 aftcommand=0
-makeoptions=13
+makeoptions=14
  -Mobjfpc -Sh -Fcutf8
  -ghl
  -FE.
@@ -614,19 +614,21 @@ makeoptions=13
  -gw2
  -B
  -O1
+ -dmse_flushgdi
  -sh
  -XX -Xs -CX
  -vewinh
  -FUunits
  -dclass_bridge
  -dBGRABITMAP_USE_MSEGUI
-makeoptpurpose=13
+makeoptpurpose=14
  Define Object Pascal
  Debug infos/Memory leak
  Exe path
  For Windows gui
  More debug
  Re-build all
+ 
  
  Create script for linker
  Optimizations
@@ -856,13 +858,14 @@ moduletypes=1
 modulefiles=1
  /home/fred/strumpract/src/main.mfm
 befcommandon=0
-makeoptionson=13
+makeoptionson=14
  4095
  64
  0
  192
  0
  957
+ 0
  0
  0
  4095
@@ -1216,7 +1219,7 @@ line=34
  137
  343
  587
- 188
+ 186
  5734
  1681
  1470
@@ -1633,11 +1636,12 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=AEndpoint
+finddtext=onclose
 findhistory=20
+ onclose
+ .close
  AEndpoint
  close;
- .close
  genleftvolvalue
  genvolleft
  XSync(
@@ -1654,45 +1658,19 @@ findhistory=20
  DSPReverseAfter
  playreverse
  LoopProcIn
- Tproc
 findoptions=1
-editpos=7
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,4534
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+editpos=2
+ 0,0
+ 39,3
 bookmarks0=0
 bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-sourcefiles=7
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
- /home/fred/mseide-msegui/lib/common/widgets/mseforms.pas
- ${PROJECTDIR}/win_mixer.pas
- /home/fred/strumpract/src/main.pas
- ${PROJECTDIR}/commander.pas
- ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/alsa_mixer.pas
-relpaths=7
+ ${PROJECTDIR}/main.pas
+relpaths=2
  strumpract.pas
- mseide-msegui/lib/common/widgets/mseforms.pas
- win_mixer.pas
  main.pas
- commander.pas
- strumpract.pas
- alsa_mixer.pas
-ismoduletexts=7
- 0
- 0
- 0
- 0
- 0
+ismoduletexts=2
  0
  0
 modules=5
@@ -1721,7 +1699,7 @@ nomenumodules=5
  -1
 [sourcefo.files_tab]
 firsttab=0
-index=3
+index=1
 [layout]
 windowlayout=660
  [mainfo.basedock]
@@ -1737,8 +1715,8 @@ windowlayout=660
  ny=0
  ncx=0
  ncy=0
- x=34
- y=53
+ x=120
+ y=72
  cx=1224
  cy=621
  rcx=0
@@ -1763,7 +1741,7 @@ windowlayout=660
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1868,7 +1846,7 @@ windowlayout=660
  sortdescend1=0
  sorted=0
  col=0
- row=9
+ row=15
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2190,11 +2168,11 @@ windowlayout=660
  nx=0
  ny=0
  ncx=1197
- ncy=54
+ ncy=22
  x=0
  y=0
  cx=1212
- cy=52
+ cy=20
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2204,9 +2182,12 @@ windowlayout=660
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/mseide-msegui/lib/common/widgets/mseforms.pas
  history=20
   /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/strumpract.pas
+  /home/fred/strumpract/src/alsa_mixer.pas
+  /home/fred/strumpract/src/win_mixer.pas
   /home/fred/strumpract/src/commander.pas
   /home/fred/atest/test.prj
   /home/fred/ideu/src/ideU.prj
@@ -2223,11 +2204,8 @@ windowlayout=660
   /home/fred/idegraeme/mseide.prj
   /home/fred/fptop/src/jtop.prj
   /home/fred/fptop/src/ptop.prj
-  /home/fred/ptop_fred/ptop.prj
-  /home/fred/eschecs_mse_argh/eschecs.prj
-  /home/fred/Downloads/jcf-cli-master/CommandLine/Lazarus/jcf.prj
  [debuggerfo.project_options]
- value=5
+ value=1
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2248,7 +2226,7 @@ windowlayout=660
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=3
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2257,7 +2235,7 @@ windowlayout=660
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=0
  nx=0
@@ -2368,7 +2346,7 @@ windowlayout=660
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=
  parent=
  mdistate=3
  nx=0
