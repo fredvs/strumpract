@@ -77,10 +77,10 @@ type
     procedure onsent(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
     procedure ontimercount(const Sender: TObject);
-    procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
+    procedure whosent(const Sender: tfiledialogxcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
     procedure onchangpathfromhist(const Sender: TObject);
     procedure onchangpath(const Sender: TObject; findex: integer);
-    procedure onafterdialog(const Sender: tfiledialogcontroller; var aresult: modalresultty);
+    procedure onafterdialog(const Sender: tfiledialogxcontroller; var aresult: modalresultty);
     procedure befdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var processed: Boolean);
     procedure ondoc(const Sender: TObject);
     procedure onfloat(const Sender: TObject);
@@ -313,7 +313,7 @@ begin
   end;
 end;
 
-procedure tfilelistfo.whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
+procedure tfilelistfo.whosent(const Sender: tfiledialogxcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
 begin
   thesender := 5;
 end;
@@ -508,7 +508,7 @@ begin
     end;
 end;
 
-procedure tfilelistfo.onafterdialog(const Sender: tfiledialogcontroller; var aresult: modalresultty);
+procedure tfilelistfo.onafterdialog(const Sender: tfiledialogxcontroller; var aresult: modalresultty);
 begin
   //list_files.path := dir.value;
 end;

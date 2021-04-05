@@ -113,7 +113,7 @@ findinfiledialog=97
  filenamescust=1
   /home/fred/mseide-msegui/
  filenames=1
-  /home/fred/freepascal-ootb_322/
+  /home/fred/bgrabitmap-dev-bgrabitmap/
  filecolwidth=150
  x=432
  y=215
@@ -130,9 +130,10 @@ findinfiledialog=97
  splitterplaces=236
  splitterlateral=126
  filehistory=23
+  /home/fred/bgrabitmap-dev-bgrabitmap/
   /home/fred/freepascal-ootb_322/
-  /home/fred/ideu/
   /home/fred/mseide-msegui/
+  /home/fred/ideu/
   /home/fred/mseide-msegui-aarch64/
   /home/fred/freepascal-ootb_322test/
   /home/fred/uos/
@@ -143,7 +144,6 @@ findinfiledialog=97
   /home/fred/uos/src/
   /home/fred/aatest/
   /home/fred/msefiledialogx/
-  /home/fred/bgrabitmap-dev-bgrabitmap/
   /home/fred/eschecs_mse/
   /home/fred/Downloads/mseuniverse-master/
   /home/fred/msegui/
@@ -156,8 +156,13 @@ findinfiledialog=97
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=restart
+ value=tfiledialogcontroller
  history=20
+  tfiledialogcontroller
+  nogui
+  tprocess
+  tbitmap
+  class_bridge
   restart
   fpAlsa
   snd_pcm_open
@@ -173,11 +178,6 @@ findinfiledialog=97
   aarch64
   defined(
   sem_t
-  sem_post
-  new_sem_post
-  tgroupbox1.
-  tgroupbox1.face.fade_pos.count
-  guimixb
  [findinfileadialogfo]
  stackedunder=
  x=506
@@ -189,10 +189,10 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=799
- y=191
+ x=859
+ y=224
  cx=234
- cy=269
+ cy=291
 replacedialog=33
  [replacedialogfo.promptonreplace]
  value=1
@@ -332,7 +332,7 @@ options=114
  sortdescend1=0
  [projectoptionsfo.ttabwidget2]
  firsttab=0
- index=0
+ index=1
  [projectoptionsfo.setting_tab]
  firsttab=0
  index=2
@@ -851,26 +851,32 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=3
+modulenames=5
  COMMANDERFO
- DRUMSFO
+ FILELISTFO
  MAINFO
-moduletypes=3
+ RECORDERFO
+ SONGPLAYERFO
+moduletypes=5
  TCOMMANDERFO
- TDRUMSFO
+ TFILELISTFO
  TMAINFO
-modulefiles=3
+ TRECORDERFO
+ TSONGPLAYERFO
+modulefiles=5
  /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/drums.mfm
+ /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/recorder.mfm
+ /home/fred/strumpract/src/songplayer.mfm
 befcommandon=0
 makeoptionson=14
  4095
- 68
+ 64
  0
  192
  0
- 953
+ 957
  0
  0
  0
@@ -1014,7 +1020,7 @@ sourcefilemasks=3
  "*.c" "*.cc" "*.h"
  "*.mfm"
 syntaxdeffiles=3
- ${SYNTAXDEFDIR}pascal.sdef
+ ${SYNTAXDEFDIR}pascal_ideu.sdef
  ${SYNTAXDEFDIR}cpp.sdef
  ${SYNTAXDEFDIR}objecttext.sdef
 filemasknames=3
@@ -1642,93 +1648,155 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=callback
+finddtext=tprocess
 findhistory=20
+ tprocess
+ plugin
+ plugman
+ evPause
+ repaintcanvas
+ repaint
+ 1 = 1
+ uses
+ tbgrabit
+ persistent
+ 1 = 
+ 1 = 2
+ 1=1
+ 1
  callback
  flushgdi
  1=2
- 1 = 2
  onclose
  .close
  AEndpoint
- close;
- genleftvolvalue
- genvolleft
- XSync(
- xsync(appdisp,true);
- copyri
- inputgetb
- InputGetBuffer
- AddIntoDevOut
- ordir
- createvoiceplayers
- synth
- synchronize
 findoptions=1
-editpos=5
+editpos=14
  0,-1073741823
- 11,3
  0,0
  0,-1073741823
- 0,1255
+ 0,-1073741823
+ 0,0
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,0
+ 0,927
+ 0,510
+ 0,2568
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-sourcefiles=5
+bookmarks5=0
+bookmarks6=0
+bookmarks7=0
+bookmarks8=0
+bookmarks9=0
+bookmarks10=0
+bookmarks11=0
+bookmarks12=0
+bookmarks13=0
+sourcefiles=14
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/win_mixer.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/commander.pas
-relpaths=5
+ ${PROJECTDIR}/strumpract.pas
+ ${PROJECTDIR}/strumpract.pas
+ ${PROJECTDIR}/uos.pas
+ ${PROJECTDIR}/main.pas
+ /home/fred/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrabitmap.pas
+ /home/fred/bgrabitmap-master/bgrabitmap/bgrabitmap.inc
+ ${PROJECTDIR}/recorder.pas
+ ${PROJECTDIR}/filelistform.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=14
  strumpract.pas
  main.pas
  win_mixer.pas
  drums.pas
  commander.pas
-ismoduletexts=5
+ strumpract.pas
+ strumpract.pas
+ uos.pas
+ main.pas
+ bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrabitmap.pas
+ ../bgrabitmap-master/bgrabitmap/bgrabitmap.inc
+ recorder.pas
+ filelistform.pas
+ songplayer.pas
+ismoduletexts=14
  0
  0
  0
  0
  0
-modules=5
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+modules=7
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
+ /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/guitars.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/songplayer.mfm
+moduleoptions=7
  0
  0
  0
  0
  0
-visiblemodules=5
+ 0
+ 0
+visiblemodules=7
  -1
  -1
  -1
+ -1
+ -1
  0
- 0
-nomenumodules=5
- 0
+ -1
+nomenumodules=7
  0
  0
  -1
+ 0
+ 0
  -1
+ 0
 [sourcefo.files_tab]
-order=5
+order=14
  0
- 2
  1
+ 2
+ 3
  4
  5
-firsttab=0
-index=2
+ 6
+ 7
+ 10
+ 11
+ 13
+ 12
+ 8
+ 9
+firsttab=6
+index=10
 [layout]
-windowlayout=666
+windowlayout=713
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1742,8 +1810,8 @@ windowlayout=666
  ny=0
  ncx=0
  ncy=0
- x=31
- y=144
+ x=120
+ y=69
  cx=1224
  cy=621
  rcx=0
@@ -1768,7 +1836,7 @@ windowlayout=666
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1836,17 +1904,17 @@ windowlayout=666
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=239
- y=115
- cx=678
- cy=414
+ x=0
+ y=29
+ cx=1368
+ cy=710
  rcx=0
  rcy=0
  [projecttreefo]
@@ -1862,7 +1930,7 @@ windowlayout=666
  x=0
  y=0
  cx=205
- cy=451
+ cy=453
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1873,7 +1941,7 @@ windowlayout=666
  sortdescend1=0
  sorted=0
  col=0
- row=1
+ row=11
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2048,9 +2116,9 @@ windowlayout=666
  ncx=0
  ncy=0
  x=0
- y=507
+ y=508
  cx=1212
- cy=93
+ cy=92
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2183,7 +2251,7 @@ windowlayout=666
  x=0
  y=0
  cx=1212
- cy=50
+ cy=49
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2194,12 +2262,12 @@ windowlayout=666
  mdistate=0
  nx=0
  ny=0
- ncx=1197
- ncy=14
+ ncx=1340
+ ncy=6
  x=0
- y=0
- cx=1212
- cy=12
+ y=-1
+ cx=1207
+ cy=9
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2209,11 +2277,18 @@ windowlayout=666
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/mseide-msegui/lib/common/kernel/msegui.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=20
-  /home/fred/strumpract/src/win_mixer.pas
-  /home/fred/strumpract/src/msegui.pas
+  /home/fred/bgrabitmap-master/bgrabitmap/bgrabitmap.inc
+  /home/fred/strumpract/src/uos.pas
   /home/fred/ideu/src/msegui.pas
+  /home/fred/strumpract/src/imagedancer.pas
+  /home/fred/Downloads/msegui-studies-master/imageviewer/msefiledialogx.pas
+  /home/fred/msefiledialogx/src/msefiledialogx.pas
+  /home/fred/msefiledialogx.pas
+  /home/fred/filedialogx/msefiledialogx.pas
+  /home/fred/strumpract/src/msegui.pas
+  /home/fred/strumpract/src/win_mixer.pas
   /home/fred/ideu/src/msegraphics.pas
   /home/fred/ideu/src/plugmanager.pas
   /home/fred/win_mixer/src/win_mixer_test.pas
@@ -2224,13 +2299,6 @@ windowlayout=666
   /home/fred/sound_win/win_mixer.pas
   /home/fred/alsa_mixer/src/alsa_mixer.pas
   /home/fred/strumpract/src/alsa_mixer.pas
-  /home/fred/strumpract/src/alsa_mixer_test.pas
-  /home/fred/strumpract/src/uos_portaudio.pas
-  /home/fred/alsa_sound/src/alsa_sound.pas
-  /home/fred/Downloads/fpalsa-1.0.27.2.fp0/src/mixer.inc
-  /home/fred/strumpract/src/msex11gdi.pas
-  /home/fred/WavvieW/src/msex11gdi.pas
-  /home/fred/WavvieW/src/mseguiintf.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2248,18 +2316,27 @@ windowlayout=666
  x=208
  y=0
  cx=1004
- cy=451
+ cy=453
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=5
+ order=14
   0
-  2
   1
+  2
+  3
   4
   5
- firsttab=0
- index=2
+  6
+  7
+  10
+  11
+  13
+  12
+  8
+  9
+ firsttab=6
+ index=10
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2268,7 +2345,7 @@ windowlayout=666
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=0
  nx=0
@@ -2295,9 +2372,9 @@ windowlayout=666
  ncx=0
  ncy=0
  x=0
- y=53
+ y=52
  cx=1212
- cy=451
+ cy=453
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2341,7 +2418,7 @@ windowlayout=666
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2356,11 +2433,11 @@ windowlayout=666
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=stackfo
  parent=
  mdistate=3
  nx=0
@@ -2376,10 +2453,29 @@ windowlayout=666
  wsize=0
  active=0
  visible=1
+ [_mse_filelistfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=741
+ y=84
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2395,6 +2491,25 @@ windowlayout=666
  wsize=0
  active=0
  visible=0
+ [_mse_songplayerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=findinfilefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=447
+ y=62
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0

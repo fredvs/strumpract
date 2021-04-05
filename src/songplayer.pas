@@ -114,7 +114,7 @@ type
     procedure visiblechangeev(const Sender: TObject);
     procedure onplayercreate(const Sender: TObject);
     procedure onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
-    procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
+    procedure whosent(const Sender: tfiledialogxcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
     procedure ondestr(const Sender: TObject);
     procedure changevol(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure oncreated(const Sender: TObject);
@@ -2572,7 +2572,7 @@ end;
 }
 end;
 
-procedure tsongplayerfo.whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
+procedure tsongplayerfo.whosent(const Sender: tfiledialogxcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
 begin
   if Caption = 'Player 1' then
     thesender := 0;

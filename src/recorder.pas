@@ -74,7 +74,7 @@ type
     procedure onplayercreate(const Sender: TObject);
     procedure onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure dorecorderstart(const Sender: TObject);
-    procedure whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
+    procedure whosent(const Sender: tfiledialogxcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
     procedure onlistenin(const Sender: TObject);
     procedure ondest(const Sender: TObject);
     procedure ShowSpectrum(const Sender: TObject);
@@ -749,37 +749,7 @@ begin
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
-  Equalizer_Bands[1].lo_freq  := 18;
-  Equalizer_Bands[1].hi_freq  := 46;
-  Equalizer_Bands[1].Text     := '31';
-  Equalizer_Bands[2].lo_freq  := 47;
-  Equalizer_Bands[2].hi_freq  := 94;
-  Equalizer_Bands[2].Text     := '62';
-  Equalizer_Bands[3].lo_freq  := 95;
-  Equalizer_Bands[3].hi_freq  := 188;
-  Equalizer_Bands[3].Text     := '125';
-  Equalizer_Bands[4].lo_freq  := 189;
-  Equalizer_Bands[4].hi_freq  := 375;
-  Equalizer_Bands[4].Text     := '250';
-  Equalizer_Bands[5].lo_freq  := 376;
-  Equalizer_Bands[5].hi_freq  := 750;
-  Equalizer_Bands[5].Text     := '500';
-  Equalizer_Bands[6].lo_freq  := 751;
-  Equalizer_Bands[6].hi_freq  := 1500;
-  Equalizer_Bands[6].Text     := '1K';
-  Equalizer_Bands[7].lo_freq  := 1501;
-  Equalizer_Bands[7].hi_freq  := 3000;
-  Equalizer_Bands[7].Text     := '2K';
-  Equalizer_Bands[8].lo_freq  := 3001;
-  Equalizer_Bands[8].hi_freq  := 6000;
-  Equalizer_Bands[8].Text     := '4K';
-  Equalizer_Bands[9].lo_freq  := 6001;
-  Equalizer_Bands[9].hi_freq  := 12000;
-  Equalizer_Bands[9].Text     := '8K';
-  Equalizer_Bands[10].lo_freq := 12001;
-  Equalizer_Bands[10].hi_freq := 20000;
-  Equalizer_Bands[10].Text    := '16K';
-
+ 
   setlength(arrecl, 10);
   setlength(arrecr, 10);
 
@@ -955,7 +925,7 @@ begin
   end;
 end;
 
-procedure trecorderfo.whosent(const Sender: tfiledialogcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
+procedure trecorderfo.whosent(const Sender: tfiledialogxcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
 begin
   thesender := 2;
 end;

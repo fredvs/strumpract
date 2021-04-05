@@ -1,6 +1,5 @@
 unit imagedancer;
 
-
 {$mode objfpc}{$H+}
 {$modeswitch advancedrecords} 
 interface
@@ -214,6 +213,7 @@ var
   numparts: integer;
   i: integer;
   ar: array of integer;
+  z : TBGRABitmap;
 
   procedure dumbsort;
   var
