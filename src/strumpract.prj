@@ -851,21 +851,24 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=5
+modulenames=6
  COMMANDERFO
  FILELISTFO
+ IMAGEDANCERFO
  MAINFO
  RECORDERFO
  SONGPLAYERFO
-moduletypes=5
+moduletypes=6
  TCOMMANDERFO
  TFILELISTFO
+ TIMAGEDANCERFO
  TMAINFO
  TRECORDERFO
  TSONGPLAYERFO
-modulefiles=5
+modulefiles=6
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/imagedancer.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
@@ -1254,7 +1257,7 @@ line=34
  1474
  368
  1710
- 614
+ 613
 address=34
  4653645
  7967900
@@ -1671,21 +1674,23 @@ findhistory=20
  .close
  AEndpoint
 findoptions=1
-editpos=14
+editpos=16
  0,-1073741823
  0,0
  0,-1073741823
  0,-1073741823
- 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,0
- 0,927
- 0,510
- 0,2568
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,239
+ 0,11
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1700,7 +1705,9 @@ bookmarks10=0
 bookmarks11=0
 bookmarks12=0
 bookmarks13=0
-sourcefiles=14
+bookmarks14=0
+bookmarks15=0
+sourcefiles=16
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/win_mixer.pas
@@ -1715,7 +1722,9 @@ sourcefiles=14
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/songplayer.pas
-relpaths=14
+ ${PROJECTDIR}/imagedancer.pas
+ ${PROJECTDIR}/strumpract.pas
+relpaths=16
  strumpract.pas
  main.pas
  win_mixer.pas
@@ -1725,12 +1734,14 @@ relpaths=14
  strumpract.pas
  uos.pas
  main.pas
- bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrabitmap.pas
- ../bgrabitmap-master/bgrabitmap/bgrabitmap.inc
+ ../bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrabitmap.pas
+ bgrabitmap-master/bgrabitmap/bgrabitmap.inc
  recorder.pas
  filelistform.pas
  songplayer.pas
-ismoduletexts=14
+ imagedancer.pas
+ strumpract.pas
+ismoduletexts=16
  0
  0
  0
@@ -1745,7 +1756,9 @@ ismoduletexts=14
  0
  0
  0
-modules=7
+ 0
+ 0
+modules=8
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1753,7 +1766,8 @@ modules=7
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/songplayer.mfm
-moduleoptions=7
+ /home/fred/strumpract/src/imagedancer.mfm
+moduleoptions=8
  0
  0
  0
@@ -1761,7 +1775,8 @@ moduleoptions=7
  0
  0
  0
-visiblemodules=7
+ 0
+visiblemodules=8
  -1
  -1
  -1
@@ -1769,16 +1784,18 @@ visiblemodules=7
  -1
  0
  -1
-nomenumodules=7
+ -1
+nomenumodules=8
  0
  0
  -1
  0
  0
  -1
+ 0
  0
 [sourcefo.files_tab]
-order=14
+order=16
  0
  1
  2
@@ -1787,16 +1804,18 @@ order=14
  5
  6
  7
- 10
- 11
  13
  12
- 8
  9
+ 14
+ 15
+ 8
+ 10
+ 11
 firsttab=6
-index=10
+index=12
 [layout]
-windowlayout=713
+windowlayout=734
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1904,7 +1923,7 @@ windowlayout=713
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=mainfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1941,7 +1960,7 @@ windowlayout=713
  sortdescend1=0
  sorted=0
  col=0
- row=11
+ row=15
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2261,13 +2280,13 @@ windowlayout=713
  visible=1
  mdistate=0
  nx=0
- ny=0
- ncx=1340
- ncy=6
+ ny=-1
+ ncx=1197
+ ncy=9
  x=0
  y=-1
  cx=1207
- cy=9
+ cy=7
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2277,8 +2296,9 @@ windowlayout=713
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
+ value=/home/fred/strumpract/src/strumpract.pas
  history=20
+  /home/fred/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrabitmap.pas
   /home/fred/bgrabitmap-master/bgrabitmap/bgrabitmap.inc
   /home/fred/strumpract/src/uos.pas
   /home/fred/ideu/src/msegui.pas
@@ -2298,7 +2318,6 @@ windowlayout=713
   /home/fred/sound_win/AudioEndpoint.pas
   /home/fred/sound_win/win_mixer.pas
   /home/fred/alsa_mixer/src/alsa_mixer.pas
-  /home/fred/strumpract/src/alsa_mixer.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2320,7 +2339,7 @@ windowlayout=713
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=14
+ order=16
   0
   1
   2
@@ -2329,14 +2348,16 @@ windowlayout=713
   5
   6
   7
-  10
-  11
   13
   12
-  8
   9
+  14
+  15
+  8
+  10
+  11
  firsttab=6
- index=10
+ index=12
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2345,7 +2366,7 @@ windowlayout=713
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2437,7 +2458,7 @@ windowlayout=713
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=stackfo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2456,7 +2477,7 @@ windowlayout=713
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2475,7 +2496,7 @@ windowlayout=713
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2494,7 +2515,7 @@ windowlayout=713
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=stackfo
  parent=
  mdistate=3
  nx=0
@@ -2505,6 +2526,25 @@ windowlayout=713
  y=62
  cx=452
  cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_imagedancerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=mainfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=403
+ y=251
+ cx=456
+ cy=354
  rcx=0
  rcy=0
  wsize=0

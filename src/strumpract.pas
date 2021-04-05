@@ -9,7 +9,7 @@ program strumpract;
 {$endif}
 
 uses
-   cmem,
+  // cmem,
  {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}
   Math, 
   filelistform,

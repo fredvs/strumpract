@@ -213,8 +213,7 @@ var
   numparts: integer;
   i: integer;
   ar: array of integer;
-  z : TBGRABitmap;
-
+  
   procedure dumbsort;
   var
     k, m, tmp: integer;
