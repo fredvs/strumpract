@@ -159,6 +159,8 @@ uses
 var
   Bitmap: tbgrabitmap;
   
+  XBitmap: tbgrabitmap;
+  
 // Fractal circles
 
 { TData }
@@ -1002,6 +1004,8 @@ begin
 end;
 
 procedure timagedancerfo.oncreat(const Sender: TObject);
+
+//var abitmap : TBGRABitmap = nil;
 begin
    SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
    [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
@@ -1017,6 +1021,8 @@ begin
   y2 := 0;
   increase := 1;      
   randomize;
+  
+   if assigned(xbitmap) then xbitmap.free;
 
 end;
 

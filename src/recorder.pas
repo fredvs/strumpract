@@ -106,7 +106,7 @@ var
   thearrayrec: array of cfloat;
   tottimerec: ttime;
   recorderfo: trecorderfo;
-  thedialogform: tfiledialogfo;
+  thedialogform: tfiledialogxfo;
   initplay: integer = 1;
   isrecording: Boolean = False;
   therecplayer: integer = 24;

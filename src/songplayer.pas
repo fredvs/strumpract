@@ -158,7 +158,7 @@ var
   arl, arr, arl2, arr2: flo64arty;
   songplayerfo: tsongplayerfo;
   songplayer2fo: tsongplayerfo;
-  thedialogform: tfiledialogfo;
+  thedialogform: tfiledialogxfo;
   initplay: integer = 1;
   theplayer: integer = 20;
   theplayerinfo: integer = 21;

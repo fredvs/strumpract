@@ -1051,7 +1051,8 @@ begin
         {$endif}
       {$ENDIF}
 
-  if uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil) = 0 then
+ if uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil) = 0 then
+// if uos_LoadLib(PChar('system'), PChar('system'), PChar(lib3), nil, nil, nil) = 0 then
 
     begin
 

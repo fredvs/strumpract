@@ -728,6 +728,8 @@ var
 begin
   ordir := ExtractFilePath(ParamStr(0)) + 'list' + directoryseparator;
   tfiledialog1.controller.captionopen := 'Open List File';
+  tfiledialog1.controller.options := [];
+ 
   tfiledialog1.controller.fontcolor := cl_black;
   if mainfo.typecolor.Value = 2 then
     tfiledialog1.controller.backcolor := $A6A6A6
@@ -952,8 +954,10 @@ begin
 
   tfiledialog1.controller.filter    := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   tfiledialog1.controller.fontcolor := cl_black;
-
-  if tfiledialog1.controller.Execute(fdk_dir) = mr_ok then
+  
+  tfiledialog1.controller.options := [fdo_directory];
+ 
+  if tfiledialog1.controller.Execute(fdk_none) = mr_ok then
   begin
     historyfn.Value := tosysfilepath(tfiledialog1.controller.filename);
     historyfn.dropdown.history :=

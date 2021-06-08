@@ -7,13 +7,16 @@ program strumpract;
 {$ifdef mswindows}
  {$R dp.res}
 {$endif}
+ 
+ {$PACKRECORDS C}  
 
 uses
   // cmem,
- {$ifdef FPC} {$ifdef unix} cthreads, {$endif} {$endif}
-  Math, 
+ {$ifdef FPC} {$ifdef unix} cthreads, BaseUnix, {$endif} {$endif}
+Classes,
+  Math,
+  sysutils,
   filelistform,
-  // msegraphics,
   msegui,
   main,
   aboutform,
@@ -32,9 +35,27 @@ uses
   randomnote,
   equalizer,
   dockpanel1;
+  
+{$ifdef unix}
+var
+fs: TFileStream;
+ordir: string;
+{$endif} 
 
 begin
-    SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+{$ifdef unix}  
+  ordir := ExtractFilePath(ParamStr(0)) + 
+      directoryseparator + 'ini' 
+    + directoryseparator + 'error.log' ;
+     
+  //  if fileexists(ordir) then deletefile(ordir); 
+    
+  fs := TFileStream.Create(ordir, fmOpenReadWrite or fmCreate);
+  FpDup2(fs.Handle, StdErrorHandle);
+   
+{$endif} 
+  
+     SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
   [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
   
   application.createform(tconfigfo, configfo);
@@ -178,4 +199,10 @@ end;
   application.createform(tmainfo, mainfo);
 
   application.run;
+
+{$ifdef unix}
+  fs.Free;
+  //  if fileexists(ordir) then deletefile(ordir);
+{$endif} 
+   
 end.
