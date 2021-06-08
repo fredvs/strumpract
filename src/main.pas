@@ -4270,7 +4270,8 @@ begin
 
   tfiledialog1.controller.filter   := '"*.lay"';
   tfiledialog1.controller.filename := ordir;
-
+  tfiledialog1.controller.options := [fdo_sysfilename,fdo_savelastdir];
+ 
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     if fileexists(tfiledialog1.controller.filename) then
       mainfo.tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));

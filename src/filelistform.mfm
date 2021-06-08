@@ -730,7 +730,11 @@ object filelistfo: tfilelistfo
       00000000
     }
     controller.compact = False
+    controller.showoptions = False
+    controller.hidehistory = False
+    controller.hideicons = False
     controller.showhidden = False
+    controller.options = [fdo_sysfilename, fdo_savelastdir]
     left = 58
     top = 38
   end

@@ -3740,7 +3740,11 @@ object mainfo: tmainfo
       00000000
     }
     controller.compact = False
+    controller.showoptions = False
+    controller.hidehistory = False
+    controller.hideicons = False
     controller.showhidden = False
+    controller.options = [fdo_sysfilename, fdo_savelastdir]
     left = 223
     top = 37
   end
