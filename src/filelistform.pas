@@ -135,7 +135,7 @@ begin
     ' and drag the row where you want. ';
 
 
-  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
   if fileexists(ordir + 'ini' + directoryseparator + 'list.ini') then
     filelistfo.tstatfile1.readstat(msestring(ordir + 'ini' + directoryseparator + 'list.ini'))
@@ -327,9 +327,8 @@ procedure tfilelistfo.onchangpath(const Sender: TObject; findex: integer);
 var
   x, y, y2, z, fsize: integer;
   // datalist_files: tfiledatalist;
-  strfilter1, strfilter2, strfilter3, strfilter4: string;
-  cellpos: gridcoordty;
-  thestrnum, thestrx, thestrext, thestrfract: string;
+  strfilter1, strfilter2, strfilter3, strfilter4: msestring;
+  thestrnum, thestrx, thestrext, thestrfract: msestring;
   datalist_files: TStringList;
   SR: TSearchRec;
   {$ifdef unix}  
@@ -390,13 +389,13 @@ begin
 
       datalist_files := TStringList.Create;
       try
-        if FindFirst(historyfn.Value + '*.*', faArchive, SR) = 0 then
+        if FindFirst(rawbytestring(historyfn.Value + '*.*'), faArchive, SR) = 0 then
         begin
           repeat
-            if (lowercase(fileext(SR.Name)) = strfilter1) or
-              (lowercase(fileext(SR.Name)) = strfilter2) or
-              (lowercase(fileext(SR.Name)) = strfilter3) or
-              (lowercase(fileext(SR.Name)) = strfilter4) then
+           if (lowercase(fileext(msestring(SR.Name))) = strfilter1) or
+              (lowercase(fileext(msestring(SR.Name))) = strfilter2) or
+              (lowercase(fileext(msestring(SR.Name))) = strfilter3) or
+              (lowercase(fileext(msestring(SR.Name))) = strfilter4) then
               datalist_files.Add(SR.Name); //Fill the list
           until FindNext(SR) <> 0;
           FindClose(SR);
@@ -409,13 +408,13 @@ begin
 
         for x := 0 to datalist_files.Count - 1 do
         begin
-          list_files[0][x] := msestring(filenamebase(datalist_files[x]));
-          list_files[1][x] := msestring(fileext(datalist_files[x]));
+          list_files[0][x] := msestring(filenamebase(msestring(datalist_files[x])));
+          list_files[1][x] := msestring(fileext(msestring(datalist_files[x])));
 
           // writeln(datalist_files[x]);
 
         {$ifdef unix}
-        FpStat(trim(historyfn.Value + directoryseparator + datalist_files[x]), info); 
+        FpStat(rawbytestring(trim(historyfn.Value + directoryseparator + msestring(datalist_files[x]))), info); 
         {$else}
           getfileinfo(msestring(trim(historyfn.Value + directoryseparator + datalist_files[x])), info);
         {$endif}
@@ -456,7 +455,7 @@ begin
           end;
 
 
-          thestrnum := IntToStr(y);
+          thestrnum := msestring(IntToStr(y));
 
           z := Length(thestrnum);
 
@@ -465,20 +464,15 @@ begin
               thestrnum := ' ' + thestrnum;
 
           if y2 > 0 then
-            thestrfract := '.' + IntToStr(y2)
+            thestrfract := msestring('.' + IntToStr(y2))
           else
             thestrfract := '';
 
           list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
           list_files[3][x] := msestring(IntToStr(1));
-          list_files[4][x] := msestring(tosysfilepath(historyfn.Value + datalist_files[x]));
+          list_files[4][x] := msestring(tosysfilepath(historyfn.Value + msestring(datalist_files[x])));
 
         end;
-
-        cellpos.row := 0;
-        cellpos.col := 0;
-
-        //  list_files.selectcell(cellpos, csm_select, False);
 
         edfilescount.Value := list_files.rowcount;
 
@@ -524,16 +518,13 @@ begin
 end;
 
 procedure tfilelistfo.onfloat(const Sender: TObject);
-var
-  rect1: rectty;
 begin
   //sizebefdock.cx := 500;
   //sizebefdock.cy := 500;
   //size := sizebefdock;
   if parentwidget = nil then
   begin
-    rect1 := application.screenrect(window);
-
+  
     //  bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
     bounds_cxmax := fowidth;
     //  bounds_cymax := rect1.cy - 60;
@@ -559,20 +550,20 @@ begin
       mainfo.tmainmenu1.menu[4].submenu[3].Caption := ' Show File List ';
     if norefresh = False then
     begin
-      mainfo.updatelayout();
+      mainfo.updatelayoutstrum();
       if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayout();
+        dockpanel1fo.updatelayoutpan();
       if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayout();
+        dockpanel2fo.updatelayoutpan();
 
       if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayout();
+        dockpanel3fo.updatelayoutpan();
 
       if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayout();
+        dockpanel4fo.updatelayoutpan();
 
       if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayout();
+        dockpanel5fo.updatelayoutpan();
     end;
   end;
 end;
@@ -723,10 +714,10 @@ end;
 procedure tfilelistfo.loadlist(const Sender: TObject);
 var
   x: integer;
-  ordir: string;
+  ordir: msestring;
   cellpos: gridcoordty;
 begin
-  ordir := ExtractFilePath(ParamStr(0)) + 'list' + directoryseparator;
+  ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'list' + directoryseparator);
   tfiledialog1.controller.captionopen := 'Open List File';
   tfiledialog1.controller.options := [fdo_savelastdir, fdo_sysfilename];
   
@@ -782,10 +773,9 @@ end;
 
 procedure tfilelistfo.addfile(const Sender: TObject);
 var
-  x, x2, siz, y, y2, z: integer;
+  x, siz, y, y2, z: integer;
   info: fileinfoty;
-  res: modalresultty;
-  thestrnum, thestrx, thestrext, thestrfract: string;
+  thestrnum, thestrx, thestrext, thestrfract: msestring;
 begin
 
   tfiledialog1.controller.captionopen := 'Open Audio File';
@@ -853,7 +843,7 @@ begin
         thestrext := ' B';
       end;
 
-      thestrnum := IntToStr(y);
+      thestrnum := msestring(IntToStr(y));
 
       z := Length(thestrnum);
 
@@ -862,13 +852,11 @@ begin
           thestrnum := ' ' + thestrnum;
 
       if y2 > 0 then
-        thestrfract := '.' + IntToStr(y2)
+        thestrfract := msestring('.' + msestring(IntToStr(y2)))
       else
         thestrfract := '';
 
-
       list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
-
 
       //   list_files[2][x] := msestring(IntToStr(siz Div 1000) + ' Kb');
       // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);

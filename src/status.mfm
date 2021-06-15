@@ -50,7 +50,6 @@ object statusfo: tstatusfo
     C0DCC004
   }
   windowopacity = -Inf
-  oncreate = oncreated
   moduleclassname = 'tmseform'
   object ok: tbutton
     optionswidget1 = []

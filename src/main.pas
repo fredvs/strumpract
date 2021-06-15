@@ -155,7 +155,7 @@ type
     procedure beginlayout();
     procedure endlayout();
   public
-    procedure updatelayout();
+    procedure updatelayoutstrum();
   end;
 
 const
@@ -181,7 +181,7 @@ var
   // stereo output
   allok: Boolean = False;
   plugsoundtouch: Boolean = False;
-  ordir: string;
+  ordir: msestring;
   hasinit: integer = 0;
   oktimer: integer = 0;
   maxheightfo: integer;
@@ -276,19 +276,19 @@ begin
   bounds_cymin := bounds_cy;
 
   if dockpanel1fo.Visible then
-    dockpanel1fo.updatelayout();
+    dockpanel1fo.updatelayoutpan();
 
   if dockpanel2fo.Visible then
-    dockpanel2fo.updatelayout();
+    dockpanel2fo.updatelayoutpan();
 
   if dockpanel3fo.Visible then
-    dockpanel3fo.updatelayout();
+    dockpanel3fo.updatelayoutpan();
 
   if dockpanel4fo.Visible then
-    dockpanel4fo.updatelayout();
+    dockpanel4fo.updatelayoutpan();
 
   if dockpanel5fo.Visible then
-    dockpanel5fo.updatelayout();
+    dockpanel5fo.updatelayoutpan();
 end;
 end;
 
@@ -322,8 +322,8 @@ begin
 
   maxheightfo         := rect1.cy - 70;
   // for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
-  tstatfile1.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
-    'ini' + directoryseparator + 'stat.ini';
+  tstatfile1.filename := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+    'ini' + directoryseparator + 'stat.ini');
 
   Timerwait          := ttimer.Create(nil);
   Timerwait.interval := 100000;
@@ -360,7 +360,7 @@ end;
 procedure tmainfo.dodestroy(const Sender: TObject);
 begin
   statusanim := 0;
-  ordir      := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir      := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
   filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
 
@@ -493,9 +493,9 @@ begin
   while x < UOSDeviceCount do
   begin
     if UOSDeviceInfos[x].DefaultDevOut = True then
-      configfo.lsuglat.Caption := 'Audio API ' + UOSDeviceInfos[x].HostAPIName +
+      configfo.lsuglat.Caption := msestring('Audio API ' + UOSDeviceInfos[x].HostAPIName +
         ': Suggested latency = ' +
-        floattostrf(UOSDeviceInfos[x].LatencyLowOut, ffFixed, 15, 8);
+        floattostrf(UOSDeviceInfos[x].LatencyLowOut, ffFixed, 15, 8));
     Inc(x);
   end;
 
@@ -660,7 +660,7 @@ begin
   Dec(flayoutlock);
   basedock.dragdock.endplacement();
   if flayoutlock = 0 then
-    updatelayout();
+    updatelayoutstrum();
 
   if timerwait.Enabled then
     timerwait.restart // to reset
@@ -669,11 +669,10 @@ begin
 
 end;
 
-procedure tmainfo.updatelayout();
+procedure tmainfo.updatelayoutstrum();
 var
   maxwidth: int32;
   totheight: int32;
-  totchildheight: int32;
   visiblecount: int32;
   children1: widgetarty;
   heights: integerarty;
@@ -710,8 +709,7 @@ begin
       visiblecount   := 0;
       maxwidth       := 0;
       totheight      := 0;
-      totchildheight := 0;
-
+     
       //  writeln('Number of childs: ' + inttostr(high(children1)));
 
       for i1 := 0 to high(children1) do
@@ -777,12 +775,12 @@ end;
 
 procedure tmainfo.updatedockev(const Sender: TObject; const awidget: twidget);
 begin
-  updatelayout();
+  updatelayoutstrum();
 end;
 
 procedure tmainfo.onfloatall(const Sender: TObject);
 var
-  decorationheight, posi: int32;
+  posi: int32;
   leftdec: integer = 40;
   leftposi: integer;
   topdec: integer = 30;
@@ -791,8 +789,6 @@ begin
   
     oktimer := 1;
  
-  decorationheight := window.decoratedbounds_cy - Height;
-
   beginlayout();
 
   norefresh := True;
@@ -2234,12 +2230,17 @@ begin
     songplayerfo.font.color  := thecolor1;
     songplayer2fo.font.color := thecolor2;
 
-
     tfaceplayer.template.fade_color.items[0] := $F9FFC2;
     tfaceplayer.template.fade_color.items[1] := $C4C999;
+  
+   // tfaceplayer.template.fade_color.items[0] := $FFF9A3;
+   // tfaceplayer.template.fade_color.items[1] := $C4C999;
 
     tfaceplayerbut.template.fade_color.items[0] := $F9FFC2;
     tfaceplayerbut.template.fade_color.items[1] := $C4C999;
+
+  // tfaceplayerbut.template.fade_color.items[0] := $FFF9A3;
+  // tfaceplayerbut.template.fade_color.items[1] := $C4C999;
 
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
     tfacebutgray.template.fade_color.items[1] := $9E9E9E;
@@ -4037,14 +4038,14 @@ end;
 procedure tmainfo.onmaintab(const Sender: TObject);
 begin
   basedock.dragdock.currentsplitdir := sd_tabed;
-  updatelayout();
+  updatelayoutstrum();
 end;
 
 procedure tmainfo.onmaindock(const Sender: TObject);
 begin
 
   basedock.dragdock.currentsplitdir := sd_horz;
-  updatelayout();
+  updatelayoutstrum();
 
 end;
 
@@ -4261,9 +4262,9 @@ end;
 
 procedure tmainfo.loadlayout(const Sender: TObject);
 var
-  ordir: string;
+  ordir: msestring;
 begin
-  ordir := ExtractFilePath(ParamStr(0)) + 'layout' + directoryseparator;
+  ordir := msestring(ExtractFilePath(ParamStr(0)) + 'layout' + directoryseparator);
   tfiledialog1.controller.captionopen := 'Open Layout File';
   tfiledialog1.controller.fontcolor := cl_black;
 
@@ -4274,7 +4275,7 @@ begin
  
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     if fileexists(tfiledialog1.controller.filename) then
-      mainfo.tstatfile1.readstat(utf8decode(tfiledialog1.controller.filename));
+      mainfo.tstatfile1.readstat(msestring(tfiledialog1.controller.filename));
 
 end;
 

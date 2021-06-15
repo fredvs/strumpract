@@ -170,7 +170,7 @@ var
   randomnotefo: trandomnotefo;
   chordran: integer;
   chorddrop: integer = 0;
-  chordmem1, chordmem2, chordmem3, chordmem4, chordmem5: string;
+  chordmem1, chordmem2, chordmem3, chordmem4, chordmem5: msestring;
   blocked: integer = 0;
 
 implementation
@@ -3700,9 +3700,9 @@ end;
 
 procedure trandomnotefo.dorandomchord(Const Sender: TObject);
 var 
-  str2, str3: string;
+  str2, str3: msestring;
   ismin, isseven, x, ranchord: integer;
-  isminstr, issevenstr: string;
+  isminstr, issevenstr: msestring;
 begin
   refreshform(Sender);
   x := 0;
@@ -4046,7 +4046,7 @@ begin
       tstringdisp1.Visible := False;
 
       if withrandom.Value = False then
-        numchord.Value := strtoint(maxnote.Value)
+        numchord.Value := strtoint(ansistring(maxnote.Value))
       else
         begin
 
@@ -4054,7 +4054,7 @@ begin
           while x < 50 do
             begin
 
-              numchord.Value := Random(strtoint(maxnote.Value)) + 1;
+              numchord.Value := Random(strtoint(ansistring(maxnote.Value))) + 1;
               Inc(x);
               application.ProcessMessages;
               sleep(20);
@@ -4455,7 +4455,7 @@ end;
 
 procedure trandomnotefo.playrandomchords(thenum: integer);
 var 
-  thedir, afile: string;
+  thedir, afile: msestring;
 begin
 
   if thenum = 0 then
@@ -4471,7 +4471,7 @@ begin
   else
     afile := '';
 
-  thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+  thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
             'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
 
   if fileexists(thedir) then
@@ -4510,7 +4510,7 @@ begin
   else
     afile := '';
 
-  thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+  thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
             'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.ogg';
 
   if fileexists(thedir) then
@@ -4540,7 +4540,7 @@ end;
 
 procedure trandomnotefo.onmouseguit(Const Sender: twidget; Var ainfo: mouseeventinfoty);
 var 
-  thedir, afile: string;
+  thedir, afile: msestring;
 begin
   with ainfo do
     if eventkind in [ek_buttonpress] then
@@ -4559,7 +4559,7 @@ begin
         else
           afile := '';
 
-        thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+        thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
                   'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.ogg';
 
         if fileexists(thedir) then
@@ -4589,7 +4589,7 @@ end;
 
 procedure trandomnotefo.onmousepiano(Const Sender: twidget; Var ainfo: mouseeventinfoty);
 var 
-  thedir, afile: string;
+  thedir, afile: msestring;
 begin
   with ainfo do
     if eventkind in [ek_buttonpress] then
@@ -4608,7 +4608,7 @@ begin
         else
           afile := '';
 
-        thedir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+        thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
                   'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
 
         if fileexists(thedir) then
@@ -4678,7 +4678,7 @@ end;
 
 procedure trandomnotefo.dofixed(Const Sender: TObject);
 var 
-  x, ax: integer;
+  ax: integer;
 begin
   if blocked = 0 then
     begin
@@ -4689,7 +4689,7 @@ begin
       doclear(Sender);
       application.processmessages;
       numchord.Visible := True;
-      numchord.Value   := strtoint(maxnote.Value);
+      numchord.Value   := strtoint(ansistring(maxnote.Value));
 
       bchord1.height := (height Div numchord.Value) - 10;
       bchord1.top := 2;

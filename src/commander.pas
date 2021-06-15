@@ -203,14 +203,14 @@ begin
   
    {$if defined(linux)}
     sysvol.value := ALSAmixerGetVolume(0)/100;
-    sysvolbut.caption := inttostr(round(sysvol.value*10));
+    sysvolbut.caption := msestring(inttostr(round(sysvol.value*10)));
     ALSAmixerSetCallBack(@mixelemcallback); 
     docallback := true;
    {$ENDIF}
  
    {$if defined(windows)}
     sysvol.value := WinmixerGetVolume(0)/100;
-    sysvolbut.caption := inttostr(round(sysvol.value*10));
+    sysvolbut.caption := msestring(inttostr(round(sysvol.value*10)));
      WinMixerSetCallBack(@mixelemcallback); // gives memory leak
      docallback := true;
    {$ENDIF}
@@ -508,18 +508,18 @@ begin
       mainfo.tmainmenu1.menu[4].submenu[6].Caption := ' Show Commander ';
     if norefresh = False then
     begin
-      mainfo.updatelayout();
+      mainfo.updatelayoutstrum();
 
       if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayout();
+        dockpanel1fo.updatelayoutpan();
       if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayout();
+        dockpanel2fo.updatelayoutpan();
       if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayout();
+        dockpanel3fo.updatelayoutpan();
       if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayout();
+        dockpanel4fo.updatelayoutpan();
       if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayout();
+        dockpanel5fo.updatelayoutpan();
     end;
   end;
 end;
@@ -1232,7 +1232,7 @@ end;
 procedure tcommanderfo.onsetsysvol(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
-  sysvolbut.caption := inttostr(round(avalue*10));
+  sysvolbut.caption := msestring(inttostr(round(avalue*10)));
   {$if defined(linux)}
     docallback := false;
     ALSAmixerSetVolume(0, round(avalue * 100));
@@ -1253,7 +1253,7 @@ begin
   if docallback then
   begin
     commanderfo.sysvol.value := ALSAmixerGetVolume(0) / 100;
-    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
+    commanderfo.sysvolbut.caption := msestring(inttostr(round(commanderfo.sysvol.value*10)));
   end;
 {$ENDIF}
 

@@ -168,7 +168,6 @@ procedure tequalizerfo.onchangeall();
 var
   x: integer;
   asliders: tasliders;
-  avalue, again: cfloat;
   
 begin
 // {
@@ -208,7 +207,7 @@ var
   avalue, again: cfloat;
   tagsender : integer;
   abutton : tbutton;
-  astring : string;
+  astring :  msestring;
 begin
 if iscreated then begin
 
@@ -224,13 +223,13 @@ if iscreated then begin
     else if avalue >= 0.52 then
     begin
       again := 1 + ((avalue - 0.52) * 4);
-      astring := inttostr(round(again * 3.5));
+      astring :=  msestring(inttostr(round(again * 3.5)));
     end
     else
     begin
       again := (0.48 - avalue);
       if again < 0.2 then again := 0;
-      astring := '-' + inttostr(round(again * 20));
+      astring :=  msestring('-' + inttostr(round(again * 20)));
     end;
     
     case tagsender of
@@ -302,10 +301,8 @@ end;
 
 procedure tequalizerfo.onexecbut(const sender: TObject);
 var
-  avalue, again: cfloat;
   tagsender : integer;
   aslider : tslider;
-  astring : string;
 begin
 if iscreated then begin
  tagsender := Tbutton(Sender).tag; 
@@ -371,12 +368,12 @@ if Visible then
   end;
 if norefresh = false then
 begin
- if assigned(mainfo) then  mainfo.updatelayout();
- if assigned(dockpanel1fo) then  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
- if assigned(dockpanel2fo) then if dockpanel2fo.visible then dockpanel2fo.updatelayout();
- if assigned(dockpanel3fo) then if dockpanel3fo.visible then dockpanel3fo.updatelayout();
- if assigned(dockpanel4fo) then if dockpanel4fo.visible then dockpanel4fo.updatelayout();
- if assigned(dockpanel5fo) then if dockpanel5fo.visible then dockpanel5fo.updatelayout();
+ if assigned(mainfo) then  mainfo.updatelayoutstrum();
+ if assigned(dockpanel1fo) then  if dockpanel1fo.visible then dockpanel1fo.updatelayoutpan();
+ if assigned(dockpanel2fo) then if dockpanel2fo.visible then dockpanel2fo.updatelayoutpan();
+ if assigned(dockpanel3fo) then if dockpanel3fo.visible then dockpanel3fo.updatelayoutpan();
+ if assigned(dockpanel4fo) then if dockpanel4fo.visible then dockpanel4fo.updatelayoutpan();
+ if assigned(dockpanel5fo) then if dockpanel5fo.visible then dockpanel5fo.updatelayoutpan();
 end; 
 
 end;

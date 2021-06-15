@@ -29,8 +29,6 @@ type
     procedure onresized(const Sender: TObject);
     procedure ontab(const Sender: TObject);
     procedure ondock(const Sender: TObject);
-    procedure layoutchanged(const Sender: tdockcontroller);
-    procedure onfloat(const Sender: TObject);
     procedure onvisiblech(const Sender: TObject);
     
   private
@@ -39,7 +37,7 @@ type
     procedure beginlayout();
     procedure endlayout();
   public
-    procedure updatelayout(); 
+    procedure updatelayoutpan(); 
    end;
 
 const
@@ -130,16 +128,15 @@ begin
   Dec(flayoutlock);
   basedock.dragdock.endplacement();
   if flayoutlock = 0 then
-    updatelayout();
+    updatelayoutpan();
   //Timerwaitdp.Enabled := True;
 end;
 
-procedure tdockpanel1fo.updatelayout();
+procedure tdockpanel1fo.updatelayoutpan();
 var
   maxwidth: int32;
   emptyheight: int32 = 50;
   totheight: int32;
-  totchildheight: int32;
   visiblecount: int32;
   children1: widgetarty;
   heights: integerarty;
@@ -179,8 +176,7 @@ begin
       visiblecount := 0;
       maxwidth := 0;
       totheight := 0;
-      totchildheight := 0;
-
+     
       // writeln('Number of childs: ' + inttostr(high(children1)));
 
       for i1 := 0 to high(children1) do
@@ -256,7 +252,7 @@ end;
 
 procedure tdockpanel1fo.updatedockev(const Sender: TObject; const awidget: twidget);
 begin
-  updatelayout();
+  updatelayoutpan();
 end;
 
 procedure tdockpanel1fo.oncreate(const Sender: TObject);
@@ -295,7 +291,7 @@ begin
   beginlayout();
   basedock.dragdock.currentsplitdir := sd_tabed;
   endlayout();
-  // updatelayout();
+  // updatelayoutpan();
   // writeln('updatedtab');
 end;
 
@@ -305,17 +301,6 @@ begin
   basedock.dragdock.currentsplitdir := sd_horz;
   endlayout();
   // writeln('updateddok');
-end;
-
-procedure tdockpanel1fo.layoutchanged(const Sender: tdockcontroller);
-begin
-  //writeln('updated');
-  //updatelayout();
-end;
-
-procedure tdockpanel1fo.onfloat(const Sender: TObject);
-begin
-
 end;
 
 procedure tdockpanel1fo.onvisiblech(const Sender: TObject);

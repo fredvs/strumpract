@@ -13,7 +13,6 @@ type
    layoutname: tstringedit;
    ok: tbutton;
    cancel: tbutton;
-   procedure oncreated(const sender: TObject);
    procedure onok(const sender: TObject);
    procedure oncancel(const sender: TObject);
    
@@ -25,11 +24,6 @@ implementation
 uses
  status_mfm, main, filelistform;
  
-procedure tstatusfo.oncreated(const sender: TObject);
-var
-ordir : msestring;
-begin
-end;
 
 procedure tstatusfo.oncancel(const sender: TObject);
 begin
@@ -38,29 +32,26 @@ end;
 
 procedure tstatusfo.onok(const sender: TObject);
 var
-x : integer;
-ordir : string;
-cellpos: gridcoordty;
+ordir : msestring;
 begin
-
 
 if typstat = 0 then
 begin
-ordir := ExtractFilePath(ParamStr(0))
- + 'layout' + directoryseparator;
+ordir := msestring(ExtractFilePath((ParamStr(0)))
+ + 'layout' + directoryseparator);
 if statusfo.layoutname.value <> '' then begin
- ordir := ordir + utf8decode(statusfo.layoutname.value + '.lay');
-mainfo.tstatfile1.writestat(utf8decode(ordir));
+ ordir := ordir + utf8decode(RawByteString(statusfo.layoutname.value) + '.lay');
+mainfo.tstatfile1.writestat(utf8decode(RawByteString(ordir)));
 end;
 end;
 
 if typstat = 2 then
 begin
-ordir := ExtractFilePath(ParamStr(0))
- + 'list' + directoryseparator;
+ordir := msestring(ExtractFilePath(ParamStr(0))
+ + 'list' + directoryseparator);
 if statusfo.layoutname.value <> '' then begin
- ordir := utf8decode(ordir + statusfo.layoutname.value + '.lis');
-filelistfo.tstatfile1.writestat(utf8decode(ordir)); 
+ ordir := msestring(ordir + statusfo.layoutname.value + '.lis');
+filelistfo.tstatfile1.writestat((ordir)); 
 filelistfo.caption := statusfo.layoutname.value;
 end;
 end;

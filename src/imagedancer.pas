@@ -159,7 +159,7 @@ uses
 var
   Bitmap: tbgrabitmap;
   
-  XBitmap: tbgrabitmap;
+  // XBitmap: tbgrabitmap;
   
 // Fractal circles
 
@@ -678,8 +678,7 @@ var
   rad: double;
   x: double = 0;
   y: double = 0;
-  init: double = 0;
-  i, j, k, m, z, offset: integer;
+  i, k, m, offset: integer;
   col: TBGRAPixel;
   start, stop: single;
   LocalSpeed, Delta: single;
@@ -951,7 +950,7 @@ end;
 
 function timagedancerfo.Execute(thread: tmsethread): integer;
 begin
-
+  result := 0;
   repeat
     if (isbuzy = False) and (Visible = True) and (openglwidget.Visible = false) then
     begin
@@ -1022,7 +1021,7 @@ begin
   increase := 1;      
   randomize;
   
-   if assigned(xbitmap) then xbitmap.free;
+//   if assigned(xbitmap) then xbitmap.free;
 
 end;
 
@@ -1056,7 +1055,6 @@ end;
 
 procedure timagedancerfo.onrenderexe(const Sender: tcustomopenglwidget; const aupdaterect: rectty);
 var
-  lwo1: longword;
   int1: integer;
 begin
   if openglwidget.Visible then

@@ -288,8 +288,7 @@ end;
 procedure trecorderfo.ShowLevel;
 var
   leftlev, rightlev: double;
-  rat: integer;
-begin
+ begin
   vuLeft.Visible  := True;
   vuRight.Visible := True;
 
@@ -683,20 +682,20 @@ begin
     end;
     if norefresh = False then
     begin
-      mainfo.updatelayout();
+      mainfo.updatelayoutstrum();
       if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayout();
+        dockpanel1fo.updatelayoutpan();
       if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayout();
+        dockpanel2fo.updatelayoutpan();
 
       if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayout();
+        dockpanel3fo.updatelayoutpan();
 
       if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayout();
+        dockpanel4fo.updatelayoutpan();
 
       if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayout();
+        dockpanel5fo.updatelayoutpan();
     end;
   end;
 end;
@@ -741,8 +740,6 @@ begin
 end;
 
 procedure trecorderfo.onplayercreate(const Sender: TObject);
-var
-  ordir: string;
 begin
   windowopacity := 0;
   
@@ -778,16 +775,7 @@ begin
     edtempo.Enabled := False;
     cbtempo.Enabled := False;
     Button1.Enabled := False;
-    //label6.Enabled := False;
   end;
-
-    // ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
-
-    //  if songdir.Value = '' then
-    //    songdir.Value := utf8decode(ordir + 'sound' + directoryseparator + 'record' + directoryseparator + 'record.wav');
-
-    //  recorderfo.historyfn.Value := recorderfo.songdir.Value;
-
 end;
 
 procedure trecorderfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -806,7 +794,7 @@ end;
 procedure trecorderfo.dorecorderstart(const Sender: TObject);
 var
   i, outformat: integer;
-  outformatst : string;
+  outformatst :  msestring;
 begin
   // if (bsavetofile.value = True) or (blistenin.value = True) then begin
 
@@ -842,9 +830,9 @@ begin
     outformat := 3;
     end; 
 
-      historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 
+      historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) + 
       'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' +
-       UTF8Decode(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.' + outformatst );
+       msestring(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.' + outformatst ;
 
 
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)), 
@@ -1103,7 +1091,6 @@ end;
 
 procedure trecorderfo.changefrequency(asender, aindex: integer; gainl, gainr: double);
 var
-  gainl2, gainr2: double;
   aplayer: integer;
   isenable: Boolean = False;
 begin
@@ -1111,21 +1098,7 @@ begin
    //if isenable then isenable := false else isenable := true;
 
     aplayer := therecplayer;
-
-    if gainl = 0 then
-      gainl2 := 1
-    else if gainl > 0 then
-      gainl2 := gainl
-    else
-      gainl2 := 1 - gainl;
-
-    if gainr = 0 then
-      gainr2 := 1
-    else if gainr > 0 then
-      gainr2 := gainr
-    else
-      gainr2 := 1 - gainr;
-
+   
     //  if (btnStart.Enabled = true) then
     uos_InputSetFilter(aplayer, InputIndex3, Equalizer_Bands[aindex].theindex, -1, -1, -1, Gainl, -1, -1, -1, Gainr,
       True, nil, isenable);

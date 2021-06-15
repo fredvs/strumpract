@@ -162,12 +162,12 @@ var
   initplay: integer = 1;
   theplayer: integer = 20;
   theplayerinfo: integer = 21;
-  theplaying1: string = '';
+  theplaying1: msestring = '';
   theplayer2: integer = 22;
   theplayerinfo2: integer = 23;
   theplayerinfoform: integer = 26;
   theplayerinfoform2: integer = 27;
-  theplaying2: string = '';
+  theplaying2: msestring = '';
   iscue1: Boolean = False;
   hasmixed1: Boolean = False;
   hasfocused1: Boolean = False;
@@ -258,6 +258,7 @@ end;
 
 function DSPReverseBefore1(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 begin
+result := nil;
   if (Data.position > Data.OutFrames div Data.channels) then
     uos_InputSeek(theplayer, InputIndex1, Data.position -
       (Data.OutFrames div Data.ratio));
@@ -266,6 +267,7 @@ end;
 
 function DSPReverseBefore2(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 begin
+result := nil;
   if (Data.position > Data.OutFrames div Data.channels) then
     uos_InputSeek(theplayer2, InputIndex2, Data.position -
       (Data.OutFrames div Data.ratio));
@@ -815,7 +817,7 @@ end;
 
 procedure tsongplayerfo.LoopProcPlayer1();
 var
-  temp, ll1, ll2, lr1, lr2: double;
+ll1, ll2, lr1, lr2: double;
 begin
 
   if (commanderfo.timermix.Enabled = False) or
@@ -879,7 +881,7 @@ procedure tsongplayerfo.doplayerstart(const Sender: TObject);
 var
   samformat, hassent: shortint;
   ho, mi, se, ms: word;
-  fileex: string;
+  fileex: msestring;
   i: integer;
 begin
   if Caption = 'Player 1' then
@@ -1113,7 +1115,7 @@ begin
               btnpause.Visible := True;
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
-            tstringdisp1.Value := utf8decode('Playing ' + theplaying1);
+            tstringdisp1.Value := msestring('Playing ' + theplaying1);
           end;
 
           if hassent = 1 then  /// cue
@@ -1135,7 +1137,7 @@ begin
             end;
             uos_Pause(theplayer);
             tstringdisp1.face.template := mainfo.tfaceorange2;
-            tstringdisp1.Value         := utf8decode('Loaded ' + theplaying1);
+            tstringdisp1.Value         := msestring('Loaded ' + theplaying1);
           end;
 
           cbloop.Visible := False;
@@ -1410,7 +1412,7 @@ begin
               btnpause.Visible := True;
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
-            tstringdisp1.Value := utf8decode('Playing ' + theplaying2);
+            tstringdisp1.Value := msestring('Playing ' + theplaying2);
           end;
 
           if hassent = 1 then  /// cue
@@ -1433,7 +1435,7 @@ begin
             end;
             uos_Pause(theplayer2);
             tstringdisp1.face.template := mainfo.tfaceorange2;
-            tstringdisp1.Value         := utf8decode('Loaded ' + theplaying2);
+            tstringdisp1.Value         := msestring('Loaded ' + theplaying2);
           end;
 
           cbloop.Enabled  := False;
@@ -1511,7 +1513,7 @@ begin
 
     iscue1 := False;
 
-    tstringdisp1.Value := utf8decode('Playing ' + theplaying1);
+    tstringdisp1.Value := msestring('Playing ' + theplaying1);
   end;
 
   if Caption = 'Player 2' then
@@ -1535,7 +1537,7 @@ begin
 
     uos_RePlay(theplayer2);
     iscue2 := False;
-    tstringdisp1.Value := utf8decode('Playing ' + theplaying2);
+    tstringdisp1.Value := msestring('Playing ' + theplaying2);
   end;
 
 end;
@@ -1578,7 +1580,7 @@ begin
 
     uos_Pause(theplayer);
 
-    tstringdisp1.Value := utf8decode('Paused ' + theplaying1);
+    tstringdisp1.Value := msestring('Paused ' + theplaying1);
   end;
 
   if Caption = 'Player 2' then
@@ -1599,7 +1601,7 @@ begin
     end;
 
     uos_Pause(theplayer2);
-    tstringdisp1.Value := utf8decode('Paused ' + theplaying2);
+    tstringdisp1.Value := msestring('Paused ' + theplaying2);
   end;
 
   resetspectrum();
@@ -1643,7 +1645,6 @@ end;
 
 procedure tsongplayerfo.changefrequency(asender, aindex: integer; gainl, gainr: double);
 var
-  gainl2, gainr2: double;
   aplayer: integer;
   isenable: Boolean = False;
 begin
@@ -1659,20 +1660,6 @@ begin
   else if asender = 2 then
     aplayer := theplayer2;
   begin
-
-    if gainl = 0 then
-      gainl2 := 1
-    else if gainl > 0 then
-      gainl2 := gainl
-    else
-      gainl2 := 1 - gainl;
-
-    if gainr = 0 then
-      gainr2 := 1
-    else if gainr > 0 then
-      gainr2 := gainr
-    else
-      gainr2 := 1 - gainr;
 
     //  if (btnStart.Enabled = true) then
     uos_InputSetFilter(aplayer, Inputindex1, Equalizer_Bands[aindex].theindex, -1, -1, -1, Gainl, -1, -1, -1, Gainr,
@@ -2186,7 +2173,7 @@ var
   hassent: shortint;
   ho, mi, se, ms: word;
   framewanted: integer;
-  fileex: string;
+  fileex: msestring;
   thebuffer: TDArFloat;
   thebufferinfos: TuosF_BufferInfos;
 begin
@@ -2506,24 +2493,24 @@ begin
       end;
     if norefresh = False then
     begin
-      mainfo.updatelayout();
+      mainfo.updatelayoutstrum();
       if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayout();
+        dockpanel1fo.updatelayoutpan();
       if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayout();
+        dockpanel2fo.updatelayoutpan();
       if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayout();
+        dockpanel3fo.updatelayoutpan();
       if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayout();
+        dockpanel4fo.updatelayoutpan();
       if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayout();
+        dockpanel5fo.updatelayoutpan();
     end;
   end;
 end;
 
 procedure tsongplayerfo.onplayercreate(const Sender: TObject);
 var
-  ordir: string;
+  ordir: msestring;
 begin
   windowopacity := 0;
 
@@ -2552,7 +2539,7 @@ begin
     tstringdisp2.top  := 64;
   end;
 
-  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
   if historyfn.Value = '' then
     historyfn.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg';

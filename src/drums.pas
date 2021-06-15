@@ -832,22 +832,22 @@ begin
       if norefresh = false then
         begin
 
-          mainfo.updatelayout();
+          mainfo.updatelayoutstrum();
 
           if dockpanel1fo.Visible then
-            dockpanel1fo.updatelayout();
+            dockpanel1fo.updatelayoutpan();
 
           if dockpanel2fo.Visible then
-            dockpanel2fo.updatelayout();
+            dockpanel2fo.updatelayoutpan();
 
           if dockpanel3fo.Visible then
-            dockpanel3fo.updatelayout();
+            dockpanel3fo.updatelayoutpan();
 
           if dockpanel4fo.Visible then
-            dockpanel4fo.updatelayout();
+            dockpanel4fo.updatelayoutpan();
 
           if dockpanel5fo.Visible then
-            dockpanel5fo.updatelayout();
+            dockpanel5fo.updatelayoutpan();
         end;
     end;
 end;
@@ -923,7 +923,7 @@ end;
 procedure tdrumsfo.createvoiceplayers;
 var 
   i: integer;
-   ordir: string;
+   ordir: msestring;
   timerisenabled: boolean = False;
 begin
 
@@ -934,17 +934,17 @@ begin
 //  writeln(langcount.text);
   //langcount.value  := 'es';
   // writeln(langcount.text);
-   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
   
-  adrums[4] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
+  adrums[4] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
                langcount.value + directoryseparator + '1.ogg');
-  adrums[5] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
+  adrums[5] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
                langcount.value + directoryseparator + '2.ogg');
-  adrums[6] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
+  adrums[6] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
                langcount.value + directoryseparator + '3.ogg');
-  adrums[7] := utf8decode( ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
+  adrums[7] := rawbytestring( ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
                langcount.value + directoryseparator + '4.ogg');
-  adrums[8] := utf8decode(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
+  adrums[8] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
                langcount.value + directoryseparator + 'and.ogg');
 
   if tag = 0 then
@@ -984,7 +984,7 @@ end;
 
 procedure tdrumsfo.oncreatedrums(Const Sender: TObject);
 var 
-  ordir: string;
+  ordir: msestring;
   spcx, spcy, posx, posy, ax: integer;
   lib1, lib2, lib3, lib4: string;
   i1: int32;
@@ -995,58 +995,58 @@ begin
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
                    [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
-  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
     {$IFDEF Windows}
          {$if defined(cpu64)}
-  lib1 := ordir + 'lib\Windows\64bit\LibPortaudio-64.dll';
-  lib2 := ordir + 'lib\Windows\64bit\LibSndFile-64.dll';
-  lib3 := ordir + 'lib\Windows\64bit\LibMpg123-64.dll';
-  lib4 := ordir + 'lib\Windows\64bit\LibSoundTouch-64.dll';
+  lib1 := AnsiString(ordir + 'lib\Windows\64bit\LibPortaudio-64.dll');
+  lib2 := AnsiString(ordir + 'lib\Windows\64bit\LibSndFile-64.dll');
+  lib3 := AnsiString(ordir + 'lib\Windows\64bit\LibMpg123-64.dll');
+  lib4 := AnsiString(ordir + 'lib\Windows\64bit\LibSoundTouch-64.dll');
 
        {$else}
-  lib1 := ordir + 'lib\Windows\32bit\LibPortaudio-32.dll';
-  lib2 := ordir + 'lib\Windows\32bit\LibSndFile-32.dll';
-  lib3 := ordir + 'lib\Windows\32bit\LibMpg123-32.dll';
-  lib4 := ordir + 'lib\Windows\32bit\LibSoundTouch-32.dll';
+  lib1 := AnsiString(ordir + 'lib\Windows\32bit\LibPortaudio-32.dll');
+  lib2 := AnsiString(ordir + 'lib\Windows\32bit\LibSndFile-32.dll');
+  lib3 := AnsiString(ordir + 'lib\Windows\32bit\LibMpg123-32.dll');
+  lib4 := AnsiString(ordir + 'lib\Windows\32bit\LibSoundTouch-32.dll');
          {$endif}
      {$ENDIF}
 
     {$if defined(CPUAMD64) and defined(linux) }
-  lib1 := ordir + 'lib/Linux/64bit/LibPortaudio-64.so';
-  lib2 := ordir + 'lib/Linux/64bit/LibSndFile-64.so';
-  lib3 := ordir + 'lib/Linux/64bit/LibMpg123-64.so';
-  lib4 := ordir + 'lib/Linux/64bit/LibSoundTouch-64.so';
+  lib1 := AnsiString(ordir + 'lib/Linux/64bit/LibPortaudio-64.so');
+  lib2 := AnsiString(ordir + 'lib/Linux/64bit/LibSndFile-64.so');
+  lib3 := AnsiString(ordir + 'lib/Linux/64bit/LibMpg123-64.so');
+  lib4 := AnsiString(ordir + 'lib/Linux/64bit/LibSoundTouch-64.so');
      {$ENDIF}
   {$if defined(cpu86) and defined(linux)}
-  lib1 := ordir + 'lib/Linux/32bit/LibPortaudio-32.so';
-  lib2 := ordir + 'lib/Linux/32bit/LibSndFile-32.so';
-  lib3 := ordir + 'lib/Linux/32bit/LibMpg123-32.so';
-  lib4 := ordir + 'lib/Linux/32bit/LibSoundTouch-32.so';
+  lib1 := AnsiString(ordir + 'lib/Linux/32bit/LibPortaudio-32.so');
+  lib2 := AnsiString(ordir + 'lib/Linux/32bit/LibSndFile-32.so');
+  lib3 := AnsiString(ordir + 'lib/Linux/32bit/LibMpg123-32.so');
+  lib4 := AnsiString(ordir + 'lib/Linux/32bit/LibSoundTouch-32.so');
   {$ENDIF}
    {$if defined(linux) and defined(cpuarm)}
-  lib1 := ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so';
-  lib2 := ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so';
-  lib3 := ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so';
-  lib4 := ordir + 'lib/Linux/arm_raspberrypi/libsoundtouch-arm.so';
+  lib1 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so');
+  lib2 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so');
+  lib3 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so');
+  lib4 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libsoundtouch-arm.so');
   {$ENDIF}
   {$if defined(linux) and defined(cpuaarch64)}
-  lib1 := ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so';
-  lib2 := ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so';
-  lib3 := ordir + 'lib/Linux/aarch64_raspberrypi/libmpg123_aarch64.so';
-  lib4 := ordir + 'lib/Linux/aarch64_raspberrypi/libsoundtouch_aarch64.so';
+  lib1 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so');
+  lib2 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so');
+  lib3 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libmpg123_aarch64.so');
+  lib4 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libsoundtouch_aarch64.so');
   {$ENDIF}
 
       {$IFDEF freebsd}
         {$if defined(cpu64)}
-  lib1 := ordir + 'lib/FreeBSD/64bit/libportaudio-64.so';
-  lib2 := ordir + 'lib/FreeBSD/64bit/libsndfile-64.so';
-  lib3 := ordir + 'lib/FreeBSD/64bit/libmpg123-64.so';
-  lib4 := ordir + 'lib/FreeBSD/64bit/libsoundtouch-64.so';
+  lib1 := AnsiString(ordir + 'lib/FreeBSD/64bit/libportaudio-64.so');
+  lib2 := AnsiString(ordir + 'lib/FreeBSD/64bit/libsndfile-64.so');
+  lib3 := AnsiString(ordir + 'lib/FreeBSD/64bit/libmpg123-64.so');
+  lib4 := AnsiString(ordir + 'lib/FreeBSD/64bit/libsoundtouch-64.so');
         {$else}
-  lib1 := ordir + 'lib/FreeBSD/32bit/libportaudio-32.so';
-  lib2 := ordir + 'lib/FreeBSD/32bit/libsndfile-32.so';
-  lib3 := ordir + 'lib/FreeBSD/32bit/libmpg123-32.so';
+  lib1 := AnsiString(ordir + 'lib/FreeBSD/32bit/libportaudio-32.so');
+  lib2 := AnsiString(ordir + 'lib/FreeBSD/32bit/libsndfile-32.so');
+  lib3 := AnsiString(ordir + 'lib/FreeBSD/32bit/libmpg123-32.so');
   lib4 := '';
         {$endif}
       {$ENDIF}
@@ -1077,11 +1077,11 @@ begin
   // devin := -1;
 
   if devin > -1 then
-    configfo.defdevin.caption := 'Default Device IN = ' + IntToStr(devin)
+    configfo.defdevin.caption := 'Default Device IN = ' + msestring(IntToStr(devin))
   else configfo.defdevin.caption := 'No Default Device IN';
 
   if devout > -1 then
-    configfo.defdevout.caption := 'Default Device OUT = ' + IntToStr(devout)
+    configfo.defdevout.caption := 'Default Device OUT = ' + msestring(IntToStr(devout))
   else configfo.defdevout.caption := 'No Default Device OUT';
 
   Timertick := ttimer.Create(Nil);
@@ -1139,7 +1139,7 @@ begin
           color := $D5D5D5;
           Visible := True;
           // textflags := [xcentered,tf_ycentered];
-          Caption := IntToStr(ax + 1);
+          Caption := msestring(IntToStr(ax + 1));
           if ax = 0 then
             begin
               left := posx + 65 + (spcx * (1));
@@ -1237,7 +1237,7 @@ begin
           color := $D5D5D5;
           Visible := True;
           // textflags := [xcentered,tf_ycentered];
-          Caption := IntToStr(ax + 1);
+          Caption := msestring(IntToStr(ax + 1));
           left := posx + 65 + (spcx * (ax + 1));
           top := posy + (spcy * 1);
         end;
@@ -1270,7 +1270,7 @@ begin
           Width := 16;
           Height := 16;
           frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
-          hint := ' Add/Remove a Closed Hat at position ' + IntToStr(ax + 1) + ' ';
+          hint := ' Add/Remove a Closed Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
         end;
       if (Copy(drum_beats[0], ax + 1, 1) = 'x') then
         ach[ax].Value := True
@@ -1306,7 +1306,7 @@ begin
           Width := 16;
           Height := 16;
           frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
-          hint := ' Add/Remove a Open Hat at position ' + IntToStr(ax + 1) + ' ';
+          hint := ' Add/Remove a Open Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
           if (Copy(drum_beats[1], ax + 1, 1) = 'x') then
             Value := True
@@ -1342,7 +1342,7 @@ begin
           Width := 16;
           Height := 16;
           frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
-          hint := ' Add/Remove a Snare Drum at position ' + IntToStr(ax + 1) + ' ';
+          hint := ' Add/Remove a Snare Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
           if (Copy(drum_beats[2], ax + 1, 1) = 'x') then
             Value := True
@@ -1378,7 +1378,7 @@ begin
           Width := 16;
           Height := 16;
           frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
-          hint := ' Add/Remove a Bass Drum at position ' + IntToStr(ax + 1) + ' ';
+          hint := ' Add/Remove a Bass Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
           if (Copy(drum_beats[3], ax + 1, 1) = 'x') then
             Value := True
@@ -1419,12 +1419,12 @@ begin
   //height := 238;
   //width := 458;
   Caption := 'Drums set';
-  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
-  adrums[0] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.ogg';
-  adrums[1] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.ogg';
-  adrums[2] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.ogg';
-  adrums[3] := ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.ogg';
+  adrums[0] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.ogg');
+  adrums[1] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.ogg');
+  adrums[2] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.ogg');
+  adrums[3] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.ogg');
 
   // if assigned( ams[i]) then ams[i].free;
 
@@ -1488,7 +1488,7 @@ begin
     begin
       if avalue > 200 then
         begin
-          hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 200.  Reset to 200.';
+          hintlabel.Caption := '"' + msestring(IntToStr(trunc(avalue))) + '" is > 200.  Reset to 200.';
           if hintlabel.Width > hintlabel2.Width then
             hintpanel.Width := hintlabel.Width + 10
           else
@@ -1519,7 +1519,7 @@ begin
     begin
       if avalue > 500 then
         begin
-          hintlabel.Caption := '"' + IntToStr(trunc(avalue)) + '" is > 500.  Reset to 500.';
+          hintlabel.Caption := '"' + msestring(IntToStr(trunc(avalue))) + '" is > 500.  Reset to 500.';
           if hintlabel.Width > hintlabel2.Width then
             hintpanel.Width := hintlabel.Width + 10
           else

@@ -64,12 +64,12 @@ begin
   end;
 if norefresh = false then
 begin
- if assigned(mainfo) then  mainfo.updatelayout();
- if assigned(dockpanel1fo) then  if dockpanel1fo.visible then dockpanel1fo.updatelayout();
-  if assigned(dockpanel2fo) then if dockpanel2fo.visible then dockpanel2fo.updatelayout();
- if assigned(dockpanel3fo) then if dockpanel3fo.visible then dockpanel3fo.updatelayout();
- if assigned(dockpanel4fo) then if dockpanel4fo.visible then dockpanel4fo.updatelayout();
- if assigned(dockpanel5fo) then if dockpanel5fo.visible then dockpanel5fo.updatelayout();
+ if assigned(mainfo) then  mainfo.updatelayoutstrum();
+ if assigned(dockpanel1fo) then  if dockpanel1fo.visible then dockpanel1fo.updatelayoutpan();
+  if assigned(dockpanel2fo) then if dockpanel2fo.visible then dockpanel2fo.updatelayoutpan();
+ if assigned(dockpanel3fo) then if dockpanel3fo.visible then dockpanel3fo.updatelayoutpan();
+ if assigned(dockpanel4fo) then if dockpanel4fo.visible then dockpanel4fo.updatelayoutpan();
+ if assigned(dockpanel5fo) then if dockpanel5fo.visible then dockpanel5fo.updatelayoutpan();
   
 end;  
 end;

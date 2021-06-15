@@ -378,10 +378,6 @@ begin
 end; 
 
 procedure ALSAmixerSetCallBack(callback: TProc);
-var
-   sid : Psnd_mixer_selem_id_t;
-   elem : Psnd_mixer_elem_t;
-   i : integer;
 begin
      thecallback := callback;
      CallbackThread := TCallbackThread.Create(True); 
