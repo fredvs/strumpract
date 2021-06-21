@@ -1086,6 +1086,9 @@ object songplayerfo: tsongplayerfo
       00000000
     }
     controller.compact = False
+    controller.showoptions = False
+    controller.hidehistory = False
+    controller.hideicons = False
     controller.showhidden = False
     left = 149
     top = 9

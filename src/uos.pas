@@ -74,7 +74,7 @@ uos_cdrom,
 Classes, ctypes, Math, sysutils;
 
 const
-  uos_version : cint32 = 2201231;
+  uos_version : cint32 = 2210621;
   
 {$IF DEFINED(bs2b)}
   BS2B_HIGH_CLEVEL = (CInt32(700)) or ((CInt32(30)) shl 16);
@@ -795,7 +795,7 @@ type
 // example : OutputIndex1 := AddIntoDevOut(-1,-1,-1,-1,0,-1,-1);  
 {$endif}
 
-  function AddIntoFile(Filename: PChar; SampleRate: cint32;
+  function AddIntoFile(Filenamepath: PChar; SampleRate: cint32;
   Channels: cint32; SampleFormat: cint32 ; FramesCount: cint32 ; FileFormat: cint32): cint32;
 // Add a Output into audio wav file with custom parameters from TFileStream
 // FileName : filename of saved audio wav file
@@ -807,7 +807,7 @@ type
 //  result : Output Index in array  -1 = error
 // example : OutputIndex1 := AddIntoFile(edit5.Text,-1,-1, 0, -1, -1);
 
-  function AddIntoFileFromMem(Filename: PChar; SampleRate: LongInt;  
+  function AddIntoFileFromMem(Filenamepath: PChar; SampleRate: LongInt;  
       Channels: LongInt; SampleFormat: LongInt ; FramesCount: LongInt; FileFormat: cint32): LongInt;  
 // Add a Output into audio wav file with custom parameters from TMemoryStream
 /// FileName : filename of saved audio wav file
@@ -5237,7 +5237,7 @@ begin
 end; 
 
 
-function Tuos_Player.AddIntoFileFromMem(Filename: PChar; SampleRate: LongInt;
+function Tuos_Player.AddIntoFileFromMem(Filenamepath: PChar; SampleRate: LongInt;
   Channels: LongInt; SampleFormat: LongInt; FramesCount: LongInt; FileFormat: cint32): LongInt;
 // Add a Output into audio wav file with Custom parameters
 // FileName : filename of saved audio wav file
@@ -5258,7 +5258,7 @@ begin
   x := Length(StreamOut) - 1;
    StreamOut[x].Data.Enabled := false;
   StreamOut[x].FileBuffer.ERROR := 0;
-  StreamOut[x].Data.Filename := filename;
+  StreamOut[x].Data.Filename := Filenamepath;
   if (FileFormat = -1) or (FileFormat = 0) then 
   StreamOut[x].FileBuffer.FileFormat := 0 else StreamOut[x].FileBuffer.FileFormat := FileFormat;
   StreamOut[x].Data.TypePut := 4;
@@ -5301,7 +5301,7 @@ begin
   StreamOut[x].Data.Enabled := True;
 end;
 
-function Tuos_Player.AddIntoFile(Filename: PChar; SampleRate: cint32;
+function Tuos_Player.AddIntoFile(Filenamepath: PChar; SampleRate: cint32;
   Channels: cint32; SampleFormat: cint32 ; FramesCount: cint32 ; FileFormat: cint32): cint32;
 // Add a Output into audio wav file with custom parameters
 // FileName : filename of saved audio wav file
@@ -5330,7 +5330,7 @@ begin
   x := Length(StreamOut) - 1;
    StreamOut[x].Data.Enabled := false;
   StreamOut[x].FileBuffer.ERROR := 0;
-  StreamOut[x].Data.Filename := filename;
+  StreamOut[x].Data.Filename := filenamepath;
   if (FileFormat = -1) or (FileFormat = 0) then 
   StreamOut[x].FileBuffer.FileFormat := 0 else StreamOut[x].FileBuffer.FileFormat := FileFormat;
   
@@ -5376,12 +5376,23 @@ begin
   StreamOut[x].Data.Samplerate := StreamOut[x].FileBuffer.wSamplesPerSec;
   StreamOut[x].LoopProc := nil;
 
-  try
-  StreamOut[x].FileBuffer.Data := TFileStream.Create(filename,fmCreate);
-  StreamOut[x].FileBuffer.Data.Seek(0, soFromBeginning);
-  
-  if StreamOut[x].FileBuffer.FileFormat = 0 then 
+   if fileformat = 3 then 
+  begin// ogg file
+  {$IF DEFINED(sndfile)}
+  StreamOut[x].FileBuffer.FileFormat := 3;
+  StreamOut[x].Data.TypePut := 6 ;
+  sfInfo.format := SF_FORMAT_OGG or SF_FORMAT_VORBIS;
+  sfInfo.channels := StreamOut[x].Data.Channels;
+  sfInfo.frames :=  streamOut[x].Data.Wantframes;
+  SFinfo.samplerate := StreamOut[x].FileBuffer.wSamplesPerSec;
+  SFinfo.seekable := 0;
+  StreamOut[x].Data.Enabled := True;
+  StreamOut[x].Data.HandleSt := sf_open(pchar(FileNamepath), SFM_WRITE, sfInfo);
+  {$endif}
+  end else
   begin// wav file
+  StreamOut[x].FileBuffer.Data := TFileStream.Create(filenamepath,fmCreate);
+  StreamOut[x].FileBuffer.Data.Seek(0, soFromBeginning);
   StreamOut[x].Data.TypePut := 0 ;
   IDwav := 'RIFF';
   StreamOut[x].FileBuffer.Data.WriteBuffer(IDwav, 4);
@@ -5410,24 +5421,7 @@ begin
   wChunkSize:= 0;
   StreamOut[x].FileBuffer.Data.WriteBuffer(wChunkSize, 4);
   StreamOut[x].Data.Enabled := True;
-  end;
-  
-  if fileformat = 3 then 
-  begin// ogg file
-  {$IF DEFINED(sndfile)}
-  StreamOut[x].FileBuffer.FileFormat := 3;
-  StreamOut[x].Data.TypePut := 6 ;
-  sfInfo.format := SF_FORMAT_OGG or SF_FORMAT_VORBIS;
-  sfInfo.channels := StreamOut[x].Data.Channels;
-  sfInfo.frames :=  streamOut[x].Data.Wantframes;
-  SFinfo.samplerate := StreamOut[x].FileBuffer.wSamplesPerSec;
-  SFinfo.seekable := 0;
-  StreamOut[x].Data.HandleSt := sf_open(pchar(FileName), SFM_WRITE, sfInfo);
-  {$endif}
-  end;
-  
-  except
-//  Result := HeaderWriteError;
+ 
   end;
  end;
  
@@ -8193,11 +8187,13 @@ begin
     {$IF DEFINED(sndfile)}
   if (StreamOut[x].Data.TypePut = 6) then
   begin
+   sf_write_sync(StreamOut[x].Data.HandleSt); 
    sf_close(StreamOut[x].Data.HandleSt); 
   end;
 
  if (StreamOut[x].Data.TypePut = 5) then
   begin
+   sf_write_sync(StreamOut[x].Data.HandleSt); 
    sf_close(StreamOut[x].Data.HandleSt); 
   end;
   {$endif}
@@ -8794,7 +8790,7 @@ if err > 0 then
  sf_write_short(StreamOut[x].Data.HandleSt,
  @StreamOut[x].Data.Buffer[0], StreamOut[x].Data.Wantframes * StreamOut[x].Data.channels);
  end;
-
+ sf_write_sync(StreamOut[x].Data.HandleSt); 
  // writeln(inttostr(StreamOut[x].Data.OutFrames));
  end;
 
