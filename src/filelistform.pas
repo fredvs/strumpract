@@ -6,51 +6,13 @@ unit filelistform;
 interface
 
 uses
-  {$ifdef unix}baseunix,{$endif}
-  Math,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  msetimer,
-  mseapplication,
-  msestat,
-  msemenus,
-  msefileutils,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  msedatalist,
-  mseclasses,
-  msegridsglob,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  mclasses,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist;
+ {$ifdef unix}baseunix,{$endif}Math,msetypes,mseglob,mseguiglob,mseguiintf,
+ msetimer,mseapplication,msestat,msemenus,msefileutils,msegui,msegraphics,
+ msegraphutils,mseevent,msedatalist,mseclasses,msegridsglob,mseforms,msedock,
+ msedragglob,msesimplewidgets,mclasses,msewidgets,mseact,msebitmap,msedataedits,
+ msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
+ mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
+ msegraphedits,msescrollbar,msedispwidgets,mserichstring,msedropdownlist;
 
 type
   tfilelistfo = class(tdockform)
@@ -72,6 +34,7 @@ type
     tstatfile1: tstatfile;
     tbutton6: TButton;
     tfiledialog1: tfiledialogx;
+   tbutton11: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
@@ -98,16 +61,19 @@ type
     procedure ondrawcell(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
     procedure afterdragend(const asender: TObject; const apos: pointty; var adragobject: tdragobject; const accepted: Boolean; var processed: Boolean);
     procedure opendir(const Sender: TObject);
+    procedure onexecfind(const sender: TObject);
+   
   end;
 
 var
   filelistfo: tfilelistfo;
   thefocusedcell: gridcoordty;
   sortord: integer = 0;
-
+  
 implementation
 
 uses
+  findmessage,
   songplayer,
   commander,
   dockpanel1,
@@ -691,7 +657,7 @@ end;
 
 procedure tfilelistfo.onaftdrop(const Sender: TObject);
 begin
-  historyfn.Width := 128;
+  historyfn.Width := 115;
   historyfn.Value := tosysfilepath(extractfilepath(historyfn.Value));
 end;
 
@@ -963,6 +929,13 @@ begin
   end;
 
 end;
+
+procedure tfilelistfo.onexecfind(const sender: TObject);
+begin
+imessages := 0;
+findmessagefo.show(true);
+end;
+
 
 end.
 

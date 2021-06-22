@@ -34,6 +34,7 @@ Classes,
   waveform,
   randomnote,
   equalizer,
+  findmessage,
   dockpanel1;
   
 {$ifdef unix}
@@ -195,7 +196,8 @@ end;
   
   application.createform(trandomnotefo, randomnotefo);
   application.createform(timagedancerfo, imagedancerfo);
-
+   application.createform(tfindmessagefo, findmessagefo);
+ 
   application.createform(tmainfo, mainfo);
 
   application.run;
