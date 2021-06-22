@@ -12,6 +12,8 @@ object findmessagefo: tfindmessagefo
     352
     58
   )
+  font.name = 'stf_default'
+  font.localprops = []
   caption = 'Find in song list'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
@@ -97,6 +99,8 @@ object findmessagefo: tfindmessagefo
     bounds_cy = 24
     state = [as_default, as_localdefault, as_localcaption, as_localonexecute]
     caption = 'E&xit'
+    font.name = 'stf_default'
+    font.localprops = []
     onexecute = onclose
   end
   object tbutton2: tbutton
@@ -110,6 +114,8 @@ object findmessagefo: tfindmessagefo
     bounds_cy = 24
     state = [as_default, as_localdefault, as_localcaption, as_localonexecute]
     caption = 'Find &Next'
+    font.name = 'stf_default'
+    font.localprops = []
     onexecute = onfindnext
   end
   object findtext: thistoryedit
@@ -171,6 +177,8 @@ object findmessagefo: tfindmessagefo
     bounds_cy = 24
     state = [as_default, as_localdefault, as_localcaption, as_localhint, as_localonexecute]
     caption = '&Reset'
+    font.name = 'stf_default'
+    font.localprops = []
     onexecute = onreset
   end
   object tbutton5: tbutton
@@ -186,6 +194,8 @@ object findmessagefo: tfindmessagefo
     bounds_cy = 24
     state = [as_default, as_localdefault, as_localcaption, as_localonexecute]
     caption = 'Find A&ll'
+    font.name = 'stf_default'
+    font.localprops = []
     onexecute = onfindall
   end
 end

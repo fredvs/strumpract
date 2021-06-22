@@ -1666,17 +1666,18 @@ findhistory=20
  selec
  focus
 findoptions=1
-editpos=10
+editpos=11
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 23,41
- 0,43
+ 0,27
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 0,49
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1687,7 +1688,8 @@ bookmarks6=0
 bookmarks7=0
 bookmarks8=0
 bookmarks9=0
-sourcefiles=10
+bookmarks10=0
+sourcefiles=11
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/guitars.pas
@@ -1698,7 +1700,8 @@ sourcefiles=10
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/msegrids.pas
  ${PROJECTDIR}/strumpract.pas
-relpaths=10
+ ${PROJECTDIR}/strumpract.pas
+relpaths=11
  strumpract.pas
  equalizer.pas
  guitars.pas
@@ -1709,7 +1712,9 @@ relpaths=10
  filelistform.pas
  msegrids.pas
  strumpract.pas
-ismoduletexts=10
+ strumpract.pas
+ismoduletexts=11
+ 0
  0
  0
  0
@@ -1761,21 +1766,22 @@ nomenumodules=9
  0
  0
 [sourcefo.files_tab]
-order=10
+order=11
  0
  1
  2
  3
  4
  5
+ 6
+ 10
+ 7
  8
  9
- 6
- 7
 firsttab=2
-index=8
+index=7
 [layout]
-windowlayout=724
+windowlayout=725
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1795,7 +1801,7 @@ windowlayout=724
  cy=621
  rcx=0
  rcy=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [findmessagefo.findtext]
@@ -1825,7 +1831,7 @@ windowlayout=724
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1919,7 +1925,7 @@ windowlayout=724
  x=0
  y=0
  cx=205
- cy=451
+ cy=519
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2105,9 +2111,9 @@ windowlayout=724
  ncx=0
  ncy=0
  x=0
- y=507
- cx=1212
- cy=93
+ y=582
+ cx=1356
+ cy=107
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2206,8 +2212,8 @@ windowlayout=724
  ncy=0
  x=0
  y=0
- cx=1212
- cy=50
+ cx=1356
+ cy=57
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2219,11 +2225,11 @@ windowlayout=724
  nx=0
  ny=0
  ncx=1197
- ncy=52
+ ncy=48
  x=0
  y=0
- cx=1212
- cy=50
+ cx=1356
+ cy=53
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2233,8 +2239,10 @@ windowlayout=724
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/findmessage.pas
+ value=/home/fred/strumpract/src/strumpract.pas
  history=20
+  /home/fred/strumpract/src/findmessage.pas
+  /home/fred/strumpract/src/msegrids.pas
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/ideu/src/messageform.pas
   /home/fred/uos/examples/uos.pas
@@ -2253,8 +2261,6 @@ windowlayout=724
   /home/fred/ideu/src/findinfilepage.pas
   /home/fred/ideu/src/findinfileform.pas
   /home/fred/ideu/src/confmsegui.pas
-  /home/fred/ideu/src/confideu.pas
-  /home/fred/ideu/src/conffpgui.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2271,24 +2277,25 @@ windowlayout=724
  ncy=0
  x=208
  y=0
- cx=1004
- cy=451
+ cx=1148
+ cy=519
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=10
+ order=11
   0
   1
   2
   3
   4
   5
+  6
+  10
+  7
   8
   9
-  6
-  7
  firsttab=2
- index=8
+ index=7
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2324,9 +2331,9 @@ windowlayout=724
  ncx=0
  ncy=0
  x=0
- y=53
- cx=1212
- cy=451
+ y=60
+ cx=1356
+ cy=519
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]

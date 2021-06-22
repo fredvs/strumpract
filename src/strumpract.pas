@@ -47,7 +47,7 @@ begin
 {$ifdef unix}  
   ordir := ExtractFilePath(ParamStr(0)) + 
       directoryseparator + 'ini' 
-    + directoryseparator + 'error.log' ;
+    + directoryseparator + 'log.ini' ;
      
   //  if fileexists(ordir) then deletefile(ordir); 
     
