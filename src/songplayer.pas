@@ -1451,7 +1451,8 @@ begin
           lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue2 := True;
-          oninfowav(Sender);
+         
+           oninfowav(Sender);
           //  application.ProcessMessages;
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
@@ -2084,7 +2085,9 @@ begin
     begin
 
       uos_Stop(theplayerinfoform);
-      if uos_CreatePlayer(theplayerinfoform) then
+      uos_CreatePlayer(theplayerinfoform);
+      
+      application.processmessages;
         // Create the player.
         // PlayerIndex : from 0 to what your computer can do !
         // If PlayerIndex exists already, it will be overwriten...
@@ -2115,6 +2118,8 @@ begin
 
           // Assign the procedure of object to execute at end of stream
           uos_EndProc(theplayerinfoform, @GetWaveDataform);
+          
+          application.processmessages;
 
           uos_Play(theplayerinfoform);  /// everything is ready, here we are, lets do it...
 
@@ -2129,10 +2134,12 @@ begin
 
       initwaveform2 := True;
 
-      if uos_CreatePlayer(theplayerinfoform2) then
+      uos_CreatePlayer(theplayerinfoform2) ;
         // Create the player.
         // PlayerIndex : from 0 to what your computer can do !
         // If PlayerIndex exists already, it will be overwriten...
+        
+         application.processmessages;
 
         if uos_AddFromFile(theplayerinfoform2, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
         begin
@@ -2159,6 +2166,8 @@ begin
 
           // Assign the procedure of object to execute at end of stream
           uos_EndProc(theplayerinfoform2, @GetWaveDataform);
+          
+          application.processmessages;
 
           uos_Play(theplayerinfoform2);  /// everything is ready, here we are, lets do it...
 
@@ -2189,17 +2198,22 @@ begin
       if fileexists(PChar(ansistring(historyfn.Value))) then
       begin
         uos_Stop(theplayerinfo);
-
-        if uos_CreatePlayer(theplayerinfo) then
+       
+    //   writeln (PChar(ansistring(historyfn.Value)));
+       
+        uos_CreatePlayer(theplayerinfo);
           // Create the player.
           // PlayerIndex : from 0 to what your computer can do !
           // If PlayerIndex exists already, it will be overwriten...
+    
+          application.processmessages;
 
-          if uos_AddFromFile(theplayerinfo, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
+    //   if uos_AddFromFile(theplayerinfo, PChar('/home/fred/Music/mp3/new/Cherry_pie.mp3'), -1, 2, -1) > -1 then
+        if uos_AddFromFile(theplayerinfo, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
           begin
             Inputlength1 := uos_Inputlength(theplayer, 0);
             // Length of Input in samples
-
+           
             if Sender <> nil then
             begin
               if TButton(Sender).tag = 9 then
@@ -2209,6 +2223,7 @@ begin
             end
             else
               hassent := 0;
+              
 
             if hassent = 1 then
             begin
@@ -2274,10 +2289,9 @@ begin
             end
             else if (waveformcheck.Value = True) and (iswav = False) then
             begin
-
+             //{
               chan1 := uos_InputGetChannels(theplayerinfo, 0);
 
-              // writeln('chan = ' + inttostr(chan1));
               //  writeln('Inputlength1 = ' + inttostr(Inputlength1));
 
               // set calculation of level/volume into array (usefull for wave form procedure)
@@ -2296,7 +2310,7 @@ begin
               uos_EndProc(theplayerinfo, @GetWaveData);
 
               uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
-
+            
             end;
 
           end
@@ -2332,11 +2346,12 @@ begin
         else
           hassent := 0;
 
-        if uos_CreatePlayer(theplayerinfo2) then
+         uos_CreatePlayer(theplayerinfo2);
           // Create the player.
           // PlayerIndex : from 0 to what your computer can do !
           // If PlayerIndex exists already, it will be overwriten...
-
+           application.processmessages;
+       
           if uos_AddFromFile(theplayerinfo2, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
           begin
             Inputlength2 := uos_Inputlength(theplayer2, 0);
@@ -2410,10 +2425,7 @@ begin
 
               chan2 := uos_InputGetChannels(theplayerinfo2, 0);
 
-              // writeln('chan = ' + inttostr(chan1));
-              //  writeln('Inputlength1 = ' + inttostr(Inputlength1));
-
-              // set calculation of level/volume into array (usefull for wave form procedure)
+             // set calculation of level/volume into array (usefull for wave form procedure)
               uos_InputSetLevelArrayEnable(theplayerinfo2, 0, 2);
               // set level calculation (default is 0)
               // 0 => no calcul
