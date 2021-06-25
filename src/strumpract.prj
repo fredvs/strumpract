@@ -1672,7 +1672,7 @@ findhistory=20
  updatelayout
  ondock
 findoptions=1
-editpos=13
+editpos=14
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1684,8 +1684,9 @@ editpos=13
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 39,2
  0,-1073741823
+ 0,0
+ 0,1137
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1699,7 +1700,8 @@ bookmarks9=0
 bookmarks10=0
 bookmarks11=0
 bookmarks12=0
-sourcefiles=13
+bookmarks13=0
+sourcefiles=14
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/guitars.pas
@@ -1713,7 +1715,8 @@ sourcefiles=13
  ${PROJECTDIR}/uos_flat.pas
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/strumpract.pas
-relpaths=13
+ ${PROJECTDIR}/recorder.pas
+relpaths=14
  strumpract.pas
  equalizer.pas
  guitars.pas
@@ -1727,7 +1730,9 @@ relpaths=13
  uos_flat.pas
  waveform.pas
  strumpract.pas
-ismoduletexts=13
+ recorder.pas
+ismoduletexts=14
+ 0
  0
  0
  0
@@ -1790,7 +1795,7 @@ nomenumodules=11
  0
  0
 [sourcefo.files_tab]
-order=13
+order=14
  0
  1
  2
@@ -1801,13 +1806,14 @@ order=13
  7
  8
  9
- 11
  12
+ 13
  10
-firsttab=4
-index=10
+ 11
+firsttab=5
+index=11
 [layout]
-windowlayout=765
+windowlayout=766
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1962,7 +1968,7 @@ windowlayout=765
  sortdescend1=0
  sorted=0
  col=0
- row=15
+ row=11
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2251,11 +2257,11 @@ windowlayout=765
  nx=0
  ny=0
  ncx=1197
- ncy=30
+ ncy=28
  x=0
  y=0
  cx=1212
- cy=28
+ cy=26
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2265,10 +2271,10 @@ windowlayout=765
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/waveform.pas
+ value=/home/fred/strumpract/src/recorder.pas
  history=20
-  /home/fred/strumpract/src/waveform.pas
   /home/fred/strumpract/src/strumpract.pas
+  /home/fred/strumpract/src/waveform.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/msegrids.pas
   /home/fred/strumpract/src/filelistform.pas
@@ -2308,7 +2314,7 @@ windowlayout=765
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=13
+ order=14
   0
   1
   2
@@ -2319,11 +2325,12 @@ windowlayout=765
   7
   8
   9
-  11
   12
+  13
   10
- firsttab=4
- index=10
+  11
+ firsttab=5
+ index=11
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2332,7 +2339,7 @@ windowlayout=765
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2386,7 +2393,7 @@ windowlayout=765
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0

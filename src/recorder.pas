@@ -409,6 +409,8 @@ begin
       //// PlayerIndex : from 0 to what your computer can do !
       //// If PlayerIndex exists already, it will be overwriten...
       tbutton3.Enabled := False;
+      
+      application.processmessages;
 
     InputIndex3 := uos_AddFromFile(therecplayer, PChar(ansistring(historyfn.Value)), -1, samformat, 1024*4);
 
@@ -522,6 +524,7 @@ begin
       btnStop.Enabled   := True;
       btnresume.Enabled := False;
       InitDrawLive();
+      application.processmessages;
       if cbloop.Value = True then
       begin
         uos_Play(therecplayer, -1);
@@ -575,6 +578,7 @@ procedure trecorderfo.doplayerstop(const Sender: TObject);
 begin
   cbloop.Enabled := True;
   uos_Stop(therecplayer);
+  application.processmessages;
 end;
 
 procedure trecorderfo.changevolume(const Sender: TObject);
@@ -596,10 +600,12 @@ var
 begin
   uos_Stop(therecplayerinfo);
 
-  if uos_CreatePlayer(therecplayerinfo) then
+ uos_CreatePlayer(therecplayerinfo);
     //// Create the player.
     //// PlayerIndex : from 0 to what your computer can do !
     //// If PlayerIndex exists already, it will be overwriten...
+    
+   application.processmessages; 
 
     if uos_AddFromFile(therecplayerinfo, PChar(ansistring(historyfn.Value)), -1, 0, -1) > -1 then
     begin
@@ -623,7 +629,7 @@ begin
       infosfo.inforate.Caption   := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
       infosfo.infochan.Caption   := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
       infosfo.infobpm.Caption    := '';
-
+       application.processmessages;
       uos_play(therecplayerinfo);
       uos_Stop(therecplayerinfo);
 
@@ -802,6 +808,7 @@ begin
 
   if uos_CreatePlayer(therecplayer) then
   begin
+    application.processmessages;
     cbloop.Enabled   := False;
     isrecording      := True;
     tbutton2.Enabled := True;
@@ -900,6 +907,8 @@ begin
     llength.Value := '00:00:00.000';
 
     InitDrawLive();
+    
+    application.processmessages;
 
     uos_Play(therecplayer);  /////// everything is ready to play...
 
