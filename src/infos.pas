@@ -5,8 +5,8 @@ interface
 
 uses
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
-  msegui,msegraphics, msegraphutils, mseevent, mseclasses, msewidgets, mseforms,
- msesimplewidgets;
+ msegui,msegraphics, msegraphutils, mseevent, mseclasses, msewidgets, mseforms,
+ msesimplewidgets, mseimage;
 
 type
   tinfosfo = class(tmseform)
@@ -21,10 +21,11 @@ type
     inforate: tlabel;
     infochan: tlabel;
    infobpm: tlabel;
+   imgPreview: timage;
   end;
 
 var
-  infosfo: tinfosfo;
+  infosfo, infosfo2: tinfosfo;
 
 implementation
 

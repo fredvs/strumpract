@@ -48,6 +48,9 @@ uses
   msedispwidgets,
   mserichstring,
   msedropdownlist,
+  mse_ovobasetag,
+  mse_ovoaudiotag,
+  mse_ovofile_mp3,
   msegridsglob;
 
 type
@@ -139,6 +142,8 @@ type
     procedure setequalizerenable(asender: integer; avalue: Boolean);
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimercheck(const Sender: TObject);
+    function ReadTag(filename: string): integer;
+
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
@@ -200,6 +205,7 @@ var
   plugindex2, PluginIndex3: integer;
   Inputindex2, DSPIndex2, DSPIndex22, Outputindex2, Inputlength2: integer;
   poswav2, chan2: integer;
+  TagReader: TTagReader;
 
 implementation
 
@@ -214,6 +220,11 @@ uses
   drums,
   spectrum1,
   dockpanel1,
+  mseformatbmpicoread,
+  mseformatjpgread,
+  mseformatpngread,
+  //strutils,
+  msegraphicstream,
   songplayer_mfm;
 
 function DSPStereo2Mono(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
@@ -240,6 +251,39 @@ begin
     Result := Data.Buffer;
 end;
 
+function tsongplayerfo.ReadTag(filename: string): integer;
+var
+  tagClass: TTagReaderClass;
+begin
+  Result := -1;
+  if Assigned(TagReader) then
+    TagReader.Free;
+
+  tagClass  := IdentifyKind(FileName);
+  TagReader := tagClass.Create;
+
+  TagReader.LoadFromFile(FileName);
+
+  if TagReader.Tags.ImageCount > 0 then
+  begin
+    Result := 0;
+    TagReader.Tags.Images[0].Image.Position := 0;
+  end;
+
+end;
+
+ {
+procedure timageviewerfo.doLoadImage(const sender: TObject);
+begin
+
+  if imageFileName.value <> '' then
+  begin
+  ReadTag(imageFileName.value);
+    end;
+ 
+end;
+}
+
 procedure tsongplayerfo.Changestereo2mono(const Sender: TObject);
 begin
   if Caption = 'Player 1' then
@@ -258,20 +302,20 @@ end;
 
 function DSPReverseBefore1(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 begin
-result := nil;
+  Result := nil;
   if (Data.position > Data.OutFrames div Data.channels) then
     uos_InputSeek(theplayer, InputIndex1, Data.position -
       (Data.OutFrames div Data.ratio));
-       // writeln('position: ' + inttostr(Data.position));
+  // writeln('position: ' + inttostr(Data.position));
 end;
 
 function DSPReverseBefore2(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 begin
-result := nil;
+  Result := nil;
   if (Data.position > Data.OutFrames div Data.channels) then
     uos_InputSeek(theplayer2, InputIndex2, Data.position -
       (Data.OutFrames div Data.ratio));
-      end;
+end;
 
 function DSPReverseAfter(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 var
@@ -280,7 +324,7 @@ var
   arfl: TDArFloat;
 begin
   lengthbuf := length(Data.Buffer) div 2;
-    
+
   if (Data.position > lengthbuf div Data.channels) then
   begin
     SetLength(arfl, lengthbuf);
@@ -290,7 +334,7 @@ begin
     writeln('length OutFrames: ' + inttostr(Data.OutFrames));
     writeln('length ratio: ' + inttostr(Data.ratio));
     }
-      while x < lengthbuf do
+    while x < lengthbuf do
     begin
       arfl[x]     := Data.Buffer[lengthbuf - x - 2];
       arfl[x + 1] := Data.Buffer[lengthbuf - x - 1];
@@ -817,7 +861,7 @@ end;
 
 procedure tsongplayerfo.LoopProcPlayer1();
 var
-ll1, ll2, lr1, lr2: double;
+  ll1, ll2, lr1, lr2: double;
 begin
 
   if (commanderfo.timermix.Enabled = False) or
@@ -836,9 +880,11 @@ begin
       lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
 
       multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
-      
-      if multiplier > 1 then multiplier := 1;
-      if multiplier < 0 then multiplier := 0;
+
+      if multiplier > 1 then
+        multiplier := 1;
+      if multiplier < 0 then
+        multiplier := 0;
 
       if (vuinvar = True) and (Visible = True) then
         ShowLevel(nil, ll1, lr1, ll2, lr2);
@@ -895,6 +941,9 @@ begin
       if fileexists(historyfn.Value) then
       begin
         samformat := 0;
+
+        oninfowav(Sender);
+
 
         // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
         // If PlayerIndex exists already, it will be overwritten...
@@ -1152,10 +1201,13 @@ begin
 
           hascue := True;
 
-          oninfowav(Sender);
+          //  application.processmessages;
+
+          //  oninfowav(Sender);
 
           if as_checked in wavefo.tmainmenu1.menu[0].state then
           begin
+            // oninfowav(Sender);
 
             wavefo.doechelle(Sender);
 
@@ -1190,6 +1242,8 @@ begin
       begin
         samformat := 0;
 
+        oninfowav(Sender);
+
         //  songdir.hint := songdir.value;
 
 
@@ -1202,8 +1256,7 @@ begin
           // PlayerIndex : from 0 to what your computer can do !
           // If PlayerIndex exists already, it will be overwriten...
 
-          Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)),
-           -1, samformat, 1024 * 8);
+          Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)), -1, samformat, 1024 * 8);
 
         // add input from audio file with custom parameters
         // FileName : filename of audio file
@@ -1451,9 +1504,9 @@ begin
           lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue2 := True;
-         
-           oninfowav(Sender);
-          //  application.ProcessMessages;
+          // application.processmessages; 
+
+          //  oninfowav(Sender);
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
           begin
@@ -1463,7 +1516,6 @@ begin
             ttimer1.Enabled := True;
             //  onwavform(Sender);
           end;
-
         end
         else
           ShowMessage(historyfn.Value + ' cannot load...');
@@ -1946,6 +1998,7 @@ begin
     begin
       waveformdata1 := uos_InputGetLevelArray(theplayerinfo, 0);
       iswav         := True;
+      application.ProcessMessages;
       DrawWaveForm();
     end;
 
@@ -1954,6 +2007,7 @@ begin
     begin
       waveformdata2 := uos_InputGetLevelArray(theplayerinfo2, 0);
       iswav2        := True;
+      application.ProcessMessages;
       DrawWaveForm();
     end;
 end;
@@ -1967,6 +2021,7 @@ begin
       // if (wavefo.waveon.Value = True) then
     begin
       waveformdataform1 := uos_InputGetLevelArray(theplayerinfoform, 0);
+        application.ProcessMessages;
       formDrawWaveForm();
     end;
 
@@ -1977,6 +2032,7 @@ begin
       //   if (wavefo2.waveon.Value = True) then
     begin
       waveformdataform2 := uos_InputGetLevelArray(theplayerinfoform2, 0);
+        application.ProcessMessages;
       formDrawWaveForm();
     end;
 
@@ -2086,44 +2142,44 @@ begin
 
       uos_Stop(theplayerinfoform);
       uos_CreatePlayer(theplayerinfoform);
-      
-      application.processmessages;
-        // Create the player.
-        // PlayerIndex : from 0 to what your computer can do !
-        // If PlayerIndex exists already, it will be overwriten...
 
-        if uos_AddFromFile(theplayerinfoform, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
+       application.ProcessMessages;
+      // Create the player.
+      // PlayerIndex : from 0 to what your computer can do !
+      // If PlayerIndex exists already, it will be overwriten...
+
+      if uos_AddFromFile(theplayerinfoform, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
+      begin
+
+        buzywaveform1 := True;
+
+        uos_InputSetLevelArrayEnable(theplayerinfoform, 0, 2);
+        // set level calculation (default is 0)
+        // 0 => no calcul
+        // 1 => calcul before all DSP procedures.
+        // 2 => calcul after all DSP procedures.
+
+        // determine how much frame will be designed
+        if (wavefo.trackbar1.Width < Inputlength1 div 64) then
+        else
         begin
-
-          buzywaveform1 := True;
-
-          uos_InputSetLevelArrayEnable(theplayerinfoform, 0, 2);
-          // set level calculation (default is 0)
-          // 0 => no calcul
-          // 1 => calcul before all DSP procedures.
-          // 2 => calcul after all DSP procedures.
-
-          // determine how much frame will be designed
-          if (wavefo.trackbar1.Width < Inputlength1 div 64) then
-          else
-          begin
-            wavefo.trackbar1.Width := wavefo.Width - 10;
-            wavefo.doechelle(nil);
-            wavefo.tmainmenu1.menu[2].Caption := ' Now=X1 ';
-          end;
-
-          framewanted := Inputlength1 div (wavefo.trackbar1.Width - 7);
-
-          uos_InputSetFrameCount(theplayerinfoform, 0, framewanted);
-
-          // Assign the procedure of object to execute at end of stream
-          uos_EndProc(theplayerinfoform, @GetWaveDataform);
-          
-          application.processmessages;
-
-          uos_Play(theplayerinfoform);  /// everything is ready, here we are, lets do it...
-
+          wavefo.trackbar1.Width := wavefo.Width - 10;
+          wavefo.doechelle(nil);
+          wavefo.tmainmenu1.menu[2].Caption := ' Now=X1 ';
         end;
+
+        framewanted := Inputlength1 div (wavefo.trackbar1.Width - 7);
+
+        uos_InputSetFrameCount(theplayerinfoform, 0, framewanted);
+
+        // Assign the procedure of object to execute at end of stream
+        uos_EndProc(theplayerinfoform, @GetWaveDataform);
+
+        //   application.ProcessMessages;
+
+        uos_Play(theplayerinfoform);  /// everything is ready, here we are, lets do it...
+
+      end;
     end;
 
   if (Caption = 'Player 2') and (as_checked in wavefo2.tmainmenu1.menu[0].state) and (buzywaveform2 = False) then
@@ -2134,44 +2190,44 @@ begin
 
       initwaveform2 := True;
 
-      uos_CreatePlayer(theplayerinfoform2) ;
-        // Create the player.
-        // PlayerIndex : from 0 to what your computer can do !
-        // If PlayerIndex exists already, it will be overwriten...
-        
-         application.processmessages;
+      uos_CreatePlayer(theplayerinfoform2);
+      // Create the player.
+      // PlayerIndex : from 0 to what your computer can do !
+      // If PlayerIndex exists already, it will be overwriten...
 
-        if uos_AddFromFile(theplayerinfoform2, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
+       application.ProcessMessages;
+
+      if uos_AddFromFile(theplayerinfoform2, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
+      begin
+        buzywaveform2 := True;
+
+        uos_InputSetLevelArrayEnable(theplayerinfoform2, 0, 2);
+        // set level calculation (default is 0)
+        // 0 => no calcul
+        // 1 => calcul before all DSP procedures.
+        // 2 => calcul after all DSP procedures.
+
+        // determine how much frame will be designed
+        if (wavefo2.trackbar1.Width < Inputlength2 div 64) then
+        else
         begin
-          buzywaveform2 := True;
-
-          uos_InputSetLevelArrayEnable(theplayerinfoform2, 0, 2);
-          // set level calculation (default is 0)
-          // 0 => no calcul
-          // 1 => calcul before all DSP procedures.
-          // 2 => calcul after all DSP procedures.
-
-          // determine how much frame will be designed
-          if (wavefo2.trackbar1.Width < Inputlength2 div 64) then
-          else
-          begin
-            wavefo2.trackbar1.Width := wavefo.Width - 10;
-            wavefo2.doechelle(nil);
-            wavefo2.tmainmenu1.menu[2].Caption := ' Now=X1 ';
-          end;
-
-          framewanted := Inputlength2 div (wavefo2.trackbar1.Width - 7);
-
-          uos_InputSetFrameCount(theplayerinfoform2, 0, framewanted);
-
-          // Assign the procedure of object to execute at end of stream
-          uos_EndProc(theplayerinfoform2, @GetWaveDataform);
-          
-          application.processmessages;
-
-          uos_Play(theplayerinfoform2);  /// everything is ready, here we are, lets do it...
-
+          wavefo2.trackbar1.Width := wavefo.Width - 10;
+          wavefo2.doechelle(nil);
+          wavefo2.tmainmenu1.menu[2].Caption := ' Now=X1 ';
         end;
+
+        framewanted := Inputlength2 div (wavefo2.trackbar1.Width - 7);
+
+        uos_InputSetFrameCount(theplayerinfoform2, 0, framewanted);
+
+        // Assign the procedure of object to execute at end of stream
+        uos_EndProc(theplayerinfoform2, @GetWaveDataform);
+
+        //application.ProcessMessages;
+
+        uos_Play(theplayerinfoform2);  /// everything is ready, here we are, lets do it...
+
+      end;
     end;
 end;
 
@@ -2185,276 +2241,254 @@ var
   fileex: msestring;
   thebuffer: TDArFloat;
   thebufferinfos: TuosF_BufferInfos;
+  CommonTags: TCommonTags;
 begin
+  fileex := fileext(PChar(ansistring(historyfn.Value)));
 
-  if Caption = 'Player 1' then
+  if (fileex = 'wav') or (fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') or (fileex = 'flac') or
+    (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') then
   begin
-    fileex := fileext(PChar(ansistring(historyfn.Value)));
 
-    if (fileex = 'wav') or (fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') or (fileex = 'flac') or
-      (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') then
+    if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
 
-      if fileexists(PChar(ansistring(historyfn.Value))) then
+      if Sender <> nil then
       begin
-        uos_Stop(theplayerinfo);
-       
-    //   writeln (PChar(ansistring(historyfn.Value)));
-       
-        uos_CreatePlayer(theplayerinfo);
-          // Create the player.
-          // PlayerIndex : from 0 to what your computer can do !
-          // If PlayerIndex exists already, it will be overwriten...
-    
-          application.processmessages;
-
-    //   if uos_AddFromFile(theplayerinfo, PChar('/home/fred/Music/mp3/new/Cherry_pie.mp3'), -1, 2, -1) > -1 then
-        if uos_AddFromFile(theplayerinfo, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
-          begin
-            Inputlength1 := uos_Inputlength(theplayer, 0);
-            // Length of Input in samples
-           
-            if Sender <> nil then
-            begin
-              if TButton(Sender).tag = 9 then
-                hassent := 1
-              else
-                hassent := 0;
-            end
-            else
-              hassent := 0;
-              
-
-            if hassent = 1 then
-            begin
-
-              temptimeinfo := uos_InputlengthTime(theplayerinfo, 0);
-              // Length of input in time
-
-              DecodeTime(temptimeinfo, ho, mi, se, ms);
-
-              infosfo.infofile.Caption   := 'File: ' + msestring(extractfilename(historyfn.Value));
-              infosfo.infoname.Caption   := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(theplayerinfo, 0)));
-              infosfo.infoartist.Caption := 'Artist: ' + msestring(ansistring(uos_InputGetTagArtist(theplayerinfo, 0)));
-              infosfo.infoalbum.Caption  := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(theplayerinfo, 0)));
-              infosfo.infoyear.Caption   := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(theplayerinfo, 0)));
-              infosfo.infocom.Caption    := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayerinfo, 0)));
-              infosfo.infotag.Caption    := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayerinfo, 0)));
-              infosfo.infolength.Caption := utf8decode('Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
-              infosfo.inforate.Caption   := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(theplayerinfo, 0)));
-              infosfo.infochan.Caption   := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(theplayerinfo, 0)));
-
-              uos_play(theplayerinfo);
-              uos_Stop(theplayerinfo);
-
-              // BPM
-
-              infosfo.infobpm.Caption := '';
-
-              //  {$if defined(linux)}
-              if plugsoundtouch = True then
-              begin
-
-                thebuffer :=
-                  uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024);
-
-                //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
-
-                infosfo.infobpm.Caption := utf8decode('BPM: ' + floattostr((uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate))));
-                ;
-
-              end;
-              //      {$ENDIF}
-
-              maxwidth := infosfo.infofile.Width;
-
-              if maxwidth < infosfo.infoname.Width then
-                maxwidth := infosfo.infoname.Width;
-              if maxwidth < infosfo.infoartist.Width then
-                maxwidth := infosfo.infoartist.Width;
-              if maxwidth < infosfo.infoalbum.Width then
-                maxwidth := infosfo.infoalbum.Width;
-              if maxwidth < infosfo.infoyear.Width then
-                maxwidth := infosfo.infoyear.Width;
-              if maxwidth < infosfo.infocom.Width then
-                maxwidth := infosfo.infocom.Width;
-              if maxwidth < infosfo.infotag.Width then
-                maxwidth := infosfo.infotag.Width;
-              if maxwidth < infosfo.infolength.Width then
-                maxwidth := infosfo.infolength.Width;
-
-              infosfo.Width := maxwidth + 42;
-              // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
-              infosfo.Show(True);
-            end
-            else if (waveformcheck.Value = True) and (iswav = False) then
-            begin
-             //{
-              chan1 := uos_InputGetChannels(theplayerinfo, 0);
-
-              //  writeln('Inputlength1 = ' + inttostr(Inputlength1));
-
-              // set calculation of level/volume into array (usefull for wave form procedure)
-              uos_InputSetLevelArrayEnable(theplayerinfo, 0, 2);
-              // set level calculation (default is 0)
-              // 0 => no calcul
-              // 1 => calcul before all DSP procedures.
-              // 2 => calcul after all DSP procedures.
-
-              // determine how much frame will be designed
-              framewanted := Inputlength1 div (trackbar1.Width - 7);
-
-              uos_InputSetFrameCount(theplayerinfo, 0, framewanted);
-
-              // Assign the procedure of object to execute at end of stream
-              uos_EndProc(theplayerinfo, @GetWaveData);
-
-              uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
-            
-            end;
-
-          end
-          else
-            ShowMessage(historyfn.Value + ' cannot load...');
-      end
-      else;
-      //   ShowMessage(historyfn.Value + ' does not exist or not mounted...');
-    end
-    else
-      ShowMessage(historyfn.Value + ' is not a audio file...');
-  end;
-
-  if Caption = 'Player 2' then
-  begin
-    fileex := fileext(PChar(ansistring(historyfn.Value)));
-
-    if (fileex = 'wav') or (fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') or (fileex = 'flac') or
-      (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') then
-    begin
-
-      if fileexists(PChar(ansistring(historyfn.Value))) then
-      begin
-        uos_Stop(theplayerinfo2);
-
-        if Sender <> nil then
-        begin
-          if TButton(Sender).tag = 9 then
-            hassent := 1
-          else
-            hassent := 0;
-        end
+        if TButton(Sender).tag = 9 then
+          hassent := 1
         else
           hassent := 0;
+      end
+      else
+        hassent := 0;
 
-         uos_CreatePlayer(theplayerinfo2);
-          // Create the player.
-          // PlayerIndex : from 0 to what your computer can do !
-          // If PlayerIndex exists already, it will be overwriten...
-           application.processmessages;
-       
-          if uos_AddFromFile(theplayerinfo2, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
+      if Caption = 'Player 1' then
+      begin
+        if hassent = 1 then
+        begin
+
+          if readtag(ansistring(historyfn.Value)) = 0 then
           begin
-            Inputlength2 := uos_Inputlength(theplayer2, 0);
-            // Length of Input in samples
-
-            if hassent = 1 then
-            begin
-
-              temptimeinfo := uos_InputlengthTime(theplayerinfo2, 0);
-              // Length of input in time
-
-              DecodeTime(temptimeinfo, ho, mi, se, ms);
-
-              infosfo.infofile.Caption   := 'File: ' + extractfilename(historyfn.Value);
-              infosfo.infoname.Caption   := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(theplayerinfo2, 0)));
-              infosfo.infoartist.Caption := 'Artist: ' + msestring(ansistring(uos_InputGetTagArtist(theplayerinfo2, 0)));
-              infosfo.infoalbum.Caption  := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(theplayerinfo2, 0)));
-              infosfo.infoyear.Caption   := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(theplayerinfo2, 0)));
-              infosfo.infocom.Caption    := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(theplayerinfo2, 0)));
-              infosfo.infotag.Caption    := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(theplayerinfo2, 0)));
-              infosfo.infolength.Caption := utf8decode('Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
-              infosfo.inforate.Caption   := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(theplayerinfo2, 0)));
-              infosfo.infochan.Caption   := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(theplayerinfo2, 0)));
-
-              uos_play(theplayerinfo2);
-              uos_Stop(theplayerinfo2);
-
-              // BPM
-
-              infosfo.infobpm.Caption := '';
-
-              //   {$if defined(linux)}
-              if plugsoundtouch = True then
-              begin
-
-                thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
-
-                //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
-
-                infosfo.infobpm.Caption := utf8decode('BPM: ' + floattostr((uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate))));
-                ;
-
-              end;
-              //   {$ENDIF}
-
-              maxwidth := infosfo.infofile.Width;
-
-              if maxwidth < infosfo.infoname.Width then
-                maxwidth := infosfo.infoname.Width;
-              if maxwidth < infosfo.infoartist.Width then
-                maxwidth := infosfo.infoartist.Width;
-              if maxwidth < infosfo.infoalbum.Width then
-                maxwidth := infosfo.infoalbum.Width;
-              if maxwidth < infosfo.infoyear.Width then
-                maxwidth := infosfo.infoyear.Width;
-              if maxwidth < infosfo.infocom.Width then
-                maxwidth := infosfo.infocom.Width;
-              if maxwidth < infosfo.infotag.Width then
-                maxwidth := infosfo.infotag.Width;
-              if maxwidth < infosfo.infolength.Width then
-                maxwidth := infosfo.infolength.Width;
-              if maxwidth < infosfo.infobpm.Width then
-                maxwidth := infosfo.infobpm.Width;
-
-              infosfo.Width := maxwidth + 42;
-              // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
-              infosfo.Show(True);
-            end
-            else if (waveformcheck.Value = True) and (iswav2 = False) then
-            begin
-
-              chan2 := uos_InputGetChannels(theplayerinfo2, 0);
-
-             // set calculation of level/volume into array (usefull for wave form procedure)
-              uos_InputSetLevelArrayEnable(theplayerinfo2, 0, 2);
-              // set level calculation (default is 0)
-              // 0 => no calcul
-              // 1 => calcul before all DSP procedures.
-              // 2 => calcul after all DSP procedures.
-
-              // determine how much frame will be designed
-              framewanted := Inputlength2 div (trackbar1.Width - 7);
-
-              uos_InputSetFrameCount(theplayerinfo2, 0, framewanted);
-
-              // Assign the procedure of object to execute at end of stream
-              uos_EndProc(theplayerinfo2, @GetWaveData);
-
-              uos_Play(theplayerinfo2);  /// everything is ready, here we are, lets do it...
-
-            end;
-
+            infosfo.imgPreview.bitmap.LoadFromStream(TagReader.Tags.Images[0].Image);
+            infosfo.imgPreview.Visible := True;
           end
           else
-            ShowMessage(historyfn.Value + ' cannot load...');
-      end
-      else;
-      //   ShowMessage(historyfn.Value + ' does not exist or not mounted...');
+          begin
+            infosfo.imgPreview.Visible := False;
+          end;
+
+          CommonTags := TagReader.GetCommonTags;
+
+          infosfo.infofile.Caption   := 'File: ' + extractfilename(historyfn.Value);
+          infosfo.infoname.Caption   := 'Title: ' + CommonTags.Title;
+          infosfo.infoartist.Caption := 'Artist: ' + CommonTags.Artist;
+          infosfo.infoalbum.Caption  := 'Album: ' + CommonTags.Album;
+          infosfo.infoyear.Caption   := 'Year: ' + CommonTags.Year;
+          infosfo.infocom.Caption    := 'Comment: ' + CommonTags.Comment;
+          infosfo.infotag.Caption    := 'Genre: ' + CommonTags.Genre;
+          infosfo.infolength.Caption := utf8decode('Duration: ' +
+            TimeToStr(CommonTags.Duration / MSecsPerDay));
+          infosfo.inforate.Caption   := 'Sample Rate: ' +
+            format('%d Hz', [TagReader.MediaProperty.Sampling]);
+          infosfo.infochan.Caption   := 'Channels: ' + TagReader.MediaProperty.ChannelMode;
+
+          // BPM
+
+          infosfo.infobpm.Caption := '';
+
+          if plugsoundtouch = True then
+          begin
+            thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
+            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
+            infosfo.infobpm.Caption := utf8decode('BPM: ' +
+              IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate))));
+          end;
+
+          maxwidth := infosfo.infofile.Width;
+
+          if maxwidth < infosfo.infoname.Width then
+            maxwidth := infosfo.infoname.Width;
+          if maxwidth < infosfo.infoartist.Width then
+            maxwidth := infosfo.infoartist.Width;
+          if maxwidth < infosfo.infoalbum.Width then
+            maxwidth := infosfo.infoalbum.Width;
+          if maxwidth < infosfo.infoyear.Width then
+            maxwidth := infosfo.infoyear.Width;
+          if maxwidth < infosfo.infocom.Width then
+            maxwidth := infosfo.infocom.Width;
+          if maxwidth < infosfo.infotag.Width then
+            maxwidth := infosfo.infotag.Width;
+          if maxwidth < infosfo.infolength.Width then
+            maxwidth := infosfo.infolength.Width;
+          if maxwidth < infosfo.infobpm.Width then
+            maxwidth := infosfo.infobpm.Width;
+
+          infosfo.Width := maxwidth + 8;
+
+          if infosfo.imgPreview.Visible then
+          begin
+            infosfo.Width           := infosfo.Width + infosfo.Height;
+            infosfo.imgPreview.left := infosfo.Width - infosfo.Height;
+            infosfo.imgPreview.Width := infosfo.Height -2;
+            infosfo.imgPreview.Height := infosfo.Height -2;
+          end;
+          //  infosfo.Show(True);
+          infosfo.Visible := True;
+        end
+        else if (waveformcheck.Value = True) and (iswav = False) then
+        begin
+
+          uos_Stop(theplayerinfo);
+
+          uos_CreatePlayer(theplayerinfo);
+
+          application.ProcessMessages;
+
+          uos_AddFromFile(theplayerinfo, PChar(ansistring(historyfn.Value)), -1, 2, -1);
+
+          Inputlength1 := uos_Inputlength(theplayerinfo, 0);
+
+          chan1 := uos_InputGetChannels(theplayerinfo, 0);
+
+          // set calculation of level/volume into array (usefull for wave form procedure)
+          uos_InputSetLevelArrayEnable(theplayerinfo, 0, 2);
+          // set level calculation (default is 0)
+          // 0 => no calcul
+          // 1 => calcul before all DSP procedures.
+          // 2 => calcul after all DSP procedures.
+
+          // determine how much frame will be designed
+          framewanted := Inputlength1 div (trackbar1.Width - 7);
+
+          uos_InputSetFrameCount(theplayerinfo, 0, framewanted);
+
+          // Assign the procedure of object to execute at end of stream
+          uos_EndProc(theplayerinfo, @GetWaveData);
+          //  application.processmessages;
+
+          uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
+          //application.processmessages;
+
+        end;
+        
+        end;
+
+      if Caption = 'Player 2' then
+      begin
+        if hassent = 1 then
+        begin
+
+          if readtag(ansistring(historyfn.Value)) = 0 then
+          begin
+            infosfo2.imgPreview.bitmap.LoadFromStream(TagReader.Tags.Images[0].Image);
+            infosfo2.imgPreview.Visible := True;
+          end
+          else
+          begin
+            infosfo2.imgPreview.Visible := False;
+          end;
+
+          CommonTags := TagReader.GetCommonTags;
+
+          infosfo2.infofile.Caption   := 'File: ' + extractfilename(historyfn.Value);
+          infosfo2.infoname.Caption   := 'Title: ' + CommonTags.Title;
+          infosfo2.infoartist.Caption := 'Artist: ' + CommonTags.Artist;
+          infosfo2.infoalbum.Caption  := 'Album: ' + CommonTags.Album;
+          infosfo2.infoyear.Caption   := 'Year: ' + CommonTags.Year;
+          infosfo2.infocom.Caption    := 'Comment: ' + CommonTags.Comment;
+          infosfo2.infotag.Caption    := 'Genre: ' + CommonTags.Genre;
+          infosfo2.infolength.Caption := utf8decode('Duration: ' +
+            TimeToStr(CommonTags.Duration / MSecsPerDay));
+          infosfo2.inforate.Caption   := 'Sample Rate: ' +
+            format('%d Hz', [TagReader.MediaProperty.Sampling]);
+          infosfo2.infochan.Caption   := 'Channels: ' + TagReader.MediaProperty.ChannelMode;
+
+
+          // BPM
+
+          infosfo2.infobpm.Caption := '';
+
+          if plugsoundtouch = True then
+          begin
+
+            thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
+            infosfo2.infobpm.Caption := utf8decode('BPM: ' +
+              IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate))));
+
+          end;
+       
+          maxwidth := infosfo2.infofile.Width;
+
+          if maxwidth < infosfo2.infoname.Width then
+            maxwidth := infosfo2.infoname.Width;
+          if maxwidth < infosfo2.infoartist.Width then
+            maxwidth := infosfo2.infoartist.Width;
+          if maxwidth < infosfo2.infoalbum.Width then
+            maxwidth := infosfo2.infoalbum.Width;
+          if maxwidth < infosfo2.infoyear.Width then
+            maxwidth := infosfo2.infoyear.Width;
+          if maxwidth < infosfo2.infocom.Width then
+            maxwidth := infosfo2.infocom.Width;
+          if maxwidth < infosfo2.infotag.Width then
+            maxwidth := infosfo2.infotag.Width;
+          if maxwidth < infosfo2.infolength.Width then
+            maxwidth := infosfo2.infolength.Width;
+          if maxwidth < infosfo2.infobpm.Width then
+            maxwidth := infosfo2.infobpm.Width;
+
+          infosfo2.Width := maxwidth + 8;
+
+          if infosfo2.imgPreview.Visible then
+          begin
+            infosfo2.Width           := infosfo2.Width + infosfo2.Height;
+            infosfo2.imgPreview.left := infosfo2.Width - infosfo2.Height;
+            infosfo2.imgPreview.Width := infosfo2.Height -2;
+            infosfo2.imgPreview.Height := infosfo2.Height -2;
+          end;
+          //  infosfo2.Show(True);
+          infosfo2.Visible := True;
+        end
+        else if (waveformcheck.Value = True) and (iswav2 = False) then
+        begin
+
+          uos_Stop(theplayerinfo2);
+
+          uos_CreatePlayer(theplayerinfo2);
+
+          application.ProcessMessages;
+
+          uos_AddFromFile(theplayerinfo2, PChar(ansistring(historyfn.Value)), -1, 2, -1);
+
+          Inputlength2 := uos_Inputlength(theplayerinfo2, 0);
+
+          chan2 := uos_InputGetChannels(theplayerinfo2, 0);
+
+          // set calculation of level/volume into array (usefull for wave form procedure)
+          uos_InputSetLevelArrayEnable(theplayerinfo2, 0, 2);
+          // set level calculation (default is 0)
+          // 0 => no calcul
+          // 1 => calcul before all DSP procedures.
+          // 2 => calcul after all DSP procedures.
+
+          // determine how much frame will be designed
+          framewanted := Inputlength2 div (trackbar1.Width - 7);
+
+          uos_InputSetFrameCount(theplayerinfo2, 0, framewanted);
+
+          // Assign the procedure of object to execute at end of stream
+          uos_EndProc(theplayerinfo2, @GetWaveData);
+
+          uos_Play(theplayerinfo2);  /// everything is ready, here we are, lets do it...
+          // application.processmessages;
+
+        end;
+        end;
     end
     else
-      ShowMessage(historyfn.Value + ' is not a audio file...');
-  end;
-
+      ShowMessage(historyfn.Value + ' does not exist or not mounted...');
+  end
+  else
+    ShowMessage(historyfn.Value + ' is not a audio file...');
 end;
 
 procedure tsongplayerfo.onsliderchange(const Sender: TObject);

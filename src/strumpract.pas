@@ -11,9 +11,10 @@ program strumpract;
  {$PACKRECORDS C}  
 
 uses
-  // cmem,
+ // cmem,
  {$ifdef FPC} {$ifdef unix} cthreads, BaseUnix, {$endif} {$endif}
-Classes,
+ 
+  Classes,
   Math,
   sysutils,
   filelistform,
@@ -180,6 +181,11 @@ end;
 
   application.createform(taboutfo, aboutfo);
   application.createform(tinfosfo, infosfo);
+  application.createform(tinfosfo, infosfo2);
+  
+  infosfo.Caption := 'Infos Player 1';
+  infosfo2.Caption := 'Infos Player 2';
+  
   application.createform(tstatusfo, statusfo);
 
   application.createform(tdockpanel1fo, dockpanel1fo);

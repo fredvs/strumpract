@@ -1,16 +1,16 @@
 object infosfo: tinfosfo
-  color = 16449489
+  color = 15921906
   visible = False
-  bounds_x = 685
-  bounds_y = 257
-  bounds_cx = 354
+  bounds_x = 436
+  bounds_y = 229
+  bounds_cx = 479
   bounds_cy = 277
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
-    354
+    479
     277
   )
   optionswindow = [wo_dialog]
@@ -1100,103 +1100,159 @@ object infosfo: tinfosfo
     D1FFD001C1F6ED01D4FDD701E5FFC001BAF5E001F3F9E601BFEDE101CBFECC01
     E3FFDB01CFFCD510D6FBD502
   }
+  windowopacity = -Inf
   moduleclassname = 'tmseform'
+  object imgPreview: timage
+    frame.localprops = []
+    frame.localprops1 = []
+    taborder = 11
+    bounds_x = 184
+    bounds_y = 0
+    bounds_cx = 290
+    bounds_cy = 274
+    bitmap.origformat = 'png'
+    bitmap.alignment = [al_xcentered, al_ycentered, al_stretchx, al_stretchy, al_intpol]
+  end
   object infoname: tlabel
-    bounds_x = 20
+    color = -2147483645
+    bounds_x = 4
     bounds_y = 49
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infoartist: tlabel
+    color = -2147483645
     taborder = 1
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 71
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel2'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infoalbum: tlabel
+    color = -2147483645
     taborder = 2
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 92
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel3'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infoyear: tlabel
+    color = -2147483645
     taborder = 3
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 115
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infolength: tlabel
+    color = -2147483645
     taborder = 4
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 183
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infotag: tlabel
+    color = -2147483645
     taborder = 5
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 157
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infocom: tlabel
+    color = -2147483645
     taborder = 6
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 136
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infofile: tlabel
+    color = -2147483645
     taborder = 7
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 15
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object inforate: tlabel
+    color = -2147483645
     taborder = 8
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 204
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infochan: tlabel
+    color = -2147483645
     taborder = 9
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 224
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
   object infobpm: tlabel
+    color = -2147483645
     taborder = 10
-    bounds_x = 20
+    bounds_x = 4
     bounds_y = 246
     bounds_cx = 41
     bounds_cy = 15
     caption = 'tlabel1'
+    font.shadow_color = -1610612730
+    font.name = 'stf_default'
+    font.localprops = [flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
   end
 end
