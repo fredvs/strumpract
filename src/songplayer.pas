@@ -934,15 +934,15 @@ begin
   begin
     fileex := fileext(PChar(ansistring(historyfn.Value)));
 
-  if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
-   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
-  begin
+    if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+      (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
+    begin
 
       if fileexists(historyfn.Value) then
       begin
         samformat := 0;
 
-      //  oninfowav(Sender);
+        //  oninfowav(Sender);
 
 
         // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
@@ -1196,10 +1196,9 @@ begin
           if timerwait.Enabled then
             timerwait.restart // to reset
           else
-            timerwait.Enabled     := True;
-            
-            
-            
+            timerwait.Enabled := True;
+
+
           lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue := True;
@@ -1207,7 +1206,7 @@ begin
           //  application.processmessages;
 
           //  oninfowav(Sender);
-          
+
           oninfowav(Sender);
 
 
@@ -1215,7 +1214,7 @@ begin
           begin
             // oninfowav(Sender);
 
-         //   wavefo.doechelle(Sender);
+            //   wavefo.doechelle(Sender);
 
             //   onwavform(Sender);
             ttimer1.Enabled := False;
@@ -1239,16 +1238,16 @@ begin
   begin
     fileex := fileext(PChar(ansistring(historyfn.Value)));
 
- if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
-   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
-   begin
+    if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+      (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
+    begin
 
       // writeln('avant tout');
       if fileexists(historyfn.Value) then
       begin
         samformat := 0;
 
-      //  oninfowav(Sender);
+        //  oninfowav(Sender);
 
         //  songdir.hint := songdir.value;
 
@@ -1512,12 +1511,12 @@ begin
           hascue2 := True;
           // application.processmessages; 
 
-            oninfowav(Sender);
+          oninfowav(Sender);
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
           begin
 
-          //  wavefo2.doechelle(nil);
+            //  wavefo2.doechelle(nil);
             ttimer1.Enabled := False;
             ttimer1.Enabled := True;
             //  onwavform(Sender);
@@ -2027,7 +2026,7 @@ begin
       // if (wavefo.waveon.Value = True) then
     begin
       waveformdataform1 := uos_InputGetLevelArray(theplayerinfoform, 0);
-        application.ProcessMessages;
+      application.ProcessMessages;
       formDrawWaveForm();
     end;
 
@@ -2038,7 +2037,7 @@ begin
       //   if (wavefo2.waveon.Value = True) then
     begin
       waveformdataform2 := uos_InputGetLevelArray(theplayerinfoform2, 0);
-        application.ProcessMessages;
+      application.ProcessMessages;
       formDrawWaveForm();
     end;
 
@@ -2149,7 +2148,7 @@ begin
       uos_Stop(theplayerinfoform);
       uos_CreatePlayer(theplayerinfoform);
 
-       application.ProcessMessages;
+      application.ProcessMessages;
       // Create the player.
       // PlayerIndex : from 0 to what your computer can do !
       // If PlayerIndex exists already, it will be overwriten...
@@ -2201,7 +2200,7 @@ begin
       // PlayerIndex : from 0 to what your computer can do !
       // If PlayerIndex exists already, it will be overwriten...
 
-       application.ProcessMessages;
+      application.ProcessMessages;
 
       if uos_AddFromFile(theplayerinfoform2, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
       begin
@@ -2251,9 +2250,9 @@ var
 begin
   fileex := fileext(PChar(ansistring(historyfn.Value)));
 
- if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
-   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
- begin
+  if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+    (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
+  begin
 
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
@@ -2270,7 +2269,7 @@ begin
 
       if Caption = 'Player 1' then
       begin
-        if hassent = 1 then
+        if (hassent = 1) or (hassent = 0) then
         begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
@@ -2279,24 +2278,21 @@ begin
             infosfo.imgPreview.Visible := True;
           end
           else
-          begin
             infosfo.imgPreview.Visible := False;
-          end;
 
           CommonTags := TagReader.GetCommonTags;
 
-          infosfo.infofile.Caption   := 'File: ' + extractfilename(historyfn.Value);
-          infosfo.infoname.Caption   := 'Title: ' + CommonTags.Title;
-          infosfo.infoartist.Caption := 'Artist: ' + CommonTags.Artist;
-          infosfo.infoalbum.Caption  := 'Album: ' + CommonTags.Album;
-          infosfo.infoyear.Caption   := 'Year: ' + CommonTags.Year;
-          infosfo.infocom.Caption    := 'Comment: ' + CommonTags.Comment;
-          infosfo.infotag.Caption    := 'Genre: ' + CommonTags.Genre;
-          infosfo.infolength.Caption := utf8decode('Duration: ' +
-            TimeToStr(CommonTags.Duration / MSecsPerDay));
-          infosfo.inforate.Caption   := 'Sample Rate: ' +
-            format('%d Hz', [TagReader.MediaProperty.Sampling]);
-          infosfo.infochan.Caption   := 'Channels: ' + TagReader.MediaProperty.ChannelMode;
+          infosfo.infofile.Caption   := trim(extractfilename(historyfn.Value));
+          infosfo.infoname.Caption   := trim(CommonTags.Title);
+          infosfo.infoartist.Caption := trim(CommonTags.Artist);
+          infosfo.infoalbum.Caption  := trim(CommonTags.Album);
+          infosfo.infoyear.Caption   := trim(CommonTags.Year);
+          infosfo.infocom.Caption    := trim(CommonTags.Comment);
+          infosfo.infotag.Caption    := trim(CommonTags.Genre);
+          infosfo.infolength.Caption := trim(utf8decode(TimeToStr(CommonTags.Duration / MSecsPerDay)));
+          infosfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling));
+          // format('%d Hz', [TagReader.MediaProperty.Sampling]);
+          infosfo.infochan.Caption   := trim(TagReader.MediaProperty.ChannelMode);
 
           // BPM
 
@@ -2306,11 +2302,16 @@ begin
           begin
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
             //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
-            infosfo.infobpm.Caption := utf8decode('BPM: ' +
-              IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate))));
+            infosfo.infobpm.Caption := trim(utf8decode(
+              IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels,
+              thebufferinfos.samplerate)))));
           end;
-
-          maxwidth := infosfo.infofile.Width;
+       {
+               maxwidth := 200;
+          
+              if maxwidth < infosfo.infofile.Width then
+              maxwidth := infosfo.infofile.Width;
+     
 
           if maxwidth < infosfo.infoname.Width then
             maxwidth := infosfo.infoname.Width;
@@ -2328,20 +2329,26 @@ begin
             maxwidth := infosfo.infolength.Width;
           if maxwidth < infosfo.infobpm.Width then
             maxwidth := infosfo.infobpm.Width;
-
-          infosfo.Width := maxwidth + 8;
-
-          if infosfo.imgPreview.Visible then
+           if maxwidth < infosfo.inforate.Width then
+            maxwidth := infosfo.inforate.Width;  
+     
+         if infosfo.imgPreview.Visible then     
+          infosfo.Width := 442 else
           begin
-            infosfo.Width           := infosfo.Width + infosfo.Height;
-            infosfo.imgPreview.left := infosfo.Width - infosfo.Height;
-            infosfo.imgPreview.Width := infosfo.Height -2;
-            infosfo.imgPreview.Height := infosfo.Height -2;
+           if maxwidth > 200 then  infosfo.Width := maxwidth + 10 else 
+          infosfo.Width := 200;
+          end;         
+        }
+          //  infosfo.Width := 442;
+          //  infosfo.height := 238 ;
+
+          if (hassent = 1) then
+          begin
+            infosfo.Visible := True;
+            infosfo.bringtofront;
           end;
-          //  infosfo.Show(True);
-          infosfo.Visible := True;
-        end
-        else if (waveformcheck.Value = True) and (iswav = False) then
+        end;
+        if (hassent = 0) and (waveformcheck.Value = True) and (iswav = False) then
         begin
 
           uos_Stop(theplayerinfo);
@@ -2376,12 +2383,12 @@ begin
           //application.processmessages;
 
         end;
-        
-        end;
+
+      end;
 
       if Caption = 'Player 2' then
       begin
-        if hassent = 1 then
+        if (hassent = 1) or (hassent = 0) then
         begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
@@ -2390,25 +2397,21 @@ begin
             infosfo2.imgPreview.Visible := True;
           end
           else
-          begin
             infosfo2.imgPreview.Visible := False;
-          end;
 
           CommonTags := TagReader.GetCommonTags;
 
-          infosfo2.infofile.Caption   := 'File: ' + extractfilename(historyfn.Value);
-          infosfo2.infoname.Caption   := 'Title: ' + CommonTags.Title;
-          infosfo2.infoartist.Caption := 'Artist: ' + CommonTags.Artist;
-          infosfo2.infoalbum.Caption  := 'Album: ' + CommonTags.Album;
-          infosfo2.infoyear.Caption   := 'Year: ' + CommonTags.Year;
-          infosfo2.infocom.Caption    := 'Comment: ' + CommonTags.Comment;
-          infosfo2.infotag.Caption    := 'Genre: ' + CommonTags.Genre;
-          infosfo2.infolength.Caption := utf8decode('Duration: ' +
-            TimeToStr(CommonTags.Duration / MSecsPerDay));
-          infosfo2.inforate.Caption   := 'Sample Rate: ' +
-            format('%d Hz', [TagReader.MediaProperty.Sampling]);
-          infosfo2.infochan.Caption   := 'Channels: ' + TagReader.MediaProperty.ChannelMode;
-
+          infosfo2.infofile.Caption   := trim(extractfilename(historyfn.Value));
+          infosfo2.infoname.Caption   := trim(CommonTags.Title);
+          infosfo2.infoartist.Caption := trim(CommonTags.Artist);
+          infosfo2.infoalbum.Caption  := trim(CommonTags.Album);
+          infosfo2.infoyear.Caption   := trim(CommonTags.Year);
+          infosfo2.infocom.Caption    := trim(CommonTags.Comment);
+          infosfo2.infotag.Caption    := trim(CommonTags.Genre);
+          infosfo2.infolength.Caption := trim(utf8decode(TimeToStr(CommonTags.Duration / MSecsPerDay)));
+          infosfo2.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling));
+          // format('%d Hz', [TagReader.MediaProperty.Sampling]);
+          infosfo2.infochan.Caption   := trim(TagReader.MediaProperty.ChannelMode);
 
           // BPM
 
@@ -2418,13 +2421,16 @@ begin
           begin
 
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
-            infosfo2.infobpm.Caption := utf8decode('BPM: ' +
-              IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate))));
+            infosfo2.infobpm.Caption :=
+              trim(utf8decode(IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate)))));
 
           end;
-       
-          maxwidth := infosfo2.infofile.Width;
-
+       {
+          maxwidth := 200;
+          
+              if maxwidth < infosfo2.infofile.Width then
+              maxwidth := infosfo2.infofile.Width;
+      
           if maxwidth < infosfo2.infoname.Width then
             maxwidth := infosfo2.infoname.Width;
           if maxwidth < infosfo2.infoartist.Width then
@@ -2442,19 +2448,24 @@ begin
           if maxwidth < infosfo2.infobpm.Width then
             maxwidth := infosfo2.infobpm.Width;
 
-          infosfo2.Width := maxwidth + 8;
-
-          if infosfo2.imgPreview.Visible then
+       
+           if infosfo2.imgPreview.Visible then     
+          infosfo2.Width := 442 else
           begin
-            infosfo2.Width           := infosfo2.Width + infosfo2.Height;
-            infosfo2.imgPreview.left := infosfo2.Width - infosfo2.Height;
-            infosfo2.imgPreview.Width := infosfo2.Height -2;
-            infosfo2.imgPreview.Height := infosfo2.Height -2;
+          if maxwidth > 200 then  infosfo2.Width := maxwidth + 10 else 
+           infosfo2.Width := 200;
+          end;         
+        }
+          //  infosfo2.Width := 442;  
+          //  infosfo2.height := 238 ;
+
+          if (hassent = 1) then
+          begin
+            infosfo2.Visible := True;
+            infosfo2.bringtofront;
           end;
-          //  infosfo2.Show(True);
-          infosfo2.Visible := True;
-        end
-        else if (waveformcheck.Value = True) and (iswav2 = False) then
+        end;
+        if (hassent = 0) and (waveformcheck.Value = True) and (iswav2 = False) then
         begin
 
           uos_Stop(theplayerinfo2);
@@ -2488,7 +2499,7 @@ begin
           // application.processmessages;
 
         end;
-        end;
+      end;
     end
     else
       ShowMessage(historyfn.Value + ' does not exist or not mounted...');

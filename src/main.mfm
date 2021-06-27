@@ -837,7 +837,7 @@ object mainfo: tmainfo
         options = [mao_separator, mao_shortcutcaption]
       end    
       item
-        submenu.count = 12
+        submenu.count = 13
         submenu.items = <        
           item
             caption = ' &Dock all visible windows '
@@ -866,9 +866,14 @@ object mainfo: tmainfo
             onexecute = ondockjam
           end        
           item
-            caption = ' D&J Console '
+            caption = ' DJ Console Wave '
             state = [as_localcaption, as_localonexecute]
             onexecute = ondockplayersx2
+          end        
+          item
+            caption = ' DJ Console Info '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = ondockplayerstag
           end        
           item
             caption = ' &Record stage '

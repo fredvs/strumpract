@@ -49,11 +49,11 @@ uses
   msedropdownlist,
   msefiledialogx,
   msegridsglob,
-  
+
    {$IFDEF unix}
    dynlibs,
-   {$ENDIF} 
-  
+   {$ENDIF}
+
   msetraywidget;
 
 type
@@ -131,6 +131,8 @@ type
     procedure onshowwave1(const Sender: TObject);
     procedure onshowwaverec(const Sender: TObject);
     procedure ondockplayers(const Sender: TObject);
+    procedure ondockplayerstag(const Sender: TObject);
+
     procedure ondockplayersx2(const Sender: TObject);
     procedure ondockjam(const Sender: TObject);
     procedure dragfloat(const Sender: TObject);
@@ -191,6 +193,7 @@ var
 implementation
 
 uses
+  infos,
   config,
   drums,
   recorder,
@@ -220,76 +223,76 @@ var
   i1, visiblecount: int32;
   rect1: rectty;
 begin
-if oktimer = 0 then
-begin
-  //{
-  children1    := basedock.dragdock.getitems();
-  visiblecount := 0;
-
-  // writeln('Number of childs: ' + inttostr(high(children1)));
-
-  for i1 := 0 to high(children1) do
-    with children1[i1] do
-      if Visible then
-        Inc(visiblecount)//  writeln('Child visible: ' + inttostr(i1));
-  ;
-  if (visiblecount = 0) then
+  if oktimer = 0 then
   begin
-    //  writeln('No Child visible.');
-    Width           := fowidth;
-    Height          := emptyheight + 20;
-    application.ProcessMessages;
-    basedock.Height := Height - 20;
-    basedock.Width  := Width;
-    basedock.top    := 0;
-    basedock.left   := 0;
-    // writeln('width: ' + inttostr(width));
-    // writeln('height: ' + inttostr(height));
-    // writeln('basedock.width: ' + inttostr(basedock.width));
-    // writeln('basedock.height: ' + inttostr(basedock.height));
+    //{
+    children1    := basedock.dragdock.getitems();
+    visiblecount := 0;
+
+    // writeln('Number of childs: ' + inttostr(high(children1)));
+
+    for i1 := 0 to high(children1) do
+      with children1[i1] do
+        if Visible then
+          Inc(visiblecount)//  writeln('Child visible: ' + inttostr(i1));
+    ;
+    if (visiblecount = 0) then
+    begin
+      //  writeln('No Child visible.');
+      Width           := fowidth;
+      Height          := emptyheight + 20;
+      application.ProcessMessages;
+      basedock.Height := Height - 20;
+      basedock.Width  := Width;
+      basedock.top    := 0;
+      basedock.left   := 0;
+      // writeln('width: ' + inttostr(width));
+      // writeln('height: ' + inttostr(height));
+      // writeln('basedock.width: ' + inttostr(basedock.width));
+      // writeln('basedock.height: ' + inttostr(basedock.height));
+    end;
+    //}
+
+    bounds_cxmax := 0;
+
+    if not fileexists(tstatfile1.filename) then
+      top := 30;
+
+    if (fs_sbverton in container.frame.state) then
+      Width := fowidth + scrollwidth
+    else
+      Width := fowidth;
+
+    hasinit := 1;
+
+    bounds_cxmax := bounds_cx;
+    bounds_cxmin := bounds_cx;
+
+    rect1 := application.screenrect(window);
+
+    maxheightfo := rect1.cy - 70;
+
+    if bounds_cy < maxheightfo then
+      bounds_cymax := bounds_cy
+    else
+      bounds_cymax := maxheightfo;
+    bounds_cymin := bounds_cy;
+
+    if dockpanel1fo.Visible then
+      dockpanel1fo.updatelayoutpan();
+
+    if dockpanel2fo.Visible then
+      dockpanel2fo.updatelayoutpan();
+
+    if dockpanel3fo.Visible then
+      dockpanel3fo.updatelayoutpan();
+
+    if dockpanel4fo.Visible then
+      dockpanel4fo.updatelayoutpan();
+
+    if dockpanel5fo.Visible then
+      dockpanel5fo.updatelayoutpan();
   end;
-  //}
-
-  bounds_cxmax := 0;
-
-  if not fileexists(tstatfile1.filename) then
-    top := 30;
-
-  if (fs_sbverton in container.frame.state) then
-    Width := fowidth + scrollwidth
-  else
-    Width := fowidth;
-
-  hasinit := 1;
-
-  bounds_cxmax := bounds_cx;
-  bounds_cxmin := bounds_cx;
-
-  rect1 := application.screenrect(window);
-
-  maxheightfo := rect1.cy - 70;
-
-  if bounds_cy < maxheightfo then
-    bounds_cymax := bounds_cy
-  else
-    bounds_cymax := maxheightfo;
-  bounds_cymin := bounds_cy;
-
-  if dockpanel1fo.Visible then
-    dockpanel1fo.updatelayoutpan();
-
-  if dockpanel2fo.Visible then
-    dockpanel2fo.updatelayoutpan();
-
-  if dockpanel3fo.Visible then
-    dockpanel3fo.updatelayoutpan();
-
-  if dockpanel4fo.Visible then
-    dockpanel4fo.updatelayoutpan();
-
-  if dockpanel5fo.Visible then
-    dockpanel5fo.updatelayoutpan();
-end;
 end;
 
 procedure resizeall();
@@ -364,10 +367,10 @@ begin
 
   filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
 
- // application.ProcessMessages;
+  // application.ProcessMessages;
   uos_free();
-  Timerwait.enabled := false;
-  Timeract.enabled := false;
+  Timerwait.Enabled := False;
+  Timeract.Enabled  := False;
   Timerwait.Free;
   Timeract.Free;
 
@@ -377,12 +380,10 @@ procedure tmainfo.oncreatedform(const Sender: TObject);
 var
   x: integer;
   haswav: Boolean = False;
-  
-  {$IFDEF unix}
+    {$IFDEF unix}
  bo : boolean;
 gl_Handle:TLibHandle=dynlibs.NilHandle;
-{$ENDIF} 
-
+{$ENDIF}
 begin
 
 {$IFDEF unix}
@@ -396,16 +397,16 @@ begin
   mainfo.tmainmenu1.menu[5].submenu[1].visible := false;
   mainfo.tmainmenu1.menu[5].submenu[2].visible := false;
   end;
-  {$ENDIF} 
+  {$ENDIF}
 
   Caption := 'StrumPract ' + versiontext;
   beginlayout();
-  
+
   oktimer := 1;
 
   Visible := True;
-  
-  commanderfo.guimix.Value        := False;
+
+  commanderfo.guimix.Value := False;
 
   if not fileexists(tstatfile1.filename) then
   begin
@@ -414,8 +415,8 @@ begin
       configfo.latplay.Value := 0.3;
       configfo.latrec.Value := 0.3;
       {$endif}
-  //  showall(Sender);
-  //   ondockall(Sender);
+    //  showall(Sender);
+    //   ondockall(Sender);
     ondockplayersx2(Sender);
     oktimer := 1;
   end;
@@ -500,34 +501,33 @@ begin
   end;
 
   endlayout();
-  
+
   oktimer := 0;
 
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
-    
+
   if dancnum.Value = 12 then
   begin
     imagedancerfo.Caption := 'Dancing Fractal Circles by Lainz';
-    imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.openglwidget.Visible := False;
     dancernum := 12;
-  end 
-  else  
-   
+  end
+  else
   if dancnum.Value = 11 then
   begin
     imagedancerfo.Caption := 'Dancing Turtle 2 by Lainz';
-    imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.openglwidget.Visible := False;
     dancernum := 11;
-  end 
+  end
   else if dancnum.Value = 10 then
   begin
     imagedancerfo.Caption := 'Dancing Turtle 1 by Lainz';
-    imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.openglwidget.Visible := False;
     dancernum := 10;
-  end 
+  end
   else if dancnum.Value = 9 then
   begin
     imagedancerfo.Caption := 'Dancing Lines';
@@ -704,12 +704,12 @@ begin
     end
     else
     begin
-      children1      := basedock.dragdock.getitems();
+      children1    := basedock.dragdock.getitems();
       setlength(heights, length(children1));
-      visiblecount   := 0;
-      maxwidth       := 0;
-      totheight      := 0;
-     
+      visiblecount := 0;
+      maxwidth     := 0;
+      totheight    := 0;
+
       //  writeln('Number of childs: ' + inttostr(high(children1)));
 
       for i1 := 0 to high(children1) do
@@ -786,9 +786,9 @@ var
   topdec: integer = 30;
 begin
   // basedock.anchors := [an_left,an_top]  ;
-  
-    oktimer := 1;
- 
+
+  oktimer := 1;
+
   beginlayout();
 
   norefresh := True;
@@ -1093,7 +1093,7 @@ begin
 
   norefresh := False;
   //  activate;
- 
+
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -1101,14 +1101,14 @@ begin
   dockpanel5fo.Visible := False;
 
   norefresh := False;
-  
-   oktimer := 0;
- 
+
+  oktimer := 0;
+
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
- 
+
 
   if timeract.Enabled then
     timeract.restart // to reset
@@ -1177,10 +1177,14 @@ var
   decorationheight: integer = 5;
 begin
   // basedock.anchors := [an_left,an_top]  ;
-  
-   oktimer := 1;
- 
-   imagedancerfo.Visible := False;
+
+  oktimer := 1;
+
+  imagedancerfo.Visible := False;
+
+  infosfo.Visible  := False;
+  infosfo2.Visible := False;
+
 
   dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
@@ -1417,7 +1421,7 @@ begin
   // application.ProcessMessages;
 
   oktimer := 0;
- 
+
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
@@ -1449,10 +1453,12 @@ begin
   // basedock.anchors := [an_left,an_top]  ;
 
   norefresh := True;
-  
-   oktimer := 1;
- 
-   imagedancerfo.Visible := False;
+
+  oktimer          := 1;
+  infosfo.Visible  := False;
+  infosfo2.Visible := False;
+
+  imagedancerfo.Visible := False;
   dockpanel3fo.Visible  := False;
   dockpanel4fo.Visible  := False;
   dockpanel5fo.Visible  := False;
@@ -1504,9 +1510,9 @@ begin
 
   basedock.dragdock.currentsplitdir := sd_horz;
   decorationheight := window.decoratedbounds_cy - Height;
-  
+
   beginlayout();
-  
+
   with dockpanel1fo do
   begin
 
@@ -1563,7 +1569,7 @@ begin
   rect1 := application.screenrect(window);
 
   interv := (rect1.cx - (3 * foWidth)) div 2;
-  
+
   decorationheight := window.decoratedbounds_cy - Height;
 
   dockpanel1fo.left := 0;
@@ -1572,8 +1578,7 @@ begin
   filelistfo.left := commanderfo.Width + interv;
   filelistfo.top  := commanderfo.Height + round(2.5 * decorationheight) - 2;
 
-   filelistfo.Height := (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height)
-   - commanderfo.Height - (decorationheight div 2);
+  filelistfo.Height := (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height) - commanderfo.Height - (decorationheight div 2);
 
   //filelistfo.Height := 400;
 
@@ -1585,11 +1590,9 @@ begin
 
   dockpanel2fo.left := filelistfo.right + interv;
 
-   endlayout();
-  
-   interv := ((rect1.cy - (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height)
-   
-    - (decorationheight * 5)) div 2);
+  endlayout();
+
+  interv := ((rect1.cy - (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height) - (decorationheight * 5)) div 2);
 
   wavefo2.bounds_cxmax := 0;
   wavefo2.bounds_cymax := 0;
@@ -1601,9 +1604,7 @@ begin
   wavefo.Height  := interv;
   wavefo2.Height := interv;
 
-  wavefo.top := songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height
-   
-     + (3 * decorationheight);
+  wavefo.top := songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height + (3 * decorationheight);
 
   wavefo2.top := wavefo.bottom + decorationheight;
 
@@ -1622,8 +1623,8 @@ begin
 
   Visible := True;
 
-   oktimer := 0;
- 
+  oktimer := 0;
+
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
@@ -1634,13 +1635,207 @@ begin
 
 end;
 
+/////
+
+procedure tmainfo.ondockplayerstag(const Sender: TObject); // DJ tag image Layout
+var
+  pt1: pointty;
+  rect1: rectty;
+  decorationheight: integer = 5;
+  interv: integer;
+begin
+  // basedock.anchors := [an_left,an_top]  ;
+
+  norefresh := True;
+
+  oktimer := 1;
+
+  wavefo.Visible        := False;
+  wavefo2.Visible       := False;
+  imagedancerfo.Visible := False;
+  dockpanel3fo.Visible  := False;
+  dockpanel4fo.Visible  := False;
+  dockpanel5fo.Visible  := False;
+  spectrum1fo.Visible   := True;
+  //spectrum1fo.dragdock.float();
+
+  infosfo.Visible  := True;
+  infosfo2.Visible := True;
+
+  spectrum2fo.Visible := True;
+  //spectrum1fo.dragdock.float();
+
+  songplayerfo.Visible := True;
+  //spectrum1fo.dragdock.float();
+
+  songplayer2fo.Visible := True;
+  //spectrum1fo.dragdock.float();
+
+  guitarsfo.dragdock.float();
+  guitarsfo.Visible := False;
+
+  drumsfo.dragdock.float();
+  drumsfo.Visible := False;
+
+  recorderfo.dragdock.float();
+  recorderfo.Visible := False;
+
+  equalizerfo1.Visible := True;
+  equalizerfo2.Visible := True;
+
+  equalizerforec.dragdock.float();
+  equalizerforec.Visible := False;
+
+  spectrumrecfo.dragdock.float();
+  spectrumrecfo.Visible := False;
+
+  waveforec.dragdock.float();
+  waveforec.Visible := False;
+
+  commanderfo.Visible := True;
+
+  commanderfo.automix.Value := True;
+
+  filelistfo.Visible := True;
+
+  dockpanel4fo.Visible := False;
+  dockpanel5fo.Visible := False;
+
+  filelistfo.dragdock.float();
+
+  basedock.dragdock.currentsplitdir := sd_horz;
+  decorationheight := window.decoratedbounds_cy - Height;
+
+  beginlayout();
+
+  with dockpanel1fo do
+  begin
+
+    // dragfloat(dockpanel1fo);
+
+    songplayerfo.parentwidget := basedock;
+
+    spectrum1fo.parentwidget := basedock;
+
+    equalizerfo1.parentwidget := basedock;
+
+    //{
+    pt1 := nullpoint;
+
+    spectrum1fo.pos := pt1;
+    pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
+
+    equalizerfo1.pos := pt1;
+    pt1.y := pt1.y + equalizerfo1.Height + decorationheight;
+
+    songplayerfo.pos := pt1;
+
+    // dockpanel1fo.Timerwaitdp.Enabled := False;
+    // dockpanel1fo.Timerwaitdp.Enabled := True;
+  end;
+
+  with dockpanel2fo do
+  begin
+    // dragfloat(dockpanel2fo);
+    songplayer2fo.parentwidget := basedock;
+    spectrum2fo.parentwidget   := basedock;
+    equalizerfo2.parentwidget  := basedock;
+
+    //{
+    pt1 := nullpoint;
+
+    spectrum2fo.pos := pt1;
+    pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
+
+    equalizerfo2.pos := pt1;
+    pt1.y := pt1.y + equalizerfo2.Height + decorationheight;
+
+
+    songplayer2fo.pos := pt1;
+
+    //  dockpanel2fo.Timerwaitdp.Enabled := False;
+    //  dockpanel2fo.Timerwaitdp.Enabled := True;
+  end;
+
+
+  basedock.dragdock.currentsplitdir := sd_horz;
+  commanderfo.parentwidget          := basedock;
+
+  rect1 := application.screenrect(window);
+
+  interv := (rect1.cx - (3 * foWidth)) div 2;
+
+  decorationheight := window.decoratedbounds_cy - Height;
+
+  infosfo.Width  := dockpanel1fo.Width;
+  infosfo.Height := 238;
+
+  infosfo2.Width  := infosfo.Width;
+  infosfo2.Height := 238;
+
+  infosfo.top  := decorationheight;
+  infosfo2.top := decorationheight;
+  ;
+
+  dockpanel1fo.left := 0;
+  dockpanel1fo.top  := decorationheight + infosfo.bottom + 4;
+
+  filelistfo.left := commanderfo.Width + interv;
+  filelistfo.top  := commanderfo.Height + round(2.5 * decorationheight) - 2;
+
+  filelistfo.Height := (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height + equalizerfo1.Height) - (decorationheight div 2);
+
+  //filelistfo.Height := 400;
+
+  left := filelistfo.left;
+  // top  := filelistfo.Height + (decorationheight * 2) - 4;
+  top  := decorationheight;
+
+  dockpanel2fo.top := dockpanel1fo.top;
+
+  dockpanel2fo.left := filelistfo.right + interv;
+
+  infosfo.left  := dockpanel1fo.left;
+  infosfo2.left := dockpanel2fo.left;
+
+  endlayout();
+
+  interv := ((rect1.cy - (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height) - (decorationheight * 5)) div 2);
+
+  application.ProcessMessages;
+  //  visible:= true;
+
+  dockpanel1fo.Visible := True;
+  dockpanel2fo.Visible := True;
+
+  infosfo.bringtofront;
+  infosfo2.bringtofront;
+
+  //application.ProcessMessages;
+
+  Visible := True;
+
+  oktimer := 0;
+
+  if timerwait.Enabled then
+    timerwait.restart // to reset
+  else
+    timerwait.Enabled := True;
+
+
+  norefresh := False;
+
+end;
+
+////
+
 procedure tmainfo.ondockall(const Sender: TObject);
 var
   pt1: pointty;
   decorationheight: integer = 5;
   rect1: rectty;
 begin
-  oktimer := 1;
+  oktimer          := 1;
   // basedock.anchors := [an_left,an_top]  ;
   decorationheight := window.decoratedbounds_cy - Height;
   norefresh        := True;
@@ -1815,10 +2010,10 @@ begin
   dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
-  
-oktimer := 0;  
 
- if timerwait.Enabled then
+  oktimer := 0;
+
+  if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
@@ -1865,13 +2060,13 @@ begin
   ondockall(Sender);
   oktimer := 1;
 
-    // otherwise the close button are hidden
+  // otherwise the close button are hidden
   basedock.dragdock.currentsplitdir := sd_tabed;
   sleep(1);
   endlayout();
-  
-   oktimer := 0;
- 
+
+  oktimer := 0;
+
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
@@ -2194,6 +2389,61 @@ begin
     randomnotefo.bchord4.font.color := cl_black;
     randomnotefo.bchord5.font.color := cl_black;
 
+    with infosfo do
+    begin
+      infofile.font.color   := cl_black;
+      infoartist.font.color := cl_black;
+      infoname.font.color   := cl_black;
+      infoalbum.font.color  := cl_black;
+      infoyear.font.color   := cl_black;
+      infocom.font.color    := cl_black;
+      infotag.font.color    := cl_black;
+      infolength.font.color := cl_black;
+      inforate.font.color   := cl_black;
+      infochan.font.color   := cl_black;
+      infobpm.font.color    := cl_black;
+
+      infofile.frame.font.color   := cl_black;
+      infoartist.frame.font.color := cl_black;
+      infoname.frame.font.color   := cl_black;
+      infoalbum.frame.font.color  := cl_black;
+      infoyear.frame.font.color   := cl_black;
+      infocom.frame.font.color    := cl_black;
+      infotag.frame.font.color    := cl_black;
+      infolength.frame.font.color := cl_black;
+      inforate.frame.font.color   := cl_black;
+      infochan.frame.font.color   := cl_black;
+      infobpm.frame.font.color    := cl_black;
+    end;
+
+    with infosfo2 do
+    begin
+      infofile.font.color   := cl_black;
+      infoartist.font.color := cl_black;
+      infoname.font.color   := cl_black;
+      infoalbum.font.color  := cl_black;
+      infoyear.font.color   := cl_black;
+      infocom.font.color    := cl_black;
+      infotag.font.color    := cl_black;
+      infolength.font.color := cl_black;
+      inforate.font.color   := cl_black;
+      infochan.font.color   := cl_black;
+      infobpm.font.color    := cl_black;
+
+      infofile.frame.font.color   := cl_black;
+      infoartist.frame.font.color := cl_black;
+      infoname.frame.font.color   := cl_black;
+      infoalbum.frame.font.color  := cl_black;
+      infoyear.frame.font.color   := cl_black;
+      infocom.frame.font.color    := cl_black;
+      infotag.frame.font.color    := cl_black;
+      infolength.frame.font.color := cl_black;
+      inforate.frame.font.color   := cl_black;
+      infochan.frame.font.color   := cl_black;
+      infobpm.frame.font.color    := cl_black;
+    end;
+
+
     randomnotefo.withrandom.frame.font.color := cl_black;
     randomnotefo.nodrums.frame.font.color    := cl_black;
     randomnotefo.withsharp.frame.font.color  := cl_black;
@@ -2232,15 +2482,15 @@ begin
 
     tfaceplayer.template.fade_color.items[0] := $F9FFC2;
     tfaceplayer.template.fade_color.items[1] := $C4C999;
-  
-   // tfaceplayer.template.fade_color.items[0] := $FFF9A3;
-   // tfaceplayer.template.fade_color.items[1] := $C4C999;
+
+    // tfaceplayer.template.fade_color.items[0] := $FFF9A3;
+    // tfaceplayer.template.fade_color.items[1] := $C4C999;
 
     tfaceplayerbut.template.fade_color.items[0] := $F9FFC2;
     tfaceplayerbut.template.fade_color.items[1] := $C4C999;
 
-  // tfaceplayerbut.template.fade_color.items[0] := $FFF9A3;
-  // tfaceplayerbut.template.fade_color.items[1] := $C4C999;
+    // tfaceplayerbut.template.fade_color.items[0] := $FFF9A3;
+    // tfaceplayerbut.template.fade_color.items[1] := $C4C999;
 
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
     tfacebutgray.template.fade_color.items[1] := $9E9E9E;
@@ -2257,11 +2507,11 @@ begin
     songplayerfo.llength.font.color  := thecolor1;
     songplayer2fo.llength.font.color := thecolor2;
 
-   // songplayerfo.cbloop.frame.font.color  := thecolor1;
-   // songplayer2fo.cbloop.frame.font.color := thecolor2;
+    // songplayerfo.cbloop.frame.font.color  := thecolor1;
+    // songplayer2fo.cbloop.frame.font.color := thecolor2;
 
-   // songplayerfo.cbtempo.frame.font.color  := thecolor1;
-   // songplayer2fo.cbtempo.frame.font.color := thecolor2;
+    // songplayerfo.cbtempo.frame.font.color  := thecolor1;
+    // songplayer2fo.cbtempo.frame.font.color := thecolor2;
 
     songplayerfo.waveformcheck.frame.font.color  := thecolor1;
     songplayer2fo.waveformcheck.frame.font.color := thecolor2;
@@ -2269,8 +2519,8 @@ begin
     songplayerfo.playreverse.frame.font.color  := thecolor1;
     songplayer2fo.playreverse.frame.font.color := thecolor2;
 
-   // songplayerfo.setmono.frame.font.color  := thecolor1;
-   // songplayer2fo.setmono.frame.font.color := thecolor2;
+    // songplayerfo.setmono.frame.font.color  := thecolor1;
+    // songplayer2fo.setmono.frame.font.color := thecolor2;
 
     songplayerfo.tstringdisp2.font.color  := thecolor1;
     songplayer2fo.tstringdisp2.font.color := thecolor2;
@@ -2424,12 +2674,12 @@ begin
     recorderfo.cbtempo.colorglyph     := ltblack;
     recorderfo.bsavetofile.colorglyph := ltblack;
     recorderfo.sentcue1.colorglyph    := ltblack;
-   
-    recorderfo.bwav.colorglyph      := ltblack;
-    recorderfo.bogg.colorglyph      := ltblack;
-    recorderfo.bwav.frame.font.color      := ltblack;
-    recorderfo.bogg.frame.font.color      := ltblack;
-        
+
+    recorderfo.bwav.colorglyph       := ltblack;
+    recorderfo.bogg.colorglyph       := ltblack;
+    recorderfo.bwav.frame.font.color := ltblack;
+    recorderfo.bogg.frame.font.color := ltblack;
+
     recorderfo.blistenin.colorglyph := ltblack;
 
     // recorderfo.songdir.frame.button.colorglyph   := ltblack;
@@ -2538,15 +2788,15 @@ begin
     end;
 
     // commander
-    commanderfo.nameplayers.font.color := ltblack;
-    commanderfo.nameplayers2.font.color := ltblack;
-    commanderfo.namedrums.font.color  := ltblack;
-    commanderfo.namegen.font.color    := ltblack;
-    commanderfo.nameinput.font.color  := ltblack;
-    commanderfo.genleftvolvalue.font.color := ltblack;
+    commanderfo.nameplayers.font.color      := ltblack;
+    commanderfo.nameplayers2.font.color     := ltblack;
+    commanderfo.namedrums.font.color        := ltblack;
+    commanderfo.namegen.font.color          := ltblack;
+    commanderfo.nameinput.font.color        := ltblack;
+    commanderfo.genleftvolvalue.font.color  := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
-    commanderfo.sysvolbut.font.color := ltblack;
-    
+    commanderfo.sysvolbut.font.color        := ltblack;
+
     {
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
@@ -2556,7 +2806,7 @@ begin
     commanderfo.speccalc.colorglyph       := ltblack;
     commanderfo.speccalc.frame.font.color := ltblack;
     }
-    
+
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
 
@@ -2585,7 +2835,7 @@ begin
     commanderfo.linkvolgen.colorglyph       := ltblack;
     commanderfo.linkvolgen.frame.font.color := ltblack;
 }
-    commanderfo.timemix.font.color := ltblack;
+    commanderfo.timemix.font.color        := ltblack;
 
     commanderfo.timemix.frame.colorglyph := ltblack;
 
@@ -2596,7 +2846,7 @@ begin
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
-    
+
     commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
 
@@ -2823,6 +3073,60 @@ begin
     randomnotefo.tgroupbox2.frame.font.color := cl_black;
     randomnotefo.tgroupbox3.frame.font.color := cl_black;
 
+    with infosfo do
+    begin
+      infofile.font.color   := cl_black;
+      infoartist.font.color := cl_black;
+      infoname.font.color   := cl_black;
+      infoalbum.font.color  := cl_black;
+      infoyear.font.color   := cl_black;
+      infocom.font.color    := cl_black;
+      infotag.font.color    := cl_black;
+      infolength.font.color := cl_black;
+      inforate.font.color   := cl_black;
+      infochan.font.color   := cl_black;
+      infobpm.font.color    := cl_black;
+
+      infofile.frame.font.color   := cl_black;
+      infoartist.frame.font.color := cl_black;
+      infoname.frame.font.color   := cl_black;
+      infoalbum.frame.font.color  := cl_black;
+      infoyear.frame.font.color   := cl_black;
+      infocom.frame.font.color    := cl_black;
+      infotag.frame.font.color    := cl_black;
+      infolength.frame.font.color := cl_black;
+      inforate.frame.font.color   := cl_black;
+      infochan.frame.font.color   := cl_black;
+      infobpm.frame.font.color    := cl_black;
+    end;
+
+    with infosfo2 do
+    begin
+      infofile.font.color   := cl_black;
+      infoartist.font.color := cl_black;
+      infoname.font.color   := cl_black;
+      infoalbum.font.color  := cl_black;
+      infoyear.font.color   := cl_black;
+      infocom.font.color    := cl_black;
+      infotag.font.color    := cl_black;
+      infolength.font.color := cl_black;
+      inforate.font.color   := cl_black;
+      infochan.font.color   := cl_black;
+      infobpm.font.color    := cl_black;
+
+      infofile.frame.font.color   := cl_black;
+      infoartist.frame.font.color := cl_black;
+      infoname.frame.font.color   := cl_black;
+      infoalbum.frame.font.color  := cl_black;
+      infoyear.frame.font.color   := cl_black;
+      infocom.frame.font.color    := cl_black;
+      infotag.frame.font.color    := cl_black;
+      infolength.frame.font.color := cl_black;
+      inforate.frame.font.color   := cl_black;
+      infochan.frame.font.color   := cl_black;
+      infobpm.frame.font.color    := cl_black;
+    end;
+
 
     // main
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
@@ -2884,20 +3188,20 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.llength.font.color  := cl_default;
     songplayer2fo.llength.font.color := cl_default;
 
-   // songplayerfo.cbloop.frame.font.color  := ltblack;
-   // songplayer2fo.cbloop.frame.font.color := ltblack;
+    // songplayerfo.cbloop.frame.font.color  := ltblack;
+    // songplayer2fo.cbloop.frame.font.color := ltblack;
 
-   // songplayerfo.cbtempo.frame.font.color  := ltblack;
-  //  songplayer2fo.cbtempo.frame.font.color := ltblack;
+    // songplayerfo.cbtempo.frame.font.color  := ltblack;
+    //  songplayer2fo.cbtempo.frame.font.color := ltblack;
 
     //songplayerfo.waveformcheck.frame.font.color  := ltblack;
-   // songplayer2fo.waveformcheck.frame.font.color := ltblack;
+    // songplayer2fo.waveformcheck.frame.font.color := ltblack;
 
-   // songplayerfo.playreverse.frame.font.color  := ltblack;
-   // songplayer2fo.playreverse.frame.font.color := ltblack;
+    // songplayerfo.playreverse.frame.font.color  := ltblack;
+    // songplayer2fo.playreverse.frame.font.color := ltblack;
 
-   // songplayerfo.setmono.frame.font.color  := ltblack;
-   // songplayer2fo.setmono.frame.font.color := ltblack;
+    // songplayerfo.setmono.frame.font.color  := ltblack;
+    // songplayer2fo.setmono.frame.font.color := ltblack;
 
     songplayerfo.tstringdisp2.font.color  := ltblack;
     songplayer2fo.tstringdisp2.font.color := ltblack;
@@ -2907,8 +3211,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.button2.font.color  := ltblack;
     songplayer2fo.button2.font.color := ltblack;
-  
-  
+
+
 {
     songplayerfo.cbloop.colorglyph         := ltblack;
     songplayer2fo.cbloop.colorglyph        := ltblack;
@@ -2932,7 +3236,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     songplayerfo.edvolleft.frame.colorglyph  := ltblack;
     songplayer2fo.edvolleft.frame.colorglyph := ltblack;
 
-   
+
     recorderfo.edvol.frame.colorglyph   := ltblack;
     recorderfo.edvolr.frame.colorglyph  := ltblack;
     recorderfo.edtempo.frame.colorglyph := ltblack;
@@ -3029,12 +3333,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     // recorder
     recorderfo.font.color := ltblack;
-    
-    recorderfo.bwav.colorglyph      := ltblack;
-    recorderfo.bogg.colorglyph      := ltblack;
-    recorderfo.bwav.frame.font.color      := ltblack;
-    recorderfo.bogg.frame.font.color      := ltblack;
-   
+
+    recorderfo.bwav.colorglyph       := ltblack;
+    recorderfo.bogg.colorglyph       := ltblack;
+    recorderfo.bwav.frame.font.color := ltblack;
+    recorderfo.bogg.frame.font.color := ltblack;
+
 
     recorderfo.cbloop.frame.font.color      := ltblack;
     recorderfo.cbtempo.frame.font.color     := ltblack;
@@ -3146,14 +3450,14 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     end;
 
     // commander
-    commanderfo.nameplayers.font.color := ltblack;
-    commanderfo.nameplayers2.font.color := ltblack;
+    commanderfo.nameplayers.font.color      := ltblack;
+    commanderfo.nameplayers2.font.color     := ltblack;
     commanderfo.namedrums.font.color        := ltblack;
     commanderfo.namegen.font.color          := ltblack;
     commanderfo.nameinput.font.color        := ltblack;
     commanderfo.genleftvolvalue.font.color  := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
-    commanderfo.sysvolbut.font.color := ltblack;
+    commanderfo.sysvolbut.font.color        := ltblack;
 
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
@@ -3170,11 +3474,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
-    
+
     commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
 
-    commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.genvolright.scrollbar.face.template := commanderfo.tfaceslider;
     commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
 {
     commanderfo.vuin.colorglyph       := ltblack;
@@ -3204,13 +3508,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.linkvolgen.colorglyph       := ltblack;
     commanderfo.linkvolgen.frame.font.color := ltblack;
 }
-    commanderfo.volumeleft1.scrollbar.face.template   := commanderfo.tfaceslider;
-    commanderfo.volumeleft1.scrollbar.face1.template  := commanderfo.tfaceslider;
-    commanderfo.volumeleft2.scrollbar.face.template   := commanderfo.tfaceslider;
-    commanderfo.volumeleft2.scrollbar.face1.template  := commanderfo.tfaceslider;
-    commanderfo.volumeright1.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.volumeleft1.scrollbar.face.template := commanderfo.tfaceslider;
+    commanderfo.volumeleft1.scrollbar.face1.template := commanderfo.tfaceslider;
+    commanderfo.volumeleft2.scrollbar.face.template := commanderfo.tfaceslider;
+    commanderfo.volumeleft2.scrollbar.face1.template := commanderfo.tfaceslider;
+    commanderfo.volumeright1.scrollbar.face.template := commanderfo.tfaceslider;
     commanderfo.volumeright1.scrollbar.face1.template := commanderfo.tfaceslider;
-    commanderfo.volumeright2.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.volumeright2.scrollbar.face.template := commanderfo.tfaceslider;
     commanderfo.volumeright2.scrollbar.face1.template := commanderfo.tfaceslider;
 
     commanderfo.tslider2.scrollbar.face.template  := commanderfo.tfaceslider;
@@ -3413,6 +3717,60 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     randomnotefo.tgroupbox1.frame.font.color := cl_white;
     randomnotefo.tgroupbox2.frame.font.color := cl_white;
     randomnotefo.tgroupbox3.frame.font.color := cl_white;
+
+    with infosfo do
+    begin
+      infofile.font.color   := cl_white;
+      infoartist.font.color := cl_white;
+      infoname.font.color   := cl_white;
+      infoalbum.font.color  := cl_white;
+      infoyear.font.color   := cl_white;
+      infocom.font.color    := cl_white;
+      infotag.font.color    := cl_white;
+      infolength.font.color := cl_white;
+      inforate.font.color   := cl_white;
+      infochan.font.color   := cl_white;
+      infobpm.font.color    := cl_white;
+
+      infofile.frame.font.color   := cl_white;
+      infoartist.frame.font.color := cl_white;
+      infoname.frame.font.color   := cl_white;
+      infoalbum.frame.font.color  := cl_white;
+      infoyear.frame.font.color   := cl_white;
+      infocom.frame.font.color    := cl_white;
+      infotag.frame.font.color    := cl_white;
+      infolength.frame.font.color := cl_white;
+      inforate.frame.font.color   := cl_white;
+      infochan.frame.font.color   := cl_white;
+      infobpm.frame.font.color    := cl_white;
+    end;
+
+    with infosfo2 do
+    begin
+      infofile.font.color   := cl_white;
+      infoartist.font.color := cl_white;
+      infoname.font.color   := cl_white;
+      infoalbum.font.color  := cl_white;
+      infoyear.font.color   := cl_white;
+      infocom.font.color    := cl_white;
+      infotag.font.color    := cl_white;
+      infolength.font.color := cl_white;
+      inforate.font.color   := cl_white;
+      infochan.font.color   := cl_white;
+      infobpm.font.color    := cl_white;
+
+      infofile.frame.font.color   := cl_white;
+      infoartist.frame.font.color := cl_white;
+      infoname.frame.font.color   := cl_white;
+      infoalbum.frame.font.color  := cl_white;
+      infoyear.frame.font.color   := cl_white;
+      infocom.frame.font.color    := cl_white;
+      infotag.frame.font.color    := cl_white;
+      infolength.frame.font.color := cl_white;
+      inforate.frame.font.color   := cl_white;
+      infochan.frame.font.color   := cl_white;
+      infobpm.frame.font.color    := cl_white;
+    end;
 
 
     with spectrum1fo do
@@ -3740,12 +4098,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     recorderfo.cbloop.frame.font.color  := ltblank;
     recorderfo.cbtempo.frame.font.color := ltblank;
-    
-    recorderfo.bwav.colorglyph      := ltblank;
-    recorderfo.bogg.colorglyph      := ltblank;
-    recorderfo.bwav.frame.font.color      := ltblank;
-    recorderfo.bogg.frame.font.color      := ltblank;
-   
+
+    recorderfo.bwav.colorglyph       := ltblank;
+    recorderfo.bogg.colorglyph       := ltblank;
+    recorderfo.bwav.frame.font.color := ltblank;
+    recorderfo.bogg.frame.font.color := ltblank;
+
 
     recorderfo.cbloop.colorglyph      := ltblank;
     recorderfo.cbtempo.colorglyph     := ltblank;
@@ -3857,15 +4215,15 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     end;
 
     // commander
-    commanderfo.nameplayers.font.color := ltblank;
+    commanderfo.nameplayers.font.color  := ltblank;
     commanderfo.nameplayers2.font.color := ltblank;
-    commanderfo.namedrums.font.color := ltblank;
+    commanderfo.namedrums.font.color    := ltblank;
 
     commanderfo.namegen.font.color          := ltblank;
     commanderfo.nameinput.font.color        := ltblank;
     commanderfo.genleftvolvalue.font.color  := ltblank;
     commanderfo.genrightvolvalue.font.color := ltblank;
-    commanderfo.sysvolbut.font.color := ltblank;
+    commanderfo.sysvolbut.font.color        := ltblank;
 
     commanderfo.volumeleft1val.font.color := ltblank;
     commanderfo.volumeleft2val.font.color := ltblank;
@@ -3876,7 +4234,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.tslider2val.font.color := ltblank;
     commanderfo.tslider3val.font.color := ltblank;
 
-    commanderfo.timemix.font.color := ltblank;
+    commanderfo.timemix.font.color        := ltblank;
 {
     commanderfo.vuin.colorglyph       := ltblank;
     commanderfo.vuin.frame.font.color := ltblank;
@@ -3915,7 +4273,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfacesliderdark;
     commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfacesliderdark;
-    
+
     commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfacesliderdark;
     commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfacesliderdark;
 
@@ -4066,7 +4424,7 @@ end;
 
 procedure tmainfo.onexit(const Sender: TObject);
 begin
- 
+
   Close;
 end;
 
@@ -4096,8 +4454,11 @@ var
   decorationheight: integer = 5;
 begin
 
- oktimer := 1;
- 
+  oktimer := 1;
+
+  infosfo.Visible  := False;
+  infosfo2.Visible := False;
+
   // basedock.anchors := [an_left,an_top]  ;
   basedock.dragdock.currentsplitdir := sd_horz;
   decorationheight := window.decoratedbounds_cy - Height;
@@ -4251,12 +4612,11 @@ begin
     timeract.Enabled := True;
 
   oktimer := 0;
- 
+
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
-
 
 end;
 
@@ -4271,8 +4631,8 @@ begin
 
   tfiledialog1.controller.filter   := '"*.lay"';
   tfiledialog1.controller.filename := ordir;
-  tfiledialog1.controller.options := [fdo_sysfilename,fdo_savelastdir];
- 
+  tfiledialog1.controller.options  := [fdo_sysfilename, fdo_savelastdir];
+
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     if fileexists(tfiledialog1.controller.filename) then
       mainfo.tstatfile1.readstat(msestring(tfiledialog1.controller.filename));
@@ -4303,6 +4663,8 @@ begin
   dockpanel4fo.Visible  := False;
   dockpanel5fo.Visible  := False;
   imagedancerfo.Visible := False;
+  infosfo.Visible       := False;
+  infosfo2.Visible      := False;
 
   hideall(nil);
 
@@ -4311,14 +4673,14 @@ begin
 
   songplayerfo.Visible  := True;
   songplayer2fo.Visible := True;
-  
+
   oktimer := 1;
 
   ondockall(nil);
-  
-   oktimer := 0;
-  
-   if timerwait.Enabled then
+
+  oktimer := 0;
+
+  if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
@@ -4340,8 +4702,7 @@ procedure tmainfo.onimagedancer(const Sender: TObject);
 var
 bo : boolean;
 gl_Handle:TLibHandle=dynlibs.NilHandle;
-{$ENDIF} 
-
+{$ENDIF}
 begin
 
 {$IFDEF unix}
@@ -4349,21 +4710,20 @@ begin
  if gl_Handle  <> DynLibs.NilHandle then bo := true
   else bo := false;
   if bo then    DynLibs.UnloadLibrary(gl_Handle);
- {$ENDIF} 
+ {$ENDIF}
 
-if (tmenuitem(Sender).tag = 12) then
+  if (tmenuitem(Sender).tag = 12) then
   begin
     imagedancerfo.Caption := 'Dancing Fractal Circles by Lainz';
-   imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.openglwidget.Visible := False;
     // imagedancerfo.tpaintbox1.Visible := true;
     dancernum     := 12;
     dancnum.Value := 12;
   end
-  else
-if (tmenuitem(Sender).tag = 11) then
+  else if (tmenuitem(Sender).tag = 11) then
   begin
     imagedancerfo.Caption := 'Dancing Turtle 2 by Lainz';
-    imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.openglwidget.Visible := False;
     // imagedancerfo.tpaintbox1.Visible := true;
     dancernum     := 11;
     dancnum.Value := 11;
@@ -4371,7 +4731,7 @@ if (tmenuitem(Sender).tag = 11) then
   else if (tmenuitem(Sender).tag = 10) then
   begin
     imagedancerfo.Caption := 'Dancing Turtle 1 by Lainz';
-    imagedancerfo.openglwidget.Visible := false;
+    imagedancerfo.openglwidget.Visible := False;
     // imagedancerfo.tpaintbox1.Visible := true;
     dancernum     := 10;
     dancnum.Value := 10;
@@ -4380,7 +4740,7 @@ if (tmenuitem(Sender).tag = 11) then
   begin
    {$IFDEF unix} 
   if bo then begin
-  {$ENDIF} 
+  {$ENDIF}
     imagedancerfo.Caption := 'Dancing Lines';
     imagedancerfo.openglwidget.Visible := True;
     // imagedancerfo.tpaintbox1.Visible := true;
@@ -4388,13 +4748,13 @@ if (tmenuitem(Sender).tag = 11) then
     dancnum.Value := 9;
     {$IFDEF unix} 
   end;
-  {$ENDIF}  
+  {$ENDIF}
   end
   else if (tmenuitem(Sender).tag = 8) then
   begin
      {$IFDEF unix} 
   if bo then begin
-  {$ENDIF} 
+  {$ENDIF}
     imagedancerfo.Caption := 'Dancing Triangle';
     imagedancerfo.openglwidget.Visible := True;
     // imagedancerfo.tpaintbox1.Visible := true;
@@ -4402,7 +4762,7 @@ if (tmenuitem(Sender).tag = 11) then
     dancnum.Value := 8;
      {$IFDEF unix} 
   end;
-  {$ENDIF} 
+  {$ENDIF}
   end
   else if (tmenuitem(Sender).tag = 7) then
   begin
@@ -4438,10 +4798,10 @@ if (tmenuitem(Sender).tag = 11) then
   end
   else if (tmenuitem(Sender).tag = 3) then
   begin
-  
+
   {$IFDEF unix} 
   if bo then begin
-  {$ENDIF} 
+  {$ENDIF}
     imagedancerfo.Caption := 'Dancing Square';
     imagedancerfo.openglwidget.Visible := True;
     // imagedancerfo.tpaintbox1.Visible := False;
@@ -4449,7 +4809,7 @@ if (tmenuitem(Sender).tag = 11) then
     dancnum.Value := 3;
   {$IFDEF unix} 
    end;
-  {$ENDIF}   
+  {$ENDIF}
   end
   else if (tmenuitem(Sender).tag = 0) then
   begin
@@ -4481,6 +4841,9 @@ end;
 
 procedure tmainfo.ondancerlayout(const Sender: TObject);
 begin
+  infosfo.Visible  := False;
+  infosfo2.Visible := False;
+
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -4505,14 +4868,14 @@ begin
 
   songplayerfo.Visible  := True;
   songplayer2fo.Visible := True;
-  
+
   oktimer := 1;
 
   ondockall(nil);
-  
-   oktimer := 0;
-  
-   if timerwait.Enabled then
+
+  oktimer := 0;
+
+  if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
