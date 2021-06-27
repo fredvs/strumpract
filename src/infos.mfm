@@ -1,8 +1,8 @@
 object infosfo: tinfosfo
   color = 15921906
   visible = False
-  bounds_x = 3
-  bounds_y = 305
+  bounds_x = 43
+  bounds_y = 145
   bounds_cx = 442
   bounds_cy = 238
   container.frame.localprops = []
@@ -1267,8 +1267,8 @@ object infosfo: tinfosfo
       0
     )
     taborder = 4
-    bounds_x = 131
-    bounds_y = 166
+    bounds_x = 134
+    bounds_y = 200
     bounds_cx = 40
     bounds_cy = 30
     caption = '          '
@@ -1447,8 +1447,8 @@ object infosfo: tinfosfo
       0
     )
     taborder = 10
-    bounds_x = 131
-    bounds_y = 200
+    bounds_x = 160
+    bounds_y = 166
     bounds_cx = 25
     bounds_cy = 30
     caption = '     '

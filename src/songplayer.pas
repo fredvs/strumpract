@@ -2292,7 +2292,11 @@ begin
           infosfo.infolength.Caption := trim(utf8decode(TimeToStr(CommonTags.Duration / MSecsPerDay)));
           infosfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling));
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
+      
+            if trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo' then
+          infosfo.infochan.Caption   := 'Stereo' else          
           infosfo.infochan.Caption   := trim(TagReader.MediaProperty.ChannelMode);
+
 
           // BPM
 
@@ -2411,6 +2415,8 @@ begin
           infosfo2.infolength.Caption := trim(utf8decode(TimeToStr(CommonTags.Duration / MSecsPerDay)));
           infosfo2.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling));
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
+          if trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo' then
+          infosfo2.infochan.Caption   := 'Stereo' else          
           infosfo2.infochan.Caption   := trim(TagReader.MediaProperty.ChannelMode);
 
           // BPM

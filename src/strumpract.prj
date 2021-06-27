@@ -1675,14 +1675,14 @@ findhistory=20
 findoptions=1
 editpos=9
  0,-1073741823
+ 0,9
  0,-1073741823
  0,-1073741823
- 0,2486
- 0,222
- 0,1
- 0,12
- 0,8
- 0,1792
+ 0,-1073741823
+ 0,-1073741823
+ 0,6
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1704,7 +1704,7 @@ sourcefiles=9
  ${PROJECTDIR}/main.pas
 relpaths=9
  strumpract.pas
- mseide-msegui/lib/common/kernel/msegui.pas
+ ../mseide-msegui/lib/common/kernel/msegui.pas
  mseide-msegui_okrelease/lib/common/kernel/msegui.pas
  songplayer.pas
  commander.pas
@@ -1764,17 +1764,17 @@ nomenumodules=9
  0
 [sourcefo.files_tab]
 order=9
+ 8
+ 5
+ 7
  6
  0
- 1
  2
- 3
- 8
- 7
- 5
  4
+ 3
+ 1
 firsttab=0
-index=4
+index=3
 [layout]
 windowlayout=723
  [mainfo.basedock]
@@ -1790,13 +1790,13 @@ windowlayout=723
  ny=0
  ncx=0
  ncy=0
- x=73
- y=48
+ x=86
+ y=501
  cx=1224
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [findmessagefo.findtext]
@@ -1920,7 +1920,7 @@ windowlayout=723
  x=0
  y=0
  cx=205
- cy=511
+ cy=445
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2010,10 +2010,10 @@ windowlayout=723
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=448
- width0=190
+ propcolwidthref=433
+ width0=184
  sortdescend0=0
- width1=252
+ width1=243
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2106,9 +2106,9 @@ windowlayout=723
  ncx=0
  ncy=0
  x=0
- y=583
- cx=1356
- cy=106
+ y=508
+ cx=1212
+ cy=92
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2207,8 +2207,8 @@ windowlayout=723
  ncy=0
  x=0
  y=0
- cx=1356
- cy=66
+ cx=1212
+ cy=57
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2223,8 +2223,8 @@ windowlayout=723
  ncy=73
  x=0
  y=0
- cx=1356
- cy=73
+ cx=1212
+ cy=64
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2234,10 +2234,11 @@ windowlayout=723
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
+ value=/home/fred/strumpract/src/infos.pas
  history=20
-  /home/fred/strumpract/src/filelistform.pas
+  /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
   /home/fred/mseide-msegui_okrelease/lib/common/kernel/msegui.pas
+  /home/fred/strumpract/src/filelistform.pas
   /home/fred/ovotag/ovotag_console.pas
   /home/fred/strumpract/src/imageviewer.pas
   /home/fred/strumpract/src/infowav.pas
@@ -2255,7 +2256,6 @@ windowlayout=723
   /home/fred/uos/examples/uos.pas
   /home/fred/strumpract/src/uos.pas
   /home/fred/ideu/src/msefiledialogx.pas
-  /home/fred/mseide-msegui/lib/common/dialogx/msefiledialogx.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2272,23 +2272,23 @@ windowlayout=723
  ncy=0
  x=208
  y=0
- cx=1148
- cy=511
+ cx=1004
+ cy=445
  rcx=0
  rcy=0
  [sourcefo.files_tab]
  order=9
+  8
+  5
+  7
   6
   0
-  1
   2
-  3
-  8
-  7
-  5
   4
+  3
+  1
  firsttab=0
- index=4
+ index=3
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2324,15 +2324,15 @@ windowlayout=723
  ncx=0
  ncy=0
  x=0
- y=69
- cx=1356
- cy=511
+ y=60
+ cx=1212
+ cy=445
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2351,7 +2351,7 @@ windowlayout=723
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2408,7 +2408,7 @@ windowlayout=723
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2427,7 +2427,7 @@ windowlayout=723
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_infosfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2472,8 +2472,8 @@ windowlayout=723
  ny=0
  ncx=0
  ncy=0
- x=3
- y=305
+ x=43
+ y=145
  cx=452
  cy=238
  rcx=0
@@ -2484,7 +2484,7 @@ windowlayout=723
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
