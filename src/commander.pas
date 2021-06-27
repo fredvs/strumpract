@@ -4,11 +4,11 @@ unit commander;
 interface
 
 uses
- {$if defined(linux)}alsa_mixer,{$ENDIF}{$if defined(windows)}win_mixer,
- {$ENDIF}msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
+ {$if defined(linux)}alsa_mixer,{$ENDIF}{$if defined(windows)}win_mixer, 
+  {$ENDIF}msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
  Math,msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
  msedock,msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
- msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
+ msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob, msefileutils,
  mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
  msegraphedits,msescrollbar,msedispwidgets,mserichstring,mseimage;
 
@@ -225,8 +225,48 @@ end;
 procedure tcommanderfo.onstartstop(const Sender: TObject);
 var
   fromplay, x: integer;
+  fileex: msestring;
+  resu : shortint = -1;
+  
 begin
+fileex := fileext(PChar(ansistring(songplayerfo.historyfn.Value)));
+if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
+    resu := 0 else ShowMessage(songplayerfo.historyfn.Value + ' is not audio file...');
 
+if resu = 0 then
+begin
+ if not fileexists(songplayerfo.historyfn.Value) then
+ begin
+ resu := -1;
+ ShowMessage(songplayerfo.historyfn.Value + ' does not exist...');
+ end;
+end; 
+
+if resu = 0 then
+begin   
+fileex := fileext(PChar(ansistring(songplayer2fo.historyfn.Value)));
+if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
+    else
+    begin
+    resu := -1;
+     ShowMessage(songplayer2fo.historyfn.Value + ' is not audio file...');
+     end;
+     
+end;
+
+if resu = 0 then
+begin
+ if not fileexists(songplayer2fo.historyfn.Value) then
+ begin
+ resu := -1;
+ ShowMessage(songplayer2fo.historyfn.Value + ' does not exist...');
+ end;
+end; 
+
+if resu = 0 then 
+begin
   if directmix.Value then
     totmixinterval := 1
   else
@@ -372,7 +412,7 @@ begin
 
   //tbutton4.imagenr := 1; 
   //tbutton4.imagenr := 30; // resume
-
+end;
 end;
 
 

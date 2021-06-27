@@ -934,15 +934,15 @@ begin
   begin
     fileex := fileext(PChar(ansistring(historyfn.Value)));
 
-    if (fileex = 'wav') or (fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') or (fileex = 'flac') or
-      (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') then
-    begin
+  if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
+  begin
 
       if fileexists(historyfn.Value) then
       begin
         samformat := 0;
 
-        oninfowav(Sender);
+      //  oninfowav(Sender);
 
 
         // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
@@ -1197,6 +1197,9 @@ begin
             timerwait.restart // to reset
           else
             timerwait.Enabled     := True;
+            
+            
+            
           lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue := True;
@@ -1204,12 +1207,15 @@ begin
           //  application.processmessages;
 
           //  oninfowav(Sender);
+          
+          oninfowav(Sender);
+
 
           if as_checked in wavefo.tmainmenu1.menu[0].state then
           begin
             // oninfowav(Sender);
 
-            wavefo.doechelle(Sender);
+         //   wavefo.doechelle(Sender);
 
             //   onwavform(Sender);
             ttimer1.Enabled := False;
@@ -1233,16 +1239,16 @@ begin
   begin
     fileex := fileext(PChar(ansistring(historyfn.Value)));
 
-    if (fileex = 'wav') or (fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') or (fileex = 'flac') or
-      (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') then
-    begin
+ if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
+   begin
 
       // writeln('avant tout');
       if fileexists(historyfn.Value) then
       begin
         samformat := 0;
 
-        oninfowav(Sender);
+      //  oninfowav(Sender);
 
         //  songdir.hint := songdir.value;
 
@@ -1506,12 +1512,12 @@ begin
           hascue2 := True;
           // application.processmessages; 
 
-          //  oninfowav(Sender);
+            oninfowav(Sender);
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
           begin
 
-            wavefo2.doechelle(nil);
+          //  wavefo2.doechelle(nil);
             ttimer1.Enabled := False;
             ttimer1.Enabled := True;
             //  onwavform(Sender);
@@ -2245,9 +2251,9 @@ var
 begin
   fileex := fileext(PChar(ansistring(historyfn.Value)));
 
-  if (fileex = 'wav') or (fileex = 'WAV') or (fileex = 'ogg') or (fileex = 'OGG') or (fileex = 'flac') or
-    (fileex = 'FLAC') or (fileex = 'mp3') or (fileex = 'MP3') then
-  begin
+ if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
+ begin
 
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
