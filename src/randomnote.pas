@@ -4455,7 +4455,7 @@ end;
 
 procedure trandomnotefo.playrandomchords(thenum: integer);
 var 
-  thedir, afile: msestring;
+  thedir, afile: string;
 begin
 
   if thenum = 0 then
@@ -4473,30 +4473,33 @@ begin
 
   thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
             'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
-
-  if fileexists(thedir) then
+ 
+   if fileexists(thedir) then
     begin
 
-      uos_Stop(20);
-
       if uos_CreatePlayer(20) then
+      begin
+      application.processmessages;
 
         if uos_AddFromFile(20, PChar(thedir)) > -1 then
+        begin
 
 
    {$if defined(cpuarm)}
           if uos_AddIntoDevOut(20, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
    {$else}
-         if uos_AddIntoDevOut(20, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
-
+            if uos_AddIntoDevOut(20, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+ 
     {$endif}
-
+    begin
               uos_Play(20);
 
       sleep(4500);
+     end;
 
+end;
     end;
-
+end;
   if thenum = 0 then
     afile := chordmem1 + '_GUIT'
   else if thenum = 1 then
@@ -4520,6 +4523,7 @@ begin
       uos_Stop(21);
 
       if uos_CreatePlayer(21) then
+      application.processmessages;
 
         if uos_AddFromFile(21, PChar(thedir)) > -1 then
 
@@ -4568,6 +4572,7 @@ begin
             uos_Stop(Timage(Sender).tag + 10);
 
             if uos_CreatePlayer(Timage(Sender).tag + 10) then
+            application.processmessages;
 
               if uos_AddFromFile(Timage(Sender).tag + 10, PChar(thedir)) > -1 then
 
@@ -4618,6 +4623,7 @@ begin
             uos_Stop(Timage(Sender).tag + 20);
 
             if uos_CreatePlayer(Timage(Sender).tag + 20) then
+            application.processmessages;
 
               if uos_AddFromFile(Timage(Sender).tag + 20, PChar(thedir)) > -1 then
 

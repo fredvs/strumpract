@@ -12,8 +12,9 @@ object findmessagefo: tfindmessagefo
     352
     58
   )
+  font.color = -1610612734
   font.name = 'stf_default'
-  font.localprops = []
+  font.localprops = [flp_color]
   caption = 'Find in song list'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'

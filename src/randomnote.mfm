@@ -5,9 +5,9 @@ object randomnotefo: trandomnotefo
   onactivate = onconfigtext
   visible = False
   bounds_x = 0
-  bounds_y = 29
+  bounds_y = 38
   bounds_cx = 1350
-  bounds_cy = 710
+  bounds_cy = 701
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.face.localprops = []
@@ -16,7 +16,7 @@ object randomnotefo: trandomnotefo
     0
     0
     1350
-    710
+    701
   )
   options = [fo_mainwindowcentered, fo_maximized, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   statfile = mainfo.tstatfile1

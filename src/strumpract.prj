@@ -842,26 +842,32 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=6
+modulenames=8
  COMMANDERFO
  EQUALIZERFO
  FILELISTFO
+ FINDMESSAGEFO
  INFOSFO
  MAINFO
+ RANDOMNOTEFO
  SONGPLAYERFO
-moduletypes=6
+moduletypes=8
  TCOMMANDERFO
  TEQUALIZERFO
  TFILELISTFO
+ TFINDMESSAGEFO
  TINFOSFO
  TMAINFO
+ TRANDOMNOTEFO
  TSONGPLAYERFO
-modulefiles=6
+modulefiles=8
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/findmessage.mfm
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/randomnote.mfm
  /home/fred/strumpract/src/songplayer.mfm
 befcommandon=0
 makeoptionson=15
@@ -1242,7 +1248,7 @@ line=35
  1604
  209
  1136
- 4057
+ 4059
  469
  5
  788
@@ -1650,10 +1656,14 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=dj layout
+finddtext=msestring
 findhistory=20
- dj layout
+ msestring
+ createplayer
+ ogg
+ typecolor.Value =
  font.color
+ dj layout
  oninfowav(
  fileext
  ext
@@ -1668,21 +1678,21 @@ findhistory=20
  oninfowav
  application.ProcessMessages
  infosfo
- readtag
- readt
- wavefo
- onwavform
 findoptions=1
-editpos=9
+editpos=13
  0,-1073741823
- 0,9
- 0,-1073741823
- 0,-1073741823
+ 0,7
  0,-1073741823
  0,-1073741823
- 0,6
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,4532
+ 0,263
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1692,9 +1702,13 @@ bookmarks5=0
 bookmarks6=0
 bookmarks7=0
 bookmarks8=0
-sourcefiles=9
+bookmarks9=0
+bookmarks10=0
+bookmarks11=0
+bookmarks12=0
+sourcefiles=13
  ${PROJECTDIR}/strumpract.pas
- /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
+ ${PROJECTDIR}/uos.pas
  /home/fred/mseide-msegui_okrelease/lib/common/kernel/msegui.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/commander.pas
@@ -1702,9 +1716,13 @@ sourcefiles=9
  ${PROJECTDIR}/infos.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/main.pas
-relpaths=9
+ ${PROJECTDIR}/filelistform.pas
+ ${PROJECTDIR}/findmessage.pas
+ ${PROJECTDIR}/randomnote.pas
+ ${PROJECTDIR}/uos_flat.pas
+relpaths=13
  strumpract.pas
- ../mseide-msegui/lib/common/kernel/msegui.pas
+ uos.pas
  mseide-msegui_okrelease/lib/common/kernel/msegui.pas
  songplayer.pas
  commander.pas
@@ -1712,7 +1730,11 @@ relpaths=9
  infos.pas
  equalizer.pas
  main.pas
-ismoduletexts=9
+ filelistform.pas
+ findmessage.pas
+ randomnote.pas
+ uos_flat.pas
+ismoduletexts=13
  0
  0
  0
@@ -1722,7 +1744,11 @@ ismoduletexts=9
  0
  0
  0
-modules=9
+ 0
+ 0
+ 0
+ 0
+modules=11
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1732,7 +1758,9 @@ modules=9
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/equalizer.mfm
-moduleoptions=9
+ /home/fred/strumpract/src/findmessage.mfm
+ /home/fred/strumpract/src/randomnote.mfm
+moduleoptions=11
  0
  0
  0
@@ -1742,7 +1770,9 @@ moduleoptions=9
  0
  0
  0
-visiblemodules=9
+ 0
+ 0
+visiblemodules=11
  -1
  -1
  0
@@ -1752,7 +1782,9 @@ visiblemodules=9
  0
  -1
  -1
-nomenumodules=9
+ -1
+ 0
+nomenumodules=11
  0
  0
  -1
@@ -1760,23 +1792,29 @@ nomenumodules=9
  0
  0
  -1
+ 0
+ 0
  0
  0
 [sourcefo.files_tab]
-order=9
- 8
+order=13
  5
- 7
- 6
- 0
- 2
- 4
  3
+ 0
+ 8
+ 2
+ 6
+ 4
+ 11
  1
-firsttab=0
-index=3
+ 12
+ 10
+ 7
+ 9
+firsttab=2
+index=7
 [layout]
-windowlayout=723
+windowlayout=795
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1790,8 +1828,8 @@ windowlayout=723
  ny=0
  ncx=0
  ncy=0
- x=86
- y=501
+ x=109
+ y=144
  cx=1224
  cy=621
  rcx=0
@@ -1818,8 +1856,8 @@ windowlayout=723
  ny=0
  ncx=0
  ncy=0
- x=683
- y=360
+ x=903
+ y=82
  cx=497
  cy=314
  rcx=0
@@ -1931,7 +1969,7 @@ windowlayout=723
  sortdescend1=0
  sorted=0
  col=0
- row=12
+ row=10
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2010,10 +2048,10 @@ windowlayout=723
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=433
- width0=184
+ propcolwidthref=448
+ width0=190
  sortdescend0=0
- width1=243
+ width1=252
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2219,8 +2257,8 @@ windowlayout=723
  mdistate=0
  nx=0
  ny=0
- ncx=1356
- ncy=73
+ ncx=1212
+ ncy=64
  x=0
  y=0
  cx=1212
@@ -2234,11 +2272,13 @@ windowlayout=723
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/infos.pas
- history=20
-  /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
-  /home/fred/mseide-msegui_okrelease/lib/common/kernel/msegui.pas
+ value=/home/fred/strumpract/src/randomnote.pas
+ history=50
+  /home/fred/strumpract/src/uos.pas
+  /home/fred/strumpract/src/findmessage.pas
+  /home/fred/strumpract/src/infos.pas
   /home/fred/strumpract/src/filelistform.pas
+  /home/fred/mseide-msegui_okrelease/lib/common/kernel/msegui.pas
   /home/fred/ovotag/ovotag_console.pas
   /home/fred/strumpract/src/imageviewer.pas
   /home/fred/strumpract/src/infowav.pas
@@ -2251,11 +2291,39 @@ windowlayout=723
   /home/fred/mseuniverse/attic/msedocumenting/mse/trunk/contributed/domingo/rpt-without-dataset/main.pas
   /home/fred/ovotag/main2.pas
   /home/fred/ideu/src/actionsmodule.pas
-  /home/fred/strumpract/src/findmessage.pas
   /home/fred/ideu/src/messageform.pas
   /home/fred/uos/examples/uos.pas
-  /home/fred/strumpract/src/uos.pas
   /home/fred/ideu/src/msefiledialogx.pas
+  /home/fred/mseide-msegui/lib/common/dialogx/msefiledialogx.pas
+  /home/fred/mseide-msegui/lib/common/image/mseformatgifread.pas
+  /home/fred/mseide-msegui/lib/common/fpccompatibility/msefpreadgif.pas
+  /home/fred/Pictures/415x380.png
+  /home/fred/ideu/src/confcompiler.pas
+  /home/fred/ideu/src/ideusettings.pas
+  /home/fred/ideu/src/dialogfiles.pas
+  /home/fred/ideu/src/finddialogform.pas
+  /home/fred/ideu/src/panelform.pas
+  /home/fred/ideu/src/findmessage.pas
+  /home/fred/ideu/src/findinfilepage.pas
+  /home/fred/ideu/src/findinfileform.pas
+  /home/fred/ideu/src/confmsegui.pas
+  /home/fred/ideu/src/confideu.pas
+  /home/fred/ideu/src/conffpgui.pas
+  /home/fred/ideu/src/confdebugger.pas
+  /home/fred/ideu/src/commandorform.pas
+  /home/fred/ideu/src/commandlineform.pas
+  /home/fred/ideu/src/breakpointsform.pas
+  /home/fred/ideu/src/aboutform.pas
+  /home/fred/ideu/src/msepropertyeditors.pas
+  /home/fred/ideu/src/mseimageselectorform.pas
+  /home/fred/ideu/src/mseimagelisteditor.pas
+  /home/fred/ideu/src/objectinspector.pas
+  /home/fred/ideu/src/confideu.mfm
+  /home/fred/mseide-msegui/lib/common/dialogx/msefiledialogx.mfm
+  /home/fred/mseide-msegui/lib/common/dialogx/msefiledialogx_mfm.pas
+  /home/fred/mseide-msegui/lib/common/dialogs/msefiledialog.pas
+  /home/fred/mseide-msegui/lib/common/dialogs/msedirtreesub_mfm.pas
+  /home/fred/mseide-msegui/apps/ide/debuggerform.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2277,18 +2345,22 @@ windowlayout=723
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=9
-  8
+ order=13
   5
-  7
-  6
-  0
-  2
-  4
   3
+  0
+  8
+  2
+  6
+  4
+  11
   1
- firsttab=0
- index=3
+  12
+  10
+  7
+  9
+ firsttab=2
+ index=7
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2427,7 +2499,7 @@ windowlayout=723
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2465,7 +2537,7 @@ windowlayout=723
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2484,7 +2556,7 @@ windowlayout=723
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_findmessagefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2500,6 +2572,44 @@ windowlayout=723
  wsize=0
  active=0
  visible=1
+ [_mse_findmessagefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=459
+ y=298
+ cx=362
+ cy=58
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_randomnotefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=0
+ y=38
+ cx=1360
+ cy=701
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=0
 [targetconsole]
 finddtext=
 findhistory=0

@@ -2350,7 +2350,8 @@ begin
   if typecolor.Value = 0 then
   begin
     font.color := cl_black;
-
+    filelistfo.historyfn.dropdown.cols[0].colorselect := $FFC782;
+   
     wavefo.container.color  := cl_default;
     wavefo2.container.color := cl_default;
 
@@ -3012,7 +3013,7 @@ begin
   if typecolor.Value = 1 then
   begin
     font.color := cl_black;
-
+    filelistfo.historyfn.dropdown.cols[0].colorselect := $FFC782;
     spectrum1fo.container.color   := cl_default;
     spectrum2fo.container.color   := cl_default;
     spectrumrecfo.container.color := cl_default;
@@ -3665,6 +3666,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
   if typecolor.Value = 2 then
   begin
     font.color := cl_white;
+    filelistfo.historyfn.dropdown.cols[0].colorselect := $A35A00;
     wavefo.container.color := $575757;
     wavefo2.container.color := $575757;
     spectrum1fo.container.color := $575757;
