@@ -677,7 +677,7 @@ object commanderfo: tcommanderfo
       face.localprops = []
       face.template = mainfo.tfacebutltgray
       taborder = 7
-      hint = 'Systeme Master Volume'
+      hint = 'System Master Volume'
       bounds_x = 0
       bounds_y = 108
       bounds_cx = 17

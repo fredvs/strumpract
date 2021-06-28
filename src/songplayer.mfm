@@ -630,7 +630,7 @@ object songplayerfo: tsongplayerfo
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
       taborder = 20
-      hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
+      hint = ' Choose a  wav, ogg, flac or mp3 audio file '
       bounds_x = 44
       bounds_y = 4
       bounds_cx = 23
@@ -713,8 +713,8 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       taborder = 22
       visible = False
-      bounds_x = 12
-      bounds_y = 7
+      bounds_x = 78
+      bounds_y = 8
       bounds_cx = 148
       bounds_cy = 42
       reffontheight = 15

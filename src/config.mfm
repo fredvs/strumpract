@@ -709,7 +709,7 @@ object configfo: tconfigfo
       onsetvalue = onsetback
     end
     object tcoloredit12: tcoloredit
-      frame.caption = 'PLayer 2 Color of Wave Left'
+      frame.caption = 'Color of Wave Left'
       frame.localprops = []
       frame.localprops1 = []
       frame.buttons.count = 2
@@ -738,7 +738,7 @@ object configfo: tconfigfo
       reffontheight = 15
     end
     object tcoloredit22: tcoloredit
-      frame.caption = 'Player 2 Color of Wave Right'
+      frame.caption = 'Color of Wave Right'
       frame.localprops = []
       frame.localprops1 = []
       frame.buttons.count = 2

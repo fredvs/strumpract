@@ -721,7 +721,7 @@ object recorderfo: trecorderfo
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
       taborder = 24
-      hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
+      hint = ' Choose a audio file '
       bounds_x = 53
       bounds_y = 4
       bounds_cx = 26
@@ -1013,8 +1013,11 @@ object recorderfo: trecorderfo
       00000000
     }
     controller.compact = False
+    controller.showoptions = False
+    controller.hidehistory = False
+    controller.hideicons = False
     controller.showhidden = False
-    left = 17
-    top = 3
+    left = 22
+    top = 19
   end
 end

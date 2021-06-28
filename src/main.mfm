@@ -906,7 +906,7 @@ object mainfo: tmainfo
             onexecute = loadlayout
           end>
         caption = ' &Layout '
-        hint = ' Choose a layout '
+        hint = ' Layout of windows  '
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
@@ -1131,7 +1131,8 @@ object mainfo: tmainfo
             onexecute = onimagedancer
           end>
         caption = ' Da&ncer '
-        state = [as_localcaption, as_localtag, as_localonexecute]
+        hint = ' Dancing Animations '
+        state = [as_localcaption, as_localhint, as_localtag, as_localonexecute]
       end    
       item
         submenu.count = 3
@@ -1152,11 +1153,13 @@ object mainfo: tmainfo
             onexecute = changecarbon
           end>
         caption = ' &Style '
-        state = [as_localcaption]
+        hint = ' Layout style Gold, Silver or Carbon '
+        state = [as_localcaption, as_localhint]
       end    
       item
         caption = ' &Config '
-        state = [as_localcaption, as_localonexecute]
+        hint = ' Config of audio and colors '
+        state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onmenuaudio
       end    
       item
@@ -1169,7 +1172,7 @@ object mainfo: tmainfo
         options = [mao_separator, mao_shortcutcaption]
       end    
       item
-        caption = '     &Exit   '
+        caption = '     &Quit   '
         hint = ' Terminate StrumPract '
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onexit
