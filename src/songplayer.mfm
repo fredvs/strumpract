@@ -337,7 +337,7 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerrev
       taborder = 8
       hint = ' Change Right volume '
-      bounds_x = 166
+      bounds_x = 182
       bounds_y = 50
       bounds_cx = 44
       bounds_cy = 45
@@ -427,7 +427,7 @@ object songplayerfo: tsongplayerfo
     end
     object vuRight: tprogressbar
       taborder = 11
-      bounds_x = 220
+      bounds_x = 174
       bounds_y = 50
       bounds_cx = 5
       bounds_cy = 45
@@ -449,7 +449,7 @@ object songplayerfo: tsongplayerfo
     end
     object vuLeft: tprogressbar
       taborder = 12
-      bounds_x = 214
+      bounds_x = 168
       bounds_y = 50
       bounds_cx = 5
       bounds_cy = 45
@@ -972,8 +972,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 98
-      bounds_y = 55
+      bounds_x = 117
+      bounds_y = 57
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'

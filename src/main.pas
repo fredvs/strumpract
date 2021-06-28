@@ -132,8 +132,8 @@ type
     procedure onshowwaverec(const Sender: TObject);
     procedure ondockplayers(const Sender: TObject);
     procedure ondockplayerstag(const Sender: TObject);
-
     procedure ondockplayersx2(const Sender: TObject);
+    procedure ondockplayerstabx2(const Sender: TObject);
     procedure ondockjam(const Sender: TObject);
     procedure dragfloat(const Sender: TObject);
     procedure onexit(const Sender: TObject);
@@ -1441,6 +1441,14 @@ begin
   sleep(200);
   application.ProcessMessages;
   ondockplayers(Sender);
+end;
+
+procedure tmainfo.ondockplayerstabx2(const Sender: TObject); // DJ LayoutX2
+begin
+  ondockplayerstag(Sender);
+  sleep(200);
+  application.ProcessMessages;
+  ondockplayerstag(Sender);
 end;
 
 procedure tmainfo.ondockplayers(const Sender: TObject); // DJ Layout

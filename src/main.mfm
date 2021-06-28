@@ -873,7 +873,7 @@ object mainfo: tmainfo
           item
             caption = ' DJ Console Info '
             state = [as_localcaption, as_localonexecute]
-            onexecute = ondockplayerstag
+            onexecute = ondockplayerstabx2
           end        
           item
             caption = ' &Record stage '
@@ -1130,7 +1130,7 @@ object mainfo: tmainfo
             tag = 12
             onexecute = onimagedancer
           end>
-        caption = ' &Dancer '
+        caption = ' Da&ncer '
         state = [as_localcaption, as_localtag, as_localonexecute]
       end    
       item
