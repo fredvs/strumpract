@@ -4,8 +4,9 @@ unit commander;
 interface
 
 uses
- {$if defined(linux)}alsa_mixer,{$ENDIF}{$if defined(windows)}win_mixer,
- {$ENDIF}msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
+{$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,{$endif}
+{$if defined(windows)}win_mixer,{$ENDIF}
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
  Math,msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
  msedock,msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
  msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
@@ -151,7 +152,7 @@ var
   docallback : boolean = false;
   theinput: integer = 30;
   lastrowplayed: integer = -1;
-  vuinvar: Boolean = True;
+  vuinvar: Boolean = True; 
 
 implementation
 
@@ -203,7 +204,7 @@ begin
 
   ttimer1.Enabled := True;
   
-   {$if defined(linux)}
+ {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
     sysvol.value := ALSAmixerGetVolume(0)/100;
     sysvolbut.caption := msestring(inttostr(round(sysvol.value*10)));
     ALSAmixerSetCallBack(@mixelemcallback); 
@@ -1290,10 +1291,10 @@ procedure tcommanderfo.onsetsysvol(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
   sysvolbut.caption := msestring(inttostr(round(avalue*10)));
-  {$if defined(linux)}
-    docallback := false;
-    ALSAmixerSetVolume(0, round(avalue * 100));
-    ALSAmixerSetVolume(1, round(avalue * 100));
+{$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
+   docallback := false;
+   ALSAmixerSetVolume(0, round(avalue * 100));
+   ALSAmixerSetVolume(1, round(avalue * 100));
     docallback := true;
   {$ENDIF}
   
@@ -1306,7 +1307,7 @@ end;
 
 procedure tcommanderfo.dotimercallback(const sender: TObject);
 begin
-{$if defined(linux)}
+{$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
   if docallback then
   begin
     commanderfo.sysvol.value := ALSAmixerGetVolume(0) / 100;
