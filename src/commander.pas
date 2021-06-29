@@ -4,13 +4,13 @@ unit commander;
 interface
 
 uses
- {$if defined(linux)}alsa_mixer,{$ENDIF}{$if defined(windows)}win_mixer, 
-  {$ENDIF}msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
+ {$if defined(linux)}alsa_mixer,{$ENDIF}{$if defined(windows)}win_mixer,
+ {$ENDIF}msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
  Math,msegui,msetimer,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
  msedock,msedragglob,msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,
- msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob, msefileutils,
- mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
- msegraphedits,msescrollbar,msedispwidgets,mserichstring,mseimage;
+ msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
+ msefileutils,mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,
+ SysUtils,msegraphedits,msescrollbar,msedispwidgets,mserichstring,mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -105,6 +105,8 @@ type
    sysvol: tslider;
    sysvolbut: tbutton;
    timercallback: ttimer;
+   Brandommix: tbutton;
+   randommix: tbooleanedit;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -1062,6 +1064,20 @@ end;
 procedure tcommanderfo.onexecbutlght(const Sender: TObject);
 begin
 
+  if TButton(Sender).Name = 'Brandommix' then
+    if TButton(Sender).tag = 0 then
+    begin
+      randommix.Value    := True;
+      TButton(Sender).tag := 1;
+      TButton(Sender).face.template := tfacegreen;
+    end
+    else
+    begin
+      randommix.Value    := False;
+      TButton(Sender).tag := 0;
+      TButton(Sender).face.template := tfacebutgray;
+    end;
+
   if TButton(Sender).Name = 'linkvolgenb' then
     if TButton(Sender).tag = 0 then
     begin
@@ -1075,6 +1091,7 @@ begin
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := tfacebutgray;
     end;
+
 
   if TButton(Sender).Name = 'linkvolb' then
     if TButton(Sender).tag = 0 then

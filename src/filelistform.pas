@@ -6,13 +6,50 @@ unit filelistform;
 interface
 
 uses
- {$ifdef unix}baseunix,{$endif}Math,msetypes,mseglob,mseguiglob,mseguiintf,
- msetimer,mseapplication,msestat,msemenus,msefileutils,msegui,msegraphics,
- msegraphutils,mseevent,msedatalist,mseclasses,msegridsglob,mseforms,msedock,
- msedragglob,msesimplewidgets,mclasses,msewidgets,mseact,msebitmap,msedataedits,
- msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
- mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
- msegraphedits,msescrollbar,msedispwidgets,mserichstring,msedropdownlist;
+ {$ifdef unix}baseunix,{$endif}Math,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  msetimer,
+  mseapplication,
+  msestat,
+  msemenus,
+  msefileutils,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  msedatalist,
+  mseclasses,
+  msegridsglob,
+  mseforms,
+  msedock,
+  msedragglob,
+  msesimplewidgets,
+  mclasses,
+  msewidgets,
+  mseact,
+  msebitmap,
+  msedataedits,
+  msedatanodes,
+  mseedit,
+  msefiledialogx,
+  msegrids,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  mselistbrowser,
+  msestatfile,
+  msestream,
+  msestrings,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist;
 
 type
   tfilelistfo = class(tdockform)
@@ -34,7 +71,7 @@ type
     tstatfile1: tstatfile;
     tbutton6: TButton;
     tfiledialog1: tfiledialogx;
-   tbutton11: tbutton;
+    tbutton11: TButton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
@@ -61,15 +98,15 @@ type
     procedure ondrawcell(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
     procedure afterdragend(const asender: TObject; const apos: pointty; var adragobject: tdragobject; const accepted: Boolean; var processed: Boolean);
     procedure opendir(const Sender: TObject);
-    procedure onexecfind(const sender: TObject);
-   
+    procedure onexecfind(const Sender: TObject);
+
   end;
 
 var
   filelistfo: tfilelistfo;
   thefocusedcell: gridcoordty;
   sortord: integer = 0;
-  
+
 implementation
 
 uses
@@ -96,6 +133,8 @@ begin
   Timercount.Enabled  := False;
   Timercount.options  := [to_single];
   Timercount.ontimer  := @ontimercount;
+  
+  randomize;
 
   list_files.hint := ' To move a row: click+hold into the fixed column ' + lineend +
     ' and drag the row where you want. ';
@@ -137,14 +176,13 @@ end;
 
 procedure tfilelistfo.onsent(const Sender: TObject);
 var
-  theplaysender, thecaution: integer;
+  theplaysender, thecaution, therandom: integer;
   mustmix: Boolean = False;
-begin
+ begin
 
   if directoryexists(historyfn.Value) then
   begin
     thefocusedcell := list_files.focusedcell;
-
     if (filelistfo.list_files.rowcount < 1) or (trim(list_files[0][thefocusedcell.row]) = '') then
     begin
       if filelistfo.list_files.rowcount < 1 then
@@ -190,21 +228,36 @@ begin
 
           Inc(thecaution);
 
-          if (thefocusedcell.row + 1 < list_files.rowcount) then
-          begin
-            if (list_files[3][thefocusedcell.row + 1] = '1') then
-              mustmix := True;
+          if commanderfo.Brandommix.tag = 0 then
+            if (thefocusedcell.row + 1 < list_files.rowcount) then
+            begin
+              if (list_files[3][thefocusedcell.row + 1] = '1') then
+                mustmix := True;
 
-            thefocusedcell.row := thefocusedcell.row + 1;
-            list_files.rowdown;
-          end
-          else
+              thefocusedcell.row := thefocusedcell.row + 1;
+              list_files.rowdown;
+            end
+            else
+            begin
+              if (list_files[3][0] = '1') then
+                mustmix          := True;
+              thefocusedcell.row := 0;
+              list_files.firstrow;
+            end;
+
+          if commanderfo.Brandommix.tag = 1 then
           begin
-            if (list_files[3][0] = '1') then
-              mustmix          := True;
-            thefocusedcell.row := 0;
-            list_files.firstrow;
-            ;
+            therandom := random(list_files.rowcount - 1);
+             application.processmessages;
+            if (list_files[3][therandom] = '1') then
+            begin
+              mustmix := True;
+              thefocusedcell.row := therandom;
+              list_files.defocuscell;
+              list_files.datacols.clearselection;
+              list_files.selectcell(thefocusedcell, csm_select, False);
+              list_files.focuscell(thefocusedcell);
+            end;
           end;
         end;
       end;
@@ -358,7 +411,7 @@ begin
         if FindFirst(rawbytestring(historyfn.Value + '*.*'), faArchive, SR) = 0 then
         begin
           repeat
-           if (lowercase(fileext(msestring(SR.Name))) = strfilter1) or
+            if (lowercase(fileext(msestring(SR.Name))) = strfilter1) or
               (lowercase(fileext(msestring(SR.Name))) = strfilter2) or
               (lowercase(fileext(msestring(SR.Name))) = strfilter3) or
               (lowercase(fileext(msestring(SR.Name))) = strfilter4) then
@@ -490,7 +543,7 @@ begin
   //size := sizebefdock;
   if parentwidget = nil then
   begin
-  
+
     //  bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
     bounds_cxmax := fowidth;
     //  bounds_cymax := rect1.cy - 60;
@@ -554,8 +607,7 @@ begin
       [co_nosort];
 
   end
-  else
-  if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
+  else if (info.eventkind = cek_buttonrelease) or (info.eventkind = cek_focusedcellchanged) then
 
     if (cellpos.row = -1) and (cellpos.col = 3) then
     begin
@@ -686,8 +738,8 @@ begin
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'list' + directoryseparator);
   tfiledialog1.controller.captionopen := 'Open List File';
   tfiledialog1.controller.options := [fdo_savelastdir, fdo_sysfilename];
-  
-  tfiledialog1.controller.fontcolor := cl_black;
+
+  tfiledialog1.controller.fontcolor   := cl_black;
   if mainfo.typecolor.Value = 2 then
     tfiledialog1.controller.backcolor := $A6A6A6
   else
@@ -751,9 +803,9 @@ begin
     tfiledialog1.controller.backcolor := $A6A6A6
   else
     tfiledialog1.controller.backcolor := cl_default;
-    
-    tfiledialog1.controller.options := [fdo_sysfilename,fdo_savelastdir];
- 
+
+  tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir];
+
   tfiledialog1.controller.filter :=
     '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"';
 
@@ -909,9 +961,9 @@ begin
 
   tfiledialog1.controller.filter    := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   tfiledialog1.controller.fontcolor := cl_black;
-  
-  tfiledialog1.controller.options := [fdo_sysfilename,fdo_savelastdir,fdo_directory];
- 
+
+  tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir, fdo_directory];
+
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
   begin
     historyfn.Value := tosysfilepath(tfiledialog1.controller.filename);
@@ -930,10 +982,10 @@ begin
 
 end;
 
-procedure tfilelistfo.onexecfind(const sender: TObject);
+procedure tfilelistfo.onexecfind(const Sender: TObject);
 begin
-imessages := 0;
-findmessagefo.show(true);
+  imessages := 0;
+  findmessagefo.Show(True);
 end;
 
 
