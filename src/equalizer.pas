@@ -8,7 +8,7 @@ uses
  msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
  msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring,
- msefiledialogx, msestatfile;
+ msefiledialogx, msestatfile, msebitmap;
 
 type
   tasliders = array[1..20] of tslider;
@@ -82,8 +82,8 @@ type
     tbutton20: TButton;
     tlabel2: tlabel;
    fond: tstringdisp;
-   vuinb: tbutton;
-   tbutton21: tbutton;
+   loadset: tbutton;
+   saveset: tbutton;
    tfiledialog1: tfiledialogx;
    tstatfile1: tstatfile;
     procedure oncrea(const Sender: TObject);
@@ -392,7 +392,7 @@ var
   cellpos: gridcoordty;
 begin
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
-  tfiledialog1.controller.captionopen := 'Open Equalizer Setting File';
+  tfiledialog1.controller.captionopen := 'Open Equalizer Settings File';
   tfiledialog1.controller.options := [fdo_savelastdir, fdo_sysfilename];
 
   tfiledialog1.controller.fontcolor   := cl_black;
@@ -424,9 +424,9 @@ begin
   if caption = 'Equalizer Player 2' then
   typstat          := 4 else  typstat  := 5;
    
-  statusfo.Caption := 'Save Equalizer List as';
+  statusfo.Caption := 'Save Equalizer Settings as';
   statusfo.color   := $A7C9B9;
-  statusfo.layoutname.Value := 'myequalizerlist';
+  statusfo.layoutname.Value := 'MyEqualizerSettings';
   //statusfo.layoutname.frame.caption := 'Choose a cue-list name';
   statusfo.layoutname.Visible := True;
   statusfo.activate;

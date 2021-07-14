@@ -10329,7 +10329,7 @@ object equalizerfo: tequalizerfo
     face.template = mainfo.tfaceplayer
     taborder = 1
     hint = 'Enable Equalizer'
-    bounds_x = 123
+    bounds_x = 120
     bounds_y = 0
     bounds_cx = 104
     bounds_cy = 15
@@ -10337,11 +10337,12 @@ object equalizerfo: tequalizerfo
     onchange = changenab
     colorglyph = -1610612728
   end
-  object vuinb: tbutton
+  object loadset: tbutton
     frame.framei_left = 4
     frame.framei_top = 2
     frame.framei_right = 4
     frame.framei_bottom = 2
+    frame.frameimage_list = commanderfo.timagelist3
     frame.frameimage_left = -4
     frame.frameimage_top = -4
     frame.frameimage_right = -4
@@ -10361,7 +10362,7 @@ object equalizerfo: tequalizerfo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 4
-    hint = ' View Meters on/off '
+    hint = ' Load a Settings file  '
     bounds_x = 233
     bounds_y = 0
     bounds_cx = 40
@@ -10376,11 +10377,12 @@ object equalizerfo: tequalizerfo
     font.localprops = [flp_color, flp_height]
     onexecute = loadlist
   end
-  object tbutton21: tbutton
+  object saveset: tbutton
     frame.framei_left = 4
     frame.framei_top = 2
     frame.framei_right = 4
     frame.framei_bottom = 2
+    frame.frameimage_list = commanderfo.timagelist3
     frame.frameimage_left = -4
     frame.frameimage_top = -4
     frame.frameimage_right = -4
@@ -10400,7 +10402,7 @@ object equalizerfo: tequalizerfo
     face.fade_direction = gd_down
     face.localprops = []
     taborder = 5
-    hint = ' View Meters on/off '
+    hint = ' Save Settings in a file '
     bounds_x = 275
     bounds_y = 0
     bounds_cx = 40
@@ -10420,7 +10422,7 @@ object equalizerfo: tequalizerfo
     controller.fontname = 'stf_default'
     controller.fontcolor = -1610612734
     controller.backcolor = -2147483647
-    controller.nopanel = False
+    controller.nopanel = True
     controller.icon.options = [bmo_masked]
     controller.icon.origformat = 'png'
     controller.icon.image = {
@@ -10465,7 +10467,7 @@ object equalizerfo: tequalizerfo
       F8FF1F00F8FF1F00F8FF1F00F8FF1F00F8FF1F00F8FF1F00F0FF0F00C0FF0300
       00000000
     }
-    controller.compact = False
+    controller.compact = True
     controller.showoptions = False
     controller.hidehistory = False
     controller.hideicons = False

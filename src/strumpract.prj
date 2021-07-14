@@ -1681,11 +1681,11 @@ findoptions=1
 editpos=7
  0,-1073741823
  0,-1073741823
- 36,398
+ 0,88
  0,-1073741823
+ 0,37
  0,-1073741823
- 0,4663
- 0,-1073741823
+ 0,4
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1911,7 +1911,7 @@ windowlayout=694
  width1=82
  sortdescend1=0
  sorted=0
- col=0
+ col=1
  row=1
  rowheight=16
  [stackfo]
@@ -2303,7 +2303,7 @@ windowlayout=694
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2322,7 +2322,7 @@ windowlayout=694
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_statusfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2398,7 +2398,7 @@ windowlayout=694
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_statusfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2436,7 +2436,7 @@ windowlayout=694
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
