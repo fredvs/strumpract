@@ -5,6 +5,7 @@ unit imagedancer;
 interface
 
 uses
+  msepointer, 
   bgragraphics,
   BGRABitmap,
   BGRADefaultBitmap,
@@ -81,6 +82,8 @@ type
  
     procedure onhide(const Sender: TObject);
    procedure crea(const sender: TObject);
+   procedure onmouseevgl(const sender: twidget; var ainfo: mouseeventinfoty);
+   procedure onmouseevform(const sender: twidget; var ainfo: mouseeventinfoty);
   protected
     thethread: tmsethread;
     function Execute(thread: tmsethread): integer;
@@ -146,6 +149,10 @@ var
   isbuzy: Boolean = False;
   evPauseImage: PRTLEvent;// for pausing
   statusanim: integer = -1;
+  typwindow: integer = 0;
+  oripoint: pointty;
+  ispressed: Boolean = False;
+  
 
 implementation
 
@@ -952,7 +959,8 @@ function timagedancerfo.Execute(thread: tmsethread): integer;
 begin
   result := 0;
   repeat
-    if (isbuzy = False) and (Visible = True) and (openglwidget.Visible = false) then
+   if (isbuzy = False) and (Visible = True) and (openglwidget.Visible = false) then
+    
     begin
       application.queueasynccall(@InvalidateImage);
       RTLeventResetEvent(evPauseImage);
@@ -967,7 +975,6 @@ end;
 
 procedure timagedancerfo.onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
-
   with ainfo do
     if eventkind in [ek_buttonpress] then
       if tag = 0 then
@@ -1112,7 +1119,60 @@ end;
 
 procedure timagedancerfo.crea(const sender: TObject);
 begin
-windowopacity := 0;
+windowopacity := 1;
+if typwindow = 0 then
+optionswindow := []
+else
+if typwindow = 1 then
+optionswindow := [wo_noframe,wo_ellipse]
+else
+if typwindow = 2 then
+optionswindow := [wo_noframe,wo_rounded]
+else
+if typwindow = 3 then
+optionswindow := [wo_noframe]; 
+end;
+
+procedure timagedancerfo.onmouseevgl(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+  if ainfo.eventkind = ek_buttonpress then
+    begin
+      ispressed := True;
+      oripoint  := ainfo.pos;
+      openglwidget.cursor := cr_pointinghand;
+    end;
+  if ainfo.eventkind = ek_buttonrelease then
+    begin
+      ispressed := False;
+      openglwidget.cursor := cr_default;
+    end;
+  if (ispressed = True) and (ainfo.eventkind = ek_mousemove) then
+    begin
+      left := left + ainfo.pos.x - oripoint.x;
+      top  := top + ainfo.pos.y - oripoint.y;
+    end;
+end;
+
+procedure timagedancerfo.onmouseevform(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+  if ainfo.eventkind = ek_buttonpress then
+    begin
+      ispressed := True;
+      oripoint  := ainfo.pos;
+      cursor := cr_pointinghand;
+    end;
+  if ainfo.eventkind = ek_buttonrelease then
+    begin
+      ispressed := False;
+      cursor := cr_default;
+    end;
+  if (ispressed = True) and (ainfo.eventkind = ek_mousemove) then
+    begin
+      left := left + ainfo.pos.x - oripoint.x;
+      top  := top + ainfo.pos.y - oripoint.y;
+    end;
 end;
 
 end.

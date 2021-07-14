@@ -95,6 +95,7 @@ object imagedancerfo: timagedancerfo
   oncreate = crea
   oncreated = oncreat
   ondestroy = ondestroy
+  onmouseevent = onmouseevform
   onshow = onshow
   moduleclassname = 'tdockform'
   object openglwidget: topenglwidget
@@ -111,6 +112,7 @@ object imagedancerfo: timagedancerfo
     bounds_cx = 446
     bounds_cy = 354
     anchors = []
+    onmouseevent = onmouseevgl
     onhide = onhide
     onrender = onrenderexe
     fpsmax = 30

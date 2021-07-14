@@ -446,7 +446,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 13
+        submenu.count = 18
         submenu.items = <        
           item
             caption = ' Square '
@@ -524,6 +524,32 @@ object mainfo: tmainfo
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 12
             onexecute = onimagedancer
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            caption = ' Normal form '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onsetwindowdancer
+          end        
+          item
+            caption = ' Ellipse '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 1
+            onexecute = onsetwindowdancer
+          end        
+          item
+            caption = ' Rounded rect '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 2
+            onexecute = onsetwindowdancer
+          end        
+          item
+            caption = ' Rectangle '
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 3
+            onexecute = onsetwindowdancer
           end>
         caption = ' Da&ncer '
         hint = ' Dancing Animations '

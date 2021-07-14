@@ -151,6 +151,7 @@ type
     procedure showequalizer1(const Sender: TObject);
     procedure showequalizer2(const Sender: TObject);
     procedure showequalizerrec(const Sender: TObject);
+    procedure onsetwindowdancer(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -4955,6 +4956,45 @@ procedure tmainfo.showequalizerrec(const Sender: TObject);
 begin
   equalizerforec.Visible := not equalizerforec.Visible;
 end;
+
+procedure tmainfo.onsetwindowdancer(const sender: TObject);
+var
+x,y,w,h : integer;
+begin
+x := imagedancerfo.left;
+y := imagedancerfo.top;
+w := imagedancerfo.width;
+h := imagedancerfo.height;
+
+ imagedancerfo.destroy;
+ 
+  if (tmenuitem(Sender).tag = 0) then // normal
+  typwindow := 0 
+  else
+  if (tmenuitem(Sender).tag = 1) then // ellipse
+  typwindow := 1 
+  else
+  if (tmenuitem(Sender).tag = 2) then // round rect
+  typwindow := 2
+  else
+  if (tmenuitem(Sender).tag = 3) then // rect
+  typwindow := 3; 
+ 
+  application.createform(timagedancerfo, imagedancerfo);
+  imagedancerfo.visible := false;
+ 
+  statusanim := 1; 
+  imagedancerfo.windowopacity := 1;
+  
+  application.processmessages;
+  
+  imagedancerfo.left := x;
+  imagedancerfo.top := y;
+  imagedancerfo.width := w;
+  imagedancerfo.height := h;
+  imagedancerfo.visible := true;
+  imagedancerfo.bringtofront;
+ end;
 
 end.
 
