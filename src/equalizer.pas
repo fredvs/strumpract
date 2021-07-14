@@ -7,7 +7,8 @@ uses
  ctypes,SysUtils,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,
  msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
- msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring;
+ msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring,
+ msefiledialogx, msestatfile;
 
 type
   tasliders = array[1..20] of tslider;
@@ -81,6 +82,10 @@ type
     tbutton20: TButton;
     tlabel2: tlabel;
    fond: tstringdisp;
+   vuinb: tbutton;
+   tbutton21: tbutton;
+   tfiledialog1: tfiledialogx;
+   tstatfile1: tstatfile;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
@@ -90,6 +95,8 @@ type
    procedure onexecbut(const sender: TObject);
    procedure changenab(const sender: TObject);
    procedure onvisiblechange(const sender: TObject);
+   procedure loadlist(const Sender: TObject);
+   procedure savelist(const Sender: TObject);
   end;
 
 var
@@ -101,7 +108,7 @@ var
 implementation
 
 uses
-commander, songplayer, recorder, main, dockpanel1,
+commander, songplayer, recorder, main, dockpanel1, status,
   equalizer_mfm;
 
 procedure tequalizerfo.oncrea(const Sender: TObject);
@@ -376,6 +383,53 @@ begin
  if assigned(dockpanel5fo) then if dockpanel5fo.visible then dockpanel5fo.updatelayoutpan();
 end; 
 
+end;
+
+procedure tequalizerfo.loadlist(const Sender: TObject);
+var
+  x: integer;
+  ordir: msestring;
+  cellpos: gridcoordty;
+begin
+  ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
+  tfiledialog1.controller.captionopen := 'Open Equalizer Setting File';
+  tfiledialog1.controller.options := [fdo_savelastdir, fdo_sysfilename];
+
+  tfiledialog1.controller.fontcolor   := cl_black;
+  if mainfo.typecolor.Value = 2 then
+    tfiledialog1.controller.backcolor := $A6A6A6
+  else
+    tfiledialog1.controller.backcolor := cl_default;
+    
+    if caption = 'Equalizer Player 1' then
+  tfiledialog1.controller.filter   := '"*.eq1"' else
+  if caption = 'Equalizer Player 2' then
+  tfiledialog1.controller.filter   := '"*.eq2"' else  
+  tfiledialog1.controller.filter   := '"*.eqR"';
+ 
+  tfiledialog1.controller.filename := ordir;
+
+  if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
+    if fileexists(tfiledialog1.controller.filename) then
+    begin
+      EQEN.value := true;
+      tstatfile1.readstat(msestring(tfiledialog1.controller.filename));
+    end;
+end;
+
+procedure tequalizerfo.savelist(const Sender: TObject);
+begin
+ if caption = 'Equalizer Player 1' then
+  typstat          := 3 else
+  if caption = 'Equalizer Player 2' then
+  typstat          := 4 else  typstat  := 5;
+   
+  statusfo.Caption := 'Save Equalizer List as';
+  statusfo.color   := $A7C9B9;
+  statusfo.layoutname.Value := 'myequalizerlist';
+  //statusfo.layoutname.frame.caption := 'Choose a cue-list name';
+  statusfo.layoutname.Visible := True;
+  statusfo.activate;
 end;
 
 end.

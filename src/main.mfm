@@ -14,7 +14,7 @@ object mainfo: tmainfo
   face.localprops = [fal_fadirection]
   visible = False
   bounds_x = 384
-  bounds_y = 315
+  bounds_y = 459
   bounds_cx = 454
   bounds_cy = 96
   bounds_cxmin = 454
@@ -446,7 +446,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 18
+        submenu.count = 21
         submenu.items = <        
           item
             caption = ' Square '
@@ -530,7 +530,8 @@ object mainfo: tmainfo
           end        
           item
             caption = ' Normal form '
-            state = [as_localcaption, as_localonexecute]
+            hint = ' Use this form to set the size for Ellipse and (Round)Rectangle forms.'
+            state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = onsetwindowdancer
           end        
           item
@@ -550,6 +551,18 @@ object mainfo: tmainfo
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 3
             onexecute = onsetwindowdancer
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            caption = ' Always on top '
+            state = [as_localinvisible, as_localcaption, as_localonexecute]
+            options = [mao_checkbox, mao_shortcutcaption]
+            onexecute = onalwaysontop
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
           end>
         caption = ' Da&ncer '
         hint = ' Dancing Animations '

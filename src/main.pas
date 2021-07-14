@@ -152,6 +152,7 @@ type
     procedure showequalizer2(const Sender: TObject);
     procedure showequalizerrec(const Sender: TObject);
     procedure onsetwindowdancer(const sender: TObject);
+   procedure onalwaysontop(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -2747,7 +2748,7 @@ begin
       groupbox2.frame.font.color := thecolor1;
       groupbox1.color    := $D2D8A5;
       groupbox2.color    := $D2D8A5;
-      EQEN.colorglyph    := thecolor1;
+    //  EQEN.colorglyph    := thecolor1;
       EQEN.frame.font.color := thecolor1;
       EQEN.frame.colorclient := $D2D8A5;
       EQEN.color         := $D2D8A5;
@@ -2762,7 +2763,7 @@ begin
       groupbox2.frame.font.color := thecolor2;
       groupbox1.color    := $D2D8A5;
       groupbox2.color    := $D2D8A5;
-      EQEN.colorglyph    := thecolor2;
+      //EQEN.colorglyph    := thecolor2;
       EQEN.frame.font.color := thecolor2;
       EQEN.frame.colorclient := $D2D8A5;
       EQEN.color         := $D2D8A5;
@@ -2777,7 +2778,7 @@ begin
       groupbox2.color    := $EDC0C0;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-      EQEN.colorglyph    := ltblack;
+      //EQEN.colorglyph    := ltblack;
       EQEN.frame.colorclient := $EDC0C0;
       EQEN.color         := $EDC0C0;
       EQEN.frame.font.color := cl_black;
@@ -3410,7 +3411,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblack;
       groupbox1.color    := cl_default;
       groupbox2.color    := cl_default;
-      EQEN.colorglyph    := ltblack;
+      //EQEN.colorglyph    := ltblack;
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
       EQEN.color         := cl_default;
@@ -3425,7 +3426,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblack;
       groupbox1.color    := cl_default;
       groupbox2.color    := cl_default;
-      EQEN.colorglyph    := ltblack;
+      //EQEN.colorglyph    := ltblack;
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
       EQEN.color         := cl_default;
@@ -3440,7 +3441,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblack;
       groupbox1.color    := cl_default;
       groupbox2.color    := cl_default;
-      EQEN.colorglyph    := ltblack;
+      //EQEN.colorglyph    := ltblack;
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
       EQEN.color         := cl_default;
@@ -4175,7 +4176,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblank;
       groupbox1.color    := $3A3A3A;
       groupbox2.color    := $3A3A3A;
-      EQEN.colorglyph    := ltblank;
+      //EQEN.colorglyph    := ltblank;
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
       EQEN.color         := $3A3A3A;
@@ -4190,7 +4191,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblank;
       groupbox1.color    := $3A3A3A;
       groupbox2.color    := $3A3A3A;
-      EQEN.colorglyph    := ltblank;
+      //EQEN.colorglyph    := ltblank;
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
       EQEN.color         := $3A3A3A;
@@ -4205,7 +4206,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblank;
       groupbox1.color    := $3A3A3A;
       groupbox2.color    := $3A3A3A;
-      EQEN.colorglyph    := ltblank;
+      //EQEN.colorglyph    := ltblank;
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
       EQEN.color         := $3A3A3A;
@@ -4993,8 +4994,47 @@ h := imagedancerfo.height;
   imagedancerfo.width := w;
   imagedancerfo.height := h;
   imagedancerfo.visible := true;
-  imagedancerfo.bringtofront;
+  if alwaystop = 0 then imagedancerfo.bringtofront;
  end;
+
+procedure tmainfo.onalwaysontop(const sender: TObject);
+var
+x,y,w,h : integer;
+begin
+
+x := imagedancerfo.left;
+y := imagedancerfo.top;
+w := imagedancerfo.width;
+h := imagedancerfo.height;
+
+  imagedancerfo.destroy;
+ 
+  if as_checked in tmainmenu1.menu[5].submenu[19].state then 
+  alwaystop := 1 else alwaystop := 0;
+ 
+ // alwaystop := 1;
+  application.processmessages;
+   
+  application.createform(timagedancerfo, imagedancerfo);
+  imagedancerfo.visible := false;
+  
+  statusanim := 1;
+  
+  imagedancerfo.windowopacity := 1;
+  
+  imagedancerfo.left := x;
+  imagedancerfo.top := y;
+  imagedancerfo.width := w;
+  imagedancerfo.height := h;
+  
+   application.processmessages;
+ 
+  imagedancerfo.visible := true;
+ 
+  
+  imagedancerfo.bringtofront;
+
+end;
 
 end.
 

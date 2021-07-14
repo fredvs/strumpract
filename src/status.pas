@@ -22,7 +22,7 @@ var
  typstat : shortint = 0;
 implementation
 uses
- status_mfm, main, filelistform;
+ status_mfm, main, filelistform, equalizer;
  
 
 procedure tstatusfo.oncancel(const sender: TObject);
@@ -39,7 +39,7 @@ if typstat = 0 then
 begin
 ordir := msestring(ExtractFilePath((ParamStr(0)))
  + 'layout' + directoryseparator);
-if statusfo.layoutname.value <> '' then begin
+if layoutname.value <> '' then begin
  ordir := ordir + utf8decode(RawByteString(statusfo.layoutname.value) + '.lay');
 mainfo.tstatfile1.writestat(utf8decode(RawByteString(ordir)));
 end;
@@ -49,10 +49,40 @@ if typstat = 2 then
 begin
 ordir := msestring(ExtractFilePath(ParamStr(0))
  + 'list' + directoryseparator);
-if statusfo.layoutname.value <> '' then begin
+if layoutname.value <> '' then begin
  ordir := msestring(ordir + statusfo.layoutname.value + '.lis');
 filelistfo.tstatfile1.writestat((ordir)); 
 filelistfo.caption := statusfo.layoutname.value;
+end;
+end;
+
+if typstat = 3 then
+begin
+ordir := msestring(ExtractFilePath(ParamStr(0))
+ + 'equ' + directoryseparator);
+if statusfo.layoutname.value <> '' then begin
+ ordir := msestring(ordir + statusfo.layoutname.value + '.eq1');
+equalizerfo1.tstatfile1.writestat((ordir)); 
+end;
+end;
+
+if typstat = 4 then
+begin
+ordir := msestring(ExtractFilePath(ParamStr(0))
+ + 'equ' + directoryseparator);
+if statusfo.layoutname.value <> '' then begin
+ ordir := msestring(ordir + statusfo.layoutname.value + '.eq2');
+equalizerfo2.tstatfile1.writestat((ordir)); 
+end;
+end;
+
+if typstat = 5 then
+begin
+ordir := msestring(ExtractFilePath(ParamStr(0))
+ + 'equ' + directoryseparator);
+if statusfo.layoutname.value <> '' then begin
+ ordir := msestring(ordir + statusfo.layoutname.value + '.eqR');
+equalizerforec.tstatfile1.writestat((ordir)); 
 end;
 end;
 

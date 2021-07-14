@@ -150,6 +150,7 @@ var
   evPauseImage: PRTLEvent;// for pausing
   statusanim: integer = -1;
   typwindow: integer = 0;
+  alwaystop: integer = 0;
   oripoint: pointty;
   ispressed: Boolean = False;
   
@@ -1028,6 +1029,9 @@ begin
   increase := 1;      
   randomize;
   
+if alwaystop = 1 then 
+ optionswindow := optionswindow + [wo_alwaysontop];
+
 //   if assigned(xbitmap) then xbitmap.free;
 
 end;
