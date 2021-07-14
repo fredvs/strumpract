@@ -1655,8 +1655,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=EQEN.colorglyph
+finddtext=readstat
 findhistory=20
+ readstat
  EQEN.colorglyph
  tmainmenu1.menu[4]
  longword
@@ -1676,16 +1677,15 @@ findhistory=20
  typecolor.Value =
  font.color
  oninfowav(
- fileext
 findoptions=1
 editpos=7
- 0,89
- 0,-1073741823
- 0,414
  0,-1073741823
  0,-1073741823
- 0,4208
- 0,9
+ 36,398
+ 0,-1073741823
+ 0,-1073741823
+ 0,4663
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1754,18 +1754,10 @@ nomenumodules=8
  -1
  0
 [sourcefo.files_tab]
-order=7
- 0
- 1
- 2
- 6
- 5
- 3
- 4
 firsttab=0
 index=2
 [layout]
-windowlayout=702
+windowlayout=694
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1883,7 +1875,7 @@ windowlayout=702
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2225,6 +2217,7 @@ windowlayout=702
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/equalizer.pas
  history=20
+  /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/uos/src/uos_portaudio.pas
   /home/fred/uos/uos.jpg
@@ -2244,7 +2237,6 @@ windowlayout=702
   /home/fred/strumpract/src/aboutform.pas
   /home/fred/strumpract/src/dockpanel1.pas
   /home/fred/strumpract/src/config.pas
-  /home/fred/strumpract/src/uos_flat.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2266,14 +2258,6 @@ windowlayout=702
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=7
-  0
-  1
-  2
-  6
-  5
-  3
-  4
  firsttab=0
  index=2
  [confideufo.fontname]
@@ -2319,7 +2303,7 @@ windowlayout=702
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2338,7 +2322,7 @@ windowlayout=702
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2452,7 +2436,7 @@ windowlayout=702
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
