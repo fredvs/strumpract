@@ -174,8 +174,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=858
- y=496
+ x=964
+ y=300
  cx=234
  cy=269
 replacedialog=33
@@ -843,29 +843,17 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=7
- COMMANDERFO
- DRUMSFO
+modulenames=3
+ DIALOGFILESFO
  EQUALIZERFO
- FILELISTFO
- MAINFO
- SONGPLAYERFO
  STATUSFO
-moduletypes=7
- TCOMMANDERFO
- TDRUMSFO
+moduletypes=3
+ TDIALOGFILESFO
  TEQUALIZERFO
- TFILELISTFO
- TMAINFO
- TSONGPLAYERFO
  TSTATUSFO
-modulefiles=7
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/drums.mfm
+modulefiles=3
+ /home/fred/strumpract/src/dialogfiles.mfm
  /home/fred/strumpract/src/equalizer.mfm
- /home/fred/strumpract/src/filelistform.mfm
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/status.mfm
 befcommandon=0
 makeoptionson=15
@@ -1234,7 +1222,7 @@ line=36
  137
  343
  587
- 223
+ 226
  5734
  1851
  1528
@@ -1661,8 +1649,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=.button2
+finddtext=dialogfile
 findhistory=20
+ dialogfile
+ template
  .button2
  button2
  readstat
@@ -1681,89 +1671,46 @@ findhistory=20
  dj layout
  msestring
  createplayer
- ogg
- typecolor.Value =
 findoptions=1
-editpos=13
- 0,-1073741823
- 0,3
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+editpos=5
+ 0,0
+ 0,399
+ 0,52
+ 0,207
+ 0,202
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-bookmarks7=0
-bookmarks8=0
-bookmarks9=0
-bookmarks10=0
-bookmarks11=0
-bookmarks12=0
-sourcefiles=13
- ${PROJECTDIR}/strumpract.pas
+sourcefiles=5
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/equalizer.pas
- ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/status.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/commander.pas
- ${PROJECTDIR}/commander.pas
- ${PROJECTDIR}/drums.pas
- ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/filelistform.pas
-relpaths=13
- strumpract.pas
+ ${PROJECTDIR}/strumpract.pas
+ ${PROJECTDIR}/dialogfiles.pas
+relpaths=5
  waveform.pas
  equalizer.pas
- filelistform.pas
  status.pas
- main.pas
- commander.pas
- commander.pas
- drums.pas
- songplayer.pas
- main.pas
- songplayer.pas
- filelistform.pas
-ismoduletexts=13
+ strumpract.pas
+ dialogfiles.pas
+ismoduletexts=5
  0
  0
  0
  0
  0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=9
+modules=8
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/equalizer.mfm
- /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/status.mfm
- /home/fred/strumpract/src/songplayer.mfm
-moduleoptions=9
+ /home/fred/strumpract/src/dialogfiles.mfm
+moduleoptions=8
  0
  0
  0
@@ -1772,46 +1719,35 @@ moduleoptions=9
  0
  0
  0
+visiblemodules=8
  0
-visiblemodules=9
- -1
- -1
- -1
- 0
- -1
- -1
- 0
- -1
- -1
-nomenumodules=9
  0
  0
  0
  -1
  0
+ -1
+ -1
+nomenumodules=8
+ -1
+ -1
+ -1
+ -1
  0
  -1
  0
  0
 [sourcefo.files_tab]
-order=13
+order=5
  1
+ 13
+ 14
  2
- 0
- 9
- 12
- 3
  4
- 5
- 7
- 8
- 6
- 10
- 11
 firsttab=0
-index=0
+index=4
 [layout]
-windowlayout=727
+windowlayout=682
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1966,7 +1902,7 @@ windowlayout=727
  sortdescend1=0
  sorted=0
  col=0
- row=12
+ row=15
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2269,12 +2205,12 @@ windowlayout=727
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/waveform.pas
+ value=/home/fred/strumpract/src/dialogfiles.mfm
  history=20
   /home/fred/strumpract/src/waveform.pas
+  /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/commander.pas
-  /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/uos/src/uos_portaudio.pas
   /home/fred/uos/uos.jpg
@@ -2312,22 +2248,15 @@ windowlayout=727
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=13
+ order=6
   1
+  13
+  14
   2
-  0
-  9
-  12
-  3
   4
-  5
-  7
-  8
-  6
-  10
-  11
+  0
  firsttab=0
- index=0
+ index=5
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2386,7 +2315,7 @@ windowlayout=727
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2405,7 +2334,7 @@ windowlayout=727
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2428,7 +2357,7 @@ windowlayout=727
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_statusfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2443,11 +2372,11 @@ windowlayout=727
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2458,25 +2387,6 @@ windowlayout=727
  y=136
  cx=452
  cy=142
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_filelistfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_statusfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=397
- y=264
- cx=452
- cy=128
  rcx=0
  rcy=0
  wsize=0
@@ -2504,7 +2414,7 @@ windowlayout=727
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2515,25 +2425,6 @@ windowlayout=727
  y=259
  cx=298
  cy=60
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_songplayerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=objectinspectorfo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=447
- y=62
- cx=452
- cy=128
  rcx=0
  rcy=0
  wsize=0

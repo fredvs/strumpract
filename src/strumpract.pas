@@ -36,6 +36,7 @@ uses
   randomnote,
   equalizer,
   findmessage,
+  dialogfiles,
   dockpanel1;
   
 {$ifdef unix}
@@ -203,6 +204,8 @@ end;
   application.createform(trandomnotefo, randomnotefo);
   application.createform(timagedancerfo, imagedancerfo);
    application.createform(tfindmessagefo, findmessagefo);
+  application.createform(tdialogfilesfo, dialogfilesfo);
+  dialogfilesfo.icon := equalizerfo1.icon;
  
   application.createform(tmainfo, mainfo);
 

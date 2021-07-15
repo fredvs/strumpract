@@ -139,6 +139,7 @@ uses
   main,
   dockpanel1,
   status,
+  dialogfiles,
   equalizer_mfm;
 
 procedure tequalizerfo.oncrea(const Sender: TObject);
@@ -396,8 +397,8 @@ begin
     else if Caption = 'Equalizer Player 2' then
       mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Equalizer 2 '
     else if Caption = 'Equalizer Recorder' then
-      mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec '// dostop(Sender);
-  ;
+      mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec ';
+  
   if norefresh = False then
   begin
     if Assigned(mainfo) then
@@ -423,83 +424,22 @@ end;
 
 procedure tequalizerfo.loadlist(const Sender: TObject);
 var
-  ordir, str, str2: msestring;
-  asliders: tasliders;
-  x: integer = 1;
-  ds: char;
+  ordir: msestring;
 begin
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
-  tfiledialog1.controller.captionopen := 'Open Equalizer Settings File';
-  tfiledialog1.controller.options := [fdo_savelastdir, fdo_sysfilename];
 
-  tfiledialog1.controller.fontcolor   := cl_black;
-  if mainfo.typecolor.Value = 2 then
-    tfiledialog1.controller.backcolor := $A6A6A6
+  if Caption = 'Equalizer Player 1' then
+    dialogfilesfo.tag := 0
+  else if Caption = 'Equalizer Player 2' then
+    dialogfilesfo.tag := 1
   else
-    tfiledialog1.controller.backcolor := cl_default;
+    dialogfilesfo.tag := 2;
 
-  tfiledialog1.controller.filter := '"*.equ"';
-
-  tfiledialog1.controller.filename := ordir;
-
-  if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
-    if fileexists(tfiledialog1.controller.filename) then
-    begin
-      EQEN.Value := True;
-
-      asliders[1]  := tslider1;
-      asliders[2]  := tslider2;
-      asliders[3]  := tslider3;
-      asliders[4]  := tslider4;
-      asliders[5]  := tslider5;
-      asliders[6]  := tslider6;
-      asliders[7]  := tslider7;
-      asliders[8]  := tslider8;
-      asliders[9]  := tslider9;
-      asliders[10] := tslider10;
-      asliders[11] := tslider11;
-      asliders[12] := tslider12;
-      asliders[13] := tslider13;
-      asliders[14] := tslider14;
-      asliders[15] := tslider15;
-      asliders[16] := tslider16;
-      asliders[17] := tslider17;
-      asliders[18] := tslider18;
-      asliders[19] := tslider19;
-      asliders[20] := tslider20;
-
-      with TStringList.Create do
-        try
-          Loadfromfile(tfiledialog1.controller.filename);
-          str := Text;
-        finally
-          Free;
-        end;
-
-      str2 := copy(str, 1, system.pos('|', str) - 1);
-
-      ds := decimalseparator;
-      decimalseparator := '.';
-
-      // writeln(str2);
-
-      asliders[1].Value := strtofloat(str2);
-
-      while (system.pos('|', str) > 0) and (x < 20) do
-      begin
-        Inc(x);
-        str2 := system.copy(str, system.pos('|', str) + 1, 6);
-        str  := stringreplace(str, '|', ' ',
-          [rfIgnoreCase]);
-
-        //writeln('it is ' +inttostr(x) + '    ' + str2 );                       
-
-        if trim(str2) <> '' then
-          asliders[x].Value := strtofloat(str2);
-
-      end;
-      decimalseparator := ds;
-    end;
+  dialogfilesfo.Caption := 'Load a Equalizer Settings File';
+  dialogfilesfo.list_files.mask    := '*.equ';
+  dialogfilesfo.list_files.path    := ordir;
+  dialogfilesfo.selected_file.Text := '';
+  dialogfilesfo.Show;
 end;
 
 procedure tequalizerfo.savelist(const Sender: TObject);
@@ -515,16 +455,13 @@ begin
   statusfo.Caption := 'Save Equalizer Settings as';
   statusfo.color   := $A7C9B9;
   statusfo.layoutname.Value := 'MyEqualizerSettings';
-  //statusfo.layoutname.frame.caption := 'Choose a cue-list name';
   statusfo.layoutname.Visible := True;
   statusfo.activate;
 end;
 
 procedure tequalizerfo.ondestroy(const Sender: TObject);
 begin
-  //  tstatfile1.writestat(msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))))
-  //   + 'ini' + directoryseparator + 'equalizer.ini');
-
+ 
 end;
 
 end.
