@@ -1673,11 +1673,11 @@ findhistory=20
  createplayer
 findoptions=1
 editpos=5
- 0,0
- 0,399
- 0,52
- 0,207
- 0,202
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,158
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1738,16 +1738,10 @@ nomenumodules=8
  0
  0
 [sourcefo.files_tab]
-order=5
- 1
- 13
- 14
- 2
- 4
 firsttab=0
 index=4
 [layout]
-windowlayout=682
+windowlayout=694
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2205,8 +2199,9 @@ windowlayout=682
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/dialogfiles.mfm
+ value=/home/fred/strumpract/src/dialogfiles.pas
  history=20
+  /home/fred/strumpract/src/dialogfiles.pas
   /home/fred/strumpract/src/waveform.pas
   /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/main.pas
@@ -2226,7 +2221,6 @@ windowlayout=682
   /home/fred/freepascal-ootb_320/packages/x11/src/xutil.pp
   /home/fred/cafecentral/cc_back.bat
   /home/fred/strumpract/src/define.inc
-  /home/fred/strumpract/src/findmessage.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2248,15 +2242,8 @@ windowlayout=682
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=6
-  1
-  13
-  14
-  2
-  4
-  0
  firsttab=0
- index=5
+ index=4
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2265,7 +2252,7 @@ windowlayout=682
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2300,7 +2287,7 @@ windowlayout=682
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2319,7 +2306,7 @@ windowlayout=682
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2338,7 +2325,7 @@ windowlayout=682
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2357,7 +2344,7 @@ windowlayout=682
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_statusfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2376,7 +2363,7 @@ windowlayout=682
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_statusfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2414,7 +2401,7 @@ windowlayout=682
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_dialogfilesfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2425,6 +2412,25 @@ windowlayout=682
  y=259
  cx=298
  cy=60
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_dialogfilesfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=596
+ y=300
+ cx=346
+ cy=315
  rcx=0
  rcy=0
  wsize=0

@@ -15,6 +15,8 @@ object dialogfilesfo: tdialogfilesfo
     315
   )
   optionswindow = [wo_message, wo_alwaysontop]
+  font.name = 'stf_default'
+  font.localprops = []
   options = [fo_screencentered, fo_closeonenter, fo_closeonf10, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savestate]
   caption = 'Load a Syntax Definition File'
   icon.options = [bmo_masked]
