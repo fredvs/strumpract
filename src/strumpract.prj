@@ -141,8 +141,11 @@ findinfiledialog=82
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=StringList
+ value='Equalizer Player 1'
  history=20
+  'Equalizer Player 1'
+  'Player 1'
+  = 'Player 1'
   StringList
   EQEN
   as_checked
@@ -160,9 +163,6 @@ findinfiledialog=82
   list_files
   automixb
   xsetcliporigin
-  fownerwidget.paint
-  aborted
-  GpStatus
  [findinfileadialogfo]
  stackedunder=
  x=506
@@ -182,10 +182,12 @@ replacedialog=33
  [replacedialogfo.promptonreplace]
  value=1
  [replacedialogfo.selectedonly]
- value=1
+ value=0
  [replacedialogfo.replacetext]
- value=button
+ value=if tag = 1 then
  history=20
+  if tag = 1 then
+  if tag = 0 then
   button
   
   equalizerforec
@@ -204,10 +206,8 @@ replacedialog=33
   chord2.caption
   chord1.caption
   webp_Handle
-  wavefo2.waveon.value = true
-  wavefo.waveon.value = true
  [replacedialogfo]
- stackedunder=finddialogfo
+ stackedunder=
  x=746
  y=339
  cx=427
@@ -322,7 +322,7 @@ options=114
  firsttab=0
  index=2
  [projectoptionsfo]
- stackedunder=
+ stackedunder=finddialogfo
  x=486
  y=52
  cx=818
@@ -843,17 +843,23 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=3
+modulenames=5
  DIALOGFILESFO
  EQUALIZERFO
+ MAINFO
+ SONGPLAYERFO
  STATUSFO
-moduletypes=3
+moduletypes=5
  TDIALOGFILESFO
  TEQUALIZERFO
+ TMAINFO
+ TSONGPLAYERFO
  TSTATUSFO
-modulefiles=3
+modulefiles=5
  /home/fred/strumpract/src/dialogfiles.mfm
  /home/fred/strumpract/src/equalizer.mfm
+ /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/status.mfm
 befcommandon=0
 makeoptionson=15
@@ -1222,9 +1228,9 @@ line=36
  137
  343
  587
- 226
+ 234
  5734
- 1851
+ 1852
  1528
  324
  319
@@ -1236,7 +1242,7 @@ line=36
  1604
  209
  1136
- 4046
+ 4054
  487
  5
  791
@@ -1246,7 +1252,7 @@ line=36
  368
  1753
  623
- 642
+ 643
  1032
 address=36
  5014125
@@ -1649,8 +1655,16 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=dialogfile
+finddtext=typecolor.v
 findhistory=20
+ typecolor.v
+ font
+ .color
+ if Caption = 'Equalizer Player 2' then
+ if Caption = 'Equalizer Player 1' then
+ if Caption = 'Player 2' then
+ if Caption = 'Player 1' then
+ recorder
  dialogfile
  template
  .button2
@@ -1663,45 +1677,52 @@ findhistory=20
  5.2.
  rowdown
  color
- focus
- randomize
- onsent
- automixb
- ondockplayers
- dj layout
- msestring
- createplayer
 findoptions=1
-editpos=5
+editpos=8
+ 0,8
+ 0,416
  0,-1073741823
  0,-1073741823
+ 35,67
  0,-1073741823
- 0,-1073741823
- 0,158
+ 0,2
+ 0,3691
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-sourcefiles=5
+bookmarks5=0
+bookmarks6=0
+bookmarks7=0
+sourcefiles=8
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/status.pas
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/dialogfiles.pas
-relpaths=5
+ ${PROJECTDIR}/strumpract.pas
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/main.pas
+relpaths=8
  waveform.pas
  equalizer.pas
  status.pas
  strumpract.pas
  dialogfiles.pas
-ismoduletexts=5
+ strumpract.pas
+ songplayer.pas
+ main.pas
+ismoduletexts=8
  0
  0
  0
  0
  0
-modules=8
+ 0
+ 0
+ 0
+modules=9
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1710,7 +1731,8 @@ modules=8
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/status.mfm
  /home/fred/strumpract/src/dialogfiles.mfm
-moduleoptions=8
+ /home/fred/strumpract/src/songplayer.mfm
+moduleoptions=9
  0
  0
  0
@@ -1719,8 +1741,9 @@ moduleoptions=8
  0
  0
  0
-visiblemodules=8
  0
+visiblemodules=9
+ -1
  0
  0
  0
@@ -1728,20 +1751,31 @@ visiblemodules=8
  0
  -1
  -1
-nomenumodules=8
  -1
+nomenumodules=9
+ 0
  -1
  -1
  -1
  0
  -1
+ 0
  0
  0
 [sourcefo.files_tab]
+order=8
+ 0
+ 6
+ 7
+ 1
+ 2
+ 3
+ 4
+ 5
 firsttab=0
-index=4
+index=6
 [layout]
-windowlayout=694
+windowlayout=722
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1755,13 +1789,13 @@ windowlayout=694
  ny=0
  ncx=0
  ncy=0
- x=65
- y=69
+ x=58
+ y=57
  cx=1224
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [findmessagefo.findtext]
@@ -1784,9 +1818,9 @@ windowlayout=694
  ncx=0
  ncy=0
  x=430
- y=383
+ y=275
  cx=633
- cy=170
+ cy=278
  rcx=0
  rcy=0
  wsize=0
@@ -1885,7 +1919,7 @@ windowlayout=694
  x=0
  y=0
  cx=205
- cy=519
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1896,7 +1930,7 @@ windowlayout=694
  sortdescend1=0
  sorted=0
  col=0
- row=15
+ row=9
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2071,9 +2105,9 @@ windowlayout=694
  ncx=0
  ncy=0
  x=0
- y=582
- cx=1356
- cy=107
+ y=507
+ cx=1212
+ cy=93
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2172,8 +2206,8 @@ windowlayout=694
  ncy=0
  x=0
  y=0
- cx=1356
- cy=57
+ cx=1212
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2184,12 +2218,12 @@ windowlayout=694
  mdistate=0
  nx=0
  ny=0
- ncx=1356
- ncy=35
+ ncx=1197
+ ncy=28
  x=0
  y=0
- cx=1356
- cy=35
+ cx=1212
+ cy=26
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2201,6 +2235,7 @@ windowlayout=694
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/dialogfiles.pas
  history=20
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/dialogfiles.pas
   /home/fred/strumpract/src/waveform.pas
   /home/fred/strumpract/src/equalizer.pas
@@ -2220,7 +2255,6 @@ windowlayout=694
   /home/fred/freepascal-ootb_320/packages/x11/src/xcms.pp
   /home/fred/freepascal-ootb_320/packages/x11/src/xutil.pp
   /home/fred/cafecentral/cc_back.bat
-  /home/fred/strumpract/src/define.inc
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2237,13 +2271,22 @@ windowlayout=694
  ncy=0
  x=208
  y=0
- cx=1148
- cy=519
+ cx=1004
+ cy=451
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=8
+  0
+  6
+  7
+  1
+  2
+  3
+  4
+  5
  firsttab=0
- index=4
+ index=6
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2252,7 +2295,7 @@ windowlayout=694
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2279,15 +2322,15 @@ windowlayout=694
  ncx=0
  ncy=0
  x=0
- y=60
- cx=1356
- cy=519
+ y=53
+ cx=1212
+ cy=451
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_dialogfilesfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2302,7 +2345,7 @@ windowlayout=694
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2401,7 +2444,7 @@ windowlayout=694
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_dialogfilesfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2431,6 +2474,25 @@ windowlayout=694
  y=300
  cx=346
  cy=315
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_songplayerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_mainfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=447
+ y=62
+ cx=452
+ cy=128
  rcx=0
  rcy=0
  wsize=0

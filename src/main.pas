@@ -211,6 +211,7 @@ uses
   aboutform,
   uos_flat,
   guitars,
+  dialogfiles,
   main_mfm;
 
 procedure tmainfo.ontimeract(const Sender: TObject);
@@ -2360,6 +2361,9 @@ begin
   if typecolor.Value = 0 then
   begin
     font.color := cl_black;
+    
+   dialogfilesfo.list_files.frame.colorclient :=  $F9FFC2 ;
+    
     filelistfo.historyfn.dropdown.cols[0].colorselect := $FFC782;
    
     wavefo.container.color  := cl_default;
@@ -3032,6 +3036,8 @@ begin
   if typecolor.Value = 1 then
   begin
     font.color := cl_black;
+   dialogfilesfo.list_files.frame.colorclient :=  cl_ltgray ;
+    
     filelistfo.historyfn.dropdown.cols[0].colorselect := $FFC782;
     spectrum1fo.container.color   := cl_default;
     spectrum2fo.container.color   := cl_default;
@@ -3694,6 +3700,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
   if typecolor.Value = 2 then
   begin
     font.color := cl_white;
+    dialogfilesfo.list_files.frame.colorclient :=  cl_gray ;
+   
     filelistfo.historyfn.dropdown.cols[0].colorselect := $A35A00;
     wavefo.container.color := $575757;
     wavefo2.container.color := $575757;

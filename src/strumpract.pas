@@ -96,6 +96,10 @@ begin
   equalizerfo2.eqen.frame.caption := 'Equalizer Player 2';
   equalizerforec.eqen.frame.caption := 'Equalizer Recorder';
   
+  equalizerfo1.tag := 0;
+  equalizerfo2.tag := 1;
+  equalizerforec.tag := 2;
+  
   application.createform(tfilelistfo, filelistfo);
 
   filelistfo.dragdock.Caption := 'Fil';
@@ -133,6 +137,9 @@ begin
 
   songplayerfo.Caption := 'Player 1';
   songplayer2fo.Caption := 'Player 2';
+  
+  songplayerfo.tag := 0;
+  songplayer2fo.tag := 1;
 
   songplayerfo.tstringdisp2.Value := 'Player 1';
   songplayer2fo.tstringdisp2.Value := 'Player 2';
@@ -175,6 +182,7 @@ end;
 
   application.createform(trecorderfo, recorderfo);
   recorderfo.dragdock.Caption := 'Rec';
+  recorderfo.tag := 2;
 
   application.createform(tguitarsfo, guitarsfo);
 

@@ -4,47 +4,19 @@ unit dialogfiles;
 interface
 
 uses
-  Classes,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msesimplewidgets,
-  msedispwidgets,
-  mserichstring,
-  msefiledialog;
+ Classes,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
+ msegui,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
+ mseact,msebitmap,msedataedits,msedatanodes,mseedit,msegrids,mseificomp,
+ mseificompglob,mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,
+ msesys,SysUtils,msesimplewidgets,msedispwidgets,mserichstring,msefiledialog,
+  msedragglob, msedropdownlist, msegridsglob;
 
 type
   tdialogfilesfo = class(tmseform)
     tbutton1: TButton;
     selected_file: tedit;
     tstringdisp1: tstringdisp;
-    list_files: tfilelistview;
+   list_files: tfilelistview;
     procedure loaddef(const Sender: tcustomlistview);
     procedure butok(const Sender: TObject);
     procedure oncloseev(const Sender: TObject);
@@ -87,7 +59,7 @@ begin
     selected_file.Text := list_files.selectednames[0];
 
     if fileexists(list_files.directory + directoryseparator + selected_file.Text) then
-   
+    begin   
       if (tag = 0) then
       begin
         with equalizerfo1 do
@@ -199,6 +171,7 @@ begin
 
         end;
         decimalseparator := ds;
+      end;
       end;
   layoutbusy := False;
 end;

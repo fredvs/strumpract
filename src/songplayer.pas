@@ -286,17 +286,17 @@ end;
 
 procedure tsongplayerfo.Changestereo2mono(const Sender: TObject);
 begin
-  if Caption = 'Player 1' then
+  if tag = 0 then
     uos_InputSetDSP(theplayer, InputIndex1, DSPIndex11, setmono.Value);
-  if Caption = 'Player 2' then
+  if tag = 1 then
     uos_InputSetDSP(theplayer2, InputIndex2, DSPIndex22, setmono.Value);
 end;
 
 procedure tsongplayerfo.changereverse(const Sender: TObject);
 begin
-  if Caption = 'Player 1' then
+if tag = 0 then
     uos_InputSetDSP(theplayer, InputIndex1, DSPIndex1, playreverse.Value);
-  if Caption = 'Player 2' then
+if tag = 1 then
     uos_InputSetDSP(theplayer2, InputIndex2, DSPIndex2, playreverse.Value);
 end;
 
@@ -362,7 +362,7 @@ end;
 procedure tsongplayerfo.ontimerwait(const Sender: TObject);
 begin
 
-  if Caption = 'Player 1' then
+ if tag = 0 then
   begin
     //  timerwait.Enabled := False;
     btnStart.Enabled := True;
@@ -418,7 +418,7 @@ begin
     wavefo.trackbar1.Enabled := True;
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     // timerwait.Enabled := False;
     btnStart.Enabled := True;
@@ -478,7 +478,7 @@ begin
   if hasinit = 1 then
   begin
 
-    if Caption = 'Player 1' then
+    if tag = 0 then
       if (trim(PChar(ansistring(songplayerfo.historyfn.Value))) <> '') and fileexists(ansistring(songplayerfo.historyfn.Value)) then
       begin
 
@@ -497,7 +497,7 @@ begin
 
       end;
 
-    if Caption = 'Player 2' then
+    if tag = 1 then
       if (trim(PChar(ansistring(songplayer2fo.historyfn.Value))) <> '') and fileexists(ansistring(songplayer2fo.historyfn.Value)) then
       begin
 
@@ -521,7 +521,7 @@ procedure tsongplayerfo.resetspectrum();
 var
   i: integer = 0;
 begin
-  if Caption = 'Player 1' then
+  if tag = 0 then
   begin
     while i < 10 do
     begin
@@ -534,7 +534,7 @@ begin
     spectrum1fo.tchartright.traces[0].ydata := arr;
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     while i < 10 do
     begin
@@ -552,7 +552,7 @@ end;
 procedure tsongplayerfo.ClosePlayer1();
 begin
 
-  if Caption = 'Player 1' then
+  if tag = 0 then
     if (commanderfo.automix.Value = True) and (hasmixed1 = False) then
     begin
       hasmixed1   := True;
@@ -563,7 +563,7 @@ begin
       hasmixed1   := False;
     end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
     if (commanderfo.automix.Value = True) and (hasmixed2 = False) then
     begin
       hasmixed2   := True;
@@ -595,7 +595,7 @@ begin
   else
     btncue.Enabled := True;
 
-  if Caption = 'Player 1' then
+  if tag = 0 then
   begin
     theplaying1    := '';
     wavefo.Caption := 'Wave Player 1';
@@ -634,7 +634,7 @@ begin
     hasmixed1 := False;
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     theplaying2     := '';
     wavefo2.Caption := 'Wave Player 2';
@@ -685,7 +685,7 @@ procedure tsongplayerfo.ShowSpectrum(const Sender: TObject);
 var
   i, x: integer;
 begin
-  if Caption = 'Player 1' then
+  if tag = 0 then
     if uos_getstatus(theplayer) > 0 then
     begin
       thearray := uos_InputFiltersGetLevelArray(theplayer, InputIndex1);
@@ -703,7 +703,7 @@ begin
       spectrum1fo.tchartright.traces[0].ydata := arr;
     end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
     if uos_getstatus(theplayer2) > 0 then
     begin
       i         := 1;
@@ -727,7 +727,7 @@ end;
 procedure tsongplayerfo.showlevel(const Sender: TObject; const l1, r1, l2, r2: double);
 begin
 
-  if (Caption = 'Player 1') then
+  if tag = 0 then
   begin
     if (l1 >= 0) and (l1 <= 1) then
     begin
@@ -745,7 +745,7 @@ begin
 
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     if (l2 >= 0) and (l2 <= 1) then
     begin
@@ -774,7 +774,7 @@ begin
 
   if (not TrackBar1.clicked) then
   begin
-    if (Caption = 'Player 1') and (not wavefo.TrackBar1.clicked) then
+    if (tag = 0) and (not wavefo.TrackBar1.clicked) then
       if uos_InputPosition(theplayer, Inputindex1) > 0 then
       begin
         TrackBar1.Value := uos_InputPosition(theplayer, Inputindex1) / Inputlength1;
@@ -911,12 +911,12 @@ begin
       end;
     end;
 
-    if Caption = 'Player 1' then
+    if tag = 0 then
       if (spectrum1fo.spect1.Value = True) and (spectrum1fo.Visible = True) and
         (commanderfo.speccalc.Value = True) then
         ShowSpectrum(nil);
 
-    if Caption = 'Player 2' then
+    if tag = 1 then
       if (spectrum2fo.spect1.Value = True) and (spectrum2fo.Visible = True) and
         (commanderfo.speccalc.Value = True) then
         ShowSpectrum(nil);
@@ -930,7 +930,7 @@ var
   fileex: msestring;
   i: integer;
 begin
-  if Caption = 'Player 1' then
+  if tag = 0 then
   begin
     fileex := fileext(PChar(ansistring(historyfn.Value)));
 
@@ -1234,7 +1234,7 @@ begin
       ShowMessage(historyfn.Value + ' is not a audio file...');
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     fileex := fileext(PChar(ansistring(historyfn.Value)));
 
@@ -1546,7 +1546,7 @@ begin
   tstringdisp1.face.template := mainfo.tfacegreen;
   lposition.face.template    := mainfo.tfaceplayerrev;
 
-  if Caption = 'Player 1' then
+  if tag = 0 then
   begin
 
     if vuinvar then
@@ -1574,7 +1574,7 @@ begin
     tstringdisp1.Value := msestring('Playing ' + theplaying1);
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     if vuinvar then
     begin
@@ -1619,7 +1619,7 @@ begin
   tstringdisp1.face.template := mainfo.tfacered;
   lposition.face.template    := mainfo.tfaceplayerrev;
 
-  if Caption = 'Player 1' then
+  if tag = 0 then
   begin
     with commanderfo do
     begin
@@ -1641,7 +1641,7 @@ begin
     tstringdisp1.Value := msestring('Paused ' + theplaying1);
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     with commanderfo do
     begin
@@ -1667,13 +1667,13 @@ end;
 
 procedure tsongplayerfo.doplayerstop(const Sender: TObject);
 begin
-  if Caption = 'Player 1' then
+  if tag = 0 then
   begin
     hasmixed1 := True;
     uos_Stop(theplayer);
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     hasmixed2 := True;
     uos_Stop(theplayer2);
@@ -1751,11 +1751,11 @@ edvolleft.value := edvolright.value
 end;
 }
 
-    if Caption = 'Player 1' then
+    if tag = 0 then
       uos_InputSetDSPVolume(theplayer, Inputindex1,
         (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
-    if Caption = 'Player 2' then
+    if tag = 1 then
       uos_InputSetDSPVolume(theplayer2, Inputindex2,
         (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
@@ -1782,7 +1782,7 @@ begin
   if (arect.cy > 0) and (arect.cx > 0) then
   begin
 
-    if Caption = 'Player 1' then
+    if tag = 0 then
       if (iswav = True) and (waveformcheck.Value = True) then
       begin
 
@@ -1834,7 +1834,7 @@ begin
         end;
       end;
 
-    if Caption = 'Player 2' then
+    if tag = 1 then
       if (iswav2 = True) and (waveformcheck.Value = True) then
       begin
 
@@ -1894,7 +1894,7 @@ var
   poswavx: integer;
 begin
 
-  if Caption = 'Player 1' then
+  if tag = 0 then
     if (iswav = True) and (waveformcheck.Value = True) then
     begin
 
@@ -1944,7 +1944,7 @@ begin
       end;
     end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
     if (iswav2 = True) and (waveformcheck.Value = True) then
     begin
 
@@ -1998,7 +1998,7 @@ end;
 procedure tsongplayerfo.GetWaveData();
 begin
 
-  if Caption = 'Player 1' then
+  if tag = 0 then
     if (waveformcheck.Value = True) then
     begin
       waveformdata1 := uos_InputGetLevelArray(theplayerinfo, 0);
@@ -2007,7 +2007,7 @@ begin
       DrawWaveForm();
     end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
     if (waveformcheck.Value = True) then
     begin
       waveformdata2 := uos_InputGetLevelArray(theplayerinfo2, 0);
@@ -2019,7 +2019,7 @@ end;
 
 procedure tsongplayerfo.GetWaveDataform();
 begin
-  if Caption = 'Player 1' then
+  if tag = 0 then
 
     if as_checked in wavefo.tmainmenu1.menu[0].state then
 
@@ -2030,7 +2030,7 @@ begin
       formDrawWaveForm();
     end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
 
     if as_checked in wavefo2.tmainmenu1.menu[0].state then
 
@@ -2051,13 +2051,13 @@ var
   rect1: rectty;
 begin
 
-  if ((Caption = 'Player 1') and (DrawWaveFormbusy1 = False)) or
-    ((Caption = 'Player 2') and (DrawWaveFormbusy2 = False)) then
+  if ((tag = 0 ) and (DrawWaveFormbusy1 = False)) or
+    ((tag = 1) and (DrawWaveFormbusy2 = False)) then
   begin
 
-    if Caption = 'Player 1' then
+    if tag = 0 then
       DrawWaveFormbusy1 := True;
-    if Caption = 'Player 2' then
+    if tag = 1 then
       DrawWaveFormbusy2 := True;
 
     // if (waveformcheck.value = true) then begin
@@ -2076,9 +2076,9 @@ begin
       transparentcolor := transpcolor;
       masked := True;
     end;
-    if Caption = 'Player 1' then
+    if tag = 0 then
       DrawWaveFormbusy1 := False;
-    if Caption = 'Player 2' then
+    if tag = 1 then
       DrawWaveFormbusy2 := False;
   end;
 end;
@@ -2090,7 +2090,7 @@ var
   rect1form: rectty;
 begin
 
-  if (Caption = 'Player 1') and
+  if (tag = 0) and
     (FormDrawWaveFormbusy1 = False) and
     (as_checked in wavefo.tmainmenu1.menu[0].state) then
   begin
@@ -2141,7 +2141,7 @@ var
   framewanted: integer;
 begin
 
-  if (Caption = 'Player 1') and (as_checked in wavefo.tmainmenu1.menu[0].state) and (buzywaveform1 = False) then
+  if (tag = 0 ) and (as_checked in wavefo.tmainmenu1.menu[0].state) and (buzywaveform1 = False) then
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
 
@@ -2267,7 +2267,7 @@ begin
       else
         hassent := 0;
 
-      if Caption = 'Player 1' then
+      if tag = 0 then
       begin
         if (hassent = 1) or (hassent = 0) then
         begin
@@ -2390,7 +2390,7 @@ begin
 
       end;
 
-      if Caption = 'Player 2' then
+      if tag = 1 then
       begin
         if (hassent = 1) or (hassent = 0) then
         begin
@@ -2521,14 +2521,14 @@ var
 begin
   if trackbar1.clicked then
   begin
-    if Caption = 'Player 1' then
+    if tag = 0 then
     begin
       temptime        := tottime1 * TrackBar1.Value;
       DecodeTime(temptime, ho, mi, se, ms);
       lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
     end;
 
-    if Caption = 'Player 2' then
+    if tag = 1 then
     begin
       temptime        := tottime2 * TrackBar1.Value;
       DecodeTime(temptime, ho, mi, se, ms);
@@ -2543,7 +2543,7 @@ procedure tsongplayerfo.visiblechangeev(const Sender: TObject);
 begin
   if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-    if Caption = 'Player 1' then
+    if tag = 0 then
       if Visible then
         mainfo.tmainmenu1.menu[4].submenu[4].Caption := ' Hide Player 1 '
       else
@@ -2552,7 +2552,7 @@ begin
         mainfo.tmainmenu1.menu[4].submenu[4].Caption := ' Show Player 1 ';
       end;
 
-    if Caption = 'Player 2' then
+    if tag = 1 then
       if Visible then
         mainfo.tmainmenu1.menu[4].submenu[5].Caption := ' Hide Player 2 '
       else
@@ -2630,9 +2630,9 @@ end;
 
 procedure tsongplayerfo.whosent(const Sender: tfiledialogxcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
 begin
-  if Caption = 'Player 1' then
+  if tag = 0 then
     thesender := 0;
-  if Caption = 'Player 2' then
+  if tag = 1 then
     thesender := 1;
 end;
 
@@ -2716,7 +2716,7 @@ begin
 
   onsliderchange(Sender);
 
-  if Caption = 'Player 1' then
+  if tag = 0 then
   begin
     if (commanderfo.automix.Value = True) then
     begin
@@ -2732,7 +2732,7 @@ begin
         uos_InputSeek(theplayer, Inputindex1, trunc(avalue * Inputlength1));
   end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
   begin
     if (commanderfo.automix.Value = True) then
     begin
@@ -2752,7 +2752,7 @@ end;
 
 procedure tsongplayerfo.changeloop(const Sender: TObject);
 begin
-  if Caption = 'Player 1' then
+  if tag = 0 then
     if cbloop.Value then
     begin
       commanderfo.btncue.Enabled := False;
@@ -2764,7 +2764,7 @@ begin
       btncue.Enabled := True;
     end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
     if cbloop.Value then
     begin
       commanderfo.btncue2.Enabled := False;
@@ -2879,7 +2879,7 @@ begin
 
   // {$if defined(linux)}
 
-  if Caption = 'Player 1' then
+  if tag = 0 then
     if plugsoundtouch = True then
     begin
 
@@ -2911,7 +2911,7 @@ begin
       end;
     end;
 
-  if Caption = 'Player 2' then
+  if tag = 1 then
     if plugsoundtouch = True then
     begin
       if btncue.Enabled = True then

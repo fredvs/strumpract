@@ -115,13 +115,11 @@ type
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
     procedure created(const Sender: TObject);
-    procedure onsetval(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure onexecbut(const Sender: TObject);
     procedure changenab(const Sender: TObject);
     procedure onvisiblechange(const Sender: TObject);
     procedure loadlist(const Sender: TObject);
     procedure savelist(const Sender: TObject);
-    procedure ondestroy(const Sender: TObject);
   end;
 
 var
@@ -148,10 +146,6 @@ var
   asliders: tasliders;
   abuttons: tabuttons;
 begin
-
-  //  tstatfile1.filename := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
-  //   'ini' + directoryseparator + 'equalizer.ini');
-
   windowopacity := 0;
   asliders[1]   := tslider1;
   asliders[2]   := tslider2;
@@ -211,7 +205,6 @@ var
   x: integer;
   asliders: tasliders;
 begin
-  // {
   asliders[1]  := tslider1;
   asliders[2]  := tslider2;
   asliders[3]  := tslider3;
@@ -233,13 +226,10 @@ begin
   asliders[19] := tslider19;
   asliders[20] := tslider20;
 
-
   for x := 1 to 20 do
     onchangeslider(asliders[x]);
-  //  }
 
 end;
-
 
 procedure tequalizerfo.onchangeslider(const Sender: TObject);
 var
@@ -253,7 +243,6 @@ begin
 
     tagsender := tslider(Sender).tag;
     avalue    := tslider(Sender).Value;
-
 
     if (avalue < 0.52) and (avalue > 0.48) then
     begin
@@ -298,17 +287,13 @@ begin
 
     abutton.Caption := astring;
 
-    // if EQEN.value then  
-    if 1 = 1 then
-    begin
-
-      if Caption = 'Equalizer Player 1' then
+      if tag = 0 then
         if tagsender < 11 then
           songplayerfo.changefrequency(1, tagsender, again, -1)
         else
           songplayerfo.changefrequency(1, tagsender - 10, -1, again);
 
-      if Caption = 'Equalizer Player 2' then
+      if tag = 1 then
         if tagsender < 11 then
           songplayer2fo.changefrequency(2, tagsender, again, -1)
         else
@@ -320,20 +305,12 @@ begin
         else
           recorderfo.changefrequency(2, tagsender - 10, -1, again);
 
-    end;
   end;
-
 end;
 
 procedure tequalizerfo.created(const Sender: TObject);
 begin
   iscreated := True;
-end;
-
-procedure tequalizerfo.onsetval(const Sender: TObject; var avalue: realty; var accept: Boolean);
-begin
-  //if accept then
-  //onchangeslider(sender);
 end;
 
 procedure tequalizerfo.onexecbut(const Sender: TObject);
@@ -384,17 +361,17 @@ begin
   if Visible then
   begin
     if Assigned(mainfo) then
-      if Caption = 'Equalizer Player 1' then
+      if tag = 0 then
         mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Hide Equalizer 1 '
-      else if Caption = 'Equalizer Player 2' then
+      else if tag = 1 then
         mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Hide Equalizer 2 '
       else if Caption = 'Equalizer Recorder' then
         mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Hide Equalizer Rec ';
   end
   else if Assigned(mainfo) then
-    if Caption = 'Equalizer Player 1' then
+    if tag = 0 then
       mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Show Equalizer 1 '
-    else if Caption = 'Equalizer Player 2' then
+    else if tag = 1 then
       mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Equalizer 2 '
     else if Caption = 'Equalizer Recorder' then
       mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec ';
@@ -427,27 +404,30 @@ var
   ordir: msestring;
 begin
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
-
-  if Caption = 'Equalizer Player 1' then
-    dialogfilesfo.tag := 0
-  else if Caption = 'Equalizer Player 2' then
-    dialogfilesfo.tag := 1
-  else
-    dialogfilesfo.tag := 2;
-
+  dialogfilesfo.tag := tag;   
   dialogfilesfo.Caption := 'Load a Equalizer Settings File';
   dialogfilesfo.list_files.mask    := '*.equ';
   dialogfilesfo.list_files.path    := ordir;
   dialogfilesfo.selected_file.Text := '';
+ 
+   if (mainfo.typecolor.Value = 0) then
+     dialogfilesfo.list_files.frame.colorclient :=  $F9FFC2 else
+    if (mainfo.typecolor.Value = 0) then
+     dialogfilesfo.list_files.frame.colorclient :=  cl_ltgray else  
+        dialogfilesfo.list_files.frame.colorclient :=  cl_gray; 
+  //   dialogfilesfo.list_files.frame.colorclient :=  $575757; 
+ // dialogfilesfo.list_files.colorselect := $FFBE9C  ; 
+     
+  application.processmessages;
   dialogfilesfo.Show;
 end;
 
 procedure tequalizerfo.savelist(const Sender: TObject);
 begin
 
-  if Caption = 'Equalizer Player 1' then
+  if tag = 0 then
     typstat := 3
-  else if Caption = 'Equalizer Player 2' then
+  else if tag = 1 then
     typstat := 4
   else
     typstat := 5;
@@ -457,11 +437,6 @@ begin
   statusfo.layoutname.Value := 'MyEqualizerSettings';
   statusfo.layoutname.Visible := True;
   statusfo.activate;
-end;
-
-procedure tequalizerfo.ondestroy(const Sender: TObject);
-begin
- 
 end;
 
 end.
