@@ -61,6 +61,7 @@ object equalizerfo: tequalizerfo
   }
   oncreate = oncrea
   oncreated = created
+  ondestroy = ondestroy
   onshow = onvisiblechange
   onhide = onvisiblechange
   moduleclassname = 'tdockform'
@@ -114,7 +115,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -623,7 +624,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -1131,7 +1132,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -1639,7 +1640,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -2147,7 +2148,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -2655,7 +2656,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -3163,7 +3164,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -3671,7 +3672,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -4179,7 +4180,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -4687,7 +4688,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -5233,7 +5234,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -5741,7 +5742,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -6249,7 +6250,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -6757,7 +6758,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -7265,7 +7266,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -7773,7 +7774,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -8281,7 +8282,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -8789,7 +8790,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -9297,7 +9298,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
@@ -9805,7 +9806,7 @@ object equalizerfo: tequalizerfo
         bounds_y = 0
         bounds_cx = 21
         bounds_cy = 100
-        statfile = tstatfile1
+        statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
         scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]

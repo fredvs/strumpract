@@ -4,11 +4,36 @@ unit equalizer;
 interface
 
 uses
- ctypes,SysUtils,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,
- msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
- msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
- msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring,
- msefiledialogx, msestatfile, msebitmap;
+  Classes,
+  ctypes,
+  SysUtils,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msegraphedits,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msesimplewidgets,
+  msewidgets,
+  msechart,
+  msedispwidgets,
+  mserichstring,
+  msefiledialogx,
+  msestatfile,
+  msebitmap;
 
 type
   tasliders = array[1..20] of tslider;
@@ -81,34 +106,39 @@ type
     tslider20: tslider;
     tbutton20: TButton;
     tlabel2: tlabel;
-   fond: tstringdisp;
-   loadset: tbutton;
-   saveset: tbutton;
-   tfiledialog1: tfiledialogx;
-   tstatfile1: tstatfile;
+    fond: tstringdisp;
+    loadset: TButton;
+    saveset: TButton;
+    tfiledialog1: tfiledialogx;
+    tstatfile1: tstatfile;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
-   procedure created(const sender: TObject);
-   procedure onsetval(const sender: TObject; var avalue: realty;
-                   var accept: Boolean);
-   procedure onexecbut(const sender: TObject);
-   procedure changenab(const sender: TObject);
-   procedure onvisiblechange(const sender: TObject);
-   procedure loadlist(const Sender: TObject);
-   procedure savelist(const Sender: TObject);
+    procedure created(const Sender: TObject);
+    procedure onsetval(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure onexecbut(const Sender: TObject);
+    procedure changenab(const Sender: TObject);
+    procedure onvisiblechange(const Sender: TObject);
+    procedure loadlist(const Sender: TObject);
+    procedure savelist(const Sender: TObject);
+    procedure ondestroy(const Sender: TObject);
   end;
 
 var
   equalizerfo1: tequalizerfo;
   equalizerfo2: tequalizerfo;
   equalizerforec: tequalizerfo;
-  iscreated : boolean = false; 
-  
+  iscreated: Boolean = False;
+
 implementation
 
 uses
-commander, songplayer, recorder, main, dockpanel1, status,
+  commander,
+  songplayer,
+  recorder,
+  main,
+  dockpanel1,
+  status,
   equalizer_mfm;
 
 procedure tequalizerfo.oncrea(const Sender: TObject);
@@ -117,17 +147,21 @@ var
   asliders: tasliders;
   abuttons: tabuttons;
 begin
+
+  //  tstatfile1.filename := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+  //   'ini' + directoryseparator + 'equalizer.ini');
+
   windowopacity := 0;
-  asliders[1]  := tslider1;
-  asliders[2]  := tslider2;
-  asliders[3]  := tslider3;
-  asliders[4]  := tslider4;
-  asliders[5]  := tslider5;
-  asliders[6]  := tslider6;
-  asliders[7]  := tslider7;
-  asliders[8]  := tslider8;
-  asliders[9]  := tslider9;
-  asliders[10] := tslider10;
+  asliders[1]   := tslider1;
+  asliders[2]   := tslider2;
+  asliders[3]   := tslider3;
+  asliders[4]   := tslider4;
+  asliders[5]   := tslider5;
+  asliders[6]   := tslider6;
+  asliders[7]   := tslider7;
+  asliders[8]   := tslider8;
+  asliders[9]   := tslider9;
+  asliders[10]  := tslider10;
   asliders[11]  := tslider11;
   asliders[12]  := tslider12;
   asliders[13]  := tslider13;
@@ -137,8 +171,8 @@ begin
   asliders[17]  := tslider17;
   asliders[18]  := tslider18;
   asliders[19]  := tslider19;
-  asliders[20] := tslider20;
-  
+  asliders[20]  := tslider20;
+
   abuttons[1]  := tbutton1;
   abuttons[2]  := tbutton2;
   abuttons[3]  := tbutton3;
@@ -149,24 +183,24 @@ begin
   abuttons[8]  := tbutton8;
   abuttons[9]  := tbutton9;
   abuttons[10] := tbutton10;
-  abuttons[11]  := tbutton11;
-  abuttons[12]  := tbutton12;
-  abuttons[13]  := tbutton13;
-  abuttons[14]  := tbutton14;
-  abuttons[15]  := tbutton15;
-  abuttons[16]  := tbutton16;
-  abuttons[17]  := tbutton17;
-  abuttons[18]  := tbutton18;
-  abuttons[19]  := tbutton19;
+  abuttons[11] := tbutton11;
+  abuttons[12] := tbutton12;
+  abuttons[13] := tbutton13;
+  abuttons[14] := tbutton14;
+  abuttons[15] := tbutton15;
+  abuttons[16] := tbutton16;
+  abuttons[17] := tbutton17;
+  abuttons[18] := tbutton18;
+  abuttons[19] := tbutton19;
   abuttons[20] := tbutton20;
-  
+
   for x := 1 to 20 do
   begin
-    asliders[x].tag := x;
-    asliders[x].onchange := @onchangeslider;
-    abuttons[x].tag := x;
+    asliders[x].tag       := x;
+    asliders[x].onchange  := @onchangeslider;
+    abuttons[x].tag       := x;
     abuttons[x].onexecute := @onexecbut;
-    abuttons[x].hint := ' Reset to 0 ';
+    abuttons[x].hint      := ' Reset to 0 ';
   end;
 
 end;
@@ -175,9 +209,8 @@ procedure tequalizerfo.onchangeall();
 var
   x: integer;
   asliders: tasliders;
-  
 begin
-// {
+  // {
   asliders[1]  := tslider1;
   asliders[2]  := tslider2;
   asliders[3]  := tslider3;
@@ -188,208 +221,212 @@ begin
   asliders[8]  := tslider8;
   asliders[9]  := tslider9;
   asliders[10] := tslider10;
-  asliders[11]  := tslider11;
-  asliders[12]  := tslider12;
-  asliders[13]  := tslider13;
-  asliders[14]  := tslider14;
-  asliders[15]  := tslider15;
-  asliders[16]  := tslider16;
-  asliders[17]  := tslider17;
-  asliders[18]  := tslider18;
-  asliders[19]  := tslider19;
+  asliders[11] := tslider11;
+  asliders[12] := tslider12;
+  asliders[13] := tslider13;
+  asliders[14] := tslider14;
+  asliders[15] := tslider15;
+  asliders[16] := tslider16;
+  asliders[17] := tslider17;
+  asliders[18] := tslider18;
+  asliders[19] := tslider19;
   asliders[20] := tslider20;
- 
-    
+
+
   for x := 1 to 20 do
-  begin
-  onchangeslider(asliders[x]);
-  end;  
-//  }
-   
+    onchangeslider(asliders[x]);
+  //  }
+
 end;
 
 
 procedure tequalizerfo.onchangeslider(const Sender: TObject);
 var
   avalue, again: cfloat;
-  tagsender : integer;
-  abutton : tbutton;
-  astring :  msestring;
+  tagsender: integer;
+  abutton: TButton;
+  astring: msestring;
 begin
-if iscreated then begin
+  if iscreated then
+  begin
 
- tagsender := tslider(Sender).tag;
- avalue := tslider(Sender).Value;
- 
- 
-      if (avalue < 0.52) and (avalue > 0.48) then
+    tagsender := tslider(Sender).tag;
+    avalue    := tslider(Sender).Value;
+
+
+    if (avalue < 0.52) and (avalue > 0.48) then
     begin
-      again := 1;
+      again   := 1;
       astring := '0';
     end
     else if avalue >= 0.52 then
     begin
-      again := 1 + ((avalue - 0.52) * 4);
-      astring :=  msestring(inttostr(round(again * 3.5)));
+      again   := 1 + ((avalue - 0.52) * 4);
+      astring := msestring(IntToStr(round(again * 3.5)));
     end
     else
     begin
-      again := (0.48 - avalue);
-      if again < 0.2 then again := 0;
-      astring :=  msestring('-' + inttostr(round(again * 20)));
+      again   := (0.48 - avalue);
+      if again < 0.2 then
+        again := 0;
+      astring := msestring('-' + IntToStr(round(again * 20)));
     end;
-    
+
     case tagsender of
-    1: abutton := tbutton1;
-    2: abutton := tbutton2;
-    3: abutton := tbutton3;
-    4: abutton := tbutton4;
-    5: abutton := tbutton5;
-    6: abutton := tbutton6;
-    7: abutton := tbutton7;
-    8: abutton := tbutton8;
-    9: abutton := tbutton9;
-    10: abutton := tbutton10;
-    11: abutton := tbutton11;
-    12: abutton := tbutton12;
-    13: abutton := tbutton13;
-    14: abutton := tbutton14;
-    15: abutton := tbutton15;
-    16: abutton := tbutton16;
-    17: abutton := tbutton17;
-    18: abutton := tbutton18;
-    19: abutton := tbutton19;
-    20: abutton := tbutton20;
-   end;
-   
-  abutton.caption := astring;  
-  
- // if EQEN.value then  
-  if 1=1 then
-  begin 
-  
-  if Caption = 'Equalizer Player 1' then
-  begin
-  if tagsender < 11 then
-  songplayerfo.changefrequency(1, tagsender, again, -1) else
-  songplayerfo.changefrequency(1, tagsender-10, -1, again)
+      1: abutton  := tbutton1;
+      2: abutton  := tbutton2;
+      3: abutton  := tbutton3;
+      4: abutton  := tbutton4;
+      5: abutton  := tbutton5;
+      6: abutton  := tbutton6;
+      7: abutton  := tbutton7;
+      8: abutton  := tbutton8;
+      9: abutton  := tbutton9;
+      10: abutton := tbutton10;
+      11: abutton := tbutton11;
+      12: abutton := tbutton12;
+      13: abutton := tbutton13;
+      14: abutton := tbutton14;
+      15: abutton := tbutton15;
+      16: abutton := tbutton16;
+      17: abutton := tbutton17;
+      18: abutton := tbutton18;
+      19: abutton := tbutton19;
+      20: abutton := tbutton20;
+    end;
+
+    abutton.Caption := astring;
+
+    // if EQEN.value then  
+    if 1 = 1 then
+    begin
+
+      if Caption = 'Equalizer Player 1' then
+        if tagsender < 11 then
+          songplayerfo.changefrequency(1, tagsender, again, -1)
+        else
+          songplayerfo.changefrequency(1, tagsender - 10, -1, again);
+
+      if Caption = 'Equalizer Player 2' then
+        if tagsender < 11 then
+          songplayer2fo.changefrequency(2, tagsender, again, -1)
+        else
+          songplayer2fo.changefrequency(2, tagsender - 10, -1, again);
+
+      if Caption = 'Equalizer Recorder' then
+        if tagsender < 11 then
+          recorderfo.changefrequency(2, tagsender, again, -1)
+        else
+          recorderfo.changefrequency(2, tagsender - 10, -1, again);
+
+    end;
   end;
-  
-  if Caption = 'Equalizer Player 2' then
-  begin
-  if tagsender < 11 then
-  songplayer2fo.changefrequency(2, tagsender, again, -1) else
-  songplayer2fo.changefrequency(2, tagsender-10, -1, again)
-  end;
-  
-  if Caption = 'Equalizer Recorder' then
-  begin
-  if tagsender < 11 then
-  recorderfo.changefrequency(2, tagsender, again, -1) else
-  recorderfo.changefrequency(2, tagsender-10, -1, again)
-  end;
-   
- end;
- end;
- 
+
 end;
 
-procedure tequalizerfo.created(const sender: TObject);
+procedure tequalizerfo.created(const Sender: TObject);
 begin
-iscreated := true;
+  iscreated := True;
 end;
 
-procedure tequalizerfo.onsetval(const sender: TObject; var avalue: realty;
-               var accept: Boolean);
+procedure tequalizerfo.onsetval(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
-//if accept then
-//onchangeslider(sender);
+  //if accept then
+  //onchangeslider(sender);
 end;
 
-procedure tequalizerfo.onexecbut(const sender: TObject);
+procedure tequalizerfo.onexecbut(const Sender: TObject);
 var
-  tagsender : integer;
-  aslider : tslider;
+  tagsender: integer;
+  aslider: tslider;
 begin
-if iscreated then begin
- tagsender := Tbutton(Sender).tag; 
- 
- case tagsender of
-    1: aslider := tslider1;
-    2: aslider := tslider2;
-    3: aslider := tslider3;
-    4: aslider := tslider4;
-    5: aslider := tslider5;
-    6: aslider := tslider6;
-    7: aslider := tslider7;
-    8: aslider := tslider8;
-    9: aslider := tslider9;
-    10: aslider := tslider10;
-    11: aslider := tslider11;
-    12: aslider := tslider12;
-    13: aslider := tslider13;
-    14: aslider := tslider14;
-    15: aslider := tslider15;
-    16: aslider := tslider16;
-    17: aslider := tslider17;
-    18: aslider := tslider18;
-    19: aslider := tslider19;
-    20: aslider := tslider20;
-   end; 
-   
-  aslider.value := 0.5;  
-  Tbutton(Sender).caption := '0';
-end;
-end;
-
-procedure tequalizerfo.changenab(const sender: TObject);
-begin
-onchangeall(); 
-end;
-
-procedure tequalizerfo.onvisiblechange(const sender: TObject);
-begin
-
-if Visible then
+  if iscreated then
   begin
-   if assigned(mainfo) then
-   if caption = 'Equalizer Player 1' then
-    mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Hide Equalizer 1 '
-    else
-    if caption = 'Equalizer Player 2' then
-      mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Hide Equalizer 2 '
-    else  
-     if caption = 'Equalizer Recorder' then
-      mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Hide Equalizer Rec ' 
-  end
-  else
-  begin
-   // dostop(Sender);
-  if assigned(mainfo) then  
-  if caption = 'Equalizer Player 1' then
-    mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Show Equalizer 1 '
-    else  if caption = 'Equalizer Player 2' then
-    mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Equalizer 2 '
-    else  if caption = 'Equalizer Recorder' then
-    mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec ';
+    tagsender := TButton(Sender).tag;
+
+    case tagsender of
+      1: aslider  := tslider1;
+      2: aslider  := tslider2;
+      3: aslider  := tslider3;
+      4: aslider  := tslider4;
+      5: aslider  := tslider5;
+      6: aslider  := tslider6;
+      7: aslider  := tslider7;
+      8: aslider  := tslider8;
+      9: aslider  := tslider9;
+      10: aslider := tslider10;
+      11: aslider := tslider11;
+      12: aslider := tslider12;
+      13: aslider := tslider13;
+      14: aslider := tslider14;
+      15: aslider := tslider15;
+      16: aslider := tslider16;
+      17: aslider := tslider17;
+      18: aslider := tslider18;
+      19: aslider := tslider19;
+      20: aslider := tslider20;
+    end;
+
+    aslider.Value           := 0.5;
+    TButton(Sender).Caption := '0';
   end;
-if norefresh = false then
+end;
+
+procedure tequalizerfo.changenab(const Sender: TObject);
 begin
- if assigned(mainfo) then  mainfo.updatelayoutstrum();
- if assigned(dockpanel1fo) then  if dockpanel1fo.visible then dockpanel1fo.updatelayoutpan();
- if assigned(dockpanel2fo) then if dockpanel2fo.visible then dockpanel2fo.updatelayoutpan();
- if assigned(dockpanel3fo) then if dockpanel3fo.visible then dockpanel3fo.updatelayoutpan();
- if assigned(dockpanel4fo) then if dockpanel4fo.visible then dockpanel4fo.updatelayoutpan();
- if assigned(dockpanel5fo) then if dockpanel5fo.visible then dockpanel5fo.updatelayoutpan();
-end; 
+  onchangeall();
+end;
+
+procedure tequalizerfo.onvisiblechange(const Sender: TObject);
+begin
+
+  if Visible then
+  begin
+    if Assigned(mainfo) then
+      if Caption = 'Equalizer Player 1' then
+        mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Hide Equalizer 1 '
+      else if Caption = 'Equalizer Player 2' then
+        mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Hide Equalizer 2 '
+      else if Caption = 'Equalizer Recorder' then
+        mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Hide Equalizer Rec ';
+  end
+  else if Assigned(mainfo) then
+    if Caption = 'Equalizer Player 1' then
+      mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Show Equalizer 1 '
+    else if Caption = 'Equalizer Player 2' then
+      mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Equalizer 2 '
+    else if Caption = 'Equalizer Recorder' then
+      mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec '// dostop(Sender);
+  ;
+  if norefresh = False then
+  begin
+    if Assigned(mainfo) then
+      mainfo.updatelayoutstrum();
+    if Assigned(dockpanel1fo) then
+      if dockpanel1fo.Visible then
+        dockpanel1fo.updatelayoutpan();
+    if Assigned(dockpanel2fo) then
+      if dockpanel2fo.Visible then
+        dockpanel2fo.updatelayoutpan();
+    if Assigned(dockpanel3fo) then
+      if dockpanel3fo.Visible then
+        dockpanel3fo.updatelayoutpan();
+    if Assigned(dockpanel4fo) then
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayoutpan();
+    if Assigned(dockpanel5fo) then
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayoutpan();
+  end;
 
 end;
 
 procedure tequalizerfo.loadlist(const Sender: TObject);
 var
-  x: integer;
-  ordir: msestring;
-  cellpos: gridcoordty;
+  ordir, str, str2: msestring;
+  asliders: tasliders;
+  x: integer = 1;
+  ds: char;
 begin
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
   tfiledialog1.controller.captionopen := 'Open Equalizer Settings File';
@@ -400,36 +437,94 @@ begin
     tfiledialog1.controller.backcolor := $A6A6A6
   else
     tfiledialog1.controller.backcolor := cl_default;
-    
-    if caption = 'Equalizer Player 1' then
-  tfiledialog1.controller.filter   := '"*.eq1"' else
-  if caption = 'Equalizer Player 2' then
-  tfiledialog1.controller.filter   := '"*.eq2"' else  
-  tfiledialog1.controller.filter   := '"*.eqR"';
- 
+
+  tfiledialog1.controller.filter := '"*.equ"';
+
   tfiledialog1.controller.filename := ordir;
 
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
     if fileexists(tfiledialog1.controller.filename) then
     begin
-      EQEN.value := true;
-      tstatfile1.readstat(msestring(tfiledialog1.controller.filename));
+      EQEN.Value := True;
+
+      asliders[1]  := tslider1;
+      asliders[2]  := tslider2;
+      asliders[3]  := tslider3;
+      asliders[4]  := tslider4;
+      asliders[5]  := tslider5;
+      asliders[6]  := tslider6;
+      asliders[7]  := tslider7;
+      asliders[8]  := tslider8;
+      asliders[9]  := tslider9;
+      asliders[10] := tslider10;
+      asliders[11] := tslider11;
+      asliders[12] := tslider12;
+      asliders[13] := tslider13;
+      asliders[14] := tslider14;
+      asliders[15] := tslider15;
+      asliders[16] := tslider16;
+      asliders[17] := tslider17;
+      asliders[18] := tslider18;
+      asliders[19] := tslider19;
+      asliders[20] := tslider20;
+
+      with TStringList.Create do
+        try
+          Loadfromfile(tfiledialog1.controller.filename);
+          str := Text;
+        finally
+          Free;
+        end;
+
+      str2 := copy(str, 1, system.pos('|', str) - 1);
+
+      ds := decimalseparator;
+      decimalseparator := '.';
+
+      // writeln(str2);
+
+      asliders[1].Value := strtofloat(str2);
+
+      while (system.pos('|', str) > 0) and (x < 20) do
+      begin
+        Inc(x);
+        str2 := system.copy(str, system.pos('|', str) + 1, 6);
+        str  := stringreplace(str, '|', ' ',
+          [rfIgnoreCase]);
+
+        //writeln('it is ' +inttostr(x) + '    ' + str2 );                       
+
+        if trim(str2) <> '' then
+          asliders[x].Value := strtofloat(str2);
+
+      end;
+      decimalseparator := ds;
     end;
 end;
 
 procedure tequalizerfo.savelist(const Sender: TObject);
 begin
- if caption = 'Equalizer Player 1' then
-  typstat          := 3 else
-  if caption = 'Equalizer Player 2' then
-  typstat          := 4 else  typstat  := 5;
-   
+
+  if Caption = 'Equalizer Player 1' then
+    typstat := 3
+  else if Caption = 'Equalizer Player 2' then
+    typstat := 4
+  else
+    typstat := 5;
+
   statusfo.Caption := 'Save Equalizer Settings as';
   statusfo.color   := $A7C9B9;
   statusfo.layoutname.Value := 'MyEqualizerSettings';
   //statusfo.layoutname.frame.caption := 'Choose a cue-list name';
   statusfo.layoutname.Visible := True;
   statusfo.activate;
+end;
+
+procedure tequalizerfo.ondestroy(const Sender: TObject);
+begin
+  //  tstatfile1.writestat(msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))))
+  //   + 'ini' + directoryseparator + 'equalizer.ini');
+
 end;
 
 end.
