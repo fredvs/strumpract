@@ -2541,7 +2541,16 @@ begin
 
     songplayerfo.button2.font.color  := thecolor1;
     songplayer2fo.button2.font.color := thecolor2;
+    
+    equalizerfo1.loadset.font.color  := thecolor1;
+    equalizerfo2.loadset.font.color  := thecolor2;
+    equalizerforec.loadset.font.color  := thecolor1;
 
+     equalizerfo1.saveset.font.color  := thecolor1;
+    equalizerfo2.saveset.font.color  := thecolor2;
+    equalizerforec.saveset.font.color  := thecolor1;
+
+   
     songplayerfo.tstringdisp1.color  := cl_black;
     songplayer2fo.tstringdisp1.color := cl_black;
 
@@ -3222,6 +3231,15 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.button2.font.color  := ltblack;
     songplayer2fo.button2.font.color := ltblack;
+    
+     equalizerfo1.loadset.font.color  := ltblack;
+    equalizerfo2.loadset.font.color  := ltblack;
+    equalizerforec.loadset.font.color  := ltblack;
+
+     equalizerfo1.saveset.font.color  := ltblack;
+    equalizerfo2.saveset.font.color  := ltblack;
+    equalizerforec.saveset.font.color  := ltblack;
+
 
 
 {
@@ -4049,6 +4067,15 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     songplayerfo.button2.font.color  := ltblank;
     songplayer2fo.button2.font.color := ltblank;
+    
+     equalizerfo1.loadset.font.color  := ltblank;
+    equalizerfo2.loadset.font.color  := ltblank;
+    equalizerforec.loadset.font.color  := ltblank;
+    
+     equalizerfo1.saveset.font.color  := ltblank;
+    equalizerfo2.saveset.font.color  := ltblank;
+    equalizerforec.saveset.font.color  := ltblank;
+
 
     songplayer2fo.tfaceslider.template.fade_color.items[0] := $5A5A5A;
     songplayer2fo.tfaceslider.template.fade_color.items[1] := $2A2A2A;

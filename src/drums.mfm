@@ -1345,7 +1345,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 17
     end
     object loop_stop: tbutton
-      color = 11848368
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
@@ -1365,7 +1365,7 @@ object drumsfo: tdrumsfo
       onexecute = dostop
     end
     object loop_resume: tbutton
-      color = 11848368
+      color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
@@ -1385,7 +1385,7 @@ object drumsfo: tdrumsfo
       onexecute = doresume
     end
     object loop_start: tbutton
-      color = 11848368
+      color = -2147483645
       frame.colorframe = -2147483642
       frame.colorframedefault = -2147483642
       frame.colorshadow = -2147483642

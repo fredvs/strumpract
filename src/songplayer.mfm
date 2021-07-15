@@ -214,6 +214,7 @@ object songplayerfo: tsongplayerfo
       scrollbar.onafterevent = onafterev
     end
     object historyfn: thistoryedit
+      color = -2147483645
       frame.captionpos = cp_lefttop
       frame.captiondist = 0
       frame.localprops = []
@@ -667,7 +668,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 3
       bounds_y = 49
       bounds_cx = 28
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'LP'
       font.color = 3881787
@@ -683,8 +684,8 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       taborder = 22
       visible = False
-      bounds_x = 78
-      bounds_y = 8
+      bounds_x = 102
+      bounds_y = 35
       bounds_cx = 148
       bounds_cy = 42
       reffontheight = 15
@@ -850,7 +851,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 32
       bounds_y = 49
       bounds_cx = 28
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Rev'
       font.color = 3881787
@@ -875,7 +876,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 61
       bounds_y = 49
       bounds_cx = 28
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'WF'
       font.color = 3881787
@@ -899,7 +900,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 90
       bounds_y = 49
       bounds_cx = 28
-      bounds_cy = 17
+      bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Mo'
       font.color = 3881787
@@ -923,7 +924,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 229
       bounds_y = 48
       bounds_cx = 38
-      bounds_cy = 17
+      bounds_cy = 15
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Strech'
       font.color = 3881787
@@ -942,8 +943,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 117
-      bounds_y = 57
+      bounds_x = 99
+      bounds_y = 59
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -994,8 +995,8 @@ object songplayerfo: tsongplayerfo
     top = 23
   end
   object sliderimage: tbitmapcomp
-    left = 270
-    top = 85
+    left = 303
+    top = 26
   end
   object ttimer1: ttimer
     interval = 1500000

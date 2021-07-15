@@ -167,7 +167,7 @@ object commanderfo: tcommanderfo
     end
     object tslider2: tslider
       Tag = 3
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -280,7 +280,7 @@ object commanderfo: tcommanderfo
     bounds_cx = 35
     bounds_cy = 126
     object tslider3: tslider
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -421,7 +421,7 @@ object commanderfo: tcommanderfo
     bounds_cy = 126
     object genvolright: tslider
       Tag = 1
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -468,7 +468,7 @@ object commanderfo: tcommanderfo
       direction = gd_up
     end
     object genvolleft: tslider
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -623,7 +623,7 @@ object commanderfo: tcommanderfo
       reffontheight = 13
     end
     object sysvol: tslider
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -815,7 +815,7 @@ object commanderfo: tcommanderfo
     end
     object volumeleft1: tslider
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -865,7 +865,7 @@ object commanderfo: tcommanderfo
     object volumeright1: tslider
       Tag = 1
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -956,7 +956,7 @@ object commanderfo: tcommanderfo
     object volumeright2: tslider
       Tag = 3
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -1006,7 +1006,7 @@ object commanderfo: tcommanderfo
     object volumeleft2: tslider
       Tag = 2
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
-      color = 13357471
+      color = -2147483645
       frame.levelo = 0
       frame.colordkwidth = 0
       frame.colorhlwidth = 0
@@ -1554,6 +1554,7 @@ object commanderfo: tcommanderfo
     end
     object speccalcb: tbutton
       Tag = 1
+      color = -2147483645
       frame.framei_left = 4
       frame.framei_top = 2
       frame.framei_right = 4
@@ -1583,7 +1584,7 @@ object commanderfo: tcommanderfo
       bounds_y = 6
       bounds_cx = 40
       bounds_cy = 17
-      state = [as_localcaption, as_localhint, as_localonexecute]
+      state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
       caption = 'SCal'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
@@ -1634,6 +1635,7 @@ object commanderfo: tcommanderfo
       onexecute = onexecbutlght
     end
     object vuinb: tbutton
+      color = -2147483645
       frame.framei_left = 4
       frame.framei_top = 2
       frame.framei_right = 4
@@ -1663,7 +1665,7 @@ object commanderfo: tcommanderfo
       bounds_y = 6
       bounds_cx = 40
       bounds_cy = 17
-      state = [as_localcaption, as_localhint, as_localonexecute]
+      state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
       caption = 'VU'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
@@ -1675,6 +1677,7 @@ object commanderfo: tcommanderfo
     end
     object automixb: tbutton
       Tag = 1
+      color = -2147483645
       frame.framei_left = 4
       frame.framei_top = 2
       frame.framei_right = 4
@@ -1704,7 +1707,7 @@ object commanderfo: tcommanderfo
       bounds_y = 26
       bounds_cx = 40
       bounds_cy = 17
-      state = [as_localcaption, as_localhint, as_localonexecute]
+      state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
       caption = 'AMix'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
@@ -2120,6 +2123,7 @@ object commanderfo: tcommanderfo
       end
     end
     object Brandommix: tbutton
+      color = -2147483645
       frame.framei_left = 4
       frame.framei_top = 2
       frame.framei_right = 4
@@ -2149,7 +2153,7 @@ object commanderfo: tcommanderfo
       bounds_y = 26
       bounds_cx = 40
       bounds_cy = 17
-      state = [as_localcaption, as_localhint, as_localonexecute]
+      state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Ran'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
@@ -2201,8 +2205,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 309
-    top = 86
+    left = 306
+    top = 66
   end
   object timagelist2: timagelist
     width = 4
@@ -2731,8 +2735,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 309
-    top = 78
+    left = 299
+    top = 55
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -3177,8 +3181,8 @@ object commanderfo: tcommanderfo
       750389
       16749824
     )
-    left = 310
-    top = 74
+    left = 281
+    top = 65
   end
   object timagelist1: timagelist
     width = 32
