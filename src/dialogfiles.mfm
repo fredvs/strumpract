@@ -12,6 +12,8 @@ object dialogfilesfo: tdialogfilesfo
   container.optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_mousetransparent, ow_destroywidgets]
   container.frame.localprops = []
   container.frame.localprops1 = []
+  container.face.localprops = []
+  container.face.template = mainfo.tfaceplayer
   container.bounds = (
     0
     0
@@ -25,52 +27,10 @@ object dialogfilesfo: tdialogfilesfo
   windowopacity = -Inf
   onclose = oncloseev
   moduleclassname = 'tmseform'
-  object tstringdisp1: tstringdisp
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin, frl_colorclient]
-    frame.localprops1 = []
-    face.localprops = []
-    face.template = mainfo.tfaceplayer
-    taborder = 2
-    bounds_x = 0
-    bounds_y = 0
-    bounds_cx = 334
-    bounds_cy = 313
-    anchors = [an_left, an_top, an_right, an_bottom]
-    reffontheight = 15
-    object list_files: tfilelistview
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.optionsskin = [fso_flat]
-      frame.localprops = [frl_levelo, frl_colordkwidth, frl_colorhlwidth, frl_optionsskin, frl_colorclient]
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = mainfo.tfaceplayer
-      bounds_x = 5
-      bounds_y = 50
-      bounds_cx = 329
-      bounds_cy = 257
-      anchors = [an_left, an_top, an_right, an_bottom]
-      font.name = 'stf_default'
-      font.localprops = []
-      colorselect = 16760476
-      colorglyph = 16449400
-      cellwidth = 322
-      cellheight = 19
-      fixrows.color = -2147483645
-      optionsgrid = [og_focuscellonenter, og_sorted, og_colchangeontabkey, og_wraprow, og_wrapcol, og_autopopup, og_mousescrollcol]
-      options = [lvo_readonly, lvo_horz, lvo_drawfocus, lvo_leftbuttonfocusonly, lvo_focusselect, lvo_mouseselect, lvo_locate]
-      onselectionchanged = loaddef
-      filelist.options = [flo_sortname, flo_sorttype]
-      reffontheight = 15
-    end
-  end
   object selected_file: tedit
     optionswidget1 = [ow1_fontglyphheight]
     color = -2147483645
-    frame.caption = 'Selected Equalizer Settings File'
+    frame.caption = 'Selected'
     frame.localprops = [frl_colorclient]
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp2
@@ -82,8 +42,8 @@ object dialogfilesfo: tdialogfilesfo
     )
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    bounds_x = 6
-    bounds_y = 5
+    bounds_x = 7
+    bounds_y = 6
     bounds_cx = 324
     bounds_cy = 39
     anchors = [an_left, an_top, an_right]
@@ -109,5 +69,56 @@ object dialogfilesfo: tdialogfilesfo
     state = [as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
     caption = '&OK'
     onexecute = butok
+  end
+  object setother: tbooleanedit
+    color = -2147483645
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.caption = 'Set it for the other player too'
+    frame.localprops = [frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = commanderfo.tframecomp2
+    frame.outerframe = (
+      0
+      2
+      179
+      3
+    )
+    face.localprops = []
+    face.template = mainfo.tfaceplayer
+    taborder = 2
+    bounds_x = 69
+    bounds_y = 2
+    bounds_cx = 192
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    colorglyph = -1610612728
+  end
+  object list_files: tfilelistview
+    frame.levelo = 0
+    frame.colordkwidth = 0
+    frame.colorhlwidth = 0
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_levelo, frl_colordkwidth, frl_colorhlwidth, frl_optionsskin, frl_colorclient]
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = mainfo.tfaceplayer
+    taborder = 3
+    bounds_x = 5
+    bounds_y = 51
+    bounds_cx = 329
+    bounds_cy = 259
+    anchors = [an_left, an_top, an_right, an_bottom]
+    font.name = 'stf_default'
+    font.localprops = []
+    colorselect = 16760476
+    colorglyph = 16449400
+    cellwidth = 322
+    cellheight = 19
+    fixrows.color = -2147483645
+    optionsgrid = [og_focuscellonenter, og_sorted, og_colchangeontabkey, og_wraprow, og_wrapcol, og_autopopup, og_mousescrollcol]
+    options = [lvo_readonly, lvo_horz, lvo_drawfocus, lvo_leftbuttonfocusonly, lvo_focusselect, lvo_mouseselect, lvo_locate]
+    onselectionchanged = loaddef
+    filelist.options = [flo_sortname, flo_sorttype]
+    reffontheight = 15
   end
 end

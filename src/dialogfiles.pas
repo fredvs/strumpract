@@ -4,29 +4,64 @@ unit dialogfiles;
 interface
 
 uses
- Classes,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,
- msegui,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
- mseact,msebitmap,msedataedits,msedatanodes,mseedit,msegrids,mseificomp,
- mseificompglob,mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,
- msesys,SysUtils,msesimplewidgets,msedispwidgets,mserichstring,msefiledialog,
-  msedragglob, msedropdownlist, msegridsglob;
+  Classes,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  mseact,
+  msebitmap,
+  msedataedits,
+  msedatanodes,
+  mseedit,
+  msegrids,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  mselistbrowser,
+  msestatfile,
+  msestream,
+  msestrings,
+  msesys,
+  SysUtils,
+  msesimplewidgets,
+  msedispwidgets,
+  mserichstring,
+  msefiledialog,
+  msedragglob,
+  msedropdownlist,
+  msegridsglob,
+  msegraphedits,
+  msescrollbar;
 
 type
   tdialogfilesfo = class(tmseform)
     tbutton1: TButton;
     selected_file: tedit;
-    tstringdisp1: tstringdisp;
-   list_files: tfilelistview;
+    setother: tbooleanedit;
+    list_files: tfilelistview;
     procedure loaddef(const Sender: tcustomlistview);
     procedure butok(const Sender: TObject);
     procedure oncloseev(const Sender: TObject);
+    procedure doeq;
+
   end;
 
 var
   dialogfilesfo: tdialogfilesfo;
   dialogfilesformcreated: Boolean = True;
   layoutbusy: Boolean = False;
-
+  
 procedure dodialogfiles;
 
 implementation
@@ -34,6 +69,9 @@ implementation
 uses
   dialogfiles_mfm,
   equalizer;
+  
+var
+asliders: tasliders;  
 
 procedure dodialogfiles;
 begin
@@ -46,12 +84,43 @@ begin
   end;
 end;
 
-procedure tdialogfilesfo.loaddef(const Sender: tcustomlistview);
+procedure tdialogfilesfo.doeq;
 var
   str, str2: msestring;
-  asliders: tasliders;
   x: integer = 1;
   ds: char;
+begin
+  with TStringList.Create do
+    try
+      Loadfromfile(list_files.directory + directoryseparator + selected_file.Text);
+      str := Text;
+    finally
+      Free;
+    end;
+
+  str2 := copy(str, 1, system.pos('|', str) - 1);
+
+  ds := decimalseparator;
+  decimalseparator := '.';
+
+  asliders[1].Value := strtofloat(str2);
+
+  while (system.pos('|', str) > 0) and (x < 20) do
+  begin
+    Inc(x);
+    str2 := system.copy(str, system.pos('|', str) + 1, 6);
+    str  := stringreplace(str, '|', ' ',
+      [rfIgnoreCase]);
+
+    if trim(str2) <> '' then
+      asliders[x].Value := strtofloat(str2);
+
+  end;
+  decimalseparator := ds;
+end;
+
+
+procedure tdialogfilesfo.loaddef(const Sender: tcustomlistview);
 begin
   layoutbusy := True;
   if Assigned(list_files.selectednames) then
@@ -59,9 +128,8 @@ begin
     selected_file.Text := list_files.selectednames[0];
 
     if fileexists(list_files.directory + directoryseparator + selected_file.Text) then
-    begin   
-      if (tag = 0) then
-      begin
+    begin
+      if (tag = 0) or ((setother.Visible = True) and (setother.Value = True)) then
         with equalizerfo1 do
         begin
           EQEN.Value   := True;
@@ -85,11 +153,10 @@ begin
           asliders[18] := tslider18;
           asliders[19] := tslider19;
           asliders[20] := tslider20;
+          doeq;
         end;
-        end;
-        
-     if (tag = 1) then
-      begin
+
+     if (tag = 1) or ((setother.Visible = True) and (setother.Value = True)) then
         with equalizerfo2 do
         begin
           EQEN.Value   := True;
@@ -113,11 +180,10 @@ begin
           asliders[18] := tslider18;
           asliders[19] := tslider19;
           asliders[20] := tslider20;
+          doeq;
         end;
-        end;
-        
+
       if (tag = 2) then
-      begin
         with equalizerforec do
         begin
           EQEN.Value   := True;
@@ -141,38 +207,11 @@ begin
           asliders[18] := tslider18;
           asliders[19] := tslider19;
           asliders[20] := tslider20;
+          doeq;
         end;
-        end;
 
-        with TStringList.Create do
-          try
-            Loadfromfile(list_files.directory + directoryseparator + selected_file.Text);
-            str := Text;
-          finally
-            Free;
-          end;
-
-        str2 := copy(str, 1, system.pos('|', str) - 1);
-
-        ds := decimalseparator;
-        decimalseparator := '.';
-
-        asliders[1].Value := strtofloat(str2);
-
-        while (system.pos('|', str) > 0) and (x < 20) do
-        begin
-          Inc(x);
-          str2 := system.copy(str, system.pos('|', str) + 1, 6);
-          str  := stringreplace(str, '|', ' ',
-            [rfIgnoreCase]);
-
-          if trim(str2) <> '' then
-            asliders[x].Value := strtofloat(str2);
-
-        end;
-        decimalseparator := ds;
-      end;
-      end;
+    end;
+  end;
   layoutbusy := False;
 end;
 

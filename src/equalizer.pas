@@ -407,15 +407,16 @@ begin
   dialogfilesfo.list_files.mask    := '*.equ';
   dialogfilesfo.list_files.path    := ordir;
   dialogfilesfo.selected_file.Text := '';
+  
+  if tag < 2 then dialogfilesfo.setother.visible := true
+   else dialogfilesfo.setother.visible := false;
  
    if (mainfo.typecolor.Value = 0) then
      dialogfilesfo.list_files.frame.colorclient :=  $F9FFC2 else
     if (mainfo.typecolor.Value = 0) then
      dialogfilesfo.list_files.frame.colorclient :=  cl_ltgray else  
         dialogfilesfo.list_files.frame.colorclient :=  cl_gray; 
-  //   dialogfilesfo.list_files.frame.colorclient :=  $575757; 
- // dialogfilesfo.list_files.colorselect := $FFBE9C  ; 
-     
+      
   application.processmessages;
   dialogfilesfo.Show;
 end;
