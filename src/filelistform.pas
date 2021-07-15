@@ -738,6 +738,9 @@ begin
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'list' + directoryseparator);
   tfiledialog1.controller.captionopen := 'Open List File';
   tfiledialog1.controller.options := [fdo_savelastdir, fdo_sysfilename];
+  
+   tfiledialog1.controller.nopanel := true;
+   tfiledialog1.controller.compact := true;
 
   tfiledialog1.controller.fontcolor   := cl_black;
   if mainfo.typecolor.Value = 2 then
@@ -933,6 +936,9 @@ var
   ara, arb: msestringarty;
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
+  tfiledialog1.controller.nopanel := false;
+    tfiledialog1.controller.compact := false;
+
 
   if mainfo.typecolor.Value = 2 then
     tfiledialog1.controller.backcolor := $A6A6A6

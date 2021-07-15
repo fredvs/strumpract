@@ -109,8 +109,6 @@ type
     fond: tstringdisp;
     loadset: TButton;
     saveset: TButton;
-    tfiledialog1: tfiledialogx;
-    tstatfile1: tstatfile;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
