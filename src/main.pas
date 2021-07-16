@@ -153,6 +153,7 @@ type
     procedure showequalizerrec(const Sender: TObject);
     procedure onsetwindowdancer(const sender: TObject);
    procedure onalwaysontop(const sender: TObject);
+   procedure onhidedancer(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -1183,7 +1184,7 @@ begin
 
   oktimer := 1;
 
-  imagedancerfo.Visible := False;
+ // imagedancerfo.Visible := False;
 
   infosfo.Visible  := False;
   infosfo2.Visible := False;
@@ -1469,7 +1470,7 @@ begin
   infosfo.Visible  := False;
   infosfo2.Visible := False;
 
-  imagedancerfo.Visible := False;
+ // imagedancerfo.Visible := False;
   dockpanel3fo.Visible  := False;
   dockpanel4fo.Visible  := False;
   dockpanel5fo.Visible  := False;
@@ -1663,7 +1664,7 @@ begin
 
   wavefo.Visible        := False;
   wavefo2.Visible       := False;
-  imagedancerfo.Visible := False;
+ // imagedancerfo.Visible := False;
   dockpanel3fo.Visible  := False;
   dockpanel4fo.Visible  := False;
   dockpanel5fo.Visible  := False;
@@ -2212,6 +2213,16 @@ begin
   songplayer2fo.vuleft.bar_face.fade_color.items[0]  := configfo.tcoloredit12.Value;
   songplayerfo.vuright.bar_face.fade_color.items[0]  := configfo.tcoloredit2.Value;
   songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.Value;
+
+   commanderfo.sysvol.scrollbar.facebutton.template := commanderfo.tfacebutton;
+    commanderfo.genvolleft.scrollbar.facebutton.template := commanderfo.tfacebutton;
+     commanderfo.genvolright.scrollbar.facebutton.template := commanderfo.tfacebutton;
+     commanderfo.volumeleft1.scrollbar.facebutton.template := commanderfo.tfacebutton;
+    commanderfo.volumeleft2.scrollbar.facebutton.template := commanderfo.tfacebutton;
+     commanderfo.volumeright1.scrollbar.facebutton.template := commanderfo.tfacebutton;
+    commanderfo.volumeright2.scrollbar.facebutton.template := commanderfo.tfacebutton;
+    commanderfo.tslider2.scrollbar.facebutton.template := commanderfo.tfacebutton;
+    commanderfo.tslider3.scrollbar.facebutton.template := commanderfo.tfacebutton;
 
 
   with equalizerfo1 do
@@ -2804,6 +2815,12 @@ begin
       abuttons2[x].font.color := thecolor2;
       abuttonsR[x].font.color := ltblack;
       asliders[x].scrollbar.face.template := commanderfo.tfaceslider;
+      asliders[x].scrollbar.face.template := commanderfo.tfaceslider;
+     
+      asliders[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+      asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+      aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+        
       asliders[x].scrollbar.face1.template := commanderfo.tfaceslider;
       asliders2[x].scrollbar.face.template := commanderfo.tfaceslider;
       asliders2[x].scrollbar.face1.template := commanderfo.tfaceslider;
@@ -2870,16 +2887,18 @@ begin
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
-
+    commanderfo.genvolleft.scrollbar.facebutton.template := commanderfo.tfacebutton;
+  
     commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
-
-
+    commanderfo.sysvol.scrollbar.facebutton.template := commanderfo.tfacebutton;
+   
     commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfaceslider;
     commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
-
+    
     commanderfo.volumeleft1.scrollbar.face.template   := commanderfo.tfaceslider;
     commanderfo.volumeleft1.scrollbar.face1.template  := commanderfo.tfaceslider;
+    
     commanderfo.volumeleft2.scrollbar.face.template   := commanderfo.tfaceslider;
     commanderfo.volumeleft2.scrollbar.face1.template  := commanderfo.tfaceslider;
     commanderfo.volumeright1.scrollbar.face.template  := commanderfo.tfaceslider;
@@ -2934,7 +2953,7 @@ begin
       fond.color        := $D2D8A5;
       groupbox1.color   := $D2D8A5;
       groupbox2.color   := $D2D8A5;
-      spect1.colorglyph := ltblack;
+     // spect1.colorglyph := ltblack;
       spect1.frame.font.color := thecolor1;
       groupbox1.frame.font.color := thecolor1;
       groupbox2.frame.font.color := thecolor1;
@@ -2959,7 +2978,7 @@ begin
       fond.color        := $D2D8A5;
       groupbox1.color   := $D2D8A5;
       groupbox2.color   := $D2D8A5;
-      spect1.colorglyph := ltblack;
+    //  spect1.colorglyph := ltblack;
       spect1.frame.font.color := thecolor2;
       groupbox1.frame.font.color := thecolor2;
       groupbox2.frame.font.color := thecolor2;
@@ -2984,7 +3003,7 @@ begin
       fond.color        := $EDC0C0;
       groupbox1.color   := $EDC0C0;
       groupbox2.color   := $EDC0C0;
-      spect1.colorglyph := ltblack;
+     // spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
@@ -3476,6 +3495,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       abuttons[x].font.color  := ltblack;
       abuttons2[x].font.color := ltblack;
       abuttonsR[x].font.color := ltblack;
+      asliders[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+      asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+      aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+     
       asliders[x].scrollbar.face.template := commanderfo.tfaceslider;
       asliders[x].scrollbar.face1.template := commanderfo.tfaceslider;
       asliders2[x].scrollbar.face.template := commanderfo.tfaceslider;
@@ -3640,7 +3663,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.color := cl_default;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-      spect1.colorglyph := ltblack;
+     // spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
       spect1.frame.colorclient := cl_default;
       spect1.color := cl_default;
@@ -3664,7 +3687,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.color   := cl_default;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-      spect1.colorglyph := ltblack;
+     // spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
       spect1.frame.colorclient := cl_default;
       spect1.color      := cl_default;
@@ -3689,7 +3712,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.color   := cl_default;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-      spect1.colorglyph := ltblack;
+     // spect1.colorglyph := ltblack;
       spect1.frame.font.color := ltblack;
       spect1.frame.colorclient := cl_default;
       spect1.color      := cl_default;
@@ -3835,7 +3858,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblank;
 
       groupbox2.color := $3A3A3A;
-      spect1.colorglyph := ltblank;
+    //  spect1.colorglyph := ltblank;
       spect1.frame.font.color := ltblank;
       spect1.frame.colorclient := $4A4A4A;
       spect1.color := $3A3A3A;
@@ -3860,7 +3883,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblank;
       groupbox1.color   := $3A3A3A;
       groupbox2.color   := $3A3A3A;
-      spect1.colorglyph := ltblank;
+   //   spect1.colorglyph := ltblank;
       spect1.frame.font.color := ltblank;
       spect1.frame.colorclient := $4A4A4A;
       spect1.color      := $3A3A3A;
@@ -3885,7 +3908,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox2.frame.font.color := ltblank;
       groupbox1.color   := $3A3A3A;
       groupbox2.color   := $3A3A3A;
-      spect1.colorglyph := ltblank;
+   //   spect1.colorglyph := ltblank;
       spect1.frame.font.color := ltblank;
       spect1.frame.colorclient := $4A4A4A;
       spect1.color      := $3A3A3A;
@@ -4253,6 +4276,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       abuttons[x].font.color  := ltblank;
       abuttons2[x].font.color := ltblank;
       abuttonsR[x].font.color := ltblank;
+      asliders[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+      asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+      aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       asliders[x].scrollbar.face.template := commanderfo.tfacesliderdark;
       asliders[x].scrollbar.face1.template := commanderfo.tfacesliderdark;
       asliders2[x].scrollbar.face.template := commanderfo.tfacesliderdark;
@@ -4514,7 +4540,7 @@ begin
 
   interv := (rect1.cx - (songplayerfo.Width + recorderfo.Width + 20)) div 2;
 
-  imagedancerfo.Visible := False;
+//  imagedancerfo.Visible := False;
 
   drumsfo.dragdock.float();
   drumsfo.Visible := False;
@@ -5069,6 +5095,11 @@ h := imagedancerfo.height;
   
   imagedancerfo.bringtofront;
 
+end;
+
+procedure tmainfo.onhidedancer(const sender: TObject);
+begin
+imagedancerfo.Visible := false;
 end;
 
 end.

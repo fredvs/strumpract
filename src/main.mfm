@@ -446,7 +446,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 21
+        submenu.count = 23
         submenu.items = <        
           item
             caption = ' Square '
@@ -560,6 +560,14 @@ object mainfo: tmainfo
             state = [as_localinvisible, as_localcaption, as_localonexecute]
             options = [mao_checkbox, mao_shortcutcaption]
             onexecute = onalwaysontop
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            caption = ' Hide Dancer '
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onhidedancer
           end        
           item
             options = [mao_separator, mao_shortcutcaption]

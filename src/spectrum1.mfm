@@ -259,7 +259,7 @@ object spectrum1fo: tspectrum1fo
       bounds_cx = 107
       bounds_cy = 15
       statfile = mainfo.tstatfile1
-      colorglyph = 4539717
+      colorglyph = -1610612728
       value = True
     end
   end
