@@ -1262,7 +1262,7 @@ line=36
  1755
  622
  644
- 1012
+ 1014
 address=36
  5014125
  7989638
@@ -1664,8 +1664,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=onrenderexe
+finddtext=as_
 findhistory=20
+ as_
  scrollbar.fac
  asliders[x]
  asliders.
@@ -1685,27 +1686,26 @@ findhistory=20
  recorder
  dialogfile
  template
- .button2
 findoptions=1
 editpos=18
  0,-1073741823
+ 0,7
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,1080
+ 28,1082
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 5,727
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1831,26 +1831,26 @@ nomenumodules=11
  0
 [sourcefo.files_tab]
 order=18
- 8
+ 3
  12
- 17
- 0
+ 2
+ 13
  1
  11
  6
  7
- 10
- 2
- 13
+ 0
+ 9
+ 8
  16
  4
- 3
- 9
+ 10
+ 14
  15
  5
- 14
+ 17
 firsttab=0
-index=2
+index=1
 [layout]
 windowlayout=770
  [mainfo.basedock]
@@ -1970,7 +1970,7 @@ windowlayout=770
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2296,11 +2296,11 @@ windowlayout=770
  nx=0
  ny=0
  ncx=1341
- ncy=5
+ ncy=3
  x=0
  y=0
  cx=1356
- cy=4
+ cy=2
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2310,10 +2310,11 @@ windowlayout=770
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
+ value=/home/fred/strumpract/src/imagedancer.pas
  history=20
-  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/filelistform.pas
+  /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/spectrum1.pas
   /home/fred/strumpract/src/imagedancer.pas
@@ -2331,7 +2332,6 @@ windowlayout=770
   /home/fred/mseide-msegui/lib/common/image/mseformatjpgwrite.pas
   /home/fred/demo_mse/ovaleform/main.pas
   /home/fred/freepascal-ootb_320/packages/x11/src/xcms.pp
-  /home/fred/freepascal-ootb_320/packages/x11/src/xutil.pp
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2354,26 +2354,26 @@ windowlayout=770
  rcy=0
  [sourcefo.files_tab]
  order=18
-  8
+  3
   12
-  17
-  0
+  2
+  13
   1
   11
   6
   7
-  10
-  2
-  13
+  0
+  9
+  8
   16
   4
-  3
-  9
+  10
+  14
   15
   5
-  14
+  17
  firsttab=0
- index=2
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2550,7 +2550,7 @@ windowlayout=770
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2569,7 +2569,7 @@ windowlayout=770
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2588,7 +2588,7 @@ windowlayout=770
  [_mse_spectrum1fo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0

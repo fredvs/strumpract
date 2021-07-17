@@ -974,9 +974,11 @@ end;
 
 procedure timagedancerfo.InvalidateImage;
 begin
+   if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
+  windowopacity := multiplier * 0.4 else windowopacity := 1;
   onpaint_imagedancerfo(imagedancerfo, imagedancerfo.getcanvas);
   if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
-  windowopacity := multiplier else windowopacity := 1;
+  windowopacity := multiplier * 0.4 else windowopacity := 1;
 end;
 
 procedure timagedancerfo.ondestroy(const Sender: TObject);
@@ -1050,7 +1052,13 @@ var
 begin
   if openglwidget.Visible then
   begin
-
+      if multiplier = 0 then windowopacity := 1
+   else
+   begin
+    if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
+  windowopacity := multiplier * 0.4 else windowopacity := 1;
+  end;
+  
     glclear(gl_color_buffer_bit);
 
     if multiplier < 0.1 then
@@ -1081,8 +1089,8 @@ begin
    if multiplier = 0 then windowopacity := 1
    else
    begin
-     if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
-  windowopacity := multiplier else windowopacity := 1;
+    if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
+  windowopacity := multiplier * 0.4 else windowopacity := 1;
   end;
 
     Inc(rendercount);
