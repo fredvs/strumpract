@@ -64,7 +64,6 @@ type
 
     openglwidget: topenglwidget;
     procedure onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
-    procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure InvalidateImage;
     procedure ondestroy(const Sender: TObject);
     procedure oncreat(const Sender: TObject);
@@ -961,42 +960,23 @@ begin
   result := 0;
   repeat
    if (isbuzy = False) and (Visible = True) and (openglwidget.Visible = false) then
-    
-    begin
+       begin
       application.queueasynccall(@InvalidateImage);
       RTLeventResetEvent(evPauseImage);
       RTLeventWaitFor(evPauseImage);// is there a pause waiting ?
       RTLeventSetEvent(evPauseImage);
+     
     end;
     sleep(30);
   until statusanim = 0;
 
 end;
 
-
-procedure timagedancerfo.onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
-begin
-  with ainfo do
-    if eventkind in [ek_buttonpress] then
-      if tag = 0 then
-      begin
-        tag     := 1;
-        options := [fo_maximized, fo_autoreadstat, fo_autowritestat, fo_savepos,
-          fo_savezorder, fo_savestate];
-        invalidate;
-      end
-      else
-      begin
-        tag     := 0;
-        options := [fo_autoreadstat, fo_autowritestat,
-          fo_savepos, fo_savezorder, fo_savestate];
-        invalidate;
-      end;
-end;
-
 procedure timagedancerfo.InvalidateImage;
 begin
   onpaint_imagedancerfo(imagedancerfo, imagedancerfo.getcanvas);
+  if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
+  windowopacity := multiplier else windowopacity := 1;
 end;
 
 procedure timagedancerfo.ondestroy(const Sender: TObject);
@@ -1028,7 +1008,7 @@ begin
   y2 := 0;
   increase := 1;      
   randomize;
-  
+
 if alwaystop = 1 then 
  optionswindow := optionswindow + [wo_alwaysontop];
 
@@ -1097,6 +1077,13 @@ begin
     glvertex3f(-0.5, 0.5, 0);
     glend();
     glpopmatrix();
+    
+   if multiplier = 0 then windowopacity := 1
+   else
+   begin
+     if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
+  windowopacity := multiplier else windowopacity := 1;
+  end;
 
     Inc(rendercount);
     int1 := integer(Sender.rendertimestampus - renderstart);
@@ -1106,7 +1093,8 @@ begin
       rendercount := 0;
       renderstart := Sender.rendertimestampus;
     end;
-  end;
+    
+    end;
 end;
 
 procedure timagedancerfo.rotentexe(const Sender: TObject);
@@ -1123,7 +1111,7 @@ end;
 
 procedure timagedancerfo.crea(const sender: TObject);
 begin
-windowopacity := 1;
+// windowopacity := 1;
 if typwindow = 0 then
 optionswindow := []
 else

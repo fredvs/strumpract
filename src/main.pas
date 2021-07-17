@@ -4974,12 +4974,13 @@ end;
 procedure tmainfo.ontimertransp(const Sender: TObject);
 begin
   windowopacity := windowopacity + 0.1;
-
+//{
   dockpanel1fo.windowopacity   := dockpanel1fo.windowopacity + 0.1;
   dockpanel2fo.windowopacity   := dockpanel2fo.windowopacity + 0.1;
   dockpanel3fo.windowopacity   := dockpanel3fo.windowopacity + 0.1;
   dockpanel4fo.windowopacity   := dockpanel4fo.windowopacity + 0.1;
   dockpanel5fo.windowopacity   := dockpanel5fo.windowopacity + 0.1;
+  
   commanderfo.windowopacity    := commanderfo.windowopacity + 0.1;
   songplayerfo.windowopacity   := songplayerfo.windowopacity + 0.1;
   songplayer2fo.windowopacity  := songplayer2fo.windowopacity + 0.1;
@@ -4998,6 +4999,7 @@ begin
   guitarsfo.windowopacity      := guitarsfo.windowopacity + 0.1;
   recorderfo.windowopacity     := recorderfo.windowopacity + 0.1;
   imagedancerfo.windowopacity  := imagedancerfo.windowopacity + 0.1;
+//}
 
   if windowopacity = 1 then
     ttimer1.Enabled := False;

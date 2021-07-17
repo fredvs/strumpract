@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 384
-  bounds_y = 459
+  bounds_x = 519
+  bounds_y = 304
   bounds_cx = 454
   bounds_cy = 96
   bounds_cxmin = 454
@@ -446,7 +446,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 23
+        submenu.count = 25
         submenu.items = <        
           item
             caption = ' Square '
@@ -560,6 +560,15 @@ object mainfo: tmainfo
             state = [as_localinvisible, as_localcaption, as_localonexecute]
             options = [mao_checkbox, mao_shortcutcaption]
             onexecute = onalwaysontop
+          end        
+          item
+            state = [as_localcaption]
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            caption = ' Transparent '
+            state = [as_localcaption]
+            options = [mao_checkbox, mao_shortcutcaption]
           end        
           item
             options = [mao_separator, mao_shortcutcaption]
@@ -3198,7 +3207,7 @@ object mainfo: tmainfo
     top = 37
   end
   object ttimer1: ttimer
-    interval = 100000
+    interval = 80000
     ontimer = ontimertransp
     enabled = True
     left = 170

@@ -141,8 +141,11 @@ findinfiledialog=82
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value='Equalizer Player 1'
+ value=multiplier
  history=20
+  multiplier
+  InvalidateImage
+  windowopacity
   'Equalizer Player 1'
   'Player 1'
   = 'Player 1'
@@ -160,9 +163,6 @@ findinfiledialog=82
   colortostring
   5.2
   focuscell
-  list_files
-  automixb
-  xsetcliporigin
  [findinfileadialogfo]
  stackedunder=
  x=506
@@ -603,7 +603,7 @@ makeoptions=15
  -WG
  -gw2
  -B
- -O2
+ -O1
  -dmse_flushgdi
  -dmse_repaintcanvas
  -sh
@@ -1259,10 +1259,10 @@ line=36
  169
  1532
  368
- 1753
- 623
+ 1755
+ 622
  644
- 1032
+ 1012
 address=36
  5014125
  7989638
@@ -1664,7 +1664,7 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=scrollbar.fac
+finddtext=onrenderexe
 findhistory=20
  scrollbar.fac
  asliders[x]
@@ -1687,18 +1687,25 @@ findhistory=20
  template
  .button2
 findoptions=1
-editpos=11
+editpos=18
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,0
- 0,2
- 0,-1073741823
- 0,-1073741823
- 0,13
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,2
  0,-1073741823
- 10,9
+ 0,-1073741823
+ 0,1080
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 5,727
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1710,7 +1717,14 @@ bookmarks7=0
 bookmarks8=0
 bookmarks9=0
 bookmarks10=0
-sourcefiles=11
+bookmarks11=0
+bookmarks12=0
+bookmarks13=0
+bookmarks14=0
+bookmarks15=0
+bookmarks16=0
+bookmarks17=0
+sourcefiles=18
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/main.pas
@@ -1722,7 +1736,14 @@ sourcefiles=11
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/songplayer.pas
-relpaths=11
+ /home/fred/mseide-msegui/lib/common/ifi/mseificomp.pas
+ ${PROJECTDIR}/imagedancer.pas
+ /home/fred/mseide-msegui/lib/common/widgets/mseforms.pas
+ /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
+ /home/fred/mseide-msegui/lib/common/kernel/mseguiintf.inc
+ /home/fred/mseide-msegui/lib/common/kernel/linux/mseguiintf.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=18
  strumpract.pas
  filelistform.pas
  main.pas
@@ -1734,7 +1755,21 @@ relpaths=11
  commander.pas
  commander.pas
  songplayer.pas
-ismoduletexts=11
+ mseide-msegui/lib/common/ifi/mseificomp.pas
+ imagedancer.pas
+ mseide-msegui/lib/common/widgets/mseforms.pas
+ mseide-msegui/lib/common/kernel/msegui.pas
+ mseide-msegui/lib/common/kernel/mseguiintf.inc
+ mseide-msegui/lib/common/kernel/linux/mseguiintf.pas
+ songplayer.pas
+ismoduletexts=18
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
  0
  0
  0
@@ -1795,22 +1830,29 @@ nomenumodules=11
  0
  0
 [sourcefo.files_tab]
-order=11
+order=18
+ 8
+ 12
+ 17
  0
  1
- 2
- 3
- 4
- 8
- 10
- 9
- 5
+ 11
  6
  7
+ 10
+ 2
+ 13
+ 16
+ 4
+ 3
+ 9
+ 15
+ 5
+ 14
 firsttab=0
-index=6
+index=2
 [layout]
-windowlayout=763
+windowlayout=770
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1824,8 +1866,8 @@ windowlayout=763
  ny=0
  ncx=0
  ncy=0
- x=58
- y=57
+ x=141
+ y=115
  cx=1224
  cy=621
  rcx=0
@@ -1852,8 +1894,8 @@ windowlayout=763
  ny=0
  ncx=0
  ncy=0
- x=430
- y=275
+ x=735
+ y=317
  cx=633
  cy=278
  rcx=0
@@ -1928,7 +1970,7 @@ windowlayout=763
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1954,7 +1996,7 @@ windowlayout=763
  x=0
  y=0
  cx=205
- cy=519
+ cy=524
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1965,7 +2007,7 @@ windowlayout=763
  sortdescend1=0
  sorted=0
  col=0
- row=12
+ row=7
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2140,9 +2182,9 @@ windowlayout=763
  ncx=0
  ncy=0
  x=0
- y=582
+ y=581
  cx=1356
- cy=107
+ cy=108
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2242,7 +2284,7 @@ windowlayout=763
  x=0
  y=0
  cx=1356
- cy=57
+ cy=51
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2253,12 +2295,12 @@ windowlayout=763
  mdistate=0
  nx=0
  ny=0
- ncx=1356
- ncy=11
+ ncx=1341
+ ncy=5
  x=0
  y=0
  cx=1356
- cy=11
+ cy=4
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2270,10 +2312,11 @@ windowlayout=763
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/songplayer.pas
  history=20
-  /home/fred/strumpract/src/commander.pas
-  /home/fred/strumpract/src/imagedancer.pas
-  /home/fred/strumpract/src/spectrum1.pas
   /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/filelistform.pas
+  /home/fred/strumpract/src/commander.pas
+  /home/fred/strumpract/src/spectrum1.pas
+  /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/dialogfiles.pas
   /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/status.pas
@@ -2289,7 +2332,6 @@ windowlayout=763
   /home/fred/demo_mse/ovaleform/main.pas
   /home/fred/freepascal-ootb_320/packages/x11/src/xcms.pp
   /home/fred/freepascal-ootb_320/packages/x11/src/xutil.pp
-  /home/fred/cafecentral/cc_back.bat
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2307,24 +2349,31 @@ windowlayout=763
  x=208
  y=0
  cx=1148
- cy=519
+ cy=524
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=11
+ order=18
+  8
+  12
+  17
   0
   1
-  2
-  3
-  4
-  8
-  10
-  9
-  5
+  11
   6
   7
+  10
+  2
+  13
+  16
+  4
+  3
+  9
+  15
+  5
+  14
  firsttab=0
- index=6
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2360,23 +2409,23 @@ windowlayout=763
  ncx=0
  ncy=0
  x=0
- y=60
+ y=54
  cx=1356
- cy=519
+ cy=524
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_dialogfilesfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=384
- y=459
+ x=519
+ y=304
  cx=464
  cy=96
  rcx=0
@@ -2387,7 +2436,7 @@ windowlayout=763
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2463,7 +2512,7 @@ windowlayout=763
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_dialogfilesfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2501,7 +2550,7 @@ windowlayout=763
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2520,7 +2569,7 @@ windowlayout=763
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=findinfilefo
  parent=
  mdistate=3
  nx=0
@@ -2539,7 +2588,7 @@ windowlayout=763
  [_mse_spectrum1fo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0

@@ -1637,6 +1637,7 @@ begin
     end;
 
     uos_Pause(theplayer);
+    
 
     tstringdisp1.Value := msestring('Paused ' + theplaying1);
   end;
@@ -1661,7 +1662,7 @@ begin
     uos_Pause(theplayer2);
     tstringdisp1.Value := msestring('Paused ' + theplaying2);
   end;
-
+  multiplier := 0;
   resetspectrum();
 end;
 
@@ -1678,6 +1679,7 @@ begin
     hasmixed2 := True;
     uos_Stop(theplayer2);
   end;
+  multiplier := 0;
 end;
 
 procedure tsongplayerfo.setequalizerenable(asender: integer; avalue: Boolean);
