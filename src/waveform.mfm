@@ -17,6 +17,7 @@ object wavefo: twavefo
   bounds_cymin = 94
   bounds_cxmax = 442
   bounds_cymax = 110
+  container.color = 16773874
   container.frame.optionsskin = [fso_flat]
   container.frame.localprops = [frl_optionsskin]
   container.frame.localprops1 = []
@@ -130,7 +131,7 @@ object wavefo: twavefo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 432
-    bounds_cy = 80
+    bounds_cy = 78
     enabled = False
     scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
     scrollbar.buttonlength = 2

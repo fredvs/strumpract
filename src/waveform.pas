@@ -114,7 +114,7 @@ begin
   end
   else if ((Caption = 'Wave Recorder') and (Assigned(recorderfo)) and (islive = True)) then
   begin
-    trackbar1.Width  := waveforec.Width - 10;
+    trackbar1.Width  := waveforec.Width - 12;
     trackbar1.Height := waveforec.Height - 18;
     echelle.Visible  := False;
   end;

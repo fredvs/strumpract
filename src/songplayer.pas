@@ -1193,22 +1193,19 @@ begin
           cbloop.Enabled := False;
           //songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
+
           if timerwait.Enabled then
             timerwait.restart // to reset
           else
             timerwait.Enabled := True;
 
-
           lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue := True;
 
-          //  application.processmessages;
-
-          //  oninfowav(Sender);
-
           oninfowav(Sender);
-
+          
+         infosfo.infolength.Caption :=  copy(llength.Value,1,8);
 
           if as_checked in wavefo.tmainmenu1.menu[0].state then
           begin
@@ -1512,6 +1509,8 @@ begin
           // application.processmessages; 
 
           oninfowav(Sender);
+          
+          infosfo2.infolength.Caption :=  copy(llength.Value,1,8);
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
           begin

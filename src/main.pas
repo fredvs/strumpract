@@ -2441,7 +2441,35 @@ begin
       infochan.frame.font.color   := cl_black;
       infobpm.frame.font.color    := cl_black;
     end;
+    {
+     with infosforec do
+    begin
+      infofile.font.color   := cl_black;
+      infoartist.font.color := cl_black;
+      infoname.font.color   := cl_black;
+      infoalbum.font.color  := cl_black;
+      infoyear.font.color   := cl_black;
+      infocom.font.color    := cl_black;
+      infotag.font.color    := cl_black;
+      infolength.font.color := cl_black;
+      inforate.font.color   := cl_black;
+      infochan.font.color   := cl_black;
+      infobpm.font.color    := cl_black;
 
+      infofile.frame.font.color   := cl_black;
+      infoartist.frame.font.color := cl_black;
+      infoname.frame.font.color   := cl_black;
+      infoalbum.frame.font.color  := cl_black;
+      infoyear.frame.font.color   := cl_black;
+      infocom.frame.font.color    := cl_black;
+      infotag.frame.font.color    := cl_black;
+      infolength.frame.font.color := cl_black;
+      inforate.frame.font.color   := cl_black;
+      infochan.frame.font.color   := cl_black;
+      infobpm.frame.font.color    := cl_black;
+    end;
+     }
+    
     with infosfo2 do
     begin
       infofile.font.color   := cl_black;
@@ -2795,6 +2823,8 @@ begin
 
     with equalizerforec do
     begin
+      loadset.face.template := recorderfo.tfacerecorder;
+      saveset.face.template := recorderfo.tfacerecorder;
       tlabel3.font.color := ltblack;
       tlabel2.font.color := ltblack;
       fond.color         := $EDC0C0;
@@ -2916,15 +2946,14 @@ begin
     filelistfo.historyfn.frame.button.colorglyph := ltblack;
     filelistfo.historyfn.dropdown.colorclient := ltblank;
 
-
     // filelistfo.songdir.frame.button.colorglyph := ltblack;
-    filelistfo.list_files.datacols[0].color       := cl_white;
+    filelistfo.list_files.datacols[0].color       := $FEFFF7;
     filelistfo.list_files.datacols[0].font.color  := ltblack;
-    filelistfo.list_files.datacols[1].color       := cl_white;
+    filelistfo.list_files.datacols[1].color       := $FEFFF7;
     filelistfo.list_files.datacols[1].font.color  := ltblack;
-    filelistfo.list_files.datacols[2].color       := cl_white;
+    filelistfo.list_files.datacols[2].color       := $FEFFF7;
     filelistfo.list_files.datacols[2].font.color  := ltblack;
-    filelistfo.list_files.datacols[3].color       := cl_white;
+    filelistfo.list_files.datacols[3].color       := $FEFFF7;
     filelistfo.list_files.datacols[3].font.color  := ltblack;
     filelistfo.list_files.datacols[3].colorselect := $EDEDED;
     filelistfo.list_files.datacols[3].colorglyph  := ltblack;
@@ -3144,7 +3173,36 @@ begin
       infochan.frame.font.color   := cl_black;
       infobpm.frame.font.color    := cl_black;
     end;
+    
+    {
+    with infosforec do
+    begin
+      infofile.font.color   := cl_black;
+      infoartist.font.color := cl_black;
+      infoname.font.color   := cl_black;
+      infoalbum.font.color  := cl_black;
+      infoyear.font.color   := cl_black;
+      infocom.font.color    := cl_black;
+      infotag.font.color    := cl_black;
+      infolength.font.color := cl_black;
+      inforate.font.color   := cl_black;
+      infochan.font.color   := cl_black;
+      infobpm.font.color    := cl_black;
 
+      infofile.frame.font.color   := cl_black;
+      infoartist.frame.font.color := cl_black;
+      infoname.frame.font.color   := cl_black;
+      infoalbum.frame.font.color  := cl_black;
+      infoyear.frame.font.color   := cl_black;
+      infocom.frame.font.color    := cl_black;
+      infotag.frame.font.color    := cl_black;
+      infolength.frame.font.color := cl_black;
+      inforate.frame.font.color   := cl_black;
+      infochan.frame.font.color   := cl_black;
+      infobpm.frame.font.color    := cl_black;
+    end;
+    }
+    
     with infosfo2 do
     begin
       infofile.font.color   := cl_black;
@@ -3805,7 +3863,34 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       infochan.frame.font.color   := cl_white;
       infobpm.frame.font.color    := cl_white;
     end;
+ {
+ with infosforec do
+    begin
+      infofile.font.color   := cl_white;
+      infoartist.font.color := cl_white;
+      infoname.font.color   := cl_white;
+      infoalbum.font.color  := cl_white;
+      infoyear.font.color   := cl_white;
+      infocom.font.color    := cl_white;
+      infotag.font.color    := cl_white;
+      infolength.font.color := cl_white;
+      inforate.font.color   := cl_white;
+      infochan.font.color   := cl_white;
+      infobpm.font.color    := cl_white;
 
+      infofile.frame.font.color   := cl_white;
+      infoartist.frame.font.color := cl_white;
+      infoname.frame.font.color   := cl_white;
+      infoalbum.frame.font.color  := cl_white;
+      infoyear.frame.font.color   := cl_white;
+      infocom.frame.font.color    := cl_white;
+      infotag.frame.font.color    := cl_white;
+      infolength.frame.font.color := cl_white;
+      inforate.frame.font.color   := cl_white;
+      infochan.frame.font.color   := cl_white;
+      infobpm.frame.font.color    := cl_white;
+    end;
+}
     with infosfo2 do
     begin
       infofile.font.color   := cl_white;

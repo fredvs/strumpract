@@ -191,9 +191,11 @@ end;
   application.createform(taboutfo, aboutfo);
   application.createform(tinfosfo, infosfo);
   application.createform(tinfosfo, infosfo2);
+  //application.createform(tinfosfo, infosforec);
   
   infosfo.Caption := 'Infos Player 1';
   infosfo2.Caption := 'Infos Player 2';
+  //infosforec.Caption := 'Infos Recorder';
   
   application.createform(tstatusfo, statusfo);
 

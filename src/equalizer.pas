@@ -412,8 +412,12 @@ begin
    else dialogfilesfo.setother.visible := false;
  
    if (mainfo.typecolor.Value = 0) then
-     dialogfilesfo.list_files.frame.colorclient :=  $F9FFC2 else
-    if (mainfo.typecolor.Value = 0) then
+   begin
+   if caption = 'Equalizer Recorder' then 
+     dialogfilesfo.list_files.frame.colorclient :=  cl_ltgray else
+     dialogfilesfo.list_files.frame.colorclient :=  $F9FFC2;
+   end else
+    if (mainfo.typecolor.Value = 1) then
      dialogfilesfo.list_files.frame.colorclient :=  cl_ltgray else  
         dialogfilesfo.list_files.frame.colorclient :=  cl_gray; 
       

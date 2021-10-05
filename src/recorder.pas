@@ -24,7 +24,6 @@ type
     tbutton3: TButton;
     tbutton2: TButton;
     blistenin: tbooleanedit;
-    bsavetofile: tbooleanedit;
     btinfos: TButton;
     edvol: trealspinedit;
     edtempo: trealspinedit;
@@ -54,6 +53,7 @@ type
    tgroupbox2: tgroupbox;
    bwav: tbooleaneditradio;
    bogg: tbooleaneditradio;
+   bsavetofile: tbooleanedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -88,6 +88,7 @@ type
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure oncreated(const Sender: TObject);
     procedure onex(const Sender: TObject);
+   procedure onchangesave(const sender: TObject);
   end;
 
  equalizer_band_type = record
@@ -131,12 +132,12 @@ uses
 
 procedure trecorderfo.InitDrawLive();
 const
-  transpcolor = cl_gray;
+  transpcolor = $FFF0F0;
 begin
 
   if (as_checked in waveforec.tmainmenu1.menu[0].state) then
   begin
-    waveforec.trackbar1.Width  := waveforec.Width - 10;
+    waveforec.trackbar1.Width  := waveforec.Width - 12;
     waveforec.trackbar1.Height := waveforec.Height - 18;
     waveforec.trackbar1.invalidate();
 
@@ -598,6 +599,7 @@ var
   temptimeinfo: ttime;
   ho, mi, se, ms: word;
 begin
+{
   uos_Stop(therecplayerinfo);
 
  uos_CreatePlayer(therecplayerinfo);
@@ -618,42 +620,29 @@ begin
 
       DecodeTime(temptimeinfo, ho, mi, se, ms);
 
-      infosfo.infofile.Caption   := 'File: ' + extractfilename(historyfn.Value);
-      infosfo.infoname.Caption   := 'Title: ' + msestring(ansistring(uos_InputGetTagTitle(therecplayerinfo, 0)));
-      infosfo.infoartist.Caption := 'Artist: ' + msestring(ansistring(uos_InputGetTagArtist(therecplayerinfo, 0)));
-      infosfo.infoalbum.Caption  := 'Album: ' + msestring(ansistring(uos_InputGetTagAlbum(therecplayerinfo, 0)));
-      infosfo.infoyear.Caption   := 'Date: ' + msestring(ansistring(uos_InputGetTagDate(therecplayerinfo, 0)));
-      infosfo.infocom.Caption    := 'Comment: ' + msestring(ansistring(uos_InputGetTagComment(therecplayerinfo, 0)));
-      infosfo.infotag.Caption    := 'Tag: ' + msestring(ansistring(uos_InputGetTagTag(therecplayerinfo, 0)));
-      infosfo.infolength.Caption := utf8decode('Duration: ' + format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
-      infosfo.inforate.Caption   := 'Sample Rate: ' + msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
-      infosfo.infochan.Caption   := 'Channels: ' + msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
-      infosfo.infobpm.Caption    := '';
-       application.processmessages;
+      infosforec.infofile.Caption   :=  extractfilename(historyfn.Value);
+      //infosforec.infolength.top := infosforec.infofile.bottom + 10;
+      infosforec.infoartist.visible := false ;
+      infosforec.infoname.visible := false ;
+      infosforec.infoalbum.visible := false ;
+      infosforec.infoyear.visible := false ;
+      infosforec.infocom.visible := false ;
+      infosforec.infotag.visible := false ;
+      infosforec.infolength.Caption := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
+      infosforec.inforate.Caption   :=  msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
+      infosforec.infochan.Caption   :=  msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
+      infosforec.infobpm.visible := false ;
+      infosforec.imgPreview.Visible := False;
+      infosforec.tlabel2.Visible := False;
+      
+      application.processmessages;
       uos_play(therecplayerinfo);
       uos_Stop(therecplayerinfo);
 
-      maxwidth := infosfo.infofile.Width;
-
-      if maxwidth < infosfo.infoname.Width then
-        maxwidth := infosfo.infoname.Width;
-      if maxwidth < infosfo.infoartist.Width then
-        maxwidth := infosfo.infoartist.Width;
-      if maxwidth < infosfo.infoalbum.Width then
-        maxwidth := infosfo.infoalbum.Width;
-      if maxwidth < infosfo.infoyear.Width then
-        maxwidth := infosfo.infoyear.Width;
-      if maxwidth < infosfo.infocom.Width then
-        maxwidth := infosfo.infocom.Width;
-      if maxwidth < infosfo.infotag.Width then
-        maxwidth := infosfo.infotag.Width;
-      if maxwidth < infosfo.infolength.Width then
-        maxwidth := infosfo.infolength.Width;
-
-      infosfo.Width := maxwidth + 42;
-      // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
-      infosfo.Show(True);
+       // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
+      infosforec.Show(true);
     end;
+    }
 end;
 
 procedure trecorderfo.onsliderchange(const Sender: TObject);
@@ -1131,6 +1120,20 @@ begin
   for x := 1 to 10 do
     uos_InputSetFilter(aplayer, InputIndex3, Equalizer_Bands[x].theindex, -1, -1, -1, -1, -1, -1, -1, -1, True, nil, avalset);
 end;
+
+procedure trecorderfo.onchangesave(const sender: TObject);
+begin
+if bsavetofile.value then
+ begin
+  bwav.enabled := true;
+  bogg.enabled := true;
+ end else
+ begin
+  bwav.enabled := false;
+  bogg.enabled := false;
+ end; 
+end;
+
 
 
 end.
