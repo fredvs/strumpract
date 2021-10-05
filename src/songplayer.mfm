@@ -222,26 +222,26 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp1
       frame.button.face.localprops = []
       frame.button.face.template = mainfo.tfaceplayer
-      frame.button.frame.localprops = []
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp1
+      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
           face.localprops = []
           face.template = mainfo.tfaceplayer
-          frame.localprops = []
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp1
+          frame.template = commanderfo.tframecomp2
         end>
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
       taborder = 4
       hint = ' History of Cue files '
-      bounds_x = 68
+      bounds_x = 71
       bounds_y = 4
-      bounds_cx = 306
+      bounds_cx = 305
       bounds_cy = 22
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -995,8 +995,8 @@ object songplayerfo: tsongplayerfo
     top = 23
   end
   object sliderimage: tbitmapcomp
-    left = 303
-    top = 26
+    left = 304
+    top = 35
   end
   object ttimer1: ttimer
     interval = 1500000

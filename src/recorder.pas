@@ -133,7 +133,7 @@ uses
 procedure trecorderfo.InitDrawLive();
 const
   transpcolor = $FFF0F0;
-begin
+ begin
 
   if (as_checked in waveforec.tmainmenu1.menu[0].state) then
   begin

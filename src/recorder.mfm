@@ -497,17 +497,17 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp1
       frame.button.face.localprops = []
       frame.button.face.template = tfacerecorder
-      frame.button.frame.localprops = []
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp1
+      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
           face.localprops = []
           face.template = tfacerecorder
-          frame.localprops = []
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp1
+          frame.template = commanderfo.tframecomp2
         end>
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]

@@ -847,29 +847,32 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=7
+modulenames=8
  EQUALIZERFO
  FILELISTFO
  IMAGEDANCERFO
  INFOSFO
  MAINFO
  RECORDERFO
+ SONGPLAYERFO
  WAVEFO
-moduletypes=7
+moduletypes=8
  TEQUALIZERFO
  TFILELISTFO
  TIMAGEDANCERFO
  TINFOSFO
  TMAINFO
  TRECORDERFO
+ TSONGPLAYERFO
  TWAVEFO
-modulefiles=7
+modulefiles=8
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/imagedancer.mfm
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/recorder.mfm
+ /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/waveform.mfm
 befcommandon=0
 makeoptionson=16
@@ -1667,8 +1670,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=InitDrawLive
+finddtext=resiz
 findhistory=20
+ resiz
+ resize
  waveforec
  equalizerfo
  recorderfo
@@ -1687,24 +1692,23 @@ findhistory=20
  asliders[x]
  asliders.
  sysvol
- tslider1
- tslider1.
 findoptions=1
-editpos=14
+editpos=15
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,124
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 36,2805
  0,-1073741823
  0,-1073741823
- 0,98
- 0,139
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,0
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1719,7 +1723,8 @@ bookmarks10=0
 bookmarks11=0
 bookmarks12=0
 bookmarks13=0
-sourcefiles=14
+bookmarks14=0
+sourcefiles=15
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/imagedancer.pas
  ${PROJECTDIR}/infos.pas
@@ -1734,7 +1739,8 @@ sourcefiles=14
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/recorder.pas
-relpaths=14
+ ${PROJECTDIR}/songplayer.pas
+relpaths=15
  strumpract.pas
  imagedancer.pas
  infos.pas
@@ -1749,7 +1755,8 @@ relpaths=14
  equalizer.pas
  waveform.pas
  recorder.pas
-ismoduletexts=14
+ songplayer.pas
+ismoduletexts=15
  0
  0
  0
@@ -1764,7 +1771,8 @@ ismoduletexts=14
  0
  0
  0
-modules=10
+ 0
+modules=11
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1775,7 +1783,8 @@ modules=10
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/waveform.mfm
-moduleoptions=10
+ /home/fred/strumpract/src/songplayer.mfm
+moduleoptions=11
  0
  0
  0
@@ -1786,7 +1795,8 @@ moduleoptions=10
  0
  0
  0
-visiblemodules=10
+ 0
+visiblemodules=11
  -1
  0
  0
@@ -1797,37 +1807,24 @@ visiblemodules=10
  -1
  -1
  -1
-nomenumodules=10
+ -1
+nomenumodules=11
  0
  -1
  -1
  0
  -1
+ 0
  0
  0
  0
  0
  0
 [sourcefo.files_tab]
-order=14
- 0
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
- 12
- 13
- 10
- 11
-firsttab=2
-index=5
+firsttab=4
+index=13
 [layout]
-windowlayout=742
+windowlayout=748
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1945,7 +1942,7 @@ windowlayout=742
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_wavefo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1982,7 +1979,7 @@ windowlayout=742
  sortdescend1=0
  sorted=0
  col=0
- row=16
+ row=12
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2286,7 +2283,9 @@ windowlayout=742
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/recorder.pas
- history=15
+ history=17
+  /home/fred/strumpract/src/recorder.pas
+  /home/fred/strumpract/src/waveform.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
   /home/fred/strumpract/src/songplayer.pas
@@ -2323,23 +2322,8 @@ windowlayout=742
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=14
-  0
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
-  12
-  13
-  10
-  11
- firsttab=2
- index=5
+ firsttab=4
+ index=13
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2383,7 +2367,7 @@ windowlayout=742
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2421,7 +2405,7 @@ windowlayout=742
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2535,7 +2519,7 @@ windowlayout=742
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2554,7 +2538,7 @@ windowlayout=742
  [_mse_wavefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2565,6 +2549,25 @@ windowlayout=742
  y=305
  cx=452
  cy=110
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_songplayerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=447
+ y=62
+ cx=452
+ cy=128
  rcx=0
  rcy=0
  wsize=0

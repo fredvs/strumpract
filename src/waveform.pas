@@ -104,7 +104,7 @@ end;
 procedure twavefo.onresiztimer(const Sender: TObject);
 begin
 
-  trackbar1.Width := Width - 15;
+if Caption <> 'Wave Recorder' then trackbar1.Width := Width - 15;
 
   if ((tag = 1) and (Assigned(songplayerfo))) or ((tag = 2) and (Assigned(songplayer2fo))) or ((Caption = 'Wave Recorder') and (Assigned(recorderfo)) and (islive = False)) then
   begin
@@ -114,7 +114,7 @@ begin
   end
   else if ((Caption = 'Wave Recorder') and (Assigned(recorderfo)) and (islive = True)) then
   begin
-    trackbar1.Width  := waveforec.Width - 12;
+    trackbar1.Width  := waveforec.Width - 11;
     trackbar1.Height := waveforec.Height - 18;
     echelle.Visible  := False;
   end;

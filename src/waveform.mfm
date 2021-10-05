@@ -17,7 +17,6 @@ object wavefo: twavefo
   bounds_cymin = 94
   bounds_cxmax = 442
   bounds_cymax = 110
-  container.color = 16773874
   container.frame.optionsskin = [fso_flat]
   container.frame.localprops = [frl_optionsskin]
   container.frame.localprops1 = []
