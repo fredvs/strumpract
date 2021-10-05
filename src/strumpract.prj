@@ -83,6 +83,7 @@ order14=0
 order15=0
 order16=0
 order17=0
+order18=0
 [projectoptions]
 projectdir=/home/fred/strumpract/src
 projectfilename=/home/fred/strumpract/src/strumpract.prj
@@ -141,8 +142,13 @@ findinfiledialog=82
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=multiplier
+ value=list_files
  history=20
+  list_files
+  infofile
+  TimeToStr
+  infolength
+  3.2.
   multiplier
   InvalidateImage
   windowopacity
@@ -158,11 +164,6 @@ findinfiledialog=82
   generic
   canvas
   ftbyte
-  trakstar
-  msegraphutils
-  colortostring
-  5.2
-  focuscell
  [findinfileadialogfo]
  stackedunder=
  x=506
@@ -299,7 +300,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=2
+ index=3
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -501,7 +502,7 @@ compnamedialog=5
 bmpfiledialog=76
  [filedialog]
  filenames=1
-  /home/fred/strumpract/src/images/infoaudio.png
+  /home/fred/strumpract/src/images/strumpract.png
  filenamescust=1
   /home/fred/strumpract/src/
  filecolwidth=150
@@ -523,6 +524,7 @@ bmpfiledialog=76
  splitterlateral=126
  lastdir=/home/fred/strumpract/src/images/
  filehistory=50
+  /home/fred/strumpract/src/images/strumpract.png
   /home/fred/strumpract/src/images/infoaudio.png
   /home/fred/Pictures/patte_chien_32.png
   /home/fred/strumpract/src/images/audiob2.png
@@ -572,7 +574,6 @@ bmpfiledialog=76
   /home/fred/Images/guittrans.png
   /home/fred/Images/drums2.png
   /home/fred/Documents/vertslidernew2dark.png
-  /home/fred/Documents/butslider2.png
  filefilterindex=0
  filefilter="All" "*.jpg" "*.jpeg" "*.bmp" "*.ico" "*.png" "*.pnm" "*.pgm" "*.pbm" "*.tga" "*.tif" "*.tiff" "*.xpm"
 mainfile=strumpract.pas
@@ -580,8 +581,9 @@ targetfile=strumpract${EXEEXT}
 messageoutputfile=
 makecommand=${COMPILER}
 makedir=
-unitdirs=8
- /home/fred/freepascal-ootb_322/packages/ide
+unitdirs=9
+ /usr/lib/gcc/x86_64-linux-gnu/10/32
+ /usr/lib/gcc/x86_64-linux-gnu/10
  ${MSELIBDIR}/common/*
  ${BGRABITMAPDIR}/bgrabitmap
  ${BGRACONTROLSDIR}
@@ -596,7 +598,7 @@ objpref=-Fo
 targpref=-o
 befcommand=0
 aftcommand=0
-makeoptions=15
+makeoptions=16
  -Mobjfpc -Fcutf8
  -ghl
  -FE.
@@ -612,7 +614,8 @@ makeoptions=15
  -FUunits
  -dclass_bridge
  -dBGRABITMAP_USE_MSEGUI
-makeoptpurpose=15
+ 
+makeoptpurpose=16
  Define Object Pascal
  Debug infos/Memory leak
  Exe path
@@ -628,6 +631,7 @@ makeoptpurpose=15
  Output to /units
  Classes bridge define
  BGRABitmap define
+ 
 compilerused=29
  ${COMPILER} (Default)
  Pascal 1
@@ -767,7 +771,7 @@ stripmessageesc=0
 copymessages=0
 closemessages=0
 enablepurpose=1
-enablesource=0
+enablesource=1
 checkmethods=1
 colorerror=-1610612717
 colorwarning=-1610612712
@@ -843,42 +847,36 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=8
- COMMANDERFO
- DIALOGFILESFO
- EQUALIZERFO
+modulenames=6
  FILELISTFO
  IMAGEDANCERFO
+ INFOSFO
  MAINFO
+ RECORDERFO
  SONGPLAYERFO
- SPECTRUM1FO
-moduletypes=8
- TCOMMANDERFO
- TDIALOGFILESFO
- TEQUALIZERFO
+moduletypes=6
  TFILELISTFO
  TIMAGEDANCERFO
+ TINFOSFO
  TMAINFO
+ TRECORDERFO
  TSONGPLAYERFO
- TSPECTRUM1FO
-modulefiles=8
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/dialogfiles.mfm
- /home/fred/strumpract/src/equalizer.mfm
+modulefiles=6
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/imagedancer.mfm
+ /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
- /home/fred/strumpract/src/spectrum1.mfm
 befcommandon=0
-makeoptionson=15
+makeoptionson=16
  4095
  0
  0
  192
  0
- 1019
- 4
+ 1003
+ 511
  0
  0
  0
@@ -886,6 +884,7 @@ makeoptionson=15
  4095
  4095
  4095
+ 69631
  4095
 compilerusedon=29
  3111
@@ -959,8 +958,9 @@ project_time=02:09:29
 project_date=11/11/2016
 project_comment=
 aftcommandon=0
-unitdirson=8
- 987135
+unitdirson=9
+ 983048
+ 986935
  987135
  987135
  983295
@@ -1664,8 +1664,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=as_
+finddtext=icon
 findhistory=20
+ icon
  as_
  scrollbar.fac
  asliders[x]
@@ -1685,27 +1686,17 @@ findhistory=20
  if Caption = 'Player 1' then
  recorder
  dialogfile
- template
 findoptions=1
-editpos=18
+editpos=9
  0,-1073741823
+ 0,2
+ 0,10
+ 0,-1073741823
+ 0,2934
+ 0,2301
+ 0,595
  0,7
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 28,1082
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,1433
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1715,54 +1706,27 @@ bookmarks5=0
 bookmarks6=0
 bookmarks7=0
 bookmarks8=0
-bookmarks9=0
-bookmarks10=0
-bookmarks11=0
-bookmarks12=0
-bookmarks13=0
-bookmarks14=0
-bookmarks15=0
-bookmarks16=0
-bookmarks17=0
-sourcefiles=18
+sourcefiles=9
  ${PROJECTDIR}/strumpract.pas
+ ${PROJECTDIR}/imagedancer.pas
+ ${PROJECTDIR}/infos.pas
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/dialogfiles.pas
- ${PROJECTDIR}/equalizer.pas
- ${PROJECTDIR}/imagedancer.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/spectrum1.pas
- ${PROJECTDIR}/commander.pas
- ${PROJECTDIR}/commander.pas
- ${PROJECTDIR}/songplayer.pas
- /home/fred/mseide-msegui/lib/common/ifi/mseificomp.pas
- ${PROJECTDIR}/imagedancer.pas
- /home/fred/mseide-msegui/lib/common/widgets/mseforms.pas
  /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
- /home/fred/mseide-msegui/lib/common/kernel/mseguiintf.inc
- /home/fred/mseide-msegui/lib/common/kernel/linux/mseguiintf.pas
- ${PROJECTDIR}/songplayer.pas
-relpaths=18
+relpaths=9
  strumpract.pas
+ imagedancer.pas
+ infos.pas
+ songplayer.pas
+ main.pas
+ songplayer.pas
+ recorder.pas
  filelistform.pas
- main.pas
- dialogfiles.pas
- equalizer.pas
- imagedancer.pas
- main.pas
- spectrum1.pas
- commander.pas
- commander.pas
- songplayer.pas
- mseide-msegui/lib/common/ifi/mseificomp.pas
- imagedancer.pas
- mseide-msegui/lib/common/widgets/mseforms.pas
- mseide-msegui/lib/common/kernel/msegui.pas
- mseide-msegui/lib/common/kernel/mseguiintf.inc
- mseide-msegui/lib/common/kernel/linux/mseguiintf.pas
- songplayer.pas
-ismoduletexts=18
+ ../mseide-msegui/lib/common/kernel/msegui.pas
+ismoduletexts=9
  0
  0
  0
@@ -1772,28 +1736,17 @@ ismoduletexts=18
  0
  0
  0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=11
+modules=9
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
- /home/fred/strumpract/src/filelistform.mfm
- /home/fred/strumpract/src/dialogfiles.mfm
- /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/imagedancer.mfm
- /home/fred/strumpract/src/spectrum1.mfm
+ /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/songplayer.mfm
-moduleoptions=11
+ /home/fred/strumpract/src/filelistform.mfm
+moduleoptions=9
  0
  0
  0
@@ -1803,56 +1756,41 @@ moduleoptions=11
  0
  0
  0
- 0
- 0
-visiblemodules=11
- -1
+visiblemodules=9
  -1
  0
  0
+ -1
  0
- -1
- -1
  -1
  -1
  -1
  -1
-nomenumodules=11
- 0
+nomenumodules=9
  0
  -1
  -1
+ 0
  -1
- 0
- 0
  0
  0
  0
  0
 [sourcefo.files_tab]
-order=18
- 3
- 12
- 2
- 13
- 1
- 11
- 6
- 7
+order=9
  0
- 9
- 8
- 16
- 4
- 10
- 14
- 15
+ 1
+ 2
+ 7
  5
- 17
+ 6
+ 3
+ 4
+ 8
 firsttab=0
-index=1
+index=7
 [layout]
-windowlayout=770
+windowlayout=717
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1970,7 +1908,7 @@ windowlayout=770
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -1979,7 +1917,7 @@ windowlayout=770
  ncy=0
  x=239
  y=115
- cx=678
+ cx=942
  cy=414
  rcx=0
  rcy=0
@@ -1996,7 +1934,7 @@ windowlayout=770
  x=0
  y=0
  cx=205
- cy=524
+ cy=526
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2007,7 +1945,7 @@ windowlayout=770
  sortdescend1=0
  sorted=0
  col=0
- row=7
+ row=5
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2067,7 +2005,7 @@ windowlayout=770
  [breakpointsfo]
  splitdir=0
  useroptions=268451947
- stackedunder=memoryfo
+ stackedunder=conflangfo
  parent=
  mdistate=0
  nx=0
@@ -2086,10 +2024,10 @@ windowlayout=770
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=412
- width0=183
+ propcolwidthref=242
+ width0=107
  sortdescend0=0
- width1=223
+ width1=129
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2182,7 +2120,7 @@ windowlayout=770
  ncx=0
  ncy=0
  x=0
- y=581
+ y=582
  cx=1356
  cy=108
  rcx=0
@@ -2284,7 +2222,7 @@ windowlayout=770
  x=0
  y=0
  cx=1356
- cy=51
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2296,11 +2234,11 @@ windowlayout=770
  nx=0
  ny=0
  ncx=1341
- ncy=3
+ ncy=0
  x=0
  y=0
  cx=1356
- cy=2
+ cy=-2
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2310,28 +2248,22 @@ windowlayout=770
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/imagedancer.pas
- history=20
-  /home/fred/strumpract/src/filelistform.pas
-  /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
+ value=/home/fred/strumpract/src/main.pas
+ history=14
   /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/commander.pas
-  /home/fred/strumpract/src/spectrum1.pas
-  /home/fred/strumpract/src/imagedancer.pas
-  /home/fred/strumpract/src/dialogfiles.pas
-  /home/fred/strumpract/src/equalizer.pas
-  /home/fred/strumpract/src/status.pas
-  /home/fred/uos/src/uos_portaudio.pas
-  /home/fred/uos/uos.jpg
+  /home/fred/mseide-msegui/lib/common/kernel/linux/msesysintf.pas
   /home/fred/mseide-msegui/apps/ide/main.pas
-  /home/fred/mseide-msegui/lib/common/kernel/windows/mseguiintf.pas
-  /home/fred/demo_mse/ovaleform/xshape_example.c
-  /home/fred/mseide-msegui/lib/common/kernel/linux/mseguiintf.pas
-  /home/fred/mseide-msegui/lib/common/kernel/linux/cwstring.pas
-  /home/fred/mseide-msegui/lib/common/fpccompatibility/msezstream.pas
-  /home/fred/mseide-msegui/lib/common/image/mseformatjpgwrite.pas
-  /home/fred/demo_mse/ovaleform/main.pas
-  /home/fred/freepascal-ootb_320/packages/x11/src/xcms.pp
+  /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
+  /home/fred/ideu/src/mseconsts_ide_pt.pas
+  /home/fred/ideu/src/mseconsts_ide_ru.pas
+  /home/fred/ideu/src/mseconsts_ide_de.pas
+  /home/fred/ideu/src/mseconsts_ide_es.pas
+  /home/fred/ideu/src/mseconsts_ide_fr.pas
+  /home/fred/mseide-msegui/apps/ide/mseide.pas
+  /home/fred/ideu/src/ideU.pas
+  /home/fred/ideu/src/projectoptionsform.pas
+  /home/fred/mseide-msegui/apps/ide/sourcepage.pas
+  /home/fred/ideu/src/msefiledialogx.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2349,31 +2281,22 @@ windowlayout=770
  x=208
  y=0
  cx=1148
- cy=524
+ cy=526
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=18
-  3
-  12
-  2
-  13
-  1
-  11
-  6
-  7
+ order=9
   0
-  9
-  8
-  16
-  4
-  10
-  14
-  15
+  1
+  2
+  7
   5
-  17
+  6
+  3
+  4
+  8
  firsttab=0
- index=1
+ index=7
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2409,15 +2332,15 @@ windowlayout=770
  ncx=0
  ncy=0
  x=0
- y=54
+ y=53
  cx=1356
- cy=524
+ cy=526
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2436,7 +2359,7 @@ windowlayout=770
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_guitarsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2451,11 +2374,11 @@ windowlayout=770
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2470,11 +2393,11 @@ windowlayout=770
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2509,67 +2432,10 @@ windowlayout=770
  wsize=0
  active=0
  visible=0
- [_mse_filelistfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_dialogfilesfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=397
- y=264
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_dialogfilesfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=596
- y=300
- cx=346
- cy=315
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_equalizerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=641
- y=136
- cx=452
- cy=142
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2585,20 +2451,20 @@ windowlayout=770
  wsize=0
  active=0
  visible=1
- [_mse_spectrum1fo_mse_]
+ [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=351
- y=240
+ x=43
+ y=145
  cx=452
- cy=128
+ cy=238
  rcx=0
  rcy=0
  wsize=0
@@ -2607,7 +2473,7 @@ windowlayout=770
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2616,6 +2482,25 @@ windowlayout=770
  ncy=0
  x=447
  y=62
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_filelistfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_mainfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=397
+ y=264
  cx=452
  cy=128
  rcx=0

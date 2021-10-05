@@ -2284,20 +2284,21 @@ begin
 
           CommonTags := TagReader.GetCommonTags;
 
-          infosfo.infofile.Caption   := trim(extractfilename(historyfn.Value));
-          infosfo.infoname.Caption   := trim(CommonTags.Title);
-          infosfo.infoartist.Caption := trim(CommonTags.Artist);
-          infosfo.infoalbum.Caption  := trim(CommonTags.Album);
-          infosfo.infoyear.Caption   := trim(CommonTags.Year);
-          infosfo.infocom.Caption    := trim(CommonTags.Comment);
-          infosfo.infotag.Caption    := trim(CommonTags.Genre);
-          infosfo.infolength.Caption := trim(utf8decode(TimeToStr(CommonTags.Duration / MSecsPerDay)));
-          infosfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling));
+          infosfo.infofile.Caption   := copy(trim(extractfilename(historyfn.Value)),1,60);
+          infosfo.infoname.Caption   :=  copy(trim(CommonTags.Title),1,60)+ ' ';
+          infosfo.infoartist.Caption := copy(trim(CommonTags.Artist),1,60)+ ' ';
+          infosfo.infoalbum.Caption  := copy(trim(CommonTags.Album),1,60)+ ' ';
+          infosfo.infoyear.Caption   := trim(CommonTags.Year)+ ' ';
+          infosfo.infocom.Caption    := copy(trim(CommonTags.Comment),1,60)+ ' ';
+          infosfo.infotag.Caption    := trim(CommonTags.Genre)+ ' ';
+          infosfo.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
+          (CommonTags.Duration / MSecsPerDay))))+ ' ';
+          infosfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling))+ ' ';
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
       
             if trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo' then
-          infosfo.infochan.Caption   := 'Stereo' else          
-          infosfo.infochan.Caption   := trim(TagReader.MediaProperty.ChannelMode);
+          infosfo.infochan.Caption   := 'Stereo ' else          
+          infosfo.infochan.Caption   := trim(TagReader.MediaProperty.ChannelMode)+ ' ';
 
 
           // BPM
@@ -2310,41 +2311,9 @@ begin
             //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
             infosfo.infobpm.Caption := trim(utf8decode(
               IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels,
-              thebufferinfos.samplerate)))));
+              thebufferinfos.samplerate))))) + ' ';
           end;
-       {
-               maxwidth := 200;
-          
-              if maxwidth < infosfo.infofile.Width then
-              maxwidth := infosfo.infofile.Width;
-     
-
-          if maxwidth < infosfo.infoname.Width then
-            maxwidth := infosfo.infoname.Width;
-          if maxwidth < infosfo.infoartist.Width then
-            maxwidth := infosfo.infoartist.Width;
-          if maxwidth < infosfo.infoalbum.Width then
-            maxwidth := infosfo.infoalbum.Width;
-          if maxwidth < infosfo.infoyear.Width then
-            maxwidth := infosfo.infoyear.Width;
-          if maxwidth < infosfo.infocom.Width then
-            maxwidth := infosfo.infocom.Width;
-          if maxwidth < infosfo.infotag.Width then
-            maxwidth := infosfo.infotag.Width;
-          if maxwidth < infosfo.infolength.Width then
-            maxwidth := infosfo.infolength.Width;
-          if maxwidth < infosfo.infobpm.Width then
-            maxwidth := infosfo.infobpm.Width;
-           if maxwidth < infosfo.inforate.Width then
-            maxwidth := infosfo.inforate.Width;  
-     
-         if infosfo.imgPreview.Visible then     
-          infosfo.Width := 442 else
-          begin
-           if maxwidth > 200 then  infosfo.Width := maxwidth + 10 else 
-          infosfo.Width := 200;
-          end;         
-        }
+    
           //  infosfo.Width := 442;
           //  infosfo.height := 238 ;
 
@@ -2407,19 +2376,20 @@ begin
 
           CommonTags := TagReader.GetCommonTags;
 
-          infosfo2.infofile.Caption   := trim(extractfilename(historyfn.Value));
-          infosfo2.infoname.Caption   := trim(CommonTags.Title);
-          infosfo2.infoartist.Caption := trim(CommonTags.Artist);
-          infosfo2.infoalbum.Caption  := trim(CommonTags.Album);
-          infosfo2.infoyear.Caption   := trim(CommonTags.Year);
-          infosfo2.infocom.Caption    := trim(CommonTags.Comment);
-          infosfo2.infotag.Caption    := trim(CommonTags.Genre);
-          infosfo2.infolength.Caption := trim(utf8decode(TimeToStr(CommonTags.Duration / MSecsPerDay)));
-          infosfo2.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling));
+          infosfo2.infofile.Caption   := copy(trim(extractfilename(historyfn.Value)),1,60);
+          infosfo2.infoname.Caption   :=  copy(trim(CommonTags.Title),1,60)+ ' ';
+          infosfo2.infoartist.Caption := copy(trim(CommonTags.Artist),1,60)+ ' ';
+          infosfo2.infoalbum.Caption  := copy(trim(CommonTags.Album),1,60)+ ' ';
+          infosfo2.infoyear.Caption   := trim(CommonTags.Year)+ ' ';
+          infosfo2.infocom.Caption    := copy(trim(CommonTags.Comment),1,60)+ ' ';
+          infosfo2.infotag.Caption    := trim(CommonTags.Genre)+ ' ';
+          infosfo2.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
+                                         (CommonTags.Duration / MSecsPerDay))))+ ' ';
+          infosfo2.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling))+ ' ';
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
           if trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo' then
-          infosfo2.infochan.Caption   := 'Stereo' else          
-          infosfo2.infochan.Caption   := trim(TagReader.MediaProperty.ChannelMode);
+          infosfo2.infochan.Caption   := 'Stereo ' else          
+          infosfo2.infochan.Caption   := trim(TagReader.MediaProperty.ChannelMode)+ ' ';
 
           // BPM
 
@@ -2430,43 +2400,11 @@ begin
 
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
             infosfo2.infobpm.Caption :=
-              trim(utf8decode(IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate)))));
+              trim(utf8decode(IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels,
+               thebufferinfos.samplerate))))) + ' ';
 
           end;
-       {
-          maxwidth := 200;
-          
-              if maxwidth < infosfo2.infofile.Width then
-              maxwidth := infosfo2.infofile.Width;
-      
-          if maxwidth < infosfo2.infoname.Width then
-            maxwidth := infosfo2.infoname.Width;
-          if maxwidth < infosfo2.infoartist.Width then
-            maxwidth := infosfo2.infoartist.Width;
-          if maxwidth < infosfo2.infoalbum.Width then
-            maxwidth := infosfo2.infoalbum.Width;
-          if maxwidth < infosfo2.infoyear.Width then
-            maxwidth := infosfo2.infoyear.Width;
-          if maxwidth < infosfo2.infocom.Width then
-            maxwidth := infosfo2.infocom.Width;
-          if maxwidth < infosfo2.infotag.Width then
-            maxwidth := infosfo2.infotag.Width;
-          if maxwidth < infosfo2.infolength.Width then
-            maxwidth := infosfo2.infolength.Width;
-          if maxwidth < infosfo2.infobpm.Width then
-            maxwidth := infosfo2.infobpm.Width;
-
        
-           if infosfo2.imgPreview.Visible then     
-          infosfo2.Width := 442 else
-          begin
-          if maxwidth > 200 then  infosfo2.Width := maxwidth + 10 else 
-           infosfo2.Width := 200;
-          end;         
-        }
-          //  infosfo2.Width := 442;  
-          //  infosfo2.height := 238 ;
-
           if (hassent = 1) then
           begin
             infosfo2.Visible := True;

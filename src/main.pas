@@ -352,12 +352,12 @@ begin
   aboutfo.about_text.Value := c_linefeed + 'StrumPract ' + versiontext + ' for ' + platformtext +
     c_linefeed +
     'https://github.com/fredvs/strumpract/releases/' + c_linefeed +
-    c_linefeed + 'Compiled with FPC 3.2.0.' +
+    c_linefeed + 'Compiled with FPC 3.2.2.' +
     c_linefeed + 'http://www.freepascal.org' + c_linefeed + c_linefeed +
     'Graphic widget: MSEgui ' + mseguiversiontext +
     '.' + c_linefeed + 'https://github.com/mse-org/mseide-msegui' +
     c_linefeed + c_linefeed +
-    'Audio library: uos 1.8. (United Openlib of Sound)' + c_linefeed +
+    'Audio library: uos 1.8.0. (United Openlib of Sound)' + c_linefeed +
     'https://github.com/fredvs/uos' + c_linefeed +
     c_linefeed + 'Copyright 2021' + c_linefeed +
     'Fred van Stappen <fiens@hotmail.com>';
