@@ -2621,6 +2621,7 @@ begin
     songplayer2fo.edvolleft.frame.colorglyph := thecolor2;
 
     recorderfo.edvol.frame.colorglyph   := thecolor1;
+    recorderfo.edvolr.frame.colorglyph   := thecolor1;
     recorderfo.edtempo.frame.colorglyph := thecolor2;
 
     songplayerfo.edvolright.frame.colorglyph  := thecolor1;
@@ -2629,6 +2630,7 @@ begin
     songplayer2fo.edtempo.frame.colorglyph    := thecolor2;
 
     recorderfo.edvol.frame.colorglyph   := ltblack;
+    recorderfo.edvolr.frame.colorglyph   := ltblack;
     recorderfo.edtempo.frame.colorglyph := ltblack;
 
     waveforec.trackbar1.color := $F9FFC2;
