@@ -300,7 +300,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=3
+ index=2
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -847,30 +847,27 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=8
+modulenames=7
  EQUALIZERFO
  FILELISTFO
  IMAGEDANCERFO
  INFOSFO
- MAINFO
  RECORDERFO
  SONGPLAYERFO
  WAVEFO
-moduletypes=8
+moduletypes=7
  TEQUALIZERFO
  TFILELISTFO
  TIMAGEDANCERFO
  TINFOSFO
- TMAINFO
  TRECORDERFO
  TSONGPLAYERFO
  TWAVEFO
-modulefiles=8
+modulefiles=7
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/imagedancer.mfm
  /home/fred/strumpract/src/infos.mfm
- /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/waveform.mfm
@@ -881,7 +878,7 @@ makeoptionson=16
  0
  192
  0
- 1003
+ 1023
  511
  0
  0
@@ -1693,21 +1690,20 @@ findhistory=20
  scrollbar.fac
  asliders[x]
 findoptions=1
-editpos=15
+editpos=14
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,3
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 53,2624
+ 0,-1073741823
+ 0,5
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,4
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1723,8 +1719,7 @@ bookmarks10=0
 bookmarks11=0
 bookmarks12=0
 bookmarks13=0
-bookmarks14=0
-sourcefiles=15
+sourcefiles=14
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/imagedancer.pas
  ${PROJECTDIR}/infos.pas
@@ -1734,13 +1729,12 @@ sourcefiles=15
  ${PROJECTDIR}/filelistform.pas
  /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
  ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/waveform.pas
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/songplayer.pas
-relpaths=15
+relpaths=14
  strumpract.pas
  imagedancer.pas
  infos.pas
@@ -1750,14 +1744,12 @@ relpaths=15
  filelistform.pas
  mseide-msegui/lib/common/kernel/msegui.pas
  recorder.pas
- main.pas
  equalizer.pas
  equalizer.pas
  waveform.pas
  recorder.pas
  songplayer.pas
-ismoduletexts=15
- 0
+ismoduletexts=14
  0
  0
  0
@@ -1797,7 +1789,7 @@ moduleoptions=11
  0
  0
 visiblemodules=11
- -1
+ 0
  0
  0
  -1
@@ -1809,7 +1801,7 @@ visiblemodules=11
  -1
  -1
 nomenumodules=11
- 0
+ -1
  -1
  -1
  0
@@ -2284,9 +2276,9 @@ windowlayout=748
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
  history=17
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/waveform.pas
-  /home/fred/strumpract/src/main.pas
   /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/mseide-msegui/lib/common/kernel/linux/msesysintf.pas
@@ -2302,7 +2294,7 @@ windowlayout=748
   /home/fred/mseide-msegui/apps/ide/sourcepage.pas
   /home/fred/ideu/src/msefiledialogx.pas
  [debuggerfo.project_options]
- value=1
+ value=6
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -2367,7 +2359,7 @@ windowlayout=748
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2382,7 +2374,7 @@ windowlayout=748
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2405,7 +2397,7 @@ windowlayout=748
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
