@@ -9,6 +9,7 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use this grip panel to drag/drop the window '
+  onactivate = onactiv
   visible = False
   bounds_x = 397
   bounds_y = 264
@@ -100,6 +101,7 @@ object filelistfo: tfilelistfo
   oncreate = oncreate
   oncreated = formcreated
   ondestroy = ondestr
+  onmouseevent = onmouse
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
@@ -714,8 +716,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 3
-      bounds_y = 95
+      bounds_x = 2
+      bounds_y = 90
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

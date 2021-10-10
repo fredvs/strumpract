@@ -141,6 +141,7 @@ type
    procedure onsetsysvol(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
    procedure dotimercallback(const sender: TObject);
+   procedure onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
   end;
 
 var
@@ -1322,6 +1323,15 @@ begin
     commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
   end;
  {$ENDIF}
+end;
+
+procedure tcommanderfo.onmouse(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+ if mainfo.ttimer2.Enabled then
+      mainfo.ttimer2.restart // to reset
+    else
+      mainfo.ttimer2.Enabled := True;
 end;
 
 end.

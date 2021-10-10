@@ -100,6 +100,8 @@ type
     procedure opendir(const Sender: TObject);
     procedure onexecfind(const Sender: TObject);
 
+   procedure onactiv(const sender: TObject);
+   procedure onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
   end;
 
 var
@@ -156,6 +158,8 @@ begin
 
   for x := 0 to list_files.rowCount - 1 do
     list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
+    
+   
 end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
@@ -992,6 +996,21 @@ procedure tfilelistfo.onexecfind(const Sender: TObject);
 begin
   imessages := 0;
   findmessagefo.Show(True);
+end;
+
+procedure tfilelistfo.onactiv(const sender: TObject);
+begin
+ if historyfn.value <> '' then
+     caption := historyfn.Value;
+end;
+
+procedure tfilelistfo.onmouse(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+if mainfo.ttimer2.Enabled then
+      mainfo.ttimer2.restart // to reset
+    else
+      mainfo.ttimer2.Enabled := True;
 end;
 
 

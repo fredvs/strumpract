@@ -7,54 +7,13 @@ unit main;
 interface
 
 uses
-  {$ifdef windows}
-  win_mixer,
-  {$endif}
-  msetypes,
-  mseglob,
-  mseguiglob,
-  msegraphedits,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msechart,
-  status,
-  msedock,
-  msedataedits,
-  mseedit,
-  msestatfile,
-  SysUtils,
-  Classes,
-  Math,
-  msebitmap,
-  msesys,
-  msemenus,
-  msestream,
-  msegrids,
-  mselistbrowser,
-  mseact,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestrings,
-  msedatanodes,
-  msedragglob,
-  msedropdownlist,
-  msefiledialogx,
-  msegridsglob,
-
-   {$IFDEF unix}
-   dynlibs,
-   {$ENDIF}
-
-  msetraywidget;
+ {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,mseguiglob,msegraphedits,
+ mseguiintf,mseapplication,msestat,msegui,msetimer,msegraphics,msegraphutils,
+ mseclasses,msewidgets,mseforms,msechart,status,msedock,msedataedits,mseedit,
+ msestatfile,SysUtils,Classes,Math,msebitmap,msesys,msemenus,msestream,msegrids,
+ mselistbrowser,mseact,mseificomp,mseificompglob,mseifiglob,msestrings,
+ msedatanodes,msedragglob,msedropdownlist,msefiledialogx,msegridsglob,
+ {$IFDEF unix}dynlibs,{$ENDIF}msetraywidget;
 
 type
   tmainfo = class(tmainform)
@@ -88,6 +47,7 @@ type
     ttimer1: ttimer;
     tfaceplayer2: tfacecomp;
     tfaceorange2: tfacecomp;
+   ttimer2: ttimer;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -154,6 +114,8 @@ type
     procedure onsetwindowdancer(const sender: TObject);
    procedure onalwaysontop(const sender: TObject);
    procedure onhidedancer(const sender: TObject);
+   procedure ontimeridle(const sender: TObject);
+   procedure onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
   private
     flayoutlock: int32;
   protected
@@ -5189,6 +5151,33 @@ end;
 procedure tmainfo.onhidedancer(const sender: TObject);
 begin
 imagedancerfo.Visible := false;
+end;
+
+procedure tmainfo.ontimeridle(const sender: TObject);
+var
+      MousePos: pointty;
+     
+begin
+      MousePos := application.mouse.pos;
+      MousePos.X := MousePos.X + 5;
+      MousePos.Y := MousePos.y + 5 ;
+      application.mouse.pos := MousePos;
+      application.processmessages;
+      sleep(10);
+      MousePos.X := MousePos.X - 5;
+      MousePos.Y := MousePos.Y - 5 ;
+      application.mouse.pos := MousePos;
+       application.processmessages;
+end;
+
+procedure tmainfo.onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
+begin
+
+  if ttimer2.Enabled then
+      ttimer2.restart // to reset
+    else
+      ttimer2.Enabled := True;
+
 end;
 
 end.

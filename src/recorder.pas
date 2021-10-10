@@ -775,15 +775,10 @@ end;
 
 procedure trecorderfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
-{
- with ainfo do
-  if (eventkind = ek_buttonpress) then
-  begin
-if mainfo.issomeplaying = false then dragdock.optionsdock := [od_savepos,od_savezorder,od_canmove,od_canfloat,od_candock,od_proportional,od_fixsize,od_captionhint]
-else
-dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
-end;
-}
+if mainfo.ttimer2.Enabled then
+      mainfo.ttimer2.restart // to reset
+    else
+      mainfo.ttimer2.Enabled := True;
 end;
 
 procedure trecorderfo.dorecorderstart(const Sender: TObject);

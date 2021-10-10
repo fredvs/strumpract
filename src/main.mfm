@@ -144,6 +144,7 @@ object mainfo: tmainfo
   oncreated = oncreatedform
   ondestroy = dodestroy
   onclose = onclose
+  onmouseevent = onmouse
   onresize = onresized
   moduleclassname = 'tmainform'
   object basedock: tdockpanel
@@ -3242,5 +3243,12 @@ object mainfo: tmainfo
     template.fade_direction = gd_down
     left = 286
     top = 45
+  end
+  object ttimer2: ttimer
+    interval = 180000000
+    ontimer = ontimeridle
+    enabled = True
+    left = 358
+    top = 29
   end
 end

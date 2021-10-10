@@ -88,6 +88,7 @@ object commanderfo: tcommanderfo
   oncreate = oncre
   oncreated = formcreated
   ondestroy = ondest
+  onmouseevent = onmouse
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
