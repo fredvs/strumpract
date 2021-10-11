@@ -5159,15 +5159,12 @@ var
      
 begin
       MousePos := application.mouse.pos;
-      MousePos.X := MousePos.X + 5;
-      MousePos.Y := MousePos.y + 5 ;
+      MousePos.X := MousePos.X + 1;
       application.mouse.pos := MousePos;
       application.processmessages;
-      sleep(10);
-      MousePos.X := MousePos.X - 5;
-      MousePos.Y := MousePos.Y - 5 ;
+      MousePos.X := MousePos.X - 1;
       application.mouse.pos := MousePos;
-       application.processmessages;
+      application.processmessages;
 end;
 
 procedure tmainfo.onmouse(const sender: twidget; var ainfo: mouseeventinfoty);

@@ -1676,8 +1676,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=processmouseevent
+finddtext=ontimeridle
 findhistory=20
+ ontimeridle
  mouse
  cl_lastfunctional
  cl_functional
@@ -1697,20 +1698,11 @@ findhistory=20
  infofile
  infosfo
  oninfowav
- llength
 findoptions=1
 editpos=30
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,5159
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,3
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1718,18 +1710,26 @@ editpos=30
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,1330
- 0,2560
- 0,780
- 0,1012
+ 0,-1073741823
+ 0,-1073741823
+ 0,5152
+ 0,7
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1811,7 +1811,7 @@ relpaths=30
  msecolordialog.pas
  filelistform.pas
  main.pas
- mseide-msegui/lib/common/kernel/mseguiglob.pas
+ ../mseide-msegui/lib/common/kernel/mseguiglob.pas
  mseide-msegui/lib/common/widgets/msewidgets.pas
  mseide-msegui/lib/common/kernel/msepointer.pas
  main.pas
@@ -1912,33 +1912,33 @@ order=30
  2
  3
  26
- 27
- 29
- 28
- 4
- 5
- 6
- 7
- 8
- 11
- 25
- 23
- 14
- 19
- 10
  9
- 12
- 16
+ 10
+ 11
+ 4
+ 19
  18
- 24
- 17
- 21
- 20
  13
+ 8
+ 27
+ 14
+ 29
+ 16
+ 24
  22
+ 17
+ 12
+ 21
+ 28
  15
-firsttab=3
-index=3
+ 23
+ 25
+ 20
+ 5
+ 7
+ 6
+firsttab=9
+index=10
 [layout]
 windowlayout=801
  [mainfo.basedock]
@@ -2400,12 +2400,13 @@ windowlayout=801
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
  history=20
-  /home/fred/strumpract/src/equalizer.pas
   /home/fred/mseide-msegui/lib/common/kernel/mseguiglob.pas
+  /home/fred/strumpract/src/equalizer.pas
+  /home/fred/strumpract/src/commander.pas
+  /home/fred/strumpract/src/main.pas
   /home/fred/mseide-msegui/lib/common/kernel/msetypes.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/waveform.pas
-  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/recorder.pas
   /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
   /home/fred/mseide-msegui/lib/common/kernel/linux/msesysintf.pas
@@ -2419,7 +2420,6 @@ windowlayout=801
   /home/fred/ideu/src/ideU.pas
   /home/fred/ideu/src/projectoptionsform.pas
   /home/fred/mseide-msegui/apps/ide/sourcepage.pas
-  /home/fred/ideu/src/msefiledialogx.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2447,33 +2447,33 @@ windowlayout=801
   2
   3
   26
-  27
-  29
-  28
-  4
-  5
-  6
-  7
-  8
-  11
-  25
-  23
-  14
-  19
-  10
   9
-  12
-  16
+  10
+  11
+  4
+  19
   18
-  24
-  17
-  21
-  20
   13
+  8
+  27
+  14
+  29
+  16
+  24
   22
+  17
+  12
+  21
+  28
   15
- firsttab=3
- index=3
+  23
+  25
+  20
+  5
+  7
+  6
+ firsttab=9
+ index=10
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2536,7 +2536,7 @@ windowlayout=801
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2555,7 +2555,7 @@ windowlayout=801
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2631,7 +2631,7 @@ windowlayout=801
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2650,7 +2650,7 @@ windowlayout=801
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2688,7 +2688,7 @@ windowlayout=801
  [_mse_wavefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_colordialogfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2707,7 +2707,7 @@ windowlayout=801
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_colordialogfo_mse_
  parent=
  mdistate=3
  nx=0
