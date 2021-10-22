@@ -118,13 +118,9 @@ object filelistfo: tfilelistfo
     font.localprops = []
     object tbutton11: tbutton
       color = -2147483645
-      frame.captiondist = 0
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
+      frame.localprops1 = []
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
       face.image.alignment = [al_xcentered, al_ycentered, al_thumbnail]
@@ -197,13 +193,9 @@ object filelistfo: tfilelistfo
     end
     object tbutton1: tbutton
       color = -2147483645
-      frame.captiondist = 0
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
+      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange
@@ -224,13 +216,9 @@ object filelistfo: tfilelistfo
     object tbutton2: tbutton
       Tag = 1
       color = -2147483645
-      frame.captiondist = 0
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
+      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
@@ -517,7 +505,6 @@ object filelistfo: tfilelistfo
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 4
@@ -546,13 +533,9 @@ object filelistfo: tfilelistfo
     end
     object tbutton3: tbutton
       color = -2147483645
-      frame.captiondist = 0
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
+      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
@@ -572,13 +555,9 @@ object filelistfo: tfilelistfo
     end
     object tbutton4: tbutton
       color = -2147483645
-      frame.captiondist = 0
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
+      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
@@ -598,13 +577,9 @@ object filelistfo: tfilelistfo
     end
     object tbutton5: tbutton
       color = -2147483645
-      frame.captiondist = 0
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
+      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
@@ -625,33 +600,28 @@ object filelistfo: tfilelistfo
     object historyfn: thistoryedit
       color = -2147483645
       frame.levelo = 0
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = commanderfo.timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.colorclient = -2147483645
       frame.captionpos = cp_lefttop
       frame.captiondist = 0
-      frame.localprops = [frl_frameimagelist]
+      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
       frame.localprops1 = [frl1_captiondist]
       frame.button.face.localprops = []
       frame.button.face.template = mainfo.tfacebutgray
-      frame.button.frame.localprops = []
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
           face.localprops = []
           face.template = mainfo.tfacebutgray
-          frame.localprops = []
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
@@ -684,13 +654,9 @@ object filelistfo: tfilelistfo
     object tbutton6: tbutton
       Tag = 1
       color = -2147483645
-      frame.captiondist = 0
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
+      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
@@ -716,8 +682,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 2
-      bounds_y = 90
+      bounds_x = 1
+      bounds_y = 50
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

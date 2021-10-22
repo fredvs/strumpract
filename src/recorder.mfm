@@ -131,16 +131,6 @@ object recorderfo: trecorderfo
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
   object tgroupbox1: tgroupbox
-    frame.leveli = 0
-    frame.colordkwidth = 0
-    frame.colorhlwidth = 0
-    frame.font.color = 2368548
-    frame.font.height = 11
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color, flp_height]
-    frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
     face.localprops = []
     face.template = tfacerecorder
     bounds_x = 0
@@ -300,9 +290,9 @@ object recorderfo: trecorderfo
     object button1: tbutton
       Tag = 1
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
@@ -400,20 +390,18 @@ object recorderfo: trecorderfo
       scrollbar.face2.template = tfacerecorder
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = commanderfo.tfacecomp2
-      scrollbar.frame.localprops = []
-      scrollbar.frame.localprops1 = []
-      scrollbar.frame.template = commanderfo.tframecomp2
-      scrollbar.framebutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = commanderfo.tframecomp2
       scrollbar.color = -2147483645
       scrollbar.onafterevent = afterev
     end
     object btnStop: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
@@ -431,9 +419,9 @@ object recorderfo: trecorderfo
     end
     object btnStart: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
@@ -451,9 +439,9 @@ object recorderfo: trecorderfo
     end
     object btnResume: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
@@ -471,9 +459,9 @@ object recorderfo: trecorderfo
     end
     object btnPause: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
@@ -490,24 +478,28 @@ object recorderfo: trecorderfo
       onexecute = doplayerpause
     end
     object historyfn: thistoryedit
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.captionpos = cp_lefttop
       frame.captiondist = 0
-      frame.localprops = []
+      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
       frame.localprops1 = [frl1_captiondist]
       frame.template = commanderfo.tframecomp1
       frame.button.face.localprops = []
       frame.button.face.template = tfacerecorder
+      frame.button.frame.optionsskin = [fso_flat]
       frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
           face.localprops = []
           face.template = tfacerecorder
+          frame.optionsskin = [fso_flat]
           frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
@@ -538,7 +530,6 @@ object recorderfo: trecorderfo
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacereclight
       taborder = 15
@@ -553,11 +544,8 @@ object recorderfo: trecorderfo
     end
     object lposition: tstringdisp
       color = -2147483645
-      frame.font.name = 'stf_default'
-      frame.font.localprops = []
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacereclight
       taborder = 16
@@ -574,7 +562,6 @@ object recorderfo: trecorderfo
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacerecrev
       taborder = 17
@@ -638,15 +625,6 @@ object recorderfo: trecorderfo
       format = ''
     end
     object recpan: tgroupbox
-      frame.caption = '...RECORDING...'
-      frame.captiontextflags = [tf_xcentered, tf_ycentered]
-      frame.captionpos = cp_center
-      frame.captionoffset = 0
-      frame.font.name = 'stf_default'
-      frame.font.localprops = []
-      frame.localprops = []
-      frame.localprops1 = [frl1_captionoffset]
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfacered
       taborder = 20
@@ -660,9 +638,9 @@ object recorderfo: trecorderfo
     end
     object tbutton3: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp1
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
@@ -709,13 +687,9 @@ object recorderfo: trecorderfo
     object tbutton6: tbutton
       Tag = 1
       color = -2147483645
-      frame.captiondist = 0
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
+      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
@@ -781,8 +755,8 @@ object recorderfo: trecorderfo
       face.template = commanderfo.tfaceorange
       taborder = 21
       visible = False
-      bounds_x = 117
-      bounds_y = 37
+      bounds_x = 243
+      bounds_y = 31
       bounds_cx = 221
       bounds_cy = 52
       font.name = 'stf_default'
@@ -814,58 +788,58 @@ object recorderfo: trecorderfo
     end
     object tgroupbox2: tgroupbox
       color = -2147483645
+      frame.leveli = 0
       frame.caption = 'Out'
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
+      frame.localprops = [frl_levelo, frl_leveli, frl_hiddenedges]
+      frame.localprops1 = [frl1_imagedist2, frl1_fotop, frl1_foright]
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 25
       bounds_x = 98
-      bounds_y = 27
+      bounds_y = 25
       bounds_cx = 61
-      bounds_cy = 65
+      bounds_cy = 69
       object bwav: tbooleaneditradio
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.caption = 'wav'
-        frame.localprops = []
+        frame.localprops = [frl_hiddenedges]
         frame.localprops1 = []
-        frame.template = commanderfo.tframecomp2
         frame.outerframe = (
           0
-          2
+          0
           27
-          2
+          1
         )
         face.localprops = []
         face.template = tfacereclight
-        bounds_x = 9
-        bounds_y = 30
-        bounds_cx = 40
+        bounds_x = 8
+        bounds_y = 29
+        bounds_cx = 42
         bounds_cy = 17
         statfile = mainfo.tstatfile1
         value = True
       end
       object bogg: tbooleaneditradio
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.caption = 'ogg'
-        frame.localprops = []
+        frame.localprops = [frl_hiddenedges]
         frame.localprops1 = []
-        frame.template = commanderfo.tframecomp2
         frame.outerframe = (
           0
-          2
+          0
           26
-          2
+          1
         )
         face.localprops = []
         face.template = tfacereclight
         taborder = 1
-        bounds_x = 9
-        bounds_y = 44
-        bounds_cx = 39
+        bounds_x = 8
+        bounds_y = 47
+        bounds_cx = 41
         bounds_cy = 17
         statfile = mainfo.tstatfile1
       end
@@ -892,8 +866,8 @@ object recorderfo: trecorderfo
         face.template = tfacereclight
         taborder = 2
         hint = ' Save recording to file '
-        bounds_x = 8
-        bounds_y = 14
+        bounds_x = 7
+        bounds_y = 13
         bounds_cx = 46
         bounds_cy = 16
         statfile = mainfo.tstatfile1
@@ -914,7 +888,8 @@ object recorderfo: trecorderfo
       15586259
     )
     template.fade_direction = gd_down
-    left = 92
+    left = 239
+    top = 1
   end
   object tfacerecrev: tfacecomp
     template.fade_pos.count = 2
@@ -928,8 +903,7 @@ object recorderfo: trecorderfo
       16770019
     )
     template.fade_direction = gd_down
-    left = 103
-    top = 3
+    left = 222
   end
   object tfacerecorder: tfacecomp
     template.fade_pos.count = 2
@@ -943,8 +917,8 @@ object recorderfo: trecorderfo
       14327197
     )
     template.fade_direction = gd_down
-    left = 105
-    top = 2
+    left = 216
+    top = 1
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -958,8 +932,7 @@ object recorderfo: trecorderfo
       15586259
     )
     template.fade_direction = gd_down
-    left = 106
-    top = 3
+    left = 206
   end
   object tfiledialog1: tfiledialogx
     statfile = mainfo.tstatfile1

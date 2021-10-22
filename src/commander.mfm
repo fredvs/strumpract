@@ -96,25 +96,24 @@ object commanderfo: tcommanderfo
     color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
-    frame.template = tframecomp1
     face.localprops = []
     face.template = drumsfo.tfacecomp2
     taborder = 1
-    bounds_x = 334
+    bounds_x = 337
     bounds_y = 0
-    bounds_cx = 66
+    bounds_cx = 60
     bounds_cy = 126
     object loop_start: tbutton
       Tag = 1
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
       hint = ' Start Drums '
-      bounds_x = 35
+      bounds_x = 30
       bounds_y = 92
       bounds_cx = 26
       bounds_cy = 28
@@ -127,15 +126,15 @@ object commanderfo: tcommanderfo
     object loop_stop: tbutton
       Tag = 1
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
       taborder = 1
       hint = ' Pause Drums '
-      bounds_x = 35
+      bounds_x = 30
       bounds_y = 26
       bounds_cx = 26
       bounds_cy = 28
@@ -148,15 +147,15 @@ object commanderfo: tcommanderfo
     object loop_resume: tbutton
       Tag = 1
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
       taborder = 2
       hint = ' Resume Drums '
-      bounds_x = 35
+      bounds_x = 30
       bounds_y = 59
       bounds_cx = 26
       bounds_cy = 28
@@ -169,16 +168,9 @@ object commanderfo: tcommanderfo
     object tslider2: tslider
       Tag = 3
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       taborder = 3
       hint = ' General Volume of drums '
-      bounds_x = 6
+      bounds_x = 2
       bounds_y = 18
       bounds_cx = 26
       bounds_cy = 90
@@ -195,34 +187,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
     object namedrums: tstringdisp
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = drumsfo.tfacecomp2
       taborder = 4
       hint = ' Drums set '
-      bounds_x = 6
+      bounds_x = 2
       bounds_y = 3
       bounds_cx = 54
       bounds_cy = 14
@@ -235,16 +211,8 @@ object commanderfo: tcommanderfo
       reffontheight = 13
     end
     object tslider2val: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
@@ -269,7 +237,6 @@ object commanderfo: tcommanderfo
     color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
-    frame.template = tframecomp1
     face.localprops = []
     face.template = recorderfo.tfacereclight
     taborder = 2
@@ -279,13 +246,6 @@ object commanderfo: tcommanderfo
     bounds_cy = 126
     object tslider3: tslider
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       hint = ' Volume of input (mic or input) '
       bounds_x = 4
       bounds_y = 32
@@ -303,28 +263,12 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
     object nameinput: tstringdisp
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.localprops = []
       face.template = recorderfo.tfacereclight
       taborder = 1
@@ -364,7 +308,7 @@ object commanderfo: tcommanderfo
       face.template = recorderfo.tfacereclight
       taborder = 2
       hint = '  Enable Live Input '
-      bounds_x = 1
+      bounds_x = 2
       bounds_y = 17
       bounds_cx = 30
       bounds_cy = 15
@@ -372,16 +316,8 @@ object commanderfo: tcommanderfo
       colorglyph = 4868682
     end
     object tslider3val: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
@@ -406,7 +342,6 @@ object commanderfo: tcommanderfo
     color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
-    frame.template = tframecomp1
     face.localprops = []
     face.template = mainfo.tfacebutgray
     taborder = 3
@@ -417,13 +352,6 @@ object commanderfo: tcommanderfo
     object genvolright: tslider
       Tag = 1
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       hint = ' Right Volume General in % '
       bounds_x = 34
       bounds_y = 18
@@ -442,32 +370,10 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
     object genvolleft: tslider
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       taborder = 1
       hint = ' Left Volume General in % '
       bounds_x = 18
@@ -487,21 +393,6 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
     object genleftvolvalue: tbutton
@@ -551,16 +442,8 @@ object commanderfo: tcommanderfo
     end
     object linkvolgenb: tbutton
       Tag = 1
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -594,7 +477,6 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.localprops = []
       face.template = mainfo.tfacebutltgray
       taborder = 5
@@ -613,13 +495,6 @@ object commanderfo: tcommanderfo
     end
     object sysvol: tslider
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       taborder = 6
       hint = 'System Master Volume'
       bounds_x = 0
@@ -638,21 +513,6 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       onsetvalue = onsetsysvol
       direction = gd_up
     end
@@ -680,14 +540,8 @@ object commanderfo: tcommanderfo
   end
   object tgroupboxplayers: tgroupbox
     color = -2147483645
-    frame.framei_left = 0
-    frame.framei_top = 0
-    frame.framei_right = 0
-    frame.framei_bottom = 0
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_optionsskin]
+    frame.localprops = []
     frame.localprops1 = []
-    frame.template = tframecomp1
     face.localprops = []
     face.template = mainfo.tfaceplayer
     bounds_x = 53
@@ -740,9 +594,9 @@ object commanderfo: tcommanderfo
     end
     object btnStop: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -781,9 +635,9 @@ object commanderfo: tcommanderfo
     object btnStart: tbutton
       Tag = 2
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -802,13 +656,6 @@ object commanderfo: tcommanderfo
     object volumeleft1: tslider
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       taborder = 6
       hint = ' Left Volume Player 1 '
       bounds_x = 41
@@ -828,34 +675,12 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
     object volumeright1: tslider
       Tag = 1
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       taborder = 7
       hint = ' Right Volume Player 1 '
       bounds_x = 67
@@ -875,28 +700,13 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
     object tbutton2: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
@@ -915,9 +725,9 @@ object commanderfo: tcommanderfo
     object tbutton3: tbutton
       Tag = 4
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -937,13 +747,6 @@ object commanderfo: tcommanderfo
       Tag = 3
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       taborder = 9
       hint = ' Right Volume Player 2 '
       bounds_x = 217
@@ -963,34 +766,12 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
     object volumeleft2: tslider
       Tag = 2
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      frame.levelo = 0
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.captiondist = 0
-      frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-      frame.template = tframecomp2
       taborder = 10
       hint = ' Left Volume Player 2 '
       bounds_x = 191
@@ -1010,29 +791,14 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.localprops = []
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.localprops = [frl_hiddenedges]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.frameendbutton1.optionsskin = [fso_flat]
-      scrollbar.frameendbutton1.colorclient = -2147483645
-      scrollbar.frameendbutton1.colordkwidth = 0
-      scrollbar.frameendbutton1.colorhlwidth = 0
-      scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton1.localprops1 = []
-      scrollbar.frameendbutton2.optionsskin = [fso_flat]
-      scrollbar.frameendbutton2.colorclient = -2147483645
-      scrollbar.frameendbutton2.colordkwidth = 0
-      scrollbar.frameendbutton2.colorhlwidth = 0
-      scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      scrollbar.frameendbutton2.localprops1 = []
       direction = gd_up
     end
     object btncue: tbutton
       Tag = 3
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -1051,9 +817,9 @@ object commanderfo: tcommanderfo
     object btnStart2: tbutton
       Tag = 4
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -1072,9 +838,9 @@ object commanderfo: tcommanderfo
     object btncue2: tbutton
       Tag = 5
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -1093,9 +859,9 @@ object commanderfo: tcommanderfo
     object btnStop2: tbutton
       Tag = 1
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -1199,16 +965,8 @@ object commanderfo: tcommanderfo
       format = ''
     end
     object volumeleft1val: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
@@ -1229,16 +987,8 @@ object commanderfo: tcommanderfo
       onexecute = resetvolume
     end
     object volumeright1val: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
@@ -1259,16 +1009,8 @@ object commanderfo: tcommanderfo
       onexecute = resetvolume
     end
     object volumeright2val: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
@@ -1289,16 +1031,8 @@ object commanderfo: tcommanderfo
       onexecute = resetvolume
     end
     object volumeleft2val: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
@@ -1344,9 +1078,9 @@ object commanderfo: tcommanderfo
     end
     object btnPause: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -1365,9 +1099,9 @@ object commanderfo: tcommanderfo
     object btnPause2: tbutton
       Tag = 1
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -1426,9 +1160,9 @@ object commanderfo: tcommanderfo
     end
     object tbutton4: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
@@ -1446,16 +1180,8 @@ object commanderfo: tcommanderfo
     end
     object linkvolb: tbutton
       Tag = 1
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -1487,16 +1213,8 @@ object commanderfo: tcommanderfo
     end
     object linkvol2b: tbutton
       Tag = 1
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -1529,16 +1247,8 @@ object commanderfo: tcommanderfo
     object speccalcb: tbutton
       Tag = 1
       color = -2147483645
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -1610,16 +1320,8 @@ object commanderfo: tcommanderfo
     end
     object vuinb: tbutton
       color = -2147483645
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -1652,16 +1354,8 @@ object commanderfo: tcommanderfo
     object automixb: tbutton
       Tag = 1
       color = -2147483645
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -1692,16 +1386,8 @@ object commanderfo: tcommanderfo
       onexecute = onexecbutlght
     end
     object directmixb: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -1739,8 +1425,8 @@ object commanderfo: tcommanderfo
       face.template = tfaceorange
       taborder = 20
       visible = False
-      bounds_x = 33
-      bounds_y = 49
+      bounds_x = 31
+      bounds_y = 46
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -1772,7 +1458,6 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 37
@@ -1793,7 +1478,6 @@ object commanderfo: tcommanderfo
       color = -2147483645
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 38
@@ -1815,8 +1499,8 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       taborder = 29
       visible = False
-      bounds_x = -36
-      bounds_y = 27
+      bounds_x = -25
+      bounds_y = 35
       bounds_cx = 84
       bounds_cy = 83
       reffontheight = 15
@@ -2025,7 +1709,7 @@ object commanderfo: tcommanderfo
         face.template = mainfo.tfaceplayerlight
         taborder = 6
         hint = ' Lock left and right volume Player 1 '
-        bounds_x = 5
+        bounds_x = 4
         bounds_y = 1
         bounds_cx = 39
         bounds_cy = 15
@@ -2098,16 +1782,8 @@ object commanderfo: tcommanderfo
     end
     object Brandommix: tbutton
       color = -2147483645
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -2150,8 +1826,8 @@ object commanderfo: tcommanderfo
       15921906
     )
     template.fade_direction = gd_left
-    left = 311
-    top = 32
+    left = 273
+    top = 40
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -2165,8 +1841,8 @@ object commanderfo: tcommanderfo
       10921638
     )
     template.fade_direction = gd_down
-    left = 321
-    top = 27
+    left = 280
+    top = 38
   end
   object tframecomp1: tframecomp
     template.framei_left = 4
@@ -2179,8 +1855,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 306
-    top = 66
+    left = 255
+    top = 32
   end
   object timagelist2: timagelist
     width = 4
@@ -2190,8 +1866,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 307
-    top = 29
+    left = 268
+    top = 40
     image = {
       00000000020000000C0000000C00000010010000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -2215,8 +1891,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 310
-    top = 31
+    left = 276
+    top = 40
     image = {
       00000000020000000C0000000C000000E8000000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -2242,8 +1918,8 @@ object commanderfo: tcommanderfo
     template.frameimage_right = -4
     template.frameimage_bottom = -4
     template.optionsskin = [fso_flat]
-    left = 300
-    top = 25
+    left = 270
+    top = 43
   end
   object tfaceslider: tfacecomp
     template.image.origformat = 'png'
@@ -2672,8 +2348,8 @@ object commanderfo: tcommanderfo
       B8B9B801B8B8B701B6B7B701B6B5B501B4B4B501B3B3B401B2B3B301B1B1B101
       B0B0B0018B8B8B01
     }
-    left = 310
-    top = 29
+    left = 272
+    top = 40
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -2694,8 +2370,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 307
-    top = 39
+    left = 281
+    top = 36
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -2709,8 +2385,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 299
-    top = 55
+    left = 286
+    top = 43
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -3139,8 +2815,8 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
-    left = 295
-    top = 70
+    left = 269
+    top = 37
   end
   object tfacecomp3: tfacecomp
     template.image.origformat = 'png'
@@ -3155,16 +2831,16 @@ object commanderfo: tcommanderfo
       750389
       16749824
     )
-    left = 281
-    top = 65
+    left = 276
+    top = 41
   end
   object timagelist1: timagelist
     width = 32
     height = 32
     options = [bmo_masked, bmo_graymask]
     count = 2
-    left = 320
-    top = 10
+    left = 281
+    top = 42
     image = {
       00000000120000004000000040000000B4180000000000000000000000000000
       000000000000000000000000000000000000000000000045DFCEC301D1B4A301
@@ -3508,8 +3184,8 @@ object commanderfo: tcommanderfo
       8750469
     )
     template.fade_direction = gd_down
-    left = 291
-    top = 43
+    left = 278
+    top = 39
   end
   object tfacegreen: tfacecomp
     template.fade_pos.count = 2
@@ -3523,8 +3199,8 @@ object commanderfo: tcommanderfo
       7255365
     )
     template.fade_direction = gd_down
-    left = 319
-    top = 52
+    left = 279
+    top = 40
   end
   object tfacegreendark: tfacecomp
     template.fade_pos.count = 2
@@ -3538,14 +3214,14 @@ object commanderfo: tcommanderfo
       2572312
     )
     template.fade_direction = gd_down
-    left = 305
-    top = 51
+    left = 239
+    top = 19
   end
   object ttimer1: ttimer
     options = [to_single]
     ontimer = ontimerinit
-    left = 328
-    top = 38
+    left = 288
+    top = 37
   end
   object tfaceorange: tfacecomp
     template.fade_pos.count = 2
@@ -3559,14 +3235,14 @@ object commanderfo: tcommanderfo
       16751892
     )
     template.fade_direction = gd_down
-    left = 288
-    top = 11
+    left = 277
+    top = 38
   end
   object timercallback: ttimer
     interval = 500000
     options = [to_single]
     ontimer = dotimercallback
-    left = 116
-    top = 74
+    left = 270
+    top = 38
   end
 end

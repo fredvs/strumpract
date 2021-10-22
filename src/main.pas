@@ -7,7 +7,7 @@ unit main;
 interface
 
 uses
- {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,mseguiglob,msegraphedits,
+ {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,mseguiglob,msegraphedits,Process,
  mseguiintf,mseapplication,msestat,msegui,msetimer,msegraphics,msegraphutils,
  mseclasses,msewidgets,mseforms,msechart,status,msedock,msedataedits,mseedit,
  msestatfile,SysUtils,Classes,Math,msebitmap,msesys,msemenus,msestream,msegrids,
@@ -5156,7 +5156,8 @@ end;
 procedure tmainfo.ontimeridle(const sender: TObject);
 var
       MousePos: pointty;
-     
+      AProcess: TProcess;
+         
 begin
       MousePos := application.mouse.pos;
       MousePos.X := MousePos.X + 1;
@@ -5165,6 +5166,29 @@ begin
       MousePos.X := MousePos.X - 1;
       application.mouse.pos := MousePos;
       application.processmessages;
+            
+      if configfo.bosleep.value then
+      begin 
+       AProcess := TProcess.Create(Nil);
+       
+      {$WARN SYMBOL_DEPRECATED OFF}
+       {$ifdef linux}
+       AProcess.Executable:= '/usr/bin/xset';
+       AProcess.Parameters.Add('dpms');
+       AProcess.Parameters.Add('force');
+       AProcess.Parameters.Add('off');
+       
+ //     AProcess.CommandLine := '/usr/bin/xset dpms force off';
+       {$else}
+      AProcess.CommandLine := 'rundll32.exe powrprof.dll, SetSuspendState Sleep';
+       {$endif}
+      {$WARN SYMBOL_DEPRECATED ON}
+      AProcess.Priority := ppRealTime;
+      AProcess.Options := [poNoConsole];
+      AProcess.Execute;
+      AProcess.Free;
+      end;
+         
 end;
 
 procedure tmainfo.onmouse(const sender: twidget; var ainfo: mouseeventinfoty);

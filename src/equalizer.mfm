@@ -1799,16 +1799,8 @@ object equalizerfo: tequalizerfo
   end
   object loadset: tbutton
     color = -2147483645
-    frame.framei_left = 4
-    frame.framei_top = 2
-    frame.framei_right = 4
-    frame.framei_bottom = 2
-    frame.frameimage_list = commanderfo.timagelist3
-    frame.frameimage_left = -4
-    frame.frameimage_top = -4
-    frame.frameimage_right = -4
-    frame.frameimage_bottom = -4
-    frame.localprops = [frl_frameimagelist, frl_optionsskin]
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
@@ -1830,16 +1822,8 @@ object equalizerfo: tequalizerfo
   end
   object saveset: tbutton
     color = -2147483645
-    frame.framei_left = 4
-    frame.framei_top = 2
-    frame.framei_right = 4
-    frame.framei_bottom = 2
-    frame.frameimage_list = commanderfo.timagelist3
-    frame.frameimage_left = -4
-    frame.frameimage_top = -4
-    frame.frameimage_right = -4
-    frame.frameimage_bottom = -4
-    frame.localprops = [frl_frameimagelist, frl_optionsskin]
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer

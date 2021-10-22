@@ -170,12 +170,6 @@ object drumsfo: tdrumsfo
   moduleclassname = 'tdockform'
   object tdockpanel1: tgroupbox
     color = -2147483645
-    frame.leveli = 0
-    frame.colordkwidth = 0
-    frame.colorhlwidth = 0
-    frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
     face.image.options = [bmo_masked, bmo_graymask]
     face.image.origformat = 'png'
     face.image.alignment = [al_stretchx, al_stretchy]
@@ -979,16 +973,6 @@ object drumsfo: tdrumsfo
   end
   object panel1: tgroupbox
     color = -2147483645
-    frame.leveli = 0
-    frame.colordkwidth = 0
-    frame.colorhlwidth = 0
-    frame.framei_left = 0
-    frame.framei_top = 0
-    frame.framei_right = 0
-    frame.framei_bottom = 0
-    frame.localprops = [frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = tfacecomp2
@@ -1346,9 +1330,9 @@ object drumsfo: tdrumsfo
     end
     object loop_stop: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
@@ -1366,9 +1350,9 @@ object drumsfo: tdrumsfo
     end
     object loop_resume: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
@@ -1386,15 +1370,9 @@ object drumsfo: tdrumsfo
     end
     object loop_start: tbutton
       color = -2147483645
-      frame.colorframe = -2147483642
-      frame.colorframedefault = -2147483642
-      frame.colorshadow = -2147483642
-      frame.colorlight = -2147483642
-      frame.colordkwidth = 0
-      frame.colorhlwidth = 0
-      frame.localprops = [frl_colorframe, frl_colorshadow, frl_colorlight, frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-      frame.localprops1 = [frl1_foleft, frl1_foright, frl1_colorframedefault]
-      frame.template = commanderfo.tframecomp2
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
@@ -1515,9 +1493,6 @@ object drumsfo: tdrumsfo
     end
     object ltempo: tstringdisp
       color = -2147483645
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp2
       taborder = 21
@@ -1536,9 +1511,9 @@ object drumsfo: tdrumsfo
     end
     object tstringdisp2: tstringdisp
       color = -2147483645
-      frame.localprops = []
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacecomp2
       taborder = 22
@@ -1617,9 +1592,6 @@ object drumsfo: tdrumsfo
     end
     object tgroupbox1: tgroupbox
       color = 12566463
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       taborder = 26
       bounds_x = 218
       bounds_y = 17
@@ -1694,8 +1666,8 @@ object drumsfo: tdrumsfo
       face.template = mainfo.tfaceorange
       taborder = 23
       visible = False
-      bounds_x = 30
-      bounds_y = 3
+      bounds_x = 36
+      bounds_y = -43
       bounds_cx = 221
       bounds_cy = 36
       font.color = 5000268
@@ -1725,24 +1697,26 @@ object drumsfo: tdrumsfo
       end
     end
     object langcount: tdropdownlistedit
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.caption = 'Lang'
       frame.captionpos = cp_left
       frame.font.color = 5000268
       frame.font.height = 10
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_height]
-      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
       frame.button.face.template = tfacecomp2
-      frame.button.frame.framei_bottom = 2
-      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
@@ -1750,10 +1724,9 @@ object drumsfo: tdrumsfo
           face.fade_direction = gd_down
           face.localprops = [fal_fadirection]
           face.template = tfacecomp2
-          frame.framei_bottom = 2
-          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       frame.outerframe = (
         27

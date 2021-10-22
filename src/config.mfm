@@ -109,9 +109,9 @@ object configfo: tconfigfo
     face.localprops = []
     taborder = 1
     bounds_x = 182
-    bounds_y = 18
+    bounds_y = 24
     bounds_cx = 337
-    bounds_cy = 88
+    bounds_cy = 113
     object latrec: trealspinedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -288,6 +288,16 @@ object configfo: tconfigfo
       wheelsensitivity = 1
       reffontheight = 15
     end
+    object lsuglat: tlabel
+      taborder = 3
+      bounds_x = 6
+      bounds_y = 88
+      bounds_cx = 121
+      bounds_cy = 15
+      caption = 'Suggested latency: '
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
   end
   object tbutton1: tbutton
     frame.optionsskin = [fso_flat]
@@ -301,18 +311,8 @@ object configfo: tconfigfo
     caption = 'OK'
     modalresult = mr_windowclosed
   end
-  object lsuglat: tlabel
-    taborder = 2
-    bounds_x = 180
-    bounds_y = 119
-    bounds_cx = 121
-    bounds_cy = 15
-    caption = 'Suggested latency: '
-    textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 15
-  end
   object defdevin: tlabel
-    taborder = 3
+    taborder = 2
     bounds_x = 13
     bounds_y = 36
     bounds_cx = 134
@@ -321,7 +321,7 @@ object configfo: tconfigfo
     reffontheight = 15
   end
   object defdevout: tlabel
-    taborder = 4
+    taborder = 3
     bounds_x = 13
     bounds_y = 85
     bounds_cx = 146
@@ -333,7 +333,7 @@ object configfo: tconfigfo
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    taborder = 5
+    taborder = 4
     hint = 'Re-load Devices Info'
     bounds_x = 33
     bounds_y = 104
@@ -346,7 +346,7 @@ object configfo: tconfigfo
   object infos_grid: tstringgrid
     frame.localprops = []
     frame.localprops1 = []
-    taborder = 6
+    taborder = 5
     bounds_x = 0
     bounds_y = 144
     bounds_cx = 1000
@@ -529,7 +529,7 @@ object configfo: tconfigfo
       0
       0
     )
-    taborder = 7
+    taborder = 6
     hint = 'Device IN to use ( -1 = default )'
     bounds_x = 23
     bounds_y = 9
@@ -552,7 +552,7 @@ object configfo: tconfigfo
       0
       0
     )
-    taborder = 8
+    taborder = 7
     hint = 'Device OUT to use ( -1 = default )'
     bounds_x = 10
     bounds_y = 58
@@ -579,7 +579,7 @@ object configfo: tconfigfo
       0
       0
     )
-    taborder = 9
+    taborder = 8
     bounds_x = 534
     bounds_y = 8
     bounds_cx = 194
@@ -679,7 +679,7 @@ object configfo: tconfigfo
       0
       0
     )
-    taborder = 10
+    taborder = 9
     bounds_x = 742
     bounds_y = 8
     bounds_cx = 194
@@ -766,5 +766,28 @@ object configfo: tconfigfo
       onsetvalue = onsetcolor1
       reffontheight = 15
     end
+  end
+  object bosleep: tbooleanedit
+    color = -2147483645
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.colorclient = 16580582
+    frame.caption = 'Monitor Sleeper'
+    frame.captiondist = 3
+    frame.localprops = [frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      0
+      2
+      99
+      3
+    )
+    taborder = 10
+    hint = 'Enable sleep mode when inactive > 3 minutes'
+    bounds_x = 287
+    bounds_y = 3
+    bounds_cx = 112
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    colorglyph = 4868682
   end
 end

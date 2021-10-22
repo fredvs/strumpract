@@ -4,41 +4,12 @@ unit config;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  uos_flat,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  mseact,
-  msedataedits,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  msestrings,
-  SysUtils,
-  msesimplewidgets,
-  msegraphedits,
-  msescrollbar,
-  msedragglob,
-  msegrids,
-  msegridsglob,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  msecolordialog;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ uos_flat,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
+ mseact,msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
+ msestream,msestrings,SysUtils,msesimplewidgets,msegraphedits,msescrollbar,
+ msedragglob,msegrids,msegridsglob,msedispwidgets,mserichstring,msedropdownlist,
+ msecolordialog;
 
 type
   tconfigfo = class(tmseform)
@@ -47,7 +18,6 @@ type
     latplay: trealspinedit;
     latdrums: trealspinedit;
     tbutton1: TButton;
-    lsuglat: tlabel;
     defdevin: tlabel;
     defdevout: tlabel;
     tbutton2: TButton;
@@ -62,6 +32,8 @@ type
     dbkl2: tbooleanedit;
     tcoloredit12: tcoloredit;
     tcoloredit22: tcoloredit;
+   bosleep: tbooleanedit;
+   lsuglat: tlabel;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
@@ -187,7 +159,6 @@ procedure tconfigfo.onchangeback(const Sender: TObject);
 begin
   onsetcolor;
 end;
-
 
 end.
 

@@ -145,8 +145,6 @@ object guitarsfo: tguitarsfo
   moduleclassname = 'tdockform'
   object tgroupbox1: tgroupbox
     color = -2147483645
-    frame.localprops = []
-    frame.localprops1 = []
     face.image.options = [bmo_masked, bmo_graymask]
     face.image.origformat = 'png'
     face.image.alignment = [al_stretchx, al_stretchy]
@@ -161,9 +159,9 @@ object guitarsfo: tguitarsfo
     object tbutton9: tbutton
       Tag = 6
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -181,9 +179,9 @@ object guitarsfo: tguitarsfo
     object tbutton8: tbutton
       Tag = 5
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -202,9 +200,9 @@ object guitarsfo: tguitarsfo
     object tbutton7: tbutton
       Tag = 4
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -223,9 +221,9 @@ object guitarsfo: tguitarsfo
     object tbutton6: tbutton
       Tag = 3
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -244,9 +242,9 @@ object guitarsfo: tguitarsfo
     object tbutton5: tbutton
       Tag = 2
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -265,9 +263,9 @@ object guitarsfo: tguitarsfo
     object tbutton3: tbutton
       Tag = 1
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -313,9 +311,9 @@ object guitarsfo: tguitarsfo
     end
     object tstringdisp2: tstringdisp
       color = -2147483645
-      frame.localprops = []
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfaceguit
       taborder = 7
@@ -335,8 +333,6 @@ object guitarsfo: tguitarsfo
   end
   object tgroupbox2: tgroupbox
     color = -2147483645
-    frame.localprops = []
-    frame.localprops1 = []
     face.localprops = []
     face.template = tfaceguit
     taborder = 1
@@ -349,9 +345,9 @@ object guitarsfo: tguitarsfo
     object tbutton16: tbutton
       Tag = 10
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -369,9 +365,9 @@ object guitarsfo: tguitarsfo
     object tbutton15: tbutton
       Tag = 9
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -390,9 +386,9 @@ object guitarsfo: tguitarsfo
     object tbutton14: tbutton
       Tag = 8
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -411,9 +407,9 @@ object guitarsfo: tguitarsfo
     object tbutton13: tbutton
       Tag = 7
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfaceguit
@@ -459,14 +455,14 @@ object guitarsfo: tguitarsfo
     end
     object tstringdisp3: tstringdisp
       color = -2147483645
-      frame.localprops = []
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfaceguit
       taborder = 5
       hint = ' Tuned Bass strings '
-      bounds_x = 9
+      bounds_x = 2
       bounds_y = 2
       bounds_cx = 81
       bounds_cy = 15

@@ -5,9 +5,9 @@ object randomnotefo: trandomnotefo
   onactivate = onconfigtext
   visible = False
   bounds_x = 0
-  bounds_y = 38
-  bounds_cx = 1350
-  bounds_cy = 701
+  bounds_y = 29
+  bounds_cx = 1358
+  bounds_cy = 711
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.face.localprops = []
@@ -15,8 +15,8 @@ object randomnotefo: trandomnotefo
   container.bounds = (
     0
     0
-    1350
-    701
+    1358
+    711
   )
   options = [fo_mainwindowcentered, fo_maximized, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   statfile = mainfo.tstatfile1
@@ -146,16 +146,13 @@ object randomnotefo: trandomnotefo
   moduleclassname = 'tdockform'
   object tstringdisp1: tstringdisp
     optionswidget1 = [ow1_fontglyphheight]
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp1
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
     taborder = 13
     bounds_x = 500
     bounds_y = 2
-    bounds_cx = 846
+    bounds_cx = 854
     bounds_cy = 706
     anchors = [an_left, an_top, an_right, an_bottom]
     text = 'Los acordes de la suerte'
@@ -183,7 +180,7 @@ object randomnotefo: trandomnotefo
     face.fade_direction = gd_down
     face.localprops = []
     visible = False
-    bounds_x = 1062
+    bounds_x = 1070
     bounds_y = 168
     bounds_cx = 148
     bounds_cy = 158
@@ -256,9 +253,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object guitar3: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -273,7 +267,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 1
     visible = False
-    bounds_x = 1063
+    bounds_x = 1071
     bounds_y = 332
     bounds_cx = 148
     bounds_cy = 158
@@ -291,7 +285,7 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = []
       taborder = 3
       hint = 'Click to listen to the guitar chord'
-      bounds_x = 4
+      bounds_x = 0
       bounds_y = 22
       bounds_cx = 130
       bounds_cy = 136
@@ -346,9 +340,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object piano1: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -363,7 +354,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 2
     visible = False
-    bounds_x = 784
+    bounds_x = 792
     bounds_y = 5
     bounds_cx = 272
     bounds_cy = 158
@@ -379,8 +370,8 @@ object randomnotefo: trandomnotefo
       frame.localprops = []
       frame.localprops1 = []
       hint = 'Click to listen to piano chord'
-      bounds_x = 1
-      bounds_y = 1
+      bounds_x = 0
+      bounds_y = 0
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
@@ -4872,9 +4863,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object guitar1: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -4889,7 +4877,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 3
     visible = False
-    bounds_x = 1062
+    bounds_x = 1070
     bounds_y = 5
     bounds_cx = 148
     bounds_cy = 158
@@ -4905,7 +4893,7 @@ object randomnotefo: trandomnotefo
       frame.localprops = []
       frame.localprops1 = []
       hint = 'Click to listen to the guitar chord'
-      bounds_x = 4
+      bounds_x = 0
       bounds_y = 22
       bounds_cx = 130
       bounds_cy = 136
@@ -6751,9 +6739,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object piano2: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -6768,7 +6753,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 4
     visible = False
-    bounds_x = 784
+    bounds_x = 792
     bounds_y = 168
     bounds_cx = 272
     bounds_cy = 158
@@ -6785,8 +6770,8 @@ object randomnotefo: trandomnotefo
       frame.localprops = []
       frame.localprops1 = []
       hint = 'Click to listen to piano chord'
-      bounds_x = 1
-      bounds_y = 1
+      bounds_x = 0
+      bounds_y = 0
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
@@ -6843,9 +6828,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object piano3: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -6860,7 +6842,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 5
     visible = False
-    bounds_x = 785
+    bounds_x = 793
     bounds_y = 332
     bounds_cx = 272
     bounds_cy = 158
@@ -6877,8 +6859,8 @@ object randomnotefo: trandomnotefo
       frame.localprops = []
       frame.localprops1 = []
       hint = 'Click to listen to piano chord'
-      bounds_x = 1
-      bounds_y = 1
+      bounds_x = 0
+      bounds_y = 0
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
@@ -6936,9 +6918,6 @@ object randomnotefo: trandomnotefo
   end
   object chord1: tbutton
     color = 12895428
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -6954,7 +6933,7 @@ object randomnotefo: trandomnotefo
     taborder = 6
     bounds_x = 586
     bounds_y = 5
-    bounds_cx = 191
+    bounds_cx = 199
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -6966,24 +6945,26 @@ object randomnotefo: trandomnotefo
     onexecute = refreshform
     object chord1drop: tdropdownlistedit
       Tag = 1
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.captiontextflags = [tf_wordbreak]
       frame.captionpos = cp_left
       frame.font.color = 5000268
       frame.font.height = 10
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_height]
-      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.button.width = 20
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
-      frame.button.frame.framei_bottom = 2
-      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
@@ -6991,10 +6972,9 @@ object randomnotefo: trandomnotefo
           color = 13421772
           face.fade_direction = gd_down
           face.localprops = [fal_fadirection]
-          frame.framei_bottom = 2
-          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -7012,7 +6992,7 @@ object randomnotefo: trandomnotefo
       visible = False
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 191
+      bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -7077,9 +7057,6 @@ object randomnotefo: trandomnotefo
   object chord2: tbutton
     Tag = 1
     color = 12895428
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -7095,7 +7072,7 @@ object randomnotefo: trandomnotefo
     taborder = 7
     bounds_x = 586
     bounds_y = 168
-    bounds_cx = 191
+    bounds_cx = 199
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -7107,24 +7084,26 @@ object randomnotefo: trandomnotefo
     onexecute = refreshform
     object chord2drop: tdropdownlistedit
       Tag = 2
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.captiontextflags = [tf_wordbreak]
       frame.captionpos = cp_left
       frame.font.color = 5000268
       frame.font.height = 10
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_height]
-      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.button.width = 20
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
-      frame.button.frame.framei_bottom = 2
-      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
@@ -7132,10 +7111,9 @@ object randomnotefo: trandomnotefo
           color = 13421772
           face.fade_direction = gd_down
           face.localprops = [fal_fadirection]
-          frame.framei_bottom = 2
-          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -7153,7 +7131,7 @@ object randomnotefo: trandomnotefo
       visible = False
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 191
+      bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -7218,9 +7196,6 @@ object randomnotefo: trandomnotefo
   object chord3: tbutton
     Tag = 2
     color = 12895428
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -7236,7 +7211,7 @@ object randomnotefo: trandomnotefo
     taborder = 8
     bounds_x = 586
     bounds_y = 332
-    bounds_cx = 191
+    bounds_cx = 199
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -7248,24 +7223,26 @@ object randomnotefo: trandomnotefo
     onexecute = refreshform
     object chord3drop: tdropdownlistedit
       Tag = 3
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.captiontextflags = [tf_wordbreak]
       frame.captionpos = cp_left
       frame.font.color = 5000268
       frame.font.height = 10
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_height]
-      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.button.width = 20
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
-      frame.button.frame.framei_bottom = 2
-      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
@@ -7273,10 +7250,9 @@ object randomnotefo: trandomnotefo
           color = 13421772
           face.fade_direction = gd_down
           face.localprops = [fal_fadirection]
-          frame.framei_bottom = 2
-          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -7294,7 +7270,7 @@ object randomnotefo: trandomnotefo
       visible = False
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 191
+      bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -7384,9 +7360,6 @@ object randomnotefo: trandomnotefo
     onexecute = doquit
   end
   object bass1: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -7401,7 +7374,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 10
     visible = False
-    bounds_x = 1216
+    bounds_x = 1224
     bounds_y = 5
     bounds_cx = 126
     bounds_cy = 158
@@ -10536,9 +10509,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object bass2: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -10553,7 +10523,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 11
     visible = False
-    bounds_x = 1216
+    bounds_x = 1224
     bounds_y = 168
     bounds_cx = 126
     bounds_cy = 158
@@ -10621,9 +10591,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object bass3: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -10638,7 +10605,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 12
     visible = False
-    bounds_x = 1217
+    bounds_x = 1225
     bounds_y = 332
     bounds_cx = 126
     bounds_cy = 158
@@ -10707,9 +10674,9 @@ object randomnotefo: trandomnotefo
   end
   object bnbchords: tbutton
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacegreen
@@ -10730,9 +10697,9 @@ object randomnotefo: trandomnotefo
   end
   object btnfixed: tbutton
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacegreen
@@ -10753,9 +10720,9 @@ object randomnotefo: trandomnotefo
   end
   object tbutton5: tbutton
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacebutgray
@@ -10777,9 +10744,6 @@ object randomnotefo: trandomnotefo
   object chord4: tbutton
     Tag = 2
     color = 12895428
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -10795,7 +10759,7 @@ object randomnotefo: trandomnotefo
     taborder = 17
     bounds_x = 585
     bounds_y = 496
-    bounds_cx = 191
+    bounds_cx = 199
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -10807,24 +10771,26 @@ object randomnotefo: trandomnotefo
     onexecute = refreshform
     object chord4drop: tdropdownlistedit
       Tag = 4
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.captiontextflags = [tf_wordbreak]
       frame.captionpos = cp_left
       frame.font.color = 5000268
       frame.font.height = 10
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_height]
-      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.button.width = 20
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
-      frame.button.frame.framei_bottom = 2
-      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
@@ -10832,10 +10798,9 @@ object randomnotefo: trandomnotefo
           color = 13421772
           face.fade_direction = gd_down
           face.localprops = [fal_fadirection]
-          frame.framei_bottom = 2
-          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -10853,7 +10818,7 @@ object randomnotefo: trandomnotefo
       visible = False
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 191
+      bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -10916,9 +10881,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object piano4: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -10933,7 +10895,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 18
     visible = False
-    bounds_x = 784
+    bounds_x = 792
     bounds_y = 496
     bounds_cx = 272
     bounds_cy = 158
@@ -10950,8 +10912,8 @@ object randomnotefo: trandomnotefo
       frame.localprops = []
       frame.localprops1 = []
       hint = 'Click to listen to piano chord'
-      bounds_x = 1
-      bounds_y = 1
+      bounds_x = 0
+      bounds_y = 0
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
@@ -11008,9 +10970,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object guitar4: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -11025,7 +10984,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 19
     visible = False
-    bounds_x = 1062
+    bounds_x = 1070
     bounds_y = 496
     bounds_cx = 148
     bounds_cy = 158
@@ -11043,7 +11002,7 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = []
       taborder = 3
       hint = 'Click to listen to the guitar chord'
-      bounds_x = 4
+      bounds_x = 0
       bounds_y = 22
       bounds_cx = 130
       bounds_cy = 136
@@ -11098,9 +11057,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object bass4: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -11115,7 +11071,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 20
     visible = False
-    bounds_x = 1216
+    bounds_x = 1224
     bounds_y = 496
     bounds_cx = 126
     bounds_cy = 158
@@ -11185,9 +11141,6 @@ object randomnotefo: trandomnotefo
   object chord5: tbutton
     Tag = 2
     color = 12895428
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -11203,7 +11156,7 @@ object randomnotefo: trandomnotefo
     taborder = 21
     bounds_x = 585
     bounds_y = 661
-    bounds_cx = 191
+    bounds_cx = 199
     bounds_cy = 158
     anchors = [an_left, an_top, an_right]
     state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
@@ -11215,24 +11168,26 @@ object randomnotefo: trandomnotefo
     onexecute = refreshform
     object chord5drop: tdropdownlistedit
       Tag = 5
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.captiontextflags = [tf_wordbreak]
       frame.captionpos = cp_left
       frame.font.color = 5000268
       frame.font.height = 10
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_height]
-      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
+      frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.button.width = 20
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
-      frame.button.frame.framei_bottom = 2
-      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
@@ -11240,10 +11195,9 @@ object randomnotefo: trandomnotefo
           color = 13421772
           face.fade_direction = gd_down
           face.localprops = [fal_fadirection]
-          frame.framei_bottom = 2
-          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -11261,7 +11215,7 @@ object randomnotefo: trandomnotefo
       visible = False
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 191
+      bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -11324,9 +11278,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object piano5: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -11341,7 +11292,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 22
     visible = False
-    bounds_x = 784
+    bounds_x = 792
     bounds_y = 661
     bounds_cx = 272
     bounds_cy = 158
@@ -11358,8 +11309,8 @@ object randomnotefo: trandomnotefo
       frame.localprops = []
       frame.localprops1 = []
       hint = 'Click to listen to piano chord'
-      bounds_x = 1
-      bounds_y = 1
+      bounds_x = 0
+      bounds_y = 0
       bounds_cx = 270
       bounds_cy = 156
       bounds_cymin = 1
@@ -11416,9 +11367,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object guitar5: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -11433,7 +11381,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 23
     visible = False
-    bounds_x = 1062
+    bounds_x = 1070
     bounds_y = 661
     bounds_cx = 148
     bounds_cy = 158
@@ -11451,7 +11399,7 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = []
       taborder = 3
       hint = 'Click to listen to the guitar chord'
-      bounds_x = 4
+      bounds_x = 0
       bounds_y = 22
       bounds_cx = 130
       bounds_cy = 136
@@ -11506,9 +11454,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object bass5: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -11523,7 +11468,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 24
     visible = False
-    bounds_x = 1216
+    bounds_x = 1224
     bounds_y = 661
     bounds_cx = 126
     bounds_cy = 158
@@ -11593,9 +11538,9 @@ object randomnotefo: trandomnotefo
   object bchord1: tbutton
     Tag = 1
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
@@ -11617,9 +11562,9 @@ object randomnotefo: trandomnotefo
   object bchord5: tbutton
     Tag = 5
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
@@ -11641,9 +11586,9 @@ object randomnotefo: trandomnotefo
   object bchord4: tbutton
     Tag = 4
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
@@ -11665,9 +11610,9 @@ object randomnotefo: trandomnotefo
   object bchord3: tbutton
     Tag = 3
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
@@ -11689,9 +11634,9 @@ object randomnotefo: trandomnotefo
   object bchord2: tbutton
     Tag = 2
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
@@ -11712,9 +11657,9 @@ object randomnotefo: trandomnotefo
   end
   object tbutton2: tbutton
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacebutgray
@@ -11735,9 +11680,9 @@ object randomnotefo: trandomnotefo
   end
   object tbutton3: tbutton
     color = -2147483645
+    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfacebutgray
@@ -11758,14 +11703,22 @@ object randomnotefo: trandomnotefo
   end
   object tgroupbox1: tgroupbox
     color = -2147483645
+    frame.levelo = 0
+    frame.leveli = 0
+    frame.framei_left = 0
+    frame.framei_top = 0
+    frame.framei_right = 0
+    frame.framei_bottom = 0
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.optionsskin = [fso_flat]
     frame.caption = 'Chords'
     frame.font.height = 20
     frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
-    frame.localprops = []
+    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagebottom]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       13
@@ -11927,14 +11880,22 @@ object randomnotefo: trandomnotefo
   end
   object tgroupbox2: tgroupbox
     color = -2147483645
+    frame.levelo = 0
+    frame.leveli = 0
+    frame.framei_left = 0
+    frame.framei_top = 0
+    frame.framei_right = 0
+    frame.framei_bottom = 0
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.optionsskin = [fso_flat]
     frame.caption = 'Number'
     frame.font.height = 20
     frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
-    frame.localprops = []
+    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagebottom]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       13
@@ -11993,10 +11954,9 @@ object randomnotefo: trandomnotefo
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
-      frame.button.frame.framei_bottom = 2
-      frame.button.frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
@@ -12004,10 +11964,9 @@ object randomnotefo: trandomnotefo
           color = 13421772
           face.fade_direction = gd_down
           face.localprops = [fal_fadirection]
-          frame.framei_bottom = 2
-          frame.localprops = [frl_colordkwidth, frl_hiddenedges, frl_fibottom]
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       frame.outerframe = (
         70
@@ -12095,14 +12054,22 @@ object randomnotefo: trandomnotefo
   end
   object tgroupbox3: tgroupbox
     color = -2147483645
+    frame.levelo = 0
+    frame.leveli = 0
+    frame.framei_left = 0
+    frame.framei_top = 0
+    frame.framei_right = 0
+    frame.framei_bottom = 0
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.optionsskin = [fso_flat]
     frame.caption = 'Drums'
     frame.font.height = 20
     frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
-    frame.localprops = []
+    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagebottom]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       13
@@ -12117,21 +12084,9 @@ object randomnotefo: trandomnotefo
     bounds_cy = 92
     object bpm: tintegerdisp
       color = -2147483645
-      frame.caption = 'BPM'
-      frame.captionpos = cp_left
-      frame.captiondist = 10
-      frame.font.height = 32
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
-      frame.localprops = []
-      frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
-      frame.outerframe = (
-        81
-        0
-        0
-        0
-      )
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -12210,9 +12165,6 @@ object randomnotefo: trandomnotefo
     onexecute = doconfig
   end
   object tstringdisp2: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -12227,7 +12179,7 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 36
     visible = False
-    bounds_x = 1062
+    bounds_x = 1070
     bounds_y = 168
     bounds_cx = 148
     bounds_cy = 158
@@ -12245,7 +12197,7 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = []
       taborder = 3
       hint = 'Click to listen to the guitar chord'
-      bounds_x = 4
+      bounds_x = 0
       bounds_y = 22
       bounds_cx = 130
       bounds_cy = 136
@@ -12300,9 +12252,6 @@ object randomnotefo: trandomnotefo
     end
   end
   object pconfigtext: tstringdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -12317,8 +12266,8 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 37
     visible = False
-    bounds_x = 83
-    bounds_y = 27
+    bounds_x = 57
+    bounds_y = 24
     bounds_cx = 352
     bounds_cy = 238
     anchors = [an_top, an_right]
@@ -12346,9 +12295,9 @@ object randomnotefo: trandomnotefo
     end
     object tbutton6: tbutton
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
