@@ -88,7 +88,6 @@ object configfo: tconfigfo
     frame.captionoffset = 8
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       19
@@ -119,7 +118,6 @@ object configfo: tconfigfo
       frame.caption = 'Recorder'
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_pos.count = 2
       frame.buttonface.fade_pos.items = (
         0
@@ -134,7 +132,6 @@ object configfo: tconfigfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
-      frame.buttonframe.template = commanderfo.tframecomp2
       frame.buttonsize = 40
       frame.outerframe = (
         0
@@ -177,7 +174,6 @@ object configfo: tconfigfo
       frame.caption = 'Players'
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_pos.count = 2
       frame.buttonface.fade_pos.items = (
         0
@@ -192,7 +188,6 @@ object configfo: tconfigfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
-      frame.buttonframe.template = commanderfo.tframecomp2
       frame.buttonsize = 40
       frame.outerframe = (
         0
@@ -236,7 +231,6 @@ object configfo: tconfigfo
       frame.caption = 'Drums'
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_pos.count = 2
       frame.buttonface.fade_pos.items = (
         0
@@ -251,7 +245,6 @@ object configfo: tconfigfo
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonframe.localprops = []
       frame.buttonframe.localprops1 = []
-      frame.buttonframe.template = commanderfo.tframecomp2
       frame.buttonsize = 40
       frame.outerframe = (
         0
@@ -572,7 +565,6 @@ object configfo: tconfigfo
     frame.captionoffset = 8
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       19
@@ -672,7 +664,6 @@ object configfo: tconfigfo
     frame.captionoffset = 8
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       19

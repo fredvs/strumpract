@@ -97,17 +97,17 @@ findinfiledialog=83
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=1
- [findinfileadialogfo.inprojectdir]
  value=0
+ [findinfileadialogfo.inprojectdir]
+ value=1
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
- value="*.pas" "*.pp" "*.*" 
+ value="*.pas" "*.pp" "*.inc" "*.mfm" 
  history=6
+  "*.pas" "*.pp" "*.inc" "*.mfm" 
   "*.pas" "*.pp" "*.*" 
   "*.pas" "*.pp" "*.inc" 
-  "*.pas" "*.pp" "*.inc" "*.mfm" 
   "*.pas" "*.pp" "*.inc"
   "*.pas" "*.pp" "*.inc" "*.mfm" "*.*"
   "*.pas" "*.pp" "*.inc" "*.mfm"
@@ -143,8 +143,10 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=_libc_start_main
+ value=timagelist
  history=20
+  timagelist
+  framecomp
   _libc_start_main
   tprocess
   doechelle
@@ -163,10 +165,8 @@ findinfiledialog=83
   TimeToStr
   infolength
   3.2.
-  multiplier
-  InvalidateImage
  [findinfileadialogfo]
- stackedunder=
+ stackedunder=finddialogfo
  x=506
  y=225
  cx=339
@@ -632,7 +632,7 @@ makeoptpurpose=16
  Output to /units
  Classes bridge define
  BGRABitmap define
- 
+ Create a PIE binary
 compilerused=29
  ${COMPILER} (Default)
  Pascal 1
@@ -848,9 +848,12 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=0
-moduletypes=0
-modulefiles=0
+modulenames=1
+ DRUMSFO
+moduletypes=1
+ TDRUMSFO
+modulefiles=1
+ /home/fred/strumpract/src/drums.mfm
 befcommandon=0
 makeoptionson=16
  4095
@@ -1222,11 +1225,11 @@ line=36
  587
  236
  5734
- 1815
+ 1812
  1527
- 325
+ 321
  319
- 570
+ 566
  553
  773
  785
@@ -1234,17 +1237,17 @@ line=36
  1603
  209
  1136
- 4126
+ 4123
  491
  5
- 792
+ 788
  1518
  169
  1531
  368
  1754
  622
- 606
+ 603
  1014
 address=36
  5014125
@@ -1647,8 +1650,12 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=tprocess
+finddtext=timagelist
 findhistory=20
+ timagelist
+ frame.framei
+ frame.
+ framecomp
  tprocess
  ontimeridle
  mouse
@@ -1665,13 +1672,9 @@ findhistory=20
  record
  list_fil
  loadset
- equal
- dialogfilesfo
- infofile
- infosfo
 findoptions=1
 editpos=1
- 0,0
+ 16,10
 bookmarks0=0
 sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
@@ -1694,20 +1697,20 @@ moduleoptions=5
 visiblemodules=5
  0
  0
- 0
+ -1
  0
  0
 nomenumodules=5
  -1
  -1
- -1
+ 0
  -1
  -1
 [sourcefo.files_tab]
 firsttab=0
 index=0
 [layout]
-windowlayout=633
+windowlayout=635
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1851,7 +1854,7 @@ windowlayout=633
  x=0
  y=0
  cx=205
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1862,7 +1865,7 @@ windowlayout=633
  sortdescend1=0
  sorted=0
  col=0
- row=10
+ row=16
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2139,7 +2142,7 @@ windowlayout=633
  x=0
  y=0
  cx=1212
- cy=51
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2151,11 +2154,11 @@ windowlayout=633
  nx=0
  ny=0
  ncx=1197
- ncy=56
+ ncy=49
  x=0
  y=0
  cx=1212
- cy=55
+ cy=47
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2166,7 +2169,9 @@ windowlayout=633
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/strumpract.pas
- history=16
+ history=18
+  /home/fred/strumpract/src/commander.mfm
+  /home/fred/strumpract/src/aboutform.pas
   /home/fred/strumpract/src/infos.pas
   /home/fred/fpc-ootb_322/rtl/linux/x86_64/sysnr.inc322
   /home/fred/strumpract/src/config.pas
@@ -2200,7 +2205,7 @@ windowlayout=633
  x=208
  y=0
  cx=1004
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2241,15 +2246,15 @@ windowlayout=633
  ncx=0
  ncy=0
  x=0
- y=54
+ y=53
  cx=1212
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2275,8 +2280,8 @@ windowlayout=633
  ny=0
  ncx=0
  ncy=0
- x=409
- y=72
+ x=385
+ y=229
  cx=452
  cy=128
  rcx=0
@@ -2306,7 +2311,7 @@ windowlayout=633
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2321,7 +2326,7 @@ windowlayout=633
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963

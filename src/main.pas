@@ -23,9 +23,7 @@ type
     tmainmenu1: tmainmenu;
     tfacecomp4: tfacecomp;
     tstatfile1: tstatfile;
-    tframecomp1: tframecomp;
     tfacecomp5: tfacecomp;
-    timagelist3: timagelist;
     tfacebutgray: tfacecomp;
     tfacecomp7: tfacecomp;
     tfacered: tfacecomp;
@@ -35,7 +33,6 @@ type
     tfaceplayerlight: tfacecomp;
     tfaceplayerrev: tfacecomp;
     tfacecomp1: tfacecomp;
-    tframecomp2: tframecomp;
     tfaceorangelt: tfacecomp;
     tfaceorangehz: tfacecomp;
     typecolor: tintegeredit;
@@ -126,7 +123,7 @@ type
   end;
 
 const
-  versiontext = '2.8.2';
+  versiontext = '2.8.4';
   emptyheight = 40;
   drumsfoheight = 236;
   filelistfoheight = 128;

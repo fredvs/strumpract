@@ -84,18 +84,17 @@ object spectrum1fo: tspectrum1fo
       frame.captionoffset = 0
       frame.localprops = [frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorclient]
       frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
-      frame.template = mainfo.tframecomp1
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 1
       bounds_x = 0
-      bounds_y = 0
+      bounds_y = 1
       bounds_cx = 216
-      bounds_cy = 128
+      bounds_cy = 127
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_height]
@@ -109,7 +108,7 @@ object spectrum1fo: tspectrum1fo
         frame.localprops1 = []
         hint = ' Left Frequency spectrum '
         bounds_x = 2
-        bounds_y = 28
+        bounds_y = 27
         bounds_cx = 212
         bounds_cy = 101
         traces.count = 1
@@ -144,7 +143,7 @@ object spectrum1fo: tspectrum1fo
         color = -2147483645
         taborder = 1
         bounds_x = 4
-        bounds_y = 17
+        bounds_y = 16
         bounds_cx = 205
         bounds_cy = 12
         caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
@@ -163,24 +162,23 @@ object spectrum1fo: tspectrum1fo
       frame.captionoffset = 0
       frame.localprops = [frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorclient]
       frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
-      frame.template = mainfo.tframecomp1
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       bounds_x = 216
-      bounds_y = 0
+      bounds_y = 1
       bounds_cx = 216
-      bounds_cy = 128
+      bounds_cy = 127
       font.height = 10
       font.name = 'stf_default'
       font.localprops = [flp_height]
       object labelright: tlabel
         color = -2147483645
         bounds_x = 4
-        bounds_y = 17
+        bounds_y = 16
         bounds_cx = 205
         bounds_cy = 12
         caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
@@ -200,7 +198,7 @@ object spectrum1fo: tspectrum1fo
         taborder = 1
         hint = ' Right Frequency spectrum '
         bounds_x = 2
-        bounds_y = 28
+        bounds_y = 27
         bounds_cx = 212
         bounds_cy = 101
         traces.count = 1
@@ -243,7 +241,6 @@ object spectrum1fo: tspectrum1fo
       frame.font.localprops = [flp_color, flp_colorbackground, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
-      frame.template = commanderfo.tframecomp2
       frame.outerframe = (
         0
         0

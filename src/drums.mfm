@@ -846,7 +846,6 @@ object drumsfo: tdrumsfo
       frame.frameo_top = 2
       frame.frameo_right = 2
       frame.frameo_bottom = 2
-      frame.frameimage_list = mainfo.timagelist3
       frame.frameimage_left = -8
       frame.frameimage_top = -8
       frame.frameimage_right = -8
@@ -1390,11 +1389,16 @@ object drumsfo: tdrumsfo
     end
     object edittempo: trealspinedit
       color = -2147483645
+      frame.levelo = 0
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 15923187
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp2
@@ -1456,11 +1460,16 @@ object drumsfo: tdrumsfo
     object volumedrums: trealspinedit
       Tag = 1
       color = -2147483645
+      frame.levelo = 0
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 15923187
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = tfacecomp2
@@ -1659,9 +1668,13 @@ object drumsfo: tdrumsfo
       end
     end
     object hintpanel: tgroupbox
+      frame.levelo = 0
+      frame.leveli = 0
+      frame.framei_left = 0
+      frame.framei_right = 0
+      frame.optionsskin = [fso_flat]
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceorange
       taborder = 23

@@ -99,13 +99,6 @@ object imagedancerfo: timagedancerfo
   onshow = onshow
   moduleclassname = 'tdockform'
   object openglwidget: topenglwidget
-    frame.leveli = -1
-    frame.framei_left = 10
-    frame.framei_top = 10
-    frame.framei_right = 10
-    frame.framei_bottom = 10
-    frame.localprops = [frl_leveli, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-    frame.localprops1 = []
     visible = False
     bounds_x = 0
     bounds_y = 0

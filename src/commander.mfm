@@ -11,8 +11,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 409
-  bounds_y = 72
+  bounds_x = 385
+  bounds_y = 229
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -550,16 +550,25 @@ object commanderfo: tcommanderfo
     bounds_cy = 126
     object timemix: trealspinedit
       color = -2147483645
+      frame.levelo = 0
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = -2147483645
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat]
       frame.captionpos = cp_left
       frame.font.color = 4342338
       frame.font.height = 10
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_color, flp_height]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops = [frl_hiddenedges, frl_frameimagelist, frl_colorclient]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
       frame.buttonface.template = mainfo.tfaceplayerrev
@@ -614,9 +623,16 @@ object commanderfo: tcommanderfo
     end
     object btnResume: tbutton
       color = -2147483645
-      frame.localprops = [frl_optionsskin]
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -880,9 +896,16 @@ object commanderfo: tcommanderfo
     object btnResume2: tbutton
       Tag = 1
       color = -2147483645
-      frame.localprops = [frl_optionsskin]
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
@@ -1119,9 +1142,16 @@ object commanderfo: tcommanderfo
     end
     object tbutton5: tbutton
       color = -2147483645
-      frame.localprops = [frl_optionsskin]
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
@@ -1140,9 +1170,16 @@ object commanderfo: tcommanderfo
     object tbutton6: tbutton
       Tag = 1
       color = -2147483645
-      frame.localprops = [frl_optionsskin]
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
@@ -1283,7 +1320,6 @@ object commanderfo: tcommanderfo
       frame.framei_top = 2
       frame.framei_right = 4
       frame.framei_bottom = 2
-      frame.frameimage_list = timagelist3
       frame.frameimage_left = -4
       frame.frameimage_top = -4
       frame.frameimage_right = -4
@@ -1418,9 +1454,16 @@ object commanderfo: tcommanderfo
       onexecute = onexecbutlght
     end
     object hintpanel: tgroupbox
-      frame.localprops = [frl_optionsskin]
+      frame.levelo = 0
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
-      frame.template = tframecomp2
       face.localprops = []
       face.template = tfaceorange
       taborder = 20
@@ -1843,83 +1886,6 @@ object commanderfo: tcommanderfo
     template.fade_direction = gd_down
     left = 280
     top = 38
-  end
-  object tframecomp1: tframecomp
-    template.framei_left = 4
-    template.framei_top = 2
-    template.framei_right = 4
-    template.framei_bottom = 2
-    template.frameimage_list = timagelist2
-    template.frameimage_left = -4
-    template.frameimage_top = -4
-    template.frameimage_right = -4
-    template.frameimage_bottom = -4
-    template.optionsskin = [fso_flat]
-    left = 255
-    top = 32
-  end
-  object timagelist2: timagelist
-    width = 4
-    height = 4
-    count = 8
-    cornermask_topleft = #2#1
-    cornermask_bottomleft = #2#1
-    cornermask_bottomright = #2#1
-    cornermask_topright = #2#1
-    left = 268
-    top = 40
-    image = {
-      00000000020000000C0000000C00000010010000000000000000000000000000
-      0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
-      00000003A5A5A50100000003FFFFFF018B8B8B01FFFFFF02A5A5A50100000003
-      A5A5A501000000038B8B8B01FFFFFF03A5A5A50100000003A5A5A50100000003
-      8B8B8B01FFFFFF03A5A5A50100000003A5A5A501000000038B8B8B02FFFFFF01
-      8B8B8B01FFFFFF038B8B8B01FFFFFF038B8B8B01FFFFFF028B8B8B02FFFFFF03
-      8B8B8B01FFFFFF038B8B8B01FFFFFF038B8B8B01FFFFFF038B8B8B01FFFFFF03
-      8B8B8B01FFFFFF038B8B8B01FFFFFF02D6D6D6018B8B8B01FFFFFF02D6D6D601
-      8B8B8B03FFFFFF028B8B8B0400000004FFFFFF028B8B8B01FFFFFF04D6D6D601
-      00000004FFFFFF038B8B8B01FFFFFF0400000004FFFFFF038B8B8B01FFFFFF04
-      000000041C010000120100001101000011010000800800008008000080080000
-      80080000F3000000040000000800000008000000
-    }
-  end
-  object timagelist3: timagelist
-    width = 4
-    height = 4
-    count = 8
-    cornermask_topleft = #2#1
-    cornermask_bottomleft = #2#1
-    cornermask_bottomright = #2#1
-    cornermask_topright = #2#1
-    left = 276
-    top = 40
-    image = {
-      00000000020000000C0000000C000000E8000000000000000000000000000000
-      0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
-      000000038B8B8B01FFFFFF048B8B8B01FFFFFF02A5A5A501000000038B8B8B01
-      FFFFFF038B8B8B01FFFFFF03A5A5A50100000003FFFFFF018B8B8B01FFFFFF02
-      8B8B8B01FFFFFF03A5A5A50100000003FFFFFF028B8B8B03FFFFFF068B8B8B01
-      FFFFFF038B8B8B02FFFFFF068B8B8B01FFFFFF038B8B8B01FFFFFF018B8B8B01
-      FFFFFF048B8B8B01FFFFFF048B8B8B07FFFFFF04D6D6D6018B8B8B03FFFFFF02
-      8B8B8B0400000004FFFFFF028B8B8B01FFFFFF04D6D6D60100000004FFFFFF03
-      8B8B8B01FFFFFF0400000004FFFFFF038B8B8B01FFFFFF04000000041C010000
-      1201000011020000110C00008008000080080000400800003F080000F3000000
-      040000000800000008000000
-    }
-  end
-  object tframecomp2: tframecomp
-    template.framei_left = 4
-    template.framei_top = 2
-    template.framei_right = 4
-    template.framei_bottom = 2
-    template.frameimage_list = timagelist3
-    template.frameimage_left = -4
-    template.frameimage_top = -4
-    template.frameimage_right = -4
-    template.frameimage_bottom = -4
-    template.optionsskin = [fso_flat]
-    left = 270
-    top = 43
   end
   object tfaceslider: tfacecomp
     template.image.origformat = 'png'
@@ -2834,6 +2800,79 @@ object commanderfo: tcommanderfo
     left = 276
     top = 41
   end
+  object tfacebutgray: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      13421772
+      8750469
+    )
+    template.fade_direction = gd_down
+    left = 301
+    top = 78
+  end
+  object tfacegreen: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      12779422
+      7255365
+    )
+    template.fade_direction = gd_down
+    left = 273
+    top = 88
+  end
+  object tfacegreendark: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      6784852
+      2572312
+    )
+    template.fade_direction = gd_down
+    left = 283
+    top = 52
+  end
+  object ttimer1: ttimer
+    options = [to_single]
+    ontimer = ontimerinit
+    left = 151
+    top = 96
+  end
+  object tfaceorange: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      16775664
+      16751892
+    )
+    template.fade_direction = gd_down
+    left = 10
+    top = 87
+  end
+  object timercallback: ttimer
+    interval = 500000
+    options = [to_single]
+    ontimer = dotimercallback
+    left = 162
+    top = 82
+  end
   object timagelist1: timagelist
     width = 32
     height = 32
@@ -3171,78 +3210,5 @@ object commanderfo: tcommanderfo
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFF
     }
-  end
-  object tfacebutgray: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      13421772
-      8750469
-    )
-    template.fade_direction = gd_down
-    left = 278
-    top = 39
-  end
-  object tfacegreen: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      12779422
-      7255365
-    )
-    template.fade_direction = gd_down
-    left = 279
-    top = 40
-  end
-  object tfacegreendark: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      6784852
-      2572312
-    )
-    template.fade_direction = gd_down
-    left = 239
-    top = 19
-  end
-  object ttimer1: ttimer
-    options = [to_single]
-    ontimer = ontimerinit
-    left = 288
-    top = 37
-  end
-  object tfaceorange: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16775664
-      16751892
-    )
-    template.fade_direction = gd_down
-    left = 277
-    top = 38
-  end
-  object timercallback: ttimer
-    interval = 500000
-    options = [to_single]
-    ontimer = dotimercallback
-    left = 270
-    top = 38
   end
 end

@@ -81,23 +81,22 @@ object equalizerfo: tequalizerfo
     frame.captionoffset = 0
     frame.localprops = [frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorclient]
     frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
-    frame.template = mainfo.tframecomp1
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     bounds_x = 0
-    bounds_y = 0
+    bounds_y = 1
     bounds_cx = 216
-    bounds_cy = 140
+    bounds_cy = 139
     font.height = 10
     font.name = 'stf_default'
     font.localprops = [flp_height]
     object tstringdisp1: tstringdisp
       bounds_x = 5
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -179,7 +178,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp2: tstringdisp
       taborder = 1
       bounds_x = 26
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -260,7 +259,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp3: tstringdisp
       taborder = 2
       bounds_x = 47
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -341,7 +340,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp4: tstringdisp
       taborder = 3
       bounds_x = 68
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -422,7 +421,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp5: tstringdisp
       taborder = 4
       bounds_x = 89
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -503,7 +502,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp6: tstringdisp
       taborder = 5
       bounds_x = 110
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -584,7 +583,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp7: tstringdisp
       taborder = 6
       bounds_x = 131
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -665,7 +664,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp8: tstringdisp
       taborder = 7
       bounds_x = 152
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -746,7 +745,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp9: tstringdisp
       taborder = 8
       bounds_x = 173
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -827,7 +826,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp10: tstringdisp
       taborder = 9
       bounds_x = 194
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -910,7 +909,7 @@ object equalizerfo: tequalizerfo
       color = -2147483645
       taborder = 10
       bounds_x = 7
-      bounds_y = 17
+      bounds_y = 16
       bounds_cx = 205
       bounds_cy = 12
       caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
@@ -929,24 +928,23 @@ object equalizerfo: tequalizerfo
     frame.captionoffset = 0
     frame.localprops = [frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorclient]
     frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
-    frame.template = mainfo.tframecomp1
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     taborder = 2
     bounds_x = 216
-    bounds_y = 0
+    bounds_y = 1
     bounds_cx = 216
-    bounds_cy = 140
+    bounds_cy = 139
     font.height = 10
     font.name = 'stf_default'
     font.localprops = [flp_height]
     object tstringdisp11: tstringdisp
       bounds_x = 5
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1027,7 +1025,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp12: tstringdisp
       taborder = 1
       bounds_x = 26
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1108,7 +1106,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp13: tstringdisp
       taborder = 2
       bounds_x = 47
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1189,7 +1187,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp14: tstringdisp
       taborder = 3
       bounds_x = 68
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1270,7 +1268,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp15: tstringdisp
       taborder = 4
       bounds_x = 89
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1351,7 +1349,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp16: tstringdisp
       taborder = 5
       bounds_x = 110
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1432,7 +1430,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp17: tstringdisp
       taborder = 6
       bounds_x = 131
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1513,7 +1511,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp18: tstringdisp
       taborder = 7
       bounds_x = 152
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1594,7 +1592,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp19: tstringdisp
       taborder = 8
       bounds_x = 173
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1675,7 +1673,7 @@ object equalizerfo: tequalizerfo
     object tstringdisp20: tstringdisp
       taborder = 9
       bounds_x = 194
-      bounds_y = 28
+      bounds_y = 27
       bounds_cx = 21
       bounds_cy = 116
       reffontheight = 13
@@ -1757,7 +1755,7 @@ object equalizerfo: tequalizerfo
       color = -2147483645
       taborder = 10
       bounds_x = 7
-      bounds_y = 17
+      bounds_y = 16
       bounds_cx = 205
       bounds_cy = 12
       caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
@@ -1778,7 +1776,6 @@ object equalizerfo: tequalizerfo
     frame.font.localprops = [flp_color, flp_colorbackground, flp_height]
     frame.localprops = [frl_hiddenedges, frl_colorclient]
     frame.localprops1 = [frl1_captiondist]
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       1

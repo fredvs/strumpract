@@ -677,13 +677,12 @@ object filelistfo: tfilelistfo
     object hintpanel: tgroupbox
       frame.localprops = []
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 1
-      bounds_y = 50
+      bounds_x = 2
+      bounds_y = 95
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

@@ -33,7 +33,6 @@ object dialogfilesfo: tdialogfilesfo
     frame.caption = 'Selected'
     frame.localprops = [frl_colorclient]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       18
@@ -56,7 +55,6 @@ object dialogfilesfo: tdialogfilesfo
     frame.font.localprops = []
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
@@ -76,7 +74,6 @@ object dialogfilesfo: tdialogfilesfo
     frame.caption = 'Set it for the other player too'
     frame.localprops = [frl_hiddenedges, frl_colorclient]
     frame.localprops1 = [frl1_captiondist]
-    frame.template = commanderfo.tframecomp2
     frame.outerframe = (
       0
       2

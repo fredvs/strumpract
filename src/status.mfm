@@ -57,7 +57,6 @@ object statusfo: tstatusfo
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -86,7 +85,6 @@ object statusfo: tstatusfo
     frame.optionsskin = [fso_flat, fso_focusrect]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
