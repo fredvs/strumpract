@@ -504,7 +504,9 @@ object filelistfo: tfilelistfo
     end
     object filescount: tstringdisp
       color = -2147483645
-      frame.localprops = []
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.localprops = [frl_levelo, frl_colorhighlight]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfaceplayerlight

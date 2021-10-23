@@ -75,14 +75,102 @@ object spectrum1fo: tspectrum1fo
     bounds_y = 0
     bounds_cx = 432
     bounds_cy = 126
+    object groupbox2: tgroupbox
+      color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.colorhighlight = -1610612733
+      frame.hiddenedges = [edg_bottom]
+      frame.caption = 'right'
+      frame.captiontextflags = [tf_xcentered, tf_bottom]
+      frame.captionpos = cp_topright
+      frame.captionoffset = -50
+      frame.font.style = [fs_italic]
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_style]
+      frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_colorclient]
+      frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
+      frame.outerframe = (
+        0
+        8
+        0
+        0
+      )
+      bounds_x = 216
+      bounds_y = 1
+      bounds_cx = 216
+      bounds_cy = 127
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      object labelright: tlabel
+        color = -2147483645
+        bounds_x = 3
+        bounds_y = 15
+        bounds_cx = 205
+        bounds_cy = 12
+        caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
+        font.height = 9
+        font.name = 'stf_default'
+        font.localprops = [flp_height]
+        reffontheight = 12
+      end
+      object tchartright: tchart
+        color = -1879048187
+        frame.colordkwidth = 0
+        frame.colorhlwidth = 0
+        frame.colorclient = -2147483645
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin, frl_colorclient]
+        frame.localprops1 = []
+        taborder = 1
+        hint = ' Right Frequency spectrum '
+        bounds_x = 0
+        bounds_y = 26
+        bounds_cx = 212
+        bounds_cy = 101
+        traces.count = 1
+        traces.chartkind = tck_bar
+        traces.options = [cto_smooth]
+        traces.xserstart = 0.02
+        traces.xrange = 1
+        traces.xserrange = 0.9
+        traces.yrange = 1
+        traces.bar_width = 18
+        traces.items = <        
+          item
+            color = -2147483647
+            widthmm = 0.3
+            xserrange = 0.9
+            xserstart = 0.02
+            xrange = 1
+            yrange = 1
+            chartkind = tck_bar
+            options = [cto_smooth]
+            bar_width = 18
+          end>
+        colorchart = -1879048187
+        framechart.localprops = []
+        framechart.localprops1 = []
+        xrange = 1
+        yrange = 1
+        xdials.range = 1
+        ydials.range = 1
+      end
+    end
     object groupbox1: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.colorhighlight = -1610612733
       frame.hiddenedges = [edg_bottom]
-      frame.caption = 'Left'
+      frame.caption = 'left'
       frame.captiontextflags = [tf_xcentered, tf_bottom]
-      frame.captionpos = cp_top
-      frame.captionoffset = 0
-      frame.localprops = [frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorclient]
+      frame.captionoffset = 50
+      frame.font.style = [fs_italic]
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_style]
+      frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_colorclient]
       frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
       frame.outerframe = (
         0
@@ -91,7 +179,7 @@ object spectrum1fo: tspectrum1fo
         0
       )
       taborder = 1
-      bounds_x = 0
+      bounds_x = 1
       bounds_y = 1
       bounds_cx = 216
       bounds_cy = 127
@@ -107,8 +195,8 @@ object spectrum1fo: tspectrum1fo
         frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin, frl_colorclient]
         frame.localprops1 = []
         hint = ' Left Frequency spectrum '
-        bounds_x = 2
-        bounds_y = 27
+        bounds_x = 0
+        bounds_y = 26
         bounds_cx = 212
         bounds_cy = 101
         traces.count = 1
@@ -142,8 +230,8 @@ object spectrum1fo: tspectrum1fo
       object labelleft: tlabel
         color = -2147483645
         taborder = 1
-        bounds_x = 4
-        bounds_y = 16
+        bounds_x = 3
+        bounds_y = 15
         bounds_cx = 205
         bounds_cy = 12
         caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
@@ -151,83 +239,6 @@ object spectrum1fo: tspectrum1fo
         font.name = 'stf_default'
         font.localprops = [flp_height]
         reffontheight = 12
-      end
-    end
-    object groupbox2: tgroupbox
-      color = -2147483645
-      frame.hiddenedges = [edg_bottom]
-      frame.caption = 'Right'
-      frame.captiontextflags = [tf_xcentered, tf_bottom]
-      frame.captionpos = cp_top
-      frame.captionoffset = 0
-      frame.localprops = [frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorclient]
-      frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
-      frame.outerframe = (
-        0
-        8
-        0
-        0
-      )
-      bounds_x = 216
-      bounds_y = 1
-      bounds_cx = 216
-      bounds_cy = 127
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
-      object labelright: tlabel
-        color = -2147483645
-        bounds_x = 4
-        bounds_y = 16
-        bounds_cx = 205
-        bounds_cy = 12
-        caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
-        font.height = 9
-        font.name = 'stf_default'
-        font.localprops = [flp_height]
-        reffontheight = 12
-      end
-      object tchartright: tchart
-        color = -1879048187
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
-        frame.colorclient = -2147483645
-        frame.optionsskin = [fso_flat]
-        frame.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin, frl_colorclient]
-        frame.localprops1 = []
-        taborder = 1
-        hint = ' Right Frequency spectrum '
-        bounds_x = 2
-        bounds_y = 27
-        bounds_cx = 212
-        bounds_cy = 101
-        traces.count = 1
-        traces.chartkind = tck_bar
-        traces.options = [cto_smooth]
-        traces.xserstart = 0.02
-        traces.xrange = 1
-        traces.xserrange = 0.9
-        traces.yrange = 1
-        traces.bar_width = 18
-        traces.items = <        
-          item
-            color = -2147483647
-            widthmm = 0.3
-            xserrange = 0.9
-            xserstart = 0.02
-            xrange = 1
-            yrange = 1
-            chartkind = tck_bar
-            options = [cto_smooth]
-            bar_width = 18
-          end>
-        colorchart = -1879048187
-        framechart.localprops = []
-        framechart.localprops1 = []
-        xrange = 1
-        yrange = 1
-        xdials.range = 1
-        ydials.range = 1
       end
     end
     object Spect1: tbooleanedit
@@ -237,14 +248,15 @@ object spectrum1fo: tspectrum1fo
       frame.font.color = 2039583
       frame.font.colorbackground = -2147483645
       frame.font.height = 10
+      frame.font.style = [fs_italic]
       frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_colorbackground, flp_height]
+      frame.font.localprops = [flp_color, flp_colorbackground, flp_style, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
         0
-        94
+        93
         0
       )
       face.localprops = []
@@ -253,7 +265,7 @@ object spectrum1fo: tspectrum1fo
       hint = 'Enable Spectrum rendering'
       bounds_x = 162
       bounds_y = 0
-      bounds_cx = 107
+      bounds_cx = 106
       bounds_cy = 15
       statfile = mainfo.tstatfile1
       colorglyph = -1610612728

@@ -536,14 +536,17 @@ object recorderfo: trecorderfo
     end
     object llength: tstringdisp
       color = -2147483645
-      frame.localprops = []
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.colorclient = -2147483645
+      frame.localprops = [frl_levelo, frl_colorhighlight, frl_colorclient]
       frame.localprops1 = []
       face.localprops = []
       face.template = tfacereclight
       taborder = 15
       hint = ' Lenght of sound '
       bounds_x = 210
-      bounds_y = 109
+      bounds_y = 110
       bounds_cx = 90
       bounds_cy = 15
       textflags = [tf_xcentered, tf_ycentered]
@@ -552,7 +555,10 @@ object recorderfo: trecorderfo
     end
     object lposition: tstringdisp
       color = -2147483645
-      frame.localprops = []
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.colorclient = -2147483645
+      frame.localprops = [frl_levelo, frl_colorhighlight, frl_colorclient]
       frame.localprops1 = []
       face.localprops = []
       face.template = tfacereclight
@@ -568,20 +574,23 @@ object recorderfo: trecorderfo
     end
     object tstringdisp2: tstringdisp
       color = -2147483645
-      frame.localprops = []
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.localprops = [frl_levelo, frl_colorhighlight]
       frame.localprops1 = []
       face.localprops = []
       face.template = tfacerecrev
       taborder = 17
       hint = ' Input recorder '
-      bounds_x = 376
-      bounds_y = 8
-      bounds_cx = 52
-      bounds_cy = 15
+      bounds_x = 374
+      bounds_y = 3
+      bounds_cx = 57
+      bounds_cy = 22
       font.color = 3881787
       font.height = 10
+      font.style = [fs_italic]
       font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
+      font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Recorder'
       reffontheight = 13
@@ -704,9 +713,9 @@ object recorderfo: trecorderfo
       taborder = 23
       hint = ' Choose a audio file '
       bounds_x = 8
-      bounds_y = 4
+      bounds_y = 3
       bounds_cx = 26
-      bounds_cy = 20
+      bounds_cy = 22
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '...'
       captiondist = 0
@@ -805,9 +814,12 @@ object recorderfo: trecorderfo
     end
     object tgroupbox2: tgroupbox
       color = -2147483645
+      frame.levelo = 1
       frame.leveli = 0
+      frame.colorhighlight = -1610612733
+      frame.colorclient = -2147483645
       frame.caption = 'Out'
-      frame.localprops = [frl_levelo, frl_leveli, frl_hiddenedges]
+      frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight, frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_imagedist2, frl1_fotop, frl1_foright]
       frame.outerframe = (
         0

@@ -81,9 +81,6 @@ object songplayerfo: tsongplayerfo
   moduleclassname = 'tdockform'
   object tgroupbox1: tgroupbox
     color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
     hint = ' Player 1 '
@@ -116,13 +113,14 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerrev
       taborder = 1
       hint = ' Change Left volume '
-      bounds_x = 121
-      bounds_y = 50
-      bounds_cx = 44
-      bounds_cy = 45
+      bounds_x = 128
+      bounds_y = 49
+      bounds_cx = 37
+      bounds_cy = 47
       statfile = mainfo.tstatfile1
+      font.height = 13
       font.name = 'stf_default'
-      font.localprops = []
+      font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       caretwidth = 0
@@ -136,7 +134,7 @@ object songplayerfo: tsongplayerfo
       valuemax = 9999999
       step = 1
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 17
     end
     object button1: tbutton
       Tag = 1
@@ -149,9 +147,9 @@ object songplayerfo: tsongplayerfo
       taborder = 3
       hint = ' Reset to tempo original '
       bounds_x = 229
-      bounds_y = 64
+      bounds_y = 65
       bounds_cx = 38
-      bounds_cy = 16
+      bounds_cy = 15
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
       font.height = 9
@@ -230,9 +228,9 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 4
       hint = ' History of Cue files '
-      bounds_x = 71
+      bounds_x = 67
       bounds_y = 4
-      bounds_cx = 305
+      bounds_cx = 309
       bounds_cy = 22
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -294,11 +292,11 @@ object songplayerfo: tsongplayerfo
       taborder = 8
       hint = ' Change Right volume '
       bounds_x = 182
-      bounds_y = 50
-      bounds_cx = 44
-      bounds_cy = 45
+      bounds_y = 49
+      bounds_cx = 37
+      bounds_cy = 47
       statfile = mainfo.tstatfile1
-      font.height = 12
+      font.height = 13
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
@@ -314,7 +312,7 @@ object songplayerfo: tsongplayerfo
       valuemax = 9999999
       step = 1
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 17
     end
     object edtempo: trealspinedit
       Tag = 9
@@ -372,7 +370,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 4
       bounds_y = 4
       bounds_cx = 38
-      bounds_cy = 21
+      bounds_cy = 22
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Info'
       font.color = 3881787
@@ -437,9 +435,9 @@ object songplayerfo: tsongplayerfo
       taborder = 14
       hint = ' Detect BMP from current position and set it to Drums tempo. '
       bounds_x = 229
-      bounds_y = 80
+      bounds_y = 81
       bounds_cx = 38
-      bounds_cy = 16
+      bounds_cy = 15
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'BPM'
       font.height = 9
@@ -450,19 +448,22 @@ object songplayerfo: tsongplayerfo
       onexecute = ongetbpm
     end
     object tstringdisp2: tstringdisp
-      frame.localprops = []
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.localprops = [frl_levelo, frl_colorhighlight]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 10
-      bounds_x = 380
-      bounds_y = 5
-      bounds_cx = 50
-      bounds_cy = 18
+      bounds_x = 377
+      bounds_y = 4
+      bounds_cx = 53
+      bounds_cy = 22
       font.color = 4013373
       font.height = 10
+      font.style = [fs_italic]
       font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
+      font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Player 1'
       reffontheight = 13
@@ -576,7 +577,7 @@ object songplayerfo: tsongplayerfo
       bounds_x = 44
       bounds_y = 4
       bounds_cx = 23
-      bounds_cy = 21
+      bounds_cy = 22
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '...'
       captiondist = 0
@@ -880,7 +881,7 @@ object songplayerfo: tsongplayerfo
       taborder = 26
       hint = ' Enable stretching (changing tempo) '
       bounds_x = 229
-      bounds_y = 48
+      bounds_y = 49
       bounds_cx = 38
       bounds_cy = 15
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -901,7 +902,7 @@ object songplayerfo: tsongplayerfo
       taborder = 13
       visible = False
       bounds_x = 102
-      bounds_y = 54
+      bounds_y = 52
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -1024,7 +1025,7 @@ object songplayerfo: tsongplayerfo
   object ttimer2: ttimer
     options = [to_single]
     ontimer = ontimercheck
-    left = 74
-    top = 7
+    left = 122
+    top = 8
   end
 end

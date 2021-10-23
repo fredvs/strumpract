@@ -1520,21 +1520,24 @@ object drumsfo: tdrumsfo
     end
     object tstringdisp2: tstringdisp
       color = -2147483645
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
       frame.optionsskin = [fso_flat]
-      frame.localprops = [frl_optionsskin]
+      frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = tfacecomp2
       taborder = 22
       hint = ' Drums set '
-      bounds_x = 15
-      bounds_y = 14
+      bounds_x = 12
+      bounds_y = 7
       bounds_cx = 75
-      bounds_cy = 15
+      bounds_cy = 22
       font.color = 3355443
       font.height = 11
+      font.style = [fs_italic]
       font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
+      font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Drums Set'
       reffontheight = 14

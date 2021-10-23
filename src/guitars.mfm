@@ -311,8 +311,10 @@ object guitarsfo: tguitarsfo
     end
     object tstringdisp2: tstringdisp
       color = -2147483645
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
       frame.optionsskin = [fso_flat]
-      frame.localprops = [frl_optionsskin]
+      frame.localprops = [frl_levelo, frl_colorlight, frl_colorhighlight, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = tfaceguit
@@ -324,8 +326,9 @@ object guitarsfo: tguitarsfo
       bounds_cy = 15
       font.color = 3881787
       font.height = 10
+      font.style = [fs_italic]
       font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
+      font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Guitar strings'
       reffontheight = 13
@@ -455,8 +458,10 @@ object guitarsfo: tguitarsfo
     end
     object tstringdisp3: tstringdisp
       color = -2147483645
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
       frame.optionsskin = [fso_flat]
-      frame.localprops = [frl_optionsskin]
+      frame.localprops = [frl_levelo, frl_colorlight, frl_colorhighlight, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = tfaceguit
@@ -468,8 +473,9 @@ object guitarsfo: tguitarsfo
       bounds_cy = 15
       font.color = 3881787
       font.height = 10
+      font.style = [fs_italic]
       font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
+      font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Bass strings'
       reffontheight = 13
