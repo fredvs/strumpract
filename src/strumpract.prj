@@ -848,12 +848,18 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=3
  DRUMSFO
-moduletypes=1
+ FILELISTFO
+ MAINFO
+moduletypes=3
  TDRUMSFO
-modulefiles=1
+ TFILELISTFO
+ TMAINFO
+modulefiles=3
  /home/fred/strumpract/src/drums.mfm
+ /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/main.mfm
 befcommandon=0
 makeoptionson=16
  4095
@@ -1673,44 +1679,58 @@ findhistory=20
  list_fil
  loadset
 findoptions=1
-editpos=1
- 16,10
+editpos=3
+ 0,-1073741823
+ 10,117
+ 0,2
 bookmarks0=0
-sourcefiles=1
+bookmarks1=0
+bookmarks2=0
+sourcefiles=3
  ${PROJECTDIR}/strumpract.pas
-relpaths=1
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/filelistform.pas
+relpaths=3
  strumpract.pas
-ismoduletexts=1
+ main.pas
+ filelistform.pas
+ismoduletexts=3
  0
-modules=5
+ 0
+ 0
+modules=6
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/filelistform.mfm
+moduleoptions=6
  0
  0
  0
  0
  0
-visiblemodules=5
  0
- 0
- -1
- 0
- 0
-nomenumodules=5
- -1
+visiblemodules=6
  -1
  0
  -1
+ 0
+ 0
  -1
+nomenumodules=6
+ 0
+ -1
+ 0
+ -1
+ -1
+ 0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=2
 [layout]
-windowlayout=635
+windowlayout=656
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1865,7 +1885,7 @@ windowlayout=635
  sortdescend1=0
  sorted=0
  col=0
- row=16
+ row=5
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2154,11 +2174,11 @@ windowlayout=635
  nx=0
  ny=0
  ncx=1197
- ncy=49
+ ncy=45
  x=0
  y=0
  cx=1212
- cy=47
+ cy=43
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2168,8 +2188,10 @@ windowlayout=635
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/strumpract.pas
- history=18
+ value=/home/fred/strumpract/src/filelistform.pas
+ history=20
+  /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/commander.mfm
   /home/fred/strumpract/src/aboutform.pas
   /home/fred/strumpract/src/infos.pas
@@ -2210,7 +2232,7 @@ windowlayout=635
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2219,7 +2241,7 @@ windowlayout=635
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2254,7 +2276,7 @@ windowlayout=635
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2269,7 +2291,7 @@ windowlayout=635
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2311,7 +2333,7 @@ windowlayout=635
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2346,6 +2368,25 @@ windowlayout=635
  wsize=0
  active=0
  visible=0
+ [_mse_filelistfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=397
+ y=264
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0
