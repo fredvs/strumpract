@@ -65,12 +65,11 @@ object equalizerfo: tequalizerfo
   onhide = onvisiblechange
   moduleclassname = 'tdockform'
   object fond: tstringdisp
-    taborder = 3
+    taborder = 2
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 434
-    bounds_cy = 142
-    anchors = []
+    bounds_cx = 430
+    bounds_cy = 140
     reffontheight = 15
   end
   object groupbox2: tgroupbox
@@ -93,8 +92,8 @@ object equalizerfo: tequalizerfo
       0
       0
     )
-    taborder = 2
-    bounds_x = 216
+    taborder = 1
+    bounds_x = 212
     bounds_y = 0
     bounds_cx = 216
     bounds_cy = 140
@@ -931,7 +930,7 @@ object equalizerfo: tequalizerfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    taborder = 4
+    taborder = 3
     hint = ' Load a Settings file  '
     bounds_x = 233
     bounds_y = 0
@@ -954,7 +953,7 @@ object equalizerfo: tequalizerfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    taborder = 5
+    taborder = 4
     hint = ' Save Settings in a file '
     bounds_x = 275
     bounds_y = 0
@@ -989,7 +988,7 @@ object equalizerfo: tequalizerfo
       0
       0
     )
-    bounds_x = 1
+    bounds_x = 0
     bounds_y = 0
     bounds_cx = 216
     bounds_cy = 140
@@ -1821,34 +1820,55 @@ object equalizerfo: tequalizerfo
       reffontheight = 12
     end
   end
-  object EQEN: tbooleanedit
+  object tstringdisp21: tstringdisp
     color = -2147483645
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.caption = 'Equalizer Player 1'
-    frame.font.color = 2039583
-    frame.font.colorbackground = -2147483645
-    frame.font.height = 10
-    frame.font.style = [fs_italic]
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color, flp_colorbackground, flp_style, flp_height]
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist]
-    frame.outerframe = (
-      0
-      1
-      90
-      2
-    )
+    frame.levelo = 1
+    frame.colorhighlight = -1610612733
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+    frame.localprops1 = []
     face.localprops = []
-    face.template = mainfo.tfaceplayer
-    taborder = 1
-    hint = 'Enable Equalizer'
-    bounds_x = 120
+    taborder = 5
+    hint = ' Drums set '
+    bounds_x = 116
     bounds_y = 0
-    bounds_cx = 103
+    bounds_cx = 114
     bounds_cy = 15
-    statfile = mainfo.tstatfile1
-    onchange = changenab
-    colorglyph = -1610612728
+    font.color = 3355443
+    font.height = 11
+    font.style = [fs_italic]
+    font.name = 'stf_default'
+    font.localprops = [flp_color, flp_style, flp_height]
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 14
+    object EQEN: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.caption = 'Equalizer Player 1'
+      frame.font.color = 2039583
+      frame.font.colorbackground = -2147483645
+      frame.font.height = 10
+      frame.font.style = [fs_italic]
+      frame.font.name = 'stf_default'
+      frame.font.localprops = [flp_color, flp_colorbackground, flp_style, flp_height]
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        1
+        90
+        2
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayer
+      hint = 'Enable Equalizer'
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 103
+      bounds_cy = 15
+      statfile = mainfo.tstatfile1
+      onchange = changenab
+      colorglyph = -1610612728
+    end
   end
 end

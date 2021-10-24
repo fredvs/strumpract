@@ -5,7 +5,7 @@ uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,msegraphedits,
  SysUtils,mseificomp,mseificompglob,mseifiglob,msescrollbar,msesimplewidgets,
- msewidgets,msechart;
+ msewidgets,msechart,msedispwidgets,mserichstring;
 
 type
  tspectrum1fo = class(tdockform)
@@ -17,6 +17,7 @@ type
    labelright: tlabel;
    labelleft: tlabel;
    tchartright: tchart;
+   tstringdisp2: tstringdisp;
    Spect1: tbooleanedit;
    procedure onvisiblechange(const sender: TObject);
    procedure onformcreated(const sender: TObject);

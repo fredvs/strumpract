@@ -70,9 +70,9 @@ begin
   spectrum1fo.Caption := 'Spectrum Player 1';
   spectrum2fo.Caption := 'Spectrum Player 2';
   
-  spectrum1fo.Spect1.frame.caption := 'Spectrum Player 1';
-  spectrum2fo.Spect1.frame.caption := 'Spectrum Player 2';
-  spectrumrecfo.Spect1.frame.caption := 'Spectrum Recorder';
+  spectrum1fo.Spect1.frame.caption := 'Spectrum Player 1     ';
+  spectrum2fo.Spect1.frame.caption := 'Spectrum Player 2     ';
+  spectrumrecfo.Spect1.frame.caption := 'Spectrum Recorder   ';
  
   spectrum1fo.dragdock.Caption := 'Sp1';
   spectrum2fo.dragdock.Caption := 'Sp2';
@@ -92,9 +92,9 @@ begin
   equalizerfo2.Caption := 'Equalizer Player 2';
   equalizerforec.Caption := 'Equalizer Recorder';
  
-  equalizerfo1.eqen.frame.caption := 'Equalizer Player 1';
-  equalizerfo2.eqen.frame.caption := 'Equalizer Player 2';
-  equalizerforec.eqen.frame.caption := 'Equalizer Recorder';
+  equalizerfo1.eqen.frame.caption := 'Equalizer Player 1      ';
+  equalizerfo2.eqen.frame.caption := 'Equalizer Player 2      ';
+  equalizerforec.eqen.frame.caption := 'Equalizer Recorder    ';
   
   equalizerfo1.tag := 0;
   equalizerfo2.tag := 1;

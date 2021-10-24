@@ -4,36 +4,11 @@ unit equalizer;
 interface
 
 uses
-  Classes,
-  ctypes,
-  SysUtils,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msegraphedits,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msescrollbar,
-  msesimplewidgets,
-  msewidgets,
-  msechart,
-  msedispwidgets,
-  mserichstring,
-  msefiledialogx,
-  msestatfile,
-  msebitmap;
+ Classes,ctypes,SysUtils,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,
+ msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
+ msedock,msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
+ msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring,
+ msefiledialogx,msestatfile,msebitmap;
 
 type
   tasliders = array[1..20] of tslider;
@@ -72,7 +47,6 @@ type
     tstringdisp10: tstringdisp;
     tslider10: tslider;
     tbutton10: TButton;
-    EQEN: tbooleanedit;
     tlabel3: tlabel;
     groupbox2: tgroupbox;
     tstringdisp11: tstringdisp;
@@ -109,6 +83,8 @@ type
     fond: tstringdisp;
     loadset: TButton;
     saveset: TButton;
+   tstringdisp21: tstringdisp;
+   EQEN: tbooleanedit;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
