@@ -68,8 +68,9 @@ object equalizerfo: tequalizerfo
     taborder = 2
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 432
-    bounds_cy = 140
+    bounds_cx = 434
+    bounds_cy = 142
+    anchors = []
     reffontheight = 15
   end
   object groupbox2: tgroupbox
@@ -95,7 +96,7 @@ object equalizerfo: tequalizerfo
     taborder = 1
     bounds_x = 214
     bounds_y = 1
-    bounds_cx = 217
+    bounds_cx = 218
     bounds_cy = 139
     font.height = 10
     font.name = 'stf_default'

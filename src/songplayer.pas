@@ -940,7 +940,9 @@ begin
 
       if fileexists(historyfn.Value) then
       begin
-        samformat := 0;
+     
+     //  if configfo.bit16.value then samformat := -1 else
+       samformat := 0;
 
         //  oninfowav(Sender);
 
@@ -1242,7 +1244,8 @@ begin
       // writeln('avant tout');
       if fileexists(historyfn.Value) then
       begin
-        samformat := 0;
+       //  if configfo.bit16.value then samformat := -1 else
+       samformat := 0;
 
         //  oninfowav(Sender);
 
@@ -2284,8 +2287,16 @@ begin
 
           infosfo.infofile.Caption   := copy(trim(extractfilename(historyfn.Value)),1,60);
           infosfo.infoname.Caption   :=  copy(trim(CommonTags.Title),1,60)+ ' ';
+          
           infosfo.infoartist.Caption := copy(trim(CommonTags.Artist),1,60)+ ' ';
           infosfo.infoalbum.Caption  := copy(trim(CommonTags.Album),1,60)+ ' ';
+          
+          infosfo.infofile.hint   :=  ' ' + trim(extractfilename(historyfn.Value)) + ' ';
+          infosfo.infoname.hint   :=  ' ' + trim(CommonTags.Title) + ' ';
+          infosfo.infoartist.hint := ' ' + trim(CommonTags.Artist) + ' ';
+          infosfo.infoalbum.hint  := ' ' + trim(CommonTags.Album) + ' ';
+          infosfo.infocom.hint    := ' ' + trim(CommonTags.Comment) + ' ';
+             
           infosfo.infoyear.Caption   := trim(CommonTags.Year)+ ' ';
           infosfo.infocom.Caption    := copy(trim(CommonTags.Comment),1,60)+ ' ';
           infosfo.infotag.Caption    := trim(CommonTags.Genre)+ ' ';
@@ -2380,6 +2391,13 @@ begin
           infosfo2.infoalbum.Caption  := copy(trim(CommonTags.Album),1,60)+ ' ';
           infosfo2.infoyear.Caption   := trim(CommonTags.Year)+ ' ';
           infosfo2.infocom.Caption    := copy(trim(CommonTags.Comment),1,60)+ ' ';
+          
+          infosfo2.infofile.hint   :=  ' ' + trim(extractfilename(historyfn.Value)) + ' ';
+          infosfo2.infoname.hint   :=  ' ' + trim(CommonTags.Title) + ' ';
+          infosfo2.infoartist.hint := ' ' + trim(CommonTags.Artist) + ' ';
+          infosfo2.infoalbum.hint  := ' ' + trim(CommonTags.Album) + ' ';
+          infosfo2.infocom.hint    := ' ' + trim(CommonTags.Comment) + ' ';
+                 
           infosfo2.infotag.Caption    := trim(CommonTags.Genre)+ ' ';
           infosfo2.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
                                          (CommonTags.Duration / MSecsPerDay))))+ ' ';

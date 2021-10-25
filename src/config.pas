@@ -18,12 +18,7 @@ type
     latplay: trealspinedit;
     latdrums: trealspinedit;
     tbutton1: TButton;
-    defdevin: tlabel;
-    defdevout: tlabel;
-    tbutton2: TButton;
     infos_grid: tstringgrid;
-    devincfg: tintegeredit;
-    devoutcfg: tintegeredit;
     tgroupbox2: tgroupbox;
     tcoloredit1: tcoloredit;
     tcoloredit2: tcoloredit;
@@ -34,6 +29,15 @@ type
     tcoloredit22: tcoloredit;
    bosleep: tbooleanedit;
    lsuglat: tlabel;
+   tgroupbox4: tgroupbox;
+   bit16: tbooleaneditradio;
+   bit32: tbooleaneditradio;
+   tgroupbox5: tgroupbox;
+   defdevout: tlabel;
+   devoutcfg: tintegeredit;
+   defdevin: tlabel;
+   devincfg: tintegeredit;
+   tbutton2: tbutton;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
