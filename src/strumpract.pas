@@ -62,48 +62,8 @@ begin
   [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
   
   application.createform(tconfigfo, configfo);
-
-  application.createform(tspectrum1fo, spectrum1fo);
-  application.createform(tspectrum1fo, spectrum2fo);
-  application.createform(tspectrum1fo, spectrumrecfo);
-    
-  spectrum1fo.Caption := 'Spectrum Player 1';
-  spectrum2fo.Caption := 'Spectrum Player 2';
   
-  spectrum1fo.Spect1.frame.caption := 'Spectrum Player 1     ';
-  spectrum2fo.Spect1.frame.caption := 'Spectrum Player 2     ';
-  spectrumrecfo.Spect1.frame.caption := 'Spectrum Recorder   ';
- 
-  spectrum1fo.dragdock.Caption := 'Sp1';
-  spectrum2fo.dragdock.Caption := 'Sp2';
-  
-  spectrumrecfo.Caption := 'Spectrum Recorder';
-   spectrumrecfo.dragdock.Caption := 'SpR';
- 
-  application.createform(tequalizerfo, equalizerfo1);
-  application.createform(tequalizerfo, equalizerfo2);
-  application.createform(tequalizerfo, equalizerforec);
-    
-  equalizerfo1.dragdock.Caption := 'Eq1';
-  equalizerfo2.dragdock.Caption := 'Eq2';
-  equalizerforec.dragdock.Caption := 'EqR';
-  
-  equalizerfo1.Caption := 'Equalizer Player 1';
-  equalizerfo2.Caption := 'Equalizer Player 2';
-  equalizerforec.Caption := 'Equalizer Recorder';
- 
-  equalizerfo1.eqen.frame.caption := 'Equalizer Player 1      ';
-  equalizerfo2.eqen.frame.caption := 'Equalizer Player 2      ';
-  equalizerforec.eqen.frame.caption := 'Equalizer Recorder    ';
-  
-  equalizerfo1.tag := 0;
-  equalizerfo2.tag := 1;
-  equalizerforec.tag := 2;
-  
-  application.createform(tfilelistfo, filelistfo);
-
-  filelistfo.dragdock.Caption := 'Fil';
-  application.createform(tdrumsfo, drumsfo);
+    application.createform(tdrumsfo, drumsfo);
 
   drumsfo.dragdock.Caption := 'Dru';
   
@@ -149,6 +109,47 @@ begin
 
   songplayerfo.tgroupbox1.hint := ' Player 1 ';
   songplayer2fo.tgroupbox1.hint := ' Player 2 ';
+
+  application.createform(tspectrum1fo, spectrum1fo);
+  application.createform(tspectrum1fo, spectrum2fo);
+  application.createform(tspectrum1fo, spectrumrecfo);
+    
+  spectrum1fo.Caption := 'Spectrum Player 1';
+  spectrum2fo.Caption := 'Spectrum Player 2';
+  
+  spectrum1fo.Spect1.frame.caption := 'Spectrum Player 1     ';
+  spectrum2fo.Spect1.frame.caption := 'Spectrum Player 2     ';
+  spectrumrecfo.Spect1.frame.caption := 'Spectrum Recorder   ';
+ 
+  spectrum1fo.dragdock.Caption := 'Sp1';
+  spectrum2fo.dragdock.Caption := 'Sp2';
+  
+  spectrumrecfo.Caption := 'Spectrum Recorder';
+   spectrumrecfo.dragdock.Caption := 'SpR';
+ 
+  application.createform(tequalizerfo, equalizerfo1);
+  application.createform(tequalizerfo, equalizerfo2);
+  application.createform(tequalizerfo, equalizerforec);
+    
+  equalizerfo1.dragdock.Caption := 'Eq1';
+  equalizerfo2.dragdock.Caption := 'Eq2';
+  equalizerforec.dragdock.Caption := 'EqR';
+  
+  equalizerfo1.Caption := 'Equalizer Player 1';
+  equalizerfo2.Caption := 'Equalizer Player 2';
+  equalizerforec.Caption := 'Equalizer Recorder';
+ 
+  equalizerfo1.eqen.frame.caption := 'Equalizer Player 1      ';
+  equalizerfo2.eqen.frame.caption := 'Equalizer Player 2      ';
+  equalizerforec.eqen.frame.caption := 'Equalizer Recorder    ';
+  
+  equalizerfo1.tag := 0;
+  equalizerfo2.tag := 1;
+  equalizerforec.tag := 2;
+  
+  application.createform(tfilelistfo, filelistfo);
+
+  filelistfo.dragdock.Caption := 'Fil';
 
   application.createform(twavefo, wavefo);
   wavefo.Caption := 'Wave Player 1';
