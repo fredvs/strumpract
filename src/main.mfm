@@ -13,8 +13,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 519
-  bounds_y = 304
+  bounds_x = 411
+  bounds_y = 475
   bounds_cx = 454
   bounds_cy = 96
   bounds_cxmin = 454
@@ -161,8 +161,8 @@ object mainfo: tmainfo
     bounds_y = 0
     bounds_cx = 454
     bounds_cy = 79
-    dragdock.splitter_size = 4
-    dragdock.splitter_grip = stb_dens50
+    dragdock.splitter_size = 2
+    dragdock.splitter_grip = stb_none
     dragdock.splitter_color = 16119285
     dragdock.splitter_colorgrip = 11053224
     dragdock.tab_face = tfacebutgray

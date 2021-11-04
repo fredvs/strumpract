@@ -2330,14 +2330,16 @@ begin
 
   if typecolor.Value = 0 then
   begin
-    font.color := cl_black;
+   font.color := cl_black;
     
-   dockpanel1fo.basedock.dragdock.splitter_color := cl_ltgray;
-   dockpanel2fo.basedock.dragdock.splitter_color := cl_ltgray;
-   dockpanel3fo.basedock.dragdock.splitter_color := cl_ltgray;
-   dockpanel4fo.basedock.dragdock.splitter_color := cl_ltgray;
-   dockpanel5fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel1fo.basedock.dragdock.splitter_color := $B7BA8F;
+   dockpanel2fo.basedock.dragdock.splitter_color := $B7BA8F;
+   dockpanel3fo.basedock.dragdock.splitter_color := $B7BA8F;
+   dockpanel4fo.basedock.dragdock.splitter_color := $B7BA8F;
+   dockpanel5fo.basedock.dragdock.splitter_color := $B7BA8F;
    
+   basedock.dragdock.splitter_color := $B7BA8F;
+    
    wavefo.echelle.datacols.font.color := cl_black;
    wavefo.echelle.datacols.color := $B7BA8F;
    wavefo.echelle.datacols.font.colorbackground := $B7BA8F;
@@ -3067,6 +3069,8 @@ begin
    dockpanel4fo.basedock.dragdock.splitter_color := cl_ltgray;
    dockpanel5fo.basedock.dragdock.splitter_color := cl_ltgray;
    
+   basedock.dragdock.splitter_color := cl_ltgray;
+    
    wavefo.echelle.datacols.font.color := cl_black;
    wavefo.echelle.datacols.color := cl_gray;
    wavefo.echelle.datacols.font.colorbackground := cl_gray;
@@ -3774,12 +3778,14 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     font.color := cl_white;
     dialogfilesfo.list_files.frame.colorclient :=  cl_gray ;
     
-   dockpanel1fo.basedock.dragdock.splitter_color := cl_dkgray;
-   dockpanel2fo.basedock.dragdock.splitter_color := cl_dkgray;
-   dockpanel3fo.basedock.dragdock.splitter_color := cl_dkgray;
-   dockpanel4fo.basedock.dragdock.splitter_color := cl_dkgray;
-   dockpanel5fo.basedock.dragdock.splitter_color := cl_dkgray;
+   dockpanel1fo.basedock.dragdock.splitter_color := cl_black;
+   dockpanel2fo.basedock.dragdock.splitter_color := cl_black;
+   dockpanel3fo.basedock.dragdock.splitter_color := cl_black;
+   dockpanel4fo.basedock.dragdock.splitter_color := cl_black;
+   dockpanel5fo.basedock.dragdock.splitter_color := cl_black;
    
+   basedock.dragdock.splitter_color := cl_black;
+    
    wavefo.echelle.datacols.font.color := cl_white;
    wavefo.echelle.datacols.color := $575757;
    wavefo.echelle.datacols.font.colorbackground := $575757;

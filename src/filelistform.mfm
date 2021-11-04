@@ -111,9 +111,9 @@ object filelistfo: tfilelistfo
     face.template = mainfo.tfaceplayer
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 432
-    bounds_cy = 126
-    anchors = [an_left, an_top, an_bottom]
+    bounds_cx = 434
+    bounds_cy = 128
+    anchors = []
     font.name = 'stf_default'
     font.localprops = []
     object tbutton11: tbutton
@@ -180,8 +180,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfacebutgray
       taborder = 11
       hint = ' Find a word in list '
-      bounds_x = 200
-      bounds_y = 100
+      bounds_x = 202
+      bounds_y = 102
       bounds_cx = 24
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -201,8 +201,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 2
       hint = ' Sent selected song to cue for Player 1 '
-      bounds_x = 352
-      bounds_y = 100
+      bounds_x = 354
+      bounds_y = 102
       bounds_cx = 38
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -224,8 +224,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayer
       taborder = 3
       hint = ' Sent selected song to cue for Player 2 '
-      bounds_x = 392
-      bounds_y = 100
+      bounds_x = 394
+      bounds_y = 102
       bounds_cx = 38
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -258,10 +258,10 @@ object filelistfo: tfilelistfo
       face.localprops = []
       face.template = mainfo.tfacebutgray
       hint = ' To move a row: click+hold into the fixed column and drag the row where you want. '
-      bounds_x = 3
+      bounds_x = 2
       bounds_y = 0
-      bounds_cx = 428
-      bounds_cy = 100
+      bounds_cx = 431
+      bounds_cy = 102
       anchors = [an_left, an_top, an_bottom]
       font.name = 'stf_default'
       font.localprops = []
@@ -276,7 +276,7 @@ object filelistfo: tfilelistfo
       datacols.items = <      
         item
           colorselect = 16763002
-          width = 267
+          width = 270
           options = [co_readonly, co_nofocus, co_multiselect, co_rowselect, co_savevalue, co_savestate, co_cancopy, co_canpaste, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           datalist.data = (
@@ -306,7 +306,7 @@ object filelistfo: tfilelistfo
         end      
         item
           colorselect = 16763002
-          width = 40
+          width = 42
           options = [co_readonly, co_nofocus, co_multiselect, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -513,7 +513,7 @@ object filelistfo: tfilelistfo
       taborder = 4
       hint = ' Number of files in the list '
       bounds_x = 146
-      bounds_y = 104
+      bounds_y = 106
       bounds_cx = 50
       bounds_cy = 17
       anchors = [an_left, an_bottom]
@@ -544,8 +544,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfacebutgray
       taborder = 7
       hint = ' Load custom play-list '
-      bounds_x = 226
-      bounds_y = 100
+      bounds_x = 228
+      bounds_y = 102
       bounds_cx = 40
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -566,8 +566,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfacebutgray
       taborder = 8
       hint = ' Save custom play-list '
-      bounds_x = 309
-      bounds_y = 100
+      bounds_x = 311
+      bounds_y = 102
       bounds_cx = 40
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -588,8 +588,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfacebutgray
       taborder = 9
       hint = ' Add file in custom play-list '
-      bounds_x = 268
-      bounds_y = 100
+      bounds_x = 270
+      bounds_y = 102
       bounds_cx = 39
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -632,8 +632,8 @@ object filelistfo: tfilelistfo
       taborder = 1
       hint = ' History of Directories '
       bounds_x = 24
-      bounds_y = 100
-      bounds_cx = 119
+      bounds_y = 102
+      bounds_cx = 121
       bounds_cy = 24
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
@@ -666,7 +666,7 @@ object filelistfo: tfilelistfo
       taborder = 10
       hint = ' Choose a audio directory with wav, ogg, flac or mp3 '
       bounds_x = 1
-      bounds_y = 100
+      bounds_y = 102
       bounds_cx = 23
       bounds_cy = 24
       anchors = [an_left, an_bottom]
@@ -685,7 +685,7 @@ object filelistfo: tfilelistfo
       taborder = 6
       visible = False
       bounds_x = -2
-      bounds_y = 61
+      bounds_y = 63
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
