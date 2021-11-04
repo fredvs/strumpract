@@ -163,7 +163,7 @@ begin
 
     echelle[i][0] := utf8decode(IntToStr(trunc(echsec * (i + 1) / 60)) + '.' + milisec);
 
-    echelle.datacols[i].color := cl_gray;
+  //  echelle.datacols[i].color := cl_gray;
 
     Inc(i);
   end;

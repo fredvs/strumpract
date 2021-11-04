@@ -169,7 +169,6 @@ object wavefo: twavefo
     anchors = [an_left, an_bottom]
     datacols.linecolor = -1879048167
     datacols.width = 21
-    datacols.font.color = -1610612734
     datacols.font.colorbackground = -1610612732
     datacols.font.height = 9
     datacols.font.name = 'stf_default'

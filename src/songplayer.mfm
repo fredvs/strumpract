@@ -10,8 +10,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 447
-  bounds_y = 62
+  bounds_x = 506
+  bounds_y = 253
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -31,6 +31,7 @@ object songplayerfo: tsongplayerfo
     128
   )
   dragdock.splitter_grip = stb_default
+  dragdock.splitter_color = -1610612732
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
   dragdock.caption = ' Play1 '

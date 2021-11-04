@@ -2332,9 +2332,23 @@ begin
   begin
     font.color := cl_black;
     
+   dockpanel1fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel2fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel3fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel4fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel5fo.basedock.dragdock.splitter_color := cl_ltgray;
+   
+   wavefo.echelle.datacols.font.color := cl_black;
+   wavefo.echelle.datacols.color := $B7BA8F;
+   wavefo.echelle.datacols.font.colorbackground := $B7BA8F;
+   
+   wavefo2.echelle.datacols.font.color := cl_black;
+   wavefo2.echelle.datacols.color := $B7BA8F;
+   wavefo2.echelle.datacols.font.colorbackground := $B7BA8F;
+
    dialogfilesfo.list_files.frame.colorclient :=  $F9FFC2 ;
     
-    filelistfo.historyfn.dropdown.cols[0].colorselect := $FFC782;
+   filelistfo.historyfn.dropdown.cols[0].colorselect := $FFC782;
    
     wavefo.container.color  := cl_default;
     wavefo2.container.color := cl_default;
@@ -3046,6 +3060,22 @@ begin
   begin
     font.color := cl_black;
    dialogfilesfo.list_files.frame.colorclient :=  cl_ltgray ;
+   
+    dockpanel1fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel2fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel3fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel4fo.basedock.dragdock.splitter_color := cl_ltgray;
+   dockpanel5fo.basedock.dragdock.splitter_color := cl_ltgray;
+   
+   wavefo.echelle.datacols.font.color := cl_black;
+   wavefo.echelle.datacols.color := cl_gray;
+   wavefo.echelle.datacols.font.colorbackground := cl_gray;
+   
+   wavefo2.echelle.datacols.font.color := cl_black;
+   wavefo2.echelle.datacols.color := cl_gray;
+   wavefo2.echelle.datacols.font.colorbackground := cl_gray;
+
+  
     
     filelistfo.historyfn.dropdown.cols[0].colorselect := $FFC782;
     spectrum1fo.container.color   := cl_default;
@@ -3743,8 +3773,22 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
   begin
     font.color := cl_white;
     dialogfilesfo.list_files.frame.colorclient :=  cl_gray ;
+    
+   dockpanel1fo.basedock.dragdock.splitter_color := cl_dkgray;
+   dockpanel2fo.basedock.dragdock.splitter_color := cl_dkgray;
+   dockpanel3fo.basedock.dragdock.splitter_color := cl_dkgray;
+   dockpanel4fo.basedock.dragdock.splitter_color := cl_dkgray;
+   dockpanel5fo.basedock.dragdock.splitter_color := cl_dkgray;
    
-    filelistfo.historyfn.dropdown.cols[0].colorselect := $A35A00;
+   wavefo.echelle.datacols.font.color := cl_white;
+   wavefo.echelle.datacols.color := $575757;
+   wavefo.echelle.datacols.font.colorbackground := $575757;
+ 
+   wavefo2.echelle.datacols.font.color := cl_white;
+   wavefo2.echelle.datacols.color := $575757;
+   wavefo2.echelle.datacols.font.colorbackground := $575757;
+
+   filelistfo.historyfn.dropdown.cols[0].colorselect := $A35A00;
     wavefo.container.color := $575757;
     wavefo2.container.color := $575757;
     spectrum1fo.container.color := $575757;
