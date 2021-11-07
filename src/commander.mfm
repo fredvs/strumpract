@@ -457,9 +457,9 @@ object commanderfo: tcommanderfo
     end
     object linkvolgenb: tbutton
       Tag = 1
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -741,9 +741,9 @@ object commanderfo: tcommanderfo
     end
     object tbutton2: tbutton
       color = -2147483645
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
@@ -751,7 +751,7 @@ object commanderfo: tcommanderfo
       hint = '  Start Player 1 --> MIX --> Stop Player 2 '
       bounds_x = 99
       bounds_y = 83
-      bounds_cx = 41
+      bounds_cx = 40
       bounds_cy = 37
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = timagelist1
@@ -762,17 +762,17 @@ object commanderfo: tcommanderfo
     object tbutton3: tbutton
       Tag = 4
       color = -2147483645
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
       taborder = 8
       hint = '  Start Player 2 --> MIX --> Stop Player 1 '
-      bounds_x = 139
+      bounds_x = 141
       bounds_y = 83
-      bounds_cx = 41
+      bounds_cx = 40
       bounds_cy = 37
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = timagelist1
@@ -1163,24 +1163,17 @@ object commanderfo: tcommanderfo
     end
     object tbutton5: tbutton
       color = -2147483645
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
       taborder = 27
       hint = ' Pause Mixing '
-      bounds_x = 98
+      bounds_x = 99
       bounds_y = 83
-      bounds_cx = 41
+      bounds_cx = 40
       bounds_cy = 37
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
@@ -1191,24 +1184,17 @@ object commanderfo: tcommanderfo
     object tbutton6: tbutton
       Tag = 1
       color = -2147483645
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
       taborder = 28
       hint = ' Pause Mixing '
-      bounds_x = 139
+      bounds_x = 141
       bounds_y = 83
-      bounds_cx = 41
+      bounds_cx = 40
       bounds_cy = 37
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
@@ -1218,9 +1204,9 @@ object commanderfo: tcommanderfo
     end
     object tbutton4: tbutton
       color = -2147483645
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
@@ -1228,7 +1214,7 @@ object commanderfo: tcommanderfo
       hint = ' Pause Mixing '
       bounds_x = 99
       bounds_y = 83
-      bounds_cx = 81
+      bounds_cx = 82
       bounds_cy = 37
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
@@ -1238,9 +1224,9 @@ object commanderfo: tcommanderfo
     end
     object linkvolb: tbutton
       Tag = 1
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1271,9 +1257,9 @@ object commanderfo: tcommanderfo
     end
     object linkvol2b: tbutton
       Tag = 1
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1305,9 +1291,9 @@ object commanderfo: tcommanderfo
     object speccalcb: tbutton
       Tag = 1
       color = -2147483645
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1377,9 +1363,9 @@ object commanderfo: tcommanderfo
     end
     object vuinb: tbutton
       color = -2147483645
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1411,9 +1397,9 @@ object commanderfo: tcommanderfo
     object automixb: tbutton
       Tag = 1
       color = -2147483645
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1443,9 +1429,9 @@ object commanderfo: tcommanderfo
       onexecute = onexecbutlght
     end
     object directmixb: tbutton
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1473,50 +1459,6 @@ object commanderfo: tcommanderfo
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
-    end
-    object hintpanel: tgroupbox
-      frame.levelo = 0
-      frame.leveli = 0
-      frame.framei_left = 4
-      frame.framei_right = 4
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = tfaceorange
-      taborder = 20
-      visible = False
-      bounds_x = 29
-      bounds_y = 44
-      bounds_cx = 221
-      bounds_cy = 36
-      font.name = 'stf_default'
-      font.localprops = []
-      object hintlabel: tlabel
-        bounds_x = 26
-        bounds_y = 1
-        bounds_cx = 169
-        bounds_cy = 15
-        caption = 'Invalid value.  Reset to 100.'
-        font.name = 'stf_default'
-        font.localprops = []
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
-      end
-      object hintlabel2: tlabel
-        taborder = 1
-        bounds_x = 3
-        bounds_y = 17
-        bounds_cx = 215
-        bounds_cy = 15
-        caption = 'Or press Esc key for previous value.'
-        font.name = 'stf_default'
-        font.localprops = []
-        reffontheight = 15
-      end
     end
     object nameplayers: tstringdisp
       color = -2147483645
@@ -1569,7 +1511,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       taborder = 29
       visible = False
-      bounds_x = 69
+      bounds_x = -48
       bounds_y = 38
       bounds_cx = 84
       bounds_cy = 83
@@ -1852,9 +1794,9 @@ object commanderfo: tcommanderfo
     end
     object Brandommix: tbutton
       color = -2147483645
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_pos.count = 2
       face.fade_pos.items = (
         0
@@ -1882,6 +1824,50 @@ object commanderfo: tcommanderfo
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
+    end
+    object hintpanel: tgroupbox
+      frame.levelo = 0
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = tfaceorange
+      taborder = 20
+      visible = False
+      bounds_x = 32
+      bounds_y = 44
+      bounds_cx = 221
+      bounds_cy = 36
+      font.name = 'stf_default'
+      font.localprops = []
+      object hintlabel: tlabel
+        bounds_x = 26
+        bounds_y = 1
+        bounds_cx = 169
+        bounds_cy = 15
+        caption = 'Invalid value.  Reset to 100.'
+        font.name = 'stf_default'
+        font.localprops = []
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 15
+      end
+      object hintlabel2: tlabel
+        taborder = 1
+        bounds_x = 3
+        bounds_y = 17
+        bounds_cx = 215
+        bounds_cy = 15
+        caption = 'Or press Esc key for previous value.'
+        font.name = 'stf_default'
+        font.localprops = []
+        reffontheight = 15
+      end
     end
   end
   object tfacecomp7: tfacecomp
@@ -2854,8 +2840,8 @@ object commanderfo: tcommanderfo
       7255365
     )
     template.fade_direction = gd_down
-    left = 273
-    top = 88
+    left = 271
+    top = 67
   end
   object tfacegreendark: tfacecomp
     template.fade_pos.count = 2
@@ -2875,8 +2861,8 @@ object commanderfo: tcommanderfo
   object ttimer1: ttimer
     options = [to_single]
     ontimer = ontimerinit
-    left = 151
-    top = 96
+    left = 17
+    top = 78
   end
   object tfaceorange: tfacecomp
     template.fade_pos.count = 2
@@ -2897,8 +2883,8 @@ object commanderfo: tcommanderfo
     interval = 500000
     options = [to_single]
     ontimer = dotimercallback
-    left = 162
-    top = 82
+    left = 19
+    top = 68
   end
   object timagelist1: timagelist
     width = 32
@@ -3236,6 +3222,47 @@ object commanderfo: tcommanderfo
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFF
+    }
+  end
+  object tframecomp2: tframecomp
+    template.framei_left = 4
+    template.framei_top = 2
+    template.framei_right = 4
+    template.framei_bottom = 2
+    template.frameimage_list = timagelist3
+    template.frameimage_left = -4
+    template.frameimage_top = -4
+    template.frameimage_right = -4
+    template.frameimage_bottom = -4
+    left = 300
+    top = 15
+  end
+  object timagelist3: timagelist
+    width = 4
+    height = 4
+    options = [bmo_masked, bmo_graymask]
+    count = 8
+    cornermask_topleft = #2#1
+    cornermask_bottomleft = #2#1
+    cornermask_bottomright = #2#1
+    cornermask_topright = #2#1
+    left = 105
+    top = 76
+    image = {
+      00000000120000000C0000000C000000E8000000000000000000000000000000
+      0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
+      000000038B8B8B01FFFFFF048B8B8B01FFFFFF02A5A5A501000000038B8B8B01
+      FFFFFF038B8B8B01FFFFFF03A5A5A50100000003FFFFFF018B8B8B01FFFFFF02
+      8B8B8B01FFFFFF03A5A5A50100000003FFFFFF028B8B8B03FFFFFF068B8B8B01
+      FFFFFF038B8B8B02FFFFFF068B8B8B01FFFFFF038B8B8B01FFFFFF018B8B8B01
+      FFFFFF048B8B8B01FFFFFF048B8B8B07FFFFFF04D6D6D6018B8B8B03FFFFFF02
+      8B8B8B0400000004FFFFFF028B8B8B01FFFFFF04D6D6D60100000004FFFFFF03
+      8B8B8B01FFFFFF0400000004FFFFFF038B8B8B01FFFFFF040000000490000000
+      0000FFFFFF000000FF00000000FF0000FF000000FF000000FF000000FF000000
+      00FF0000FF000000FF0000000000FFFF00000000000000FF000000FF00000000
+      000000FF000000FF000000000000FF00000000FFFFFFFFFFFFFF0000000000FF
+      FFFF0000FFFFFFFF000000000000FF000000000000000000000000FF00000000
+      00000000000000FF0000000000000000
     }
   end
 end

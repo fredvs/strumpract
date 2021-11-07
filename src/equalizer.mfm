@@ -130,11 +130,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -211,11 +214,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -292,11 +298,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -373,11 +382,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -454,11 +466,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -535,11 +550,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -616,11 +634,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -697,11 +718,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -778,11 +802,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -859,11 +886,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -923,12 +953,103 @@ object equalizerfo: tequalizerfo
       font.localprops = [flp_height]
       reffontheight = 12
     end
+    object blight: tbutton
+      face.image.origformat = 'png'
+      face.image.image = {
+        00000000000000001400000010000000D8030000000000000000000000000000
+        00000000000000000000000000000000000000009F9F9F01AAAAAA0195949501
+        9A9A9A01A2A2A201A8A8A801A7A7A702A6A6A601A7A7A702ACACAC01B0B0B001
+        B2B2B202ACACAC01A7A7A7019F9D9E01BBB9B9019C9B9B018A898801BDBDBD01
+        92929201989898019E9E9E01A3A3A306A8A8A801A9A9A901ACACAC02A7A7A701
+        A3A3A3019F9C9D01C5C3C4018C8A8A0184838201BEBEBE018E8E8E0195959501
+        9B9B9B019F9F9F01A1A1A1019F9F9F04A2A2A201A5A5A501A8A8A802A5A5A501
+        9F9F9F019E9B9C01C1BFC0018C8A8A0186848301B4B4B4019D9D9D0199999901
+        9E9E9E01A3A3A301A7A7A701A8A8A802A5A5A501A6A6A601A8A8A801AAAAAA01
+        ACACAC01AAAAAA01A5A5A5019F9F9F01B3B2B201AFADAE018D8C8C0187868601
+        9D9D9D01C5C5C501B6B6B601BCBCBC01C2C2C201C7C7C701C9C9C902C7C7C701
+        C8C8C802C7C7C701C6C6C601C3C3C301BCBCBC01B6B6B601CDCDCD018E8E8E01
+        909090018988880186868601D6D6D601C7C7C701CCCCCC01CFCFCF01D3D3D301
+        D4D4D402D5D5D502D2D2D202CFCFCF01CCCCCC01C9C9C901C5C5C501D0D0D001
+        7D7D7D01929292019A9A98018989890183838301777777017676760375757503
+        747474027373730171717102727272028282820188888801A3A3A3019B9B9901
+        87888801008CFF1087878701A6A6A6019A9A9801898989018383830177777701
+        7676760375757503747474027373730171717102727272028282820188888801
+        A3A3A3018988880186868601D6D6D601C7C7C701CCCCCC01CFCFCF01D3D3D301
+        D4D4D402D5D5D502D2D2D202CFCFCF01CCCCCC01C9C9C901C5C5C501D0D0D001
+        7D7D7D0192929201878686019D9D9D01C5C5C501B6B6B601BCBCBC01C2C2C201
+        C7C7C701C9C9C902C7C7C701C8C8C802C7C7C701C6C6C601C3C3C301BCBCBC01
+        B6B6B601CDCDCD018E8E8E019090900186848301B4B4B4019D9D9D0199999901
+        9E9E9E01A3A3A301A7A7A701A8A8A802A5A5A501A6A6A601A8A8A801AAAAAA01
+        ACACAC01AAAAAA01A5A5A5019F9F9F01B3B2B201AFADAE018D8C8C0184838201
+        BEBEBE018E8E8E01959595019B9B9B019F9F9F01A1A1A1019F9F9F04A2A2A201
+        A5A5A501A8A8A802A5A5A5019F9F9F019E9B9C01C1BFC0018C8A8A018A898801
+        BDBDBD0192929201989898019E9E9E01A3A3A306A8A8A801A9A9A901ACACAC02
+        A7A7A701A3A3A3019F9C9D01C5C3C4018C8A8A019F9F9F01AAAAAA0195949501
+        9A9A9A01A2A2A201A8A8A801A7A7A702A6A6A601A7A7A702ACACAC01B0B0B001
+        B2B2B202ACACAC01A7A7A7019F9D9E01BBB9B9019C9B9B019B9B9901BBB9B901
+        AEAEAE01ACACAC05ACABAC01ABABAB01AAAAAA02AAA9A901AAAAAA02ABABAB02
+        ADADAD01BBB9B901A6A6A601
+      }
+      face.localprops = [fal_image]
+      taborder = 11
+      bounds_x = 113
+      bounds_y = 65
+      bounds_cx = 27
+      bounds_cy = 19
+      state = [as_invisible, as_localinvisible]
+    end
+    object bdark: tbutton
+      face.image.origformat = 'png'
+      face.image.image = {
+        00000000000000001400000010000000F4030000000000000000000000000000
+        0000000000000000000000000000000000000000616060016E6E6E0154535401
+        5A5A5A01646464016C6C6C016B6B6B02696969016A6A6A027070700176767601
+        78787802717171016B6B6B01615E5F01838181015D5B5B014645440186868601
+        50505001585858015F5F5F016666660265656502666666026C6C6C016D6D6D01
+        717171026B6B6B0165656501605D5E01908D8E01494647013F3E3D0187878701
+        4C4C4C01545454015B5B5B016060600163636301616161026060600264646401
+        686868016C6C6C0268686801616161015F5C5D018B88890149464701413F3E01
+        7A7A7A015E5E5E01595959015F5F5F01666666016B6B6B016C6C6C0268686801
+        696969016C6C6C016E6E6E01707070016E6E6E01686868016161610179787801
+        747273014A494901434142015E5E5E01909090017D7D7D01848484018C8C8C01
+        9292920194949402929292019393930292929201919191018D8D8D0184848401
+        7D7D7D01999999014B4B4B014E4E4E014544440141414101A4A4A40192929201
+        989898019C9C9C01A1A1A101A2A2A202A3A3A302A0A0A0029C9C9C0198989801
+        959595018F8F8F019D9D9D0136363601505050015A5A5801454545013E3E3E01
+        2F2F2F012E2E2E032D2D2D032B2B2B022A2A2A0128282802292929023D3D3D01
+        44444401656565015B5B590143444401008CFF1043434301696969015A5A5801
+        454545013E3E3E012F2F2F012E2E2E032D2D2D032B2B2B022A2A2A0128282802
+        292929023D3D3D0144444401656565014544440141414101A4A4A40192929201
+        989898019C9C9C01A1A1A101A2A2A202A3A3A302A0A0A0029C9C9C0198989801
+        959595018F8F8F019D9D9D013636360150505001434142015E5E5E0190909001
+        7D7D7D01848484018C8C8C019292920194949402929292019393930292929201
+        919191018D8D8D01848484017D7D7D01999999014B4B4B014E4E4E01413F3E01
+        7A7A7A015E5E5E01595959015F5F5F01666666016B6B6B016C6C6C0268686801
+        696969016C6C6C016E6E6E01707070016E6E6E01686868016161610179787801
+        747273014A4949013F3E3D01878787014C4C4C01545454015B5B5B0160606001
+        63636301616161026060600264646401686868016C6C6C026868680161616101
+        5F5C5D018B88890149464701464544018686860150505001585858015F5F5F01
+        6666660265656502666666026C6C6C016D6D6D01717171026B6B6B0165656501
+        605D5E01908D8E0149464701616060016E6E6E01545354015A5A5A0164646401
+        6C6C6C016B6B6B02696969016A6A6A0270707001767676017878780271717101
+        6B6B6B01615E5F01838181015D5B5B015B5B5901838181017373730171717101
+        70707004706F70016F6F6F016E6E6E026E6D6D016E6E6E026F6F6F0272727201
+        8381810169696901
+      }
+      face.localprops = [fal_image]
+      taborder = 12
+      bounds_x = 146
+      bounds_y = 66
+      bounds_cx = 27
+      bounds_cy = 19
+      state = [as_invisible, as_localinvisible]
+    end
   end
   object loadset: tbutton
     color = -2147483645
-    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
     face.localprops = []
     face.template = mainfo.tfaceplayer
     taborder = 3
@@ -949,9 +1070,9 @@ object equalizerfo: tequalizerfo
   end
   object saveset: tbutton
     color = -2147483645
-    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
     face.localprops = []
     face.template = mainfo.tfaceplayer
     taborder = 4
@@ -1025,11 +1146,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1107,11 +1231,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1188,11 +1315,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1269,11 +1399,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1350,11 +1483,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1431,11 +1567,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1512,11 +1651,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1593,11 +1735,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1674,11 +1819,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1755,11 +1903,14 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
         scrollbar.face1.localprops = []
-        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_hiddenedges]
+        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
         scrollbar.frameendbutton1.optionsskin = [fso_flat]
         scrollbar.frameendbutton1.colorclient = -2147483645
@@ -1871,5 +2022,45 @@ object equalizerfo: tequalizerfo
       onchange = changenab
       colorglyph = -1610612728
     end
+  end
+  object tbitmapcomp1: tbitmapcomp
+    bitmap.origformat = 'png'
+    bitmap.image = {
+      00000000000000001400000010000000D8030000000000000000000000000000
+      00000000000000000000000000000000000000009F9F9F01AAAAAA0195949501
+      9A9A9A01A2A2A201A8A8A801A7A7A702A6A6A601A7A7A702ACACAC01B0B0B001
+      B2B2B202ACACAC01A7A7A7019F9D9E01BBB9B9019C9B9B018A898801BDBDBD01
+      92929201989898019E9E9E01A3A3A306A8A8A801A9A9A901ACACAC02A7A7A701
+      A3A3A3019F9C9D01C5C3C4018C8A8A0184838201BEBEBE018E8E8E0195959501
+      9B9B9B019F9F9F01A1A1A1019F9F9F04A2A2A201A5A5A501A8A8A802A5A5A501
+      9F9F9F019E9B9C01C1BFC0018C8A8A0186848301B4B4B4019D9D9D0199999901
+      9E9E9E01A3A3A301A7A7A701A8A8A802A5A5A501A6A6A601A8A8A801AAAAAA01
+      ACACAC01AAAAAA01A5A5A5019F9F9F01B3B2B201AFADAE018D8C8C0187868601
+      9D9D9D01C5C5C501B6B6B601BCBCBC01C2C2C201C7C7C701C9C9C902C7C7C701
+      C8C8C802C7C7C701C6C6C601C3C3C301BCBCBC01B6B6B601CDCDCD018E8E8E01
+      909090018988880186868601D6D6D601C7C7C701CCCCCC01CFCFCF01D3D3D301
+      D4D4D402D5D5D502D2D2D202CFCFCF01CCCCCC01C9C9C901C5C5C501D0D0D001
+      7D7D7D01929292019A9A98018989890183838301777777017676760375757503
+      747474027373730171717102727272028282820188888801A3A3A3019B9B9901
+      87888801008CFF1087878701A6A6A6019A9A9801898989018383830177777701
+      7676760375757503747474027373730171717102727272028282820188888801
+      A3A3A3018988880186868601D6D6D601C7C7C701CCCCCC01CFCFCF01D3D3D301
+      D4D4D402D5D5D502D2D2D202CFCFCF01CCCCCC01C9C9C901C5C5C501D0D0D001
+      7D7D7D0192929201878686019D9D9D01C5C5C501B6B6B601BCBCBC01C2C2C201
+      C7C7C701C9C9C902C7C7C701C8C8C802C7C7C701C6C6C601C3C3C301BCBCBC01
+      B6B6B601CDCDCD018E8E8E019090900186848301B4B4B4019D9D9D0199999901
+      9E9E9E01A3A3A301A7A7A701A8A8A802A5A5A501A6A6A601A8A8A801AAAAAA01
+      ACACAC01AAAAAA01A5A5A5019F9F9F01B3B2B201AFADAE018D8C8C0184838201
+      BEBEBE018E8E8E01959595019B9B9B019F9F9F01A1A1A1019F9F9F04A2A2A201
+      A5A5A501A8A8A802A5A5A5019F9F9F019E9B9C01C1BFC0018C8A8A018A898801
+      BDBDBD0192929201989898019E9E9E01A3A3A306A8A8A801A9A9A901ACACAC02
+      A7A7A701A3A3A3019F9C9D01C5C3C4018C8A8A019F9F9F01AAAAAA0195949501
+      9A9A9A01A2A2A201A8A8A801A7A7A702A6A6A601A7A7A702ACACAC01B0B0B001
+      B2B2B202ACACAC01A7A7A7019F9D9E01BBB9B9019C9B9B019B9B9901BBB9B901
+      AEAEAE01ACACAC05ACABAC01ABABAB01AAAAAA02AAA9A901AAAAAA02ABABAB02
+      ADADAD01BBB9B901A6A6A601
+    }
+    left = 154
+    top = 42
   end
 end

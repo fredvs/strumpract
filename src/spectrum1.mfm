@@ -220,8 +220,6 @@ object spectrum1fo: tspectrum1fo
             bar_width = 18
           end>
         colorchart = -1879048187
-        framechart.localprops = []
-        framechart.localprops1 = []
         xrange = 1
         yrange = 1
         xdials.range = 1

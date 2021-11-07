@@ -2830,6 +2830,10 @@ begin
       asliders[x].scrollbar.face.template := commanderfo.tfaceslider;
       asliders[x].scrollbar.face.template := commanderfo.tfaceslider;
      
+      asliders[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+      asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+      aslidersr[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+          
       asliders[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
@@ -3554,6 +3558,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       abuttons[x].font.color  := ltblack;
       abuttons2[x].font.color := ltblack;
       abuttonsR[x].font.color := ltblack;
+      
+      asliders[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+      asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+      aslidersr[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+              
       asliders[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
@@ -4378,6 +4387,10 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       abuttons[x].font.color  := ltblank;
       abuttons2[x].font.color := ltblank;
       abuttonsR[x].font.color := ltblank;
+      asliders[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+      asliders2[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+      aslidersr[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+   
       asliders[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;

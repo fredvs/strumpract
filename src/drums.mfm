@@ -1605,8 +1605,8 @@ object drumsfo: tdrumsfo
     object tgroupbox1: tgroupbox
       color = 12566463
       taborder = 26
-      bounds_x = 218
-      bounds_y = 17
+      bounds_x = 220
+      bounds_y = 19
       bounds_cx = 54
       bounds_cy = 62
       object label3: tlabel
@@ -1614,8 +1614,8 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 1
         visible = False
-        bounds_x = 4
-        bounds_y = 8
+        bounds_x = 2
+        bounds_y = 6
         bounds_cx = 18
         bounds_cy = 44
         caption = '\'
@@ -1634,8 +1634,8 @@ object drumsfo: tdrumsfo
         color = -2147483645
         taborder = 2
         visible = False
-        bounds_x = 34
-        bounds_y = 8
+        bounds_x = 32
+        bounds_y = 6
         bounds_cx = 18
         bounds_cy = 44
         caption = '/'
@@ -1652,8 +1652,8 @@ object drumsfo: tdrumsfo
       object label2: tlabel
         color = -2147483645
         enabled = False
-        bounds_x = 12
-        bounds_y = 4
+        bounds_x = 10
+        bounds_y = 2
         bounds_cx = 32
         bounds_cy = 59
         caption = '0'
@@ -1720,12 +1720,13 @@ object drumsfo: tdrumsfo
       frame.framei_bottom = 0
       frame.caption = 'Lang'
       frame.captionpos = cp_left
+      frame.captiondist = 4
       frame.font.color = 5000268
       frame.font.height = 10
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_height]
       frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom, frl_colorclient]
-      frame.localprops1 = []
+      frame.localprops1 = [frl1_captiondist]
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
@@ -1745,7 +1746,7 @@ object drumsfo: tdrumsfo
           frame.localprops1 = []
         end>
       frame.outerframe = (
-        27
+        30
         0
         0
         0
@@ -1754,9 +1755,9 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 27
       hint = 'Language for counting'
-      bounds_x = 361
+      bounds_x = 358
       bounds_y = 4
-      bounds_cx = 66
+      bounds_cx = 69
       bounds_cy = 18
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]

@@ -8,7 +8,7 @@ uses
  msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
  msedock,msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
  msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring,
- msefiledialogx,msestatfile,msebitmap;
+ msefiledialogx,msestatfile,msebitmap,mseimage;
 
 type
   tasliders = array[1..20] of tslider;
@@ -85,6 +85,9 @@ type
     saveset: TButton;
    tstringdisp21: tstringdisp;
    EQEN: tbooleanedit;
+   tbitmapcomp1: tbitmapcomp;
+   blight: tbutton;
+   bdark: tbutton;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
