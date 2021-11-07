@@ -97,9 +97,9 @@ findinfiledialog=83
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=0
- [findinfileadialogfo.inprojectdir]
  value=1
+ [findinfileadialogfo.inprojectdir]
+ value=0
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
@@ -143,8 +143,9 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=cwstring
+ value=array of array
  history=20
+  array of array
   cwstring
   echelle
   wavefo.echelle
@@ -164,9 +165,8 @@ findinfiledialog=83
   mouse
   cursor
   defaultfunctional
-  colortostring
  [findinfileadialogfo]
- stackedunder=
+ stackedunder=finddialogfo
  x=506
  y=225
  cx=339
@@ -1249,7 +1249,7 @@ line=36
  587
  237
  5734
- 1812
+ 1818
  1530
  321
  319
@@ -1261,7 +1261,7 @@ line=36
  1606
  209
  1136
- 4173
+ 4179
  491
  5
  788
@@ -1674,8 +1674,18 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=typecol
+finddtext=filelistfo.he
 findhistory=20
+ filelistfo.he
+ filelistfo.h
+ filelistfo.width
+ filelistfo.w
+ layout
+ info
+  array of array
+ low(
+ low
+ array of
  typecol
  splitter
  dockpanel
@@ -1686,30 +1696,25 @@ findhistory=20
  addinto
  timagelist
  frame.framei
- frame.
- framecomp
- tprocess
- ontimeridle
- mouse
- cl_lastfunctional
- cl_functional
- longword
- recorderfo.edvol
- edvol
 findoptions=1
-editpos=12
+editpos=17
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,0
+ 0,0
+ 0,0
+ 0,0
+ 0,0
+ 0,0
  0,-1073741823
  0,0
  0,-1073741823
+ 0,0
  0,-1073741823
+ 0,2
+ 0,11
  0,-1073741823
+ 2,1005
+ 0,1555
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1722,7 +1727,12 @@ bookmarks8=0
 bookmarks9=0
 bookmarks10=0
 bookmarks11=0
-sourcefiles=12
+bookmarks12=0
+bookmarks13=0
+bookmarks14=0
+bookmarks15=0
+bookmarks16=0
+sourcefiles=17
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/spectrum1.pas
@@ -1735,7 +1745,12 @@ sourcefiles=12
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/dockpanel1.pas
  ${PROJECTDIR}/filelistform.pas
-relpaths=12
+ ${PROJECTDIR}/define.inc
+ /home/fred/uos/src/uos.pas
+ /home/fred/mseide-msegui/lib/common/mzeoslib/ZFunctionsStrings.pas
+ ${PROJECTDIR}/filelistform.pas
+ ${PROJECTDIR}/main.pas
+relpaths=17
  strumpract.pas
  equalizer.pas
  spectrum1.pas
@@ -1748,7 +1763,17 @@ relpaths=12
  main.pas
  dockpanel1.pas
  filelistform.pas
-ismoduletexts=12
+ define.inc
+ ../uos/src/uos.pas
+ mseide-msegui/lib/common/mzeoslib/ZFunctionsStrings.pas
+ filelistform.pas
+ main.pas
+ismoduletexts=17
+ 0
+ 0
+ 0
+ 0
+ 0
  0
  0
  0
@@ -1814,7 +1839,7 @@ nomenumodules=12
  0
  0
 [sourcefo.files_tab]
-order=12
+order=17
  0
  1
  2
@@ -1823,14 +1848,19 @@ order=12
  5
  6
  7
- 11
  8
- 10
  9
-firsttab=3
-index=9
+ 10
+ 11
+ 13
+ 12
+ 15
+ 16
+ 14
+firsttab=8
+index=14
 [layout]
-windowlayout=783
+windowlayout=774
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1902,7 +1932,7 @@ windowlayout=783
  [memoryfo]
  splitdir=0
  useroptions=268451963
- stackedunder=dialogfilesfo
+ stackedunder=findmessagefo
  parent=
  mdistate=0
  nx=0
@@ -1985,7 +2015,7 @@ windowlayout=783
  sortdescend1=0
  sorted=0
  col=0
- row=5
+ row=9
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2274,11 +2304,11 @@ windowlayout=783
  nx=0
  ny=0
  ncx=1197
- ncy=20
+ ncy=6
  x=0
  y=0
  cx=1212
- cy=18
+ cy=4
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2288,28 +2318,14 @@ windowlayout=783
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/waveform.pas
- history=20
+ value=/home/fred/strumpract/src/filelistform.pas
+ history=6
+  /home/fred/uos/src/laz_uos.pas
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/waveform.pas
-  /home/fred/strumpract/src/infos.pas
-  /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/commander.pas
-  /home/fred/strumpract/src/config.pas
-  /home/fred/atest/test.prj
-  /home/fred/ideu/src/ideU.prj
-  /home/fred/mseide-msegui/apps/ide/mseide.prj
-  /home/fred/uos/examples/simpleplayer.prj
-  /home/fred/ideu_ok/src/ideU.prj
-  /home/fred/eschecs_mse/eschecs.prj
-  /home/fred/mselang-master/src/mselang.prj
-  /home/fred/mseide-msegui/apps/ide/mseide_zeos.prj
-  /home/fred/strumpract/src/strumpract.prj
-  /home/fred/ideu_badplug/src/demos/voiceassist/helloworld/helloworld.prj
-  /home/fred/xtop/src/ptop.prj
-  /home/fred/xtop/src/jtop.prj
-  /home/fred/idegraeme/mseide.prj
-  /home/fred/fptop/src/jtop.prj
-  /home/fred/fptop/src/ptop.prj
+  /home/fred/mseide-msegui/lib/common/kernel/msestrings.pas
+  /home/fred/mseide-msegui_jonas/lib/common/kernel/msestrings.pas
+  /home/fred/mseide-msegui/lib/common/kernel/mseconsts_es.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2331,7 +2347,7 @@ windowlayout=783
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=12
+ order=17
   0
   1
   2
@@ -2340,12 +2356,17 @@ windowlayout=783
   5
   6
   7
-  11
   8
-  10
   9
- firsttab=3
- index=9
+  10
+  11
+  13
+  12
+  15
+  16
+  14
+ firsttab=8
+ index=14
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2389,7 +2410,7 @@ windowlayout=783
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2579,7 +2600,7 @@ windowlayout=783
  [_mse_dockpanel1fo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2598,7 +2619,7 @@ windowlayout=783
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

@@ -1551,6 +1551,9 @@ begin
 
   filelistfo.Height := (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height) - commanderfo.Height - (decorationheight div 2);
 
+  filelistfo.bounds_cxmax := fowidth;
+  filelistfo.Width        := fowidth;
+   
   //filelistfo.Height := 400;
 
   left := filelistfo.left;
@@ -1756,6 +1759,9 @@ begin
 
   filelistfo.Height := (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height + equalizerfo1.Height) - (decorationheight div 2);
 
+  filelistfo.bounds_cxmax := fowidth;
+  filelistfo.Width        := fowidth;
+ 
   //filelistfo.Height := 400;
 
   left := filelistfo.left;

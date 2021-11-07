@@ -159,7 +159,7 @@ begin
   for x := 0 to list_files.rowCount - 1 do
     list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
     
-   
+    
 end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
@@ -1002,6 +1002,9 @@ procedure tfilelistfo.onactiv(const sender: TObject);
 begin
  if historyfn.value <> '' then
      caption := historyfn.Value;
+  bounds_cxmax := 442;
+  bounds_cxmin := 442;
+  Width        := 442;
 end;
 
 procedure tfilelistfo.onmouse(const sender: twidget;
