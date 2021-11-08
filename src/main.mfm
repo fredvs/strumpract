@@ -21,6 +21,7 @@ object mainfo: tmainfo
   bounds_cymin = 40
   bounds_cxmax = 468
   bounds_cymax = 700
+  container.color = 13421772
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -148,6 +149,7 @@ object mainfo: tmainfo
   onresize = onresized
   moduleclassname = 'tmainform'
   object basedock: tdockpanel
+    color = -2147483645
     frame.colordkwidth = 0
     frame.colorhlwidth = 0
     frame.localprops = [frl_colordkwidth, frl_colorhlwidth]
@@ -161,6 +163,7 @@ object mainfo: tmainfo
     bounds_y = 0
     bounds_cx = 454
     bounds_cy = 79
+    anchors = []
     dragdock.splitter_size = 2
     dragdock.splitter_grip = stb_none
     dragdock.splitter_color = 16119285

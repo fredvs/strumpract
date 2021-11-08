@@ -701,11 +701,26 @@ begin
         //   writeln('basedock.width: ' + inttostr(basedock.width));
         si1.cy := emptyheight;
         si1.cx := basedock.Width;
+        
+     if typecolor.Value = 2 then
+     begin
+     basedock.color := $474747;
+     color := $474747;
+     end else
+     begin
+     basedock.color := cl_gray;
+     color := cl_gray;
+     end;
+            
         //do not change width
       end
       else
-        si1.cy := totheight + (visiblecount - 1) * basedock.dragdock.splitter_size;
+      begin
+      si1.cy := totheight + (visiblecount - 1) * basedock.dragdock.splitter_size;
       basedock.size := si1;
+      basedock.color := cl_gray;
+      color := cl_gray;
+      end;
       //   writeln('final basedock.width: ' + inttostr(basedock.width));
       //   writeln('final basedock.height: ' + inttostr(basedock.height));
       //   writeln('final basedock.top: ' + inttostr(basedock.top));
@@ -2813,7 +2828,7 @@ begin
       EQEN.frame.font.color := cl_black;
       EQEN.face.template := recorderfo.tfacerecorder;
     end;
-
+    
     for x := 1 to 20 do
     begin
       abuttons[x].font.color  := thecolor1;
@@ -2907,7 +2922,8 @@ begin
     commanderfo.genvolright.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
      commanderfo.volumeleft1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
     commanderfo.volumeleft2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-     commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    
+    commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
     commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
     commanderfo.tslider2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
     commanderfo.tslider3.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
@@ -2915,19 +2931,19 @@ begin
     commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfaceslider;
    // commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
     
-    commanderfo.volumeleft1.scrollbar.face.template   := commanderfo.tfaceslider;
+    commanderfo.volumeleft1.scrollbar.face.template   := commanderfo.tfaceslidergold;
   //  commanderfo.volumeleft1.scrollbar.face1.template  := commanderfo.tfaceslider;
     
-    commanderfo.volumeleft2.scrollbar.face.template   := commanderfo.tfaceslider;
+    commanderfo.volumeleft2.scrollbar.face.template   := commanderfo.tfaceslidergold;
   //  commanderfo.volumeleft2.scrollbar.face1.template  := commanderfo.tfaceslider;
-    commanderfo.volumeright1.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.volumeright1.scrollbar.face.template  := commanderfo.tfaceslidergold;
   //  commanderfo.volumeright1.scrollbar.face1.template := commanderfo.tfaceslider;
-    commanderfo.volumeright2.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.volumeright2.scrollbar.face.template  := commanderfo.tfaceslidergold;
   //  commanderfo.volumeright2.scrollbar.face1.template := commanderfo.tfaceslider;
 
-    commanderfo.tslider2.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.tslider2.scrollbar.face.template  := commanderfo.tfaceslidergreen;
   //  commanderfo.tslider2.scrollbar.face1.template := commanderfo.tfaceslider;
-    commanderfo.tslider3.scrollbar.face.template  := commanderfo.tfaceslider;
+    commanderfo.tslider3.scrollbar.face.template  := commanderfo.tfacesliderred;
   //  commanderfo.tslider3.scrollbar.face1.template := commanderfo.tfaceslider;
     
     filelistfo.list_files.font.color          := ltblack;
@@ -3554,7 +3570,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       EQEN.frame.colorclient := cl_default;
       EQEN.color         := cl_default;
     end;
-
+        
     for x := 1 to 20 do
     begin
       abuttons[x].font.color  := ltblack;
@@ -4392,8 +4408,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       EQEN.frame.colorclient := $4A4A4A;
       EQEN.color         := $3A3A3A;
     end;
-
-
+    
     for x := 1 to 20 do
     begin
       abuttons[x].font.color  := ltblank;

@@ -108,6 +108,7 @@ type
    timagelist3: timagelist;
    tfaceslidergold: tfacecomp;
    tfacesliderred: tfacecomp;
+   tfaceslidergreen: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
