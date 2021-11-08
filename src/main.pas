@@ -382,6 +382,7 @@ begin
     //   ondockall(Sender);
     ondockplayersx2(Sender);
     oktimer := 1;
+    typecolor.Value := 2;
   end;
 
   if (filelistfo.Visible) then

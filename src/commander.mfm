@@ -633,13 +633,14 @@ object commanderfo: tcommanderfo
       hint = ' Change mixing time in 1/100 second '
       bounds_x = 99
       bounds_y = 44
-      bounds_cx = 60
+      bounds_cx = 62
       bounds_cy = 36
       statfile = mainfo.tstatfile1
       font.colorselect = 2105625
       font.colorselectbackground = 14015399
+      font.height = 14
       font.name = 'stf_default'
-      font.localprops = [flp_colorselect, flp_colorselectbackground]
+      font.localprops = [flp_colorselect, flp_colorselectbackground, flp_height]
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       ontextedited = ontextedit
       onsetvalue = onsetvalvol
@@ -650,7 +651,7 @@ object commanderfo: tcommanderfo
       valuemax = 10000
       step = 10
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 17
     end
     object btnStop: tbutton
       color = -2147483645
@@ -1500,9 +1501,9 @@ object commanderfo: tcommanderfo
       face.localprops = []
       taborder = 36
       hint = ' Direct MIX (0 second time) '
-      bounds_x = 161
+      bounds_x = 163
       bounds_y = 44
-      bounds_cx = 19
+      bounds_cx = 17
       bounds_cy = 36
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'DM'
@@ -1894,8 +1895,8 @@ object commanderfo: tcommanderfo
       face.template = tfaceorange
       taborder = 20
       visible = False
-      bounds_x = 32
-      bounds_y = 44
+      bounds_x = 27
+      bounds_y = 45
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -3074,8 +3075,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 105
-    top = 76
+    left = 10
+    top = 48
     image = {
       00000000120000000C0000000C000000E8000000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -3497,7 +3498,7 @@ object commanderfo: tcommanderfo
       C5C7D501C4C4D301C2C2D201C0C0D001F2F2F208C9C9D501D3D3DC01C9C9D501
       F2F2F208E8E8E90134346D07C9C9D501D3D3DC01C9C9D50134346D07C0C0D101
     }
-    left = 195
-    top = 19
+    left = 164
+    top = 31
   end
 end

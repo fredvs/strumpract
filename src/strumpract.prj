@@ -1258,7 +1258,7 @@ line=36
  587
  237
  5734
- 1818
+ 1819
  1530
  325
  319
@@ -1270,7 +1270,7 @@ line=36
  1606
  209
  1136
- 4199
+ 4200
  491
  5
  792
@@ -1280,7 +1280,7 @@ line=36
  368
  1757
  622
- 603
+ 604
  1014
 address=36
  5014125
@@ -1706,19 +1706,14 @@ findhistory=20
  low
  array of
 findoptions=1
-editpos=32
+editpos=33
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,0
- 0,4
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,3615
- 0,-1073741823
- 51,506
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1738,7 +1733,13 @@ editpos=32
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,71
+ 0,-1073741823
+ 0,-1073741823
+ 0,2
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1771,7 +1772,8 @@ bookmarks28=0
 bookmarks29=0
 bookmarks30=0
 bookmarks31=0
-sourcefiles=32
+bookmarks32=0
+sourcefiles=33
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/spectrum1.pas
@@ -1804,7 +1806,8 @@ sourcefiles=32
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/equalizer.pas
  ${PROJECTDIR}/equalizer.pas
-relpaths=32
+ ${PROJECTDIR}/commander.pas
+relpaths=33
  strumpract.pas
  equalizer.pas
  spectrum1.pas
@@ -1837,7 +1840,9 @@ relpaths=32
  songplayer.pas
  equalizer.pas
  equalizer.pas
-ismoduletexts=32
+ commander.pas
+ismoduletexts=33
+ 0
  0
  0
  0
@@ -1927,43 +1932,44 @@ nomenumodules=13
  0
  0
 [sourcefo.files_tab]
-order=32
- 4
- 2
- 3
- 5
- 6
- 8
- 14
- 11
- 13
- 9
- 31
- 10
- 19
- 7
- 17
- 15
+order=33
  16
- 21
- 24
- 25
- 12
- 30
+ 10
  20
- 1
- 23
+ 0
  22
+ 6
+ 28
+ 17
+ 32
+ 9
+ 14
+ 30
+ 21
+ 12
+ 1
+ 24
+ 18
+ 15
+ 5
+ 13
+ 4
+ 23
+ 25
+ 3
+ 11
+ 7
+ 2
+ 19
+ 27
  26
  29
- 27
- 28
- 18
- 0
+ 8
+ 31
 firsttab=3
-index=7
+index=6
 [layout]
-windowlayout=852
+windowlayout=823
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2013,7 +2019,7 @@ windowlayout=852
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -2035,7 +2041,7 @@ windowlayout=852
  [memoryfo]
  splitdir=0
  useroptions=268451963
- stackedunder=findmessagefo
+ stackedunder=dialogfilesfo
  parent=
  mdistate=0
  nx=0
@@ -2118,7 +2124,7 @@ windowlayout=852
  sortdescend1=0
  sorted=0
  col=0
- row=4
+ row=1
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2406,12 +2412,12 @@ windowlayout=852
  mdistate=0
  nx=0
  ny=0
- ncx=1111
- ncy=52
+ ncx=1197
+ ncy=56
  x=0
  y=0
  cx=1212
- cy=58
+ cy=55
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2422,7 +2428,10 @@ windowlayout=852
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/filelistform.pas
- history=50
+ history=20
+  /home/fred/strumpract/src/infos.pas
+  /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/dockpanel1.pas
   /home/fred/atest/test.prj
   /home/fred/ideu/src/ideU.prj
   /home/fred/mseide-msegui/apps/ide/mseide.prj
@@ -2440,39 +2449,6 @@ windowlayout=852
   /home/fred/fptop/src/ptop.prj
   /home/fred/ptop_fred/ptop.prj
   /home/fred/eschecs_mse_argh/eschecs.prj
-  /home/fred/Downloads/jcf-cli-master/CommandLine/Lazarus/jcf.prj
-  /home/fred/mseuniverse/samples/widgets/grids/chessboard/chessboard.prj
-  /home/fred/msegui-chessboard-modern-master/chessboard.prj
-  /home/fred/msegui-chessboard-master/chessboard.prj
-  /home/fred/msegui/apps/ide/mseide.prj
-  /home/fred/Downloads/eschecs-console-master/eschecs-c.prj
-  /home/fred/eschecs-console-master/eschecs-c.prj
-  /home/fred/eschecs_mse (copie 1)/eschecs.prj
-  /home/fred/Downloads/mseuniverse-master/samples/widgets/widgetblendanim/widgetblendanim.prj
-  /home/fred/Downloads/mseuniverse-master/samples/widgets/imagedarkening/imagedarkening.prj
-  /home/fred/Downloads/mseuniverse-master/samples/widgets/imageblend/imageblend.prj
-  /home/fred/Downloads/mseuniverse-master/samples/animations/windowopacity/windowopacity.prj
-  /home/fred/eschecs_mse_dockmain/eschecs.prj
-  /home/fred/ideu_bin/ideu_1.9.7_linux64/layout/Dock_Commandor_Editor_Message_MSE.prj
-  /home/fred/ideu_bin/ideu_1.9.7_linux64/layout/Dock_Commandor_Dock_Tree_Editor_Message.prj
-  /home/fred/mse_textedit/textedit.prj
-  /home/fred/mseuniverse-master/samples/widgets/grids/textedit/textedit.prj
-  /home/fred/mseuniverse-master/tools/virtualkeyboard/testvirtualkeyboard.prj
-  /home/fred/mseuniverse-master/tools/msetune/msetune.prj
-  /home/fred/mseuniverse-master/samples/widgets/grids/itemedit/itemedit.prj
-  /home/fred/eschecs_mse_nodock/eschecs.prj
-  /home/fred/eschecs_mse_copie/eschecs.prj
-  /home/fred/uos/examples/simpleplayer_fpGUI.prj
-  /home/fred/ideu/src/layout/Menu_Only.prj
-  /home/fred/eschecs_mse2/eschecs.prj
-  /home/fred/mse_chessboard/eschecs.prj
-  /home/fred/mse_chessboard/chessboard.prj
-  /home/fred/Downloads/mseuniverse-master/samples/widgets/grids/chessboard/chessboard.prj
-  /home/fred/msetest/test.prj
-  /home/fred/uoslib/src/uoslib.prj
-  /home/fred/uoslib/examples/demos/fpc/simpleplayer.prj
-  /home/fred/eschecs/source/eschecs.prj
-  /home/fred/mseuniverse-master/samples/db/gridselectedrow/gridselectedrow.prj
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2494,41 +2470,42 @@ windowlayout=852
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=32
-  4
-  2
-  3
-  5
-  6
-  8
-  14
-  11
-  13
-  9
-  31
-  10
-  19
-  7
-  17
-  15
+ order=33
   16
-  21
-  24
-  25
-  12
-  30
+  10
   20
-  1
-  23
+  0
   22
+  6
+  28
+  17
+  32
+  9
+  14
+  30
+  21
+  12
+  1
+  24
+  18
+  15
+  5
+  13
+  4
+  23
+  25
+  3
+  11
+  7
+  2
+  19
+  27
   26
   29
-  27
-  28
-  18
-  0
+  8
+  31
  firsttab=3
- index=7
+ index=6
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2553,6 +2530,22 @@ windowlayout=852
  wsize=0
  active=0
  visible=0
+ [mainfo.panel1]
+ splitdir=1
+ useroptions=302087659
+ parent=mainfo.basedock
+ visible=1
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=0
+ y=54
+ cx=1212
+ cy=450
+ rcx=0
+ rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2575,7 +2568,7 @@ windowlayout=852
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2594,7 +2587,7 @@ windowlayout=852
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2651,7 +2644,7 @@ windowlayout=852
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2784,7 +2777,7 @@ windowlayout=852
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2800,22 +2793,6 @@ windowlayout=852
  wsize=0
  active=0
  visible=1
- [mainfo.panel1]
- splitdir=1
- useroptions=302087659
- parent=mainfo.basedock
- visible=1
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=54
- cx=1212
- cy=450
- rcx=0
- rcy=0
 [targetconsole]
 finddtext=
 findhistory=0

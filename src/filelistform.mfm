@@ -123,9 +123,9 @@ object filelistfo: tfilelistfo
       taborder = 4
       hint = ' Number of files in the list '
       bounds_x = 136
-      bounds_y = 106
+      bounds_y = 102
       bounds_cx = 69
-      bounds_cy = 17
+      bounds_cy = 24
       anchors = [an_left, an_bottom]
       textflags = [tf_xcentered, tf_ycentered]
       value = '0 files'
@@ -680,8 +680,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 6
-      bounds_y = 44
+      bounds_x = -1
+      bounds_y = 69
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
