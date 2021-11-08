@@ -508,11 +508,9 @@ begin
         end;
 
         edfilescount.Value := list_files.rowcount;
-        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files');
-
-        // list_files.focusedindex := 0;
-
-        //datalist_files.Free();
+        if edfilescount.Value > 1 then
+        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files')
+        else  filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' file');
 
       finally
         datalist_files.Free;
@@ -719,7 +717,9 @@ end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
 begin
-  filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files');
+ if edfilescount.Value > 1 then
+        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files')
+        else  filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' file');
 end;
 
 procedure tfilelistfo.ondestr(const Sender: TObject);
@@ -771,8 +771,11 @@ begin
       Caption := removefileext(tfiledialog1.controller.filename);
 
       list_files.fixcols[-1].captions.Count := filelistfo.list_files.rowCount;
+      
+       if edfilescount.Value > 1 then
+        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files')
+        else  filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' file');
 
-      filescount.Value := msestring(IntToStr(filelistfo.edfilescount.Value) + ' files');
       list_files.defocuscell;
       list_files.datacols.clearselection;
 
@@ -888,12 +891,12 @@ begin
       list_files[3][x]   := msestring(IntToStr(1));
       list_files[4][x]   := tfiledialog1.controller.filename;
       edfilescount.Value := list_files.rowcount;
-      filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files');
+      
+       if edfilescount.Value > 1 then
+        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files')
+        else  filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' file');
 
       list_files.fixcols[-1].captions.Count := list_files.rowCount;
-
-      edfilescount.Value := list_files.rowcount;
-      filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files');
 
       list_files.defocuscell;
       list_files.datacols.clearselection;

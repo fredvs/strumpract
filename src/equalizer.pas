@@ -85,7 +85,6 @@ type
     saveset: TButton;
    tstringdisp21: tstringdisp;
    EQEN: tbooleanedit;
-   tbitmapcomp1: tbitmapcomp;
    blight: tbutton;
    bdark: tbutton;
     procedure oncrea(const Sender: TObject);

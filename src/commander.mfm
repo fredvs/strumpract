@@ -187,9 +187,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
     object namedrums: tstringdisp
@@ -269,9 +275,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
     object nameinput: tstringdisp
@@ -382,9 +394,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
     object genvolleft: tslider
@@ -405,9 +423,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
     object genleftvolvalue: tbutton
@@ -528,9 +552,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       onsetvalue = onsetsysvol
       direction = gd_up
     end
@@ -709,9 +739,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
     object volumeright1: tslider
@@ -734,9 +770,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
     object tbutton2: tbutton
@@ -800,9 +842,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
     object volumeleft2: tslider
@@ -825,9 +873,15 @@ object commanderfo: tcommanderfo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
     object btncue: tbutton

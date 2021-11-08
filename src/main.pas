@@ -2179,18 +2179,9 @@ begin
   songplayerfo.vuright.bar_face.fade_color.items[0]  := configfo.tcoloredit2.Value;
   songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.Value;
 
-   commanderfo.sysvol.scrollbar.facebutton.template := commanderfo.tfacebutton;
-    commanderfo.genvolleft.scrollbar.facebutton.template := commanderfo.tfacebutton;
-     commanderfo.genvolright.scrollbar.facebutton.template := commanderfo.tfacebutton;
-     commanderfo.volumeleft1.scrollbar.facebutton.template := commanderfo.tfacebutton;
-    commanderfo.volumeleft2.scrollbar.facebutton.template := commanderfo.tfacebutton;
-     commanderfo.volumeright1.scrollbar.facebutton.template := commanderfo.tfacebutton;
-    commanderfo.volumeright2.scrollbar.facebutton.template := commanderfo.tfacebutton;
-    commanderfo.tslider2.scrollbar.facebutton.template := commanderfo.tfacebutton;
-    commanderfo.tslider3.scrollbar.facebutton.template := commanderfo.tfacebutton;
-
-
-  with equalizerfo1 do
+  // commanderfo.sysvol.scrollbar.facebutton.template := commanderfo.tfacebutton;
+  
+    with equalizerfo1 do
   begin
     asliders[1]  := tslider1;
     asliders[2]  := tslider2;
@@ -2854,7 +2845,7 @@ begin
     commanderfo.genleftvolvalue.font.color  := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
     commanderfo.sysvolbut.font.color        := ltblack;
-
+    
     {
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
@@ -2903,31 +2894,41 @@ begin
     commanderfo.timemix.frame.font.color := ltblack;
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
+   // commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
     commanderfo.genvolleft.scrollbar.facebutton.template := commanderfo.tfacebutton;
   
     commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
-    commanderfo.sysvol.scrollbar.facebutton.template := commanderfo.tfacebutton;
+  //  commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
+     commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
    
+    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+   
+    commanderfo.genvolright.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+     commanderfo.volumeleft1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.volumeleft2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+     commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.tslider2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.tslider3.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+
     commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
+   // commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
     
     commanderfo.volumeleft1.scrollbar.face.template   := commanderfo.tfaceslider;
-    commanderfo.volumeleft1.scrollbar.face1.template  := commanderfo.tfaceslider;
+  //  commanderfo.volumeleft1.scrollbar.face1.template  := commanderfo.tfaceslider;
     
     commanderfo.volumeleft2.scrollbar.face.template   := commanderfo.tfaceslider;
-    commanderfo.volumeleft2.scrollbar.face1.template  := commanderfo.tfaceslider;
+  //  commanderfo.volumeleft2.scrollbar.face1.template  := commanderfo.tfaceslider;
     commanderfo.volumeright1.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.volumeright1.scrollbar.face1.template := commanderfo.tfaceslider;
+  //  commanderfo.volumeright1.scrollbar.face1.template := commanderfo.tfaceslider;
     commanderfo.volumeright2.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.volumeright2.scrollbar.face1.template := commanderfo.tfaceslider;
+  //  commanderfo.volumeright2.scrollbar.face1.template := commanderfo.tfaceslider;
 
     commanderfo.tslider2.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.tslider2.scrollbar.face1.template := commanderfo.tfaceslider;
+  //  commanderfo.tslider2.scrollbar.face1.template := commanderfo.tfaceslider;
     commanderfo.tslider3.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.tslider3.scrollbar.face1.template := commanderfo.tfaceslider;
-
+  //  commanderfo.tslider3.scrollbar.face1.template := commanderfo.tfaceslider;
+    
     filelistfo.list_files.font.color          := ltblack;
     filelistfo.tgroupbox1.font.color          := ltblack;
     filelistfo.historyfn.frame.button.colorglyph := ltblack;
@@ -3599,13 +3600,23 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.timemix.frame.font.color := ltblack;
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
+//    commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfaceslider;
 
     commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
+ //   commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfaceslider;
+    
+     commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+     commanderfo.genvolright.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+     commanderfo.volumeleft1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.volumeleft2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+     commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.tslider2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.tslider3.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
 
     commanderfo.genvolright.scrollbar.face.template := commanderfo.tfaceslider;
-    commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
+  //  commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfaceslider;
 {
     commanderfo.vuin.colorglyph       := ltblack;
     commanderfo.vuin.frame.font.color := ltblack;
@@ -3635,18 +3646,18 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.linkvolgen.frame.font.color := ltblack;
 }
     commanderfo.volumeleft1.scrollbar.face.template := commanderfo.tfaceslider;
-    commanderfo.volumeleft1.scrollbar.face1.template := commanderfo.tfaceslider;
+   // commanderfo.volumeleft1.scrollbar.face1.template := commanderfo.tfaceslider;
     commanderfo.volumeleft2.scrollbar.face.template := commanderfo.tfaceslider;
-    commanderfo.volumeleft2.scrollbar.face1.template := commanderfo.tfaceslider;
+   // commanderfo.volumeleft2.scrollbar.face1.template := commanderfo.tfaceslider;
     commanderfo.volumeright1.scrollbar.face.template := commanderfo.tfaceslider;
-    commanderfo.volumeright1.scrollbar.face1.template := commanderfo.tfaceslider;
+  //  commanderfo.volumeright1.scrollbar.face1.template := commanderfo.tfaceslider;
     commanderfo.volumeright2.scrollbar.face.template := commanderfo.tfaceslider;
-    commanderfo.volumeright2.scrollbar.face1.template := commanderfo.tfaceslider;
+ //   commanderfo.volumeright2.scrollbar.face1.template := commanderfo.tfaceslider;
 
     commanderfo.tslider2.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.tslider2.scrollbar.face1.template := commanderfo.tfaceslider;
+//    commanderfo.tslider2.scrollbar.face1.template := commanderfo.tfaceslider;
     commanderfo.tslider3.scrollbar.face.template  := commanderfo.tfaceslider;
-    commanderfo.tslider3.scrollbar.face1.template := commanderfo.tfaceslider;
+  //  commanderfo.tslider3.scrollbar.face1.template := commanderfo.tfaceslider;
 
     commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED;
     commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA;
@@ -4460,27 +4471,37 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     commanderfo.timemix.frame.font.color := ltblank;
 
     commanderfo.genvolleft.scrollbar.face.template  := commanderfo.tfacesliderdark;
-    commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfacesliderdark;
+  //  commanderfo.genvolleft.scrollbar.face1.template := commanderfo.tfacesliderdark;
 
     commanderfo.sysvol.scrollbar.face.template  := commanderfo.tfacesliderdark;
-    commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfacesliderdark;
+  //  commanderfo.sysvol.scrollbar.face1.template := commanderfo.tfacesliderdark;
+    
+     commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+     commanderfo.genvolright.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+     commanderfo.volumeleft1.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.volumeleft2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+     commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.tslider2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.tslider3.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
 
     commanderfo.genvolright.scrollbar.face.template  := commanderfo.tfacesliderdark;
-    commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfacesliderdark;
+   // commanderfo.genvolright.scrollbar.face1.template := commanderfo.tfacesliderdark;
 
     commanderfo.volumeleft1.scrollbar.face.template   := commanderfo.tfacesliderdark;
-    commanderfo.volumeleft1.scrollbar.face1.template  := commanderfo.tfacesliderdark;
+ //   commanderfo.volumeleft1.scrollbar.face1.template  := commanderfo.tfacesliderdark;
     commanderfo.volumeleft2.scrollbar.face.template   := commanderfo.tfacesliderdark;
-    commanderfo.volumeleft2.scrollbar.face1.template  := commanderfo.tfacesliderdark;
+ //   commanderfo.volumeleft2.scrollbar.face1.template  := commanderfo.tfacesliderdark;
     commanderfo.volumeright1.scrollbar.face.template  := commanderfo.tfacesliderdark;
-    commanderfo.volumeright1.scrollbar.face1.template := commanderfo.tfacesliderdark;
+ //   commanderfo.volumeright1.scrollbar.face1.template := commanderfo.tfacesliderdark;
     commanderfo.volumeright2.scrollbar.face.template  := commanderfo.tfacesliderdark;
-    commanderfo.volumeright2.scrollbar.face1.template := commanderfo.tfacesliderdark;
+   // commanderfo.volumeright2.scrollbar.face1.template := commanderfo.tfacesliderdark;
 
     commanderfo.tslider2.scrollbar.face.template  := commanderfo.tfacesliderdark;
-    commanderfo.tslider2.scrollbar.face1.template := commanderfo.tfacesliderdark;
+  //  commanderfo.tslider2.scrollbar.face1.template := commanderfo.tfacesliderdark;
     commanderfo.tslider3.scrollbar.face.template  := commanderfo.tfacesliderdark;
-    commanderfo.tslider3.scrollbar.face1.template := commanderfo.tfacesliderdark;
+  //  commanderfo.tslider3.scrollbar.face1.template := commanderfo.tfacesliderdark;
 
     // file list
     //filelistfo.list_files.fixrows[-1][0].font.color := ltblack;
@@ -4525,6 +4546,32 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
       filelistfo.list_files.rowfontstate[lastrowplayed]  := 0;
     end;
+    
+   commanderfo.volumeright2.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+    
+     commanderfo.volumeright1.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+    
+     commanderfo.volumeleft2.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+    
+     commanderfo.volumeleft1.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+    
+     commanderfo.sysvol.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+  
+     commanderfo.genvolright.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+    
+     commanderfo.genvolleft.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+     commanderfo.tslider2.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+     commanderfo.tslider3.scrollbar.facebutton.image.alignment :=
+    [al_xcentered,al_stretchx,al_stretchy];
+    
 
   songplayerfo.DrawWaveForm();
   songplayer2fo.DrawWaveForm();
