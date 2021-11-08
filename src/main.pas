@@ -2827,8 +2827,8 @@ begin
       abuttons[x].font.color  := thecolor1;
       abuttons2[x].font.color := thecolor2;
       abuttonsR[x].font.color := ltblack;
-      asliders[x].scrollbar.face.template := commanderfo.tfaceslider;
-      asliders[x].scrollbar.face.template := commanderfo.tfaceslider;
+      asliders[x].scrollbar.face.template := commanderfo.tfaceslidergold;
+      asliders2[x].scrollbar.face.template := commanderfo.tfaceslidergold;
      
       asliders[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
       asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
@@ -2838,11 +2838,11 @@ begin
       asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
         
-      asliders[x].scrollbar.face1.template := commanderfo.tfaceslider;
-      asliders2[x].scrollbar.face.template := commanderfo.tfaceslider;
-      asliders2[x].scrollbar.face1.template := commanderfo.tfaceslider;
-      aslidersr[x].scrollbar.face.template := commanderfo.tfaceslider;
-      aslidersr[x].scrollbar.face1.template := commanderfo.tfaceslider;
+   //   asliders[x].scrollbar.face1.template := commanderfo.tfaceslidergold;
+      asliders2[x].scrollbar.face.template := commanderfo.tfaceslidergold;
+ //     asliders2[x].scrollbar.face1.template := commanderfo.tfaceslidergold;
+      aslidersr[x].scrollbar.face.template := commanderfo.tfacesliderred;
+      aslidersr[x].scrollbar.face1.template := commanderfo.tfacesliderred;
     end;
 
     // commander
@@ -3568,11 +3568,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
      
       asliders[x].scrollbar.face.template := commanderfo.tfaceslider;
-      asliders[x].scrollbar.face1.template := commanderfo.tfaceslider;
+   //   asliders[x].scrollbar.face1.template := commanderfo.tfaceslider;
       asliders2[x].scrollbar.face.template := commanderfo.tfaceslider;
-      asliders2[x].scrollbar.face1.template := commanderfo.tfaceslider;
+   //   asliders2[x].scrollbar.face1.template := commanderfo.tfaceslider;
       aslidersr[x].scrollbar.face.template := commanderfo.tfaceslider;
-      aslidersr[x].scrollbar.face1.template := commanderfo.tfaceslider;
+   //   aslidersr[x].scrollbar.face1.template := commanderfo.tfaceslider;
     end;
 
     // commander
@@ -4395,11 +4395,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       asliders[x].scrollbar.face.template := commanderfo.tfacesliderdark;
-      asliders[x].scrollbar.face1.template := commanderfo.tfacesliderdark;
+    //  asliders[x].scrollbar.face1.template := commanderfo.tfacesliderdark;
       asliders2[x].scrollbar.face.template := commanderfo.tfacesliderdark;
-      asliders2[x].scrollbar.face1.template := commanderfo.tfacesliderdark;
+    //  asliders2[x].scrollbar.face1.template := commanderfo.tfacesliderdark;
       aslidersr[x].scrollbar.face.template := commanderfo.tfacesliderdark;
-      aslidersr[x].scrollbar.face1.template := commanderfo.tfacesliderdark;
+   //   aslidersr[x].scrollbar.face1.template := commanderfo.tfacesliderdark;
     end;
 
     // commander

@@ -513,9 +513,9 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayerlight
       taborder = 4
       hint = ' Number of files in the list '
-      bounds_x = 147
+      bounds_x = 141
       bounds_y = 106
-      bounds_cx = 53
+      bounds_cx = 59
       bounds_cy = 17
       anchors = [an_left, an_bottom]
       textflags = [tf_xcentered, tf_ycentered]
@@ -615,17 +615,17 @@ object filelistfo: tfilelistfo
       frame.localprops1 = [frl1_captiondist]
       frame.button.face.localprops = []
       frame.button.face.template = mainfo.tfacebutgray
+      frame.button.frame.optionsskin = [fso_flat]
       frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
-      frame.button.frame.template = commanderfo.tframecomp2
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
           face.localprops = []
           face.template = mainfo.tfacebutgray
+          frame.optionsskin = [fso_flat]
           frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
-          frame.template = commanderfo.tframecomp2
         end>
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
@@ -634,7 +634,7 @@ object filelistfo: tfilelistfo
       hint = ' History of Directories '
       bounds_x = 24
       bounds_y = 102
-      bounds_cx = 121
+      bounds_cx = 115
       bounds_cy = 24
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
@@ -658,9 +658,9 @@ object filelistfo: tfilelistfo
     object tbutton6: tbutton
       Tag = 1
       color = -2147483645
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfacebutgray
@@ -685,8 +685,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 3
-      bounds_y = 93
+      bounds_x = 6
+      bounds_y = 44
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

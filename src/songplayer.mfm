@@ -567,9 +567,9 @@ object songplayerfo: tsongplayerfo
     end
     object tbutton6: tbutton
       Tag = 1
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
@@ -902,8 +902,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 161
-      bounds_y = 8
+      bounds_x = 59
+      bounds_y = 57
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
