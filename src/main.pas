@@ -2842,7 +2842,7 @@ begin
       asliders2[x].scrollbar.face.template := commanderfo.tfaceslidergold;
  //     asliders2[x].scrollbar.face1.template := commanderfo.tfaceslidergold;
       aslidersr[x].scrollbar.face.template := commanderfo.tfacesliderred;
-      aslidersr[x].scrollbar.face1.template := commanderfo.tfacesliderred;
+ //      aslidersr[x].scrollbar.face1.template := commanderfo.tfacesliderred;
     end;
 
     // commander
