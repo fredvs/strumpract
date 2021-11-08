@@ -148,6 +148,17 @@ object spectrum1fo: tspectrum1fo
             chartkind = tck_bar
             options = [cto_smooth]
             bar_width = 18
+            bar_face.fade_pos.count = 2
+            bar_face.fade_pos.items = (
+              0
+              1
+            )
+            bar_face.fade_color.count = 2
+            bar_face.fade_color.items = (
+              11711154
+              -1610612731
+            )
+            bar_face.localprops = []
           end>
         colorchart = -1879048187
         framechart.localprops = []
@@ -218,6 +229,17 @@ object spectrum1fo: tspectrum1fo
             chartkind = tck_bar
             options = [cto_smooth]
             bar_width = 18
+            bar_face.fade_pos.count = 2
+            bar_face.fade_pos.items = (
+              0
+              1
+            )
+            bar_face.fade_color.count = 2
+            bar_face.fade_color.items = (
+              11711154
+              -1610612731
+            )
+            bar_face.localprops = []
           end>
         colorchart = -1879048187
         xrange = 1
