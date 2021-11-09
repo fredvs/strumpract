@@ -277,7 +277,13 @@ var
   rect1: rectty;
 begin
   windowopacity := 0;
-
+ 
+ { 
+  if not fileexists(tstatfile1.filename) then
+  begin
+   //  typecolor.Value := 2;
+  end;
+}
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
@@ -378,11 +384,9 @@ begin
       configfo.latplay.Value := 0.3;
       configfo.latrec.Value := 0.3;
       {$endif}
-    //  showall(Sender);
-    //   ondockall(Sender);
     ondockplayersx2(Sender);
     oktimer := 1;
-    typecolor.Value := 2;
+   // typecolor.Value := 2;
   end;
 
   if (filelistfo.Visible) then

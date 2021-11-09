@@ -208,6 +208,7 @@ object mainfo: tmainfo
     bounds_cy = 21
     statfile = tstatfile1
     onchange = onchangevalcolor
+    value = 2
     valuemax = 10
     reffontheight = 15
   end
