@@ -170,7 +170,7 @@ const
   equalizerfoheight = 142;
   fowidth     = 442;
   tabheight   = 39;
-  scrollwidth = 14;
+  scrollwidth = 10;
 
 var
   mainfo: tmainfo;

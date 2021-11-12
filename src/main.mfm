@@ -40,7 +40,7 @@ object mainfo: tmainfo
   container.frame.sbvert.face.template = tfacebutgray
   container.frame.sbvert.face1.localprops = []
   container.frame.sbvert.facebutton.localprops = []
-  container.frame.sbvert.facebutton.template = tfacecomp7
+  container.frame.sbvert.facebutton.template = tfacebutltgray
   container.frame.sbvert.frameendbutton1.colorclient = -2147483645
   container.frame.sbvert.frameendbutton1.localprops = []
   container.frame.sbvert.frameendbutton1.localprops1 = []
