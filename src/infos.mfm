@@ -95,6 +95,7 @@ object infosfo: tinfosfo
     reffontheight = 15
   end
   object infoname: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Title'
     frame.captiondist = 0
@@ -112,7 +113,7 @@ object infosfo: tinfosfo
     )
     bounds_x = 4
     bounds_y = 36
-    bounds_cx = 128
+    bounds_cx = 434
     bounds_cy = 30
     caption = '                                '
     font.shadow_color = -2147483645
@@ -124,6 +125,7 @@ object infosfo: tinfosfo
     reffontheight = 15
   end
   object infoartist: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Artist'
     frame.captiondist = 0
@@ -142,7 +144,7 @@ object infosfo: tinfosfo
     taborder = 1
     bounds_x = 4
     bounds_y = 69
-    bounds_cx = 128
+    bounds_cx = 434
     bounds_cy = 30
     caption = '                                '
     font.shadow_color = -2147483645
@@ -154,6 +156,7 @@ object infosfo: tinfosfo
     reffontheight = 15
   end
   object infoalbum: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Album'
     frame.captiondist = 0
@@ -172,7 +175,7 @@ object infosfo: tinfosfo
     taborder = 2
     bounds_x = 4
     bounds_y = 101
-    bounds_cx = 128
+    bounds_cx = 434
     bounds_cy = 30
     caption = '                                '
     font.shadow_color = -2147483645
@@ -274,6 +277,7 @@ object infosfo: tinfosfo
     reffontheight = 15
   end
   object infocom: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Comment'
     frame.captiondist = 0
@@ -292,7 +296,7 @@ object infosfo: tinfosfo
     taborder = 6
     bounds_x = 4
     bounds_y = 133
-    bounds_cx = 128
+    bounds_cx = 434
     bounds_cy = 30
     caption = '                                '
     font.shadow_color = -2147483645
@@ -304,6 +308,7 @@ object infosfo: tinfosfo
     reffontheight = 15
   end
   object infofile: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'File Name'
     frame.captiondist = 0
@@ -322,7 +327,7 @@ object infosfo: tinfosfo
     taborder = 7
     bounds_x = 4
     bounds_y = 4
-    bounds_cx = 128
+    bounds_cx = 434
     bounds_cy = 30
     caption = '                                '
     font.shadow_color = -2147483645

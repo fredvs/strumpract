@@ -117,7 +117,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutgray
       hint = ' Start Drums '
       bounds_x = 29
-      bounds_y = 91
+      bounds_y = 90
       bounds_cx = 26
       bounds_cy = 28
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -138,7 +138,7 @@ object commanderfo: tcommanderfo
       taborder = 1
       hint = ' Pause Drums '
       bounds_x = 29
-      bounds_y = 25
+      bounds_y = 22
       bounds_cx = 26
       bounds_cy = 28
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -159,7 +159,7 @@ object commanderfo: tcommanderfo
       taborder = 2
       hint = ' Resume Drums '
       bounds_x = 29
-      bounds_y = 58
+      bounds_y = 56
       bounds_cx = 26
       bounds_cy = 28
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -1895,8 +1895,8 @@ object commanderfo: tcommanderfo
       face.template = tfaceorange
       taborder = 20
       visible = False
-      bounds_x = 62
-      bounds_y = 93
+      bounds_x = 29
+      bounds_y = 41
       bounds_cx = 221
       bounds_cy = 36
       font.name = 'stf_default'
@@ -1937,8 +1937,8 @@ object commanderfo: tcommanderfo
       15921906
     )
     template.fade_direction = gd_left
-    left = 273
-    top = 40
+    left = 6
+    top = 45
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -1952,8 +1952,8 @@ object commanderfo: tcommanderfo
       10921638
     )
     template.fade_direction = gd_down
-    left = 280
-    top = 38
+    left = 8
+    top = 43
   end
   object tfaceslider: tfacecomp
     template.image.origformat = 'png'
@@ -2156,8 +2156,8 @@ object commanderfo: tcommanderfo
       BDBDBD01C6C6C601BDBDBD01FFFFFF08D7D8D80133333307BDBDBD01C6C6C601
       BDBDBD0133333307B5B5B501
     }
-    left = 272
-    top = 40
+    left = 9
+    top = 45
   end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
@@ -2178,8 +2178,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 281
-    top = 36
+    left = 9
+    top = 43
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -2193,8 +2193,7 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    left = 286
-    top = 43
+    top = 40
   end
   object tfacesliderdark: tfacecomp
     template.image.origformat = 'png'
@@ -2623,8 +2622,8 @@ object commanderfo: tcommanderfo
       3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
       74747401
     }
-    left = 269
-    top = 37
+    left = 2
+    top = 46
   end
   object tfacecomp3: tfacecomp
     template.image.origformat = 'png'
@@ -2639,8 +2638,8 @@ object commanderfo: tcommanderfo
       750389
       16749824
     )
-    left = 276
-    top = 41
+    left = 3
+    top = 45
   end
   object tfacebutgray: tfacecomp
     template.fade_pos.count = 2
@@ -2654,8 +2653,8 @@ object commanderfo: tcommanderfo
       8750469
     )
     template.fade_direction = gd_down
-    left = 301
-    top = 78
+    left = 103
+    top = 64
   end
   object tfacegreen: tfacecomp
     template.fade_pos.count = 2
@@ -2669,8 +2668,8 @@ object commanderfo: tcommanderfo
       7255365
     )
     template.fade_direction = gd_down
-    left = 271
-    top = 67
+    left = 143
+    top = 71
   end
   object tfacegreendark: tfacecomp
     template.fade_pos.count = 2
@@ -2684,8 +2683,8 @@ object commanderfo: tcommanderfo
       2572312
     )
     template.fade_direction = gd_down
-    left = 283
-    top = 52
+    left = 2
+    top = 34
   end
   object ttimer1: ttimer
     options = [to_single]
@@ -2720,8 +2719,8 @@ object commanderfo: tcommanderfo
     height = 32
     options = [bmo_masked, bmo_graymask]
     count = 2
-    left = 281
-    top = 42
+    left = 12
+    top = 16
     image = {
       00000000120000004000000040000000B4180000000000000000000000000000
       000000000000000000000000000000000000000000000045DFCEC301D1B4A301
@@ -3063,8 +3062,8 @@ object commanderfo: tcommanderfo
     template.frameimage_top = -4
     template.frameimage_right = -4
     template.frameimage_bottom = -4
-    left = 299
-    top = 11
+    left = 156
+    top = 20
   end
   object timagelist3: timagelist
     width = 4

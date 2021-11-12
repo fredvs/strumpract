@@ -15,16 +15,13 @@ object dockpanel1fo: tdockpanel1fo
   container.frame.font.localprops = []
   container.frame.localprops = []
   container.frame.localprops1 = []
+  container.frame.sbhorz.options = []
   container.frame.sbhorz.width = 10
-  container.frame.sbhorz.face.localprops = []
-  container.frame.sbhorz.face.template = mainfo.tfacecomp4
-  container.frame.sbhorz.facebutton.localprops = []
-  container.frame.sbhorz.facebutton.template = mainfo.tfacecomp4
   container.frame.sbvert.width = 10
   container.frame.sbvert.face.localprops = []
   container.frame.sbvert.face.template = mainfo.tfacebutgray
   container.frame.sbvert.facebutton.localprops = []
-  container.frame.sbvert.facebutton.template = mainfo.tfacecomp7
+  container.frame.sbvert.facebutton.template = mainfo.tfacebutltgray
   container.bounds = (
     0
     17

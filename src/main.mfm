@@ -849,8 +849,8 @@ object mainfo: tmainfo
     height = 24
     options = [bmo_masked, bmo_graymask]
     count = 38
-    left = 158
-    top = 4
+    left = 12
+    top = 20
     image = {
       0000000012000000A8000000A800000044A30000000000000000000000000000
       0000000000000000000000000000000000000000C0C0C01800000030D0D0D018
