@@ -15,11 +15,11 @@ object mainfo: tmainfo
   visible = False
   bounds_x = 411
   bounds_y = 475
-  bounds_cx = 454
+  bounds_cx = 442
   bounds_cy = 96
-  bounds_cxmin = 454
+  bounds_cxmin = 442
   bounds_cymin = 40
-  bounds_cxmax = 468
+  bounds_cxmax = 442
   bounds_cymax = 700
   container.frame.framei_left = 0
   container.frame.framei_top = 0
@@ -30,11 +30,8 @@ object mainfo: tmainfo
   container.frame.optionsskin = [fso_flat]
   container.frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
   container.frame.localprops1 = []
+  container.frame.sbhorz.options = []
   container.frame.sbhorz.width = 10
-  container.frame.sbhorz.face.localprops = []
-  container.frame.sbhorz.face.template = tfacecomp4
-  container.frame.sbhorz.facebutton.localprops = []
-  container.frame.sbhorz.facebutton.template = tfacebutgray
   container.frame.sbvert.width = 10
   container.frame.sbvert.face.localprops = []
   container.frame.sbvert.face.template = tfacebutgray
@@ -47,7 +44,7 @@ object mainfo: tmainfo
   container.bounds = (
     0
     17
-    454
+    442
     79
   )
   mainmenu = tmainmenu1
@@ -205,7 +202,8 @@ object mainfo: tmainfo
     bounds_cy = 21
     statfile = tstatfile1
     onchange = onchangevalcolor
-    value = 2
+    value = -1
+    valuemin = -1
     valuemax = 10
     reffontheight = 15
   end

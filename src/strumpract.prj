@@ -176,8 +176,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=768
- y=494
+ x=733
+ y=297
  cx=234
  cy=269
 replacedialog=33
@@ -1144,7 +1144,7 @@ sigsettings=27
  30,30,T,F
 defaultmake=1
 [breakpoints]
-on=36
+on=35
  0
  0
  0
@@ -1179,9 +1179,8 @@ on=36
  0
  0
  0
- -1
  0
-path=36
+path=35
  /home/fred/drumspract/main.pas
  /home/fred/strumpract/uos.pas
  /home/fred/strumpract/uos.pas
@@ -1216,9 +1215,8 @@ path=36
  /home/fred/strumpract/src/waveform.pas
  /home/fred/strumpract/src/songplayer.pas
  /home/fred/strumpract/src/imagedancer.pas
- /home/fred/strumpract/src/main.pas
  /home/fred/strumpract/src/imagedancer.pas
-line=36
+line=35
  553
  6389
  7495
@@ -1231,7 +1229,7 @@ line=36
  587
  237
  5734
- 1852
+ 1864
  1530
  326
  319
@@ -1243,7 +1241,7 @@ line=36
  1606
  209
  1136
- 4306
+ 4345
  491
  5
  793
@@ -1253,9 +1251,8 @@ line=36
  368
  1757
  622
- 608
  1014
-address=36
+address=35
  5014125
  7989638
  8000139
@@ -1291,8 +1288,8 @@ address=36
  5154733
  5232984
  0
+addbkpt=35
  0
-addbkpt=36
  0
  0
  0
@@ -1327,9 +1324,9 @@ addbkpt=36
  0
  0
  0
+ignore=35
  0
  0
-ignore=36
  0
  0
  0
@@ -1363,11 +1360,7 @@ ignore=36
  0
  0
  0
- 0
- 0
- 0
-condition=36
- 
+condition=35
  
  
  
@@ -1656,8 +1649,20 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=template
+finddtext=onchangevalcolor
 findhistory=20
+ onchangevalcolor
+ tchartright.traces[0].chartkind
+ bar_face.fade_color
+ color
+  visible :=
+ updatelayoutstrum
+ hasinit
+ oktimer
+ ondockall
+ ontimerwait
+ cymin
+ bounds_cymin
  template
  if typecolor.Value =
  for x := 1 to 20 do
@@ -1666,23 +1671,11 @@ findhistory=20
  timer
  si1.cx := basedock.Width
  tchartright.traces[0].chartkind := tck_bar
- tfacebitmap
- stretch
- splitter
- fade
- volumeleft1
- yeeep
- yeep
- files'
- files
- face1.
- sysvol
- face1
 findoptions=1
 editpos=7
  0,-1073741823
  0,7
- 41,2706
+ 23,2206
  0,6
  0,-1073741823
  0,0
@@ -1734,7 +1727,7 @@ moduleoptions=6
  0
 visiblemodules=6
  -1
- -1
+ 0
  0
  0
  0
@@ -1747,18 +1740,10 @@ nomenumodules=6
  -1
  0
 [sourcefo.files_tab]
-order=7
- 0
- 1
- 3
- 2
- 4
- 5
- 6
 firsttab=0
-index=3
+index=2
 [layout]
-windowlayout=664
+windowlayout=656
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1772,10 +1757,10 @@ windowlayout=664
  ny=0
  ncx=0
  ncy=0
- x=70
- y=77
+ x=31
+ y=150
  cx=1224
- cy=621
+ cy=514
  rcx=0
  rcy=0
  wsize=0
@@ -1808,7 +1793,7 @@ windowlayout=664
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1902,7 +1887,7 @@ windowlayout=664
  x=0
  y=0
  cx=205
- cy=451
+ cy=370
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2088,9 +2073,9 @@ windowlayout=664
  ncx=0
  ncy=0
  x=0
- y=507
+ y=417
  cx=1212
- cy=93
+ cy=76
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2190,7 +2175,7 @@ windowlayout=664
  x=0
  y=0
  cx=1212
- cy=50
+ cy=41
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2202,10 +2187,10 @@ windowlayout=664
  nx=0
  ny=0
  ncx=1197
- ncy=45
- x=0
- y=0
- cx=1212
+ ncy=43
+ x=-8
+ y=-2
+ cx=1207
  cy=43
  rcx=0
  rcy=0
@@ -2218,9 +2203,9 @@ windowlayout=664
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
  history=20
+  /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/spectrum1.pas
   /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/commander.pas
   /home/fred/atest/test.prj
   /home/fred/ideu/src/ideU.prj
   /home/fred/mseide-msegui/apps/ide/mseide.prj
@@ -2255,20 +2240,12 @@ windowlayout=664
  x=208
  y=0
  cx=1004
- cy=451
+ cy=370
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=7
-  0
-  1
-  3
-  2
-  4
-  5
-  6
  firsttab=0
- index=3
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2304,9 +2281,9 @@ windowlayout=664
  ncx=0
  ncy=0
  x=0
- y=53
+ y=44
  cx=1212
- cy=451
+ cy=370
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2321,7 +2298,7 @@ windowlayout=664
  ncy=0
  x=411
  y=475
- cx=464
+ cx=452
  cy=96
  rcx=0
  rcy=0
@@ -2331,7 +2308,7 @@ windowlayout=664
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -2346,7 +2323,7 @@ windowlayout=664
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
