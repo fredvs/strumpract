@@ -258,9 +258,9 @@ begin
 
     if (fs_sbverton in container.frame.state) then
       Width := fowidth + scrollwidth
-     else
+    else
       Width := fowidth;
-      
+
     basedock.Width := Width;
 
     hasinit := 1;
@@ -272,18 +272,17 @@ begin
 
     maxheightfo := rect1.cy - 70;
 
-  if visiblecount = 1 then
+    if visiblecount = 1 then
     begin
       bounds_cymax := bounds_cy;
       bounds_cymin := bounds_cy;
-    end  
-    else
-    if visiblecount > 1 then
+    end
+    else if visiblecount > 1 then
     begin
       bounds_cymax := maxheightfo;
-      bounds_cymin :=  50 ;
-    end;  
-  
+      bounds_cymin := 50;
+    end;
+
     if dockpanel1fo.Visible then
       dockpanel1fo.updatelayoutpan();
 
@@ -298,8 +297,8 @@ begin
 
     if dockpanel5fo.Visible then
       dockpanel5fo.updatelayoutpan();
-      
-    Visible := True;    
+
+    Visible := True;
   end;
 end;
 
@@ -322,7 +321,7 @@ var
   rect1: rectty;
 begin
   windowopacity := 0;
-  
+
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
@@ -422,9 +421,9 @@ begin
       {$endif}
     //  showall(Sender);
     //   ondockall(Sender);
-    typecolor.value := 2 ;
+    typecolor.Value := 2;
     ondockplayersx2(Sender);
-    
+
     oktimer := 1;
   end;
 
@@ -511,7 +510,7 @@ begin
   endlayout();
 
   oktimer := 0;
- 
+
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
@@ -614,7 +613,7 @@ begin
     randomnotefo.bringtofront;
     randomnotefo.refreshform(Sender);
   end;
-//visible := false;
+  //visible := false;
 
 end;
 
@@ -667,10 +666,10 @@ procedure tmainfo.endlayout();
 begin
   Dec(flayoutlock);
   basedock.dragdock.endplacement();
- if ( hasinit = 1 ) and (flayoutlock = 0) then
-   updatelayoutstrum();
-  
-    if timerwait.Enabled then
+  if (hasinit = 1) and (flayoutlock = 0) then
+    updatelayoutstrum();
+
+  if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
@@ -3801,21 +3800,21 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     with spectrum1fo do
     begin
 
-      tchartleft.colorchart      := cl_background;
-     // tchartleft.traces[0].color := configfo.tcoloredit1.Value;
-      labelleft.font.color       := ltblack;
-      tchartleft.color           := cl_default;
-      tchartright.color          := cl_default;
-      tchartright.colorchart     := cl_background;
+      tchartleft.colorchart  := cl_background;
+      // tchartleft.traces[0].color := configfo.tcoloredit1.Value;
+      labelleft.font.color   := ltblack;
+      tchartleft.color       := cl_default;
+      tchartright.color      := cl_default;
+      tchartright.colorchart := cl_background;
       // tchartright.traces[0].color := configfo.tcoloredit2.Value;
-      
+
       tchartleft.traces[0].bar_face.fade_color.items[1]  := configfo.tcoloredit1.Value;
       tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit2.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
 
-      labelright.font.color      := ltblack;
-   
+      labelright.font.color := ltblack;
+
       fond.color := cl_default;
 
       groupbox1.color := cl_default;
@@ -3830,16 +3829,16 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     with spectrum2fo do
     begin
-      tchartleft.colorchart      := cl_background;
+      tchartleft.colorchart := cl_background;
       // tchartleft.traces[0].color := configfo.tcoloredit12.Value;
-      labelleft.font.color       := ltblack;
+      labelleft.font.color  := ltblack;
 
       tchartleft.color  := cl_default;
       tchartright.color := cl_default;
 
       tchartright.colorchart := cl_background;
       //tchartright.traces[0].color := configfo.tcoloredit22.Value;
-      
+
       tchartleft.traces[0].bar_face.fade_color.items[1]  := configfo.tcoloredit12.Value;
       tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit22.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
@@ -3860,13 +3859,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     with spectrumrecfo do
     begin
-      tchartleft.colorchart      := cl_background;
+      tchartleft.colorchart := cl_background;
       //tchartleft.traces[0].color := $9A9A9A;
-      labelleft.font.color       := ltblack;
+      labelleft.font.color  := ltblack;
 
       tchartleft.color  := cl_default;
       tchartright.color := cl_default;
-      
+
       tchartleft.traces[0].bar_face.fade_color.items[1]  := $9A9A9A;
       tchartright.traces[0].bar_face.fade_color.items[1] := $9A9A9A;
       tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
@@ -4049,11 +4048,11 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     begin
       // labelleft.color := $3A3A3A;
       // labelright.color := $3A3A3A;
-      tchartleft.color           := $3A3A3A;
-      tchartleft.colorchart      := $3A3A3A;
+      tchartleft.color      := $3A3A3A;
+      tchartleft.colorchart := $3A3A3A;
       //tchartleft.traces[0].color := configfo.tcoloredit1.Value;
-      labelleft.font.color       := ltblank;
-      
+      labelleft.font.color  := ltblank;
+
       tchartleft.traces[0].bar_face.fade_color.items[1]  := configfo.tcoloredit1.Value;
       tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit2.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
@@ -4089,12 +4088,12 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       //   labelright.color := $3A3A3A;
       tchartright.colorchart := $3A3A3A;
       //tchartright.traces[0].color := configfo.tcoloredit22.Value;
-      tchartleft.traces[0].bar_face.fade_color.items[1]  := configfo.tcoloredit12.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit12.Value;
       tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit22.Value;
-      tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
+      tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       labelright.font.color := ltblank;
-      tchartleft.color  := $3A3A3A;
+      tchartleft.color := $3A3A3A;
       tchartright.color := $3A3A3A;
       fond.color      := $3A3A3A;
       groupbox1.frame.font.color := ltblank;
@@ -4109,15 +4108,15 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     with spectrumrecfo do
     begin
-      tchartleft.colorchart       := $3A3A3A;
+      tchartleft.colorchart  := $3A3A3A;
       //tchartleft.traces[0].color  := $7A7A7A;
-      labelleft.font.color        := ltblank;
+      labelleft.font.color   := ltblank;
       //  labelleft.color := $3A3A3A;
       //   labelright.color := $3A3A3A;
-      tchartright.colorchart      := $3A3A3A;
+      tchartright.colorchart := $3A3A3A;
       //tchartright.traces[0].color := $7A7A7A;
-      labelright.font.color       := ltblank;
-      
+      labelright.font.color  := ltblank;
+
       tchartleft.traces[0].bar_face.fade_color.items[1]  := cl_white;
       tchartright.traces[0].bar_face.fade_color.items[1] := cl_white;
       tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;

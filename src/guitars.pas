@@ -4,11 +4,30 @@ unit guitars;
 interface
 
 uses
-
-  mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, msegui,
-  msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
-  msesimplewidgets, msewidgets, msegraphedits, SysUtils, mseificomp,
-  mseificompglob, mseifiglob, msescrollbar, msetypes, msedispwidgets, mserichstring,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msesimplewidgets,
+  msewidgets,
+  msegraphedits,
+  SysUtils,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msetypes,
+  msedispwidgets,
+  mserichstring,
   msestrings;
 
 type
@@ -40,13 +59,16 @@ type
 var
   guitarsfo: tguitarsfo;
   aguitar: array[0..9] of string;
-  aguitarisplaying: array[0..9] of boolean;
+  aguitarisplaying: array[0..9] of Boolean;
   initguit: integer = 1;
 
 implementation
 
 uses
-  uos_flat, main, dockpanel1, config,
+  uos_flat,
+  main,
+  dockpanel1,
+  config,
   guitars_mfm;
 
 procedure tguitarsfo.doguitarstring(const Sender: TObject);
@@ -60,69 +82,63 @@ begin
           {$if defined(cpuarm)}
         if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
          {$else}
-            if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+        if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.Value, -1, -1, -1, -1, -1, -1) > -1 then
         {$endif}
 
-            uos_Play(TButton(Sender).tag + 9);
+          uos_Play(TButton(Sender).tag + 9);
   end
-  else
+  else if (aguitarisplaying[TButton(Sender).tag - 1] = False) then
   begin
-    if (aguitarisplaying[TButton(Sender).tag - 1] = False) then
+    TButton(Sender).face.fade_direction      := gd_up;
+    TButton(Sender).face.fade_color.items[1] := cl_ltgreen;
 
-    begin
-      TButton(Sender).face.fade_direction := gd_up;
-      TButton(Sender).face.fade_color.items[1] := cl_ltgreen;
+    if uos_CreatePlayer(TButton(Sender).tag + 9) then
 
-      if uos_CreatePlayer(TButton(Sender).tag + 9) then
-
-        if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
+      if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
 
         {$if defined(cpuarm)}
           if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1,-1) > -1 then
          {$else}
-            if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
+        if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
          {$endif}
-
-            begin
-              uos_Play(TButton(Sender).tag + 9, -1);
-              aguitarisplaying[TButton(Sender).tag - 1] := True;
-            end;
-    end
-    else
-    begin
-      TButton(Sender).face.fade_direction := gd_down;
-      TButton(Sender).face.fade_color.items[1] := $B0A590;
-      aguitarisplaying[TButton(Sender).tag - 1] := False;
-    end;
-
+        begin
+          uos_Play(TButton(Sender).tag + 9, -1);
+          aguitarisplaying[TButton(Sender).tag - 1] := True;
+        end;
+  end
+  else
+  begin
+    TButton(Sender).face.fade_direction       := gd_down;
+    TButton(Sender).face.fade_color.items[1]  := $B0A590;
+    aguitarisplaying[TButton(Sender).tag - 1] := False;
   end;
 end;
 
 procedure tguitarsfo.onvisiblechangeev(const Sender: TObject);
 begin
   if Visible then
-  begin
-    mainfo.tmainmenu1.menu[4].submenu[8].Caption := ' Hide Guitars ';
-  end
+    mainfo.tmainmenu1.menu[4].submenu[8].Caption := ' Hide Guitars '
   else
-  begin
     mainfo.tmainmenu1.menu[4].submenu[8].Caption := ' Show Guitars ';
 
-  end;
-  
-  if norefresh = false then
-begin
-  mainfo.updatelayoutstrum();
-  if dockpanel1fo.visible then dockpanel1fo.updatelayoutpan();
-  if dockpanel2fo.visible then dockpanel2fo.updatelayoutpan();
-  
-  if dockpanel3fo.visible then dockpanel3fo.updatelayoutpan();
-   if assigned(dockpanel4fo) then 
-   if dockpanel4fo.visible then dockpanel4fo.updatelayoutpan();
- if assigned(dockpanel5fo) then
-  if dockpanel5fo.visible then dockpanel5fo.updatelayoutpan();
+  if norefresh = False then
+  begin
+    mainfo.updatelayoutstrum();
+    if dockpanel1fo.Visible then
+      dockpanel1fo.updatelayoutpan();
+    if dockpanel2fo.Visible then
+      dockpanel2fo.updatelayoutpan();
 
-end;  
+    if dockpanel3fo.Visible then
+      dockpanel3fo.updatelayoutpan();
+    if Assigned(dockpanel4fo) then
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayoutpan();
+    if Assigned(dockpanel5fo) then
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayoutpan();
+
+  end;
 end;
 
 procedure tguitarsfo.oncreateguit(const Sender: TObject);
@@ -131,9 +147,9 @@ var
   i: integer;
 begin
   windowopacity := 0;
-  
+
   Caption := 'Guitar and Bass tuned strings';
-  
+
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
   aguitar[0] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '1_MI_E.ogg';
@@ -168,3 +184,4 @@ end;
 end;
 
 end.
+

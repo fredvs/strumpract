@@ -4,11 +4,37 @@ unit equalizer;
 interface
 
 uses
- Classes,ctypes,SysUtils,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,
- msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
- msedock,msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
- msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring,
- msefiledialogx,msestatfile,msebitmap,mseimage;
+  Classes,
+  ctypes,
+  SysUtils,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msegraphedits,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msesimplewidgets,
+  msewidgets,
+  msechart,
+  msedispwidgets,
+  mserichstring,
+  msefiledialogx,
+  msestatfile,
+  msebitmap,
+  mseimage;
 
 type
   tasliders = array[1..20] of tslider;
@@ -83,10 +109,10 @@ type
     fond: tstringdisp;
     loadset: TButton;
     saveset: TButton;
-   tstringdisp21: tstringdisp;
-   EQEN: tbooleanedit;
-   blight: tbutton;
-   bdark: tbutton;
+    tstringdisp21: tstringdisp;
+    EQEN: tbooleanedit;
+    blight: TButton;
+    bdark: TButton;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
@@ -263,23 +289,23 @@ begin
 
     abutton.Caption := astring;
 
-      if tag = 0 then
-        if tagsender < 11 then
-          songplayerfo.changefrequency(1, tagsender, again, -1)
-        else
-          songplayerfo.changefrequency(1, tagsender - 10, -1, again);
+    if tag = 0 then
+      if tagsender < 11 then
+        songplayerfo.changefrequency(1, tagsender, again, -1)
+      else
+        songplayerfo.changefrequency(1, tagsender - 10, -1, again);
 
-      if tag = 1 then
-        if tagsender < 11 then
-          songplayer2fo.changefrequency(2, tagsender, again, -1)
-        else
-          songplayer2fo.changefrequency(2, tagsender - 10, -1, again);
+    if tag = 1 then
+      if tagsender < 11 then
+        songplayer2fo.changefrequency(2, tagsender, again, -1)
+      else
+        songplayer2fo.changefrequency(2, tagsender - 10, -1, again);
 
-      if Caption = 'Equalizer Recorder' then
-        if tagsender < 11 then
-          recorderfo.changefrequency(2, tagsender, again, -1)
-        else
-          recorderfo.changefrequency(2, tagsender - 10, -1, again);
+    if Caption = 'Equalizer Recorder' then
+      if tagsender < 11 then
+        recorderfo.changefrequency(2, tagsender, again, -1)
+      else
+        recorderfo.changefrequency(2, tagsender - 10, -1, again);
 
   end;
 end;
@@ -351,7 +377,7 @@ begin
       mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Equalizer 2 '
     else if Caption = 'Equalizer Recorder' then
       mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec ';
-  
+
   if norefresh = False then
   begin
     if Assigned(mainfo) then
@@ -380,26 +406,30 @@ var
   ordir: msestring;
 begin
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
-  dialogfilesfo.tag := tag;   
+  dialogfilesfo.tag := tag;
   dialogfilesfo.Caption := 'Load a Equalizer Settings File';
-  dialogfilesfo.list_files.mask    := '*.equ';
-  dialogfilesfo.list_files.path    := ordir;
+  dialogfilesfo.list_files.mask := '*.equ';
+  dialogfilesfo.list_files.path := ordir;
   dialogfilesfo.selected_file.Text := '';
-  
-  if tag < 2 then dialogfilesfo.setother.visible := true
-   else dialogfilesfo.setother.visible := false;
- 
-   if (mainfo.typecolor.Value = 0) then
-   begin
-   if caption = 'Equalizer Recorder' then 
-     dialogfilesfo.list_files.frame.colorclient :=  cl_ltgray else
-     dialogfilesfo.list_files.frame.colorclient :=  $F9FFC2;
-   end else
-    if (mainfo.typecolor.Value = 1) then
-     dialogfilesfo.list_files.frame.colorclient :=  cl_ltgray else  
-        dialogfilesfo.list_files.frame.colorclient :=  cl_gray; 
-      
-  application.processmessages;
+
+  if tag < 2 then
+    dialogfilesfo.setother.Visible := True
+  else
+    dialogfilesfo.setother.Visible := False;
+
+  if (mainfo.typecolor.Value = 0) then
+  begin
+    if Caption = 'Equalizer Recorder' then
+      dialogfilesfo.list_files.frame.colorclient := cl_ltgray
+    else
+      dialogfilesfo.list_files.frame.colorclient := $F9FFC2;
+  end
+  else if (mainfo.typecolor.Value = 1) then
+    dialogfilesfo.list_files.frame.colorclient := cl_ltgray
+  else
+    dialogfilesfo.list_files.frame.colorclient := cl_gray;
+
+  application.ProcessMessages;
   dialogfilesfo.Show;
 end;
 

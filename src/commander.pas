@@ -5,13 +5,47 @@ interface
 
 uses
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,
- {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,mseglob,mseguiglob,
- mseguiintf,mseapplication,msestat,msemenus,Math,msegui,msetimer,msegraphics,
- msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
- msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
- msefiledialogx,msegrids,mseificomp,mseificompglob,msefileutils,mseifiglob,
- mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,msegraphedits,
- msescrollbar,msedispwidgets,mserichstring,mseimage;
+ {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  Math,
+  msegui,
+  msetimer,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msedragglob,
+  msesimplewidgets,
+  msewidgets,
+  mseact,
+  msebitmap,
+  msedataedits,
+  msedatanodes,
+  mseedit,
+  msefiledialogx,
+  msegrids,
+  mseificomp,
+  mseificompglob,
+  msefileutils,
+  mseifiglob,
+  mselistbrowser,
+  msestatfile,
+  msestream,
+  msestrings,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -94,21 +128,21 @@ type
     tfacegreen: tfacecomp;
     tfacegreendark: tfacecomp;
     ttimer1: ttimer;
-   nameplayers: tstringdisp;
-   nameplayers2: tstringdisp;
-   namegen: tstringdisp;
-   tfaceorange: tfacecomp;
-   sysvol: tslider;
-   sysvolbut: tbutton;
-   timercallback: ttimer;
-   Brandommix: tbutton;
-   randommix: tbooleanedit;
-   timagelist1: timagelist;
-   tframecomp2: tframecomp;
-   timagelist3: timagelist;
-   tfaceslidergold: tfacecomp;
-   tfacesliderred: tfacecomp;
-   tfaceslidergreen: tfacecomp;
+    nameplayers: tstringdisp;
+    nameplayers2: tstringdisp;
+    namegen: tstringdisp;
+    tfaceorange: tfacecomp;
+    sysvol: tslider;
+    sysvolbut: TButton;
+    timercallback: ttimer;
+    Brandommix: TButton;
+    randommix: tbooleanedit;
+    timagelist1: timagelist;
+    tframecomp2: tframecomp;
+    timagelist3: timagelist;
+    tfaceslidergold: tfacecomp;
+    tfacesliderred: tfacecomp;
+    tfaceslidergreen: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -139,10 +173,9 @@ type
     procedure onchangedirectmix(const Sender: TObject);
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimerinit(const Sender: TObject);
-   procedure onsetsysvol(const sender: TObject; var avalue: realty;
-                   var accept: Boolean);
-   procedure dotimercallback(const sender: TObject);
-   procedure onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
+    procedure onsetsysvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure dotimercallback(const Sender: TObject);
+    procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
   end;
 
 var
@@ -151,10 +184,10 @@ var
   initvolleft1, initvolright1, initvolleft2, initvolright2: double;
   maxvolleft1, maxvolright1, maxvolleft2, maxvolright2: double;
   thetypemix: integer = 0;
-  docallback : boolean = false;
+  docallback: Boolean = False;
   theinput: integer = 30;
   lastrowplayed: integer = -1;
-  vuinvar: Boolean = True; 
+  vuinvar: Boolean = True;
 
 implementation
 
@@ -166,19 +199,20 @@ uses
   config,
   recorder,
   dockpanel1,
-  main, ctypes,
+  main,
+  ctypes,
   commander_mfm;
 
 {$if defined(linux) or defined(windows)}
 procedure mixelemcallback;
- begin
- if docallback then
-  begin
-     if commanderfo.timercallback.Enabled then
-        commanderfo.timercallback.restart // to reset
-      else commanderfo.timercallback.Enabled := True;
-   end; 
- end;   
+begin
+  if docallback then
+    if commanderfo.timercallback.Enabled then
+      commanderfo.timercallback.restart // to reset
+    else
+      commanderfo.timercallback.Enabled := True;
+end;
+
 {$ENDIF}
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -205,21 +239,21 @@ begin
   end;
 
   ttimer1.Enabled := True;
-  
+
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
-    sysvol.value := ALSAmixerGetVolume(0)/100;
-    sysvolbut.caption := msestring(inttostr(round(sysvol.value*10)));
-    ALSAmixerSetCallBack(@mixelemcallback); 
-    docallback := true;
+  sysvol.Value      := ALSAmixerGetVolume(0) / 100;
+  sysvolbut.Caption := msestring(IntToStr(round(sysvol.Value * 10)));
+  ALSAmixerSetCallBack(@mixelemcallback);
+  docallback        := True;
    {$ENDIF}
- 
+
    {$if defined(windows)}
     sysvol.value := WinmixerGetVolume(0)/100;
     sysvolbut.caption := msestring(inttostr(round(sysvol.value*10)));
      WinMixerSetCallBack(@mixelemcallback); // gives memory leak
      docallback := true;
    {$ENDIF}
-  end;
+end;
 
 procedure tcommanderfo.ontimersent(const Sender: TObject);
 begin
@@ -231,193 +265,190 @@ procedure tcommanderfo.onstartstop(const Sender: TObject);
 var
   fromplay, x: integer;
   fileex: msestring;
-  resu : shortint = -1;
-  
+  resu: shortint = -1;
 begin
-fileex := fileext(PChar(ansistring(songplayerfo.historyfn.Value)));
-if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
-   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
-    resu := 0 else ShowMessage(songplayerfo.historyfn.Value + ' is not audio file...');
+  fileex := fileext(PChar(ansistring(songplayerfo.historyfn.Value)));
+  if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+    (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
+    resu := 0
+  else
+    ShowMessage(songplayerfo.historyfn.Value + ' is not audio file...');
 
-if resu = 0 then
-begin
- if not fileexists(songplayerfo.historyfn.Value) then
- begin
- resu := -1;
- ShowMessage(songplayerfo.historyfn.Value + ' does not exist...');
- end;
-end; 
+  if resu = 0 then
+    if not fileexists(songplayerfo.historyfn.Value) then
+    begin
+      resu := -1;
+      ShowMessage(songplayerfo.historyfn.Value + ' does not exist...');
+    end;
 
-if resu = 0 then
-begin   
-fileex := fileext(PChar(ansistring(songplayer2fo.historyfn.Value)));
-if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
-   (lowercase(fileex) = 'flac')  or (lowercase(fileex) = 'mp3') then
+  if resu = 0 then
+  begin
+    fileex := fileext(PChar(ansistring(songplayer2fo.historyfn.Value)));
+    if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+      (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
     else
     begin
-    resu := -1;
-     ShowMessage(songplayer2fo.historyfn.Value + ' is not audio file...');
-     end;
-     
-end;
+      resu := -1;
+      ShowMessage(songplayer2fo.historyfn.Value + ' is not audio file...');
+    end;
 
-if resu = 0 then
-begin
- if not fileexists(songplayer2fo.historyfn.Value) then
- begin
- resu := -1;
- ShowMessage(songplayer2fo.historyfn.Value + ' does not exist...');
- end;
-end; 
-
-if resu = 0 then 
-begin
-  if directmix.Value then
-    totmixinterval := 1
-  else
-    totmixinterval := round(timemix.Value / 10);
-
-  incmixinterval := 0;
-
-  if lastrowplayed >= filelistfo.list_files.rowcount then
-    lastrowplayed := 0;
-
-  if lastrowplayed = -1 then
-  begin
-    filelistfo.onsent(filelistfo.tbutton1);
-    lastrowplayed := filelistfo.list_files.focusedcell.row;
   end;
 
-  filelistfo.list_files.rowcolorstate[lastrowplayed] := -1;
-
-  lastrowplayed := filelistfo.list_files.focusedcell.row;
-
-  if lastrowplayed <> -1 then
-    if mainfo.typecolor.Value = 2 then
+  if resu = 0 then
+    if not fileexists(songplayer2fo.historyfn.Value) then
     begin
-      for x := 0 to filelistfo.list_files.rowcount - 1 do
-        filelistfo.list_files.rowfontstate[x] := 1;
+      resu := -1;
+      ShowMessage(songplayer2fo.historyfn.Value + ' does not exist...');
+    end;
 
-      filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
-      filelistfo.list_files.rowfontstate[lastrowplayed]  := 1;
+  if resu = 0 then
+  begin
+    if directmix.Value then
+      totmixinterval := 1
+    else
+      totmixinterval := round(timemix.Value / 10);
 
-      // filelistfo.list_files.datacols[3].colorselect := $707070; 
-      // filelistfo.list_files.datacols[3].color := $707070;
+    incmixinterval := 0;
+
+    if lastrowplayed >= filelistfo.list_files.rowcount then
+      lastrowplayed := 0;
+
+    if lastrowplayed = -1 then
+    begin
+      filelistfo.onsent(filelistfo.tbutton1);
+      lastrowplayed := filelistfo.list_files.focusedcell.row;
+    end;
+
+    filelistfo.list_files.rowcolorstate[lastrowplayed] := -1;
+
+    lastrowplayed := filelistfo.list_files.focusedcell.row;
+
+    if lastrowplayed <> -1 then
+      if mainfo.typecolor.Value = 2 then
+      begin
+        for x := 0 to filelistfo.list_files.rowcount - 1 do
+          filelistfo.list_files.rowfontstate[x] := 1;
+
+        filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
+        filelistfo.list_files.rowfontstate[lastrowplayed]  := 1;
+
+        // filelistfo.list_files.datacols[3].colorselect := $707070; 
+        // filelistfo.list_files.datacols[3].color := $707070;
+
+      end
+      else
+      begin
+        for x := 0 to filelistfo.list_files.rowcount - 1 do
+          filelistfo.list_files.rowfontstate[x]           := 0;
+        filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
+        filelistfo.list_files.rowfontstate[lastrowplayed] := 0;
+      end;
+
+    maxvolleft1  := 1;
+    maxvolright1 := 1;
+
+    maxvolleft2  := 1;
+    maxvolright2 := 1;
+
+    initvolleft1  := 0;
+    initvolright1 := 0;
+
+    initvolleft2  := 0;
+    initvolright2 := 0;
+
+    if Sender <> nil then
+    begin
+      if (TButton(Sender).tag = 0) then
+        fromplay := 0
+      else
+        fromplay := 1;
+    end
+    else if hasmixed1 = True then
+      fromplay := 1
+    else
+      fromplay := 0;
+
+    if fromplay = 0 then
+    begin
+      tbutton2.face.template := mainfo.tfacebutgray;
+      tbutton3.face.template := mainfo.tfaceorange2;
+
+      filelistfo.tbutton2.face.template := mainfo.tfaceorange;
+      filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
+
+      //tbutton3.focused := true;
+
+      thetypemix         := 0;
+      volumeleft1.Value  := 0;
+      volumeright1.Value := 0;
+      //volumeleft2.value := 1;
+      //volumeright2.value := 1;
+
+      if (Sender <> nil) and (commanderfo.automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
+      begin
+        hasfocused2 := True;
+        filelistfo.onsent(nil);
+        hasfocused2 := False;
+      end;
+
+      if uos_GetStatus(theplayer) <> 1 then
+        if (iscue1 = True) or (uos_GetStatus(theplayer) = 2) then
+          songplayerfo.doplayeresume(Sender)
+        else
+          songplayerfo.doplayerstart(Sender);
+
+      hasmixed2        := True;
+      timermix.Enabled := True;
 
     end
     else
     begin
-      for x := 0 to filelistfo.list_files.rowcount - 1 do
-        filelistfo.list_files.rowfontstate[x]           := 0;
-      filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
-      filelistfo.list_files.rowfontstate[lastrowplayed] := 0;
+
+      thetypemix         := 1;
+      volumeleft2.Value  := 0;
+      volumeright2.Value := 0;
+      tbutton3.face.template := mainfo.tfacebutgray;
+      tbutton2.face.template := mainfo.tfaceorange2;
+      filelistfo.tbutton1.face.template := mainfo.tfaceorange;
+      filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
+      //volumeleft2.value := 1;
+      //volumeright2.value := 1;
+
+      if (Sender <> nil) and (automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
+      begin
+        hasfocused1 := True;
+        filelistfo.onsent(nil);
+        hasfocused1 := False;
+      end;
+
+      if uos_GetStatus(theplayer2) <> 1 then
+        if (iscue2 = True) or (uos_GetStatus(theplayer2) = 2) then
+          songplayer2fo.doplayeresume(Sender)
+        else
+          songplayer2fo.doplayerstart(Sender);
+
+      hasmixed1        := True;
+      timermix.Enabled := True;
+      //  filelistfo.list_files.rowcolorstate[4]:= 0;
+
     end;
 
-  maxvolleft1  := 1;
-  maxvolright1 := 1;
+    //tbutton2.width := 26;
+    //tbutton2.left := 100;
+    //tbutton3.width := 26;
+    //tbutton3.left := 154;
 
-  maxvolleft2  := 1;
-  maxvolright2 := 1;
+    application.ProcessMessages;
 
-  initvolleft1  := 0;
-  initvolright1 := 0;
+    //tbutton2.visible := false;
+    //tbutton3.visible := false;
+    tbutton4.Visible := True;
+    tbutton5.Visible := False;
+    tbutton6.Visible := False;
 
-  initvolleft2  := 0;
-  initvolright2 := 0;
-
-  if Sender <> nil then
-  begin
-    if (TButton(Sender).tag = 0) then
-      fromplay := 0
-    else
-      fromplay := 1;
-  end
-  else if hasmixed1 = True then
-    fromplay := 1
-  else
-    fromplay := 0;
-
-  if fromplay = 0 then
-  begin
-    tbutton2.face.template := mainfo.tfacebutgray;
-    tbutton3.face.template := mainfo.tfaceorange2;
-
-    filelistfo.tbutton2.face.template := mainfo.tfaceorange;
-    filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
-
-    //tbutton3.focused := true;
-
-    thetypemix         := 0;
-    volumeleft1.Value  := 0;
-    volumeright1.Value := 0;
-    //volumeleft2.value := 1;
-    //volumeright2.value := 1;
-
-    if (Sender <> nil) and (commanderfo.automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
-    begin
-      hasfocused2 := True;
-      filelistfo.onsent(nil);
-      hasfocused2 := False;
-    end;
-
-    if uos_GetStatus(theplayer) <> 1 then
-      if (iscue1 = True) or (uos_GetStatus(theplayer) = 2) then
-        songplayerfo.doplayeresume(Sender)
-      else
-        songplayerfo.doplayerstart(Sender);
-
-    hasmixed2        := True;
-    timermix.Enabled := True;
-
-  end
-  else
-  begin
-
-    thetypemix         := 1;
-    volumeleft2.Value  := 0;
-    volumeright2.Value := 0;
-    tbutton3.face.template := mainfo.tfacebutgray;
-    tbutton2.face.template := mainfo.tfaceorange2;
-    filelistfo.tbutton1.face.template := mainfo.tfaceorange;
-    filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
-    //volumeleft2.value := 1;
-    //volumeright2.value := 1;
-
-    if (Sender <> nil) and (automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
-    begin
-      hasfocused1 := True;
-      filelistfo.onsent(nil);
-      hasfocused1 := False;
-    end;
-
-    if uos_GetStatus(theplayer2) <> 1 then
-      if (iscue2 = True) or (uos_GetStatus(theplayer2) = 2) then
-        songplayer2fo.doplayeresume(Sender)
-      else
-        songplayer2fo.doplayerstart(Sender);
-
-    hasmixed1        := True;
-    timermix.Enabled := True;
-    //  filelistfo.list_files.rowcolorstate[4]:= 0;
-
+    //tbutton4.imagenr := 1; 
+    //tbutton4.imagenr := 30; // resume
   end;
-
-  //tbutton2.width := 26;
-  //tbutton2.left := 100;
-  //tbutton3.width := 26;
-  //tbutton3.left := 154;
-
-  application.ProcessMessages;
-
-  //tbutton2.visible := false;
-  //tbutton3.visible := false;
-  tbutton4.Visible := True;
-  tbutton5.Visible := False;
-  tbutton6.Visible := False;
-
-  //tbutton4.imagenr := 1; 
-  //tbutton4.imagenr := 30; // resume
-end;
 end;
 
 
@@ -648,10 +679,10 @@ end;
 
 procedure tcommanderfo.ondest(const Sender: TObject);
 begin
-  docallback := false;
-  Timermix.Enabled := false;
-  timersent.Enabled := false;
-  
+  docallback        := False;
+  Timermix.Enabled  := False;
+  timersent.Enabled := False;
+
   Timermix.Free;
   timersent.Free;
 end;
@@ -1070,13 +1101,13 @@ begin
   if TButton(Sender).Name = 'Brandommix' then
     if TButton(Sender).tag = 0 then
     begin
-      randommix.Value    := True;
+      randommix.Value     := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := tfacegreen;
     end
     else
     begin
-      randommix.Value    := False;
+      randommix.Value     := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := tfacebutgray;
     end;
@@ -1289,17 +1320,16 @@ begin
 
 end;
 
-procedure tcommanderfo.onsetsysvol(const sender: TObject; var avalue: realty;
-               var accept: Boolean);
+procedure tcommanderfo.onsetsysvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
-  sysvolbut.caption := msestring(inttostr(round(avalue*10)));
+  sysvolbut.Caption := msestring(IntToStr(round(avalue * 10)));
 {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
-   docallback := false;
-   ALSAmixerSetVolume(0, round(avalue * 100));
-   ALSAmixerSetVolume(1, round(avalue * 100));
-    docallback := true;
+  docallback        := False;
+  ALSAmixerSetVolume(0, round(avalue * 100));
+  ALSAmixerSetVolume(1, round(avalue * 100));
+  docallback        := True;
   {$ENDIF}
-  
+
   {$if defined(windows)}
     docallback := false;
     WINmixerSetVolume(0, round(avalue * 100));
@@ -1307,13 +1337,13 @@ begin
   {$ENDIF}
 end;
 
-procedure tcommanderfo.dotimercallback(const sender: TObject);
+procedure tcommanderfo.dotimercallback(const Sender: TObject);
 begin
 {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
   if docallback then
   begin
-    commanderfo.sysvol.value := ALSAmixerGetVolume(0) / 100;
-    commanderfo.sysvolbut.caption := msestring(inttostr(round(commanderfo.sysvol.value*10)));
+    commanderfo.sysvol.Value      := ALSAmixerGetVolume(0) / 100;
+    commanderfo.sysvolbut.Caption := msestring(IntToStr(round(commanderfo.sysvol.Value * 10)));
   end;
 {$ENDIF}
 
@@ -1326,13 +1356,12 @@ begin
  {$ENDIF}
 end;
 
-procedure tcommanderfo.onmouse(const sender: twidget;
-               var ainfo: mouseeventinfoty);
+procedure tcommanderfo.onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
- if mainfo.ttimer2.Enabled then
-      mainfo.ttimer2.restart // to reset
-    else
-      mainfo.ttimer2.Enabled := True;
+  if mainfo.ttimer2.Enabled then
+    mainfo.ttimer2.restart // to reset
+  else
+    mainfo.ttimer2.Enabled := True;
 end;
 
 end.

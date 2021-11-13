@@ -100,8 +100,8 @@ type
     procedure opendir(const Sender: TObject);
     procedure onexecfind(const Sender: TObject);
 
-   procedure onactiv(const sender: TObject);
-   procedure onmouse(const sender: twidget; var ainfo: mouseeventinfoty);
+    procedure onactiv(const Sender: TObject);
+    procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
   end;
 
 var
@@ -135,7 +135,7 @@ begin
   Timercount.Enabled  := False;
   Timercount.options  := [to_single];
   Timercount.ontimer  := @ontimercount;
-  
+
   randomize;
 
   list_files.hint := ' To move a row: click+hold into the fixed column ' + lineend +
@@ -158,8 +158,7 @@ begin
 
   for x := 0 to list_files.rowCount - 1 do
     list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
-    
-    
+
 end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
@@ -182,7 +181,7 @@ procedure tfilelistfo.onsent(const Sender: TObject);
 var
   theplaysender, thecaution, therandom: integer;
   mustmix: Boolean = False;
- begin
+begin
 
   if directoryexists(historyfn.Value) then
   begin
@@ -252,7 +251,7 @@ var
           if commanderfo.Brandommix.tag = 1 then
           begin
             therandom := random(list_files.rowcount - 1);
-             application.processmessages;
+            application.ProcessMessages;
             if (list_files[3][therandom] = '1') then
             begin
               mustmix := True;
@@ -509,8 +508,9 @@ begin
 
         edfilescount.Value := list_files.rowcount;
         if edfilescount.Value > 1 then
-        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files')
-        else  filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' file');
+          filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files')
+        else
+          filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
 
       finally
         datalist_files.Free;
@@ -717,9 +717,10 @@ end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
 begin
- if edfilescount.Value > 1 then
-        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files')
-        else  filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' file');
+  if edfilescount.Value > 1 then
+    filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files')
+  else
+    filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
 end;
 
 procedure tfilelistfo.ondestr(const Sender: TObject);
@@ -742,9 +743,9 @@ begin
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'list' + directoryseparator);
   tfiledialog1.controller.captionopen := 'Open List File';
   tfiledialog1.controller.options := [fdo_savelastdir, fdo_sysfilename];
-  
-   tfiledialog1.controller.nopanel := true;
-   tfiledialog1.controller.compact := true;
+
+  tfiledialog1.controller.nopanel := True;
+  tfiledialog1.controller.compact := True;
 
   tfiledialog1.controller.fontcolor   := cl_black;
   if mainfo.typecolor.Value = 2 then
@@ -771,10 +772,11 @@ begin
       Caption := removefileext(tfiledialog1.controller.filename);
 
       list_files.fixcols[-1].captions.Count := filelistfo.list_files.rowCount;
-      
-       if edfilescount.Value > 1 then
-        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files')
-        else  filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' file');
+
+      if edfilescount.Value > 1 then
+        filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files')
+      else
+        filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
 
       list_files.defocuscell;
       list_files.datacols.clearselection;
@@ -891,10 +893,11 @@ begin
       list_files[3][x]   := msestring(IntToStr(1));
       list_files[4][x]   := tfiledialog1.controller.filename;
       edfilescount.Value := list_files.rowcount;
-      
-       if edfilescount.Value > 1 then
-        filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' files')
-        else  filescount.Value   := msestring(IntToStr(edfilescount.Value) + ' file');
+
+      if edfilescount.Value > 1 then
+        filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files')
+      else
+        filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
 
       list_files.fixcols[-1].captions.Count := list_files.rowCount;
 
@@ -943,8 +946,8 @@ var
   ara, arb: msestringarty;
 begin
   tfiledialog1.controller.captiondir := 'Open Audio Directory';
-  tfiledialog1.controller.nopanel := false;
-    tfiledialog1.controller.compact := false;
+  tfiledialog1.controller.nopanel    := False;
+  tfiledialog1.controller.compact    := False;
 
 
   if mainfo.typecolor.Value = 2 then
@@ -1001,22 +1004,21 @@ begin
   findmessagefo.Show(True);
 end;
 
-procedure tfilelistfo.onactiv(const sender: TObject);
+procedure tfilelistfo.onactiv(const Sender: TObject);
 begin
- if historyfn.value <> '' then
-     caption := historyfn.Value;
+  if historyfn.Value <> '' then
+    Caption    := historyfn.Value;
   bounds_cxmax := 442;
   bounds_cxmin := 442;
   Width        := 442;
 end;
 
-procedure tfilelistfo.onmouse(const sender: twidget;
-               var ainfo: mouseeventinfoty);
+procedure tfilelistfo.onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
-if mainfo.ttimer2.Enabled then
-      mainfo.ttimer2.restart // to reset
-    else
-      mainfo.ttimer2.Enabled := True;
+  if mainfo.ttimer2.Enabled then
+    mainfo.ttimer2.restart // to reset
+  else
+    mainfo.ttimer2.Enabled := True;
 end;
 
 

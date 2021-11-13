@@ -36,7 +36,7 @@ type
     infobpm: tlabel;
     imgPreview: timage;
     tlabel2: tlabel;
-   end;
+  end;
 
 var
   infosfo, infosfo2: tinfosfo;

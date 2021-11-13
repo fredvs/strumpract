@@ -104,7 +104,8 @@ end;
 procedure twavefo.onresiztimer(const Sender: TObject);
 begin
 
-if Caption <> 'Wave Recorder' then trackbar1.Width := Width - 15;
+  if Caption <> 'Wave Recorder' then
+    trackbar1.Width := Width - 15;
 
   if ((tag = 1) and (Assigned(songplayerfo))) or ((tag = 2) and (Assigned(songplayer2fo))) or ((Caption = 'Wave Recorder') and (Assigned(recorderfo)) and (islive = False)) then
   begin
@@ -118,7 +119,7 @@ if Caption <> 'Wave Recorder' then trackbar1.Width := Width - 15;
     trackbar1.Height := waveforec.Height - 18;
     echelle.Visible  := False;
   end;
-  
+
   onzoom(Sender);
 
 end;
@@ -163,7 +164,7 @@ begin
 
     echelle[i][0] := utf8decode(IntToStr(trunc(echsec * (i + 1) / 60)) + '.' + milisec);
 
-  //  echelle.datacols[i].color := cl_gray;
+    //  echelle.datacols[i].color := cl_gray;
 
     Inc(i);
   end;

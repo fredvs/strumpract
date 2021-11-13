@@ -4,13 +4,50 @@ unit recorder;
 interface
 
 uses
- ctypes,uos_flat,infos,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
- mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,Math,mseevent,
- mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
- msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,msegraphedits,
- mseificomp,mseificompglob,mseifiglob,msescrollbar,msedragglob,mseact,mseedit,
- msestatfile,msestream,msestrings,msebitmap,msedatanodes,msedispwidgets,
- mserichstring,msedropdownlist,msegridsglob;
+  ctypes,
+  uos_flat,
+  infos,
+  msetimer,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  Math,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msesimplewidgets,
+  msewidgets,
+  msedataedits,
+  msefiledialogx,
+  msegrids,
+  mselistbrowser,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msedragglob,
+  mseact,
+  mseedit,
+  msestatfile,
+  msestream,
+  msestrings,
+  msebitmap,
+  msedatanodes,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist,
+  msegridsglob;
 
 type
   trecorderfo = class(tdockform)
@@ -50,10 +87,10 @@ type
     tbutton6: TButton;
     edvolr: trealspinedit;
     tfiledialog1: tfiledialogx;
-   tgroupbox2: tgroupbox;
-   bwav: tbooleaneditradio;
-   bogg: tbooleaneditradio;
-   bsavetofile: tbooleanedit;
+    tgroupbox2: tgroupbox;
+    bwav: tbooleaneditradio;
+    bogg: tbooleaneditradio;
+    bsavetofile: tbooleanedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -88,10 +125,10 @@ type
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
     procedure oncreated(const Sender: TObject);
     procedure onex(const Sender: TObject);
-   procedure onchangesave(const sender: TObject);
+    procedure onchangesave(const Sender: TObject);
   end;
 
- equalizer_band_type = record
+  equalizer_band_type = record
     theindex: integer;
     lo_freq, hi_freq: cfloat;
     Text: string[10];
@@ -133,7 +170,7 @@ uses
 procedure trecorderfo.InitDrawLive();
 const
   transpcolor = $FFF0F0;
- begin
+begin
 
   if (as_checked in waveforec.tmainmenu1.menu[0].state) then
   begin
@@ -250,10 +287,10 @@ begin
   tbutton2.Enabled := False;
   tbutton3.Enabled := True;
 
-  vuright.value    := 0;
-  vuleft.value     := 0;
-  vuright.Height    := 0;
-  vuleft.Height     := 0;
+  vuright.Value       := 0;
+  vuleft.Value        := 0;
+  vuright.Height      := 0;
+  vuleft.Height       := 0;
   //vuLeft.Visible      := False;
   //vuRight.Visible     := False;
   btnStart.Enabled    := True;
@@ -289,20 +326,21 @@ end;
 procedure trecorderfo.ShowLevel;
 var
   leftlev, rightlev: double;
- begin
+begin
   vuLeft.Visible  := True;
   vuRight.Visible := True;
 
   leftlev  := uos_InputGetLevelLeft(therecplayer, Inputindex3);
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
-  
-  multiplier := ((leftlev + rightlev) / 2);
-  if multiplier > 1 then multiplier := 1;
- 
- if (imagedancerfo.Visible = True) and (isbuzy = False) and
+
+  multiplier   := ((leftlev + rightlev) / 2);
+  if multiplier > 1 then
+    multiplier := 1;
+
+  if (imagedancerfo.Visible = True) and (isbuzy = False) and
     (imagedancerfo.openglwidget.Visible = False) then
   begin
-   if dancernum = 4 then
+    if dancernum = 4 then
     begin
       Inc(TimerTicinterval);
       if TimerTicinterval = 3 then
@@ -410,10 +448,10 @@ begin
       //// PlayerIndex : from 0 to what your computer can do !
       //// If PlayerIndex exists already, it will be overwriten...
       tbutton3.Enabled := False;
-      
-      application.processmessages;
 
-    InputIndex3 := uos_AddFromFile(therecplayer, PChar(ansistring(historyfn.Value)), -1, samformat, 1024*4);
+    application.ProcessMessages;
+
+    InputIndex3 := uos_AddFromFile(therecplayer, PChar(ansistring(historyfn.Value)), -1, samformat, 1024 * 4);
 
     //// add input from audio file with custom parameters
     ////////// FileName : filename of audio file
@@ -429,8 +467,8 @@ begin
       // OutputIndex3 := uos_AddIntoDevOut(PlayerIndex3) ;
       //// add a Output into device with default parameters
 
-      OutputIndex3 := uos_AddIntoDevOut(therecplayer,configfo.devoutcfg.value, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
-        uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024*4, -1);
+      OutputIndex3 := uos_AddIntoDevOut(therecplayer, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(therecplayer, InputIndex3),
+        uos_InputGetChannels(therecplayer, InputIndex3), samformat, 1024 * 4, -1);
 
       //// add a Output into device with custom parameters
       //////////// PlayerIndex : Index of a existing Player
@@ -478,21 +516,21 @@ begin
       ////////// VolRight : Right volume
       ////////// Enable : Enabled
 
-    for i := 1 to 10 do // equalizer
-            Equalizer_Bands[i].theindex :=
-              uos_InputAddFilter(therecplayer, InputIndex3,
-              1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
-              1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
+      for i := 1 to 10 do // equalizer
+        Equalizer_Bands[i].theindex :=
+          uos_InputAddFilter(therecplayer, InputIndex3,
+          1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+          1, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, True, nil);
 
-          equalizerforec.onchangeall();
+      equalizerforec.onchangeall();
 
-       if commanderfo.speccalc.Value = True then // spectrum
+      if commanderfo.speccalc.Value = True then // spectrum
         for i := 1 to 10 do
-     uos_InputAddFilter(therecplayer, InputIndex3, 
-    3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
-    3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
+          uos_InputAddFilter(therecplayer, InputIndex3,
+            3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+            3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
 
-          /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
+      /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
       /// SoundTouch plugin should be the last added.
 
       if plugsoundtouch = True then
@@ -525,7 +563,7 @@ begin
       btnStop.Enabled   := True;
       btnresume.Enabled := False;
       InitDrawLive();
-      application.processmessages;
+      application.ProcessMessages;
       if cbloop.Value = True then
       begin
         uos_Play(therecplayer, -1);
@@ -567,8 +605,8 @@ procedure trecorderfo.doplayerpause(const Sender: TObject);
 begin
   //vuLeft.Visible    := False;
   //vuRight.Visible   := False;
-  vuright.Value       := 0;
-  vuleft.Value        := 0;
+  vuright.Value     := 0;
+  vuleft.Value      := 0;
   btnStop.Enabled   := True;
   btnPause.Enabled  := False;
   btnresume.Enabled := True;
@@ -579,7 +617,7 @@ procedure trecorderfo.doplayerstop(const Sender: TObject);
 begin
   cbloop.Enabled := True;
   uos_Stop(therecplayer);
-  application.processmessages;
+  application.ProcessMessages;
 end;
 
 procedure trecorderfo.changevolume(const Sender: TObject);
@@ -665,8 +703,7 @@ procedure trecorderfo.visiblechangeev(const Sender: TObject);
 begin
 
   if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
-   (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) 
-   and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
+    (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
     if Visible then
       mainfo.tmainmenu1.menu[4].submenu[7].Caption := ' Hide Recorder '
@@ -737,11 +774,11 @@ end;
 procedure trecorderfo.onplayercreate(const Sender: TObject);
 begin
   windowopacity := 0;
-  
+
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
- 
+
   setlength(arrecl, 10);
   setlength(arrecr, 10);
 
@@ -775,16 +812,16 @@ end;
 
 procedure trecorderfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
-if mainfo.ttimer2.Enabled then
-      mainfo.ttimer2.restart // to reset
-    else
-      mainfo.ttimer2.Enabled := True;
+  if mainfo.ttimer2.Enabled then
+    mainfo.ttimer2.restart // to reset
+  else
+    mainfo.ttimer2.Enabled := True;
 end;
 
 procedure trecorderfo.dorecorderstart(const Sender: TObject);
 var
   i, outformat: integer;
-  outformatst :  msestring;
+  outformatst: msestring;
 begin
   // if (bsavetofile.value = True) or (blistenin.value = True) then begin
 
@@ -792,7 +829,7 @@ begin
 
   if uos_CreatePlayer(therecplayer) then
   begin
-    application.processmessages;
+    application.ProcessMessages;
     cbloop.Enabled   := False;
     isrecording      := True;
     tbutton2.Enabled := True;
@@ -810,34 +847,34 @@ begin
 
     if bsavetofile.Value then
     begin
-    
-    if bwav.value then 
-     begin
-    outformatst := 'wav';
-    outformat := 0; 
-    end else
-    begin
-    outformatst := 'ogg';
-    outformat := 3;
-    end; 
 
-      historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) + 
-      'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' +
-       msestring(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.' + outformatst ;
+      if bwav.Value then
+      begin
+        outformatst := 'wav';
+        outformat   := 0;
+      end
+      else
+      begin
+        outformatst := 'ogg';
+        outformat   := 3;
+      end;
+
+      historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) +
+        'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' +
+        msestring(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.' + outformatst;
 
 
-      uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)), 
-       -1, -1, -1, 4096, outformat);
+      uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)), -1, -1, -1, 4096, outformat);
       if sentcue1.Value = True then
         songplayerfo.historyfn.Value := historyfn.Value;
     end;
 
 
-    OutputIndex3 := uos_AddIntoDevOut(therecplayer, configfo.devoutcfg.value, configfo.latrec.Value, -1, -1, -1, -1, -1);
+    OutputIndex3 := uos_AddIntoDevOut(therecplayer, configfo.devoutcfg.Value, configfo.latrec.Value, -1, -1, -1, -1, -1);
 
     uos_outputsetenable(therecplayer, OutputIndex3, blistenin.Value);
 
-    InputIndex3 :=  uos_AddFromDevIn(therecplayer, configfo.devincfg.value, -1, -1, -1, -1, -1, -1);
+    InputIndex3 := uos_AddFromDevIn(therecplayer, configfo.devincfg.Value, -1, -1, -1, -1, -1, -1);
     /// add Input from mic/aux into IN device with default parameters
 
     //    In1Index := uos_AddFromDevIn(therecplayer, configfo.devincfg.value, -1, -1, -1, 1, -1);
@@ -870,10 +907,10 @@ begin
     uos_InputSetDSPVolume(therecplayer, InputIndex3, edvol.Value / 100, edvolr.Value / 100, True);
 
     if commanderfo.speccalc.Value = True then
-               for i := 1 to 10 do
-     uos_InputAddFilter(therecplayer, InputIndex3, 
-    3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
-    3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
+      for i := 1 to 10 do
+        uos_InputAddFilter(therecplayer, InputIndex3,
+          3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
+          3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
 
 
     if plugsoundtouch = True then
@@ -891,8 +928,8 @@ begin
     llength.Value := '00:00:00.000';
 
     InitDrawLive();
-    
-    application.processmessages;
+
+    application.ProcessMessages;
 
     uos_Play(therecplayer);  /////// everything is ready to play...
 
@@ -1027,8 +1064,8 @@ begin
     btnStart.Enabled := False;
     btinfos.Enabled  := False;
   end;
-  
-   Equalizer_Bands[1].lo_freq  := 18;
+
+  Equalizer_Bands[1].lo_freq  := 18;
   Equalizer_Bands[1].hi_freq  := 46;
   Equalizer_Bands[1].Text     := '31';
   Equalizer_Bands[2].lo_freq  := 47;
@@ -1087,16 +1124,16 @@ var
   aplayer: integer;
   isenable: Boolean = False;
 begin
-    isenable := equalizerforec.EQEN.Value;
-   //if isenable then isenable := false else isenable := true;
+  isenable := equalizerforec.EQEN.Value;
+  //if isenable then isenable := false else isenable := true;
 
-    aplayer := therecplayer;
-   
-    //  if (btnStart.Enabled = true) then
-    uos_InputSetFilter(aplayer, InputIndex3, Equalizer_Bands[aindex].theindex, -1, -1, -1, Gainl, -1, -1, -1, Gainr,
-      True, nil, isenable);
-  end;
- 
+  aplayer := therecplayer;
+
+  //  if (btnStart.Enabled = true) then
+  uos_InputSetFilter(aplayer, InputIndex3, Equalizer_Bands[aindex].theindex, -1, -1, -1, Gainl, -1, -1, -1, Gainr,
+    True, nil, isenable);
+end;
+
 
 procedure trecorderfo.setequalizerenable(asender: integer; avalue: Boolean);
 var
@@ -1104,8 +1141,8 @@ var
   x: integer;
   avalset: Boolean;
 begin
- 
- aplayer := therecplayer;
+
+  aplayer := therecplayer;
 
   if avalue then
     avalset := False
@@ -1116,19 +1153,19 @@ begin
     uos_InputSetFilter(aplayer, InputIndex3, Equalizer_Bands[x].theindex, -1, -1, -1, -1, -1, -1, -1, -1, True, nil, avalset);
 end;
 
-procedure trecorderfo.onchangesave(const sender: TObject);
+procedure trecorderfo.onchangesave(const Sender: TObject);
 begin
-if bsavetofile.value then
- begin
-  bwav.enabled := true;
-  bogg.enabled := true;
- end else
- begin
-  bwav.enabled := false;
-  bogg.enabled := false;
- end; 
+  if bsavetofile.Value then
+  begin
+    bwav.Enabled := True;
+    bogg.Enabled := True;
+  end
+  else
+  begin
+    bwav.Enabled := False;
+    bogg.Enabled := False;
+  end;
 end;
-
 
 
 end.
