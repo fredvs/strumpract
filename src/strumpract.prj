@@ -301,7 +301,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=2
+ index=0
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -322,7 +322,7 @@ options=114
  index=1
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=1
+ index=2
  [projectoptionsfo]
  stackedunder=
  x=486
@@ -848,9 +848,12 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=0
-moduletypes=0
-modulefiles=0
+modulenames=1
+ IMAGEDANCERFO
+moduletypes=1
+ TIMAGEDANCERFO
+modulefiles=1
+ /home/fred/strumpract/src/imagedancer.mfm
 befcommandon=0
 makeoptionson=16
  4095
@@ -870,9 +873,9 @@ makeoptionson=16
  4095
  0
 compilerusedon=29
- 3119
+ 3111
  0
- 0
+ 8
  16
  0
  64
@@ -1663,44 +1666,53 @@ findhistory=20
  timer
  si1.cx := basedock.Width
 findoptions=1
-editpos=1
- 0,0
+editpos=2
+ 0,-1073741823
+ 10,1023
 bookmarks0=0
-sourcefiles=1
+bookmarks1=0
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
-relpaths=1
+ ${PROJECTDIR}/imagedancer.pas
+relpaths=2
  strumpract.pas
-ismoduletexts=1
+ imagedancer.pas
+ismoduletexts=2
  0
-modules=5
+ 0
+modules=6
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/imagedancer.mfm
+moduleoptions=6
  0
  0
  0
  0
  0
-visiblemodules=5
+ 0
+visiblemodules=6
  0
  0
  0
  0
  0
-nomenumodules=5
+ 0
+nomenumodules=6
  -1
  -1
  -1
  -1
  -1
+ 0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=1
 [layout]
-windowlayout=618
+windowlayout=638
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1748,7 +1760,7 @@ windowlayout=618
  cy=314
  rcx=0
  rcy=0
- wsize=0
+ wsize=5
  active=0
  visible=0
  [threadsfo]
@@ -2144,11 +2156,11 @@ windowlayout=618
  nx=0
  ny=0
  ncx=1197
- ncy=47
+ ncy=37
  x=0
  y=0
  cx=1212
- cy=45
+ cy=35
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2158,11 +2170,12 @@ windowlayout=618
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/strumpract.pas
- history=1
+ value=/home/fred/strumpract/src/imagedancer.pas
+ history=2
+  /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/strumpract.pas
  [debuggerfo.project_options]
- value=1
+ value=6
  [debuggerfo.hints]
  value=1
  [sourcefo]
@@ -2183,7 +2196,7 @@ windowlayout=618
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=1
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -2317,6 +2330,25 @@ windowlayout=618
  rcx=0
  rcy=0
  wsize=0
+ active=0
+ visible=0
+ [_mse_imagedancerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=confideufo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=403
+ y=251
+ cx=456
+ cy=354
+ rcx=0
+ rcy=0
+ wsize=5
  active=0
  visible=0
 [targetconsole]
