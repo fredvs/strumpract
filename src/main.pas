@@ -2,7 +2,7 @@
 unit main;
 
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
-{$I define.inc}
+{$I uos_define.inc}
 
 interface
 
