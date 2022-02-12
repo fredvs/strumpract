@@ -677,11 +677,11 @@ msgstr "Montri Dock Panel 4"
 msgid "Show Dock Panel 5"
 msgstr "Montri Dock Panel 5"
 
-msgid "&Panels"
-msgstr "&Paneloj"
+msgid "Panels"
+msgstr "Paneloj"
 
-msgid "&Show"
-msgstr "&Montri"
+msgid "Show"
+msgstr "Montri"
 
 msgid "Show/hide windows"
 msgstr "Montri/kaŝi fenestrojn"
@@ -805,6 +805,9 @@ msgstr "Agordu kiel defaŭltan"
 
 msgid "Recorder"
 msgstr "Registrilo"
+
+msgid "Hide"
+msgstr "Kaŝi"
 
 msgid "Use that grip panel to drag/drop the window."
 msgstr "Uzu tiun kroĉpanelon por treni/faligi la fenestron."

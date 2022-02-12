@@ -677,11 +677,11 @@ msgstr "Dock Panel 4 anzeigen"
 msgid "Show Dock Panel 5"
 msgstr "Dock Panel 5 anzeigen"
 
-msgid "&Panels"
-msgstr "&Panels"
+msgid "Panels"
+msgstr "Panels"
 
-msgid "&Show"
-msgstr "&Anzeigen"
+msgid "Show"
+msgstr "Anzeigen"
 
 msgid "Show/hide windows"
 msgstr "Fenster anzeigen/ausblenden"
@@ -805,6 +805,9 @@ msgstr "Als Standard festlegen"
 
 msgid "Recorder"
 msgstr "Rekorder"
+
+msgid "Hide"
+msgstr "Verstecken"
 
 msgid "Use that grip panel to drag/drop the window."
 msgstr "Verwenden Sie dieses Grifffeld, um das Fenster zu ziehen und abzulegen."

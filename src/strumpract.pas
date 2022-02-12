@@ -69,6 +69,7 @@ begin
 
   drumsfo.dragdock.Caption := 'Dru';
 
+{
   drumsfo.lesson1.hint := 'First lesson.' + #10 +
     'Count slowly 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, ...,' + #10 +
     'With the stick, hit the closed hat on each count.' + #10 +
@@ -92,42 +93,47 @@ begin
     'Do the same as 3th lesson but increasing the tempo.' + #10 +
     'On count "2" you may add a "boom" on the Bass Drum.' + #10 +
     'Congratulation, you are a drummer now. ;-)';
+}
 
   application.createform(tsongplayerfo, songplayerfo);
 
   application.createform(tsongplayerfo, songplayer2fo);
 
-  songplayerfo.Caption  := 'Player 1';
-  songplayer2fo.Caption := 'Player 2';
+ // songplayerfo.Caption  := 'Player 1';
+ // songplayer2fo.Caption := 'Player 2';
 
   songplayerfo.tag  := 0;
   songplayer2fo.tag := 1;
 
-  songplayerfo.tstringdisp2.Value  := 'Player 1';
-  songplayer2fo.tstringdisp2.Value := 'Player 2';
+//  songplayerfo.tstringdisp2.Value  := 'Player 1';
+//  songplayer2fo.tstringdisp2.Value := 'Player 2';
 
   songplayerfo.dragdock.Caption  := 'Pl1';
   songplayer2fo.dragdock.Caption := 'Pl2';
 
-  songplayerfo.tgroupbox1.hint  := ' Player 1 ';
-  songplayer2fo.tgroupbox1.hint := ' Player 2 ';
+//  songplayerfo.tgroupbox1.hint  := ' Player 1 ';
+//  songplayer2fo.tgroupbox1.hint := ' Player 2 ';
 
   application.createform(tspectrum1fo, spectrum1fo);
   application.createform(tspectrum1fo, spectrum2fo);
   application.createform(tspectrum1fo, spectrumrecfo);
 
-  spectrum1fo.Caption := 'Spectrum Player 1';
-  spectrum2fo.Caption := 'Spectrum Player 2';
+//  spectrum1fo.Caption := 'Spectrum Player 1';
+  spectrum1fo.tag := 0;
+//  spectrum2fo.Caption := 'Spectrum Player 2';
+  spectrum2fo.tag := 1;
 
-  spectrum1fo.Spect1.frame.Caption   := 'Spectrum Player 1     ';
-  spectrum2fo.Spect1.frame.Caption   := 'Spectrum Player 2     ';
-  spectrumrecfo.Spect1.frame.Caption := 'Spectrum Recorder   ';
+//  spectrum1fo.Spect1.frame.Caption   := 'Spectrum Player 1     ';
+//  spectrum2fo.Spect1.frame.Caption   := 'Spectrum Player 2     ';
+//  spectrumrecfo.Spect1.frame.Caption := 'Spectrum Recorder   ';
 
   spectrum1fo.dragdock.Caption := 'Sp1';
   spectrum2fo.dragdock.Caption := 'Sp2';
 
-  spectrumrecfo.Caption          := 'Spectrum Recorder';
+//  spectrumrecfo.Caption          := 'Spectrum Recorder';
   spectrumrecfo.dragdock.Caption := 'SpR';
+  
+  spectrumrecfo.tag := 2;
 
   application.createform(tequalizerfo, equalizerfo1);
   application.createform(tequalizerfo, equalizerfo2);
@@ -137,13 +143,13 @@ begin
   equalizerfo2.dragdock.Caption   := 'Eq2';
   equalizerforec.dragdock.Caption := 'EqR';
 
-  equalizerfo1.Caption   := 'Equalizer Player 1';
-  equalizerfo2.Caption   := 'Equalizer Player 2';
-  equalizerforec.Caption := 'Equalizer Recorder';
+//  equalizerfo1.Caption   := 'Equalizer Player 1';
+//  equalizerfo2.Caption   := 'Equalizer Player 2';
+//  equalizerforec.Caption := 'Equalizer Recorder';
 
-  equalizerfo1.eqen.frame.Caption   := 'Equalizer Player 1      ';
-  equalizerfo2.eqen.frame.Caption   := 'Equalizer Player 2      ';
-  equalizerforec.eqen.frame.Caption := 'Equalizer Recorder    ';
+//  equalizerfo1.eqen.frame.Caption   := 'Equalizer Player 1      ';
+//  equalizerfo2.eqen.frame.Caption   := 'Equalizer Player 2      ';
+//  equalizerforec.eqen.frame.Caption := 'Equalizer Recorder    ';
 
   equalizerfo1.tag   := 0;
   equalizerfo2.tag   := 1;
@@ -154,19 +160,20 @@ begin
   filelistfo.dragdock.Caption := 'Fil';
 
   application.createform(twavefo, wavefo);
-  wavefo.Caption := 'Wave Player 1';
-  wavefo.tag     := 1;
+//  wavefo.Caption := 'Wave Player 1';
+  wavefo.tag     := 0;
   wavefo.dragdock.Caption := 'Wa1';
   //wavefo.waveon.frame.Caption := 'Enable Wave 1';
 
   application.createform(twavefo, wavefo2);
-  wavefo2.Caption := 'Wave Player 2';
-  wavefo2.tag     := 2;
+//  wavefo2.Caption := 'Wave Player 2';
+  wavefo2.tag     := 1;
   wavefo2.dragdock.Caption := 'Wa2';
   //wavefo2.waveon.frame.Caption := 'Enable Wave 2';
 
   application.createform(twavefo, waveforec);
-  waveforec.Caption          := 'Wave Recorder';
+//  waveforec.Caption          := 'Wave Recorder';
+  waveforec.tag     := 2;
   waveforec.dragdock.Caption := 'WaR';
 
   with  waveforec do
@@ -197,8 +204,8 @@ begin
   application.createform(tinfosfo, infosfo2);
   //application.createform(tinfosfo, infosforec);
 
-  infosfo.Caption  := 'Infos Player 1';
-  infosfo2.Caption := 'Infos Player 2';
+ // infosfo.Caption  := 'Infos Player 1';
+ // infosfo2.Caption := 'Infos Player 2';
   //infosforec.Caption := 'Infos Recorder';
 
   application.createform(tstatusfo, statusfo);
@@ -229,7 +236,6 @@ begin
   application.createform(tmainfo, mainfo);
   conflangfo.icon := mainfo.icon;
   
-
   application.run;
 
 {$ifdef unix}

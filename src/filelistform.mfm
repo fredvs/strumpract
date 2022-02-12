@@ -1060,8 +1060,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 6
-      bounds_y = 41
+      bounds_x = 2
+      bounds_y = 97
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

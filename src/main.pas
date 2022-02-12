@@ -222,8 +222,7 @@ with mainfo do
       
       caption := lang_mainfo[Ord(ma_mainfo)] + ' ' + versiontext;  {'StrumPract'}
 
-      basedock.dragdock.caption := lang_mainfo[Ord(ma_basedockdragdock)];  {'Dock any window on this area.'}
-      basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdockingarea)];  {'Drag a form here using right-border grip.'}
+      basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  {'Drag a form here using right-border grip.'}
 
       tmainmenu1.menu.itembynames(['dock']).caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
       tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
@@ -265,42 +264,168 @@ with mainfo do
 
       tmainmenu1.menu.itembynames(['show','hideall']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_hideall)];  {'Hide All'}
 
-      tmainmenu1.menu.itembynames(['show','showdrums']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showdrums)];  {'Show Drums'}
+      if drumsfo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showdrums']).caption := str +
+         lang_commanderfo[Ord(co_namedrums_hint)];
+      
+     //  lang_mainfo[Ord(ma_tmainmenu1_parentitem_showdrums)];  {'Show Drums'}
+     
+      if filelistfo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+    
+     tmainmenu1.menu.itembynames(['show','showlist']).caption :=  str + 
+        lang_mainfo[Ord(ma_fileslist)];
 
-      tmainmenu1.menu.itembynames(['show','showlist']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showlist)];  {'Show File List'}
+    //  tmainmenu1.menu.itembynames(['show','showlist']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showlist)];  {'Show File List'}
 
-      tmainmenu1.menu.itembynames(['show','showplay1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showplay1)];  {'Show Player 1'}
 
-      tmainmenu1.menu.itembynames(['show','showplay2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showplay2)];  {'Show Player 2'}
+      if songplayerfo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showplay1']).caption := str +
+      lang_commanderfo[Ord(co_nameplayers_hint)];
+    
+    //  tmainmenu1.menu.itembynames(['show','showplay1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showplay1)];  {'Show Player 1'}
 
-      tmainmenu1.menu.itembynames(['show','showcommander']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showcommander)];  {'Show Commander'}
+       if songplayer2fo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showplay2']).caption := str +
+      lang_commanderfo[Ord(co_nameplayers2_hint)];
+ 
+   //   tmainmenu1.menu.itembynames(['show','showplay2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showplay2)];  {'Show Player 2'}
+  
+     if commanderfo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showcommander']).caption := str +
+      lang_commanderfo[Ord(co_commanderfo)];
+ 
+    //  tmainmenu1.menu.itembynames(['show','showcommander']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showcommander)];  {'Show Commander'}
 
-      tmainmenu1.menu.itembynames(['show','showrecorder']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showrecorder)];  {'Show Recorder'}
+     if recorderfo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showrecorder']).caption := str +
+      lang_mainfo[Ord(ma_recorder)];
+ 
+    //  tmainmenu1.menu.itembynames(['show','showrecorder']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showrecorder)];  {'Show Recorder'}
 
-      tmainmenu1.menu.itembynames(['show','show guitar']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showguitar)];  {'Show Guitars'}
+    if guitarsfo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showguitar']).caption := str +
+      lang_mainfo[Ord(ma_guitars)];
+  
+     // tmainmenu1.menu.itembynames(['show','show guitar']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showguitar)];  {'Show Guitars'}
 
-      tmainmenu1.menu.itembynames(['show','showspectrum1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrum1)];  {'Show Spectrum 1'}
+    if spectrum1fo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showspectrum1']).caption := str +
+      lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];       
+   
+    //  tmainmenu1.menu.itembynames(['show','showspectrum1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrum1)];  {'Show Spectrum 1'}
 
-      tmainmenu1.menu.itembynames(['show','showspectrum2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrum2)];  {'Show Spectrum 2'}
+     if spectrum2fo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showspectrum2']).caption := str +
+      lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];       
+   
+    //  tmainmenu1.menu.itembynames(['show','showspectrum2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrum2)];  {'Show Spectrum 2'}
+ 
+     if spectrumrecfo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showspectrumrec']).caption := str +
+      lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_mainfo[Ord(ma_recorder)];       
+    
+     // tmainmenu1.menu.itembynames(['show','showspectrumrec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrumrec)];  {'Show Spectrum Rec'}
+ 
+     if wavefo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showwave1']).caption := str +
+      lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];       
+   
+     // tmainmenu1.menu.itembynames(['show','showwave1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwave1)];  {'Show WaveForm 1'}
 
-      tmainmenu1.menu.itembynames(['show','showspectrumrec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrumrec)];  {'Show Spectrum Rec'}
+    if wavefo2.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showwave2']).caption := str +
+      lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];       
 
-      tmainmenu1.menu.itembynames(['show','showwave1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwave1)];  {'Show WaveForm 1'}
+    //  tmainmenu1.menu.itembynames(['show','showwave2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwave2)];  {'Show WaveForm 2'}
+   
+    if waveforec.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showwaverec']).caption := str +
+      lang_mainfo[Ord(ma_waveform)] + ' ' + lang_mainfo[Ord(ma_recorder)];         
+ 
+  //    tmainmenu1.menu.itembynames(['show','showwaverec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwaverec)];  {'Show WaveForm Rec'}
 
-      tmainmenu1.menu.itembynames(['show','showwave2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwave2)];  {'Show WaveForm 2'}
+  if equalizerfo1.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showequ1']).caption := str +
+      lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];         
+ 
+//      tmainmenu1.menu.itembynames(['show','showequ1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequ1)];  {'Show Equalizer 1'}
 
-      tmainmenu1.menu.itembynames(['show','showwaverec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwaverec)];  {'Show WaveForm Rec'}
+ if equalizerfo2.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showequ2']).caption := str +
+      lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];         
 
-      tmainmenu1.menu.itembynames(['show','showequ1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequ1)];  {'Show Equalizer 1'}
+//      tmainmenu1.menu.itembynames(['show','showequ2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequ2)];  {'Show Equalizer 2'}
 
-      tmainmenu1.menu.itembynames(['show','showequ2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequ2)];  {'Show Equalizer 2'}
+ if equalizerforec.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showequrec']).caption := str +
+      lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];          
 
-      tmainmenu1.menu.itembynames(['show','showequrec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequrec)];  {'Show Equalizer Rec'}
+//      tmainmenu1.menu.itembynames(['show','showequrec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequrec)];  {'Show Equalizer Rec'}
 
-      tmainmenu1.menu.itembynames(['show','showchords']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showchords)];  {'Show Chord Randomizer'}
+   if equalizerforec.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showchords']).caption := str +
+      lang_randomnotefo[Ord(ra_randomnotefo)] ;          
 
-      tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showimagedancer)];  {'Show Image Dancer'}
+//      tmainmenu1.menu.itembynames(['show','showchords']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showchords)];  {'Show Chord Randomizer'}
 
+  if imagedancerfo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := str +
+      lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;          
+
+//      tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showimagedancer)];  {'Show Image Dancer'}
 
       tmainmenu1.menu.itembynames(['show','panels','showpanel1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel1)];  {'Show Dock Panel 1'}
 
@@ -424,11 +549,13 @@ with infosfo do
   
 with songplayerfo do
   begin
+      caption := lang_commanderfo[Ord(co_nameplayers_hint)];
+    
       frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];;  {' Use that grip panel to drag/drop the window. '}
 
-      dragdock.caption := lang_songplayerfo[Ord(so_songplayerfodragdock)];  {' Play1 '}
-
       tgroupbox1.hint := lang_commanderfo[Ord(co_nameplayers_hint)];  {' Player 1 '}
+      
+      tstringdisp2.value := lang_commanderfo[Ord(co_nameplayers_hint)];
 
       edvolleft.hint := lang_songplayerfo[Ord(so_edvolleft_hint)];  {' Change Left volume '}
 
@@ -477,7 +604,7 @@ with songplayerfo do
 
       playreverseb.hint := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
       waveformcheckb.hint := lang_songplayerfo[Ord(so_waveformcheck_hint)];  {' Show wave form in slider '}
-     setmonob.hint := lang_songplayerfo[Ord(so_setmono_hint)];  {' Set Mono-Stereo '}
+      setmonob.hint := lang_songplayerfo[Ord(so_setmono_hint)];  {' Set Mono-Stereo '}
       cbtempob.hint := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
       hintlabel.caption := lang_commanderfo[Ord(co_hintlabel)];  {'Invalid value.  Reset to 100.'}
 
@@ -490,10 +617,10 @@ with recorderfo do
       caption := lang_mainfo[Ord(ma_recorder)];
       frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];  {' Use that grip panel to drag/drop the window. '}
 
-   //   dragdock.caption := lang_songplayerfo[Ord(so_songplayerfodragdock)];  {' Play1 '}
-
-     tgroupbox1.hint := lang_commanderfo[Ord(co_nameplayers2_hint)]; {' Player 1 '}
-
+       tgroupbox1.hint := lang_mainfo[Ord(ma_recorder)]; {' Player 1 '}
+     
+      tstringdisp2.value := lang_mainfo[Ord(ma_recorder)];
+ 
       edvol.hint := lang_songplayerfo[Ord(so_edvolleft_hint)];  {' Change Left volume '}
 
       button1.hint := lang_songplayerfo[Ord(so_button1_hint)];  {' Reset to tempo original '}
@@ -502,7 +629,7 @@ with recorderfo do
 
       historyfn.hint := lang_songplayerfo[Ord(so_historyfn_hint)];  {' History of Cue files '}
 
-      tstringdisp2.hint := lang_mainfo[Ord(ma_recorder)];  {' Player 1 '}
+      tstringdisp2.hint := lang_mainfo[Ord(ma_recorder)];  {' Recorder'}
 
       edvolr.hint := lang_songplayerfo[Ord(so_edvolright_hint)];  {' Change Right volume '}
 
@@ -516,7 +643,6 @@ with recorderfo do
       btnResume.hint := lang_songplayerfo[Ord(so_btnResume_hint)];  {' Resume player '}
 
       btnStart.hint := lang_songplayerfo[Ord(so_btnStart_hint)];  {' Load from cue and Start player '}
-
     
       btnPause.hint := lang_commanderfo[Ord(co_btnPause_hint)];  {' Pause player '}
 
@@ -539,12 +665,16 @@ with recorderfo do
   
 with songplayer2fo do
   begin
+      caption := lang_commanderfo[Ord(co_nameplayers2_hint)];
+         
       frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];;  {' Use that grip panel to drag/drop the window. '}
 
-      dragdock.caption := lang_songplayerfo[Ord(so_songplayerfodragdock)];  {' Play1 '}
+    //  dragdock.caption := lang_songplayerfo[Ord(so_songplayerfodragdock)];  {' Play2 '}
 
-      tgroupbox1.hint := lang_commanderfo[Ord(co_nameplayers2_hint)]; {' Player 1 '}
-
+      tgroupbox1.hint := lang_commanderfo[Ord(co_nameplayers2_hint)]; {' Player 2 '}
+      
+      tstringdisp2.value := lang_commanderfo[Ord(co_nameplayers2_hint)];
+ 
       edvolleft.hint := lang_songplayerfo[Ord(so_edvolleft_hint)];  {' Change Left volume '}
 
       button1.hint := lang_songplayerfo[Ord(so_button1_hint)];  {' Reset to tempo original '}
@@ -598,14 +728,18 @@ with songplayer2fo do
 
       hintlabel2.caption := lang_commanderfo[Ord(co_hintlabel2)];  {'Or press Esc key for previous value.'}
 
-  end;    
-
-    
- with commanderfo do
+  end;   
+  
+  with guitarsfo do
   begin
-      frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];  {'Use that grip panel to drag/drop the window.'}
+  caption := lang_mainfo[Ord(ma_guitars)];
+  
+  end; 
 
-      dragdock.caption := lang_commanderfo[Ord(co_commanderfo)];  {'Com'}
+   with commanderfo do
+  begin
+     
+      frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];  {'Use that grip panel to drag/drop the window.'}
 
       caption := lang_commanderfo[Ord(co_commanderfo)];  {'Commander'}
 
@@ -739,7 +873,9 @@ with songplayer2fo do
   
 with equalizerfo1 do
   begin
-     
+      caption := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];         
+      EQEN.frame.caption := caption; 
+      tstringdisp21.width := EQEN.width + 2;
       groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
       //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
       loadset.hint := lang_equalizerfo[Ord(eq_loadset_hint)];  {' Load a Settings file  '}
@@ -752,7 +888,10 @@ with equalizerfo1 do
 
 with equalizerfo2 do
   begin
-      groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
+       caption := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];         
+       EQEN.frame.caption := caption; 
+        tstringdisp21.width := EQEN.width + 2;
+       groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
       //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
       loadset.hint := lang_equalizerfo[Ord(eq_loadset_hint)];  {' Load a Settings file  '}
       loadset.caption := lang_filelistfo[Ord(fi_tbutton3)];  {'Load'}
@@ -764,6 +903,9 @@ with equalizerfo2 do
   
   with equalizerforec do
   begin
+      caption := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];  
+       EQEN.frame.caption := caption; 
+      tstringdisp21.width := EQEN.width + 2;
       groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
       //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
       loadset.hint := lang_equalizerfo[Ord(eq_loadset_hint)];  {' Load a Settings file  '}
@@ -777,10 +919,11 @@ with equalizerfo2 do
 
 with spectrum1fo do
   begin
-      dragdock.caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {' Spect '}
-
-      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {'Spectrum'}
-
+      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)]+ ' ' + lang_commanderfo[Ord(co_nameplayers_hint)]; 
+           
+      Spect1.frame.caption := caption; 
+      tstringdisp2.width := Spect1.width + 2;
+  
       groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];   {'right'}
       tchartright.hint := lang_spectrum1fo[Ord(sp_tchartright_hint)];  {' Right Frequency spectrum '}
 
@@ -794,10 +937,11 @@ with spectrum1fo do
   
 with spectrum2fo do
   begin
-      dragdock.caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {' Spect '}
-
-      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {'Spectrum'}
-
+      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)]+ ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)]; 
+      
+       Spect1.frame.caption := caption; 
+      tstringdisp2.width := Spect1.width + 2;
+  
       groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];   {'right'}
       tchartright.hint := lang_spectrum1fo[Ord(sp_tchartright_hint)];  {' Right Frequency spectrum '}
 
@@ -811,10 +955,11 @@ with spectrum2fo do
   
 with spectrumrecfo do
   begin
-      dragdock.caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {' Spect '}
-
-      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {'Spectrum'}
-
+      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_mainfo[Ord(ma_recorder)]; 
+      
+        Spect1.frame.caption := caption; 
+      tstringdisp2.width := Spect1.width + 2;
+  
       groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];   {'right'}
       tchartright.hint := lang_spectrum1fo[Ord(sp_tchartright_hint)];  {' Right Frequency spectrum '}
 
@@ -824,13 +969,28 @@ with spectrumrecfo do
 
       tstringdisp2.hint := lang_spectrum1fo[Ord(sp_tstringdisp2_hint)];  {'Enable Spectrum'}
 
-  end;    
+  end;
+  
+with wavefo do
+begin
+caption := lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];
+end;
+
+with wavefo2 do
+begin
+caption := lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];
+end; 
+
+with waveforec do
+begin
+caption := lang_mainfo[Ord(ma_waveform)] + ' ' + lang_mainfo[Ord(ma_recorder)];
+end;      
   
 with filelistfo do
   begin
       filelistfo.frame.grip_hint := lang_filelistfo[Ord(fi_filelistfoframegriphint)];  {' Use this grip panel to drag/drop the window'}
 
-      filelistfo.dragdock.caption := lang_filelistfo[Ord(fi_filelistfo)];  {'Files'}
+    //  filelistfo.dragdock.caption := lang_filelistfo[Ord(fi_filelistfo)];  {'Files'}
 
       filelistfo.caption := lang_filelistfo[Ord(fi_filelistfo)];  {'Audio files'}
 
@@ -866,11 +1026,14 @@ with filelistfo do
 
 with drumsfo do
   begin
-      drumsfo.frame.grip_hint := lang_filelistfo[Ord(fi_filelistfoframegriphint)];  {' Use that grip panel to drag/drop Drums form. '}
+      
+      frame.grip_hint := lang_filelistfo[Ord(fi_filelistfoframegriphint)];  {' Use that grip panel to drag/drop Drums form. '}
 
-      drumsfo.dragdock.caption := lang_commanderfo[Ord(co_namedrums_hint)];  {' Drums '}
+      caption := lang_commanderfo[Ord(co_namedrums_hint)];  {' Drums '}
 
-      tdockpanel1.hint := lang_commanderfo[Ord(co_namedrums_hint)];  {' Drums set '}
+       tstringdisp2.value := caption;
+       
+        tdockpanel1.hint := lang_commanderfo[Ord(co_namedrums_hint)];  {' Drums set '}
 
       labd.caption := lang_drumsfo[Ord(dr_labd)];  {'Bass'}
 
@@ -3695,8 +3858,10 @@ begin
       groupbox1.color    := $D2D8A5;
       groupbox2.color    := $D2D8A5;
       //  EQEN.colorglyph    := thecolor1;
+      tstringdisp21.color := $D2D8A5;
       EQEN.frame.font.color := thecolor1;
       EQEN.frame.colorclient := $D2D8A5;
+      
       EQEN.color         := $D2D8A5;
     end;
 
@@ -4453,6 +4618,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox1.color    := cl_default;
       groupbox2.color    := cl_default;
       //EQEN.colorglyph    := ltblack;
+        tstringdisp21.color := cl_default;
+    
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
       EQEN.color         := cl_default;
@@ -5318,6 +5485,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       groupbox1.color    := $3A3A3A;
       groupbox2.color    := $3A3A3A;
       //EQEN.colorglyph    := ltblank;
+       tstringdisp21.color := $4A4A4A;
+    
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
       EQEN.color         := $3A3A3A;

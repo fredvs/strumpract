@@ -192,6 +192,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   songplayer,
   drums,
   filelistform,
@@ -574,14 +575,24 @@ end;
 
 procedure tcommanderfo.visiblechangeev(const Sender: TObject);
 begin
-  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
+  if (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
     (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and
     (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
+        
     if Visible then
-      mainfo.tmainmenu1.menu[4].submenu[6].Caption := ' Hide Commander '
-    else
-      mainfo.tmainmenu1.menu[4].submenu[6].Caption := ' Show Commander ';
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showcommander']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_commanderfo[Ord(co_commanderfo)];
+          end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showcommander']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_commanderfo[Ord(co_commanderfo)];
+         end;
+   
     if norefresh = False then
     begin
       mainfo.updatelayoutstrum();

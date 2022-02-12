@@ -170,6 +170,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   main,
   imagedancer,
   commander,
@@ -558,7 +559,7 @@ begin
   if tag = 0 then
   begin
     theplaying1    := '';
-    wavefo.Caption := 'Wave Player 1';
+    //wavefo.Caption := 'Wave Player 1';
 
     iswav  := False;
     iscue1 := False;
@@ -597,7 +598,7 @@ begin
   if tag = 1 then
   begin
     theplaying2     := '';
-    wavefo2.Caption := 'Wave Player 2';
+    //wavefo2.Caption := 'Wave Player 2';
     iswav2          := False;
     iscue2          := False;
 
@@ -2459,25 +2460,39 @@ end;
 
 procedure tsongplayerfo.visiblechangeev(const Sender: TObject);
 begin
-  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
+  if  (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-    if tag = 0 then
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[4].Caption := ' Hide Player 1 '
+    
+     if tag = 0 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showplay1']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_commanderfo[Ord(co_nameplayers_hint)];
+         end
       else
-      begin
-        uos_Stop(theplayer);
-        mainfo.tmainmenu1.menu[4].submenu[4].Caption := ' Show Player 1 ';
-      end;
-
-    if tag = 1 then
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[5].Caption := ' Hide Player 2 '
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showplay1']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_commanderfo[Ord(co_nameplayers_hint)];
+          uos_Stop(theplayer);
+        end;
+        
+     if tag = 1 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showplay2']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_commanderfo[Ord(co_nameplayers2_hint)];
+         end
       else
-      begin
-        uos_Stop(theplayer2);
-        mainfo.tmainmenu1.menu[4].submenu[5].Caption := ' Show Player 2 ';
-      end;
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showplay2']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_commanderfo[Ord(co_nameplayers2_hint)];
+          uos_Stop(theplayer2);
+        end;
+     
     if norefresh = False then
     begin
       mainfo.updatelayoutstrum();

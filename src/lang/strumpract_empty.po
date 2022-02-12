@@ -677,10 +677,10 @@ msgstr ""
 msgid "Show Dock Panel 5"
 msgstr ""
 
-msgid "&Panels"
+msgid "Panels"
 msgstr ""
 
-msgid "&Show"
+msgid "Show"
 msgstr ""
 
 msgid "Show/hide windows"
@@ -805,6 +805,10 @@ msgstr ""
 
 msgid "Recorder"
 msgstr ""
+
+msgid "Hide"
+msgstr ""
+
 
 msgid "Use that grip panel to drag/drop the window."
 msgstr ""

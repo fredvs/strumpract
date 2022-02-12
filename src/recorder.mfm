@@ -516,7 +516,7 @@ object recorderfo: trecorderfo
       hint = ' Choose a filename for saving  '
       bounds_x = 37
       bounds_y = 3
-      bounds_cx = 335
+      bounds_cx = 317
       bounds_cy = 22
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -578,13 +578,14 @@ object recorderfo: trecorderfo
       frame.colorhighlight = -1610612733
       frame.localprops = [frl_levelo, frl_colorhighlight]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = tfacerecrev
       taborder = 17
       hint = ' Input recorder '
-      bounds_x = 374
+      bounds_x = 355
       bounds_y = 3
-      bounds_cx = 57
+      bounds_cx = 76
       bounds_cy = 22
       font.color = 3881787
       font.height = 10
@@ -655,9 +656,6 @@ object recorderfo: trecorderfo
     end
     object tbutton3: tbutton
       color = -2147483645
-      frame.optionsskin = [fso_flat]
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder

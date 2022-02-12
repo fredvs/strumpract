@@ -677,11 +677,11 @@ msgstr "Mostrar Painel Dock 4"
 msgid "Show Dock Panel 5"
 msgstr "Mostrar Painel Dock 5"
 
-msgid "&Panels"
-msgstr "&Painéis"
+msgid "Panels"
+msgstr "Painéis"
 
 msgid "&Show"
-msgstr "&Mostrar"
+msgstr "Mostrar"
 
 msgid "Show/hide windows"
 msgstr "Mostrar/ocultar janelas"
@@ -805,6 +805,9 @@ msgstr "Definir como padrão"
 
 msgid "Recorder"
 msgstr "Gravador"
+
+msgid "Hide"
+msgstr "Esconder"
 
 msgid "Use that grip panel to drag/drop the window."
 msgstr "Use esse painel de controle para arrastar/soltar a janela."

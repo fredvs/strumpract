@@ -677,11 +677,11 @@ msgstr "Pokaż panel dokowania 4"
 msgid "Show Dock Panel 5"
 msgstr "Pokaż panel dokowania 5"
 
-msgid "&Panels"
-msgstr "&Panele"
+msgid "Panels"
+msgstr "Panele"
 
-msgid "&Show"
-msgstr "&Pokaż"
+msgid "Show"
+msgstr "Pokaż"
 
 msgid "Show/hide windows"
 msgstr "Pokaż/ukryj okna"
@@ -805,6 +805,9 @@ msgstr "Ustaw jako domyślny"
 
 msgid "Recorder"
 msgstr "Rejestrator"
+
+msgid "Hide"
+msgstr "Ukrywać"
 
 msgid "Use that grip panel to drag/drop the window."
 msgstr "Użyj tego panelu uchwytów, aby przeciągnąć/upuścić okno."

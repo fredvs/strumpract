@@ -198,7 +198,7 @@ var
 implementation
 
 uses 
-main, uos_flat, commander, config, dockpanel1, 
+main, captionstrumpract, uos_flat, commander, config, dockpanel1, 
 drums_mfm, randomnote;
 
 procedure tdrumsfo.ontimersent(Const Sender: TObject);
@@ -815,18 +815,22 @@ end;
 
 procedure tdrumsfo.visiblechangeev(Const Sender: TObject);
 begin
-  if (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(
+  if (isactivated = true) and (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(
      dockpanel3fo))
      and (assigned(dockpanel4fo)) and (assigned(dockpanel5fo)) then
     begin
+    
       if Visible then
         begin
-          mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Hide Drums ';
-        end
+          mainfo.tmainmenu1.menu.itembynames(['show','showdrums']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_commanderfo[Ord(co_namedrums_hint)];
+         end
       else
         begin
-          // dostop(Sender);
-          mainfo.tmainmenu1.menu[4].submenu[2].Caption := ' Show Drums ';
+          mainfo.tmainmenu1.menu.itembynames(['show','showdrums']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_commanderfo[Ord(co_namedrums_hint)];
         end;
 
       if norefresh = false then

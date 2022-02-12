@@ -74,6 +74,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   songplayer,
   recorder,
   main,
@@ -104,16 +105,17 @@ end;
 procedure twavefo.onresiztimer(const Sender: TObject);
 begin
 
-  if Caption <> 'Wave Recorder' then
+  if tag <> 2 then
     trackbar1.Width := Width - 15;
 
-  if ((tag = 1) and (Assigned(songplayerfo))) or ((tag = 2) and (Assigned(songplayer2fo))) or ((Caption = 'Wave Recorder') and (Assigned(recorderfo)) and (islive = False)) then
+  if ((tag = 0) and (Assigned(songplayerfo))) or ((tag = 1) and (Assigned(songplayer2fo)))
+  or ((tag = 2) and (Assigned(recorderfo)) and (islive = False)) then
   begin
     doechelle(nil);
     echelle.Visible  := True;
     trackbar1.Height := Height - echelle.Height;
   end
-  else if ((Caption = 'Wave Recorder') and (Assigned(recorderfo)) and (islive = True)) then
+  else if ((tag = 2) and (Assigned(recorderfo)) and (islive = True)) then
   begin
     trackbar1.Width  := waveforec.Width - 11;
     trackbar1.Height := waveforec.Height - 18;
@@ -132,11 +134,11 @@ var
 begin
   totsec := 0;
 
-  if (tag = 1) and (Assigned(songplayerfo)) and
+  if (tag = 0) and (Assigned(songplayerfo)) and
     (hascue = True) and (totsec1 > 0) then
     totsec := totsec1;
 
-  if (tag = 2) and (Assigned(songplayer2fo)) and
+  if (tag = 1) and (Assigned(songplayer2fo)) and
     (hascue2 = True) and (totsec2 > 0) then
     totsec := totsec2;
 
@@ -173,10 +175,10 @@ end;
 procedure twavefo.ontimer(const Sender: TObject);
 begin
 
-  if (tag = 1) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
+  if (tag = 0) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
     songplayerfo.onwavform(Sender);
 
-  if (tag = 2) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
+  if (tag = 1) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
     songplayer2fo.onwavform(Sender);
 
 end;
@@ -196,26 +198,53 @@ end;
 procedure twavefo.onvisiblech(const Sender: TObject);
 begin
 
-  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and
+  if (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and
     (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-    if (tag = 1) then
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[12].Caption := ' Hide WaveForm 1 '
+   
+     if tag = 0 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showwave1']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];       
+   
+         end
       else
-        mainfo.tmainmenu1.menu[4].submenu[12].Caption := ' Show WaveForm 1 ';
-
-    if (tag = 2) then
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[13].Caption := ' Hide WaveForm 2 '
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showwave1']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];       
+         end;
+        
+     if tag = 1 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showwave2']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];       
+        end
       else
-        mainfo.tmainmenu1.menu[4].submenu[13].Caption := ' Show WaveForm 2 ';
-
-    if (Caption = 'Wave Recorder') then
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[14].Caption := ' Hide WaveForm Rec '
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showwave2']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];       
+        end;
+        
+    if tag = 2 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showwaverec']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_mainfo[Ord(ma_recorder)];        
+        end
       else
-        mainfo.tmainmenu1.menu[4].submenu[14].Caption := ' Show WaveForm Rec ';
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showwaverec']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_mainfo[Ord(ma_recorder)];       
+        end;    
+         
 
     if norefresh = False then
     begin
@@ -256,23 +285,23 @@ begin
     if tmenuitem(Sender).tag = 0 then
       trackbar1.Width := Width - 10;
 
-    if (tag = 1) and (tmenuitem(Sender).tag = 1) and (trackbar1.Width * 2 < Inputlength1 div 64) and
+    if (tag = 0) and (tmenuitem(Sender).tag = 1) and (trackbar1.Width * 2 < Inputlength1 div 64) and
       ((trackbar1.Width * 2) div rect1.cx < 16) then
       trackbar1.Width := trackbar1.Width * 2;
 
-    if (tag = 2) and (tmenuitem(Sender).tag = 1) and (trackbar1.Width * 2 < Inputlength2 div 64) and
+    if (tag = 1) and (tmenuitem(Sender).tag = 1) and (trackbar1.Width * 2 < Inputlength2 div 64) and
       ((trackbar1.Width * 2) div rect1.cx < 16) then
       trackbar1.Width := trackbar1.Width * 2;
+
+    if (tag = 0) and (tmenuitem(Sender).tag = 2) and (trackbar1.Width div 2 > Width - 30) then
+      trackbar1.Width := trackbar1.Width div 2;
 
     if (tag = 1) and (tmenuitem(Sender).tag = 2) and (trackbar1.Width div 2 > Width - 30) then
       trackbar1.Width := trackbar1.Width div 2;
 
-    if (tag = 2) and (tmenuitem(Sender).tag = 2) and (trackbar1.Width div 2 > Width - 30) then
-      trackbar1.Width := trackbar1.Width div 2;
-
   end;
 
-  if (tag = 1) then
+  if (tag = 0) then
     if (trackbar1.Width div Width) + 1 = 31 then
     begin
       zoomint1 := (trackbar1.Width div Width) + 2;
@@ -284,7 +313,7 @@ begin
       tmainmenu1.menu[2].Caption := utf8decode(' Now=X' + IntToStr(zoomint1));
     end;
 
-  if (tag = 2) then
+  if (tag = 1) then
     if (trackbar1.Width div Width) + 1 = 31 then
     begin
       zoomint2 := (trackbar1.Width div Width) + 2;
@@ -296,13 +325,13 @@ begin
       tmainmenu1.menu[2].Caption := utf8decode(' Now=X' + IntToStr(zoomint2));
     end;
 
-  if (tag = 1) or (tag = 2) then
+  if (tag = 0) or (tag = 1) then
     doechelle(Sender);
 
-  if (tag = 1) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
+  if (tag = 0) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
     songplayerfo.onwavform(Sender);
 
-  if (tag = 2) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
+  if (tag = 1) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
     songplayer2fo.onwavform(Sender);
 
 end;
@@ -321,10 +350,10 @@ procedure twavefo.onafterev(const Sender: tcustomscrollbar; const akind: scrolle
 begin
   onsliderchange(Sender);
 
-  if (tag = 1) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
+  if (tag = 0) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
     songplayerfo.onafterev(Sender, akind, avalue);
 
-  if (tag = 2) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
+  if (tag = 1) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
     songplayer2fo.onafterev(Sender, akind, avalue);
 end;
 
@@ -336,14 +365,14 @@ begin
   if trackbar1.clicked then
   begin
 
-    if (tag = 1) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
+    if (tag = 0) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
     begin
       temptime := tottime1 * TrackBar1.Value;
       DecodeTime(temptime, ho, mi, se, ms);
       songplayerfo.lposition.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
     end;
 
-    if (tag = 2) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
+    if (tag = 1) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
     begin
       temptime := tottime2 * TrackBar1.Value;
       DecodeTime(temptime, ho, mi, se, ms);

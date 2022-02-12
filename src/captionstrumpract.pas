@@ -172,42 +172,6 @@ type
 
       ma_tmainmenu1_parentitem_hideall, {'Hide All'}
 
-      ma_tmainmenu1_parentitem_showdrums, {'Show Drums'}
-
-      ma_tmainmenu1_parentitem_showlist, {'Show File List'}
-
-      ma_tmainmenu1_parentitem_showplay1, {'Show Player 1'}
-
-      ma_tmainmenu1_parentitem_showplay2, {'Show Player 2'}
-
-      ma_tmainmenu1_parentitem_showcommander, {'Show Commander'}
-
-      ma_tmainmenu1_parentitem_showrecorder, {'Show Recorder'}
-
-      ma_tmainmenu1_parentitem_showguitar, {'Show Guitars'}
-
-      ma_tmainmenu1_parentitem_showspectrum1, {'Show Spectrum 1'}
-
-      ma_tmainmenu1_parentitem_showspectrum2, {'Show Spectrum 2'}
-
-      ma_tmainmenu1_parentitem_showspectrumrec, {'Show Spectrum Rec'}
-
-      ma_tmainmenu1_parentitem_showwave1, {'Show WaveForm 1'}
-
-      ma_tmainmenu1_parentitem_showwave2, {'Show WaveForm 2'}
-
-      ma_tmainmenu1_parentitem_showwaverec, {'Show WaveForm Rec'}
-
-      ma_tmainmenu1_parentitem_showequ1, {'Show Equalizer 1'}
-
-      ma_tmainmenu1_parentitem_showequ2, {'Show Equalizer 2'}
-
-      ma_tmainmenu1_parentitem_showequrec, {'Show Equalizer Rec'}
-
-      ma_tmainmenu1_parentitem_showchords, {'Show Chord Randomizer'}
-
-      ma_tmainmenu1_parentitem_showimagedancer, {'Show Image Dancer'}
-
       ma_tmainmenu1_parentitem_showpanel1, {'Show Dock Panel 1'}
 
       ma_tmainmenu1_parentitem_showpanel2, {'Show Dock Panel 2'}
@@ -220,7 +184,7 @@ type
 
       ma_tmainmenu1_panels, {'&Panels'}
 
-      ma_tmainmenu1_show, {'&Show'}
+      ma_tmainmenu1_show, {'Show'}
       ma_tmainmenu1_show_hint, {'Show/hide windows'}
 
       ma_tmainmenu1_parentitem_square, {'Square'}
@@ -291,7 +255,12 @@ type
       ma_tmainmenu1_quit, {'&Quit'}
       ma_tmainmenu1_quit_hint, {'Terminate StrumPract'}
       ma_setasdefault, {Set as default}
-      ma_recorder {Recorder}
+      ma_recorder, {Recorder}
+      ma_hide,
+      ma_fileslist, {Files list}
+      ma_guitars, {Guitars}
+      ma_waveform,
+      ma_equalizer
  
    );
 
@@ -466,31 +435,13 @@ const
       'Layout of windows', {ma_tmainmenu1_'layout'_hint}
       'Show All', {ma_tmainmenu1_parentitem_'showall'}
       'Hide All', {ma_tmainmenu1_parentitem_'hideall'}
-      'Show Drums', {ma_tmainmenu1_parentitem_'showdrums'}
-      'Show File List', {ma_tmainmenu1_parentitem_'showlist'}
-      'Show Player 1', {ma_tmainmenu1_parentitem_'showplay1'}
-      'Show Player 2', {ma_tmainmenu1_parentitem_'showplay2'}
-      'Show Commander', {ma_tmainmenu1_parentitem_'showcommander'}
-      'Show Recorder', {ma_tmainmenu1_parentitem_'showrecorder'}
-      'Show Guitars', {ma_tmainmenu1_parentitem_'show guitar'}
-      'Show Spectrum 1', {ma_tmainmenu1_parentitem_'showspectrum1'}
-      'Show Spectrum 2', {ma_tmainmenu1_parentitem_'showspectrum2'}
-      'Show Spectrum Rec', {ma_tmainmenu1_parentitem_'showspectrumrec'}
-      'Show WaveForm 1', {ma_tmainmenu1_parentitem_'showwave1'}
-      'Show WaveForm 2', {ma_tmainmenu1_parentitem_'showwave2'}
-      'Show WaveForm Rec', {ma_tmainmenu1_parentitem_'showwaverec'}
-      'Show Equalizer 1', {ma_tmainmenu1_parentitem_'showequ1'}
-      'Show Equalizer 2', {ma_tmainmenu1_parentitem_'showequ2'}
-      'Show Equalizer Rec', {ma_tmainmenu1_parentitem_'showequrec'}
-      'Show Chord Randomizer', {ma_tmainmenu1_parentitem_'showchords'}
-      'Show Image Dancer', {ma_tmainmenu1_parentitem_'showimagedancer'}
       'Show Dock Panel 1', {ma_tmainmenu1_parentitem_'showpanel1'}
       'Show Dock Panel 2', {ma_tmainmenu1_parentitem_'showpanel2'}
       'Show Dock Panel 3', {ma_tmainmenu1_parentitem_'showpanel3'}
       'Show Dock Panel 4', {ma_tmainmenu1_parentitem_'showpanel4'}
       'Show Dock Panel 5', {ma_tmainmenu1_parentitem_'showpanel5'}
-      '&Panels', {ma_tmainmenu1_'panels'}
-      '&Show', {ma_tmainmenu1_'show'}
+      'Panels', {ma_tmainmenu1_'panels'}
+      'Show', {ma_tmainmenu1_'show'}
       'Show/hide windows', {ma_tmainmenu1_'show'_hint}
       'Square', {ma_tmainmenu1_parentitem_'square'}
       'Triangle', {ma_tmainmenu1_parentitem_'triangle'}
@@ -531,9 +482,13 @@ const
       '&Quit', {ma_tmainmenu1_'quit'}
       'Terminate StrumPract', {ma_tmainmenu1_'quit'_hint}
       'Set as default', {ma_setasdefault}
-      'Recorder' {ma_recorder}
- 
-   );
+      'Recorder', {ma_recorder}
+      'Hide',{ma_hide}
+      'Files list', {ma_fileslist}
+      'Guitars', {ma_guitars}
+      'Wave form', {ma_waveform} 
+      'Equalizer' {ma_equalizer}
+    );
     
     const
   en_commanderfotext: commanderfoaty = (

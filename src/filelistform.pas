@@ -9,6 +9,7 @@ uses
  {$ifdef unix}baseunix,{$endif}Math,
   msetypes,
   mseglob,
+  
   mseguiglob,
   mseguiintf,
   msetimer,
@@ -112,6 +113,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   findmessage,
   songplayer,
   commander,
@@ -562,13 +564,23 @@ end;
 
 procedure tfilelistfo.visiblechangeev(const Sender: TObject);
 begin
-  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(
+  if (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(
     dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-    if Visible then
-      mainfo.tmainmenu1.menu[4].submenu[3].Caption := ' Hide File List '
-    else
-      mainfo.tmainmenu1.menu[4].submenu[3].Caption := ' Show File List ';
+
+   if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showlist']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_mainfo[Ord(ma_fileslist)];
+         end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showlist']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_mainfo[Ord(ma_fileslist)];
+        end;
+
     if norefresh = False then
     begin
       mainfo.updatelayoutstrum();

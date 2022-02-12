@@ -10,8 +10,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 202
-  bounds_y = 355
+  bounds_x = 254
+  bounds_y = 293
   bounds_cx = 442
   bounds_cy = 236
   bounds_cxmin = 442
@@ -1003,7 +1003,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 2
       hint = ' Drums Patern 1 '
-      bounds_x = 317
+      bounds_x = 308
       bounds_y = 16
       bounds_cx = 30
       bounds_cy = 17
@@ -1031,7 +1031,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 3
       hint = ' Drums Patern 2 '
-      bounds_x = 317
+      bounds_x = 308
       bounds_y = 32
       bounds_cx = 30
       bounds_cy = 17
@@ -1057,7 +1057,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 4
       hint = ' Drums Patern 3 '
-      bounds_x = 317
+      bounds_x = 308
       bounds_y = 48
       bounds_cx = 30
       bounds_cy = 17
@@ -1083,7 +1083,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 5
       hint = ' Drums Patern 4 '
-      bounds_x = 317
+      bounds_x = 308
       bounds_y = 64
       bounds_cx = 30
       bounds_cy = 17
@@ -1109,7 +1109,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 6
       hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
-      bounds_x = 282
+      bounds_x = 274
       bounds_y = 64
       bounds_cx = 30
       bounds_cy = 17
@@ -1135,7 +1135,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 7
       hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
-      bounds_x = 282
+      bounds_x = 274
       bounds_y = 48
       bounds_cx = 30
       bounds_cy = 17
@@ -1161,7 +1161,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 8
       hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
-      bounds_x = 282
+      bounds_x = 274
       bounds_y = 32
       bounds_cx = 30
       bounds_cy = 17
@@ -1187,7 +1187,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 9
       hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
-      bounds_x = 282
+      bounds_x = 274
       bounds_y = 16
       bounds_cx = 30
       bounds_cy = 17
@@ -1196,7 +1196,7 @@ object drumsfo: tdrumsfo
     object tlabel22: tlabel
       color = -2147483645
       taborder = 1
-      bounds_x = 317
+      bounds_x = 308
       bounds_y = 3
       bounds_cx = 32
       bounds_cy = 13
@@ -1209,7 +1209,7 @@ object drumsfo: tdrumsfo
     end
     object tlabel21: tlabel
       color = -2147483645
-      bounds_x = 275
+      bounds_x = 256
       bounds_y = 3
       bounds_cx = 34
       bounds_cy = 13
@@ -1241,7 +1241,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 10
       hint = ' No graphic animation. '
-      bounds_x = 350
+      bounds_x = 344
       bounds_y = 64
       bounds_cx = 65
       bounds_cy = 17
@@ -1267,7 +1267,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 11
       hint = ' No "and" between 2 numbers. '
-      bounds_x = 350
+      bounds_x = 344
       bounds_y = 36
       bounds_cx = 70
       bounds_cy = 17
@@ -1294,7 +1294,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 12
       hint = ' No counting voice '
-      bounds_x = 350
+      bounds_x = 344
       bounds_y = 22
       bounds_cx = 66
       bounds_cy = 17
@@ -1322,7 +1322,7 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 13
       hint = ' No drums sound.  '
-      bounds_x = 350
+      bounds_x = 344
       bounds_y = 50
       bounds_cx = 74
       bounds_cy = 17
@@ -1446,7 +1446,7 @@ object drumsfo: tdrumsfo
     object tlabel23: tlabel
       color = -2147483645
       taborder = 19
-      bounds_x = 168
+      bounds_x = 162
       bounds_y = 8
       bounds_cx = 38
       bounds_cy = 13
@@ -1529,13 +1529,12 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp2
       taborder = 22
       hint = ' Drums set '
-      bounds_x = 12
+      bounds_x = 5
       bounds_y = 7
-      bounds_cx = 75
+      bounds_cx = 92
       bounds_cy = 22
       font.color = 3355443
       font.height = 11
-      font.style = [fs_italic]
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
@@ -1605,7 +1604,7 @@ object drumsfo: tdrumsfo
     object tgroupbox1: tgroupbox
       color = 12566463
       taborder = 26
-      bounds_x = 220
+      bounds_x = 216
       bounds_y = 19
       bounds_cx = 54
       bounds_cy = 62
@@ -1755,8 +1754,8 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 27
       hint = 'Language for counting'
-      bounds_x = 358
-      bounds_y = 4
+      bounds_x = 362
+      bounds_y = 3
       bounds_cx = 69
       bounds_cy = 18
       statfile = mainfo.tstatfile1

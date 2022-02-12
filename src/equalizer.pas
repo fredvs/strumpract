@@ -133,6 +133,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   commander,
   songplayer,
   recorder,
@@ -359,6 +360,8 @@ end;
 
 procedure tequalizerfo.onvisiblechange(const Sender: TObject);
 begin
+ if  (isactivated = true) then
+ begin
 
   if Visible then
   begin
@@ -377,7 +380,50 @@ begin
       mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Equalizer 2 '
     else if Caption = 'Equalizer Recorder' then
       mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec ';
-
+      
+      
+   if tag = 0 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showequ1']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];         
+        end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showequ1']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];         
+        end;
+      
+     if tag = 1 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showequ2']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];         
+        end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showequ2']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];         
+      end;
+      
+     if tag = 2 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showequrec']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];          
+        end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showequrec']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];          
+      end;   
+   
   if norefresh = False then
   begin
     if Assigned(mainfo) then
@@ -398,7 +444,7 @@ begin
       if dockpanel5fo.Visible then
         dockpanel5fo.updatelayoutpan();
   end;
-
+  end;
 end;
 
 procedure tequalizerfo.loadlist(const Sender: TObject);

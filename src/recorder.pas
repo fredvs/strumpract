@@ -156,6 +156,8 @@ var
 implementation
 
 uses
+
+  captionstrumpract,
   main,
   config,
   dockpanel1,
@@ -702,16 +704,24 @@ end;
 procedure trecorderfo.visiblechangeev(const Sender: TObject);
 begin
 
-  if (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
+  if  (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
     (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
+      
     if Visible then
-      mainfo.tmainmenu1.menu[4].submenu[7].Caption := ' Hide Recorder '
-    else
-    begin
-      mainfo.tmainmenu1.menu[4].submenu[7].Caption := ' Show Recorder ';
-      uos_Stop(therecplayer);
-    end;
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showrecorder']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_mainfo[Ord(ma_recorder)];
+         end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showrecorder']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_mainfo[Ord(ma_recorder)];
+          uos_Stop(therecplayer);
+        end;
+      
     if norefresh = False then
     begin
       mainfo.updatelayoutstrum();

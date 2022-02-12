@@ -59,6 +59,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   main,
   dockpanel1,
   songplayer,
@@ -67,24 +68,54 @@ uses
 
 procedure tspectrum1fo.onvisiblechange(const Sender: TObject);
 begin
-  if Visible then
-  begin
-    if Assigned(mainfo) then
-      if Caption = 'Spectrum Player 1' then
-        mainfo.tmainmenu1.menu[4].submenu[9].Caption  := ' Hide Spectrum 1 '
-      else if Caption = 'Spectrum Player 2' then
-        mainfo.tmainmenu1.menu[4].submenu[10].Caption := ' Hide Spectrum 2 '
-      else if Caption = 'Spectrum Recorder' then
-        mainfo.tmainmenu1.menu[4].submenu[11].Caption := ' Hide Spectrum Rec ';
-  end
-  else if Assigned(mainfo) then
-    if Caption = 'Spectrum Player 1' then
-      mainfo.tmainmenu1.menu[4].submenu[9].Caption  := ' Show Spectrum 1 '
-    else if Caption = 'Spectrum Player 2' then
-      mainfo.tmainmenu1.menu[4].submenu[10].Caption := ' Show Spectrum 2 '
-    else if Caption = 'Spectrum Recorder' then
-      mainfo.tmainmenu1.menu[4].submenu[11].Caption := ' Show Spectrum Rec '// dostop(Sender);
-  ;
+ if  (isactivated = true) then
+ begin  
+     if tag = 0 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showspectrum1']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];       
+   
+         end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showspectrum1']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];       
+      end;
+      
+     if tag = 1 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showspectrum2']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];       
+   
+         end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showspectrum2']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];       
+      end;
+      
+     if tag = 2 then
+     if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showspectrumrec']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_mainfo[Ord(ma_recorder)];       
+   
+         end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showspectrumrec']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+          lang_spectrum1fo[Ord(sp_spectrum1fo)] + ' ' + lang_mainfo[Ord(ma_recorder)];        
+      end;   
+      
+   
   if norefresh = False then
   begin
     if Assigned(mainfo) then
@@ -106,6 +137,7 @@ begin
         dockpanel5fo.updatelayoutpan();
 
   end;
+  end;
 end;
 
 procedure tspectrum1fo.onformcreated(const Sender: TObject);
@@ -121,11 +153,11 @@ end;
 procedure tspectrum1fo.onshowspec(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
   if avalue = False then
-    if Caption = 'Spectrum Player 1' then
+    if tag = 0 then
       songplayerfo.resetspectrum()
-    else if Caption = 'Spectrum Player 2' then
+    else if tag = 1 then
       songplayer2fo.resetspectrum()
-    else if Caption = 'Spectrum Recorder' then
+    else if tag = 2 then
       recorderfo.resetspectrum();
 end;
 

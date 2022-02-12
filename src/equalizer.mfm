@@ -1098,7 +1098,7 @@ object equalizerfo: tequalizerfo
     face.template = mainfo.tfaceplayer
     taborder = 4
     hint = ' Save Settings in a file '
-    bounds_x = 289
+    bounds_x = 292
     bounds_y = 0
     bounds_cx = 56
     bounds_cy = 15
@@ -2000,9 +2000,10 @@ object equalizerfo: tequalizerfo
     frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
     frame.localprops1 = []
     face.localprops = []
+    face.template = mainfo.tfaceplayer
     taborder = 5
     hint = 'Ebable Equalizer'
-    bounds_x = 116
+    bounds_x = 80
     bounds_y = 0
     bounds_cx = 114
     bounds_cy = 15
@@ -2020,7 +2021,6 @@ object equalizerfo: tequalizerfo
       frame.font.color = 2039583
       frame.font.colorbackground = -2147483645
       frame.font.height = 10
-      frame.font.style = [fs_italic]
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_color, flp_colorbackground, flp_style, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
@@ -2028,7 +2028,7 @@ object equalizerfo: tequalizerfo
       frame.outerframe = (
         0
         1
-        90
+        91
         2
       )
       face.localprops = []
@@ -2036,7 +2036,7 @@ object equalizerfo: tequalizerfo
       hint = 'Enable Equalizer'
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 103
+      bounds_cx = 104
       bounds_cy = 15
       statfile = mainfo.tstatfile1
       onchange = changenab

@@ -372,7 +372,7 @@ object mainfo: tmainfo
           end        
           item
             caption = 'Show Guitars'
-            name = 'show guitar'
+            name = 'showguitar'
             state = [as_localcaption, as_localonexecute]
             onexecute = showguitars
           end        

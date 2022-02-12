@@ -267,6 +267,7 @@ object spectrum1fo: tspectrum1fo
       frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
+      face.template = mainfo.tfaceplayer
       taborder = 2
       hint = 'Enable Spectrum'
       bounds_x = 158
@@ -287,7 +288,6 @@ object spectrum1fo: tspectrum1fo
         frame.font.color = 2039583
         frame.font.colorbackground = -2147483645
         frame.font.height = 10
-        frame.font.style = [fs_italic]
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color, flp_colorbackground, flp_style, flp_height]
         frame.localprops = [frl_hiddenedges, frl_colorclient]
@@ -295,7 +295,7 @@ object spectrum1fo: tspectrum1fo
         frame.outerframe = (
           0
           0
-          86
+          85
           0
         )
         face.localprops = []
@@ -303,7 +303,7 @@ object spectrum1fo: tspectrum1fo
         hint = 'Enable Spectrum rendering'
         bounds_x = 0
         bounds_y = 0
-        bounds_cx = 99
+        bounds_cx = 98
         bounds_cy = 15
         statfile = mainfo.tstatfile1
         colorglyph = -1610612728

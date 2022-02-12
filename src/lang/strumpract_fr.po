@@ -534,7 +534,7 @@ msgid "StrumPract"
 msgstr "StrumPract"
 
 msgid "Dock any window on this area."
-msgstr "Ancre n'importe quelle fenêtre sur cette zone."
+msgstr "Ancrez une fenêtre sur cette zone."
 
 msgid "Drag a form here using right-border grip."
 msgstr "Faites glisser un formulaire ici en utilisant la poignée de bordure droite."
@@ -576,13 +576,13 @@ msgid "DJ Console Info"
 msgstr "Console DJ Info"
 
 msgid "&Record stage"
-msgstr "Étape d'&enregistrement"
+msgstr "Session d'enregistrement"
 
 msgid "&Chords Randomizer"
 msgstr "Aléatoire d'&accords"
 
 msgid "&Image Dancer"
-msgstr "&Image Dancer"
+msgstr "&Image Dansante"
 
 msgid "Save Layout"
 msgstr "Enregistrer la mise en page"
@@ -608,60 +608,6 @@ msgstr "Afficher tout"
 msgid "Hide All"
 msgstr "Masquer tout"
 
-msgid "Show Drums"
-msgstr "Afficher la batterie"
-
-msgid "Show File List"
-msgstr "Afficher la liste des fichiers"
-
-msgid "Show Player 1"
-msgstr "Afficher le joueur 1"
-
-msgid "Show Player 2"
-msgstr "Afficher le joueur 2"
-
-msgid "Show Commander"
-msgstr "Afficher le commandant"
-
-msgid "Show Recorder"
-msgstr "Afficher l'enregistreur"
-
-msgid "Show Guitars"
-msgstr "Afficher les guitares"
-
-msgid "Show Spectrum 1"
-msgstr "Afficher le spectre 1"
-
-msgid "Show Spectrum 2"
-msgstr "Afficher le spectre 2"
-
-msgid "Show Spectrum Rec"
-msgstr "Afficher l'enregistrement du spectre"
-
-msgid "Show WaveForm 1"
-msgstr "Afficher la forme d'onde 1"
-
-msgid "Show WaveForm 2"
-msgstr "Afficher WaveForm 2"
-
-msgid "Show WaveForm Rec"
-msgstr "Afficher l'enregistrement de la forme d'onde"
-
-msgid "Show Equalizer 1"
-msgstr "Afficher l'égaliseur 1"
-
-msgid "Show Equalizer 2"
-msgstr "Afficher l'égaliseur 2"
-
-msgid "Show Equalizer Rec"
-msgstr "Afficher l'enregistrement de l'égaliseur"
-
-msgid "Show Chord Randomizer"
-msgstr "Afficher le randomiseur d'accords"
-
-msgid "Show Image Dancer"
-msgstr "Afficher l'image danseuse"
-
 msgid "Show Dock Panel 1"
 msgstr "Afficher le panneau Dock 1"
 
@@ -677,11 +623,11 @@ msgstr "Afficher le panneau Dock 4"
 msgid "Show Dock Panel 5"
 msgstr "Afficher le panneau Dock 5"
 
-msgid "&Panels"
+msgid "Panels"
 msgstr "&Panneaux"
 
-msgid "&Show"
-msgstr "&Afficher"
+msgid "Show"
+msgstr "Afficher"
 
 msgid "Show/hide windows"
 msgstr "Afficher/masquer les fenêtres"
@@ -741,7 +687,7 @@ msgid "Rectangle"
 msgstr "Rectangle"
 
 msgid "Always on top"
-msgstr "Toujours au top"
+msgstr "Toujours en avant plan"
 
 msgid "Transparent"
 msgstr "Transparent"
@@ -806,6 +752,9 @@ msgstr "Définir par défaut"
 msgid "Recorder"
 msgstr "Enregistreur"
 
+msgid "Hide"
+msgstr "Masquer"
+
 msgid "Use that grip panel to drag/drop the window."
 msgstr "Utilisez ce panneau de poignée pour faire glisser/déposer la fenêtre."
 
@@ -825,7 +774,7 @@ msgid "Resume Drums"
 msgstr "Reprendre la batterie"
 
 msgid "General Volume of drums"
-msgstr "Volume général des batteries"
+msgstr "Volume général de la batterie"
 
 msgid "Drums"
 msgstr "Batterie"
@@ -867,7 +816,7 @@ msgid "Change mixing time in 1/100 second"
 msgstr "Modifier le temps de mélange en 1/100 seconde"
 
 msgid "Stop player"
-msgstr "Arrêter le joueur"
+msgstr "Arrêter le lecteur"
 
 msgid "Resume player"
 msgstr "Reprendre le lecteur"
@@ -876,25 +825,25 @@ msgid "Load and Start Player"
 msgstr "Charger et démarrer le lecteur"
 
 msgid "Left Volume Player 1"
-msgstr "Lecteur volume gauche 1"
+msgstr "Volume gauche lecteur 1"
 
 msgid "Right Volume Player 1"
-msgstr "Volume droit joueur 1"
+msgstr "Volume droit lecteur 1"
 
 msgid "Start Player 1 --> MIX --> Stop Player 2"
-msgstr "Démarrer le joueur 1 --> MIX --> Arrêter le joueur 2"
+msgstr "Démarrer le lecteur 1 --> MIX --> Arrêter le lecteur 2"
 
 msgid "Start Player 2 --> MIX --> Stop Player 1"
-msgstr "Démarrer le joueur 2 --> MIX --> Arrêter le joueur 1"
+msgstr "Démarrer le lecteur 2 --> MIX --> Arrêter le lecteur 1"
 
 msgid "Right Volume Player 2"
-msgstr "Lecteur volume droit 2"
+msgstr "Volume droit lecteur 2"
 
 msgid "Left Volume Player 2"
-msgstr "Lecteur volume gauche 2"
+msgstr "Volume gauche lecteur 2"
 
 msgid "Cue-Load-Pause Player"
-msgstr "Cue-Load-Pause Player"
+msgstr "Cue-Load-Pause lecteur"
 
 msgid "Pause player"
 msgstr "Mettre le lecteur en pause"
@@ -915,13 +864,13 @@ msgid "Auto Mixing on/off"
 msgstr "Mixage automatique activé/désactivé"
 
 msgid "Direct MIX (0 second time)"
-msgstr "MIX direct (0 seconde fois)"
+msgstr "MIX direct (0 seconde)"
 
 msgid "Player 1"
-msgstr "Joueur 1"
+msgstr "Lecteur 1"
 
 msgid "Player 2"
-msgstr "Joueur 2"
+msgstr "Lecteur 2"
 
 msgid "Randomize mixing list"
 msgstr "Randomiser la liste de mixage"
@@ -933,7 +882,7 @@ msgid "Or press Esc key for previous value."
 msgstr "Ou appuyez sur la touche Échap pour la valeur précédente."
 
 msgid "Use this grip panel to drag/drop the window"
-msgstr "Utilisez ce panneau de poignée pour faire glisser/déposer la fenêtre"
+msgstr "Utilisez la poignée à droite faire glisser/déposer la fenêtre"
 
 msgid "Files"
 msgstr "Fichiers"
@@ -948,10 +897,10 @@ msgid "Find a word in list"
 msgstr "Rechercher un mot dans la liste"
 
 msgid "Sent selected song to cue for Player 1"
-msgstr "Envoyé la chanson sélectionnée au cue pour le joueur 1"
+msgstr "Envoyé la chanson sélectionnée au cue pour le lecteur 1"
 
 msgid "Sent selected song to cue for Player 2"
-msgstr "Envoyé la chanson sélectionnée au cue pour le joueur 2"
+msgstr "Envoyé la chanson sélectionnée au cue pour le lecteur 2"
 
 msgid "To move a row: click+hold into the fixed column and drag the row where you want."
 msgstr "Pour déplacer une ligne : cliquez+maintenez dans la colonne fixe et faites glisser la ligne où vous voulez."

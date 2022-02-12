@@ -677,11 +677,11 @@ msgstr "הצג לוח עגינה 4"
 msgid "Show Dock Panel 5"
 msgstr "הצג לוח עגינה 5"
 
-msgid "&Panels"
-msgstr "&פאנלים"
+msgid "Panels"
+msgstr "פאנלים"
 
-msgid "&Show"
-msgstr "&הצג"
+msgid "Show"
+msgstr "הצג"
 
 msgid "Show/hide windows"
 msgstr "הצג/הסתר חלונות"
@@ -805,6 +805,9 @@ msgstr "הגדר כברירת מחדל"
 
 msgid "Recorder"
 msgstr "מקליט"
+
+msgid "Hide"
+msgstr "להתחבא"
 
 msgid "Use that grip panel to drag/drop the window."
 msgstr "השתמש בלוח האחיזה הזה כדי לגרור/לשחרר את החלון."

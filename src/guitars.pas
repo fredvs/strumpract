@@ -65,6 +65,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   uos_flat,
   main,
   dockpanel1,
@@ -116,11 +117,20 @@ end;
 
 procedure tguitarsfo.onvisiblechangeev(const Sender: TObject);
 begin
-  if Visible then
-    mainfo.tmainmenu1.menu[4].submenu[8].Caption := ' Hide Guitars '
-  else
-    mainfo.tmainmenu1.menu[4].submenu[8].Caption := ' Show Guitars ';
-
+   if  (isactivated = true) then
+    if Visible then
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showguitar']).caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+           lang_mainfo[Ord(ma_guitars)];
+         end
+      else
+        begin
+          mainfo.tmainmenu1.menu.itembynames(['show','showguitar']).caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
+           lang_mainfo[Ord(ma_guitars)];
+        end;
+ 
   if norefresh = False then
   begin
     mainfo.updatelayoutstrum();
