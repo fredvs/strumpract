@@ -85,7 +85,6 @@ object spectrum1fo: tspectrum1fo
       frame.captiontextflags = [tf_xcentered, tf_bottom]
       frame.captionpos = cp_topright
       frame.captionoffset = -50
-      frame.font.style = [fs_italic]
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_style]
       frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_colorclient]
@@ -178,7 +177,6 @@ object spectrum1fo: tspectrum1fo
       frame.caption = 'left'
       frame.captiontextflags = [tf_xcentered, tf_bottom]
       frame.captionoffset = 50
-      frame.font.style = [fs_italic]
       frame.font.name = 'stf_default'
       frame.font.localprops = [flp_style]
       frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_colorclient]

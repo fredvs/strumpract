@@ -89,7 +89,7 @@ object infosfo: tinfosfo
     caption = 'No Image Tag'
     font.color = 9737364
     font.shadow_color = -1610612730
-    font.style = [fs_bold, fs_italic]
+    font.style = [fs_bold]
     font.name = 'stf_default'
     font.localprops = [flp_color, flp_shadow_color, flp_shadow_shiftx, flp_shadow_shifty, flp_style, flp_height]
     reffontheight = 15
@@ -100,7 +100,6 @@ object infosfo: tinfosfo
     frame.caption = 'Title'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -130,7 +129,6 @@ object infosfo: tinfosfo
     frame.caption = 'Artist'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -161,7 +159,6 @@ object infosfo: tinfosfo
     frame.caption = 'Album'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -191,7 +188,6 @@ object infosfo: tinfosfo
     frame.caption = 'Year'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -199,13 +195,13 @@ object infosfo: tinfosfo
     frame.outerframe = (
       0
       15
-      5
+      4
       0
     )
     taborder = 3
     bounds_x = 4
     bounds_y = 166
-    bounds_cx = 25
+    bounds_cx = 24
     bounds_cy = 30
     caption = '     '
     font.shadow_color = -2147483645
@@ -221,7 +217,6 @@ object infosfo: tinfosfo
     frame.caption = 'Duration'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -251,7 +246,6 @@ object infosfo: tinfosfo
     frame.caption = 'Genre'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -282,7 +276,6 @@ object infosfo: tinfosfo
     frame.caption = 'Comment'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -313,7 +306,6 @@ object infosfo: tinfosfo
     frame.caption = 'File Name'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -343,7 +335,6 @@ object infosfo: tinfosfo
     frame.caption = 'Rate'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -373,7 +364,6 @@ object infosfo: tinfosfo
     frame.caption = 'Chan'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -403,7 +393,6 @@ object infosfo: tinfosfo
     frame.caption = 'BMP'
     frame.captiondist = 0
     frame.font.height = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
@@ -411,13 +400,13 @@ object infosfo: tinfosfo
     frame.outerframe = (
       0
       15
-      5
+      4
       0
     )
     taborder = 10
     bounds_x = 160
     bounds_y = 166
-    bounds_cx = 25
+    bounds_cx = 24
     bounds_cy = 30
     caption = '     '
     font.shadow_color = -2147483645

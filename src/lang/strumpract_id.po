@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "&Batalkan"
+
+msgid "&Abort"
+msgstr "&Batalkan"
+
+msgid "&OK"
+msgstr "&Oke"
+
+msgid "&Yes"
+msgstr "&Ya"
+
+msgid "&No"
+msgstr "&Tidak"
+
+msgid "&All"
+msgstr "&Semua"
+
+msgid "Yes &all"
+msgstr "Ya & semua"
+
+msgid "N&o all"
+msgstr "T&o semua"
+
+msgid "&Ignore"
+msgstr "&Abaikan"
+
+msgid "&Skip"
+msgstr "&Lewati"
+
+msgid "Skip a&ll"
+msgstr "Lewati semua"
+
+msgid "Co&ntinue"
+msgstr "Lanjutkan"
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Abort"
+msgstr "Batalkan"
+
+msgid "OK"
+msgstr "Oke"
+
+msgid "Yes"
+msgstr "Ya"
+
+msgid "No"
+msgstr "Tidak"
+
+msgid "All"
+msgstr "Semua"
+
+msgid "Yes all"
+msgstr "Ya semua"
+
+msgid "No all"
+msgstr "Tidak semua"
+
+msgid "Ignore"
+msgstr "Abaikan"
+
+msgid "Skip"
+msgstr "Lewati"
+
+msgid "Skip all"
+msgstr "Lewati semua"
+
+msgid "Continue"
+msgstr "Lanjutkan"
+
+msgid "is invalid"
+msgstr "tidak valid"
+
+msgid "Format error"
+msgstr "Kesalahan format"
+
+msgid "Value is required"
+msgstr "Nilai wajib diisi"
+
+msgid "Error"
+msgstr "Kesalahan"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "Range error"
+msgstr "Rentang kesalahan"
+
+msgid "&Undo"
+msgstr "&Urungkan"
+
+msgid "&Redo"
+msgstr "&Ulangi"
+
+msgid "&Copy"
+msgstr "&Salin"
+
+msgid "Cu&t"
+msgstr "Cu&t"
+
+msgid "&Paste"
+msgstr "&Tempel"
+
+msgid "Select &all"
+msgstr "Pilih &semua"
+
+msgid "&Insert Row"
+msgstr "&Sisipkan Baris"
+
+msgid "&Append Row"
+msgstr "&Tambah Baris"
+
+msgid "&Delete Row"
+msgstr "&Hapus Baris"
+
+msgid "&Dir"
+msgstr "&Dir"
+
+msgid "&Home"
+msgstr "&Beranda"
+
+msgid "&Up"
+msgstr "&Atas"
+
+msgid "&New"
+msgstr "&Baru"
+
+msgid "&Name"
+msgstr "&Nama"
+
+msgid "&Show hidden files"
+msgstr "&Tampilkan file tersembunyi"
+
+msgid "&Filter"
+msgstr "&Filter"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Open"
+msgstr "Buka"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Create new directory"
+msgstr "Buat direktori baru"
+
+msgid "Back"
+msgstr "Kembali"
+
+msgid "Forward"
+msgstr "Maju"
+
+msgid "Up"
+msgstr "Naik"
+
+msgid "exists, do you want to overwrite?"
+msgstr "ada, apakah Anda ingin menimpa?"
+
+msgid "is modified. Save?"
+msgstr "sudah diubah. Simpan?"
+
+msgid "WARNING"
+msgstr "PERINGATAN"
+
+msgid "Exception"
+msgstr "Pengecualian"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "does not exist"
+msgstr "tidak ada"
+
+msgid "PASSWORD"
+msgstr "PASSWORD"
+
+msgid "Enter password"
+msgstr "Masukkan kata sandi"
+
+msgid "Invalid password!"
+msgstr "Kata sandi salah!"
+
+msgid "Can not read directory"
+msgstr "Tidak dapat membaca direktori"
+
+msgid "Graphic format not supported"
+msgstr "Format grafis tidak didukung"
+
+msgid "Graphic format error"
+msgstr "Kesalahan format grafik"
+
+msgid "All Images"
+msgstr "Semua Gambar"
+
+msgid "Confirmation"
+msgstr "Konfirmasi"
+
+msgid "Delete record?"
+msgstr "Hapus rekaman?"
+
+msgid "Copy record?"
+msgstr "Salin catatan?"
+
+msgid "Close page"
+msgstr "Tutup halaman"
+
+msgid "First"
+msgstr "Pertama"
+
+msgid "Prior"
+msgstr "Sebelumnya"
+
+msgid "Next"
+msgstr "Selanjutnya"
+
+msgid "Last"
+msgstr "Terakhir"
+
+msgid "Append"
+msgstr "Tambahkan"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Post"
+msgstr "Posting"
+
+msgid "Annul"
+msgstr "Batalkan"
+
+msgid "Refresh"
+msgstr "Segarkan"
+
+msgid "Edit filter"
+msgstr "Edit filter"
+
+msgid "Edit filter minimum"
+msgstr "Edit filter minimum"
+
+msgid "Edit filter maximum"
+msgstr "Edit filter maksimum"
+
+msgid "Reset filter"
+msgstr "Setel ulang filter"
+
+msgid "Filter on"
+msgstr "Filter aktif"
+
+msgid "Search"
+msgstr "Cari"
+
+msgid "Auto edit"
+msgstr "Edit otomatis"
+
+msgid "Copy record"
+msgstr "Salin catatan"
+
+msgid "Dialog"
+msgstr "Dialog"
+
+msgid "Insert"
+msgstr "Sisipkan"
+
+msgid "Copy"
+msgstr "Salin"
+
+msgid "Paste"
+msgstr "Tempel"
+
+msgid "Row insert"
+msgstr "Sisipkan baris"
+
+msgid "Row append"
+msgstr "Tambahkan baris"
+
+msgid "Row delete"
+msgstr "Hapus baris"
+
+msgid "Undo"
+msgstr "Batalkan"
+
+msgid "Redo"
+msgstr "Ulangi"
+
+msgid "Cut"
+msgstr "Potong"
+
+msgid "Select all"
+msgstr "Pilih semua"
+
+msgid "Filter off"
+msgstr "Filter nonaktif"
+
+msgid "Portrait"
+msgstr "Potret"
+
+msgid "Landscape"
+msgstr "Pemandangan"
+
+msgid "Delete row?"
+msgstr "Hapus baris?"
+
+msgid "selected rows?"
+msgstr "baris yang dipilih?"
+
+msgid "Single item only"
+msgstr "Hanya satu item"
+
+msgid "Copy Cells"
+msgstr "Salin Sel"
+
+msgid "Paste Cells"
+msgstr "Tempel Sel"
+
+msgid "Close"
+msgstr "Tutup"
+
+msgid "Maximize"
+msgstr "Maksimalkan"
+
+msgid "Normalize"
+msgstr "Normalkan"
+
+msgid "Minimize"
+msgstr "Minimalkan"
+
+msgid "Fix size"
+msgstr "Perbaiki ukuran"
+
+msgid "Float"
+msgstr "Mengambang"
+
+msgid "Stay on top"
+msgstr "Tetap di atas"
+
+msgid "Stay in background"
+msgstr "Tetap di latar belakang"
+
+msgid "Lock children"
+msgstr "Kunci anak"
+
+msgid "No lock"
+msgstr "Tidak ada kunci"
+
+msgid "Input"
+msgstr "Masukan"
+
+msgid "Button"
+msgstr "Tombol"
+
+msgid "On"
+msgstr "Aktif"
+
+msgid "Off"
+msgstr "Mati"
+
+msgid "Left border"
+msgstr "Perbatasan kiri"
+
+msgid "Top border"
+msgstr "Perbatasan atas"
+
+msgid "Right border"
+msgstr "Batas kanan"
+
+msgid "Bottom border"
+msgstr "Batas bawah"
+
+msgid "Begin of text"
+msgstr "Awal teks"
+
+msgid "End of text"
+msgstr "Akhir dari teks"
+
+msgid "Inputmode"
+msgstr "Mode masukan"
+
+msgid "Overwrite"
+msgstr "Timpa"
+
+msgid "Deleted"
+msgstr "Dihapus"
+
+msgid "Copied"
+msgstr "Disalin"
+
+msgid "Inserted"
+msgstr "Dimasukkan"
+
+msgid "Pasted"
+msgstr "Ditempel"
+
+msgid "Withdrawn"
+msgstr "Ditarik"
+
+msgid "Window activated"
+msgstr "Jendela diaktifkan"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Beginning of file"
+msgstr "Awal file"
+
+msgid "End of file"
+msgstr "Akhir file"
+
+msgid "Voice output"
+msgstr "Keluaran suara"
+
+msgid "Speak again"
+msgstr "Bicara lagi"
+
+msgid "First column"
+msgstr "Kolom pertama"
+
+msgid "First row"
+msgstr "Baris pertama"
+
+msgid "Last column"
+msgstr "Kolom terakhir"
+
+msgid "Last row"
+msgstr "Baris terakhir"
+
+msgid "Selection"
+msgstr "Pilihan"
+
+msgid "Speak path"
+msgstr "Bicara jalur"
+
+msgid "Disabled button"
+msgstr "Tombol dinonaktifkan"
+
+msgid "First field"
+msgstr "Bidang pertama"
+
+msgid "Last field"
+msgstr "Bidang terakhir"
+
+msgid "First element"
+msgstr "Elemen pertama"
+
+msgid "Last element"
+msgstr "Elemen terakhir"
+
+msgid "Slower"
+msgstr "Lebih lambat"
+
+msgid "Faster"
+msgstr "Lebih cepat"
+
+msgid "Window"
+msgstr "Jendela"
+
+msgid "Area"
+msgstr "Area"
+
+msgid "Area activated"
+msgstr "Area diaktifkan"
+
+msgid "Volume down"
+msgstr "Kecilkan volume"
+
+msgid "Volume up"
+msgstr "Naikkan volume"
+
+msgid "Cancel speech"
+msgstr "Batalkan pidato"
+
+msgid "New"
+msgstr "Baru"
+
+msgid "Tools"
+msgstr "Alat"
+
+msgid "Languages"
+msgstr "Bahasa"
+
+msgid "Directory"
+msgstr "Direktori"
+
+msgid "No icons"
+msgstr "Tidak ada ikon"
+
+msgid "No lateral"
+msgstr "Tidak ada lateral"
+
+msgid "Compact"
+msgstr "Ringkas"
+
+msgid "Path"
+msgstr "Jalur"
+
+msgid "File"
+msgstr "Berkas"
+
+msgid "Delete selected row?"
+msgstr "Hapus baris yang dipilih?"
+
+msgid "Delete %s selected rows?"
+msgstr "Hapus %s baris yang dipilih?"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "Dock semua jendela di area ini."
+
+msgid "Drag a form here using right-border grip."
+msgstr "Seret formulir ke sini menggunakan pegangan batas kanan."
+
+msgid "&Dock"
+msgstr "&Dok"
+
+msgid "Dock windows in one form"
+msgstr "Dock windows dalam satu bentuk"
+
+msgid "&Tab"
+msgstr "&Tab"
+
+msgid "One form with tabs"
+msgstr "Satu formulir dengan tab"
+
+msgid "&Dock all visible windows"
+msgstr "&Dock semua jendela yang terlihat"
+
+msgid "&Float all visible windows"
+msgstr "&Float semua jendela yang terlihat"
+
+msgid "Float windows in independent forms"
+msgstr "Float windows dalam bentuk independen"
+
+msgid "&Tab all visible windows"
+msgstr "&Tab semua jendela yang terlihat"
+
+msgid "Make windows tabed in one form"
+msgstr "Jadikan jendela tab dalam satu bentuk"
+
+msgid "&Jam Session"
+msgstr "&Jam Sesi"
+
+msgid "DJ Console Wave"
+msgstr "Gelombang Konsol DJ"
+
+msgid "DJ Console Info"
+msgstr "Info Konsol DJ"
+
+msgid "&Record stage"
+msgstr "&Rekam tahap"
+
+msgid "&Chords Randomizer"
+msgstr "&Acak Akord"
+
+msgid "&Image Dancer"
+msgstr "&Penari Gambar"
+
+msgid "Save Layout"
+msgstr "Simpan Tata Letak"
+
+msgid "Save current layout"
+msgstr "Simpan tata letak saat ini"
+
+msgid "Load Layout"
+msgstr "Muat Tata Letak"
+
+msgid "Load saved layout"
+msgstr "Muat tata letak yang disimpan"
+
+msgid "&Layout"
+msgstr "&Tata Letak"
+
+msgid "Layout of windows"
+msgstr "Tata letak jendela"
+
+msgid "Show All"
+msgstr "Tampilkan Semua"
+
+msgid "Hide All"
+msgstr "Sembunyikan Semua"
+
+msgid "Show Drums"
+msgstr "Tampilkan Drum"
+
+msgid "Show File List"
+msgstr "Tampilkan Daftar File"
+
+msgid "Show Player 1"
+msgstr "Tampilkan Pemain 1"
+
+msgid "Show Player 2"
+msgstr "Tampilkan Pemain 2"
+
+msgid "Show Commander"
+msgstr "Tampilkan Komandan"
+
+msgid "Show Recorder"
+msgstr "Tampilkan Perekam"
+
+msgid "Show Guitars"
+msgstr "Tampilkan Gitar"
+
+msgid "Show Spectrum 1"
+msgstr "Tampilkan Spektrum 1"
+
+msgid "Show Spectrum 2"
+msgstr "Tampilkan Spektrum 2"
+
+msgid "Show Spectrum Rec"
+msgstr "Tampilkan Rek Spektrum"
+
+msgid "Show WaveForm 1"
+msgstr "Tampilkan Bentuk Gelombang 1"
+
+msgid "Show WaveForm 2"
+msgstr "Tampilkan Bentuk Gelombang 2"
+
+msgid "Show WaveForm Rec"
+msgstr "Tampilkan Rek Bentuk Gelombang"
+
+msgid "Show Equalizer 1"
+msgstr "Tampilkan Equalizer 1"
+
+msgid "Show Equalizer 2"
+msgstr "Tampilkan Equalizer 2"
+
+msgid "Show Equalizer Rec"
+msgstr "Tampilkan Rek Equalizer"
+
+msgid "Show Chord Randomizer"
+msgstr "Tampilkan Pengacak Akord"
+
+msgid "Show Image Dancer"
+msgstr "Tampilkan Gambar Penari"
+
+msgid "Show Dock Panel 1"
+msgstr "Tampilkan Panel Dock 1"
+
+msgid "Show Dock Panel 2"
+msgstr "Tampilkan Panel Dock 2"
+
+msgid "Show Dock Panel 3"
+msgstr "Tampilkan Panel Dock 3"
+
+msgid "Show Dock Panel 4"
+msgstr "Tampilkan Panel Dock 4"
+
+msgid "Show Dock Panel 5"
+msgstr "Tampilkan Panel Dock 5"
+
+msgid "&Panels"
+msgstr "&Panel"
+
+msgid "&Show"
+msgstr "&Tampilkan"
+
+msgid "Show/hide windows"
+msgstr "Tampilkan/sembunyikan jendela"
+
+msgid "Square"
+msgstr "Persegi"
+
+msgid "Triangle"
+msgstr "Segitiga"
+
+msgid "Lines"
+msgstr "Garis"
+
+msgid "Fractal Tree"
+msgstr "Pohon Fraktal"
+
+msgid "Super Formula"
+msgstr "Formula Super"
+
+msgid "Hyper Formula"
+msgstr "Formula Hiper"
+
+msgid "Atom"
+msgstr "Atom"
+
+msgid "Spiral Hue"
+msgstr "Warna Spiral"
+
+msgid "Spiral Rainbow"
+msgstr "Pelangi Spiral"
+
+msgid "Spiral Move"
+msgstr "Spiral 2"
+
+msgid "Turtle 1"
+msgstr "Penyu 1"
+
+msgid "Turtle 2"
+msgstr "Penyu 2"
+
+msgid "Fractal Circles"
+msgstr "Lingkaran Fraktal"
+
+msgid "Normal form"
+msgstr "Bentuk normal"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "Gunakan formulir ini untuk mengatur ukuran bentuk Ellipse dan (Bulat)Persegi Panjang."
+
+msgid "Ellipse"
+msgstr "Elipse"
+
+msgid "Rounded rect"
+msgstr "Bulat bujur sangkar"
+
+msgid "Rectangle"
+msgstr "Persegi Panjang"
+
+msgid "Always on top"
+msgstr "Selalu di atas"
+
+msgid "Transparent"
+msgstr "Transparan"
+
+msgid "Hide Dancer"
+msgstr "Sembunyikan Penari"
+
+msgid "Da&ncer"
+msgstr "Danncer"
+
+msgid "Dancing Animations"
+msgstr "Animasi Menari"
+
+msgid "Gold"
+msgstr "Emas"
+
+msgid "Silver"
+msgstr "Perak"
+
+msgid "Carbon"
+msgstr "Karbon"
+
+msgid "&Style"
+msgstr "&Gaya"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "Gaya tata letak Emas, Perak atau Karbon"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Config of audio and colors"
+msgstr "Konfigurasi audio dan warna"
+
+msgid "Language"
+msgstr "Bahasa"
+
+msgid "Set language"
+msgstr "Setel bahasa"
+
+msgid "&Config"
+msgstr "&Konfig"
+
+msgid "Configuration setting"
+msgstr "Pengaturan konfigurasi"
+
+msgid "&About"
+msgstr "&Tentang"
+
+msgid "About StrumPract"
+msgstr "Tentang StrumPract"
+
+msgid "&Quit"
+msgstr "&Keluar"
+
+msgid "Terminate StrumPract"
+msgstr "Hentikan StrumPract"
+
+msgid "Set as default"
+msgstr "Tetapkan sebagai default"
+
+msgid "Recorder"
+msgstr "Perekam"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "Gunakan panel pegangan itu untuk menarik/melepaskan jendela."
+
+msgid "Com"
+msgstr "Com"
+
+msgid "Commander"
+msgstr "Komandan"
+
+msgid "Start Drums"
+msgstr "Mulai Drum"
+
+msgid "Pause Drums"
+msgstr "Jeda Drum"
+
+msgid "Resume Drums"
+msgstr "Lanjutkan Drum"
+
+msgid "General Volume of drums"
+msgstr "Volume Umum drum"
+
+msgid "Drums"
+msgstr "Drum"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "Klik untuk beralih ke 100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "Volume masukan (mikrofon atau masukan)"
+
+msgid "Input (mic or aux in)"
+msgstr "Masukkan (mikrofon atau aux in)"
+
+msgid "Enable Live Input"
+msgstr "Aktifkan Masukan Langsung"
+
+msgid "Right Volume General in %"
+msgstr "Umum Volume Kanan dalam %"
+
+msgid "Left Volume General in %"
+msgstr "Volume Kiri Umum dalam %"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "Volume kiri umum. Klik untuk menyetel ulang ke 100%."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "Volume kanan umum. Klik untuk menyetel ulang ke 100%."
+
+msgid "Lock left and right channels"
+msgstr "Kunci saluran kiri dan kanan"
+
+msgid "General Volume in %"
+msgstr "Volume Umum dalam %"
+
+msgid "System Master Volume"
+msgstr "Volume Master Sistem"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "Ubah waktu pencampuran dalam 1/100 detik"
+
+msgid "Stop player"
+msgstr "Hentikan pemutar"
+
+msgid "Resume player"
+msgstr "Lanjutkan pemutar"
+
+msgid "Load and Start Player"
+msgstr "Muat dan Mulai Pemutar"
+
+msgid "Left Volume Player 1"
+msgstr "Pemutar Volume Kiri 1"
+
+msgid "Right Volume Player 1"
+msgstr "Pemutar Volume Kanan 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "Mulai Pemutar 1 --> CAMPURAN --> Hentikan Pemutar 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "Mulai Pemutar 2 --> CAMPURAN --> Hentikan Pemutar 1"
+
+msgid "Right Volume Player 2"
+msgstr "Pemutar Volume Kanan 2"
+
+msgid "Left Volume Player 2"
+msgstr "Pemutar Volume Kiri 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "Pemutar Isyarat-Muat-Jeda"
+
+msgid "Pause player"
+msgstr "Jeda pemutar"
+
+msgid "Pause Mixing"
+msgstr "Jeda Pencampuran"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "Aktifkan Perhitungan Frekuensi Spektrum"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "Graphic-anim saat mixing (jika cpu terlalu rendah matikan)"
+
+msgid "View Meters on/off"
+msgstr "Mematikan/Melihat Pengukur"
+
+msgid "Auto Mixing on/off"
+msgstr "Pencampuran Otomatis aktif/nonaktif"
+
+msgid "Direct MIX (0 second time)"
+msgstr "Campuran Langsung (0 detik)"
+
+msgid "Player 1"
+msgstr "Pemain 1"
+
+msgid "Player 2"
+msgstr "Pemain 2"
+
+msgid "Randomize mixing list"
+msgstr "Acak daftar pencampuran"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "Nilai tidak valid. Setel ulang ke 100."
+
+msgid "Or press Esc key for previous value."
+msgstr "Atau tekan tombol Esc untuk nilai sebelumnya."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "Gunakan panel pegangan ini untuk menarik/melepaskan jendela"
+
+msgid "Files"
+msgstr "File"
+
+msgid "Audio files"
+msgstr "File audio"
+
+msgid "Number of files in the list"
+msgstr "Jumlah file dalam daftar"
+
+msgid "Find a word in list"
+msgstr "Temukan kata dalam daftar"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "Mengirim lagu yang dipilih sebagai isyarat untuk Pemain 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "Mengirim lagu yang dipilih sebagai isyarat untuk Player 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "Untuk memindahkan baris: klik+tahan ke kolom tetap dan seret baris ke tempat yang Anda inginkan."
+
+msgid "Name of sound"
+msgstr "Nama suara"
+
+msgid "Ext"
+msgstr "Ext"
+
+msgid "File extension"
+msgstr "Ekstensi file"
+
+msgid "Size"
+msgstr "Ukuran"
+
+msgid "Size in Kb of the file"
+msgstr "Ukuran dalam Kb file"
+
+msgid "Mix"
+msgstr "Campur"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "Sertakan untuk campuran. Mengklik sel tetap ---> pilih semua/tidak ada."
+
+msgid "Load custom play-list"
+msgstr "Muat daftar putar khusus"
+
+msgid "Load"
+msgstr "Muat"
+
+msgid "Save custom play-list"
+msgstr "Simpan daftar putar khusus"
+
+msgid "Add file in custom play-list"
+msgstr "Tambahkan file dalam daftar putar khusus"
+
+msgid "Add"
+msgstr "Tambah"
+
+msgid "History of Directories"
+msgstr "Riwayat Direktori"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "Pilih direktori audio dengan wav, ogg, flac atau mp3"
+
+msgid "Infos of song"
+msgstr "Info lagu"
+
+msgid "No Image Tag"
+msgstr "Tidak Ada Tag Gambar"
+
+msgid "Title"
+msgstr "Judul"
+
+msgid "Artist"
+msgstr "Artis"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Year"
+msgstr "Tahun"
+
+msgid "Duration"
+msgstr "Durasi"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "Comment"
+msgstr "Komentar"
+
+msgid "File Name"
+msgstr "Nama File"
+
+msgid "Rate"
+msgstr "Nilai"
+
+msgid "Chan"
+msgstr "Chan"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "Mainkan1"
+
+msgid "Change Left volume"
+msgstr "Ubah volume Kiri"
+
+msgid "Reset to tempo original"
+msgstr "Setel ulang ke tempo asli"
+
+msgid "Click to change position of sound"
+msgstr "Klik untuk mengubah posisi suara"
+
+msgid "History of Cue files"
+msgstr "Riwayat file Isyarat"
+
+msgid "Change Right volume"
+msgstr "Ubah volume Kanan"
+
+msgid "Change tempo of song"
+msgstr "Ubah tempo lagu"
+
+msgid "Show infos of the song"
+msgstr "Tampilkan info lagu"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "Deteksi BMP dari posisi saat ini dan setel ke tempo Drum."
+
+msgid "Resume player"
+msgstr "Lanjutkan pemutar"
+
+msgid "Load from cue and Start player"
+msgstr "Muat dari isyarat dan Mulai pemutar"
+
+msgid "Load from cue and Pause player"
+msgstr "Muat dari pemutar isyarat dan Jeda"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "Pilih file audio wav, ogg, flac atau mp3"
+
+msgid "Position of sound"
+msgstr "Posisi suara"
+
+msgid "Lenght of sound"
+msgstr "Panjang suara"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "Aktifkan pengulangan lagu. (Jeda tidak diaktifkan dengan loop.)"
+
+msgid "Set Mono/Stereo"
+msgstr "Setel Mono/Stereo"
+
+msgid "Show wave form in slider"
+msgstr "Tampilkan bentuk gelombang di penggeser"
+
+msgid "Enable playing reverse."
+msgstr "Aktifkan pemutaran terbalik."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "Aktifkan peregangan (mengubah tempo)"
+
+msgid "right"
+msgstr "benar"
+
+msgid "Reset to 0 gain"
+msgstr "Setel ulang ke perolehan 0"
+
+msgid "Load a Settings file"
+msgstr "Muat file Pengaturan"
+
+msgid "Save Settings in a file"
+msgstr "Simpan Pengaturan dalam file"
+
+msgid "left"
+msgstr "kiri"
+
+msgid "Enable Equalizer"
+msgstr "Aktifkan Ekualiser"
+
+msgid "Spect"
+msgstr "Spek"
+
+msgid "Spectrum"
+msgstr "Spektrum"
+
+msgid "Right Frequency spectrum"
+msgstr "Spektrum Frekuensi Kanan"
+
+msgid "Left Frequency spectrum"
+msgstr "Spektrum Frekuensi Kiri"
+
+msgid "Enable Spectrum"
+msgstr "Aktifkan Spektrum"
+
+msgid "Bass"
+msgstr "Bas"
+
+msgid "Snare"
+msgstr "Snare"
+
+msgid "Open H"
+msgstr "Buka H"
+
+msgid "Close H"
+msgstr "Tutup H"
+
+msgid "Patern 1"
+msgstr "Pola 1"
+
+msgid "Drums Patern 1"
+msgstr "Pola Drum 1"
+
+msgid "Drums Patern 2"
+msgstr "Pola Drum 2"
+
+msgid "Drums Patern 3"
+msgstr "Pola Drum 3"
+
+msgid "Drums Patern 4"
+msgstr "Pola Drum 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "Pelajaran terakhir. Lakukan hal yang sama seperti pelajaran ke-3 tetapi tingkatkan temponya. Pada hitungan 2 Anda dapat menambahkan boom pada Bass Drum. Selamat, Anda adalah seorang drummer sekarang. ;-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "Pelajaran ke-3 Lakukan hal yang sama seperti pelajaran kedua dan pada hitungan 3 tambahkan klak pada Snare Drum. Ini yang paling sulit. Tetap hitung dengan suara Anda."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "Pelajaran kedua. Lakukan hal yang sama seperti pelajaran pertama dan pada hitungan 1 tambahkan boom dengan kaki kanan Anda di Bass Drum. Tetap hitung dengan suara Anda."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "Pelajaran pertama. Pukul topi dengan tongkat pada setiap hitungan. Hitung juga dengan suara Anda."
+
+msgid "Patern"
+msgstr "Pola"
+
+msgid "Lesson"
+msgstr "Pelajaran"
+
+msgid "no anim"
+msgstr "tidak ada animasi"
+
+msgid "No graphic animation."
+msgstr "Tidak ada animasi grafis."
+
+msgid "no and"
+msgstr "tidak dan"
+
+msgid "No and between 2 numbers."
+msgstr "Tidak ada dan di antara 2 angka."
+
+msgid "no voice"
+msgstr "tidak ada suara"
+
+msgid "No counting voice"
+msgstr "Tidak ada suara yang dihitung"
+
+msgid "no drums"
+msgstr "tidak ada drum"
+
+msgid "No drums sound."
+msgstr "Tidak ada suara drum."
+
+msgid "Stop loop"
+msgstr "Hentikan loop"
+
+msgid "Resume loop"
+msgstr "Lanjutkan loop"
+
+msgid "Start loop"
+msgstr "Mulai loop"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (Detak per menit)"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "General volume of Drums"
+msgstr "Volume Umum Drum"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "Detak per menit - interval dalam 1/10000 detik."
+
+msgid "Set BPM X 2"
+msgstr "Setel BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "Setel BPM / 2"
+
+msgid "Lang"
+msgstr "Lang"
+
+msgid "Language for counting"
+msgstr "Bahasa untuk menghitung"
+
+msgid "Chord Randomizer"
+msgstr "Pengacak Akor"
+
+msgid "Click to listen to the guitar chord"
+msgstr "Klik untuk mendengarkan kunci gitar"
+
+msgid "Click to listen to piano chord"
+msgstr "Klik untuk mendengarkan akord piano"
+
+msgid "Select a chord"
+msgstr "Pilih akord"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "Tutup semua StrumPract (Klik ikon di sudut formulir untuk menutup Randomizer saja)"
+
+msgid "Randomize chords"
+msgstr "Acak akord"
+
+msgid "Randomize"
+msgstr "Acak"
+
+msgid "Manual fixed chords"
+msgstr "Akord tetap manual"
+
+msgid "Fixed"
+msgstr "Tetap"
+
+msgid "Tuned guitar string"
+msgstr "Senar gitar yang disetel"
+
+msgid "Tuned Guitars"
+msgstr "Gitar Tuned"
+
+msgid "Re-do a randomizer"
+msgstr "Lakukan ulang pengacakan"
+
+msgid "Clear chords"
+msgstr "Hapus akord"
+
+msgid "Chords"
+msgstr "Chords"
+
+msgid "7th"
+msgstr "7"
+
+msgid "Enable 7th Chords"
+msgstr "Aktifkan Akor ke-7"
+
+msgid "minor"
+msgstr "kecil"
+
+msgid "Enable minor Chords"
+msgstr "Aktifkan Akor minor"
+
+msgid "Major"
+msgstr "Mayor"
+
+msgid "Enable Major Chords"
+msgstr "Aktifkan Akor Utama"
+
+msgid "9th"
+msgstr "9"
+
+msgid "Enable 9th Chords"
+msgstr "Aktifkan Akor ke-9"
+
+msgid "# (Sharp)"
+msgstr "# (Tajam)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "Aktifkan Sharp-Chords #"
+
+msgid "Sound"
+msgstr "Suara"
+
+msgid "Enable Sound of Chords"
+msgstr "Aktifkan Suara Akor"
+
+msgid "Number"
+msgstr "Nomor"
+
+msgid "Total chords"
+msgstr "Total akord"
+
+msgid "Maximum number of chords"
+msgstr "Jumlah akord maksimum"
+
+msgid "Random num"
+msgstr "Nomor acak"
+
+msgid "Randomize the number of chords"
+msgstr "Acak jumlah akord"
+
+msgid "Tempo of Drums in BPM"
+msgstr "Tempo Drum di BPM"
+
+msgid "Enable Drums"
+msgstr "Aktifkan Drum"
+
+msgid "Enable random Drums tempo"
+msgstr "Aktifkan tempo Drum acak"
+
+msgid "Configure the Clear message"
+msgstr "Konfigurasikan pesan Hapus"
+
+msgid "English [en]"
+msgstr "Bahasa Inggris [en]"
+
+msgid "Russian [ru]"
+msgstr "Rusia [ru]"
+
+msgid "French [fr]"
+msgstr "Prancis [fr]"
+
+msgid "German [de]"
+msgstr "Jerman [de]"
+
+msgid "Spanish [es]"
+msgstr "Spanyol [es]"
+
+msgid "Portuguese [pt]"
+msgstr "Portugis [pt]"
+
+msgid "Chinese [zh]"
+msgstr "Cina [zh]"
+
+msgid "Italian [it]"
+msgstr "Italia [it]"
+
+msgid "Dutch [nl]"
+msgstr "Belanda [nl]"
+
+msgid "Hebrew [he]"
+msgstr "Ibrani [he]"
+
+msgid "Indonesian [id]"
+msgstr "Bahasa Indonesia [id]"
+
+msgid "Polish [pl]"
+msgstr "Polandia [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "Esperanto [eo]"
+
+msgid "Greek [el]"
+msgstr "Yunani [el]"
+
+msgid "Arabic [ar]"
+msgstr "Arab [ar]"
+

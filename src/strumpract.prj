@@ -803,27 +803,30 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=6
+modulenames=7
  CONFLANGFO
  EQUALIZERFO
  INFOSFO
  MAINFO
  HEADERFO
  RECORDERFO
-moduletypes=6
+ SPECTRUM1FO
+moduletypes=7
  TCONFLANGFO
  TEQUALIZERFO
  TINFOSFO
  TMAINFO
  THEADERFO
  TRECORDERFO
-modulefiles=6
+ TSPECTRUM1FO
+modulefiles=7
  /home/fred/strumpract/src/conflang.mfm
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/potools.mfm
  /home/fred/strumpract/src/recorder.mfm
+ /home/fred/strumpract/src/spectrum1.mfm
 befcommandon=0
 makeoptionson=15
  4095
@@ -1192,7 +1195,7 @@ line=35
  587
  246
  5734
- 2703
+ 2707
  1490
  326
  319
@@ -1204,7 +1207,7 @@ line=35
  1566
  209
  1136
- 5184
+ 5188
  491
  5
  793
@@ -1635,19 +1638,21 @@ findhistory=20
  show wave for
  enable play
 findoptions=1
-editpos=12
+editpos=14
+ 0,-1073741823
+ 0,218
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,0
  0,-1073741823
+ 0,205
+ 0,3
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,9
+ 0,4
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1660,7 +1665,9 @@ bookmarks8=0
 bookmarks9=0
 bookmarks10=0
 bookmarks11=0
-sourcefiles=12
+bookmarks12=0
+bookmarks13=0
+sourcefiles=14
  ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/captionstrumpract.pas
@@ -1673,7 +1680,9 @@ sourcefiles=12
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/infos.pas
  ${PROJECTDIR}/equalizer.pas
-relpaths=12
+ ${PROJECTDIR}/equalizer.pas
+ ${PROJECTDIR}/spectrum1.pas
+relpaths=14
  recorder.pas
  main.pas
  captionstrumpract.pas
@@ -1686,7 +1695,9 @@ relpaths=12
  main.pas
  infos.pas
  equalizer.pas
-ismoduletexts=12
+ equalizer.pas
+ spectrum1.pas
+ismoduletexts=14
  0
  0
  0
@@ -1699,7 +1710,9 @@ ismoduletexts=12
  0
  0
  0
-modules=8
+ 0
+ 0
+modules=9
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1708,7 +1721,8 @@ modules=8
  /home/fred/strumpract/src/conflang.mfm
  /home/fred/strumpract/src/potools.mfm
  /home/fred/strumpract/src/equalizer.mfm
-moduleoptions=8
+ /home/fred/strumpract/src/spectrum1.mfm
+moduleoptions=9
  0
  2
  0
@@ -1717,7 +1731,8 @@ moduleoptions=8
  0
  0
  0
-visiblemodules=8
+ 0
+visiblemodules=9
  -1
  0
  0
@@ -1726,33 +1741,37 @@ visiblemodules=8
  -1
  -1
  -1
-nomenumodules=8
+ -1
+nomenumodules=9
  0
  -1
  -1
+ 0
  0
  0
  0
  0
  0
 [sourcefo.files_tab]
-order=12
+order=14
  0
  1
- 6
- 7
- 8
- 9
  10
+ 12
+ 13
  11
  3
  2
  5
  4
-firsttab=0
-index=2
+ 7
+ 6
+ 9
+ 8
+firsttab=1
+index=4
 [layout]
-windowlayout=691
+windowlayout=711
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1802,7 +1821,7 @@ windowlayout=691
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1907,7 +1926,7 @@ windowlayout=691
  sortdescend1=0
  sorted=0
  col=0
- row=4
+ row=13
  rowheight=17
  [stackfo]
  splitdir=0
@@ -2210,14 +2229,13 @@ windowlayout=691
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/equalizer.pas
- history=6
-  /home/fred/strumpract/src/equalizer.pas
+ value=/home/fred/strumpract/src/spectrum1.pas
+ history=5
+  /home/fred/strumpract/src/infos.pas
   /home/fred/strumpract/src/captionstrumpract.pas
   /home/fred/strumpract/src/potools.pas
   /home/fred/strumpract/src/po2arrays.pas
   /home/fred/strumpract/src/conflang.pas
-  /home/fred/strumpract/src/infos.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2239,21 +2257,23 @@ windowlayout=691
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=12
+ order=14
   0
   1
-  6
-  7
-  8
-  9
   10
+  12
+  13
   11
   3
   2
   5
   4
- firsttab=0
- index=2
+  7
+  6
+  9
+  8
+ firsttab=1
+ index=4
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2333,7 +2353,7 @@ windowlayout=691
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_infosfo_mse_
+ stackedunder=_mse_conflangfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2371,7 +2391,7 @@ windowlayout=691
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_conflangfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2409,7 +2429,7 @@ windowlayout=691
  [_mse_headerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2428,7 +2448,7 @@ windowlayout=691
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2439,6 +2459,25 @@ windowlayout=691
  y=136
  cx=452
  cy=142
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_spectrum1fo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=351
+ y=240
+ cx=452
+ cy=128
  rcx=0
  rcy=0
  wsize=0

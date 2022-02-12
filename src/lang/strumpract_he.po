@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "&בטל"
+
+msgid "&Abort"
+msgstr "&בטל"
+
+msgid "&OK"
+msgstr "&אישור"
+
+msgid "&Yes"
+msgstr "&כן"
+
+msgid "&No"
+msgstr "&לא"
+
+msgid "&All"
+msgstr "הכל"
+
+msgid "Yes &all"
+msgstr "כן &הכל"
+
+msgid "N&o all"
+msgstr "לא הכל"
+
+msgid "&Ignore"
+msgstr "התעלם"
+
+msgid "&Skip"
+msgstr "&דלג"
+
+msgid "Skip a&ll"
+msgstr "דלג על &ll"
+
+msgid "Co&ntinue"
+msgstr "המשך"
+
+msgid "Cancel"
+msgstr "בטל"
+
+msgid "Abort"
+msgstr "הפסק"
+
+msgid "OK"
+msgstr "בסדר"
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "No"
+msgstr "לא"
+
+msgid "All"
+msgstr "הכל"
+
+msgid "Yes all"
+msgstr "כן הכל"
+
+msgid "No all"
+msgstr "לא הכל"
+
+msgid "Ignore"
+msgstr "התעלם"
+
+msgid "Skip"
+msgstr "דלג"
+
+msgid "Skip all"
+msgstr "דלג על הכל"
+
+msgid "Continue"
+msgstr "המשך"
+
+msgid "is invalid"
+msgstr "לא חוקי"
+
+msgid "Format error"
+msgstr "שגיאת עיצוב"
+
+msgid "Value is required"
+msgstr "נדרש ערך"
+
+msgid "Error"
+msgstr "שגיאה"
+
+msgid "Min"
+msgstr "דקה"
+
+msgid "Max"
+msgstr "מקסימום"
+
+msgid "Range error"
+msgstr "שגיאת טווח"
+
+msgid "&Undo"
+msgstr "&בטל"
+
+msgid "&Redo"
+msgstr "&בצע מחדש"
+
+msgid "&Copy"
+msgstr "&העתק"
+
+msgid "Cu&t"
+msgstr "חתוך"
+
+msgid "&Paste"
+msgstr "&הדבק"
+
+msgid "Select &all"
+msgstr "בחר הכל"
+
+msgid "&Insert Row"
+msgstr "&הוסף שורה"
+
+msgid "&Append Row"
+msgstr "&הוסף שורה"
+
+msgid "&Delete Row"
+msgstr "&מחק שורה"
+
+msgid "&Dir"
+msgstr "&דיר"
+
+msgid "&Home"
+msgstr "&בית"
+
+msgid "&Up"
+msgstr "&למעלה"
+
+msgid "&New"
+msgstr "&חדש"
+
+msgid "&Name"
+msgstr "&שם"
+
+msgid "&Show hidden files"
+msgstr "&הצג קבצים מוסתרים"
+
+msgid "&Filter"
+msgstr "&מסנן"
+
+msgid "Save"
+msgstr "שמור"
+
+msgid "Open"
+msgstr "פתח"
+
+msgid "Name"
+msgstr "שם"
+
+msgid "Create new directory"
+msgstr "צור ספרייה חדשה"
+
+msgid "Back"
+msgstr "חזרה"
+
+msgid "Forward"
+msgstr "העבר"
+
+msgid "Up"
+msgstr "מעלה"
+
+msgid "exists, do you want to overwrite?"
+msgstr "קיים, האם אתה רוצה להחליף?"
+
+msgid "is modified. Save?"
+msgstr "השתנה. שמור?"
+
+msgid "WARNING"
+msgstr "אזהרה"
+
+msgid "Exception"
+msgstr "חריג"
+
+msgid "System"
+msgstr "מערכת"
+
+msgid "does not exist"
+msgstr "לא קיים"
+
+msgid "PASSWORD"
+msgstr "סיסמה"
+
+msgid "Enter password"
+msgstr "הזן סיסמה"
+
+msgid "Invalid password!"
+msgstr "סיסמה לא חוקית!"
+
+msgid "Can not read directory"
+msgstr "לא יכול לקרוא ספרייה"
+
+msgid "Graphic format not supported"
+msgstr "פורמט גרפי אינו נתמך"
+
+msgid "Graphic format error"
+msgstr "שגיאה בפורמט גרפי"
+
+msgid "All Images"
+msgstr "כל התמונות"
+
+msgid "Confirmation"
+msgstr "אישור"
+
+msgid "Delete record?"
+msgstr "מחק רשומה?"
+
+msgid "Copy record?"
+msgstr "העתקת רשומה?"
+
+msgid "Close page"
+msgstr "סגור דף"
+
+msgid "First"
+msgstr "ראשון"
+
+msgid "Prior"
+msgstr "קודם"
+
+msgid "Next"
+msgstr "הבא"
+
+msgid "Last"
+msgstr "אחרון"
+
+msgid "Append"
+msgstr "הוסף"
+
+msgid "Delete"
+msgstr "מחק"
+
+msgid "Edit"
+msgstr "ערוך"
+
+msgid "Post"
+msgstr "פרסם"
+
+msgid "Annul"
+msgstr "ביטול"
+
+msgid "Refresh"
+msgstr "רענן"
+
+msgid "Edit filter"
+msgstr "ערוך מסנן"
+
+msgid "Edit filter minimum"
+msgstr "ערוך מסנן מינימום"
+
+msgid "Edit filter maximum"
+msgstr "ערוך מסנן מקסימום"
+
+msgid "Reset filter"
+msgstr "אפס מסנן"
+
+msgid "Filter on"
+msgstr "סנן על"
+
+msgid "Search"
+msgstr "חיפוש"
+
+msgid "Auto edit"
+msgstr "עריכה אוטומטית"
+
+msgid "Copy record"
+msgstr "העתק רשומה"
+
+msgid "Dialog"
+msgstr "דיאלוג"
+
+msgid "Insert"
+msgstr "הוסף"
+
+msgid "Copy"
+msgstr "העתק"
+
+msgid "Paste"
+msgstr "הדבק"
+
+msgid "Row insert"
+msgstr "הוספת שורה"
+
+msgid "Row append"
+msgstr "הוסף שורה"
+
+msgid "Row delete"
+msgstr "מחיקת שורה"
+
+msgid "Undo"
+msgstr "בטל"
+
+msgid "Redo"
+msgstr "עשה מחדש"
+
+msgid "Cut"
+msgstr "חתוך"
+
+msgid "Select all"
+msgstr "בחר הכל"
+
+msgid "Filter off"
+msgstr "סינון כבוי"
+
+msgid "Portrait"
+msgstr "דיוקן"
+
+msgid "Landscape"
+msgstr "נוף"
+
+msgid "Delete row?"
+msgstr "מחק שורה?"
+
+msgid "selected rows?"
+msgstr "שורות שנבחרו?"
+
+msgid "Single item only"
+msgstr "פריט בודד בלבד"
+
+msgid "Copy Cells"
+msgstr "העתק תאים"
+
+msgid "Paste Cells"
+msgstr "הדבק תאים"
+
+msgid "Close"
+msgstr "סגור"
+
+msgid "Maximize"
+msgstr "מקסם"
+
+msgid "Normalize"
+msgstr "התנורמל"
+
+msgid "Minimize"
+msgstr "מזעור"
+
+msgid "Fix size"
+msgstr "תקן גודל"
+
+msgid "Float"
+msgstr "צף"
+
+msgid "Stay on top"
+msgstr "הישאר בראש"
+
+msgid "Stay in background"
+msgstr "הישאר ברקע"
+
+msgid "Lock children"
+msgstr "נעל ילדים"
+
+msgid "No lock"
+msgstr "אין נעילה"
+
+msgid "Input"
+msgstr "קלט"
+
+msgid "Button"
+msgstr "כפתור"
+
+msgid "On"
+msgstr "מופעל"
+
+msgid "Off"
+msgstr "כבוי"
+
+msgid "Left border"
+msgstr "גבול שמאלי"
+
+msgid "Top border"
+msgstr "גבול עליון"
+
+msgid "Right border"
+msgstr "גבול ימני"
+
+msgid "Bottom border"
+msgstr "גבול תחתון"
+
+msgid "Begin of text"
+msgstr "תחילת הטקסט"
+
+msgid "End of text"
+msgstr "סוף טקסט"
+
+msgid "Inputmode"
+msgstr "מצב קלט"
+
+msgid "Overwrite"
+msgstr "החלף"
+
+msgid "Deleted"
+msgstr "נמחק"
+
+msgid "Copied"
+msgstr "הועתק"
+
+msgid "Inserted"
+msgstr "הוכנס"
+
+msgid "Pasted"
+msgstr "הודבק"
+
+msgid "Withdrawn"
+msgstr "נמשך"
+
+msgid "Window activated"
+msgstr "החלון הופעל"
+
+msgid "Menu"
+msgstr "תפריט"
+
+msgid "Beginning of file"
+msgstr "תחילת הקובץ"
+
+msgid "End of file"
+msgstr "סוף קובץ"
+
+msgid "Voice output"
+msgstr "פלט קולי"
+
+msgid "Speak again"
+msgstr "דבר שוב"
+
+msgid "First column"
+msgstr "עמודה ראשונה"
+
+msgid "First row"
+msgstr "שורה ראשונה"
+
+msgid "Last column"
+msgstr "עמודה אחרונה"
+
+msgid "Last row"
+msgstr "שורה אחרונה"
+
+msgid "Selection"
+msgstr "בחירה"
+
+msgid "Speak path"
+msgstr "דבר נתיב"
+
+msgid "Disabled button"
+msgstr "כפתור מושבת"
+
+msgid "First field"
+msgstr "שדה ראשון"
+
+msgid "Last field"
+msgstr "שדה אחרון"
+
+msgid "First element"
+msgstr "אלמנט ראשון"
+
+msgid "Last element"
+msgstr "אלמנט אחרון"
+
+msgid "Slower"
+msgstr "איטי יותר"
+
+msgid "Faster"
+msgstr "מהיר יותר"
+
+msgid "Window"
+msgstr "חלון"
+
+msgid "Area"
+msgstr "אזור"
+
+msgid "Area activated"
+msgstr "האזור הופעל"
+
+msgid "Volume down"
+msgstr "הורדת עוצמת הקול"
+
+msgid "Volume up"
+msgstr "הגברת עוצמת הקול"
+
+msgid "Cancel speech"
+msgstr "בטל נאום"
+
+msgid "New"
+msgstr "חדש"
+
+msgid "Tools"
+msgstr "כלים"
+
+msgid "Languages"
+msgstr "שפות"
+
+msgid "Directory"
+msgstr "ספרייה"
+
+msgid "No icons"
+msgstr "אין סמלים"
+
+msgid "No lateral"
+msgstr "אין לרוחב"
+
+msgid "Compact"
+msgstr "קומפקטי"
+
+msgid "Path"
+msgstr "נתיב"
+
+msgid "File"
+msgstr "קובץ"
+
+msgid "Delete selected row?"
+msgstr "מחק את השורה שנבחרה?"
+
+msgid "Delete %s selected rows?"
+msgstr "מחק את %s שורות נבחרות?"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "עגן כל חלון באזור זה."
+
+msgid "Drag a form here using right-border grip."
+msgstr "גרור טופס לכאן באמצעות אחיזה בגבול הימני."
+
+msgid "&Dock"
+msgstr "&עגינה"
+
+msgid "Dock windows in one form"
+msgstr "עגן חלונות בצורה אחת"
+
+msgid "&Tab"
+msgstr "&כרטיסייה"
+
+msgid "One form with tabs"
+msgstr "טופס אחד עם כרטיסיות"
+
+msgid "&Dock all visible windows"
+msgstr "&עגן את כל החלונות הגלויים"
+
+msgid "&Float all visible windows"
+msgstr "&הצף את כל החלונות הגלויים"
+
+msgid "Float windows in independent forms"
+msgstr "חלונות צפים בצורות עצמאיות"
+
+msgid "&Tab all visible windows"
+msgstr "&טב את כל החלונות הגלויים"
+
+msgid "Make windows tabed in one form"
+msgstr "הפוך חלונות עם כרטיסיות בצורה אחת"
+
+msgid "&Jam Session"
+msgstr "&Jam Session"
+
+msgid "DJ Console Wave"
+msgstr "DJ Console Wave"
+
+msgid "DJ Console Info"
+msgstr "מידע על קונסולת DJ"
+
+msgid "&Record stage"
+msgstr "&הקלט שלב"
+
+msgid "&Chords Randomizer"
+msgstr "מקלדת אקורדים"
+
+msgid "&Image Dancer"
+msgstr "&רקדן תמונה"
+
+msgid "Save Layout"
+msgstr "שמור פריסה"
+
+msgid "Save current layout"
+msgstr "שמור את הפריסה הנוכחית"
+
+msgid "Load Layout"
+msgstr "טען פריסה"
+
+msgid "Load saved layout"
+msgstr "טען פריסה שמורה"
+
+msgid "&Layout"
+msgstr "&פריסה"
+
+msgid "Layout of windows"
+msgstr "פריסת חלונות"
+
+msgid "Show All"
+msgstr "הצג הכל"
+
+msgid "Hide All"
+msgstr "הסתר הכל"
+
+msgid "Show Drums"
+msgstr "הצג תופים"
+
+msgid "Show File List"
+msgstr "הצג רשימת קבצים"
+
+msgid "Show Player 1"
+msgstr "הצג נגן 1"
+
+msgid "Show Player 2"
+msgstr "הצג נגן 2"
+
+msgid "Show Commander"
+msgstr "הצג מפקד"
+
+msgid "Show Recorder"
+msgstr "הצג מקליט"
+
+msgid "Show Guitars"
+msgstr "הצג גיטרות"
+
+msgid "Show Spectrum 1"
+msgstr "הצג ספקטרום 1"
+
+msgid "Show Spectrum 2"
+msgstr "הצג ספקטרום 2"
+
+msgid "Show Spectrum Rec"
+msgstr "הצג קלט ספקטרום"
+
+msgid "Show WaveForm 1"
+msgstr "הצג WaveForm 1"
+
+msgid "Show WaveForm 2"
+msgstr "הצג WaveForm 2"
+
+msgid "Show WaveForm Rec"
+msgstr "הצג WaveForm Rec"
+
+msgid "Show Equalizer 1"
+msgstr "הצג אקולייזר 1"
+
+msgid "Show Equalizer 2"
+msgstr "הצג אקולייזר 2"
+
+msgid "Show Equalizer Rec"
+msgstr "הצג את ההקלטה של ​​אקולייזר"
+
+msgid "Show Chord Randomizer"
+msgstr "הצג אקורד אקורד אקורד"
+
+msgid "Show Image Dancer"
+msgstr "הצג רקדן תמונה"
+
+msgid "Show Dock Panel 1"
+msgstr "הצג לוח עגינה 1"
+
+msgid "Show Dock Panel 2"
+msgstr "הצג לוח עגינה 2"
+
+msgid "Show Dock Panel 3"
+msgstr "הצג לוח עגינה 3"
+
+msgid "Show Dock Panel 4"
+msgstr "הצג לוח עגינה 4"
+
+msgid "Show Dock Panel 5"
+msgstr "הצג לוח עגינה 5"
+
+msgid "&Panels"
+msgstr "&פאנלים"
+
+msgid "&Show"
+msgstr "&הצג"
+
+msgid "Show/hide windows"
+msgstr "הצג/הסתר חלונות"
+
+msgid "Square"
+msgstr "מרובע"
+
+msgid "Triangle"
+msgstr "משולש"
+
+msgid "Lines"
+msgstr "קווים"
+
+msgid "Fractal Tree"
+msgstr "עץ פרקטל"
+
+msgid "Super Formula"
+msgstr "סופר פורמולה"
+
+msgid "Hyper Formula"
+msgstr "נוסחת יתר"
+
+msgid "Atom"
+msgstr "אטום"
+
+msgid "Spiral Hue"
+msgstr "גוון ספירלי"
+
+msgid "Spiral Rainbow"
+msgstr "קשת ספירלית"
+
+msgid "Spiral Move"
+msgstr "2 ספירה"
+
+msgid "Turtle 1"
+msgstr "צב 1"
+
+msgid "Turtle 2"
+msgstr "צב 2"
+
+msgid "Fractal Circles"
+msgstr "מעגלים פרקטלים"
+
+msgid "Normal form"
+msgstr "צורה רגילה"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "השתמש בטופס זה כדי להגדיר את הגודל של צורות אליפסה ומלבן (עגול)."
+
+msgid "Ellipse"
+msgstr "אליפסה"
+
+msgid "Rounded rect"
+msgstr "ישר מעוגל"
+
+msgid "Rectangle"
+msgstr "מלבן"
+
+msgid "Always on top"
+msgstr "תמיד בראש"
+
+msgid "Transparent"
+msgstr "שקוף"
+
+msgid "Hide Dancer"
+msgstr "הסתר רקדן"
+
+msgid "Da&ncer"
+msgstr "D&ncer"
+
+msgid "Dancing Animations"
+msgstr "אנימציות רוקדות"
+
+msgid "Gold"
+msgstr "זהב"
+
+msgid "Silver"
+msgstr "כסף"
+
+msgid "Carbon"
+msgstr "פחמן"
+
+msgid "&Style"
+msgstr "&סגנון"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "סגנון פריסה זהב, כסף או פחמן"
+
+msgid "Audio"
+msgstr "שמע"
+
+msgid "Config of audio and colors"
+msgstr "תצורת שמע וצבעים"
+
+msgid "Language"
+msgstr "שפה"
+
+msgid "Set language"
+msgstr "הגדר שפה"
+
+msgid "&Config"
+msgstr "תצורה"
+
+msgid "Configuration setting"
+msgstr "הגדרת תצורה"
+
+msgid "&About"
+msgstr "&אודות"
+
+msgid "About StrumPract"
+msgstr "אודות StrumPract"
+
+msgid "&Quit"
+msgstr "&צא"
+
+msgid "Terminate StrumPract"
+msgstr "הפסק את StrumPract"
+
+msgid "Set as default"
+msgstr "הגדר כברירת מחדל"
+
+msgid "Recorder"
+msgstr "מקליט"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "השתמש בלוח האחיזה הזה כדי לגרור/לשחרר את החלון."
+
+msgid "Com"
+msgstr "קומ"
+
+msgid "Commander"
+msgstr "מפקד"
+
+msgid "Start Drums"
+msgstr "התחל תופים"
+
+msgid "Pause Drums"
+msgstr "השהה תופים"
+
+msgid "Resume Drums"
+msgstr "המשך תופים"
+
+msgid "General Volume of drums"
+msgstr "נפח כללי של תופים"
+
+msgid "Drums"
+msgstr "תופים"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "לחץ כדי לעבור ל-100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "עוצמת הקלט (מיקרופון או קלט)"
+
+msgid "Input (mic or aux in)"
+msgstr "קלט (mic או aux in)"
+
+msgid "Enable Live Input"
+msgstr "אפשר קלט חי"
+
+msgid "Right Volume General in %"
+msgstr "הנפח הנכון כללי ב-%"
+
+msgid "Left Volume General in %"
+msgstr "הכרך השמאלי כללי ב-%"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "נפח שמאלי כללי. לחץ כדי לאפס ל-100%."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "ווליום ימני כללי. לחץ כדי לאפס ל-100%."
+
+msgid "Lock left and right channels"
+msgstr "נעל ערוצים ימני ושמאלי"
+
+msgid "General Volume in %"
+msgstr "נפח כללי ב-%"
+
+msgid "System Master Volume"
+msgstr "נפח בסיס מערכת"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "שנה את זמן הערבוב ב-1/100 שנייה"
+
+msgid "Stop player"
+msgstr "עצור את הנגן"
+
+msgid "Resume player"
+msgstr "המשך נגן"
+
+msgid "Load and Start Player"
+msgstr "טען והפעל נגן"
+
+msgid "Left Volume Player 1"
+msgstr "נגן נפח שמאלי 1"
+
+msgid "Right Volume Player 1"
+msgstr "נגן עוצמת הקול הנכון 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "התחל נגן 1 --> מיקס --> עצור נגן 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "התחל נגן 2 --> מיקס --> עצור נגן 1"
+
+msgid "Right Volume Player 2"
+msgstr "נגן עוצמת הקול הימני 2"
+
+msgid "Left Volume Player 2"
+msgstr "נגן נפח שמאלי 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "Ce-Load-Pause Player"
+
+msgid "Pause player"
+msgstr "השהה נגן"
+
+msgid "Pause Mixing"
+msgstr "השהה ערבוב"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "אפשר חישוב תדרי ספקטרום"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "אנימציה גרפית בזמן ערבוב (אם המעבד נמוך מדי השבת אותו)"
+
+msgid "View Meters on/off"
+msgstr "הצג מטרים מופעל/כיבוי"
+
+msgid "Auto Mixing on/off"
+msgstr "ערבוב אוטומטי מופעל/כיבוי"
+
+msgid "Direct MIX (0 second time)"
+msgstr "MIX ישיר (0 פעם שניה)"
+
+msgid "Player 1"
+msgstr "שחקן 1"
+
+msgid "Player 2"
+msgstr "שחקן 2"
+
+msgid "Randomize mixing list"
+msgstr "הצג רנדומיזציה של רשימת ערבוב"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "ערך לא חוקי. אפס ל-100."
+
+msgid "Or press Esc key for previous value."
+msgstr "או הקש על מקש Esc עבור הערך הקודם."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "השתמש בלוח האחיזה הזה כדי לגרור/לשחרר את החלון"
+
+msgid "Files"
+msgstr "קבצים"
+
+msgid "Audio files"
+msgstr "קבצי שמע"
+
+msgid "Number of files in the list"
+msgstr "מספר קבצים ברשימה"
+
+msgid "Find a word in list"
+msgstr "מצא מילה ברשימה"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "שלח שיר נבחר לרמז עבור שחקן 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "שלח שיר נבחר לרמז לנגן 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "כדי להזיז שורה: לחץ+החזק לתוך העמודה הקבועה וגרור את השורה לאן שאתה רוצה."
+
+msgid "Name of sound"
+msgstr "שם הצליל"
+
+msgid "Ext"
+msgstr "שלוחה"
+
+msgid "File extension"
+msgstr "סיומת קובץ"
+
+msgid "Size"
+msgstr "גודל"
+
+msgid "Size in Kb of the file"
+msgstr "גודל הקובץ ב-Kb"
+
+msgid "Mix"
+msgstr "מערבבים"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "כלול למיקס. לחיצה על התא הקבוע ---> בחר הכל/ללא."
+
+msgid "Load custom play-list"
+msgstr "טען רשימת השמעה מותאמת אישית"
+
+msgid "Load"
+msgstr "טען"
+
+msgid "Save custom play-list"
+msgstr "שמור רשימת השמעה מותאמת אישית"
+
+msgid "Add file in custom play-list"
+msgstr "הוסף קובץ ברשימת השמעה מותאמת אישית"
+
+msgid "Add"
+msgstr "הוסף"
+
+msgid "History of Directories"
+msgstr "היסטוריה של ספריות"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "בחר ספריית שמע עם wav, ogg, flac או mp3"
+
+msgid "Infos of song"
+msgstr "מידע על השיר"
+
+msgid "No Image Tag"
+msgstr "ללא תג תמונה"
+
+msgid "Title"
+msgstr "כותרת"
+
+msgid "Artist"
+msgstr "אמן"
+
+msgid "Album"
+msgstr "אלבום"
+
+msgid "Year"
+msgstr "שנה"
+
+msgid "Duration"
+msgstr "משך זמן"
+
+msgid "Genre"
+msgstr "ז'אנר"
+
+msgid "Comment"
+msgstr "תגובה"
+
+msgid "File Name"
+msgstr "שם הקובץ"
+
+msgid "Rate"
+msgstr "דירוג"
+
+msgid "Chan"
+msgstr "צ'אן"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "הפעל 1"
+
+msgid "Change Left volume"
+msgstr "שנה את עוצמת הקול השמאלית"
+
+msgid "Reset to tempo original"
+msgstr "אפס למקור הקצב"
+
+msgid "Click to change position of sound"
+msgstr "לחץ כדי לשנות את מיקום הקול"
+
+msgid "History of Cue files"
+msgstr "היסטוריה של קבצי Cue"
+
+msgid "Change Right volume"
+msgstr "שנה את עוצמת הקול הנכון"
+
+msgid "Change tempo of song"
+msgstr "שנה את קצב השיר"
+
+msgid "Show infos of the song"
+msgstr "הצג מידע על השיר"
+
+msgid "Info"
+msgstr "מידע"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "זהה BMP מהמיקום הנוכחי והגדר אותו לקצב תופים."
+
+msgid "Resume player"
+msgstr "המשך נגן"
+
+msgid "Load from cue and Start player"
+msgstr "טען מהסימן והתחל נגן"
+
+msgid "Load from cue and Pause player"
+msgstr "טען מנגן רמז והשהה"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "בחר קובץ שמע מסוג wav, ogg, flac או mp3"
+
+msgid "Position of sound"
+msgstr "מיקום הקול"
+
+msgid "Lenght of sound"
+msgstr "אורך הקול"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "אפשר העברת השיר בלולאה. (השהיה לא מופעלת עם לולאה.)"
+
+msgid "Set Mono/Stereo"
+msgstr "הגדר מונו/סטריאו"
+
+msgid "Show wave form in slider"
+msgstr "הצג צורת גל במחוון"
+
+msgid "Enable playing reverse."
+msgstr "אפשר משחק הפוך."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "אפשר מתיחות (שינוי קצב)"
+
+msgid "right"
+msgstr "נכון"
+
+msgid "Reset to 0 gain"
+msgstr "אפס ל-0 רווח"
+
+msgid "Load a Settings file"
+msgstr "טען קובץ הגדרות"
+
+msgid "Save Settings in a file"
+msgstr "שמור הגדרות בקובץ"
+
+msgid "left"
+msgstr "שמאל"
+
+msgid "Enable Equalizer"
+msgstr "הפעל אקולייזר"
+
+msgid "Spect"
+msgstr "ספק"
+
+msgid "Spectrum"
+msgstr "ספקטרום"
+
+msgid "Right Frequency spectrum"
+msgstr "ספקטרום התדר הנכון"
+
+msgid "Left Frequency spectrum"
+msgstr "ספקטרום התדר השמאלי"
+
+msgid "Enable Spectrum"
+msgstr "אפשר ספקטרום"
+
+msgid "Bass"
+msgstr "בס"
+
+msgid "Snare"
+msgstr "מלכודת"
+
+msgid "Open H"
+msgstr "פתח H"
+
+msgid "Close H"
+msgstr "סגור H"
+
+msgid "Patern 1"
+msgstr "תבנית 1"
+
+msgid "Drums Patern 1"
+msgstr "תבנית תופים 1"
+
+msgid "Drums Patern 2"
+msgstr "תבנית תופים 2"
+
+msgid "Drums Patern 3"
+msgstr "תבנית תופים 3"
+
+msgid "Drums Patern 4"
+msgstr "תבנית תופים 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "שיעור אחרון. עשה את אותו הדבר כמו שיעור 3 אך הגביר את הקצב. בספירה 2 תוכל להוסיף בום על תוף הבס. מזל טוב, אתה מתופף עכשיו. ;-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "השיעור השלישי עשה את אותו הדבר כמו השיעור השני ובספירה 3 הוסף קלאק על תוף החבטות. זה הקשה ביותר. עדיין ספור בקול רם."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "שיעור שני. עשה את אותו הדבר כמו השיעור הראשון ובספירה 1 הוסף בום עם רגל ימין על תוף הבס. עדיין ספור בקול רם."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "שיעור ראשון. עם המקל פגע בכובע הסגור בכל ספירה. ספר בקול רם גם כן."
+
+msgid "Patern"
+msgstr "תבנית"
+
+msgid "Lesson"
+msgstr "שיעור"
+
+msgid "no anim"
+msgstr "אין אנים"
+
+msgid "No graphic animation."
+msgstr "אין אנימציה גרפית."
+
+msgid "no and"
+msgstr "אין ו"
+
+msgid "No and between 2 numbers."
+msgstr "אין ו בין 2 מספרים."
+
+msgid "no voice"
+msgstr "אין קול"
+
+msgid "No counting voice"
+msgstr "לא סופר קול"
+
+msgid "no drums"
+msgstr "ללא תופים"
+
+msgid "No drums sound."
+msgstr "אין קול תופים."
+
+msgid "Stop loop"
+msgstr "עצרו לולאה"
+
+msgid "Resume loop"
+msgstr "המשך לולאה"
+
+msgid "Start loop"
+msgstr "התחל לולאה"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (פעימות לדקה)"
+
+msgid "Volume"
+msgstr "ווליום"
+
+msgid "General volume of Drums"
+msgstr "נפח כללי של תופים"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "פעימות לדקה - מרווח ב-1/10000 שניה."
+
+msgid "Set BPM X 2"
+msgstr "הגדר BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "הגדר BPM / 2"
+
+msgid "Lang"
+msgstr "לאנג"
+
+msgid "Language for counting"
+msgstr "שפה לספירה"
+
+msgid "Chord Randomizer"
+msgstr "מיזר אקורד אקורד"
+
+msgid "Click to listen to the guitar chord"
+msgstr "לחץ כדי להאזין לאקורד הגיטרה"
+
+msgid "Click to listen to piano chord"
+msgstr "לחץ כדי להאזין לאקורד הפסנתר"
+
+msgid "Select a chord"
+msgstr "בחר אקורד"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "סגור את כל StrumPract (לחץ על הסמל בפינת הטופס כדי לסגור רק Randomizer)"
+
+msgid "Randomize chords"
+msgstr "עשה אקורד אקורד"
+
+msgid "Randomize"
+msgstr "עשה אקראי"
+
+msgid "Manual fixed chords"
+msgstr "אקורדים קבועים ידניים"
+
+msgid "Fixed"
+msgstr "תוקן"
+
+msgid "Tuned guitar string"
+msgstr "מיתר גיטרה מכוון"
+
+msgid "Tuned Guitars"
+msgstr "גיטרות מכוונות"
+
+msgid "Re-do a randomizer"
+msgstr "בצע מחדש אקראיות"
+
+msgid "Clear chords"
+msgstr "נקה אקורדים"
+
+msgid "Chords"
+msgstr "אקורדים"
+
+msgid "7th"
+msgstr "7"
+
+msgid "Enable 7th Chords"
+msgstr "הפעל 7th Chords"
+
+msgid "minor"
+msgstr "קטין"
+
+msgid "Enable minor Chords"
+msgstr "אפשר אקורדים משניים"
+
+msgid "Major"
+msgstr "מייג'ור"
+
+msgid "Enable Major Chords"
+msgstr "אפשר אקורדים גדולים"
+
+msgid "9th"
+msgstr "תשיעי"
+
+msgid "Enable 9th Chords"
+msgstr "אפשר 9th Chords"
+
+msgid "# (Sharp)"
+msgstr "# (חד)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "אפשר Sharp-Chords #"
+
+msgid "Sound"
+msgstr "צליל"
+
+msgid "Enable Sound of Chords"
+msgstr "אפשר צליל של אקורדים"
+
+msgid "Number"
+msgstr "מספר"
+
+msgid "Total chords"
+msgstr "סהכ אקורדים"
+
+msgid "Maximum number of chords"
+msgstr "מספר מירבי של אקורדים"
+
+msgid "Random num"
+msgstr "מספר אקראי"
+
+msgid "Randomize the number of chords"
+msgstr "עשה אקראי את מספר האקורדים"
+
+msgid "Tempo of Drums in BPM"
+msgstr "טמפו של תופים ב-BPM"
+
+msgid "Enable Drums"
+msgstr "הפעל תופים"
+
+msgid "Enable random Drums tempo"
+msgstr "אפשר קצב תופים אקראי"
+
+msgid "Configure the Clear message"
+msgstr "הגדר את ההודעה נקה"
+
+msgid "English [en]"
+msgstr "אנגלית [en]"
+
+msgid "Russian [ru]"
+msgstr "רוסית [ru]"
+
+msgid "French [fr]"
+msgstr "צרפתית [fr]"
+
+msgid "German [de]"
+msgstr "גרמנית [de]"
+
+msgid "Spanish [es]"
+msgstr "ספרדית [es]"
+
+msgid "Portuguese [pt]"
+msgstr "פורטוגזית [pt]"
+
+msgid "Chinese [zh]"
+msgstr "סינית [zh]"
+
+msgid "Italian [it]"
+msgstr "איטלקית [it]"
+
+msgid "Dutch [nl]"
+msgstr "הולנדית [nl]"
+
+msgid "Hebrew [he]"
+msgstr "עברית [he]"
+
+msgid "Indonesian [id]"
+msgstr "אינדונזית [id]"
+
+msgid "Polish [pl]"
+msgstr "פולנית [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "אספרנטו [eo]"
+
+msgid "Greek [el]"
+msgstr "יוונית [el]"
+
+msgid "Arabic [ar]"
+msgstr "ערבית [ar]"
+

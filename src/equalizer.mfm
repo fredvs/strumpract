@@ -82,7 +82,6 @@ object equalizerfo: tequalizerfo
     frame.captiontextflags = [tf_xcentered, tf_bottom]
     frame.captionpos = cp_topright
     frame.captionoffset = -10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style]
     frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_hiddenedges, frl_colorclient]
@@ -1121,7 +1120,6 @@ object equalizerfo: tequalizerfo
     frame.caption = 'left'
     frame.captiontextflags = [tf_xcentered, tf_bottom]
     frame.captionoffset = 10
-    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style]
     frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_hiddenedges, frl_colorclient]

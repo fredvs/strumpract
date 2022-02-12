@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "& إلغاء"
+
+msgid "&Abort"
+msgstr "& إحباط"
+
+msgid "&OK"
+msgstr "& موافق"
+
+msgid "&Yes"
+msgstr "& نعم"
+
+msgid "&No"
+msgstr "& لا"
+
+msgid "&All"
+msgstr "& الكل"
+
+msgid "Yes &all"
+msgstr "نعم & الكل"
+
+msgid "N&o all"
+msgstr "لا الكل"
+
+msgid "&Ignore"
+msgstr "& تجاهل"
+
+msgid "&Skip"
+msgstr "& تخطي"
+
+msgid "Skip a&ll"
+msgstr "تخطي & ll"
+
+msgid "Co&ntinue"
+msgstr "& ntinue"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Abort"
+msgstr "إحباط"
+
+msgid "OK"
+msgstr "موافق"
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "No"
+msgstr "لا"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "Yes all"
+msgstr "نعم الكل"
+
+msgid "No all"
+msgstr "لا الكل"
+
+msgid "Ignore"
+msgstr "تجاهل"
+
+msgid "Skip"
+msgstr "تخطي"
+
+msgid "Skip all"
+msgstr "تخطي الكل"
+
+msgid "Continue"
+msgstr "متابعة"
+
+msgid "is invalid"
+msgstr "غير صالح"
+
+msgid "Format error"
+msgstr "خطأ في التنسيق"
+
+msgid "Value is required"
+msgstr "القيمة مطلوبة"
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Min"
+msgstr "مين"
+
+msgid "Max"
+msgstr "ماكس"
+
+msgid "Range error"
+msgstr "خطأ في النطاق"
+
+msgid "&Undo"
+msgstr "& تراجع"
+
+msgid "&Redo"
+msgstr "& إعادة"
+
+msgid "&Copy"
+msgstr "& نسخ"
+
+msgid "Cu&t"
+msgstr "Cu & t"
+
+msgid "&Paste"
+msgstr "& لصق"
+
+msgid "Select &all"
+msgstr "تحديد & الكل"
+
+msgid "&Insert Row"
+msgstr "& إدراج صف"
+
+msgid "&Append Row"
+msgstr "& إلحاق صف"
+
+msgid "&Delete Row"
+msgstr "& حذف الصف"
+
+msgid "&Dir"
+msgstr "& دير"
+
+msgid "&Home"
+msgstr "& الصفحة الرئيسية"
+
+msgid "&Up"
+msgstr "& Up"
+
+msgid "&New"
+msgstr "& جديد"
+
+msgid "&Name"
+msgstr "& الاسم"
+
+msgid "&Show hidden files"
+msgstr "& إظهار الملفات المخفية"
+
+msgid "&Filter"
+msgstr "& عامل التصفية"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Open"
+msgstr "فتح"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Create new directory"
+msgstr "إنشاء دليل جديد"
+
+msgid "Back"
+msgstr "رجوع"
+
+msgid "Forward"
+msgstr "إلى الأمام"
+
+msgid "Up"
+msgstr "لأعلى"
+
+msgid "exists, do you want to overwrite?"
+msgstr "موجود ، هل تريد الكتابة فوقه؟"
+
+msgid "is modified. Save?"
+msgstr "تم تعديله. حفظ؟"
+
+msgid "WARNING"
+msgstr "تحذير"
+
+msgid "Exception"
+msgstr "استثناء"
+
+msgid "System"
+msgstr "النظام"
+
+msgid "does not exist"
+msgstr "غير موجود"
+
+msgid "PASSWORD"
+msgstr "كلمة المرور"
+
+msgid "Enter password"
+msgstr "أدخل كلمة المرور"
+
+msgid "Invalid password!"
+msgstr "كلمة المرور غير صالحة!"
+
+msgid "Can not read directory"
+msgstr "لا يمكن قراءة الدليل"
+
+msgid "Graphic format not supported"
+msgstr "تنسيق الرسم غير مدعوم"
+
+msgid "Graphic format error"
+msgstr "خطأ في تنسيق الرسم"
+
+msgid "All Images"
+msgstr "كل الصور"
+
+msgid "Confirmation"
+msgstr "تأكيد"
+
+msgid "Delete record?"
+msgstr "هل تريد حذف السجل؟"
+
+msgid "Copy record?"
+msgstr "نسخ السجل؟"
+
+msgid "Close page"
+msgstr "إغلاق الصفحة"
+
+msgid "First"
+msgstr "الأول"
+
+msgid "Prior"
+msgstr "قبل"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Last"
+msgstr "الأخير"
+
+msgid "Append"
+msgstr "إلحاق"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Edit"
+msgstr "تحرير"
+
+msgid "Post"
+msgstr "نشر"
+
+msgid "Annul"
+msgstr "إلغاء"
+
+msgid "Refresh"
+msgstr "تحديث"
+
+msgid "Edit filter"
+msgstr "تحرير عامل التصفية"
+
+msgid "Edit filter minimum"
+msgstr "تحرير عامل التصفية الأدنى"
+
+msgid "Edit filter maximum"
+msgstr "تحرير عامل التصفية الأقصى"
+
+msgid "Reset filter"
+msgstr "إعادة تعيين عامل التصفية"
+
+msgid "Filter on"
+msgstr "التصفية قيد التشغيل"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Auto edit"
+msgstr "تحرير تلقائي"
+
+msgid "Copy record"
+msgstr "نسخ السجل"
+
+msgid "Dialog"
+msgstr "حوار"
+
+msgid "Insert"
+msgstr "إدراج"
+
+msgid "Copy"
+msgstr "نسخ"
+
+msgid "Paste"
+msgstr "لصق"
+
+msgid "Row insert"
+msgstr "إدراج الصف"
+
+msgid "Row append"
+msgstr "إضافة صف"
+
+msgid "Row delete"
+msgstr "حذف الصف"
+
+msgid "Undo"
+msgstr "تراجع"
+
+msgid "Redo"
+msgstr "إعادة"
+
+msgid "Cut"
+msgstr "قص"
+
+msgid "Select all"
+msgstr "تحديد الكل"
+
+msgid "Filter off"
+msgstr "تصفية"
+
+msgid "Portrait"
+msgstr "عمودي"
+
+msgid "Landscape"
+msgstr "أفقي"
+
+msgid "Delete row?"
+msgstr "هل تريد حذف الصف؟"
+
+msgid "selected rows?"
+msgstr "الصفوف المختارة؟"
+
+msgid "Single item only"
+msgstr "عنصر واحد فقط"
+
+msgid "Copy Cells"
+msgstr "نسخ الخلايا"
+
+msgid "Paste Cells"
+msgstr "لصق الخلايا"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Maximize"
+msgstr "تكبير"
+
+msgid "Normalize"
+msgstr "تطبيع"
+
+msgid "Minimize"
+msgstr "تصغير"
+
+msgid "Fix size"
+msgstr "حجم الإصلاح"
+
+msgid "Float"
+msgstr "عائم"
+
+msgid "Stay on top"
+msgstr "البقاء في المقدمة"
+
+msgid "Stay in background"
+msgstr "البقاء في الخلفية"
+
+msgid "Lock children"
+msgstr "قفل الأطفال"
+
+msgid "No lock"
+msgstr "بلا قفل"
+
+msgid "Input"
+msgstr "إدخال"
+
+msgid "Button"
+msgstr "زر"
+
+msgid "On"
+msgstr "تشغيل"
+
+msgid "Off"
+msgstr "إيقاف"
+
+msgid "Left border"
+msgstr "الحد الأيسر"
+
+msgid "Top border"
+msgstr "الحد العلوي"
+
+msgid "Right border"
+msgstr "الحد الأيمن"
+
+msgid "Bottom border"
+msgstr "الحد السفلي"
+
+msgid "Begin of text"
+msgstr "بداية النص"
+
+msgid "End of text"
+msgstr "نهاية النص"
+
+msgid "Inputmode"
+msgstr "وضع الإدخال"
+
+msgid "Overwrite"
+msgstr "الكتابة فوق"
+
+msgid "Deleted"
+msgstr "محذوف"
+
+msgid "Copied"
+msgstr "نسخ"
+
+msgid "Inserted"
+msgstr "إدراج"
+
+msgid "Pasted"
+msgstr "لصق"
+
+msgid "Withdrawn"
+msgstr "منسحب"
+
+msgid "Window activated"
+msgstr "النافذة نشطة"
+
+msgid "Menu"
+msgstr "القائمة"
+
+msgid "Beginning of file"
+msgstr "بداية الملف"
+
+msgid "End of file"
+msgstr "نهاية الملف"
+
+msgid "Voice output"
+msgstr "إخراج الصوت"
+
+msgid "Speak again"
+msgstr "تحدث مرة أخرى"
+
+msgid "First column"
+msgstr "العمود الأول"
+
+msgid "First row"
+msgstr "الصف الأول"
+
+msgid "Last column"
+msgstr "العمود الأخير"
+
+msgid "Last row"
+msgstr "الصف الأخير"
+
+msgid "Selection"
+msgstr "التحديد"
+
+msgid "Speak path"
+msgstr "نطق المسار"
+
+msgid "Disabled button"
+msgstr "زر معطل"
+
+msgid "First field"
+msgstr "الحقل الأول"
+
+msgid "Last field"
+msgstr "الحقل الأخير"
+
+msgid "First element"
+msgstr "العنصر الأول"
+
+msgid "Last element"
+msgstr "العنصر الأخير"
+
+msgid "Slower"
+msgstr "أبطأ"
+
+msgid "Faster"
+msgstr "أسرع"
+
+msgid "Window"
+msgstr "نافذة"
+
+msgid "Area"
+msgstr "منطقة"
+
+msgid "Area activated"
+msgstr "المنطقة نشطة"
+
+msgid "Volume down"
+msgstr "خفض مستوى الصوت"
+
+msgid "Volume up"
+msgstr "رفع مستوى الصوت"
+
+msgid "Cancel speech"
+msgstr "إلغاء الكلام"
+
+msgid "New"
+msgstr "جديد"
+
+msgid "Tools"
+msgstr "أدوات"
+
+msgid "Languages"
+msgstr "اللغات"
+
+msgid "Directory"
+msgstr "الدليل"
+
+msgid "No icons"
+msgstr "لا توجد رموز"
+
+msgid "No lateral"
+msgstr "لا جانبي"
+
+msgid "Compact"
+msgstr "مضغوط"
+
+msgid "Path"
+msgstr "المسار"
+
+msgid "File"
+msgstr "ملف"
+
+msgid "Delete selected row?"
+msgstr "هل تريد حذف الصف المحدد؟"
+
+msgid "Delete %s selected rows?"
+msgstr "هل تريد حذف٪ s من الصفوف المحددة؟"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "إرساء أي نافذة في هذه المنطقة."
+
+msgid "Drag a form here using right-border grip."
+msgstr "اسحب نموذجًا هنا باستخدام قبضة الحدود اليمنى."
+
+msgid "&Dock"
+msgstr "Dock"
+
+msgid "Dock windows in one form"
+msgstr "إرساء النوافذ في نموذج واحد"
+
+msgid "&Tab"
+msgstr "Tab"
+
+msgid "One form with tabs"
+msgstr "نموذج واحد بعلامات تبويب"
+
+msgid "&Dock all visible windows"
+msgstr "إرساء جميع النوافذ المرئية"
+
+msgid "&Float all visible windows"
+msgstr "تعويم كافة النوافذ المرئية"
+
+msgid "Float windows in independent forms"
+msgstr "تعويم النوافذ في النماذج المستقلة"
+
+msgid "&Tab all visible windows"
+msgstr "تبويب جميع النوافذ المرئية"
+
+msgid "Make windows tabed in one form"
+msgstr "جعل النوافذ ذات علامات جدولة في شكل واحد"
+
+msgid "&Jam Session"
+msgstr "جلسة Jam"
+
+msgid "DJ Console Wave"
+msgstr "DJ Console Wave"
+
+msgid "DJ Console Info"
+msgstr "DJ Console Info"
+
+msgid "&Record stage"
+msgstr "تسجيل المرحلة"
+
+msgid "&Chords Randomizer"
+msgstr "العشوائي للأوتار"
+
+msgid "&Image Dancer"
+msgstr "صورة راقصة"
+
+msgid "Save Layout"
+msgstr "حفظ التخطيط"
+
+msgid "Save current layout"
+msgstr "حفظ التنسيق الحالي"
+
+msgid "Load Layout"
+msgstr "تحميل التخطيط"
+
+msgid "Load saved layout"
+msgstr "تحميل التخطيط المحفوظ"
+
+msgid "&Layout"
+msgstr "& تخطيط"
+
+msgid "Layout of windows"
+msgstr "تخطيط النوافذ"
+
+msgid "Show All"
+msgstr "إظهار الكل"
+
+msgid "Hide All"
+msgstr "إخفاء الكل"
+
+msgid "Show Drums"
+msgstr "عرض الطبول"
+
+msgid "Show File List"
+msgstr "إظهار قائمة الملفات"
+
+msgid "Show Player 1"
+msgstr "إظهار اللاعب 1"
+
+msgid "Show Player 2"
+msgstr "إظهار اللاعب 2"
+
+msgid "Show Commander"
+msgstr "إظهار القائد"
+
+msgid "Show Recorder"
+msgstr "إظهار المسجل"
+
+msgid "Show Guitars"
+msgstr "إظهار القيثارات"
+
+msgid "Show Spectrum 1"
+msgstr "إظهار الطيف 1"
+
+msgid "Show Spectrum 2"
+msgstr "إظهار الطيف 2"
+
+msgid "Show Spectrum Rec"
+msgstr "إظهار تسجيل الطيف"
+
+msgid "Show WaveForm 1"
+msgstr "إظهار WaveForm 1"
+
+msgid "Show WaveForm 2"
+msgstr "إظهار WaveForm 2"
+
+msgid "Show WaveForm Rec"
+msgstr "إظهار WaveForm Rec"
+
+msgid "Show Equalizer 1"
+msgstr "إظهار المعادل 1"
+
+msgid "Show Equalizer 2"
+msgstr "إظهار المعادل 2"
+
+msgid "Show Equalizer Rec"
+msgstr "إظهار Rec Equalizer Rec"
+
+msgid "Show Chord Randomizer"
+msgstr "إظهار معشّي النغمات"
+
+msgid "Show Image Dancer"
+msgstr "إظهار الصورة الراقصة"
+
+msgid "Show Dock Panel 1"
+msgstr "إظهار لوحة الإرساء 1"
+
+msgid "Show Dock Panel 2"
+msgstr "إظهار لوحة الإرساء 2"
+
+msgid "Show Dock Panel 3"
+msgstr "إظهار لوحة الإرساء 3"
+
+msgid "Show Dock Panel 4"
+msgstr "إظهار لوحة الإرساء 4"
+
+msgid "Show Dock Panel 5"
+msgstr "إظهار لوحة الإرساء 5"
+
+msgid "&Panels"
+msgstr "& اللوحات"
+
+msgid "&Show"
+msgstr "& إظهار"
+
+msgid "Show/hide windows"
+msgstr "إظهار / إخفاء النوافذ"
+
+msgid "Square"
+msgstr "مربع"
+
+msgid "Triangle"
+msgstr "مثلث"
+
+msgid "Lines"
+msgstr "خطوط"
+
+msgid "Fractal Tree"
+msgstr "شجرة كسورية"
+
+msgid "Super Formula"
+msgstr "صيغة فائقة"
+
+msgid "Hyper Formula"
+msgstr "صيغة مفرطة"
+
+msgid "Atom"
+msgstr "أتوم"
+
+msgid "Spiral Hue"
+msgstr "Spiral Hue"
+
+msgid "Spiral Rainbow"
+msgstr "قوس قزح حلزوني"
+
+msgid "Spiral Move"
+msgstr "سبير"
+
+msgid "Turtle 1"
+msgstr "السلحفاة 1"
+
+msgid "Turtle 2"
+msgstr "السلاحف 2"
+
+msgid "Fractal Circles"
+msgstr "دوائر كسورية"
+
+msgid "Normal form"
+msgstr "شكل عادي"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "استخدم هذا النموذج لتعيين حجم أشكال Ellipse و (Round) Rectangle."
+
+msgid "Ellipse"
+msgstr "Ellipse"
+
+msgid "Rounded rect"
+msgstr "Rounded rect"
+
+msgid "Rectangle"
+msgstr "مستطيل"
+
+msgid "Always on top"
+msgstr "دائمًا في المقدمة"
+
+msgid "Transparent"
+msgstr "شفاف"
+
+msgid "Hide Dancer"
+msgstr "إخفاء الراقصة"
+
+msgid "Da&ncer"
+msgstr "راقصة"
+
+msgid "Dancing Animations"
+msgstr "الرسوم المتحركة الراقصة"
+
+msgid "Gold"
+msgstr "ذهبي"
+
+msgid "Silver"
+msgstr "فضي"
+
+msgid "Carbon"
+msgstr "الكربون"
+
+msgid "&Style"
+msgstr "& ستايل"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "نمط التخطيط باللون الذهبي أو الفضي أو الكربوني"
+
+msgid "Audio"
+msgstr "الصوت"
+
+msgid "Config of audio and colors"
+msgstr "تكوين الصوت والألوان"
+
+msgid "Language"
+msgstr "اللغة"
+
+msgid "Set language"
+msgstr "ضبط اللغة"
+
+msgid "&Config"
+msgstr "& تكوين"
+
+msgid "Configuration setting"
+msgstr "إعداد التكوين"
+
+msgid "&About"
+msgstr "& حول"
+
+msgid "About StrumPract"
+msgstr "حول StrumPract"
+
+msgid "&Quit"
+msgstr "& إنهاء"
+
+msgid "Terminate StrumPract"
+msgstr "إنهاء StrumPract"
+
+msgid "Set as default"
+msgstr "تعيين كافتراضي"
+
+msgid "Recorder"
+msgstr "مسجل"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "استخدم لوحة القبضة هذه لسحب / إسقاط النافذة."
+
+msgid "Com"
+msgstr "Com"
+
+msgid "Commander"
+msgstr "القائد"
+
+msgid "Start Drums"
+msgstr "بدء الطبول"
+
+msgid "Pause Drums"
+msgstr "إيقاف الطبول مؤقتًا"
+
+msgid "Resume Drums"
+msgstr "استئناف الطبول"
+
+msgid "General Volume of drums"
+msgstr "الحجم العام للطبول"
+
+msgid "Drums"
+msgstr "طبول"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "انقر للتبديل إلى 100٪ <> 0٪"
+
+msgid "Volume of input (mic or input)"
+msgstr "حجم الإدخال (ميكروفون أو إدخال)"
+
+msgid "Input (mic or aux in)"
+msgstr "إدخال (ميكروفون أو مساعد)"
+
+msgid "Enable Live Input"
+msgstr "تمكين الإدخال المباشر"
+
+msgid "Right Volume General in %"
+msgstr "الحجم الصحيح عام في٪"
+
+msgid "Left Volume General in %"
+msgstr "حجم الصوت الأيسر عام٪"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "الحجم العام الأيسر. انقر لإعادة التعيين إلى 100٪."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "الحجم الصحيح العام. انقر لإعادة التعيين إلى 100٪."
+
+msgid "Lock left and right channels"
+msgstr "قفل القنوات اليمنى واليسرى"
+
+msgid "General Volume in %"
+msgstr "الحجم العام في٪"
+
+msgid "System Master Volume"
+msgstr "وحدة تخزين النظام الرئيسية"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "تغيير وقت الخلط في 1/100 ثانية"
+
+msgid "Stop player"
+msgstr "Stop player"
+
+msgid "Resume player"
+msgstr "استئناف اللاعب"
+
+msgid "Load and Start Player"
+msgstr "تحميل وبدء المشغل"
+
+msgid "Left Volume Player 1"
+msgstr "مشغل الصوت الأيسر 1"
+
+msgid "Right Volume Player 1"
+msgstr "مشغل الصوت الأيمن 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "بدء المشغل 1 -> MIX -> Stop Player 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "Start Player 2 -> MIX -> Stop Player 1"
+
+msgid "Right Volume Player 2"
+msgstr "مشغل الصوت الأيمن 2"
+
+msgid "Left Volume Player 2"
+msgstr "مشغل الصوت الأيسر 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "مشغل Cue-Load-Pause"
+
+msgid "Pause player"
+msgstr "إيقاف المشغل"
+
+msgid "Pause Mixing"
+msgstr "إيقاف الخلط مؤقتًا"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "تمكين حساب ترددات الطيف الترددي"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "رسوم متحركة أثناء الخلط (إذا كانت وحدة المعالجة المركزية منخفضة جدًا ، قم بإيقاف تشغيلها)"
+
+msgid "View Meters on/off"
+msgstr "عرض العدادات تشغيل / إيقاف"
+
+msgid "Auto Mixing on/off"
+msgstr "تشغيل / إيقاف تشغيل المزج التلقائي"
+
+msgid "Direct MIX (0 second time)"
+msgstr "Direct MIX (0 مرة ثانية)"
+
+msgid "Player 1"
+msgstr "اللاعب 1"
+
+msgid "Player 2"
+msgstr "اللاعب 2"
+
+msgid "Randomize mixing list"
+msgstr "ترتيب قائمة المزج عشوائيًا"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "قيمة غير صالحة. إعادة التعيين إلى 100."
+
+msgid "Or press Esc key for previous value."
+msgstr "أو اضغط على مفتاح Esc للقيمة السابقة."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "استخدم لوحة المقبض هذه لسحب / إسقاط النافذة"
+
+msgid "Files"
+msgstr "الملفات"
+
+msgid "Audio files"
+msgstr "ملفات الصوت"
+
+msgid "Number of files in the list"
+msgstr "عدد الملفات في القائمة"
+
+msgid "Find a word in list"
+msgstr "البحث عن كلمة في القائمة"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "إرسال الأغنية المحددة لتلائم اللاعب 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "أرسلت الأغنية المحددة لتلائم اللاعب 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "لنقل صف: انقر مع الاستمرار في العمود الثابت واسحب الصف حيث تريد."
+
+msgid "Name of sound"
+msgstr "اسم الصوت"
+
+msgid "Ext"
+msgstr "تحويلة"
+
+msgid "File extension"
+msgstr "امتداد الملف"
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Size in Kb of the file"
+msgstr "الحجم بالكيلو بايت للملف"
+
+msgid "Mix"
+msgstr "ميكس"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "تضمين للمزيج. النقر فوق الخلية الثابتة ---> تحديد الكل / لا شيء."
+
+msgid "Load custom play-list"
+msgstr "تحميل قائمة تشغيل مخصصة"
+
+msgid "Load"
+msgstr "تحميل"
+
+msgid "Save custom play-list"
+msgstr "حفظ قائمة التشغيل المخصصة"
+
+msgid "Add file in custom play-list"
+msgstr "إضافة ملف في قائمة التشغيل المخصصة"
+
+msgid "Add"
+msgstr "إضافة"
+
+msgid "History of Directories"
+msgstr "تاريخ الدلائل"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "اختر دليل صوتي مع wav أو ogg أو flac أو mp3"
+
+msgid "Infos of song"
+msgstr "معلومات الأغنية"
+
+msgid "No Image Tag"
+msgstr "لا توجد علامة صورة"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Artist"
+msgstr "فنان"
+
+msgid "Album"
+msgstr "الألبوم"
+
+msgid "Year"
+msgstr "السنة"
+
+msgid "Duration"
+msgstr "المدة"
+
+msgid "Genre"
+msgstr "النوع"
+
+msgid "Comment"
+msgstr "تعليق"
+
+msgid "File Name"
+msgstr "اسم الملف"
+
+msgid "Rate"
+msgstr "معدل"
+
+msgid "Chan"
+msgstr "تشان"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "Play1"
+
+msgid "Change Left volume"
+msgstr "تغيير الحجم الأيسر"
+
+msgid "Reset to tempo original"
+msgstr "إعادة التعيين إلى الإيقاع الأصلي"
+
+msgid "Click to change position of sound"
+msgstr "انقر لتغيير موضع الصوت"
+
+msgid "History of Cue files"
+msgstr "تاريخ ملفات Cue"
+
+msgid "Change Right volume"
+msgstr "تغيير الحجم الأيمن"
+
+msgid "Change tempo of song"
+msgstr "تغيير إيقاع الأغنية"
+
+msgid "Show infos of the song"
+msgstr "عرض معلومات الأغنية"
+
+msgid "Info"
+msgstr "معلومات"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "كشف BMP من الوضع الحالي وضبطه على سرعة الطبول."
+
+msgid "Resume player"
+msgstr "استئناف اللاعب"
+
+msgid "Load from cue and Start player"
+msgstr "تحميل من جديلة وبدء لاعب"
+
+msgid "Load from cue and Pause player"
+msgstr "تحميل من مشغل الإشارات والإيقاف المؤقت"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "اختر ملف صوتي wav أو ogg أو flac أو mp3"
+
+msgid "Position of sound"
+msgstr "موقع الصوت"
+
+msgid "Lenght of sound"
+msgstr "طول الصوت"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "تمكين تكرار الأغنية. (لم يتم تمكين الإيقاف المؤقت مع التكرار.)"
+
+msgid "Set Mono/Stereo"
+msgstr "تعيين أحادي / ستيريو"
+
+msgid "Show wave form in slider"
+msgstr "إظهار شكل الموجة في شريط التمرير"
+
+msgid "Enable playing reverse."
+msgstr "تمكين التشغيل العكسي."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "تمكين التمدد (تغيير الإيقاع)"
+
+msgid "right"
+msgstr "الحق"
+
+msgid "Reset to 0 gain"
+msgstr "إعادة التعيين إلى 0 ربح"
+
+msgid "Load a Settings file"
+msgstr "تحميل ملف إعدادات"
+
+msgid "Save Settings in a file"
+msgstr "حفظ الإعدادات في ملف"
+
+msgid "left"
+msgstr "اليسار"
+
+msgid "Enable Equalizer"
+msgstr "تمكين المعادل"
+
+msgid "Spect"
+msgstr "الطيف"
+
+msgid "Spectrum"
+msgstr "الطيف"
+
+msgid "Right Frequency spectrum"
+msgstr "طيف التردد الأيمن"
+
+msgid "Left Frequency spectrum"
+msgstr "طيف التردد الأيسر"
+
+msgid "Enable Spectrum"
+msgstr "تمكين الطيف"
+
+msgid "Bass"
+msgstr "باس"
+
+msgid "Snare"
+msgstr "كمين"
+
+msgid "Open H"
+msgstr "فتح H"
+
+msgid "Close H"
+msgstr "إغلاق H"
+
+msgid "Patern 1"
+msgstr "باتر 1"
+
+msgid "Drums Patern 1"
+msgstr "Drums Patern 1"
+
+msgid "Drums Patern 2"
+msgstr "Drums Patern 2"
+
+msgid "Drums Patern 3"
+msgstr "Drums Patern 3"
+
+msgid "Drums Patern 4"
+msgstr "Drums Patern 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "الدرس الأخير. افعل نفس الدرس الثالث لكن مع زيادة الإيقاع. عند العد 2 يمكنك إضافة boom على Bass Drum. تهانينا ، أنت عازف طبول الآن. ؛-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "الدرس الثالث افعل نفس الدرس الثاني وبعد العد 3 أضف clack على Snare Drum. هذا هو الأصعب. لا يزال العد بصوت عالٍ."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "الدرس الثاني. افعل نفس الدرس الأول وعند العد 1 أضف بوم بقدمك اليمنى على طبلة الجهير. لا يزال يعد بصوتك مرتفعًا."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "الدرس الأول. باستخدام العصا ، اضرب القبعة المغلقة في كل مرة. عد بصوت عالٍ بصوتك أيضًا."
+
+msgid "Patern"
+msgstr "Patern"
+
+msgid "Lesson"
+msgstr "درس"
+
+msgid "no anim"
+msgstr "لا توجد رسوم متحركة"
+
+msgid "No graphic animation."
+msgstr "لا توجد رسوم متحركة رسومية."
+
+msgid "no and"
+msgstr "لا و"
+
+msgid "No and between 2 numbers."
+msgstr "لا و بين رقمين."
+
+msgid "no voice"
+msgstr "لا صوت"
+
+msgid "No counting voice"
+msgstr "لا يوجد صوت عد"
+
+msgid "no drums"
+msgstr "لا توجد براميل"
+
+msgid "No drums sound."
+msgstr "لا يوجد صوت طبول."
+
+msgid "Stop loop"
+msgstr "حلقة الإيقاف"
+
+msgid "Resume loop"
+msgstr "استئناف حلقة"
+
+msgid "Start loop"
+msgstr "حلقة البداية"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (نبضة في الدقيقة)"
+
+msgid "Volume"
+msgstr "الحجم"
+
+msgid "General volume of Drums"
+msgstr "الحجم العام للطبول"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "نبضة في الدقيقة - الفاصل الزمني في 1/10000 ثانية."
+
+msgid "Set BPM X 2"
+msgstr "ضبط BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "ضبط BPM / 2"
+
+msgid "Lang"
+msgstr "لانغ"
+
+msgid "Language for counting"
+msgstr "لغة العد"
+
+msgid "Chord Randomizer"
+msgstr "الوتر المعشوئ"
+
+msgid "Click to listen to the guitar chord"
+msgstr "انقر للاستماع إلى وتر الغيتار"
+
+msgid "Click to listen to piano chord"
+msgstr "انقر للاستماع إلى وتر البيانو"
+
+msgid "Select a chord"
+msgstr "تحديد وتر"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "إغلاق الكل StrumPract (انقر فوق الرمز الموجود في زاوية النموذج لإغلاق Randomizer فقط)"
+
+msgid "Randomize chords"
+msgstr "ترتيب الأوتار عشوائيًا"
+
+msgid "Randomize"
+msgstr "عشوائيا"
+
+msgid "Manual fixed chords"
+msgstr "الأوتار الثابتة اليدوية"
+
+msgid "Fixed"
+msgstr "ثابت"
+
+msgid "Tuned guitar string"
+msgstr "سلسلة جيتار مضبوط"
+
+msgid "Tuned Guitars"
+msgstr "القيثارات المضبوطة"
+
+msgid "Re-do a randomizer"
+msgstr "أعد عمل عامل التوزيع العشوائي"
+
+msgid "Clear chords"
+msgstr "مسح الأوتار"
+
+msgid "Chords"
+msgstr "الحبال"
+
+msgid "7th"
+msgstr "السابع"
+
+msgid "Enable 7th Chords"
+msgstr "تمكين الأوتار السابعة"
+
+msgid "minor"
+msgstr "طفيفة"
+
+msgid "Enable minor Chords"
+msgstr "تمكين الأوتار الصغيرة"
+
+msgid "Major"
+msgstr "رئيسي"
+
+msgid "Enable Major Chords"
+msgstr "تمكين الأوتار الرئيسية"
+
+msgid "9th"
+msgstr "9"
+
+msgid "Enable 9th Chords"
+msgstr "تمكين الأوتار التاسعة"
+
+msgid "# (Sharp)"
+msgstr "# (شارب)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "تمكين Sharp-Chords #"
+
+msgid "Sound"
+msgstr "صوت"
+
+msgid "Enable Sound of Chords"
+msgstr "تمكين صوت الأوتار"
+
+msgid "Number"
+msgstr "رقم"
+
+msgid "Total chords"
+msgstr "مجموع الأوتار"
+
+msgid "Maximum number of chords"
+msgstr "الحد الأقصى لعدد الأوتار"
+
+msgid "Random num"
+msgstr "عدد عشوائي"
+
+msgid "Randomize the number of chords"
+msgstr "ترتيب عدد الأوتار عشوائيًا"
+
+msgid "Tempo of Drums in BPM"
+msgstr "سرعة الطبول في BPM"
+
+msgid "Enable Drums"
+msgstr "تمكين الطبول"
+
+msgid "Enable random Drums tempo"
+msgstr "تفعيل وتيرة الطبول العشوائية"
+
+msgid "Configure the Clear message"
+msgstr "تكوين رسالة مسح"
+
+msgid "English [en]"
+msgstr "الإنجليزية [en]"
+
+msgid "Russian [ru]"
+msgstr "الروسية [ru]"
+
+msgid "French [fr]"
+msgstr "الفرنسية [fr]"
+
+msgid "German [de]"
+msgstr "الألمانية [de]"
+
+msgid "Spanish [es]"
+msgstr "الإسبانية [es]"
+
+msgid "Portuguese [pt]"
+msgstr "البرتغالية [pt]"
+
+msgid "Chinese [zh]"
+msgstr "الصينية [zh]"
+
+msgid "Italian [it]"
+msgstr "إيطالي [it]"
+
+msgid "Dutch [nl]"
+msgstr "الهولندية [nl]"
+
+msgid "Hebrew [he]"
+msgstr "العبرية [he]"
+
+msgid "Indonesian [id]"
+msgstr "إندونيسي [id]"
+
+msgid "Polish [pl]"
+msgstr "البولندية [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "الإسبرانتو [eo]"
+
+msgid "Greek [el]"
+msgstr "اليونانية [el]"
+
+msgid "Arabic [ar]"
+msgstr "عربي [ar]"
+

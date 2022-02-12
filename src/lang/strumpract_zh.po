@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "&取消"
+
+msgid "&Abort"
+msgstr "&中止"
+
+msgid "&OK"
+msgstr "&确定"
+
+msgid "&Yes"
+msgstr "&是"
+
+msgid "&No"
+msgstr "&否"
+
+msgid "&All"
+msgstr "&全部"
+
+msgid "Yes &all"
+msgstr "是&全部"
+
+msgid "N&o all"
+msgstr "没有所有"
+
+msgid "&Ignore"
+msgstr "&忽略"
+
+msgid "&Skip"
+msgstr "&跳过"
+
+msgid "Skip a&ll"
+msgstr "跳过一个&ll"
+
+msgid "Co&ntinue"
+msgstr "继续(&N)"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Abort"
+msgstr "中止"
+
+msgid "OK"
+msgstr "确定"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "All"
+msgstr "全部"
+
+msgid "Yes all"
+msgstr "都是"
+
+msgid "No all"
+msgstr "没有全部"
+
+msgid "Ignore"
+msgstr "忽略"
+
+msgid "Skip"
+msgstr "跳过"
+
+msgid "Skip all"
+msgstr "全部跳过"
+
+msgid "Continue"
+msgstr "继续"
+
+msgid "is invalid"
+msgstr "无效"
+
+msgid "Format error"
+msgstr "格式错误"
+
+msgid "Value is required"
+msgstr "值是必需的"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Min"
+msgstr "分钟"
+
+msgid "Max"
+msgstr "最大"
+
+msgid "Range error"
+msgstr "范围错误"
+
+msgid "&Undo"
+msgstr "&撤消"
+
+msgid "&Redo"
+msgstr "&重做"
+
+msgid "&Copy"
+msgstr "&复制"
+
+msgid "Cu&t"
+msgstr "剪切&t"
+
+msgid "&Paste"
+msgstr "&粘贴"
+
+msgid "Select &all"
+msgstr "选择&全部"
+
+msgid "&Insert Row"
+msgstr "&插入行"
+
+msgid "&Append Row"
+msgstr "&追加行"
+
+msgid "&Delete Row"
+msgstr "&删除行"
+
+msgid "&Dir"
+msgstr "&目录"
+
+msgid "&Home"
+msgstr "&首页"
+
+msgid "&Up"
+msgstr "&向上"
+
+msgid "&New"
+msgstr "&新建"
+
+msgid "&Name"
+msgstr "&名称"
+
+msgid "&Show hidden files"
+msgstr "&显示隐藏文件"
+
+msgid "&Filter"
+msgstr "&过滤器"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Open"
+msgstr "打开"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Create new directory"
+msgstr "创建新目录"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Forward"
+msgstr "转发"
+
+msgid "Up"
+msgstr "向上"
+
+msgid "exists, do you want to overwrite?"
+msgstr "存在，你要覆盖吗？"
+
+msgid "is modified. Save?"
+msgstr "已修改。保存？"
+
+msgid "WARNING"
+msgstr "警告"
+
+msgid "Exception"
+msgstr "异常"
+
+msgid "System"
+msgstr "系统"
+
+msgid "does not exist"
+msgstr "不存在"
+
+msgid "PASSWORD"
+msgstr "密码"
+
+msgid "Enter password"
+msgstr "输入密码"
+
+msgid "Invalid password!"
+msgstr "密码无效！"
+
+msgid "Can not read directory"
+msgstr "无法读取目录"
+
+msgid "Graphic format not supported"
+msgstr "不支持图形格式"
+
+msgid "Graphic format error"
+msgstr "图形格式错误"
+
+msgid "All Images"
+msgstr "所有图片"
+
+msgid "Confirmation"
+msgstr "确认"
+
+msgid "Delete record?"
+msgstr "删除记录？"
+
+msgid "Copy record?"
+msgstr "复制记录？"
+
+msgid "Close page"
+msgstr "关闭页面"
+
+msgid "First"
+msgstr "第一"
+
+msgid "Prior"
+msgstr "之前"
+
+msgid "Next"
+msgstr "下一步"
+
+msgid "Last"
+msgstr "最后"
+
+msgid "Append"
+msgstr "追加"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Post"
+msgstr "发布"
+
+msgid "Annul"
+msgstr "取消"
+
+msgid "Refresh"
+msgstr "刷新"
+
+msgid "Edit filter"
+msgstr "编辑过滤器"
+
+msgid "Edit filter minimum"
+msgstr "编辑过滤器最小值"
+
+msgid "Edit filter maximum"
+msgstr "编辑过滤器最大值"
+
+msgid "Reset filter"
+msgstr "重置过滤器"
+
+msgid "Filter on"
+msgstr "过滤"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Auto edit"
+msgstr "自动编辑"
+
+msgid "Copy record"
+msgstr "复制记录"
+
+msgid "Dialog"
+msgstr "对话"
+
+msgid "Insert"
+msgstr "插入"
+
+msgid "Copy"
+msgstr "复制"
+
+msgid "Paste"
+msgstr "粘贴"
+
+msgid "Row insert"
+msgstr "行插入"
+
+msgid "Row append"
+msgstr "行追加"
+
+msgid "Row delete"
+msgstr "行删除"
+
+msgid "Undo"
+msgstr "撤消"
+
+msgid "Redo"
+msgstr "重做"
+
+msgid "Cut"
+msgstr "剪切"
+
+msgid "Select all"
+msgstr "全选"
+
+msgid "Filter off"
+msgstr "过滤掉"
+
+msgid "Portrait"
+msgstr "肖像"
+
+msgid "Landscape"
+msgstr "风景"
+
+msgid "Delete row?"
+msgstr "删除行？"
+
+msgid "selected rows?"
+msgstr "选择的行？"
+
+msgid "Single item only"
+msgstr "仅单项"
+
+msgid "Copy Cells"
+msgstr "复制单元格"
+
+msgid "Paste Cells"
+msgstr "粘贴单元格"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Maximize"
+msgstr "最大化"
+
+msgid "Normalize"
+msgstr "标准化"
+
+msgid "Minimize"
+msgstr "最小化"
+
+msgid "Fix size"
+msgstr "固定大小"
+
+msgid "Float"
+msgstr "浮动"
+
+msgid "Stay on top"
+msgstr "保持领先"
+
+msgid "Stay in background"
+msgstr "留在后台"
+
+msgid "Lock children"
+msgstr "锁定孩子"
+
+msgid "No lock"
+msgstr "没有锁"
+
+msgid "Input"
+msgstr "输入"
+
+msgid "Button"
+msgstr "按钮"
+
+msgid "On"
+msgstr "开"
+
+msgid "Off"
+msgstr "关闭"
+
+msgid "Left border"
+msgstr "左边框"
+
+msgid "Top border"
+msgstr "顶部边框"
+
+msgid "Right border"
+msgstr "右边框"
+
+msgid "Bottom border"
+msgstr "下边框"
+
+msgid "Begin of text"
+msgstr "正文开始"
+
+msgid "End of text"
+msgstr "文本结束"
+
+msgid "Inputmode"
+msgstr "输入模式"
+
+msgid "Overwrite"
+msgstr "覆盖"
+
+msgid "Deleted"
+msgstr "已删除"
+
+msgid "Copied"
+msgstr "已复制"
+
+msgid "Inserted"
+msgstr "插入"
+
+msgid "Pasted"
+msgstr "已粘贴"
+
+msgid "Withdrawn"
+msgstr "撤回"
+
+msgid "Window activated"
+msgstr "窗口已激活"
+
+msgid "Menu"
+msgstr "菜单"
+
+msgid "Beginning of file"
+msgstr "文件开头"
+
+msgid "End of file"
+msgstr "文件结束"
+
+msgid "Voice output"
+msgstr "语音输出"
+
+msgid "Speak again"
+msgstr "再说一遍"
+
+msgid "First column"
+msgstr "第一列"
+
+msgid "First row"
+msgstr "第一行"
+
+msgid "Last column"
+msgstr "最后一栏"
+
+msgid "Last row"
+msgstr "最后一行"
+
+msgid "Selection"
+msgstr "选择"
+
+msgid "Speak path"
+msgstr "说话路径"
+
+msgid "Disabled button"
+msgstr "禁用按钮"
+
+msgid "First field"
+msgstr "第一个字段"
+
+msgid "Last field"
+msgstr "最后一个字段"
+
+msgid "First element"
+msgstr "第一个元素"
+
+msgid "Last element"
+msgstr "最后一个元素"
+
+msgid "Slower"
+msgstr "较慢"
+
+msgid "Faster"
+msgstr "更快"
+
+msgid "Window"
+msgstr "窗口"
+
+msgid "Area"
+msgstr "区域"
+
+msgid "Area activated"
+msgstr "区域激活"
+
+msgid "Volume down"
+msgstr "降低音量"
+
+msgid "Volume up"
+msgstr "调高音量"
+
+msgid "Cancel speech"
+msgstr "取消演讲"
+
+msgid "New"
+msgstr "新"
+
+msgid "Tools"
+msgstr "工具"
+
+msgid "Languages"
+msgstr "语言"
+
+msgid "Directory"
+msgstr "目录"
+
+msgid "No icons"
+msgstr "没有图标"
+
+msgid "No lateral"
+msgstr "没有横向"
+
+msgid "Compact"
+msgstr "紧凑"
+
+msgid "Path"
+msgstr "路径"
+
+msgid "File"
+msgstr "文件"
+
+msgid "Delete selected row?"
+msgstr "删除选中的行？"
+
+msgid "Delete %s selected rows?"
+msgstr "删除 %s 个选定的行？"
+
+msgid "StrumPract"
+msgstr "弹奏练习"
+
+msgid "Dock any window on this area."
+msgstr "在此区域停靠任何窗口。"
+
+msgid "Drag a form here using right-border grip."
+msgstr "使用右边框将表单拖到此处。"
+
+msgid "&Dock"
+msgstr "&Dock"
+
+msgid "Dock windows in one form"
+msgstr "以一种形式停靠窗口"
+
+msgid "&Tab"
+msgstr "&Tab"
+
+msgid "One form with tabs"
+msgstr "一个带有标签的表单"
+
+msgid "&Dock all visible windows"
+msgstr "&停靠所有可见窗口"
+
+msgid "&Float all visible windows"
+msgstr "&浮动所有可见窗口"
+
+msgid "Float windows in independent forms"
+msgstr "独立形式的浮动窗口"
+
+msgid "&Tab all visible windows"
+msgstr "&Tab 所有可见窗口"
+
+msgid "Make windows tabed in one form"
+msgstr "使窗口以一种形式显示"
+
+msgid "&Jam Session"
+msgstr "&Jam 会话"
+
+msgid "DJ Console Wave"
+msgstr "DJ 控制台波形"
+
+msgid "DJ Console Info"
+msgstr "DJ 控制台信息"
+
+msgid "&Record stage"
+msgstr "&记录阶段"
+
+msgid "&Chords Randomizer"
+msgstr "&Chords Randomizer"
+
+msgid "&Image Dancer"
+msgstr "&图像舞者"
+
+msgid "Save Layout"
+msgstr "保存布局"
+
+msgid "Save current layout"
+msgstr "保存当前布局"
+
+msgid "Load Layout"
+msgstr "加载布局"
+
+msgid "Load saved layout"
+msgstr "加载保存的布局"
+
+msgid "&Layout"
+msgstr "&布局"
+
+msgid "Layout of windows"
+msgstr "窗口布局"
+
+msgid "Show All"
+msgstr "显示全部"
+
+msgid "Hide All"
+msgstr "全部隐藏"
+
+msgid "Show Drums"
+msgstr "显示鼓"
+
+msgid "Show File List"
+msgstr "显示文件列表"
+
+msgid "Show Player 1"
+msgstr "显示播放器 1"
+
+msgid "Show Player 2"
+msgstr "显示播放器 2"
+
+msgid "Show Commander"
+msgstr "显示指挥官"
+
+msgid "Show Recorder"
+msgstr "显示记录器"
+
+msgid "Show Guitars"
+msgstr "显示吉他"
+
+msgid "Show Spectrum 1"
+msgstr "显示频谱 1"
+
+msgid "Show Spectrum 2"
+msgstr "显示频谱 2"
+
+msgid "Show Spectrum Rec"
+msgstr "显示频谱记录"
+
+msgid "Show WaveForm 1"
+msgstr "显示波形 1"
+
+msgid "Show WaveForm 2"
+msgstr "显示波形 2"
+
+msgid "Show WaveForm Rec"
+msgstr "显示波形记录"
+
+msgid "Show Equalizer 1"
+msgstr "显示均衡器 1"
+
+msgid "Show Equalizer 2"
+msgstr "显示均衡器 2"
+
+msgid "Show Equalizer Rec"
+msgstr "显示均衡器记录"
+
+msgid "Show Chord Randomizer"
+msgstr "显示和弦随机化器"
+
+msgid "Show Image Dancer"
+msgstr "显示图像舞者"
+
+msgid "Show Dock Panel 1"
+msgstr "显示 Dock 面板 1"
+
+msgid "Show Dock Panel 2"
+msgstr "显示 Dock 面板 2"
+
+msgid "Show Dock Panel 3"
+msgstr "显示 Dock 面板 3"
+
+msgid "Show Dock Panel 4"
+msgstr "显示 Dock 面板 4"
+
+msgid "Show Dock Panel 5"
+msgstr "显示 Dock 面板 5"
+
+msgid "&Panels"
+msgstr "&面板"
+
+msgid "&Show"
+msgstr "&显示"
+
+msgid "Show/hide windows"
+msgstr "显示/隐藏窗口"
+
+msgid "Square"
+msgstr "正方形"
+
+msgid "Triangle"
+msgstr "三角形"
+
+msgid "Lines"
+msgstr "行"
+
+msgid "Fractal Tree"
+msgstr "分形树"
+
+msgid "Super Formula"
+msgstr "超级公式"
+
+msgid "Hyper Formula"
+msgstr "超级公式"
+
+msgid "Atom"
+msgstr "原子"
+
+msgid "Spiral Hue"
+msgstr "螺旋色调"
+
+msgid "Spiral Rainbow"
+msgstr "螺旋彩虹"
+
+msgid "Spiral Move"
+msgstr "螺旋彩虹 2"
+
+msgid "Turtle 1"
+msgstr "乌龟 1"
+
+msgid "Turtle 2"
+msgstr "乌龟 2"
+
+msgid "Fractal Circles"
+msgstr "分形圆"
+
+msgid "Normal form"
+msgstr "普通形式"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "使用此表格设置椭圆和（圆形）矩形表格的大小。"
+
+msgid "Ellipse"
+msgstr "椭圆"
+
+msgid "Rounded rect"
+msgstr "圆角矩形"
+
+msgid "Rectangle"
+msgstr "矩形"
+
+msgid "Always on top"
+msgstr "总是在最前面"
+
+msgid "Transparent"
+msgstr "透明"
+
+msgid "Hide Dancer"
+msgstr "隐藏舞者"
+
+msgid "Da&ncer"
+msgstr "舞者(&N)"
+
+msgid "Dancing Animations"
+msgstr "跳舞动画"
+
+msgid "Gold"
+msgstr "黄金"
+
+msgid "Silver"
+msgstr "银"
+
+msgid "Carbon"
+msgstr "碳"
+
+msgid "&Style"
+msgstr "&样式"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "布局样式金、银或碳"
+
+msgid "Audio"
+msgstr "音频"
+
+msgid "Config of audio and colors"
+msgstr "音频和颜色配置"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Set language"
+msgstr "设置语言"
+
+msgid "&Config"
+msgstr "&配置"
+
+msgid "Configuration setting"
+msgstr "配置设置"
+
+msgid "&About"
+msgstr "&关于"
+
+msgid "About StrumPract"
+msgstr "关于 StrumPract"
+
+msgid "&Quit"
+msgstr "&退出"
+
+msgid "Terminate StrumPract"
+msgstr "终止 StrumPract"
+
+msgid "Set as default"
+msgstr "设为默认值"
+
+msgid "Recorder"
+msgstr "录音机"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "使用那个夹子面板拖放窗口。"
+
+msgid "Com"
+msgstr "Com"
+
+msgid "Commander"
+msgstr "指挥官"
+
+msgid "Start Drums"
+msgstr "开始鼓"
+
+msgid "Pause Drums"
+msgstr "暂停鼓"
+
+msgid "Resume Drums"
+msgstr "恢复鼓"
+
+msgid "General Volume of drums"
+msgstr "鼓的一般音量"
+
+msgid "Drums"
+msgstr "鼓"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "点击切换到 100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "输入音量（麦克风或输入）"
+
+msgid "Input (mic or aux in)"
+msgstr "输入（麦克风或辅助输入）"
+
+msgid "Enable Live Input"
+msgstr "启用实时输入"
+
+msgid "Right Volume General in %"
+msgstr "右卷一般%"
+
+msgid "Left Volume General in %"
+msgstr "左侧总体积百分比"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "一般左音量。点击重置为 100%。"
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "常规右音量。点击重置为 100%。"
+
+msgid "Lock left and right channels"
+msgstr "锁定左右声道"
+
+msgid "General Volume in %"
+msgstr "一般体积百分比"
+
+msgid "System Master Volume"
+msgstr "系统主卷"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "以 1/100 秒更改混合时间"
+
+msgid "Stop player"
+msgstr "停止播放器"
+
+msgid "Resume player"
+msgstr "恢复播放器"
+
+msgid "Load and Start Player"
+msgstr "加载并启动播放器"
+
+msgid "Left Volume Player 1"
+msgstr "左音量播放器 1"
+
+msgid "Right Volume Player 1"
+msgstr "右音量播放器 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "开始播放器 1 --> 混合 --> 停止播放器 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "开始播放器 2 --> 混合 --> 停止播放器 1"
+
+msgid "Right Volume Player 2"
+msgstr "右音量播放器 2"
+
+msgid "Left Volume Player 2"
+msgstr "左音量播放器 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "提示-加载-暂停播放器"
+
+msgid "Pause player"
+msgstr "暂停播放器"
+
+msgid "Pause Mixing"
+msgstr "暂停混合"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "启用频谱频率计算"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "混合时的图形动画（如果 cpu 太低将其关闭）"
+
+msgid "View Meters on/off"
+msgstr "查看仪表开/关"
+
+msgid "Auto Mixing on/off"
+msgstr "自动混音开/关"
+
+msgid "Direct MIX (0 second time)"
+msgstr "直接混合 (0 秒时间)"
+
+msgid "Player 1"
+msgstr "玩家 1"
+
+msgid "Player 2"
+msgstr "玩家 2"
+
+msgid "Randomize mixing list"
+msgstr "随机化混合列表"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "无效值。重置为 100。"
+
+msgid "Or press Esc key for previous value."
+msgstr "或按 Esc 键获取上一个值。"
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "使用这个夹子面板拖放窗口"
+
+msgid "Files"
+msgstr "文件"
+
+msgid "Audio files"
+msgstr "音频文件"
+
+msgid "Number of files in the list"
+msgstr "列表中的文件数"
+
+msgid "Find a word in list"
+msgstr "在列表中查找一个单词"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "发送选定的歌曲以提示播放器 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "发送选定的歌曲以提示播放器 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "要移动一行：单击并按住固定列并将行拖到您想要的位置。"
+
+msgid "Name of sound"
+msgstr "声音名称"
+
+msgid "Ext"
+msgstr "分机"
+
+msgid "File extension"
+msgstr "文件扩展名"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Size in Kb of the file"
+msgstr "文件大小，以 Kb 为单位"
+
+msgid "Mix"
+msgstr "混合"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "包括混合。单击固定单元格 ---> 全选/无。"
+
+msgid "Load custom play-list"
+msgstr "加载自定义播放列表"
+
+msgid "Load"
+msgstr "加载"
+
+msgid "Save custom play-list"
+msgstr "保存自定义播放列表"
+
+msgid "Add file in custom play-list"
+msgstr "在自定义播放列表中添加文件"
+
+msgid "Add"
+msgstr "添加"
+
+msgid "History of Directories"
+msgstr "目录历史"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "选择带有 wav、ogg、flac 或 mp3 的音频目录"
+
+msgid "Infos of song"
+msgstr "歌曲信息"
+
+msgid "No Image Tag"
+msgstr "没有图片标签"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Artist"
+msgstr "艺术家"
+
+msgid "Album"
+msgstr "专辑"
+
+msgid "Year"
+msgstr "年份"
+
+msgid "Duration"
+msgstr "持续时间"
+
+msgid "Genre"
+msgstr "流派"
+
+msgid "Comment"
+msgstr "评论"
+
+msgid "File Name"
+msgstr "文件名"
+
+msgid "Rate"
+msgstr "率"
+
+msgid "Chan"
+msgstr "陈"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "播放1"
+
+msgid "Change Left volume"
+msgstr "改变左音量"
+
+msgid "Reset to tempo original"
+msgstr "重置为原始速度"
+
+msgid "Click to change position of sound"
+msgstr "点击改变声音位置"
+
+msgid "History of Cue files"
+msgstr "提示文件的历史"
+
+msgid "Change Right volume"
+msgstr "更改右音量"
+
+msgid "Change tempo of song"
+msgstr "改变歌曲的节奏"
+
+msgid "Show infos of the song"
+msgstr "显示歌曲信息"
+
+msgid "Info"
+msgstr "信息"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "从当前位置检测 BMP 并将其设置为 Drums tempo。"
+
+msgid "Resume player"
+msgstr "恢复播放器"
+
+msgid "Load from cue and Start player"
+msgstr "从提示加载并开始播放器"
+
+msgid "Load from cue and Pause player"
+msgstr "从提示和暂停播放器加载"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "选择 wav、ogg、flac 或 mp3 音频文件"
+
+msgid "Position of sound"
+msgstr "声音的位置"
+
+msgid "Lenght of sound"
+msgstr "声音长度"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "启用循环播放歌曲。（循环不启用暂停。）"
+
+msgid "Set Mono/Stereo"
+msgstr "设置单声道/立体声"
+
+msgid "Show wave form in slider"
+msgstr "在滑块中显示波形"
+
+msgid "Enable playing reverse."
+msgstr "启用反向播放。"
+
+msgid "Enable stretching (changing tempo)"
+msgstr "启用拉伸（改变速度）"
+
+msgid "right"
+msgstr "正确"
+
+msgid "Reset to 0 gain"
+msgstr "重置为 0 增益"
+
+msgid "Load a Settings file"
+msgstr "加载设置文件"
+
+msgid "Save Settings in a file"
+msgstr "将设置保存在文件中"
+
+msgid "left"
+msgstr "左"
+
+msgid "Enable Equalizer"
+msgstr "启用均衡器"
+
+msgid "Spect"
+msgstr "幽灵"
+
+msgid "Spectrum"
+msgstr "频谱"
+
+msgid "Right Frequency spectrum"
+msgstr "右频谱"
+
+msgid "Left Frequency spectrum"
+msgstr "左频谱"
+
+msgid "Enable Spectrum"
+msgstr "启用频谱"
+
+msgid "Bass"
+msgstr "低音"
+
+msgid "Snare"
+msgstr "圈套"
+
+msgid "Open H"
+msgstr "打开 H"
+
+msgid "Close H"
+msgstr "关闭 H"
+
+msgid "Patern 1"
+msgstr "模式 1"
+
+msgid "Drums Patern 1"
+msgstr "鼓模式 1"
+
+msgid "Drums Patern 2"
+msgstr "鼓模式 2"
+
+msgid "Drums Patern 3"
+msgstr "鼓模式 3"
+
+msgid "Drums Patern 4"
+msgstr "鼓模式 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "最后一课。和第 3 课一样做，但要提高节奏。在计数“2”时，您可以在 Bass Drum 上添加“boom”。恭喜，您现在是鼓手了。;-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "第 3 课 和第 2 课一样，在数到 3 时，在小军鼓上加一个 crack。这是最难的。仍然用你的声音大声数。"
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "第二节课。和第一节课一样，在数“1”时用右脚在低音鼓上加一个“boom”。仍然用你的声音大声数。"
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "第一课。 每次计数时，用棍子敲打封闭的帽子。 用你的声音大声数数"
+
+msgid "Patern"
+msgstr "模式"
+
+msgid "Lesson"
+msgstr "课程"
+
+msgid "no anim"
+msgstr "没有动画"
+
+msgid "No graphic animation."
+msgstr "没有图形动画。"
+
+msgid "no and"
+msgstr "没有和"
+
+msgid "No and between 2 numbers."
+msgstr "两个数字之间没有和。"
+
+msgid "no voice"
+msgstr "没有声音"
+
+msgid "No counting voice"
+msgstr "没有计数的声音"
+
+msgid "no drums"
+msgstr "没有鼓"
+
+msgid "No drums sound."
+msgstr "没有鼓声。"
+
+msgid "Stop loop"
+msgstr "停止循环"
+
+msgid "Resume loop"
+msgstr "恢复循环"
+
+msgid "Start loop"
+msgstr "开始循环"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (每分钟节拍数)"
+
+msgid "Volume"
+msgstr "音量"
+
+msgid "General volume of Drums"
+msgstr "鼓的总音量"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "每分钟节拍数 - 间隔为 1/10000 秒。"
+
+msgid "Set BPM X 2"
+msgstr "设置 BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "设置 BPM / 2"
+
+msgid "Lang"
+msgstr "朗"
+
+msgid "Language for counting"
+msgstr "计数语言"
+
+msgid "Chord Randomizer"
+msgstr "和弦随机化器"
+
+msgid "Click to listen to the guitar chord"
+msgstr "点击收听吉他和弦"
+
+msgid "Click to listen to piano chord"
+msgstr "点击收听钢琴和弦"
+
+msgid "Select a chord"
+msgstr "选择一个和弦"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "关闭所有 StrumPract (点击表格一角的图标只关闭 Randomizer)"
+
+msgid "Randomize chords"
+msgstr "随机化和弦"
+
+msgid "Randomize"
+msgstr "随机化"
+
+msgid "Manual fixed chords"
+msgstr "手动固定和弦"
+
+msgid "Fixed"
+msgstr "已修复"
+
+msgid "Tuned guitar string"
+msgstr "调音吉他弦"
+
+msgid "Tuned Guitars"
+msgstr "调音吉他"
+
+msgid "Re-do a randomizer"
+msgstr "重新做一个随机化器"
+
+msgid "Clear chords"
+msgstr "清除和弦"
+
+msgid "Chords"
+msgstr "和弦"
+
+msgid "7th"
+msgstr "7th"
+
+msgid "Enable 7th Chords"
+msgstr "启用第 7 和弦"
+
+msgid "minor"
+msgstr "次要"
+
+msgid "Enable minor Chords"
+msgstr "启用小和弦"
+
+msgid "Major"
+msgstr "主要"
+
+msgid "Enable Major Chords"
+msgstr "启用主要和弦"
+
+msgid "9th"
+msgstr "9th"
+
+msgid "Enable 9th Chords"
+msgstr "启用第 9 和弦"
+
+msgid "# (Sharp)"
+msgstr "# (锐利)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "启用 Sharp-Chords #"
+
+msgid "Sound"
+msgstr "声音"
+
+msgid "Enable Sound of Chords"
+msgstr "启用和弦声音"
+
+msgid "Number"
+msgstr "数字"
+
+msgid "Total chords"
+msgstr "总和弦"
+
+msgid "Maximum number of chords"
+msgstr "最大和弦数"
+
+msgid "Random num"
+msgstr "随机数"
+
+msgid "Randomize the number of chords"
+msgstr "随机化和弦数"
+
+msgid "Tempo of Drums in BPM"
+msgstr "BPM 中鼓的节奏"
+
+msgid "Enable Drums"
+msgstr "启用鼓"
+
+msgid "Enable random Drums tempo"
+msgstr "启用随机鼓节奏"
+
+msgid "Configure the Clear message"
+msgstr "配置“清除”消息"
+
+msgid "English [en]"
+msgstr "英语 [en]"
+
+msgid "Russian [ru]"
+msgstr "俄语 [ru]"
+
+msgid "French [fr]"
+msgstr "法语 [fr]"
+
+msgid "German [de]"
+msgstr "德语 [de]"
+
+msgid "Spanish [es]"
+msgstr "西班牙语 [es]"
+
+msgid "Portuguese [pt]"
+msgstr "葡萄牙语 [pt]"
+
+msgid "Chinese [zh]"
+msgstr "中文 [zh]"
+
+msgid "Italian [it]"
+msgstr "意大利语 [it]"
+
+msgid "Dutch [nl]"
+msgstr "荷兰语 [nl]"
+
+msgid "Hebrew [he]"
+msgstr "希伯来语 [he]"
+
+msgid "Indonesian [id]"
+msgstr "印度尼西亚语 [id]"
+
+msgid "Polish [pl]"
+msgstr "波兰语 [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "世界语 [eo]"
+
+msgid "Greek [el]"
+msgstr "希腊语 [el]"
+
+msgid "Arabic [ar]"
+msgstr "阿拉伯语 [ar]"
+

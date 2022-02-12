@@ -191,6 +191,7 @@ begin
 
  conflangfo.ok.caption := lang_stockcaption[Ord(sc_close)];   
  conflangfo.setasdefault.frame.caption := lang_mainfo[Ord(ma_setasdefault)]; 
+ conflangfo.caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language)];
 
  conflangfo.gridlang.rowcount := length(lang_langnames);
 
@@ -205,18 +206,21 @@ begin
 
 with mainfo do
   begin
-      if (thelang = 'fr') or (thelang = 'es')
+       if  (thelang = 'id') or (thelang = 'el')
+        then tframecomp1.template.extraspace := 2 else
+      if (thelang = 'fr') or (thelang = 'es')  
         then tframecomp1.template.extraspace := 4
        else
-      if (thelang = 'de') or (thelang = 'pt') 
+      if (thelang = 'de') or (thelang = 'pt') or (thelang = 'pl')
+        or (thelang = 'ar') 
        then tframecomp1.template.extraspace := 6
       else
-      if (thelang = 'ru')
+      if (thelang = 'ru') or (thelang = 'eo') 
        then tframecomp1.template.extraspace := 7
       else 
-      tframecomp1.template.extraspace := 10;
+       tframecomp1.template.extraspace := 10;
       
-      caption := lang_mainfo[Ord(ma_mainfo)];  {'StrumPract'}
+      caption := lang_mainfo[Ord(ma_mainfo)] + ' ' + versiontext;  {'StrumPract'}
 
       basedock.dragdock.caption := lang_mainfo[Ord(ma_basedockdragdock)];  {'Dock any window on this area.'}
       basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdockingarea)];  {'Drag a form here using right-border grip.'}
@@ -370,7 +374,7 @@ with mainfo do
       tmainmenu1.menu.itembynames(['config','audio']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio)];  {'Audio'}
       tmainmenu1.menu.itembynames(['config','audio']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
 
-      tmainmenu1.menu.itembynames(['config','language']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language)];  {'Language'}
+      tmainmenu1.menu.itembynames(['config','language']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language)] + ' (Lang)';  {'Language'}
       tmainmenu1.menu.itembynames(['config','language']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language_hint)];  {'Set language'}
 
       tmainmenu1.menu.itembynames(['config']).caption := lang_mainfo[Ord(ma_tmainmenu1_config)];  {'&Config'}

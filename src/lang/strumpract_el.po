@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "&Ακύρωση"
+
+msgid "&Abort"
+msgstr "&Ακύρωση"
+
+msgid "&OK"
+msgstr "&ΟΚ"
+
+msgid "&Yes"
+msgstr "&Ναι"
+
+msgid "&No"
+msgstr "&Όχι"
+
+msgid "&All"
+msgstr "&Όλα"
+
+msgid "Yes &all"
+msgstr "Ναι και όλα"
+
+msgid "N&o all"
+msgstr "Όχι όλα"
+
+msgid "&Ignore"
+msgstr "&Παράβλεψη"
+
+msgid "&Skip"
+msgstr "&Παράλειψη"
+
+msgid "Skip a&ll"
+msgstr "Παράλειψη ενός&ll"
+
+msgid "Co&ntinue"
+msgstr "Συνέχεια"
+
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+msgid "Abort"
+msgstr "Ακύρωση"
+
+msgid "OK"
+msgstr "ΟΚ"
+
+msgid "Yes"
+msgstr "Ναι"
+
+msgid "No"
+msgstr "Όχι"
+
+msgid "All"
+msgstr "Όλα"
+
+msgid "Yes all"
+msgstr "Ναι σε όλα"
+
+msgid "No all"
+msgstr "Όχι όλα"
+
+msgid "Ignore"
+msgstr "Παράβλεψη"
+
+msgid "Skip"
+msgstr "Παράλειψη"
+
+msgid "Skip all"
+msgstr "Παράλειψη όλων"
+
+msgid "Continue"
+msgstr "Συνέχεια"
+
+msgid "is invalid"
+msgstr "Δεν είναι έγκυρο"
+
+msgid "Format error"
+msgstr "Σφάλμα μορφοποίησης"
+
+msgid "Value is required"
+msgstr "Η τιμή απαιτείται"
+
+msgid "Error"
+msgstr "Σφάλμα"
+
+msgid "Min"
+msgstr "Ελάχιστο"
+
+msgid "Max"
+msgstr "Μέγ."
+
+msgid "Range error"
+msgstr "Σφάλμα εύρους"
+
+msgid "&Undo"
+msgstr "&Αναίρεση"
+
+msgid "&Redo"
+msgstr "&Επανάληψη"
+
+msgid "&Copy"
+msgstr "&Αντιγραφή"
+
+msgid "Cu&t"
+msgstr "Αποκοπή"
+
+msgid "&Paste"
+msgstr "&Επικόλληση"
+
+msgid "Select &all"
+msgstr "Επιλογή &όλων"
+
+msgid "&Insert Row"
+msgstr "&Εισαγωγή σειράς"
+
+msgid "&Append Row"
+msgstr "&Προσθήκη σειράς"
+
+msgid "&Delete Row"
+msgstr "&Διαγραφή σειράς"
+
+msgid "&Dir"
+msgstr "&Σκηνοθεσία"
+
+msgid "&Home"
+msgstr "&Αρχική σελίδα"
+
+msgid "&Up"
+msgstr "&Πάνω"
+
+msgid "&New"
+msgstr "&Νέο"
+
+msgid "&Name"
+msgstr "&Όνομα"
+
+msgid "&Show hidden files"
+msgstr "&Εμφάνιση κρυφών αρχείων"
+
+msgid "&Filter"
+msgstr "&Φίλτρο"
+
+msgid "Save"
+msgstr "Αποθήκευση"
+
+msgid "Open"
+msgstr "Άνοιγμα"
+
+msgid "Name"
+msgstr "Όνομα"
+
+msgid "Create new directory"
+msgstr "Δημιουργία νέου καταλόγου"
+
+msgid "Back"
+msgstr "Πίσω"
+
+msgid "Forward"
+msgstr "Εμπρός"
+
+msgid "Up"
+msgstr "Πάνω"
+
+msgid "exists, do you want to overwrite?"
+msgstr "Υπάρχει, θέλετε να αντικαταστήσετε;"
+
+msgid "is modified. Save?"
+msgstr "έχει τροποποιηθεί. Αποθήκευση;"
+
+msgid "WARNING"
+msgstr "ΠΡΟΕΙΔΟΠΟΙΗΣΗ"
+
+msgid "Exception"
+msgstr "Εξαίρεση"
+
+msgid "System"
+msgstr "Σύστημα"
+
+msgid "does not exist"
+msgstr "δεν υπάρχει"
+
+msgid "PASSWORD"
+msgstr "Κωδικός πρόσβασης"
+
+msgid "Enter password"
+msgstr "Εισαγωγή κωδικού πρόσβασης"
+
+msgid "Invalid password!"
+msgstr "Μη έγκυρος κωδικός πρόσβασης!"
+
+msgid "Can not read directory"
+msgstr "Δεν είναι δυνατή η ανάγνωση του καταλόγου"
+
+msgid "Graphic format not supported"
+msgstr "Η μορφή γραφικών δεν υποστηρίζεται"
+
+msgid "Graphic format error"
+msgstr "Σφάλμα μορφής γραφικών"
+
+msgid "All Images"
+msgstr "Όλες οι εικόνες"
+
+msgid "Confirmation"
+msgstr "Επιβεβαίωση"
+
+msgid "Delete record?"
+msgstr "Διαγραφή εγγραφής;"
+
+msgid "Copy record?"
+msgstr "Αντιγραφή εγγραφής;"
+
+msgid "Close page"
+msgstr "Κλείσιμο σελίδας"
+
+msgid "First"
+msgstr "Πρώτο"
+
+msgid "Prior"
+msgstr "Προηγούμενο"
+
+msgid "Next"
+msgstr "Επόμενο"
+
+msgid "Last"
+msgstr "Τελευταίο"
+
+msgid "Append"
+msgstr "Προσθήκη"
+
+msgid "Delete"
+msgstr "Διαγραφή"
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Post"
+msgstr "Δημοσίευση"
+
+msgid "Annul"
+msgstr "Ακύρωση"
+
+msgid "Refresh"
+msgstr "Ανανέωση"
+
+msgid "Edit filter"
+msgstr "Επεξεργασία φίλτρου"
+
+msgid "Edit filter minimum"
+msgstr "Επεξεργασία ελάχιστου φίλτρου"
+
+msgid "Edit filter maximum"
+msgstr "Επεξεργασία μέγιστου φίλτρου"
+
+msgid "Reset filter"
+msgstr "Επαναφορά φίλτρου"
+
+msgid "Filter on"
+msgstr "Φίλτρο ενεργό"
+
+msgid "Search"
+msgstr "Αναζήτηση"
+
+msgid "Auto edit"
+msgstr "Αυτόματη επεξεργασία"
+
+msgid "Copy record"
+msgstr "Αντιγραφή εγγραφής"
+
+msgid "Dialog"
+msgstr "Διάλογος"
+
+msgid "Insert"
+msgstr "Εισαγωγή"
+
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+msgid "Paste"
+msgstr "Επικόλληση"
+
+msgid "Row insert"
+msgstr "Εισαγωγή σειράς"
+
+msgid "Row append"
+msgstr "Προσάρτηση σειράς"
+
+msgid "Row delete"
+msgstr "Διαγραφή σειράς"
+
+msgid "Undo"
+msgstr "Αναίρεση"
+
+msgid "Redo"
+msgstr "Επανάληψη"
+
+msgid "Cut"
+msgstr "Αποκοπή"
+
+msgid "Select all"
+msgstr "Επιλογή όλων"
+
+msgid "Filter off"
+msgstr "Απενεργοποίηση φίλτρου"
+
+msgid "Portrait"
+msgstr "Πορτρέτο"
+
+msgid "Landscape"
+msgstr "Τοπίο"
+
+msgid "Delete row?"
+msgstr "Διαγραφή σειράς;"
+
+msgid "selected rows?"
+msgstr "Επιλεγμένες σειρές;"
+
+msgid "Single item only"
+msgstr "Μόνο ένα αντικείμενο"
+
+msgid "Copy Cells"
+msgstr "Αντιγραφή κελιών"
+
+msgid "Paste Cells"
+msgstr "Επικόλληση κελιών"
+
+msgid "Close"
+msgstr "Κλείσιμο"
+
+msgid "Maximize"
+msgstr "Μεγιστοποίηση"
+
+msgid "Normalize"
+msgstr "Κανονοποίηση"
+
+msgid "Minimize"
+msgstr "Ελαχιστοποίηση"
+
+msgid "Fix size"
+msgstr "Διόρθωση μεγέθους"
+
+msgid "Float"
+msgstr "Επιπλέει"
+
+msgid "Stay on top"
+msgstr "Μείνε στην κορυφή"
+
+msgid "Stay in background"
+msgstr "Μείνε στο παρασκήνιο"
+
+msgid "Lock children"
+msgstr "Κλείδωμα παιδιών"
+
+msgid "No lock"
+msgstr "Χωρίς κλείδωμα"
+
+msgid "Input"
+msgstr "Είσοδος"
+
+msgid "Button"
+msgstr "Κουμπί"
+
+msgid "On"
+msgstr "Ενεργό"
+
+msgid "Off"
+msgstr "Απενεργοποίηση"
+
+msgid "Left border"
+msgstr "Αριστερό περίγραμμα"
+
+msgid "Top border"
+msgstr "Πάνω περίγραμμα"
+
+msgid "Right border"
+msgstr "Δεξί περίγραμμα"
+
+msgid "Bottom border"
+msgstr "Κάτω περίγραμμα"
+
+msgid "Begin of text"
+msgstr "Αρχή κειμένου"
+
+msgid "End of text"
+msgstr "Τέλος κειμένου"
+
+msgid "Inputmode"
+msgstr "Τρόπος εισόδου"
+
+msgid "Overwrite"
+msgstr "Αντικατάσταση"
+
+msgid "Deleted"
+msgstr "Διαγράφηκε"
+
+msgid "Copied"
+msgstr "Αντιγράφηκε"
+
+msgid "Inserted"
+msgstr "Έγινε εισαγωγή"
+
+msgid "Pasted"
+msgstr "Επικολλήθηκε"
+
+msgid "Withdrawn"
+msgstr "Αποσύρθηκε"
+
+msgid "Window activated"
+msgstr "Το παράθυρο ενεργοποιήθηκε"
+
+msgid "Menu"
+msgstr "Μενού"
+
+msgid "Beginning of file"
+msgstr "Αρχή αρχείου"
+
+msgid "End of file"
+msgstr "Τέλος αρχείου"
+
+msgid "Voice output"
+msgstr "Έξοδος φωνής"
+
+msgid "Speak again"
+msgstr "Μίλα ξανά"
+
+msgid "First column"
+msgstr "Πρώτη στήλη"
+
+msgid "First row"
+msgstr "Πρώτη σειρά"
+
+msgid "Last column"
+msgstr "Τελευταία στήλη"
+
+msgid "Last row"
+msgstr "Τελευταία σειρά"
+
+msgid "Selection"
+msgstr "Επιλογή"
+
+msgid "Speak path"
+msgstr "Διαδρομή ομιλίας"
+
+msgid "Disabled button"
+msgstr "Απενεργοποιημένο κουμπί"
+
+msgid "First field"
+msgstr "Πρώτο πεδίο"
+
+msgid "Last field"
+msgstr "Τελευταίο πεδίο"
+
+msgid "First element"
+msgstr "Πρώτο στοιχείο"
+
+msgid "Last element"
+msgstr "Τελευταίο στοιχείο"
+
+msgid "Slower"
+msgstr "Πιο αργά"
+
+msgid "Faster"
+msgstr "Πιο γρήγορα"
+
+msgid "Window"
+msgstr "Παράθυρο"
+
+msgid "Area"
+msgstr "Περιοχή"
+
+msgid "Area activated"
+msgstr "Η περιοχή ενεργοποιήθηκε"
+
+msgid "Volume down"
+msgstr "Μείωση έντασης"
+
+msgid "Volume up"
+msgstr "Αύξηση έντασης"
+
+msgid "Cancel speech"
+msgstr "Ακύρωση ομιλίας"
+
+msgid "New"
+msgstr "Νέο"
+
+msgid "Tools"
+msgstr "Εργαλεία"
+
+msgid "Languages"
+msgstr "Γλώσσες"
+
+msgid "Directory"
+msgstr "Κατάλογος"
+
+msgid "No icons"
+msgstr "Δεν υπάρχουν εικονίδια"
+
+msgid "No lateral"
+msgstr "Κανένα πλευρικό"
+
+msgid "Compact"
+msgstr "Συμπαγές"
+
+msgid "Path"
+msgstr "Διαδρομή"
+
+msgid "File"
+msgstr "Αρχείο"
+
+msgid "Delete selected row?"
+msgstr "Διαγραφή επιλεγμένης σειράς;"
+
+msgid "Delete %s selected rows?"
+msgstr "Διαγραφή %s επιλεγμένων σειρών;"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "Συνδέστε οποιοδήποτε παράθυρο σε αυτήν την περιοχή."
+
+msgid "Drag a form here using right-border grip."
+msgstr "Σύρετε μια φόρμα εδώ χρησιμοποιώντας λαβή δεξιού περιγράμματος."
+
+msgid "&Dock"
+msgstr "&Dock"
+
+msgid "Dock windows in one form"
+msgstr "Βάλε τα παράθυρα σε μία μορφή"
+
+msgid "&Tab"
+msgstr "&Tab"
+
+msgid "One form with tabs"
+msgstr "Μία φόρμα με καρτέλες"
+
+msgid "&Dock all visible windows"
+msgstr "&Σύνδεση όλων των ορατών παραθύρων"
+
+msgid "&Float all visible windows"
+msgstr "&Κλείστε όλα τα ορατά παράθυρα"
+
+msgid "Float windows in independent forms"
+msgstr "Κάντε τα παράθυρα σε ανεξάρτητες φόρμες"
+
+msgid "&Tab all visible windows"
+msgstr "&Καρτέλα σε όλα τα ορατά παράθυρα"
+
+msgid "Make windows tabed in one form"
+msgstr "Κάντε τα παράθυρα με καρτέλες σε μία μορφή"
+
+msgid "&Jam Session"
+msgstr "&Συνεδρία Jam"
+
+msgid "DJ Console Wave"
+msgstr "DJ Console Wave"
+
+msgid "DJ Console Info"
+msgstr "DJ Console Info"
+
+msgid "&Record stage"
+msgstr "&Εγγραφή σταδίου"
+
+msgid "&Chords Randomizer"
+msgstr "Τυχαιοποιητής συγχορδιών"
+
+msgid "&Image Dancer"
+msgstr "&Χορευτής εικόνας"
+
+msgid "Save Layout"
+msgstr "Αποθήκευση διάταξης"
+
+msgid "Save current layout"
+msgstr "Αποθήκευση τρέχουσας διάταξης"
+
+msgid "Load Layout"
+msgstr "Φόρτωση διάταξης"
+
+msgid "Load saved layout"
+msgstr "Φόρτωση αποθηκευμένης διάταξης"
+
+msgid "&Layout"
+msgstr "&Διάταξη"
+
+msgid "Layout of windows"
+msgstr "Διάταξη των παραθύρων"
+
+msgid "Show All"
+msgstr "Εμφάνιση όλων"
+
+msgid "Hide All"
+msgstr "Απόκρυψη όλων"
+
+msgid "Show Drums"
+msgstr "Εμφάνιση τυμπάνων"
+
+msgid "Show File List"
+msgstr "Εμφάνιση λίστας αρχείων"
+
+msgid "Show Player 1"
+msgstr "Εμφάνιση προγράμματος αναπαραγωγής 1"
+
+msgid "Show Player 2"
+msgstr "Εμφάνιση προγράμματος αναπαραγωγής 2"
+
+msgid "Show Commander"
+msgstr "Εμφάνιση Διοικητή"
+
+msgid "Show Recorder"
+msgstr "Εμφάνιση συσκευής εγγραφής"
+
+msgid "Show Guitars"
+msgstr "Εμφάνιση κιθάρων"
+
+msgid "Show Spectrum 1"
+msgstr "Εμφάνιση φάσματος 1"
+
+msgid "Show Spectrum 2"
+msgstr "Εμφάνιση φάσματος 2"
+
+msgid "Show Spectrum Rec"
+msgstr "Εμφάνιση Spectrum Rec"
+
+msgid "Show WaveForm 1"
+msgstr "Εμφάνιση κυματομορφής 1"
+
+msgid "Show WaveForm 2"
+msgstr "Εμφάνιση κυματομορφής 2"
+
+msgid "Show WaveForm Rec"
+msgstr "Εμφάνιση καταγραφής κυματομορφής"
+
+msgid "Show Equalizer 1"
+msgstr "Εμφάνιση ισοσταθμιστή 1"
+
+msgid "Show Equalizer 2"
+msgstr "Εμφάνιση ισοσταθμιστή 2"
+
+msgid "Show Equalizer Rec"
+msgstr "Εμφάνιση εγγραφής ισοσταθμιστή"
+
+msgid "Show Chord Randomizer"
+msgstr "Εμφάνιση τυχαιοποιητή χορδής"
+
+msgid "Show Image Dancer"
+msgstr "Εμφάνιση χορευτή εικόνας"
+
+msgid "Show Dock Panel 1"
+msgstr "Εμφάνιση πάνελ βάσης 1"
+
+msgid "Show Dock Panel 2"
+msgstr "Εμφάνιση πάνελ βάσης 2"
+
+msgid "Show Dock Panel 3"
+msgstr "Εμφάνιση πάνελ βάσης 3"
+
+msgid "Show Dock Panel 4"
+msgstr "Εμφάνιση πάνελ βάσης 4"
+
+msgid "Show Dock Panel 5"
+msgstr "Εμφάνιση πάνελ βάσης 5"
+
+msgid "&Panels"
+msgstr "&Πίνακες"
+
+msgid "&Show"
+msgstr "&Εμφάνιση"
+
+msgid "Show/hide windows"
+msgstr "Εμφάνιση/απόκρυψη παραθύρων"
+
+msgid "Square"
+msgstr "Τετράγωνο"
+
+msgid "Triangle"
+msgstr "Τρίγωνο"
+
+msgid "Lines"
+msgstr "Γραμμές"
+
+msgid "Fractal Tree"
+msgstr "Δέντρο φράκταλ"
+
+msgid "Super Formula"
+msgstr "Σούπερ Φόρμουλα"
+
+msgid "Hyper Formula"
+msgstr "Υπερφόρμουλα"
+
+msgid "Atom"
+msgstr "Άτομο"
+
+msgid "Spiral Hue"
+msgstr "Σπειροειδής απόχρωση"
+
+msgid "Spiral Rainbow"
+msgstr "Σπειροειδής ουράνιο τόξο"
+
+msgid "Spiral Move"
+msgstr "Σπειροειδής 2"
+
+msgid "Turtle 1"
+msgstr "Χελώνα 1"
+
+msgid "Turtle 2"
+msgstr "Χελώνα 2"
+
+msgid "Fractal Circles"
+msgstr "Κύκλοι φράκταλ"
+
+msgid "Normal form"
+msgstr "Κανονική φόρμα"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "Χρησιμοποιήστε αυτήν τη φόρμα για να ορίσετε το μέγεθος για τις φόρμες Ellipse και (Round)Rectangle."
+
+msgid "Ellipse"
+msgstr "Έλλειψη"
+
+msgid "Rounded rect"
+msgstr "Στρογγυλεμένο ορθό"
+
+msgid "Rectangle"
+msgstr "Ορθογώνιο"
+
+msgid "Always on top"
+msgstr "Πάντα στην κορυφή"
+
+msgid "Transparent"
+msgstr "Διαφανές"
+
+msgid "Hide Dancer"
+msgstr "Απόκρυψη χορευτή"
+
+msgid "Da&ncer"
+msgstr "χορευτές"
+
+msgid "Dancing Animations"
+msgstr "Χορευτικά κινούμενα σχέδια"
+
+msgid "Gold"
+msgstr "Χρυσός"
+
+msgid "Silver"
+msgstr "Ασημί"
+
+msgid "Carbon"
+msgstr "Άνθρακας"
+
+msgid "&Style"
+msgstr "&Στυλ"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "Στυλ διάταξης χρυσό, ασήμι ή άνθρακα"
+
+msgid "Audio"
+msgstr "Ήχος"
+
+msgid "Config of audio and colors"
+msgstr "Διαμόρφωση ήχου και χρωμάτων"
+
+msgid "Language"
+msgstr "Γλώσσα"
+
+msgid "Set language"
+msgstr "Ορισμός γλώσσας"
+
+msgid "&Config"
+msgstr "&Διαμόρφ"
+
+msgid "Configuration setting"
+msgstr "Ρύθμιση διαμόρφωσης"
+
+msgid "&About"
+msgstr "&για"
+
+msgid "About StrumPract"
+msgstr "Σχετικά με το StrumPract"
+
+msgid "&Quit"
+msgstr "&Παρατώ"
+
+msgid "Terminate StrumPract"
+msgstr "Τερματισμός StrumPract"
+
+msgid "Set as default"
+msgstr "Ορισμός ως προεπιλογής"
+
+msgid "Recorder"
+msgstr "Εγγραφέας"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "Χρησιμοποιήστε αυτό το πλαίσιο λαβής για να σύρετε/αποθέσετε το παράθυρο."
+
+msgid "Com"
+msgstr "Com"
+
+msgid "Commander"
+msgstr "Διοικητής"
+
+msgid "Start Drums"
+msgstr "Έναρξη ντραμς"
+
+msgid "Pause Drums"
+msgstr "Παύση τυμπάνων"
+
+msgid "Resume Drums"
+msgstr "Συνέχιση τυμπάνων"
+
+msgid "General Volume of drums"
+msgstr "Γενικός όγκος τυμπάνων"
+
+msgid "Drums"
+msgstr "Τύμπανα"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "Κάντε κλικ για εναλλαγή στο 100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "Όγκος εισόδου (μικρόφωνο ή είσοδος)"
+
+msgid "Input (mic or aux in)"
+msgstr "Είσοδος (μικρόφωνο ή aux)"
+
+msgid "Enable Live Input"
+msgstr "Ενεργοποίηση ζωντανής εισαγωγής"
+
+msgid "Right Volume General in %"
+msgstr "Δεξίς τόμος γενικός σε %"
+
+msgid "Left Volume General in %"
+msgstr "Αριστερός τόμος γενικός σε %"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "Γενικός αριστερός τόμος. Κάντε κλικ για επαναφορά στο 100%."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "Γενικός δεξιός τόμος. Κάντε κλικ για επαναφορά στο 100%."
+
+msgid "Lock left and right channels"
+msgstr "Κλείδωμα αριστερού και δεξιού καναλιού"
+
+msgid "General Volume in %"
+msgstr "Γενικός όγκος σε %"
+
+msgid "System Master Volume"
+msgstr "Κύριος τόμος συστήματος"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "Αλλαγή χρόνου μίξης σε 1/100 δευτερόλεπτο"
+
+msgid "Stop player"
+msgstr "Διακοπή αναπαραγωγής"
+
+msgid "Resume player"
+msgstr "Συνέχιση αναπαραγωγής"
+
+msgid "Load and Start Player"
+msgstr "Φόρτωση και έναρξη προγράμματος αναπαραγωγής"
+
+msgid "Left Volume Player 1"
+msgstr "Αριστερό πρόγραμμα αναπαραγωγής τόμου 1"
+
+msgid "Right Volume Player 1"
+msgstr "Δεξιά συσκευή αναπαραγωγής τόμου 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "Έναρξη προγράμματος αναπαραγωγής 1 --> MIX --> Διακοπή προγράμματος αναπαραγωγής 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "Έναρξη προγράμματος αναπαραγωγής 2 --> MIX --> Διακοπή προγράμματος αναπαραγωγής 1"
+
+msgid "Right Volume Player 2"
+msgstr "Δεξιά αναπαραγωγή τόμου 2"
+
+msgid "Left Volume Player 2"
+msgstr "Αριστερό πρόγραμμα αναπαραγωγής τόμου 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "Πρόγραμμα αναπαραγωγής Cue-Load-Pause"
+
+msgid "Pause player"
+msgstr "Παύση αναπαραγωγής"
+
+msgid "Pause Mixing"
+msgstr "Παύση μίξης"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "Ενεργοποίηση υπολογισμού συχνοτήτων φάσματος"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "Γραφικό-anim κατά τη μίξη (αν η cpu είναι πολύ χαμηλή την απενεργοποιεί)"
+
+msgid "View Meters on/off"
+msgstr "Προβολή μετρητών ενεργοποίηση/απενεργοποίηση"
+
+msgid "Auto Mixing on/off"
+msgstr "Αυτόματη μίξη ενεργοποίηση/απενεργοποίηση"
+
+msgid "Direct MIX (0 second time)"
+msgstr "Direct MIX (0 δεύτερη φορά)"
+
+msgid "Player 1"
+msgstr "Παίκτης 1"
+
+msgid "Player 2"
+msgstr "Παίκτης 2"
+
+msgid "Randomize mixing list"
+msgstr "Τυχαιοποίηση λίστας μίξης"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "Μη έγκυρη τιμή. Επαναφορά στο 100."
+
+msgid "Or press Esc key for previous value."
+msgstr "Ή πατήστε το πλήκτρο Esc για προηγούμενη τιμή."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "Χρησιμοποιήστε αυτόν τον πίνακα λαβής για να σύρετε/αποθέσετε το παράθυρο"
+
+msgid "Files"
+msgstr "Αρχεία"
+
+msgid "Audio files"
+msgstr "Αρχεία ήχου"
+
+msgid "Number of files in the list"
+msgstr "Αριθμός αρχείων στη λίστα"
+
+msgid "Find a word in list"
+msgstr "Βρείτε μια λέξη στη λίστα"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "Έστειλε το επιλεγμένο τραγούδι στο cue για το πρόγραμμα αναπαραγωγής 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "Έστειλε το επιλεγμένο τραγούδι στο cue για το πρόγραμμα αναπαραγωγής 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "Για να μετακινήσετε μια σειρά: κάντε κλικ + κρατήστε πατημένο στη σταθερή στήλη και σύρετε τη σειρά όπου θέλετε."
+
+msgid "Name of sound"
+msgstr "Όνομα ήχου"
+
+msgid "Ext"
+msgstr "Εξαγωγή"
+
+msgid "File extension"
+msgstr "Επέκταση αρχείου"
+
+msgid "Size"
+msgstr "Μέγεθος"
+
+msgid "Size in Kb of the file"
+msgstr "Μέγεθος αρχείου σε Kb"
+
+msgid "Mix"
+msgstr "Μίξη"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "Συμπερίληψη για μίξη. Κάνοντας κλικ στο σταθερό κελί ---> επιλέξτε όλα/κανένα."
+
+msgid "Load custom play-list"
+msgstr "Φόρτωση προσαρμοσμένης λίστας αναπαραγωγής"
+
+msgid "Load"
+msgstr "Φόρτωση"
+
+msgid "Save custom play-list"
+msgstr "Αποθήκευση προσαρμοσμένης λίστας αναπαραγωγής"
+
+msgid "Add file in custom play-list"
+msgstr "Προσθήκη αρχείου σε προσαρμοσμένη λίστα αναπαραγωγής"
+
+msgid "Add"
+msgstr "Προσθήκη"
+
+msgid "History of Directories"
+msgstr "Ιστορικό καταλόγων"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "Επιλέξτε έναν κατάλογο ήχου με wav, ogg, flac ή mp3"
+
+msgid "Infos of song"
+msgstr "Πληροφορίες τραγουδιού"
+
+msgid "No Image Tag"
+msgstr "Χωρίς ετικέτα εικόνας"
+
+msgid "Title"
+msgstr "Τίτλος"
+
+msgid "Artist"
+msgstr "Καλλιτέχνης"
+
+msgid "Album"
+msgstr "Άλμπουμ"
+
+msgid "Year"
+msgstr "Έτος"
+
+msgid "Duration"
+msgstr "Διάρκεια"
+
+msgid "Genre"
+msgstr "Είδος"
+
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgid "File Name"
+msgstr "Όνομα αρχείου"
+
+msgid "Rate"
+msgstr "Βαθμολογία"
+
+msgid "Chan"
+msgstr "Τσαν"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "Αναπαραγωγή 1"
+
+msgid "Change Left volume"
+msgstr "Αλλαγή αριστερού τόμου"
+
+msgid "Reset to tempo original"
+msgstr "Επαναφορά στο αρχικό ρυθμό"
+
+msgid "Click to change position of sound"
+msgstr "Κάντε κλικ για αλλαγή θέσης ήχου"
+
+msgid "History of Cue files"
+msgstr "Ιστορικό των αρχείων Cue"
+
+msgid "Change Right volume"
+msgstr "Αλλαγή δεξιάς έντασης ήχου"
+
+msgid "Change tempo of song"
+msgstr "Αλλαγή ρυθμού τραγουδιού"
+
+msgid "Show infos of the song"
+msgstr "Εμφάνιση πληροφοριών του τραγουδιού"
+
+msgid "Info"
+msgstr "Πληροφορίες"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "Εντοπίστε το BMP από την τρέχουσα θέση και ρυθμίστε το σε ρυθμό Drums."
+
+msgid "Resume player"
+msgstr "Συνέχιση αναπαραγωγής"
+
+msgid "Load from cue and Start player"
+msgstr "Φόρτωση από cue και έναρξη προγράμματος αναπαραγωγής"
+
+msgid "Load from cue and Pause player"
+msgstr "Φόρτωση από σύνθημα και παύση αναπαραγωγής"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "Επιλέξτε ένα αρχείο ήχου wav, ogg, flac ή mp3"
+
+msgid "Position of sound"
+msgstr "Θέση ήχου"
+
+msgid "Lenght of sound"
+msgstr "Μήκος ήχου"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "Ενεργοποίηση επαναφοράς του τραγουδιού. (Η παύση δεν είναι ενεργοποιημένη με βρόχο.)"
+
+msgid "Set Mono/Stereo"
+msgstr "Ρύθμιση μονοφωνικού/στερεοφωνικού ήχου"
+
+msgid "Show wave form in slider"
+msgstr "Εμφάνιση φόρμας κύματος στο ρυθμιστικό"
+
+msgid "Enable playing reverse."
+msgstr "Ενεργοποίηση αναπαραγωγής αντίστροφα."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "Ενεργοποίηση τεντώματος (αλλαγής ρυθμού)"
+
+msgid "right"
+msgstr "δεξιά" 
+
+msgid "Reset to 0 gain"
+msgstr "Επαναφορά στο 0 κέρδος"
+
+msgid "Load a Settings file"
+msgstr "Φόρτωση αρχείου ρυθμίσεων"
+
+msgid "Save Settings in a file"
+msgstr "Αποθήκευση ρυθμίσεων σε ένα αρχείο"
+
+msgid "left"
+msgstr "αριστερά"
+
+msgid "Enable Equalizer"
+msgstr "Ενεργοποίηση ισοσταθμιστή"
+
+msgid "Spect"
+msgstr "Φάσμα"
+
+msgid "Spectrum"
+msgstr "Φάσμα"
+
+msgid "Right Frequency spectrum"
+msgstr "Δεξί φάσμα συχνότητας"
+
+msgid "Left Frequency spectrum"
+msgstr "Αριστερό φάσμα συχνότητας"
+
+msgid "Enable Spectrum"
+msgstr "Ενεργοποίηση φάσματος"
+
+msgid "Bass"
+msgstr "Μπάσο"
+
+msgid "Snare"
+msgstr "Παγίδα"
+
+msgid "Open H"
+msgstr "Άνοιγμα H"
+
+msgid "Close H"
+msgstr "Κλείσιμο H"
+
+msgid "Patern 1"
+msgstr "Πατέρα 1"
+
+msgid "Drums Patern 1"
+msgstr "Drums Patern 1"
+
+msgid "Drums Patern 2"
+msgstr "Drums Patern 2"
+
+msgid "Drums Patern 3"
+msgstr "Drums Patern 3"
+
+msgid "Drums Patern 4"
+msgstr "Drums Patern 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "Τελευταίο μάθημα. Κάντε το ίδιο με το 3ο μάθημα αλλά αυξάνοντας το ρυθμό. Στο πλήθος 2 μπορείτε να προσθέσετε ένα boom στο Bass Drum. Συγχαρητήρια, είστε ντράμερ τώρα. ;-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "3ο μάθημα Κάντε το ίδιο με το δεύτερο μάθημα και στο πλήθος 3 προσθέστε ένα κλακ στο Snare Drum. Αυτό είναι το πιο δύσκολο. Εξακολουθείτε να μετράτε δυνατά με τη φωνή σας."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "Δεύτερο μάθημα. Κάντε το ίδιο με το πρώτο μάθημα και στο πλήθος 1 προσθέστε ένα μπούμ με το δεξί σας πόδι στο μπάσο. Εξακολουθείτε να μετράτε δυνατά με τη φωνή σας."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "Πρώτο μάθημα. Με το ραβδί χτυπήστε το κλειστό καπέλο σε κάθε μέτρηση. Μετρήστε δυνατά και με τη φωνή σας."
+
+msgid "Patern"
+msgstr "Πατέρα"
+
+msgid "Lesson"
+msgstr "Μάθημα"
+
+msgid "no anim"
+msgstr "χωρίς anim"
+
+msgid "No graphic animation."
+msgstr "Δεν υπάρχει κίνηση γραφικών."
+
+msgid "no and"
+msgstr "όχι και"
+
+msgid "No and between 2 numbers."
+msgstr "Όχι και μεταξύ 2 αριθμών."
+
+msgid "no voice"
+msgstr "χωρίς φωνή"
+
+msgid "No counting voice"
+msgstr "Χωρίς μέτρηση φωνής"
+
+msgid "no drums"
+msgstr "χωρίς τύμπανα"
+
+msgid "No drums sound."
+msgstr "Δεν υπάρχει ήχος από τύμπανα."
+
+msgid "Stop loop"
+msgstr "Διακοπή βρόχου"
+
+msgid "Resume loop"
+msgstr "Επαναφορά βρόχου"
+
+msgid "Start loop"
+msgstr "Έναρξη βρόχου"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (Κτυπήματα ανά λεπτό)"
+
+msgid "Volume"
+msgstr "Τόμος"
+
+msgid "General volume of Drums"
+msgstr "Γενικός όγκος ντραμς"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "Κτυπήματα ανά λεπτό - διάστημα σε 1/10000 δευτερόλεπτο."
+
+msgid "Set BPM X 2"
+msgstr "Ορισμός BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "Ορισμός BPM / 2"
+
+msgid "Lang"
+msgstr "Γλώσσα"
+
+msgid "Language for counting"
+msgstr "Γλώσσα για μέτρηση"
+
+msgid "Chord Randomizer"
+msgstr "Τυχαιοποιητής χορδής"
+
+msgid "Click to listen to the guitar chord"
+msgstr "Κάντε κλικ για να ακούσετε τη συγχορδία της κιθάρας"
+
+msgid "Click to listen to piano chord"
+msgstr "Κάντε κλικ για να ακούσετε τη χορδή του πιάνου"
+
+msgid "Select a chord"
+msgstr "Επιλέξτε μια συγχορδία"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "Κλείσιμο όλων των StrumPract (Κάντε κλικ στο εικονίδιο στη γωνία της φόρμας για να κλείσετε μόνο το Randomizer)"
+
+msgid "Randomize chords"
+msgstr "Τυχαιοποίηση συγχορδιών"
+
+msgid "Randomize"
+msgstr "Τυχαιοποίηση"
+
+msgid "Manual fixed chords"
+msgstr "Μη αυτόματες σταθερές συγχορδίες"
+
+msgid "Fixed"
+msgstr "Διορθώθηκε"
+
+msgid "Tuned guitar string"
+msgstr "Κουρδισμένη χορδή κιθάρας"
+
+msgid "Tuned Guitars"
+msgstr "Κουρδισμένες κιθάρες"
+
+msgid "Re-do a randomizer"
+msgstr "Κάντε ξανά έναν τυχαιοποιητή"
+
+msgid "Clear chords"
+msgstr "Διαγραφή συγχορδιών"
+
+msgid "Chords"
+msgstr "Χορδίες"
+
+msgid "7th"
+msgstr "7η"
+
+msgid "Enable 7th Chords"
+msgstr "Ενεργοποίηση 7ης συγχορδίας"
+
+msgid "minor"
+msgstr "ελάσσονος σημασίας"
+
+msgid "Enable minor Chords"
+msgstr "Ενεργοποίηση δευτερευουσών χορδών"
+
+msgid "Major"
+msgstr "Κύρια"
+
+msgid "Enable Major Chords"
+msgstr "Ενεργοποίηση βασικών χορδών"
+
+msgid "9th"
+msgstr "9η"
+
+msgid "Enable 9th Chords"
+msgstr "Ενεργοποίηση 9ης συγχορδίας"
+
+msgid "# (Sharp)"
+msgstr "# (Κοφτό)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "Ενεργοποίηση Sharp-Chords #"
+
+msgid "Sound"
+msgstr "Ήχος"
+
+msgid "Enable Sound of Chords"
+msgstr "Ενεργοποίηση ήχου χορδών"
+
+msgid "Number"
+msgstr "Αριθμός"
+
+msgid "Total chords"
+msgstr "Σύνολο συγχορδίες"
+
+msgid "Maximum number of chords"
+msgstr "Μέγιστος αριθμός συγχορδιών"
+
+msgid "Random num"
+msgstr "Τυχαίος αριθμός"
+
+msgid "Randomize the number of chords"
+msgstr "Τυχαιοποίηση του αριθμού των συγχορδιών"
+
+msgid "Tempo of Drums in BPM"
+msgstr "Ο ρυθμός των τυμπάνων στο BPM"
+
+msgid "Enable Drums"
+msgstr "Ενεργοποίηση τυμπάνων"
+
+msgid "Enable random Drums tempo"
+msgstr "Ενεργοποίηση τυχαίου ρυθμού τυμπάνων"
+
+msgid "Configure the Clear message"
+msgstr "Διαμόρφωση του μηνύματος Εκκαθάριση"
+
+msgid "English [en]"
+msgstr "Αγγλικά [en]"
+
+msgid "Russian [ru]"
+msgstr "Ρωσικά [ru]"
+
+msgid "French [fr]"
+msgstr "Γαλλικά [fr]"
+
+msgid "German [de]"
+msgstr "Γερμανικά [de]"
+
+msgid "Spanish [es]"
+msgstr "Ισπανικά [es]"
+
+msgid "Portuguese [pt]"
+msgstr "Πορτογαλικά [pt]"
+
+msgid "Chinese [zh]"
+msgstr "Κινεζικά [zh]"
+
+msgid "Italian [it]"
+msgstr "Ιταλικά [it]"
+
+msgid "Dutch [nl]"
+msgstr "Ολλανδικά [nl]"
+
+msgid "Hebrew [he]"
+msgstr "Εβραϊκό [he]"
+
+msgid "Indonesian [id]"
+msgstr "Ινδονησιακή [id]"
+
+msgid "Polish [pl]"
+msgstr "Πολωνικά [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "Εσπεράντο [eo]"
+
+msgid "Greek [el]"
+msgstr "Ελληνικά [el]"
+
+msgid "Arabic [ar]"
+msgstr "Αραβικά [ar]"
+

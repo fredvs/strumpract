@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "&Nuligi"
+
+msgid "&Abort"
+msgstr "&Ĉesu"
+
+msgid "&OK"
+msgstr "&Bone"
+
+msgid "&Yes"
+msgstr "&Jes"
+
+msgid "&No"
+msgstr "&Ne"
+
+msgid "&All"
+msgstr "&Ĉiuj"
+
+msgid "Yes &all"
+msgstr "Jes &ĉiuj"
+
+msgid "N&o all"
+msgstr "N&o ĉiuj"
+
+msgid "&Ignore"
+msgstr "&Ignori"
+
+msgid "&Skip"
+msgstr "&Salti"
+
+msgid "Skip a&ll"
+msgstr "Salti a&ll"
+
+msgid "Co&ntinue"
+msgstr "Daŭrigu"
+
+msgid "Cancel"
+msgstr "Nuligi"
+
+msgid "Abort"
+msgstr "Ĉeligi"
+
+msgid "OK"
+msgstr "Bone"
+
+msgid "Yes"
+msgstr "Jes"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "All"
+msgstr "Ĉiuj"
+
+msgid "Yes all"
+msgstr "Jes ĉiuj"
+
+msgid "No all"
+msgstr "Ne ĉiuj"
+
+msgid "Ignore"
+msgstr "Ignoru"
+
+msgid "Skip"
+msgstr "Salti"
+
+msgid "Skip all"
+msgstr "Salti ĉion"
+
+msgid "Continue"
+msgstr "Daŭrigu"
+
+msgid "is invalid"
+msgstr "estas nevalida"
+
+msgid "Format error"
+msgstr "Formata eraro"
+
+msgid "Value is required"
+msgstr "Valoro estas bezonata"
+
+msgid "Error"
+msgstr "Eraro"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Maksimumo"
+
+msgid "Range error"
+msgstr "Intervalo-eraro"
+
+msgid "&Undo"
+msgstr "&Malfari"
+
+msgid "&Redo"
+msgstr "&Refari"
+
+msgid "&Copy"
+msgstr "&Kopiu"
+
+msgid "Cu&t"
+msgstr "Cu&t"
+
+msgid "&Paste"
+msgstr "&Alglui"
+
+msgid "Select &all"
+msgstr "Elektu &ĉion"
+
+msgid "&Insert Row"
+msgstr "&Enmeti Vicon"
+
+msgid "&Append Row"
+msgstr "&Aldonu Vicon"
+
+msgid "&Delete Row"
+msgstr "&Forigi Vicon"
+
+msgid "&Dir"
+msgstr "&Dir"
+
+msgid "&Home"
+msgstr "&Hejmo"
+
+msgid "&Up"
+msgstr "&Suren"
+
+msgid "&New"
+msgstr "&Nova"
+
+msgid "&Name"
+msgstr "&Nomo"
+
+msgid "&Show hidden files"
+msgstr "&Montri kaŝitajn dosierojn"
+
+msgid "&Filter"
+msgstr "&Filtrilo"
+
+msgid "Save"
+msgstr "Konservi"
+
+msgid "Open"
+msgstr "Malfermu"
+
+msgid "Name"
+msgstr "Nomo"
+
+msgid "Create new directory"
+msgstr "Krei novan dosierujon"
+
+msgid "Back"
+msgstr "Reen"
+
+msgid "Forward"
+msgstr "Antaŭen"
+
+msgid "Up"
+msgstr "Supren"
+
+msgid "exists, do you want to overwrite?"
+msgstr "ekzistas, ĉu vi volas anstataŭigi?"
+
+msgid "is modified. Save?"
+msgstr "estas modifita. Ĉu konservi?"
+
+msgid "WARNING"
+msgstr "AVERTO"
+
+msgid "Exception"
+msgstr "Escepto"
+
+msgid "System"
+msgstr "Sistemo"
+
+msgid "does not exist"
+msgstr "ne ekzistas"
+
+msgid "PASSWORD"
+msgstr "Pasvorto"
+
+msgid "Enter password"
+msgstr "Entajpu pasvorton"
+
+msgid "Invalid password!"
+msgstr "Malvalida pasvorto!"
+
+msgid "Can not read directory"
+msgstr "Ne povas legi dosierujon"
+
+msgid "Graphic format not supported"
+msgstr "Grafia formato ne subtenata"
+
+msgid "Graphic format error"
+msgstr "Eraro pri grafika formato"
+
+msgid "All Images"
+msgstr "Ĉiuj Bildoj"
+
+msgid "Confirmation"
+msgstr "Konfirmo"
+
+msgid "Delete record?"
+msgstr "Ĉu forigi rekordon?"
+
+msgid "Copy record?"
+msgstr "Kopii rekordon?"
+
+msgid "Close page"
+msgstr "Fermu paĝon"
+
+msgid "First"
+msgstr "Unue"
+
+msgid "Prior"
+msgstr "Antaŭa"
+
+msgid "Next"
+msgstr "Sekva"
+
+msgid "Last"
+msgstr "Lasta"
+
+msgid "Append"
+msgstr "Aldoni"
+
+msgid "Delete"
+msgstr "Forigi"
+
+msgid "Edit"
+msgstr "Redakti"
+
+msgid "Post"
+msgstr "Afiŝu"
+
+msgid "Annul"
+msgstr "Nuligi"
+
+msgid "Refresh"
+msgstr "Refreŝigi"
+
+msgid "Edit filter"
+msgstr "Redakti filtrilon"
+
+msgid "Edit filter minimum"
+msgstr "Redakti minimuman filtrilon"
+
+msgid "Edit filter maximum"
+msgstr "Redakti filtrilon maksimume"
+
+msgid "Reset filter"
+msgstr "Restarigi filtrilon"
+
+msgid "Filter on"
+msgstr "Filtrilo"
+
+msgid "Search"
+msgstr "Serĉi"
+
+msgid "Auto edit"
+msgstr "Aŭtomata redakto"
+
+msgid "Copy record"
+msgstr "Kopii rekordon"
+
+msgid "Dialog"
+msgstr "Dialogo"
+
+msgid "Insert"
+msgstr "Enmeti"
+
+msgid "Copy"
+msgstr "Kopiu"
+
+msgid "Paste"
+msgstr "Alglui"
+
+msgid "Row insert"
+msgstr "Vico enmeti"
+
+msgid "Row append"
+msgstr "Vico aldonas"
+
+msgid "Row delete"
+msgstr "Forigo de vico"
+
+msgid "Undo"
+msgstr "Malfari"
+
+msgid "Redo"
+msgstr "Refari"
+
+msgid "Cut"
+msgstr "Tranĉi"
+
+msgid "Select all"
+msgstr "Elektu ĉion"
+
+msgid "Filter off"
+msgstr "Filtrilo malŝaltita"
+
+msgid "Portrait"
+msgstr "Portreto"
+
+msgid "Landscape"
+msgstr "Pejzaĝo"
+
+msgid "Delete row?"
+msgstr "Ĉu forigi vicon?"
+
+msgid "selected rows?"
+msgstr "?u elektitaj vicoj?"
+
+msgid "Single item only"
+msgstr "Nur unu ero"
+
+msgid "Copy Cells"
+msgstr "Kopii Ĉelojn"
+
+msgid "Paste Cells"
+msgstr "Algluu Ĉelojn"
+
+msgid "Close"
+msgstr "Fermi"
+
+msgid "Maximize"
+msgstr "Maksimumigu"
+
+msgid "Normalize"
+msgstr "Normaligi"
+
+msgid "Minimize"
+msgstr "Minimumigu"
+
+msgid "Fix size"
+msgstr "Ripari grandecon"
+
+msgid "Float"
+msgstr "Flosu"
+
+msgid "Stay on top"
+msgstr "Restu supre"
+
+msgid "Stay in background"
+msgstr "Restu en fono"
+
+msgid "Lock children"
+msgstr "Ŝlosi infanojn"
+
+msgid "No lock"
+msgstr "Neniu seruro"
+
+msgid "Input"
+msgstr "Enigo"
+
+msgid "Button"
+msgstr "Butono"
+
+msgid "On"
+msgstr "Activita"
+
+msgid "Off"
+msgstr "Malŝaltita"
+
+msgid "Left border"
+msgstr "Maldekstra bordo"
+
+msgid "Top border"
+msgstr "Supra rando"
+
+msgid "Right border"
+msgstr "Dekstra bordo"
+
+msgid "Bottom border"
+msgstr "Malsupra bordo"
+
+msgid "Begin of text"
+msgstr "Komenco de teksto"
+
+msgid "End of text"
+msgstr "Fino de teksto"
+
+msgid "Inputmode"
+msgstr "Eniga reĝimo"
+
+msgid "Overwrite"
+msgstr "Anstataŭigi"
+
+msgid "Deleted"
+msgstr "Forigite"
+
+msgid "Copied"
+msgstr "Kopiita"
+
+msgid "Inserted"
+msgstr "Enmetite"
+
+msgid "Pasted"
+msgstr "Algluita"
+
+msgid "Withdrawn"
+msgstr "Retirita"
+
+msgid "Window activated"
+msgstr "Fenestro aktivigita"
+
+msgid "Menu"
+msgstr "Menuo"
+
+msgid "Beginning of file"
+msgstr "Komenco de dosiero"
+
+msgid "End of file"
+msgstr "Fino de dosiero"
+
+msgid "Voice output"
+msgstr "Voĉa eligo"
+
+msgid "Speak again"
+msgstr "Parolu denove"
+
+msgid "First column"
+msgstr "Unua kolumno"
+
+msgid "First row"
+msgstr "Unua vico"
+
+msgid "Last column"
+msgstr "Lasta kolumno"
+
+msgid "Last row"
+msgstr "Lasta vico"
+
+msgid "Selection"
+msgstr "Selektado"
+
+msgid "Speak path"
+msgstr "Parolu vojon"
+
+msgid "Disabled button"
+msgstr "Malŝaltita butono"
+
+msgid "First field"
+msgstr "Unua kampo"
+
+msgid "Last field"
+msgstr "Lasta kampo"
+
+msgid "First element"
+msgstr "Unua elemento"
+
+msgid "Last element"
+msgstr "Lasta elemento"
+
+msgid "Slower"
+msgstr "Pli malrapide"
+
+msgid "Faster"
+msgstr "Pli rapide"
+
+msgid "Window"
+msgstr "Fenestro"
+
+msgid "Area"
+msgstr "Areo"
+
+msgid "Area activated"
+msgstr "Areo aktivigita"
+
+msgid "Volume down"
+msgstr "Volumo malsupren"
+
+msgid "Volume up"
+msgstr "Volumo supren"
+
+msgid "Cancel speech"
+msgstr "Nuligi paroladon"
+
+msgid "New"
+msgstr "Nova"
+
+msgid "Tools"
+msgstr "Iloj"
+
+msgid "Languages"
+msgstr "Lingvoj"
+
+msgid "Directory"
+msgstr "Adresaro"
+
+msgid "No icons"
+msgstr "Neniu piktogramoj"
+
+msgid "No lateral"
+msgstr "Neniu flanko"
+
+msgid "Compact"
+msgstr "Kompakta"
+
+msgid "Path"
+msgstr "Vojo"
+
+msgid "File"
+msgstr "Dosiero"
+
+msgid "Delete selected row?"
+msgstr "Ĉu forigi elektitan vicon?"
+
+msgid "Delete %s selected rows?"
+msgstr "Ĉu forigi %s elektitajn vicojn?"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "Doku ajnan fenestron sur ĉi tiu areo."
+
+msgid "Drag a form here using right-border grip."
+msgstr "Trenu formularon ĉi tien uzante dekstran randan kroĉon."
+
+msgid "&Dock"
+msgstr "&Doko"
+
+msgid "Dock windows in one form"
+msgstr "Doku fenestrojn en unu formo"
+
+msgid "&Tab"
+msgstr "&Tab"
+
+msgid "One form with tabs"
+msgstr "Unu formo kun langetoj"
+
+msgid "&Dock all visible windows"
+msgstr "&Doku ĉiujn videblajn fenestrojn"
+
+msgid "&Float all visible windows"
+msgstr "&Flosu ĉiujn videblajn fenestrojn"
+
+msgid "Float windows in independent forms"
+msgstr "Flosu fenestrojn en sendependaj formoj"
+
+msgid "&Tab all visible windows"
+msgstr "&Prepu ĉiujn videblajn fenestrojn"
+
+msgid "Make windows tabed in one form"
+msgstr "Faru fenestrojn tabuligitaj en unu formo"
+
+msgid "&Jam Session"
+msgstr "&Jam Sesio"
+
+msgid "DJ Console Wave"
+msgstr "Dj-Konzolo Wave"
+
+msgid "DJ Console Info"
+msgstr "Informoj pri DJ-Konzolo"
+
+msgid "&Record stage"
+msgstr "&Registri stadion"
+
+msgid "&Chords Randomizer"
+msgstr "&Akordoj Randomizilo"
+
+msgid "&Image Dancer"
+msgstr "&Bildancisto"
+
+msgid "Save Layout"
+msgstr "Konservi Aranĝon"
+
+msgid "Save current layout"
+msgstr "Konservi nunan aranĝon"
+
+msgid "Load Layout"
+msgstr "Ŝargi Aranĝon"
+
+msgid "Load saved layout"
+msgstr "Ŝargi konservitan aranĝon"
+
+msgid "&Layout"
+msgstr "&Aranĝo"
+
+msgid "Layout of windows"
+msgstr "Arpaĝigo de fenestroj"
+
+msgid "Show All"
+msgstr "Montri Ĉion"
+
+msgid "Hide All"
+msgstr "Kaŝi Ĉion"
+
+msgid "Show Drums"
+msgstr "Montri Tamburojn"
+
+msgid "Show File List"
+msgstr "Montri Dosierliston"
+
+msgid "Show Player 1"
+msgstr "Montri Ludanton 1"
+
+msgid "Show Player 2"
+msgstr "Montri Ludanton 2"
+
+msgid "Show Commander"
+msgstr "Montri komandanton"
+
+msgid "Show Recorder"
+msgstr "Montri registrilon"
+
+msgid "Show Guitars"
+msgstr "Montri Gitarojn"
+
+msgid "Show Spectrum 1"
+msgstr "Montri Spektron 1"
+
+msgid "Show Spectrum 2"
+msgstr "Montri Spektron 2"
+
+msgid "Show Spectrum Rec"
+msgstr "Montri Spectrum Rec"
+
+msgid "Show WaveForm 1"
+msgstr "Montri Ondoformon 1"
+
+msgid "Show WaveForm 2"
+msgstr "Montri Ondoformon 2"
+
+msgid "Show WaveForm Rec"
+msgstr "Montri WaveForm Rec"
+
+msgid "Show Equalizer 1"
+msgstr "Montri Ekvalizilon 1"
+
+msgid "Show Equalizer 2"
+msgstr "Montri Ekvalizilon 2"
+
+msgid "Show Equalizer Rec"
+msgstr "Montri Equalizer Rec"
+
+msgid "Show Chord Randomizer"
+msgstr "Montri Akorda Randomizilon"
+
+msgid "Show Image Dancer"
+msgstr "Montri Bildan Danciston"
+
+msgid "Show Dock Panel 1"
+msgstr "Montri Dock Panel 1"
+
+msgid "Show Dock Panel 2"
+msgstr "Montri Dock Panel 2"
+
+msgid "Show Dock Panel 3"
+msgstr "Montri Dock Panel 3"
+
+msgid "Show Dock Panel 4"
+msgstr "Montri Dock Panel 4"
+
+msgid "Show Dock Panel 5"
+msgstr "Montri Dock Panel 5"
+
+msgid "&Panels"
+msgstr "&Paneloj"
+
+msgid "&Show"
+msgstr "&Montri"
+
+msgid "Show/hide windows"
+msgstr "Montri/kaŝi fenestrojn"
+
+msgid "Square"
+msgstr "Kvadrato"
+
+msgid "Triangle"
+msgstr "Triangulo"
+
+msgid "Lines"
+msgstr "Linioj"
+
+msgid "Fractal Tree"
+msgstr "Fraktala Arbo"
+
+msgid "Super Formula"
+msgstr "Superformulo"
+
+msgid "Hyper Formula"
+msgstr "Hiperformulo"
+
+msgid "Atom"
+msgstr "Atomo"
+
+msgid "Spiral Hue"
+msgstr "Spirala Nuanco"
+
+msgid "Spiral Rainbow"
+msgstr "Spirala Ĉielarko"
+
+msgid "Spiral Move"
+msgstr "Spirala 2"
+
+msgid "Turtle 1"
+msgstr "Testudo 1"
+
+msgid "Turtle 2"
+msgstr "Testudo 2"
+
+msgid "Fractal Circles"
+msgstr "Fraktalaj Rondoj"
+
+msgid "Normal form"
+msgstr "Normala formo"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "Uzu ĉi tiun formularon por agordi la grandecon por Formoj Elipso kaj (Ronda)Rektangulo."
+
+msgid "Ellipse"
+msgstr "Elipso"
+
+msgid "Rounded rect"
+msgstr "Rondigita rekta"
+
+msgid "Rectangle"
+msgstr "Rektangulo"
+
+msgid "Always on top"
+msgstr "Ĉiam supre"
+
+msgid "Transparent"
+msgstr "Travidebla"
+
+msgid "Hide Dancer"
+msgstr "Kaŝi Danciston"
+
+msgid "Da&ncer"
+msgstr "Dancisto"
+
+msgid "Dancing Animations"
+msgstr "Dancaj Animacioj"
+
+msgid "Gold"
+msgstr "Oro"
+
+msgid "Silver"
+msgstr "Arĝento"
+
+msgid "Carbon"
+msgstr "Karbono"
+
+msgid "&Style"
+msgstr "&Stilo"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "Aranĝiga stilo Oro, Arĝento aŭ Karbono"
+
+msgid "Audio"
+msgstr "Aŭdio"
+
+msgid "Config of audio and colors"
+msgstr "Agordo de audio kaj koloroj"
+
+msgid "Language"
+msgstr "Lingvo"
+
+msgid "Set language"
+msgstr "Agordu lingvon"
+
+msgid "&Config"
+msgstr "&Agordo"
+
+msgid "Configuration setting"
+msgstr "Agorda agordo"
+
+msgid "&About"
+msgstr "&Pri"
+
+msgid "About StrumPract"
+msgstr "Pri StrumPract"
+
+msgid "&Quit"
+msgstr "&Forlasu"
+
+msgid "Terminate StrumPract"
+msgstr "Ĉesigi StrumPract"
+
+msgid "Set as default"
+msgstr "Agordu kiel defaŭltan"
+
+msgid "Recorder"
+msgstr "Registrilo"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "Uzu tiun kroĉpanelon por treni/faligi la fenestron."
+
+msgid "Com"
+msgstr "Kom"
+
+msgid "Commander"
+msgstr "Komandanto"
+
+msgid "Start Drums"
+msgstr "Startu Tamburojn"
+
+msgid "Pause Drums"
+msgstr "Paŭzi Tamburojn"
+
+msgid "Resume Drums"
+msgstr "Rekomenci Tamburojn"
+
+msgid "General Volume of drums"
+msgstr "Ĝenerala Volumo de tamburoj"
+
+msgid "Drums"
+msgstr "Tamburoj"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "Alklaku por ŝanĝi al 100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "Volumo de enigo (mikrofono aŭ enigo)"
+
+msgid "Input (mic or aux in)"
+msgstr "Enigo (mikrofono aŭ aux en)"
+
+msgid "Enable Live Input"
+msgstr "Ebligi Vivan Enigon"
+
+msgid "Right Volume General in %"
+msgstr "Ĝusta Volumo Ĝenerala en %"
+
+msgid "Left Volume General in %"
+msgstr "Maldekstra Volumo Ĝenerala en %"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "Ĝenerala maldekstra volumo. Klaku por restarigi al 100%."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "Ĝenerala dekstra volumo. Klaku por restarigi al 100%."
+
+msgid "Lock left and right channels"
+msgstr "Ŝlosi maldekstrajn kaj dekstrajn kanalojn"
+
+msgid "General Volume in %"
+msgstr "Ĝenerala Volumo en %"
+
+msgid "System Master Volume"
+msgstr "Mastra Volumo de la Sistemo"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "Ŝanĝi miksan tempon en 1/100 sekundo"
+
+msgid "Stop player"
+msgstr "Haltu ludilon"
+
+msgid "Resume player"
+msgstr "Rekomenci ludilon"
+
+msgid "Load and Start Player"
+msgstr "Ŝargi kaj Komencu Ludilon"
+
+msgid "Left Volume Player 1"
+msgstr "Maldekstra Volumo-Ludilo 1"
+
+msgid "Right Volume Player 1"
+msgstr "Ĝusta Volumo-Ludilo 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "Startu Ludanton 1 --> MIX --> Haltu Ludanton 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "Startu Ludanton 2 --> MIX --> Haltu Ludanton 1"
+
+msgid "Right Volume Player 2"
+msgstr "Ĝusta Volumo-Ludilo 2"
+
+msgid "Left Volume Player 2"
+msgstr "Maldekstra Volumo-Ludilo 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "Signo-Ŝargi-Paŭza Ludilon"
+
+msgid "Pause player"
+msgstr "Paŭzi ludilon"
+
+msgid "Pause Mixing"
+msgstr "Paŭzi Miksadon"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "Ebligi Kalkulon de Spektro Frekvencoj"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "Grafika animado dum miksado (se cpu tro malalta malŝaltu ĝin)"
+
+msgid "View Meters on/off"
+msgstr "Vidi mezurilojn ŝaltita/malŝaltita"
+
+msgid "Auto Mixing on/off"
+msgstr "Aŭtomata Miksado ŝaltita/malŝaltita"
+
+msgid "Direct MIX (0 second time)"
+msgstr "Rekta MIX (0 duan fojon)"
+
+msgid "Player 1"
+msgstr "Ludanto 1"
+
+msgid "Player 2"
+msgstr "Ludanto 2"
+
+msgid "Randomize mixing list"
+msgstr "Hazardoni miksan liston"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "Nevalida valoro. Restarigi al 100."
+
+msgid "Or press Esc key for previous value."
+msgstr "Aŭ premu Esc-klavon por antaŭa valoro."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "Uzu ĉi tiun kroĉpanelon por treni/faligi la fenestron"
+
+msgid "Files"
+msgstr "Dosieroj"
+
+msgid "Audio files"
+msgstr "Aŭddosieroj"
+
+msgid "Number of files in the list"
+msgstr "Nombro da dosieroj en la listo"
+
+msgid "Find a word in list"
+msgstr "Trovu vorton en listo"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "Sendis elektitan kanton por indiki por Ludanto 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "Sendis elektitan kanton por indiki por Ludanto 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "Por movi vicon: klaku+teni en la fiksan kolumnon kaj trenu la vicon kien vi volas."
+
+msgid "Name of sound"
+msgstr "Nomo de sono"
+
+msgid "Ext"
+msgstr "Ext"
+
+msgid "File extension"
+msgstr "Dosiera etendo"
+
+msgid "Size"
+msgstr "Grandeco"
+
+msgid "Size in Kb of the file"
+msgstr "Grandeco en Kb de la dosiero"
+
+msgid "Mix"
+msgstr "Miksi"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "Inkluzivi por miksi. Klakante sur la fiksita ĉelo ---> elektu ĉion/neniu."
+
+msgid "Load custom play-list"
+msgstr "Ŝargi propran ludliston"
+
+msgid "Load"
+msgstr "Ŝargi"
+
+msgid "Save custom play-list"
+msgstr "Konservi propran ludliston"
+
+msgid "Add file in custom play-list"
+msgstr "Aldonu dosieron en kutima ludlisto"
+
+msgid "Add"
+msgstr "Aldoni"
+
+msgid "History of Directories"
+msgstr "Historio de Dosierujoj"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "Elektu sondosierujon kun wav, ogg, flac aŭ mp3"
+
+msgid "Infos of song"
+msgstr "Informoj pri kanto"
+
+msgid "No Image Tag"
+msgstr "Neniu Bilda Etikedo"
+
+msgid "Title"
+msgstr "Titolo"
+
+msgid "Artist"
+msgstr "Artisto"
+
+msgid "Album"
+msgstr "Albumo"
+
+msgid "Year"
+msgstr "Jaro"
+
+msgid "Duration"
+msgstr "Daŭro"
+
+msgid "Genre"
+msgstr "Ĝenro"
+
+msgid "Comment"
+msgstr "Komento"
+
+msgid "File Name"
+msgstr "Dosiernomo"
+
+msgid "Rate"
+msgstr "Takso"
+
+msgid "Chan"
+msgstr "Ĉan"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "Ludo1"
+
+msgid "Change Left volume"
+msgstr "Ŝanĝi Maldekstran volumon"
+
+msgid "Reset to tempo original"
+msgstr "Restarigi al la originala takto"
+
+msgid "Click to change position of sound"
+msgstr "Alklaku por ŝanĝi pozicion de sono"
+
+msgid "History of Cue files"
+msgstr "Historio de Cue-dosieroj"
+
+msgid "Change Right volume"
+msgstr "Ŝanĝi ĝustan volumon"
+
+msgid "Change tempo of song"
+msgstr "Ŝanĝi takton de kanto"
+
+msgid "Show infos of the song"
+msgstr "Montri informojn pri la kanto"
+
+msgid "Info"
+msgstr "Informoj"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "Detektu BMP el nuna pozicio kaj agordu ĝin al Drums-takto."
+
+msgid "Resume player"
+msgstr "Rekomenci ludilon"
+
+msgid "Load from cue and Start player"
+msgstr "Ŝargi el signalvorto kaj Komencu ludilon"
+
+msgid "Load from cue and Pause player"
+msgstr "Ŝargi el signalvorto kaj Paŭzi ludilo"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "Elektu wav, ogg, flac aŭ mp3 sondosieron"
+
+msgid "Position of sound"
+msgstr "Pozicio de sono"
+
+msgid "Lenght of sound"
+msgstr "Daŭro de sono"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "Ebligu buklon de la kanto. (Paŭzo ne estas ebligita kun buklo.)"
+
+msgid "Set Mono/Stereo"
+msgstr "Agordu Mono/Stereo"
+
+msgid "Show wave form in slider"
+msgstr "Montri ondformon en glitilo"
+
+msgid "Enable playing reverse."
+msgstr "Ebligu ludadon inversa."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "Ebligi streĉadon (ŝanĝanta takto)"
+
+msgid "right"
+msgstr "ĝuste"
+
+msgid "Reset to 0 gain"
+msgstr "Restarigi al 0 gajno"
+
+msgid "Load a Settings file"
+msgstr "Ŝargi Agordan dosieron"
+
+msgid "Save Settings in a file"
+msgstr "Konservi agordojn en dosiero"
+
+msgid "left"
+msgstr "maldekstre"
+
+msgid "Enable Equalizer"
+msgstr "Ebligi Ekvalizilon"
+
+msgid "Spect"
+msgstr "Spektu"
+
+msgid "Spectrum"
+msgstr "Spektro"
+
+msgid "Right Frequency spectrum"
+msgstr "Ĝusta Frekvenca spektro"
+
+msgid "Left Frequency spectrum"
+msgstr "Maldekstra Frekvenca spektro"
+
+msgid "Enable Spectrum"
+msgstr "Ebligi Spectrumon"
+
+msgid "Bass"
+msgstr "Baso"
+
+msgid "Snare"
+msgstr "Kaptilo"
+
+msgid "Open H"
+msgstr "Malfermu H"
+
+msgid "Close H"
+msgstr "Fermu H"
+
+msgid "Patern 1"
+msgstr "Patrono 1"
+
+msgid "Drums Patern 1"
+msgstr "Drums Patern 1"
+
+msgid "Drums Patern 2"
+msgstr "Drums Patern 2"
+
+msgid "Drums Patern 3"
+msgstr "Drums Patern 3"
+
+msgid "Drums Patern 4"
+msgstr "Drums Patern 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "Lasta leciono. Faru la samon kiel 3-a leciono sed plialtigante la takton. Ĉe kalkulo 2 vi povas aldoni bum sur la Bastamburo. Gratulon, vi nun estas tamburisto. ;-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "3-a leciono Faru la samon kiel la dua leciono kaj laŭ la kalkulo 3 aldonu klak sur la Snare Drum. Ĉi tio estas la plej malfacila. Ankoraŭ kalkulu laŭte per via voĉo."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "Dua leciono. Faru la samon kiel unua leciono kaj laŭ kalkulo 1 aldonu bum per via dekstra piedo sur la Bastamburo. Ankoraŭ kalkulu laŭte per via voĉo."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "Unua leciono. Per la bastono batis la fermitan ĉapelon je ĉiu kalkulo. Kalkuli laŭte ankaŭ per via voĉo."
+
+msgid "Patern"
+msgstr "Patrono"
+
+msgid "Lesson"
+msgstr "Leciono"
+
+msgid "no anim"
+msgstr "neniu animo"
+
+msgid "No graphic animation."
+msgstr "Neniu grafika animacio."
+
+msgid "no and"
+msgstr "neniu kaj"
+
+msgid "No and between 2 numbers."
+msgstr "Neniu kaj inter 2 nombroj."
+
+msgid "no voice"
+msgstr "neniu voĉo"
+
+msgid "No counting voice"
+msgstr "Neniu kalkula voĉo"
+
+msgid "no drums"
+msgstr "neniu tamburoj"
+
+msgid "No drums sound."
+msgstr "Neniu tamburoj sonoj."
+
+msgid "Stop loop"
+msgstr "Haltu buklon"
+
+msgid "Resume loop"
+msgstr "Rekomenci buklon"
+
+msgid "Start loop"
+msgstr "Komenci buklon"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (Taktoj po minuto)"
+
+msgid "Volume"
+msgstr "Volumo"
+
+msgid "General volume of Drums"
+msgstr "Ĝenerala volumo de Tamburoj"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "Taktoj po minutoj - intervalo en 1/10000 sekundo."
+
+msgid "Set BPM X 2"
+msgstr "Agordu BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "Agordu BPM / 2"
+
+msgid "Lang"
+msgstr "Lang"
+
+msgid "Language for counting"
+msgstr "Lingvo por kalkulado"
+
+msgid "Chord Randomizer"
+msgstr "Akorda Randomizilo"
+
+msgid "Click to listen to the guitar chord"
+msgstr "Alklaku por aŭskulti la gitarkordon"
+
+msgid "Click to listen to piano chord"
+msgstr "Alklaku por aŭskulti pianokordon"
+
+msgid "Select a chord"
+msgstr "Elektu akordon"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "Fermu ĉion StrumPract (Alklaku la piktogramon en la angulo de la formularo por fermi nur Randomizer)"
+
+msgid "Randomize chords"
+msgstr "Hazardigu akordojn"
+
+msgid "Randomize"
+msgstr "Hazardigu"
+
+msgid "Manual fixed chords"
+msgstr "Manlibroj fiksitaj akordoj"
+
+msgid "Fixed"
+msgstr "Fiksita"
+
+msgid "Tuned guitar string"
+msgstr "Agordita gitarkordo"
+
+msgid "Tuned Guitars"
+msgstr "Agordita Gitaroj"
+
+msgid "Re-do a randomizer"
+msgstr "Refari randomigilon"
+
+msgid "Clear chords"
+msgstr "Malpurigi akordojn"
+
+msgid "Chords"
+msgstr "Akordoj"
+
+msgid "7th"
+msgstr "7-a"
+
+msgid "Enable 7th Chords"
+msgstr "Ebligi 7-ajn Akordojn"
+
+msgid "minor"
+msgstr "negrava"
+
+msgid "Enable minor Chords"
+msgstr "Ebligi minorajn Akordojn"
+
+msgid "Major"
+msgstr "Ĉefa"
+
+msgid "Enable Major Chords"
+msgstr "Ebligi Majorajn Akordojn"
+
+msgid "9th"
+msgstr "9a"
+
+msgid "Enable 9th Chords"
+msgstr "Ebligi 9-ajn Akordojn"
+
+msgid "# (Sharp)"
+msgstr "# (Sharp)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "Ebligu Sharp-Chords #"
+
+msgid "Sound"
+msgstr "Sono"
+
+msgid "Enable Sound of Chords"
+msgstr "Ebligi Sonon de Akordoj"
+
+msgid "Number"
+msgstr "Nombro"
+
+msgid "Total chords"
+msgstr "Tutaj akordoj"
+
+msgid "Maximum number of chords"
+msgstr "Maksimuma nombro da akordoj"
+
+msgid "Random num"
+msgstr "Hazarda nombro"
+
+msgid "Randomize the number of chords"
+msgstr "Hazardigu la nombron da akordoj"
+
+msgid "Tempo of Drums in BPM"
+msgstr "Tempo de Tamburoj en BPM"
+
+msgid "Enable Drums"
+msgstr "Ebligi Tamburojn"
+
+msgid "Enable random Drums tempo"
+msgstr "Ebligi hazardan Drums-takton"
+
+msgid "Configure the Clear message"
+msgstr "Agordu la mesaĝon Malplenigi"
+
+msgid "English [en]"
+msgstr "La angla [en]"
+
+msgid "Russian [ru]"
+msgstr "Ruse [ru]"
+
+msgid "French [fr]"
+msgstr "Franca [fr]"
+
+msgid "German [de]"
+msgstr "Germana [de]"
+
+msgid "Spanish [es]"
+msgstr "Hispana [es]"
+
+msgid "Portuguese [pt]"
+msgstr "Portugala [pt]"
+
+msgid "Chinese [zh]"
+msgstr "Ĉina [zh]"
+
+msgid "Italian [it]"
+msgstr "Itale [it]"
+
+msgid "Dutch [nl]"
+msgstr "Nederlanda [nl]"
+
+msgid "Hebrew [he]"
+msgstr "Hebree [he]"
+
+msgid "Indonesian [id]"
+msgstr "Indonezia [id]"
+
+msgid "Polish [pl]"
+msgstr "Pola [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "Esperanto [eo]"
+
+msgid "Greek [el]"
+msgstr "Greka [el]"
+
+msgid "Arabic [ar]"
+msgstr "Araba [ar]"
+
