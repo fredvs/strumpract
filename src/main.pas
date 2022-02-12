@@ -7,47 +7,14 @@ unit main;
 interface
 
 uses
- {$ifdef windows}win_mixer,{$endif}msetypes,
-  mseglob,
-  mseguiglob,
-  msegraphedits,
-  Process,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msechart,
-  status,
-  msedock,
-  msedataedits,
-  mseedit,
-  msestatfile,
-  SysUtils,
-  Classes,
-  Math,
-  msebitmap,
-  msesys,
-  msemenus,
-  msestream,
-  msegrids,
-  mselistbrowser,
-  mseact,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestrings,
-  msedatanodes,
-  msedragglob,
-  msedropdownlist,
-  msefiledialogx,
-  msegridsglob,
- {$IFDEF unix}dynlibs,{$ENDIF}msetraywidget;
+ {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,mseguiglob,po2arrays,
+ msegraphedits,Process,mseguiintf,mseapplication,msestat,msegui,msetimer,
+ msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msechart,status,
+ msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,msebitmap,
+ msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
+ mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,msedropdownlist,
+ msefiledialogx,msegridsglob,{$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,
+  mseconsts, captionstrumpract;
 
 type
   tmainfo = class(tmainform)
@@ -79,6 +46,7 @@ type
     tfaceplayer2: tfacecomp;
     tfaceorange2: tfacecomp;
     ttimer2: ttimer;
+   tframecomp1: tframecomp;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -146,7 +114,10 @@ type
     procedure onalwaysontop(const Sender: TObject);
     procedure onhidedancer(const Sender: TObject);
     procedure ontimeridle(const Sender: TObject);
+    procedure setlangstrumpract(thelang: string);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
+   procedure onlangset(const sender: TObject);
+   procedure onactiv(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -175,6 +146,7 @@ const
 var
   mainfo: tmainfo;
   stopit: Boolean = False;
+  isactivated: Boolean = False;
   channels: cardinal = 2;
   // stereo output
   allok: Boolean = False;
@@ -190,6 +162,7 @@ implementation
 
 uses
   infos,
+  conflang,
   config,
   drums,
   recorder,
@@ -207,6 +180,869 @@ uses
   guitars,
   dialogfiles,
   main_mfm;
+  
+procedure tmainfo.setlangstrumpract(thelang: string);
+var
+  x: shortint;
+  str: string;
+begin
+
+ createnewlang(thelang);
+
+ conflangfo.ok.caption := lang_stockcaption[Ord(sc_close)];   
+ conflangfo.setasdefault.frame.caption := lang_mainfo[Ord(ma_setasdefault)]; 
+
+ conflangfo.gridlang.rowcount := length(lang_langnames);
+
+  for x := 0 to length(lang_langnames) - 1 do
+  begin
+    conflangfo.gridlangtext[x] := lang_langnames[x];
+    str := trim(copy(lang_langnames[x], system.pos('[', lang_langnames[x]), 10));
+    str := StringReplace(str, '[', '', [rfReplaceAll]);
+    str := StringReplace(str, ']', '', [rfReplaceAll]);
+    conflangfo.gridlangcode[x] := str;
+  end;
+
+with mainfo do
+  begin
+      if (thelang = 'fr') or (thelang = 'es')
+        then tframecomp1.template.extraspace := 4
+       else
+      if (thelang = 'de') or (thelang = 'pt') 
+       then tframecomp1.template.extraspace := 6
+      else
+      if (thelang = 'ru')
+       then tframecomp1.template.extraspace := 7
+      else 
+      tframecomp1.template.extraspace := 10;
+      
+      caption := lang_mainfo[Ord(ma_mainfo)];  {'StrumPract'}
+
+      basedock.dragdock.caption := lang_mainfo[Ord(ma_basedockdragdock)];  {'Dock any window on this area.'}
+      basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdockingarea)];  {'Drag a form here using right-border grip.'}
+
+      tmainmenu1.menu.itembynames(['dock']).caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+
+      tmainmenu1.menu.itembynames(['tab']).caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];  {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+
+      tmainmenu1.menu.itembynames(['layout','dockall']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_dockall)];  {'&Dock all visible windows'}
+      tmainmenu1.menu.itembynames(['layout','dockall']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+
+      tmainmenu1.menu.itembynames(['layout','floatall']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_floatall)];  {'&Float all visible windows'}
+      tmainmenu1.menu.itembynames(['layout','floatall']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_floatall_hint)];  {'Float windows in independent forms'}
+
+      tmainmenu1.menu.itembynames(['layout','taball']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_taball)];  {'&Tab all visible windows'}
+      tmainmenu1.menu.itembynames(['layout','taball']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_taball_hint)];  {'Make windows tabed in one form'}
+
+      tmainmenu1.menu.itembynames(['layout','jamsession']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_jamsession)];  {'&Jam Session'}
+
+      tmainmenu1.menu.itembynames(['layout','djwave']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_djwave)];  {'DJ Console Wave'}
+
+      tmainmenu1.menu.itembynames(['layout','djinfo']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_djinfo)];  {'DJ Console Info'}
+
+      tmainmenu1.menu.itembynames(['layout','recordstage']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_recordstage)];  {'&Record stage'}
+
+      tmainmenu1.menu.itembynames(['layout','chordrandom']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_chordrandom)];  {'&Chords Randomizer'}
+
+      tmainmenu1.menu.itembynames(['layout','imagedancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)];  {'&Image Dancer'}
+
+      tmainmenu1.menu.itembynames(['layout','savelayout']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_savelayout)];  {'Save Layout'}
+      tmainmenu1.menu.itembynames(['layout','savelayout']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_savelayout_hint)];  {'Save current layout'}
+
+      tmainmenu1.menu.itembynames(['layout','loadlayout']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_loadlayout)];  {'Load Layout'}
+      tmainmenu1.menu.itembynames(['layout','loadlayout']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_loadlayout_hint)];  {'Load saved layout'}
+
+      tmainmenu1.menu.itembynames(['layout']).caption := lang_mainfo[Ord(ma_tmainmenu1_layout)];  {'&Layout'}
+      tmainmenu1.menu.itembynames(['layout']).hint := lang_mainfo[Ord(ma_tmainmenu1_layout_hint)];  {'Layout of windows'}
+
+      tmainmenu1.menu.itembynames(['show','showall']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showall)];  {'Show All'}
+
+      tmainmenu1.menu.itembynames(['show','hideall']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_hideall)];  {'Hide All'}
+
+      tmainmenu1.menu.itembynames(['show','showdrums']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showdrums)];  {'Show Drums'}
+
+      tmainmenu1.menu.itembynames(['show','showlist']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showlist)];  {'Show File List'}
+
+      tmainmenu1.menu.itembynames(['show','showplay1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showplay1)];  {'Show Player 1'}
+
+      tmainmenu1.menu.itembynames(['show','showplay2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showplay2)];  {'Show Player 2'}
+
+      tmainmenu1.menu.itembynames(['show','showcommander']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showcommander)];  {'Show Commander'}
+
+      tmainmenu1.menu.itembynames(['show','showrecorder']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showrecorder)];  {'Show Recorder'}
+
+      tmainmenu1.menu.itembynames(['show','show guitar']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showguitar)];  {'Show Guitars'}
+
+      tmainmenu1.menu.itembynames(['show','showspectrum1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrum1)];  {'Show Spectrum 1'}
+
+      tmainmenu1.menu.itembynames(['show','showspectrum2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrum2)];  {'Show Spectrum 2'}
+
+      tmainmenu1.menu.itembynames(['show','showspectrumrec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showspectrumrec)];  {'Show Spectrum Rec'}
+
+      tmainmenu1.menu.itembynames(['show','showwave1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwave1)];  {'Show WaveForm 1'}
+
+      tmainmenu1.menu.itembynames(['show','showwave2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwave2)];  {'Show WaveForm 2'}
+
+      tmainmenu1.menu.itembynames(['show','showwaverec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showwaverec)];  {'Show WaveForm Rec'}
+
+      tmainmenu1.menu.itembynames(['show','showequ1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequ1)];  {'Show Equalizer 1'}
+
+      tmainmenu1.menu.itembynames(['show','showequ2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequ2)];  {'Show Equalizer 2'}
+
+      tmainmenu1.menu.itembynames(['show','showequrec']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showequrec)];  {'Show Equalizer Rec'}
+
+      tmainmenu1.menu.itembynames(['show','showchords']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showchords)];  {'Show Chord Randomizer'}
+
+      tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showimagedancer)];  {'Show Image Dancer'}
+
+
+      tmainmenu1.menu.itembynames(['show','panels','showpanel1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel1)];  {'Show Dock Panel 1'}
+
+      tmainmenu1.menu.itembynames(['show','panels','showpanel2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel2)];  {'Show Dock Panel 2'}
+
+      tmainmenu1.menu.itembynames(['show','panels','showpanel3']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel3)];  {'Show Dock Panel 3'}
+
+      tmainmenu1.menu.itembynames(['show','panels','showpanel4']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel4)];  {'Show Dock Panel 4'}
+
+      tmainmenu1.menu.itembynames(['show','panels','showpanel5']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel5)];  {'Show Dock Panel 5'}
+
+      tmainmenu1.menu.itembynames(['show','panels']).caption := lang_mainfo[Ord(ma_tmainmenu1_panels)];  {'&Panels'}
+
+      tmainmenu1.menu.itembynames(['show']).caption := lang_mainfo[Ord(ma_tmainmenu1_show)];  {'&Show'}
+      tmainmenu1.menu.itembynames(['show']).hint := lang_mainfo[Ord(ma_tmainmenu1_show_hint)];  {'Show/hide windows'}
+
+
+      tmainmenu1.menu.itembynames(['dancer','square']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_square)];  {'Square'}
+
+      tmainmenu1.menu.itembynames(['dancer','triangle']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_triangle)];  {'Triangle'}
+
+      tmainmenu1.menu.itembynames(['dancer','lines']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_lines)];  {'Lines'}
+
+      tmainmenu1.menu.itembynames(['dancer','fractraltree']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_fractraltree)];  {'Fractal Tree'}
+
+      tmainmenu1.menu.itembynames(['dancer','superformula']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_superformula)];  {'Super Formula'}
+
+      tmainmenu1.menu.itembynames(['dancer','hyperformula']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_hyperformula)];  {'Hyper Formula'}
+
+      tmainmenu1.menu.itembynames(['dancer','atom']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_atom)];  {'Atom'}
+
+      tmainmenu1.menu.itembynames(['dancer','spiralhue']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_spiralhue)];  {'Spiral Hue'}
+
+      tmainmenu1.menu.itembynames(['dancer','spiralrainbow']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_spiralrainbow)];  {'Spiral Rainbow'}
+
+      tmainmenu1.menu.itembynames(['dancer','spiralmove']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_spiralmove)];  {'Spiral Move'}
+
+      tmainmenu1.menu.itembynames(['dancer','turtle1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_turtle1)];  {'Turtle 1'}
+
+      tmainmenu1.menu.itembynames(['dancer','turtle2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_turtle2)];  {'Turtle 2'}
+
+      tmainmenu1.menu.itembynames(['dancer','fractalcircles']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_fractalcircles)];  {'Fractal Circles'}
+
+      tmainmenu1.menu.itembynames(['dancer','normalform']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_normalform)];  {'Normal form'}
+      tmainmenu1.menu.itembynames(['dancer','normalform']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_normalform_hint)];  {'Use this form to set the size for Ellipse and (Round)Rectangle forms.'}
+
+      tmainmenu1.menu.itembynames(['dancer','ellipse']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_ellipse)];  {'Ellipse'}
+
+      tmainmenu1.menu.itembynames(['dancer','roundrect']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_roundrect)];  {'Rounded rect'}
+
+      tmainmenu1.menu.itembynames(['dancer','rect']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_rect)];  {'Rectangle'}
+
+      tmainmenu1.menu.itembynames(['dancer','alwaystop']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_alwaystop)];  {'Always on top'}
+
+      tmainmenu1.menu.itembynames(['dancer','transparent']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_transparent)];  {'Transparent'}
+
+      tmainmenu1.menu.itembynames(['dancer','hidedancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_hidedancer)];  {'Hide Dancer'}
+
+      tmainmenu1.menu.itembynames(['dancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_dancer)];  {'Da&ncer'}
+      tmainmenu1.menu.itembynames(['dancer']).hint := lang_mainfo[Ord(ma_tmainmenu1_dancer_hint)];  {'Dancing Animations'}
+
+      tmainmenu1.menu.itembynames(['style','gold']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
+
+      tmainmenu1.menu.itembynames(['style','silver']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
+
+      tmainmenu1.menu.itembynames(['style','carbon']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
+
+      tmainmenu1.menu.itembynames(['style']).caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
+      tmainmenu1.menu.itembynames(['style']).hint := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
+
+      tmainmenu1.menu.itembynames(['config','audio']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio)];  {'Audio'}
+      tmainmenu1.menu.itembynames(['config','audio']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
+
+      tmainmenu1.menu.itembynames(['config','language']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language)];  {'Language'}
+      tmainmenu1.menu.itembynames(['config','language']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language_hint)];  {'Set language'}
+
+      tmainmenu1.menu.itembynames(['config']).caption := lang_mainfo[Ord(ma_tmainmenu1_config)];  {'&Config'}
+      tmainmenu1.menu.itembynames(['config']).hint := lang_mainfo[Ord(ma_tmainmenu1_config_hint)];  {'Configuration setting'}
+
+      tmainmenu1.menu.itembynames(['about']).caption := lang_mainfo[Ord(ma_tmainmenu1_about)];  {'&About'}
+      tmainmenu1.menu.itembynames(['about']).hint := lang_mainfo[Ord(ma_tmainmenu1_about_hint)];  {'About StrumPract'}
+
+      tmainmenu1.menu.itembynames(['quit']).caption := lang_mainfo[Ord(ma_tmainmenu1_quit)];  {'&Quit'}
+      tmainmenu1.menu.itembynames(['quit']).hint := lang_mainfo[Ord(ma_tmainmenu1_quit_hint)];  {'Terminate StrumPract'}
+
+    end;
+    
+with infosfo do
+  begin
+      caption := lang_infosfo[Ord(in_infosfo)];  {'Infos of song'}
+      tlabel2.caption := lang_infosfo[Ord(in_tlabel2)] + ' ';  {'No Image Tag'}
+      infoname.frame.caption := lang_infosfo[Ord(in_infonameframe)];  {'Title'}
+      infoartist.frame.caption := lang_infosfo[Ord(in_infoartistframe)];  {'Artist'}
+      infoalbum.frame.caption := lang_infosfo[Ord(in_infoalbumframe)];  {'Album'}
+      infoyear.frame.caption := lang_infosfo[Ord(in_infoyearframe)];  {'Year'}   
+      infolength.frame.caption := lang_infosfo[Ord(in_infolengthframe)];  {'Duration'}
+      infotag.frame.caption := lang_infosfo[Ord(in_infotagframe)];  {'Genre'}
+      infocom.frame.caption := lang_infosfo[Ord(in_infocomframe)];  {'Comment'}
+      infofile.frame.caption := lang_infosfo[Ord(in_infofileframe)];  {'File Name'}
+      inforate.frame.caption := lang_infosfo[Ord(in_inforateframe)];  {'Rate'}
+      infochan.frame.caption := lang_infosfo[Ord(in_infochanframe)];  {'Chan'}
+      infobpm.frame.caption := lang_infosfo[Ord(in_infobpmframe)];  {'BMP'}
+  end;  
+  
+ with infosfo2 do
+  begin
+      caption := lang_infosfo[Ord(in_infosfo)];  {'Infos of song'}
+      tlabel2.caption := lang_infosfo[Ord(in_tlabel2)]  + ' ';  {'No Image Tag'}
+      infoname.frame.caption := lang_infosfo[Ord(in_infonameframe)];  {'Title'}
+      infoartist.frame.caption := lang_infosfo[Ord(in_infoartistframe)];  {'Artist'}
+      infoalbum.frame.caption := lang_infosfo[Ord(in_infoalbumframe)];  {'Album'}
+      infoyear.frame.caption := lang_infosfo[Ord(in_infoyearframe)];  {'Year'}   
+      infolength.frame.caption := lang_infosfo[Ord(in_infolengthframe)];  {'Duration'}
+      infotag.frame.caption := lang_infosfo[Ord(in_infotagframe)];  {'Genre'}
+      infocom.frame.caption := lang_infosfo[Ord(in_infocomframe)];  {'Comment'}
+      infofile.frame.caption := lang_infosfo[Ord(in_infofileframe)];  {'File Name'}
+      inforate.frame.caption := lang_infosfo[Ord(in_inforateframe)];  {'Rate'}
+      infochan.frame.caption := lang_infosfo[Ord(in_infochanframe)];  {'Chan'}
+      infobpm.frame.caption := lang_infosfo[Ord(in_infobpmframe)];  {'BMP'}
+  end;    
+  
+with songplayerfo do
+  begin
+      frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];;  {' Use that grip panel to drag/drop the window. '}
+
+      dragdock.caption := lang_songplayerfo[Ord(so_songplayerfodragdock)];  {' Play1 '}
+
+      tgroupbox1.hint := lang_commanderfo[Ord(co_nameplayers_hint)];  {' Player 1 '}
+
+      edvolleft.hint := lang_songplayerfo[Ord(so_edvolleft_hint)];  {' Change Left volume '}
+
+      button1.hint := lang_songplayerfo[Ord(so_button1_hint)];  {' Reset to tempo original '}
+   
+      trackbar1.hint := lang_songplayerfo[Ord(so_trackbar1_hint)];  {' Click to change position of sound '}
+
+      historyfn.hint := lang_songplayerfo[Ord(so_historyfn_hint)];  {' History of Cue files '}
+
+      tstringdisp1.hint := lang_commanderfo[Ord(co_nameplayers_hint)];  {' Player 1 '}
+
+      edvolright.hint := lang_songplayerfo[Ord(so_edvolright_hint)];  {' Change Right volume '}
+
+      edtempo.hint := lang_songplayerfo[Ord(so_edtempo_hint)];  {' Change tempo of song '}
+
+      btinfos.hint := lang_songplayerfo[Ord(so_btinfos_hint)];  {' Show infos of the song '}
+      btinfos.caption := lang_songplayerfo[Ord(so_btinfos)];  {'Info'}
+
+      button2.hint := lang_songplayerfo[Ord(so_button2_hint)];  {' Detect BMP from current position and set it to Drums tempo. '}
+    
+      btnStop.hint := lang_commanderfo[Ord(co_btnStop_hint)];  {' Stop player '}
+
+      btnResume.hint := lang_songplayerfo[Ord(so_btnResume_hint)];  {' Resume player '}
+
+      btnStart.hint := lang_songplayerfo[Ord(so_btnStart_hint)];  {' Load from cue and Start player '}
+
+      BtnCue.hint := lang_songplayerfo[Ord(so_BtnCue_hint)];  {' Load from cue and Pause player '}
+
+      btnPause.hint := lang_commanderfo[Ord(co_btnPause_hint)];  {' Pause player '}
+
+      tbutton6.hint := lang_songplayerfo[Ord(so_tbutton6_hint)];  {' Choose a  wav, ogg, flac or mp3 audio file '}
+   
+      lposition.hint := lang_songplayerfo[Ord(so_lposition_hint)];  {' Position of sound '}
+
+      llength.hint := lang_songplayerfo[Ord(so_llength_hint)];  {' Lenght of sound '}
+
+      cbloopb.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];  {' Enable looping the song. (Pause is not enabled with loop.) '}
+      setmono.hint := lang_songplayerfo[Ord(so_setmono_hint)];  {'Mono/Stereo'}
+      waveformcheck.hint := lang_songplayerfo[Ord(so_waveformcheck_hint)];  {' Show wave form in slider '}
+
+      playreverse.hint := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
+
+      cbloop.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];  {' Enable looping the song. (Pause is not enabled with loop.) '}
+
+      cbtempo.hint := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
+
+      playreverseb.hint := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
+      waveformcheckb.hint := lang_songplayerfo[Ord(so_waveformcheck_hint)];  {' Show wave form in slider '}
+     setmonob.hint := lang_songplayerfo[Ord(so_setmono_hint)];  {' Set Mono-Stereo '}
+      cbtempob.hint := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
+      hintlabel.caption := lang_commanderfo[Ord(co_hintlabel)];  {'Invalid value.  Reset to 100.'}
+
+      hintlabel2.caption := lang_commanderfo[Ord(co_hintlabel2)]; {'Or press Esc key for previous value.'}
+
+  end;  
+  
+with recorderfo do
+  begin
+      caption := lang_mainfo[Ord(ma_recorder)];
+      frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];  {' Use that grip panel to drag/drop the window. '}
+
+   //   dragdock.caption := lang_songplayerfo[Ord(so_songplayerfodragdock)];  {' Play1 '}
+
+     tgroupbox1.hint := lang_commanderfo[Ord(co_nameplayers2_hint)]; {' Player 1 '}
+
+      edvol.hint := lang_songplayerfo[Ord(so_edvolleft_hint)];  {' Change Left volume '}
+
+      button1.hint := lang_songplayerfo[Ord(so_button1_hint)];  {' Reset to tempo original '}
+   
+      trackbar1.hint := lang_songplayerfo[Ord(so_trackbar1_hint)];  {' Click to change position of sound '}
+
+      historyfn.hint := lang_songplayerfo[Ord(so_historyfn_hint)];  {' History of Cue files '}
+
+      tstringdisp2.hint := lang_mainfo[Ord(ma_recorder)];  {' Player 1 '}
+
+      edvolr.hint := lang_songplayerfo[Ord(so_edvolright_hint)];  {' Change Right volume '}
+
+      edtempo.hint := lang_songplayerfo[Ord(so_edtempo_hint)];  {' Change tempo of song '}
+
+      btinfos.hint := lang_songplayerfo[Ord(so_btinfos_hint)];  {' Show infos of the song '}
+      btinfos.caption := lang_songplayerfo[Ord(so_btinfos)];  {'Info'}
+
+      btnStop.hint := lang_commanderfo[Ord(co_btnStop_hint)];  {' Stop player '}
+
+      btnResume.hint := lang_songplayerfo[Ord(so_btnResume_hint)];  {' Resume player '}
+
+      btnStart.hint := lang_songplayerfo[Ord(so_btnStart_hint)];  {' Load from cue and Start player '}
+
+    
+      btnPause.hint := lang_commanderfo[Ord(co_btnPause_hint)];  {' Pause player '}
+
+      tbutton6.hint := lang_songplayerfo[Ord(so_tbutton6_hint)];  {' Choose a  wav, ogg, flac or mp3 audio file '}
+   
+      lposition.hint := lang_songplayerfo[Ord(so_lposition_hint)];  {' Position of sound '}
+
+      llength.hint := lang_songplayerfo[Ord(so_llength_hint)];  {' Lenght of sound '}
+
+      cbloop.hint := lang_songplayerfo[Ord(so_cbloopb_hint)]; {' Enable looping the song. (Pause is not enabled with loop.) '}
+
+      cbtempo.hint := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
+
+      hintlabel.caption := lang_commanderfo[Ord(co_hintlabel)];  {'Invalid value.  Reset to 100.'}
+
+      hintlabel2.caption := lang_commanderfo[Ord(co_hintlabel2)];  {'Or press Esc key for previous value.'}
+
+  end;  
+  
+  
+with songplayer2fo do
+  begin
+      frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];;  {' Use that grip panel to drag/drop the window. '}
+
+      dragdock.caption := lang_songplayerfo[Ord(so_songplayerfodragdock)];  {' Play1 '}
+
+      tgroupbox1.hint := lang_commanderfo[Ord(co_nameplayers2_hint)]; {' Player 1 '}
+
+      edvolleft.hint := lang_songplayerfo[Ord(so_edvolleft_hint)];  {' Change Left volume '}
+
+      button1.hint := lang_songplayerfo[Ord(so_button1_hint)];  {' Reset to tempo original '}
+   
+      trackbar1.hint := lang_songplayerfo[Ord(so_trackbar1_hint)];  {' Click to change position of sound '}
+
+      historyfn.hint := lang_songplayerfo[Ord(so_historyfn_hint)];  {' History of Cue files '}
+
+      tstringdisp1.hint := lang_commanderfo[Ord(co_nameplayers2_hint)];  {' Player 1 '}
+
+      edvolright.hint := lang_songplayerfo[Ord(so_edvolright_hint)];  {' Change Right volume '}
+
+      edtempo.hint := lang_songplayerfo[Ord(so_edtempo_hint)];  {' Change tempo of song '}
+
+      btinfos.hint := lang_songplayerfo[Ord(so_btinfos_hint)];  {' Show infos of the song '}
+      btinfos.caption := lang_songplayerfo[Ord(so_btinfos)];  {'Info'}
+
+      button2.hint := lang_songplayerfo[Ord(so_button2_hint)];  {' Detect BMP from current position and set it to Drums tempo. '}
+    
+      btnStop.hint := lang_commanderfo[Ord(co_btnStop_hint)];  {' Stop player '}
+
+      btnResume.hint := lang_songplayerfo[Ord(so_btnResume_hint)];  {' Resume player '}
+
+      btnStart.hint := lang_songplayerfo[Ord(so_btnStart_hint)];  {' Load from cue and Start player '}
+
+      BtnCue.hint := lang_songplayerfo[Ord(so_BtnCue_hint)];  {' Load from cue and Pause player '}
+
+      btnPause.hint := lang_commanderfo[Ord(co_btnPause_hint)];  {' Pause player '}
+
+      tbutton6.hint := lang_songplayerfo[Ord(so_tbutton6_hint)];  {' Choose a  wav, ogg, flac or mp3 audio file '}
+   
+      lposition.hint := lang_songplayerfo[Ord(so_lposition_hint)];  {' Position of sound '}
+
+      llength.hint := lang_songplayerfo[Ord(so_llength_hint)];  {' Lenght of sound '}
+
+      cbloopb.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];  {' Enable looping the song. (Pause is not enabled with loop.) '}
+      setmono.hint := lang_songplayerfo[Ord(so_setmono_hint)];  {'Mono/Stereo'}
+      waveformcheck.hint := lang_songplayerfo[Ord(so_waveformcheck_hint)];  {' Show wave form in slider '}
+
+      playreverse.hint := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
+
+      cbloop.hint := lang_songplayerfo[Ord(so_cbloopb_hint)]; {' Enable looping the song. (Pause is not enabled with loop.) '}
+
+      cbtempo.hint := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
+
+      playreverseb.hint := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
+      waveformcheckb.hint := lang_songplayerfo[Ord(so_waveformcheck_hint)];  {' Show wave form in slider '}
+     setmonob.hint := lang_songplayerfo[Ord(so_setmono_hint)];  {' Set Mono-Stereo '}
+      cbtempob.hint := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
+      hintlabel.caption := lang_commanderfo[Ord(co_hintlabel)];  {'Invalid value.  Reset to 100.'}
+
+      hintlabel2.caption := lang_commanderfo[Ord(co_hintlabel2)];  {'Or press Esc key for previous value.'}
+
+  end;    
+
+    
+ with commanderfo do
+  begin
+      frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];  {'Use that grip panel to drag/drop the window.'}
+
+      dragdock.caption := lang_commanderfo[Ord(co_commanderfo)];  {'Com'}
+
+      caption := lang_commanderfo[Ord(co_commanderfo)];  {'Commander'}
+
+      loop_start.hint := lang_commanderfo[Ord(co_loop_start_hint)];  {'Start Drums'}
+
+      loop_stop.hint := lang_commanderfo[Ord(co_loop_stop_hint)];  {'Pause Drums'}
+
+      loop_resume.hint := lang_commanderfo[Ord(co_loop_resume_hint)];  {'Resume Drums'}
+
+      tslider2.hint := lang_commanderfo[Ord(co_tslider2_hint)];  {'General Volume of drums'}
+
+      namedrums.hint := lang_commanderfo[Ord(co_namedrums_hint)];  {'Drums set'}
+
+      tslider2val.hint := lang_commanderfo[Ord(co_tslider2val_hint)];  {'Click to switch to 100% <> 0% '}
+    
+      tslider3.hint := lang_commanderfo[Ord(co_tslider3_hint)];  {'Volume of input (mic or input)'}
+
+      nameinput.hint := lang_commanderfo[Ord(co_nameinput_hint)];  {'Input (mic or aux in)'}
+
+      butinput.hint := lang_commanderfo[Ord(co_butinput_hint)];  {'Enable Live Input'}
+
+      tslider3val.hint := lang_commanderfo[Ord(co_tslider2val_hint)];  {'Click to switch to 100% <> 0% '}
+    
+      genvolright.hint := lang_commanderfo[Ord(co_genvolright_hint)];  {'Right Volume General in %'}
+
+      genvolleft.hint := lang_commanderfo[Ord(co_genvolleft_hint)];  {'Left Volume General in %'}
+
+      genleftvolvalue.hint := lang_commanderfo[Ord(co_genleftvolvalue_hint)];  {'General left volume. Click to reset to 100%.'}
+     
+      genrightvolvalue.hint := lang_commanderfo[Ord(co_genrightvolvalue_hint)];  {'General right volume. Click to reset to 100%.'}
+     
+      linkvolgenb.hint := lang_commanderfo[Ord(co_linkvol_hint)];  {'Lock left and right volume General'}
+     
+      namegen.hint := lang_commanderfo[Ord(co_namegen_hint)];  {'General Volume in %'}
+
+      sysvol.hint := lang_commanderfo[Ord(co_sysvol_hint)];  {'System Master Volume'}
+
+      sysvolbut.hint := lang_commanderfo[Ord(co_sysvol_hint)];  {'System Master Volume'}
+   
+      timemix.hint := lang_commanderfo[Ord(co_timemix_hint)];  {'Change mixing time in 1/100 second'}
+
+      btnStop.hint := lang_commanderfo[Ord(co_btnStop_hint)];  {'Stop player'}
+
+      btnResume.hint := lang_commanderfo[Ord(co_btnResume_hint)];  {'Resume player'}
+
+      btnStart.hint := lang_commanderfo[Ord(co_btnStart_hint)];  {'Load and Start Player'}
+
+      volumeleft1.hint := lang_commanderfo[Ord(co_volumeleft1_hint)];  {'Left Volume Player 1'}
+
+      volumeright1.hint := lang_commanderfo[Ord(co_volumeright1_hint)];  {'Right Volume Player 1'}
+
+      tbutton2.hint := lang_commanderfo[Ord(co_tbutton2_hint)];  {'Start Player 1 --> MIX --> Stop Player 2'}
+
+      tbutton3.hint := lang_commanderfo[Ord(co_tbutton3_hint)];  {'Start Player 2 --> MIX --> Stop Player 1'}
+
+      volumeright2.hint := lang_commanderfo[Ord(co_volumeright2_hint)];  {'Right Volume Player 2'}
+
+      volumeleft2.hint := lang_commanderfo[Ord(co_volumeleft2_hint)];  {'Left Volume Player 2'}
+
+      btncue.hint := lang_commanderfo[Ord(co_btncue_hint)];  {'Cue-Load-Pause Player'}
+
+      btnStart2.hint := lang_commanderfo[Ord(co_btnStart_hint)];  {'Load and Start Player'}
+
+      btncue2.hint := lang_commanderfo[Ord(co_btncue_hint)];  {'Cue-Load-Pause Player'}
+
+      btnStop2.hint := lang_commanderfo[Ord(co_btnStop_hint)];  {'Stop player'}
+
+      btnResume2.hint := lang_commanderfo[Ord(co_btnResume_hint)];  {'Resume player'}
+
+      volumeleft1val.hint := lang_commanderfo[Ord(co_tslider2val_hint)];  {'Click to switch to 100% <> 0% '}
+   
+      volumeright1val.hint := lang_commanderfo[Ord(co_tslider2val_hint)];  {'Click to switch to 100% <> 0% '}
+   
+      volumeright2val.hint := lang_commanderfo[Ord(co_tslider2val_hint)];  {'Click to switch to 100% <> 0% '}
+   
+      volumeleft2val.hint := lang_commanderfo[Ord(co_tslider2val_hint)];  {'Click to switch to 100% <> 0% '}
+  
+      btnPause.hint := lang_commanderfo[Ord(co_btnPause_hint)];  {'Pause player'}
+
+      btnPause2.hint := lang_commanderfo[Ord(co_btnPause_hint)];  {'Pause player'}
+
+      tbutton5.hint := lang_commanderfo[Ord(co_tbutton5_hint)];  {'Pause Mixing'}
+
+      tbutton6.hint := lang_commanderfo[Ord(co_tbutton5_hint)];  {'Pause Mixing'}
+
+      tbutton4.hint := lang_commanderfo[Ord(co_tbutton5_hint)];  {'Pause Mixing'}
+
+      linkvolb.hint := lang_commanderfo[Ord(co_linkvol_hint)];  {'Lock left and right volume Player 1'}
+ 
+      linkvol2b.hint := lang_commanderfo[Ord(co_linkvol_hint)];  {'Lock left and right volume Player 2'}
+  
+      speccalcb.hint := lang_commanderfo[Ord(co_speccalcb_hint)];  {'Enable Spectrum Frequencies Calculation'}
+ 
+      guimixb.hint := lang_commanderfo[Ord(co_guimixb_hint)];  {'Graphic-anim while mixing (if cpu too low set it off)'}
+ 
+      vuinb.hint := lang_commanderfo[Ord(co_vuinb_hint)];  {'View Meters on/off'}
+ 
+      automixb.hint := lang_commanderfo[Ord(co_automixb_hint)];  {'Auto Mixing on/off'}
+ 
+      directmixb.hint := lang_commanderfo[Ord(co_directmixb_hint)];  {'Direct MIX (0 second time)'}
+ 
+      nameplayers.hint := lang_commanderfo[Ord(co_nameplayers_hint)];  {'Player 1'}
+
+      nameplayers2.hint := lang_commanderfo[Ord(co_nameplayers2_hint)];  {'Player 2'}
+
+      directmix.hint := lang_commanderfo[Ord(co_directmixb_hint)];  {'Direct MIX (0 second time)'}
+
+      vuin.hint := lang_commanderfo[Ord(co_vuinb_hint)];  {'View Meters on/off'}
+
+      automix.hint := lang_commanderfo[Ord(co_automixb_hint)];  {'Auto Mixing on/off'}
+
+      speccalc.hint := lang_commanderfo[Ord(co_speccalcb_hint)];  {'Enable Spectrum Frequencies Calculation'}
+
+      guimix.hint := lang_commanderfo[Ord(co_guimixb_hint)];  {'Graphic-anim while mixing (if cpu too low set it off)'}
+
+      linkvol2.hint := lang_commanderfo[Ord(co_linkvol_hint)];  {'Lock left and right volume Player'}
+
+      linkvol.hint := lang_commanderfo[Ord(co_linkvol_hint)];  {'Lock left and right volume Player'}
+
+      linkvolgen.hint := lang_commanderfo[Ord(co_linkvol_hint)];  {'Link left and right volume general'}
+
+      randommix.hint := lang_commanderfo[Ord(co_brandommix_hint)]; 
+
+      Brandommix.hint := lang_commanderfo[Ord(co_Brandommix_hint)];  {'Randomize mixing list'}
+   
+      hintlabel.caption := lang_commanderfo[Ord(co_hintlabel)];  {'Invalid value.  Reset to 100.'}
+
+      hintlabel2.caption := lang_commanderfo[Ord(co_hintlabel2)];  {'Or press Esc key for previous value.'}
+
+  end;
+  
+with equalizerfo1 do
+  begin
+     
+      groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
+      //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
+      loadset.hint := lang_equalizerfo[Ord(eq_loadset_hint)];  {' Load a Settings file  '}
+      loadset.caption := lang_filelistfo[Ord(fi_tbutton3)];  {'Load'}
+      saveset.hint := lang_equalizerfo[Ord(eq_saveset_hint)];  {' Save Settings in a file '}
+      saveset.caption := lang_stockcaption[Ord(sc_save)];   {'Save'}
+      groupbox1.frame.caption := lang_equalizerfo[Ord(eq_groupbox1frame)];  {'left'}
+      tstringdisp21.hint := lang_equalizerfo[Ord(eq_tstringdisp21_hint)];  {'Ebable Equalizer'}
+  end;
+
+with equalizerfo2 do
+  begin
+      groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
+      //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
+      loadset.hint := lang_equalizerfo[Ord(eq_loadset_hint)];  {' Load a Settings file  '}
+      loadset.caption := lang_filelistfo[Ord(fi_tbutton3)];  {'Load'}
+      saveset.hint := lang_equalizerfo[Ord(eq_saveset_hint)];  {' Save Settings in a file '}
+      saveset.caption := lang_stockcaption[Ord(sc_save)];   {'Save'}
+      groupbox1.frame.caption := lang_equalizerfo[Ord(eq_groupbox1frame)];  {'left'}
+      tstringdisp21.hint := lang_equalizerfo[Ord(eq_tstringdisp21_hint)];  {'Ebable Equalizer'}
+  end;
+  
+  with equalizerforec do
+  begin
+      groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
+      //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
+      loadset.hint := lang_equalizerfo[Ord(eq_loadset_hint)];  {' Load a Settings file  '}
+      loadset.caption := lang_filelistfo[Ord(fi_tbutton3)];  {'Load'}
+      saveset.hint := lang_equalizerfo[Ord(eq_saveset_hint)];  {' Save Settings in a file '}
+      saveset.caption := lang_stockcaption[Ord(sc_save)];   {'Save'}
+      groupbox1.frame.caption := lang_equalizerfo[Ord(eq_groupbox1frame)];  {'left'}
+      tstringdisp21.hint := lang_equalizerfo[Ord(eq_tstringdisp21_hint)];  {'Ebable Equalizer'}
+  end;
+  
+
+with spectrum1fo do
+  begin
+      dragdock.caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {' Spect '}
+
+      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {'Spectrum'}
+
+      groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];   {'right'}
+      tchartright.hint := lang_spectrum1fo[Ord(sp_tchartright_hint)];  {' Right Frequency spectrum '}
+
+      groupbox1.frame.caption := lang_equalizerfo[Ord(eq_groupbox1frame)];  {'left'}
+     
+      tchartleft.hint := lang_spectrum1fo[Ord(sp_tchartleft_hint)];  {' Left Frequency spectrum '}
+
+      tstringdisp2.hint := lang_spectrum1fo[Ord(sp_tstringdisp2_hint)];  {'Enable Spectrum'}
+
+  end;
+  
+with spectrum2fo do
+  begin
+      dragdock.caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {' Spect '}
+
+      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {'Spectrum'}
+
+      groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];   {'right'}
+      tchartright.hint := lang_spectrum1fo[Ord(sp_tchartright_hint)];  {' Right Frequency spectrum '}
+
+      groupbox1.frame.caption := lang_equalizerfo[Ord(eq_groupbox1frame)];  {'left'}
+     
+      tchartleft.hint := lang_spectrum1fo[Ord(sp_tchartleft_hint)];  {' Left Frequency spectrum '}
+
+      tstringdisp2.hint := lang_spectrum1fo[Ord(sp_tstringdisp2_hint)];  {'Enable Spectrum'}
+
+  end;  
+  
+with spectrumrecfo do
+  begin
+      dragdock.caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {' Spect '}
+
+      caption := lang_spectrum1fo[Ord(sp_spectrum1fo)];  {'Spectrum'}
+
+      groupbox2.frame.caption := lang_equalizerfo[Ord(eq_groupbox2frame)];   {'right'}
+      tchartright.hint := lang_spectrum1fo[Ord(sp_tchartright_hint)];  {' Right Frequency spectrum '}
+
+      groupbox1.frame.caption := lang_equalizerfo[Ord(eq_groupbox1frame)];  {'left'}
+     
+      tchartleft.hint := lang_spectrum1fo[Ord(sp_tchartleft_hint)];  {' Left Frequency spectrum '}
+
+      tstringdisp2.hint := lang_spectrum1fo[Ord(sp_tstringdisp2_hint)];  {'Enable Spectrum'}
+
+  end;    
+  
+with filelistfo do
+  begin
+      filelistfo.frame.grip_hint := lang_filelistfo[Ord(fi_filelistfoframegriphint)];  {' Use this grip panel to drag/drop the window'}
+
+      filelistfo.dragdock.caption := lang_filelistfo[Ord(fi_filelistfo)];  {'Files'}
+
+      filelistfo.caption := lang_filelistfo[Ord(fi_filelistfo)];  {'Audio files'}
+
+      filescount.hint := lang_filelistfo[Ord(fi_filescount_hint)];  {'Number of files in the list'}
+
+      tbutton11.hint := lang_filelistfo[Ord(fi_tbutton11_hint)];  {'Find a word in list'}
+
+      tbutton1.hint := lang_filelistfo[Ord(fi_tbutton1_hint)];  {'Sent selected song to cue for Player 1'}
+    
+      tbutton2.hint := lang_filelistfo[Ord(fi_tbutton2_hint)];  {'Sent selected song to cue for Player 2'}
+    
+      list_files.hint := lang_filelistfo[Ord(fi_list_files_hint)];  {'To move a row: click+hold into the fixed column and drag the row where you want.'}
+    
+      list_files.fixrows[-1].captions[0].Caption := lang_filelistfo[Ord(fi_list_files_name)];  {'Name of sound'}
+    list_files.fixrows[-1].captions[1].Caption := lang_filelistfo[Ord(fi_list_files_ext)];  {'Ext'}
+    list_files.fixrows[-1].captions[1].hint := lang_filelistfo[Ord(fi_list_files_ext_hint)];  {'File extension'}
+    list_files.fixrows[-1].captions[2].Caption := lang_filelistfo[Ord(fi_list_files_size)];  {'Size'}
+    list_files.fixrows[-1].captions[2].hint := lang_filelistfo[Ord(fi_list_files_size_hint)];  {'Size in Kb of the file'}
+    list_files.fixrows[-1].captions[3].hint := lang_filelistfo[Ord(fi_list_files_mix_hint)];  {'Include for mix.  Clicking on the fixed cell ---> select all/none.'}
+
+      tbutton3.hint := lang_filelistfo[Ord(fi_tbutton3_hint)];  {'Load custom play-list'}
+   
+      tbutton4.hint := lang_filelistfo[Ord(fi_tbutton4_hint)];  {'Save custom play-list'}
+   
+      tbutton5.hint := lang_filelistfo[Ord(fi_tbutton5_hint)];  {'Add file in custom play-list'}
+  
+      historyfn.hint := lang_filelistfo[Ord(fi_historyfn_hint)];  {'History of Directories'}
+
+      tbutton6.hint := lang_filelistfo[Ord(fi_tbutton6_hint)];  {'Choose a audio directory with wav, ogg, flac or mp3'}
+   end;
+  
+
+
+with drumsfo do
+  begin
+      drumsfo.frame.grip_hint := lang_filelistfo[Ord(fi_filelistfoframegriphint)];  {' Use that grip panel to drag/drop Drums form. '}
+
+      drumsfo.dragdock.caption := lang_commanderfo[Ord(co_namedrums_hint)];  {' Drums '}
+
+      tdockpanel1.hint := lang_commanderfo[Ord(co_namedrums_hint)];  {' Drums set '}
+
+      labd.caption := lang_drumsfo[Ord(dr_labd)];  {'Bass'}
+
+      lasd.caption := lang_drumsfo[Ord(dr_lasd)];  {'Snare'}
+
+      laoh.caption := lang_drumsfo[Ord(dr_laoh)];  {'Open H'}
+
+      lach.caption := lang_drumsfo[Ord(dr_lach)];  {'Close H'}
+
+      labpat.caption := lang_drumsfo[Ord(dr_labpat)];  {'Patern 1'}
+
+      tbooleaneditradio8.hint := lang_drumsfo[Ord(dr_tbooleaneditradio8_hint)];  {' Drums Patern 1 '}
+      tbooleaneditradio7.hint := lang_drumsfo[Ord(dr_tbooleaneditradio7_hint)];  {' Drums Patern 2 '}
+      tbooleaneditradio6.hint := lang_drumsfo[Ord(dr_tbooleaneditradio6_hint)];  {' Drums Patern 3 '}
+      tbooleaneditradio5.hint := lang_drumsfo[Ord(dr_tbooleaneditradio5_hint)];  {' Drums Patern 4 '}
+
+      lesson4.hint := lang_drumsfo[Ord(dr_lesson4_hint)];  {'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '}
+      lesson3.hint := lang_drumsfo[Ord(dr_lesson3_hint)];  {' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '}
+      lesson2.hint := lang_drumsfo[Ord(dr_lesson2_hint)];  {' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '}
+      lesson1.hint := lang_drumsfo[Ord(dr_lesson1_hint)];  {' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '}
+      tlabel22.caption := lang_drumsfo[Ord(dr_tlabel22)];  {'Patern'}
+      tlabel21.caption := lang_drumsfo[Ord(dr_tlabel21)];  {'Lesson'}
+      noanim.frame.caption := lang_drumsfo[Ord(dr_noanim)];  {'no anim'}
+      noanim.hint := lang_drumsfo[Ord(dr_noanim_hint)];  {' No graphic animation. '}
+      noand.frame.caption := lang_drumsfo[Ord(dr_noand)];  {'no "and"'}
+      noand.hint := lang_drumsfo[Ord(dr_noand_hint)];  {' No "and" between 2 numbers. '}
+      novoice.frame.caption := lang_drumsfo[Ord(dr_novoice)];  {'no voice'}
+      novoice.hint := lang_drumsfo[Ord(dr_novoice_hint)];  {' No counting voice '}
+      nodrums.frame.caption := lang_drumsfo[Ord(dr_nodrums)];  {'no drums'}
+      nodrums.hint := lang_drumsfo[Ord(dr_nodrums_hint)];  {' No drums sound.  '}
+      loop_stop.hint := lang_drumsfo[Ord(dr_loop_stop_hint)];  {' Stop loop '}
+      loop_resume.hint := lang_drumsfo[Ord(dr_loop_resume_hint)];  {' Resume loop '}
+      loop_start.hint := lang_drumsfo[Ord(dr_loop_start_hint)];  {' Start loop '}
+      edittempo.hint := lang_drumsfo[Ord(dr_edittempo_hint)];  {'BPM (Beats per minut)'}
+      tlabel23.caption := lang_drumsfo[Ord(dr_tlabel23)];  {'Volume'}
+      volumedrums.hint := lang_drumsfo[Ord(dr_volumedrums_hint)];  {' General volume of Drums '}
+      ltempo.hint := lang_drumsfo[Ord(dr_ltempo_hint)];  {' Beats per minuts - interval in 1/10000 second. '}
+
+      tstringdisp2.hint := lang_commanderfo[Ord(co_namedrums_hint)];  {' Drums set '}
+
+      multbpm.hint := lang_drumsfo[Ord(dr_multbpm_hint)];  {' Set BPM X 2 '}
+      divbpm.hint := lang_drumsfo[Ord(dr_divbpm_hint)];  {' Set BPM / 2 '}
+
+      langcount.frame.caption := lang_drumsfo[Ord(dr_langcount)];  {'Lang'}
+      langcount.hint := lang_drumsfo[Ord(dr_langcount_hint)];  {'Language for counting'}
+
+  end;
+  
+ 
+with randomnotefo do
+  begin
+      randomnotefo.caption := lang_randomnotefo[Ord(ra_randomnotefo)];  {'Chord Randomizer'}
+
+      timage8.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+
+      keyb1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse1_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse1_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse1_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      timage1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+
+      keyb2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse2_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse2_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse2_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      keyb3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];   {'Click to listen to piano chord'}
+
+      elipse3_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse3_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse3_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      chord1drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
+
+      chord2drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
+
+      chord3drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
+
+      tbutton4.hint := lang_randomnotefo[Ord(ra_tbutton4_hint)];  {'Close all StrumPract (Click the icon in corner of the form to close only Randomizer)'}
+   
+      bnbchords.hint := lang_randomnotefo[Ord(ra_bnbchords_hint)];  {'Randomize chords'}
+      bnbchords.caption := lang_randomnotefo[Ord(ra_bnbchords)];  {'Randomize'}
+
+      btnfixed.hint := lang_randomnotefo[Ord(ra_btnfixed_hint)];  {'Manual fixed chords'}
+      btnfixed.caption := lang_randomnotefo[Ord(ra_btnfixed)];  {'Fixed'}
+
+      tbutton5.hint := lang_randomnotefo[Ord(ra_tbutton5_hint)];  {' Tuned guitar string '}
+      tbutton5.caption := lang_randomnotefo[Ord(ra_tbutton5)];  {'Tuned Guitars'}
+
+   
+      keyb4.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse4_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse4_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse4_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      timage9.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to the guitar chord'}
+
+      chord5drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
+
+      keyb5.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse5_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse5_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      elipse5_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+      timage23.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+
+      bchord1.hint := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 1'}
+      bchord5.hint := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 5'}
+      bchord4.hint := lang_randomnotefo[Ord(ra_bchord1_hint)]; {'Re-do a randomizer for chord 4'}
+      bchord3.hint := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 3'}
+      bchord2.hint := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 2'}
+      tbutton2.hint := lang_randomnotefo[Ord(ra_tbutton2_hint)];  {'Clear chords'}
+      tbutton2.caption := lang_randomnotefo[Ord(ra_tbutton2_hint)];  {'Clear'}
+
+      tbutton3.hint := lang_randomnotefo[Ord(ra_nodrumsframe)];  {'Show drums set'}
+      tbutton3.caption := lang_commanderfo[Ord(co_namedrums_hint)];  {'Drums'}
+
+      tgroupbox1.frame.caption := lang_randomnotefo[Ord(ra_tgroupbox1frame)];  {'Chords'}
+
+      bool7th.frame.caption := lang_randomnotefo[Ord(ra_bool7th)];  {' 7th'}
+      bool7th.hint := lang_randomnotefo[Ord(ra_bool7th_hint)];  {'Enable 7th Chords'}
+
+      boolminor.frame.caption := lang_randomnotefo[Ord(ra_boolminorframe)];  {' minor'}
+      boolminor.hint := lang_randomnotefo[Ord(ra_boolminor_hint)];  {'Enable minor Chords'}
+
+      boolmajor.frame.caption := lang_randomnotefo[Ord(ra_boolmajorframe)];  {' Major'}
+      boolmajor.hint := lang_randomnotefo[Ord(ra_boolmajor_hint)];  {'Enable Major Chords'}
+
+      bool9th.frame.caption := lang_randomnotefo[Ord(ra_bool9thframe)];  {' 9th'}
+      bool9th.hint := lang_randomnotefo[Ord(ra_bool9th_hint)];  {'Enable 9th Chords'}
+
+      withsharp.frame.caption := lang_randomnotefo[Ord(ra_withsharpframe)];  {' # (Sharp)'}
+      withsharp.hint := lang_randomnotefo[Ord(ra_withsharp_hint)];  {'Enable Sharp-Chords #'}
+
+      bosound.frame.caption := lang_randomnotefo[Ord(ra_bosoundframe)];  {' Sound'}
+      bosound.hint := lang_randomnotefo[Ord(ra_bosound_hint)];  {'Enable Sound of Chords'}
+
+      tgroupbox2.frame.caption := lang_randomnotefo[Ord(ra_tgroupbox2frame)];  {'Number'}
+
+      numchord.hint := lang_randomnotefo[Ord(ra_numchord_hint)];  {'Total chords'}
+
+      // maxnote.frame.caption := lang_randomnotefo[Ord(ra_maxnoteframe)];  {'Max'}
+      maxnote.hint := lang_randomnotefo[Ord(ra_maxnote_hint)];  {'Maximum number of chords'}
+
+      withrandom.frame.caption := lang_randomnotefo[Ord(ra_withrandomframe)];  {' Random num'}
+      withrandom.hint := lang_randomnotefo[Ord(ra_withrandom_hint)];  {'Randomize the number of chords'}
+
+      tgroupbox3.frame.caption := lang_commanderfo[Ord(co_namedrums_hint)]; {'Drums'}
+
+      bpm.hint := lang_randomnotefo[Ord(ra_bpm_hint)];  {'Tempo of Drums in BPM'}
+
+      nodrums.frame.caption := lang_randomnotefo[Ord(ra_nodrumsframe)];  {' Enable Drums'}
+      nodrums.hint := lang_randomnotefo[Ord(ra_nodrums_hint)];  {'Enable random Drums tempo'}
+
+      bconfig.hint := lang_randomnotefo[Ord(ra_bconfig_hint)];  {'Configure the "Clear" message'}
+      timage3.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+
+  end; 
+  
+  
+  end;
 
 procedure tmainfo.ontimeract(const Sender: TObject);
 begin
@@ -406,6 +1242,9 @@ begin
   {$ENDIF}
 
   Caption := 'StrumPract ' + versiontext;
+  
+  //setlangstrumpract('fr');
+  
   beginlayout();
 
   oktimer := 1;
@@ -5411,6 +6250,34 @@ begin
   else
     ttimer2.Enabled := True;
 
+end;
+
+procedure tmainfo.onlangset(const sender: TObject);
+begin
+conflangfo.show(true);
+end;
+
+procedure tmainfo.onactiv(Const Sender: TObject);
+var 
+  x: integer;
+  oldlang : msestring;
+begin
+  if isactivated = False then
+    begin
+      isactivated        := True;
+      conflangfo.Visible := False;
+      oldlang := MSEFallbackLang;
+
+      if conflangfo.setasdefault.Value = True then
+        begin
+          for x := 0 to conflangfo.gridlang.rowcount - 1 do
+            if conflangfo.gridlangbool[x] = True then
+              MSEFallbackLang := conflangfo.gridlangcode[x];
+
+          if oldlang <> MSEFallbackLang then setlangstrumpract(MSEFallbackLang);
+        end
+      else setlangstrumpract(MSEFallbackLang);
+    end;
 end;
 
 end.

@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "&Annuleren"
+
+msgid "&Abort"
+msgstr "&Afbreken"
+
+msgid "&OK"
+msgstr "&OK"
+
+msgid "&Yes"
+msgstr "&Ja"
+
+msgid "&No"
+msgstr "&Nee"
+
+msgid "&All"
+msgstr "&Alle"
+
+msgid "Yes &all"
+msgstr "Ja & alles"
+
+msgid "N&o all"
+msgstr "N&o alles"
+
+msgid "&Ignore"
+msgstr "&Negeer"
+
+msgid "&Skip"
+msgstr "&Overslaan"
+
+msgid "Skip a&ll"
+msgstr "Sla alles over"
+
+msgid "Co&ntinue"
+msgstr "Doorgaan"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Abort"
+msgstr "Afbreken"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Yes all"
+msgstr "Ja allemaal"
+
+msgid "No all"
+msgstr "Niet alles"
+
+msgid "Ignore"
+msgstr "Negeren"
+
+msgid "Skip"
+msgstr "Overslaan"
+
+msgid "Skip all"
+msgstr "Alles overslaan"
+
+msgid "Continue"
+msgstr "Doorgaan"
+
+msgid "is invalid"
+msgstr "is ongeldig"
+
+msgid "Format error"
+msgstr "Formaatfout"
+
+msgid "Value is required"
+msgstr "Waarde is vereist"
+
+msgid "Error"
+msgstr "Fout"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Range error"
+msgstr "Bereikfout"
+
+msgid "&Undo"
+msgstr "&Ongedaan maken"
+
+msgid "&Redo"
+msgstr "&Opnieuw"
+
+msgid "&Copy"
+msgstr "&Kopiëren"
+
+msgid "Cu&t"
+msgstr "Cu&t"
+
+msgid "&Paste"
+msgstr "&Plakken"
+
+msgid "Select &all"
+msgstr "Selecteer &alles"
+
+msgid "&Insert Row"
+msgstr "&Rij invoegen"
+
+msgid "&Append Row"
+msgstr "&Rij toevoegen"
+
+msgid "&Delete Row"
+msgstr "&Rij verwijderen"
+
+msgid "&Dir"
+msgstr "&Dir"
+
+msgid "&Home"
+msgstr "&Thuis"
+
+msgid "&Up"
+msgstr "&Omhoog"
+
+msgid "&New"
+msgstr "&Nieuw"
+
+msgid "&Name"
+msgstr "&Naam"
+
+msgid "&Show hidden files"
+msgstr "&Toon verborgen bestanden"
+
+msgid "&Filter"
+msgstr "&Filter"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Create new directory"
+msgstr "Nieuwe map maken"
+
+msgid "Back"
+msgstr "Terug"
+
+msgid "Forward"
+msgstr "Vooruit"
+
+msgid "Up"
+msgstr "Omhoog"
+
+msgid "exists, do you want to overwrite?"
+msgstr "bestaat, wil je overschrijven?"
+
+msgid "is modified. Save?"
+msgstr "is gewijzigd. Opslaan?"
+
+msgid "WARNING"
+msgstr "WAARSCHUWING"
+
+msgid "Exception"
+msgstr "Uitzondering"
+
+msgid "System"
+msgstr "Systeem"
+
+msgid "does not exist"
+msgstr "bestaat niet"
+
+msgid "PASSWORD"
+msgstr "WACHTWOORD"
+
+msgid "Enter password"
+msgstr "Voer wachtwoord in"
+
+msgid "Invalid password!"
+msgstr "Ongeldig wachtwoord!"
+
+msgid "Can not read directory"
+msgstr "Kan map niet lezen"
+
+msgid "Graphic format not supported"
+msgstr "Grafisch formaat niet ondersteund"
+
+msgid "Graphic format error"
+msgstr "Fout in grafisch formaat"
+
+msgid "All Images"
+msgstr "Alle afbeeldingen"
+
+msgid "Confirmation"
+msgstr "Bevestiging"
+
+msgid "Delete record?"
+msgstr "Verwijder record?"
+
+msgid "Copy record?"
+msgstr "Record kopiëren?"
+
+msgid "Close page"
+msgstr "Pagina sluiten"
+
+msgid "First"
+msgstr "Eerste"
+
+msgid "Prior"
+msgstr "Prior"
+
+msgid "Next"
+msgstr "Volgende"
+
+msgid "Last"
+msgstr "Laatste"
+
+msgid "Append"
+msgstr "Toevoegen"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Post"
+msgstr "msgstren"
+
+msgid "Annul"
+msgstr "Annuleren"
+
+msgid "Refresh"
+msgstr "Vernieuwen"
+
+msgid "Edit filter"
+msgstr "Filter bewerken"
+
+msgid "Edit filter minimum"
+msgstr "Minimum filter bewerken"
+
+msgid "Edit filter maximum"
+msgstr "Bewerk maximum filter"
+
+msgid "Reset filter"
+msgstr "Filter resetten"
+
+msgid "Filter on"
+msgstr "Filter aan"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Auto edit"
+msgstr "Automatisch bewerken"
+
+msgid "Copy record"
+msgstr "Kopieer record"
+
+msgid "Dialog"
+msgstr "Dialoogvenster"
+
+msgid "Insert"
+msgstr "Invoegen"
+
+msgid "Copy"
+msgstr "Kopiëren"
+
+msgid "Paste"
+msgstr "Plakken"
+
+msgid "Row insert"
+msgstr "Rij invoegen"
+
+msgid "Row append"
+msgstr "Rij toevoegen"
+
+msgid "Row delete"
+msgstr "Rij verwijderen"
+
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+msgid "Redo"
+msgstr "Opnieuw"
+
+msgid "Cut"
+msgstr "Knippen"
+
+msgid "Select all"
+msgstr "Alles selecteren"
+
+msgid "Filter off"
+msgstr "Filter uit"
+
+msgid "Portrait"
+msgstr "Portret"
+
+msgid "Landscape"
+msgstr "Landschap"
+
+msgid "Delete row?"
+msgstr "Rij verwijderen?"
+
+msgid "selected rows?"
+msgstr "geselecteerde rijen?"
+
+msgid "Single item only"
+msgstr "Alleen één item"
+
+msgid "Copy Cells"
+msgstr "Cellen kopiëren"
+
+msgid "Paste Cells"
+msgstr "Cellen plakken"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Maximize"
+msgstr "Maximaliseren"
+
+msgid "Normalize"
+msgstr "Normaliseren"
+
+msgid "Minimize"
+msgstr "Minimaliseren"
+
+msgid "Fix size"
+msgstr "Fix grootte"
+
+msgid "Float"
+msgstr "Float"
+
+msgid "Stay on top"
+msgstr "Blijf op de hoogte"
+
+msgid "Stay in background"
+msgstr "Blijf op de achtergrond"
+
+msgid "Lock children"
+msgstr "Kinderen vergrendelen"
+
+msgid "No lock"
+msgstr "Geen slot"
+
+msgid "Input"
+msgstr "Invoer"
+
+msgid "Button"
+msgstr "Knop"
+
+msgid "On"
+msgstr "Aan"
+
+msgid "Off"
+msgstr "Uit"
+
+msgid "Left border"
+msgstr "Linkerrand"
+
+msgid "Top border"
+msgstr "Bovenrand"
+
+msgid "Right border"
+msgstr "Rechterrand"
+
+msgid "Bottom border"
+msgstr "Onderrand"
+
+msgid "Begin of text"
+msgstr "Begin van tekst"
+
+msgid "End of text"
+msgstr "Einde van tekst"
+
+msgid "Inputmode"
+msgstr "Invoermodus"
+
+msgid "Overwrite"
+msgstr "Overschrijven"
+
+msgid "Deleted"
+msgstr "Verwijderd"
+
+msgid "Copied"
+msgstr "Gekopieerd"
+
+msgid "Inserted"
+msgstr "Ingevoegd"
+
+msgid "Pasted"
+msgstr "Geplakt"
+
+msgid "Withdrawn"
+msgstr "Ingetrokken"
+
+msgid "Window activated"
+msgstr "Venster geactiveerd"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Beginning of file"
+msgstr "Begin van bestand"
+
+msgid "End of file"
+msgstr "Einde van bestand"
+
+msgid "Voice output"
+msgstr "Spraakuitvoer"
+
+msgid "Speak again"
+msgstr "Spreek opnieuw"
+
+msgid "First column"
+msgstr "Eerste kolom"
+
+msgid "First row"
+msgstr "Eerste rij"
+
+msgid "Last column"
+msgstr "Laatste kolom"
+
+msgid "Last row"
+msgstr "Laatste rij"
+
+msgid "Selection"
+msgstr "Selectie"
+
+msgid "Speak path"
+msgstr "Spreek pad"
+
+msgid "Disabled button"
+msgstr "Uitgeschakelde knop"
+
+msgid "First field"
+msgstr "Eerste veld"
+
+msgid "Last field"
+msgstr "Laatste veld"
+
+msgid "First element"
+msgstr "Eerste element"
+
+msgid "Last element"
+msgstr "Laatste element"
+
+msgid "Slower"
+msgstr "Langzamer"
+
+msgid "Faster"
+msgstr "Sneller"
+
+msgid "Window"
+msgstr "Venster"
+
+msgid "Area"
+msgstr "Gebied"
+
+msgid "Area activated"
+msgstr "Gebied geactiveerd"
+
+msgid "Volume down"
+msgstr "Volume omlaag"
+
+msgid "Volume up"
+msgstr "Volume omhoog"
+
+msgid "Cancel speech"
+msgstr "Speech annuleren"
+
+msgid "New"
+msgstr "Nieuw"
+
+msgid "Tools"
+msgstr "Gereedschap"
+
+msgid "Languages"
+msgstr "Talen"
+
+msgid "Directory"
+msgstr "Directory"
+
+msgid "No icons"
+msgstr "Geen pictogrammen"
+
+msgid "No lateral"
+msgstr "Geen lateraal"
+
+msgid "Compact"
+msgstr "Compact"
+
+msgid "Path"
+msgstr "Pad"
+
+msgid "File"
+msgstr "Bestand"
+
+msgid "Delete selected row?"
+msgstr "Geselecteerde rij verwijderen?"
+
+msgid "Delete %s selected rows?"
+msgstr "%s geselecteerde rijen verwijderen?"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "Lock elk venster op dit gebied."
+
+msgid "Drag a form here using right-border grip."
+msgstr "Sleep een formulier hierheen met de rechterrandgreep."
+
+msgid "&Dock"
+msgstr "&Dock"
+
+msgid "Dock windows in one form"
+msgstr "Dockvensters in één vorm"
+
+msgid "&Tab"
+msgstr "&Tab"
+
+msgid "One form with tabs"
+msgstr "Eén formulier met tabbladen"
+
+msgid "&Dock all visible windows"
+msgstr "&Dock alle zichtbare vensters"
+
+msgid "&Float all visible windows"
+msgstr "&Float alle zichtbare vensters"
+
+msgid "Float windows in independent forms"
+msgstr "Vloeiende vensters in onafhankelijke vormen"
+
+msgid "&Tab all visible windows"
+msgstr "&Tab alle zichtbare vensters"
+
+msgid "Make windows tabed in one form"
+msgstr "Maak vensters in één vorm in tabbladen"
+
+msgid "&Jam Session"
+msgstr "&Jamsessie"
+
+msgid "DJ Console Wave"
+msgstr "DJ Console Wave"
+
+msgid "DJ Console Info"
+msgstr "DJ Console Info"
+
+msgid "&Record stage"
+msgstr "&Podium opnemen"
+
+msgid "&Chords Randomizer"
+msgstr "&Akkoorden Randomizer"
+
+msgid "&Image Dancer"
+msgstr "&Image Dancer"
+
+msgid "Save Layout"
+msgstr "Opmaak opslaan"
+
+msgid "Save current layout"
+msgstr "Huidige lay-out opslaan"
+
+msgid "Load Layout"
+msgstr "Laad lay-out"
+
+msgid "Load saved layout"
+msgstr "Opgeslagen lay-out laden"
+
+msgid "&Layout"
+msgstr "&Lay-out"
+
+msgid "Layout of windows"
+msgstr "Indeling van vensters"
+
+msgid "Show All"
+msgstr "Alles tonen"
+
+msgid "Hide All"
+msgstr "Alles verbergen"
+
+msgid "Show Drums"
+msgstr "Toon drums"
+
+msgid "Show File List"
+msgstr "Toon bestandslijst"
+
+msgid "Show Player 1"
+msgstr "Speler 1 weergeven"
+
+msgid "Show Player 2"
+msgstr "Speler 2 weergeven"
+
+msgid "Show Commander"
+msgstr "Toon commandant"
+
+msgid "Show Recorder"
+msgstr "Toon recorder"
+
+msgid "Show Guitars"
+msgstr "Show Guitars"
+
+msgid "Show Spectrum 1"
+msgstr "Toon spectrum 1"
+
+msgid "Show Spectrum 2"
+msgstr "Toon spectrum 2"
+
+msgid "Show Spectrum Rec"
+msgstr "Toon Spectrum Rec"
+
+msgid "Show WaveForm 1"
+msgstr "Toon WaveForm 1"
+
+msgid "Show WaveForm 2"
+msgstr "Toon WaveForm 2"
+
+msgid "Show WaveForm Rec"
+msgstr "Toon WaveForm Rec"
+
+msgid "Show Equalizer 1"
+msgstr "Toon Equalizer 1"
+
+msgid "Show Equalizer 2"
+msgstr "Toon Equalizer 2"
+
+msgid "Show Equalizer Rec"
+msgstr "Toon Equalizer Rec"
+
+msgid "Show Chord Randomizer"
+msgstr "Toon akkoord-randomizer"
+
+msgid "Show Image Dancer"
+msgstr "Toon afbeelding danser"
+
+msgid "Show Dock Panel 1"
+msgstr "Toon Dock Panel 1"
+
+msgid "Show Dock Panel 2"
+msgstr "Toon Dock Panel 2"
+
+msgid "Show Dock Panel 3"
+msgstr "Toon Dock Panel 3"
+
+msgid "Show Dock Panel 4"
+msgstr "Toon Dock Panel 4"
+
+msgid "Show Dock Panel 5"
+msgstr "Toon Dock Panel 5"
+
+msgid "&Panels"
+msgstr "&Panels"
+
+msgid "&Show"
+msgstr "&Toon"
+
+msgid "Show/hide windows"
+msgstr "Toon/verberg vensters"
+
+msgid "Square"
+msgstr "Vierkant"
+
+msgid "Triangle"
+msgstr "Driehoek"
+
+msgid "Lines"
+msgstr "Lijnen"
+
+msgid "Fractal Tree"
+msgstr "Fractal Boom"
+
+msgid "Super Formula"
+msgstr "Super Formule"
+
+msgid "Hyper Formula"
+msgstr "Hyper Formule"
+
+msgid "Atom"
+msgstr "Atoom"
+
+msgid "Spiral Hue"
+msgstr "Spiraal Tint"
+
+msgid "Spiral Rainbow"
+msgstr "Spiraal Regenboog"
+
+msgid "Spiral Move"
+msgstr "Spiraal beweegt"
+
+msgid "Turtle 1"
+msgstr "Schildpad 1"
+
+msgid "Turtle 2"
+msgstr "Schildpad 2"
+
+msgid "Fractal Circles"
+msgstr "Fractal Cirkels"
+
+msgid "Normal form"
+msgstr "Normale vorm"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "Gebruik dit formulier om de grootte in te stellen voor ellips- en (ronde)rechthoekvormen."
+
+msgid "Ellipse"
+msgstr "Ellips"
+
+msgid "Rounded rect"
+msgstr "Recht afgerond"
+
+msgid "Rectangle"
+msgstr "Rechthoek"
+
+msgid "Always on top"
+msgstr "Altijd bovenaan"
+
+msgid "Transparent"
+msgstr "Transparant"
+
+msgid "Hide Dancer"
+msgstr "Hide Dancer"
+
+msgid "Da&ncer"
+msgstr "Da&ncer"
+
+msgid "Dancing Animations"
+msgstr "Dansanimaties"
+
+msgid "Gold"
+msgstr "Goud"
+
+msgid "Silver"
+msgstr "Zilver"
+
+msgid "Carbon"
+msgstr "Koolstof"
+
+msgid "&Style"
+msgstr "&Stijl"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "Indelingsstijl Goud, Zilver of Carbon"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Config of audio and colors"
+msgstr "Config van audio en kleuren"
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Set language"
+msgstr "Taal instellen"
+
+msgid "&Config"
+msgstr "&Config"
+
+msgid "Configuration setting"
+msgstr "Configuratie-instelling"
+
+msgid "&About"
+msgstr "&Over"
+
+msgid "About StrumPract"
+msgstr "Over StrumPract"
+
+msgid "&Quit"
+msgstr "&Stop"
+
+msgid "Terminate StrumPract"
+msgstr "Beëindig StrumPract"
+
+msgid "Set as default"
+msgstr "Als standaard instellen"
+
+msgid "Recorder"
+msgstr "Recorder"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "Gebruik dat greeppaneel om het venster te slepen en neer te zetten."
+
+msgid "Com"
+msgstr "Com"
+
+msgid "Commander"
+msgstr "Commandant"
+
+msgid "Start Drums"
+msgstr "Start Drums"
+
+msgid "Pause Drums"
+msgstr "Pauze drums"
+
+msgid "Resume Drums"
+msgstr "Hervat Drums"
+
+msgid "General Volume of drums"
+msgstr "Algemeen volume van drums"
+
+msgid "Drums"
+msgstr "Drums"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "Klik om over te schakelen naar 100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "Invoervolume (microfoon of invoer)"
+
+msgid "Input (mic or aux in)"
+msgstr "Ingang (microfoon of aux in)"
+
+msgid "Enable Live Input"
+msgstr "Live invoer inschakelen"
+
+msgid "Right Volume General in %"
+msgstr "Rechts Volume Algemeen in %"
+
+msgid "Left Volume General in %"
+msgstr "Linker Volume Algemeen in %"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "Algemeen linkervolume. Klik om te resetten naar 100%."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "Algemeen rechter volume. Klik om te resetten naar 100%."
+
+msgid "Lock left and right channels"
+msgstr "Linker en rechter kanalen vergrendelen"
+
+msgid "General Volume in %"
+msgstr "Algemeen volume in %"
+
+msgid "System Master Volume"
+msgstr "Systeem Master Volume"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "Verander de mengtijd in 1/100 seconde"
+
+msgid "Stop player"
+msgstr "Stop speler"
+
+msgid "Resume player"
+msgstr "Speler hervatten"
+
+msgid "Load and Start Player"
+msgstr "Speler laden en starten"
+
+msgid "Left Volume Player 1"
+msgstr "Linker Volume Speler 1"
+
+msgid "Right Volume Player 1"
+msgstr "Rechts Volume Speler 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "Start Speler 1 --> MIX --> Stop Speler 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "Start Speler 2 --> MIX --> Stop Speler 1"
+
+msgid "Right Volume Player 2"
+msgstr "Rechts Volume Speler 2"
+
+msgid "Left Volume Player 2"
+msgstr "Linker Volume Speler 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "Cue-Load-Pause Player"
+
+msgid "Pause player"
+msgstr "Pauzeer speler"
+
+msgid "Pause Mixing"
+msgstr "Pauzeer mengen"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "Berekening spectrumfrequenties inschakelen"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "Graphic-anim tijdens het mixen (als de cpu te laag is, zet het uit)"
+
+msgid "View Meters on/off"
+msgstr "Meters bekijken aan/uit"
+
+msgid "Auto Mixing on/off"
+msgstr "Automatisch mengen aan/uit"
+
+msgid "Direct MIX (0 second time)"
+msgstr "Direct MIX (0 tweede keer)"
+
+msgid "Player 1"
+msgstr "Speler 1"
+
+msgid "Player 2"
+msgstr "Speler 2"
+
+msgid "Randomize mixing list"
+msgstr "Willekeurige mixlijst"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "Ongeldige waarde. Reset naar 100."
+
+msgid "Or press Esc key for previous value."
+msgstr "Of druk op de Esc-toets voor de vorige waarde."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "Gebruik dit greeppaneel om het venster te slepen en neer te zetten"
+
+msgid "Files"
+msgstr "Bestanden"
+
+msgid "Audio files"
+msgstr "Audiobestanden"
+
+msgid "Number of files in the list"
+msgstr "Aantal bestanden in de lijst"
+
+msgid "Find a word in list"
+msgstr "Zoek een woord in de lijst"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "Geselecteerd nummer naar cue gestuurd voor speler 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "Geselecteerd nummer naar cue gestuurd voor speler 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "Om een ​​rij te verplaatsen: klik+houd ingedrukt in de vaste kolom en sleep de rij naar de gewenste plek."
+
+msgid "Name of sound"
+msgstr "Naam van geluid"
+
+msgid "Ext"
+msgstr "Ext"
+
+msgid "File extension"
+msgstr "Bestandsextensie"
+
+msgid "Size"
+msgstr "Grootte"
+
+msgid "Size in Kb of the file"
+msgstr "Grootte in Kb van het bestand"
+
+msgid "Mix"
+msgstr "Mix"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "Opnemen voor mix. Klikken op de vaste cel ---> selecteer alles/geen."
+
+msgid "Load custom play-list"
+msgstr "Laad aangepaste afspeellijst"
+
+msgid "Load"
+msgstr "Laden"
+
+msgid "Save custom play-list"
+msgstr "Aangepaste afspeellijst opslaan"
+
+msgid "Add file in custom play-list"
+msgstr "Bestand toevoegen aan aangepaste afspeellijst"
+
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid "History of Directories"
+msgstr "Geschiedenis van mappen"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "Kies een audiomap met wav, ogg, flac of mp3"
+
+msgid "Infos of song"
+msgstr "Info's van het lied"
+
+msgid "No Image Tag"
+msgstr "Geen afbeeldingstag"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Artist"
+msgstr "Artiest"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Year"
+msgstr "Jaar"
+
+msgid "Duration"
+msgstr "Duur"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "Comment"
+msgstr "Commentaar"
+
+msgid "File Name"
+msgstr "Bestandsnaam"
+
+msgid "Rate"
+msgstr "Rate"
+
+msgid "Chan"
+msgstr "Chan"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "Play1"
+
+msgid "Change Left volume"
+msgstr "Linker volume wijzigen"
+
+msgid "Reset to tempo original"
+msgstr "Reset naar tempo origineel"
+
+msgid "Click to change position of sound"
+msgstr "Klik om de positie van het geluid te wijzigen"
+
+msgid "History of Cue files"
+msgstr "Geschiedenis van cue-bestanden"
+
+msgid "Change Right volume"
+msgstr "Rechts volume wijzigen"
+
+msgid "Change tempo of song"
+msgstr "Verander tempo van nummer"
+
+msgid "Show infos of the song"
+msgstr "Toon info van het nummer"
+
+msgid "Info"
+msgstr "Info"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "Detecteer BMP vanaf de huidige positie en zet het op Drums-tempo."
+
+msgid "Resume player"
+msgstr "Speler hervatten"
+
+msgid "Load from cue and Start player"
+msgstr "Laden van cue en Start speler"
+
+msgid "Load from cue and Pause player"
+msgstr "Laden van cue en speler pauzeren"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "Kies een wav, ogg, flac of mp3-audiobestand"
+
+msgid "Position of sound"
+msgstr "Positie van geluid"
+
+msgid "Lenght of sound"
+msgstr "Lengte van geluid"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "Schakel looping van het nummer in. (Pauze is niet ingeschakeld met loop.)"
+
+msgid "Set Mono/Stereo"
+msgstr "Mono/Stereo instellen"
+
+msgid "Show wave form in slider"
+msgstr "Toon golfvorm in slider"
+
+msgid "Enable playing reverse."
+msgstr "Schakel achteruit afspelen in."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "Strekking inschakelen (tempo wijzigen)"
+
+msgid "right"
+msgstr "rechts"
+
+msgid "Reset to 0 gain"
+msgstr "Terugzetten naar 0 versterking"
+
+msgid "Load a Settings file"
+msgstr "Laad een instellingenbestand"
+
+msgid "Save Settings in a file"
+msgstr "Instellingen opslaan in een bestand"
+
+msgid "left"
+msgstr "links"
+
+msgid "Enable Equalizer"
+msgstr "Equalizer inschakelen"
+
+msgid "Spect"
+msgstr "Spect"
+
+msgid "Spectrum"
+msgstr "Spectrum"
+
+msgid "Right Frequency spectrum"
+msgstr "Rechts frequentiespectrum"
+
+msgid "Left Frequency spectrum"
+msgstr "Linker frequentiespectrum"
+
+msgid "Enable Spectrum"
+msgstr "Schakel spectrum in"
+
+msgid "Bass"
+msgstr "Bas"
+
+msgid "Snare"
+msgstr "Snare"
+
+msgid "Open H"
+msgstr "Open H"
+
+msgid "Close H"
+msgstr "Sluit H"
+
+msgid "Patern 1"
+msgstr "Patroon 1"
+
+msgid "Drums Patern 1"
+msgstr "Drumspatroon 1"
+
+msgid "Drums Patern 2"
+msgstr "Drumspatroon 2"
+
+msgid "Drums Patern 3"
+msgstr "Drumspatroon 3"
+
+msgid "Drums Patern 4"
+msgstr "Drumspatroon 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "Laatste les. Doe hetzelfde als de 3e les, maar verhoog het tempo. Op tel 2 mag je een boem op de basdrum toevoegen. Gefeliciteerd, je bent nu een drummer. ;-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "3e les Doe hetzelfde als de tweede les en voeg bij tel 3 een klak toe op de snaredrum. Dit is het moeilijkst. Tel nog steeds luid met je stem."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "Tweede les. Doe hetzelfde als de eerste les en voeg bij tel 1 een boem toe met je rechtervoet op de basdrum. Tel nog steeds luid met je stem."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "Eerste les. Sla met de stok bij elke tel de gesloten hoed. Tel ook luid met je stem."
+
+msgid "Patern"
+msgstr "Patroon"
+
+msgid "Lesson"
+msgstr "Les"
+
+msgid "no anim"
+msgstr "geen animatie"
+
+msgid "No graphic animation."
+msgstr "Geen grafische animatie."
+
+msgid "no and"
+msgstr "geen en"
+
+msgid "No and between 2 numbers."
+msgstr "Geen en tussen 2 cijfers."
+
+msgid "no voice"
+msgstr "geen stem"
+
+msgid "No counting voice"
+msgstr "Geen telstem"
+
+msgid "no drums"
+msgstr "geen drums"
+
+msgid "No drums sound."
+msgstr "Geen drums geluid."
+
+msgid "Stop loop"
+msgstr "Stop lus"
+
+msgid "Resume loop"
+msgstr "Hervat lus"
+
+msgid "Start loop"
+msgstr "Start lus"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (slagen per minuut)"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "General volume of Drums"
+msgstr "Algemeen volume van drums"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "Beats per minuts - interval in 1/10000 seconde."
+
+msgid "Set BPM X 2"
+msgstr "Set BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "Set BPM / 2"
+
+msgid "Lang"
+msgstr "Lang"
+
+msgid "Language for counting"
+msgstr "Taal om te tellen"
+
+msgid "Chord Randomizer"
+msgstr "Akkoord Randomizer"
+
+msgid "Click to listen to the guitar chord"
+msgstr "Klik om naar het gitaarakkoord te luisteren"
+
+msgid "Click to listen to piano chord"
+msgstr "Klik om naar pianoakkoorden te luisteren"
+
+msgid "Select a chord"
+msgstr "Selecteer een akkoord"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "Sluit alle StrumPract (Klik op het pictogram in de hoek van het formulier om alleen Randomizer te sluiten)"
+
+msgid "Randomize chords"
+msgstr "Akkoorden willekeurig maken"
+
+msgid "Randomize"
+msgstr "Willekeurig"
+
+msgid "Manual fixed chords"
+msgstr "Handmatige vaste akkoorden"
+
+msgid "Fixed"
+msgstr "Vast"
+
+msgid "Tuned guitar string"
+msgstr "Gestemde gitaarsnaar"
+
+msgid "Tuned Guitars"
+msgstr "Gestemde Gitaren"
+
+msgid "Re-do a randomizer"
+msgstr "Doe een randomizer opnieuw"
+
+msgid "Clear chords"
+msgstr "Akkoorden wissen"
+
+msgid "Chords"
+msgstr "Akkoorden"
+
+msgid "7th"
+msgstr "7e"
+
+msgid "Enable 7th Chords"
+msgstr "Sevensakkoorden inschakelen"
+
+msgid "minor"
+msgstr "klein"
+
+msgid "Enable minor Chords"
+msgstr "Schakel mineurakkoorden in"
+
+msgid "Major"
+msgstr "Majoor"
+
+msgid "Enable Major Chords"
+msgstr "Majeurakkoorden inschakelen"
+
+msgid "9th"
+msgstr "9e"
+
+msgid "Enable 9th Chords"
+msgstr "Schakel 9e akkoorden in"
+
+msgid "# (Sharp)"
+msgstr "# (Sharp)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "Scherpe akkoorden inschakelen #"
+
+msgid "Sound"
+msgstr "Geluid"
+
+msgid "Enable Sound of Chords"
+msgstr "Schakel het geluid van akkoorden in"
+
+msgid "Number"
+msgstr "Nummer"
+
+msgid "Total chords"
+msgstr "Totaal aantal akkoorden"
+
+msgid "Maximum number of chords"
+msgstr "Maximum aantal akkoorden"
+
+msgid "Random num"
+msgstr "Random num"
+
+msgid "Randomize the number of chords"
+msgstr "Randomize het aantal akkoorden"
+
+msgid "Tempo of Drums in BPM"
+msgstr "Tempo van drums in BPM"
+
+msgid "Enable Drums"
+msgstr "Drums inschakelen"
+
+msgid "Enable random Drums tempo"
+msgstr "Schakel willekeurig drumtempo in"
+
+msgid "Configure the Clear message"
+msgstr "Configureer het msgstr Wissen"
+
+msgid "English [en]"
+msgstr "Engels [en]"
+
+msgid "Russian [ru]"
+msgstr "Russisch [ru]"
+
+msgid "French [fr]"
+msgstr "Frans [fr]"
+
+msgid "German [de]"
+msgstr "Duits [de]"
+
+msgid "Spanish [es]"
+msgstr "Spaans [es]"
+
+msgid "Portuguese [pt]"
+msgstr "Portugees [pt]"
+
+msgid "Chinese [zh]"
+msgstr "Chinees [zh]"
+
+msgid "Italian [it]"
+msgstr "Italiaans [it]"
+
+msgid "Dutch [nl]"
+msgstr "Nederlands [nl]"
+
+msgid "Hebrew [he]"
+msgstr "Hebreeuws [he]"
+
+msgid "Indonesian [id]"
+msgstr "Indonesisch [id]"
+
+msgid "Polish [pl]"
+msgstr "Pools [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "Esperanto [eo]"
+
+msgid "Greek [el]"
+msgstr "Grieks [el]"
+
+msgid "Arabic [ar]"
+msgstr "Arabisch [ar]"
+

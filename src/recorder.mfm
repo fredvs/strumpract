@@ -9,8 +9,8 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
-  bounds_x = 483
-  bounds_y = 113
+  bounds_x = 510
+  bounds_y = 159
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -781,8 +781,8 @@ object recorderfo: trecorderfo
       face.template = commanderfo.tfaceorange
       taborder = 21
       visible = False
-      bounds_x = 201
-      bounds_y = 31
+      bounds_x = 173
+      bounds_y = 39
       bounds_cx = 221
       bounds_cy = 52
       font.name = 'stf_default'

@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "&Отмена"
+
+msgid "&Abort"
+msgstr "&Прервать"
+
+msgid "&OK"
+msgstr "&ОК"
+
+msgid "&Yes"
+msgstr "&Да"
+
+msgid "&No"
+msgstr "&Нет"
+
+msgid "&All"
+msgstr "&Все"
+
+msgid "Yes &all"
+msgstr "Да и все"
+
+msgid "N&o all"
+msgstr "Н&все"
+
+msgid "&Ignore"
+msgstr "&Игнорировать"
+
+msgid "&Skip"
+msgstr "&Пропустить"
+
+msgid "Skip a&ll"
+msgstr "Пропустить все"
+
+msgid "Co&ntinue"
+msgstr "Продолжить"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Abort"
+msgstr "Прервать"
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "All"
+msgstr "Все"
+
+msgid "Yes all"
+msgstr "Да все"
+
+msgid "No all"
+msgstr "Не все"
+
+msgid "Ignore"
+msgstr "Игнорировать"
+
+msgid "Skip"
+msgstr "Пропустить"
+
+msgid "Skip all"
+msgstr "Пропустить все"
+
+msgid "Continue"
+msgstr "Продолжить"
+
+msgid "is invalid"
+msgstr "недействителен"
+
+msgid "Format error"
+msgstr "Ошибка формата"
+
+msgid "Value is required"
+msgstr "Требуется значение"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Min"
+msgstr "Мин"
+
+msgid "Max"
+msgstr "Макс"
+
+msgid "Range error"
+msgstr "Ошибка диапазона"
+
+msgid "&Undo"
+msgstr "&Отменить"
+
+msgid "&Redo"
+msgstr "&Повторить"
+
+msgid "&Copy"
+msgstr "&Копировать"
+
+msgid "Cu&t"
+msgstr "C&t"
+
+msgid "&Paste"
+msgstr "&Вставить"
+
+msgid "Select &all"
+msgstr "Выбрать &все"
+
+msgid "&Insert Row"
+msgstr "&Вставить строку"
+
+msgid "&Append Row"
+msgstr "&Добавить строку"
+
+msgid "&Delete Row"
+msgstr "&Удалить строку"
+
+msgid "&Dir"
+msgstr "&Каталог"
+
+msgid "&Home"
+msgstr "&Главная"
+
+msgid "&Up"
+msgstr "&Вверх"
+
+msgid "&New"
+msgstr "&Новый"
+
+msgid "&Name"
+msgstr "&Имя"
+
+msgid "&Show hidden files"
+msgstr "&Показать скрытые файлы"
+
+msgid "&Filter"
+msgstr "&Фильтр"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Open"
+msgstr "Открыть"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Create new directory"
+msgstr "Создать новый каталог"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Forward"
+msgstr "Переслать"
+
+msgid "Up"
+msgstr "Вверх"
+
+msgid "exists, do you want to overwrite?"
+msgstr "существует, перезаписать?"
+
+msgid "is modified. Save?"
+msgstr "изменено. Сохранить?"
+
+msgid "WARNING"
+msgstr "ПРЕДУПРЕЖДЕНИЕ"
+
+msgid "Exception"
+msgstr "Исключение"
+
+msgid "System"
+msgstr "Система"
+
+msgid "does not exist"
+msgstr "не существует"
+
+msgid "PASSWORD"
+msgstr "ПАРОЛЬ"
+
+msgid "Enter password"
+msgstr "Введите пароль"
+
+msgid "Invalid password!"
+msgstr "Неверный пароль!"
+
+msgid "Can not read directory"
+msgstr "Не удается прочитать каталог"
+
+msgid "Graphic format not supported"
+msgstr "Графический формат не поддерживается"
+
+msgid "Graphic format error"
+msgstr "Ошибка графического формата"
+
+msgid "All Images"
+msgstr "Все изображения"
+
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+msgid "Delete record?"
+msgstr "Удалить запись?"
+
+msgid "Copy record?"
+msgstr "Копировать запись?"
+
+msgid "Close page"
+msgstr "Закрыть страницу"
+
+msgid "First"
+msgstr "Первый"
+
+msgid "Prior"
+msgstr "Предыдущий"
+
+msgid "Next"
+msgstr "Далее"
+
+msgid "Last"
+msgstr "Последний"
+
+msgid "Append"
+msgstr "Добавить"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Edit"
+msgstr "Изменить"
+
+msgid "Post"
+msgstr "Опубликовать"
+
+msgid "Annul"
+msgstr "Аннулировать"
+
+msgid "Refresh"
+msgstr "Обновить"
+
+msgid "Edit filter"
+msgstr "Редактировать фильтр"
+
+msgid "Edit filter minimum"
+msgstr "Редактировать минимум фильтра"
+
+msgid "Edit filter maximum"
+msgstr "Изменить максимум фильтра"
+
+msgid "Reset filter"
+msgstr "Сбросить фильтр"
+
+msgid "Filter on"
+msgstr "Фильтровать"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Auto edit"
+msgstr "Автоматическое редактирование"
+
+msgid "Copy record"
+msgstr "Копировать запись"
+
+msgid "Dialog"
+msgstr "Диалог"
+
+msgid "Insert"
+msgstr "Вставить"
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Paste"
+msgstr "Вставить"
+
+msgid "Row insert"
+msgstr "Вставить строку"
+
+msgid "Row append"
+msgstr "Добавить строку"
+
+msgid "Row delete"
+msgstr "Удалить строку"
+
+msgid "Undo"
+msgstr "Отменить"
+
+msgid "Redo"
+msgstr "Повторить"
+
+msgid "Cut"
+msgstr "Вырезать"
+
+msgid "Select all"
+msgstr "Выбрать все"
+
+msgid "Filter off"
+msgstr "Отключить фильтр"
+
+msgid "Portrait"
+msgstr "Портрет"
+
+msgid "Landscape"
+msgstr "Пейзаж"
+
+msgid "Delete row?"
+msgstr "Удалить строку?"
+
+msgid "selected rows?"
+msgstr "выбранные строки?"
+
+msgid "Single item only"
+msgstr "Только один элемент"
+
+msgid "Copy Cells"
+msgstr "Копировать ячейки"
+
+msgid "Paste Cells"
+msgstr "Вставить ячейки"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Maximize"
+msgstr "Развернуть"
+
+msgid "Normalize"
+msgstr "Нормализовать"
+
+msgid "Minimize"
+msgstr "Свернуть"
+
+msgid "Fix size"
+msgstr "Исправить размер"
+
+msgid "Float"
+msgstr "Плавающая"
+
+msgid "Stay on top"
+msgstr "Оставайтесь на высоте"
+
+msgid "Stay in background"
+msgstr "Оставаться в фоновом режиме"
+
+msgid "Lock children"
+msgstr "Блокировать детей"
+
+msgid "No lock"
+msgstr "Нет блокировки"
+
+msgid "Input"
+msgstr "Ввод"
+
+msgid "Button"
+msgstr "Кнопка"
+
+msgid "On"
+msgstr "Вкл."
+
+msgid "Off"
+msgstr "Выкл"
+
+msgid "Left border"
+msgstr "Левая граница"
+
+msgid "Top border"
+msgstr "Верхняя граница"
+
+msgid "Right border"
+msgstr "Правая граница"
+
+msgid "Bottom border"
+msgstr "Нижняя граница"
+
+msgid "Begin of text"
+msgstr "Начало текста"
+
+msgid "End of text"
+msgstr "Конец текста"
+
+msgid "Inputmode"
+msgstr "Режим ввода"
+
+msgid "Overwrite"
+msgstr "Перезаписать"
+
+msgid "Deleted"
+msgstr "Удалено"
+
+msgid "Copied"
+msgstr "Скопировано"
+
+msgid "Inserted"
+msgstr "Вставлено"
+
+msgid "Pasted"
+msgstr "Вставлено"
+
+msgid "Withdrawn"
+msgstr "Снято"
+
+msgid "Window activated"
+msgstr "Окно активировано"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Beginning of file"
+msgstr "Начало файла"
+
+msgid "End of file"
+msgstr "Конец файла"
+
+msgid "Voice output"
+msgstr "Голосовой вывод"
+
+msgid "Speak again"
+msgstr "Повторить"
+
+msgid "First column"
+msgstr "Первый столбец"
+
+msgid "First row"
+msgstr "Первая строка"
+
+msgid "Last column"
+msgstr "Последний столбец"
+
+msgid "Last row"
+msgstr "Последняя строка"
+
+msgid "Selection"
+msgstr "Выбор"
+
+msgid "Speak path"
+msgstr "Произнести путь"
+
+msgid "Disabled button"
+msgstr "Отключенная кнопка"
+
+msgid "First field"
+msgstr "Первое поле"
+
+msgid "Last field"
+msgstr "Последнее поле"
+
+msgid "First element"
+msgstr "Первый элемент"
+
+msgid "Last element"
+msgstr "Последний элемент"
+
+msgid "Slower"
+msgstr "Медленнее"
+
+msgid "Faster"
+msgstr "Быстрее"
+
+msgid "Window"
+msgstr "Окно"
+
+msgid "Area"
+msgstr "Область"
+
+msgid "Area activated"
+msgstr "Область активирована"
+
+msgid "Volume down"
+msgstr "Уменьшить громкость"
+
+msgid "Volume up"
+msgstr "Увеличить громкость"
+
+msgid "Cancel speech"
+msgstr "Отменить речь"
+
+msgid "New"
+msgstr "Новый"
+
+msgid "Tools"
+msgstr "Инструменты"
+
+msgid "Languages"
+msgstr "Языки"
+
+msgid "Directory"
+msgstr "Каталог"
+
+msgid "No icons"
+msgstr "Нет значков"
+
+msgid "No lateral"
+msgstr "Без боковых"
+
+msgid "Compact"
+msgstr "Компактный"
+
+msgid "Path"
+msgstr "Путь"
+
+msgid "File"
+msgstr "Файл"
+
+msgid "Delete selected row?"
+msgstr "Удалить выбранную строку?"
+
+msgid "Delete %s selected rows?"
+msgstr "Удалить %s выбранных строк?"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "Закрепить любое окно в этой области."
+
+msgid "Drag a form here using right-border grip."
+msgstr "Перетащите сюда форму, используя захват правой границы."
+
+msgid "&Dock"
+msgstr "&Док"
+
+msgid "Dock windows in one form"
+msgstr "Закрепить окна в одной форме"
+
+msgid "&Tab"
+msgstr "&Ушко"
+
+msgid "One form with tabs"
+msgstr "Одна форма с вкладками"
+
+msgid "&Dock all visible windows"
+msgstr "&Закрепить все видимые окна"
+
+msgid "&Float all visible windows"
+msgstr "&Открыть все видимые окна"
+
+msgid "Float windows in independent forms"
+msgstr "Плавающие окна в независимых формах"
+
+msgid "&Tab all visible windows"
+msgstr "&Tab все видимые окна"
+
+msgid "Make windows tabed in one form"
+msgstr "Создать окна с вкладками в одной форме"
+
+msgid "&Jam Session"
+msgstr "&Джем-сессия"
+
+msgid "DJ Console Wave"
+msgstr "Волна диджейской консоли"
+
+msgid "DJ Console Info"
+msgstr "Диджейская консоль + информация"
+
+msgid "&Record stage"
+msgstr "&Этап записи"
+
+msgid "&Chords Randomizer"
+msgstr "&Рандомизатор аккордов"
+
+msgid "&Image Dancer"
+msgstr "&Image Dancer"
+
+msgid "Save Layout"
+msgstr "Сохранить макет"
+
+msgid "Save current layout"
+msgstr "Сохранить текущий макет"
+
+msgid "Load Layout"
+msgstr "Загрузить макет"
+
+msgid "Load saved layout"
+msgstr "Загрузить сохраненный макет"
+
+msgid "&Layout"
+msgstr "&Макет"
+
+msgid "Layout of windows"
+msgstr "Расположение окон"
+
+msgid "Show All"
+msgstr "Показать все"
+
+msgid "Hide All"
+msgstr "Скрыть все"
+
+msgid "Show Drums"
+msgstr "Показать барабаны"
+
+msgid "Show File List"
+msgstr "Показать список файлов"
+
+msgid "Show Player 1"
+msgstr "Показать игрока 1"
+
+msgid "Show Player 2"
+msgstr "Показать плеер 2"
+
+msgid "Show Commander"
+msgstr "Показать командующего"
+
+msgid "Show Recorder"
+msgstr "Показать рекордер"
+
+msgid "Show Guitars"
+msgstr "Показать гитары"
+
+msgid "Show Spectrum 1"
+msgstr "Показать спектр 1"
+
+msgid "Show Spectrum 2"
+msgstr "Показать спектр 2"
+
+msgid "Show Spectrum Rec"
+msgstr "Показать запись спектра"
+
+msgid "Show WaveForm 1"
+msgstr "Показать WaveForm 1"
+
+msgid "Show WaveForm 2"
+msgstr "Показать WaveForm 2"
+
+msgid "Show WaveForm Rec"
+msgstr "Показать запись WaveForm"
+
+msgid "Show Equalizer 1"
+msgstr "Показать эквалайзер 1"
+
+msgid "Show Equalizer 2"
+msgstr "Показать эквалайзер 2"
+
+msgid "Show Equalizer Rec"
+msgstr "Показать запись эквалайзера"
+
+msgid "Show Chord Randomizer"
+msgstr "Показать рандомизатор аккордов"
+
+msgid "Show Image Dancer"
+msgstr "Показать изображение танцора"
+
+msgid "Show Dock Panel 1"
+msgstr "Показать док-панель 1"
+
+msgid "Show Dock Panel 2"
+msgstr "Показать док-панель 2"
+
+msgid "Show Dock Panel 3"
+msgstr "Показать док-панель 3"
+
+msgid "Show Dock Panel 4"
+msgstr "Показать док-панель 4"
+
+msgid "Show Dock Panel 5"
+msgstr "Показать док-панель 5"
+
+msgid "&Panels"
+msgstr "&Панели"
+
+msgid "&Show"
+msgstr "&Показать"
+
+msgid "Show/hide windows"
+msgstr "Показать/скрыть окна"
+
+msgid "Square"
+msgstr "Квадрат"
+
+msgid "Triangle"
+msgstr "Треугольник"
+
+msgid "Lines"
+msgstr "Строки"
+
+msgid "Fractal Tree"
+msgstr "Фрактальное дерево"
+
+msgid "Super Formula"
+msgstr "Суперформула"
+
+msgid "Hyper Formula"
+msgstr "Гиперформула"
+
+msgid "Atom"
+msgstr "Атом"
+
+msgid "Spiral Hue"
+msgstr "Спиральный оттенок"
+
+msgid "Spiral Rainbow"
+msgstr "Спиральная радуга"
+
+msgid "Spiral Move"
+msgstr "Спиральная 2"
+
+msgid "Turtle 1"
+msgstr "Черепаха 1"
+
+msgid "Turtle 2"
+msgstr "Черепаха 2"
+
+msgid "Fractal Circles"
+msgstr "Фрактальные круги"
+
+msgid "Normal form"
+msgstr "Обычная форма"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "Используйте эту форму, чтобы установить размер для форм Эллипс и (Скругленный)Прямоугольник."
+
+msgid "Ellipse"
+msgstr "Эллипс"
+
+msgid "Rounded rect"
+msgstr "Скругленный прямоугольник"
+
+msgid "Rectangle"
+msgstr "Прямоугольник"
+
+msgid "Always on top"
+msgstr "Всегда на высоте"
+
+msgid "Transparent"
+msgstr "Прозрачный"
+
+msgid "Hide Dancer"
+msgstr "Скрыть танцора"
+
+msgid "Da&ncer"
+msgstr "танцор"
+
+msgid "Dancing Animations"
+msgstr "Танцевальные анимации"
+
+msgid "Gold"
+msgstr "Золото"
+
+msgid "Silver"
+msgstr "Серебряный"
+
+msgid "Carbon"
+msgstr "Углерод"
+
+msgid "&Style"
+msgstr "&Стиль"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "Стиль макета Gold, Silver или Carbon"
+
+msgid "Audio"
+msgstr "Аудио"
+
+msgid "Config of audio and colors"
+msgstr "Конфигурация аудио и цветов"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Set language"
+msgstr "Установить язык"
+
+msgid "&Config"
+msgstr "&Эаход"
+
+msgid "Configuration setting"
+msgstr "Настройка конфигурации"
+
+msgid "&About"
+msgstr "&О"
+
+msgid "About StrumPract"
+msgstr "О StrumPract"
+
+msgid "&Quit"
+msgstr "&Выйти"
+
+msgid "Terminate StrumPract"
+msgstr "Завершить StrumPract"
+
+msgid "Set as default"
+msgstr "Установить по умолчанию"
+
+msgid "Recorder"
+msgstr "Рекордер"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "Используйте эту панель захвата для перетаскивания окна."
+
+msgid "Com"
+msgstr "Ком"
+
+msgid "Commander"
+msgstr "Командир"
+
+msgid "Start Drums"
+msgstr "Запустить барабаны"
+
+msgid "Pause Drums"
+msgstr "Пауза барабанов"
+
+msgid "Resume Drums"
+msgstr "Возобновить ударные"
+
+msgid "General Volume of drums"
+msgstr "Общая громкость барабанов"
+
+msgid "Drums"
+msgstr "Барабаны"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "Нажмите, чтобы переключиться на 100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "Громкость входа (микрофон или вход)"
+
+msgid "Input (mic or aux in)"
+msgstr "Вход (микрофон или дополнительный вход)"
+
+msgid "Enable Live Input"
+msgstr "Включить интерактивный ввод"
+
+msgid "Right Volume General in %"
+msgstr "Правый общий объем в %"
+
+msgid "Left Volume General in %"
+msgstr "Общий левый том в %"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "Общая левая громкость. Нажмите, чтобы сбросить до 100%."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "Общая правая громкость. Нажмите, чтобы сбросить до 100%."
+
+msgid "Lock left and right channels"
+msgstr "Блокировать левый и правый каналы"
+
+msgid "General Volume in %"
+msgstr "Общий объем в %"
+
+msgid "System Master Volume"
+msgstr "Основной системный том"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "Изменить время смешивания с точностью до 1/100 секунды"
+
+msgid "Stop player"
+msgstr "Остановить проигрыватель"
+
+msgid "Resume player"
+msgstr "Возобновить игрока"
+
+msgid "Load and Start Player"
+msgstr "Загрузить и запустить проигрыватель"
+
+msgid "Left Volume Player 1"
+msgstr "Левый проигрыватель громкости 1"
+
+msgid "Right Volume Player 1"
+msgstr "Правый Volume Player 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "Запустить проигрыватель 1 --> MIX --> Остановить проигрыватель 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "Запустить проигрыватель 2 --> MIX --> Остановить проигрыватель 1"
+
+msgid "Right Volume Player 2"
+msgstr "Правый Volume Player 2"
+
+msgid "Left Volume Player 2"
+msgstr "Левый проигрыватель громкости 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "Cue-Load-Pause Player"
+
+msgid "Pause player"
+msgstr "Приостановить игру"
+
+msgid "Pause Mixing"
+msgstr "Приостановить микширование"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "Включить расчет спектральных частот"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "Графическая анимация при микшировании (если процессор слишком слаб, отключите ее)"
+
+msgid "View Meters on/off"
+msgstr "Просмотр счетчиков вкл/выкл"
+
+msgid "Auto Mixing on/off"
+msgstr "Автомикширование вкл/выкл"
+
+msgid "Direct MIX (0 second time)"
+msgstr "Прямой МИКС (0 секунд)"
+
+msgid "Player 1"
+msgstr "Игрок 1"
+
+msgid "Player 2"
+msgstr "Игрок 2"
+
+msgid "Randomize mixing list"
+msgstr "Рандомизировать список микширования"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "Недопустимое значение. Сбросить на 100."
+
+msgid "Or press Esc key for previous value."
+msgstr "Или нажмите клавишу Esc для предыдущего значения."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "Используйте эту панель захвата для перетаскивания окна"
+
+msgid "Files"
+msgstr "Файлы"
+
+msgid "Audio files"
+msgstr "Аудиофайлы"
+
+msgid "Number of files in the list"
+msgstr "Количество файлов в списке"
+
+msgid "Find a word in list"
+msgstr "Найти слово в списке"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "Отправлена ​​выбранная песня в очередь для Player 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "Отправлена ​​выбранная песня в очередь для Player 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "Чтобы переместить строку: нажмите и удерживайте фиксированный столбец и перетащите строку в нужное место."
+
+msgid "Name of sound"
+msgstr "Название звука"
+
+msgid "Ext"
+msgstr "Внешний"
+
+msgid "File extension"
+msgstr "Расширение файла"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Size in Kb of the file"
+msgstr "Размер файла в килобайтах"
+
+msgid "Mix"
+msgstr "Смешать"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "Включить для микса. Нажав на фиксированную ячейку ---> выберите все/ничего."
+
+msgid "Load custom play-list"
+msgstr "Загрузить пользовательский список воспроизведения"
+
+msgid "Load"
+msgstr "Загрузить"
+
+msgid "Save custom play-list"
+msgstr "Сохранить пользовательский список воспроизведения"
+
+msgid "Add file in custom play-list"
+msgstr "Добавить файл в пользовательский список воспроизведения"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "History of Directories"
+msgstr "История каталогов"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "Выберите аудио каталог с wav, ogg, flac или mp3"
+
+msgid "Infos of song"
+msgstr "Информация о песне"
+
+msgid "No Image Tag"
+msgstr "Нет тега изображения"
+
+msgid "Title"
+msgstr "Заголовок"
+
+msgid "Artist"
+msgstr "Художник"
+
+msgid "Album"
+msgstr "Альбом"
+
+msgid "Year"
+msgstr "Год"
+
+msgid "Duration"
+msgstr "Продолжительность"
+
+msgid "Genre"
+msgstr "Жанр"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "File Name"
+msgstr "Имя файла"
+
+msgid "Rate"
+msgstr "темп"
+
+msgid "Chan"
+msgstr "Чан"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "Play1"
+
+msgid "Change Left volume"
+msgstr "Изменить левый том"
+
+msgid "Reset to tempo original"
+msgstr "Восстановить исходный темп"
+
+msgid "Click to change position of sound"
+msgstr "Нажмите, чтобы изменить положение звука"
+
+msgid "History of Cue files"
+msgstr "История файлов Cue"
+
+msgid "Change Right volume"
+msgstr "Изменить правый том"
+
+msgid "Change tempo of song"
+msgstr "Изменить темп песни"
+
+msgid "Show infos of the song"
+msgstr "Показать информацию о песне"
+
+msgid "Info"
+msgstr "Информация"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "Определить BMP из текущей позиции и установить темп ударных."
+
+msgid "Resume player"
+msgstr "Возобновить игрока"
+
+msgid "Load from cue and Start player"
+msgstr "Загрузить из cue и запустить проигрыватель"
+
+msgid "Load from cue and Pause player"
+msgstr "Загрузить из cue и приостановить проигрыватель"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "Выберите аудиофайл wav, ogg, flac или mp3"
+
+msgid "Position of sound"
+msgstr "Позиция звука"
+
+msgid "Lenght of sound"
+msgstr "Длина звука"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "Включить зацикливание песни. (Пауза не включается с зацикливанием.)"
+
+msgid "Set Mono/Stereo"
+msgstr "Установить моно/стерео"
+
+msgid "Show wave form in slider"
+msgstr "Показать форму волны в ползунке"
+
+msgid "Enable playing reverse."
+msgstr "Включить обратное воспроизведение."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "Включить растяжку (изменение темпа)"
+
+msgid "right"
+msgstr "право"
+
+msgid "Reset to 0 gain"
+msgstr "Сбросить усиление до 0"
+
+msgid "Load a Settings file"
+msgstr "Загрузить файл настроек"
+
+msgid "Save Settings in a file"
+msgstr "Сохранить настройки в файле"
+
+msgid "left"
+msgstr "слева"
+
+msgid "Enable Equalizer"
+msgstr "Включить эквалайзер"
+
+msgid "Spect"
+msgstr "Призрак"
+
+msgid "Spectrum"
+msgstr "Спектр"
+
+msgid "Right Frequency spectrum"
+msgstr "Правильный частотный спектр"
+
+msgid "Left Frequency spectrum"
+msgstr "Левый частотный спектр"
+
+msgid "Enable Spectrum"
+msgstr "Включить спектр"
+
+msgid "Bass"
+msgstr "Бас"
+
+msgid "Snare"
+msgstr "Ловушка"
+
+msgid "Open H"
+msgstr "Открыть H"
+
+msgid "Close H"
+msgstr "Закрыть H"
+
+msgid "Patern 1"
+msgstr "Отец 1"
+
+msgid "Drums Patern 1"
+msgstr "Патерн барабанов 1"
+
+msgid "Drums Patern 2"
+msgstr "Патерн барабанов 2"
+
+msgid "Drums Patern 3"
+msgstr "Патерн барабанов 3"
+
+msgid "Drums Patern 4"
+msgstr "Патерн барабанов 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "Последний урок. Проделайте то же, что и 3-й урок, но увеличив темп. На счет 2 вы можете добавить бум на большом барабане. Поздравляю, теперь вы барабанщик. ;-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "3-й урок Проделайте то же, что и во втором уроке, и на счет 3 добавьте треск на малом барабане. Это самое сложное. Продолжайте считать громко своим голосом."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "Второй урок. Сделайте то же самое, что и в первом уроке, и на счет 1 добавьте бум правой ногой по большому барабану. Продолжайте громко считать своим голосом."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "Первый урок. Палкой ударяйте по закрытой шляпе на каждый счет. Считайте громко и голосом."
+
+msgid "Patern"
+msgstr "Отец"
+
+msgid "Lesson"
+msgstr "Урок"
+
+msgid "no anim"
+msgstr "нет анимации"
+
+msgid "No graphic animation."
+msgstr "Нет графической анимации."
+
+msgid "no and"
+msgstr "нет и"
+
+msgid "No and between 2 numbers."
+msgstr "Нет и между двумя числами."
+
+msgid "no voice"
+msgstr "нет голоса"
+
+msgid "No counting voice"
+msgstr "Нет голоса"
+
+msgid "no drums"
+msgstr "без барабанов"
+
+msgid "No drums sound."
+msgstr "Нет звука ударных."
+
+msgid "Stop loop"
+msgstr "Остановить цикл"
+
+msgid "Resume loop"
+msgstr "Возобновить цикл"
+
+msgid "Start loop"
+msgstr "Начать цикл"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (Ударов в минуту)"
+
+msgid "Volume"
+msgstr "Громкость"
+
+msgid "General volume of Drums"
+msgstr "Общая громкость барабанов"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "Ударов в минуту - интервал в 1/10000 секунды."
+
+msgid "Set BPM X 2"
+msgstr "Установить BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "Установить BPM/2"
+
+msgid "Lang"
+msgstr "Язык"
+
+msgid "Language for counting"
+msgstr "Язык подсчета"
+
+msgid "Chord Randomizer"
+msgstr "Рандомизатор аккордов"
+
+msgid "Click to listen to the guitar chord"
+msgstr "Нажмите, чтобы прослушать гитарный аккорд"
+
+msgid "Click to listen to piano chord"
+msgstr "Нажмите, чтобы прослушать фортепианный аккорд"
+
+msgid "Select a chord"
+msgstr "Выберите аккорд"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "Закрыть все StrumPract (Щелкните значок в углу формы, чтобы закрыть только Randomizer)"
+
+msgid "Randomize chords"
+msgstr "Случайный порядок аккордов"
+
+msgid "Randomize"
+msgstr "Случайный порядок"
+
+msgid "Manual fixed chords"
+msgstr "Вручную фиксированные аккорды"
+
+msgid "Fixed"
+msgstr "Исправлено"
+
+msgid "Tuned guitar string"
+msgstr "Настроенная гитарная струна"
+
+msgid "Tuned Guitars"
+msgstr "Настроенные гитары"
+
+msgid "Re-do a randomizer"
+msgstr "Повторить рандомизатор"
+
+msgid "Clear chords"
+msgstr "Очистить аккорды"
+
+msgid "Chords"
+msgstr "Аккорды"
+
+msgid "7th"
+msgstr "7-й"
+
+msgid "Enable 7th Chords"
+msgstr "Включить 7-й аккорд"
+
+msgid "minor"
+msgstr "второстепенный"
+
+msgid "Enable minor Chords"
+msgstr "Включить минорные аккорды"
+
+msgid "Major"
+msgstr "Основной"
+
+msgid "Enable Major Chords"
+msgstr "Включить мажорные аккорды"
+
+msgid "9th"
+msgstr "9-й"
+
+msgid "Enable 9th Chords"
+msgstr "Включить 9-й аккорд"
+
+msgid "# (Sharp)"
+msgstr "# (резкий)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "Включить Sharp-Chords #"
+
+msgid "Sound"
+msgstr "Звук"
+
+msgid "Enable Sound of Chords"
+msgstr "Включить звучание аккордов"
+
+msgid "Number"
+msgstr "Число"
+
+msgid "Total chords"
+msgstr "Всего аккордов"
+
+msgid "Maximum number of chords"
+msgstr "Максимальное количество аккордов"
+
+msgid "Random num"
+msgstr "Случайное число"
+
+msgid "Randomize the number of chords"
+msgstr "Случайное количество аккордов"
+
+msgid "Tempo of Drums in BPM"
+msgstr "Темп барабанов в BPM"
+
+msgid "Enable Drums"
+msgstr "Включить барабаны"
+
+msgid "Enable random Drums tempo"
+msgstr "Включить случайный темп ударных"
+
+msgid "Configure the Clear message"
+msgstr "Настроить сообщение Очистить"
+
+msgid "English [en]"
+msgstr "Английский [en]"
+
+msgid "Russian [ru]"
+msgstr "Русский [ru]"
+
+msgid "French [fr]"
+msgstr "Французский [fr]"
+
+msgid "German [de]"
+msgstr "немецкий [de]"
+
+msgid "Spanish [es]"
+msgstr "Испанский [es]"
+
+msgid "Portuguese [pt]"
+msgstr "Португальский [pt]"
+
+msgid "Chinese [zh]"
+msgstr "Китайский [zh]"
+
+msgid "Italian [it]"
+msgstr "Итальянский [it]"
+
+msgid "Dutch [nl]"
+msgstr "Голландский [nl]"
+
+msgid "Hebrew [he]"
+msgstr "Иврит [he]"
+
+msgid "Indonesian [id]"
+msgstr "Индонезийский [id]"
+
+msgid "Polish [pl]"
+msgstr "Польский [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "Эсперанто [eo]"
+
+msgid "Greek [el]"
+msgstr "Греческий [el]"
+
+msgid "Arabic [ar]"
+msgstr "Арабский [ar]"
+

@@ -81,7 +81,7 @@ object equalizerfo: tequalizerfo
     frame.caption = 'right '
     frame.captiontextflags = [tf_xcentered, tf_bottom]
     frame.captionpos = cp_topright
-    frame.captionoffset = -50
+    frame.captionoffset = -10
     frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style]
@@ -1078,7 +1078,7 @@ object equalizerfo: tequalizerfo
     hint = ' Load a Settings file  '
     bounds_x = 233
     bounds_y = 0
-    bounds_cx = 40
+    bounds_cx = 56
     bounds_cy = 15
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Load'
@@ -1099,9 +1099,9 @@ object equalizerfo: tequalizerfo
     face.template = mainfo.tfaceplayer
     taborder = 4
     hint = ' Save Settings in a file '
-    bounds_x = 275
+    bounds_x = 289
     bounds_y = 0
-    bounds_cx = 40
+    bounds_cx = 56
     bounds_cy = 15
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Save'
@@ -1120,7 +1120,7 @@ object equalizerfo: tequalizerfo
     frame.colorhighlight = -1610612733
     frame.caption = 'left'
     frame.captiontextflags = [tf_xcentered, tf_bottom]
-    frame.captionoffset = 50
+    frame.captionoffset = 10
     frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_style]
@@ -2003,7 +2003,7 @@ object equalizerfo: tequalizerfo
     frame.localprops1 = []
     face.localprops = []
     taborder = 5
-    hint = ' Drums set '
+    hint = 'Ebable Equalizer'
     bounds_x = 116
     bounds_y = 0
     bounds_cx = 114

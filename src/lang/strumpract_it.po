@@ -1,0 +1,1387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "&Cancel"
+msgstr "&Annulla"
+
+msgid "&Abort"
+msgstr "&Abort"
+
+msgid "&OK"
+msgstr "&OK"
+
+msgid "&Yes"
+msgstr "&Sì"
+
+msgid "&No"
+msgstr "&No"
+
+msgid "&All"
+msgstr "&Tutti"
+
+msgid "Yes &all"
+msgstr "Sì e tutti"
+
+msgid "N&o all"
+msgstr "Non tutti"
+
+msgid "&Ignore"
+msgstr "&Ignora"
+
+msgid "&Skip"
+msgstr "&Salta"
+
+msgid "Skip a&ll"
+msgstr "Salta a&ll"
+
+msgid "Co&ntinue"
+msgstr "Continua"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Abort"
+msgstr "Interrompi"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Yes"
+msgstr "Sì"
+
+msgid "No"
+msgstr "No"
+
+msgid "All"
+msgstr "Tutti"
+
+msgid "Yes all"
+msgstr "Sì tutto"
+
+msgid "No all"
+msgstr "No tutto"
+
+msgid "Ignore"
+msgstr "Ignora"
+
+msgid "Skip"
+msgstr "Salta"
+
+msgid "Skip all"
+msgstr "Salta tutto"
+
+msgid "Continue"
+msgstr "Continua"
+
+msgid "is invalid"
+msgstr "non è valido"
+
+msgid "Format error"
+msgstr "Errore di formattazione"
+
+msgid "Value is required"
+msgstr "Il valore è richiesto"
+
+msgid "Error"
+msgstr "Errore"
+
+msgid "Min"
+msgstr "Minimo"
+
+msgid "Max"
+msgstr "Massimo"
+
+msgid "Range error"
+msgstr "Errore di intervallo"
+
+msgid "&Undo"
+msgstr "&Annulla"
+
+msgid "&Redo"
+msgstr "&Ripeti"
+
+msgid "&Copy"
+msgstr "&Copia"
+
+msgid "Cu&t"
+msgstr "Cu&t"
+
+msgid "&Paste"
+msgstr "&Incolla"
+
+msgid "Select &all"
+msgstr "Seleziona &tutti"
+
+msgid "&Insert Row"
+msgstr "&Inserisci riga"
+
+msgid "&Append Row"
+msgstr "&Aggiungi riga"
+
+msgid "&Delete Row"
+msgstr "&Cancella riga"
+
+msgid "&Dir"
+msgstr "&Dir"
+
+msgid "&Home"
+msgstr "&Casa"
+
+msgid "&Up"
+msgstr "&Su"
+
+msgid "&New"
+msgstr "&Nuovo"
+
+msgid "&Name"
+msgstr "&Nome"
+
+msgid "&Show hidden files"
+msgstr "&Mostra file nascosti"
+
+msgid "&Filter"
+msgstr "&Filtro"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Open"
+msgstr "Apri"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Create new directory"
+msgstr "Crea nuova directory"
+
+msgid "Back"
+msgstr "Indietro"
+
+msgid "Forward"
+msgstr "Avanti"
+
+msgid "Up"
+msgstr "Su"
+
+msgid "exists, do you want to overwrite?"
+msgstr "esiste, vuoi sovrascrivere?"
+
+msgid "is modified. Save?"
+msgstr "è modificato. Salva?"
+
+msgid "WARNING"
+msgstr "ATTENZIONE"
+
+msgid "Exception"
+msgstr "Eccezione"
+
+msgid "System"
+msgstr "Sistema"
+
+msgid "does not exist"
+msgstr "non esiste"
+
+msgid "PASSWORD"
+msgstr "PASSWORD"
+
+msgid "Enter password"
+msgstr "Inserisci password"
+
+msgid "Invalid password!"
+msgstr "Password non valida!"
+
+msgid "Can not read directory"
+msgstr "Impossibile leggere la directory"
+
+msgid "Graphic format not supported"
+msgstr "Formato grafico non supportato"
+
+msgid "Graphic format error"
+msgstr "Errore di formato grafico"
+
+msgid "All Images"
+msgstr "Tutte le immagini"
+
+msgid "Confirmation"
+msgstr "Conferma"
+
+msgid "Delete record?"
+msgstr "Eliminare il record?"
+
+msgid "Copy record?"
+msgstr "Copiare record?"
+
+msgid "Close page"
+msgstr "Chiudi pagina"
+
+msgid "First"
+msgstr "Prima"
+
+msgid "Prior"
+msgstr "Precedente"
+
+msgid "Next"
+msgstr "Avanti"
+
+msgid "Last"
+msgstr "Ultimo"
+
+msgid "Append"
+msgstr "Aggiungi"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Post"
+msgstr "Post"
+
+msgid "Annul"
+msgstr "Annulla"
+
+msgid "Refresh"
+msgstr "Aggiorna"
+
+msgid "Edit filter"
+msgstr "Modifica filtro"
+
+msgid "Edit filter minimum"
+msgstr "Modifica filtro minimo"
+
+msgid "Edit filter maximum"
+msgstr "Modifica filtro massimo"
+
+msgid "Reset filter"
+msgstr "Reimposta filtro"
+
+msgid "Filter on"
+msgstr "Filtro attivato"
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "Auto edit"
+msgstr "Modifica automatica"
+
+msgid "Copy record"
+msgstr "Copia record"
+
+msgid "Dialog"
+msgstr "Finestra di dialogo"
+
+msgid "Insert"
+msgstr "Inserisci"
+
+msgid "Copy"
+msgstr "Copia"
+
+msgid "Paste"
+msgstr "Incolla"
+
+msgid "Row insert"
+msgstr "Inserimento riga"
+
+msgid "Row append"
+msgstr "Aggiungi riga"
+
+msgid "Row delete"
+msgstr "Cancella riga"
+
+msgid "Undo"
+msgstr "Annulla"
+
+msgid "Redo"
+msgstr "Ripeti"
+
+msgid "Cut"
+msgstr "Taglia"
+
+msgid "Select all"
+msgstr "Seleziona tutto"
+
+msgid "Filter off"
+msgstr "Filtro disattivato"
+
+msgid "Portrait"
+msgstr "Ritratto"
+
+msgid "Landscape"
+msgstr "Paesaggio"
+
+msgid "Delete row?"
+msgstr "Eliminare riga?"
+
+msgid "selected rows?"
+msgstr "righe selezionate?"
+
+msgid "Single item only"
+msgstr "Solo elemento singolo"
+
+msgid "Copy Cells"
+msgstr "Copia celle"
+
+msgid "Paste Cells"
+msgstr "Incolla celle"
+
+msgid "Close"
+msgstr "Chiudi"
+
+msgid "Maximize"
+msgstr "Massimizza"
+
+msgid "Normalize"
+msgstr "Normalizza"
+
+msgid "Minimize"
+msgstr "Riduci a icona"
+
+msgid "Fix size"
+msgstr "Fissa la dimensione"
+
+msgid "Float"
+msgstr "Flottante"
+
+msgid "Stay on top"
+msgstr "Rimani in cima"
+
+msgid "Stay in background"
+msgstr "Rimani in background"
+
+msgid "Lock children"
+msgstr "Blocca bambini"
+
+msgid "No lock"
+msgstr "Nessun blocco"
+
+msgid "Input"
+msgstr "Input"
+
+msgid "Button"
+msgstr "Pulsante"
+
+msgid "On"
+msgstr "Attivo"
+
+msgid "Off"
+msgstr "Off"
+
+msgid "Left border"
+msgstr "Confine sinistro"
+
+msgid "Top border"
+msgstr "Bordo superiore"
+
+msgid "Right border"
+msgstr "Confine destro"
+
+msgid "Bottom border"
+msgstr "Bordo inferiore"
+
+msgid "Begin of text"
+msgstr "Inizio del testo"
+
+msgid "End of text"
+msgstr "Fine del testo"
+
+msgid "Inputmode"
+msgstr "Modalità di immissione"
+
+msgid "Overwrite"
+msgstr "Sovrascrivi"
+
+msgid "Deleted"
+msgstr "Eliminato"
+
+msgid "Copied"
+msgstr "Copiato"
+
+msgid "Inserted"
+msgstr "Inserita"
+
+msgid "Pasted"
+msgstr "Incollato"
+
+msgid "Withdrawn"
+msgstr "Ritirato"
+
+msgid "Window activated"
+msgstr "Finestra attivata"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Beginning of file"
+msgstr "Inizio del file"
+
+msgid "End of file"
+msgstr "Fine del file"
+
+msgid "Voice output"
+msgstr "Uscita vocale"
+
+msgid "Speak again"
+msgstr "Parla ancora"
+
+msgid "First column"
+msgstr "Prima colonna"
+
+msgid "First row"
+msgstr "Prima riga"
+
+msgid "Last column"
+msgstr "Ultima colonna"
+
+msgid "Last row"
+msgstr "Ultima riga"
+
+msgid "Selection"
+msgstr "Selezione"
+
+msgid "Speak path"
+msgstr "Parla percorso"
+
+msgid "Disabled button"
+msgstr "Pulsante disabilitato"
+
+msgid "First field"
+msgstr "Primo campo"
+
+msgid "Last field"
+msgstr "Ultimo campo"
+
+msgid "First element"
+msgstr "Primo elemento"
+
+msgid "Last element"
+msgstr "Ultimo elemento"
+
+msgid "Slower"
+msgstr "Più lento"
+
+msgid "Faster"
+msgstr "Più veloce"
+
+msgid "Window"
+msgstr "Finestra"
+
+msgid "Area"
+msgstr "Area"
+
+msgid "Area activated"
+msgstr "Area attivata"
+
+msgid "Volume down"
+msgstr "Volume giù"
+
+msgid "Volume up"
+msgstr "Alza il volume"
+
+msgid "Cancel speech"
+msgstr "Annulla discorso"
+
+msgid "New"
+msgstr "Nuovo"
+
+msgid "Tools"
+msgstr "Strumenti"
+
+msgid "Languages"
+msgstr "Lingue"
+
+msgid "Directory"
+msgstr "Directory"
+
+msgid "No icons"
+msgstr "Nessuna icona"
+
+msgid "No lateral"
+msgstr "Nessuna laterale"
+
+msgid "Compact"
+msgstr "Compatto"
+
+msgid "Path"
+msgstr "Percorso"
+
+msgid "File"
+msgstr "File"
+
+msgid "Delete selected row?"
+msgstr "Eliminare la riga selezionata?"
+
+msgid "Delete %s selected rows?"
+msgstr "Eliminare %s righe selezionate?"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "Ancora qualsiasi finestra in quest'area."
+
+msgid "Drag a form here using right-border grip."
+msgstr "Trascina qui un modulo usando il grip del bordo destro."
+
+msgid "&Dock"
+msgstr "&Dock"
+
+msgid "Dock windows in one form"
+msgstr "Finestre ancorate in un unico modulo"
+
+msgid "&Tab"
+msgstr "&Tab"
+
+msgid "One form with tabs"
+msgstr "Un modulo con schede"
+
+msgid "&Dock all visible windows"
+msgstr "&Blocca tutte le finestre visibili"
+
+msgid "&Float all visible windows"
+msgstr "&Molla tutte le finestre visibili"
+
+msgid "Float windows in independent forms"
+msgstr "Finestre mobili in forme indipendenti"
+
+msgid "&Tab all visible windows"
+msgstr "&Tab tutte le finestre visibili"
+
+msgid "Make windows tabed in one form"
+msgstr "Crea finestre a schede in un unico modulo"
+
+msgid "&Jam Session"
+msgstr "&Jam Session"
+
+msgid "DJ Console Wave"
+msgstr "DJ Console Wave"
+
+msgid "DJ Console Info"
+msgstr "DJ Console Info"
+
+msgid "&Record stage"
+msgstr "&Fase di registrazione"
+
+msgid "&Chords Randomizer"
+msgstr "&Chords Randomizer"
+
+msgid "&Image Dancer"
+msgstr "&Image Dancer"
+
+msgid "Save Layout"
+msgstr "Salva layout"
+
+msgid "Save current layout"
+msgstr "Salva layout corrente"
+
+msgid "Load Layout"
+msgstr "Carica layout"
+
+msgid "Load saved layout"
+msgstr "Carica layout salvato"
+
+msgid "&Layout"
+msgstr "&Layout"
+
+msgid "Layout of windows"
+msgstr "Layout delle finestre"
+
+msgid "Show All"
+msgstr "Mostra tutto"
+
+msgid "Hide All"
+msgstr "Nascondi tutto"
+
+msgid "Show Drums"
+msgstr "Mostra batteria"
+
+msgid "Show File List"
+msgstr "Mostra elenco file"
+
+msgid "Show Player 1"
+msgstr "Mostra giocatore 1"
+
+msgid "Show Player 2"
+msgstr "Mostra giocatore 2"
+
+msgid "Show Commander"
+msgstr "Mostra comandante"
+
+msgid "Show Recorder"
+msgstr "Mostra registratore"
+
+msgid "Show Guitars"
+msgstr "Mostra chitarre"
+
+msgid "Show Spectrum 1"
+msgstr "Mostra spettro 1"
+
+msgid "Show Spectrum 2"
+msgstr "Mostra spettro 2"
+
+msgid "Show Spectrum Rec"
+msgstr "Mostra registrazione spettro"
+
+msgid "Show WaveForm 1"
+msgstr "Mostra forma d'onda 1"
+
+msgid "Show WaveForm 2"
+msgstr "Mostra WaveForm 2"
+
+msgid "Show WaveForm Rec"
+msgstr "Mostra registrazione WaveForm"
+
+msgid "Show Equalizer 1"
+msgstr "Mostra equalizzatore 1"
+
+msgid "Show Equalizer 2"
+msgstr "Mostra equalizzatore 2"
+
+msgid "Show Equalizer Rec"
+msgstr "Mostra registrazione equalizzatore"
+
+msgid "Show Chord Randomizer"
+msgstr "Mostra Chord Randomizer"
+
+msgid "Show Image Dancer"
+msgstr "Mostra immagine ballerino"
+
+msgid "Show Dock Panel 1"
+msgstr "Mostra pannello Dock 1"
+
+msgid "Show Dock Panel 2"
+msgstr "Mostra pannello Dock 2"
+
+msgid "Show Dock Panel 3"
+msgstr "Mostra pannello Dock 3"
+
+msgid "Show Dock Panel 4"
+msgstr "Mostra pannello Dock 4"
+
+msgid "Show Dock Panel 5"
+msgstr "Mostra pannello Dock 5"
+
+msgid "&Panels"
+msgstr "&Pannelli"
+
+msgid "&Show"
+msgstr "&Mostra"
+
+msgid "Show/hide windows"
+msgstr "Mostra/nascondi finestre"
+
+msgid "Square"
+msgstr "Quadrato"
+
+msgid "Triangle"
+msgstr "Triangolo"
+
+msgid "Lines"
+msgstr "Linee"
+
+msgid "Fractal Tree"
+msgstr "Albero frattale"
+
+msgid "Super Formula"
+msgstr "Super Formula"
+
+msgid "Hyper Formula"
+msgstr "Iperformula"
+
+msgid "Atom"
+msgstr "Atom"
+
+msgid "Spiral Hue"
+msgstr "Tonalità a spirale"
+
+msgid "Spiral Rainbow"
+msgstr "Arcobaleno a spirale"
+
+msgid "Spiral Move"
+msgstr "Spirale muova"
+
+msgid "Turtle 1"
+msgstr "Tartaruga 1"
+
+msgid "Turtle 2"
+msgstr "Tartaruga 2"
+
+msgid "Fractal Circles"
+msgstr "Cerchi frattali"
+
+msgid "Normal form"
+msgstr "Forma normale"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "Utilizza questo modulo per impostare le dimensioni dei moduli Ellisse e Rettangolo (Rotondo)."
+
+msgid "Ellipse"
+msgstr "Ellisse"
+
+msgid "Rounded rect"
+msgstr "Retto arrotondato"
+
+msgid "Rectangle"
+msgstr "Rettangolo"
+
+msgid "Always on top"
+msgstr "Sempre in primo piano"
+
+msgid "Transparent"
+msgstr "Trasparente"
+
+msgid "Hide Dancer"
+msgstr "Nascondi ballerino"
+
+msgid "Da&ncer"
+msgstr "Ballerina"
+
+msgid "Dancing Animations"
+msgstr "Animazioni danzanti"
+
+msgid "Gold"
+msgstr "Oro"
+
+msgid "Silver"
+msgstr "Argento"
+
+msgid "Carbon"
+msgstr "Carbonio"
+
+msgid "&Style"
+msgstr "&Stile"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "Stile layout Oro, Argento o Carbonio"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Config of audio and colors"
+msgstr "Configurazione di audio e colori"
+
+msgid "Language"
+msgstr "Lingua"
+
+msgid "Set language"
+msgstr "Imposta lingua"
+
+msgid "&Config"
+msgstr "&Config"
+
+msgid "Configuration setting"
+msgstr "Impostazioni di configurazione"
+
+msgid "&About"
+msgstr "&Di"
+
+msgid "About StrumPract"
+msgstr "Informazioni su StrumPract"
+
+msgid "&Quit"
+msgstr "&Esci"
+
+msgid "Terminate StrumPract"
+msgstr "Termina StrumPract"
+
+msgid "Set as default"
+msgstr "Imposta come predefinito"
+
+msgid "Recorder"
+msgstr "Registratore"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "Usa quel pannello grip per trascinare/rilasciare la finestra."
+
+msgid "Com"
+msgstr "Com"
+
+msgid "Commander"
+msgstr "Comandante"
+
+msgid "Start Drums"
+msgstr "Avvia batteria"
+
+msgid "Pause Drums"
+msgstr "Pausa batteria"
+
+msgid "Resume Drums"
+msgstr "Riprendi batteria"
+
+msgid "General Volume of drums"
+msgstr "Volume generale della batteria"
+
+msgid "Drums"
+msgstr "Batteria"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "Fai clic per passare a 100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "Volume di ingresso (microfono o ingresso)"
+
+msgid "Input (mic or aux in)"
+msgstr "Ingresso (ingresso microfono o aux)"
+
+msgid "Enable Live Input"
+msgstr "Abilita ingresso live"
+
+msgid "Right Volume General in %"
+msgstr "Volume destro generale in %"
+
+msgid "Left Volume General in %"
+msgstr "Volume sinistro generale in %"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "Volume sinistro generale. Fare clic per ripristinare al 100%."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "Volume destro generale. Fare clic per ripristinare al 100%."
+
+msgid "Lock left and right channels"
+msgstr "Blocca i canali sinistro e destro"
+
+msgid "General Volume in %"
+msgstr "Volume generale in %"
+
+msgid "System Master Volume"
+msgstr "Volume principale di sistema"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "Cambia il tempo di miscelazione in 1/100 di secondo"
+
+msgid "Stop player"
+msgstr "Interrompi lettore"
+
+msgid "Resume player"
+msgstr "Riprendi lettore"
+
+msgid "Load and Start Player"
+msgstr "Carica e avvia il lettore"
+
+msgid "Left Volume Player 1"
+msgstr "Volume sinistro Player 1"
+
+msgid "Right Volume Player 1"
+msgstr "Giocatore volume destro 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "Avvia Player 1 --> MIX --> Stop Player 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "Avvia Player 2 --> MIX --> Stop Player 1"
+
+msgid "Right Volume Player 2"
+msgstr "Riproduttore volume destro 2"
+
+msgid "Left Volume Player 2"
+msgstr "Volume sinistro Player 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "Player Cue-Load-Pause"
+
+msgid "Pause player"
+msgstr "Metti in pausa il lettore"
+
+msgid "Pause Mixing"
+msgstr "Sospendi il missaggio"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "Abilita il calcolo delle frequenze dello spettro"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "Graphic-anim durante il missaggio (se la CPU è troppo bassa disattivarla)"
+
+msgid "View Meters on/off"
+msgstr "Visualizza misuratori on/off"
+
+msgid "Auto Mixing on/off"
+msgstr "Missaggio automatico attivato/disattivato"
+
+msgid "Direct MIX (0 second time)"
+msgstr "MIX diretto (0 secondi)"
+
+msgid "Player 1"
+msgstr "Giocatore 1"
+
+msgid "Player 2"
+msgstr "Giocatore 2"
+
+msgid "Randomize mixing list"
+msgstr "Randomizzare la lista di missaggio"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "Valore non valido. Reimposta a 100."
+
+msgid "Or press Esc key for previous value."
+msgstr "Oppure premi il tasto Esc per il valore precedente."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "Usa questo pannello grip per trascinare/rilasciare la finestra"
+
+msgid "Files"
+msgstr "File"
+
+msgid "Audio files"
+msgstr "File audio"
+
+msgid "Number of files in the list"
+msgstr "Numero di file nell'elenco"
+
+msgid "Find a word in list"
+msgstr "Trova una parola nell'elenco"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "Inviato il brano selezionato per la cue per il Player 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "Inviato il brano selezionato per la cue per il Player 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "Per spostare una riga: fai clic e tieni premuto nella colonna fissa e trascina la riga dove vuoi."
+
+msgid "Name of sound"
+msgstr "Nome del suono"
+
+msgid "Ext"
+msgstr "Est"
+
+msgid "File extension"
+msgstr "Estensione file"
+
+msgid "Size"
+msgstr "Taglia"
+
+msgid "Size in Kb of the file"
+msgstr "Dimensione in Kb del file"
+
+msgid "Mix"
+msgstr "Mix"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "Includi per mix. Facendo clic sulla cella fissa ---> seleziona tutto/nessuno."
+
+msgid "Load custom play-list"
+msgstr "Carica playlist personalizzata"
+
+msgid "Load"
+msgstr "Carica"
+
+msgid "Save custom play-list"
+msgstr "Salva playlist personalizzata"
+
+msgid "Add file in custom play-list"
+msgstr "Aggiungi file nella playlist personalizzata"
+
+msgid "Add"
+msgstr "Aggiungi"
+
+msgid "History of Directories"
+msgstr "Cronologia delle directory"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "Scegli una directory audio con wav, ogg, flac o mp3"
+
+msgid "Infos of song"
+msgstr "Informazioni sul brano"
+
+msgid "No Image Tag"
+msgstr "Nessun tag immagine"
+
+msgid "Title"
+msgstr "Titolo"
+
+msgid "Artist"
+msgstr "Artista"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Year"
+msgstr "Anno"
+
+msgid "Duration"
+msgstr "Durata"
+
+msgid "Genre"
+msgstr "Genere"
+
+msgid "Comment"
+msgstr "Commento"
+
+msgid "File Name"
+msgstr "Nome file"
+
+msgid "Rate"
+msgstr "Rate"
+
+msgid "Chan"
+msgstr "Chan"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "Riproduci1"
+
+msgid "Change Left volume"
+msgstr "Cambia volume sinistro"
+
+msgid "Reset to tempo original"
+msgstr "Ripristina il tempo originale"
+
+msgid "Click to change position of sound"
+msgstr "Clicca per cambiare la posizione del suono"
+
+msgid "History of Cue files"
+msgstr "Cronologia dei file Cue"
+
+msgid "Change Right volume"
+msgstr "Cambia il volume giusto"
+
+msgid "Change tempo of song"
+msgstr "Cambia tempo del brano"
+
+msgid "Show infos of the song"
+msgstr "Mostra informazioni sulla canzone"
+
+msgid "Info"
+msgstr "Informazioni"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "Rileva BMP dalla posizione corrente e impostalo su Drums tempo."
+
+msgid "Resume player"
+msgstr "Riprendi lettore"
+
+msgid "Load from cue and Start player"
+msgstr "Carica da cue e avvia lettore"
+
+msgid "Load from cue and Pause player"
+msgstr "Carica da cue e metti in pausa il lettore"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "Scegli un file audio wav, ogg, flac o mp3"
+
+msgid "Position of sound"
+msgstr "Posizione del suono"
+
+msgid "Lenght of sound"
+msgstr "Lunghezza del suono"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "Abilita il loop del brano. (La pausa non è abilitata con il loop.)"
+
+msgid "Set Mono/Stereo"
+msgstr "Imposta mono/stereo"
+
+msgid "Show wave form in slider"
+msgstr "Mostra la forma d'onda nel dispositivo di scorrimento"
+
+msgid "Enable playing reverse."
+msgstr "Abilita la riproduzione al contrario."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "Abilita lo stretching (cambia il tempo)"
+
+msgid "right"
+msgstr "destra"
+
+msgid "Reset to 0 gain"
+msgstr "Ripristina a 0 guadagno"
+
+msgid "Load a Settings file"
+msgstr "Carica un file delle impostazioni"
+
+msgid "Save Settings in a file"
+msgstr "Salva le impostazioni in un file"
+
+msgid "left"
+msgstr "sinistra"
+
+msgid "Enable Equalizer"
+msgstr "Abilita equalizzatore"
+
+msgid "Spect"
+msgstr "Spettro"
+
+msgid "Spectrum"
+msgstr "Spettro"
+
+msgid "Right Frequency spectrum"
+msgstr "Spettro di frequenza destra"
+
+msgid "Left Frequency spectrum"
+msgstr "Spettro di frequenza sinistro"
+
+msgid "Enable Spectrum"
+msgstr "Abilita spettro"
+
+msgid "Bass"
+msgstr "Basso"
+
+msgid "Snare"
+msgstr "Rullante"
+
+msgid "Open H"
+msgstr "Apri H"
+
+msgid "Close H"
+msgstr "Chiudi H"
+
+msgid "Patern 1"
+msgstr "Patern 1"
+
+msgid "Drums Patern 1"
+msgstr "Batteria Patern 1"
+
+msgid "Drums Patern 2"
+msgstr "Batteria Patern 2"
+
+msgid "Drums Patern 3"
+msgstr "Batteria Patern 3"
+
+msgid "Drums Patern 4"
+msgstr "Batteria Patern 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgstr "Ultima lezione. Fai lo stesso della 3a lezione ma aumentando il tempo. Contando 2 puoi aggiungere un boom sulla grancassa. Congratulazioni, ora sei un batterista. ;-)"
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "3a lezione Fai lo stesso della seconda lezione e contando 3 aggiungi un clack sul rullante. Questa è la più difficile. Conta ancora ad alta voce con la tua voce."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "Seconda lezione. Fai lo stesso della prima lezione e contando 1 aggiungi un boom con il piede destro sulla grancassa. Conta ancora ad alta voce con la tua voce."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "Prima lezione. Con il bastone colpisci il cappello chiuso ad ogni conteggio. Conta ad alta voce anche con la tua voce."
+
+msgid "Patern"
+msgstr "Patern"
+
+msgid "Lesson"
+msgstr "Lezione"
+
+msgid "no anim"
+msgstr "nessun anim"
+
+msgid "No graphic animation."
+msgstr "Nessuna animazione grafica."
+
+msgid "no and"
+msgstr "no e"
+
+msgid "No and between 2 numbers."
+msgstr "No e tra 2 numeri."
+
+msgid "no voice"
+msgstr "nessuna voce"
+
+msgid "No counting voice"
+msgstr "Nessuna voce di conteggio"
+
+msgid "no drums"
+msgstr "niente batteria"
+
+msgid "No drums sound."
+msgstr "Nessun suono di batteria."
+
+msgid "Stop loop"
+msgstr "Interrompi ciclo"
+
+msgid "Resume loop"
+msgstr "Riprendi ciclo"
+
+msgid "Start loop"
+msgstr "Avvia ciclo"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (Battiti al minuto)"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "General volume of Drums"
+msgstr "Volume generale della batteria"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "Batti al minuto - intervallo in 1/10000 di secondo."
+
+msgid "Set BPM X 2"
+msgstr "Imposta BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "Imposta BPM / 2"
+
+msgid "Lang"
+msgstr "Lang"
+
+msgid "Language for counting"
+msgstr "Lingua per contare"
+
+msgid "Chord Randomizer"
+msgstr "Chord Randomizer"
+
+msgid "Click to listen to the guitar chord"
+msgstr "Clicca per ascoltare l'accordo di chitarra"
+
+msgid "Click to listen to piano chord"
+msgstr "Clicca per ascoltare l'accordo di pianoforte"
+
+msgid "Select a chord"
+msgstr "Seleziona un accordo"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "Chiudi tutto StrumPract (fai clic sull'icona nell'angolo del modulo per chiudere solo Randomizer)"
+
+msgid "Randomize chords"
+msgstr "Randomizzare accordi"
+
+msgid "Randomize"
+msgstr "Randomizzare"
+
+msgid "Manual fixed chords"
+msgstr "Accordi fissi manuali"
+
+msgid "Fixed"
+msgstr "Risolto"
+
+msgid "Tuned guitar string"
+msgstr "Corda di chitarra accordata"
+
+msgid "Tuned Guitars"
+msgstr "Chitarre accordate"
+
+msgid "Re-do a randomizer"
+msgstr "Ripeti un randomizzatore"
+
+msgid "Clear chords"
+msgstr "Cancella accordi"
+
+msgid "Chords"
+msgstr "Accordi"
+
+msgid "7th"
+msgstr "7°"
+
+msgid "Enable 7th Chords"
+msgstr "Abilita accordi di settima"
+
+msgid "minor"
+msgstr "minore"
+
+msgid "Enable minor Chords"
+msgstr "Abilita accordi minori"
+
+msgid "Major"
+msgstr "Maggiore"
+
+msgid "Enable Major Chords"
+msgstr "Abilita accordi maggiori"
+
+msgid "9th"
+msgstr "9°"
+
+msgid "Enable 9th Chords"
+msgstr "Abilita accordi di 9°"
+
+msgid "# (Sharp)"
+msgstr "# (nitido)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "Abilita Sharp-Chords #"
+
+msgid "Sound"
+msgstr "Suono"
+
+msgid "Enable Sound of Chords"
+msgstr "Abilita il suono degli accordi"
+
+msgid "Number"
+msgstr "Numero"
+
+msgid "Total chords"
+msgstr "Accordi totali"
+
+msgid "Maximum number of chords"
+msgstr "Numero massimo di accordi"
+
+msgid "Random num"
+msgstr "Numero casuale"
+
+msgid "Randomize the number of chords"
+msgstr "Randomizzare il numero di accordi"
+
+msgid "Tempo of Drums in BPM"
+msgstr "Tempo di batteria in BPM"
+
+msgid "Enable Drums"
+msgstr "Abilita batteria"
+
+msgid "Enable random Drums tempo"
+msgstr "Abilita tempo di batteria casuale"
+
+msgid "Configure the Clear message"
+msgstr "Configura il messaggio Cancella"
+
+msgid "English [en]"
+msgstr "Inglese [en]"
+
+msgid "Russian [ru]"
+msgstr "Russo [ru]"
+
+msgid "French [fr]"
+msgstr "Francese [fr]"
+
+msgid "German [de]"
+msgstr "Tedesco [de]"
+
+msgid "Spanish [es]"
+msgstr "Spagnolo [es]"
+
+msgid "Portuguese [pt]"
+msgstr "Portoghese [pt]"
+
+msgid "Chinese [zh]"
+msgstr "Cinese [zh]"
+
+msgid "Italian [it]"
+msgstr "Italiano [it]"
+
+msgid "Dutch [nl]"
+msgstr "Olandese [nl]"
+
+msgid "Hebrew [he]"
+msgstr "Ebraico [he]"
+
+msgid "Indonesian [id]"
+msgstr "Indonesiano [id]"
+
+msgid "Polish [pl]"
+msgstr "Polacco [pl]"
+
+msgid "Esperanto [eo]"
+msgstr "Esperanto [eo]"
+
+msgid "Greek [el]"
+msgstr "Greco [el]"
+
+msgid "Arabic [ar]"
+msgstr "Arabo [ar]"
+

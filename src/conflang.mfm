@@ -1,0 +1,218 @@
+object conflangfo: tconflangfo
+  visible = False
+  bounds_x = 452
+  bounds_y = 271
+  bounds_cx = 331
+  bounds_cy = 222
+  bounds_cxmin = 331
+  bounds_cymin = 222
+  bounds_cxmax = 331
+  bounds_cymax = 222
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.face.fade_pos.count = 2
+  container.face.fade_pos.items = (
+    0
+    1
+  )
+  container.face.fade_color.count = 2
+  container.face.fade_color.items = (
+    -1610612731
+    12434877
+  )
+  container.face.fade_direction = gd_down
+  container.face.localprops = [fal_fadirection]
+  container.bounds = (
+    0
+    0
+    331
+    222
+  )
+  font.name = 'stf_default'
+  font.localprops = []
+  options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  statfile = mainfo.tstatfile1
+  caption = 'Languages'
+  windowopacity = -Inf
+  oncreated = oncreat
+  moduleclassname = 'tmseform'
+  object gridlang: twidgetgrid
+    frame.localprops = []
+    frame.localprops1 = []
+    taborder = 2
+    bounds_x = 21
+    bounds_y = 48
+    bounds_cx = 290
+    bounds_cy = 163
+    font.name = 'stf_default'
+    font.localprops = []
+    optionsgrid = [og_rowinserting, og_rowdeleting, og_focuscellonenter, og_autofirstrow, og_autoappend, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
+    rowcount = 7
+    datacols.count = 3
+    datacols.items = <    
+      item[gridlangtext]
+        colorselect = -1610612731
+        coloractive = -1610612731
+        colorfocused = -1610612731
+        width = 224
+        options = [co_readonly, co_disabled, co_savevalue, co_savestate, co_mousescrollrow]
+        widgetname = 'gridlangtext'
+        dataclass = tgridmsestringdatalist
+        data = (
+          (
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+          )
+        )
+      end    
+      item[gridlangbool]
+        color = -1610612731
+        width = 44
+        options = [co_drawfocus, co_savevalue, co_savestate, co_mousescrollrow]
+        widgetname = 'gridlangbool'
+        dataclass = tgridintegerdatalist
+        data = (
+          (
+            0
+            0
+            0
+            0
+            0
+            0
+            0
+          )
+        )
+      end    
+      item[gridlangcode]
+        width = 1
+        options = [co_invisible, co_savevalue, co_savestate, co_mousescrollrow]
+        widgetname = 'gridlangcode'
+        dataclass = tgridmsestringdatalist
+        data = (
+          (
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+            ''
+          )
+        )
+      end>
+    datarowheight = 17
+    statfile = mainfo.tstatfile1
+    oncellevent = oncellev
+    reffontheight = 15
+    object gridlangtext: tstringedit
+      optionswidget1 = [ow1_fontglyphheight]
+      optionsskin = [osk_framebuttononly]
+      taborder = 1
+      enabled = False
+      visible = False
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 224
+      bounds_cy = 17
+      optionsedit = [oe_readonly, oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_nogray, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly]
+      value = 'English'
+      reffontheight = 15
+    end
+    object gridlangbool: tbooleaneditradio
+      optionswidget1 = []
+      optionsskin = [osk_framebuttononly]
+      color = -1610612731
+      taborder = 2
+      bounds_x = 225
+      bounds_y = 0
+      bounds_cx = 44
+      bounds_cy = 17
+      visible = False
+      value = True
+    end
+    object gridlangcode: tstringedit
+      optionswidget1 = [ow1_fontglyphheight]
+      optionsskin = [osk_framebuttononly]
+      taborder = 3
+      visible = False
+      bounds_x = 270
+      bounds_y = 0
+      bounds_cx = 1
+      bounds_cy = 17
+      reffontheight = 15
+    end
+  end
+  object lsetasdefault: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale]
+    color = -2147483645
+    taborder = 4
+    bounds_x = 58
+    bounds_y = -1
+    bounds_cx = 192
+    bounds_cy = 42
+    reffontheight = 15
+  end
+  object setasdefault: tbooleanedit
+    color = -2147483645
+    frame.caption = '                       '
+    frame.captiondist = 4
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      0
+      2
+      98
+      2
+    )
+    taborder = 1
+    bounds_x = 36
+    bounds_y = 11
+    bounds_cx = 111
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+  end
+  object ok: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16250871
+      13750737
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    bounds_x = 245
+    bounds_y = 7
+    bounds_cx = 78
+    bounds_cy = 26
+    anchors = [an_top, an_right]
+    state = [as_localcaption, as_localonexecute]
+    caption = 'OK'
+    onexecute = oncok
+  end
+  object bpotools: tbutton
+    color = -2147483645
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    taborder = 3
+    bounds_x = 169
+    bounds_y = 7
+    bounds_cx = 66
+    bounds_cy = 26
+    anchors = [an_top, an_right]
+    state = [as_localcaption, as_localcolor, as_localonexecute]
+    onexecute = ontools
+  end
+end

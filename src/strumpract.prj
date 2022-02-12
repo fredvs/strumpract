@@ -97,32 +97,32 @@ findinfiledialog=83
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=1
- [findinfileadialogfo.inprojectdir]
  value=0
+ [findinfileadialogfo.inprojectdir]
+ value=1
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
- value="*.pas" "*.pp" "*.inc" "*.mfm" 
+ value="*.pas" "*.pp" "*.inc" 
  history=6
-  "*.pas" "*.pp" "*.inc" "*.mfm" 
-  "*.pas" "*.pp" "*.*" 
   "*.pas" "*.pp" "*.inc" 
+  "*.pas" "*.pp" "*.*" 
+  "*.pas" "*.pp" "*.inc" "*.mfm" 
   "*.pas" "*.pp" "*.inc"
   "*.pas" "*.pp" "*.inc" "*.mfm" "*.*"
   "*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/mseide-msegui/
+  /home/fred/ideu/
  filecolwidth=150
  x=432
  y=215
  cx=608
  cy=452
  filehistory=20
+  /home/fred/ideu/
   /home/fred/mseide-msegui/
   /home/fred/fpc-ootb_322/
-  /home/fred/ideu/
   /home/fred/bgrabitmap/
   /home/fred/Downloads/bgrabitmap-master/
   /home/fred/freepascal-ootb_322/
@@ -143,28 +143,28 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=bmk_rgb
+ value=guimixb
  history=20
+  guimixb
+  tbutton2.hint
+  po2mo
+  fixrow
+  lang_stockcaption
+  array of msestring
+  lang_stockcaption ,
+  lang_stockcaption,
+  lang_
+  _dynpo
+  mseform
+  msestockobjects
+  mseconst
+  dummy
   bmk_rgb
   tchartleft
   array of array
   cwstring
   echelle
   wavefo.echelle
-  msecwstring
-  msecwstrings
-  stringheaderty
-  infofile
-  fond.
-  timagelist
-  framecomp
-  _libc_start_main
-  tprocess
-  doechelle
-  reset
-  reseet
-  processmouseevent
-  mouse
  [findinfileadialogfo]
  stackedunder=
  x=506
@@ -176,18 +176,25 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=733
- y=297
- cx=234
+ x=944
+ y=307
+ cx=266
  cy=269
 replacedialog=33
  [replacedialogfo.promptonreplace]
  value=1
  [replacedialogfo.selectedonly]
- value=0
+ value=1
  [replacedialogfo.replacetext]
- value=if tag = 1 then
+ value='
  history=20
+  '
+  = '
+  mainfo
+  c'
+  b'
+  a'
+  e'
   if tag = 1 then
   if tag = 0 then
   button
@@ -201,13 +208,6 @@ replacedialog=33
   alsider
   //
   msestring
-  minor
-  ;
-  belipse
-  chord3.caption
-  chord2.caption
-  chord1.caption
-  webp_Handle
  [replacedialogfo]
  stackedunder=
  x=746
@@ -254,7 +254,7 @@ options=114
  row=-1073741823
  rowheight=17
  [projectoptionsfo.newfile]
- firsttab=0
+ firsttab=1
  index=2
  [projectoptionsfo.fontaliasgrid]
  propcolwidthref=468
@@ -325,8 +325,8 @@ options=114
  index=2
  [projectoptionsfo]
  stackedunder=
- x=486
- y=52
+ x=228
+ y=62
  cx=818
  cy=615
 programparameters=18
@@ -350,10 +350,10 @@ programparameters=18
  cy=348
 settings=8
  [settings_form]
- x=447
- y=145
+ x=543
+ y=54
  cx=446
- cy=578
+ cy=660
  wsize=0
  active=1
  visible=1
@@ -500,81 +500,37 @@ compnamedialog=5
  y=267
  cx=295
  cy=203
-bmpfiledialog=76
+bmpfiledialog=32
  [filedialog]
  filenames=1
-  /home/fred/Pictures/slidergold.png
- filenamescust=1
-  /home/fred/strumpract/src/
+  /home/fred/Pictures/playlistdirectory1nb.png
  filecolwidth=150
- x=296
- y=172
+ x=698
+ y=160
  cx=623
  cy=431
- nopanel=0
- compact=0
- showoptions=0
- hidehistory=0
- hideicons=0
- showhidden=0
- colnamewidth=203
- colsizewidth=81
- colextwidth=45
- coldatewidth=126
- splitterplaces=191
- splitterlateral=126
  lastdir=/home/fred/Pictures/
- filehistory=50
-  /home/fred/Pictures/slidergold.png
-  /home/fred/Pictures/slidergreen.png
-  /home/fred/Pictures/buttonslidernewlight.png
-  /home/fred/Pictures/sliderred.png
-  /home/fred/Pictures/slidergray.png
-  /home/fred/Pictures/buttonslidernew.png
-  /home/fred/Pictures/images/beauty.png
-  /home/fred/strumpract/src/images/strumpract.png
-  /home/fred/strumpract/src/images/infoaudio.png
-  /home/fred/Pictures/patte_chien_32.png
-  /home/fred/strumpract/src/images/audiob2.png
-  /home/fred/strumpract/src/images/audiob.png
-  /home/fred/Pictures/imagesideu/edit-find3.png
-  /home/fred/Pictures/strumcolor.png
-  /home/fred/Pictures/imagesideu/edit-find.png
-  /home/fred/Pictures/imagesideu/edit-find2.png
-  /home/fred/strumpract/src/uos.png
-  /home/fred/Documents/equalizer.png
-  /home/fred/ideu/src/ideu24.png
-  /home/fred/ideu/src/ideu64.png
-  /home/fred/Pictures/imagesideu/beauty.png
-  /home/fred/ideu/src/ideu.png
-  /home/fred/strumpract/src/images/dancer.png
-  /home/fred/strumpract/src/images/logo_uos2.png
-  /home/fred/strumpract/src/images/logo_uos.png
-  /home/fred/Documents/spectrum.png
-  /home/fred/strumpract/src/images/link.png
-  /home/fred/strumpract/src/images/basschord2.png
-  /home/fred/strumpract/src/images/guiaretab2.png
-  /home/fred/strumpract/src/images/chordsrand.png
-  /home/fred/strumpract/src/elipsepianolight.png
-  /home/fred/strumpract/src/basschord2.png
-  /home/fred/strumpract/src/guiaretab3.png
-  /home/fred/strumpract/src/guiaretab2.png
-  /home/fred/strumpract/src/elipsepiano.png
-  /home/fred/strumpract/src/pianokeyb.png
-  /home/fred/uos/uos.png
-  /home/fred/Images/start.png
-  /home/fred/Images/uosicon24.png
-  /home/fred/Images/uosicon32.png
-  /home/fred/Images/wave.png
-  /home/fred/Images/spectrum.png
-  /home/fred/Images/gnome-multimedia.png
-  /home/fred/Images/uos.jpg
-  /home/fred/Images/uosicon.png
-  /home/fred/Images/config.png
-  /home/fred/Images/uos2.bmp
-  /home/fred/Images/comm3.png
-  /home/fred/Images/comm2.png
-  /home/fred/Images/play22.png
+ filehistory=20
+  /home/fred/Pictures/playlistdirectory1nb.png
+  /home/fred/Pictures/playlistcue22nb.png
+  /home/fred/Pictures/playlistcue12nb.png
+  /home/fred/Pictures/playlistssavenew.png
+  /home/fred/Pictures/playlistsaddnew.png
+  /home/fred/Pictures/playlistsopennew.png
+  /home/fred/Pictures/playlistadd2nb.png
+  /home/fred/Pictures/playlistsearchnew.png
+  /home/fred/Pictures/playlistopennb.png
+  /home/fred/Pictures/playlistsave2nb.png
+  /home/fred/Pictures/playlistopen2nb.png
+  /home/fred/Pictures/playlistopen.png
+  /home/fred/Pictures/playlistopenblue.png
+  /home/fred/Pictures/playlistcue22.png
+  /home/fred/Pictures/playlistcue12.png
+  /home/fred/Pictures/playlistdirectory1.png
+  /home/fred/Pictures/playlistosearch2.png
+  /home/fred/Pictures/playlistadd2.png
+  /home/fred/Pictures/playlistopen2.png
+  /home/fred/Pictures/playlistsave2.png
  filefilterindex=0
  filefilter="All" "*.jpg" "*.jpeg" "*.bmp" "*.ico" "*.png" "*.pnm" "*.pgm" "*.pbm" "*.tga" "*.tif" "*.tiff" "*.xpm"
 mainfile=strumpract.pas
@@ -599,16 +555,15 @@ objpref=-Fo
 targpref=-o
 befcommand=0
 aftcommand=0
-makeoptions=16
+makeoptions=15
  -Mobjfpc -Fcutf8
- -ghl
+ -gl
  -FE.
  -WG
  -gw2
  -B
  -O1
- -dmse_flushgdi
- -dmse_repaintcanvas
+ -dmse_dynpo
  -sh
  -XX -Xs -CX
  -vewinhq
@@ -616,18 +571,17 @@ makeoptions=16
  -dclass_bridge
  -dBGRABITMAP_USE_MSEGUI
  -Cg -k-znow -k-pie
-makeoptpurpose=16
+makeoptpurpose=15
  Define Object Pascal
  Debug infos/Memory leak
  Exe path
  For Windows gui
  More debug
  Re-build all
- 
- 
- 
+ Optimizations (remove for aarch64)
+ Use dynamic loading of po files
  Create script for linker
- Optimizations
+ Strip things
  Verbosity
  Output to /units
  Classes bridge define
@@ -849,26 +803,37 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
- IMAGEDANCERFO
+modulenames=6
+ CONFLANGFO
+ EQUALIZERFO
+ INFOSFO
  MAINFO
-moduletypes=2
- TIMAGEDANCERFO
+ HEADERFO
+ RECORDERFO
+moduletypes=6
+ TCONFLANGFO
+ TEQUALIZERFO
+ TINFOSFO
  TMAINFO
-modulefiles=2
- /home/fred/strumpract/src/imagedancer.mfm
+ THEADERFO
+ TRECORDERFO
+modulefiles=6
+ /home/fred/strumpract/src/conflang.mfm
+ /home/fred/strumpract/src/equalizer.mfm
+ /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/potools.mfm
+ /home/fred/strumpract/src/recorder.mfm
 befcommandon=0
-makeoptionson=16
+makeoptionson=15
  4095
  0
  0
  192
  0
- 1023
- 511
- 0
- 0
+ 1019
+ 4095
+ 4095
  0
  4095
  4095
@@ -1225,10 +1190,10 @@ line=35
  137
  343
  587
- 237
+ 246
  5734
- 1864
- 1530
+ 2703
+ 1490
  326
  319
  571
@@ -1236,56 +1201,56 @@ line=35
  773
  785
  701
- 1606
+ 1566
  209
  1136
- 4345
+ 5184
  491
  5
  793
  1518
  169
- 1534
+ 1494
  368
- 1757
+ 1717
  622
  1014
 address=35
- 5014125
+ 5007158
  7989638
  8000139
  7891945
  0
- 5127989
- 5009201
- 5009201
- 5011077
+ 5134581
+ 4995427
+ 4995427
+ 5003665
  7843321
  0
  7983948
- 5028485
- 5150774
- 5182695
- 5103734
- 5186385
- 5107650
- 5111797
- 5111898
+ 5024963
+ 5155424
+ 5186754
+ 5110905
+ 5190423
+ 5114840
+ 5118944
+ 5119045
  4653474
- 5152421
+ 5157019
  4646880
  4661851
- 5074529
- 4779314
+ 5081110
+ 4779520
  0
- 5191332
+ 5194885
  7919115
- 5248931
- 5150774
- 5253849
- 5154733
- 5232984
- 0
+ 5271480
+ 5155424
+ 5276214
+ 5159099
+ 5234779
+ 5244023
 addbkpt=35
  0
  0
@@ -1647,91 +1612,147 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=playrandomchords
+finddtext=noimage
 findhistory=20
- playrandomchords
- onchangevalcolor
- tchartright.traces[0].chartkind
- bar_face.fade_color
- color
-  visible :=
- updatelayoutstrum
- hasinit
- oktimer
- ondockall
- ontimerwait
- cymin
- bounds_cymin
- template
- if typecolor.Value =
- for x := 1 to 20 do
- sbvert
- ontimeract
- timer
- si1.cx := basedock.Width
+ noimage
+ 'fr'
+ click to l
+ 'max'
+ History
+ recorder
+ 'recorder
+ stockcap
+ 'close
+ 'ok
+ setlang
+ 'drums
+ clear
+ 'clear
+ spectrum1
+ lesson4
+ 'drum
+ drums'
+ show wave for
+ enable play
 findoptions=1
-editpos=5
+editpos=12
+ 0,6
+ 0,416
+ 0,49
  0,-1073741823
  0,-1073741823
- 0,1
- 0,2424
- 0,385
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,6
+ 0,4
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-sourcefiles=5
- ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/imagedancer.pas
+bookmarks5=0
+bookmarks6=0
+bookmarks7=0
+bookmarks8=0
+bookmarks9=0
+bookmarks10=0
+bookmarks11=0
+sourcefiles=12
+ ${PROJECTDIR}/recorder.pas
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/uos_flat.pas
- ${PROJECTDIR}/uos_portaudio.pas
-relpaths=5
- strumpract.pas
- imagedancer.pas
+ ${PROJECTDIR}/captionstrumpract.pas
+ ${PROJECTDIR}/strumpract.pas
+ ${PROJECTDIR}/infos.pas
+ ${PROJECTDIR}/conflang.pas
+ ${PROJECTDIR}/po2arrays.pas
+ ${PROJECTDIR}/potools.pas
+ ${PROJECTDIR}/equalizer.pas
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/infos.pas
+ ${PROJECTDIR}/equalizer.pas
+relpaths=12
+ recorder.pas
  main.pas
- uos_flat.pas
- uos_portaudio.pas
-ismoduletexts=5
+ captionstrumpract.pas
+ strumpract.pas
+ infos.pas
+ conflang.pas
+ po2arrays.pas
+ potools.pas
+ equalizer.pas
+ main.pas
+ infos.pas
+ equalizer.pas
+ismoduletexts=12
  0
  0
  0
  0
  0
-modules=6
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+ 0
+modules=8
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/guitars.mfm
- /home/fred/strumpract/src/imagedancer.mfm
-moduleoptions=6
+ /home/fred/strumpract/src/infos.mfm
+ /home/fred/strumpract/src/conflang.mfm
+ /home/fred/strumpract/src/potools.mfm
+ /home/fred/strumpract/src/equalizer.mfm
+moduleoptions=8
+ 0
+ 2
  0
  0
  0
  0
  0
  0
-visiblemodules=6
+visiblemodules=8
+ -1
+ 0
+ 0
+ -1
+ -1
+ -1
+ -1
+ -1
+nomenumodules=8
+ 0
+ -1
  -1
  0
  0
  0
  0
- 0
-nomenumodules=6
- 0
- -1
- -1
- -1
- -1
  0
 [sourcefo.files_tab]
+order=12
+ 0
+ 1
+ 11
+ 10
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
 firsttab=0
-index=4
+index=2
 [layout]
-windowlayout=686
+windowlayout=690
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1745,13 +1766,13 @@ windowlayout=686
  ny=0
  ncx=0
  ncy=0
- x=34
- y=53
- cx=1224
+ x=5
+ y=74
+ cx=1286
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [findmessagefo.findtext]
@@ -1773,15 +1794,15 @@ windowlayout=686
  ny=0
  ncx=0
  ncy=0
- x=478
- y=303
- cx=495
+ x=493
+ y=171
+ cx=497
  cy=314
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1875,7 +1896,7 @@ windowlayout=686
  x=0
  y=0
  cx=205
- cy=519
+ cy=450
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1886,8 +1907,8 @@ windowlayout=686
  sortdescend1=0
  sorted=0
  col=0
- row=15
- rowheight=16
+ row=4
+ rowheight=17
  [stackfo]
  splitdir=0
  useroptions=268460137
@@ -1925,14 +1946,14 @@ windowlayout=686
  active=0
  visible=0
  [watchpointsfo.grid]
- propcolwidthref=332
+ propcolwidthref=352
  sortdescend0=0
  values1=0
  values1_ci=-1
  width1=33
  sortdescend1=0
  values2=0
- width2=149
+ width2=158
  sortdescend2=0
  width4=34
  sortdescend4=0
@@ -1941,7 +1962,7 @@ windowlayout=686
  width5=38
  sortdescend5=0
  values6=0
- width6=172
+ width6=184
  sortdescend6=0
  [breakpointsfo]
  splitdir=0
@@ -1965,10 +1986,10 @@ windowlayout=686
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=469
- width0=207
+ propcolwidthref=486
+ width0=216
  sortdescend0=0
- width1=256
+ width1=264
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2032,7 +2053,7 @@ windowlayout=686
  rcx=1262
  rcy=583
  [watchfo.grid]
- propcolwidthref=121
+ propcolwidthref=111
  values0=0
  values0_ci=-1
  sortdescend0=0
@@ -2061,9 +2082,9 @@ windowlayout=686
  ncx=0
  ncy=0
  x=0
- y=583
- cx=1356
- cy=107
+ y=507
+ cx=1274
+ cy=93
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2162,8 +2183,8 @@ windowlayout=686
  ncy=0
  x=0
  y=0
- cx=1356
- cy=58
+ cx=1274
+ cy=51
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2174,12 +2195,12 @@ windowlayout=686
  mdistate=0
  nx=0
  ny=0
- ncx=1197
- ncy=25
+ ncx=1274
+ ncy=58
  x=0
  y=0
- cx=1356
- cy=31
+ cx=1274
+ cy=58
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2189,58 +2210,13 @@ windowlayout=686
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/uos_portaudio.pas
- history=50
-  /home/fred/strumpract/src/uos_flat.pas
-  /home/fred/strumpract/src/uos_define.inc
-  /home/fred/uos/examples/consoleplay.pas
-  /home/fred/uos/examples/uos_flat.pas
-  /home/fred/uos/src/uos_flat.pas
-  /home/fred/uos/src/uos.pas
-  /home/fred/uos/examples/uos_define.inc
-  /home/fred/uos/src/uos_define.inc
-  /home/fred/eschecs-master/source/aboutform.pas
-  /home/fred/uos/src/define.inc
-  /home/fred/uos/src/uos_portaudio.pas
-  /home/fred/roulette/cairo_dyn.pas
-  /home/fred/roulette/cairo.pp
-  /home/fred/roulette/roulette4.pas
-  /home/fred/fpd/src/fpdebug/fpdbglinuxextra.pas
-  /home/fred/fpdlast/src/fpdebug/fpdbglinuxextra.pas
-  /home/fred/fpdlast/src/fpdebug/fpdbglinuxclasses.pas
-  /home/fred/fpdlast/src/fpdebug/fpdbgcallcontextinfo.pas
-  /home/fred/fpd/src/Azote/az_aarch64.pas
-  /home/fred/fpd/src/Azote/aarch64-classes.inc
-  /home/fred/fpd/src/Azote/aarch64-regs.inc
-  /home/fred/fpd/src/fpdtype.pas
-  /home/fred/fpd/src/fpdebug/fpdbglinux_arm_classes.pas
-  /home/fred/fpd/src/fpdebug/fpdbgdisasavr.pp
-  /home/fred/fpd/src/fpdbglinuxarmclasses.pas
-  /home/fred/fpd/src/fpd.lpr
-  /home/fred/fpd/src/Azote/aarch64-oprnds.inc
-  /home/fred/fpd/src/Azote/aarch64-lookup.inc
-  /home/fred/fpd/src/Azote/aarch64-insns.inc
-  /home/fred/fpd/src/Azote/aarch64-fields.inc
-  /home/fred/fpd/src/Azote/aarch64-aliascond.inc
-  /home/fred/fpd/src/Azote/aarch64-adt-pp.inc
-  /home/fred/fpd/src/Azote/aarch64-adt-asm.inc
-  /home/fred/fpd/src/Azote/aarch64-tbl.inc
-  /home/fred/fpd/src/Azote/Azote.pas
-  /home/fred/Azote/source/Config.inc
-  /home/fred/fpd/src/fpdbgdisasarm.pas
-  /home/fred/Azote_fred/source/disasm/arch/AArch64/Azote.Disassembler.AArch64.pas
-  /home/fred/fpd/src/fpdebug/fpdbgdisasx86.pp
-  /home/fred/fpd/src/fpdebug/fpimgreaderelf.pas
-  /home/fred/fpd/src/fpdebug/fpimgreaderelftypes.pas
-  /home/fred/fpd/src/fpdebug/fpdbglinuxclasses.pas
-  /home/fred/fpd/src/fpdebug/fpdbgavrclasses.pas
-  /home/fred/fpd/src/fpdebug_fred/fpdbgcommon.pas
-  /home/fred/fpd/src/fpdebug_fred/fpdbgcallcontextinfo.pas
-  /home/fred/fpd/src/fpdebug/fpdbgclasses.pp
-  /home/fred/fpd/src/fpdebug/fpdbgcommon.pas
-  /home/fred/fpd/src/fpdebug/fpdbgsymtablecontext.pas
-  /home/fred/Azote/clt/Azote.dpr
-  /home/fred/fpd/src/fpdcommand.pas
+ value=/home/fred/strumpract/src/equalizer.pas
+ history=5
+  /home/fred/strumpract/src/captionstrumpract.pas
+  /home/fred/strumpract/src/potools.pas
+  /home/fred/strumpract/src/po2arrays.pas
+  /home/fred/strumpract/src/conflang.pas
+  /home/fred/strumpract/src/infos.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2257,22 +2233,33 @@ windowlayout=686
  ncy=0
  x=208
  y=0
- cx=1148
- cy=519
+ cx=1066
+ cy=450
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=12
+  0
+  1
+  11
+  10
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
  firsttab=0
- index=4
- [confideufo.fontname]
- value=stf_default
+ index=2
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=0
  nx=0
@@ -2299,23 +2286,23 @@ windowlayout=686
  ncx=0
  ncy=0
  x=0
- y=61
- cx=1356
- cy=519
+ y=54
+ cx=1274
+ cy=450
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=411
- y=475
+ x=438
+ y=302
  cx=452
  cy=96
  rcx=0
@@ -2326,7 +2313,7 @@ windowlayout=686
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2345,26 +2332,26 @@ windowlayout=686
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_conflangfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=483
- y=113
+ x=510
+ y=159
  cx=452
  cy=128
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2380,44 +2367,82 @@ windowlayout=686
  wsize=0
  active=0
  visible=0
- [_mse_guitarsfo_mse_]
+ [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=853
- y=249
+ x=43
+ y=145
  cx=452
- cy=64
+ cy=238
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
- [_mse_imagedancerfo_mse_]
+ visible=1
+ [_mse_conflangfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=
+ stackedunder=_mse_headerfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=403
- y=251
- cx=456
- cy=354
+ x=452
+ y=271
+ cx=341
+ cy=222
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
+ [_mse_headerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_infosfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=309
+ y=172
+ cx=782
+ cy=437
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_equalizerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=641
+ y=136
+ cx=452
+ cy=142
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0

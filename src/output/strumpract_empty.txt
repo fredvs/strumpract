@@ -1,0 +1,914 @@
+
+
+msgstr "&Cancel"
+
+msgstr "&Abort"
+
+msgstr "&OK"
+
+msgstr "&Yes"
+
+msgstr "&No"
+
+msgstr "&All"
+
+msgstr "Yes &all"
+
+msgstr "N&o all"
+
+msgstr "&Ignore"
+
+msgstr "&Skip"
+
+msgstr "Skip a&ll"
+
+msgstr "Co&ntinue"
+
+msgstr "Cancel"
+
+msgstr "Abort"
+
+msgstr "OK"
+
+msgstr "Yes"
+
+msgstr "No"
+
+msgstr "All"
+
+msgstr "Yes all"
+
+msgstr "No all"
+
+msgstr "Ignore"
+
+msgstr "Skip"
+
+msgstr "Skip all"
+
+msgstr "Continue"
+
+msgstr "is invalid"
+
+msgstr "Format error"
+
+msgstr "Value is required"
+
+msgstr "Error"
+
+msgstr "Min"
+
+msgstr "Max"
+
+msgstr "Range error"
+
+msgstr "&Undo"
+
+msgstr "&Redo"
+
+msgstr "&Copy"
+
+msgstr "Cu&t"
+
+msgstr "&Paste"
+
+msgstr "Select &all"
+
+msgstr "&Insert Row"
+
+msgstr "&Append Row"
+
+msgstr "&Delete Row"
+
+msgstr "&Dir"
+
+msgstr "&Home"
+
+msgstr "&Up"
+
+msgstr "&New"
+
+msgstr "&Name"
+
+msgstr "&Show hidden files"
+
+msgstr "&Filter"
+
+msgstr "Save"
+
+msgstr "Open"
+
+msgstr "Name"
+
+msgstr "Create new directory"
+
+msgstr "Back"
+
+msgstr "Forward"
+
+msgstr "Up"
+
+msgstr "exists, do you want to overwrite?"
+
+msgstr "is modified. Save?"
+
+msgstr "WARNING"
+
+msgstr "Exception"
+
+msgstr "System"
+
+msgstr "does not exist"
+
+msgstr "PASSWORD"
+
+msgstr "Enter password"
+
+msgstr "Invalid password!"
+
+msgstr "Can not read directory"
+
+msgstr "Graphic format not supported"
+
+msgstr "Graphic format error"
+
+msgstr "All Images"
+
+msgstr "Confirmation"
+
+msgstr "Delete record?"
+
+msgstr "Copy record?"
+
+msgstr "Close page"
+
+msgstr "First"
+
+msgstr "Prior"
+
+msgstr "Next"
+
+msgstr "Last"
+
+msgstr "Append"
+
+msgstr "Delete"
+
+msgstr "Edit"
+
+msgstr "Post"
+
+msgstr "Annul"
+
+msgstr "Refresh"
+
+msgstr "Edit filter"
+
+msgstr "Edit filter minimum"
+
+msgstr "Edit filter maximum"
+
+msgstr "Reset filter"
+
+msgstr "Filter on"
+
+msgstr "Search"
+
+msgstr "Auto edit"
+
+msgstr "Copy record"
+
+msgstr "Dialog"
+
+msgstr "Insert"
+
+msgstr "Copy"
+
+msgstr "Paste"
+
+msgstr "Row insert"
+
+msgstr "Row append"
+
+msgstr "Row delete"
+
+msgstr "Undo"
+
+msgstr "Redo"
+
+msgstr "Cut"
+
+msgstr "Select all"
+
+msgstr "Filter off"
+
+msgstr "Portrait"
+
+msgstr "Landscape"
+
+msgstr "Delete row?"
+
+msgstr "selected rows?"
+
+msgstr "Single item only"
+
+msgstr "Copy Cells"
+
+msgstr "Paste Cells"
+
+msgstr "Close"
+
+msgstr "Maximize"
+
+msgstr "Normalize"
+
+msgstr "Minimize"
+
+msgstr "Fix size"
+
+msgstr "Float"
+
+msgstr "Stay on top"
+
+msgstr "Stay in background"
+
+msgstr "Lock children"
+
+msgstr "No lock"
+
+msgstr "Input"
+
+msgstr "Button"
+
+msgstr "On"
+
+msgstr "Off"
+
+msgstr "Left border"
+
+msgstr "Top border"
+
+msgstr "Right border"
+
+msgstr "Bottom border"
+
+msgstr "Begin of text"
+
+msgstr "End of text"
+
+msgstr "Inputmode"
+
+msgstr "Overwrite"
+
+msgstr "Deleted"
+
+msgstr "Copied"
+
+msgstr "Inserted"
+
+msgstr "Pasted"
+
+msgstr "Withdrawn"
+
+msgstr "Window activated"
+
+msgstr "Menu"
+
+msgstr "Beginning of file"
+
+msgstr "End of file"
+
+msgstr "Voice output"
+
+msgstr "Speak again"
+
+msgstr "First column"
+
+msgstr "First row"
+
+msgstr "Last column"
+
+msgstr "Last row"
+
+msgstr "Selection"
+
+msgstr "Speak path"
+
+msgstr "Disabled button"
+
+msgstr "First field"
+
+msgstr "Last field"
+
+msgstr "First element"
+
+msgstr "Last element"
+
+msgstr "Slower"
+
+msgstr "Faster"
+
+msgstr "Window"
+
+msgstr "Area"
+
+msgstr "Area activated"
+
+msgstr "Volume down"
+
+msgstr "Volume up"
+
+msgstr "Cancel speech"
+
+msgstr "New"
+
+msgstr "Tools"
+
+msgstr "Languages"
+
+msgstr "Directory"
+
+msgstr "No icons"
+
+msgstr "No lateral"
+
+msgstr "Compact"
+
+msgstr "Path"
+
+msgstr "File"
+
+msgstr "Delete selected row?"
+
+msgstr "Delete %s selected rows?"
+
+msgstr "StrumPract"
+
+msgstr "Dock any window on this area."
+
+msgstr "Drag a form here using right-border grip."
+
+msgstr "&Dock"
+
+msgstr "Dock windows in one form"
+
+msgstr "&Tab"
+
+msgstr "One form with tabs"
+
+msgstr "&Dock all visible windows"
+
+msgstr "&Float all visible windows"
+
+msgstr "Float windows in independent forms"
+
+msgstr "&Tab all visible windows"
+
+msgstr "Make windows tabed in one form"
+
+msgstr "&Jam Session"
+
+msgstr "DJ Console Wave"
+
+msgstr "DJ Console Info"
+
+msgstr "&Record stage"
+
+msgstr "&Chords Randomizer"
+
+msgstr "&Image Dancer"
+
+msgstr "Save Layout"
+
+msgstr "Save current layout"
+
+msgstr "Load Layout"
+
+msgstr "Load saved layout"
+
+msgstr "&Layout"
+
+msgstr "Layout of windows"
+
+msgstr "Show All"
+
+msgstr "Hide All"
+
+msgstr "Show Drums"
+
+msgstr "Show File List"
+
+msgstr "Show Player 1"
+
+msgstr "Show Player 2"
+
+msgstr "Show Commander"
+
+msgstr "Show Recorder"
+
+msgstr "Show Guitars"
+
+msgstr "Show Spectrum 1"
+
+msgstr "Show Spectrum 2"
+
+msgstr "Show Spectrum Rec"
+
+msgstr "Show WaveForm 1"
+
+msgstr "Show WaveForm 2"
+
+msgstr "Show WaveForm Rec"
+
+msgstr "Show Equalizer 1"
+
+msgstr "Show Equalizer 2"
+
+msgstr "Show Equalizer Rec"
+
+msgstr "Show Chord Randomizer"
+
+msgstr "Show Image Dancer"
+
+msgstr "Show Dock Panel 1"
+
+msgstr "Show Dock Panel 2"
+
+msgstr "Show Dock Panel 3"
+
+msgstr "Show Dock Panel 4"
+
+msgstr "Show Dock Panel 5"
+
+msgstr "&Panels"
+
+msgstr "&Show"
+
+msgstr "Show/hide windows"
+
+msgstr "Square"
+
+msgstr "Triangle"
+
+msgstr "Lines"
+
+msgstr "Fractal Tree"
+
+msgstr "Super Formula"
+
+msgstr "Hyper Formula"
+
+msgstr "Atom"
+
+msgstr "Spiral Hue"
+
+msgstr "Spiral Rainbow"
+
+msgstr "Spiral Move"
+
+msgstr "Turtle 1"
+
+msgstr "Turtle 2"
+
+msgstr "Fractal Circles"
+
+msgstr "Normal form"
+
+msgstr "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+
+msgstr "Ellipse"
+
+msgstr "Rounded rect"
+
+msgstr "Rectangle"
+
+msgstr "Always on top"
+
+msgstr "Transparent"
+
+msgstr "Hide Dancer"
+
+msgstr "Da&ncer"
+
+msgstr "Dancing Animations"
+
+msgstr "Gold"
+
+msgstr "Silver"
+
+msgstr "Carbon"
+
+msgstr "&Style"
+
+msgstr "Layout style Gold, Silver or Carbon"
+
+msgstr "Audio"
+
+msgstr "Config of audio and colors"
+
+msgstr "Language"
+
+msgstr "Set language"
+
+msgstr "&Config"
+
+msgstr "Configuration setting"
+
+msgstr "&About"
+
+msgstr "About StrumPract"
+
+msgstr "&Quit"
+
+msgstr "Terminate StrumPract"
+
+msgstr "Set as default"
+
+msgstr "Recorder"
+
+msgstr "Use that grip panel to drag/drop the window."
+
+msgstr "Com"
+
+msgstr "Commander"
+
+msgstr "Start Drums"
+
+msgstr "Pause Drums"
+
+msgstr "Resume Drums"
+
+msgstr "General Volume of drums"
+
+msgstr "Drums"
+
+msgstr "Click to switch to 100% <> 0% "
+
+msgstr "Volume of input (mic or input)"
+
+msgstr "Input (mic or aux in)"
+
+msgstr "Enable Live Input"
+
+msgstr "Right Volume General in %"
+
+msgstr "Left Volume General in %"
+
+msgstr "General left volume. Click to reset to 100%."
+
+msgstr "General right volume. Click to reset to 100%."
+
+msgstr "Lock left and right channels"
+
+msgstr "General Volume in %"
+
+msgstr "System Master Volume"
+
+msgstr "Change mixing time in 1/100 second"
+
+msgstr "Stop player"
+
+msgstr "Resume player"
+
+msgstr "Load and Start Player"
+
+msgstr "Left Volume Player 1"
+
+msgstr "Right Volume Player 1"
+
+msgstr "Start Player 1 --> MIX --> Stop Player 2"
+
+msgstr "Start Player 2 --> MIX --> Stop Player 1"
+
+msgstr "Right Volume Player 2"
+
+msgstr "Left Volume Player 2"
+
+msgstr "Cue-Load-Pause Player"
+
+msgstr "Pause player"
+
+msgstr "Pause Mixing"
+
+msgstr "Enable Spectrum Frequencies Calculation"
+
+msgstr "Graphic-anim while mixing (if cpu too low set it off)"
+
+msgstr "View Meters on/off"
+
+msgstr "Auto Mixing on/off"
+
+msgstr "Direct MIX (0 second time)"
+
+msgstr "Player 1"
+
+msgstr "Player 2"
+
+msgstr "Randomize mixing list"
+
+msgstr "Invalid value.  Reset to 100."
+
+msgstr "Or press Esc key for previous value."
+
+msgstr "Use this grip panel to drag/drop the window"
+
+msgstr "Files"
+
+msgstr "Audio files"
+
+msgstr "Number of files in the list"
+
+msgstr "Find a word in list"
+
+msgstr "Sent selected song to cue for Player 1"
+
+msgstr "Sent selected song to cue for Player 2"
+
+msgstr "To move a row: click+hold into the fixed column and drag the row where you want."
+
+msgstr "Name of sound"
+
+msgstr "Ext"
+
+msgstr "File extension"
+
+msgstr "Size"
+
+msgstr "Size in Kb of the file"
+
+msgstr "Mix"
+
+msgstr "Include for mix.  Clicking on the fixed cell ---> select all/none."
+
+msgstr "Load custom play-list"
+
+msgstr "Load"
+
+msgstr "Save custom play-list"
+
+msgstr "Add file in custom play-list"
+
+msgstr "Add"
+
+msgstr "History of Directories"
+
+msgstr "Choose a audio directory with wav, ogg, flac or mp3"
+
+msgstr "Infos of song"
+
+msgstr "No Image Tag"
+
+msgstr "Title"
+
+msgstr "Artist"
+
+msgstr "Album"
+
+msgstr "Year"
+
+msgstr "Duration"
+
+msgstr "Genre"
+
+msgstr "Comment"
+
+msgstr "File Name"
+
+msgstr "Rate"
+
+msgstr "Chan"
+
+msgstr "BPM"
+
+msgstr "Play1"
+
+msgstr "Change Left volume"
+
+msgstr "Reset to tempo original"
+
+msgstr "Click to change position of sound"
+
+msgstr "History of Cue files"
+
+msgstr "Change Right volume"
+
+msgstr "Change tempo of song"
+
+msgstr "Show infos of the song"
+
+msgstr "Info"
+
+msgstr "Detect BMP from current position and set it to Drums tempo."
+
+msgstr "Resume player"
+
+msgstr "Load from cue and Start player"
+
+msgstr "Load from cue and Pause player"
+
+msgstr "Choose a  wav, ogg, flac or mp3 audio file"
+
+msgstr "Position of sound"
+
+msgstr "Lenght of sound"
+
+msgstr "Enable looping the song. (Pause is not enabled with loop.)"
+
+msgstr "Set Mono/Stereo"
+
+msgstr "Show wave form in slider"
+
+msgstr "Enable playing reverse."
+
+msgstr "Enable stretching (changing tempo)"
+
+msgstr "right"
+
+msgstr "Reset to 0 gain"
+
+msgstr "Load a Settings file"
+
+msgstr "Save Settings in a file"
+
+msgstr "left"
+
+msgstr "Enable Equalizer"
+
+msgstr "Spect"
+
+msgstr "Spectrum"
+
+msgstr "Right Frequency spectrum"
+
+msgstr "Left Frequency spectrum"
+
+msgstr "Enable Spectrum"
+
+msgstr "Bass"
+
+msgstr "Snare"
+
+msgstr "Open H"
+
+msgstr "Close H"
+
+msgstr "Patern 1"
+
+msgstr "Drums Patern 1"
+
+msgstr "Drums Patern 2"
+
+msgstr "Drums Patern 3"
+
+msgstr "Drums Patern 4"
+
+msgstr "Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+
+msgstr "3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice."
+
+msgstr "Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice."
+
+msgstr "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+
+msgstr "Patern"
+
+msgstr "Lesson"
+
+msgstr "no anim"
+
+msgstr "No graphic animation."
+
+msgstr "no "and""
+
+msgstr "No "and" between 2 numbers."
+
+msgstr "no voice"
+
+msgstr "No counting voice"
+
+msgstr "no drums"
+
+msgstr "No drums sound."
+
+msgstr "Stop loop"
+
+msgstr "Resume loop"
+
+msgstr "Start loop"
+
+msgstr "BPM (Beats per minut)"
+
+msgstr "Volume"
+
+msgstr "General volume of Drums"
+
+msgstr "Beats per minuts - interval in 1/10000 second."
+
+msgstr "Set BPM X 2"
+
+msgstr "Set BPM / 2"
+
+msgstr "Lang"
+
+msgstr "Language for counting"
+
+msgstr "Chord Randomizer"
+
+msgstr "Click to listen to the guitar chord"
+
+msgstr "Click to listen to piano chord"
+
+msgstr "Select a chord"
+
+msgstr "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+
+msgstr "Randomize chords"
+
+msgstr "Randomize"
+
+msgstr "Manual fixed chords"
+
+msgstr "Fixed"
+
+msgstr "Tuned guitar string"
+
+msgstr "Tuned Guitars"
+
+msgstr "Re-do a randomizer"
+
+msgstr "Clear chords"
+
+msgstr "Chords"
+
+msgstr "7th"
+
+msgstr "Enable 7th Chords"
+
+msgstr "minor"
+
+msgstr "Enable minor Chords"
+
+msgstr "Major"
+
+msgstr "Enable Major Chords"
+
+msgstr "9th"
+
+msgstr "Enable 9th Chords"
+
+msgstr "# (Sharp)"
+
+msgstr "Enable Sharp-Chords #"
+
+msgstr "Sound"
+
+msgstr "Enable Sound of Chords"
+
+msgstr "Number"
+
+msgstr "Total chords"
+
+msgstr "Maximum number of chords"
+
+msgstr "Random num"
+
+msgstr "Randomize the number of chords"
+
+msgstr "Tempo of Drums in BPM"
+
+msgstr "Enable Drums"
+
+msgstr "Enable random Drums tempo"
+
+msgstr "Configure the "Clear" message"
+
+msgstr "English [en]"
+
+msgstr "Russian [ru]"
+
+msgstr "French [fr]"
+
+msgstr "German [de]"
+
+msgstr "Spanish [es]"
+
+msgstr "Portuguese [pt]"
+
+msgstr "Chinese [zh]"
+
+msgstr "Italian [it]"
+
+msgstr "Dutch [nl]"
+
+msgstr "Hebrew [he]"
+
+msgstr "Indonesian [id]"
+
+msgstr "Polish [pl]"
+
+msgstr "Esperanto [eo]"
+
+msgstr "Greek [el]"
+
+msgstr "Arabic [ar]"
+

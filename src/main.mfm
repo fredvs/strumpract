@@ -12,9 +12,10 @@ object mainfo: tmainfo
   )
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
+  onactivate = onactiv
   visible = False
-  bounds_x = 411
-  bounds_y = 475
+  bounds_x = 438
+  bounds_y = 302
   bounds_cx = 442
   bounds_cy = 96
   bounds_cxmin = 442
@@ -211,19 +212,22 @@ object mainfo: tmainfo
     popupfacetemplate = tfacebutgray
     popupitemfacetemplateactive = tfacebutgray
     facetemplate = tfacebutgray
+    itemframetemplate = tframecomp1
     itemfacetemplate = tfacebutgray
     itemfacetemplateactive = tfacebutgray
     menu.submenu.count = 11
     menu.submenu.items = <    
       item
-        caption = ' &Dock '
-        hint = ' Dock windows in one form '
+        caption = '&Dock'
+        hint = 'Dock windows in one form'
+        name = 'dock'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onmaindock
       end    
       item
-        caption = ' &Tab '
-        hint = ' One form with tabs '
+        caption = '&Tab'
+        hint = 'One form with tabs'
+        name = 'tab'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onmaintab
       end    
@@ -234,20 +238,23 @@ object mainfo: tmainfo
         submenu.count = 13
         submenu.items = <        
           item
-            caption = ' &Dock all visible windows '
-            hint = ' Dock windows in one form '
+            caption = '&Dock all visible windows'
+            hint = 'Dock windows in one form'
+            name = 'dockall'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = ondockall
           end        
           item
-            caption = ' &Float all visible windows '
-            hint = ' Float windows in independent forms '
+            caption = '&Float all visible windows'
+            hint = 'Float windows in independent forms'
+            name = 'floatall'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = onfloatall
           end        
           item
-            caption = ' &Tab all visible windows '
-            hint = ' Make windows tabed in one form '
+            caption = '&Tab all visible windows'
+            hint = 'Make windows tabed in one form'
+            name = 'taball'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = ontab
           end        
@@ -255,32 +262,38 @@ object mainfo: tmainfo
             options = [mao_separator, mao_shortcutcaption]
           end        
           item
-            caption = ' &Jam Session '
+            caption = '&Jam Session'
+            name = 'jamsession'
             state = [as_localcaption, as_localonexecute]
             onexecute = ondockjam
           end        
           item
-            caption = ' DJ Console Wave '
+            caption = 'DJ Console Wave'
+            name = 'djwave'
             state = [as_localcaption, as_localonexecute]
             onexecute = ondockplayersx2
           end        
           item
-            caption = ' DJ Console Info '
+            caption = 'DJ Console Info'
+            name = 'djinfo'
             state = [as_localcaption, as_localonexecute]
             onexecute = ondockplayerstabx2
           end        
           item
-            caption = ' &Record stage '
+            caption = '&Record stage'
+            name = 'recordstage'
             state = [as_localcaption, as_localonexecute]
             onexecute = ondockrec2
           end        
           item
-            caption = ' &Chords Randomizer '
+            caption = '&Chords Randomizer'
+            name = 'chordrandom'
             state = [as_localcaption, as_localonexecute]
             onexecute = onrandomlayout
           end        
           item
-            caption = ' &Image Dancer '
+            caption = '&Image Dancer'
+            name = 'imagedancer'
             state = [as_localcaption, as_localonexecute]
             onexecute = ondancerlayout
           end        
@@ -288,121 +301,144 @@ object mainfo: tmainfo
             options = [mao_separator, mao_shortcutcaption]
           end        
           item
-            caption = ' Save Layout '
-            hint = ' Save current layout '
+            caption = 'Save Layout'
+            hint = 'Save current layout'
+            name = 'savelayout'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = savelayout
           end        
           item
-            caption = ' Load Layout '
-            hint = ' Load saved layout '
+            caption = 'Load Layout'
+            hint = 'Load saved layout'
+            name = 'loadlayout'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = loadlayout
           end>
-        caption = ' &Layout '
-        hint = ' Layout of windows  '
+        caption = '&Layout'
+        hint = 'Layout of windows'
+        name = 'layout'
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
         submenu.count = 22
         submenu.items = <        
           item
-            caption = ' Show All '
+            caption = 'Show All'
+            name = 'showall'
             state = [as_localcaption, as_localonexecute]
             onexecute = showall
           end        
           item
-            caption = ' Hide All '
+            caption = 'Hide All'
+            name = 'hideall'
             state = [as_localcaption, as_localonexecute]
             onexecute = hideall
           end        
           item
-            caption = ' Show Drums '
+            caption = 'Show Drums'
+            name = 'showdrums'
             state = [as_localcaption, as_localonexecute]
             onexecute = showdrums
           end        
           item
-            caption = ' Show File List '
+            caption = 'Show File List'
+            name = 'showlist'
             state = [as_localcaption, as_localonexecute]
             onexecute = showfiles
           end        
           item
-            caption = ' Show Player 1 '
+            caption = 'Show Player 1'
+            name = 'showplay1'
             state = [as_localcaption, as_localonexecute]
             onexecute = showplayer
           end        
           item
-            caption = ' Show Player 2 '
+            caption = 'Show Player 2'
+            name = 'showplay2'
             state = [as_localcaption, as_localonexecute]
             onexecute = showplayer2
           end        
           item
-            caption = ' Show Commander '
+            caption = 'Show Commander'
+            name = 'showcommander'
             state = [as_localcaption, as_localonexecute]
             onexecute = showcommander
           end        
           item
-            caption = ' Show Recorder '
+            caption = 'Show Recorder'
+            name = 'showrecorder'
             state = [as_localcaption, as_localonexecute]
             onexecute = showrecorder
           end        
           item
-            caption = ' Show Guitars '
+            caption = 'Show Guitars'
+            name = 'show guitar'
             state = [as_localcaption, as_localonexecute]
             onexecute = showguitars
           end        
           item
-            caption = ' Show Spectrum 1 '
+            caption = 'Show Spectrum 1'
+            name = 'showspectrum1'
             state = [as_localcaption, as_localonexecute]
             onexecute = showspectrum
           end        
           item
-            caption = ' Show Spectrum 2 '
+            caption = 'Show Spectrum 2'
+            name = 'showspectrum2'
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowspectrum2
           end        
           item
-            caption = ' Show Spectrum Rec '
+            caption = 'Show Spectrum Rec'
+            name = 'showspectrumrec'
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowspectrumrec
           end        
           item
-            caption = ' Show WaveForm 1 '
+            caption = 'Show WaveForm 1'
+            name = 'showwave1'
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowwave1
           end        
           item
-            caption = ' Show WaveForm 2 '
+            caption = 'Show WaveForm 2'
+            name = 'showwave2'
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowwave2
           end        
           item
-            caption = ' Show WaveForm Rec '
+            caption = 'Show WaveForm Rec'
+            name = 'showwaverec'
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowwaverec
           end        
           item
-            caption = ' Show Equalizer 1 '
+            caption = 'Show Equalizer 1'
+            name = 'showequ1'
             state = [as_localcaption, as_localonexecute]
             onexecute = showequalizer1
           end        
           item
-            caption = ' Show Equalizer 2 '
+            caption = 'Show Equalizer 2'
+            name = 'showequ2'
             state = [as_localcaption, as_localonexecute]
             onexecute = showequalizer2
           end        
           item
-            caption = ' Show Equalizer Rec '
+            caption = 'Show Equalizer Rec'
+            name = 'showequrec'
             state = [as_localcaption, as_localonexecute]
             onexecute = showequalizerrec
           end        
           item
-            caption = ' Show Chord Randomizer '
+            caption = 'Show Chord Randomizer'
+            name = 'showchords'
             state = [as_localcaption, as_localonexecute]
             onexecute = onshowrandom
           end        
           item
-            caption = ' Show Image Dancer'
+            caption = 'Show Image Dancer'
+            name = 'showimagedancer'
             state = [as_localcaption, as_localonexecute]
             onexecute = showimagedancer
           end        
@@ -413,113 +449,133 @@ object mainfo: tmainfo
             submenu.count = 5
             submenu.items = <            
               item
-                caption = ' Show Dock Panel 1 '
+                caption = 'Show Dock Panel 1'
+                name = 'showpanel1'
                 state = [as_localcaption, as_localonexecute]
                 onexecute = showpan1
               end            
               item
-                caption = ' Show Dock Panel 2 '
+                caption = 'Show Dock Panel 2'
+                name = 'showpanel2'
                 state = [as_localcaption, as_localonexecute]
                 onexecute = showpan2
               end            
               item
-                caption = ' Show Dock Panel 3 '
+                caption = 'Show Dock Panel 3'
+                name = 'showpanel3'
                 state = [as_localcaption, as_localonexecute]
                 onexecute = showpan3
               end            
               item
-                caption = ' Show Dock Panel 4 '
+                caption = 'Show Dock Panel 4'
+                name = 'showpanel4'
                 state = [as_localcaption, as_localonexecute]
                 onexecute = showpan4
               end            
               item
-                caption = ' Show Dock Panel 5 '
+                caption = 'Show Dock Panel 5'
+                name = 'showpanel5'
                 state = [as_localcaption, as_localonexecute]
                 onexecute = showpan5
               end>
-            caption = ' &Panels '
+            caption = '&Panels'
+            name = 'panels'
             state = [as_localcaption]
           end>
-        caption = ' &Show '
-        hint = ' Show/hide windows '
+        caption = '&Show'
+        hint = 'Show/hide windows'
+        name = 'show'
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
         submenu.count = 25
         submenu.items = <        
           item
-            caption = ' Square '
+            caption = 'Square'
+            name = 'square'
             state = [as_checked, as_localchecked, as_localcaption, as_localtag, as_localonexecute]
             tag = 3
             onexecute = onimagedancer
           end        
           item
-            caption = ' Triangle '
+            caption = 'Triangle'
+            name = 'triangle'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 8
             onexecute = onimagedancer
           end        
           item
-            caption = ' Lines '
+            caption = 'Lines'
+            name = 'lines'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 9
             onexecute = onimagedancer
           end        
           item
-            caption = ' Fractal Tree '
+            caption = 'Fractal Tree'
+            name = 'fractraltree'
             state = [as_localcaption, as_localonexecute]
             onexecute = onimagedancer
           end        
           item
-            caption = ' Super Formula '
+            caption = 'Super Formula'
+            name = 'superformula'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 1
             onexecute = onimagedancer
           end        
           item
-            caption = ' Hyper Formula '
+            caption = 'Hyper Formula'
+            name = 'hyperformula'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 2
             onexecute = onimagedancer
           end        
           item
-            caption = ' Atom '
+            caption = 'Atom'
+            name = 'atom'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 4
             onexecute = onimagedancer
           end        
           item
-            caption = ' Spiral Hue '
+            caption = 'Spiral Hue'
+            name = 'spiralhue'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 5
             onexecute = onimagedancer
           end        
           item
-            caption = ' Spiral Rainbow '
+            caption = 'Spiral Rainbow'
+            name = 'spiralrainbow'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 6
             onexecute = onimagedancer
           end        
           item
-            caption = ' Spiral Move '
+            caption = 'Spiral Move'
+            name = 'spiralmove'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 7
             onexecute = onimagedancer
           end        
           item
-            caption = ' Turtle 1 '
+            caption = 'Turtle 1'
+            name = 'turtle1'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 10
             onexecute = onimagedancer
           end        
           item
-            caption = ' Turtle 2 '
+            caption = 'Turtle 2'
+            name = 'turtle2'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 11
             onexecute = onimagedancer
           end        
           item
-            caption = ' Fractal Circles '
+            caption = 'Fractal Circles'
+            name = 'fractalcircles'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 12
             onexecute = onimagedancer
@@ -528,25 +584,29 @@ object mainfo: tmainfo
             options = [mao_separator, mao_shortcutcaption]
           end        
           item
-            caption = ' Normal form '
-            hint = ' Use this form to set the size for Ellipse and (Round)Rectangle forms.'
+            caption = 'Normal form'
+            hint = 'Use this form to set the size for Ellipse and (Round)Rectangle forms.'
+            name = 'normalform'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = onsetwindowdancer
           end        
           item
-            caption = ' Ellipse '
+            caption = 'Ellipse'
+            name = 'ellipse'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 1
             onexecute = onsetwindowdancer
           end        
           item
-            caption = ' Rounded rect '
+            caption = 'Rounded rect'
+            name = 'roundrect'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 2
             onexecute = onsetwindowdancer
           end        
           item
-            caption = ' Rectangle '
+            caption = 'Rectangle'
+            name = 'rect'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 3
             onexecute = onsetwindowdancer
@@ -555,7 +615,8 @@ object mainfo: tmainfo
             options = [mao_separator, mao_shortcutcaption]
           end        
           item
-            caption = ' Always on top '
+            caption = 'Always on top'
+            name = 'alwaystop'
             state = [as_localinvisible, as_localcaption, as_localonexecute]
             options = [mao_checkbox, mao_shortcutcaption]
             onexecute = onalwaysontop
@@ -565,7 +626,8 @@ object mainfo: tmainfo
             options = [mao_separator, mao_shortcutcaption]
           end        
           item
-            caption = ' Transparent '
+            caption = 'Transparent'
+            name = 'transparent'
             state = [as_localcaption]
             options = [mao_checkbox, mao_shortcutcaption]
           end        
@@ -573,48 +635,71 @@ object mainfo: tmainfo
             options = [mao_separator, mao_shortcutcaption]
           end        
           item
-            caption = ' Hide Dancer '
+            caption = 'Hide Dancer'
+            name = 'hidedancer'
             state = [as_localcaption, as_localonexecute]
             onexecute = onhidedancer
           end        
           item
             options = [mao_separator, mao_shortcutcaption]
           end>
-        caption = ' Da&ncer '
-        hint = ' Dancing Animations '
+        caption = 'Da&ncer'
+        hint = 'Dancing Animations'
+        name = 'dancer'
         state = [as_localcaption, as_localhint, as_localtag, as_localonexecute]
       end    
       item
         submenu.count = 3
         submenu.items = <        
           item
-            caption = ' Gold '
+            caption = 'Gold'
+            name = 'gold'
             state = [as_localcaption, as_localonexecute]
             onexecute = changecolors
           end        
           item
-            caption = ' Silver '
+            caption = 'Silver'
+            name = 'silver'
             state = [as_localcaption, as_localonexecute]
             onexecute = changesilver
           end        
           item
-            caption = ' Carbon '
+            caption = 'Carbon'
+            name = 'carbon'
             state = [as_localcaption, as_localonexecute]
             onexecute = changecarbon
           end>
-        caption = ' &Style '
-        hint = ' Layout style Gold, Silver or Carbon '
+        caption = '&Style'
+        hint = 'Layout style Gold, Silver or Carbon'
+        name = 'style'
         state = [as_localcaption, as_localhint]
       end    
       item
-        caption = ' &Config '
-        hint = ' Config of audio and colors '
+        submenu.count = 2
+        submenu.items = <        
+          item
+            caption = 'Audio'
+            hint = 'Config of audio and colors'
+            name = 'audio'
+            state = [as_localcaption, as_localhint, as_localonexecute]
+            onexecute = onmenuaudio
+          end        
+          item
+            caption = 'Language'
+            hint = 'Set language'
+            name = 'language'
+            state = [as_localcaption, as_localhint, as_localonexecute]
+            onexecute = onlangset
+          end>
+        caption = '&Config'
+        hint = 'Configuration setting'
+        name = 'config'
         state = [as_localcaption, as_localhint, as_localonexecute]
-        onexecute = onmenuaudio
       end    
       item
-        caption = ' &About '
-        hint = ' About StrumPract '
+        caption = '&About'
+        hint = 'About StrumPract'
+        name = 'about'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onabout
       end    
@@ -622,11 +707,13 @@ object mainfo: tmainfo
         options = [mao_separator, mao_shortcutcaption]
       end    
       item
-        caption = '     &Quit   '
-        hint = ' Terminate StrumPract '
+        caption = '&Quit'
+        hint = 'Terminate StrumPract'
+        name = 'quit'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onexit
       end>
+    menu.name = 'mainmenu'
     menu.state = [as_localonexecute]
     left = 7
   end
@@ -3162,5 +3249,10 @@ object mainfo: tmainfo
     enabled = True
     left = 358
     top = 29
+  end
+  object tframecomp1: tframecomp
+    template.extraspace = 10
+    left = 130
+    top = 44
   end
 end

@@ -31,6 +31,8 @@ uses
   imagedancer,
   infos,
   status,
+  conflang,
+  potools,
   spectrum1,
   waveform,
   randomnote,
@@ -217,9 +219,16 @@ begin
   application.createform(timagedancerfo, imagedancerfo);
   application.createform(tfindmessagefo, findmessagefo);
   application.createform(tdialogfilesfo, dialogfilesfo);
+  
+  application.createform(tconflangfo, conflangfo);
+  application.createform(theaderfo, headerfo);
+  
+  
   dialogfilesfo.icon := equalizerfo1.icon;
 
   application.createform(tmainfo, mainfo);
+  conflangfo.icon := mainfo.icon;
+  
 
   application.run;
 

@@ -711,7 +711,7 @@ end;
 
 procedure tfilelistfo.onaftdrop(const Sender: TObject);
 begin
-  historyfn.Width := 115;
+  historyfn.Width := 156;
   historyfn.Value := tosysfilepath(extractfilepath(historyfn.Value));
 end;
 

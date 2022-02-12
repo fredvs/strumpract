@@ -270,7 +270,7 @@ object spectrum1fo: tspectrum1fo
       frame.localprops1 = []
       face.localprops = []
       taborder = 2
-      hint = ' Drums set '
+      hint = 'Enable Spectrum'
       bounds_x = 158
       bounds_y = 0
       bounds_cx = 116
