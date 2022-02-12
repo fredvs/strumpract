@@ -1612,8 +1612,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=noimage
+finddtext=setlang
 findhistory=20
+ setlang
  noimage
  'fr'
  click to l
@@ -1624,7 +1625,6 @@ findhistory=20
  stockcap
  'close
  'ok
- setlang
  'drums
  clear
  'clear
@@ -1636,18 +1636,18 @@ findhistory=20
  enable play
 findoptions=1
 editpos=12
- 0,6
- 0,416
- 0,49
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 0,0
  0,-1073741823
- 0,6
- 0,4
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1739,20 +1739,20 @@ nomenumodules=8
 order=12
  0
  1
- 11
- 10
- 2
- 3
- 4
- 5
  6
  7
  8
  9
+ 10
+ 11
+ 3
+ 2
+ 5
+ 4
 firsttab=0
 index=2
 [layout]
-windowlayout=690
+windowlayout=691
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2211,7 +2211,8 @@ windowlayout=690
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/equalizer.pas
- history=5
+ history=6
+  /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/captionstrumpract.pas
   /home/fred/strumpract/src/potools.pas
   /home/fred/strumpract/src/po2arrays.pas
@@ -2241,16 +2242,16 @@ windowlayout=690
  order=12
   0
   1
-  11
-  10
-  2
-  3
-  4
-  5
   6
   7
   8
   9
+  10
+  11
+  3
+  2
+  5
+  4
  firsttab=0
  index=2
  [confideufo.usedefaulteditoroptions]
@@ -2332,7 +2333,7 @@ windowlayout=690
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_conflangfo_mse_
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2370,7 +2371,7 @@ windowlayout=690
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_conflangfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2408,7 +2409,7 @@ windowlayout=690
  [_mse_headerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_infosfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2427,7 +2428,7 @@ windowlayout=690
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
