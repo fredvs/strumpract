@@ -887,10 +887,28 @@ with drumsfo do
       tbooleaneditradio6.hint := lang_drumsfo[Ord(dr_tbooleaneditradio6_hint)];  {' Drums Patern 3 '}
       tbooleaneditradio5.hint := lang_drumsfo[Ord(dr_tbooleaneditradio5_hint)];  {' Drums Patern 4 '}
 
-      lesson4.hint := lang_drumsfo[Ord(dr_lesson4_hint)];  {'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '}
-      lesson3.hint := lang_drumsfo[Ord(dr_lesson3_hint)];  {' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '}
-      lesson2.hint := lang_drumsfo[Ord(dr_lesson2_hint)];  {' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '}
-      lesson1.hint := lang_drumsfo[Ord(dr_lesson1_hint)];  {' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '}
+      str := lang_drumsfo[Ord(dr_lesson4_hint)];
+      str      := trim(StringReplace(str, '.', '.' + lineend, [rfReplaceAll]));
+      lesson4.hint := str;
+ 
+     // lesson4.hint := lang_drumsfo[Ord(dr_lesson4_hint)];  {'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '}
+     
+       str := lang_drumsfo[Ord(dr_lesson3_hint)];
+      str      := trim(StringReplace(str, '.', '.' + lineend, [rfReplaceAll]));
+      lesson3.hint := str;
+   
+   //  lesson3.hint := lang_drumsfo[Ord(dr_lesson3_hint)];  {' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '}
+        str := lang_drumsfo[Ord(dr_lesson2_hint)];
+      str      := trim(StringReplace(str, '.', '.' + lineend, [rfReplaceAll]));
+      lesson2.hint := str;
+     
+  //    lesson2.hint := lang_drumsfo[Ord(dr_lesson2_hint)];  {' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '}
+      
+         str := lang_drumsfo[Ord(dr_lesson1_hint)];
+      str      := trim(StringReplace(str, '.', '.' + lineend, [rfReplaceAll]));
+      lesson1.hint := str;
+
+  //    lesson1.hint := lang_drumsfo[Ord(dr_lesson1_hint)];  {' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '}
       tlabel22.caption := lang_drumsfo[Ord(dr_tlabel22)];  {'Patern'}
       tlabel21.caption := lang_drumsfo[Ord(dr_tlabel21)];  {'Lesson'}
       noanim.frame.caption := lang_drumsfo[Ord(dr_noanim)];  {'no anim'}

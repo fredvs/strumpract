@@ -1164,7 +1164,7 @@ msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count
 msgstr "Dernière leçon. Faites la même chose que la 3ème leçon mais en augmentant le tempo. Au compte 2 vous pouvez ajouter un boom sur la grosse caisse. Félicitations, vous êtes batteur maintenant. ;-)"
 
 msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
-msgstr "3ème leçon Faites comme la deuxième leçon et au compte 3 ajoutez un clac avec l'autre baguette sur la caisse claire. C'est le plus difficile. Comptez toujours fort avec votre voix."
+msgstr "3ème leçon. Faites comme la deuxième leçon et au compte 3 ajoutez un clac avec l'autre baguette sur la caisse claire. C'est le plus difficile. Comptez toujours fort avec votre voix."
 
 msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
 msgstr "Deuxième leçon. Faites la même chose que la première leçon et au compte 1 ajoutez un boom avec votre pied droit sur la grosse caisse. Comptez toujours fort avec votre voix."
