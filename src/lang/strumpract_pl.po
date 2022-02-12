@@ -1160,7 +1160,7 @@ msgstr "Wzór bębnów 3"
 msgid "Drums Patern 4"
 msgstr "Patern perkusji 4"
 
-msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now."
 msgstr "Ostatnia lekcja. Zrób to samo co trzecia lekcja, ale zwiększ tempo. Po odliczeniu 2 możesz dodać bum na bębnie basowym. Gratulacje, jesteś teraz perkusistą. ;-)"
 
 msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."

@@ -69,7 +69,7 @@ type
       dr_tlabel21, {'Lesson'}
       dr_noanim, {'no anim'}
       dr_noanim_hint, {' No graphic animation. '}
-      dr_noand, {'no "and"'}
+      dr_noand, {'no and"'}
       dr_noand_hint, {' No "and" between 2 numbers. '}
       dr_novoice, {'no voice'}
       dr_novoice_hint, {' No counting voice '}
@@ -655,16 +655,16 @@ const
       'Drums Patern 2', {dr_tbooleaneditradio7_hint}
       'Drums Patern 3', {dr_tbooleaneditradio6_hint}
       'Drums Patern 4', {dr_tbooleaneditradio5_hint}
-      'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-)', {dr_lesson4_hint}
-      '3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice.', {dr_lesson3_hint}
-      'Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice.', {dr_lesson2_hint}
+      'Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now.',
+      '3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice.', {dr_lesson3_hint}
+      'Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice.', {dr_lesson2_hint}
       'First lesson. With the stick hit the closed hat on each count. Count loud with your voice too.', {dr_lesson1_hint}
       'Patern', {dr_tlabel22}
       'Lesson', {dr_tlabel21}
       'no anim', {dr_noanim}
       'No graphic animation.', {dr_noanim_hint}
-      'no "and"', {dr_noand}
-      'No "and" between 2 numbers.', {dr_noand_hint}
+      'no and', {dr_noand}
+      'No and between 2 numbers.', {dr_noand_hint}
       'no voice', {dr_novoice}
       'No counting voice', {dr_novoice_hint}
       'no drums', {dr_nodrums}
@@ -720,7 +720,7 @@ const
       'Tempo of Drums in BPM', {ra_bpm_hint}
       'Enable Drums', {ra_nodrums}
       'Enable random Drums tempo', {ra_nodrums_hint}
-      'Configure the "Clear" message' {ra_bconfig_hint}
+      'Configure the Clear message' {ra_bconfig_hint}
     
       );
     

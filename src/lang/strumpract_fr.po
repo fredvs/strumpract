@@ -1160,17 +1160,17 @@ msgstr "Modèle de batterie 3"
 msgid "Drums Patern 4"
 msgstr "Modèle de batterie 4"
 
-msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now."
 msgstr "Dernière leçon. Faites la même chose que la 3ème leçon mais en augmentant le tempo. Au compte 2 vous pouvez ajouter un boom sur la grosse caisse. Félicitations, vous êtes batteur maintenant. ;-)"
 
 msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
-msgstr "3ème leçon Faites comme la deuxième leçon et au compte 3 ajoutez un clac sur la caisse claire. C'est le plus difficile. Comptez toujours fort avec votre voix."
+msgstr "3ème leçon Faites comme la deuxième leçon et au compte 3 ajoutez un clac avec l'autre baguette sur la caisse claire. C'est le plus difficile. Comptez toujours fort avec votre voix."
 
 msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
 msgstr "Deuxième leçon. Faites la même chose que la première leçon et au compte 1 ajoutez un boom avec votre pied droit sur la grosse caisse. Comptez toujours fort avec votre voix."
 
 msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
-msgstr "Première leçon. Avec le bâton, frappez le chapeau fermé à chaque compte. Comptez aussi fort avec votre voix."
+msgstr "Première leçon. Avec la baguette, frappez le charleston fermé à chaque compte. Comptez aussi fort avec votre voix."
 
 msgid "Patern"
 msgstr "Modèle"

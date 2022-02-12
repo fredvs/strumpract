@@ -1160,7 +1160,7 @@ msgstr "Pola Drum 3"
 msgid "Drums Patern 4"
 msgstr "Pola Drum 4"
 
-msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now."
 msgstr "Pelajaran terakhir. Lakukan hal yang sama seperti pelajaran ke-3 tetapi tingkatkan temponya. Pada hitungan 2 Anda dapat menambahkan boom pada Bass Drum. Selamat, Anda adalah seorang drummer sekarang. ;-)"
 
 msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."

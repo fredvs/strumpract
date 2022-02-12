@@ -1160,7 +1160,7 @@ msgstr "Патерн барабанов 3"
 msgid "Drums Patern 4"
 msgstr "Патерн барабанов 4"
 
-msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now. ;-)"
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now."
 msgstr "Последний урок. Проделайте то же, что и 3-й урок, но увеличив темп. На счет 2 вы можете добавить бум на большом барабане. Поздравляю, теперь вы барабанщик. ;-)"
 
 msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
