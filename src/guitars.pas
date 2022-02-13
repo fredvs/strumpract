@@ -122,13 +122,13 @@ begin
         begin
           mainfo.tmainmenu1.menu.itembynames(['show','showguitar']).caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
-           lang_mainfo[Ord(ma_guitars)];
+          lang_randomnotefo[Ord(ra_tbutton5)];
          end
       else
         begin
           mainfo.tmainmenu1.menu.itembynames(['show','showguitar']).caption :=
           lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-           lang_mainfo[Ord(ma_guitars)];
+           lang_randomnotefo[Ord(ra_tbutton5)];
         end;
  
   if norefresh = False then

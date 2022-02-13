@@ -608,20 +608,8 @@ msgstr "Afficher tout"
 msgid "Hide All"
 msgstr "Masquer tout"
 
-msgid "Show Dock Panel 1"
-msgstr "Afficher le panneau Dock 1"
-
-msgid "Show Dock Panel 2"
-msgstr "Afficher le panneau Dock 2"
-
-msgid "Show Dock Panel 3"
-msgstr "Afficher le panneau Dock 3"
-
-msgid "Show Dock Panel 4"
-msgstr "Afficher le panneau Dock 4"
-
-msgid "Show Dock Panel 5"
-msgstr "Afficher le panneau Dock 5"
+msgid "Dock Panel"
+msgstr "Panneau Dock"
 
 msgid "Panels"
 msgstr "&Panneaux"

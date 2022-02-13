@@ -56,6 +56,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   main, dockpanel1_mfm;
 
 procedure tdockpanel1fo.ontimerwait(const Sender: TObject);
@@ -304,51 +305,65 @@ begin
 end;
 
 procedure tdockpanel1fo.onvisiblech(const Sender: TObject);
+var
+str: string;
 begin
-
+if  (isactivated = true) then
+begin
   if assigned(mainfo) then
   begin
-    if Caption = 'Dock Panel 1' then
-    begin
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[0].Caption := ' Hide Dock Panel 1 '
-      else
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[0].Caption := ' Show Dock Panel 1 ';
-    end;
-
-    if Caption = 'Dock Panel 2' then
-    begin
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[1].Caption := ' Hide Dock Panel 2 '
-      else
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[1].Caption := ' Show Dock Panel 2 ';
-    end;
-
-    if Caption = 'Dock Panel 3' then
-    begin
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[2].Caption := ' Hide Dock Panel 3 '
-      else
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[2].Caption := ' Show Dock Panel 3 ';
+   if tag = 0 then
+    begin  
+     if visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+       mainfo.tmainmenu1.menu.itembynames(['show','panels','showpanel1']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 1' ;  {'Show Dock Panel 1'}
     end;
     
-     if Caption = 'Dock Panel 4' then
-    begin
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[3].Caption := ' Hide Dock Panel 4 '
-      else
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[3].Caption := ' Show Dock Panel 4 ';
+    if tag = 1 then
+    begin  
+     if visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+       mainfo.tmainmenu1.menu.itembynames(['show','panels','showpanel2']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 2' ;  {'Show Dock Panel 1'}
     end;
     
-     if Caption = 'Dock Panel 5' then
-    begin
-      if Visible then
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[4].Caption := ' Hide Dock Panel 5 '
-      else
-        mainfo.tmainmenu1.menu[4].submenu[21].submenu[4].Caption := ' Show Dock Panel 5 ';
+    if tag = 2 then
+    begin  
+     if visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+       mainfo.tmainmenu1.menu.itembynames(['show','panels','showpanel3']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 3' ;  {'Show Dock Panel 1'}
     end;
-  end;
-  
+    
+    if tag = 3 then
+    begin  
+     if visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+       mainfo.tmainmenu1.menu.itembynames(['show','panels','showpanel4']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 4' ;  {'Show Dock Panel 1'}
+    end;
+    
+    if tag = 4 then
+    begin  
+     if visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+       mainfo.tmainmenu1.menu.itembynames(['show','panels','showpanel5']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 5' ;  {'Show Dock Panel 1'}
+    end;
+    
+   end;
+ end;
 end;
 
 end.

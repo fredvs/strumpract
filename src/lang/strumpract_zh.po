@@ -608,74 +608,8 @@ msgstr "显示全部"
 msgid "Hide All"
 msgstr "全部隐藏"
 
-msgid "Show Drums"
-msgstr "显示鼓"
-
-msgid "Show File List"
-msgstr "显示文件列表"
-
-msgid "Show Player 1"
-msgstr "显示播放器 1"
-
-msgid "Show Player 2"
-msgstr "显示播放器 2"
-
-msgid "Show Commander"
-msgstr "显示指挥官"
-
-msgid "Show Recorder"
-msgstr "显示记录器"
-
-msgid "Show Guitars"
-msgstr "显示吉他"
-
-msgid "Show Spectrum 1"
-msgstr "显示频谱 1"
-
-msgid "Show Spectrum 2"
-msgstr "显示频谱 2"
-
-msgid "Show Spectrum Rec"
-msgstr "显示频谱记录"
-
-msgid "Show WaveForm 1"
-msgstr "显示波形 1"
-
-msgid "Show WaveForm 2"
-msgstr "显示波形 2"
-
-msgid "Show WaveForm Rec"
-msgstr "显示波形记录"
-
-msgid "Show Equalizer 1"
-msgstr "显示均衡器 1"
-
-msgid "Show Equalizer 2"
-msgstr "显示均衡器 2"
-
-msgid "Show Equalizer Rec"
-msgstr "显示均衡器记录"
-
-msgid "Show Chord Randomizer"
-msgstr "显示和弦随机化器"
-
-msgid "Show Image Dancer"
-msgstr "显示图像舞者"
-
-msgid "Show Dock Panel 1"
-msgstr "显示 Dock 面板 1"
-
-msgid "Show Dock Panel 2"
-msgstr "显示 Dock 面板 2"
-
-msgid "Show Dock Panel 3"
-msgstr "显示 Dock 面板 3"
-
-msgid "Show Dock Panel 4"
-msgstr "显示 Dock 面板 4"
-
-msgid "Show Dock Panel 5"
-msgstr "显示 Dock 面板 5"
+msgid "Dock Panel"
+msgstr "Dock 面板"
 
 msgid "Panels"
 msgstr "面板"

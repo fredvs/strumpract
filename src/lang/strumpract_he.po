@@ -608,74 +608,8 @@ msgstr "הצג הכל"
 msgid "Hide All"
 msgstr "הסתר הכל"
 
-msgid "Show Drums"
-msgstr "הצג תופים"
-
-msgid "Show File List"
-msgstr "הצג רשימת קבצים"
-
-msgid "Show Player 1"
-msgstr "הצג נגן 1"
-
-msgid "Show Player 2"
-msgstr "הצג נגן 2"
-
-msgid "Show Commander"
-msgstr "הצג מפקד"
-
-msgid "Show Recorder"
-msgstr "הצג מקליט"
-
-msgid "Show Guitars"
-msgstr "הצג גיטרות"
-
-msgid "Show Spectrum 1"
-msgstr "הצג ספקטרום 1"
-
-msgid "Show Spectrum 2"
-msgstr "הצג ספקטרום 2"
-
-msgid "Show Spectrum Rec"
-msgstr "הצג קלט ספקטרום"
-
-msgid "Show WaveForm 1"
-msgstr "הצג WaveForm 1"
-
-msgid "Show WaveForm 2"
-msgstr "הצג WaveForm 2"
-
-msgid "Show WaveForm Rec"
-msgstr "הצג WaveForm Rec"
-
-msgid "Show Equalizer 1"
-msgstr "הצג אקולייזר 1"
-
-msgid "Show Equalizer 2"
-msgstr "הצג אקולייזר 2"
-
-msgid "Show Equalizer Rec"
-msgstr "הצג את ההקלטה של ​​אקולייזר"
-
-msgid "Show Chord Randomizer"
-msgstr "הצג אקורד אקורד אקורד"
-
-msgid "Show Image Dancer"
-msgstr "הצג רקדן תמונה"
-
-msgid "Show Dock Panel 1"
-msgstr "הצג לוח עגינה 1"
-
-msgid "Show Dock Panel 2"
-msgstr "הצג לוח עגינה 2"
-
-msgid "Show Dock Panel 3"
-msgstr "הצג לוח עגינה 3"
-
-msgid "Show Dock Panel 4"
-msgstr "הצג לוח עגינה 4"
-
-msgid "Show Dock Panel 5"
-msgstr "הצג לוח עגינה 5"
+msgid "Dock Panel"
+msgstr " לוח עגינה "
 
 msgid "Panels"
 msgstr "פאנלים"

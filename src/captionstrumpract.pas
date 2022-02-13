@@ -172,16 +172,6 @@ type
 
       ma_tmainmenu1_parentitem_hideall, {'Hide All'}
 
-      ma_tmainmenu1_parentitem_showpanel1, {'Show Dock Panel 1'}
-
-      ma_tmainmenu1_parentitem_showpanel2, {'Show Dock Panel 2'}
-
-      ma_tmainmenu1_parentitem_showpanel3, {'Show Dock Panel 3'}
-
-      ma_tmainmenu1_parentitem_showpanel4, {'Show Dock Panel 4'}
-
-      ma_tmainmenu1_parentitem_showpanel5, {'Show Dock Panel 5'}
-
       ma_tmainmenu1_panels, {'&Panels'}
 
       ma_tmainmenu1_show, {'Show'}
@@ -260,7 +250,8 @@ type
       ma_fileslist, {Files list}
       ma_guitars, {Guitars}
       ma_waveform,
-      ma_equalizer
+      ma_equalizer,
+      ma_dockpanel
  
    );
 
@@ -435,11 +426,6 @@ const
       'Layout of windows', {ma_tmainmenu1_'layout'_hint}
       'Show All', {ma_tmainmenu1_parentitem_'showall'}
       'Hide All', {ma_tmainmenu1_parentitem_'hideall'}
-      'Show Dock Panel 1', {ma_tmainmenu1_parentitem_'showpanel1'}
-      'Show Dock Panel 2', {ma_tmainmenu1_parentitem_'showpanel2'}
-      'Show Dock Panel 3', {ma_tmainmenu1_parentitem_'showpanel3'}
-      'Show Dock Panel 4', {ma_tmainmenu1_parentitem_'showpanel4'}
-      'Show Dock Panel 5', {ma_tmainmenu1_parentitem_'showpanel5'}
       'Panels', {ma_tmainmenu1_'panels'}
       'Show', {ma_tmainmenu1_'show'}
       'Show/hide windows', {ma_tmainmenu1_'show'_hint}
@@ -487,7 +473,8 @@ const
       'Files list', {ma_fileslist}
       'Guitars', {ma_guitars}
       'Wave form', {ma_waveform} 
-      'Equalizer' {ma_equalizer}
+      'Equalizer', {ma_equalizer}
+      'Dock Panel' {ma_dockpanel}
     );
     
     const

@@ -324,7 +324,7 @@ with mainfo do
       str := str + ': ' ;
       
       tmainmenu1.menu.itembynames(['show','showguitar']).caption := str +
-      lang_mainfo[Ord(ma_guitars)];
+      lang_randomnotefo[Ord(ra_tbutton5)];
   
      // tmainmenu1.menu.itembynames(['show','show guitar']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showguitar)];  {'Show Guitars'}
 
@@ -426,17 +426,65 @@ with mainfo do
       lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;          
 
 //      tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showimagedancer)];  {'Show Image Dancer'}
+     dockpanel1fo.caption := lang_mainfo[Ord(ma_dockpanel)] + ' 1' ; 
+   if dockpanel1fo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+      dockpanel1fo.basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+        
+       tmainmenu1.menu.itembynames(['show','panels','showpanel1']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 1' ;  {'Show Dock Panel 1'}
 
-      tmainmenu1.menu.itembynames(['show','panels','showpanel1']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel1)];  {'Show Dock Panel 1'}
+   //   tmainmenu1.menu.itembynames(['show','panels','showpanel2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel2)];  {'Show Dock Panel 2'}
+    if dockpanel2fo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+      
+         dockpanel2fo.caption := lang_mainfo[Ord(ma_dockpanel)] + ' 2' ;   
+       
+       tmainmenu1.menu.itembynames(['show','panels','showpanel2']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 2' ;  {'Show Dock Panel 2'}
+   
+       dockpanel2fo.basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+   
 
-      tmainmenu1.menu.itembynames(['show','panels','showpanel2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel2)];  {'Show Dock Panel 2'}
+    //  tmainmenu1.menu.itembynames(['show','panels','showpanel3']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel3)];  {'Show Dock Panel 3'}
+   if dockpanel3fo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+        
+       tmainmenu1.menu.itembynames(['show','panels','showpanel3']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 3' ;  {'Show Dock Panel 3'}
+        
+        dockpanel3fo.basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+   
 
-      tmainmenu1.menu.itembynames(['show','panels','showpanel3']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel3)];  {'Show Dock Panel 3'}
+         dockpanel3fo.caption := lang_mainfo[Ord(ma_dockpanel)] + ' 3' ; 
+   //   tmainmenu1.menu.itembynames(['show','panels','showpanel4']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel4)];  {'Show Dock Panel 4'}
 
-      tmainmenu1.menu.itembynames(['show','panels','showpanel4']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel4)];  {'Show Dock Panel 4'}
-
-      tmainmenu1.menu.itembynames(['show','panels','showpanel5']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel5)];  {'Show Dock Panel 5'}
-
+      if dockpanel4fo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+        
+       tmainmenu1.menu.itembynames(['show','panels','showpanel4']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 4' ;  {'Show Dock Panel 4'}
+        
+      dockpanel4fo.basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+    
+       dockpanel4fo.caption := lang_mainfo[Ord(ma_dockpanel)] + ' 4' ; 
+     // tmainmenu1.menu.itembynames(['show','panels','showpanel5']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel5)];  {'Show Dock Panel 5'}
+     if dockpanel5fo.visible then str := lang_mainfo[Ord(ma_hide)] else
+      str := lang_mainfo[Ord(ma_tmainmenu1_show)];
+      str := str + ': ' ;
+        
+       tmainmenu1.menu.itembynames(['show','panels','showpanel5']).caption := 
+        str + lang_mainfo[Ord(ma_dockpanel)] + ' 5' ;  {'Show Dock Panel 5'}
+        
+      dockpanel5fo.caption := lang_mainfo[Ord(ma_dockpanel)] + ' 5' ; 
+      
+      dockpanel5fo.basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+        
       tmainmenu1.menu.itembynames(['show','panels']).caption := lang_mainfo[Ord(ma_tmainmenu1_panels)];  {'&Panels'}
 
       tmainmenu1.menu.itembynames(['show']).caption := lang_mainfo[Ord(ma_tmainmenu1_show)];  {'&Show'}
@@ -732,7 +780,7 @@ with songplayer2fo do
   
   with guitarsfo do
   begin
-  caption := lang_mainfo[Ord(ma_guitars)];
+  caption := lang_randomnotefo[Ord(ra_tbutton5)];
   
   end; 
 

@@ -608,74 +608,8 @@ msgstr "Mostrar tudo"
 msgid "Hide All"
 msgstr "Ocultar tudo"
 
-msgid "Show Drums"
-msgstr "Mostrar bateria"
-
-msgid "Show File List"
-msgstr "Mostrar Lista de Arquivos"
-
-msgid "Show Player 1"
-msgstr "Mostrar Jogador 1"
-
-msgid "Show Player 2"
-msgstr "Mostrar Jogador 2"
-
-msgid "Show Commander"
-msgstr "Mostrar Comandante"
-
-msgid "Show Recorder"
-msgstr "Mostrar Gravador"
-
-msgid "Show Guitars"
-msgstr "Mostrar guitarras"
-
-msgid "Show Spectrum 1"
-msgstr "Mostrar Espectro 1"
-
-msgid "Show Spectrum 2"
-msgstr "Mostrar Espectro 2"
-
-msgid "Show Spectrum Rec"
-msgstr "Mostrar gravação de espectro"
-
-msgid "Show WaveForm 1"
-msgstr "Mostrar WaveForm 1"
-
-msgid "Show WaveForm 2"
-msgstr "Mostrar WaveForm 2"
-
-msgid "Show WaveForm Rec"
-msgstr "Mostrar WaveForm Rec"
-
-msgid "Show Equalizer 1"
-msgstr "Mostrar Equalizador 1"
-
-msgid "Show Equalizer 2"
-msgstr "Mostrar Equalizador 2"
-
-msgid "Show Equalizer Rec"
-msgstr "Mostrar Gravação do Equalizador"
-
-msgid "Show Chord Randomizer"
-msgstr "Mostrar Randomizador de Acordes"
-
-msgid "Show Image Dancer"
-msgstr "Mostrar dançarina de imagem"
-
-msgid "Show Dock Panel 1"
-msgstr "Mostrar Painel Dock 1"
-
-msgid "Show Dock Panel 2"
-msgstr "Mostrar Painel Dock 2"
-
-msgid "Show Dock Panel 3"
-msgstr "Mostrar Painel Dock 3"
-
-msgid "Show Dock Panel 4"
-msgstr "Mostrar Painel Dock 4"
-
-msgid "Show Dock Panel 5"
-msgstr "Mostrar Painel Dock 5"
+msgid "Dock Panel "
+msgstr "Painel Dock"
 
 msgid "Panels"
 msgstr "Painéis"

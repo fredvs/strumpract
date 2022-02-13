@@ -608,74 +608,8 @@ msgstr "Tampilkan Semua"
 msgid "Hide All"
 msgstr "Sembunyikan Semua"
 
-msgid "Show Drums"
-msgstr "Tampilkan Drum"
-
-msgid "Show File List"
-msgstr "Tampilkan Daftar File"
-
-msgid "Show Player 1"
-msgstr "Tampilkan Pemain 1"
-
-msgid "Show Player 2"
-msgstr "Tampilkan Pemain 2"
-
-msgid "Show Commander"
-msgstr "Tampilkan Komandan"
-
-msgid "Show Recorder"
-msgstr "Tampilkan Perekam"
-
-msgid "Show Guitars"
-msgstr "Tampilkan Gitar"
-
-msgid "Show Spectrum 1"
-msgstr "Tampilkan Spektrum 1"
-
-msgid "Show Spectrum 2"
-msgstr "Tampilkan Spektrum 2"
-
-msgid "Show Spectrum Rec"
-msgstr "Tampilkan Rek Spektrum"
-
-msgid "Show WaveForm 1"
-msgstr "Tampilkan Bentuk Gelombang 1"
-
-msgid "Show WaveForm 2"
-msgstr "Tampilkan Bentuk Gelombang 2"
-
-msgid "Show WaveForm Rec"
-msgstr "Tampilkan Rek Bentuk Gelombang"
-
-msgid "Show Equalizer 1"
-msgstr "Tampilkan Equalizer 1"
-
-msgid "Show Equalizer 2"
-msgstr "Tampilkan Equalizer 2"
-
-msgid "Show Equalizer Rec"
-msgstr "Tampilkan Rek Equalizer"
-
-msgid "Show Chord Randomizer"
-msgstr "Tampilkan Pengacak Akord"
-
-msgid "Show Image Dancer"
-msgstr "Tampilkan Gambar Penari"
-
-msgid "Show Dock Panel 1"
-msgstr "Tampilkan Panel Dock 1"
-
-msgid "Show Dock Panel 2"
-msgstr "Tampilkan Panel Dock 2"
-
-msgid "Show Dock Panel 3"
-msgstr "Tampilkan Panel Dock 3"
-
-msgid "Show Dock Panel 4"
-msgstr "Tampilkan Panel Dock 4"
-
-msgid "Show Dock Panel 5"
-msgstr "Tampilkan Panel Dock 5"
+msgid "Dock Panel"
+msgstr "Panel Dock"
 
 msgid "Panels"
 msgstr "Panel"

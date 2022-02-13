@@ -216,11 +216,16 @@ begin
   application.createform(tdockpanel1fo, dockpanel4fo);
   application.createform(tdockpanel1fo, dockpanel5fo);
 
-  dockpanel1fo.Caption := 'Dock Panel 1';
-  dockpanel2fo.Caption := 'Dock Panel 2';
-  dockpanel3fo.Caption := 'Dock Panel 3';
-  dockpanel4fo.Caption := 'Dock Panel 4';
-  dockpanel5fo.Caption := 'Dock Panel 5';
+  // dockpanel1fo.Caption := 'Dock Panel 1';
+  // dockpanel2fo.Caption := 'Dock Panel 2';
+  // dockpanel3fo.Caption := 'Dock Panel 3';
+  // dockpanel4fo.Caption := 'Dock Panel 4';
+  // dockpanel5fo.Caption := 'Dock Panel 5';
+  dockpanel1fo.tag := 0;
+  dockpanel2fo.tag := 1;
+  dockpanel3fo.tag := 2;
+  dockpanel4fo.tag := 3;
+  dockpanel5fo.tag := 4;
 
   application.createform(trandomnotefo, randomnotefo);
   application.createform(timagedancerfo, imagedancerfo);

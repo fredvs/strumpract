@@ -608,74 +608,8 @@ msgstr "Montri Ĉion"
 msgid "Hide All"
 msgstr "Kaŝi Ĉion"
 
-msgid "Show Drums"
-msgstr "Montri Tamburojn"
-
-msgid "Show File List"
-msgstr "Montri Dosierliston"
-
-msgid "Show Player 1"
-msgstr "Montri Ludanton 1"
-
-msgid "Show Player 2"
-msgstr "Montri Ludanton 2"
-
-msgid "Show Commander"
-msgstr "Montri komandanton"
-
-msgid "Show Recorder"
-msgstr "Montri registrilon"
-
-msgid "Show Guitars"
-msgstr "Montri Gitarojn"
-
-msgid "Show Spectrum 1"
-msgstr "Montri Spektron 1"
-
-msgid "Show Spectrum 2"
-msgstr "Montri Spektron 2"
-
-msgid "Show Spectrum Rec"
-msgstr "Montri Spectrum Rec"
-
-msgid "Show WaveForm 1"
-msgstr "Montri Ondoformon 1"
-
-msgid "Show WaveForm 2"
-msgstr "Montri Ondoformon 2"
-
-msgid "Show WaveForm Rec"
-msgstr "Montri WaveForm Rec"
-
-msgid "Show Equalizer 1"
-msgstr "Montri Ekvalizilon 1"
-
-msgid "Show Equalizer 2"
-msgstr "Montri Ekvalizilon 2"
-
-msgid "Show Equalizer Rec"
-msgstr "Montri Equalizer Rec"
-
-msgid "Show Chord Randomizer"
-msgstr "Montri Akorda Randomizilon"
-
-msgid "Show Image Dancer"
-msgstr "Montri Bildan Danciston"
-
-msgid "Show Dock Panel 1"
-msgstr "Montri Dock Panel 1"
-
-msgid "Show Dock Panel 2"
-msgstr "Montri Dock Panel 2"
-
-msgid "Show Dock Panel 3"
-msgstr "Montri Dock Panel 3"
-
-msgid "Show Dock Panel 4"
-msgstr "Montri Dock Panel 4"
-
-msgid "Show Dock Panel 5"
-msgstr "Montri Dock Panel 5"
+msgid "Dock Panel"
+msgstr "Dock Panel"
 
 msgid "Panels"
 msgstr "Paneloj"
