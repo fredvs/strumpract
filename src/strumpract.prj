@@ -1177,7 +1177,7 @@ line=35
  587
  257
  5734
- 2936
+ 2938
  1491
  293
  319
@@ -1189,7 +1189,7 @@ line=35
  1567
  209
  1136
- 5421
+ 5423
  493
  5
  770
@@ -1622,7 +1622,7 @@ findhistory=20
 findoptions=1
 editpos=2
  0,-1073741823
- 39,3
+ 0,565
 bookmarks0=0
 bookmarks1=0
 sourcefiles=2
@@ -2120,12 +2120,12 @@ windowlayout=626
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
+ value=/home/fred/strumpract/src/main.pas
  history=11
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/equalizer.pas
-  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/main.mfm
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/captionstrumpract.pas

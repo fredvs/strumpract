@@ -563,7 +563,8 @@ with mainfo do
     
 with infosfo do
   begin
-      caption := lang_infosfo[Ord(in_infosfo)];  {'Infos of song'}
+      caption := lang_commanderfo[Ord(co_nameplayers_hint)] + ' ' +
+        lang_infosfo[Ord(in_infosfo)] ;
       tlabel2.caption := lang_infosfo[Ord(in_tlabel2)] + ' ';  {'No Image Tag'}
       infoname.frame.caption := lang_infosfo[Ord(in_infonameframe)];  {'Title'}
       infoartist.frame.caption := lang_infosfo[Ord(in_infoartistframe)];  {'Artist'}
@@ -580,7 +581,8 @@ with infosfo do
   
  with infosfo2 do
   begin
-      caption := lang_infosfo[Ord(in_infosfo)];  {'Infos of song'}
+      caption := lang_commanderfo[Ord(co_nameplayers2_hint)] + ' ' +
+        lang_infosfo[Ord(in_infosfo)] ;
       tlabel2.caption := lang_infosfo[Ord(in_tlabel2)]  + ' ';  {'No Image Tag'}
       infoname.frame.caption := lang_infosfo[Ord(in_infonameframe)];  {'Title'}
       infoartist.frame.caption := lang_infosfo[Ord(in_infoartistframe)];  {'Artist'}
