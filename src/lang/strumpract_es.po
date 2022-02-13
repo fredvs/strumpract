@@ -1245,7 +1245,7 @@ msgid "Enable 9th Chords"
 msgstr "Habilitar acordes de novena"
 
 msgid "# (Sharp)"
-msgstr "# (Agudo)"
+msgstr "# (Dièse)"
 
 msgid "Enable Sharp-Chords #"
 msgstr "Habilitar acordes sostenidos #"
