@@ -320,7 +320,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 22
+        submenu.count = 23
         submenu.items = <        
           item
             caption = 'Show All'
@@ -333,6 +333,49 @@ object mainfo: tmainfo
             name = 'hideall'
             state = [as_localcaption, as_localonexecute]
             onexecute = hideall
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            submenu.count = 5
+            submenu.items = <            
+              item
+                caption = 'Show Dock Panel 1'
+                name = 'showpanel1'
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan1
+              end            
+              item
+                caption = 'Show Dock Panel 2'
+                name = 'showpanel2'
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan2
+              end            
+              item
+                caption = 'Show Dock Panel 3'
+                name = 'showpanel3'
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan3
+              end            
+              item
+                caption = 'Show Dock Panel 4'
+                name = 'showpanel4'
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan4
+              end            
+              item
+                caption = 'Show Dock Panel 5'
+                name = 'showpanel5'
+                state = [as_localcaption, as_localonexecute]
+                onexecute = showpan5
+              end>
+            caption = '&Panels'
+            name = 'panels'
+            state = [as_localcaption]
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
           end        
           item
             caption = 'Show Drums'
@@ -441,46 +484,6 @@ object mainfo: tmainfo
             name = 'showimagedancer'
             state = [as_localcaption, as_localonexecute]
             onexecute = showimagedancer
-          end        
-          item
-            options = [mao_separator, mao_shortcutcaption]
-          end        
-          item
-            submenu.count = 5
-            submenu.items = <            
-              item
-                caption = 'Show Dock Panel 1'
-                name = 'showpanel1'
-                state = [as_localcaption, as_localonexecute]
-                onexecute = showpan1
-              end            
-              item
-                caption = 'Show Dock Panel 2'
-                name = 'showpanel2'
-                state = [as_localcaption, as_localonexecute]
-                onexecute = showpan2
-              end            
-              item
-                caption = 'Show Dock Panel 3'
-                name = 'showpanel3'
-                state = [as_localcaption, as_localonexecute]
-                onexecute = showpan3
-              end            
-              item
-                caption = 'Show Dock Panel 4'
-                name = 'showpanel4'
-                state = [as_localcaption, as_localonexecute]
-                onexecute = showpan4
-              end            
-              item
-                caption = 'Show Dock Panel 5'
-                name = 'showpanel5'
-                state = [as_localcaption, as_localonexecute]
-                onexecute = showpan5
-              end>
-            caption = '&Panels'
-            name = 'panels'
-            state = [as_localcaption]
           end>
         caption = '&Show'
         hint = 'Show/hide windows'

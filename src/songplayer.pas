@@ -775,7 +775,7 @@ begin
         end;
       end;
 
-    if (Caption = 'Player 2') and (not wavefo2.TrackBar1.clicked) then
+    if (tag = 1) and (not wavefo2.TrackBar1.clicked) then
       if uos_InputPosition(theplayer2, Inputindex2) > 0 then
       begin
         TrackBar1.Value := uos_InputPosition(theplayer2, Inputindex2) / Inputlength2;
@@ -2078,7 +2078,7 @@ begin
     FormDrawWaveFormbusy1 := False;
   end;
 
-  if (Caption = 'Player 2') and (FormDrawWaveFormbusy2 = False) and (as_checked in wavefo2.tmainmenu1.menu[0].state) then
+  if (tag = 1) and (FormDrawWaveFormbusy2 = False) and (as_checked in wavefo2.tmainmenu1.menu[0].state) then
   begin
     FormDrawWaveFormbusy2 := True;
     wavefo2.trackbar1.invalidate();
@@ -2152,7 +2152,7 @@ begin
       end;
     end;
 
-  if (Caption = 'Player 2') and (as_checked in wavefo2.tmainmenu1.menu[0].state) and (buzywaveform2 = False) then
+  if (tag = 1) and (as_checked in wavefo2.tmainmenu1.menu[0].state) and (buzywaveform2 = False) then
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
 

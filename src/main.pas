@@ -1468,11 +1468,11 @@ begin
   else bo := false;
   if bo then DynLibs.UnloadLibrary(gl_Handle) else
   begin
-  mainfo.tmainmenu1.menu[5].submenu[0].visible := false;
-  mainfo.tmainmenu1.menu[5].submenu[1].visible := false;
-  mainfo.tmainmenu1.menu[5].submenu[2].visible := false;
+  tmainmenu1.menu.itembynames(['dancer','square']).visible := false;
+  tmainmenu1.menu.itembynames(['dancer','triangle']).visible := false;
+  tmainmenu1.menu.itembynames(['dancer','lines']).visible := false;
   end;
-  {$ENDIF}
+{$ENDIF}
 
   Caption := 'StrumPract ' + versiontext;
   
@@ -6410,13 +6410,12 @@ begin
 
   imagedancerfo.Destroy;
 
-  if as_checked in tmainmenu1.menu[5].submenu[19].state then
-    alwaystop := 1
+  if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer','alwaystop']).state then
+     alwaystop := 1
   else
     alwaystop := 0;
 
-  // alwaystop := 1;
-  application.ProcessMessages;
+   application.ProcessMessages;
 
   application.createform(timagedancerfo, imagedancerfo);
   imagedancerfo.Visible := False;

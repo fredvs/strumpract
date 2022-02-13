@@ -46,25 +46,5 @@ implementation
 uses
   infos_mfm;
 
-{
-procedure tinfosfo.onactiv(const sender: TObject);
-begin
-
-if Caption = 'Infos Recorder' then
-begin
-
-      infoartist.visible := false ;
-      infoname.visible := false ;
-      infoalbum.visible := false ;
-      infoyear.visible := false ;
-      infocom.visible := false ;
-      infotag.visible := false ;
-      infobpm.visible := false ;
-      imgPreview.Visible := False;
-      tlabel2.Visible := False;
-end;
-end;
-}
-
 end.
 

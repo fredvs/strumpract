@@ -5,7 +5,7 @@ object randomnotefo: trandomnotefo
   onactivate = onconfigtext
   visible = False
   bounds_x = 0
-  bounds_y = 24
+  bounds_y = 29
   bounds_cx = 1358
   bounds_cy = 711
   container.frame.localprops = []

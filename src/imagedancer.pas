@@ -157,6 +157,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   main,
   msegl,
   mseglu,
@@ -974,11 +975,9 @@ end;
 
 procedure timagedancerfo.InvalidateImage;
 begin
-   if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
+   if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer','transparent']).state then
   windowopacity := multiplier * 0.4 else windowopacity := 1;
   onpaint_imagedancerfo(imagedancerfo, imagedancerfo.getcanvas);
-  if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
-  windowopacity := multiplier * 0.4 else windowopacity := 1;
 end;
 
 procedure timagedancerfo.ondestroy(const Sender: TObject);
@@ -1022,7 +1021,10 @@ procedure timagedancerfo.onshow(const Sender: TObject);
 begin
   openglwidget.fpsmax := 30;
   renderstart         := timestamp;
-  mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Hide Image Dancer ';
+ if  (isactivated = true) then
+   mainfo.tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := 
+      lang_mainfo[Ord(ma_hide)]  + ': ' +
+      lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;        
 end;
 
 procedure timagedancerfo.clientrectchangedexe(const Sender: tcustomwindowwidget);
@@ -1055,7 +1057,7 @@ begin
       if multiplier = 0 then windowopacity := 1
    else
    begin
-    if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
+   if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer','transparent']).state then
   windowopacity := multiplier * 0.4 else windowopacity := 1;
   end;
   
@@ -1089,8 +1091,8 @@ begin
    if multiplier = 0 then windowopacity := 1
    else
    begin
-    if as_checked in mainfo.tmainmenu1.menu[5].submenu[21].state then 
-  windowopacity := multiplier * 0.4 else windowopacity := 1;
+   if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer','transparent']).state then
+   windowopacity := multiplier * 0.4 else windowopacity := 1;
   end;
 
     Inc(rendercount);
@@ -1114,7 +1116,10 @@ end;
 
 procedure timagedancerfo.onhide(const Sender: TObject);
 begin
-  mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Image Dancer ';
+if  (isactivated = true) then
+  mainfo.tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := 
+      lang_mainfo[Ord(ma_tmainmenu1_show)]   + ': ' +
+      lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;        
 end;
 
 procedure timagedancerfo.crea(const sender: TObject);

@@ -302,7 +302,7 @@ begin
       else
         songplayer2fo.changefrequency(2, tagsender - 10, -1, again);
 
-    if Caption = 'Equalizer Recorder' then
+    if tag = 2 then
       if tagsender < 11 then
         recorderfo.changefrequency(2, tagsender, again, -1)
       else
@@ -363,26 +363,7 @@ begin
  if  (isactivated = true) then
  begin
 
-  if Visible then
-  begin
-    if Assigned(mainfo) then
-      if tag = 0 then
-        mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Hide Equalizer 1 '
-      else if tag = 1 then
-        mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Hide Equalizer 2 '
-      else if Caption = 'Equalizer Recorder' then
-        mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Hide Equalizer Rec ';
-  end
-  else if Assigned(mainfo) then
     if tag = 0 then
-      mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Show Equalizer 1 '
-    else if tag = 1 then
-      mainfo.tmainmenu1.menu[4].submenu[16].Caption := ' Show Equalizer 2 '
-    else if Caption = 'Equalizer Recorder' then
-      mainfo.tmainmenu1.menu[4].submenu[17].Caption := ' Show Equalizer Rec ';
-      
-      
-   if tag = 0 then
      if Visible then
         begin
           mainfo.tmainmenu1.menu.itembynames(['show','showequ1']).caption :=
@@ -465,7 +446,7 @@ begin
 
   if (mainfo.typecolor.Value = 0) then
   begin
-    if Caption = 'Equalizer Recorder' then
+    if tag = 2 then
       dialogfilesfo.list_files.frame.colorclient := cl_ltgray
     else
       dialogfilesfo.list_files.frame.colorclient := $F9FFC2;

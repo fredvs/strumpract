@@ -204,6 +204,7 @@ var
 implementation
 
 uses
+  captionstrumpract,
   randomnote_mfm,
   main,
   config,
@@ -4981,13 +4982,19 @@ end;
 
 procedure trandomnotefo.onhide(const Sender: TObject);
 begin
-  mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Show Chords Randomizer ';
-
+if  (isactivated = true) then
+      mainfo.tmainmenu1.menu.itembynames(['show','showchords']).caption := 
+      lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+      lang_randomnotefo[Ord(ra_randomnotefo)] ;          
 end;
 
 procedure trandomnotefo.onshowrand(const Sender: TObject);
 begin
-  mainfo.tmainmenu1.menu[4].submenu[15].Caption := ' Hide Chords Randomizer ';
+if  (isactivated = true) then
+   mainfo.tmainmenu1.menu.itembynames(['show','showchords']).caption := 
+      lang_mainfo[Ord(ma_hide)]  + ': ' +
+      lang_randomnotefo[Ord(ra_randomnotefo)] ;          
+
 end;
 
 procedure trandomnotefo.crea(const Sender: TObject);
