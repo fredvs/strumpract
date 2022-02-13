@@ -999,7 +999,7 @@ msgid "Show infos of the song"
 msgstr "Εμφάνιση πληροφοριών του τραγουδιού"
 
 msgid "Info"
-msgstr "Πληροφορίες"
+msgstr "Πληρο"
 
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "Εντοπίστε το BMP από την τρέχουσα θέση και ρυθμίστε το σε ρυθμό Drums."

@@ -741,7 +741,7 @@ msgid "Terminate StrumPract"
 msgstr "Terminar StrumPract"
 
 msgid "Set as default"
-msgstr "Establecer como predeterminado"
+msgstr "Establecer por defecto"
 
 msgid "Recorder"
 msgstr "Grabadora"
@@ -942,7 +942,7 @@ msgid "Choose a audio directory with wav, ogg, flac or mp3"
 msgstr "Elija un directorio de audio con wav, ogg, flac o mp3"
 
 msgid "Infos of song"
-msgstr "Información de la canción"
+msgstr "Info de la canción"
 
 msgid "No Image Tag"
 msgstr "Sin etiqueta de imagen"
@@ -1005,7 +1005,7 @@ msgid "Show infos of the song"
 msgstr "Mostrar información de la canción"
 
 msgid "Info"
-msgstr "Información"
+msgstr "Info"
 
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "Detecta BMP desde la posición actual y configúralo en el tempo de la batería."
@@ -1245,7 +1245,7 @@ msgid "Enable 9th Chords"
 msgstr "Habilitar acordes de novena"
 
 msgid "# (Sharp)"
-msgstr "# (Dièse)"
+msgstr "# (Agudo)"
 
 msgid "Enable Sharp-Chords #"
 msgstr "Habilitar acordes sostenidos #"

@@ -1627,7 +1627,7 @@ bookmarks0=0
 bookmarks1=0
 sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/main.pas
+ /home/fred/strumpract/src/main.pas
 relpaths=2
  strumpract.pas
  main.pas
@@ -1676,8 +1676,8 @@ windowlayout=626
  ny=0
  ncx=0
  ncy=0
- x=56
- y=54
+ x=189
+ y=224
  cx=1224
  cy=621
  rcx=0

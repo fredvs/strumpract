@@ -999,7 +999,7 @@ msgid "Show infos of the song"
 msgstr "Mostrar informações da música"
 
 msgid "Info"
-msgstr "Informações"
+msgstr "Info"
 
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "Detectar BMP da posição atual e defini-lo para o andamento da bateria."
