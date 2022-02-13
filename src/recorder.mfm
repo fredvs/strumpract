@@ -478,7 +478,7 @@ object recorderfo: trecorderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = tfacerecorder
-      taborder = 14
+      taborder = 13
       hint = ' Choose a audio file '
       bounds_x = 8
       bounds_y = 3
@@ -515,7 +515,7 @@ object recorderfo: trecorderfo
       frame.buttonslast = True
       face.localprops = []
       face.template = tfacerecrev
-      taborder = 15
+      taborder = 14
       hint = ' Change right volume  '
       bounds_x = 221
       bounds_y = 28
@@ -551,7 +551,7 @@ object recorderfo: trecorderfo
         0
         0
       )
-      taborder = 16
+      taborder = 15
       bounds_x = 98
       bounds_y = 25
       bounds_cx = 61
@@ -643,55 +643,11 @@ object recorderfo: trecorderfo
         0
         0
       )
-      taborder = 17
+      taborder = 16
       bounds_x = 287
       bounds_y = 24
       bounds_cx = 145
       bounds_cy = 98
-    end
-    object hintpanel: tgroupbox
-      color = -2147483645
-      frame.levelo = 0
-      frame.leveli = 0
-      frame.framei_left = 0
-      frame.framei_right = 0
-      frame.optionsskin = [fso_flat]
-      frame.localprops = []
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = commanderfo.tfaceorange
-      taborder = 13
-      visible = False
-      bounds_x = 64
-      bounds_y = 36
-      bounds_cx = 221
-      bounds_cy = 52
-      font.name = 'stf_default'
-      font.localprops = []
-      object hintlabel: tlabel
-        color = -2147483645
-        bounds_x = 21
-        bounds_y = 9
-        bounds_cx = 169
-        bounds_cy = 15
-        caption = 'Invalid value.  Reset to 100.'
-        font.name = 'stf_default'
-        font.localprops = []
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
-      end
-      object hintlabel2: tlabel
-        color = -2147483645
-        taborder = 1
-        bounds_x = 2
-        bounds_y = 29
-        bounds_cx = 215
-        bounds_cy = 15
-        caption = 'Or press Esc key for previous value.'
-        font.name = 'stf_default'
-        font.localprops = []
-        reffontheight = 15
-      end
     end
   end
   object cbtempo: tbooleanedit
@@ -923,6 +879,50 @@ object recorderfo: trecorderfo
     bounds_cx = 43
     bounds_cy = 16
     statfile = mainfo.tstatfile1
+  end
+  object hintpanel: tgroupbox
+    color = -2147483645
+    frame.levelo = 0
+    frame.leveli = 0
+    frame.framei_left = 0
+    frame.framei_right = 0
+    frame.optionsskin = [fso_flat]
+    frame.localprops = []
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = commanderfo.tfaceorange
+    taborder = 10
+    visible = False
+    bounds_x = 137
+    bounds_y = 41
+    bounds_cx = 221
+    bounds_cy = 52
+    font.name = 'stf_default'
+    font.localprops = []
+    object hintlabel: tlabel
+      color = -2147483645
+      bounds_x = 21
+      bounds_y = 9
+      bounds_cx = 169
+      bounds_cy = 15
+      caption = 'Invalid value.  Reset to 100.'
+      font.name = 'stf_default'
+      font.localprops = []
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 15
+    end
+    object hintlabel2: tlabel
+      color = -2147483645
+      taborder = 1
+      bounds_x = 2
+      bounds_y = 29
+      bounds_cx = 215
+      bounds_cy = 15
+      caption = 'Or press Esc key for previous value.'
+      font.name = 'stf_default'
+      font.localprops = []
+      reffontheight = 15
+    end
   end
   object tfacereclight: tfacecomp
     template.fade_pos.count = 2

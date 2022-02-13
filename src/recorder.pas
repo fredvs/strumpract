@@ -35,9 +35,6 @@ type
     vuLeft: tprogressbar;
     recpan: tgroupbox;
     tfacecomp2: tfacecomp;
-    hintpanel: tgroupbox;
-    hintlabel: tlabel;
-    hintlabel2: tlabel;
     tbutton6: TButton;
     edvolr: trealspinedit;
     tfiledialog1: tfiledialogx;
@@ -55,6 +52,9 @@ type
    btnStart: tbutton;
    sentcue1: tbooleanedit;
    cbloop: tbooleanedit;
+   hintpanel: tgroupbox;
+   hintlabel: tlabel;
+   hintlabel2: tlabel;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
