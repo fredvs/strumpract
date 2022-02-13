@@ -1239,7 +1239,7 @@ msgid "Enable 9th Chords"
 msgstr "אפשר 9th Chords"
 
 msgid "# (Sharp)"
-msgstr "# (חד)"
+msgstr "# (Sharp)"
 
 msgid "Enable Sharp-Chords #"
 msgstr "אפשר Sharp-Chords #"

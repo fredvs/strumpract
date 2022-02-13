@@ -1239,10 +1239,10 @@ msgid "Enable 9th Chords"
 msgstr "Activer les accords de 9ème"
 
 msgid "# (Sharp)"
-msgstr "# (pointu)"
+msgstr "# (Dièse)"
 
 msgid "Enable Sharp-Chords #"
-msgstr "Activer les accords pointus #"
+msgstr "Activer les accords dièse #"
 
 msgid "Sound"
 msgstr "Son"
@@ -1251,7 +1251,7 @@ msgid "Enable Sound of Chords"
 msgstr "Activer le son des accords"
 
 msgid "Number"
-msgstr "Numéro"
+msgstr "Nombre"
 
 msgid "Total chords"
 msgstr "Accords totaux"
@@ -1263,7 +1263,7 @@ msgid "Random num"
 msgstr "Nombre aléatoire"
 
 msgid "Randomize the number of chords"
-msgstr "Aléatoire le nombre d'accords"
+msgstr "Randomiser le nombre d'accords"
 
 msgid "Tempo of Drums in BPM"
 msgstr "Tempo de batterie en BPM"
@@ -1275,7 +1275,7 @@ msgid "Enable random Drums tempo"
 msgstr "Activer le tempo aléatoire de la batterie"
 
 msgid "Configure the Clear message"
-msgstr "Configurer le message Effacer"
+msgstr "Configurer le message d'entrée"
 
 msgid "English [en]"
 msgstr "Anglais [en]"

@@ -4,50 +4,13 @@ unit recorder;
 interface
 
 uses
-  ctypes,
-  uos_flat,
-  infos,
-  msetimer,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  Math,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msesimplewidgets,
-  msewidgets,
-  msedataedits,
-  msefiledialogx,
-  msegrids,
-  mselistbrowser,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msescrollbar,
-  msedragglob,
-  mseact,
-  mseedit,
-  msestatfile,
-  msestream,
-  msestrings,
-  msebitmap,
-  msedatanodes,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  msegridsglob;
+ ctypes,uos_flat,infos,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
+ mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,Math,mseevent,
+ mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
+ msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,msegraphedits,
+ mseificomp,mseificompglob,mseifiglob,msescrollbar,msedragglob,mseact,mseedit,
+ msestatfile,msestream,msestrings,msebitmap,msedatanodes,msedispwidgets,
+ mserichstring,msedropdownlist,msegridsglob;
 
 type
   trecorderfo = class(tdockform)
@@ -63,15 +26,7 @@ type
     blistenin: tbooleanedit;
     btinfos: TButton;
     edvol: trealspinedit;
-    edtempo: trealspinedit;
-    button1: TButton;
-    cbloop: tbooleanedit;
-    cbtempo: tbooleanedit;
     trackbar1: tslider;
-    btnStop: TButton;
-    btnStart: TButton;
-    btnResume: TButton;
-    btnPause: TButton;
     historyfn: thistoryedit;
     llength: tstringdisp;
     lposition: tstringdisp;
@@ -83,7 +38,6 @@ type
     hintpanel: tgroupbox;
     hintlabel: tlabel;
     hintlabel2: tlabel;
-    sentcue1: tbooleanedit;
     tbutton6: TButton;
     edvolr: trealspinedit;
     tfiledialog1: tfiledialogx;
@@ -91,6 +45,16 @@ type
     bwav: tbooleaneditradio;
     bogg: tbooleaneditradio;
     bsavetofile: tbooleanedit;
+   tgroupbox3: tgroupbox;
+   cbtempo: tbooleanedit;
+   edtempo: trealspinedit;
+   button1: tbutton;
+   btnStop: tbutton;
+   btnPause: tbutton;
+   btnResume: tbutton;
+   btnStart: tbutton;
+   sentcue1: tbooleanedit;
+   cbloop: tbooleanedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);

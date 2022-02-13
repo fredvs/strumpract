@@ -1239,7 +1239,7 @@ msgid "Enable 9th Chords"
 msgstr "Aktifkan Akor ke-9"
 
 msgid "# (Sharp)"
-msgstr "# (Tajam)"
+msgstr "# (Sharp)"
 
 msgid "Enable Sharp-Chords #"
 msgstr "Aktifkan Sharp-Chords #"
