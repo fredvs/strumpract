@@ -893,8 +893,8 @@ object recorderfo: trecorderfo
     face.template = commanderfo.tfaceorange
     taborder = 10
     visible = False
-    bounds_x = 137
-    bounds_y = 41
+    bounds_x = 8
+    bounds_y = 34
     bounds_cx = 221
     bounds_cy = 52
     font.name = 'stf_default'

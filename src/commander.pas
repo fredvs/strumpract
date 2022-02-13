@@ -5,47 +5,13 @@ interface
 
 uses
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,
- {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  Math,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  msefileutils,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  mseimage;
+ {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,mseglob,mseguiglob,
+ mseguiintf,mseapplication,msestat,msemenus,Math,msegui,msetimer,msegraphics,
+ msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
+ msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
+ msefiledialogx,msegrids,mseificomp,mseificompglob,msefileutils,mseifiglob,
+ mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,msegraphedits,
+ msescrollbar,msedispwidgets,mserichstring,mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -93,9 +59,6 @@ type
     butinput: tbooleanedit;
     genleftvolvalue: TButton;
     genrightvolvalue: TButton;
-    hintpanel: tgroupbox;
-    hintlabel: tlabel;
-    hintlabel2: tlabel;
     volumeleft1val: TButton;
     volumeright1val: TButton;
     volumeright2val: TButton;
@@ -143,6 +106,9 @@ type
     tfaceslidergold: tfacecomp;
     tfacesliderred: tfacecomp;
     tfaceslidergreen: tfacecomp;
+   hintpanel: tgroupbox;
+   hintlabel: tlabel;
+   hintlabel2: tlabel;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

@@ -803,21 +803,12 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=4
- EQUALIZERFO
+modulenames=1
  MAINFO
- RECORDERFO
- SONGPLAYERFO
-moduletypes=4
- TEQUALIZERFO
+moduletypes=1
  TMAINFO
- TRECORDERFO
- TSONGPLAYERFO
-modulefiles=4
- /home/fred/strumpract/src/equalizer.mfm
+modulefiles=1
  /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/songplayer.mfm
 befcommandon=0
 makeoptionson=15
  4095
@@ -1188,9 +1179,9 @@ line=35
  5734
  2936
  1491
- 327
+ 293
  319
- 572
+ 538
  553
  773
  785
@@ -1201,7 +1192,7 @@ line=35
  5421
  493
  5
- 804
+ 770
  1518
  171
  1495
@@ -1629,72 +1620,49 @@ findhistory=20
  mainmenu1.menu.item
  mainmenu1.menu.items[
 findoptions=1
-editpos=5
+editpos=2
  0,-1073741823
- 0,-1073741823
- 0,9
- 4,14
- 0,2
+ 39,3
 bookmarks0=0
 bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-sourcefiles=5
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/equalizer.pas
- ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/songplayer.pas
-relpaths=5
+relpaths=2
  strumpract.pas
  main.pas
- equalizer.pas
- recorder.pas
- songplayer.pas
-ismoduletexts=5
+ismoduletexts=2
  0
  0
- 0
- 0
- 0
-modules=7
+modules=5
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/guitars.mfm
- /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/songplayer.mfm
-moduleoptions=7
+moduleoptions=5
  0
  0
+ 2
  0
  0
- 0
- 0
- 0
-visiblemodules=7
- -1
- 0
+visiblemodules=5
  -1
  0
  0
- -1
- -1
-nomenumodules=7
- 0
- -1
- 0
- -1
- -1
  0
  0
+nomenumodules=5
+ 0
+ -1
+ -1
+ -1
+ -1
 [sourcefo.files_tab]
 firsttab=0
-index=3
+index=1
 [layout]
-windowlayout=663
+windowlayout=626
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1708,8 +1676,8 @@ windowlayout=663
  ny=0
  ncx=0
  ncy=0
- x=77
- y=59
+ x=56
+ y=54
  cx=1224
  cy=621
  rcx=0
@@ -1849,7 +1817,7 @@ windowlayout=663
  sortdescend1=0
  sorted=0
  col=0
- row=12
+ row=1
  rowheight=17
  [stackfo]
  splitdir=0
@@ -2152,13 +2120,14 @@ windowlayout=663
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/recorder.pas
- history=10
+ value=/home/fred/strumpract/src/songplayer.pas
+ history=11
+  /home/fred/strumpract/src/songplayer.pas
+  /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/main.mfm
   /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/captionstrumpract.pas
   /home/fred/strumpract/src/infos.pas
   /home/fred/strumpract/src/potools.pas
@@ -2186,7 +2155,7 @@ windowlayout=663
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=3
+ index=1
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2228,7 +2197,7 @@ windowlayout=663
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2263,25 +2232,6 @@ windowlayout=663
  wsize=0
  active=0
  visible=0
- [_mse_equalizerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=targetconsolefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=641
- y=136
- cx=452
- cy=142
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2304,7 +2254,7 @@ windowlayout=663
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2319,11 +2269,11 @@ windowlayout=663
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2339,25 +2289,6 @@ windowlayout=663
  wsize=0
  active=0
  visible=0
- [_mse_songplayerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=506
- y=253
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
 [targetconsole]
 finddtext=
 findhistory=0

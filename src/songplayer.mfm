@@ -900,16 +900,14 @@ object songplayerfo: tsongplayerfo
       onexecute = onexecbutlght
     end
     object hintpanel: tgroupbox
-      frame.localprops = []
-      frame.localprops1 = []
       face.localprops = []
       face.template = commanderfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 116
-      bounds_y = 54
+      bounds_x = 9
+      bounds_y = 45
       bounds_cx = 221
-      bounds_cy = 36
+      bounds_cy = 41
       font.name = 'stf_default'
       font.localprops = []
       object hintlabel: tlabel
@@ -926,7 +924,7 @@ object songplayerfo: tsongplayerfo
       object hintlabel2: tlabel
         taborder = 1
         bounds_x = 5
-        bounds_y = 18
+        bounds_y = 23
         bounds_cx = 215
         bounds_cy = 15
         caption = 'Or press Esc key for previous value.'
