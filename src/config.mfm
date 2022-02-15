@@ -766,8 +766,8 @@ object configfo: tconfigfo
     )
     taborder = 5
     hint = 'Enable sleep mode when inactive > 3 minutes'
-    bounds_x = 738
-    bounds_y = 5
+    bounds_x = 804
+    bounds_y = 6
     bounds_cx = 112
     bounds_cy = 17
     statfile = mainfo.tstatfile1
@@ -939,5 +939,29 @@ object configfo: tconfigfo
     state = [as_localcaption]
     caption = 'OK'
     modalresult = mr_windowclosed
+  end
+  object bnohint: tbooleanedit
+    color = -2147483645
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.colorclient = 16580582
+    frame.caption = 'No hint'
+    frame.captiondist = 3
+    frame.localprops = [frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      0
+      2
+      49
+      3
+    )
+    taborder = 8
+    hint = 'Dont show the hint-info'
+    bounds_x = 656
+    bounds_y = 7
+    bounds_cx = 62
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    onchange = onchangehint
+    colorglyph = 4868682
   end
 end

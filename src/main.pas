@@ -206,7 +206,7 @@ begin
 
 with mainfo do
   begin
-       if  (thelang = 'id') or (thelang = 'el')
+      if  (thelang = 'id') or (thelang = 'el')
         then tframecomp1.template.extraspace := 2 else
       if (thelang = 'fr') or (thelang = 'es')  
         then tframecomp1.template.extraspace := 4
@@ -425,15 +425,68 @@ with mainfo do
       tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := str +
       lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;          
 
-//      tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showimagedancer)];  {'Show Image Dancer'}
+      with dockpanel1fo do
+      begin
+      basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+      
+        tmainmenu1.menu.itembynames(['dock']).caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+
+      tmainmenu1.menu.itembynames(['tab']).caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];  {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      end;
+      
+      with dockpanel2fo do
+      begin
+      basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+      
+        tmainmenu1.menu.itembynames(['dock']).caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+
+      tmainmenu1.menu.itembynames(['tab']).caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];  {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      end;
+      
+      with dockpanel3fo do
+      begin
+      basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+      
+        tmainmenu1.menu.itembynames(['dock']).caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+
+      tmainmenu1.menu.itembynames(['tab']).caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];  {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      end;
+      
+      with dockpanel4fo do
+      begin
+      basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+      
+        tmainmenu1.menu.itembynames(['dock']).caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+
+      tmainmenu1.menu.itembynames(['tab']).caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];  {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      end;
+      
+      with dockpanel5fo do
+      begin
+      basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
+      
+        tmainmenu1.menu.itembynames(['dock']).caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+
+      tmainmenu1.menu.itembynames(['tab']).caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];  {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      end;
+      
+   //      tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showimagedancer)];  {'Show Image Dancer'}
      dockpanel1fo.caption := lang_mainfo[Ord(ma_dockpanel)] + ' 1' ; 
    if dockpanel1fo.visible then str := lang_mainfo[Ord(ma_hide)] else
       str := lang_mainfo[Ord(ma_tmainmenu1_show)];
       str := str + ': ' ;
-      
-      dockpanel1fo.basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  
-        
-       tmainmenu1.menu.itembynames(['show','panels','showpanel1']).caption := 
+           
+      tmainmenu1.menu.itembynames(['show','panels','showpanel1']).caption := 
         str + lang_mainfo[Ord(ma_dockpanel)] + ' 1' ;  {'Show Dock Panel 1'}
 
    //   tmainmenu1.menu.itembynames(['show','panels','showpanel2']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showpanel2)];  {'Show Dock Panel 2'}
@@ -544,9 +597,14 @@ with mainfo do
       tmainmenu1.menu.itembynames(['style']).caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
       tmainmenu1.menu.itembynames(['style']).hint := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
 
-      tmainmenu1.menu.itembynames(['config','audio']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio)];  {'Audio'}
-      tmainmenu1.menu.itembynames(['config','audio']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
+       tmainmenu1.menu.itembynames(['config','audio']).hint :=
+       lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
 
+         tmainmenu1.menu.itembynames(['config','audio']).caption := 
+         lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
+
+     //   lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio)] + ' + System ';  {'Audio'}
+        
       tmainmenu1.menu.itembynames(['config','language']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language)] + ' (Lang)';  {'Language'}
       tmainmenu1.menu.itembynames(['config','language']).hint := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language_hint)];  {'Set language'}
 
@@ -788,7 +846,13 @@ with songplayer2fo do
 
    with commanderfo do
   begin
-     
+      
+      {
+      optionswidget :=    
+     [ow_mousefocus,ow_tabfocus,ow_arrowfocus,
+     ow_subfocus,ow_mousewheel,ow_destroywidgets,ow_hintoff];
+      }
+      
       frame.grip_hint := lang_commanderfo[Ord(co_commanderfogriphint)];  {'Use that grip panel to drag/drop the window.'}
 
       caption := lang_commanderfo[Ord(co_commanderfo)];  {'Commander'}
@@ -6517,6 +6581,8 @@ begin
           if oldlang <> MSEFallbackLang then setlangstrumpract(MSEFallbackLang);
         end
       else setlangstrumpract(MSEFallbackLang);
+      
+      configfo.onchangehint(sender);
     end;
 end;
 

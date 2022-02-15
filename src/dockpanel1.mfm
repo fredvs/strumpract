@@ -169,12 +169,14 @@ object dockpanel1fo: tdockpanel1fo
       item
         caption = ' &Dock  '
         hint = ' Dock windows in one form '
+        name = 'dock'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ondock
       end    
       item
         caption = ' &Tab '
         hint = ' About StrumPract '
+        name = 'tab'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ontab
       end>

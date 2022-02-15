@@ -1,4 +1,5 @@
 object mainfo: tmainfo
+  optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff]
   color = 13421772
   face.fade_pos.count = 2
   face.fade_pos.items = (
@@ -718,6 +719,7 @@ object mainfo: tmainfo
       end>
     menu.name = 'mainmenu'
     menu.state = [as_localonexecute]
+    menu.options = [mao_shortcutcaption, mao_noshowhint]
     left = 7
   end
   object tfacecomp4: tfacecomp
