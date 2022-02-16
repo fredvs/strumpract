@@ -2874,8 +2874,31 @@ begin
 end;
 
 procedure tsongplayerfo.opendir(const Sender: TObject);
+var
+ ara, arb: msestringarty;
 begin
-  tfiledialog1.controller.captionopen := 'Open Audio File';
+  setlength(ara, 6);
+  setlength(arb, 6);
+
+  ara[0] := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showall)];  {'Show All'}
+  ara[1] := 'Mp3"';
+  ara[2] := 'Wav';
+  ara[3] := 'Ogg';
+  ara[4] := 'Flac';
+  ara[5] := 'All';
+
+  arb[0] := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+  arb[1] := '"*.mp3"';
+  arb[2] := '"*.wav"';
+  arb[3] := '"*.ogg"';
+  arb[4] := '"*.flac"';
+  arb[5] := '"*.*"';
+
+  tfiledialog1.controller.filterlist.asarraya := ara;
+  tfiledialog1.controller.filterlist.asarrayb := arb;
+
+
+  tfiledialog1.controller.captionopen := lang_filelistfo[Ord(fi_filelistfo)];
   tfiledialog1.controller.filter      := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   tfiledialog1.controller.fontcolor   := cl_black;
   if mainfo.typecolor.Value = 2 then

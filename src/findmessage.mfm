@@ -134,7 +134,7 @@ object findmessagefo: tfindmessagefo
     taborder = 2
     bounds_x = 6
     bounds_y = 32
-    bounds_cx = 218
+    bounds_cx = 190
     bounds_cy = 22
     anchors = [an_left, an_top, an_right]
     statfile = mainfo.tstatfile1
@@ -158,9 +158,9 @@ object findmessagefo: tfindmessagefo
       2
     )
     taborder = 3
-    bounds_x = 242
-    bounds_y = 32
-    bounds_cx = 102
+    bounds_x = 207
+    bounds_y = 34
+    bounds_cx = 104
     bounds_cy = 17
     anchors = [an_top, an_right]
     statfile = mainfo.tstatfile1

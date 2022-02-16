@@ -122,13 +122,13 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayerlight
       taborder = 4
       hint = 'Number of files in the list'
-      bounds_x = 184
+      bounds_x = 210
       bounds_y = 102
-      bounds_cx = 69
+      bounds_cx = 43
       bounds_cy = 24
       anchors = [an_left, an_bottom]
       textflags = [tf_xcentered, tf_ycentered]
-      value = '0 files'
+      value = '1000'
       reffontheight = 15
     end
     object tbutton11: tbutton
@@ -942,7 +942,7 @@ object filelistfo: tfilelistfo
       hint = 'History of Directories'
       bounds_x = 27
       bounds_y = 102
-      bounds_cx = 156
+      bounds_cx = 182
       bounds_cy = 24
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
@@ -1060,8 +1060,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 2
-      bounds_y = 97
+      bounds_x = 4
+      bounds_y = 33
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

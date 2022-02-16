@@ -237,9 +237,10 @@ begin
   
   
   dialogfilesfo.icon := equalizerfo1.icon;
-
+ 
   application.createform(tmainfo, mainfo);
   conflangfo.icon := mainfo.icon;
+  statusfo.icon := mainfo.icon;
   
   application.run;
 

@@ -161,6 +161,7 @@ var
 implementation
 
 uses
+  findmessage,
   infos,
   conflang,
   config,
@@ -618,6 +619,17 @@ with mainfo do
       tmainmenu1.menu.itembynames(['quit']).hint := lang_mainfo[Ord(ma_tmainmenu1_quit_hint)];  {'Terminate StrumPract'}
 
     end;
+    
+with findmessagefo do
+begin
+tbutton3.caption := lang_stockcaption[Ord(sc_close)];
+end;  
+
+with statusfo do
+begin
+ok.caption := lang_stockcaption[Ord(sc_close)];
+cancel.caption := lang_stockcaption[Ord(sc_cancel)];
+end;  
     
 with infosfo do
   begin

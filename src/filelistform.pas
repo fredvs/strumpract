@@ -509,10 +509,11 @@ begin
         end;
 
         edfilescount.Value := list_files.rowcount;
-        if edfilescount.Value > 1 then
-          filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files')
-        else
-          filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
+     //   if edfilescount.Value > 1 then
+          filescount.Value := msestring(IntToStr(edfilescount.Value)); 
+       //   lang_filelistfo[Ord(fi_filelistfodragdock)]);
+       // else
+       //   filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
 
       finally
         datalist_files.Free;
@@ -723,16 +724,16 @@ end;
 
 procedure tfilelistfo.onaftdrop(const Sender: TObject);
 begin
-  historyfn.Width := 156;
+  historyfn.Width := 182;
   historyfn.Value := tosysfilepath(extractfilepath(historyfn.Value));
 end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
 begin
-  if edfilescount.Value > 1 then
-    filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files')
-  else
-    filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
+ // if edfilescount.Value > 1 then
+    filescount.Value := intToStr(edfilescount.Value) ;
+ // else
+ //   filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
 end;
 
 procedure tfilelistfo.ondestr(const Sender: TObject);
@@ -820,7 +821,7 @@ var
   thestrnum, thestrx, thestrext, thestrfract: msestring;
 begin
 
-  tfiledialog1.controller.captionopen := 'Open Audio File';
+  tfiledialog1.controller.captionopen := lang_filelistfo[Ord(fi_filelistfo)];
 
   tfiledialog1.controller.fontcolor   := cl_black;
   if mainfo.typecolor.Value = 2 then
@@ -957,7 +958,8 @@ var
   x: integer;
   ara, arb: msestringarty;
 begin
-  tfiledialog1.controller.captiondir := 'Open Audio Directory';
+  tfiledialog1.controller.captiondir := 
+  lang_filelistfo[Ord(fi_tbutton6_hint)]; 
   tfiledialog1.controller.nopanel    := False;
   tfiledialog1.controller.compact    := False;
 
@@ -970,7 +972,7 @@ begin
   setlength(ara, 6);
   setlength(arb, 6);
 
-  ara[0] := 'All Audio';
+  ara[0] := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showall)];  {'Show All'}
   ara[1] := 'Mp3"';
   ara[2] := 'Wav';
   ara[3] := 'Ogg';
