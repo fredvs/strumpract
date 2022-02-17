@@ -301,7 +301,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=2
+ index=0
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -322,7 +322,7 @@ options=114
  index=1
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=1
+ index=2
  [projectoptionsfo]
  stackedunder=
  x=228
@@ -803,13 +803,16 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=0
-moduletypes=0
-modulefiles=0
+modulenames=1
+ MAINFO
+moduletypes=1
+ TMAINFO
+modulefiles=1
+ /home/fred/strumpract/src/main.mfm
 befcommandon=0
 makeoptionson=15
  4095
- 4
+ 0
  0
  192
  0
@@ -1172,7 +1175,7 @@ line=35
  137
  343
  587
- 258
+ 257
  5734
  3014
  1491
@@ -1617,24 +1620,33 @@ findhistory=20
  fi_tbutton6_hint
  fi_filelistfo
 findoptions=1
-editpos=1
- 13,246
+editpos=2
+ 0,-1073741823
+ 0,88
 bookmarks0=0
-sourcefiles=1
+bookmarks1=0
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
-relpaths=1
+ /home/fred/strumpract/src/main.pas
+relpaths=2
  strumpract.pas
-ismoduletexts=1
+ main.pas
+ismoduletexts=2
  0
-modules=0
-moduleoptions=0
-visiblemodules=0
-nomenumodules=0
+ 0
+modules=1
+ /home/fred/strumpract/src/main.mfm
+moduleoptions=1
+ 0
+visiblemodules=1
+ -1
+nomenumodules=1
+ 0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=1
 [layout]
-windowlayout=532
+windowlayout=554
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1648,8 +1660,8 @@ windowlayout=532
  ny=0
  ncx=0
  ncy=0
- x=51
- y=41
+ x=98
+ y=72
  cx=1224
  cy=621
  rcx=0
@@ -1789,7 +1801,7 @@ windowlayout=532
  sortdescend1=0
  sorted=0
  col=0
- row=15
+ row=9
  rowheight=17
  [stackfo]
  splitdir=0
@@ -2092,8 +2104,11 @@ windowlayout=532
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/status.pas
- history=12
+ value=/home/fred/strumpract/src/main.pas
+ history=15
+  /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/strumpract.pas
+  /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/status.pas
   /home/fred/strumpract/src/findmessage.pas
   /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts.pas
@@ -2128,7 +2143,7 @@ windowlayout=532
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=1
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2167,6 +2182,25 @@ windowlayout=532
  cy=450
  rcx=0
  rcy=0
+ [_mse_mainfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=438
+ y=302
+ cx=452
+ cy=96
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0

@@ -215,7 +215,6 @@ object commanderfo: tcommanderfo
       bounds_cy = 14
       font.color = 3881787
       font.height = 10
-      font.style = [fs_italic]
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
@@ -302,7 +301,6 @@ object commanderfo: tcommanderfo
       bounds_cy = 14
       font.color = 3881787
       font.height = 10
-      font.style = [fs_italic]
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
@@ -528,7 +526,6 @@ object commanderfo: tcommanderfo
       bounds_cy = 14
       font.color = 3881787
       font.height = 10
-      font.style = [fs_italic]
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
@@ -1531,7 +1528,6 @@ object commanderfo: tcommanderfo
       bounds_cy = 14
       font.color = 3881787
       font.height = 10
-      font.style = [fs_italic]
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]
@@ -1554,7 +1550,6 @@ object commanderfo: tcommanderfo
       bounds_cy = 14
       font.color = 3881787
       font.height = 10
-      font.style = [fs_italic]
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_style, flp_height]
       textflags = [tf_xcentered, tf_ycentered]

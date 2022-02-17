@@ -234,8 +234,7 @@ begin
   
   application.createform(tconflangfo, conflangfo);
   application.createform(theaderfo, headerfo);
-  
-  
+    
   dialogfilesfo.icon := equalizerfo1.icon;
  
   application.createform(tmainfo, mainfo);
