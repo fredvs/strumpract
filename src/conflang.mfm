@@ -212,7 +212,7 @@ object conflangfo: tconflangfo
     bounds_cx = 66
     bounds_cy = 26
     anchors = [an_top, an_right]
-    state = [as_localcaption, as_localcolor, as_localonexecute]
+    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
     onexecute = ontools
   end
 end

@@ -803,13 +803,16 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
+modulenames=3
+ CONFLANGFO
  MAINFO
  HEADERFO
-moduletypes=2
+moduletypes=3
+ TCONFLANGFO
  TMAINFO
  THEADERFO
-modulefiles=2
+modulefiles=3
+ /home/fred/strumpract/src/conflang.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/potools.mfm
 befcommandon=0
@@ -1623,52 +1626,68 @@ findhistory=20
  file
  ma_tmainmenu1_parentitem_showall
 findoptions=1
-editpos=5
+editpos=6
  0,-1073741823
- 0,194
+ 0,-1073741823
  0,-1073741823
  10,10
  0,-1073741823
+ 0,1
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-sourcefiles=5
+bookmarks5=0
+sourcefiles=6
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/captionstrumpract.pas
  ${PROJECTDIR}/po2arrays.pas
  ${PROJECTDIR}/potools.pas
-relpaths=5
+ ${PROJECTDIR}/conflang.pas
+relpaths=6
  strumpract.pas
  main.pas
  captionstrumpract.pas
  po2arrays.pas
  potools.pas
-ismoduletexts=5
+ conflang.pas
+ismoduletexts=6
  0
  0
  0
  0
  0
-modules=2
+ 0
+modules=3
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/potools.mfm
-moduleoptions=2
+ /home/fred/strumpract/src/conflang.mfm
+moduleoptions=3
  0
  0
-visiblemodules=2
+ 0
+visiblemodules=3
  -1
  -1
-nomenumodules=2
+ -1
+nomenumodules=3
+ 0
  0
  0
 [sourcefo.files_tab]
+order=6
+ 0
+ 1
+ 2
+ 3
+ 5
+ 4
 firsttab=0
-index=3
+index=4
 [layout]
-windowlayout=561
+windowlayout=587
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2112,11 +2131,11 @@ windowlayout=561
  nx=0
  ny=0
  ncx=1197
- ncy=56
+ ncy=54
  x=0
  y=0
  cx=1212
- cy=54
+ cy=52
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2126,9 +2145,9 @@ windowlayout=561
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/po2arrays.pas
+ value=/home/fred/strumpract/src/conflang.pas
  history=3
-  /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/po2arrays.pas
   /home/fred/strumpract/src/captionstrumpract.pas
   /home/fred/ideu/src/mo2arrays.pas
  [debuggerfo.project_options]
@@ -2152,15 +2171,22 @@ windowlayout=561
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=6
+  0
+  1
+  2
+  3
+  5
+  4
  firsttab=0
- index=3
+ index=4
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=objectinspectorfo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=0
  nx=0
@@ -2225,6 +2251,25 @@ windowlayout=561
  y=172
  cx=782
  cy=437
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_conflangfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=mainfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=452
+ y=271
+ cx=341
+ cy=222
  rcx=0
  rcy=0
  wsize=0
