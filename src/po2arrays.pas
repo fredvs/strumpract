@@ -96,7 +96,7 @@ begin
             str1 := utf8StringReplace(str1, '"', '', [rfReplaceAll]);
             lang_langnames[length(lang_langnames) - 1] := trim(str1);
           end;
-          writeln(lang_langnames[length(lang_langnames) - 1]);
+          // writeln(lang_langnames[length(lang_langnames) - 1]);
           end;
       end;
        file1.Free;
@@ -170,7 +170,7 @@ begin
 
   str1 := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator + 'strumpract_' + alang + '.po';
 
-  writeln(str1);
+  // writeln(str1);
   
   if (not fileexists(str1)) or (lowercase(alang) = 'en') or (trim(alang) = '') then
   begin
