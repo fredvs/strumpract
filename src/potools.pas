@@ -536,13 +536,7 @@ begin
   for irandomnotefoty := Low(randomnotefoty) to High(randomnotefoty) do
     defaultresult[y + Ord(irandomnotefoty)] := en_randomnotefotext[(irandomnotefoty)];
  
-  // Languages must be the last in po
-  y     := length(defaultresult);
-  setlength(defaultresult, length(en_langnamestext) + y);
-  for x := 0 to length(en_langnamestext) - 1 do
-    defaultresult[x + y] := en_langnamestext[x];
-
-  // check if double "msgid"
+   // check if double "msgid"
   str1 := '';
   str2 := '';
   int1 := 0;

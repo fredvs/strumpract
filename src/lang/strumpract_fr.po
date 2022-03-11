@@ -17,6 +17,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "English [en]"
+msgstr "Français [fr]"
+
 msgid "&Cancel"
 msgstr "&Annuler"
 
@@ -885,10 +888,10 @@ msgid "Find a word in list"
 msgstr "Rechercher un mot dans la liste"
 
 msgid "Sent selected song to cue for Player 1"
-msgstr "Envoyé la chanson sélectionnée au cue pour le lecteur 1"
+msgstr "Envoyer la chanson sélectionnée à la queue du lecteur 1"
 
 msgid "Sent selected song to cue for Player 2"
-msgstr "Envoyé la chanson sélectionnée au cue pour le lecteur 2"
+msgstr "Envoyer la chanson sélectionnée à la queue du lecteur 2"
 
 msgid "To move a row: click+hold into the fixed column and drag the row where you want."
 msgstr "Pour déplacer une ligne : cliquez+maintenez dans la colonne fixe et faites glisser la ligne où vous voulez."
@@ -1276,49 +1279,4 @@ msgstr "Activer le tempo aléatoire de la batterie"
 
 msgid "Configure the Clear message"
 msgstr "Configurer le message d'entrée"
-
-msgid "English [en]"
-msgstr "Anglais [en]"
-
-msgid "Russian [ru]"
-msgstr "Russe [ru]"
-
-msgid "French [fr]"
-msgstr "Français [fr]"
-
-msgid "German [de]"
-msgstr "Allemand [de]"
-
-msgid "Spanish [es]"
-msgstr "Espagnol [es]"
-
-msgid "Portuguese [pt]"
-msgstr "Portugais [pt]"
-
-msgid "Chinese [zh]"
-msgstr "Chinois [zh]"
-
-msgid "Italian [it]"
-msgstr "Italien [it]"
-
-msgid "Dutch [nl]"
-msgstr "Néerlandais [nl]"
-
-msgid "Hebrew [he]"
-msgstr "Hébreu [he]"
-
-msgid "Indonesian [id]"
-msgstr "Indonésien [id]"
-
-msgid "Polish [pl]"
-msgstr "Polonais [pl]"
-
-msgid "Esperanto [eo]"
-msgstr "Espéranto [eo]"
-
-msgid "Greek [el]"
-msgstr "Grec [el]"
-
-msgid "Arabic [ar]"
-msgstr "Arabe [ar]"
 

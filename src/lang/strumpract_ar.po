@@ -17,6 +17,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "English [en]"
+msgstr "عربي [ar]"
+
 msgid "&Cancel"
 msgstr "& إلغاء"
 
@@ -1277,48 +1280,4 @@ msgstr "تفعيل وتيرة الطبول العشوائية"
 msgid "Configure the Clear message"
 msgstr "تكوين رسالة مسح"
 
-msgid "English [en]"
-msgstr "الإنجليزية [en]"
-
-msgid "Russian [ru]"
-msgstr "الروسية [ru]"
-
-msgid "French [fr]"
-msgstr "الفرنسية [fr]"
-
-msgid "German [de]"
-msgstr "الألمانية [de]"
-
-msgid "Spanish [es]"
-msgstr "الإسبانية [es]"
-
-msgid "Portuguese [pt]"
-msgstr "البرتغالية [pt]"
-
-msgid "Chinese [zh]"
-msgstr "الصينية [zh]"
-
-msgid "Italian [it]"
-msgstr "إيطالي [it]"
-
-msgid "Dutch [nl]"
-msgstr "الهولندية [nl]"
-
-msgid "Hebrew [he]"
-msgstr "العبرية [he]"
-
-msgid "Indonesian [id]"
-msgstr "إندونيسي [id]"
-
-msgid "Polish [pl]"
-msgstr "البولندية [pl]"
-
-msgid "Esperanto [eo]"
-msgstr "الإسبرانتو [eo]"
-
-msgid "Greek [el]"
-msgstr "اليونانية [el]"
-
-msgid "Arabic [ar]"
-msgstr "عربي [ar]"
 

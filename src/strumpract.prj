@@ -176,9 +176,9 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=621
- y=494
- cx=266
+ x=400
+ y=120
+ cx=298
  cy=269
 replacedialog=33
  [replacedialogfo.promptonreplace]
@@ -301,7 +301,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=0
+ index=2
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -803,12 +803,15 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=2
  MAINFO
-moduletypes=1
+ HEADERFO
+moduletypes=2
  TMAINFO
-modulefiles=1
+ THEADERFO
+modulefiles=2
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/potools.mfm
 befcommandon=0
 makeoptionson=15
  4095
@@ -1597,8 +1600,11 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=save c
+finddtext=createnew
 findhistory=20
+ createnew
+ setlang
+ findpofiles
  save c
  list file
  captionopen
@@ -1616,37 +1622,53 @@ findhistory=20
  file
  ma_tmainmenu1_parentitem_showall
  show all
- all
- fi_tbutton6_hint
- fi_filelistfo
 findoptions=1
-editpos=2
+editpos=5
  0,-1073741823
- 0,88
+ 32,194
+ 0,3
+ 0,590
+ 0,448
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+bookmarks3=0
+bookmarks4=0
+sourcefiles=5
  ${PROJECTDIR}/strumpract.pas
- /home/fred/strumpract/src/main.pas
-relpaths=2
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/captionstrumpract.pas
+ ${PROJECTDIR}/po2arrays.pas
+ ${PROJECTDIR}/potools.pas
+relpaths=5
  strumpract.pas
  main.pas
-ismoduletexts=2
+ captionstrumpract.pas
+ po2arrays.pas
+ potools.pas
+ismoduletexts=5
  0
  0
-modules=1
+ 0
+ 0
+ 0
+modules=2
  /home/fred/strumpract/src/main.mfm
-moduleoptions=1
+ /home/fred/strumpract/src/potools.mfm
+moduleoptions=2
  0
-visiblemodules=1
+ 0
+visiblemodules=2
  -1
-nomenumodules=1
+ -1
+nomenumodules=2
+ 0
  0
 [sourcefo.files_tab]
 firsttab=0
 index=1
 [layout]
-windowlayout=554
+windowlayout=560
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1660,8 +1682,8 @@ windowlayout=554
  ny=0
  ncx=0
  ncy=0
- x=98
- y=72
+ x=54
+ y=63
  cx=1224
  cy=621
  rcx=0
@@ -1688,8 +1710,8 @@ windowlayout=554
  ny=0
  ncx=0
  ncy=0
- x=493
- y=171
+ x=22
+ y=373
  cx=497
  cy=314
  rcx=0
@@ -1790,7 +1812,7 @@ windowlayout=554
  x=0
  y=0
  cx=205
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1802,7 +1824,7 @@ windowlayout=554
  sorted=0
  col=0
  row=9
- rowheight=17
+ rowheight=16
  [stackfo]
  splitdir=0
  useroptions=268460137
@@ -1880,10 +1902,10 @@ windowlayout=554
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=486
- width0=216
+ propcolwidthref=242
+ width0=108
  sortdescend0=0
- width1=264
+ width1=128
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2078,7 +2100,7 @@ windowlayout=554
  x=0
  y=0
  cx=1212
- cy=51
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2094,7 +2116,7 @@ windowlayout=554
  x=0
  y=0
  cx=1212
- cy=58
+ cy=56
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2105,22 +2127,9 @@ windowlayout=554
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
- history=15
-  /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/commander.pas
-  /home/fred/strumpract/src/status.pas
-  /home/fred/strumpract/src/findmessage.pas
-  /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts.pas
-  /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts_ru.pas
+ history=2
   /home/fred/strumpract/src/captionstrumpract.pas
-  /home/fred/strumpract/src/config.mfm
-  /home/fred/strumpract (copy 1)/src/main.mfm
-  /home/fred/strumpract/src/equalizer.pas
-  /home/fred/strumpract/src/infos.pas
-  /home/fred/strumpract/src/potools.pas
-  /home/fred/strumpract/src/po2arrays.pas
-  /home/fred/strumpract/src/conflang.pas
+  /home/fred/ideu/src/mo2arrays.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2138,7 +2147,7 @@ windowlayout=554
  x=208
  y=0
  cx=1004
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2177,15 +2186,15 @@ windowlayout=554
  ncx=0
  ncy=0
  x=0
- y=54
+ y=53
  cx=1212
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2196,6 +2205,25 @@ windowlayout=554
  y=302
  cx=452
  cy=96
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_headerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_mainfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=309
+ y=172
+ cx=782
+ cy=437
  rcx=0
  rcy=0
  wsize=0

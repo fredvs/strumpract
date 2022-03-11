@@ -23,7 +23,7 @@ uses
 
 procedure createnewlang(alang: msestring);
 procedure dosearch(thearray: array of msestring; theindex: integer);
-procedure findpofiles();
+procedure listpofiles();
 
 implementation
 
@@ -37,49 +37,73 @@ var
   astro, astrt, acomp: utf8String;
   hasfound: Boolean = False;
   empty: Boolean = False;
-  lang_langnamestmp: array of msestring;
 
-
-///////////////
-
-procedure findpofiles();
+procedure listpofiles();
 var
   ListOfFiles: array of string;
   SearchResult: TSearchRec;
+  file1: ttextdatastream;
   Attribute: word;
   i: integer = 0;
-  str1: string;
+  x: integer;
+  str1, str2, pat: string;
 begin
   Attribute := faReadOnly or faArchive;
 
   SetLength(ListOfFiles, 0);
 
   str1 := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator;
+  
+  // writeln(str1);
 
   // List the files
   FindFirst(str1 + '*.po', Attribute, SearchResult);
   while (i = 0) do
   begin
-    SetLength(ListOfFiles, Length(ListOfFiles) + 1);     // Increase the list
-    ListOfFiles[High(ListOfFiles)] := SearchResult.Name; // Add it at the end of the list
+    SetLength(ListOfFiles, Length(ListOfFiles) + 1);
+    // Increase the list
+    ListOfFiles[High(ListOfFiles)] := SearchResult.Name;
+    // Add it at the of the list
     i := FindNext(SearchResult);
   end;
   FindClose(SearchResult);
 
-  setlength(lang_langnamestmp, 1);
-  lang_langnamestmp[0] := '[en]';
+  setlength(lang_langnames, 1);
+  lang_langnames[0] :=  'English [en]';
+  
+  pat := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator;
 
   for i := Low(ListOfFiles) to High(ListOfFiles) do
     if system.pos('empty', ListOfFiles[i]) = 0 then
     begin
-      setlength(lang_langnamestmp, length(lang_langnamestmp) + 1);
+      setlength(lang_langnames, length(lang_langnames) + 1);
       str1 := ListOfFiles[i];
-      str1 := utf8StringReplace(str1, 'strumpract_', '', [rfReplaceAll]);
-      str1 := utf8StringReplace(str1, '.po', '', [rfReplaceAll]);
-      lang_langnamestmp[length(lang_langnamestmp) - 1] := '[' + trim(str1) + ']';
-      //writeln(lang_langnamestmp[length(lang_langnamestmp) - 1]);
+    
+      file1 := ttextdatastream.Create(pat+str1, fm_read);
+      file1.encoding := ce_utf8;
+      x := 0;
+      while (not file1.EOF) and (x = 0) do
+      begin
+        str1 := '';
+        file1.readln(str1);
+        if system.pos('msgid "English [en]"', str1) > 0 then
+        begin
+          file1.readln(str1);
+          if system.pos('msgstr', str1) > 0 then
+          begin
+            x := 1;
+            str1 := utf8StringReplace(str1, 'msgstr', '', [rfReplaceAll]);
+            str1 := utf8StringReplace(str1, '"', '', [rfReplaceAll]);
+            lang_langnames[length(lang_langnames) - 1] := trim(str1);
+          end;
+          writeln(lang_langnames[length(lang_langnames) - 1]);
+          end;
+      end;
+       file1.Free;
     end;
-end;
+ end;
+
+///////////////
 
 procedure dosearch(thearray: array of msestring; theindex: integer);
 var
@@ -141,11 +165,13 @@ var
   default_filelistfotext,
   default_commanderfotext,
   default_modalresulttext, default_modalresulttextnoshortcut, default_mainfotext,
-  default_stockcaption, default_langnamestext, default_extendedtext: array of msestring;
+  default_stockcaption, default_extendedtext: array of msestring;
 begin
 
   str1 := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator + 'strumpract_' + alang + '.po';
 
+  writeln(str1);
+  
   if (not fileexists(str1)) or (lowercase(alang) = 'en') or (trim(alang) = '') then
   begin
     setlength(lang_modalresult, length(en_modalresulttext));
@@ -211,37 +237,7 @@ begin
     for irandomnotefoty := Low(randomnotefoty) to High(randomnotefoty) do
       lang_randomnotefo[Ord(irandomnotefoty)] :=
         en_randomnotefotext[(irandomnotefoty)];
-      
-     if length(lang_langnamestmp) > length(en_langnamestext) then
-      setlength(lang_langnames, length(lang_langnamestmp))
-    else
-      setlength(lang_langnames, length(en_langnamestext));
 
-    //    writeln('length(en_langnamestext) ' + inttostr(length(en_langnamestext)));
-    //       writeln('lang_langnames[x] ' + inttostr(length(lang_langnames)));
-
-    for x := 0 to length(en_langnamestext) - 1 do
-      lang_langnames[x] := en_langnamestext[x];
-
-    if length(lang_langnames) > length(en_langnamestext) then
-    begin
-      for x := 0 to high(lang_langnames) do
-      begin
-        str2   := trim(copy(lang_langnames[x], system.pos('[', lang_langnames[x]), 10));
-        for x2 := 0 to high(lang_langnamestmp) do
-          if trim(lang_langnamestmp[x2]) = str2 then
-            lang_langnamestmp[x2] := '';
-      end;
-
-      x2    := length(en_langnamestext);
-      for x := 0 to high(lang_langnamestmp) do
-        if trim(lang_langnamestmp[x]) <> '' then
-        begin
-          lang_langnames[x2] := 'Language ' + trim(lang_langnamestmp[x]);
-          Inc(x2);
-        end;
-
-    end;
   end
   else if fileexists(str1) then
   begin
@@ -412,11 +408,7 @@ begin
       default_randomnotefotext[Ord(irandomnotefoty)] :=
         en_randomnotefotext[(irandomnotefoty)];  
    
-     setlength(default_langnamestext, length(en_langnamestext));
-    for x := 0 to length(en_langnamestext) - 1 do
-      default_langnamestext[x] := en_langnamestext[x];
-
-    setlength(lang_modalresult, length(default_modalresulttext));
+     setlength(lang_modalresult, length(default_modalresulttext));
 
     for x := 0 to length(default_modalresulttext) - 1 do
     begin
@@ -654,49 +646,8 @@ begin
 
       lang_randomnotefo[x] := astrt;
     end;  
-    
-   setlength(lang_langnames, length(default_langnamestext));
-
-    for x := 0 to length(default_langnamestext) - 1 do
-    begin
-      dosearch(default_langnamestext, x);
-
-      if hasfound then
-      else
-        astrt := default_langnamestext[x];
-      if trim(astrt) = '' then
-        astrt := default_langnamestext[x];
-
-      astrt := utf8StringReplace(astrt, ',', '‚', [rfReplaceAll]);
-      astrt := utf8StringReplace(astrt, #039, '‘', [rfReplaceAll]);
-
-      lang_langnames[x] := astrt;
-
-    end;
-
-    findpofiles();
-
-    if length(lang_langnamestmp) > length(lang_langnames) then
-    begin
-      x3     := length(lang_langnames);
-      setlength(lang_langnames, length(lang_langnamestmp));
-      for x  := 0 to high(lang_langnames) do
-      begin
-        str2 := trim(copy(lang_langnames[x], system.pos('[', lang_langnames[x]), 10));
-        for x2 := 0 to high(lang_langnamestmp) do
-          if trim(lang_langnamestmp[x2]) = str2 then
-            lang_langnamestmp[x2] := '';
-      end;
-
-      for x := 0 to high(lang_langnamestmp) do
-        if trim(lang_langnamestmp[x]) <> '' then
-        begin
-          lang_langnames[x3] := 'Language ' + trim(lang_langnamestmp[x]);
-          Inc(x3);
-        end;
-
-    end;
   end;
+  listpofiles();
 end;
 
 end.

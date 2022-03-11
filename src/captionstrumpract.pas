@@ -665,25 +665,6 @@ const
       'Configure the Clear message' {ra_bconfig_hint}
     
       );
-    
-  
-   en_langnamestext: array[0..14] of msestring = (
-    'English [en]',
-    'Russian [ru]',
-    'French [fr]',
-    'German [de]',
-    'Spanish [es]',
-    'Portuguese [pt]',
-    'Chinese [zh]',
-    'Italian [it]',
-    'Dutch [nl]',
-    'Hebrew [he]',
-    'Indonesian [id]',
-    'Polish [pl]',
-    'Esperanto [eo]',
-    'Greek [el]',
-    'Arabic [ar]'
-    );
 
 implementation
 
