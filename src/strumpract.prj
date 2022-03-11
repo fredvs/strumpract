@@ -822,7 +822,7 @@ makeoptionson=15
  0
  192
  0
- 1019
+ 1023
  4095
  4095
  0
@@ -1630,9 +1630,9 @@ editpos=6
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 10,10
  0,-1073741823
- 0,1
+ 0,8
+ 4,35
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1677,17 +1677,10 @@ nomenumodules=3
  0
  0
 [sourcefo.files_tab]
-order=6
- 0
- 1
- 2
- 3
- 5
- 4
 firsttab=0
-index=4
+index=5
 [layout]
-windowlayout=587
+windowlayout=581
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2131,11 +2124,11 @@ windowlayout=587
  nx=0
  ny=0
  ncx=1197
- ncy=54
+ ncy=52
  x=0
  y=0
  cx=1212
- cy=52
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2146,7 +2139,8 @@ windowlayout=587
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/conflang.pas
- history=3
+ history=4
+  /home/fred/strumpract/src/conflang.pas
   /home/fred/strumpract/src/po2arrays.pas
   /home/fred/strumpract/src/captionstrumpract.pas
   /home/fred/ideu/src/mo2arrays.pas
@@ -2171,15 +2165,8 @@ windowlayout=587
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=6
-  0
-  1
-  2
-  3
-  5
-  4
  firsttab=0
- index=4
+ index=5
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2240,7 +2227,7 @@ windowlayout=587
  [_mse_headerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_conflangfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2259,7 +2246,7 @@ windowlayout=587
  [_mse_conflangfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
