@@ -29,8 +29,8 @@ implementation
 
 uses
   msestockobjects,
-  mseconsts, 
-  captionstrumpract ;
+  mseconsts,
+  captionstrumpract;
 
 var
   constvaluearray: array of msestring;
@@ -53,7 +53,7 @@ begin
   SetLength(ListOfFiles, 0);
 
   str1 := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator;
-  
+
   // writeln(str1);
 
   // List the files
@@ -69,8 +69,8 @@ begin
   FindClose(SearchResult);
 
   setlength(lang_langnames, 1);
-  lang_langnames[0] :=  'English [en]';
-  
+  lang_langnames[0] := 'English [en]';
+
   pat := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator;
 
   for i := Low(ListOfFiles) to High(ListOfFiles) do
@@ -78,8 +78,8 @@ begin
     begin
       setlength(lang_langnames, length(lang_langnames) + 1);
       str1 := ListOfFiles[i];
-    
-      file1 := ttextdatastream.Create(pat+str1, fm_read);
+
+      file1 := ttextdatastream.Create(pat + str1, fm_read);
       file1.encoding := ce_utf8;
       x := 0;
       while (not file1.EOF) and (x = 0) do
@@ -91,17 +91,17 @@ begin
           file1.readln(str1);
           if system.pos('msgstr', str1) > 0 then
           begin
-            x := 1;
+            x    := 1;
             str1 := utf8StringReplace(str1, 'msgstr', '', [rfReplaceAll]);
             str1 := utf8StringReplace(str1, '"', '', [rfReplaceAll]);
             lang_langnames[length(lang_langnames) - 1] := trim(str1);
           end;
           // writeln(lang_langnames[length(lang_langnames) - 1]);
-          end;
+        end;
       end;
-       file1.Free;
+      file1.Free;
     end;
- end;
+end;
 
 ///////////////
 
@@ -156,22 +156,14 @@ var
   isongplayerfoty: songplayerfoty;
   idrumsfoty: drumsfoty;
   irandomnotefoty: randomnotefoty;
-  default_randomnotefotext,
-  default_drumsfotext,
-  default_spectrum1fotext,
-  default_equalizerfotext,
-  default_songplayerfotext,
-  default_infosfotext,
-  default_filelistfotext,
-  default_commanderfotext,
-  default_modalresulttext, default_modalresulttextnoshortcut, default_mainfotext,
-  default_stockcaption, default_extendedtext: array of msestring;
+  default_randomnotefotext, default_drumsfotext, default_spectrum1fotext, default_equalizerfotext, default_songplayerfotext, default_infosfotext, default_filelistfotext, default_commanderfotext,
+  default_modalresulttext, default_modalresulttextnoshortcut, default_mainfotext, default_stockcaption, default_extendedtext: array of msestring;
 begin
 
   str1 := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator + 'strumpract_' + alang + '.po';
 
   // writeln(str1);
-  
+
   if (not fileexists(str1)) or (lowercase(alang) = 'en') or (trim(alang) = '') then
   begin
     setlength(lang_modalresult, length(en_modalresulttext));
@@ -192,48 +184,48 @@ begin
     for iextendedty := Low(extendedty) to High(extendedty) do
       lang_extended[Ord(iextendedty)] :=
         en_extendedtext[(iextendedty)];
-        
+
     setlength(lang_mainfo, length(en_mainfotext));
     for imainfoty := Low(mainfoty) to High(mainfoty) do
       lang_mainfo[Ord(imainfoty)] :=
         en_mainfotext[(imainfoty)];
-   
-   setlength(lang_commanderfo, length(en_commanderfotext));
+
+    setlength(lang_commanderfo, length(en_commanderfotext));
     for icommanderfoty := Low(commanderfoty) to High(commanderfoty) do
       lang_commanderfo[Ord(icommanderfoty)] :=
         en_commanderfotext[(icommanderfoty)];
-        
+
     setlength(lang_infosfo, length(en_infosfotext));
     for iinfosfoty := Low(infosfoty) to High(infosfoty) do
       lang_infosfo[Ord(iinfosfoty)] :=
         en_infosfotext[(iinfosfoty)];
-     
-      setlength(lang_filelistfo, length(en_filelistfotext));
+
+    setlength(lang_filelistfo, length(en_filelistfotext));
     for ifilelistfoty := Low(filelistfoty) to High(filelistfoty) do
       lang_filelistfo[Ord(ifilelistfoty)] :=
         en_filelistfotext[(ifilelistfoty)];
-  
-       setlength(lang_songplayerfo, length(en_songplayerfotext));
+
+    setlength(lang_songplayerfo, length(en_songplayerfotext));
     for isongplayerfoty := Low(songplayerfoty) to High(songplayerfoty) do
       lang_songplayerfo[Ord(isongplayerfoty)] :=
         en_songplayerfotext[(isongplayerfoty)];
-  
-        setlength(lang_equalizerfo, length(en_equalizerfotext));
+
+    setlength(lang_equalizerfo, length(en_equalizerfotext));
     for iequalizerfoty := Low(equalizerfoty) to High(equalizerfoty) do
       lang_equalizerfo[Ord(iequalizerfoty)] :=
         en_equalizerfotext[(iequalizerfoty)];
-  
-        setlength(lang_spectrum1fo, length(en_spectrum1fotext));
+
+    setlength(lang_spectrum1fo, length(en_spectrum1fotext));
     for ispectrum1foty := Low(spectrum1foty) to High(spectrum1foty) do
       lang_spectrum1fo[Ord(ispectrum1foty)] :=
         en_spectrum1fotext[(ispectrum1foty)];
- 
-      setlength(lang_drumsfo, length(en_drumsfotext));
+
+    setlength(lang_drumsfo, length(en_drumsfotext));
     for idrumsfoty := Low(drumsfoty) to High(drumsfoty) do
       lang_drumsfo[Ord(idrumsfoty)] :=
         en_drumsfotext[(idrumsfoty)];
- 
-      setlength(lang_randomnotefo, length(en_randomnotefotext));
+
+    setlength(lang_randomnotefo, length(en_randomnotefotext));
     for irandomnotefoty := Low(randomnotefoty) to High(randomnotefoty) do
       lang_randomnotefo[Ord(irandomnotefoty)] :=
         en_randomnotefotext[(irandomnotefoty)];
@@ -362,53 +354,53 @@ begin
     for iextendedty := Low(extendedty) to High(extendedty) do
       default_extendedtext[Ord(iextendedty)] :=
         en_extendedtext[(iextendedty)];
-        
-     setlength(default_mainfotext, length(en_mainfotext));
+
+    setlength(default_mainfotext, length(en_mainfotext));
     for imainfoty := Low(mainfoty) to High(mainfoty) do
       default_mainfotext[Ord(imainfoty)] :=
         en_mainfotext[(imainfoty)];
-   
+
     setlength(default_commanderfotext, length(en_commanderfotext));
     for icommanderfoty := Low(commanderfoty) to High(commanderfoty) do
       default_commanderfotext[Ord(icommanderfoty)] :=
         en_commanderfotext[(icommanderfoty)];
- 
+
     setlength(default_filelistfotext, length(en_filelistfotext));
     for ifilelistfoty := Low(filelistfoty) to High(filelistfoty) do
       default_filelistfotext[Ord(ifilelistfoty)] :=
         en_filelistfotext[(ifilelistfoty)];
-        
-     setlength(default_infosfotext, length(en_infosfotext));
+
+    setlength(default_infosfotext, length(en_infosfotext));
     for iinfosfoty := Low(infosfoty) to High(infosfoty) do
       default_infosfotext[Ord(iinfosfoty)] :=
         en_infosfotext[(iinfosfoty)];
- 
+
     setlength(default_songplayerfotext, length(en_songplayerfotext));
     for isongplayerfoty := Low(songplayerfoty) to High(songplayerfoty) do
       default_songplayerfotext[Ord(isongplayerfoty)] :=
         en_songplayerfotext[(isongplayerfoty)];
- 
+
     setlength(default_equalizerfotext, length(en_equalizerfotext));
     for iequalizerfoty := Low(equalizerfoty) to High(equalizerfoty) do
       default_equalizerfotext[Ord(iequalizerfoty)] :=
         en_equalizerfotext[(iequalizerfoty)];
-        
-       setlength(default_spectrum1fotext, length(en_spectrum1fotext));
+
+    setlength(default_spectrum1fotext, length(en_spectrum1fotext));
     for ispectrum1foty := Low(spectrum1foty) to High(spectrum1foty) do
       default_spectrum1fotext[Ord(ispectrum1foty)] :=
-        en_spectrum1fotext[(ispectrum1foty)];    
-  
-      setlength(default_drumsfotext, length(en_drumsfotext));
+        en_spectrum1fotext[(ispectrum1foty)];
+
+    setlength(default_drumsfotext, length(en_drumsfotext));
     for idrumsfoty := Low(drumsfoty) to High(drumsfoty) do
       default_drumsfotext[Ord(idrumsfoty)] :=
-        en_drumsfotext[(idrumsfoty)];  
-        
-      setlength(default_randomnotefotext, length(en_randomnotefotext));
+        en_drumsfotext[(idrumsfoty)];
+
+    setlength(default_randomnotefotext, length(en_randomnotefotext));
     for irandomnotefoty := Low(randomnotefoty) to High(randomnotefoty) do
       default_randomnotefotext[Ord(irandomnotefoty)] :=
-        en_randomnotefotext[(irandomnotefoty)];  
-   
-     setlength(lang_modalresult, length(default_modalresulttext));
+        en_randomnotefotext[(irandomnotefoty)];
+
+    setlength(lang_modalresult, length(default_modalresulttext));
 
     for x := 0 to length(default_modalresulttext) - 1 do
     begin
@@ -483,8 +475,8 @@ begin
       lang_extended[x] := astrt;
 
     end;
-    
-     setlength(lang_mainfo, length(default_mainfotext));
+
+    setlength(lang_mainfo, length(default_mainfotext));
 
     for x := 0 to length(default_mainfotext) - 1 do
     begin
@@ -502,8 +494,8 @@ begin
       lang_mainfo[x] := astrt;
 
     end;
-    
-     setlength(lang_commanderfo, length(default_commanderfotext));
+
+    setlength(lang_commanderfo, length(default_commanderfotext));
 
     for x := 0 to length(default_commanderfotext) - 1 do
     begin
@@ -520,8 +512,8 @@ begin
 
       lang_commanderfo[x] := astrt;
     end;
-    
-         setlength(lang_filelistfo, length(default_filelistfotext));
+
+    setlength(lang_filelistfo, length(default_filelistfotext));
 
     for x := 0 to length(default_filelistfotext) - 1 do
     begin
@@ -538,8 +530,8 @@ begin
 
       lang_filelistfo[x] := astrt;
     end;
-    
-   setlength(lang_infosfo, length(default_infosfotext));
+
+    setlength(lang_infosfo, length(default_infosfotext));
 
     for x := 0 to length(default_infosfotext) - 1 do
     begin
@@ -556,8 +548,8 @@ begin
 
       lang_infosfo[x] := astrt;
     end;
-    
-     setlength(lang_songplayerfo, length(default_songplayerfotext));
+
+    setlength(lang_songplayerfo, length(default_songplayerfotext));
 
     for x := 0 to length(default_songplayerfotext) - 1 do
     begin
@@ -574,8 +566,8 @@ begin
 
       lang_songplayerfo[x] := astrt;
     end;
-  
-     setlength(lang_equalizerfo, length(default_equalizerfotext));
+
+    setlength(lang_equalizerfo, length(default_equalizerfotext));
 
     for x := 0 to length(default_equalizerfotext) - 1 do
     begin
@@ -592,8 +584,8 @@ begin
 
       lang_equalizerfo[x] := astrt;
     end;
-  
-     setlength(lang_spectrum1fo, length(default_spectrum1fotext));
+
+    setlength(lang_spectrum1fo, length(default_spectrum1fotext));
 
     for x := 0 to length(default_spectrum1fotext) - 1 do
     begin
@@ -610,8 +602,8 @@ begin
 
       lang_spectrum1fo[x] := astrt;
     end;
-    
-     setlength(lang_drumsfo, length(default_drumsfotext));
+
+    setlength(lang_drumsfo, length(default_drumsfotext));
 
     for x := 0 to length(default_drumsfotext) - 1 do
     begin
@@ -627,9 +619,9 @@ begin
       astrt := utf8StringReplace(astrt, #039, '‘', [rfReplaceAll]);
 
       lang_drumsfo[x] := astrt;
-    end; 
-    
-      setlength(lang_randomnotefo, length(default_randomnotefotext));
+    end;
+
+    setlength(lang_randomnotefo, length(default_randomnotefotext));
 
     for x := 0 to length(default_randomnotefotext) - 1 do
     begin
@@ -645,7 +637,7 @@ begin
       astrt := utf8StringReplace(astrt, #039, '‘', [rfReplaceAll]);
 
       lang_randomnotefo[x] := astrt;
-    end;  
+    end;
   end;
   listpofiles();
 end;
