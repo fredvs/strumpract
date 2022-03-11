@@ -1600,8 +1600,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=createnew
+finddtext=writel
 findhistory=20
+ writel
  createnew
  setlang
  findpofiles
@@ -1621,14 +1622,13 @@ findhistory=20
  fi_filelistfodragdock
  file
  ma_tmainmenu1_parentitem_showall
- show all
 findoptions=1
 editpos=5
  0,-1073741823
- 32,194
- 0,3
- 0,590
- 0,448
+ 0,194
+ 0,-1073741823
+ 10,10
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1666,9 +1666,9 @@ nomenumodules=2
  0
 [sourcefo.files_tab]
 firsttab=0
-index=1
+index=3
 [layout]
-windowlayout=560
+windowlayout=561
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2111,12 +2111,12 @@ windowlayout=560
  mdistate=0
  nx=0
  ny=0
- ncx=1212
- ncy=58
+ ncx=1197
+ ncy=56
  x=0
  y=0
  cx=1212
- cy=56
+ cy=54
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2126,8 +2126,9 @@ windowlayout=560
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
- history=2
+ value=/home/fred/strumpract/src/po2arrays.pas
+ history=3
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/captionstrumpract.pas
   /home/fred/ideu/src/mo2arrays.pas
  [debuggerfo.project_options]
@@ -2152,14 +2153,14 @@ windowlayout=560
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=1
+ index=3
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -2194,7 +2195,7 @@ windowlayout=560
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_headerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2213,7 +2214,7 @@ windowlayout=560
  [_mse_headerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
