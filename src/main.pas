@@ -354,12 +354,13 @@ begin
       spectrum2fo.font.height := 12;
       spectrumrecfo.font.name := 'stf_default' ;
       spectrumrecfo.font.height := 12;
+   
       equalizerfo1.font.name := 'stf_default' ;
-      equalizerfo1.font.height := 12;
+      equalizerfo1.font.height := 10;
       equalizerfo2.font.name := 'stf_default' ;
-      equalizerfo2.font.height := 12;
+      equalizerfo2.font.height := 10;
       equalizerforec.font.name := 'stf_default' ;
-      equalizerforec.font.height := 12;
+      equalizerforec.font.height := 10;
       
       filelistfo.font.name := 'stf_default' ;
       filelistfo.font.height := 12;
@@ -442,6 +443,9 @@ begin
       dockpanel5fo.mainmenu.menu.font.height := 12;
          
       end;
+      
+      onchangevalcolor(nil);
+
  {$endif}  
 
 with mainfo do
