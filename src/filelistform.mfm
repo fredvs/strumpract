@@ -37,6 +37,8 @@ object filelistfo: tfilelistfo
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]
   dragdock.onfloat = onfloat
   dragdock.ondock = ondock
+  font.name = 'stf_default'
+  font.localprops = []
   statfile = mainfo.tstatfile1
   caption = 'Audio files'
   icon.options = [bmo_masked, bmo_graymask]
@@ -433,8 +435,6 @@ object filelistfo: tfilelistfo
       bounds_cx = 431
       bounds_cy = 102
       anchors = [an_left, an_top, an_bottom]
-      font.name = 'stf_default'
-      font.localprops = []
       optionsgrid = [og_rowmoving, og_keyrowmoving, og_rowinserting, og_rowdeleting, og_focuscellonenter, og_savestate, og_colchangeontabkey, og_wrapcol, og_mousescrollcol]
       datacols.count = 5
       datacols.colorselect = 16763002
@@ -612,7 +612,7 @@ object filelistfo: tfilelistfo
       fixrows.count = 1
       fixrows.items = <      
         item
-          height = 17
+          height = 16
           numstep = 1
           captions.count = 4
           captions.items = <          
@@ -1060,8 +1060,8 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 4
-      bounds_y = 33
+      bounds_x = 0
+      bounds_y = 94
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]

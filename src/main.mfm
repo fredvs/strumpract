@@ -15,8 +15,8 @@ object mainfo: tmainfo
   face.localprops = [fal_fadirection]
   onactivate = onactiv
   visible = False
-  bounds_x = 438
-  bounds_y = 302
+  bounds_x = 622
+  bounds_y = 335
   bounds_cx = 442
   bounds_cy = 96
   bounds_cxmin = 442
@@ -720,6 +720,8 @@ object mainfo: tmainfo
     menu.name = 'mainmenu'
     menu.state = [as_localonexecute]
     menu.options = [mao_shortcutcaption, mao_noshowhint]
+    menu.font.name = 'stf_default'
+    menu.font.localprops = []
     left = 7
   end
   object tfacecomp4: tfacecomp

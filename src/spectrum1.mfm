@@ -1,4 +1,6 @@
 object spectrum1fo: tspectrum1fo
+  frame.font.name = 'stf_default'
+  frame.font.localprops = []
   frame.localprops = []
   frame.localprops1 = []
   frame.grip_size = 8
@@ -85,8 +87,6 @@ object spectrum1fo: tspectrum1fo
       frame.captiontextflags = [tf_xcentered, tf_bottom]
       frame.captionpos = cp_topright
       frame.captionoffset = -50
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_style]
       frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_colorclient]
       frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
       frame.outerframe = (
@@ -99,9 +99,6 @@ object spectrum1fo: tspectrum1fo
       bounds_y = 0
       bounds_cx = 216
       bounds_cy = 127
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
       object labelright: tlabel
         color = -2147483645
         bounds_x = 3
@@ -177,8 +174,6 @@ object spectrum1fo: tspectrum1fo
       frame.caption = 'left'
       frame.captiontextflags = [tf_xcentered, tf_bottom]
       frame.captionoffset = 50
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_style]
       frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_colorclient]
       frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
       frame.outerframe = (
@@ -192,9 +187,6 @@ object spectrum1fo: tspectrum1fo
       bounds_y = 0
       bounds_cx = 216
       bounds_cy = 127
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
       object tchartleft: tchart
         color = -1879048187
         frame.colordkwidth = 0
@@ -273,38 +265,28 @@ object spectrum1fo: tspectrum1fo
       bounds_x = 158
       bounds_y = 0
       bounds_cx = 116
-      bounds_cy = 15
-      font.color = 3355443
-      font.height = 11
-      font.style = [fs_italic]
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_cy = 16
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 14
+      reffontheight = 15
       object Spect1: tbooleanedit
         color = -2147483645
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.caption = 'Spectrum Player'
-        frame.font.color = 2039583
-        frame.font.colorbackground = -2147483645
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_colorbackground, flp_style, flp_height]
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          0
-          85
-          0
+          1
+          103
+          1
         )
         face.localprops = []
         face.template = mainfo.tfaceplayer
         hint = 'Enable Spectrum rendering'
         bounds_x = 0
-        bounds_y = 0
-        bounds_cx = 98
-        bounds_cy = 15
+        bounds_y = -1
+        bounds_cx = 116
+        bounds_cy = 17
         statfile = mainfo.tstatfile1
         colorglyph = -1610612728
         value = True

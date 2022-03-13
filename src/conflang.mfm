@@ -44,8 +44,9 @@ object conflangfo: tconflangfo
     bounds_y = 48
     bounds_cx = 290
     bounds_cy = 163
-    font.name = 'stf_default'
-    font.localprops = []
+    font.height = 15
+    font.name = 'unifont'
+    font.localprops = [flp_height]
     optionsgrid = [og_rowinserting, og_rowdeleting, og_focuscellonenter, og_autofirstrow, og_autoappend, og_colchangeontabkey, og_wrapcol, og_autopopup, og_mousescrollcol]
     rowcount = 7
     datacols.count = 3
@@ -108,7 +109,7 @@ object conflangfo: tconflangfo
     datarowheight = 17
     statfile = mainfo.tstatfile1
     oncellevent = oncellev
-    reffontheight = 15
+    reffontheight = 16
     object gridlangtext: tstringedit
       optionswidget1 = [ow1_fontglyphheight]
       optionsskin = [osk_framebuttononly]
@@ -121,7 +122,7 @@ object conflangfo: tconflangfo
       bounds_cy = 17
       optionsedit = [oe_readonly, oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_nogray, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly]
       value = 'English'
-      reffontheight = 15
+      reffontheight = 16
     end
     object gridlangbool: tbooleaneditradio
       optionswidget1 = []
@@ -144,7 +145,7 @@ object conflangfo: tconflangfo
       bounds_y = 0
       bounds_cx = 1
       bounds_cy = 17
-      reffontheight = 15
+      reffontheight = 16
     end
   end
   object lsetasdefault: tlabel

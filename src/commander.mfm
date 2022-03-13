@@ -32,6 +32,8 @@ object commanderfo: tcommanderfo
   dragdock.faceactivetab = mainfo.tfacebutltgray
   dragdock.caption = 'Com'
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]
+  font.name = 'stf_default'
+  font.localprops = []
   statfile = mainfo.tstatfile1
   caption = 'Commander'
   icon.options = [bmo_masked, bmo_graymask]

@@ -204,6 +204,80 @@ begin
     str := StringReplace(str, ']', '', [rfReplaceAll]);
     conflangfo.gridlangcode[x] := str;
   end;
+  
+ {$ifdef unix}
+    if (thelang = 'el') or (thelang = 'ru') or
+      (thelang = 'ar') or (thelang = 'he') or (thelang = 'zh') then
+      begin
+      mainfo.mainmenu.menu.font.name := 'Unifont' ;
+      mainfo.mainmenu.menu.font.height := 14;
+      commanderfo.font.name := 'Unifont' ;
+      commanderfo.font.height := 14;
+      drumsfo.font.name := 'Unifont' ;
+      drumsfo.font.height := 14;
+      songplayerfo.font.name := 'Unifont' ;
+      songplayer2fo.font.name := 'Unifont' ;
+      recorderfo.font.name := 'Unifont' ;
+      songplayerfo.font.height := 14;
+      songplayer2fo.font.height := 14;
+      recorderfo.font.height := 14;
+       conflangfo.font.name := 'Unifont' ;
+      conflangfo.font.height := 14;
+      spectrum1fo.font.name := 'Unifont' ;
+      spectrum1fo.font.height := 14;
+      spectrum2fo.font.name := 'Unifont' ;
+      spectrum2fo.font.height := 14;
+      spectrumrecfo.font.name := 'Unifont' ;
+      spectrumrecfo.font.height := 14;
+      equalizerfo1.font.name := 'Unifont' ;
+      equalizerfo1.font.height := 14;
+      equalizerfo2.font.name := 'Unifont' ;
+      equalizerfo2.font.height := 14;
+      equalizerforec.font.name := 'Unifont' ;
+      equalizerforec.font.height := 14;
+      
+      filelistfo.font.name := 'Unifont' ;
+      filelistfo.font.height := 14;
+      messagefontname := 'Unifont';
+      messagefontheight := 14;
+      
+    
+      end else
+      begin
+      mainfo.mainmenu.menu.font.name := 'stf_default' ;
+      mainfo.mainmenu.menu.font.height := 0;
+      commanderfo.font.name := 'stf_default' ;
+      commanderfo.font.height := 0;
+      drumsfo.font.name := 'stf_default' ;
+      drumsfo.font.height := 0;
+      songplayerfo.font.name := 'stf_default' ;
+      songplayer2fo.font.name := 'stf_default' ;
+      recorderfo.font.name := 'stf_default' ;
+      songplayerfo.font.height := 0;
+      songplayer2fo.font.height := 0;
+      recorderfo.font.height := 0;
+      conflangfo.font.name := 'stf_default' ;
+      conflangfo.font.height := 0;
+      spectrum1fo.font.name := 'stf_default' ;
+      spectrum1fo.font.height := 0;
+      spectrum2fo.font.name := 'stf_default' ;
+      spectrum2fo.font.height := 0;
+      spectrumrecfo.font.name := 'stf_default' ;
+      spectrumrecfo.font.height := 0;
+      equalizerfo1.font.name := 'stf_default' ;
+      equalizerfo1.font.height := 0;
+      equalizerfo2.font.name := 'stf_default' ;
+      equalizerfo2.font.height := 0;
+      equalizerforec.font.name := 'stf_default' ;
+      equalizerforec.font.height := 0;
+      
+      filelistfo.font.name := 'stf_default' ;
+      filelistfo.font.height := 0;
+      messagefontname := 'stf_default';
+      messagefontheight := 0;
+      
+      end;
+ {$endif}  
 
 with mainfo do
   begin
@@ -220,7 +294,7 @@ with mainfo do
        then tframecomp1.template.extraspace := 7
       else 
        tframecomp1.template.extraspace := 10;
-      
+       
       caption := lang_mainfo[Ord(ma_mainfo)] + ' ' + versiontext;  {'StrumPract'}
 
       basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  {'Drag a form here using right-border grip.'}

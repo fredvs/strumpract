@@ -35,6 +35,8 @@ object drumsfo: tdrumsfo
   dragdock.faceactivetab = tfacedrums
   dragdock.caption = ' Drums '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
+  font.name = 'stf_default'
+  font.localprops = []
   statfile = mainfo.tstatfile1
   icon.origformat = 'jpeg'
   icon.image = {

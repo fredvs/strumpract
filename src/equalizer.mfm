@@ -82,8 +82,6 @@ object equalizerfo: tequalizerfo
     frame.captiontextflags = [tf_xcentered, tf_bottom]
     frame.captionpos = cp_topright
     frame.captionoffset = -10
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_style]
     frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_hiddenedges, frl_colorclient]
     frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
     frame.outerframe = (
@@ -97,15 +95,12 @@ object equalizerfo: tequalizerfo
     bounds_y = 1
     bounds_cx = 218
     bounds_cy = 139
-    font.height = 10
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
     object tstringdisp11: tstringdisp
       bounds_x = 4
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider11: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -188,8 +183,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 25
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider12: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -272,8 +267,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 46
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider13: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -356,8 +351,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 67
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider14: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -440,8 +435,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 88
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider15: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -524,8 +519,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 109
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider16: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -608,8 +603,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 130
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider17: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -692,8 +687,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 151
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider18: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -776,8 +771,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 172
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider19: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -860,8 +855,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 193
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider20: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1077,16 +1072,12 @@ object equalizerfo: tequalizerfo
     hint = ' Load a Settings file  '
     bounds_x = 233
     bounds_y = 0
-    bounds_cx = 56
-    bounds_cy = 15
+    bounds_cx = 62
+    bounds_cy = 17
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Load'
     textflags = [tf_xcentered, tf_ycentered]
     captiondist = 0
-    font.color = 3881787
-    font.height = 10
-    font.name = 'stf_default'
-    font.localprops = [flp_color, flp_height]
     onexecute = loadlist
   end
   object saveset: tbutton
@@ -1098,18 +1089,14 @@ object equalizerfo: tequalizerfo
     face.template = mainfo.tfaceplayer
     taborder = 4
     hint = ' Save Settings in a file '
-    bounds_x = 292
+    bounds_x = 298
     bounds_y = 0
-    bounds_cx = 56
-    bounds_cy = 15
+    bounds_cx = 62
+    bounds_cy = 17
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Save'
     textflags = [tf_xcentered, tf_ycentered]
     captiondist = 0
-    font.color = 3881787
-    font.height = 10
-    font.name = 'stf_default'
-    font.localprops = [flp_color, flp_height]
     onexecute = savelist
   end
   object groupbox1: tgroupbox
@@ -1120,8 +1107,6 @@ object equalizerfo: tequalizerfo
     frame.caption = 'left'
     frame.captiontextflags = [tf_xcentered, tf_bottom]
     frame.captionoffset = 10
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_style]
     frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_hiddenedges, frl_colorclient]
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset, frl1_colorframedefault]
     frame.outerframe = (
@@ -1134,15 +1119,12 @@ object equalizerfo: tequalizerfo
     bounds_y = 1
     bounds_cx = 216
     bounds_cy = 139
-    font.height = 10
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
     object tstringdisp1: tstringdisp
       bounds_x = 4
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider1: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1226,8 +1208,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 25
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider2: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1310,8 +1292,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 46
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider3: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1394,8 +1376,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 67
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider4: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1478,8 +1460,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 88
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider5: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1562,8 +1544,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 109
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider6: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1646,8 +1628,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 130
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider7: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1730,8 +1712,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 151
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider8: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1814,8 +1796,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 172
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider9: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1898,8 +1880,8 @@ object equalizerfo: tequalizerfo
       bounds_x = 193
       bounds_y = 26
       bounds_cx = 21
-      bounds_cy = 116
-      reffontheight = 13
+      bounds_cy = 118
+      reffontheight = 15
       object tslider10: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -2006,38 +1988,28 @@ object equalizerfo: tequalizerfo
     bounds_x = 80
     bounds_y = 0
     bounds_cx = 114
-    bounds_cy = 15
-    font.color = 3355443
-    font.height = 11
-    font.style = [fs_italic]
-    font.name = 'stf_default'
-    font.localprops = [flp_color, flp_style, flp_height]
+    bounds_cy = 17
     textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 14
+    reffontheight = 15
     object EQEN: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.caption = 'Equalizer Player 1'
-      frame.font.color = 2039583
-      frame.font.colorbackground = -2147483645
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_colorbackground, flp_style, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
-        1
-        91
         2
+        110
+        3
       )
       face.localprops = []
       face.template = mainfo.tfaceplayer
       hint = 'Enable Equalizer'
       bounds_x = 0
-      bounds_y = 0
-      bounds_cx = 104
-      bounds_cy = 15
+      bounds_y = -1
+      bounds_cx = 123
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       onchange = changenab
       colorglyph = -1610612728
