@@ -94,18 +94,21 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Title'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       0
       0
     )
     bounds_x = 4
-    bounds_y = 34
+    bounds_y = 36
     bounds_cx = 434
-    bounds_cy = 32
+    bounds_cy = 30
     caption = '                                '
     reffontheight = 15
   end
@@ -114,19 +117,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Artist'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       0
       0
     )
     taborder = 1
     bounds_x = 4
-    bounds_y = 67
+    bounds_y = 69
     bounds_cx = 434
-    bounds_cy = 32
+    bounds_cy = 30
     caption = '                                '
     reffontheight = 15
   end
@@ -135,19 +141,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Album'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       0
       0
     )
     taborder = 2
     bounds_x = 4
-    bounds_y = 100
+    bounds_y = 102
     bounds_cx = 434
-    bounds_cy = 32
+    bounds_cy = 30
     caption = '                                '
     reffontheight = 15
   end
@@ -155,19 +164,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Year'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       4
       0
     )
     taborder = 3
     bounds_x = 4
-    bounds_y = 164
-    bounds_cx = 28
-    bounds_cy = 32
+    bounds_y = 166
+    bounds_cx = 24
+    bounds_cy = 30
     caption = '     '
     reffontheight = 15
   end
@@ -175,19 +187,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Duration'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       5
       0
     )
     taborder = 4
     bounds_x = 130
-    bounds_y = 198
-    bounds_cx = 54
-    bounds_cy = 32
+    bounds_y = 200
+    bounds_cx = 45
+    bounds_cy = 30
     caption = '          '
     reffontheight = 15
   end
@@ -195,19 +210,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Genre'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       0
       0
     )
     taborder = 5
     bounds_x = 59
-    bounds_y = 164
-    bounds_cx = 38
-    bounds_cy = 32
+    bounds_y = 166
+    bounds_cx = 36
+    bounds_cy = 30
     caption = '         '
     reffontheight = 15
   end
@@ -216,19 +234,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Comment'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       0
       0
     )
     taborder = 6
     bounds_x = 2
-    bounds_y = 130
+    bounds_y = 132
     bounds_cx = 434
-    bounds_cy = 32
+    bounds_cy = 30
     caption = '                                '
     reffontheight = 15
   end
@@ -237,19 +258,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'File Name'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       0
       0
     )
     taborder = 7
     bounds_x = 4
-    bounds_y = 2
+    bounds_y = 4
     bounds_cx = 434
-    bounds_cy = 32
+    bounds_cy = 30
     caption = '                                '
     reffontheight = 15
   end
@@ -257,19 +281,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Rate'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       0
       0
     )
     taborder = 8
     bounds_x = 4
-    bounds_y = 198
+    bounds_y = 200
     bounds_cx = 32
-    bounds_cy = 32
+    bounds_cy = 30
     caption = '        '
     reffontheight = 15
   end
@@ -277,19 +304,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'Chan'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       0
       0
     )
     taborder = 9
     bounds_x = 59
-    bounds_y = 198
+    bounds_y = 200
     bounds_cx = 40
-    bounds_cy = 32
+    bounds_cy = 30
     caption = '          '
     reffontheight = 15
   end
@@ -297,19 +327,22 @@ object infosfo: tinfosfo
     color = -2147483645
     frame.caption = 'BMP'
     frame.captiondist = 0
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      17
+      15
       4
       0
     )
     taborder = 10
     bounds_x = 160
-    bounds_y = 164
-    bounds_cx = 27
-    bounds_cy = 32
+    bounds_y = 166
+    bounds_cx = 24
+    bounds_cy = 30
     caption = '     '
     reffontheight = 15
   end

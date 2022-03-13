@@ -445,7 +445,7 @@ object filelistfo: tfilelistfo
       datacols.items = <      
         item
           colorselect = 16763002
-          width = 270
+          width = 252
           options = [co_readonly, co_nofocus, co_multiselect, co_rowselect, co_savevalue, co_savestate, co_cancopy, co_canpaste, co_mousescrollrow]
           optionsedit1 = [oe1_noselectall, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
           datalist.data = (
@@ -603,7 +603,7 @@ object filelistfo: tfilelistfo
       fixcols.items = <      
         item
           colorselect = -1610612733
-          width = 18
+          width = 36
         end>
       fixrows.count = 1
       fixrows.items = <      
@@ -1090,7 +1090,8 @@ object filelistfo: tfilelistfo
   object tstatfile1: tstatfile
     filename = 'cue.lis'
     options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
-    left = 273
+    left = 272
+    top = 59
   end
   object tfiledialog1: tfiledialogx
     statfile = tstatfile1

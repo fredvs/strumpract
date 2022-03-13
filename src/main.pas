@@ -222,12 +222,40 @@ begin
       dockpanel5fo.mainmenu.menu.font.name := 'Unifont' ;
       dockpanel5fo.mainmenu.menu.font.height := 14;
       
-      infosfo.font.name := 'Unifont' ;
-      infosfo.font.height := 14;
-     
-      infosfo2.font.name := 'Unifont' ;
-      infosfo2.font.height := 14;
-             
+   with infosfo do
+    begin
+     font.name := 'Unifont' ;
+     font.height := 14;
+    infoname.frame.font.name := 'Unifont' ;
+    infoartist.frame.font.name := 'Unifont' ;
+    infoalbum.frame.font.name := 'Unifont' ;
+    infoyear.frame.font.name := 'Unifont' ;
+    infolength.frame.font.name := 'Unifont' ;
+    infotag.frame.font.name := 'Unifont' ;
+    infocom.frame.font.name := 'Unifont' ;
+    infofile.frame.font.name := 'Unifont' ;
+    inforate.frame.font.name := 'Unifont' ;
+    infochan.frame.font.name := 'Unifont' ;
+    infobpm.frame.font.name := 'Unifont' ;
+    end;
+    
+    with infosfo2 do
+    begin
+     font.name := 'Unifont' ;
+     font.height := 14;
+    infoname.frame.font.name := 'Unifont' ;
+    infoartist.frame.font.name := 'Unifont' ;
+    infoalbum.frame.font.name := 'Unifont' ;
+    infoyear.frame.font.name := 'Unifont' ;
+    infolength.frame.font.name := 'Unifont' ;
+    infotag.frame.font.name := 'Unifont' ;
+    infocom.frame.font.name := 'Unifont' ;
+    infofile.frame.font.name := 'Unifont' ;
+    inforate.frame.font.name := 'Unifont' ;
+    infochan.frame.font.name := 'Unifont' ;
+    infobpm.frame.font.name := 'Unifont' ;
+    end;
+                 
       commanderfo.font.name := 'Unifont' ;
       commanderfo.font.height := 14;
    
@@ -368,12 +396,40 @@ begin
       messagefontname := 'stf_default';
       messagefontheight := 12;
       
-      infosfo.font.name := 'stf_default' ;
-      infosfo.font.height := 12;
-     
-      infosfo2.font.name := 'stf_default' ;
-      infosfo2.font.height := 12;
-     
+    with infosfo do
+    begin
+     font.name := 'stf_default' ;
+     font.height := 14;
+    infoname.frame.font.name := 'stf_default' ;
+    infoartist.frame.font.name := 'stf_default' ;
+    infoalbum.frame.font.name := 'stf_default' ;
+    infoyear.frame.font.name := 'stf_default' ;
+    infolength.frame.font.name := 'stf_default' ;
+    infotag.frame.font.name := 'stf_default' ;
+    infocom.frame.font.name := 'stf_default' ;
+    infofile.frame.font.name := 'stf_default' ;
+    inforate.frame.font.name := 'stf_default' ;
+    infochan.frame.font.name := 'stf_default' ;
+    infobpm.frame.font.name := 'stf_default' ;
+    end;
+    
+    with infosfo2 do
+    begin
+     font.name := 'stf_default' ;
+     font.height := 14;
+    infoname.frame.font.name := 'stf_default' ;
+    infoartist.frame.font.name := 'stf_default' ;
+    infoalbum.frame.font.name := 'stf_default' ;
+    infoyear.frame.font.name := 'stf_default' ;
+    infolength.frame.font.name := 'stf_default' ;
+    infotag.frame.font.name := 'stf_default' ;
+    infocom.frame.font.name := 'stf_default' ;
+    infofile.frame.font.name := 'stf_default' ;
+    inforate.frame.font.name := 'stf_default' ;
+    infochan.frame.font.name := 'stf_default' ;
+    infobpm.frame.font.name := 'stf_default' ;
+    end;
+       
       dockpanel1fo.mainmenu.menu.font.name := 'stf_default' ;
       dockpanel1fo.mainmenu.menu.font.height := 12;
       dockpanel2fo.mainmenu.menu.font.name := 'stf_default' ;
