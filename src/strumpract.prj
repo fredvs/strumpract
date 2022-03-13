@@ -176,8 +176,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=400
- y=120
+ x=827
+ y=184
  cx=298
  cy=269
 replacedialog=33
@@ -803,12 +803,24 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=5
+ FILELISTFO
  MAINFO
-moduletypes=1
+ RANDOMNOTEFO
+ SONGPLAYERFO
+ WAVEFO
+moduletypes=5
+ TFILELISTFO
  TMAINFO
-modulefiles=1
+ TRANDOMNOTEFO
+ TSONGPLAYERFO
+ TWAVEFO
+modulefiles=5
+ /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/randomnote.mfm
+ /home/fred/strumpract/src/songplayer.mfm
+ /home/fred/strumpract/src/waveform.mfm
 befcommandon=0
 makeoptionson=15
  4095
@@ -1177,7 +1189,7 @@ line=35
  587
  257
  5734
- 3082
+ 3191
  1491
  293
  319
@@ -1189,7 +1201,7 @@ line=35
  1567
  209
  1136
- 5567
+ 5706
  493
  5
  770
@@ -1597,9 +1609,11 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=font
+finddtext=randomnotefo.font
 findhistory=20
+ if typecolor
  font
+ panelfo
  sethint
  hint
  mainmenu
@@ -1617,52 +1631,93 @@ findhistory=20
  sensitive
  case s
  next
- find
- 'file
 findoptions=1
-editpos=2
- 0,38
+editpos=6
  0,-1073741823
+ 0,-1073741823
+ 0,3
+ 0,-1073741823
+ 0,12
+ 0,4
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+bookmarks3=0
+bookmarks4=0
+bookmarks5=0
+sourcefiles=6
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
-relpaths=2
+ ${PROJECTDIR}/songplayer.pas
+ ${PROJECTDIR}/waveform.pas
+ ${PROJECTDIR}/randomnote.pas
+ ${PROJECTDIR}/filelistform.pas
+relpaths=6
  strumpract.pas
  main.pas
-ismoduletexts=2
+ songplayer.pas
+ waveform.pas
+ randomnote.pas
+ filelistform.pas
+ismoduletexts=6
  0
  0
-modules=5
+ 0
+ 0
+ 0
+ 0
+modules=9
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/waveform.mfm
+ /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/randomnote.mfm
+ /home/fred/strumpract/src/songplayer.mfm
+moduleoptions=9
  0
  0
  0
  2
  0
-visiblemodules=5
+ 0
+ 0
+ 0
+ 0
+visiblemodules=9
  -1
  0
  0
  0
  0
-nomenumodules=5
+ -1
+ -1
+ -1
+ -1
+nomenumodules=9
  0
  -1
  -1
  -1
  -1
+ 0
+ 0
+ 0
+ 0
 [sourcefo.files_tab]
+order=6
+ 4
+ 5
+ 2
+ 0
+ 3
+ 1
 firsttab=0
-index=0
+index=2
 [layout]
-windowlayout=618
+windowlayout=701
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1676,8 +1731,8 @@ windowlayout=618
  ny=0
  ncx=0
  ncy=0
- x=34
- y=53
+ x=47
+ y=55
  cx=1224
  cy=621
  rcx=0
@@ -1712,7 +1767,7 @@ windowlayout=618
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1816,8 +1871,8 @@ windowlayout=618
  width1=86
  sortdescend1=0
  sorted=0
- col=1
- row=-1073741823
+ col=0
+ row=12
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1896,10 +1951,10 @@ windowlayout=618
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=242
- width0=107
+ propcolwidthref=377
+ width0=167
  sortdescend0=0
- width1=129
+ width1=204
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2120,11 +2175,11 @@ windowlayout=618
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/strumpract.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=3
-  /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/main.pas
-  ${PROJECTDIR}/main.pas
+  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/conflang.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2146,8 +2201,15 @@ windowlayout=618
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=6
+  4
+  5
+  2
+  0
+  3
+  1
  firsttab=0
- index=0
+ index=2
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2189,7 +2251,7 @@ windowlayout=618
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2281,6 +2343,82 @@ windowlayout=618
  wsize=0
  active=0
  visible=0
+ [_mse_wavefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_randomnotefo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=347
+ y=305
+ cx=452
+ cy=110
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_filelistfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_songplayerfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=397
+ y=264
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_randomnotefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=0
+ y=29
+ cx=1368
+ cy=711
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_songplayerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=mainfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=506
+ y=253
+ cx=452
+ cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0

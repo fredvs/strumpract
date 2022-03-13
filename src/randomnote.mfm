@@ -18,8 +18,10 @@ object randomnotefo: trandomnotefo
     1358
     711
   )
+  font.height = 22
+  font.name = 'stf_default'
+  font.localprops = [flp_height]
   options = [fo_mainwindowcentered, fo_maximized, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
-  statfile = mainfo.tstatfile1
   caption = 'Chord Randomizer'
   icon.origformat = 'png'
   icon.image = {
@@ -156,12 +158,11 @@ object randomnotefo: trandomnotefo
     bounds_cy = 706
     anchors = [an_left, an_top, an_right, an_bottom]
     text = 'Los acordes de la suerte'
-    font.height = 60
-    font.style = [fs_italic]
+    font.height = 24
     font.name = 'stf_default'
-    font.localprops = [flp_style, flp_height]
+    font.localprops = []
     textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 71
+    reffontheight = 29
   end
   object guitar2: tstringdisp
     frame.localprops = []
@@ -10687,9 +10688,6 @@ object randomnotefo: trandomnotefo
     bounds_cy = 44
     state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Randomize'
-    font.height = 26
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
     imagenr = 27
     focusrectdist = 0
     onexecute = randomnum
@@ -10710,9 +10708,6 @@ object randomnotefo: trandomnotefo
     bounds_cy = 44
     state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Fixed'
-    font.height = 26
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
     imagenr = 27
     focusrectdist = 0
     onexecute = dofixed
@@ -10733,9 +10728,6 @@ object randomnotefo: trandomnotefo
     bounds_cy = 71
     state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Tuned Guitars'
-    font.height = 30
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
     imagenr = 27
     focusrectdist = 0
     onexecute = showguit
@@ -11670,9 +11662,6 @@ object randomnotefo: trandomnotefo
     bounds_cy = 44
     state = [as_invisible, as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Clear'
-    font.height = 14
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
     imagenr = 27
     focusrectdist = 0
     onexecute = doinit
@@ -11702,53 +11691,43 @@ object randomnotefo: trandomnotefo
   end
   object tgroupbox1: tgroupbox
     color = -2147483645
-    frame.levelo = 0
-    frame.leveli = 0
-    frame.framei_left = 0
-    frame.framei_top = 0
-    frame.framei_right = 0
-    frame.framei_bottom = 0
-    frame.frameimage_top = -4
-    frame.frameimage_right = -4
-    frame.optionsskin = [fso_flat]
     frame.caption = 'Chords'
-    frame.font.height = 16
-    frame.font.style = [fs_italic]
+    frame.font.height = 22
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_style, flp_height]
-    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagebottom]
+    frame.font.localprops = []
+    frame.localprops = []
     frame.localprops1 = []
     frame.outerframe = (
       0
-      11
+      14
       0
       0
     )
     taborder = 32
     onfocus = refreshform
-    bounds_x = 25
-    bounds_y = 102
+    bounds_x = 27
+    bounds_y = 111
     bounds_cx = 456
-    bounds_cy = 90
+    bounds_cy = 94
+    font.height = 22
+    font.name = 'stf_default'
+    font.localprops = []
     object bool7th: tbooleanedit
       color = -2147483645
       frame.caption = ' 7th'
-      frame.font.height = 24
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        6
-        50
-        6
+        5
+        47
+        5
       )
       hint = 'Enable 7th Chords'
       bounds_x = 9
-      bounds_y = 51
-      bounds_cx = 66
-      bounds_cy = 31
+      bounds_y = 56
+      bounds_cx = 63
+      bounds_cy = 29
       statfile = mainfo.tstatfile1
       onchange = refreshform
       enabled = False
@@ -11756,23 +11735,20 @@ object randomnotefo: trandomnotefo
     object boolminor: tbooleanedit
       color = -2147483645
       frame.caption = ' minor'
-      frame.font.height = 24
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        6
-        81
-        6
+        5
+        73
+        5
       )
       taborder = 1
       hint = 'Enable minor Chords'
       bounds_x = 118
-      bounds_y = 23
-      bounds_cx = 97
-      bounds_cy = 31
+      bounds_y = 28
+      bounds_cx = 89
+      bounds_cy = 29
       statfile = mainfo.tstatfile1
       onchange = refreshform
       value = True
@@ -11781,23 +11757,20 @@ object randomnotefo: trandomnotefo
     object boolmajor: tbooleanedit
       color = -2147483645
       frame.caption = ' Major'
-      frame.font.height = 24
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        6
-        79
-        6
+        5
+        70
+        5
       )
       taborder = 2
       hint = 'Enable Major Chords'
       bounds_x = 9
-      bounds_y = 23
-      bounds_cx = 95
-      bounds_cy = 31
+      bounds_y = 28
+      bounds_cx = 86
+      bounds_cy = 29
       statfile = mainfo.tstatfile1
       onchange = refreshform
       value = True
@@ -11806,23 +11779,20 @@ object randomnotefo: trandomnotefo
     object bool9th: tbooleanedit
       color = -2147483645
       frame.caption = ' 9th'
-      frame.font.height = 24
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        6
-        50
-        6
+        5
+        47
+        5
       )
       taborder = 3
       hint = 'Enable 9th Chords'
       bounds_x = 118
-      bounds_y = 51
-      bounds_cx = 66
-      bounds_cy = 31
+      bounds_y = 56
+      bounds_cx = 63
+      bounds_cy = 29
       statfile = mainfo.tstatfile1
       onchange = refreshform
       enabled = False
@@ -11830,23 +11800,20 @@ object randomnotefo: trandomnotefo
     object withsharp: tbooleanedit
       color = -2147483645
       frame.caption = ' # (Sharp)'
-      frame.font.height = 24
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        6
-        127
-        6
+        5
+        117
+        5
       )
       taborder = 4
       hint = 'Enable Sharp-Chords #'
       bounds_x = 257
-      bounds_y = 50
-      bounds_cx = 143
-      bounds_cy = 31
+      bounds_y = 56
+      bounds_cx = 133
+      bounds_cy = 29
       statfile = mainfo.tstatfile1
       onchange = refreshform
       enabled = False
@@ -11854,23 +11821,20 @@ object randomnotefo: trandomnotefo
     object bosound: tbooleanedit
       color = -2147483645
       frame.caption = ' Sound'
-      frame.font.height = 24
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        6
-        86
-        6
+        5
+        79
+        5
       )
       taborder = 5
       hint = 'Enable Sound of Chords'
-      bounds_x = 257
-      bounds_y = 17
-      bounds_cx = 102
-      bounds_cy = 31
+      bounds_x = 280
+      bounds_y = 23
+      bounds_cx = 95
+      bounds_cy = 29
       statfile = mainfo.tstatfile1
       onchange = refreshform
       value = True
@@ -11879,34 +11843,27 @@ object randomnotefo: trandomnotefo
   end
   object tgroupbox2: tgroupbox
     color = -2147483645
-    frame.levelo = 0
-    frame.leveli = 0
-    frame.framei_left = 0
-    frame.framei_top = 0
-    frame.framei_right = 0
-    frame.framei_bottom = 0
-    frame.frameimage_top = -4
-    frame.frameimage_right = -4
-    frame.optionsskin = [fso_flat]
     frame.caption = 'Number'
-    frame.font.height = 16
-    frame.font.style = [fs_italic]
+    frame.font.height = 22
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_style, flp_height]
-    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagebottom]
-    frame.localprops1 = []
+    frame.font.localprops = []
+    frame.localprops = []
+    frame.localprops1 = [frl1_captionoffset]
     frame.outerframe = (
       0
-      11
+      14
       0
       0
     )
     taborder = 33
     onfocus = refreshform
-    bounds_x = 25
-    bounds_y = 4
+    bounds_x = 27
+    bounds_y = 1
     bounds_cx = 226
-    bounds_cy = 90
+    bounds_cy = 107
+    font.height = 22
+    font.name = 'stf_default'
+    font.localprops = []
     object numchord: tintegerdisp
       frame.localprops = []
       frame.localprops1 = []
@@ -11924,10 +11881,10 @@ object randomnotefo: trandomnotefo
       face.localprops = []
       hint = 'Total chords'
       visible = False
-      bounds_x = 165
-      bounds_y = 44
+      bounds_x = 161
+      bounds_y = 61
       bounds_cx = 52
-      bounds_cy = 42
+      bounds_cy = 38
       font.color = 4040192
       font.height = 32
       font.name = 'stf_default'
@@ -11941,10 +11898,6 @@ object randomnotefo: trandomnotefo
       frame.caption = 'Max'
       frame.captiontextflags = [tf_wordbreak]
       frame.captionpos = cp_left
-      frame.font.color = 5000268
-      frame.font.height = 32
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.button.width = 20
@@ -11966,10 +11919,10 @@ object randomnotefo: trandomnotefo
           frame.localprops1 = []
         end>
       frame.outerframe = (
-        70
+        48
         0
         0
-        1
+        0
       )
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -11985,10 +11938,10 @@ object randomnotefo: trandomnotefo
       face.localprops = []
       taborder = 1
       hint = 'Maximum number of chords'
-      bounds_x = 10
-      bounds_y = 45
-      bounds_cx = 143
-      bounds_cy = 40
+      bounds_x = 15
+      bounds_y = 57
+      bounds_cx = 121
+      bounds_cy = 38
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       font.color = 5000268
@@ -12028,57 +11981,47 @@ object randomnotefo: trandomnotefo
     object withrandom: tbooleanedit
       color = -2147483645
       frame.caption = ' Random num'
-      frame.font.height = 16
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        1
-        116
-        1
+        5
+        156
+        5
       )
       taborder = 2
       hint = 'Randomize the number of chords'
-      bounds_x = 24
-      bounds_y = 21
-      bounds_cx = 132
-      bounds_cy = 21
+      bounds_x = 16
+      bounds_y = 28
+      bounds_cx = 172
+      bounds_cy = 29
       statfile = mainfo.tstatfile1
       onchange = refreshform
     end
   end
   object tgroupbox3: tgroupbox
     color = -2147483645
-    frame.levelo = 0
-    frame.leveli = 0
-    frame.framei_left = 0
-    frame.framei_top = 0
-    frame.framei_right = 0
-    frame.framei_bottom = 0
-    frame.frameimage_top = -4
-    frame.frameimage_right = -4
-    frame.optionsskin = [fso_flat]
     frame.caption = 'Drums'
-    frame.font.height = 16
-    frame.font.style = [fs_italic]
+    frame.font.height = 22
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_style, flp_height]
-    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagebottom]
+    frame.font.localprops = []
+    frame.localprops = []
     frame.localprops1 = []
     frame.outerframe = (
       0
-      11
+      14
       0
       0
     )
     taborder = 34
     onfocus = refreshform
     bounds_x = 256
-    bounds_y = 4
+    bounds_y = 1
     bounds_cx = 226
-    bounds_cy = 90
+    bounds_cy = 107
+    font.height = 22
+    font.name = 'stf_default'
+    font.localprops = []
     object bpm: tintegerdisp
       color = -2147483645
       frame.optionsskin = [fso_flat]
@@ -12098,10 +12041,10 @@ object randomnotefo: trandomnotefo
       face.localprops = []
       hint = 'Tempo of Drums in BPM'
       visible = False
-      bounds_x = 22
-      bounds_y = 43
+      bounds_x = 20
+      bounds_y = 58
       bounds_cx = 168
-      bounds_cy = 42
+      bounds_cy = 38
       font.color = 4040192
       font.height = 32
       font.name = 'stf_default'
@@ -12112,23 +12055,20 @@ object randomnotefo: trandomnotefo
     object nodrums: tbooleanedit
       color = -2147483645
       frame.caption = ' Enable Drums'
-      frame.font.height = 16
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        1
-        120
-        1
+        5
+        164
+        5
       )
       taborder = 1
       hint = 'Enable random Drums tempo'
       bounds_x = 12
-      bounds_y = 20
-      bounds_cx = 136
-      bounds_cy = 21
+      bounds_y = 28
+      bounds_cx = 180
+      bounds_cy = 29
       statfile = mainfo.tstatfile1
       onchange = refreshform
       value = True
@@ -12263,52 +12203,48 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 37
     visible = False
-    bounds_x = 46
-    bounds_y = 204
+    bounds_x = 57
+    bounds_y = 239
     bounds_cx = 352
-    bounds_cy = 238
+    bounds_cy = 284
     anchors = [an_top, an_right]
     text = 'Text of Init message'
-    font.color = 9502720
-    font.height = 16
-    font.name = 'stf_fixed'
-    font.localprops = [flp_color, flp_height]
+    font.height = 24
+    font.name = 'stf_default'
+    font.localprops = []
     textflags = [tf_left, tf_xcentered, tf_top]
-    reffontheight = 19
+    reffontheight = 29
     object tmemoedit1: tmemoedit
       frame.localprops = []
       frame.localprops1 = []
       frame.sbhorz.pagesize = 1
       frame.sbvert.pagesize = 1
-      bounds_x = 23
-      bounds_y = 22
+      bounds_x = 24
+      bounds_y = 38
       bounds_cx = 303
-      bounds_cy = 168
+      bounds_cy = 190
       statfile = mainfo.tstatfile1
+      font.height = 24
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       value = 'The chords of chance'
-      reffontheight = 19
+      reffontheight = 29
     end
     object tbutton6: tbutton
       color = -2147483645
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutgray
       taborder = 1
       hint = 'Show drums set'
-      bounds_x = 144
-      bounds_y = 197
-      bounds_cx = 66
-      bounds_cy = 29
+      bounds_x = 131
+      bounds_y = 239
+      bounds_cx = 76
+      bounds_cy = 31
       state = [as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'OK'
-      font.height = 14
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
       imagenr = 20
       focusrectdist = 0
       onexecute = onconfigtext

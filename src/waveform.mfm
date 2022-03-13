@@ -253,6 +253,8 @@ object wavefo: twavefo
         options = [mao_checkbox, mao_shortcutcaption]
       end>
     menu.state = [as_localcolorglyph]
+    menu.font.name = 'stf_menu'
+    menu.font.localprops = []
     left = 299
     top = 44
   end

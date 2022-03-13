@@ -211,17 +211,70 @@ begin
       begin
       mainfo.mainmenu.menu.font.name := 'Unifont' ;
       mainfo.mainmenu.menu.font.height := 14;
+      dockpanel1fo.mainmenu.menu.font.name := 'Unifont' ;
+      dockpanel1fo.mainmenu.menu.font.height := 14;
+      dockpanel2fo.mainmenu.menu.font.name := 'Unifont' ;
+      dockpanel2fo.mainmenu.menu.font.height := 14;
+      dockpanel3fo.mainmenu.menu.font.name := 'Unifont' ;
+      dockpanel3fo.mainmenu.menu.font.height := 14;
+      dockpanel4fo.mainmenu.menu.font.name := 'Unifont' ;
+      dockpanel4fo.mainmenu.menu.font.height := 14;
+      dockpanel5fo.mainmenu.menu.font.name := 'Unifont' ;
+      dockpanel5fo.mainmenu.menu.font.height := 14;
+      
+      infosfo.font.name := 'Unifont' ;
+      infosfo.font.height := 14;
+     
+      infosfo2.font.name := 'Unifont' ;
+      infosfo2.font.height := 14;
+             
       commanderfo.font.name := 'Unifont' ;
       commanderfo.font.height := 14;
+   
       drumsfo.font.name := 'Unifont' ;
       drumsfo.font.height := 14;
+      
+      drumsfo.font.name := 'Unifont' ;
+      drumsfo.font.height := 14;
+   
+      randomnotefo.font.name := 'Unifont' ;
+      randomnotefo.font.height := 20;
+      
+      randomnotefo.pconfigtext.font.name := 'Unifont' ;
+      randomnotefo.pconfigtext.font.height := 20;
+      
+      randomnotefo.tstringdisp1.font.name := 'Unifont' ;
+      randomnotefo.tstringdisp1.font.height := 64;
+      
+       randomnotefo.tgroupbox1.frame.font.name := 'Unifont' ;
+      randomnotefo.tgroupbox1.frame.font.height := 22;
+      
+      randomnotefo.tgroupbox2.frame.font.name := 'Unifont' ;
+      randomnotefo.tgroupbox2.frame.font.height := 22;
+      
+      randomnotefo.tgroupbox3.frame.font.name := 'Unifont' ;
+      randomnotefo.tgroupbox3.frame.font.height := 22;
+      
+         randomnotefo.tgroupbox1.font.name := 'Unifont' ;
+      randomnotefo.tgroupbox1.font.height := 22;
+      
+      randomnotefo.tgroupbox2.font.name := 'Unifont' ;
+      randomnotefo.tgroupbox2.font.height := 22;
+      
+      randomnotefo.tgroupbox3.font.name := 'Unifont' ;
+      randomnotefo.tgroupbox3.font.height := 22;
+      
+      randomnotefo.tmemoedit1.font.name := 'Unifont' ;
+      randomnotefo.tmemoedit1.font.height := 22;
+            
       songplayerfo.font.name := 'Unifont' ;
       songplayer2fo.font.name := 'Unifont' ;
       recorderfo.font.name := 'Unifont' ;
       songplayerfo.font.height := 14;
       songplayer2fo.font.height := 14;
       recorderfo.font.height := 14;
-       conflangfo.font.name := 'Unifont' ;
+    
+      conflangfo.font.name := 'Unifont' ;
       conflangfo.font.height := 14;
       spectrum1fo.font.name := 'Unifont' ;
       spectrum1fo.font.height := 14;
@@ -238,44 +291,100 @@ begin
       
       filelistfo.font.name := 'Unifont' ;
       filelistfo.font.height := 14;
+      
+      filelistfo.list_files.font.name := 'Unifont' ;
+      filelistfo.list_files.font.height := 14;
+      
+      filelistfo.list_files.rowfonts[0].name := 'Unifont' ;
+      filelistfo.list_files.rowfonts[0].height := 14;
+      filelistfo.list_files.rowfonts[1].name := 'Unifont' ;
+      filelistfo.list_files.rowfonts[1].height := 14;
+     
       messagefontname := 'Unifont';
       messagefontheight := 14;
-      
-    
+         
       end else
       begin
+     
       mainfo.mainmenu.menu.font.name := 'stf_default' ;
-      mainfo.mainmenu.menu.font.height := 0;
+      mainfo.mainmenu.menu.font.height := 12;
       commanderfo.font.name := 'stf_default' ;
-      commanderfo.font.height := 0;
+      commanderfo.font.height := 12;
       drumsfo.font.name := 'stf_default' ;
-      drumsfo.font.height := 0;
+      drumsfo.font.height := 12;
       songplayerfo.font.name := 'stf_default' ;
       songplayer2fo.font.name := 'stf_default' ;
       recorderfo.font.name := 'stf_default' ;
-      songplayerfo.font.height := 0;
-      songplayer2fo.font.height := 0;
-      recorderfo.font.height := 0;
+      songplayerfo.font.height := 12;
+      songplayer2fo.font.height := 12;
+      recorderfo.font.height := 12;
       conflangfo.font.name := 'stf_default' ;
-      conflangfo.font.height := 0;
+      conflangfo.font.height := 12;
       spectrum1fo.font.name := 'stf_default' ;
-      spectrum1fo.font.height := 0;
+      spectrum1fo.font.height := 12;
       spectrum2fo.font.name := 'stf_default' ;
-      spectrum2fo.font.height := 0;
+      spectrum2fo.font.height := 12;
       spectrumrecfo.font.name := 'stf_default' ;
-      spectrumrecfo.font.height := 0;
+      spectrumrecfo.font.height := 12;
       equalizerfo1.font.name := 'stf_default' ;
-      equalizerfo1.font.height := 0;
+      equalizerfo1.font.height := 12;
       equalizerfo2.font.name := 'stf_default' ;
-      equalizerfo2.font.height := 0;
+      equalizerfo2.font.height := 12;
       equalizerforec.font.name := 'stf_default' ;
-      equalizerforec.font.height := 0;
+      equalizerforec.font.height := 12;
       
       filelistfo.font.name := 'stf_default' ;
-      filelistfo.font.height := 0;
-      messagefontname := 'stf_default';
-      messagefontheight := 0;
+      filelistfo.font.height := 12;
+      filelistfo.list_files.font.name := 'stf_default' ;
+      filelistfo.list_files.font.height := 12;
       
+      filelistfo.list_files.rowfonts[0].name := 'stf_default' ;
+      filelistfo.list_files.rowfonts[0].height := 12;
+      filelistfo.list_files.rowfonts[1].name := 'stf_default' ;
+      filelistfo.list_files.rowfonts[1].height := 12;
+      
+      randomnotefo.font.name := 'stf_default' ;
+      randomnotefo.font.height := 24;
+      
+      randomnotefo.tgroupbox1.frame.font.name := 'stf_default' ;
+      randomnotefo.tgroupbox1.frame.font.height := 20;
+      
+      randomnotefo.tgroupbox2.frame.font.name := 'stf_default' ;
+      randomnotefo.tgroupbox2.frame.font.height := 20;
+      
+      randomnotefo.tgroupbox3.frame.font.name := 'stf_default' ;
+      randomnotefo.tgroupbox3.frame.font.height := 20;
+      
+      
+      randomnotefo.pconfigtext.font.name := 'stf_default' ;
+      randomnotefo.pconfigtext.font.height := 20;
+      
+      randomnotefo.tstringdisp1.font.name := 'stf_default' ;
+      randomnotefo.tstringdisp1.font.height := 62;
+      
+      randomnotefo.tmemoedit1.font.name := 'Unifont' ;
+      randomnotefo.tmemoedit1.font.height := 20;
+        
+      messagefontname := 'stf_default';
+      messagefontheight := 12;
+      
+      infosfo.font.name := 'stf_default' ;
+      infosfo.font.height := 12;
+     
+      infosfo2.font.name := 'stf_default' ;
+      infosfo2.font.height := 12;
+     
+      dockpanel1fo.mainmenu.menu.font.name := 'stf_default' ;
+      dockpanel1fo.mainmenu.menu.font.height := 12;
+      dockpanel2fo.mainmenu.menu.font.name := 'stf_default' ;
+      dockpanel2fo.mainmenu.menu.font.height := 12;
+      dockpanel3fo.mainmenu.menu.font.name := 'stf_default' ;
+      dockpanel3fo.mainmenu.menu.font.height := 12;
+      dockpanel4fo.mainmenu.menu.font.name := 'stf_default' ;
+      dockpanel4fo.mainmenu.menu.font.height := 12;
+      dockpanel5fo.mainmenu.menu.font.name := 'stf_default' ;
+      dockpanel5fo.mainmenu.menu.font.height := 12;
+         
       end;
  {$endif}  
 
@@ -3611,7 +3720,17 @@ begin
   if typecolor.Value = 0 then
   begin
     font.color := cl_black;
-
+    
+    dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel2fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel3fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel4fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel5fo.tmainmenu1.menu.font.color := cl_black;
+    
+    wavefo.tmainmenu1.menu.font.color := cl_black;
+    wavefo2.tmainmenu1.menu.font.color := cl_black;
+    waveforec.tmainmenu1.menu.font.color := cl_black;
+    
     dockpanel1fo.basedock.dragdock.splitter_color := $B7BA8F;
     dockpanel2fo.basedock.dragdock.splitter_color := $B7BA8F;
     dockpanel3fo.basedock.dragdock.splitter_color := $B7BA8F;
@@ -4374,7 +4493,17 @@ begin
   begin
     font.color := cl_black;
     dialogfilesfo.list_files.frame.colorclient := cl_ltgray;
-
+    
+    dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel2fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel3fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel4fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel5fo.tmainmenu1.menu.font.color := cl_black;
+    
+    wavefo.tmainmenu1.menu.font.color := cl_black;
+    wavefo2.tmainmenu1.menu.font.color := cl_black;
+    waveforec.tmainmenu1.menu.font.color := cl_black;
+  
     dockpanel1fo.basedock.dragdock.splitter_color := cl_ltgray;
     dockpanel2fo.basedock.dragdock.splitter_color := cl_ltgray;
     dockpanel3fo.basedock.dragdock.splitter_color := cl_ltgray;
@@ -5119,7 +5248,17 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
   begin
     font.color := cl_white;
     dialogfilesfo.list_files.frame.colorclient := cl_gray;
-
+    
+    dockpanel1fo.tmainmenu1.menu.font.color := cl_white;
+    dockpanel2fo.tmainmenu1.menu.font.color := cl_white;
+    dockpanel3fo.tmainmenu1.menu.font.color := cl_white;
+    dockpanel4fo.tmainmenu1.menu.font.color := cl_white;
+    dockpanel5fo.tmainmenu1.menu.font.color := cl_white;
+     
+    wavefo.tmainmenu1.menu.font.color := cl_white;
+    wavefo2.tmainmenu1.menu.font.color := cl_white;
+    waveforec.tmainmenu1.menu.font.color := cl_white;
+   
     dockpanel1fo.basedock.dragdock.splitter_color := cl_black;
     dockpanel2fo.basedock.dragdock.splitter_color := cl_black;
     dockpanel3fo.basedock.dragdock.splitter_color := cl_black;

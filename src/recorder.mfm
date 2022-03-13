@@ -137,8 +137,6 @@ object recorderfo: trecorderfo
     bounds_y = 0
     bounds_cx = 434
     bounds_cy = 128
-    font.name = 'stf_default'
-    font.localprops = []
     object tbutton2: tbutton
       color = -2147483645
       frame.localprops = [frl_optionsskin]
@@ -889,8 +887,8 @@ object recorderfo: trecorderfo
     face.template = commanderfo.tfaceorange
     taborder = 10
     visible = False
-    bounds_x = 8
-    bounds_y = 34
+    bounds_x = 6
+    bounds_y = 36
     bounds_cx = 221
     bounds_cy = 52
     font.name = 'stf_default'

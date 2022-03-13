@@ -141,9 +141,6 @@ object dockpanel1fo: tdockpanel1fo
     bounds_y = 0
     bounds_cx = 454
     bounds_cy = 79
-    font.name = 'stf_default'
-    font.xscale = 1
-    font.localprops = [flp_xscale]
     dragdock.splitter_size = 2
     dragdock.splitter_grip = stb_none
     dragdock.splitter_color = 16119285
@@ -180,6 +177,8 @@ object dockpanel1fo: tdockpanel1fo
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ontab
       end>
+    menu.font.name = 'stf_menu'
+    menu.font.localprops = []
     left = 246
   end
 end

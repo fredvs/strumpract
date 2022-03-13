@@ -435,13 +435,12 @@ object filelistfo: tfilelistfo
       bounds_cx = 431
       bounds_cy = 102
       anchors = [an_left, an_top, an_bottom]
+      font.name = 'stf_default'
+      font.localprops = []
       optionsgrid = [og_rowmoving, og_keyrowmoving, og_rowinserting, og_rowdeleting, og_focuscellonenter, og_savestate, og_colchangeontabkey, og_wrapcol, og_mousescrollcol]
       datacols.count = 5
       datacols.colorselect = 16763002
       datacols.options = [co_readonly, co_multiselect, co_savevalue, co_savestate, co_mousescrollrow]
-      datacols.fontselect.colorselectbackground = 3224359
-      datacols.fontselect.name = 'stf_default'
-      datacols.fontselect.localprops = [flp_color, flp_colorselectbackground]
       datacols.optionsedit1 = [oe1_noselectall, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       datacols.items = <      
         item
@@ -605,9 +604,6 @@ object filelistfo: tfilelistfo
         item
           colorselect = -1610612733
           width = 18
-          font.height = 8
-          font.name = 'stf_default'
-          font.localprops = [flp_height]
         end>
       fixrows.count = 1
       fixrows.items = <      
@@ -640,8 +636,6 @@ object filelistfo: tfilelistfo
               caption = 'Mix'
               hint = 'Include for mix.  Clicking on the fixed cell ---> select all/none.'
             end>
-          font.name = 'stf_default'
-          font.localprops = []
         end>
       rowcount = 20
       rowcolors.count = 3
@@ -655,7 +649,7 @@ object filelistfo: tfilelistfo
         item
           color = -1610612734
           height = 12
-          name = 'stf_default'
+          name = 'unifont'
           localprops = []
         end      
         item
@@ -1065,8 +1059,6 @@ object filelistfo: tfilelistfo
       bounds_cx = 431
       bounds_cy = 32
       anchors = [an_left, an_bottom]
-      font.name = 'stf_default'
-      font.localprops = []
       object hintlabel: tlabel
         optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
         color = -2147483645
@@ -1075,8 +1067,6 @@ object filelistfo: tfilelistfo
         bounds_cx = 430
         bounds_cy = 15
         caption = 'error'
-        font.name = 'stf_default'
-        font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
         reffontheight = 15
       end

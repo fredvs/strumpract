@@ -982,9 +982,6 @@ object drumsfo: tdrumsfo
     bounds_y = 149
     bounds_cx = 434
     bounds_cy = 87
-    font.color = 5000268
-    font.name = 'stf_default'
-    font.localprops = [flp_color]
     object tbooleaneditradio8: tbooleaneditradio
       Tag = 5
       optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
@@ -1200,37 +1197,25 @@ object drumsfo: tdrumsfo
       taborder = 1
       bounds_x = 308
       bounds_y = 3
-      bounds_cx = 32
-      bounds_cy = 13
+      bounds_cx = 39
+      bounds_cy = 15
       caption = 'Patern'
-      font.color = 5197647
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      reffontheight = 13
+      reffontheight = 15
     end
     object tlabel21: tlabel
       color = -2147483645
       bounds_x = 256
       bounds_y = 3
-      bounds_cx = 34
-      bounds_cy = 13
+      bounds_cx = 41
+      bounds_cy = 15
       caption = 'Lesson'
-      font.color = 5197647
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      reffontheight = 13
+      reffontheight = 15
     end
     object noanim: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16250871
       frame.caption = 'no anim'
-      frame.font.color = 2697513
-      frame.font.height = 12
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.outerframe = (
@@ -1253,10 +1238,6 @@ object drumsfo: tdrumsfo
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16250871
       frame.caption = 'no "and"'
-      frame.font.color = 2697513
-      frame.font.height = 12
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.outerframe = (
@@ -1280,10 +1261,6 @@ object drumsfo: tdrumsfo
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 12895428
       frame.caption = 'no voice'
-      frame.font.color = 2697513
-      frame.font.height = 12
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.outerframe = (
@@ -1308,10 +1285,6 @@ object drumsfo: tdrumsfo
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16250871
       frame.caption = 'no drums'
-      frame.font.color = 2697513
-      frame.font.height = 12
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
       frame.localprops1 = []
       frame.outerframe = (
@@ -1436,28 +1409,20 @@ object drumsfo: tdrumsfo
       taborder = 18
       bounds_x = 106
       bounds_y = 5
-      bounds_cx = 22
-      bounds_cy = 13
+      bounds_cx = 25
+      bounds_cy = 15
       caption = 'BPM'
-      font.color = 5197647
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      reffontheight = 13
+      reffontheight = 15
     end
     object tlabel23: tlabel
       color = -2147483645
       taborder = 19
       bounds_x = 162
       bounds_y = 8
-      bounds_cx = 38
-      bounds_cy = 13
+      bounds_cx = 45
+      bounds_cy = 15
       caption = 'Volume'
-      font.color = 5197647
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
-      reffontheight = 13
+      reffontheight = 15
     end
     object volumedrums: trealspinedit
       Tag = 1
@@ -1534,14 +1499,10 @@ object drumsfo: tdrumsfo
       bounds_x = 5
       bounds_y = 7
       bounds_cx = 92
-      bounds_cy = 22
-      font.color = 3355443
-      font.height = 11
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_cy = 23
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Drums Set'
-      reffontheight = 14
+      reffontheight = 15
     end
     object multbpm: tbutton
       frame.framei_left = 4
@@ -1721,11 +1682,6 @@ object drumsfo: tdrumsfo
       frame.framei_bottom = 0
       frame.caption = 'Lang'
       frame.captionpos = cp_left
-      frame.captiondist = 4
-      frame.font.color = 5000268
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = [frl_colorhighlight, frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.button.color = 13421772
@@ -1747,7 +1703,7 @@ object drumsfo: tdrumsfo
           frame.localprops1 = []
         end>
       frame.outerframe = (
-        30
+        33
         0
         0
         0
@@ -1756,9 +1712,9 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp3
       taborder = 27
       hint = 'Language for counting'
-      bounds_x = 362
+      bounds_x = 359
       bounds_y = 3
-      bounds_cx = 69
+      bounds_cx = 72
       bounds_cy = 18
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
