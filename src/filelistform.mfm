@@ -116,8 +116,6 @@ object filelistfo: tfilelistfo
     bounds_cx = 434
     bounds_cy = 128
     anchors = []
-    font.name = 'stf_default'
-    font.localprops = []
     object filescount: tstringdisp
       color = -2147483645
       face.localprops = []
@@ -1054,7 +1052,7 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 6
       visible = False
-      bounds_x = 0
+      bounds_x = 1
       bounds_y = 94
       bounds_cx = 431
       bounds_cy = 32

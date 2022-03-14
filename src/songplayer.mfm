@@ -238,8 +238,6 @@ object songplayerfo: tsongplayerfo
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
-      font.name = 'stf_default'
-      font.localprops = []
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1

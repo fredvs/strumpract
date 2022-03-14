@@ -186,8 +186,11 @@ replacedialog=33
  [replacedialogfo.selectedonly]
  value=1
  [replacedialogfo.replacetext]
- value=Unifont
+ value=10 ;
  history=20
+  10 ;
+  12 ;
+  height := 12
   Unifont
   
   '
@@ -205,9 +208,6 @@ replacedialog=33
   aslidersr
   asliders2
   aslider
-  slider
-  alsider
-  //
  [replacedialogfo]
  stackedunder=
  x=862
@@ -803,26 +803,23 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=6
+modulenames=5
  FILELISTFO
  INFOSFO
  MAINFO
  RANDOMNOTEFO
- SONGPLAYERFO
  WAVEFO
-moduletypes=6
+moduletypes=5
  TFILELISTFO
  TINFOSFO
  TMAINFO
  TRANDOMNOTEFO
- TSONGPLAYERFO
  TWAVEFO
-modulefiles=6
+modulefiles=5
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/randomnote.mfm
- /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/waveform.mfm
 befcommandon=0
 makeoptionson=15
@@ -1192,7 +1189,7 @@ line=35
  587
  257
  5734
- 3251
+ 3297
  1491
  293
  319
@@ -1204,7 +1201,7 @@ line=35
  1567
  209
  1136
- 5766
+ 5812
  493
  5
  770
@@ -1612,8 +1609,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=stf_default
+finddtext=12
 findhistory=20
+ 12
+ name := 'Unifont' ;
  stf_default
  Unifont
  infosfo2.
@@ -1632,17 +1631,15 @@ findhistory=20
  captionopen
  reset
  sc_close
- findmessagefo
- 'close
 findoptions=1
 editpos=7
  0,-1073741823
- 0,447
+ 0,463
+ 0,-1073741823
  0,0
  0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,3
+ 0,4
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1674,7 +1671,7 @@ ismoduletexts=7
  0
  0
  0
-modules=10
+modules=9
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1683,9 +1680,8 @@ modules=10
  /home/fred/strumpract/src/waveform.mfm
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/randomnote.mfm
- /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/infos.mfm
-moduleoptions=10
+moduleoptions=9
  0
  0
  0
@@ -1695,8 +1691,7 @@ moduleoptions=10
  0
  0
  0
- 0
-visiblemodules=10
+visiblemodules=9
  -1
  0
  0
@@ -1706,31 +1701,29 @@ visiblemodules=10
  -1
  -1
  -1
- -1
-nomenumodules=10
+nomenumodules=9
  0
  -1
  -1
  -1
  -1
- 0
  0
  0
  0
  0
 [sourcefo.files_tab]
 order=7
- 2
- 5
  3
- 0
- 4
  6
+ 0
+ 2
+ 4
  1
+ 5
 firsttab=0
 index=6
 [layout]
-windowlayout=722
+windowlayout=703
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1744,8 +1737,8 @@ windowlayout=722
  ny=0
  ncx=0
  ncy=0
- x=47
- y=55
+ x=67
+ y=57
  cx=1224
  cy=621
  rcx=0
@@ -1885,7 +1878,7 @@ windowlayout=722
  sortdescend1=0
  sorted=0
  col=0
- row=9
+ row=12
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2188,10 +2181,10 @@ windowlayout=722
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=4
-  /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/infos.pas
   /home/fred/strumpract/src/conflang.pas
  [debuggerfo.project_options]
@@ -2216,13 +2209,13 @@ windowlayout=722
  rcy=0
  [sourcefo.files_tab]
  order=7
-  2
-  5
   3
-  0
-  4
   6
+  0
+  2
+  4
   1
+  5
  firsttab=0
  index=6
  [confideufo.usedefaulteditoroptions]
@@ -2266,7 +2259,7 @@ windowlayout=722
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2361,7 +2354,7 @@ windowlayout=722
  [_mse_wavefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2380,7 +2373,7 @@ windowlayout=722
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_randomnotefo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2399,7 +2392,7 @@ windowlayout=722
  [_mse_randomnotefo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2415,29 +2408,10 @@ windowlayout=722
  wsize=0
  active=0
  visible=1
- [_mse_songplayerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_infosfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=506
- y=253
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_randomnotefo_mse_
  parent=
  mdistate=3
  nx=0

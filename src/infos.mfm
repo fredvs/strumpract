@@ -93,22 +93,22 @@ object infosfo: tinfosfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Title'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       0
       0
     )
     bounds_x = 4
-    bounds_y = 36
+    bounds_y = 39
     bounds_cx = 434
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '                                '
     reffontheight = 15
   end
@@ -116,23 +116,23 @@ object infosfo: tinfosfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Artist'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       0
       0
     )
     taborder = 1
     bounds_x = 4
-    bounds_y = 69
+    bounds_y = 72
     bounds_cx = 434
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '                                '
     reffontheight = 15
   end
@@ -140,92 +140,92 @@ object infosfo: tinfosfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Album'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       0
       0
     )
     taborder = 2
     bounds_x = 4
-    bounds_y = 102
+    bounds_y = 105
     bounds_cx = 434
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '                                '
     reffontheight = 15
   end
   object infoyear: tlabel
     color = -2147483645
     frame.caption = 'Year'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       4
       0
     )
     taborder = 3
     bounds_x = 4
-    bounds_y = 166
+    bounds_y = 169
     bounds_cx = 24
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '     '
     reffontheight = 15
   end
   object infolength: tlabel
     color = -2147483645
     frame.caption = 'Duration'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       5
       0
     )
     taborder = 4
     bounds_x = 130
-    bounds_y = 200
+    bounds_y = 203
     bounds_cx = 45
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '          '
     reffontheight = 15
   end
   object infotag: tlabel
     color = -2147483645
     frame.caption = 'Genre'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       0
       0
     )
     taborder = 5
     bounds_x = 59
-    bounds_y = 166
+    bounds_y = 169
     bounds_cx = 36
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '         '
     reffontheight = 15
   end
@@ -233,23 +233,23 @@ object infosfo: tinfosfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Comment'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       0
       0
     )
     taborder = 6
     bounds_x = 2
-    bounds_y = 132
+    bounds_y = 135
     bounds_cx = 434
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '                                '
     reffontheight = 15
   end
@@ -257,92 +257,92 @@ object infosfo: tinfosfo
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'File Name'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       0
       0
     )
     taborder = 7
     bounds_x = 4
-    bounds_y = 4
+    bounds_y = 7
     bounds_cx = 434
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '                                '
     reffontheight = 15
   end
   object inforate: tlabel
     color = -2147483645
     frame.caption = 'Rate'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       0
       0
     )
     taborder = 8
     bounds_x = 4
-    bounds_y = 200
+    bounds_y = 203
     bounds_cx = 32
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '        '
     reffontheight = 15
   end
   object infochan: tlabel
     color = -2147483645
     frame.caption = 'Chan'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       0
       0
     )
     taborder = 9
     bounds_x = 59
-    bounds_y = 200
+    bounds_y = 203
     bounds_cx = 40
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '          '
     reffontheight = 15
   end
   object infobpm: tlabel
     color = -2147483645
     frame.caption = 'BMP'
-    frame.captiondist = 0
+    frame.captiondist = -3
     frame.font.height = 10
     frame.font.name = 'stf_default'
     frame.font.localprops = [flp_height]
     frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      15
+      12
       4
       0
     )
     taborder = 10
     bounds_x = 160
-    bounds_y = 166
+    bounds_y = 169
     bounds_cx = 24
-    bounds_cy = 30
+    bounds_cy = 27
     caption = '     '
     reffontheight = 15
   end

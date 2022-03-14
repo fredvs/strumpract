@@ -237,6 +237,18 @@ begin
     inforate.frame.font.name := 'Unifont' ;
     infochan.frame.font.name := 'Unifont' ;
     infobpm.frame.font.name := 'Unifont' ;
+    
+    infoname.frame.font.height := 12 ;
+    infoartist.frame.font.height := 12 ;
+    infoalbum.frame.font.height := 12 ;
+    infoyear.frame.font.height := 12 ;
+    infolength.frame.font.height := 12 ;
+    infotag.frame.font.height := 12 ;
+    infocom.frame.font.height := 12 ;
+    infofile.frame.font.height := 12 ;
+    inforate.frame.font.height := 12 ;
+    infochan.frame.font.height := 12 ;
+    infobpm.frame.font.height := 12 ;
     end;
     
     with infosfo2 do
@@ -254,6 +266,17 @@ begin
     inforate.frame.font.name := 'Unifont' ;
     infochan.frame.font.name := 'Unifont' ;
     infobpm.frame.font.name := 'Unifont' ;
+    infoname.frame.font.height := 12 ;
+    infoartist.frame.font.height := 12 ;
+    infoalbum.frame.font.height := 12 ;
+    infoyear.frame.font.height := 12 ;
+    infolength.frame.font.height := 12 ;
+    infotag.frame.font.height := 12 ;
+    infocom.frame.font.height := 12 ;
+    infofile.frame.font.height := 12 ;
+    inforate.frame.font.height := 12 ;
+    infochan.frame.font.height := 12 ;
+    infobpm.frame.font.height := 12 ;
     end;
                  
       commanderfo.font.name := 'Unifont' ;
@@ -412,6 +435,17 @@ begin
     inforate.frame.font.name := 'stf_default' ;
     infochan.frame.font.name := 'stf_default' ;
     infobpm.frame.font.name := 'stf_default' ;
+    infoname.frame.font.height := 10 ;
+    infoartist.frame.font.height := 10 ;
+    infoalbum.frame.font.height := 10 ;
+    infoyear.frame.font.height := 10 ;
+    infolength.frame.font.height := 10 ;
+    infotag.frame.font.height := 10 ;
+    infocom.frame.font.height := 10 ;
+    infofile.frame.font.height := 10 ;
+    inforate.frame.font.height := 10 ;
+    infochan.frame.font.height := 10 ;
+    infobpm.frame.font.height := 10 ;
     end;
     
     with infosfo2 do
@@ -429,6 +463,18 @@ begin
     inforate.frame.font.name := 'stf_default' ;
     infochan.frame.font.name := 'stf_default' ;
     infobpm.frame.font.name := 'stf_default' ;
+     infoname.frame.font.height := 10 ;
+    infoartist.frame.font.height := 10 ;
+    infoalbum.frame.font.height := 10 ;
+    infoyear.frame.font.height := 10 ;
+    infolength.frame.font.height := 10 ;
+    infotag.frame.font.height := 10 ;
+    infocom.frame.font.height := 10 ;
+    infofile.frame.font.height := 10 ;
+    inforate.frame.font.height := 10 ;
+    infochan.frame.font.height := 10 ;
+    infobpm.frame.font.height := 10 ;
+ 
     end;
        
       dockpanel1fo.mainmenu.menu.font.name := 'stf_default' ;
