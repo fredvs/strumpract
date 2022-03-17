@@ -897,8 +897,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 9
-      bounds_y = 45
+      bounds_x = 104
+      bounds_y = 20
       bounds_cx = 221
       bounds_cy = 41
       font.name = 'stf_default'

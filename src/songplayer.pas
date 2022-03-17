@@ -325,39 +325,16 @@ begin
 
   if tag = 0 then
   begin
-    //  timerwait.Enabled := False;
-    btnStart.Enabled := True;
-    btnStop.Enabled  := True;
-    btncue.Enabled   := False;
-
-    with commanderfo do
+       with commanderfo do
     begin
       btncue.Enabled   := False;
       btnStart.Enabled := True;
       btnStop.Enabled  := True;
+     
       if (cbloop.Value = False) and (iscue1 = False) then
         btnPause.Enabled := True
       else
         btnPause.Enabled := False;
-
-      if iscue1 then
-      begin
-        btnPause.Visible  := False;
-        btnresume.Enabled := True;
-        btnresume.Visible := True;
-      end
-      else
-      begin
-        btnPause.Visible  := True;
-        btnresume.Visible := False;
-        btnresume.Enabled := False;
-      end;
-    end;
-
-    if (cbloop.Value = False) and (iscue1 = False) then
-      btnPause.Enabled := True
-    else
-      btnPause.Enabled := False;
 
     if iscue1 then
     begin
@@ -371,30 +348,49 @@ begin
       btnresume.Visible := False;
       btnresume.Enabled := False;
     end;
+    
+    end;
+    
+     btnStart.Enabled := True;
+      btnStop.Enabled  := True;
+     
+      btncue.Enabled   := False;
+     
+    if iscue1 then
+    begin
+      btnPause.Visible  := False;
+      btnresume.Enabled := True;
+      btnresume.Visible := True;
+     end
+    else
+    begin
+      btnPause.Visible  := True;
+      btnresume.Visible := False;
+      btnresume.Enabled := False;
+    end;
 
     cbloop.Enabled           := False;
     cbloopb.Enabled          := False;
     cbloop.Visible           := False;
     trackbar1.Enabled        := True;
     wavefo.trackbar1.Enabled := True;
+   
   end;
 
   if tag = 1 then
   begin
-    // timerwait.Enabled := False;
-    btnStart.Enabled := True;
-    btnStop.Enabled  := True;
-    btncue.Enabled   := False;
-
+  
     with commanderfo do
     begin
       btncue2.Enabled   := False;
       btnStart2.Enabled := True;
       btnStop2.Enabled  := True;
+    
       if (cbloop.Value = False) and (iscue2 = False) then
         btnPause2.Enabled := True
       else
         btnPause2.Enabled := False;
+   
       if iscue2 then
       begin
         btnPause2.Visible  := False;
@@ -408,27 +404,29 @@ begin
         btnresume2.Enabled := False;
       end;
     end;
-
-    if (cbloop.Value = False) and (iscue2 = False) then
-      btnPause.Enabled := True
-    else
-      btnPause.Enabled := False;
-
+    
+   btncue.Enabled   := False;
+      
     if iscue2 then
     begin
       btnPause.Visible  := False;
       btnresume.Enabled := True;
       btnresume.Visible := True;
-    end
+     end
     else
     begin
       btnPause.Visible  := True;
       btnresume.Visible := False;
       btnresume.Enabled := False;
     end;
+    
+     if (cbloop.Value = False) and (iscue2 = False) then
+      btnPause.Enabled := True
+    else
+      btnPause.Enabled := False;
+
     cbloop.Visible := False;
     cbloopb.Enabled   := False;
-    cbloop.Enabled    := False;
     trackbar1.Enabled := True;
     wavefo2.trackbar1.Enabled := True;
   end;

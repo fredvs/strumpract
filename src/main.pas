@@ -6897,6 +6897,8 @@ var
   x: integer;
   oldlang : msestring;
 begin
+  oncreatedform(Sender);
+  
   if isactivated = False then
     begin
       isactivated        := True;
