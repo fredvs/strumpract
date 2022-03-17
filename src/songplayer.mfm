@@ -897,8 +897,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 104
-      bounds_y = 20
+      bounds_x = 7
+      bounds_y = 48
       bounds_cx = 221
       bounds_cy = 41
       font.name = 'stf_default'
@@ -3925,7 +3925,7 @@ object songplayerfo: tsongplayerfo
     controller.hidehistory = False
     controller.hideicons = False
     controller.showhidden = False
-    left = 81
-    top = 17
+    left = 65
+    top = 8
   end
 end

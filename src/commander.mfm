@@ -1883,8 +1883,8 @@ object commanderfo: tcommanderfo
     face.template = tfaceorange
     taborder = 4
     visible = False
-    bounds_x = 94
-    bounds_y = 50
+    bounds_x = 5
+    bounds_y = 46
     bounds_cx = 221
     bounds_cy = 36
     font.name = 'stf_default'
