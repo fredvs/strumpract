@@ -324,6 +324,7 @@ object infosfo: tinfosfo
     reffontheight = 15
   end
   object infobpm: tlabel
+    optionswidget1 = [ow1_fontglyphheight]
     color = -2147483645
     frame.caption = 'BMP'
     frame.captiondist = -3
@@ -335,13 +336,13 @@ object infosfo: tinfosfo
     frame.outerframe = (
       0
       12
-      4
+      0
       0
     )
     taborder = 10
     bounds_x = 160
     bounds_y = 169
-    bounds_cx = 24
+    bounds_cx = 33
     bounds_cy = 27
     caption = '     '
     reffontheight = 15
@@ -360,6 +361,7 @@ object infosfo: tinfosfo
     bitmap.alignment = [al_xcentered, al_ycentered, al_stretchx, al_stretchy, al_intpol]
   end
   object tracktag: tlabel
+    optionswidget1 = [ow1_fontglyphheight]
     color = -2147483645
     frame.caption = 'Track'
     frame.captiondist = -3
@@ -375,9 +377,9 @@ object infosfo: tinfosfo
       0
     )
     taborder = 13
-    bounds_x = 105
+    bounds_x = 108
     bounds_y = 169
-    bounds_cx = 36
+    bounds_cx = 42
     bounds_cy = 27
     caption = '         '
     reffontheight = 15
