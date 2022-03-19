@@ -2265,7 +2265,9 @@ begin
           infosfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
 
-          if trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo' then
+          if (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo') or
+                      (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'dual channel') 
+           then
             infosfo.infochan.Caption := 'Stereo '
           else
             infosfo.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
@@ -2364,8 +2366,10 @@ begin
             (CommonTags.Duration / MSecsPerDay)))) + ' ';
           infosfo2.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
-          if trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo' then
-            infosfo2.infochan.Caption := 'Stereo '
+          if (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo') or
+              (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'dual channel') then
+       
+           infosfo2.infochan.Caption := 'Stereo '
           else
             infosfo2.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
 

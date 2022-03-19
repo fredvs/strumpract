@@ -143,8 +143,10 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=infoyear.Caption
+ value=infochan
  history=20
+  infochan
+  dual chan
   infoyear.Caption
   infotag
   btncue.En
@@ -163,8 +165,6 @@ findinfiledialog=83
   menu[
   menu.item
   items[
-  item[
-  Player 1
  [findinfileadialogfo]
  stackedunder=
  x=200
@@ -803,12 +803,15 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=2
  INFOSFO
-moduletypes=1
+ SONGPLAYERFO
+moduletypes=2
  TINFOSFO
-modulefiles=1
+ TSONGPLAYERFO
+modulefiles=2
  /home/fred/strumpract/src/infos.mfm
+ /home/fred/strumpract/src/songplayer.mfm
 befcommandon=0
 makeoptionson=15
  4095
@@ -1470,7 +1473,7 @@ units=
    (
    file=infos.mfm
    kind=2
-   a=0,10260,0,infos
+   a=0,10260,4,infos
    classtype=tinfosfo
    formname=infosfo
    instancevarname=infosfo
@@ -1634,53 +1637,67 @@ findhistory=20
  save c
  list file
 findoptions=1
-editpos=2
+editpos=4
  0,8
- 6,6
+ 0,6
+ 0,138
+ 0,2369
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+bookmarks3=0
+sourcefiles=4
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/infos.pas
-relpaths=2
+ ${PROJECTDIR}/mse_ovofile_mp3.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=4
  strumpract.pas
  infos.pas
-ismoduletexts=2
+ mse_ovofile_mp3.pas
+ songplayer.pas
+ismoduletexts=4
  0
  0
-modules=6
+ 0
+ 0
+modules=7
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/infos.mfm
-moduleoptions=6
+ /home/fred/strumpract/src/songplayer.mfm
+moduleoptions=7
  0
  2
  0
  2
  0
  0
-visiblemodules=6
+ 0
+visiblemodules=7
  0
  0
  0
  0
  0
  -1
-nomenumodules=6
+ -1
+nomenumodules=7
  -1
  -1
  -1
  -1
  -1
+ 0
  0
 [sourcefo.files_tab]
 firsttab=0
-index=1
+index=3
 [layout]
-windowlayout=641
+windowlayout=661
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1694,8 +1711,8 @@ windowlayout=641
  ny=0
  ncx=0
  ncy=0
- x=118
- y=84
+ x=22
+ y=80
  cx=1224
  cy=621
  rcx=0
@@ -1798,7 +1815,7 @@ windowlayout=641
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
@@ -2138,8 +2155,9 @@ windowlayout=641
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/infos.pas
- history=7
+ value=/home/fred/strumpract/src/songplayer.pas
+ history=8
+  /home/fred/strumpract/src/infos.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/recorder.pas
   /home/fred/strumpract/src/conflang.pas
@@ -2169,7 +2187,7 @@ windowlayout=641
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=1
+ index=3
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2306,7 +2324,7 @@ windowlayout=641
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2317,6 +2335,25 @@ windowlayout=641
  y=145
  cx=452
  cy=238
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_songplayerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=findinfilefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=506
+ y=253
+ cx=452
+ cy=128
  rcx=0
  rcy=0
  wsize=0
