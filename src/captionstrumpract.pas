@@ -118,6 +118,7 @@ type
       in_infoyearframe, {'Year'}
       in_infolengthframe, {'Duration'}
       in_infotagframe, {'Genre'}
+      in_tracktagframe, {'Track'}
       in_infocomframe, {'Comment'}
       in_infofileframe, {'File Name'}
       in_inforateframe, {'Rate'}
@@ -534,6 +535,7 @@ const
       'Year', {in_infoyear}
       'Duration', {in_infolength}
       'Genre', {in_infotag}
+      'Track', {in_tracktag}
       'Comment', {in_infocom}
       'File Name', {in_infofile}
       'Rate', {in_inforate}

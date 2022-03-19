@@ -235,7 +235,7 @@ object mainfo: tmainfo
         options = [mao_separator, mao_shortcutcaption]
       end    
       item
-        submenu.count = 13
+        submenu.count = 14
         submenu.items = <        
           item
             caption = '&Dock all visible windows'
@@ -286,16 +286,19 @@ object mainfo: tmainfo
             onexecute = ondockrec2
           end        
           item
-            caption = '&Chords Randomizer'
-            name = 'chordrandom'
-            state = [as_localcaption, as_localonexecute]
-            onexecute = onrandomlayout
-          end        
-          item
             caption = '&Image Dancer'
             name = 'imagedancer'
             state = [as_localcaption, as_localonexecute]
             onexecute = ondancerlayout
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
+            caption = '&Chords Randomizer'
+            name = 'chordrandom'
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onrandomlayout
           end        
           item
             options = [mao_separator, mao_shortcutcaption]

@@ -2259,6 +2259,7 @@ begin
           infosfo.infoyear.Caption   := trim(CommonTags.Year) + ' ';
           infosfo.infocom.Caption    := copy(trim(CommonTags.Comment), 1, 60) + ' ';
           infosfo.infotag.Caption    := trim(CommonTags.Genre) + ' ';
+          infosfo.tracktag.Caption    := inttostr(CommonTags.track) + '  ';
           infosfo.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
             (CommonTags.Duration / MSecsPerDay)))) + ' ';
           infosfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
@@ -2357,7 +2358,7 @@ begin
           infosfo2.infoartist.hint := ' ' + trim(CommonTags.Artist) + ' ';
           infosfo2.infoalbum.hint  := ' ' + trim(CommonTags.Album) + ' ';
           infosfo2.infocom.hint    := ' ' + trim(CommonTags.Comment) + ' ';
-
+          infosfo2.tracktag.Caption    := inttostr(CommonTags.track) + '  ';
           infosfo2.infotag.Caption    := trim(CommonTags.Genre) + ' ';
           infosfo2.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
             (CommonTags.Duration / MSecsPerDay)))) + ' ';

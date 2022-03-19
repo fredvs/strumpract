@@ -232,6 +232,7 @@ begin
     infoyear.frame.font.name := 'Unifont' ;
     infolength.frame.font.name := 'Unifont' ;
     infotag.frame.font.name := 'Unifont' ;
+    tracktag.frame.font.name := 'Unifont' ;
     infocom.frame.font.name := 'Unifont' ;
     infofile.frame.font.name := 'Unifont' ;
     inforate.frame.font.name := 'Unifont' ;
@@ -244,6 +245,7 @@ begin
     infoyear.frame.font.height := 12 ;
     infolength.frame.font.height := 12 ;
     infotag.frame.font.height := 12 ;
+    tracktag.frame.font.height := 12 ;
     infocom.frame.font.height := 12 ;
     infofile.frame.font.height := 12 ;
     inforate.frame.font.height := 12 ;
@@ -260,6 +262,7 @@ begin
     infoalbum.frame.font.name := 'Unifont' ;
     infoyear.frame.font.name := 'Unifont' ;
     infolength.frame.font.name := 'Unifont' ;
+    tracktag.frame.font.name := 'Unifont' ;
     infotag.frame.font.name := 'Unifont' ;
     infocom.frame.font.name := 'Unifont' ;
     infofile.frame.font.name := 'Unifont' ;
@@ -272,6 +275,7 @@ begin
     infoyear.frame.font.height := 12 ;
     infolength.frame.font.height := 12 ;
     infotag.frame.font.height := 12 ;
+    tracktag.frame.font.height := 12 ;
     infocom.frame.font.height := 12 ;
     infofile.frame.font.height := 12 ;
     inforate.frame.font.height := 12 ;
@@ -426,6 +430,7 @@ begin
      font.height := 14;
     infoname.frame.font.name := 'stf_default' ;
     infoartist.frame.font.name := 'stf_default' ;
+    tracktag.frame.font.name := 'stf_default' ;
     infoalbum.frame.font.name := 'stf_default' ;
     infoyear.frame.font.name := 'stf_default' ;
     infolength.frame.font.name := 'stf_default' ;
@@ -440,6 +445,7 @@ begin
     infoalbum.frame.font.height := 10 ;
     infoyear.frame.font.height := 10 ;
     infolength.frame.font.height := 10 ;
+    tracktag.frame.font.height := 10 ;
     infotag.frame.font.height := 10 ;
     infocom.frame.font.height := 10 ;
     infofile.frame.font.height := 10 ;
@@ -458,6 +464,7 @@ begin
     infoyear.frame.font.name := 'stf_default' ;
     infolength.frame.font.name := 'stf_default' ;
     infotag.frame.font.name := 'stf_default' ;
+    tracktag.frame.font.name := 'stf_default' ;
     infocom.frame.font.name := 'stf_default' ;
     infofile.frame.font.name := 'stf_default' ;
     inforate.frame.font.name := 'stf_default' ;
@@ -932,6 +939,7 @@ with infosfo do
       infolength.frame.caption := lang_infosfo[Ord(in_infolengthframe)];  {'Duration'}
       infotag.frame.caption := lang_infosfo[Ord(in_infotagframe)];  {'Genre'}
       infocom.frame.caption := lang_infosfo[Ord(in_infocomframe)];  {'Comment'}
+      tracktag.frame.caption := lang_infosfo[Ord(in_tracktagframe)];  {'Track'}
       infofile.frame.caption := lang_infosfo[Ord(in_infofileframe)];  {'File Name'}
       inforate.frame.caption := lang_infosfo[Ord(in_inforateframe)];  {'Rate'}
       infochan.frame.caption := lang_infosfo[Ord(in_infochanframe)];  {'Chan'}
@@ -946,7 +954,8 @@ with infosfo do
       infoname.frame.caption := lang_infosfo[Ord(in_infonameframe)];  {'Title'}
       infoartist.frame.caption := lang_infosfo[Ord(in_infoartistframe)];  {'Artist'}
       infoalbum.frame.caption := lang_infosfo[Ord(in_infoalbumframe)];  {'Album'}
-      infoyear.frame.caption := lang_infosfo[Ord(in_infoyearframe)];  {'Year'}   
+      infoyear.frame.caption := lang_infosfo[Ord(in_infoyearframe)];  {'Year'}  
+      tracktag.frame.caption := lang_infosfo[Ord(in_tracktagframe)];  {'Track'}
       infolength.frame.caption := lang_infosfo[Ord(in_infolengthframe)];  {'Duration'}
       infotag.frame.caption := lang_infosfo[Ord(in_infotagframe)];  {'Genre'}
       infocom.frame.caption := lang_infosfo[Ord(in_infocomframe)];  {'Comment'}
@@ -3906,6 +3915,7 @@ begin
       infotag.font.color    := cl_black;
       infolength.font.color := cl_black;
       inforate.font.color   := cl_black;
+      tracktag.font.color    := cl_black;
       infochan.font.color   := cl_black;
       infobpm.font.color    := cl_black;
 
@@ -3916,6 +3926,7 @@ begin
       infoyear.frame.font.color   := cl_black;
       infocom.frame.font.color    := cl_black;
       infotag.frame.font.color    := cl_black;
+      tracktag.frame.font.color    := cl_black;
       infolength.frame.font.color := cl_black;
       inforate.frame.font.color   := cl_black;
       infochan.frame.font.color   := cl_black;
@@ -3963,6 +3974,8 @@ begin
       inforate.font.color   := cl_black;
       infochan.font.color   := cl_black;
       infobpm.font.color    := cl_black;
+      tracktag.font.color    := cl_black;
+    
 
       infofile.frame.font.color   := cl_black;
       infoartist.frame.font.color := cl_black;
@@ -3971,6 +3984,7 @@ begin
       infoyear.frame.font.color   := cl_black;
       infocom.frame.font.color    := cl_black;
       infotag.frame.font.color    := cl_black;
+      tracktag.frame.font.color    := cl_black;
       infolength.frame.font.color := cl_black;
       inforate.frame.font.color   := cl_black;
       infochan.frame.font.color   := cl_black;
@@ -4697,11 +4711,13 @@ begin
       infoyear.font.color   := cl_black;
       infocom.font.color    := cl_black;
       infotag.font.color    := cl_black;
+      tracktag.font.color    := cl_black;
       infolength.font.color := cl_black;
       inforate.font.color   := cl_black;
       infochan.font.color   := cl_black;
       infobpm.font.color    := cl_black;
 
+      tracktag.frame.font.color    := cl_black;
       infofile.frame.font.color   := cl_black;
       infoartist.frame.font.color := cl_black;
       infoname.frame.font.color   := cl_black;
@@ -4749,6 +4765,7 @@ begin
       infofile.font.color   := cl_black;
       infoartist.font.color := cl_black;
       infoname.font.color   := cl_black;
+      tracktag.font.color    := cl_black;
       infoalbum.font.color  := cl_black;
       infoyear.font.color   := cl_black;
       infocom.font.color    := cl_black;
@@ -4769,6 +4786,7 @@ begin
       inforate.frame.font.color   := cl_black;
       infochan.frame.font.color   := cl_black;
       infobpm.frame.font.color    := cl_black;
+      tracktag.frame.font.color    := cl_black;
     end;
 
 
@@ -5444,11 +5462,13 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       infoyear.font.color   := cl_white;
       infocom.font.color    := cl_white;
       infotag.font.color    := cl_white;
+      tracktag.font.color    := cl_white;      
       infolength.font.color := cl_white;
       inforate.font.color   := cl_white;
       infochan.font.color   := cl_white;
       infobpm.font.color    := cl_white;
 
+      tracktag.frame.font.color    := cl_white;      
       infofile.frame.font.color   := cl_white;
       infoartist.frame.font.color := cl_white;
       infoname.frame.font.color   := cl_white;
@@ -5495,6 +5515,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       infoartist.font.color := cl_white;
       infoname.font.color   := cl_white;
       infoalbum.font.color  := cl_white;
+      tracktag.font.color    := cl_white;      
       infoyear.font.color   := cl_white;
       infocom.font.color    := cl_white;
       infotag.font.color    := cl_white;
@@ -5503,6 +5524,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       infochan.font.color   := cl_white;
       infobpm.font.color    := cl_white;
 
+      tracktag.frame.font.color    := cl_white;      
       infofile.frame.font.color   := cl_white;
       infoartist.frame.font.color := cl_white;
       infoname.frame.font.color   := cl_white;

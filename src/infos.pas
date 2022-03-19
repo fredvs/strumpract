@@ -4,22 +4,9 @@ unit infos;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msesimplewidgets,
-  mseimage;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
+ msesimplewidgets,mseimage;
 
 type
   tinfosfo = class(tmseform)
@@ -36,6 +23,7 @@ type
     infobpm: tlabel;
     imgPreview: timage;
     tlabel2: tlabel;
+   tracktag: tlabel;
   end;
 
 var

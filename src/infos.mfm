@@ -222,7 +222,7 @@ object infosfo: tinfosfo
       0
     )
     taborder = 5
-    bounds_x = 59
+    bounds_x = 51
     bounds_y = 169
     bounds_cx = 36
     bounds_cy = 27
@@ -358,5 +358,28 @@ object infosfo: tinfosfo
     anchors = [an_left, an_top, an_right, an_bottom]
     bitmap.origformat = 'png'
     bitmap.alignment = [al_xcentered, al_ycentered, al_stretchx, al_stretchy, al_intpol]
+  end
+  object tracktag: tlabel
+    color = -2147483645
+    frame.caption = 'Track'
+    frame.captiondist = -3
+    frame.font.height = 10
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_height]
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+    frame.outerframe = (
+      0
+      12
+      0
+      0
+    )
+    taborder = 13
+    bounds_x = 105
+    bounds_y = 169
+    bounds_cx = 36
+    bounds_cy = 27
+    caption = '         '
+    reffontheight = 15
   end
 end
