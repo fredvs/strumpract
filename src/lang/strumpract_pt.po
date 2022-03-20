@@ -942,7 +942,7 @@ msgid "Infos of song"
 msgstr "Informações da música"
 
 msgid "No Image Tag"
-msgstr "Nenhuma etiqueta de imagem"
+msgstr "Nenhuma imagem"
 
 msgid "Title"
 msgstr "Título"
@@ -969,7 +969,7 @@ msgid "File Name"
 msgstr "Nome do arquivo"
 
 msgid "Rate"
-msgstr "Avaliar"
+msgstr "Rate"
 
 msgid "Chan"
 msgstr "Chan"
