@@ -1,6 +1,6 @@
 unit imagedancer;
 
-{$mode objfpc}{$H+}
+{$mode objfpc}{$H+}{$inline on}
 {$modeswitch advancedrecords} 
 interface
 

@@ -32,7 +32,6 @@ uses
   infos,
   status,
   conflang,
-  potools,
   spectrum1,
   waveform,
   randomnote,
@@ -233,7 +232,7 @@ begin
   application.createform(tdialogfilesfo, dialogfilesfo);
   
   application.createform(tconflangfo, conflangfo);
-  application.createform(theaderfo, headerfo);
+  //application.createform(theaderfo, headerfo);
     
   dialogfilesfo.icon := equalizerfo1.icon;
  

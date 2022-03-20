@@ -8,7 +8,7 @@
 
 unit uos_portaudio;
 
-{$mode objfpc}{$H+}
+{$mode objfpc}{$H+}{$inline on}
 {$PACKRECORDS C}
 
 interface
