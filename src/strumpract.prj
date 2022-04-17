@@ -1190,26 +1190,26 @@ line=35
  258
  5734
  3270
- 1510
+ 1511
  293
- 322
+ 325
  538
- 556
- 778
- 790
+ 559
+ 781
+ 793
  701
- 1586
+ 1587
  209
  1136
- 5798
+ 5802
  493
  5
  770
  1518
  171
- 1514
+ 1515
  397
- 1737
+ 1738
  623
  1013
 address=35
@@ -1623,8 +1623,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=updatelayoutstrum
+finddtext=songtimer
 findhistory=20
+ songtimer
+ volumedrums
  drumsfo
  visible :=
  drumsfo.v
@@ -1643,19 +1645,19 @@ findhistory=20
  uos_AddFromFile
  uos_
  lib3
- mpg123
- inline
 findoptions=1
-editpos=9
- 0,239
- 0,5
+editpos=11
+ 0,179
+ 0,-1073741823
  0,-1073741823
  0,0
- 0,6761
- 0,0
- 0,0
- 0,846
- 0,687
+ 0,5749
+ 0,-1073741823
+ 0,-1073741823
+ 0,1621
+ 0,694
+ 0,148
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1665,7 +1667,9 @@ bookmarks5=0
 bookmarks6=0
 bookmarks7=0
 bookmarks8=0
-sourcefiles=9
+bookmarks9=0
+bookmarks10=0
+sourcefiles=11
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/infos.pas
@@ -1675,7 +1679,9 @@ sourcefiles=9
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/songplayer.pas
-relpaths=9
+ ${PROJECTDIR}/drums.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=11
  strumpract.pas
  drums.pas
  infos.pas
@@ -1685,7 +1691,11 @@ relpaths=9
  main.pas
  drums.pas
  songplayer.pas
-ismoduletexts=9
+ drums.pas
+ songplayer.pas
+ismoduletexts=11
+ 0
+ 0
  0
  0
  0
@@ -1732,20 +1742,22 @@ nomenumodules=8
  0
  0
 [sourcefo.files_tab]
-order=9
+order=11
  0
  7
  8
- 1
- 2
+ 9
+ 10
  3
  4
  5
  6
+ 1
+ 2
 firsttab=0
-index=1
+index=2
 [layout]
-windowlayout=695
+windowlayout=697
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1759,10 +1771,10 @@ windowlayout=695
  ny=0
  ncx=0
  ncy=0
- x=64
- y=60
+ x=157
+ y=462
  cx=1224
- cy=621
+ cy=613
  rcx=0
  rcy=0
  wsize=0
@@ -1863,7 +1875,7 @@ windowlayout=695
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=targetconsolefo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1889,7 +1901,7 @@ windowlayout=695
  x=0
  y=0
  cx=205
- cy=411
+ cy=402
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1899,9 +1911,9 @@ windowlayout=695
  width1=86
  sortdescend1=0
  sorted=0
- col=0
- row=16
- rowheight=16
+ col=1
+ row=11
+ rowheight=17
  [stackfo]
  splitdir=0
  useroptions=268460137
@@ -1979,10 +1991,10 @@ windowlayout=695
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=338
- width0=192
+ propcolwidthref=325
+ width0=185
  sortdescend0=0
- width1=140
+ width1=134
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2075,8 +2087,8 @@ windowlayout=695
  ncx=0
  ncy=0
  x=0
- y=470
- cx=1212
+ y=462
+ cx=1214
  cy=130
  rcx=0
  rcy=0
@@ -2146,24 +2158,24 @@ windowlayout=695
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=240
- y=139
+ x=337
+ y=29
  cx=956
  cy=77
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=1
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -2176,8 +2188,8 @@ windowlayout=695
  ncy=0
  x=0
  y=0
- cx=1212
- cy=53
+ cx=1214
+ cy=54
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2188,11 +2200,11 @@ windowlayout=695
  mdistate=0
  nx=0
  ny=0
- ncx=1356
+ ncx=1212
  ncy=61
  x=0
  y=0
- cx=1207
+ cx=1214
  cy=61
  rcx=0
  rcy=0
@@ -2203,13 +2215,13 @@ windowlayout=695
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/drums.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=13
+  /home/fred/strumpract/src/drums.pas
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/infos.pas
-  /home/fred/strumpract/src/drums.pas
-  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/uos.pas
   /home/fred/uos/src/uos.pas
   /home/fred/strumpract/src/uos_flat.pas
@@ -2234,23 +2246,25 @@ windowlayout=695
  ncy=0
  x=208
  y=0
- cx=1004
- cy=411
+ cx=1006
+ cy=402
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=9
+ order=11
   0
   7
   8
-  1
-  2
+  9
+  10
   3
   4
   5
   6
+  1
+  2
  firsttab=0
- index=1
+ index=2
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2284,15 +2298,15 @@ windowlayout=695
  ncx=0
  ncy=0
  x=0
- y=56
- cx=1212
- cy=411
+ y=57
+ cx=1214
+ cy=402
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2356,10 +2370,10 @@ windowlayout=695
  ny=0
  ncx=0
  ncy=0
- x=361
- y=180
+ x=367
+ y=166
  cx=452
- cy=244
+ cy=274
  rcx=0
  rcy=0
  wsize=0
@@ -2368,7 +2382,7 @@ windowlayout=695
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2425,7 +2439,7 @@ windowlayout=695
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0

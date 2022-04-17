@@ -131,7 +131,7 @@ type
 const
   versiontext = '3.0.0';
   emptyheight = 40;
-  drumsfoheight = 244;
+  drumsfoheight = 274;
   filelistfoheight = 128;
   wavefoheight = 128;
   guitarsfoheight = 64;
@@ -4224,6 +4224,8 @@ begin
 
     drumsfo.edittempo.frame.colorglyph   := ltblack;
     drumsfo.volumedrums.frame.colorglyph := ltblack;
+    
+     drumsfo.sensib.frame.colorglyph := ltblack;
 
     drumsfo.tfacedrums.template.fade_color.items[0] := $9AAD97;
     drumsfo.tfacedrums.template.fade_color.items[1] := $D6F0D1;
@@ -5003,6 +5005,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     drumsfo.edittempo.frame.colorglyph   := ltblack;
     drumsfo.volumedrums.frame.colorglyph := ltblack;
+    drumsfo.sensib.frame.colorglyph := ltblack;
 
     drumsfo.ltempo.font.color          := ltblack;
     drumsfo.novoice.frame.font.color   := ltblack;
@@ -5750,6 +5753,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     drumsfo.edittempo.frame.colorglyph        := ltblank;
     drumsfo.volumedrums.frame.colorglyph      := ltblank;
     drumsfo.langcount.frame.button.colorglyph := ltblank;
+     drumsfo.sensib.frame.colorglyph := ltblank;
 
     drumsfo.langcount.dropdown.colorclient := ltblack;
 

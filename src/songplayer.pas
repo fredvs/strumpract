@@ -11,7 +11,7 @@ uses
  msegraphedits,msedragglob,mseact,mseedit,mseificomp,mseificompglob,mseifiglob,
  msestatfile,msestream,msestrings,msescrollbar,msebitmap,msedatanodes,
  msedispwidgets,mserichstring,msedropdownlist,mse_ovobasetag,mse_ovoaudiotag,
- mse_ovofile_mp3,msegridsglob;
+ msegridsglob;
 
 type
   tsongplayerfo = class(tdockform)
@@ -171,6 +171,7 @@ var
 implementation
 
 uses
+ mse_ovofile_mp3,
   captionstrumpract,
   main,
   imagedancer,
@@ -664,10 +665,10 @@ begin
     
     if drumsfo.songtimer.value then
     if tickcount = 0 then
-     if (arl[2] + arr[2]) / 2 > 0.4 then  drumsfo.ontimertick(Sender);
+     if (arl[2] + arr[2]) / 2 > (1 - (drumsfo.sensib.value / 100)) then  drumsfo.ontimertick(Sender);
 
     inc(tickcount);
-    if tickcount > 3 then tickcount := 0;
+    if tickcount > drumsfo.tickcount.value then tickcount := 0;
    
    end;
       
@@ -691,10 +692,10 @@ begin
       
      if drumsfo.songtimer.value then
     if tickcount = 0 then
-    if (arl2[2] + arr2[2]) / 2 > 0.4 then  drumsfo.ontimertick(Sender);
+    if (arl2[2] + arr2[2]) / 2 > ( 1 - (drumsfo.sensib.value / 100)) then  drumsfo.ontimertick(Sender);
 
     inc(tickcount);
-    if tickcount > 3 then tickcount := 0;
+    if tickcount > drumsfo.tickcount.value then tickcount := 0;
    
     end;
 

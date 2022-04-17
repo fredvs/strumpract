@@ -155,6 +155,8 @@ type
     label4: tlabel;
     langcount: tdropdownlistedit;
    songtimer: tbooleanedit;
+   sensib: trealspinedit;
+   tickcount: tintegeredit;
     procedure ontimertick(Const Sender: TObject);
     procedure ontimerpause(Const Sender: TObject);
     procedure ontimersent(Const Sender: TObject);
@@ -180,6 +182,7 @@ type
     procedure onmultdiv(Const Sender: TObject);
     procedure onchangelang(Const sender: TObject);
    procedure onchangesongtimer(const sender: TObject);
+   procedure onchansens(const sender: TObject);
   end;
 
 var 
@@ -1604,8 +1607,31 @@ end;
 
 procedure tdrumsfo.onchangesongtimer(const sender: TObject);
 begin
-if songtimer.value then label2.visible := false else label2.visible := true;
+if songtimer.value then
+begin
+ label2.visible := false;
+ edittempo.enabled := false;
+ divbpm.enabled := false;
+ multbpm.enabled := false;
+ ltempo.enabled := false;
+ sensib.enabled := true;
+ tickcount.enabled := true;
+ end else
+ begin
+ label2.visible := true;
+ edittempo.enabled := true;
+ divbpm.enabled := true;
+ multbpm.enabled := true;
+ ltempo.enabled := true;
+ sensib.enabled := false;
+ tickcount.enabled := false;
+ end;
+ 
+end;
 
+procedure tdrumsfo.onchansens(const sender: TObject);
+begin
+if sensib.value < 10 then sensib.value := 10;
 end;
 
 end.
