@@ -600,7 +600,8 @@ begin
   posi := 1;
   loop_resume.Enabled := False;
   if songtimer.value = false then
-  TimerTick.Enabled := True;
+  TimerTick.Enabled := True else
+  TimerTick.Enabled := false;
   loop_stop.Enabled := True;
 
   commanderfo.loop_resume.Enabled := False;
@@ -1616,6 +1617,7 @@ begin
  ltempo.enabled := false;
  sensib.enabled := true;
  tickcount.enabled := true;
+ TimerTick.Enabled := false;
  end else
  begin
  label2.visible := true;
@@ -1625,6 +1627,8 @@ begin
  ltempo.enabled := true;
  sensib.enabled := false;
  tickcount.enabled := false;
+ if commanderfo.loop_stop.Enabled = True then
+ TimerTick.Enabled := True;
  end;
  
 end;
