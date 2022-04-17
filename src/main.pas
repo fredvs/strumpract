@@ -1665,6 +1665,7 @@ var
   i1, visiblecount: int32;
   rect1: rectty;
 begin
+  
   if oktimer = 0 then
   begin
     //{
@@ -1743,7 +1744,7 @@ begin
     if dockpanel5fo.Visible then
       dockpanel5fo.updatelayoutpan();
 
-    Visible := True;
+  //  Visible := True;
   end;
 end;
 

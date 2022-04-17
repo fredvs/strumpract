@@ -972,7 +972,7 @@ msgid "Rate"
 msgstr "Fréq."
 
 msgid "Chan"
-msgstr "chan"
+msgstr "Canaux"
 
 msgid "BPM"
 msgstr "BPM"
