@@ -665,7 +665,7 @@ begin
     
     if drumsfo.songtimer.value then
     if tickcount = 0 then
-     if (arl[2] + arr[2]) / 2 > (1 - (drumsfo.sensib.value / 100)) then  drumsfo.ontimertick(Sender);
+     if (arl[1] + arr[1]) / 2 > (1 - (drumsfo.sensib.value / 100)) then  drumsfo.ontimertick(Sender);
 
     inc(tickcount);
     if tickcount > drumsfo.tickcount.value then tickcount := 0;
@@ -692,7 +692,7 @@ begin
       
      if drumsfo.songtimer.value then
     if tickcount = 0 then
-    if (arl2[2] + arr2[2]) / 2 > ( 1 - (drumsfo.sensib.value / 100)) then  drumsfo.ontimertick(Sender);
+    if (arl2[1] + arr2[1]) / 2 > ( 1 - (drumsfo.sensib.value / 100)) then  drumsfo.ontimertick(Sender);
 
     inc(tickcount);
     if tickcount > drumsfo.tickcount.value then tickcount := 0;
