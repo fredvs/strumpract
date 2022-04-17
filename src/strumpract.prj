@@ -143,8 +143,14 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=EQEN
+ value=drumsvisible.value
  history=20
+  drumsvisible.value
+  drumsfo.vis
+  drumsfo.hide
+  drumsfo.visi
+  drumsfo
+  tickcount
   EQEN
   potools
   inline
@@ -159,12 +165,6 @@ findinfiledialog=83
   font_hint
   hint
   hint.font
-  fonthint
-  showhint
-  caption =
-  caption=
-  .caption =
-  'Player 2'
  [findinfileadialogfo]
  stackedunder=
  x=200
@@ -803,17 +803,20 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=4
+modulenames=5
+ DRUMSFO
  EQUALIZERFO
  INFOSFO
  MAINFO
  SONGPLAYERFO
-moduletypes=4
+moduletypes=5
+ TDRUMSFO
  TEQUALIZERFO
  TINFOSFO
  TMAINFO
  TSONGPLAYERFO
-modulefiles=4
+modulefiles=5
+ /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/main.mfm
@@ -1184,29 +1187,29 @@ line=35
  137
  343
  587
- 256
+ 258
  5734
- 3304
- 1490
+ 3270
+ 1510
  293
- 319
+ 322
  538
- 553
- 773
- 785
+ 556
+ 778
+ 790
  701
- 1566
+ 1586
  209
  1136
- 5832
+ 5798
  493
  5
  770
  1518
  171
- 1494
+ 1514
  397
- 1717
+ 1737
  623
  1013
 address=35
@@ -1620,10 +1623,18 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=timerwait
+finddtext=updatelayoutstrum
 findhistory=20
- timerwait
+ drumsfo
+ visible :=
+ drumsfo.v
+ label2.v
+ label2
+ drumsfo.
+ timertick
+ spectrum
  timer
+ timerwait
  ontimeridle
  loadlib
  1024 *
@@ -1634,43 +1645,50 @@ findhistory=20
  lib3
  mpg123
  inline
- iline
- PlayEx
- InputAddDSP1ChanTo2Chan
- inline;
- InputAddDSPVolume
- getstatus
- inputseek
- Play(
 findoptions=1
-editpos=6
+editpos=9
+ 0,239
+ 0,5
+ 0,-1073741823
  0,0
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 9,1407
- 0,6
+ 0,6761
+ 0,0
+ 0,0
+ 0,846
+ 0,687
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
 bookmarks5=0
-sourcefiles=6
+bookmarks6=0
+bookmarks7=0
+bookmarks8=0
+sourcefiles=9
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/infos.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/equalizer.pas
-relpaths=6
+ ${PROJECTDIR}/main.pas
+ ${PROJECTDIR}/drums.pas
+ ${PROJECTDIR}/songplayer.pas
+relpaths=9
  strumpract.pas
  drums.pas
  infos.pas
  songplayer.pas
  main.pas
  equalizer.pas
-ismoduletexts=6
+ main.pas
+ drums.pas
+ songplayer.pas
+ismoduletexts=9
+ 0
+ 0
+ 0
  0
  0
  0
@@ -1698,7 +1716,7 @@ moduleoptions=8
 visiblemodules=8
  -1
  0
- 0
+ -1
  0
  0
  -1
@@ -1707,24 +1725,27 @@ visiblemodules=8
 nomenumodules=8
  0
  -1
- -1
+ 0
  -1
  -1
  0
  0
  0
 [sourcefo.files_tab]
-order=6
+order=9
  0
- 5
+ 7
+ 8
  1
  2
  3
  4
+ 5
+ 6
 firsttab=0
-index=5
+index=1
 [layout]
-windowlayout=692
+windowlayout=695
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1738,13 +1759,13 @@ windowlayout=692
  ny=0
  ncx=0
  ncy=0
- x=123
- y=70
+ x=64
+ y=60
  cx=1224
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [findmessagefo.findtext]
@@ -1868,7 +1889,7 @@ windowlayout=692
  x=0
  y=0
  cx=205
- cy=478
+ cy=411
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1879,7 +1900,7 @@ windowlayout=692
  sortdescend1=0
  sorted=0
  col=0
- row=4
+ row=16
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1959,9 +1980,9 @@ windowlayout=692
  value=0
  [objectinspectorfo.grid]
  propcolwidthref=338
- width0=245
+ width0=192
  sortdescend0=0
- width1=87
+ width1=140
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2054,9 +2075,9 @@ windowlayout=692
  ncx=0
  ncy=0
  x=0
- y=538
- cx=1356
- cy=152
+ y=470
+ cx=1212
+ cy=130
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2155,8 +2176,8 @@ windowlayout=692
  ncy=0
  x=0
  y=0
- cx=1356
- cy=54
+ cx=1212
+ cy=53
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2171,7 +2192,7 @@ windowlayout=692
  ncy=61
  x=0
  y=0
- cx=1356
+ cx=1207
  cy=61
  rcx=0
  rcy=0
@@ -2182,7 +2203,7 @@ windowlayout=692
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/strumpract/src/drums.pas
  history=13
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/strumpract.pas
@@ -2213,27 +2234,30 @@ windowlayout=692
  ncy=0
  x=208
  y=0
- cx=1148
- cy=478
+ cx=1004
+ cy=411
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=6
+ order=9
   0
-  5
+  7
+  8
   1
   2
   3
   4
+  5
+  6
  firsttab=0
- index=5
+ index=1
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2260,15 +2284,15 @@ windowlayout=692
  ncx=0
  ncy=0
  x=0
- y=57
- cx=1356
- cy=478
+ y=56
+ cx=1212
+ cy=411
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_infosfo_mse_
+ stackedunder=findinfilefo
  parent=
  mdistate=3
  nx=0
@@ -2325,22 +2349,22 @@ windowlayout=692
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=254
- y=293
+ x=361
+ y=180
  cx=452
- cy=236
+ cy=244
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2363,7 +2387,7 @@ windowlayout=692
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2382,7 +2406,7 @@ windowlayout=692
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2401,7 +2425,7 @@ windowlayout=692
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0

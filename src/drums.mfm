@@ -10,14 +10,14 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 254
-  bounds_y = 293
+  bounds_x = 361
+  bounds_y = 180
   bounds_cx = 442
-  bounds_cy = 236
+  bounds_cy = 244
   bounds_cxmin = 442
-  bounds_cymin = 236
+  bounds_cymin = 244
   bounds_cxmax = 442
-  bounds_cymax = 236
+  bounds_cymax = 244
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -28,7 +28,7 @@ object drumsfo: tdrumsfo
     0
     0
     434
-    236
+    244
   )
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
@@ -165,7 +165,6 @@ object drumsfo: tdrumsfo
   oncreate = oncreatedrums
   oncreated = oncreateddrums
   ondestroy = ondestroi
-  onclose = dostop
   onmouseevent = onmousewindow
   onshow = visiblechangeev
   onhide = visiblechangeev
@@ -981,7 +980,7 @@ object drumsfo: tdrumsfo
     bounds_x = 0
     bounds_y = 149
     bounds_cx = 434
-    bounds_cy = 87
+    bounds_cy = 95
     object tbooleaneditradio8: tbooleaneditradio
       Tag = 5
       optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_destroywidgets, ow_hinton]
@@ -1003,7 +1002,7 @@ object drumsfo: tdrumsfo
       taborder = 2
       hint = ' Drums Patern 1 '
       bounds_x = 308
-      bounds_y = 16
+      bounds_y = 23
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
@@ -1031,7 +1030,7 @@ object drumsfo: tdrumsfo
       taborder = 3
       hint = ' Drums Patern 2 '
       bounds_x = 308
-      bounds_y = 32
+      bounds_y = 39
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
@@ -1057,7 +1056,7 @@ object drumsfo: tdrumsfo
       taborder = 4
       hint = ' Drums Patern 3 '
       bounds_x = 308
-      bounds_y = 48
+      bounds_y = 55
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
@@ -1083,7 +1082,7 @@ object drumsfo: tdrumsfo
       taborder = 5
       hint = ' Drums Patern 4 '
       bounds_x = 308
-      bounds_y = 64
+      bounds_y = 71
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
@@ -1109,7 +1108,7 @@ object drumsfo: tdrumsfo
       taborder = 6
       hint = 'Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now. ;-) '
       bounds_x = 274
-      bounds_y = 64
+      bounds_y = 71
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
@@ -1135,7 +1134,7 @@ object drumsfo: tdrumsfo
       taborder = 7
       hint = ' 3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice. '
       bounds_x = 274
-      bounds_y = 48
+      bounds_y = 55
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
@@ -1161,7 +1160,7 @@ object drumsfo: tdrumsfo
       taborder = 8
       hint = ' Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice. '
       bounds_x = 274
-      bounds_y = 32
+      bounds_y = 39
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
@@ -1187,7 +1186,7 @@ object drumsfo: tdrumsfo
       taborder = 9
       hint = ' First lesson. With the stick hit the closed hat on each count. Count loud with your voice too. '
       bounds_x = 274
-      bounds_y = 16
+      bounds_y = 23
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
@@ -1229,7 +1228,7 @@ object drumsfo: tdrumsfo
       taborder = 10
       hint = ' No graphic animation. '
       bounds_x = 344
-      bounds_y = 64
+      bounds_y = 71
       bounds_cx = 65
       bounds_cy = 17
     end
@@ -1251,7 +1250,7 @@ object drumsfo: tdrumsfo
       taborder = 11
       hint = ' No "and" between 2 numbers. '
       bounds_x = 344
-      bounds_y = 36
+      bounds_y = 43
       bounds_cx = 70
       bounds_cy = 17
       value = True
@@ -1274,7 +1273,7 @@ object drumsfo: tdrumsfo
       taborder = 12
       hint = ' No counting voice '
       bounds_x = 344
-      bounds_y = 22
+      bounds_y = 29
       bounds_cx = 66
       bounds_cy = 17
       onchange = onchangenovoice
@@ -1298,7 +1297,7 @@ object drumsfo: tdrumsfo
       taborder = 13
       hint = ' No drums sound.  '
       bounds_x = 344
-      bounds_y = 50
+      bounds_y = 57
       bounds_cx = 74
       bounds_cy = 17
     end
@@ -1315,7 +1314,7 @@ object drumsfo: tdrumsfo
       bounds_x = 67
       bounds_y = 35
       bounds_cx = 30
-      bounds_cy = 42
+      bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 1
@@ -1335,7 +1334,7 @@ object drumsfo: tdrumsfo
       bounds_x = 36
       bounds_y = 35
       bounds_cx = 30
-      bounds_cy = 42
+      bounds_cy = 30
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 28
@@ -1355,7 +1354,7 @@ object drumsfo: tdrumsfo
       bounds_x = 5
       bounds_y = 35
       bounds_cx = 30
-      bounds_cy = 42
+      bounds_cy = 30
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 27
@@ -1473,10 +1472,10 @@ object drumsfo: tdrumsfo
       face.template = tfacecomp2
       taborder = 21
       hint = ' Beats per minuts - interval in 1/10000 second. '
-      bounds_x = 102
-      bounds_y = 72
+      bounds_x = 99
+      bounds_y = 71
       bounds_cx = 110
-      bounds_cy = 15
+      bounds_cy = 17
       font.color = 3355443
       font.height = 11
       font.name = 'stf_default'
@@ -1742,6 +1741,30 @@ object drumsfo: tdrumsfo
           )
         end>
       reffontheight = 15
+    end
+    object songtimer: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16250871
+      frame.caption = 'Song beat'
+      frame.localprops = [frl_colorframe, frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        65
+        2
+      )
+      face.localprops = []
+      face.template = tfacecomp3
+      taborder = 28
+      hint = ' Use the song-timer instead of the metronome'
+      bounds_x = 11
+      bounds_y = 70
+      bounds_cx = 78
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      onchange = onchangesongtimer
     end
   end
   object tfacedrums: tfacecomp

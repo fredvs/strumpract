@@ -235,10 +235,12 @@ begin
   //application.createform(theaderfo, headerfo);
     
   dialogfilesfo.icon := equalizerfo1.icon;
- 
+  
   application.createform(tmainfo, mainfo);
   conflangfo.icon := mainfo.icon;
   statusfo.icon := mainfo.icon;
+  
+ // drumsfo.visible := true;
   
   application.run;
 

@@ -180,13 +180,27 @@ object mainfo: tmainfo
       frame.localprops = []
       frame.localprops1 = []
       visible = False
-      bounds_x = 398
-      bounds_y = 43
+      bounds_x = 371
+      bounds_y = 32
       bounds_cx = 29
       bounds_cy = 21
       statfile = tstatfile1
       value = 1
       valuedefault = 1
+      valuemax = 100
+      reffontheight = 15
+    end
+    object drumsvisible: tintegeredit
+      color = 1001216
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 1
+      visible = False
+      bounds_x = 367
+      bounds_y = 46
+      bounds_cx = 29
+      bounds_cy = 21
+      statfile = tstatfile1
       valuemax = 100
       reffontheight = 15
     end
@@ -909,8 +923,8 @@ object mainfo: tmainfo
       16764802
     )
     template.fade_direction = gd_down
-    left = 275
-    top = 19
+    left = 267
+    top = 17
   end
   object tfaceorangehz: tfacecomp
     template.fade_pos.count = 2
@@ -3249,15 +3263,15 @@ object mainfo: tmainfo
       16751892
     )
     template.fade_direction = gd_down
-    left = 286
-    top = 45
+    left = 247
+    top = 53
   end
   object ttimer2: ttimer
     interval = 180000000
     ontimer = ontimeridle
     enabled = True
-    left = 358
-    top = 29
+    left = 176
+    top = 10
   end
   object tframecomp1: tframecomp
     template.extraspace = 10

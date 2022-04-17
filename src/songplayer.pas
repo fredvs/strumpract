@@ -166,6 +166,7 @@ var
   Inputindex2, DSPIndex2, DSPIndex22, Outputindex2, Inputlength2: integer;
   poswav2, chan2: integer;
   TagReader: TTagReader;
+  tickcount: integer = 0;
 
 implementation
 
@@ -660,8 +661,16 @@ begin
 
       spectrum1fo.tchartleft.traces[0].ydata  := arl;
       spectrum1fo.tchartright.traces[0].ydata := arr;
-    end;
+    
+    if drumsfo.songtimer.value then
+    if tickcount = 0 then
+     if (arl[2] + arr[2]) / 2 > 0.4 then  drumsfo.ontimertick(Sender);
 
+    inc(tickcount);
+    if tickcount > 3 then tickcount := 0;
+   
+   end;
+      
   if tag = 1 then
     if uos_getstatus(theplayer2) > 0 then
     begin
@@ -679,6 +688,14 @@ begin
 
       spectrum2fo.tchartleft.traces[0].ydata  := arl2;
       spectrum2fo.tchartright.traces[0].ydata := arr2;
+      
+     if drumsfo.songtimer.value then
+    if tickcount = 0 then
+    if (arl2[2] + arr2[2]) / 2 > 0.4 then  drumsfo.ontimertick(Sender);
+
+    inc(tickcount);
+    if tickcount > 3 then tickcount := 0;
+   
     end;
 
 end;
@@ -1121,6 +1138,9 @@ begin
             else
             begin
               uos_Play(theplayer);  /// everything is ready, here we are, lets play it...
+         
+              //drumsfo.dostart(Sender);
+  
               btnpause.Enabled := True;
               btnpause.Visible := True;
             end;

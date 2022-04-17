@@ -5,13 +5,13 @@ unit drums;
 
 interface
 
-uses 
-mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus, 
-math, msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms, 
-msedock, msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils, 
-Classes, msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar, 
-msetypes, mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets, 
-mserichstring, msebitmap, msedropdownlist;
+uses
+ mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+ math, msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
+ msedock, msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils,
+ Classes, msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar,
+ msetypes, mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
+ mserichstring, msebitmap, msedropdownlist;
 
 type 
   talab = array[0..15] of tlabel;
@@ -154,6 +154,7 @@ type
     label3: tlabel;
     label4: tlabel;
     langcount: tdropdownlistedit;
+   songtimer: tbooleanedit;
     procedure ontimertick(Const Sender: TObject);
     procedure ontimerpause(Const Sender: TObject);
     procedure ontimersent(Const Sender: TObject);
@@ -178,6 +179,7 @@ type
     procedure ontextedit(Const Sender: tcustomedit; Var atext: msestring);
     procedure onmultdiv(Const Sender: TObject);
     procedure onchangelang(Const sender: TObject);
+   procedure onchangesongtimer(const sender: TObject);
   end;
 
 var 
@@ -240,8 +242,9 @@ var
   ax: integer;
 
 begin
-  // Timertick.Enabled := false;
+ 
   if stopit = False then
+ 
     begin
       if novoice.Value = False then
         begin
@@ -333,7 +336,7 @@ begin
       if noanim.Value = False then
         begin
           //  application.lock();
-          label2.Visible := True;
+          if songtimer.value then label2.visible := false else label2.visible := true;
 
           if (posi = 1) or (posi = 9) then
             begin
@@ -363,7 +366,7 @@ begin
               alab2[1].color := cl_ltgray;
               alab2[2].color := cl_ltgray;
               alab2[3].color := cl_ltgray;
-              label2.Caption := '1';
+             if songtimer.value = false then label2.Caption := '1';
             end
           else
             if (posi = 3) then
@@ -385,7 +388,7 @@ begin
                 alab2[0].color := cl_ltgray;
                 alab2[2].color := cl_ltgray;
                 alab2[3].color := cl_ltgray;
-                label2.Caption := '2';
+               if songtimer.value = false then label2.Caption := '2';
               end
           else
             if (posi = 7) then
@@ -406,7 +409,7 @@ begin
                 alab2[1].color := cl_ltgray;
                 alab2[0].color := cl_ltgray;
                 alab2[3].color := cl_ltgray;
-                label2.Caption := '3';
+               if songtimer.value = false then label2.Caption := '3';
               end
           else
             if (posi = 11) then
@@ -427,7 +430,7 @@ begin
                 alab2[1].color := cl_ltgray;
                 alab2[2].color := cl_ltgray;
                 alab2[0].color := cl_ltgray;
-                label2.Caption := '4';
+                if songtimer.value = false then label2.Caption := '4';
               end
           else
             if (posi = 15) then
@@ -569,7 +572,7 @@ begin
       if (posi > 16) then
         posi := 1;
 
-      // Timertick.Enabled := true;
+      if songtimer.value = false then Timertick.Enabled := true;
       Timertick.tag := 0;
 
       //  application.unlock();
@@ -593,6 +596,7 @@ begin
   Timerpause.Enabled := False;
   posi := 1;
   loop_resume.Enabled := False;
+  if songtimer.value = false then
   TimerTick.Enabled := True;
   loop_stop.Enabled := True;
 
@@ -621,6 +625,7 @@ begin
   Timerpause.Enabled := False;
   loop_resume.Enabled := False;
   loop_stop.Enabled := True;
+  if songtimer.value = false then
   TimerTick.Enabled := True;
 
   commanderfo.loop_resume.Enabled := False;
@@ -822,6 +827,7 @@ begin
     
       if Visible then
         begin
+         //mainfo.drumsvisible.value := 1;
           mainfo.tmainmenu1.menu.itembynames(['show','showdrums']).caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
           lang_commanderfo[Ord(co_namedrums_hint)];
@@ -831,12 +837,13 @@ begin
           mainfo.tmainmenu1.menu.itembynames(['show','showdrums']).caption :=
           lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
           lang_commanderfo[Ord(co_namedrums_hint)];
+          //mainfo.drumsvisible.value := 0;
         end;
 
       if norefresh = false then
         begin
 
-          mainfo.updatelayoutstrum();
+         mainfo.updatelayoutstrum();
 
           if dockpanel1fo.Visible then
             dockpanel1fo.updatelayoutpan();
@@ -981,6 +988,7 @@ begin
       end;
   tag := 1;
   if timerisenabled = True then
+  if songtimer.value = false then
     timertick.Enabled := True;
 
 end;
@@ -1592,6 +1600,12 @@ begin
   ontimerpause(sender);
 
   novoice.value := nov;
+end;
+
+procedure tdrumsfo.onchangesongtimer(const sender: TObject);
+begin
+if songtimer.value then label2.visible := false else label2.visible := true;
+
 end;
 
 end.

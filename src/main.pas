@@ -7,49 +7,14 @@ unit main;
 interface
 
 uses
- {$ifdef windows}win_mixer,{$endif}msetypes,
-  mseglob,
-  mseguiglob,
-  po2arrays,
-  msegraphedits,
-  Process,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msechart,
-  status,
-  msedock,
-  msedataedits,
-  mseedit,
-  msestatfile,
-  SysUtils,
-  Classes,
-  Math,
-  msebitmap,
-  msesys,
-  msemenus,
-  msestream,
-  msegrids,
-  mselistbrowser,
-  mseact,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestrings,
-  msedatanodes,
-  msedragglob,
-  msedropdownlist,
-  msefiledialogx,
-  msegridsglob,{$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,
-  mseconsts,
-  captionstrumpract;
+ {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,mseguiglob,po2arrays,
+ msegraphedits,Process,mseguiintf,mseapplication,msestat,msegui,msetimer,
+ msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msechart,status,
+ msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,msebitmap,
+ msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
+ mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,msedropdownlist,
+ msefiledialogx,msegridsglob,{$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,
+ mseconsts,captionstrumpract;
 
 type
   tmainfo = class(tmainform)
@@ -82,6 +47,7 @@ type
     tfaceorange2: tfacecomp;
     ttimer2: ttimer;
     tframecomp1: tframecomp;
+   drumsvisible: tintegeredit;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -165,7 +131,7 @@ type
 const
   versiontext = '3.0.0';
   emptyheight = 40;
-  drumsfoheight = 236;
+  drumsfoheight = 244;
   filelistfoheight = 128;
   wavefoheight = 128;
   guitarsfoheight = 64;
@@ -6793,6 +6759,8 @@ end;
 
 procedure tmainfo.onclose(const Sender: TObject);
 begin
+ if drumsfo.visible then  drumsvisible.value := 1 else
+  drumsvisible.value := 0 ;
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);
@@ -7006,6 +6974,8 @@ begin
 
     configfo.onchangehint(Sender);
   end;
+if mainfo.drumsvisible.value = 1 then
+ drumsfo.visible := true;
 end;
 
 end.
