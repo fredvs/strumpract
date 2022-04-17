@@ -805,16 +805,16 @@ settingsautoload=0
 settingsautosave=0
 modulenames=3
  INFOSFO
- SONGPLAYERFO
  MAINFO
+ SONGPLAYERFO
 moduletypes=3
  TINFOSFO
- TSONGPLAYERFO
  TMAINFO
+ TSONGPLAYERFO
 modulefiles=3
  /home/fred/strumpract/src/infos.mfm
- /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/songplayer.mfm
 befcommandon=0
 makeoptionson=15
  4095
@@ -1183,7 +1183,7 @@ line=35
  587
  256
  5734
- 3307
+ 3304
  1490
  293
  319
@@ -1195,7 +1195,7 @@ line=35
  1566
  209
  1136
- 5835
+ 5832
  493
  5
  770
@@ -1642,10 +1642,10 @@ findhistory=20
 findoptions=1
 editpos=5
  0,0
- 0,-1073741823
- 0,-1073741823
  0,0
- 0,20
+ 0,-1073741823
+ 0,-1073741823
+ 0,1747
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1702,16 +1702,10 @@ nomenumodules=7
  0
  0
 [sourcefo.files_tab]
-order=5
- 0
- 4
- 2
- 3
- 1
 firsttab=0
-index=1
+index=4
 [layout]
-windowlayout=671
+windowlayout=666
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1761,7 +1755,7 @@ windowlayout=671
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -2170,7 +2164,8 @@ windowlayout=671
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/main.pas
- history=12
+ history=13
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/infos.pas
   /home/fred/strumpract/src/drums.pas
@@ -2204,14 +2199,8 @@ windowlayout=671
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=5
-  0
-  4
-  2
-  3
-  1
  firsttab=0
- index=1
+ index=4
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2253,7 +2242,7 @@ windowlayout=671
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2329,7 +2318,7 @@ windowlayout=671
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2367,7 +2356,7 @@ windowlayout=671
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
