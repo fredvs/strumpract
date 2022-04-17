@@ -143,8 +143,9 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=potools
+ value=EQEN
  history=20
+  EQEN
   potools
   inline
   infochan
@@ -164,7 +165,6 @@ findinfiledialog=83
   caption=
   .caption =
   'Player 2'
-  menu[
  [findinfileadialogfo]
  stackedunder=
  x=200
@@ -803,15 +803,18 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=3
+modulenames=4
+ EQUALIZERFO
  INFOSFO
  MAINFO
  SONGPLAYERFO
-moduletypes=3
+moduletypes=4
+ TEQUALIZERFO
  TINFOSFO
  TMAINFO
  TSONGPLAYERFO
-modulefiles=3
+modulefiles=4
+ /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/songplayer.mfm
@@ -1640,36 +1643,41 @@ findhistory=20
  inputseek
  Play(
 findoptions=1
-editpos=5
- 0,0
+editpos=6
  0,0
  0,-1073741823
  0,-1073741823
- 0,1747
+ 0,-1073741823
+ 9,1407
+ 0,6
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-sourcefiles=5
+bookmarks5=0
+sourcefiles=6
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/drums.pas
  ${PROJECTDIR}/infos.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/main.pas
-relpaths=5
+ ${PROJECTDIR}/equalizer.pas
+relpaths=6
  strumpract.pas
  drums.pas
  infos.pas
  songplayer.pas
  main.pas
-ismoduletexts=5
+ equalizer.pas
+ismoduletexts=6
  0
  0
  0
  0
  0
-modules=7
+ 0
+modules=8
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1677,7 +1685,8 @@ modules=7
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/infos.mfm
  /home/fred/strumpract/src/songplayer.mfm
-moduleoptions=7
+ /home/fred/strumpract/src/equalizer.mfm
+moduleoptions=8
  0
  2
  0
@@ -1685,7 +1694,8 @@ moduleoptions=7
  0
  0
  0
-visiblemodules=7
+ 0
+visiblemodules=8
  -1
  0
  0
@@ -1693,19 +1703,28 @@ visiblemodules=7
  0
  -1
  -1
-nomenumodules=7
+ -1
+nomenumodules=8
  0
  -1
  -1
  -1
  -1
+ 0
  0
  0
 [sourcefo.files_tab]
+order=6
+ 0
+ 5
+ 1
+ 2
+ 3
+ 4
 firsttab=0
-index=4
+index=5
 [layout]
-windowlayout=666
+windowlayout=692
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1755,7 +1774,7 @@ windowlayout=666
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1823,7 +1842,7 @@ windowlayout=666
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -1860,7 +1879,7 @@ windowlayout=666
  sortdescend1=0
  sorted=0
  col=0
- row=10
+ row=4
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2199,8 +2218,15 @@ windowlayout=666
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=6
+  0
+  5
+  1
+  2
+  3
+  4
  firsttab=0
- index=4
+ index=5
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2318,7 +2344,7 @@ windowlayout=666
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2356,7 +2382,7 @@ windowlayout=666
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2367,6 +2393,25 @@ windowlayout=666
  y=253
  cx=452
  cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_equalizerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=641
+ y=136
+ cx=452
+ cy=142
  rcx=0
  rcy=0
  wsize=0

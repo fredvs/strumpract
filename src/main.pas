@@ -1373,7 +1373,7 @@ begin
   with equalizerfo1 do
   begin
     Caption         := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];
-    EQEN.frame.Caption := Caption;
+    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' 1' ;
     tstringdisp21.Width := EQEN.Width + 2;
     groupbox2.frame.Caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
     //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
@@ -1388,7 +1388,7 @@ begin
   with equalizerfo2 do
   begin
     Caption         := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];
-    EQEN.frame.Caption := Caption;
+    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' 2' ;
     tstringdisp21.Width := EQEN.Width + 2;
     groupbox2.frame.Caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
     //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
@@ -1403,7 +1403,7 @@ begin
   with equalizerforec do
   begin
     Caption         := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];
-    EQEN.frame.Caption := Caption;
+    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' Rec' ;;
     tstringdisp21.Width := EQEN.Width + 2;
     groupbox2.frame.Caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
     //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
