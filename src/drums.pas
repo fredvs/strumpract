@@ -6,19 +6,49 @@ unit drums;
 interface
 
 uses
- mseglob, msetimer, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
- math, msegui, msegraphics, msegraphutils, mseevent, mseclasses, mseforms,
- msedock, msesimplewidgets, msewidgets, msegraphedits, msedataedits, SysUtils,
- Classes, msedragglob, mseificomp, mseificompglob, mseifiglob, msescrollbar,
- msetypes, mseact, mseedit, msestatfile, msestream, msestrings, msedispwidgets,
- mserichstring, msebitmap, msedropdownlist;
+  mseglob,
+  msetimer,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  Math,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msesimplewidgets,
+  msewidgets,
+  msegraphedits,
+  msedataedits,
+  SysUtils,
+  Classes,
+  msedragglob,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msetypes,
+  mseact,
+  mseedit,
+  msestatfile,
+  msestream,
+  msestrings,
+  msedispwidgets,
+  mserichstring,
+  msebitmap,
+  msedropdownlist;
 
-type 
-  talab = array[0..15] of tlabel;
+type
+  talab  = array[0..15] of tlabel;
   talab2 = array[0..3] of tlabel;
   tcheck = array[0..15] of tbooleanedit;
 
-type 
+type
   tdrumsfo = class(tdockform)
     Timertick: Ttimer;
     Timerpause: Ttimer;
@@ -154,45 +184,45 @@ type
     label3: tlabel;
     label4: tlabel;
     langcount: tdropdownlistedit;
-   songtimer: tbooleanedit;
-   sensib: trealspinedit;
-   tickcount: tintegeredit;
-    procedure ontimertick(Const Sender: TObject);
-    procedure ontimerpause(Const Sender: TObject);
-    procedure ontimersent(Const Sender: TObject);
-    procedure dostart(Const Sender: TObject);
-    procedure dostop(Const Sender: TObject);
-    procedure doresume(Const Sender: TObject);
-    procedure onchangetempo(Const Sender: TObject);
-    procedure dopatern(Const Sender: TObject);
+    songtimer: tbooleanedit;
+    sensib: trealspinedit;
+    tickcount: tintegeredit;
+    procedure ontimertick(const Sender: TObject);
+    procedure ontimerpause(const Sender: TObject);
+    procedure ontimersent(const Sender: TObject);
+    procedure dostart(const Sender: TObject);
+    procedure dostop(const Sender: TObject);
+    procedure doresume(const Sender: TObject);
+    procedure onchangetempo(const Sender: TObject);
+    procedure dopatern(const Sender: TObject);
     procedure createdrumsplayers;
     procedure createvoiceplayers;
     procedure stopvoiceplayers;
-    procedure visiblechangeev(Const Sender: TObject);
-    procedure oncreatedrums(Const Sender: TObject);
-    procedure oncreateddrums(Const Sender: TObject);
-    
-    procedure loadsoundlib(Const Sender: TObject);
+    procedure visiblechangeev(const Sender: TObject);
+    procedure oncreatedrums(const Sender: TObject);
+    procedure oncreateddrums(const Sender: TObject);
 
-    procedure onmousewindow(Const Sender: twidget; Var ainfo: mouseeventinfoty);
-    procedure onsetnovoice(Const Sender: TObject; Var avalue: boolean; Var accept: boolean);
-    procedure ondestroi(Const Sender: TObject);
-    procedure onchangevol(Const Sender: TObject);
-    procedure onchangenovoice(Const Sender: TObject);
-    procedure onsetvalvol(Const Sender: TObject; Var avalue: realty; Var accept: boolean);
-    procedure ontextedit(Const Sender: tcustomedit; Var atext: msestring);
-    procedure onmultdiv(Const Sender: TObject);
-    procedure onchangelang(Const sender: TObject);
-   procedure onchangesongtimer(const sender: TObject);
-   procedure onchansens(const sender: TObject);
-   procedure zcrea(const sender: TObject);
+    procedure loadsoundlib(const Sender: TObject);
+
+    procedure onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
+    procedure onsetnovoice(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure ondestroi(const Sender: TObject);
+    procedure onchangevol(const Sender: TObject);
+    procedure onchangenovoice(const Sender: TObject);
+    procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
+    procedure onmultdiv(const Sender: TObject);
+    procedure onchangelang(const Sender: TObject);
+    procedure onchangesongtimer(const Sender: TObject);
+    procedure onchansens(const Sender: TObject);
+
   end;
 
-var 
+var
   drumsfo: tdrumsfo;
   posi: integer = 1;
   initdrum: integer = 1;
-  wascreated: boolean = False;
+  wascreated: Boolean = False;
 
   adrums: array[0..8] of string;
   drum_beats: array[0..3] of string;
@@ -202,417 +232,404 @@ var
   alab2: talab2;
   alaband: talab2;
   ach, aoh, asd, abd: tcheck;
+  resulib: integer;
 
 implementation
 
-uses 
-main, captionstrumpract, uos_flat, commander, config, dockpanel1, 
-drums_mfm, randomnote;
+uses
+  main,
+  captionstrumpract,
+  uos_flat,
+  commander,
+  config,
+  dockpanel1,
+  drums_mfm,
+  randomnote;
 
-procedure tdrumsfo.ontimersent(Const Sender: TObject);
+procedure tdrumsfo.ontimersent(const Sender: TObject);
 begin
-  edittempo.face.template := tfacecomp3;
+  edittempo.face.template   := tfacecomp3;
   volumedrums.face.template := tfacecomp3;
-  ltempo.face.template := tfacecomp3;
-  hintpanel.Visible := False;
+  ltempo.face.template      := tfacecomp3;
+  hintpanel.Visible         := False;
 end;
 
-procedure tdrumsfo.ontimerpause(Const Sender: TObject);
-var 
+procedure tdrumsfo.ontimerpause(const Sender: TObject);
+var
   i: integer;
 begin
   if wascreated then
+  begin
+
+    label2.Caption := '0';
+    label3.Visible := False;
+    label4.Visible := False;
+
+    for i := 0 to 8 do
+    begin
+      uos_play(i);
+      uos_stop(i);
+    end;
+
+    novoice.Value := True;
+    tag           := 0;
+    loop_resume.Enabled := False;
+    commanderfo.loop_resume.Enabled := False;
+    wascreated    := False;
+
+  end;
+end;
+
+procedure tdrumsfo.ontimertick(const Sender: TObject);
+var
+  ax: integer;
+begin
+
+  if stopit = False then
+  begin
+    if novoice.Value = False then
+      if (posi = 1) then
+        uos_PlaynofreePaused(4)
+      else if (posi = 3) and (noand.Value = False) then
+        uos_PlaynofreePaused(8)
+      else if (posi = 5) then
+        uos_PlaynofreePaused(5)
+      else if (posi = 7) and (noand.Value = False) then
+        uos_PlaynofreePaused(8)
+      else if (posi = 9) then
+        uos_PlaynofreePaused(6)
+      else if (posi = 11) and (noand.Value = False) then
+        uos_PlaynofreePaused(8)
+      else if (posi = 13) then
+        uos_PlaynofreePaused(7)
+      else if (posi = 15) and (noand.Value = False) then
+        uos_PlaynofreePaused(8);
+
+    if nodrums.Value = False then
     begin
 
-      label2.Caption := '0';
+      if ach[posi - 1].Value = True then
+      begin
+        uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.
+          genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+
+        uos_PlaynofreePaused(0);
+      end;
+
+      if aoh[posi - 1].Value then
+      begin
+        uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.
+          genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+
+        uos_PlaynofreePaused(1);
+      end;
+
+      if asd[posi - 1].Value then
+      begin
+        uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.
+          genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+
+        uos_PlaynofreePaused(2);
+      end;
+
+      if abd[posi - 1].Value then
+      begin
+        uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.
+          genvolleft.Value * 1.5
+          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+
+        uos_PlaynofreePaused(3);
+      end;
+
+
+      // uos_SetGlobalEvent(true) was executed --> This set events (like pause/replay threads) to global.
+      // One event (for example uos_replay) will have impact on all players.
+
+      if (ach[posi - 1].Value = True) then
+        uos_RePlay(0)  // A uos_replay() of each player will have impact on all players.
+      else if (aoh[posi - 1].Value = True) then
+        uos_RePlay(1) // A uos_replay() of each player will have impact on all players.
+      else if (asd[posi - 1].Value = True) then
+        uos_RePlay(2)  // A uos_replay() of each player will have impact on all players.
+      else if (abd[posi - 1].Value = True) then
+        uos_RePlay(3);
+      // A uos_replay() of each player will have impact on all players.
+
+    end;
+
+    if noanim.Value = False then
+    begin
+      //  application.lock();
+      if songtimer.Value then
+        label2.Visible := False
+      else
+        label2.Visible := True;
+
+      if (posi = 1) or (posi = 9) then
+      begin
+        label3.Visible := True;
+        label4.Visible := False;
+      end
+      else if (posi = 5) or (posi = 13) then
+      begin
+        label3.Visible := False;
+        label4.Visible := True;
+      end;
+
+      if (posi = 1) then
+        label2.font.color := cl_red
+      else
+        label2.font.color := $40733D;
+
+      alaband[0].color := cl_ltgray;
+      alaband[1].color := cl_ltgray;
+      alaband[2].color := cl_ltgray;
+      alaband[3].color := cl_ltgray;
+
+      if (posi = 1) then
+      begin
+        alab2[0].color := cl_ltred;
+        alab2[1].color := cl_ltgray;
+        alab2[2].color := cl_ltgray;
+        alab2[3].color := cl_ltgray;
+        if songtimer.Value = False then
+          label2.Caption := '1';
+      end
+      else if (posi = 3) then
+      begin
+        alaband[0].color := $FFE8B8;
+        alaband[1].color := cl_ltgray;
+        alaband[2].color := cl_ltgray;
+        alaband[3].color := cl_ltgray;
+      end
+      else if (posi = 5) then
+      begin
+        alab2[1].font.color := cl_white;
+
+        alab2[0].font.color := cl_black;
+        alab2[2].font.color := cl_black;
+        alab2[3].font.color := cl_black;
+        alab2[1].color      := cl_ltred;
+        alab2[0].color      := cl_ltgray;
+        alab2[2].color      := cl_ltgray;
+        alab2[3].color      := cl_ltgray;
+        if songtimer.Value = False then
+          label2.Caption := '2';
+      end
+      else if (posi = 7) then
+      begin
+        alaband[1].color := $FFE8B8;
+        alaband[0].color := cl_ltgray;
+        alaband[2].color := cl_ltgray;
+        alaband[3].color := cl_ltgray;
+      end
+      else if (posi = 9) then
+      begin
+        alab2[2].font.color := cl_white;
+        alab2[1].font.color := cl_black;
+        alab2[0].font.color := cl_black;
+        alab2[3].font.color := cl_black;
+        alab2[2].color      := cl_ltred;
+        alab2[1].color      := cl_ltgray;
+        alab2[0].color      := cl_ltgray;
+        alab2[3].color      := cl_ltgray;
+        if songtimer.Value = False then
+          label2.Caption := '3';
+      end
+      else if (posi = 11) then
+      begin
+        alaband[2].color := $FFE8B8;
+        alaband[1].color := cl_ltgray;
+        alaband[0].color := cl_ltgray;
+        alaband[3].color := cl_ltgray;
+      end
+      else if (posi = 13) then
+      begin
+        alab2[3].font.color := cl_white;
+        alab2[1].font.color := cl_black;
+        alab2[2].font.color := cl_black;
+        alab2[0].font.color := cl_black;
+        alab2[3].color      := cl_ltred;
+        alab2[1].color      := cl_ltgray;
+        alab2[2].color      := cl_ltgray;
+        alab2[0].color      := cl_ltgray;
+        if songtimer.Value = False then
+          label2.Caption := '4';
+      end
+      else if (posi = 15) then
+      begin
+        alaband[3].color := $FFE8B8;
+        alaband[1].color := cl_ltgray;
+        alaband[2].color := cl_ltgray;
+        alaband[0].color := cl_ltgray;
+      end;
+
+      // {
+      for ax := 0 to 15 do
+        if ax = posi - 1 then
+        begin
+          alab[ax].color := cl_yellow;
+
+          if ach[ax].Value = True then
+          begin
+            ach[ax].frame.colorclient := cl_ltgreen;
+            Lach.color := cl_ltgreen;
+          end
+          else
+          begin
+            ach[ax].frame.colorclient := cl_yellow;
+            Lach.color := cl_ltgray;
+          end;
+
+          if aoh[ax].Value = True then
+          begin
+            aoh[ax].frame.colorclient := cl_ltgreen;
+            Laoh.color := cl_ltgreen;
+          end
+          else
+          begin
+            aoh[ax].frame.colorclient := cl_yellow;
+            Laoh.color := cl_ltgray;
+          end;
+
+          if asd[ax].Value = True then
+          begin
+            asd[ax].frame.colorclient := cl_ltgreen;
+            Lasd.color := cl_ltgreen;
+          end
+          else
+          begin
+            asd[ax].frame.colorclient := cl_yellow;
+            Lasd.color := cl_ltgray;
+          end;
+
+          if abd[ax].Value = True then
+          begin
+            abd[ax].frame.colorclient := cl_ltgreen;
+            Labd.color := cl_ltgreen;
+          end
+          else
+          begin
+            abd[ax].frame.colorclient := cl_yellow;
+            Labd.color := cl_ltgray;
+          end;
+
+          // }
+        end
+        else
+        begin
+          if (ax = 0) or (ax = 4) or (ax = 8) or (ax = 12) then
+          begin
+            ach[ax].frame.colorclient := $FFB8B8;
+            aoh[ax].frame.colorclient := $FFB8B8;
+            asd[ax].frame.colorclient := $FFB8B8;
+            abd[ax].frame.colorclient := $FFB8B8;
+          end
+          else if (ax = 2) or (ax = 6) or (ax = 10) or (ax = 14) then
+          begin
+            ach[ax].frame.colorclient := $FFF8B8;
+            aoh[ax].frame.colorclient := $FFF8B8;
+            asd[ax].frame.colorclient := $FFF8B8;
+            abd[ax].frame.colorclient := $FFF8B8;
+          end
+          else
+          begin
+            ach[ax].frame.colorclient := cl_white;
+            aoh[ax].frame.colorclient := cl_white;
+            asd[ax].frame.colorclient := cl_white;
+            abd[ax].frame.colorclient := cl_white;
+          end;
+          alab[ax].color := cl_ltgray;
+
+        end;
+
+    end
+    else
+    begin
+
+      for ax := 0 to 3 do
+      begin
+        alab2[ax].font.color := cl_black;
+        alab2[ax].color      := cl_ltgray;
+        alaband[ax].color    := cl_ltgray;
+      end;
+
+      for ax := 0 to 15 do
+      begin
+        if (ax = 0) or (ax = 4) or (ax = 8) or (ax = 12) then
+        begin
+          ach[ax].frame.colorclient := $FFB8B8;
+          aoh[ax].frame.colorclient := $FFB8B8;
+          asd[ax].frame.colorclient := $FFB8B8;
+          abd[ax].frame.colorclient := $FFB8B8;
+        end
+        else
+        begin
+          ach[ax].frame.colorclient := cl_white;
+          aoh[ax].frame.colorclient := cl_white;
+          asd[ax].frame.colorclient := cl_white;
+          abd[ax].frame.colorclient := cl_white;
+        end;
+
+        alab[ax].color := cl_ltgray;
+
+      end;
+      Lach.color := cl_ltgray;
+      Laoh.color := cl_ltgray;
+      Lasd.color := cl_ltgray;
+      Labd.color := cl_ltgray;
+
       label3.Visible := False;
       label4.Visible := False;
-
-      for i := 0 to 8 do
-        begin
-          uos_play(i);
-          uos_stop(i);
-        end;
-
-      novoice.Value := True;
-      tag := 0;
-      loop_resume.Enabled := False;
-      commanderfo.loop_resume.Enabled := False;
-      wascreated := False;
+      label2.Visible := False;
 
     end;
-end;
 
-procedure tdrumsfo.ontimertick(Const Sender: TObject);
-var 
-  ax: integer;
+    posi := posi + 1;
 
-begin
- 
-  if stopit = False then
- 
-    begin
-      if novoice.Value = False then
-        begin
-          if (posi = 1) then
-            begin
-              uos_PlaynofreePaused(4);
-            end
-          else
-            if (posi = 3) and (noand.Value = False) then
-              uos_PlaynofreePaused(8)
-          else
-            if (posi = 5) then
-              uos_PlaynofreePaused(5)
-          else
-            if (posi = 7) and (noand.Value = False) then
-              uos_PlaynofreePaused(8)
-          else
-            if (posi = 9) then
-              uos_PlaynofreePaused(6)
-          else
-            if (posi = 11) and (noand.Value = False) then
-              uos_PlaynofreePaused(8)
-          else
-            if (posi = 13) then
-              uos_PlaynofreePaused(7)
-          else
-            if (posi = 15) and (noand.Value = False) then
-              uos_PlaynofreePaused(8);
-        end;
+    if (posi > 16) then
+      posi := 1;
 
-      if nodrums.Value = False then
-        begin
+    if songtimer.Value = False then
+      Timertick.Enabled := True;
+    Timertick.tag       := 0;
 
-          if ach[posi - 1].Value = True then
-            begin
-              uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.
-              genvolleft.Value * 1.5
-              , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-
-              uos_PlaynofreePaused(0);
-            end;
-
-          if aoh[posi - 1].Value then
-            begin
-              uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.
-              genvolleft.Value * 1.5
-              , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-
-              uos_PlaynofreePaused(1);
-            end;
-
-          if asd[posi - 1].Value then
-            begin
-              uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.
-              genvolleft.Value * 1.5
-              , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-
-              uos_PlaynofreePaused(2);
-            end;
-
-          if abd[posi - 1].Value then
-            begin
-              uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.
-              genvolleft.Value * 1.5
-              , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-
-              uos_PlaynofreePaused(3);
-            end;
-
-
- // uos_SetGlobalEvent(true) was executed --> This set events (like pause/replay threads) to global.
-          // One event (for example uos_replay) will have impact on all players.
-
-          if (ach[posi - 1].Value = True) then
-            uos_RePlay(0)  // A uos_replay() of each player will have impact on all players.
-          else
-            if (aoh[posi - 1].Value = True) then
-              uos_RePlay(1) // A uos_replay() of each player will have impact on all players.
-          else
-            if (asd[posi - 1].Value = True) then
-              uos_RePlay(2)  // A uos_replay() of each player will have impact on all players.
-          else
-            if (abd[posi - 1].Value = True) then
-              uos_RePlay(3);
-          // A uos_replay() of each player will have impact on all players.
-
-        end;
-
-      if noanim.Value = False then
-        begin
-          //  application.lock();
-          if songtimer.value then label2.visible := false else label2.visible := true;
-
-          if (posi = 1) or (posi = 9) then
-            begin
-              label3.Visible := True;
-              label4.Visible := False;
-            end
-          else
-            if (posi = 5) or (posi = 13) then
-              begin
-                label3.Visible := False;
-                label4.Visible := True;
-              end;
-
-          if (posi = 1) then
-            label2.font.color := cl_red
-          else
-            label2.font.color := $40733D;
-
-          alaband[0].color := cl_ltgray;
-          alaband[1].color := cl_ltgray;
-          alaband[2].color := cl_ltgray;
-          alaband[3].color := cl_ltgray;
-
-          if (posi = 1) then
-            begin
-              alab2[0].color := cl_ltred;
-              alab2[1].color := cl_ltgray;
-              alab2[2].color := cl_ltgray;
-              alab2[3].color := cl_ltgray;
-             if songtimer.value = false then label2.Caption := '1';
-            end
-          else
-            if (posi = 3) then
-              begin
-                alaband[0].color := $FFE8B8;
-                alaband[1].color := cl_ltgray;
-                alaband[2].color := cl_ltgray;
-                alaband[3].color := cl_ltgray;
-              end
-          else
-            if (posi = 5) then
-              begin
-                alab2[1].font.color := cl_white;
-
-                alab2[0].font.color := cl_black;
-                alab2[2].font.color := cl_black;
-                alab2[3].font.color := cl_black;
-                alab2[1].color := cl_ltred;
-                alab2[0].color := cl_ltgray;
-                alab2[2].color := cl_ltgray;
-                alab2[3].color := cl_ltgray;
-               if songtimer.value = false then label2.Caption := '2';
-              end
-          else
-            if (posi = 7) then
-              begin
-                alaband[1].color := $FFE8B8;
-                alaband[0].color := cl_ltgray;
-                alaband[2].color := cl_ltgray;
-                alaband[3].color := cl_ltgray;
-              end
-          else
-            if (posi = 9) then
-              begin
-                alab2[2].font.color := cl_white;
-                alab2[1].font.color := cl_black;
-                alab2[0].font.color := cl_black;
-                alab2[3].font.color := cl_black;
-                alab2[2].color := cl_ltred;
-                alab2[1].color := cl_ltgray;
-                alab2[0].color := cl_ltgray;
-                alab2[3].color := cl_ltgray;
-               if songtimer.value = false then label2.Caption := '3';
-              end
-          else
-            if (posi = 11) then
-              begin
-                alaband[2].color := $FFE8B8;
-                alaband[1].color := cl_ltgray;
-                alaband[0].color := cl_ltgray;
-                alaband[3].color := cl_ltgray;
-              end
-          else
-            if (posi = 13) then
-              begin
-                alab2[3].font.color := cl_white;
-                alab2[1].font.color := cl_black;
-                alab2[2].font.color := cl_black;
-                alab2[0].font.color := cl_black;
-                alab2[3].color := cl_ltred;
-                alab2[1].color := cl_ltgray;
-                alab2[2].color := cl_ltgray;
-                alab2[0].color := cl_ltgray;
-                if songtimer.value = false then label2.Caption := '4';
-              end
-          else
-            if (posi = 15) then
-              begin
-                alaband[3].color := $FFE8B8;
-                alaband[1].color := cl_ltgray;
-                alaband[2].color := cl_ltgray;
-                alaband[0].color := cl_ltgray;
-              end;
-
-          // {
-          for ax := 0 to 15 do
-            begin
-              if ax = posi - 1 then
-                begin
-                  alab[ax].color := cl_yellow;
-
-                  if ach[ax].Value = True then
-                    begin
-                      ach[ax].frame.colorclient := cl_ltgreen;
-                      Lach.color := cl_ltgreen;
-                    end
-                  else
-                    begin
-                      ach[ax].frame.colorclient := cl_yellow;
-                      Lach.color := cl_ltgray;
-                    end;
-
-                  if aoh[ax].Value = True then
-                    begin
-                      aoh[ax].frame.colorclient := cl_ltgreen;
-                      Laoh.color := cl_ltgreen;
-                    end
-                  else
-                    begin
-                      aoh[ax].frame.colorclient := cl_yellow;
-                      Laoh.color := cl_ltgray;
-                    end;
-
-                  if asd[ax].Value = True then
-                    begin
-                      asd[ax].frame.colorclient := cl_ltgreen;
-                      Lasd.color := cl_ltgreen;
-                    end
-                  else
-                    begin
-                      asd[ax].frame.colorclient := cl_yellow;
-                      Lasd.color := cl_ltgray;
-                    end;
-
-                  if abd[ax].Value = True then
-                    begin
-                      abd[ax].frame.colorclient := cl_ltgreen;
-                      Labd.color := cl_ltgreen;
-                    end
-                  else
-                    begin
-                      abd[ax].frame.colorclient := cl_yellow;
-                      Labd.color := cl_ltgray;
-                    end;
-
-                  // }
-                end
-              else
-                begin
-                  if (ax = 0) or (ax = 4) or (ax = 8) or (ax = 12) then
-                    begin
-                      ach[ax].frame.colorclient := $FFB8B8;
-                      aoh[ax].frame.colorclient := $FFB8B8;
-                      asd[ax].frame.colorclient := $FFB8B8;
-                      abd[ax].frame.colorclient := $FFB8B8;
-                    end
-                  else
-                    if (ax = 2) or (ax = 6) or (ax = 10) or (ax = 14) then
-                      begin
-                        ach[ax].frame.colorclient := $FFF8B8;
-                        aoh[ax].frame.colorclient := $FFF8B8;
-                        asd[ax].frame.colorclient := $FFF8B8;
-                        abd[ax].frame.colorclient := $FFF8B8;
-                      end
-                  else
-                    begin
-                      ach[ax].frame.colorclient := cl_white;
-                      aoh[ax].frame.colorclient := cl_white;
-                      asd[ax].frame.colorclient := cl_white;
-                      abd[ax].frame.colorclient := cl_white;
-                    end;
-                  alab[ax].color := cl_ltgray;
-
-                end;
-
-            end;
-
-        end
-      else
-
-        begin
-
-          for ax := 0 to 3 do
-            begin
-              alab2[ax].font.color := cl_black;
-              alab2[ax].color := cl_ltgray;
-              alaband[ax].color := cl_ltgray;
-            end;
-
-          for ax := 0 to 15 do
-            begin
-              if (ax = 0) or (ax = 4) or (ax = 8) or (ax = 12) then
-                begin
-                  ach[ax].frame.colorclient := $FFB8B8;
-                  aoh[ax].frame.colorclient := $FFB8B8;
-                  asd[ax].frame.colorclient := $FFB8B8;
-                  abd[ax].frame.colorclient := $FFB8B8;
-                end
-              else
-                begin
-                  ach[ax].frame.colorclient := cl_white;
-                  aoh[ax].frame.colorclient := cl_white;
-                  asd[ax].frame.colorclient := cl_white;
-                  abd[ax].frame.colorclient := cl_white;
-                end;
-
-              alab[ax].color := cl_ltgray;
-
-            end;
-          Lach.color := cl_ltgray;
-          Laoh.color := cl_ltgray;
-          Lasd.color := cl_ltgray;
-          Labd.color := cl_ltgray;
-
-          label3.Visible := False;
-          label4.Visible := False;
-          label2.Visible := False;
-
-        end;
-
-      posi := posi + 1;
-
-      if (posi > 16) then
-        posi := 1;
-
-      if songtimer.value = false then Timertick.Enabled := true;
-      Timertick.tag := 0;
-
-      //  application.unlock();
-    end
+    //  application.unlock();
+  end
   else
-    begin
-      Timertick.Enabled := False;
-      Timertick.tag := 1;
+  begin
+    Timertick.Enabled := False;
+    Timertick.tag     := 1;
 
-    end;
+  end;
 end;
 
-procedure tdrumsfo.dostart(Const Sender: TObject);
+procedure tdrumsfo.dostart(const Sender: TObject);
 begin
   if wascreated = False then
     createdrumsplayers;
 
-  wascreated := True;
-  stopit := False;
+  wascreated     := True;
+  stopit         := False;
   label2.Enabled := True;
   Timerpause.Enabled := False;
-  posi := 1;
+  posi           := 1;
   loop_resume.Enabled := False;
-  if songtimer.value = false then
-  TimerTick.Enabled := True else
-  TimerTick.Enabled := false;
-  loop_stop.Enabled := True;
+  if songtimer.Value = False then
+    TimerTick.Enabled := True
+  else
+    TimerTick.Enabled := False;
+  loop_stop.Enabled   := True;
 
   commanderfo.loop_resume.Enabled := False;
-  commanderfo.loop_stop.Enabled := True;
+  commanderfo.loop_stop.Enabled   := True;
 
 end;
 
-procedure tdrumsfo.dostop(Const Sender: TObject);
+procedure tdrumsfo.dostop(const Sender: TObject);
 begin
   label2.Enabled := False;
   loop_stop.Enabled := False;
@@ -622,313 +639,308 @@ begin
   stopit := True;
   if timerpause.Enabled then
     timerpause.restart // to reset
-  else timerpause.Enabled := True;
+  else
+    timerpause.Enabled := True;
 end;
 
-procedure tdrumsfo.doresume(Const Sender: TObject);
+procedure tdrumsfo.doresume(const Sender: TObject);
 begin
   label2.Enabled := False;
-  stopit := False;
+  stopit         := False;
   Timerpause.Enabled := False;
   loop_resume.Enabled := False;
   loop_stop.Enabled := True;
-  if songtimer.value = false then
-  TimerTick.Enabled := True;
+  if songtimer.Value = False then
+    TimerTick.Enabled := True;
 
   commanderfo.loop_resume.Enabled := False;
-  commanderfo.loop_stop.Enabled := True;
+  commanderfo.loop_stop.Enabled   := True;
 
 end;
 
-procedure tdrumsfo.onchangetempo(Const Sender: TObject);
+procedure tdrumsfo.onchangetempo(const Sender: TObject);
 begin
   if round(60000 / 4 / edittempo.Value * 1000) > 0 then
 
-    ltempo.Value := utf8decode( 'BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(
-                    600000 / 4 / edittempo.Value)) + ' ds')
+    ltempo.Value    := utf8decode('BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(
+      600000 / 4 / edittempo.Value)) + ' ds')
   else
-    begin
-      edittempo.Value := 1;
-      ltempo.Value := utf8decode('BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(
-                      600000 / 4 / edittempo.Value)) + ' ds');
-    end;
+  begin
+    edittempo.Value := 1;
+    ltempo.Value    := utf8decode('BPM ' + IntToStr(round(edittempo.Value)) + ' - ' + IntToStr(round(
+      600000 / 4 / edittempo.Value)) + ' ds');
+  end;
 
   if hasinit = 1 then
-    begin
+  begin
 
-      if randomnotefo.visible then randomnotefo.bpm.value := round(edittempo.Value / 2);
+    if randomnotefo.Visible then
+      randomnotefo.bpm.Value := round(edittempo.Value / 2);
 
 
-      //TimerTick.Interval := trunc(edittempo.Value * 1000);
-      TimerTick.Interval := round(60000 / 4 / edittempo.Value * 1000);
+    //TimerTick.Interval := trunc(edittempo.Value * 1000);
+    TimerTick.Interval := round(60000 / 4 / edittempo.Value * 1000);
 
-      edittempo.face.template := mainfo.tfaceorange;
-      ltempo.face.template := mainfo.tfaceorange;
-      if timersent.Enabled then
-        timersent.restart // to reset
-      else timersent.Enabled := True;
-    end;
+    edittempo.face.template := mainfo.tfaceorange;
+    ltempo.face.template    := mainfo.tfaceorange;
+    if timersent.Enabled then
+      timersent.restart // to reset
+    else
+      timersent.Enabled := True;
+  end;
 end;
 
 
-procedure tdrumsfo.dopatern(Const Sender: TObject);
-var 
+procedure tdrumsfo.dopatern(const Sender: TObject);
+var
   ax: integer;
 begin
   if tbooleaneditradio(Sender).Value = True then
-    begin
-      case tbooleaneditradio(Sender).tag of 
-        1:
-           begin
-             labpat.Caption := 'Lesson 1';
-             edittempo.Value := 100;
-             onchangetempo(Sender);
-             drum_beats[0] := 'x000x000x000x000';
-             // closed hat
-             drum_beats[1] := '0000000000000000';
-             // opened hat
-             drum_beats[2] := '0000000000000000';
-             // snare
-             drum_beats[3] := '0000000000000000';
-             // kick
-             novoice.Value := False;
-           end;
-        2:
-           begin
-             labpat.Caption := 'Lesson 2';
-             edittempo.Value := 100;
-             onchangetempo(Sender);
-             drum_beats[0] := 'x000x000x000x000';
-             // closed hat
-             drum_beats[1] := '0000000000000000';
-             // opened hat
-             drum_beats[2] := '0000000000000000';
-             // snare
-             drum_beats[3] := 'x000000000000000';
-             // kick
-             novoice.Value := False;
-           end;
-        3:
-           begin
-             labpat.Caption := 'Lesson 3';
-             edittempo.Value := 100;
-             onchangetempo(Sender);
-             drum_beats[0] := 'x000x000x000x000';
-             // closed hat
-             drum_beats[1] := '0000000000000000';
-             // opened hat
-             drum_beats[2] := '00000000x0000000';
-             // snare
-             drum_beats[3] := 'x000000000000000';
-             // kick
-             novoice.Value := False;
-           end;
-        4:
-           begin
-             labpat.Caption := 'Lesson 4';
-             edittempo.Value := 200;
-             onchangetempo(Sender);
-             drum_beats[0] := 'x000x000x000x000';
-             // closed hat
-             drum_beats[1] := '0000000000000000';
-             // opened hat
-             drum_beats[2] := '00000000x0000000';
-             // snare
-             drum_beats[3] := 'x000x00000000000';
-             // kick
-             novoice.Value := False;
-           end;
-        5:
-           begin
-             labpat.Caption := 'Patern 1';
-             //edittempo.Value := 150;
-             ///onchangetempo(Sender);
-             drum_beats[0] := 'x0x0x0x0x0x0x000';
-             // closed hat
-             drum_beats[1] := '00000000000000x0';
-             // opened hat
-             drum_beats[2] := '0000x0000000x000';
-             // snare
-             drum_beats[3] := 'x0000000x0x00000';
-             // kick
-             novoice.Value := True;
-           end;
-        6:
-           begin
-             labpat.Caption := 'Patern 2';
-             //edittempo.Value := 150;
-             //onchangetempo(Sender);
-             drum_beats[0] := 'x0x0x000x0x0x0x0';
-             // closed hat
-             drum_beats[1] := '000000x000000000';
-             // opened hat
-             drum_beats[2] := '00x0x0000000x000';
-             // snare
-             drum_beats[3] := 'x0000000x0x00000';
-             // kick
-             novoice.Value := True;
-           end;
-        7:
-           begin
-             labpat.Caption := 'Patern 3';
-             //edittempo.Value := 150;
-             //onchangetempo(Sender);
-             drum_beats[0] := 'x000x0x000x0x000';
-             // closed hat
-             drum_beats[1] := '00x00000x00000x0';
-             // opened hat
-             drum_beats[2] := '0000x0000000x000';
-             // snare
-             drum_beats[3] := 'x00000x0x0x000x0';
-             // kick
-             novoice.Value := True;
-           end;
-        8:
-           begin
-             labpat.Caption := 'Patern 4';
-             //edittempo.Value := 150;
-             //onchangetempo(Sender);
-             drum_beats[0] := 'x000x000x000x000';
-             // closed hat
-             drum_beats[1] := '00x000x000x000x0';
-             // opened hat
-             drum_beats[2] := '0000x0000000x000';
-             // snare
-             drum_beats[3] := 'x0x00000x00000x0';
-             // kick
-             novoice.Value := True;
-           end;
+    case tbooleaneditradio(Sender).tag of
+      1:
+      begin
+        labpat.Caption  := 'Lesson 1';
+        edittempo.Value := 100;
+        onchangetempo(Sender);
+        drum_beats[0]   := 'x000x000x000x000';
+        // closed hat
+        drum_beats[1]   := '0000000000000000';
+        // opened hat
+        drum_beats[2]   := '0000000000000000';
+        // snare
+        drum_beats[3]   := '0000000000000000';
+        // kick
+        novoice.Value   := False;
+      end;
+      2:
+      begin
+        labpat.Caption  := 'Lesson 2';
+        edittempo.Value := 100;
+        onchangetempo(Sender);
+        drum_beats[0]   := 'x000x000x000x000';
+        // closed hat
+        drum_beats[1]   := '0000000000000000';
+        // opened hat
+        drum_beats[2]   := '0000000000000000';
+        // snare
+        drum_beats[3]   := 'x000000000000000';
+        // kick
+        novoice.Value   := False;
+      end;
+      3:
+      begin
+        labpat.Caption  := 'Lesson 3';
+        edittempo.Value := 100;
+        onchangetempo(Sender);
+        drum_beats[0]   := 'x000x000x000x000';
+        // closed hat
+        drum_beats[1]   := '0000000000000000';
+        // opened hat
+        drum_beats[2]   := '00000000x0000000';
+        // snare
+        drum_beats[3]   := 'x000000000000000';
+        // kick
+        novoice.Value   := False;
+      end;
+      4:
+      begin
+        labpat.Caption  := 'Lesson 4';
+        edittempo.Value := 200;
+        onchangetempo(Sender);
+        drum_beats[0]   := 'x000x000x000x000';
+        // closed hat
+        drum_beats[1]   := '0000000000000000';
+        // opened hat
+        drum_beats[2]   := '00000000x0000000';
+        // snare
+        drum_beats[3]   := 'x000x00000000000';
+        // kick
+        novoice.Value   := False;
+      end;
+      5:
+      begin
+        labpat.Caption := 'Patern 1';
+        //edittempo.Value := 150;
+        ///onchangetempo(Sender);
+        drum_beats[0]  := 'x0x0x0x0x0x0x000';
+        // closed hat
+        drum_beats[1]  := '00000000000000x0';
+        // opened hat
+        drum_beats[2]  := '0000x0000000x000';
+        // snare
+        drum_beats[3]  := 'x0000000x0x00000';
+        // kick
+        novoice.Value  := True;
+      end;
+      6:
+      begin
+        labpat.Caption := 'Patern 2';
+        //edittempo.Value := 150;
+        //onchangetempo(Sender);
+        drum_beats[0]  := 'x0x0x000x0x0x0x0';
+        // closed hat
+        drum_beats[1]  := '000000x000000000';
+        // opened hat
+        drum_beats[2]  := '00x0x0000000x000';
+        // snare
+        drum_beats[3]  := 'x0000000x0x00000';
+        // kick
+        novoice.Value  := True;
+      end;
+      7:
+      begin
+        labpat.Caption := 'Patern 3';
+        //edittempo.Value := 150;
+        //onchangetempo(Sender);
+        drum_beats[0]  := 'x000x0x000x0x000';
+        // closed hat
+        drum_beats[1]  := '00x00000x00000x0';
+        // opened hat
+        drum_beats[2]  := '0000x0000000x000';
+        // snare
+        drum_beats[3]  := 'x00000x0x0x000x0';
+        // kick
+        novoice.Value  := True;
+      end;
+      8:
+      begin
+        labpat.Caption := 'Patern 4';
+        //edittempo.Value := 150;
+        //onchangetempo(Sender);
+        drum_beats[0]  := 'x000x000x000x000';
+        // closed hat
+        drum_beats[1]  := '00x000x000x000x0';
+        // opened hat
+        drum_beats[2]  := '0000x0000000x000';
+        // snare
+        drum_beats[3]  := 'x0x00000x00000x0';
+        // kick
+        novoice.Value  := True;
       end;
     end;
 
   for ax := 0 to 15 do
-    begin
-      if (Copy(drum_beats[0], ax + 1, 1) = 'x') then
-        ach[ax].Value := True
-      else
-        ach[ax].Value := False;
+  begin
+    if (Copy(drum_beats[0], ax + 1, 1) = 'x') then
+      ach[ax].Value := True
+    else
+      ach[ax].Value := False;
 
-      if (Copy(drum_beats[1], ax + 1, 1) = 'x') then
-        aoh[ax].Value := True
-      else
-        aoh[ax].Value := False;
+    if (Copy(drum_beats[1], ax + 1, 1) = 'x') then
+      aoh[ax].Value := True
+    else
+      aoh[ax].Value := False;
 
-      if (Copy(drum_beats[2], ax + 1, 1) = 'x') then
-        asd[ax].Value := True
-      else
-        asd[ax].Value := False;
+    if (Copy(drum_beats[2], ax + 1, 1) = 'x') then
+      asd[ax].Value := True
+    else
+      asd[ax].Value := False;
 
-      if (Copy(drum_beats[3], ax + 1, 1) = 'x') then
-        abd[ax].Value := True
-      else
-        abd[ax].Value := False;
-    end;
+    if (Copy(drum_beats[3], ax + 1, 1) = 'x') then
+      abd[ax].Value := True
+    else
+      abd[ax].Value := False;
+  end;
 end;
 
-procedure tdrumsfo.visiblechangeev(Const Sender: TObject);
+procedure tdrumsfo.visiblechangeev(const Sender: TObject);
 begin
-  if (isactivated = true) and (assigned(mainfo)) and (assigned(dockpanel1fo)) and (assigned(dockpanel2fo)) and (assigned(
-     dockpanel3fo))
-     and (assigned(dockpanel4fo)) and (assigned(dockpanel5fo)) then
+  if (isactivated = True) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(
+    dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
+  begin
+
+    if Visible then
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showdrums']).Caption :=
+        lang_mainfo[Ord(ma_hide)] + ': ' +
+        lang_commanderfo[Ord(co_namedrums_hint)]//mainfo.drumsvisible.value := 1;
+
+    else
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showdrums']).Caption :=
+        lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+        lang_commanderfo[Ord(co_namedrums_hint)]//mainfo.drumsvisible.value := 0;
+    ;
+
+    if norefresh = False then
     begin
-    
-      if Visible then
-        begin
-         //mainfo.drumsvisible.value := 1;
-          mainfo.tmainmenu1.menu.itembynames(['show','showdrums']).caption :=
-          lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_commanderfo[Ord(co_namedrums_hint)];
-         end
-      else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showdrums']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_commanderfo[Ord(co_namedrums_hint)];
-          //mainfo.drumsvisible.value := 0;
-        end;
 
-      if norefresh = false then
-        begin
+      mainfo.updatelayoutstrum();
 
-         mainfo.updatelayoutstrum();
+      if dockpanel1fo.Visible then
+        dockpanel1fo.updatelayoutpan();
 
-          if dockpanel1fo.Visible then
-            dockpanel1fo.updatelayoutpan();
+      if dockpanel2fo.Visible then
+        dockpanel2fo.updatelayoutpan();
 
-          if dockpanel2fo.Visible then
-            dockpanel2fo.updatelayoutpan();
+      if dockpanel3fo.Visible then
+        dockpanel3fo.updatelayoutpan();
 
-          if dockpanel3fo.Visible then
-            dockpanel3fo.updatelayoutpan();
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayoutpan();
 
-          if dockpanel4fo.Visible then
-            dockpanel4fo.updatelayoutpan();
-
-          if dockpanel5fo.Visible then
-            dockpanel5fo.updatelayoutpan();
-        end;
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayoutpan();
     end;
+  end;
 end;
 
 procedure tdrumsfo.createdrumsplayers;
-var 
+var
   i: integer;
 begin
 
   for i := 0 to 3 do
-    begin
-      uos_Stop(i);
+  begin
+    uos_Stop(i);
 
-      ams[i] := TMemoryStream.Create;
-      ams[i].LoadFromFile(PChar(adrums[i]));
-      ams[i].Position := 0;
-      // {
-      // if assigned( ams[i]) then ams[i].free;
-      //ams[i] := TMemoryStream.Create;
-      // ams[i].LoadFromFile(pchar(adrums[i]));
-      // ams[i].Position:= 0;
-      // }
-      // Create a memory buffer from a audio file
-      //  thebuffer[i] := uos_File2Buffer(pchar(sound[i]), 0, thebuffer[i], thebufferinfos[i]);
+    ams[i]          := TMemoryStream.Create;
+    ams[i].LoadFromFile(PChar(adrums[i]));
+    ams[i].Position := 0;
+    // {
+    // if assigned( ams[i]) then ams[i].free;
+    //ams[i] := TMemoryStream.Create;
+    // ams[i].LoadFromFile(pchar(adrums[i]));
+    // ams[i].Position:= 0;
+    // }
+    // Create a memory buffer from a audio file
+    //  thebuffer[i] := uos_File2Buffer(pchar(sound[i]), 0, thebuffer[i], thebufferinfos[i]);
 
-      if uos_CreatePlayer(i) then
+    if uos_CreatePlayer(i) then
 
-        if uos_SetGlobalEvent(i, True) then
-          // This set events (like pause/replay thread) to global.
-          //One event (for example replay) will have impact on all players.
+      if uos_SetGlobalEvent(i, True) then
+        // This set events (like pause/replay thread) to global.
+        //One event (for example replay) will have impact on all players.
 
-          // using memorystream
-          drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
+        // using memorystream
+        drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
 
-      if configfo.latdrums.Value < 0 then
-        configfo.latdrums.Value := -1;
+    if configfo.latdrums.Value < 0 then
+      configfo.latdrums.Value := -1;
 
-      if drum_input[i] > -1 then
+    if drum_input[i] > -1 then
 
-        if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
+      if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
 
-          // this for a dummy endless input, must be last input
-          if uos_AddIntoDevOut(i, configfo.devoutcfg.value, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then
+        // this for a dummy endless input, must be last input
+        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then
+        begin
 
-            begin
+          uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
+          ///// DSP Volume changer
+          ////////// Playerindex1 : Index of a existing Player
+          ////////// Inputindex1 : Index of a existing input
+          ////////// VolLeft : Left volume
+          ////////// VolRight : Right volume
+          uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) * commanderfo.
+            genvolleft.Value * 1.5
+            , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
-              uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
-              ///// DSP Volume changer
-              ////////// Playerindex1 : Index of a existing Player
-              ////////// Inputindex1 : Index of a existing input
-              ////////// VolLeft : Left volume
-              ////////// VolRight : Right volume
-              uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) * commanderfo.
-              genvolleft.Value * 1.5
-              , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-
-            end;
-    end;
+        end;
+  end;
 end;
 
 procedure tdrumsfo.stopvoiceplayers;
-//var
-//i : integer;
+ //var
+ //i : integer;
 begin
 {
 for i := 4 to 8 do
@@ -939,75 +951,76 @@ for i := 4 to 8 do
 end;
 
 procedure tdrumsfo.createvoiceplayers;
-var 
+var
   i: integer;
-   ordir: msestring;
-  timerisenabled: boolean = False;
+  ordir: msestring;
+  timerisenabled: Boolean = False;
 begin
 
   if timertick.Enabled = True then
-    timerisenabled := True;
+    timerisenabled  := True;
   timertick.Enabled := False;
-  
-//  writeln(langcount.text);
+
+  //  writeln(langcount.text);
   //langcount.value  := 'es';
   // writeln(langcount.text);
-   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
-  
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+
   adrums[4] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-               langcount.value + directoryseparator + '1.ogg');
+    langcount.Value + directoryseparator + '1.ogg');
   adrums[5] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-               langcount.value + directoryseparator + '2.ogg');
+    langcount.Value + directoryseparator + '2.ogg');
   adrums[6] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-               langcount.value + directoryseparator + '3.ogg');
-  adrums[7] := rawbytestring( ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-               langcount.value + directoryseparator + '4.ogg');
+    langcount.Value + directoryseparator + '3.ogg');
+  adrums[7] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
+    langcount.Value + directoryseparator + '4.ogg');
   adrums[8] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-               langcount.value + directoryseparator + 'and.ogg');
+    langcount.Value + directoryseparator + 'and.ogg');
 
   if tag = 0 then
     for i := 4 to 8 do
-      begin
-        uos_Stop(i);
-        // uos_freeplayer(i);
+    begin
+      uos_Stop(i);
+      // uos_freeplayer(i);
 
-        ams[i] := TMemoryStream.Create;
-        ams[i].LoadFromFile(PChar(adrums[i]));
-        ams[i].Position := 0;
+      ams[i]          := TMemoryStream.Create;
+      ams[i].LoadFromFile(PChar(adrums[i]));
+      ams[i].Position := 0;
 
-        if uos_CreatePlayer(i) then
+      if uos_CreatePlayer(i) then
 
-          if uos_SetGlobalEvent(i, True) then
-            // This set events (like pause/replay thread) to global.
-            //One event (for example replay) will have impact on all players.
+        if uos_SetGlobalEvent(i, True) then
+          // This set events (like pause/replay thread) to global.
+          //One event (for example replay) will have impact on all players.
 
-            // using memorystream
-            if uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512) > -1 then
+          // using memorystream
+          if uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512) > -1 then
 
-              // using memorybuffer
+            // using memorybuffer
               // if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
 
-              if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
-                // this for a dummy endless input, must be last input
+            if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
+              // this for a dummy endless input, must be last input
 
-                if uos_AddIntoDevOut(i, configfo.devoutcfg.value, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then;
+              if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then;
 
-      end;
+    end;
   tag := 1;
   if timerisenabled = True then
-  if songtimer.value = false then
-    timertick.Enabled := True;
+    if songtimer.Value = False then
+      timertick.Enabled := True;
 
 end;
 
-procedure tdrumsfo.loadsoundlib(Const Sender: TObject);
+procedure tdrumsfo.loadsoundlib(const Sender: TObject);
 var
- ordir: msestring;
- lib1, lib2, lib3, lib4: string;
-
+  ordir: msestring;
+  lib1, lib2, lib3, lib4: string;
+  resu: integer = -1;
 begin
-  allok := false;
- ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  allok   := False;
+  resulib := -1;
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
     {$IFDEF Windows}
          {$if defined(cpu64)}
@@ -1063,66 +1076,85 @@ begin
         {$endif}
       {$ENDIF}
 
-// if uos_LoadLib(PChar(lib1), PChar(lib2),nil, nil, nil, nil) = 0 then
 
- if configfo.syslib.Value = True then
- begin
- lib1 := 'system';
- lib2 := 'system';
- lib3 := 'system';
-  // writeln('Yes system');
- end;
-
- if uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil) = 0 then
-
+  if configfo.syslib.Value = True then
+  begin
+    // writeln('Yes system');
+    resu      := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil);
+    if resu = 0 then
+      resulib := 0
+    else
     begin
-
-      if (uos_LoadPlugin('soundtouch', PChar(lib4)) = 0) then
-      begin
-        plugsoundtouch := True;
-        // writeln('Yes plugsoundtouch');
-      end  
-      else
-       begin
-        plugsoundtouch := false;
-        // writeln('NO plugsoundtouch');
-      end;  
-
-      allok := True;
-
-    end
+      // writeln('Some libraries did not load...');
+      resulib := -1;
+      resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil);
+    end;
+  end
   else
-  showmessage('Some libraries did not load... ;(');
+  begin
+    resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil);
+    resulib := 0;
   end;
 
-procedure tdrumsfo.oncreatedrums(Const Sender: TObject);
-var 
- // ordir: msestring;
+  if resu = 0 then
+  begin
+
+    if (uos_LoadPlugin('soundtouch', PChar(lib4)) = 0) then
+      plugsoundtouch := True
+    // writeln('Yes plugsoundtouch');
+
+    else
+      plugsoundtouch := False;
+      // writeln('NO plugsoundtouch');
+   
+    allok := True;
+
+    UOS_GetInfoDevice();
+    devin  := UOSDefaultDeviceIN;
+    devout := UOSDefaultDeviceOUT;
+
+    // devin := -1;
+
+    if devin > -1 then
+      configfo.defdevin.Caption := 'Default Device IN = ' + msestring(IntToStr(devin))
+    else
+      configfo.defdevin.Caption := 'No Default Device IN';
+
+    if devout > -1 then
+      configfo.defdevout.Caption := 'Default Device OUT = ' + msestring(IntToStr(devout))
+    else
+      configfo.defdevout.Caption := 'No Default Device OUT';
+  end;
+end;
+
+procedure tdrumsfo.oncreatedrums(const Sender: TObject);
+var
+  // ordir: msestring;
   spcx, spcy, posx, posy, ax: integer;
-//  lib1, lib2, lib3, lib4: string;
+  //  lib1, lib2, lib3, lib4: string;
   i1: int32;
 begin
   // visible := false;
 
-  Timertick := ttimer.Create(Nil);
+  Timertick          := ttimer.Create(nil);
   Timertick.interval := 100000;
-  Timertick.tag := 0;
-  Timertick.Enabled := False;
-  Timertick.options := [to_highres];
-  Timertick.options := [to_leak];
-  Timertick.ontimer := @ontimertick;
+  Timertick.tag      := 0;
+  Timertick.Enabled  := False;
+  Timertick.options  := [to_highres];
+  Timertick.options  := [to_leak];
+  Timertick.ontimer  := @ontimertick;
 
-  Timerpause := ttimer.Create(Nil);
+  Timerpause          := ttimer.Create(nil);
   Timerpause.interval := 10000000;
-  Timerpause.Enabled := False;
-  Timerpause.ontimer := @ontimerpause;
-  Timerpause.options := [to_single];
+  Timerpause.Enabled  := False;
+  Timerpause.ontimer  := @ontimerpause;
+  Timerpause.options  := [to_single];
 
-  Timersent := ttimer.Create(Nil);
+  Timersent          := ttimer.Create(nil);
   Timersent.interval := 2500000;
-  Timersent.Enabled := False;
-  Timersent.ontimer := @ontimersent;
-  Timersent.options := [to_single];
+  Timersent.Enabled  := False;
+  Timersent.ontimer  := @ontimersent;
+  Timersent.options  := [to_single];
 
   drum_beats[0] := 'x0x0x0x0x0x0x000';
   // closed hat
@@ -1146,47 +1178,41 @@ begin
   alab2[3] := tlabel4;
 
   for i1 := 0 to high(alab2) do
-    begin
-      alab2[i1].createfont();
-    end;
+    alab2[i1].createfont();
 
   for ax := 0 to 3 do
+    with alab2[ax] do
     begin
-      with alab2[ax] do
-        begin
-          Width := 16;
-          Height := 16;
-          color := $D5D5D5;
-          Visible := True;
-          // textflags := [xcentered,tf_ycentered];
-          Caption := msestring(IntToStr(ax + 1));
-          if ax = 0 then
-            begin
-              left := posx + 65 + (spcx * (1));
-              top := posy;
-            end
-          else
-            if ax = 1 then
-              begin
-                left := posx + 65 + (spcx * (5));
-                top := posy;
-              end
-          else
-            if ax = 2 then
-              begin
-                left := posx + 65 + (spcx * (9));
-                top := posy;
-              end
-          else
-            begin
-              left := posx + 65 + (spcx * (13));
-              top := posy;
-            end;
-          // color := TfpgColor($FFD3D3D3);
+      Width   := 16;
+      Height  := 16;
+      color   := $D5D5D5;
+      Visible := True;
+      // textflags := [xcentered,tf_ycentered];
+      Caption := msestring(IntToStr(ax + 1));
+      if ax = 0 then
+      begin
+        left := posx + 65 + (spcx * (1));
+        top  := posy;
+      end
+      else if ax = 1 then
+      begin
+        left := posx + 65 + (spcx * (5));
+        top  := posy;
+      end
+      else if ax = 2 then
+      begin
+        left := posx + 65 + (spcx * (9));
+        top  := posy;
+      end
+      else
+      begin
+        left := posx + 65 + (spcx * (13));
+        top  := posy;
+      end;
+      // color := TfpgColor($FFD3D3D3);
 
-        end;
     end;
-  // }
+      // }
 
   alaband[0] := and1;
   alaband[1] := and2;
@@ -1194,52 +1220,48 @@ begin
   alaband[3] := and4;
 
   for ax := 0 to 3 do
+    with alaband[ax] do
     begin
-      with alaband[ax] do
-        begin
-          Width := 16;
-          Height := 16;
-          Visible := True;
-          color := $B5B5B5;
-          // textflags := [xcentered,tf_ycentered];
-          Caption := '&&';
-          if ax = 0 then
-            begin
-              left := posx + 65 + (spcx * (3));
-              top := posy;
-            end
-          else
-            if ax = 1 then
-              begin
-                left := posx + 65 + (spcx * (7));
-                top := posy;
-              end
-          else
-            if ax = 2 then
-              begin
-                left := posx + 65 + (spcx * (11));
-                top := posy;
-              end
-          else
-            begin
-              left := posx + 65 + (spcx * (15));
-              top := posy;
-            end;
-          // color := TfpgColor($FFD3D3D3);
+      Width   := 16;
+      Height  := 16;
+      Visible := True;
+      color   := $B5B5B5;
+      // textflags := [xcentered,tf_ycentered];
+      Caption := '&&';
+      if ax = 0 then
+      begin
+        left := posx + 65 + (spcx * (3));
+        top  := posy;
+      end
+      else if ax = 1 then
+      begin
+        left := posx + 65 + (spcx * (7));
+        top  := posy;
+      end
+      else if ax = 2 then
+      begin
+        left := posx + 65 + (spcx * (11));
+        top  := posy;
+      end
+      else
+      begin
+        left := posx + 65 + (spcx * (15));
+        top  := posy;
+      end;
+      // color := TfpgColor($FFD3D3D3);
 
-        end;
     end;
-  // }
-  alab[0] := tlabel5;
-  alab[1] := tlabel6;
-  alab[2] := tlabel7;
-  alab[3] := tlabel8;
-  alab[4] := tlabel9;
-  alab[5] := tlabel10;
-  alab[6] := tlabel11;
-  alab[7] := tlabel12;
-  alab[8] := tlabel13;
-  alab[9] := tlabel14;
+      // }
+  alab[0]  := tlabel5;
+  alab[1]  := tlabel6;
+  alab[2]  := tlabel7;
+  alab[3]  := tlabel8;
+  alab[4]  := tlabel9;
+  alab[5]  := tlabel10;
+  alab[6]  := tlabel11;
+  alab[7]  := tlabel12;
+  alab[8]  := tlabel13;
+  alab[9]  := tlabel14;
   alab[10] := tlabel15;
   alab[11] := tlabel16;
   alab[12] := tlabel17;
@@ -1248,31 +1270,29 @@ begin
   alab[15] := tlabel20;
 
   for ax := 0 to 15 do
+    with alab[ax] do
     begin
-      with alab[ax] do
-        begin
-          optionswidget1 := [ow1_fontglyphheight];
-          Width := 16;
-          Height := 16;
-          color := $D5D5D5;
-          Visible := True;
-          // textflags := [xcentered,tf_ycentered];
-          Caption := msestring(IntToStr(ax + 1));
-          left := posx + 65 + (spcx * (ax + 1));
-          top := posy + (spcy * 1);
-        end;
+      optionswidget1 := [ow1_fontglyphheight];
+      Width := 16;
+      Height := 16;
+      color := $D5D5D5;
+      Visible := True;
+      // textflags := [xcentered,tf_ycentered];
+      Caption := msestring(IntToStr(ax + 1));
+      left := posx + 65 + (spcx * (ax + 1));
+      top := posy + (spcy * 1);
     end;
 
-  ach[0] := tbooleanedit1;
-  ach[1] := tbooleanedit2;
-  ach[2] := tbooleanedit3;
-  ach[3] := tbooleanedit4;
-  ach[4] := tbooleanedit5;
-  ach[5] := tbooleanedit6;
-  ach[6] := tbooleanedit7;
-  ach[7] := tbooleanedit8;
-  ach[8] := tbooleanedit9;
-  ach[9] := tbooleanedit10;
+  ach[0]  := tbooleanedit1;
+  ach[1]  := tbooleanedit2;
+  ach[2]  := tbooleanedit3;
+  ach[3]  := tbooleanedit4;
+  ach[4]  := tbooleanedit5;
+  ach[5]  := tbooleanedit6;
+  ach[6]  := tbooleanedit7;
+  ach[7]  := tbooleanedit8;
+  ach[8]  := tbooleanedit9;
+  ach[9]  := tbooleanedit10;
   ach[10] := tbooleanedit11;
   ach[11] := tbooleanedit12;
   ach[12] := tbooleanedit13;
@@ -1281,34 +1301,34 @@ begin
   ach[15] := tbooleanedit16;
 
   for ax := 0 to 15 do
+  begin
+    with ach[ax] do
     begin
-      with ach[ax] do
-        begin
-          Name := 'ch' + IntToStr(ax + 1);
-          left := posx + 65 + (spcx * (ax + 1));
-          top := posy + (spcy * 2);
-          Width := 16;
-          Height := 16;
-          frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
-          hint := ' Add/Remove a Closed Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
-        end;
-      if (Copy(drum_beats[0], ax + 1, 1) = 'x') then
-        ach[ax].Value := True
-      else
-        ach[ax].Value := False;
+      Name   := 'ch' + IntToStr(ax + 1);
+      left   := posx + 65 + (spcx * (ax + 1));
+      top    := posy + (spcy * 2);
+      Width  := 16;
+      Height := 16;
+      frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
+      hint   := ' Add/Remove a Closed Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
     end;
+    if (Copy(drum_beats[0], ax + 1, 1) = 'x') then
+      ach[ax].Value := True
+    else
+      ach[ax].Value := False;
+  end;
 
 
-  aoh[0] := tbooleanedit17;
-  aoh[1] := tbooleanedit18;
-  aoh[2] := tbooleanedit19;
-  aoh[3] := tbooleanedit20;
-  aoh[4] := tbooleanedit21;
-  aoh[5] := tbooleanedit22;
-  aoh[6] := tbooleanedit23;
-  aoh[7] := tbooleanedit24;
-  aoh[8] := tbooleanedit25;
-  aoh[9] := tbooleanedit26;
+  aoh[0]  := tbooleanedit17;
+  aoh[1]  := tbooleanedit18;
+  aoh[2]  := tbooleanedit19;
+  aoh[3]  := tbooleanedit20;
+  aoh[4]  := tbooleanedit21;
+  aoh[5]  := tbooleanedit22;
+  aoh[6]  := tbooleanedit23;
+  aoh[7]  := tbooleanedit24;
+  aoh[8]  := tbooleanedit25;
+  aoh[9]  := tbooleanedit26;
   aoh[10] := tbooleanedit27;
   aoh[11] := tbooleanedit28;
   aoh[12] := tbooleanedit29;
@@ -1317,34 +1337,32 @@ begin
   aoh[15] := tbooleanedit32;
 
   for ax := 0 to 15 do
+    with aoh[ax] do
     begin
-      with aoh[ax] do
-        begin
-          Name := 'oh' + IntToStr(ax + 1);
-          left := posx + 65 + (spcx * (ax + 1));
-          top := posy + (spcy * 3);
-          Width := 16;
-          Height := 16;
-          frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
-          hint := ' Add/Remove a Open Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
+      Name   := 'oh' + IntToStr(ax + 1);
+      left   := posx + 65 + (spcx * (ax + 1));
+      top    := posy + (spcy * 3);
+      Width  := 16;
+      Height := 16;
+      frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
+      hint   := ' Add/Remove a Open Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
-          if (Copy(drum_beats[1], ax + 1, 1) = 'x') then
-            Value := True
-          else
-            Value := False;
-        end;
+      if (Copy(drum_beats[1], ax + 1, 1) = 'x') then
+        Value := True
+      else
+        Value := False;
     end;
 
-  asd[0] := tbooleanedit33;
-  asd[1] := tbooleanedit34;
-  asd[2] := tbooleanedit35;
-  asd[3] := tbooleanedit36;
-  asd[4] := tbooleanedit37;
-  asd[5] := tbooleanedit38;
-  asd[6] := tbooleanedit39;
-  asd[7] := tbooleanedit40;
-  asd[8] := tbooleanedit41;
-  asd[9] := tbooleanedit42;
+  asd[0]  := tbooleanedit33;
+  asd[1]  := tbooleanedit34;
+  asd[2]  := tbooleanedit35;
+  asd[3]  := tbooleanedit36;
+  asd[4]  := tbooleanedit37;
+  asd[5]  := tbooleanedit38;
+  asd[6]  := tbooleanedit39;
+  asd[7]  := tbooleanedit40;
+  asd[8]  := tbooleanedit41;
+  asd[9]  := tbooleanedit42;
   asd[10] := tbooleanedit43;
   asd[11] := tbooleanedit44;
   asd[12] := tbooleanedit45;
@@ -1353,34 +1371,32 @@ begin
   asd[15] := tbooleanedit48;
 
   for ax := 0 to 15 do
+    with asd[ax] do
     begin
-      with asd[ax] do
-        begin
-          Name := 'sd' + IntToStr(ax + 1);
-          left := posx + 65 + (spcx * (ax + 1));
-          top := posy + (spcy * 4);
-          Width := 16;
-          Height := 16;
-          frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
-          hint := ' Add/Remove a Snare Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
+      Name   := 'sd' + IntToStr(ax + 1);
+      left   := posx + 65 + (spcx * (ax + 1));
+      top    := posy + (spcy * 4);
+      Width  := 16;
+      Height := 16;
+      frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
+      hint   := ' Add/Remove a Snare Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
-          if (Copy(drum_beats[2], ax + 1, 1) = 'x') then
-            Value := True
-          else
-            Value := False;
-        end;
+      if (Copy(drum_beats[2], ax + 1, 1) = 'x') then
+        Value := True
+      else
+        Value := False;
     end;
 
-  abd[0] := tbooleanedit49;
-  abd[1] := tbooleanedit50;
-  abd[2] := tbooleanedit51;
-  abd[3] := tbooleanedit52;
-  abd[4] := tbooleanedit53;
-  abd[5] := tbooleanedit54;
-  abd[6] := tbooleanedit55;
-  abd[7] := tbooleanedit56;
-  abd[8] := tbooleanedit57;
-  abd[9] := tbooleanedit58;
+  abd[0]  := tbooleanedit49;
+  abd[1]  := tbooleanedit50;
+  abd[2]  := tbooleanedit51;
+  abd[3]  := tbooleanedit52;
+  abd[4]  := tbooleanedit53;
+  abd[5]  := tbooleanedit54;
+  abd[6]  := tbooleanedit55;
+  abd[7]  := tbooleanedit56;
+  abd[8]  := tbooleanedit57;
+  abd[9]  := tbooleanedit58;
   abd[10] := tbooleanedit59;
   abd[11] := tbooleanedit60;
   abd[12] := tbooleanedit61;
@@ -1389,58 +1405,53 @@ begin
   abd[15] := tbooleanedit64;
 
   for ax := 0 to 15 do
+    with abd[ax] do
     begin
-      with abd[ax] do
-        begin
-          Name := 'bd' + IntToStr(ax + 1);
-          left := posx + 65 + (spcx * (ax + 1));
-          top := posy + (spcy * 5);
-          Width := 16;
-          Height := 16;
-          frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
-          hint := ' Add/Remove a Bass Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
+      Name   := 'bd' + IntToStr(ax + 1);
+      left   := posx + 65 + (spcx * (ax + 1));
+      top    := posy + (spcy * 5);
+      Width  := 16;
+      Height := 16;
+      frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
+      hint   := ' Add/Remove a Bass Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
-          if (Copy(drum_beats[3], ax + 1, 1) = 'x') then
-            Value := True
-          else
-            Value := False;
-        end;
+      if (Copy(drum_beats[3], ax + 1, 1) = 'x') then
+        Value := True
+      else
+        Value := False;
     end;
 
   for ax := 0 to 15 do
+    if (ax = 0) or (ax = 4) or (ax = 8) or (ax = 12) then
     begin
-      if (ax = 0) or (ax = 4) or (ax = 8) or (ax = 12) then
-        begin
-          ach[ax].frame.colorclient := $FFB8B8;
-          aoh[ax].frame.colorclient := $FFB8B8;
-          asd[ax].frame.colorclient := $FFB8B8;
-          abd[ax].frame.colorclient := $FFB8B8;
-        end
-      else
-        if (ax = 2) or (ax = 6) or (ax = 10) or (ax = 14) then
-          begin
-            ach[ax].frame.colorclient := $FFF8B8;
-            aoh[ax].frame.colorclient := $FFF8B8;
-            asd[ax].frame.colorclient := $FFF8B8;
-            abd[ax].frame.colorclient := $FFF8B8;
-          end
-      else
-        begin
-          ach[ax].frame.colorclient := cl_white;
-          aoh[ax].frame.colorclient := cl_white;
-          asd[ax].frame.colorclient := cl_white;
-          abd[ax].frame.colorclient := cl_white;
-        end;
+      ach[ax].frame.colorclient := $FFB8B8;
+      aoh[ax].frame.colorclient := $FFB8B8;
+      asd[ax].frame.colorclient := $FFB8B8;
+      abd[ax].frame.colorclient := $FFB8B8;
+    end
+    else if (ax = 2) or (ax = 6) or (ax = 10) or (ax = 14) then
+    begin
+      ach[ax].frame.colorclient := $FFF8B8;
+      aoh[ax].frame.colorclient := $FFF8B8;
+      asd[ax].frame.colorclient := $FFF8B8;
+      abd[ax].frame.colorclient := $FFF8B8;
+    end
+    else
+    begin
+      ach[ax].frame.colorclient := cl_white;
+      aoh[ax].frame.colorclient := cl_white;
+      asd[ax].frame.colorclient := cl_white;
+      abd[ax].frame.colorclient := cl_white;
     end;
-    oncreateddrums(sender);
+  oncreateddrums(Sender);
 end;
 
-procedure tdrumsfo.oncreateddrums(Const Sender: TObject);
+procedure tdrumsfo.oncreateddrums(const Sender: TObject);
 begin
   //height := 238;
   //width := 458;
   Caption := 'Drums set';
-  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
   adrums[0] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.ogg');
   adrums[1] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.ogg');
@@ -1454,7 +1465,7 @@ begin
   posi := 1;
 end;
 
-procedure tdrumsfo.onmousewindow(Const Sender: twidget; Var ainfo: mouseeventinfoty);
+procedure tdrumsfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
 
 {
@@ -1468,114 +1479,48 @@ end;
 }
 end;
 
-procedure tdrumsfo.onsetnovoice(Const Sender: TObject; Var avalue: boolean; Var accept: boolean);
-
+procedure tdrumsfo.onsetnovoice(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
 
   // else stopvoiceplayers;
 
 end;
 
-procedure tdrumsfo.ondestroi(Const Sender: TObject);
+procedure tdrumsfo.ondestroi(const Sender: TObject);
 begin
- Timerpause.enabled := false;
- Timertick.enabled := false;
- timersent.enabled := false;
+  Timerpause.Enabled := False;
+  Timertick.Enabled  := False;
+  timersent.Enabled  := False;
   Timerpause.Free;
   Timertick.Free;
   timersent.Free;
 end;
 
-procedure tdrumsfo.onchangevol(Const Sender: TObject);
+procedure tdrumsfo.onchangevol(const Sender: TObject);
 begin
   if hasinit = 1 then
-    begin
-      volumedrums.face.template := mainfo.tfaceorange;
-      if timersent.Enabled then
-        timersent.restart // to reset
-      else timersent.Enabled := True;
-    end;
+  begin
+    volumedrums.face.template := mainfo.tfaceorange;
+    if timersent.Enabled then
+      timersent.restart // to reset
+    else
+      timersent.Enabled := True;
+  end;
 end;
 
-procedure tdrumsfo.onchangenovoice(Const Sender: TObject);
+procedure tdrumsfo.onchangenovoice(const Sender: TObject);
 begin
-  if (hasinit = 1) and (tag = 0) and (novoice.Value = False) then
+  if (hasinit = 1) and (tag = 0) and (novoice.Value = False) and (allok = True) then
     createvoiceplayers;
 end;
 
-procedure tdrumsfo.onsetvalvol(Const Sender: TObject; Var avalue: realty; Var accept: boolean);
+procedure tdrumsfo.onsetvalvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
   if (trealspinedit(Sender).tag = 1) then
+  begin
+    if avalue > 200 then
     begin
-      if avalue > 200 then
-        begin
-          hintlabel.Caption := '"' + msestring(IntToStr(trunc(avalue))) + '" is > 200.  Reset to 200.';
-          if hintlabel.Width > hintlabel2.Width then
-            hintpanel.Width := hintlabel.Width + 10
-          else
-            hintpanel.Width := hintlabel2.Width + 10;
-          hintpanel.Visible := True;
-          if timersent.Enabled then
-            timersent.restart // to reset
-          else timersent.Enabled := True;
-          avalue := 200;
-        end;
-
-      if avalue < 1 then
-        begin
-          hintlabel.Caption := '" " is invalid value.  Reset to 0.';
-          if hintlabel.Width > hintlabel2.Width then
-            hintpanel.Width := hintlabel.Width + 10
-          else
-            hintpanel.Width := hintlabel2.Width + 10;
-          hintpanel.Visible := True;
-          if timersent.Enabled then
-            timersent.restart // to reset
-          else timersent.Enabled := True;
-          avalue := 0;
-        end;
-    end;
-
-  if (trealspinedit(Sender).tag = 0) then
-    begin
-      if avalue > 500 then
-        begin
-          hintlabel.Caption := '"' + msestring(IntToStr(trunc(avalue))) + '" is > 500.  Reset to 500.';
-          if hintlabel.Width > hintlabel2.Width then
-            hintpanel.Width := hintlabel.Width + 10
-          else
-            hintpanel.Width := hintlabel2.Width + 10;
-          hintpanel.Visible := True;
-          hintpanel.Visible := True;
-          if timersent.Enabled then
-            timersent.restart // to reset
-          else timersent.Enabled := True;
-          avalue := 500;
-        end;
-
-      if avalue < 1 then
-        begin
-          hintlabel.Caption := 'Value entered is < Minimum Value (1).  Reset to 1.';
-          if hintlabel.Width > hintlabel2.Width then
-            hintpanel.Width := hintlabel.Width + 10
-          else
-            hintpanel.Width := hintlabel2.Width + 10;
-          hintpanel.Visible := True;
-          hintpanel.Visible := True;
-          if timersent.Enabled then
-            timersent.restart // to reset
-          else timersent.Enabled := True;
-          avalue := 1;
-        end;
-    end;
-end;
-
-procedure tdrumsfo.ontextedit(Const Sender: tcustomedit; Var atext: msestring);
-begin
-  if (isnumber(atext)) or (atext = '') or (atext = '-') then
-  else
-    begin
-      hintlabel.Caption := '"' + atext + '" is invalid value.  Reset to 100.';
+      hintlabel.Caption := '"' + msestring(IntToStr(trunc(avalue))) + '" is > 200.  Reset to 200.';
       if hintlabel.Width > hintlabel2.Width then
         hintpanel.Width := hintlabel.Width + 10
       else
@@ -1583,12 +1528,83 @@ begin
       hintpanel.Visible := True;
       if timersent.Enabled then
         timersent.restart // to reset
-      else timersent.Enabled := True;
-      atext := '100';
+      else
+        timersent.Enabled := True;
+      avalue := 200;
     end;
+
+    if avalue < 1 then
+    begin
+      hintlabel.Caption := '" " is invalid value.  Reset to 0.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      if timersent.Enabled then
+        timersent.restart // to reset
+      else
+        timersent.Enabled := True;
+      avalue := 0;
+    end;
+  end;
+
+  if (trealspinedit(Sender).tag = 0) then
+  begin
+    if avalue > 500 then
+    begin
+      hintlabel.Caption := '"' + msestring(IntToStr(trunc(avalue))) + '" is > 500.  Reset to 500.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      hintpanel.Visible := True;
+      if timersent.Enabled then
+        timersent.restart // to reset
+      else
+        timersent.Enabled := True;
+      avalue := 500;
+    end;
+
+    if avalue < 1 then
+    begin
+      hintlabel.Caption := 'Value entered is < Minimum Value (1).  Reset to 1.';
+      if hintlabel.Width > hintlabel2.Width then
+        hintpanel.Width := hintlabel.Width + 10
+      else
+        hintpanel.Width := hintlabel2.Width + 10;
+      hintpanel.Visible := True;
+      hintpanel.Visible := True;
+      if timersent.Enabled then
+        timersent.restart // to reset
+      else
+        timersent.Enabled := True;
+      avalue := 1;
+    end;
+  end;
 end;
 
-procedure tdrumsfo.onmultdiv(Const Sender: TObject);
+procedure tdrumsfo.ontextedit(const Sender: tcustomedit; var atext: msestring);
+begin
+  if (isnumber(atext)) or (atext = '') or (atext = '-') then
+  else
+  begin
+    hintlabel.Caption := '"' + atext + '" is invalid value.  Reset to 100.';
+    if hintlabel.Width > hintlabel2.Width then
+      hintpanel.Width := hintlabel.Width + 10
+    else
+      hintpanel.Width := hintlabel2.Width + 10;
+    hintpanel.Visible := True;
+    if timersent.Enabled then
+      timersent.restart // to reset
+    else
+      timersent.Enabled := True;
+    atext := '100';
+  end;
+end;
+
+procedure tdrumsfo.onmultdiv(const Sender: TObject);
 begin
   if (TButton(Sender).Name = 'multbpm') then
     edittempo.Value := round(edittempo.Value * 2);
@@ -1598,72 +1614,52 @@ begin
 
 end;
 
-procedure tdrumsfo.onchangelang(Const sender: TObject);
-var 
-  nov : boolean = true;
+procedure tdrumsfo.onchangelang(const Sender: TObject);
+var
+  nov: Boolean = True;
 begin
-  nov := novoice.value;
+  nov := novoice.Value;
 
   dostop(Sender);
-  ontimerpause(sender);
+  ontimerpause(Sender);
 
-  novoice.value := nov;
+  novoice.Value := nov;
 end;
 
-procedure tdrumsfo.onchangesongtimer(const sender: TObject);
+procedure tdrumsfo.onchangesongtimer(const Sender: TObject);
 begin
-if songtimer.value then
-begin
- label2.visible := false;
- edittempo.enabled := false;
- divbpm.enabled := false;
- multbpm.enabled := false;
- ltempo.enabled := false;
- sensib.enabled := true;
- tickcount.enabled := true;
- TimerTick.Enabled := false;
- end else
- begin
- label2.visible := true;
- edittempo.enabled := true;
- divbpm.enabled := true;
- multbpm.enabled := true;
- ltempo.enabled := true;
- sensib.enabled := false;
- tickcount.enabled := false;
- if commanderfo.loop_stop.Enabled = True then
- TimerTick.Enabled := True;
- end;
- 
+  if songtimer.Value then
+  begin
+    label2.Visible    := False;
+    edittempo.Enabled := False;
+    divbpm.Enabled    := False;
+    multbpm.Enabled   := False;
+    ltempo.Enabled    := False;
+    sensib.Enabled    := True;
+    tickcount.Enabled := True;
+    TimerTick.Enabled := False;
+  end
+  else
+  begin
+    label2.Visible    := True;
+    edittempo.Enabled := True;
+    divbpm.Enabled    := True;
+    multbpm.Enabled   := True;
+    ltempo.Enabled    := True;
+    sensib.Enabled    := False;
+    tickcount.Enabled := False;
+    if commanderfo.loop_stop.Enabled = True then
+      TimerTick.Enabled := True;
+  end;
+
 end;
 
-procedure tdrumsfo.onchansens(const sender: TObject);
+procedure tdrumsfo.onchansens(const Sender: TObject);
 begin
-if sensib.value < 10 then sensib.value := 10;
+  if sensib.Value < 10 then
+    sensib.Value := 10;
 end;
 
-procedure tdrumsfo.zcrea(const sender: TObject);
-begin
-                   
-  loadsoundlib(Sender);
-
- 
-  UOS_GetInfoDevice();
-  devin := UOSDefaultDeviceIN;
-  devout := UOSDefaultDeviceOUT;
-
-  // devin := -1;
-
-  if devin > -1 then
-    configfo.defdevin.caption := 'Default Device IN = ' + msestring(IntToStr(devin))
-  else configfo.defdevin.caption := 'No Default Device IN';
-
-  if devout > -1 then
-    configfo.defdevout.caption := 'Default Device OUT = ' + msestring(IntToStr(devout))
-  else configfo.defdevout.caption := 'No Default Device OUT';
-                  
-
-
-end;
 
 end.
+

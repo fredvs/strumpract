@@ -4,12 +4,41 @@ unit config;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- uos_flat,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
- mseact,msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
- msestream,msestrings,SysUtils,msesimplewidgets,msegraphedits,msescrollbar,
- msedragglob,msegrids,msegridsglob,msedispwidgets,mserichstring,msedropdownlist,
- msecolordialog;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  uos_flat,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  mseact,
+  msedataedits,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestatfile,
+  msestream,
+  msestrings,
+  SysUtils,
+  msesimplewidgets,
+  msegraphedits,
+  msescrollbar,
+  msedragglob,
+  msegrids,
+  msegridsglob,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist,
+  msecolordialog;
 
 type
   tconfigfo = class(tmseform)
@@ -39,7 +68,7 @@ type
     devincfg: tintegeredit;
     tbutton2: TButton;
     bnohint: tbooleanedit;
-   syslib: tbooleanedit;
+    syslib: tbooleanedit;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
@@ -50,12 +79,13 @@ type
     procedure onsetback(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure onchangeback(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
-   procedure onchangelib(const sender: TObject);
+    procedure onchangelib(const Sender: TObject);
   end;
 
 var
   configfo: tconfigfo;
   devin, devout: integer;
+  canchange : boolean = true;
 
 implementation
 
@@ -332,11 +362,11 @@ begin
     end;
 end;
 
-procedure tconfigfo.onchangelib(const sender: TObject);
+procedure tconfigfo.onchangelib(const Sender: TObject);
 begin
- if (isactivated = True) then
- begin
-    drumsfo.dostop(sender);
+  if (isactivated = True) and (canchange = true) then
+  begin
+    drumsfo.dostop(Sender);
     uos_Stop(theplayer);
     uos_Stop(theplayer2);
     uos_Stop(therecplayer);
@@ -344,17 +374,23 @@ begin
     drumsfo.loadsoundlib(Sender);
     songplayerfo.checksoundtouch(Sender);
     songplayer2fo.checksoundtouch(Sender);
-    recorderfo.oneventloop(sender);
- end;
- 
- if allok then
- begin
-  if syslib.value then
-  showmessage('Libraries from system are loaded.') else
-  showmessage('Libraries from StrumPract are loaded.');
- end;
- 
-end;  
+    recorderfo.oneventloop(Sender);
+
+    if resulib = -1 then
+    begin
+      ShowMessage('Libraries from system did not loaded.' + lineend +
+        'Libraries from StrumPract are loaded instead.');
+      canchange := false;  
+      configfo.syslib.Value := False;
+      canchange := true; 
+    end
+    else if allok then
+      if syslib.Value then
+        ShowMessage('Libraries from system are loaded.')
+      else
+        ShowMessage('Libraries from StrumPract are loaded.');
+  end;
+end;
 
 end.
 

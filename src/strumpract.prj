@@ -143,8 +143,9 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=uos_free
+ value=uos_
  history=20
+  uos_
   uos_free
   plugsoundtouch
   messagedlg
@@ -164,7 +165,6 @@ findinfiledialog=83
   dual chan
   infoyear.Caption
   infotag
-  btncue.En
  [findinfileadialogfo]
  stackedunder=
  x=200
@@ -176,8 +176,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=693
- y=461
+ x=835
+ y=384
  cx=298
  cy=269
 replacedialog=33
@@ -803,9 +803,15 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=0
-moduletypes=0
-modulefiles=0
+modulenames=2
+ CONFIGFO
+ DRUMSFO
+moduletypes=2
+ TCONFIGFO
+ TDRUMSFO
+modulefiles=2
+ /home/fred/strumpract/src/config.mfm
+ /home/fred/strumpract/src/drums.mfm
 befcommandon=0
 makeoptionson=15
  4095
@@ -1177,11 +1183,11 @@ line=35
  3270
  1512
  293
- 328
+ 329
  538
- 562
- 785
- 797
+ 563
+ 786
+ 798
  701
  1588
  209
@@ -1608,8 +1614,15 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=cbtempo
+finddtext=resu :
 findhistory=20
+ resu :
+ resu
+ showm
+ createdr
+ oncreatedd
+ loadlib
+ not lo
  cbtempo
  songtimer
  volumedrums
@@ -1623,52 +1636,59 @@ findhistory=20
  spectrum
  timer
  timerwait
- ontimeridle
- loadlib
- 1024 *
- loadl
- uos_AddIntoDevOut
- uos_AddFromFile
- uos_
 findoptions=1
-editpos=1
- 0,0
+editpos=3
+ 0,9
+ 8,1119
+ 0,377
 bookmarks0=0
-sourcefiles=1
+bookmarks1=0
+bookmarks2=0
+sourcefiles=3
  ${PROJECTDIR}/strumpract.pas
-relpaths=1
+ ${PROJECTDIR}/drums.pas
+ ${PROJECTDIR}/config.pas
+relpaths=3
  strumpract.pas
-ismoduletexts=1
+ drums.pas
+ config.pas
+ismoduletexts=3
  0
-modules=5
+ 0
+ 0
+modules=6
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/config.mfm
+moduleoptions=6
  0
  2
  0
  2
  0
-visiblemodules=5
+ 0
+visiblemodules=6
  0
  0
+ -1
  0
  0
+ -1
+nomenumodules=6
+ -1
+ -1
  0
-nomenumodules=5
  -1
  -1
- -1
- -1
- -1
+ 0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=1
 [layout]
-windowlayout=628
+windowlayout=645
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1710,8 +1730,8 @@ windowlayout=628
  ny=0
  ncx=0
  ncy=0
- x=493
- y=171
+ x=406
+ y=363
  cx=497
  cy=314
  rcx=0
@@ -1823,7 +1843,7 @@ windowlayout=628
  sortdescend1=0
  sorted=0
  col=0
- row=16
+ row=3
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1902,10 +1922,10 @@ windowlayout=628
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=338
- width0=192
+ propcolwidthref=323
+ width0=183
  sortdescend0=0
- width1=140
+ width1=134
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2126,12 +2146,10 @@ windowlayout=628
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/strumpract.pas
- history=13
-  /home/fred/strumpract/src/strumpract.pas
+ value=/home/fred/strumpract/src/drums.pas
+ history=11
+  /home/fred/strumpract/src/drums.pas
   /home/fred/strumpract/src/config.pas
-  /home/fred/strumpract/src/equalizer.pas
-  /home/fred/strumpract/src/uos_portaudio.pas
   /home/fred/ideu/src/conflang.pas
   /home/fred/strumpract/src/uos_flat.pas
   /home/fred/uos/src/uos.pas
@@ -2163,7 +2181,7 @@ windowlayout=628
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=1
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2205,7 +2223,7 @@ windowlayout=628
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2262,7 +2280,7 @@ windowlayout=628
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_configfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2277,11 +2295,11 @@ windowlayout=628
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2297,6 +2315,25 @@ windowlayout=628
  wsize=0
  active=0
  visible=0
+ [_mse_configfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=118
+ y=167
+ cx=1010
+ cy=540
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0

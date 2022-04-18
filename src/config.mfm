@@ -788,8 +788,8 @@ object configfo: tconfigfo
     )
     taborder = 6
     visible = False
-    bounds_x = 795
-    bounds_y = 102
+    bounds_x = 772
+    bounds_y = 104
     bounds_cx = 196
     bounds_cy = 36
     object bit16: tbooleaneditradio
