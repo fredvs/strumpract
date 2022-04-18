@@ -1006,6 +1006,7 @@ var
  lib1, lib2, lib3, lib4: string;
 
 begin
+  allok := false;
  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
     {$IFDEF Windows}

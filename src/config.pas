@@ -346,6 +346,14 @@ begin
     songplayer2fo.checksoundtouch(Sender);
     recorderfo.oneventloop(sender);
  end;
+ 
+ if allok then
+ begin
+  if syslib.value then
+  showmessage('Libraries from system are loaded.') else
+  showmessage('Libraries from StrumPract are loaded.');
+ end;
+ 
 end;  
 
 end.
