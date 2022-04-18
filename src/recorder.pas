@@ -90,6 +90,7 @@ type
     procedure oncreated(const Sender: TObject);
     procedure onex(const Sender: TObject);
     procedure onchangesave(const Sender: TObject);
+   procedure oneventloop(const sender: TObject);
   end;
 
   equalizer_band_type = record
@@ -776,12 +777,7 @@ begin
   Timersent.ontimer  := @ontimersent;
   Timersent.options  := [to_single];
 
-  if plugsoundtouch = False then
-  begin
-    edtempo.Enabled := False;
-    cbtempo.Enabled := False;
-    Button1.Enabled := False;
-  end;
+ 
 end;
 
 procedure trecorderfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -1139,6 +1135,22 @@ begin
     bwav.Enabled := False;
     bogg.Enabled := False;
   end;
+end;
+
+procedure trecorderfo.oneventloop(const sender: TObject);
+begin
+ if plugsoundtouch = False then
+  begin
+    edtempo.Enabled := False;
+    cbtempo.Enabled := False;
+    Button1.Enabled := False;
+  end else
+   begin
+    edtempo.Enabled := true;
+    cbtempo.Enabled := true;
+    Button1.Enabled := true;
+  end
+    
 end;
 
 

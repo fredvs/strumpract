@@ -1629,8 +1629,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=plugsoundtouch
+finddtext=cbtempo
 findhistory=20
+ cbtempo
  songtimer
  volumedrums
  drumsfo
@@ -1650,7 +1651,6 @@ findhistory=20
  uos_AddIntoDevOut
  uos_AddFromFile
  uos_
- lib3
 findoptions=1
 editpos=18
  0,39
@@ -1659,18 +1659,18 @@ editpos=18
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,614
- 0,1657
- 0,-1073741823
- 0,-1073741823
- 67,329
- 0,-1073741823
- 0,-1073741823
  0,0
- 0,21
- 0,1853
- 0,113
+ 0,-1073741823
+ 0,91
+ 0,-1073741823
+ 0,-1073741823
+ 0,346
+ 0,0
+ 0,0
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,1139
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1789,27 +1789,27 @@ nomenumodules=9
 [sourcefo.files_tab]
 order=18
  0
- 4
- 7
- 16
  14
- 15
- 8
  6
- 1
- 11
- 17
- 12
- 10
- 3
+ 2
  13
  5
- 2
+ 1
+ 8
+ 4
+ 12
  9
-firsttab=0
-index=9
+ 10
+ 17
+ 16
+ 3
+ 15
+ 7
+ 11
+firsttab=7
+index=17
 [layout]
-windowlayout=721
+windowlayout=722
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1825,7 +1825,7 @@ windowlayout=721
  ncy=0
  x=5
  y=29
- cx=1368
+ cx=1358
  cy=711
  rcx=0
  rcy=0
@@ -1927,7 +1927,7 @@ windowlayout=721
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2024,7 +2024,7 @@ windowlayout=721
  [breakpointsfo]
  splitdir=0
  useroptions=268451947
- stackedunder=memoryfo
+ stackedunder=conflangfo
  parent=
  mdistate=0
  nx=0
@@ -2140,7 +2140,7 @@ windowlayout=721
  ncy=0
  x=0
  y=536
- cx=1356
+ cx=1346
  cy=154
  rcx=0
  rcy=0
@@ -2240,7 +2240,7 @@ windowlayout=721
  ncy=0
  x=0
  y=0
- cx=1356
+ cx=1346
  cy=54
  rcx=0
  rcy=0
@@ -2256,7 +2256,7 @@ windowlayout=721
  ncy=61
  x=0
  y=0
- cx=1356
+ cx=1346
  cy=61
  rcx=0
  rcy=0
@@ -2268,7 +2268,8 @@ windowlayout=721
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/config.pas
- history=11
+ history=12
+  /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/uos_portaudio.pas
   /home/fred/strumpract/src/config.pas
   /home/fred/ideu/src/conflang.pas
@@ -2296,32 +2297,32 @@ windowlayout=721
  ncy=0
  x=208
  y=0
- cx=1148
+ cx=1138
  cy=476
  rcx=0
  rcy=0
  [sourcefo.files_tab]
  order=18
   0
-  4
-  7
-  16
   14
-  15
-  8
   6
-  1
-  11
-  17
-  12
-  10
-  3
+  2
   13
   5
-  2
+  1
+  8
+  4
+  12
   9
- firsttab=0
- index=9
+  10
+  17
+  16
+  3
+  15
+  7
+  11
+ firsttab=7
+ index=17
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2356,14 +2357,14 @@ windowlayout=721
  ncy=0
  x=0
  y=57
- cx=1356
+ cx=1346
  cy=476
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_infosfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2401,7 +2402,7 @@ windowlayout=721
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2420,7 +2421,7 @@ windowlayout=721
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_infosfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2458,7 +2459,7 @@ windowlayout=721
  [_mse_infosfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2477,7 +2478,7 @@ windowlayout=721
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2515,7 +2516,7 @@ windowlayout=721
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0

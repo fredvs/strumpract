@@ -342,6 +342,9 @@ begin
     uos_Stop(therecplayer);
     uos_free();
     drumsfo.loadsoundlib(Sender);
+    songplayerfo.checksoundtouch(Sender);
+    songplayer2fo.checksoundtouch(Sender);
+    recorderfo.oneventloop(sender);
  end;
 end;  
 
