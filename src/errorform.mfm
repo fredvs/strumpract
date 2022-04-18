@@ -1,0 +1,44 @@
+object errorfo: terrorfo
+  bounds_x = 482
+  bounds_y = 282
+  bounds_cx = 390
+  bounds_cy = 104
+  bounds_cxmin = 390
+  bounds_cymin = 104
+  bounds_cxmax = 390
+  bounds_cymax = 104
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    390
+    104
+  )
+  optionswindow = [wo_notaskbar, wo_rounded]
+  windowopacity = -Inf
+  moduleclassname = 'tmseform'
+  object tlabel1: tlabel
+    bounds_x = 85
+    bounds_y = 24
+    bounds_cx = 229
+    bounds_cy = 19
+    caption = 'Some libraries did not load...'
+    font.height = 16
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    reffontheight = 19
+  end
+  object tlabel2: tlabel
+    taborder = 1
+    bounds_x = 81
+    bounds_y = 56
+    bounds_cx = 241
+    bounds_cy = 19
+    caption = 'The application will terminate.'
+    font.height = 16
+    font.name = 'stf_default'
+    font.localprops = [flp_height]
+    reffontheight = 19
+  end
+end

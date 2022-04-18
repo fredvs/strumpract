@@ -1020,7 +1020,7 @@ var
 begin
   allok   := False;
   resulib := -1;
-  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
 
     {$IFDEF Windows}
          {$if defined(cpu64)}

@@ -162,6 +162,7 @@ var
 implementation
 
 uses
+  errorform,
   findmessage,
   infos,
   conflang,
@@ -6769,6 +6770,19 @@ end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);
 begin
+
+   if allok   = False then
+begin
+windowopacity := 1;
+application.processmessages;
+application.createform(terrorfo, errorfo);
+errorfo.show;
+ application.processmessages;
+sleep(2000);
+//application.processmessages;
+application.terminate;
+end;
+  
   windowopacity := windowopacity + 0.1;
   //{
   dockpanel1fo.windowopacity := dockpanel1fo.windowopacity + 0.1;
@@ -6798,7 +6812,10 @@ begin
   //}
 
   if windowopacity = 1 then
+  begin
     ttimer1.Enabled := False;
+    
+   end; 
 
 end;
 
@@ -6956,6 +6973,7 @@ var
   x: integer;
   oldlang: msestring;
 begin
+
   oncreatedform(Sender);
 
   if isactivated = False then
@@ -6980,6 +6998,7 @@ begin
   end;
 if mainfo.drumsvisible.value = 1 then
  drumsfo.visible := true;
+
 end;
 
 end.
