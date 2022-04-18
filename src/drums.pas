@@ -171,6 +171,8 @@ type
     procedure visiblechangeev(Const Sender: TObject);
     procedure oncreatedrums(Const Sender: TObject);
     procedure oncreateddrums(Const Sender: TObject);
+    
+    procedure loadsoundlib(Const Sender: TObject);
 
     procedure onmousewindow(Const Sender: twidget; Var ainfo: mouseeventinfoty);
     procedure onsetnovoice(Const Sender: TObject; Var avalue: boolean; Var accept: boolean);
@@ -183,6 +185,7 @@ type
     procedure onchangelang(Const sender: TObject);
    procedure onchangesongtimer(const sender: TObject);
    procedure onchansens(const sender: TObject);
+   procedure zcrea(const sender: TObject);
   end;
 
 var 
@@ -997,21 +1000,13 @@ begin
 
 end;
 
+procedure tdrumsfo.loadsoundlib(Const Sender: TObject);
+var
+ ordir: msestring;
+ lib1, lib2, lib3, lib4: string;
 
-procedure tdrumsfo.oncreatedrums(Const Sender: TObject);
-var 
-  ordir: msestring;
-  spcx, spcy, posx, posy, ax: integer;
-  lib1, lib2, lib3, lib4: string;
-  i1: int32;
 begin
-  // visible := false;
-   windowopacity := 0;
-  
-  SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
-                   [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
-
-  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+ ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
     {$IFDEF Windows}
          {$if defined(cpu64)}
@@ -1068,38 +1063,45 @@ begin
       {$ENDIF}
 
 // if uos_LoadLib(PChar(lib1), PChar(lib2),nil, nil, nil, nil) = 0 then
+
+ if configfo.syslib.Value = True then
+ begin
+ lib1 := 'system';
+ lib2 := 'system';
+ lib3 := 'system';
+  // writeln('Yes system');
+ end;
+
  if uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil) = 0 then
-// if uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil) = 0 then
 
     begin
 
       if (uos_LoadPlugin('soundtouch', PChar(lib4)) = 0) then
-        plugsoundtouch := True
+      begin
+        plugsoundtouch := True;
+        // writeln('Yes plugsoundtouch');
+      end  
       else
-        plugsoundtouch := False;
-
-
-// songdir.value :=  ordir + 'sound' + directoryseparator +  'song' + directoryseparator + 'test.mp3';
+       begin
+        plugsoundtouch := false;
+        // writeln('NO plugsoundtouch');
+      end;  
 
       allok := True;
 
     end
   else
-    application.terminate;
+  showmessage('Some libraries did not load... ;(');
+  end;
 
-  UOS_GetInfoDevice();
-  devin := UOSDefaultDeviceIN;
-  devout := UOSDefaultDeviceOUT;
-
-  // devin := -1;
-
-  if devin > -1 then
-    configfo.defdevin.caption := 'Default Device IN = ' + msestring(IntToStr(devin))
-  else configfo.defdevin.caption := 'No Default Device IN';
-
-  if devout > -1 then
-    configfo.defdevout.caption := 'Default Device OUT = ' + msestring(IntToStr(devout))
-  else configfo.defdevout.caption := 'No Default Device OUT';
+procedure tdrumsfo.oncreatedrums(Const Sender: TObject);
+var 
+ // ordir: msestring;
+  spcx, spcy, posx, posy, ax: integer;
+//  lib1, lib2, lib3, lib4: string;
+  i1: int32;
+begin
+  // visible := false;
 
   Timertick := ttimer.Create(Nil);
   Timertick.interval := 100000;
@@ -1429,6 +1431,7 @@ begin
           abd[ax].frame.colorclient := cl_white;
         end;
     end;
+    oncreateddrums(sender);
 end;
 
 procedure tdrumsfo.oncreateddrums(Const Sender: TObject);
@@ -1636,6 +1639,30 @@ end;
 procedure tdrumsfo.onchansens(const sender: TObject);
 begin
 if sensib.value < 10 then sensib.value := 10;
+end;
+
+procedure tdrumsfo.zcrea(const sender: TObject);
+begin
+                   
+  loadsoundlib(Sender);
+
+ 
+  UOS_GetInfoDevice();
+  devin := UOSDefaultDeviceIN;
+  devout := UOSDefaultDeviceOUT;
+
+  // devin := -1;
+
+  if devin > -1 then
+    configfo.defdevin.caption := 'Default Device IN = ' + msestring(IntToStr(devin))
+  else configfo.defdevin.caption := 'No Default Device IN';
+
+  if devout > -1 then
+    configfo.defdevout.caption := 'Default Device OUT = ' + msestring(IntToStr(devout))
+  else configfo.defdevout.caption := 'No Default Device OUT';
+                  
+
+
 end;
 
 end.

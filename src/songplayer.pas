@@ -88,6 +88,7 @@ type
     procedure GetWaveDataform();
     procedure DrawWaveForm();
     procedure FormDrawWaveForm();
+    procedure checksoundtouch(const Sender: TObject);
     procedure changereverse(const Sender: TObject);
     procedure ChangeStereo2Mono(const Sender: TObject);
     procedure ShowSpectrum(const Sender: TObject);
@@ -2556,16 +2557,6 @@ begin
   Timersent.ontimer  := @ontimersent;
   Timersent.options  := [to_single];
 
-  if plugsoundtouch = False then
-  begin
-    edtempo.Visible   := False;
-    cbtempo.Visible   := False;
-    Button1.Visible   := False;
-    Button2.Visible   := False;
-    tstringdisp2.left := 377;
-    tstringdisp2.top  := 64;
-  end;
-
   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
   if historyfn.Value = '' then
@@ -2605,10 +2596,31 @@ begin
   changevolume(Sender);
 end;
 
+procedure tsongplayerfo.checksoundtouch(const Sender: TObject);
+begin
+ if plugsoundtouch = False then
+  begin
+    edtempo.Visible   := False;
+    cbtempo.Visible   := False;
+    Button1.Visible   := False;
+    Button2.Visible   := False;
+    cbtempob.Visible   := False;
+   end else
+  begin
+    edtempo.Visible   := true;
+    cbtempo.Visible   := true;
+    Button1.Visible   := true;
+    Button2.Visible   := true;
+    cbtempob.Visible   := true;
+  end;
+end;
+
 procedure tsongplayerfo.oncreated(const Sender: TObject);
 begin
 
-  Equalizer_Bands[1].lo_freq  := 18;
+   checksoundtouch(Sender);
+
+   Equalizer_Bands[1].lo_freq  := 18;
   Equalizer_Bands[1].hi_freq  := 46;
   Equalizer_Bands[1].Text     := '31';
   Equalizer_Bands[2].lo_freq  := 47;

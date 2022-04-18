@@ -76,7 +76,7 @@ object songplayerfo: tsongplayerfo
     F4C37F36
   }
   oncreate = onplayercreate
-  oncreated = oncreated
+  oneventloopstart = oncreated
   ondestroy = ondestr
   onmouseevent = onmousewindow
   onshow = visiblechangeev
@@ -897,8 +897,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 13
       visible = False
-      bounds_x = 3
-      bounds_y = 51
+      bounds_x = 60
+      bounds_y = 101
       bounds_cx = 221
       bounds_cy = 41
       font.name = 'stf_default'

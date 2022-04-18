@@ -163,7 +163,7 @@ object drumsfo: tdrumsfo
     FFFFFE01FFFFFF01FCFCFC01FFFFFF01FDFFFF01F9FBFB01FDFFFF01
   }
   oncreate = oncreatedrums
-  oncreated = oncreateddrums
+  oneventloopstart = zcrea
   ondestroy = ondestroi
   onmouseevent = onmousewindow
   onshow = visiblechangeev

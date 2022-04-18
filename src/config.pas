@@ -4,41 +4,12 @@ unit config;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  uos_flat,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  mseact,
-  msedataedits,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  msestrings,
-  SysUtils,
-  msesimplewidgets,
-  msegraphedits,
-  msescrollbar,
-  msedragglob,
-  msegrids,
-  msegridsglob,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  msecolordialog;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ uos_flat,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
+ mseact,msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
+ msestream,msestrings,SysUtils,msesimplewidgets,msegraphedits,msescrollbar,
+ msedragglob,msegrids,msegridsglob,msedispwidgets,mserichstring,msedropdownlist,
+ msecolordialog;
 
 type
   tconfigfo = class(tmseform)
@@ -68,6 +39,7 @@ type
     devincfg: tintegeredit;
     tbutton2: TButton;
     bnohint: tbooleanedit;
+   syslib: tbooleanedit;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
@@ -78,6 +50,7 @@ type
     procedure onsetback(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure onchangeback(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
+   procedure onchangelib(const sender: TObject);
   end;
 
 var
@@ -358,6 +331,19 @@ begin
 
     end;
 end;
+
+procedure tconfigfo.onchangelib(const sender: TObject);
+begin
+ if (isactivated = True) then
+ begin
+    drumsfo.dostop(sender);
+    uos_Stop(theplayer);
+    uos_Stop(theplayer2);
+    uos_Stop(therecplayer);
+    uos_free();
+    drumsfo.loadsoundlib(Sender);
+ end;
+end;  
 
 end.
 

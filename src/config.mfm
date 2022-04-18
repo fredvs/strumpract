@@ -766,8 +766,8 @@ object configfo: tconfigfo
     )
     taborder = 5
     hint = 'Enable sleep mode when inactive > 3 minutes'
-    bounds_x = 804
-    bounds_y = 6
+    bounds_x = 834
+    bounds_y = 8
     bounds_cx = 112
     bounds_cy = 17
     statfile = mainfo.tstatfile1
@@ -956,12 +956,36 @@ object configfo: tconfigfo
     )
     taborder = 8
     hint = 'Dont show the hint-info'
-    bounds_x = 656
-    bounds_y = 7
+    bounds_x = 756
+    bounds_y = 8
     bounds_cx = 62
     bounds_cy = 17
     statfile = mainfo.tstatfile1
     onchange = onchangehint
+    colorglyph = 4868682
+  end
+  object syslib: tbooleanedit
+    color = -2147483645
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.colorclient = 16580582
+    frame.caption = 'System libraries'
+    frame.captiondist = 3
+    frame.localprops = [frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      0
+      2
+      101
+      3
+    )
+    taborder = 9
+    hint = 'Use libraries installed in system (otherwise uses library from StrumPract)'
+    bounds_x = 629
+    bounds_y = 8
+    bounds_cx = 114
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    onchange = onchangelib
     colorglyph = 4868682
   end
 end
