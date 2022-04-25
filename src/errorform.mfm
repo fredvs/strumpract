@@ -19,8 +19,8 @@ object errorfo: terrorfo
   windowopacity = -Inf
   moduleclassname = 'tmseform'
   object tlabel1: tlabel
-    bounds_x = 85
-    bounds_y = 24
+    bounds_x = 89
+    bounds_y = 49
     bounds_cx = 229
     bounds_cy = 19
     caption = 'Some libraries did not load...'
@@ -31,14 +31,28 @@ object errorfo: terrorfo
   end
   object tlabel2: tlabel
     taborder = 1
-    bounds_x = 81
-    bounds_y = 56
+    bounds_x = 80
+    bounds_y = 74
     bounds_cx = 241
     bounds_cy = 19
     caption = 'The application will terminate.'
     font.height = 16
     font.name = 'stf_default'
-    font.localprops = [flp_height]
+    font.localprops = [flp_color, flp_height]
     reffontheight = 19
+  end
+  object tlabel3: tlabel
+    taborder = 2
+    bounds_x = 62
+    bounds_y = 14
+    bounds_cx = 246
+    bounds_cy = 22
+    caption = '*** StrumPract Warning ***'
+    font.color = -1610612729
+    font.height = 18
+    font.style = [fs_italic]
+    font.name = 'stf_default'
+    font.localprops = [flp_color, flp_style, flp_height]
+    reffontheight = 22
   end
 end

@@ -129,7 +129,7 @@ type
   end;
 
 const
-  versiontext = '3.0.0';
+  versiontext = '3.2.0';
   emptyheight = 40;
   drumsfoheight = 274;
   filelistfoheight = 128;
@@ -6773,7 +6773,8 @@ begin
 
    if allok   = False then
 begin
-windowopacity := 1;
+ ttimer1.Enabled := False;
+ windowopacity := 0;
 application.processmessages;
 application.createform(terrorfo, errorfo);
 errorfo.show;
@@ -6781,8 +6782,8 @@ errorfo.show;
 sleep(2000);
 //application.processmessages;
 application.terminate;
-end;
-  
+end else
+ begin 
   windowopacity := windowopacity + 0.1;
   //{
   dockpanel1fo.windowopacity := dockpanel1fo.windowopacity + 0.1;
@@ -6816,6 +6817,8 @@ end;
     ttimer1.Enabled := False;
     
    end; 
+  
+  end; 
 
 end;
 

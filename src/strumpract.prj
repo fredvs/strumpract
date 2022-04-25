@@ -1620,8 +1620,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=opac
+finddtext=errorfo
 findhistory=20
+ errorfo
  opac
  showm
  opacity
@@ -1641,14 +1642,13 @@ findhistory=20
  drumsfo.v
  label2.v
  label2
- drumsfo.
 findoptions=1
 editpos=5
- 0,48
- 55,1027
- 0,382
- 0,6820
- 0,2
+ 0,0
+ 0,-1073741823
+ 4,5
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1706,15 +1706,15 @@ nomenumodules=7
  0
 [sourcefo.files_tab]
 order=5
- 3
- 0
- 1
- 4
  2
+ 4
+ 3
+ 1
+ 0
 firsttab=0
-index=2
+index=0
 [layout]
-windowlayout=671
+windowlayout=663
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1728,10 +1728,10 @@ windowlayout=671
  ny=0
  ncx=0
  ncy=0
- x=5
- y=29
- cx=1358
- cy=711
+ x=34
+ y=53
+ cx=1224
+ cy=621
  rcx=0
  rcy=0
  wsize=0
@@ -1756,8 +1756,8 @@ windowlayout=671
  ny=0
  ncx=0
  ncy=0
- x=425
- y=262
+ x=5
+ y=401
  cx=497
  cy=314
  rcx=0
@@ -1841,7 +1841,7 @@ windowlayout=671
  ncy=0
  x=239
  y=115
- cx=976
+ cx=678
  cy=414
  rcx=0
  rcy=0
@@ -1858,7 +1858,7 @@ windowlayout=671
  x=0
  y=0
  cx=205
- cy=476
+ cy=448
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1868,8 +1868,8 @@ windowlayout=671
  width1=86
  sortdescend1=0
  sorted=0
- col=0
- row=10
+ col=1
+ row=-1073741823
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1949,9 +1949,9 @@ windowlayout=671
  value=0
  [objectinspectorfo.grid]
  propcolwidthref=338
- width0=191
+ width0=150
  sortdescend0=0
- width1=141
+ width1=182
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2044,9 +2044,9 @@ windowlayout=671
  ncx=0
  ncy=0
  x=0
- y=536
- cx=1346
- cy=154
+ y=508
+ cx=1212
+ cy=92
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2115,22 +2115,22 @@ windowlayout=671
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_mainfo_mse_
+ stackedunder=
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=337
- y=29
+ x=240
+ y=139
  cx=956
  cy=77
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
  activetab=0
  [debuggerfo]
@@ -2145,7 +2145,7 @@ windowlayout=671
  ncy=0
  x=0
  y=0
- cx=1346
+ cx=1212
  cy=54
  rcx=0
  rcy=0
@@ -2157,11 +2157,11 @@ windowlayout=671
  mdistate=0
  nx=0
  ny=0
- ncx=1346
+ ncx=1212
  ncy=61
  x=0
  y=0
- cx=1346
+ cx=1212
  cy=61
  rcx=0
  rcy=0
@@ -2172,22 +2172,14 @@ windowlayout=671
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/drums.pas
- history=12
+ value=/home/fred/strumpract/src/main.pas
+ history=4
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/drums.pas
-  /home/fred/strumpract/src/config.pas
-  /home/fred/ideu/src/conflang.pas
-  /home/fred/strumpract/src/uos_flat.pas
-  /home/fred/uos/src/uos.pas
-  /home/fred/strumpract/src/uos.pas
-  /home/fred/strumpract/src/infos.pas
-  /home/fred/strumpract/src/conflang.pas
-  /home/fred/ideu/src/mo4stock.pas
-  /home/fred/ideu/src/mo4stocknew.pas
-  /home/fred/ideu/src/po2arrays.pas
+  /home/fred/strumpract/src/errorform.pas
+  ${PROJECTDIR}/main.pas
  [debuggerfo.project_options]
- value=1
+ value=6
  [debuggerfo.hints]
  value=1
  [sourcefo]
@@ -2202,19 +2194,19 @@ windowlayout=671
  ncy=0
  x=208
  y=0
- cx=1138
- cy=476
+ cx=1004
+ cy=448
  rcx=0
  rcy=0
  [sourcefo.files_tab]
  order=5
-  3
-  0
-  1
-  4
   2
+  4
+  3
+  1
+  0
  firsttab=0
- index=2
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2249,14 +2241,14 @@ windowlayout=671
  ncy=0
  x=0
  y=57
- cx=1346
- cy=476
+ cx=1212
+ cy=448
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_errorfo_mse_
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2332,7 +2324,7 @@ windowlayout=671
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2351,7 +2343,7 @@ windowlayout=671
  [_mse_configfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=_mse_errorfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2370,7 +2362,7 @@ windowlayout=671
  [_mse_errorfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

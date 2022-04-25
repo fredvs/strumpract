@@ -9,6 +9,7 @@ type
  terrorfo = class(tmseform)
    tlabel1: tlabel;
    tlabel2: tlabel;
+   tlabel3: tlabel;
  end;
 var
  errorfo: terrorfo;
