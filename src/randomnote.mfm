@@ -22,6 +22,7 @@ object randomnotefo: trandomnotefo
   font.name = 'stf_default'
   font.localprops = [flp_height]
   options = [fo_mainwindowcentered, fo_maximized, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  statfile = mainfo.tstatfile1
   caption = 'Chord Randomizer'
   icon.origformat = 'png'
   icon.image = {
@@ -6995,6 +6996,7 @@ object randomnotefo: trandomnotefo
       bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
+      statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       font.color = 5000268
       font.height = 40
@@ -7003,7 +7005,7 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
-      onmouseevent = onmousev
+      onmouseevent = onmousevdrop
       value = 'G / Sol minor'
       dropdown.color = -1610612732
       dropdown.colorclient = 16250871
@@ -7134,6 +7136,7 @@ object randomnotefo: trandomnotefo
       bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
+      statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       font.color = 5000268
       font.height = 40
@@ -7142,7 +7145,7 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
-      onmouseevent = onmousev
+      onmouseevent = onmousevdrop
       value = 'G / Sol minor'
       dropdown.color = -1610612732
       dropdown.colorclient = 16250871
@@ -7273,6 +7276,7 @@ object randomnotefo: trandomnotefo
       bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
+      statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       font.color = 5000268
       font.height = 40
@@ -7281,7 +7285,7 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
-      onmouseevent = onmousev
+      onmouseevent = onmousevdrop
       value = 'G / Sol minor'
       dropdown.color = -1610612732
       dropdown.colorclient = 16250871
@@ -10812,6 +10816,7 @@ object randomnotefo: trandomnotefo
       bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
+      statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       font.color = 5000268
       font.height = 40
@@ -10820,7 +10825,7 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
-      onmouseevent = onmousev
+      onmouseevent = onmousevdrop
       value = 'G / Sol minor'
       dropdown.color = -1610612732
       dropdown.colorclient = 16250871
@@ -11209,6 +11214,7 @@ object randomnotefo: trandomnotefo
       bounds_cx = 199
       bounds_cy = 158
       anchors = [an_left, an_top, an_right, an_bottom]
+      statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       font.color = 5000268
       font.height = 40
@@ -11217,7 +11223,7 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       onchange = onchangechorddrop
-      onmouseevent = onmousev
+      onmouseevent = onmousevdrop
       value = 'G / Sol minor'
       dropdown.color = -1610612732
       dropdown.colorclient = 16250871

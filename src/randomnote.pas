@@ -163,6 +163,7 @@ type
     pconfigtext: tstringdisp;
     tmemoedit1: tmemoedit;
     tbutton6: TButton;
+    procedure onmousevdrop(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure dorandomchordbut(const Sender: TObject);
     procedure dorandomchord(const Sender: TObject);
     procedure oncreatedev(const Sender: TObject);
@@ -4664,11 +4665,28 @@ begin
 
 end;
 
+procedure trandomnotefo.onmousevdrop(const Sender: twidget; var ainfo: mouseeventinfoty);
+begin
+  with ainfo do
+    if eventkind in [ek_buttonrelease] then
+    begin
+      // refreshform(Sender);
+      chorddrop := 1 ;
+      blocked := 0 ;
+      if bosound.Value then onchangechorddrop(Sender);
+      chorddrop := 0;
+       refreshform(Sender);
+       bosound.Value := true;
+    end;
+ end;
+
 procedure trandomnotefo.onmousev(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
   with ainfo do
     if eventkind in [ek_buttonpress] then
-      refreshform(Sender);
+    begin
+     refreshform(Sender);
+    end;
 end;
 
 procedure trandomnotefo.ontextmax(const Sender: tcustomdataedit; var atext: msestring; var accept: Boolean);
@@ -4678,7 +4696,8 @@ end;
 
 procedure trandomnotefo.ondropchord(const Sender: twidget; const dropdown: tdropdownlist);
 begin
-  chorddrop := 1;
+  chorddrop := 0;
+  bosound.Value := false;
   //refreshform(sender);
 end;
 
@@ -4688,6 +4707,7 @@ begin
     if blocked = 0 then
     begin
       blocked := 1;
+      
       dorandomchord(Sender);
       application.ProcessMessages;
       if bosound.Value then

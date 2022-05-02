@@ -7,14 +7,49 @@ unit main;
 interface
 
 uses
- {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,mseguiglob,po2arrays,
- msegraphedits,Process,mseguiintf,mseapplication,msestat,msegui,msetimer,
- msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msechart,status,
- msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,msebitmap,
- msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,mseificomp,
- mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,msedropdownlist,
- msefiledialogx,msegridsglob,{$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,
- mseconsts,captionstrumpract;
+ {$ifdef windows}win_mixer,{$endif}msetypes,
+  mseglob,
+  mseguiglob,
+  po2arrays,
+  msegraphedits,
+  Process,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msegui,
+  msetimer,
+  msegraphics,
+  msegraphutils,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  msechart,
+  status,
+  msedock,
+  msedataedits,
+  mseedit,
+  msestatfile,
+  SysUtils,
+  Classes,
+  Math,
+  msebitmap,
+  msesys,
+  msemenus,
+  msestream,
+  msegrids,
+  mselistbrowser,
+  mseact,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestrings,
+  msedatanodes,
+  msedragglob,
+  msedropdownlist,
+  msefiledialogx,
+  msegridsglob,{$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,
+  mseconsts,
+  captionstrumpract;
 
 type
   tmainfo = class(tmainform)
@@ -47,7 +82,7 @@ type
     tfaceorange2: tfacecomp;
     ttimer2: ttimer;
     tframecomp1: tframecomp;
-   drumsvisible: tintegeredit;
+    drumsvisible: tintegeredit;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -1340,7 +1375,7 @@ begin
   with equalizerfo1 do
   begin
     Caption         := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];
-    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' 1 ' ;
+    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' 1 ';
     tstringdisp21.Width := EQEN.Width + 2;
     groupbox2.frame.Caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
     //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
@@ -1355,7 +1390,7 @@ begin
   with equalizerfo2 do
   begin
     Caption         := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];
-    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' 2 ' ;
+    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' 2 ';
     tstringdisp21.Width := EQEN.Width + 2;
     groupbox2.frame.Caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
     //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
@@ -1370,7 +1405,8 @@ begin
   with equalizerforec do
   begin
     Caption         := lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];
-    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' Rec ' ;;
+    EQEN.frame.Caption := lang_mainfo[Ord(ma_equalizer)] + ' Rec ';
+    ;
     tstringdisp21.Width := EQEN.Width + 2;
     groupbox2.frame.Caption := lang_equalizerfo[Ord(eq_groupbox2frame)];  {'right '}
     //tbutton11.hint := lang_equalizerfo[Ord(eq_tbutton11_hint)];  {' Reset to 0 gain '}
@@ -1711,8 +1747,8 @@ begin
       with children1[i1] do
         if Visible then
           Inc(visiblecount); //  writeln('Child visible: ' + inttostr(i1));
-  
-     if (visiblecount = 0) then
+
+    if (visiblecount = 0) then
     begin
       //  writeln('No Child visible.');
       Width           := fowidth;
@@ -1894,13 +1930,26 @@ begin
 
   if not fileexists(tstatfile1.filename) then
   begin
-     {$if defined(cpuarm) or defined(cpuaarch64)}
-      configfo.latdrums.Value := 0.08;
-      configfo.latplay.Value := 0.3;
-      configfo.latrec.Value := 0.3;
-      {$endif}
-    //  showall(Sender);
-    //   ondockall(Sender);
+    {$if defined(cpuarm) or defined(cpuaarch64)}
+    configfo.latdrums.Value := 0.08;
+    configfo.latplay.Value  := 0.3;
+    configfo.latrec.Value   := 0.3;
+    
+    with songplayerfo do
+    begin
+      waveformcheck.Value         := False;
+      waveformcheck.tag           := 0;
+      waveformcheck.face.template := commanderfo.tfacebutgray;
+    end;
+
+    with songplayer2fo do
+    begin
+      waveformcheck.Value         := False;
+      waveformcheck.tag           := 0;
+      waveformcheck.face.template := commanderfo.tfacebutgray;
+    end;
+    {$endif}
+
     typecolor.Value := 2;
     ondockplayersx2(Sender);
 
@@ -4225,8 +4274,8 @@ begin
 
     drumsfo.edittempo.frame.colorglyph   := ltblack;
     drumsfo.volumedrums.frame.colorglyph := ltblack;
-    
-     drumsfo.sensib.frame.colorglyph := ltblack;
+
+    drumsfo.sensib.frame.colorglyph := ltblack;
 
     drumsfo.tfacedrums.template.fade_color.items[0] := $9AAD97;
     drumsfo.tfacedrums.template.fade_color.items[1] := $D6F0D1;
@@ -5006,7 +5055,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
     drumsfo.edittempo.frame.colorglyph   := ltblack;
     drumsfo.volumedrums.frame.colorglyph := ltblack;
-    drumsfo.sensib.frame.colorglyph := ltblack;
+    drumsfo.sensib.frame.colorglyph      := ltblack;
 
     drumsfo.ltempo.font.color          := ltblack;
     drumsfo.novoice.frame.font.color   := ltblack;
@@ -5754,7 +5803,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     drumsfo.edittempo.frame.colorglyph        := ltblank;
     drumsfo.volumedrums.frame.colorglyph      := ltblank;
     drumsfo.langcount.frame.button.colorglyph := ltblank;
-     drumsfo.sensib.frame.colorglyph := ltblank;
+    drumsfo.sensib.frame.colorglyph           := ltblank;
 
     drumsfo.langcount.dropdown.colorclient := ltblack;
 
@@ -6764,61 +6813,61 @@ end;
 
 procedure tmainfo.onclose(const Sender: TObject);
 begin
- if drumsfo.visible then  drumsvisible.value := 1 else
-  drumsvisible.value := 0 ;
+  if drumsfo.Visible then
+    drumsvisible.Value := 1
+  else
+    drumsvisible.Value := 0;
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);
 begin
 
-   if allok   = False then
-begin
- ttimer1.Enabled := False;
- windowopacity := 0;
-application.processmessages;
-application.createform(terrorfo, errorfo);
-errorfo.show;
- application.processmessages;
-sleep(2000);
-//application.processmessages;
-application.terminate;
-end else
- begin 
-  windowopacity := windowopacity + 0.1;
-  //{
-  dockpanel1fo.windowopacity := dockpanel1fo.windowopacity + 0.1;
-  dockpanel2fo.windowopacity := dockpanel2fo.windowopacity + 0.1;
-  dockpanel3fo.windowopacity := dockpanel3fo.windowopacity + 0.1;
-  dockpanel4fo.windowopacity := dockpanel4fo.windowopacity + 0.1;
-  dockpanel5fo.windowopacity := dockpanel5fo.windowopacity + 0.1;
-
-  commanderfo.windowopacity    := commanderfo.windowopacity + 0.1;
-  songplayerfo.windowopacity   := songplayerfo.windowopacity + 0.1;
-  songplayer2fo.windowopacity  := songplayer2fo.windowopacity + 0.1;
-  filelistfo.windowopacity     := filelistfo.windowopacity + 0.1;
-  wavefo.windowopacity         := wavefo.windowopacity + 0.1;
-  wavefo2.windowopacity        := wavefo2.windowopacity + 0.1;
-  waveforec.windowopacity      := waveforec.windowopacity + 0.1;
-  spectrum1fo.windowopacity    := spectrum1fo.windowopacity + 0.1;
-  spectrum2fo.windowopacity    := spectrum2fo.windowopacity + 0.1;
-  spectrumrecfo.windowopacity  := spectrumrecfo.windowopacity + 0.1;
-  equalizerfo1.windowopacity   := equalizerfo1.windowopacity + 0.1;
-  equalizerfo2.windowopacity   := equalizerfo2.windowopacity + 0.1;
-  equalizerforec.windowopacity := equalizerforec.windowopacity + 0.1;
-  drumsfo.windowopacity        := drumsfo.windowopacity + 0.1;
-  randomnotefo.windowopacity   := randomnotefo.windowopacity + 0.1;
-  guitarsfo.windowopacity      := guitarsfo.windowopacity + 0.1;
-  recorderfo.windowopacity     := recorderfo.windowopacity + 0.1;
-  imagedancerfo.windowopacity  := imagedancerfo.windowopacity + 0.1;
-  //}
-
-  if windowopacity = 1 then
+  if allok = False then
   begin
     ttimer1.Enabled := False;
-    
-   end; 
-  
-  end; 
+    windowopacity   := 0;
+    application.ProcessMessages;
+    application.createform(terrorfo, errorfo);
+    errorfo.Show;
+    application.ProcessMessages;
+    sleep(2000);
+    //application.processmessages;
+    application.terminate;
+  end
+  else
+  begin
+    windowopacity := windowopacity + 0.1;
+    //{
+    dockpanel1fo.windowopacity := dockpanel1fo.windowopacity + 0.1;
+    dockpanel2fo.windowopacity := dockpanel2fo.windowopacity + 0.1;
+    dockpanel3fo.windowopacity := dockpanel3fo.windowopacity + 0.1;
+    dockpanel4fo.windowopacity := dockpanel4fo.windowopacity + 0.1;
+    dockpanel5fo.windowopacity := dockpanel5fo.windowopacity + 0.1;
+
+    commanderfo.windowopacity    := commanderfo.windowopacity + 0.1;
+    songplayerfo.windowopacity   := songplayerfo.windowopacity + 0.1;
+    songplayer2fo.windowopacity  := songplayer2fo.windowopacity + 0.1;
+    filelistfo.windowopacity     := filelistfo.windowopacity + 0.1;
+    wavefo.windowopacity         := wavefo.windowopacity + 0.1;
+    wavefo2.windowopacity        := wavefo2.windowopacity + 0.1;
+    waveforec.windowopacity      := waveforec.windowopacity + 0.1;
+    spectrum1fo.windowopacity    := spectrum1fo.windowopacity + 0.1;
+    spectrum2fo.windowopacity    := spectrum2fo.windowopacity + 0.1;
+    spectrumrecfo.windowopacity  := spectrumrecfo.windowopacity + 0.1;
+    equalizerfo1.windowopacity   := equalizerfo1.windowopacity + 0.1;
+    equalizerfo2.windowopacity   := equalizerfo2.windowopacity + 0.1;
+    equalizerforec.windowopacity := equalizerforec.windowopacity + 0.1;
+    drumsfo.windowopacity        := drumsfo.windowopacity + 0.1;
+    randomnotefo.windowopacity   := randomnotefo.windowopacity + 0.1;
+    guitarsfo.windowopacity      := guitarsfo.windowopacity + 0.1;
+    recorderfo.windowopacity     := recorderfo.windowopacity + 0.1;
+    imagedancerfo.windowopacity  := imagedancerfo.windowopacity + 0.1;
+    //}
+
+    if windowopacity = 1 then
+      ttimer1.Enabled := False;
+
+  end;
 
 end;
 
@@ -6999,8 +7048,8 @@ begin
 
     configfo.onchangehint(Sender);
   end;
-if mainfo.drumsvisible.value = 1 then
- drumsfo.visible := true;
+  if mainfo.drumsvisible.Value = 1 then
+    drumsfo.Visible := True;
 
 end;
 

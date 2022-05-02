@@ -642,8 +642,8 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       taborder = 22
       visible = False
-      bounds_x = -33
-      bounds_y = 85
+      bounds_x = 12
+      bounds_y = 79
       bounds_cx = 148
       bounds_cy = 42
       reffontheight = 15
