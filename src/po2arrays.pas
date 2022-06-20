@@ -168,22 +168,22 @@ begin
   begin
     setlength(lang_modalresult, length(en_modalresulttext));
     for imodalresultty := Low(modalresultty) to High(modalresultty) do
-      lang_modalresult[Ord(imodalresultty)] := en_modalresulttext[(imodalresultty)];
+      lang_modalresult[Ord(imodalresultty)] := en_modalresulttext[Ord(imodalresultty)];
 
     setlength(lang_modalresultnoshortcut, length(en_modalresulttextnoshortcut));
     for imodalresultty := Low(modalresultty) to High(modalresultty) do
       lang_modalresultnoshortcut[Ord(imodalresultty)] :=
-        en_modalresulttextnoshortcut[(imodalresultty)];
+        en_modalresulttextnoshortcut[Ord(imodalresultty)];
 
     setlength(lang_stockcaption, length(en_stockcaption));
     for istockcaptionty := Low(stockcaptionty) to High(stockcaptionty) do
       lang_stockcaption[Ord(istockcaptionty)] :=
-        en_stockcaption[(istockcaptionty)];
+        en_stockcaption[Ord(istockcaptionty)];
 
     setlength(lang_extended, length(en_extendedtext));
     for iextendedty := Low(extendedty) to High(extendedty) do
       lang_extended[Ord(iextendedty)] :=
-        en_extendedtext[(iextendedty)];
+        en_extendedtext[Ord(iextendedty)];
 
     setlength(lang_mainfo, length(en_mainfotext));
     for imainfoty := Low(mainfoty) to High(mainfoty) do
@@ -338,22 +338,22 @@ begin
 
     setlength(default_modalresulttext, length(en_modalresulttext));
     for imodalresultty := Low(modalresultty) to High(modalresultty) do
-      default_modalresulttext[Ord(imodalresultty)] := en_modalresulttext[(imodalresultty)];
+      default_modalresulttext[Ord(imodalresultty)] := en_modalresulttext[Ord(imodalresultty)];
 
     setlength(default_modalresulttextnoshortcut, length(en_modalresulttextnoshortcut));
     for imodalresultty := Low(modalresultty) to High(modalresultty) do
       default_modalresulttextnoshortcut[Ord(imodalresultty)] :=
-        en_modalresulttextnoshortcut[(imodalresultty)];
+        en_modalresulttextnoshortcut[Ord(imodalresultty)];
 
     setlength(default_stockcaption, length(en_stockcaption));
     for istockcaptionty := Low(stockcaptionty) to High(stockcaptionty) do
       default_stockcaption[Ord(istockcaptionty)] :=
-        en_stockcaption[(istockcaptionty)];
+        en_stockcaption[Ord(istockcaptionty)];
 
     setlength(default_extendedtext, length(en_extendedtext));
     for iextendedty := Low(extendedty) to High(extendedty) do
       default_extendedtext[Ord(iextendedty)] :=
-        en_extendedtext[(iextendedty)];
+        en_extendedtext[Ord(iextendedty)];
 
     setlength(default_mainfotext, length(en_mainfotext));
     for imainfoty := Low(mainfoty) to High(mainfoty) do

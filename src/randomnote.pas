@@ -39,105 +39,16 @@ uses
   msechartedit,
   msesiggui,
   msesignal,
-  mseimage;
+  mseimage,
+  msetimer;
 
 type
   trandomnotefo = class(tdockform)
-    guitar2: tstringdisp;
-    guitar3: tstringdisp;
-    piano1: tstringdisp;
-    guitar1: tstringdisp;
-    keyb1: timage;
-    elipse1_1: timage;
-    elipse1_2: timage;
-    elipse1_3: timage;
-    piano2: tstringdisp;
-    keyb2: timage;
-    elipse2_1: timage;
-    elipse2_2: timage;
-    elipse2_3: timage;
-    piano3: tstringdisp;
-    keyb3: timage;
-    elipse3_1: timage;
-    elipse3_2: timage;
-    elipse3_3: timage;
-    timage1: timage;
-    gelipse1_3: timage;
-    gelipse1_2: timage;
-    gelipse1_1: timage;
-    gelipse2_3: timage;
-    gelipse2_1: timage;
-    gelipse2_2: timage;
-    timage8: timage;
-    gelipse3_3: timage;
-    gelipse3_2: timage;
-    gelipse3_1: timage;
-    timage12: timage;
-    chord1: TButton;
-    chord2: TButton;
-    chord3: TButton;
     tbutton4: TButton;
-    bass1: tstringdisp;
-    timage2: timage;
-    belipse1_3: timage;
-    belipse1_1: timage;
-    belipse1_2: timage;
-    bass2: tstringdisp;
-    timage6: timage;
-    belipse2_3: timage;
-    belipse2_1: timage;
-    belipse2_2: timage;
-    bass3: tstringdisp;
-    timage11: timage;
-    belipse3_3: timage;
-    belipse3_1: timage;
-    belipse3_2: timage;
     tstringdisp1: tstringdisp;
-    chord1drop: tdropdownlistedit;
-    chord2drop: tdropdownlistedit;
-    chord3drop: tdropdownlistedit;
     bnbchords: TButton;
     btnfixed: TButton;
     tbutton5: TButton;
-    chord4: TButton;
-    chord4drop: tdropdownlistedit;
-    piano4: tstringdisp;
-    keyb4: timage;
-    elipse4_1: timage;
-    elipse4_2: timage;
-    elipse4_3: timage;
-    guitar4: tstringdisp;
-    timage9: timage;
-    gelipse4_3: timage;
-    gelipse4_2: timage;
-    gelipse4_1: timage;
-    bass4: tstringdisp;
-    timage15: timage;
-    belipse4_3: timage;
-    belipse4_1: timage;
-    belipse4_2: timage;
-    chord5: TButton;
-    chord5drop: tdropdownlistedit;
-    piano5: tstringdisp;
-    keyb5: timage;
-    elipse5_1: timage;
-    elipse5_2: timage;
-    elipse5_3: timage;
-    guitar5: tstringdisp;
-    timage23: timage;
-    gelipse5_3: timage;
-    gelipse5_2: timage;
-    gelipse5_1: timage;
-    bass5: tstringdisp;
-    timage27: timage;
-    belipse5_3: timage;
-    belipse5_1: timage;
-    belipse5_2: timage;
-    bchord1: TButton;
-    bchord5: TButton;
-    bchord4: TButton;
-    bchord3: TButton;
-    bchord2: TButton;
     tbutton2: TButton;
     tbutton3: TButton;
     tgroupbox1: tgroupbox;
@@ -155,14 +66,101 @@ type
     withsharp: tbooleanedit;
     bosound: tbooleanedit;
     bconfig: TButton;
-    tstringdisp2: tstringdisp;
-    timage3: timage;
-    timage4: timage;
-    timage5: timage;
-    timage7: timage;
     pconfigtext: tstringdisp;
     tmemoedit1: tmemoedit;
     tbutton6: TButton;
+    bass1: tstringdisp;
+    timage2: timage;
+    belipse1_3: timage;
+    belipse1_1: timage;
+    belipse1_2: timage;
+    guitar1: tstringdisp;
+    timage1: timage;
+    gelipse1_3: timage;
+    gelipse1_2: timage;
+    gelipse1_1: timage;
+    piano1: tstringdisp;
+    keyb1: timage;
+    elipse1_1: timage;
+    elipse1_2: timage;
+    elipse1_3: timage;
+    bchord1: TButton;
+    chord1: TButton;
+    chord1drop: tdropdownlistedit;
+    bass2: tstringdisp;
+    timage6: timage;
+    belipse2_3: timage;
+    belipse2_1: timage;
+    belipse2_2: timage;
+    piano2: tstringdisp;
+    keyb2: timage;
+    elipse2_1: timage;
+    elipse2_2: timage;
+    elipse2_3: timage;
+    chord2: TButton;
+    chord2drop: tdropdownlistedit;
+    bchord2: TButton;
+    guitar2: tstringdisp;
+    timage8: timage;
+    gelipse2_3: timage;
+    gelipse2_1: timage;
+    gelipse2_2: timage;
+    bchord3: TButton;
+    chord3: TButton;
+    chord3drop: tdropdownlistedit;
+    piano3: tstringdisp;
+    keyb3: timage;
+    elipse3_1: timage;
+    elipse3_2: timage;
+    elipse3_3: timage;
+    guitar3: tstringdisp;
+    timage12: timage;
+    gelipse3_3: timage;
+    gelipse3_2: timage;
+    gelipse3_1: timage;
+    bass3: tstringdisp;
+    timage11: timage;
+    belipse3_3: timage;
+    belipse3_1: timage;
+    belipse3_2: timage;
+    bass4: tstringdisp;
+    timage15: timage;
+    belipse4_3: timage;
+    belipse4_1: timage;
+    belipse4_2: timage;
+    guitar4: tstringdisp;
+    timage9: timage;
+    gelipse4_3: timage;
+    gelipse4_2: timage;
+    gelipse4_1: timage;
+    piano4: tstringdisp;
+    keyb4: timage;
+    elipse4_1: timage;
+    elipse4_2: timage;
+    elipse4_3: timage;
+    chord4: TButton;
+    chord4drop: tdropdownlistedit;
+    bchord4: TButton;
+    bass5: tstringdisp;
+    timage27: timage;
+    belipse5_3: timage;
+    belipse5_1: timage;
+    belipse5_2: timage;
+    guitar5: tstringdisp;
+    timage23: timage;
+    gelipse5_3: timage;
+    gelipse5_2: timage;
+    gelipse5_1: timage;
+    piano5: tstringdisp;
+    keyb5: timage;
+    elipse5_1: timage;
+    elipse5_2: timage;
+    elipse5_3: timage;
+    chord5: TButton;
+    chord5drop: tdropdownlistedit;
+    bchord5: TButton;
+    chordsonly: TButton;
+    ttimer1: ttimer;
     procedure onmousevdrop(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure dorandomchordbut(const Sender: TObject);
     procedure dorandomchord(const Sender: TObject);
@@ -193,14 +191,20 @@ type
     procedure onhide(const Sender: TObject);
     procedure onshowrand(const Sender: TObject);
     procedure crea(const Sender: TObject);
+    procedure dochordsonly(const Sender: TObject);
+    procedure onafterdrop(const Sender: TObject);
+    procedure ontime(const Sender: TObject);
+    procedure onbefdrop(const Sender: TObject);
   end;
 
 var
   randomnotefo: trandomnotefo;
   chordran: integer;
   chorddrop: integer = 0;
+  dropbuz: integer = 0;
   chordmem1, chordmem2, chordmem3, chordmem4, chordmem5: msestring;
   blocked: integer = 0;
+  theSender: twidget;
 
 implementation
 
@@ -3727,7 +3731,8 @@ var
   ismin, isseven, x, ranchord: integer;
   isminstr, issevenstr: msestring;
 begin
-  refreshform(Sender);
+  if chordsonly.tag = 0 then
+    refreshform(Sender);
   x := 0;
 
   if Sender is TButton then
@@ -3738,11 +3743,9 @@ begin
       if (boolmajor.Value) and (boolminor.Value) then
 
         ismin := Random(2)
-      else
-      if (boolmajor.Value) and (boolminor.Value = False) then
+      else if (boolmajor.Value) and (boolminor.Value = False) then
         ismin := 1
-      else
-      if (boolmajor.Value = False) and (boolminor.Value) then
+      else if (boolmajor.Value = False) and (boolminor.Value) then
         ismin := 0
       else
         ismin := 1;
@@ -3860,7 +3863,8 @@ begin
           pianochord(chordran, ranchord, ismin, isseven);
           guitarchord(chordran, ranchord, ismin, isseven);
           basschord(chordran, ranchord, ismin, isseven);
-          refreshform(Sender);
+          if chordsonly.tag = 0 then
+            refreshform(Sender);
         end;
       end
       else
@@ -3901,7 +3905,8 @@ begin
           pianochord(TButton(Sender).tag, ranchord, ismin, isseven);
           guitarchord(TButton(Sender).tag, ranchord, ismin, isseven);
           basschord(TButton(Sender).tag, ranchord, ismin, isseven);
-          refreshform(Sender);
+          if chordsonly.tag = 0 then
+            refreshform(Sender);
         end;
       end;
 
@@ -3957,7 +3962,8 @@ begin
     pianochord(tdropdownlistedit(Sender).tag, ranchord, ismin, 0);
     guitarchord(tdropdownlistedit(Sender).tag, ranchord, ismin, 0);
     basschord(tdropdownlistedit(Sender).tag, ranchord, ismin, 0);
-    refreshform(Sender);
+    if chordsonly.tag = 0 then
+      refreshform(Sender);
   end;
 
 end;
@@ -4067,7 +4073,8 @@ begin
 
     //  bnbchords.width := 400;
     // bnbchords.height := 120;
-    tstringdisp1.Visible := False;
+    tstringdisp1.Text := '';
+    // tstringdisp1.Visible := False;
 
     if withrandom.Value = False then
       numchord.Value := StrToInt(ansistring(maxnote.Value))
@@ -4359,7 +4366,8 @@ begin
       drumsfo.dragdock.float();
       drumsfo.Visible := True;
 
-      refreshform(Sender);
+      if chordsonly.tag = 0 then
+        refreshform(Sender);
 
       bpm.Visible := True;
       bpm.Value   := (80 + random(80));
@@ -4437,7 +4445,7 @@ begin
   if guitarsfo.Visible then
   begin
     guitarsfo.top     := top + tbutton5.top + 18;
-    guitarsfo.left    := left + 40;
+    guitarsfo.left    := left + 33;
     guitarsfo.Visible := True;
     guitarsfo.bringtofront;
   end;
@@ -4445,7 +4453,7 @@ begin
   if drumsfo.Visible then
   begin
     drumsfo.top     := top + 254;
-    drumsfo.left    := left + 40;
+    drumsfo.left    := left + 33;
     drumsfo.Visible := True;
     drumsfo.bringtofront;
   end;
@@ -4458,7 +4466,8 @@ begin
   drumsfo.Visible := True;
   bpm.Visible     := True;
   bpm.Value       := round(drumsfo.edittempo.Value / 2);
-  refreshform(Sender);
+  if chordsonly.tag = 0 then
+    refreshform(Sender);
 end;
 
 procedure trandomnotefo.doquit(const Sender: TObject);
@@ -4473,7 +4482,8 @@ procedure trandomnotefo.showguit(const Sender: TObject);
 begin
   guitarsfo.dragdock.float();
   guitarsfo.Visible := True;
-  refreshform(Sender);
+  if chordsonly.tag = 0 then
+    refreshform(Sender);
 end;
 
 procedure trandomnotefo.playrandomchords(thenum: integer);
@@ -4511,18 +4521,16 @@ begin
    {$if defined(cpuarm)}
           if uos_AddIntoDevOut(20, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
    {$else}
-            if uos_AddIntoDevOut(20, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+          if uos_AddIntoDevOut(20, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
  
     {$endif}
-    begin
+            begin
               uos_Play(20);
-
-      sleep(4500);
-     end;
-
-end;
+             sleep(4500);
+            end;
+        end;
+      end;
     end;
-end;
   if thenum = 0 then
     afile := chordmem1 + '_GUIT'
   else if thenum = 1 then
@@ -4541,28 +4549,18 @@ end;
 
   if fileexists(thedir) then
     begin
-
-
       uos_Stop(21);
-
       if uos_CreatePlayer(21) then
       application.processmessages;
-
-        if uos_AddFromFile(21, PChar(thedir)) > -1 then
-
-
+      if uos_AddFromFile(21, PChar(thedir)) > -1 then
    {$if defined(cpuarm)}
-          if uos_AddIntoDevOut(21, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
+      if uos_AddIntoDevOut(21, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
    {$else}
-           if uos_AddIntoDevOut(21, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+      if uos_AddIntoDevOut(21, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
     {$endif}
-
-              uos_Play(21);
-
+      uos_Play(21);
       sleep(6000);
-
     end;
-
 end;
 
 procedure trandomnotefo.onmouseguit(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -4598,18 +4596,15 @@ begin
           application.ProcessMessages;
 
         if uos_AddFromFile(Timage(Sender).tag + 10, PChar(thedir)) > -1 then
-
-
    {$if defined(cpuarm)}
-                if uos_AddIntoDevOut(Timage(Sender).tag + 10, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
+          if uos_AddIntoDevOut(Timage(Sender).tag + 10, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
    {$else}
           if uos_AddIntoDevOut(Timage(Sender).tag + 10) > -1 then
     {$endif}
-
             uos_Play(Timage(Sender).tag + 10);
-
       end;
-      refreshform(Sender);
+      if chordsonly.tag = 0 then
+        refreshform(Sender);
 
     end;
 
@@ -4651,7 +4646,7 @@ begin
 
 
    {$if defined(cpuarm)}
-                if uos_AddIntoDevOut(Timage(Sender).tag + 20, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
+          if uos_AddIntoDevOut(Timage(Sender).tag + 20, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
    {$else}
           if uos_AddIntoDevOut(Timage(Sender).tag + 20, configfo.devoutcfg.Value, -1, -1, -1, -1, -1, -1) > -1 then
    {$endif}
@@ -4659,7 +4654,8 @@ begin
             uos_Play(Timage(Sender).tag + 20);
 
       end;
-      refreshform(Sender);
+      if chordsonly.tag = 0 then
+        refreshform(Sender);
 
     end;
 
@@ -4667,37 +4663,41 @@ end;
 
 procedure trandomnotefo.onmousevdrop(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
-  with ainfo do
-    if eventkind in [ek_buttonrelease] then
-    begin
-      // refreshform(Sender);
-      chorddrop := 1 ;
-      blocked := 0 ;
-      if bosound.Value then onchangechorddrop(Sender);
-      chorddrop := 0;
-       refreshform(Sender);
-       bosound.Value := true;
-    end;
- end;
+  if (bosound.Value) and (dropbuz = 0) then
+    with ainfo do
+      if eventkind in [ek_buttonrelease] then
+      begin
+        thesender := Sender;
+        if ttimer1.Enabled then
+          ttimer1.restart // to reset
+        else
+          ttimer1.Enabled := True;
+      end;
+  if chordsonly.tag = 0 then
+    refreshform(Sender);
+
+end;
 
 procedure trandomnotefo.onmousev(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
+{
   with ainfo do
     if eventkind in [ek_buttonpress] then
-    begin
-     refreshform(Sender);
-    end;
+      if chordsonly.tag = 0 then
+        refreshform(Sender);
+}
 end;
 
 procedure trandomnotefo.ontextmax(const Sender: tcustomdataedit; var atext: msestring; var accept: Boolean);
 begin
-  refreshform(Sender);
+  if chordsonly.tag = 0 then
+    refreshform(Sender);
 end;
 
 procedure trandomnotefo.ondropchord(const Sender: twidget; const dropdown: tdropdownlist);
 begin
   chorddrop := 0;
-  bosound.Value := false;
+  // bosound.Value := false;
   //refreshform(sender);
 end;
 
@@ -4707,16 +4707,18 @@ begin
     if blocked = 0 then
     begin
       blocked := 1;
-      
+
       dorandomchord(Sender);
       application.ProcessMessages;
       if bosound.Value then
         playrandomchords(tdropdownlistedit(Sender).tag - 1);
       application.ProcessMessages;
-      refreshform(Sender);
+      if chordsonly.tag = 0 then
+        refreshform(Sender);
       blocked := 0;
     end;
   chorddrop   := 0;
+
 end;
 
 procedure trandomnotefo.dofixed(const Sender: TObject);
@@ -4726,8 +4728,10 @@ begin
   if blocked = 0 then
   begin
     bnbchords.Visible := False;
-    btnfixed.Visible := False;
-    tstringdisp1.Visible := False;
+    btnfixed.Visible  := False;
+    tstringdisp1.Text := '';
+
+    //    tstringdisp1.Visible := False;
     blocked          := 1;
     doclear(Sender);
     application.ProcessMessages;
@@ -4963,7 +4967,8 @@ begin
   bnbchords.Visible := True;
   btnfixed.Visible  := True;
 
-  refreshform(Sender);
+  if chordsonly.tag = 0 then
+    refreshform(Sender);
   blocked := 0;
 end;
 
@@ -4986,6 +4991,7 @@ begin
   bnbchords.Visible    := True;
   btnfixed.Visible     := True;
   tstringdisp1.Visible := True;
+  tstringdisp1.Text   := tmemoedit1.Value;
 end;
 
 procedure trandomnotefo.doconfig(const Sender: TObject);
@@ -5002,24 +5008,76 @@ end;
 
 procedure trandomnotefo.onhide(const Sender: TObject);
 begin
-if  (isactivated = true) then
-      mainfo.tmainmenu1.menu.itembynames(['show','showchords']).caption := 
+  if (isactivated = True) then
+    mainfo.tmainmenu1.menu.itembynames(['show', 'showchords']).Caption :=
       lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
-      lang_randomnotefo[Ord(ra_randomnotefo)] ;          
+      lang_randomnotefo[Ord(ra_randomnotefo)];
 end;
 
 procedure trandomnotefo.onshowrand(const Sender: TObject);
 begin
-if  (isactivated = true) then
-   mainfo.tmainmenu1.menu.itembynames(['show','showchords']).caption := 
-      lang_mainfo[Ord(ma_hide)]  + ': ' +
-      lang_randomnotefo[Ord(ra_randomnotefo)] ;          
+  if (isactivated = True) then
+    mainfo.tmainmenu1.menu.itembynames(['show', 'showchords']).Caption :=
+      lang_mainfo[Ord(ma_hide)] + ': ' +
+      lang_randomnotefo[Ord(ra_randomnotefo)];
 
 end;
 
 procedure trandomnotefo.crea(const Sender: TObject);
 begin
   windowopacity := 0;
+end;
+
+procedure trandomnotefo.dochordsonly(const Sender: TObject);
+var
+ rect1: rectty;
+begin
+if tstringdisp1.visible then 
+ begin
+ rect1 := application.screenrect(window);
+
+ if chordsonly.tag = 0 then
+  begin
+    guitarsfo.Visible  := False;
+    drumsfo.Visible    := False;
+    tstringdisp1.Width := rect1.cx + 20; 
+    tstringdisp1.left  := 2;
+    chordsonly.tag     := 1;
+  end
+  else
+  begin
+    tstringdisp1.Width := rect1.cx - 470 ;
+    tstringdisp1.left  := 484;
+    chordsonly.tag     := 0;
+  end;
+ end;
+end;
+
+procedure trandomnotefo.onafterdrop(const Sender: TObject);
+begin
+  // refreshform(Sender);
+  chorddrop := 1;
+  blocked   := 0;
+  onchangechorddrop(Sender);
+  chorddrop := 0;
+  dropbuz   := 0;
+end;
+
+procedure trandomnotefo.ontime(const Sender: TObject);
+begin
+  // refreshform(Sender);
+  chorddrop := 1;
+  blocked   := 0;
+  onchangechorddrop(theSender);
+  chorddrop := 0;
+  application.ProcessMessages;
+  if chordsonly.tag = 0 then
+    refreshform(Sender);
+end;
+
+procedure trandomnotefo.onbefdrop(const Sender: TObject);
+begin
+  dropbuz := 1;
 end;
 
 end.

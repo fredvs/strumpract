@@ -1717,7 +1717,7 @@ begin
     nodrums.hint          := lang_randomnotefo[Ord(ra_nodrums_hint)];  {'Enable random Drums tempo'}
 
     bconfig.hint := lang_randomnotefo[Ord(ra_bconfig_hint)];  {'Configure the "Clear" message'}
-    timage3.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+    //timage3.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
 
   end;
 
