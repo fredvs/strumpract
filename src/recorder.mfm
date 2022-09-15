@@ -8,6 +8,7 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
+  onmouseevent = onmousewindow
   visible = False
   bounds_x = 530
   bounds_y = 180
@@ -127,7 +128,6 @@ object recorderfo: trecorderfo
   oncreated = oncreated
   oneventloopstart = oneventloop
   ondestroy = ondest
-  onmouseevent = onmousewindow
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'

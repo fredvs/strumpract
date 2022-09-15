@@ -6887,80 +6887,54 @@ begin
 end;
 
 procedure tmainfo.onsetwindowdancer(const Sender: TObject);
-var
-  x, y, w, h: integer;
 begin
-  x := imagedancerfo.left;
-  y := imagedancerfo.top;
-  w := imagedancerfo.Width;
-  h := imagedancerfo.Height;
-
-  imagedancerfo.Destroy;
-
-  if (tmenuitem(Sender).tag = 0) then      // normal
-    typwindow := 0
+   if (tmenuitem(Sender).tag = 0) then      // normal
+   begin
+    typwindow := 0;
+    imagedancerfo.OptionsWindow:= [];
+   end
   else if (tmenuitem(Sender).tag = 1) then // ellipse
-    typwindow := 1
+    begin
+    typwindow := 1;
+    imagedancerfo.OptionsWindow:= [wo_ellipse, wo_noframe];
+    end
   else if (tmenuitem(Sender).tag = 2) then // round rect
-    typwindow := 2
+    begin
+    typwindow := 2;
+    imagedancerfo.OptionsWindow:=  [wo_rounded, wo_noframe] ;
+    end
   else if (tmenuitem(Sender).tag = 3) then // rect
+   begin
     typwindow := 3;
+    imagedancerfo.OptionsWindow:=  [wo_noframe] ;
+   end;
 
-  application.createform(timagedancerfo, imagedancerfo);
-  imagedancerfo.Visible := False;
-
+  imagedancerfo.Window.RecreateWindow; 
   statusanim := 1;
-  imagedancerfo.windowopacity := 1;
 
-  application.ProcessMessages;
-
-  imagedancerfo.left    := x;
-  imagedancerfo.top     := y;
-  imagedancerfo.Width   := w;
-  imagedancerfo.Height  := h;
-  imagedancerfo.Visible := True;
   if alwaystop = 0 then
     imagedancerfo.bringtofront;
 end;
 
 procedure tmainfo.onalwaysontop(const Sender: TObject);
-var
-  x, y, w, h: integer;
 begin
 
-  x := imagedancerfo.left;
-  y := imagedancerfo.top;
-  w := imagedancerfo.Width;
-  h := imagedancerfo.Height;
-
-  imagedancerfo.Destroy;
-
   if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer', 'alwaystop']).state then
-    alwaystop := 1
+  begin
+    alwaystop := 1;
+    imagedancerfo.OptionsWindow:= imagedancerfo.OptionsWindow +  [wo_alwaysontop] ;
+  end  
   else
+  begin
     alwaystop := 0;
+    imagedancerfo.OptionsWindow:= imagedancerfo.OptionsWindow - [wo_alwaysontop] ;
+  end;  
 
-  application.ProcessMessages;
+ imagedancerfo.Window.RecreateWindow; 
+ statusanim := 1;
 
-  application.createform(timagedancerfo, imagedancerfo);
-  imagedancerfo.Visible := False;
-
-  statusanim := 1;
-
-  imagedancerfo.windowopacity := 1;
-
-  imagedancerfo.left   := x;
-  imagedancerfo.top    := y;
-  imagedancerfo.Width  := w;
-  imagedancerfo.Height := h;
-
-  application.ProcessMessages;
-
-  imagedancerfo.Visible := True;
-
-
-  imagedancerfo.bringtofront;
-
+  if alwaystop = 0 then
+    imagedancerfo.bringtofront;
 end;
 
 procedure tmainfo.onhidedancer(const Sender: TObject);

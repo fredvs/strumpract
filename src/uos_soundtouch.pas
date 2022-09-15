@@ -23,7 +23,7 @@ uses
 const
 libst=
  {$IFDEF unix}
- 'SoundTouchDll.so';
+ 'libSoundTouch.so.1';
   {$ELSE}
   {$if defined(cpu64)}
    'SoundTouch_x64.dll';
