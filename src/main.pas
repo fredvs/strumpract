@@ -6265,7 +6265,13 @@ end;
 
 procedure tmainfo.onmenuaudio(const Sender: TObject);
 begin
+  application.processmessages;
+  songplayerfo.doplayerstop(Sender);
+  songplayer2fo.doplayerstop(Sender);
+  uos_Stop(therecplayer);
+  application.processmessages;
   configfo.oncheckdevices(nil);
+  application.processmessages;
   configfo.Show(True);
 end;
 

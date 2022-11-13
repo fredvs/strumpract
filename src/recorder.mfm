@@ -8,7 +8,6 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
-  onmouseevent = onmousewindow
   visible = False
   bounds_x = 530
   bounds_y = 180
@@ -128,6 +127,7 @@ object recorderfo: trecorderfo
   oncreated = oncreated
   oneventloopstart = oneventloop
   ondestroy = ondest
+  onmouseevent = onmousewindow
   onshow = visiblechangeev
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
@@ -151,11 +151,15 @@ object recorderfo: trecorderfo
       bounds_y = 30
       bounds_cx = 88
       bounds_cy = 46
-      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localshortcut, as_localshortcut1, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 35
       focusrectdist = 0
       onexecute = doplayerstop
+      sc = (
+        1
+        32
+      )
     end
     object blistenin: tbooleanedit
       color = -2147483645
@@ -458,11 +462,15 @@ object recorderfo: trecorderfo
       bounds_y = 30
       bounds_cx = 88
       bounds_cy = 46
-      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localshortcut, as_localshortcut1, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 33
       focusrectdist = 0
       onexecute = dorecorderstart
+      sc = (
+        1
+        32
+      )
     end
     object tbutton6: tbutton
       Tag = 1
@@ -888,8 +896,8 @@ object recorderfo: trecorderfo
     face.template = commanderfo.tfaceorange
     taborder = 10
     visible = False
-    bounds_x = 6
-    bounds_y = 36
+    bounds_x = 121
+    bounds_y = 37
     bounds_cx = 221
     bounds_cy = 52
     font.name = 'stf_default'

@@ -284,9 +284,11 @@ begin
 
   tbutton3.Visible := True;
   tbutton2.Visible := False;
-
+  
   resetspectrum();
   InitDrawLive();
+  
+  tbutton3.setfocus;
 
 end;
 
@@ -907,6 +909,8 @@ begin
 
     tbutton2.Visible := True;
     tbutton3.Visible := False;
+    
+    tbutton2.setfocus;
 
     timenow          := now;
     timerrec.Enabled := True;

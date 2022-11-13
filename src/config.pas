@@ -120,12 +120,13 @@ end;
 
 procedure tconfigfo.oncheckdevices(const Sender: TObject);
 var
-  x: integer;
+  x: integer = 0;
 begin
+  application.processmessages;
   UOS_GetInfoDevice();
+  application.processmessages;
   infos_grid.rowcount := UOSDeviceCount;
-  x := 0;
-
+ 
   while x < UOSDeviceCount do
   begin
     infos_grid[0][x] := msestring(IntToStr(UOSDeviceInfos[x].DeviceNum));

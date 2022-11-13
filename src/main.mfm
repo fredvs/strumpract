@@ -13,7 +13,6 @@ object mainfo: tmainfo
   )
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
-  onmouseevent = onmouse
   visible = False
   bounds_x = 622
   bounds_y = 335
@@ -143,6 +142,7 @@ object mainfo: tmainfo
   oneventloopstart = onactiv
   ondestroy = dodestroy
   onclose = onclose
+  onmouseevent = onmouse
   onresize = onresized
   moduleclassname = 'tmainform'
   object basedock: tdockpanel
