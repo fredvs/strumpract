@@ -562,7 +562,7 @@ makeoptions=17
  -WG
  -gw2
  -B
- -O1
+ -O4
  -OoFASTMATH
  -dmse_dynpo
  -sh
@@ -1689,7 +1689,7 @@ findhistory=20
  errorfo
 findoptions=1
 editpos=26
- 0,5
+ 14,4
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1713,8 +1713,8 @@ editpos=26
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 34,1578
- 0,281
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1897,33 +1897,33 @@ nomenumodules=17
 [sourcefo.files_tab]
 order=26
  0
- 25
- 15
- 19
- 17
- 24
- 9
  16
- 5
+ 25
  8
- 3
- 22
- 11
- 21
- 1
- 14
- 2
  4
- 7
- 6
- 10
- 20
- 13
+ 11
+ 24
+ 14
  12
  23
+ 9
+ 20
+ 21
+ 3
+ 7
  18
+ 1
+ 17
+ 15
+ 5
+ 6
+ 19
+ 10
+ 13
+ 22
+ 2
 firsttab=0
-index=5
+index=0
 [layout]
 windowlayout=874
  [mainfo.basedock]
@@ -2326,7 +2326,7 @@ windowlayout=874
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=confdebuggerfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2412,33 +2412,33 @@ windowlayout=874
  [sourcefo.files_tab]
  order=26
   0
-  25
-  15
-  19
-  17
-  24
-  9
   16
-  5
+  25
   8
-  3
-  22
-  11
-  21
-  1
-  14
-  2
   4
-  7
-  6
-  10
-  20
-  13
+  11
+  24
+  14
   12
   23
+  9
+  20
+  21
+  3
+  7
   18
+  1
+  17
+  15
+  5
+  6
+  19
+  10
+  13
+  22
+  2
  firsttab=0
- index=5
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2499,7 +2499,7 @@ windowlayout=874
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filedialogxfo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2518,7 +2518,7 @@ windowlayout=874
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_filedialogxfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2556,7 +2556,7 @@ windowlayout=874
  [_mse_filedialogxfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_configfo_mse_
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2632,7 +2632,7 @@ windowlayout=874
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_configfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2784,7 +2784,7 @@ windowlayout=874
  [_mse_statusfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
