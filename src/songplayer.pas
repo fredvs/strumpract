@@ -1108,7 +1108,7 @@ begin
             begin
               btnPause.Visible := True;
               btnPause.Enabled := True;
-            end;
+             end;
 
           end;
 
@@ -1148,6 +1148,18 @@ begin
              end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying1);
+      
+   if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = nil) and (visible = true))
+      then btnpause.setfocus;
+              
           end;
 
           if hassent = 1 then  /// cue
@@ -1453,6 +1465,18 @@ begin
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying2);
+            
+     if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = nil) and (visible = true))
+      then btnpause.setfocus;
+            
           end;
 
           if hassent = 1 then  /// cue
@@ -1556,6 +1580,18 @@ begin
     iscue1 := False;
 
     tstringdisp1.Value := msestring('Playing ' + theplaying1);
+   
+   if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = nil) and (visible = true))
+      then btnpause.setfocus;
+ 
   end;
 
   if tag = 1 then
@@ -1580,6 +1616,18 @@ begin
     uos_RePlay(theplayer2);
     iscue2 := False;
     tstringdisp1.Value := msestring('Playing ' + theplaying2);
+  
+    if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = nil) and (visible = true))
+      then btnpause.setfocus;
+      
   end;
  
 end;
@@ -1624,7 +1672,7 @@ begin
 
 
     tstringdisp1.Value := msestring('Paused ' + theplaying1);
-    
+      
   end;
 
   if tag = 1 then
@@ -1645,10 +1693,22 @@ begin
     end;
 
     uos_Pause(theplayer2);
-    tstringdisp1.Value := msestring('Paused ' + theplaying2);
+    tstringdisp1.Value := msestring('Paused ' + theplaying2); 
+    
   end;
   multiplier           := 0;
   resetspectrum();
+  
+   if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
+          or
+          ((parentwidget = nil) and (visible = true))
+           then btnresume.setfocus;
  end;
 
 procedure tsongplayerfo.doplayerstop(const Sender: TObject);

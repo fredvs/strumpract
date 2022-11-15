@@ -383,7 +383,7 @@ begin
 
     if resulib = -1 then
     begin
-      tlabel1.Caption := 'Libraries from system did not loaded.' + lineend +
+      tlabel1.Caption := 'Libraries from system did not load.' + lineend +
         'Libraries from StrumPract are loaded instead.';
       canchange       := False;
       configfo.syslib.Value := False;
