@@ -6272,6 +6272,7 @@ begin
   application.processmessages;
   configfo.oncheckdevices(nil);
   application.processmessages;
+  configfo.tstringdisp1.visible := false;
   configfo.Show(True);
 end;
 

@@ -69,6 +69,9 @@ type
     tbutton2: TButton;
     bnohint: tbooleanedit;
     syslib: tbooleanedit;
+    tstringdisp1: tstringdisp;
+    tbutton3: TButton;
+    tlabel1: tlabel;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
@@ -80,12 +83,13 @@ type
     procedure onchangeback(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
     procedure onchangelib(const Sender: TObject);
+    procedure onexecmessage(const Sender: TObject);
   end;
 
 var
   configfo: tconfigfo;
   devin, devout: integer;
-  canchange : boolean = true;
+  canchange: Boolean = True;
 
 implementation
 
@@ -122,11 +126,11 @@ procedure tconfigfo.oncheckdevices(const Sender: TObject);
 var
   x: integer = 0;
 begin
-  application.processmessages;
+  application.ProcessMessages;
   UOS_GetInfoDevice();
-  application.processmessages;
+  application.ProcessMessages;
   infos_grid.rowcount := UOSDeviceCount;
- 
+
   while x < UOSDeviceCount do
   begin
     infos_grid[0][x] := msestring(IntToStr(UOSDeviceInfos[x].DeviceNum));
@@ -365,7 +369,7 @@ end;
 
 procedure tconfigfo.onchangelib(const Sender: TObject);
 begin
-  if (isactivated = True) and (canchange = true) then
+  if (isactivated = True) and (canchange = True) then
   begin
     drumsfo.dostop(Sender);
     uos_Stop(theplayer);
@@ -379,18 +383,33 @@ begin
 
     if resulib = -1 then
     begin
-      ShowMessage('Libraries from system did not loaded.' + lineend +
-        'Libraries from StrumPract are loaded instead.');
-      canchange := false;  
+      tlabel1.Caption := 'Libraries from system did not loaded.' + lineend +
+        'Libraries from StrumPract are loaded instead.';
+      canchange       := False;
       configfo.syslib.Value := False;
-      canchange := true; 
+      canchange       := True;
     end
     else if allok then
+    begin
       if syslib.Value then
-        ShowMessage('Libraries from system are loaded.')
+        tlabel1.Caption := 'Libraries from system are loaded.'
       else
-        ShowMessage('Libraries from StrumPract are loaded.');
+        tlabel1.Caption := 'Libraries from StrumPract are loaded.';
+    end
+    else
+      tlabel1.Caption := 'Something went wrong when loading libraries.';
+
+    tstringdisp1.Height  := tlabel1.Height + 20;
+    tstringdisp1.Width   := tlabel1.right + tbutton3.Width + (tlabel1.left * 2);
+    tbutton3.Height      := tstringdisp1.Height - 12;
+    tbutton3.left        := tlabel1.right + tlabel1.left;
+    tstringdisp1.Visible := True;
   end;
+end;
+
+procedure tconfigfo.onexecmessage(const Sender: TObject);
+begin
+  tstringdisp1.Visible := False;
 end;
 
 end.

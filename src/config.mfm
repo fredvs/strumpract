@@ -1,7 +1,7 @@
 object configfo: tconfigfo
   visible = False
-  bounds_x = 118
-  bounds_y = 167
+  bounds_x = 202
+  bounds_y = 65
   bounds_cx = 1000
   bounds_cy = 540
   container.frame.localprops = []
@@ -13,8 +13,9 @@ object configfo: tconfigfo
     540
   )
   optionswindow = [wo_dialog]
+  font.color = -1610612734
   font.name = 'stf_default'
-  font.localprops = []
+  font.localprops = [flp_color]
   caption = 'Configuration'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
@@ -914,9 +915,9 @@ object configfo: tconfigfo
       reffontheight = 15
     end
     object tbutton2: tbutton
-      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       taborder = 4
       hint = 'Re-load Devices Info'
       bounds_x = 9
@@ -929,12 +930,12 @@ object configfo: tconfigfo
     end
   end
   object tbutton1: tbutton
-    frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
-    bounds_x = 949
+    frame.template = commanderfo.tframecomp2
+    bounds_x = 952
     bounds_y = 6
-    bounds_cx = 39
+    bounds_cx = 40
     bounds_cy = 21
     state = [as_localcaption]
     caption = 'OK'
@@ -987,5 +988,52 @@ object configfo: tconfigfo
     statfile = mainfo.tstatfile1
     onchange = onchangelib
     colorglyph = 4868682
+  end
+  object tstringdisp1: tstringdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16771785
+      16764285
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    taborder = 10
+    visible = False
+    bounds_x = 621
+    bounds_y = 30
+    bounds_cx = 292
+    bounds_cy = 34
+    reffontheight = 15
+    object tbutton3: tbutton
+      frame.captionpos = cp_center
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      bounds_x = 233
+      bounds_y = 6
+      bounds_cx = 41
+      bounds_cy = 21
+      state = [as_localcaption, as_localonexecute]
+      caption = 'OK'
+      onexecute = onexecmessage
+    end
+    object tlabel1: tlabel
+      color = -2147483645
+      taborder = 1
+      bounds_x = 12
+      bounds_y = 10
+      bounds_cx = 197
+      bounds_cy = 15
+      caption = 'Libraries from system are loaded'
+      reffontheight = 15
+    end
   end
 end

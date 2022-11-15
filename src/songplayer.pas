@@ -1145,8 +1145,7 @@ begin
   
               btnpause.Enabled := True;
               btnpause.Visible := True;
-              btnpause.setfocus;
-            end;
+             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying1);
           end;
@@ -1451,7 +1450,6 @@ begin
               uos_Play(theplayer2);  /// everything is ready, here we are, lets play it...
               btnpause.Enabled := True;
               btnpause.Visible := True;
-              btnpause.setfocus;
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying2);
@@ -1583,7 +1581,7 @@ begin
     iscue2 := False;
     tstringdisp1.Value := msestring('Playing ' + theplaying2);
   end;
-   btnpause.setfocus;
+ 
 end;
 
 procedure tsongplayerfo.doplayerpause(const Sender: TObject);
@@ -1651,8 +1649,7 @@ begin
   end;
   multiplier           := 0;
   resetspectrum();
-   btnresume.setfocus;
-end;
+ end;
 
 procedure tsongplayerfo.doplayerstop(const Sender: TObject);
 begin
