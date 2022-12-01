@@ -7021,21 +7021,25 @@ begin
    begin
     typwindow := 0;
     imagedancerfo.OptionsWindow:= [];
+    imagedancerfo.frame.grip_size := 8;
    end
   else if (tmenuitem(Sender).tag = 1) then // ellipse
     begin
     typwindow := 1;
     imagedancerfo.OptionsWindow:= [wo_ellipse, wo_noframe];
+    imagedancerfo.frame.grip_size := 0;
     end
   else if (tmenuitem(Sender).tag = 2) then // round rect
     begin
     typwindow := 2;
     imagedancerfo.OptionsWindow:=  [wo_rounded, wo_noframe] ;
+    imagedancerfo.frame.grip_size := 0;
     end
   else if (tmenuitem(Sender).tag = 3) then // rect
    begin
     typwindow := 3;
     imagedancerfo.OptionsWindow:=  [wo_noframe] ;
+    imagedancerfo.frame.grip_size := 0;
    end;
 
   imagedancerfo.Window.RecreateWindow; 

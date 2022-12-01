@@ -1626,8 +1626,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=onhid
+finddtext=ellipse
 findhistory=20
+ ellipse
+ grip
  onhid
  onhie
  onshow
@@ -1646,16 +1648,14 @@ findhistory=20
  .float
  dancerfo.v
  Dancerfo
- dancer
- cxmax
 findoptions=1
 editpos=6
  0,0
- 0,33
- 0,122
- 0,1135
- 0,0
- 0,7170
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 51,7009
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1724,17 +1724,10 @@ nomenumodules=9
  0
  0
 [sourcefo.files_tab]
-order=6
- 0
- 1
- 2
- 3
- 9
- 5
 firsttab=0
 index=5
 [layout]
-windowlayout=705
+windowlayout=699
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1748,8 +1741,8 @@ windowlayout=705
  ny=0
  ncx=0
  ncy=0
- x=137
- y=80
+ x=112
+ y=68
  cx=1224
  cy=621
  rcx=0
@@ -2135,7 +2128,7 @@ windowlayout=705
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_infosdfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2192,13 +2185,14 @@ windowlayout=705
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/filelistform.pas
- history=7
+ value=/home/fred/strumpract/src/main.pas
+ history=8
+  /home/fred/strumpract/src/main.pas
+  /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/infosd.pas
   /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/dockpanel1.pas
   /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/infos.pas
   /home/fred/strumpract/src/infos3.pas
  [debuggerfo.project_options]
@@ -2222,13 +2216,6 @@ windowlayout=705
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=6
-  0
-  1
-  2
-  3
-  9
-  5
  firsttab=0
  index=5
  [confideufo.usedefaulteditoroptions]
@@ -2237,7 +2224,7 @@ windowlayout=705
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2272,7 +2259,7 @@ windowlayout=705
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2348,7 +2335,7 @@ windowlayout=705
  [_mse_infosdfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2367,7 +2354,7 @@ windowlayout=705
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2386,7 +2373,7 @@ windowlayout=705
  [_mse_spectrum1fo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2405,7 +2392,7 @@ windowlayout=705
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
