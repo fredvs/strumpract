@@ -29,7 +29,7 @@ uses
   guitars,
   recorder,
   imagedancer,
-  infos,
+  infosd,
   status,
   conflang,
   spectrum1,
@@ -199,9 +199,15 @@ begin
   guitarsfo.dragdock.Caption := 'Gui';
 
   application.createform(taboutfo, aboutfo);
-  application.createform(tinfosfo, infosfo);
-  application.createform(tinfosfo, infosfo2);
+  application.createform(tinfosdfo, infosdfo);
+  application.createform(tinfosdfo, infosdfo2);
   //application.createform(tinfosfo, infosforec);
+  
+  infosdfo.dragdock.Caption  := 'In1'; 
+  infosdfo.tag     := 0;
+  
+  infosdfo2.dragdock.Caption := 'In2';
+  infosdfo2.tag     := 1;
 
  // infosfo.Caption  := 'Infos Player 1';
  // infosfo2.Caption := 'Infos Player 2';

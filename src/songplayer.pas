@@ -4,7 +4,7 @@ unit songplayer;
 interface
 
 uses
- ctypes,uos_flat,infos,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
+ ctypes,uos_flat,infosd,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
  msefileutils,mseapplication,msestat,msemenus,msegui,msegraphics,Math,
  msegraphutils,mseevent,mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
  msedataedits,msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,
@@ -1200,7 +1200,7 @@ begin
 
           oninfowav(Sender);
 
-          infosfo.infolength.Caption := copy(llength.Value, 1, 8);
+          infosdfo.infolength.Caption := copy(llength.Value, 1, 8);
 
           if as_checked in wavefo.tmainmenu1.menu[0].state then
           begin
@@ -1519,7 +1519,7 @@ begin
 
           oninfowav(Sender);
 
-          infosfo2.infolength.Caption := copy(llength.Value, 1, 8);
+          infosdfo2.infolength.Caption := copy(llength.Value, 1, 8);
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
           begin
@@ -2320,63 +2320,63 @@ begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
           begin
-            infosfo.imgPreview.bitmap.LoadFromStream(TagReader.Tags.Images[0].Image);
-            infosfo.imgPreview.Visible := True;
+            infosdfo.imgPreview.bitmap.LoadFromStream(TagReader.Tags.Images[0].Image);
+            infosdfo.imgPreview.Visible := True;
           end
           else
-            infosfo.imgPreview.Visible := False;
+            infosdfo.imgPreview.Visible := False;
 
           CommonTags := TagReader.GetCommonTags;
 
-          infosfo.infofile.Caption := copy(trim(extractfilename(historyfn.Value)), 1, 60);
-          infosfo.infoname.Caption := copy(trim(CommonTags.Title), 1, 60) + ' ';
+          infosdfo.infofile.Caption := copy(trim(extractfilename(historyfn.Value)), 1, 60);
+          infosdfo.infoname.Caption := copy(trim(CommonTags.Title), 1, 60) + ' ';
 
-          infosfo.infoartist.Caption := copy(trim(CommonTags.Artist), 1, 60) + ' ';
-          infosfo.infoalbum.Caption  := copy(trim(CommonTags.Album), 1, 60) + ' ';
+          infosdfo.infoartist.Caption := copy(trim(CommonTags.Artist), 1, 60) + ' ';
+          infosdfo.infoalbum.Caption  := copy(trim(CommonTags.Album), 1, 60) + ' ';
 
-          infosfo.infofile.hint   := ' ' + trim(extractfilename(historyfn.Value)) + ' ';
-          infosfo.infoname.hint   := ' ' + trim(CommonTags.Title) + ' ';
-          infosfo.infoartist.hint := ' ' + trim(CommonTags.Artist) + ' ';
-          infosfo.infoalbum.hint  := ' ' + trim(CommonTags.Album) + ' ';
-          infosfo.infocom.hint    := ' ' + trim(CommonTags.Comment) + ' ';
+          infosdfo.infofile.hint   := ' ' + trim(extractfilename(historyfn.Value)) + ' ';
+          infosdfo.infoname.hint   := ' ' + trim(CommonTags.Title) + ' ';
+          infosdfo.infoartist.hint := ' ' + trim(CommonTags.Artist) + ' ';
+          infosdfo.infoalbum.hint  := ' ' + trim(CommonTags.Album) + ' ';
+          infosdfo.infocom.hint    := ' ' + trim(CommonTags.Comment) + ' ';
 
-          infosfo.infoyear.Caption   := trim(CommonTags.Year) + ' ';
-          infosfo.infocom.Caption    := copy(trim(CommonTags.Comment), 1, 60) + ' ';
-          infosfo.infotag.Caption    := trim(CommonTags.Genre) + ' ';
-          infosfo.tracktag.Caption    := inttostr(CommonTags.track) + '  ';
-          infosfo.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
+          infosdfo.infoyear.Caption   := trim(CommonTags.Year) + ' ';
+          infosdfo.infocom.Caption    := copy(trim(CommonTags.Comment), 1, 60) + ' ';
+          infosdfo.infotag.Caption    := trim(CommonTags.Genre) + ' ';
+          infosdfo.tracktag.Caption    := inttostr(CommonTags.track) + '  ';
+          infosdfo.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
             (CommonTags.Duration / MSecsPerDay)))) + ' ';
-          infosfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
+          infosdfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
 
           if (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo') or
                       (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'dual channel') 
            then
-            infosfo.infochan.Caption := 'Stereo '
+            infosdfo.infochan.Caption := 'Stereo '
           else
-            infosfo.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
+            infosdfo.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
 
 
           // BPM
 
-          infosfo.infobpm.Caption := '';
+          infosdfo.infobpm.Caption := '';
 
           if plugsoundtouch = True then
           begin
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
             //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
-            infosfo.infobpm.Caption := trim(utf8decode(
+            infosdfo.infobpm.Caption := trim(utf8decode(
               IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels,
               thebufferinfos.samplerate))))) + ' ';
           end;
 
-          //  infosfo.Width := 442;
-          //  infosfo.height := 238 ;
+          //  infosdfo.Width := 442;
+          //  infosdfo.height := 238 ;
 
           if (hassent = 1) then
           begin
-            infosfo.Visible := True;
-            infosfo.bringtofront;
+            infosdfo.Visible := True;
+            infosdfo.bringtofront;
           end;
         end;
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav = False) then
@@ -2424,48 +2424,48 @@ begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
           begin
-            infosfo2.imgPreview.bitmap.LoadFromStream(TagReader.Tags.Images[0].Image);
-            infosfo2.imgPreview.Visible := True;
+            infosdfo2.imgPreview.bitmap.LoadFromStream(TagReader.Tags.Images[0].Image);
+            infosdfo2.imgPreview.Visible := True;
           end
           else
-            infosfo2.imgPreview.Visible := False;
+            infosdfo2.imgPreview.Visible := False;
 
           CommonTags := TagReader.GetCommonTags;
 
-          infosfo2.infofile.Caption   := copy(trim(extractfilename(historyfn.Value)), 1, 60);
-          infosfo2.infoname.Caption   := copy(trim(CommonTags.Title), 1, 60) + ' ';
-          infosfo2.infoartist.Caption := copy(trim(CommonTags.Artist), 1, 60) + ' ';
-          infosfo2.infoalbum.Caption  := copy(trim(CommonTags.Album), 1, 60) + ' ';
-          infosfo2.infoyear.Caption   := trim(CommonTags.Year) + ' ';
-          infosfo2.infocom.Caption    := copy(trim(CommonTags.Comment), 1, 60) + ' ';
+          infosdfo2.infofile.Caption   := copy(trim(extractfilename(historyfn.Value)), 1, 60);
+          infosdfo2.infoname.Caption   := copy(trim(CommonTags.Title), 1, 60) + ' ';
+          infosdfo2.infoartist.Caption := copy(trim(CommonTags.Artist), 1, 60) + ' ';
+          infosdfo2.infoalbum.Caption  := copy(trim(CommonTags.Album), 1, 60) + ' ';
+          infosdfo2.infoyear.Caption   := trim(CommonTags.Year) + ' ';
+          infosdfo2.infocom.Caption    := copy(trim(CommonTags.Comment), 1, 60) + ' ';
 
-          infosfo2.infofile.hint   := ' ' + trim(extractfilename(historyfn.Value)) + ' ';
-          infosfo2.infoname.hint   := ' ' + trim(CommonTags.Title) + ' ';
-          infosfo2.infoartist.hint := ' ' + trim(CommonTags.Artist) + ' ';
-          infosfo2.infoalbum.hint  := ' ' + trim(CommonTags.Album) + ' ';
-          infosfo2.infocom.hint    := ' ' + trim(CommonTags.Comment) + ' ';
-          infosfo2.tracktag.Caption    := inttostr(CommonTags.track) + '  ';
-          infosfo2.infotag.Caption    := trim(CommonTags.Genre) + ' ';
-          infosfo2.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
+          infosdfo2.infofile.hint   := ' ' + trim(extractfilename(historyfn.Value)) + ' ';
+          infosdfo2.infoname.hint   := ' ' + trim(CommonTags.Title) + ' ';
+          infosdfo2.infoartist.hint := ' ' + trim(CommonTags.Artist) + ' ';
+          infosdfo2.infoalbum.hint  := ' ' + trim(CommonTags.Album) + ' ';
+          infosdfo2.infocom.hint    := ' ' + trim(CommonTags.Comment) + ' ';
+          infosdfo2.tracktag.Caption    := inttostr(CommonTags.track) + '  ';
+          infosdfo2.infotag.Caption    := trim(CommonTags.Genre) + ' ';
+          infosdfo2.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
             (CommonTags.Duration / MSecsPerDay)))) + ' ';
-          infosfo2.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
+          infosdfo2.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
           if (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo') or
               (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'dual channel') then
        
-           infosfo2.infochan.Caption := 'Stereo '
+           infosdfo2.infochan.Caption := 'Stereo '
           else
-            infosfo2.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
+            infosdfo2.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
 
           // BPM
 
-          infosfo2.infobpm.Caption := '';
+          infosdfo2.infobpm.Caption := '';
 
           if plugsoundtouch = True then
           begin
 
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
-            infosfo2.infobpm.Caption :=
+            infosdfo2.infobpm.Caption :=
               trim(utf8decode(IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels,
               thebufferinfos.samplerate))))) + ' ';
 
@@ -2473,8 +2473,8 @@ begin
 
           if (hassent = 1) then
           begin
-            infosfo2.Visible := True;
-            infosfo2.bringtofront;
+            infosdfo2.Visible := True;
+            infosdfo2.bringtofront;
           end;
         end;
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav2 = False) then
@@ -2927,7 +2927,7 @@ begin
         begin
 
           button2.Caption         := utf8decode(IntToStr(round(thebpm)));
-          infosfo.infobpm.Caption := button2.Caption;
+          infosdfo.infobpm.Caption := button2.Caption;
           drumsfo.edittempo.Value := round(thebpm);
           button2.face.template   := mainfo.tfaceorange;
           if timersent.Enabled then
@@ -2956,7 +2956,7 @@ begin
         begin
           button2.Caption         := utf8decode(IntToStr(round(thebpm)));
           drumsfo.edittempo.Value := round(thebpm);
-          infosfo2.infobpm.Caption := button2.Caption;
+          infosdfo2.infobpm.Caption := button2.Caption;
         
           button2.face.template   := mainfo.tfaceorange;
 

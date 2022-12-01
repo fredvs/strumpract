@@ -154,6 +154,8 @@ type
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure onlangset(const Sender: TObject);
     procedure onactiv(const Sender: TObject);
+   procedure showinfos1(const sender: TObject);
+   procedure showinfos2(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -199,7 +201,7 @@ implementation
 uses
   errorform,
   findmessage,
-  infos,
+  infosd,
   conflang,
   config,
   drums,
@@ -259,7 +261,7 @@ begin
       dockpanel5fo.mainmenu.menu.font.name := 'Unifont' ;
       dockpanel5fo.mainmenu.menu.font.height := 14;
       
-   with infosfo do
+   with infosdfo do
     begin
      font.name := 'Unifont' ;
      font.height := 14;
@@ -290,7 +292,7 @@ begin
     infobpm.frame.font.height := 12 ;
     end;
     
-    with infosfo2 do
+    with infosdfo2 do
     begin
      font.name := 'Unifont' ;
      font.height := 14;
@@ -461,7 +463,7 @@ begin
       messagefontname := 'stf_default';
       messagefontheight := 12;
       
-    with infosfo do
+    with infosdfo do
     begin
      font.name := 'stf_default' ;
      font.height := 14;
@@ -491,7 +493,7 @@ begin
     infobpm.frame.font.height := 10 ;
     end;
     
-    with infosfo2 do
+    with infosdfo2 do
     begin
      font.name := 'stf_default' ;
      font.height := 14;
@@ -1005,7 +1007,7 @@ begin
     cancel.Caption := lang_stockcaption[Ord(sc_cancel)];
   end;
 
-  with infosfo do
+  with infosdfo do
   begin
     Caption         := lang_commanderfo[Ord(co_nameplayers_hint)] + ' ' +
       lang_infosfo[Ord(in_infosfo)];
@@ -1024,7 +1026,7 @@ begin
     infobpm.frame.Caption := lang_infosfo[Ord(in_infobpmframe)];  {'BMP'}
   end;
 
-  with infosfo2 do
+  with infosdfo2 do
   begin
     Caption         := lang_commanderfo[Ord(co_nameplayers2_hint)] + ' ' +
       lang_infosfo[Ord(in_infosfo)];
@@ -2353,6 +2355,12 @@ begin
   if songplayerfo.Visible then
     songplayerfo.dragdock.float();
 
+ if infosdfo.Visible then
+    infosdfo.dragdock.float();
+ 
+ if infosdfo2.Visible then
+    infosdfo2.dragdock.float();
+
   if spectrum1fo.Visible then
     spectrum1fo.dragdock.float();
 
@@ -2418,7 +2426,13 @@ begin
 
   filelistfo.bounds_cxmax := fowidth;
   filelistfo.bounds_cymax := 0;
-
+  
+  infosdfo.height := 226;
+  infosdfo.width := songplayerfo.width;
+  
+  infosdfo2.height :=  infosdfo.height;
+  infosdfo2.width := infosdfo.width;
+ 
   Height := emptyheight + 20;
   Width  := fowidth;
 
@@ -2470,6 +2484,12 @@ begin
     recorderfo.left := leftposi + leftdec;
     leftposi        := recorderfo.left;
   end;
+ 
+  if infosdfo.Visible then
+ begin
+    infosdfo.left := leftposi + leftdec;
+    leftposi         := infosdfo.left;
+  end;
 
   if spectrum1fo.Visible then
   begin
@@ -2493,6 +2513,12 @@ begin
   begin
     songplayerfo.left := leftposi + leftdec;
     leftposi          := songplayerfo.left;
+  end;
+  
+    if infosdfo2.Visible then
+ begin
+    infosdfo2.left := leftposi + leftdec;
+    leftposi         := infosdfo2.left;
   end;
 
   if spectrum2fo.Visible then
@@ -2578,6 +2604,13 @@ begin
     posi           := recorderfo.top + topdec;
     recorderfo.activate;
   end;
+  
+   if infosdfo.Visible then
+  begin
+    infosdfo.top := posi;
+    posi := infosdfo.top + topdec;
+    infosdfo.activate;
+  end;
 
   if spectrum1fo.Visible then
   begin
@@ -2605,6 +2638,13 @@ begin
     songplayerfo.top := posi;
     posi := songplayerfo.top + topdec;
     songplayerfo.activate;
+  end;
+  
+   if infosdfo2.Visible then
+  begin
+    infosdfo2.top := posi;
+    posi := infosdfo2.top + topdec;
+    infosdfo2.activate;
   end;
 
   if spectrum2fo.Visible then
@@ -2733,8 +2773,8 @@ begin
 
   // imagedancerfo.Visible := False;
 
-  infosfo.Visible  := False;
-  infosfo2.Visible := False;
+  infosdfo.Visible  := False;
+  infosdfo2.Visible := False;
 
 
   dockpanel3fo.Visible := False;
@@ -3014,8 +3054,8 @@ begin
   norefresh := True;
 
   oktimer          := 1;
-  infosfo.Visible  := False;
-  infosfo2.Visible := False;
+  infosdfo.Visible  := False;
+  infosdfo2.Visible := False;
 
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -3221,8 +3261,8 @@ begin
   spectrum1fo.Visible  := True;
   //spectrum1fo.dragdock.float();
 
-  infosfo.Visible  := True;
-  infosfo2.Visible := True;
+  infosdfo.Visible  := True;
+  infosdfo2.Visible := True;
 
   spectrum2fo.Visible := True;
   //spectrum1fo.dragdock.float();
@@ -3274,15 +3314,22 @@ begin
   begin
 
     // dragfloat(dockpanel1fo);
-
+   
     songplayerfo.parentwidget := basedock;
 
     spectrum1fo.parentwidget := basedock;
 
     equalizerfo1.parentwidget := basedock;
 
+    infosdfo.Width  := songplayerfo.Width;
+    infosdfo.Height := 228;
+    infosdfo.parentwidget := basedock;
+  
     //{
     pt1 := nullpoint;
+    
+    infosdfo.pos := pt1;
+    pt1.y           := pt1.y + infosdfo.Height + decorationheight;
 
     spectrum1fo.pos := pt1;
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
@@ -3302,9 +3349,17 @@ begin
     songplayer2fo.parentwidget := basedock;
     spectrum2fo.parentwidget   := basedock;
     equalizerfo2.parentwidget  := basedock;
+    
+    infosdfo2.Width  := songplayerfo.Width;
+    infosdfo2.Height := 228;
+    infosdfo2.parentwidget := basedock;
+
 
     //{
     pt1 := nullpoint;
+    
+    infosdfo2.pos := pt1;
+    pt1.y           := pt1.y + infosdfo2.Height + decorationheight;
 
     spectrum2fo.pos := pt1;
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
@@ -3328,19 +3383,23 @@ begin
   interv := (rect1.cx - (3 * foWidth)) div 2;
 
   decorationheight := window.decoratedbounds_cy - Height;
+{
+  infosdfo.dragdock.float();
+ 
+  infosdfo.Width  := songplayerfo.Width;
+  infosdfo.Height := 228;
 
-  infosfo.Width  := dockpanel1fo.Width;
-  infosfo.Height := 238;
+ infosdfo2.dragdock.float();
+ 
+  infosdfo2.Width  := infosdfo.Width;
+  infosdfo2.Height := infosdfo.Height;
 
-  infosfo2.Width  := infosfo.Width;
-  infosfo2.Height := 238;
-
-  infosfo.top  := decorationheight;
-  infosfo2.top := decorationheight;
-  ;
+  infosdfo.top  := decorationheight;
+  infosdfo2.top := decorationheight;
+ }
 
   dockpanel1fo.left := 0;
-  dockpanel1fo.top  := decorationheight + infosfo.bottom + 4;
+  dockpanel1fo.top  := decorationheight ;
 
   filelistfo.left := commanderfo.Width + interv;
   filelistfo.top  := commanderfo.Height + round(2.5 * decorationheight) - 2;
@@ -3360,8 +3419,8 @@ begin
 
   dockpanel2fo.left := filelistfo.right + interv;
 
-  infosfo.left  := dockpanel1fo.left;
-  infosfo2.left := dockpanel2fo.left;
+  infosdfo.left  := dockpanel1fo.left;
+  infosdfo2.left := dockpanel2fo.left;
 
   endlayout();
 
@@ -3373,8 +3432,8 @@ begin
   dockpanel1fo.Visible := True;
   dockpanel2fo.Visible := True;
 
-  infosfo.bringtofront;
-  infosfo2.bringtofront;
+  infosdfo.bringtofront;
+  infosdfo2.bringtofront;
 
   //application.ProcessMessages;
 
@@ -3415,7 +3474,13 @@ begin
 
   waveforec.bounds_cxmax := fowidth;
   waveforec.bounds_cymax := 100;
-
+  
+  infosdfo.height := 226;
+   infosdfo.width := songplayerfo.width;
+  
+  infosdfo2.height :=  infosdfo.height;
+  infosdfo2.width := infosdfo.width;
+ 
   //sizeecbefdock.cy := 500;
   //size := sizebefdock;
 
@@ -3440,7 +3505,13 @@ begin
     spectrum1fo.parentwidget  := basedock;
   if equalizerfo1.Visible then
     equalizerfo1.parentwidget := basedock;
+    
+  if infosdfo.Visible then
+    infosdfo.parentwidget  := basedock;
 
+ if infosdfo2.Visible then
+    infosdfo2.parentwidget  := basedock;
+    
   if spectrum2fo.Visible then
     spectrum2fo.parentwidget  := basedock;
   if equalizerfo2.Visible then
@@ -3481,6 +3552,12 @@ begin
     filelistfo.pos := pt1;
     pt1.y          := pt1.y + filelistfo.Height + decorationheight;
   end;
+  
+   if infosdfo.Visible then
+  begin
+    infosdfo.pos := pt1;
+    pt1.y           := pt1.y + infosdfo.Height + decorationheight;
+  end;
 
   if spectrum1fo.Visible then
   begin
@@ -3504,6 +3581,12 @@ begin
   begin
     songplayerfo.pos := pt1;
     pt1.y := pt1.y + songplayerfo.Height + decorationheight;
+  end;
+  
+   if infosdfo2.Visible then
+  begin
+    infosdfo2.pos := pt1;
+    pt1.y           := pt1.y + infosdfo2.Height + decorationheight;
   end;
 
   if spectrum2fo.Visible then
@@ -3618,7 +3701,10 @@ begin
   wavefo.bounds_cy    := wavefoheight;
   wavefo2.bounds_cy   := wavefoheight;
   waveforec.bounds_cy := wavefoheight;
-
+  
+  infosdfo.width := fowidth;
+  infosdfo2.width := fowidth;
+    
   beginlayout();
   oktimer := 1;
 
@@ -3985,7 +4071,7 @@ begin
     randomnotefo.bchord4.font.color := cl_black;
     randomnotefo.bchord5.font.color := cl_black;
 
-    with infosfo do
+    with infosdfo do
     begin
       infofile.font.color   := cl_black;
       infoartist.font.color := cl_black;
@@ -4014,7 +4100,7 @@ begin
       infobpm.frame.font.color    := cl_black;
     end;
     {
-     with infosforec do
+     with infosdforec do
     begin
       infofile.font.color   := cl_black;
       infoartist.font.color := cl_black;
@@ -4042,7 +4128,7 @@ begin
     end;
      }
 
-    with infosfo2 do
+    with infosdfo2 do
     begin
       infofile.font.color   := cl_black;
       infoartist.font.color := cl_black;
@@ -4497,7 +4583,7 @@ begin
 
     commanderfo.tfacegriptab.template.fade_color.items[0] := $F8DEFF;
     commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6;
-
+    
     commanderfo.timemix.frame.font.color := ltblack;
 
     commanderfo.genvolleft.scrollbar.face.template       := commanderfo.tfaceslider;
@@ -4785,7 +4871,7 @@ begin
     randomnotefo.tgroupbox2.frame.font.color := cl_black;
     randomnotefo.tgroupbox3.frame.font.color := cl_black;
 
-    with infosfo do
+    with infosdfo do
     begin
       infofile.font.color   := cl_black;
       infoartist.font.color := cl_black;
@@ -4815,7 +4901,7 @@ begin
     end;
 
     {
-    with infosforec do
+    with infosdforec do
     begin
       infofile.font.color   := cl_black;
       infoartist.font.color := cl_black;
@@ -4843,7 +4929,7 @@ begin
     end;
     }
 
-    with infosfo2 do
+    with infosdfo2 do
     begin
       infofile.font.color   := cl_black;
       infoartist.font.color := cl_black;
@@ -5537,7 +5623,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
     randomnotefo.tgroupbox2.frame.font.color := cl_white;
     randomnotefo.tgroupbox3.frame.font.color := cl_white;
 
-    with infosfo do
+    with infosdfo do
     begin
       infofile.font.color   := cl_white;
       infoartist.font.color := cl_white;
@@ -5566,7 +5652,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       infobpm.frame.font.color    := cl_white;
     end;
  {
- with infosforec do
+ with infosdforec do
     begin
       infofile.font.color   := cl_white;
       infoartist.font.color := cl_white;
@@ -5593,7 +5679,7 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
       infobpm.frame.font.color    := cl_white;
     end;
 }
-    with infosfo2 do
+    with infosdfo2 do
     begin
       infofile.font.color   := cl_white;
       infoartist.font.color := cl_white;
@@ -6380,8 +6466,8 @@ begin
 
   oktimer := 1;
 
-  infosfo.Visible  := False;
-  infosfo2.Visible := False;
+  infosdfo.Visible  := False;
+  infosdfo2.Visible := False;
 
   // basedock.anchors := [an_left,an_top]  ;
   basedock.dragdock.currentsplitdir := sd_horz;
@@ -6587,8 +6673,8 @@ begin
   dockpanel4fo.Visible  := False;
   dockpanel5fo.Visible  := False;
   imagedancerfo.Visible := False;
-  infosfo.Visible       := False;
-  infosfo2.Visible      := False;
+  infosdfo.Visible       := False;
+  infosdfo2.Visible      := False;
 
   hideall(nil);
 
@@ -6765,8 +6851,8 @@ end;
 
 procedure tmainfo.ondancerlayout(const Sender: TObject);
 begin
-  infosfo.Visible  := False;
-  infosfo2.Visible := False;
+  infosdfo.Visible  := False;
+  infosdfo2.Visible := False;
 
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
@@ -7031,7 +7117,20 @@ begin
   end;
   if mainfo.drumsvisible.Value = 1 then
     drumsfo.Visible := True;
+    
+   infosdfo.onshow(nil);
+   infosdfo2.onshow(nil);
 
+end;
+
+procedure tmainfo.showinfos1(const sender: TObject);
+begin
+ infosdfo.Visible := not infosdfo.Visible;
+end;
+
+procedure tmainfo.showinfos2(const sender: TObject);
+begin
+ infosdfo2.Visible := not infosdfo2.Visible;
 end;
 
 end.

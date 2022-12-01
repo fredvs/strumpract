@@ -4,7 +4,7 @@ unit recorder;
 interface
 
 uses
- ctypes,uos_flat,infos,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
+ ctypes,uos_flat,infosd,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
  mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,Math,mseevent,
  mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
  msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,msegraphedits,

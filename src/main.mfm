@@ -337,7 +337,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 23
+        submenu.count = 25
         submenu.items = <        
           item
             caption = 'Show All'
@@ -392,6 +392,7 @@ object mainfo: tmainfo
             state = [as_localcaption]
           end        
           item
+            state = [as_localcaption]
             options = [mao_separator, mao_shortcutcaption]
           end        
           item
@@ -435,6 +436,18 @@ object mainfo: tmainfo
             name = 'showguitar'
             state = [as_localcaption, as_localonexecute]
             onexecute = showguitars
+          end        
+          item
+            caption = 'Show Infos 1'
+            name = 'showinfos1'
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showinfos1
+          end        
+          item
+            caption = 'Show Infos 2'
+            name = 'showinfos2'
+            state = [as_localcaption, as_localonexecute]
+            onexecute = showinfos2
           end        
           item
             caption = 'Show Spectrum 1'
