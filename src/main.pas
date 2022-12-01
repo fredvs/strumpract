@@ -2363,6 +2363,9 @@ begin
 
   if spectrum1fo.Visible then
     spectrum1fo.dragdock.float();
+    
+  if imagedancerfo.Visible then
+    imagedancerfo.dragdock.float();   
 
   if spectrum2fo.Visible then
     spectrum2fo.dragdock.float();
@@ -2442,6 +2445,12 @@ begin
   endlayout();
 
   leftposi := 0;
+  
+  if imagedancerfo.Visible then
+  begin
+    imagedancerfo.left := leftposi + leftdec;
+    leftposi        := imagedancerfo.left;
+  end;
 
   if filelistfo.Visible then
   begin
@@ -2555,6 +2564,13 @@ begin
   top := 0;
 
   posi := 124;
+  
+    if imagedancerfo.Visible then
+  begin
+    imagedancerfo.top := posi;
+    posi           := imagedancerfo.top + topdec;
+    imagedancerfo.activate;
+  end;
 
   if filelistfo.Visible then
   begin
@@ -2720,6 +2736,7 @@ begin
 
     if songplayerfo.parentwidget = basedock then
       songplayerfo.dragdock.float();
+   
     if songplayer2fo.parentwidget = basedock then
       songplayer2fo.dragdock.float();
 
@@ -3475,6 +3492,9 @@ begin
   waveforec.bounds_cxmax := fowidth;
   waveforec.bounds_cymax := 100;
   
+   imagedancerfo.height := 354;
+ imagedancerfo.bounds_cxmax := fowidth;
+ imagedancerfo.bounds_cx := fowidth;
  // infosdfo.height := 226;
  
  //  infosdfo.width := songplayerfo.width;
@@ -3490,7 +3510,7 @@ begin
   beginlayout();
 
   basedock.dragdock.currentsplitdir := sd_horz;
-
+  
   if drumsfo.Visible then
     drumsfo.parentwidget       := basedock;
   if filelistfo.Visible then
@@ -3501,6 +3521,9 @@ begin
     songplayer2fo.parentwidget := basedock;
   if commanderfo.Visible then
     commanderfo.parentwidget   := basedock;
+    
+   if imagedancerfo.Visible then
+    imagedancerfo.parentwidget       := basedock;
 
   if spectrum1fo.Visible then
     spectrum1fo.parentwidget  := basedock;
@@ -3554,7 +3577,7 @@ begin
     pt1.y          := pt1.y + filelistfo.Height + decorationheight;
   end;
   
-   if infosdfo.Visible then
+ if infosdfo.Visible then
   begin
     infosdfo.pos := pt1;
     pt1.y           := pt1.y + infosdfo.Height + decorationheight;
@@ -3613,6 +3636,13 @@ begin
     songplayer2fo.pos := pt1;
     pt1.y := pt1.y + songplayer2fo.Height + decorationheight;
   end;
+  
+    if imagedancerfo.Visible then
+    begin
+    imagedancerfo.pos := pt1;
+    pt1.y          := pt1.y + imagedancerfo.Height + decorationheight;
+   end;
+ 
 
   if commanderfo.Visible then
   begin

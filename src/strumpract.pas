@@ -234,6 +234,9 @@ begin
 
   application.createform(trandomnotefo, randomnotefo);
   application.createform(timagedancerfo, imagedancerfo);
+  
+  imagedancerfo.dragdock.Caption := 'Dan';
+ 
   application.createform(tfindmessagefo, findmessagefo);
   application.createform(tdialogfilesfo, dialogfilesfo);
   

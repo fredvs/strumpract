@@ -11,21 +11,24 @@ object imagedancerfo: timagedancerfo
   bounds_x = 429
   bounds_y = 240
   bounds_cx = 442
-  bounds_cy = 200
+  bounds_cy = 206
   bounds_cxmin = 442
   bounds_cymin = 200
   container.frame.localprops = []
   container.frame.localprops1 = []
+  container.face.localprops = []
+  container.face.template = mainfo.tfacebutgray
   container.bounds = (
     0
     0
     434
-    200
+    206
   )
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canfloat, od_candock, od_captionhint]
   dragdock.onfloat = onfloat
   dragdock.ondock = ondock
   optionswindow = [wo_taskbar]
+  statfile = mainfo.tstatfile1
   caption = 'Dancing Square'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
@@ -105,6 +108,7 @@ object imagedancerfo: timagedancerfo
     0000000000000000000000000000000000000000000000000000000000000000
     000000000000000000000000
   }
+  dockingareacaption = 'ttest'
   oncreate = crea
   oncreated = oncreat
   oneventloopstart = onevstart
@@ -114,24 +118,26 @@ object imagedancerfo: timagedancerfo
   moduleclassname = 'tdockform'
   object tpaintbox1: tpaintbox
     optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
+    color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
     taborder = 1
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 540
-    bounds_cy = 200
+    bounds_cy = 206
     anchors = [an_left, an_right]
     onmouseevent = onmouseevform
   end
   object openglwidget: topenglwidget
+    color = -2147483645
     visible = False
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 434
-    bounds_cy = 354
-    bounds_cxmin = 434
-    bounds_cymin = 354
+    bounds_cy = 206
+    bounds_cxmin = 200
+    bounds_cymin = 200
     anchors = []
     onmouseevent = onmouseevgl
     onrender = onrenderexe

@@ -273,10 +273,13 @@ begin
           songplayerfo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
 
           songplayerfo.historyfn.face.template := mainfo.tfaceorange;
+          
+          {
           if (commanderfo.Visible = True) and (commanderfo.window.windowpos <> wp_minimized) and
             (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
             commanderfo.tbutton2.SetFocus;
-
+          }
+          
           if songplayerfo.timersent.Enabled then
             songplayerfo.timersent.restart // to reset
           else
@@ -303,9 +306,12 @@ begin
           songplayer2fo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
 
           songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
+       {
           if (commanderfo.Visible = True) and (commanderfo.window.windowpos <> wp_minimized) and
             (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
-            commanderfo.tbutton3.SetFocus;
+           commanderfo.tbutton3.SetFocus;
+         }  
+           
           if songplayer2fo.timersent.Enabled then
             songplayer2fo.timersent.restart // to reset
           else
