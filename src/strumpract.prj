@@ -1655,15 +1655,16 @@ findhistory=20
  ockall
  tfacegriptab
 findoptions=1
-editpos=8
+editpos=9
  0,3148
- 0,33
+ 0,83
  0,-1073741823
- 0,1114
- 19,7073
+ 0,1083
+ 0,7060
  0,-1073741823
  0,-1073741823
- 0,237
+ 0,-1073741823
+ 0,7068
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1672,7 +1673,8 @@ bookmarks4=0
 bookmarks5=0
 bookmarks6=0
 bookmarks7=0
-sourcefiles=8
+bookmarks8=0
+sourcefiles=9
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/infosd.pas
  ${PROJECTDIR}/spectrum1.pas
@@ -1681,7 +1683,8 @@ sourcefiles=8
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/strumpract.pas
-relpaths=8
+ ${PROJECTDIR}/main.pas
+relpaths=9
  songplayer.pas
  infosd.pas
  spectrum1.pas
@@ -1690,7 +1693,9 @@ relpaths=8
  strumpract.pas
  filelistform.pas
  strumpract.pas
-ismoduletexts=8
+ main.pas
+ismoduletexts=9
+ 0
  0
  0
  0
@@ -1744,19 +1749,20 @@ nomenumodules=10
  0
  0
 [sourcefo.files_tab]
-order=8
+order=9
+ 3
  0
  1
- 6
- 4
- 8
- 3
  2
+ 8
+ 4
+ 5
+ 6
  7
 firsttab=0
-index=3
+index=0
 [layout]
-windowlayout=725
+windowlayout=727
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1874,7 +1880,7 @@ windowlayout=725
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2157,7 +2163,7 @@ windowlayout=725
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=findinfilefo
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2214,8 +2220,9 @@ windowlayout=725
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/dockpanel1.pas
- history=6
+ value=/home/fred/strumpract/src/imagedancer.pas
+ history=7
+  /home/fred/strumpract/src/dockpanel1.pas
   /home/fred/strumpract/src/infosd.pas
   /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/songplayer.pas
@@ -2243,17 +2250,18 @@ windowlayout=725
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=8
+ order=9
+  3
   0
   1
-  6
-  4
-  8
-  3
   2
+  8
+  4
+  5
+  6
   7
  firsttab=0
- index=3
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2295,7 +2303,7 @@ windowlayout=725
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_infosdfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2428,7 +2436,7 @@ windowlayout=725
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
