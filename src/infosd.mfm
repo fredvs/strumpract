@@ -25,6 +25,8 @@ object infosdfo: tinfosdfo
     434
     226
   )
+  dragdock.facetab = mainfo.tfacebutgray
+  dragdock.faceactivetab = mainfo.tfaceplayerlight
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canfloat, od_candock, od_captionhint]
   dragdock.onfloat = onfloat
   dragdock.ondock = ondock

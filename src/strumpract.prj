@@ -1656,15 +1656,15 @@ findhistory=20
  tfacegriptab
 findoptions=1
 editpos=9
- 0,3148
- 0,83
  0,-1073741823
- 0,1083
- 0,7060
- 0,-1073741823
+ 32,70
+ 0,3
+ 0,1069
  0,-1073741823
  0,-1073741823
- 0,7068
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1750,17 +1750,17 @@ nomenumodules=10
  0
 [sourcefo.files_tab]
 order=9
+ 2
  3
  0
  1
- 2
+ 7
  8
  4
  5
  6
- 7
 firsttab=0
-index=0
+index=3
 [layout]
 windowlayout=727
  [mainfo.basedock]
@@ -2163,7 +2163,7 @@ windowlayout=727
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_imagedancerfo_mse_
+ stackedunder=_mse_spectrum1fo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2220,11 +2220,11 @@ windowlayout=727
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/imagedancer.pas
+ value=/home/fred/strumpract/src/infosd.pas
  history=7
+  /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/dockpanel1.pas
   /home/fred/strumpract/src/infosd.pas
-  /home/fred/strumpract/src/imagedancer.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/infos.pas
@@ -2251,17 +2251,17 @@ windowlayout=727
  rcy=0
  [sourcefo.files_tab]
  order=9
+  2
   3
   0
   1
-  2
+  7
   8
   4
   5
   6
-  7
  firsttab=0
- index=0
+ index=3
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2303,7 +2303,7 @@ windowlayout=727
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_songplayerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2379,7 +2379,7 @@ windowlayout=727
  [_mse_infosdfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_spectrum1fo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2417,7 +2417,7 @@ windowlayout=727
  [_mse_spectrum1fo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=_mse_imagedancerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2436,7 +2436,7 @@ windowlayout=727
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=_mse_infosdfo_mse_
  parent=
  mdistate=3
  nx=0
