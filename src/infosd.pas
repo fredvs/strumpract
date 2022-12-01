@@ -23,6 +23,9 @@ type
    infofile: tlabel;
    tlabel2: tlabel;
    procedure onshow(const sender: TObject);
+   procedure ondock(const sender: TObject);
+   procedure onfloat(const sender: TObject);
+   procedure onevstart(const sender: TObject);
  end;
 var
   infosdfo, infosdfo2: tinfosdfo;
@@ -81,6 +84,25 @@ begin
     end;          
  
 end;
+end;
+
+procedure tinfosdfo.ondock(const sender: TObject);
+begin
+ height := 226;
+ bounds_cxmax := fowidth;
+ bounds_cx := fowidth;
+end;
+
+procedure tinfosdfo.onfloat(const sender: TObject);
+begin
+ height := 226;
+ bounds_cxmax := 0;
+ bounds_cx := fowidth;
+end;
+
+procedure tinfosdfo.onevstart(const sender: TObject);
+begin
+if parentwidget = nil then onfloat(sender) else ondock(sender);
 end;
 
 end.

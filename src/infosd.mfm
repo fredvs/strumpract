@@ -1,4 +1,5 @@
 object infosdfo: tinfosdfo
+  optionswidget1 = [ow1_autoscale, ow1_noclampinview]
   frame.localprops = []
   frame.localprops1 = []
   frame.grip_size = 8
@@ -8,8 +9,8 @@ object infosdfo: tinfosdfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacebutgray
   visible = False
-  bounds_x = 458
-  bounds_y = 244
+  bounds_x = 172
+  bounds_y = 166
   bounds_cx = 442
   bounds_cy = 226
   bounds_cxmin = 442
@@ -25,6 +26,8 @@ object infosdfo: tinfosdfo
     226
   )
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canfloat, od_candock, od_captionhint]
+  dragdock.onfloat = onfloat
+  dragdock.ondock = ondock
   font.name = 'stf_default'
   font.localprops = []
   statfile = mainfo.tstatfile1
@@ -86,6 +89,7 @@ object infosdfo: tinfosdfo
     FFFF00FFFFFFFFFFFFFF00000000000000000000000000000000000000000000
     0000000000000000000000000000000000000000
   }
+  oneventloopstart = onevstart
   onshow = onshow
   onhide = onshow
   moduleclassname = 'tdockform'

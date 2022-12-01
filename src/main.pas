@@ -2428,7 +2428,7 @@ begin
   filelistfo.bounds_cymax := 0;
   
   infosdfo.height := 226;
-  infosdfo.width := songplayerfo.width;
+  infosdfo.width := fowidth;
   
   infosdfo2.height :=  infosdfo.height;
   infosdfo2.width := infosdfo.width;
@@ -3321,8 +3321,8 @@ begin
 
     equalizerfo1.parentwidget := basedock;
 
-    infosdfo.Width  := songplayerfo.Width;
-    infosdfo.Height := 228;
+    //infosdfo.Width  := songplayerfo.Width;
+    //infosdfo.Height := 228;
     infosdfo.parentwidget := basedock;
   
     //{
@@ -3350,8 +3350,8 @@ begin
     spectrum2fo.parentwidget   := basedock;
     equalizerfo2.parentwidget  := basedock;
     
-    infosdfo2.Width  := songplayerfo.Width;
-    infosdfo2.Height := 228;
+    //infosdfo2.Width  := songplayerfo.Width;
+    //infosdfo2.Height := 228;
     infosdfo2.parentwidget := basedock;
 
 
@@ -3475,11 +3475,12 @@ begin
   waveforec.bounds_cxmax := fowidth;
   waveforec.bounds_cymax := 100;
   
-  infosdfo.height := 226;
-   infosdfo.width := songplayerfo.width;
+ // infosdfo.height := 226;
+ 
+ //  infosdfo.width := songplayerfo.width;
   
-  infosdfo2.height :=  infosdfo.height;
-  infosdfo2.width := infosdfo.width;
+ // infosdfo2.height :=  infosdfo.height;
+ // infosdfo2.width := infosdfo.width;
  
   //sizeecbefdock.cy := 500;
   //size := sizebefdock;
@@ -3702,8 +3703,11 @@ begin
   wavefo2.bounds_cy   := wavefoheight;
   waveforec.bounds_cy := wavefoheight;
   
-  infosdfo.width := fowidth;
-  infosdfo2.width := fowidth;
+//  infosdfo.width := fowidth;
+//  infosdfo2.width := fowidth;
+ // infosdfo.bounds_cxmax := fowidth;
+ // infosdfo2.bounds_cxmax := fowidth;
+
     
   beginlayout();
   oktimer := 1;

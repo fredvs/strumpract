@@ -2305,7 +2305,7 @@ begin
 
       if Sender <> nil then
       begin
-        if TButton(Sender).tag = 9 then
+        if TButton(Sender).tag = 15 then
           hassent := 1
         else
           hassent := 0;

@@ -10,8 +10,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.template = mainfo.tfacebutgray
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 506
-  bounds_y = 253
+  bounds_x = 465
+  bounds_y = 351
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
