@@ -521,7 +521,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 25
+        submenu.count = 27
         submenu.items = <        
           item
             caption = 'Square'
@@ -668,13 +668,25 @@ object mainfo: tmainfo
             options = [mao_separator, mao_shortcutcaption]
           end        
           item
+            caption = 'Float Dancer'
+            name = 'floatdancer'
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onfloatdancer
+          end        
+          item
+            caption = 'Dock Dancer'
+            name = 'dockdancer'
+            state = [as_localcaption, as_localonexecute]
+            onexecute = ondockdancer
+          end        
+          item
+            options = [mao_separator, mao_shortcutcaption]
+          end        
+          item
             caption = 'Hide Dancer'
             name = 'hidedancer'
             state = [as_localcaption, as_localonexecute]
             onexecute = onhidedancer
-          end        
-          item
-            options = [mao_separator, mao_shortcutcaption]
           end>
         caption = 'Da&ncer'
         hint = 'Dancing Animations'

@@ -156,6 +156,8 @@ type
     procedure onactiv(const Sender: TObject);
    procedure showinfos1(const sender: TObject);
    procedure showinfos2(const sender: TObject);
+   procedure onfloatdancer(const sender: TObject);
+   procedure ondockdancer(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -7165,6 +7167,20 @@ end;
 procedure tmainfo.showinfos2(const sender: TObject);
 begin
  infosdfo2.Visible := not infosdfo2.Visible;
+end;
+
+procedure tmainfo.onfloatdancer(const sender: TObject);
+begin
+imagedancerfo.dragdock.float();
+imagedancerfo.visible := true;
+updatelayoutstrum();
+end;
+
+procedure tmainfo.ondockdancer(const sender: TObject);
+begin
+imagedancerfo.parentwidget       := basedock;
+imagedancerfo.visible := true;
+updatelayoutstrum();
 end;
 
 end.

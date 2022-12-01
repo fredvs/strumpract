@@ -1005,7 +1005,23 @@ begin
       lang_mainfo[Ord(ma_hide)]  + ': ' +
       lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;  
       
-    end;              
+    end;  
+    
+      if norefresh = False then
+    begin
+      mainfo.updatelayoutstrum();
+      if dockpanel1fo.Visible then
+        dockpanel1fo.updatelayoutpan();
+      if dockpanel2fo.Visible then
+        dockpanel2fo.updatelayoutpan();
+      if dockpanel3fo.Visible then
+        dockpanel3fo.updatelayoutpan();
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayoutpan();
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayoutpan();
+    end;         
+                   
 end;
 
 procedure timagedancerfo.clientrectchangedexe(const Sender: tcustomwindowwidget);

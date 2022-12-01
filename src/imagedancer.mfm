@@ -13,7 +13,7 @@ object imagedancerfo: timagedancerfo
   bounds_cx = 442
   bounds_cy = 206
   bounds_cxmin = 442
-  bounds_cymin = 200
+  bounds_cymin = 206
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.face.localprops = []
