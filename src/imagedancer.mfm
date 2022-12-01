@@ -1,17 +1,30 @@
 object imagedancerfo: timagedancerfo
+  frame.localprops = []
+  frame.localprops1 = []
+  frame.grip_size = 8
+  frame.grip_grip = stb_dens0
+  frame.grip_face.localprops = []
+  frame.grip_face.template = mainfo.tfacebutgray
+  frame.grip_faceactive.localprops = []
+  frame.grip_faceactive.template = mainfo.tfacebutgray
   visible = False
-  bounds_x = 403
-  bounds_y = 251
-  bounds_cx = 446
-  bounds_cy = 354
+  bounds_x = 429
+  bounds_y = 240
+  bounds_cx = 442
+  bounds_cy = 200
+  bounds_cxmin = 442
+  bounds_cymin = 200
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
-    446
-    354
+    434
+    200
   )
+  dragdock.optionsdock = [od_savepos, od_savezorder, od_canfloat, od_candock, od_captionhint]
+  dragdock.onfloat = onfloat
+  dragdock.ondock = ondock
   optionswindow = [wo_taskbar]
   caption = 'Dancing Square'
   icon.options = [bmo_masked, bmo_graymask]
@@ -94,17 +107,31 @@ object imagedancerfo: timagedancerfo
   }
   oncreate = crea
   oncreated = oncreat
+  oneventloopstart = onevstart
   ondestroy = ondestroy
-  onmouseevent = onmouseevform
   onshow = onshow
   onhide = onhide
   moduleclassname = 'tdockform'
+  object tpaintbox1: tpaintbox
+    optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
+    frame.localprops = []
+    frame.localprops1 = []
+    taborder = 1
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 540
+    bounds_cy = 200
+    anchors = [an_left, an_right]
+    onmouseevent = onmouseevform
+  end
   object openglwidget: topenglwidget
     visible = False
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 446
+    bounds_cx = 434
     bounds_cy = 354
+    bounds_cxmin = 434
+    bounds_cymin = 354
     anchors = []
     onmouseevent = onmouseevgl
     onrender = onrenderexe

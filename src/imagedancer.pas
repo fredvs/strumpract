@@ -5,41 +5,12 @@ unit imagedancer;
 interface
 
 uses
-  msepointer, 
-  bgragraphics,
-  BGRABitmap,
-  BGRADefaultBitmap,
-  BGRABitmapTypes,
-  msethread,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  Math,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msedataedits,
-  msedropdownlist,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  SysUtils,
-  mseopenglwidget,
-  msewindowwidget;
+ msepointer,bgragraphics,BGRABitmap,BGRADefaultBitmap,BGRABitmapTypes,msethread,
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,Math,
+ msesimplewidgets,msewidgets,mseact,msedataedits,msedropdownlist,mseedit,
+ mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
+ mseopenglwidget,msewindowwidget;
   
 type
   TProp = record
@@ -63,6 +34,7 @@ type
   timagedancerfo = class(tdockform)
 
     openglwidget: topenglwidget;
+   tpaintbox1: tpaintbox;
     procedure onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
     procedure InvalidateImage;
     procedure ondestroy(const Sender: TObject);
@@ -83,6 +55,11 @@ type
    procedure crea(const sender: TObject);
    procedure onmouseevgl(const sender: twidget; var ainfo: mouseeventinfoty);
    procedure onmouseevform(const sender: twidget; var ainfo: mouseeventinfoty);
+   
+   procedure onevstart(const sender: TObject);
+   procedure onfloat(const sender: TObject);
+   procedure ondock(const sender: TObject);
+   
   protected
     thethread: tmsethread;
     function Execute(thread: tmsethread): integer;
@@ -158,6 +135,7 @@ implementation
 
 uses
   captionstrumpract,
+  dockpanel1,
   main,
   msegl,
   mseglu,
@@ -1022,9 +1000,26 @@ begin
   openglwidget.fpsmax := 30;
   renderstart         := timestamp;
  if  (isactivated = true) then
+ begin
    mainfo.tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := 
       lang_mainfo[Ord(ma_hide)]  + ': ' +
-      lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;        
+      lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;  
+      
+    if norefresh = False then
+    begin
+      mainfo.updatelayoutstrum();
+      if dockpanel1fo.Visible then
+        dockpanel1fo.updatelayoutpan();
+      if dockpanel2fo.Visible then
+        dockpanel2fo.updatelayoutpan();
+      if dockpanel3fo.Visible then
+        dockpanel3fo.updatelayoutpan();
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayoutpan();
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayoutpan();
+    end;  
+    end;              
 end;
 
 procedure timagedancerfo.clientrectchangedexe(const Sender: tcustomwindowwidget);
@@ -1116,10 +1111,27 @@ end;
 
 procedure timagedancerfo.onhide(const Sender: TObject);
 begin
-if  (isactivated = true) then
+if  (isactivated = true) then begin
   mainfo.tmainmenu1.menu.itembynames(['show','showimagedancer']).caption := 
       lang_mainfo[Ord(ma_tmainmenu1_show)]   + ': ' +
-      lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;        
+      lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)] ;  
+      
+         if norefresh = False then
+    begin
+      mainfo.updatelayoutstrum();
+      if dockpanel1fo.Visible then
+        dockpanel1fo.updatelayoutpan();
+      if dockpanel2fo.Visible then
+        dockpanel2fo.updatelayoutpan();
+      if dockpanel3fo.Visible then
+        dockpanel3fo.updatelayoutpan();
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayoutpan();
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayoutpan();
+    end;  
+    
+    end;         
 end;
 
 procedure timagedancerfo.crea(const sender: TObject);
@@ -1162,6 +1174,7 @@ end;
 procedure timagedancerfo.onmouseevform(const sender: twidget;
                var ainfo: mouseeventinfoty);
 begin
+
   if ainfo.eventkind = ek_buttonpress then
     begin
       ispressed := True;
@@ -1178,6 +1191,27 @@ begin
       left := left + ainfo.pos.x - oripoint.x;
       top  := top + ainfo.pos.y - oripoint.y;
     end;
+    
+
+end;
+
+procedure timagedancerfo.ondock(const sender: TObject);
+begin
+ height := 354;
+ bounds_cxmax := fowidth;
+ bounds_cx := fowidth;
+end;
+
+procedure timagedancerfo.onfloat(const sender: TObject);
+begin
+ height := 354;
+ bounds_cxmax := 0;
+ bounds_cx := fowidth;
+end;
+
+procedure timagedancerfo.onevstart(const sender: TObject);
+begin
+if parentwidget = nil then onfloat(sender) else ondock(sender);
 end;
 
 end.

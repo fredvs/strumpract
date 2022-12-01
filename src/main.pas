@@ -6897,7 +6897,7 @@ begin
 
   left := 200;
   top  := 30;
-
+  imagedancerfo.dragdock.float();
   imagedancerfo.Height := Height;
   imagedancerfo.top    := top;
   imagedancerfo.left   := right + 10;
