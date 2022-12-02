@@ -337,7 +337,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 25
+        submenu.count = 26
         submenu.items = <        
           item
             caption = 'Show All'
@@ -400,6 +400,12 @@ object mainfo: tmainfo
             name = 'showdrums'
             state = [as_localcaption, as_localonexecute]
             onexecute = showdrums
+          end        
+          item
+            caption = 'Show Synthesizer'
+            name = 'showsynth'
+            state = [as_localcaption, as_localonexecute]
+            onexecute = onshowsynth
           end        
           item
             caption = 'Show File List'

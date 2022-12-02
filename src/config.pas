@@ -4,41 +4,12 @@ unit config;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  uos_flat,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  mseact,
-  msedataedits,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  msestrings,
-  SysUtils,
-  msesimplewidgets,
-  msegraphedits,
-  msescrollbar,
-  msedragglob,
-  msegrids,
-  msegridsglob,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  msecolordialog;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ uos_flat,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
+ mseact,msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
+ msestream,msestrings,SysUtils,msesimplewidgets,msegraphedits,msescrollbar,
+ msedragglob,msegrids,msegridsglob,msedispwidgets,mserichstring,msedropdownlist,
+ msecolordialog;
 
 type
   tconfigfo = class(tmseform)
@@ -72,6 +43,7 @@ type
     tstringdisp1: tstringdisp;
     tbutton3: TButton;
     tlabel1: tlabel;
+   focusplay: tbooleanedit;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);

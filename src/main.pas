@@ -33,6 +33,7 @@ uses
   Classes,
   Math,
   msebitmap,
+  synthe,
   msesys,
   msemenus,
   msestream,
@@ -158,6 +159,7 @@ type
    procedure showinfos2(const sender: TObject);
    procedure onfloatdancer(const sender: TObject);
    procedure ondockdancer(const sender: TObject);
+   procedure onshowsynth(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -1602,7 +1604,7 @@ begin
 
   with randomnotefo do
   begin
-    randomnotefo.Caption := lang_randomnotefo[Ord(ra_randomnotefo)];  {'Chord Randomizer'}
+    Caption := lang_randomnotefo[Ord(ra_randomnotefo)];  {'Chord Randomizer'}
 
     timage8.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
 
@@ -2796,12 +2798,11 @@ begin
   infosdfo2.Visible := False;
 
 
-  dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
 
-  spectrum1fo.Visible := True;
-  spectrum2fo.Visible := True;
+  spectrum1fo.Visible := false;
+  spectrum2fo.Visible := false;
 
   recorderfo.dragdock.float();
   recorderfo.Visible := False;
@@ -2850,7 +2851,7 @@ begin
 
   basedock.dragdock.currentsplitdir := sd_horz;
 
-{
+
   with dockpanel3fo do
   begin
     //  dragfloat(dockpanel3fo);
@@ -2876,7 +2877,6 @@ begin
     else
       dockpanel3fo.Timerwaitdp.Enabled := True;
   end;
-}
 
   with dockpanel1fo do
   begin
@@ -2888,16 +2888,16 @@ begin
     songplayerfo.Visible      := True;
     songplayerfo.parentwidget := basedock;
 
-    spectrum1fo.Visible      := True;
-    spectrum1fo.parentwidget := basedock;
+  //  spectrum1fo.Visible      := True;
+  //  spectrum1fo.parentwidget := basedock;
 
     equalizerfo1.Visible      := True;
     equalizerfo1.parentwidget := basedock;
 
     pt1 := nullpoint;
 
-    spectrum1fo.pos := pt1;
-    pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
+ //   spectrum1fo.pos := pt1;
+ //   pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
 
     equalizerfo1.pos := pt1;
     pt1.y := pt1.y + equalizerfo1.Height + decorationheight;
@@ -2922,16 +2922,10 @@ begin
     songplayer2fo.Visible      := True;
     songplayer2fo.parentwidget := basedock;
 
-    spectrum2fo.Visible      := True;
-    spectrum2fo.parentwidget := basedock;
-
     equalizerfo2.Visible      := True;
     equalizerfo2.parentwidget := basedock;
 
     pt1 := nullpoint;
-
-    spectrum2fo.pos := pt1;
-    pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
 
     equalizerfo2.pos := pt1;
     pt1.y := pt1.y + equalizerfo2.Height + decorationheight;
@@ -2982,12 +2976,6 @@ begin
   filelistfo.Visible  := True;
   commanderfo.Visible := True;
 
-  drumsfo.Visible      := True;
-  drumsfo.parentwidget := basedock;
-
-  guitarsfo.Visible      := True;
-  guitarsfo.parentwidget := basedock;
-
   filelistfo.bounds_cxmax  := fowidth;
   filelistfo.bounds_cymax  := filelistfoheight;
   filelistfo.Width         := fowidth;
@@ -3003,11 +2991,6 @@ begin
   commanderfo.pos := pt1;
   pt1.y           := pt1.y + commanderfo.Height + decorationheight;
 
-  drumsfo.pos := pt1;
-  pt1.y       := pt1.y + drumsfo.Height + decorationheight;
-
-  guitarsfo.pos := pt1;
-
   dockpanel1fo.left := 0;
   dockpanel1fo.top  := decorationheight;
 
@@ -3020,7 +3003,15 @@ begin
 
   dockpanel2fo.left := left + Width + 8;
   dockpanel2fo.top  := dockpanel1fo.top;
+  
+  dockpanel3fo.left :=  dockpanel1fo.left ;
+  dockpanel3fo.top  := dockpanel1fo.bottom + 10 + decorationheight;
 
+  synthefo.top := dockpanel3fo.top;
+  synthefo.width := 880;
+  synthefo.left := mainfo.left + 10;
+  synthefo.visible := true;
+   
   //dockpanel4fo.left := left;
   // dockpanel4fo.top  := songplayerfo.Height + songplayerfo.Height + 30 + (2 * decorationheight);
 
@@ -3075,6 +3066,7 @@ begin
   oktimer          := 1;
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
+  synthefo.Visible := False;
 
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -3273,6 +3265,8 @@ begin
 
   wavefo.Visible       := False;
   wavefo2.Visible      := False;
+  synthefo.Visible := False;
+
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
@@ -3784,6 +3778,7 @@ begin
   spectrum1fo.Show();
   spectrum2fo.Show();
   spectrumrecfo.Show();
+  synthefo.Show();
   wavefo.Show();
   wavefo2.Show();
   waveforec.Show();
@@ -3810,6 +3805,7 @@ begin
   filelistfo.Visible  := False;
   songplayerfo.Visible := False;
   songplayer2fo.Visible := False;
+  synthefo.Visible := False;
   commanderfo.Visible := False;
   guitarsfo.Visible   := False;
   recorderfo.Visible  := False;
@@ -4038,7 +4034,8 @@ begin
   if typecolor.Value = 0 then
   begin
     font.color := cl_black;
-
+    synthefo.font.color := cl_black;
+    
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
     dockpanel2fo.tmainmenu1.menu.font.color := cl_black;
     dockpanel3fo.tmainmenu1.menu.font.color := cl_black;
@@ -4817,6 +4814,8 @@ begin
   if typecolor.Value = 1 then
   begin
     font.color := cl_black;
+     synthefo.font.color := cl_black;
+   
     dialogfilesfo.list_files.frame.colorclient := cl_ltgray;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
@@ -5577,6 +5576,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
   if typecolor.Value = 2 then
   begin
     font.color := cl_white;
+     synthefo.font.color := cl_white;
+   
     dialogfilesfo.list_files.frame.colorclient := cl_gray;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_white;
@@ -6499,11 +6500,11 @@ var
   interv: integer;
   decorationheight: integer = 5;
 begin
-
   oktimer := 1;
 
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
+  synthefo.Visible := False;
 
   // basedock.anchors := [an_left,an_top]  ;
   basedock.dragdock.currentsplitdir := sd_horz;
@@ -6711,6 +6712,8 @@ begin
   imagedancerfo.Visible := False;
   infosdfo.Visible       := False;
   infosdfo2.Visible      := False;
+  
+  synthefo.Visible := False;
 
   hideall(nil);
 
@@ -6889,6 +6892,7 @@ procedure tmainfo.ondancerlayout(const Sender: TObject);
 begin
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
+  synthefo.Visible := False;
 
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
@@ -6942,6 +6946,7 @@ end;
 
 procedure tmainfo.onclose(const Sender: TObject);
 begin
+// synthefo.visible := false;
   if drumsfo.Visible then
     drumsvisible.Value := 1
   else
@@ -7160,6 +7165,7 @@ begin
     
    infosdfo.onshow(nil);
    infosdfo2.onshow(nil);
+   synthefo.onchangest(nil);
 
 end;
 
@@ -7185,6 +7191,11 @@ begin
 imagedancerfo.parentwidget       := basedock;
 imagedancerfo.visible := true;
 updatelayoutstrum();
+end;
+
+procedure tmainfo.onshowsynth(const sender: TObject);
+begin
+synthefo.Visible := not synthefo.Visible;
 end;
 
 end.

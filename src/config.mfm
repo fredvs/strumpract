@@ -755,21 +755,21 @@ object configfo: tconfigfo
     color = -2147483645
     frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
     frame.colorclient = 16580582
-    frame.caption = 'Monitor Sleeper'
+    frame.caption = 'Mon Sleep'
     frame.captiondist = 3
     frame.localprops = [frl_hiddenedges, frl_colorclient]
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
       2
-      99
+      67
       3
     )
     taborder = 5
     hint = 'Enable sleep mode when inactive > 3 minutes'
-    bounds_x = 834
-    bounds_y = 8
-    bounds_cx = 112
+    bounds_x = 865
+    bounds_y = 9
+    bounds_cx = 80
     bounds_cy = 17
     statfile = mainfo.tstatfile1
     colorglyph = 4868682
@@ -957,8 +957,8 @@ object configfo: tconfigfo
     )
     taborder = 8
     hint = 'Dont show the hint-info'
-    bounds_x = 756
-    bounds_y = 8
+    bounds_x = 795
+    bounds_y = 9
     bounds_cx = 62
     bounds_cy = 17
     statfile = mainfo.tstatfile1
@@ -969,21 +969,21 @@ object configfo: tconfigfo
     color = -2147483645
     frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
     frame.colorclient = 16580582
-    frame.caption = 'System libraries'
+    frame.caption = 'Sys lib'
     frame.captiondist = 3
     frame.localprops = [frl_hiddenedges, frl_colorclient]
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
       2
-      101
+      44
       3
     )
     taborder = 9
     hint = 'Use libraries installed in system (otherwise uses library from StrumPract)'
-    bounds_x = 629
-    bounds_y = 8
-    bounds_cx = 114
+    bounds_x = 637
+    bounds_y = 9
+    bounds_cx = 57
     bounds_cy = 17
     statfile = mainfo.tstatfile1
     onchange = onchangelib
@@ -1007,8 +1007,8 @@ object configfo: tconfigfo
     face.localprops = [fal_fadirection]
     taborder = 10
     visible = False
-    bounds_x = 621
-    bounds_y = 30
+    bounds_x = 402
+    bounds_y = 28
     bounds_cx = 292
     bounds_cy = 34
     reffontheight = 15
@@ -1035,5 +1035,28 @@ object configfo: tconfigfo
       caption = 'Libraries from system are loaded'
       reffontheight = 15
     end
+  end
+  object focusplay: tbooleanedit
+    color = -2147483645
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.colorclient = 16580582
+    frame.caption = 'Focus play'
+    frame.captiondist = 3
+    frame.localprops = [frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      0
+      2
+      69
+      3
+    )
+    taborder = 11
+    hint = 'Set focus to Player-form when mixing'
+    bounds_x = 702
+    bounds_y = 9
+    bounds_cx = 82
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    colorglyph = 4868682
   end
 end

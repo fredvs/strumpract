@@ -21,6 +21,7 @@ uses
   msegui,
   main,
   aboutform,
+  synthe,
   mseact,
   drums,
   songplayer,
@@ -245,10 +246,13 @@ begin
     
   dialogfilesfo.icon := equalizerfo1.icon;
   
-  application.createform(tmainfo, mainfo);
+   application.createform(tsynthefo,synthefo);
+  
+ application.createform(tmainfo, mainfo);
   conflangfo.icon := mainfo.icon;
   statusfo.icon := mainfo.icon;
   
+   
  // drumsfo.visible := true;
   
   application.run;

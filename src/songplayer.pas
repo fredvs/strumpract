@@ -1148,6 +1148,8 @@ begin
              end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying1);
+    
+    if configfo.focusplay.value then
       
    if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
           or
@@ -1158,6 +1160,7 @@ begin
           ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
           or
           ((parentwidget = nil) and (visible = true))
+   
       then btnpause.setfocus;
               
           end;
@@ -1465,7 +1468,9 @@ begin
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying2);
-            
+   
+         if configfo.focusplay.value then
+              
      if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
           or
           ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
@@ -1581,6 +1586,8 @@ begin
 
     tstringdisp1.Value := msestring('Playing ' + theplaying1);
    
+    if configfo.focusplay.value then
+   
    if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
           or
           ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
@@ -1617,6 +1624,8 @@ begin
     iscue2 := False;
     tstringdisp1.Value := msestring('Playing ' + theplaying2);
   
+    if configfo.focusplay.value then
+   
     if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
           or
           ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
@@ -1699,6 +1708,8 @@ begin
   multiplier           := 0;
   resetspectrum();
   
+   if configfo.focusplay.value then
+   
    if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
           or
           ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
