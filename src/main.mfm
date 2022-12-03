@@ -42,6 +42,8 @@ object mainfo: tmainfo
   container.frame.sbvert.frameendbutton1.colorclient = -2147483645
   container.frame.sbvert.frameendbutton1.localprops = []
   container.frame.sbvert.frameendbutton1.localprops1 = []
+  container.face.localprops = []
+  container.face.template = tfacebutgray
   container.bounds = (
     0
     17

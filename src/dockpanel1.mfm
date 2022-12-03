@@ -22,6 +22,8 @@ object dockpanel1fo: tdockpanel1fo
   container.frame.sbvert.face.template = mainfo.tfacebutgray
   container.frame.sbvert.facebutton.localprops = []
   container.frame.sbvert.facebutton.template = mainfo.tfacebutltgray
+  container.face.localprops = []
+  container.face.template = mainfo.tfacebutgray
   container.bounds = (
     0
     17

@@ -7082,6 +7082,8 @@ begin
   imagedancerfo.left   := right + 10;
   imagedancerfo.Width  := Height;
   imagedancerfo.top    := top;
+ 
+  imagedancerfo.dragdock.float();
 
   imagedancerfo.Visible := True;
 
