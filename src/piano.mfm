@@ -4,7 +4,9 @@ object pianofo: tpianofo
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
   frame.grip_face.localprops = []
-  frame.grip_face.template = commanderfo.tfacebutgray
+  frame.grip_face.template = mainfo.tfacebutgray
+  frame.grip_faceactive.localprops = []
+  frame.grip_faceactive.template = mainfo.tfacebutgray
   visible = False
   bounds_x = 349
   bounds_y = 386
@@ -37,189 +39,6 @@ object pianofo: tpianofo
   onresize = onresizeex
   onhide = onchangest
   moduleclassname = 'tdockform'
-  object tgroupbox6: tgroupbox
-    color = -2147483645
-    frame.levelo = 1
-    frame.leveli = 0
-    frame.framei_left = 4
-    frame.framei_right = 4
-    frame.frameimage_left = -4
-    frame.frameimage_top = -4
-    frame.frameimage_right = -4
-    frame.frameimage_bottom = -4
-    frame.captionpos = cp_top
-    frame.localprops = [frl_levelo]
-    frame.localprops1 = []
-    bounds_x = 6
-    bounds_y = 47
-    bounds_cx = 151
-    bounds_cy = 86
-    object tsigslider3: tsigslider
-      color = -2147483645
-      frame.levelo = 0
-      frame.caption = 'V-L'
-      frame.captionpos = cp_left
-      frame.localprops = [frl_levelo]
-      frame.localprops1 = []
-      frame.outerframe = (
-        22
-        0
-        0
-        0
-      )
-      face.localprops = []
-      hint = 'Volume Left of piano'
-      bounds_x = 4
-      bounds_y = 12
-      bounds_cx = 100
-      bounds_cy = 21
-      statfile = mainfo.tstatfile1
-      value = 0.5
-      scrollbar.buttonlength = 16
-      scrollbar.buttonendlength = -1
-      scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
-      scrollbar.facebutton.image.origformat = 'png'
-      scrollbar.facebutton.localprops = [fal_image]
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
-      scrollbar.faceendbutton.localprops = []
-      scrollbar.framebutton.optionsskin = [fso_flat]
-      scrollbar.framebutton.localprops = [frl_optionsskin]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = commanderfo.tframecomp2
-      scrollbar.colorglyph = -1610612730
-      onsetvalue = onsetsliderpiano
-      controller = tsigcontroller1
-      max = 1
-    end
-    object volpiano: tintegerdisp
-      frame.levelo = 0
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = []
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = mainfo.tfaceplayerrev
-      taborder = 1
-      bounds_x = 106
-      bounds_y = 12
-      bounds_cx = 34
-      bounds_cy = 21
-      textflags = [tf_xcentered, tf_right, tf_ycentered]
-      value = 50
-      reffontheight = 15
-    end
-    object volpianoR: tintegerdisp
-      frame.levelo = 0
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = []
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = mainfo.tfaceplayerrev
-      taborder = 2
-      bounds_x = 106
-      bounds_y = 37
-      bounds_cx = 34
-      bounds_cy = 21
-      textflags = [tf_xcentered, tf_right, tf_ycentered]
-      value = 50
-      reffontheight = 15
-    end
-    object tsigslider32: tsigslider
-      color = -2147483645
-      frame.levelo = 0
-      frame.caption = 'V-R'
-      frame.captionpos = cp_left
-      frame.localprops = [frl_levelo]
-      frame.localprops1 = []
-      frame.outerframe = (
-        23
-        0
-        0
-        0
-      )
-      face.localprops = []
-      taborder = 3
-      hint = 'Volume Right of Piano'
-      bounds_x = 3
-      bounds_y = 37
-      bounds_cx = 100
-      bounds_cy = 21
-      statfile = mainfo.tstatfile1
-      value = 0.5
-      scrollbar.buttonlength = 16
-      scrollbar.buttonendlength = -1
-      scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
-      scrollbar.facebutton.image.origformat = 'png'
-      scrollbar.facebutton.localprops = [fal_image]
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
-      scrollbar.faceendbutton.localprops = []
-      scrollbar.framebutton.optionsskin = [fso_flat]
-      scrollbar.framebutton.localprops = [frl_optionsskin]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = commanderfo.tframecomp2
-      scrollbar.colorglyph = -1610612730
-      onsetvalue = onsetsliderpianoR
-      controller = tsigcontroller1
-      max = 1
-    end
-    object linkpianochan: tbooleanedit
-      color = -2147483645
-      frame.levelo = 0
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.caption = 'Link Left-Right'
-      frame.captionpos = cp_left
-      frame.captiondist = 10
-      frame.localprops = []
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        100
-        1
-        0
-        2
-      )
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
-      taborder = 4
-      hint = 'Link Left+Right Channels'
-      bounds_x = 19
-      bounds_y = 65
-      bounds_cx = 113
-      bounds_cy = 17
-      statfile = mainfo.tstatfile1
-      colorglyph = -1610612728
-      value = True
-      valuedefault = True
-    end
-  end
   object onpianoon: tbooleanedit
     color = -2147483645
     frame.levelo = 0
@@ -245,10 +64,9 @@ object pianofo: tpianofo
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
-    taborder = 1
     hint = 'Activate Piano'
-    bounds_x = 24
-    bounds_y = 19
+    bounds_x = 17
+    bounds_y = 20
     bounds_cx = 112
     bounds_cy = 17
     colorglyph = -1610612728
@@ -256,7 +74,7 @@ object pianofo: tpianofo
   end
   object tenvelopeedit1: tenvelopeedit
     color = -2147483645
-    frame.caption = 'Piano Attack   Piano Delay   Piano Release'
+    frame.caption = 'Piano Attack    Piano Delay    Piano Release'
     frame.captionpos = cp_top
     frame.localprops = []
     frame.localprops1 = []
@@ -266,11 +84,11 @@ object pianofo: tpianofo
       0
       0
     )
-    taborder = 2
+    taborder = 1
     hint = 'Envelope of Piano: Attack, Decay and Release.'
-    bounds_x = 164
+    bounds_x = 151
     bounds_y = 5
-    bounds_cx = 265
+    bounds_cx = 277
     bounds_cy = 148
     anchors = [an_left, an_top, an_right]
     attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
@@ -281,7 +99,7 @@ object pianofo: tpianofo
     attack.frame.zoomwidthstep = 1.5
     attack.bounds_x = 0
     attack.bounds_y = 18
-    attack.bounds_cx = 88
+    attack.bounds_cx = 92
     attack.bounds_cy = 130
     attack.traces.count = 2
     attack.traces.options = [cto_stockglyphs, cto_xordered]
@@ -319,9 +137,9 @@ object pianofo: tpianofo
     decay.frame.localprops1 = []
     decay.frame.zoomwidthstep = 1.5
     decay.taborder = 1
-    decay.bounds_x = 92
+    decay.bounds_x = 96
     decay.bounds_y = 18
-    decay.bounds_cx = 90
+    decay.bounds_cx = 94
     decay.bounds_cy = 130
     decay.traces.count = 2
     decay.traces.options = [cto_stockglyphs, cto_xordered]
@@ -372,9 +190,9 @@ object pianofo: tpianofo
     release.frame.localprops1 = []
     release.frame.zoomwidthstep = 1.5
     release.taborder = 2
-    release.bounds_x = 186
+    release.bounds_x = 194
     release.bounds_y = 18
-    release.bounds_cx = 79
+    release.bounds_cx = 83
     release.bounds_cy = 130
     release.traces.count = 2
     release.traces.options = [cto_stockglyphs, cto_xordered]
@@ -407,13 +225,13 @@ object pianofo: tpianofo
     release.ydials.range = 1
     splitter1.color = -2147483645
     splitter1.taborder = 3
-    splitter1.bounds_x = 88
+    splitter1.bounds_x = 92
     splitter1.bounds_y = 18
     splitter1.bounds_cx = 4
     splitter1.bounds_cy = 130
     splitter2.color = -2147483645
     splitter2.taborder = 4
-    splitter2.bounds_x = 182
+    splitter2.bounds_x = 190
     splitter2.bounds_y = 18
     splitter2.bounds_cx = 4
     splitter2.bounds_cy = 130
@@ -8778,7 +8596,7 @@ object pianofo: tpianofo
       414141013B3B3B012A2A2A0111111101B2958AFFB2958A2C
     }
     face.localprops = [fal_image]
-    taborder = 3
+    taborder = 2
     bounds_x = 2
     bounds_y = 158
     bounds_cx = 430
@@ -8788,6 +8606,172 @@ object pianofo: tpianofo
     keywidth = 12
     controller = tsigcontroller1
     min = 0.005
+  end
+  object linkpianochan: tbooleanedit
+    color = -2147483645
+    frame.levelo = 0
+    frame.framei_left = 4
+    frame.framei_top = 2
+    frame.framei_right = 4
+    frame.framei_bottom = 2
+    frame.frameimage_left = -4
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.frameimage_bottom = -4
+    frame.caption = 'Link Left-Right'
+    frame.captionpos = cp_left
+    frame.captiondist = 10
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      100
+      1
+      0
+      2
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfaceplayer
+    taborder = 3
+    hint = 'Link Left+Right Channels'
+    bounds_x = 19
+    bounds_y = 113
+    bounds_cx = 113
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    colorglyph = -1610612728
+    value = True
+    valuedefault = True
+  end
+  object volpianoR: tintegerdisp
+    frame.levelo = 0
+    frame.framei_left = 4
+    frame.framei_top = 2
+    frame.framei_right = 4
+    frame.framei_bottom = 2
+    frame.frameimage_left = -4
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.frameimage_bottom = -4
+    frame.localprops = []
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = mainfo.tfaceplayerrev
+    taborder = 4
+    bounds_x = 110
+    bounds_y = 77
+    bounds_cx = 34
+    bounds_cy = 21
+    textflags = [tf_xcentered, tf_right, tf_ycentered]
+    value = 50
+    reffontheight = 15
+  end
+  object tsigslider32: tsigslider
+    color = -2147483645
+    frame.levelo = 0
+    frame.caption = 'V-R'
+    frame.captionpos = cp_left
+    frame.localprops = [frl_levelo]
+    frame.localprops1 = []
+    frame.outerframe = (
+      23
+      0
+      0
+      0
+    )
+    face.localprops = []
+    taborder = 5
+    hint = 'Volume Right of Piano'
+    bounds_x = 7
+    bounds_y = 77
+    bounds_cx = 100
+    bounds_cy = 21
+    statfile = mainfo.tstatfile1
+    value = 0.5
+    scrollbar.buttonlength = 16
+    scrollbar.buttonendlength = -1
+    scrollbar.face.localprops = []
+    scrollbar.face1.localprops = []
+    scrollbar.face1.template = mainfo.tfaceplayer
+    scrollbar.face2.localprops = []
+    scrollbar.face2.template = mainfo.tfaceplayer
+    scrollbar.facebutton.image.origformat = 'png'
+    scrollbar.facebutton.localprops = [fal_image]
+    scrollbar.facebutton.template = mainfo.tfaceplayerrev
+    scrollbar.faceendbutton.localprops = []
+    scrollbar.framebutton.optionsskin = [fso_flat]
+    scrollbar.framebutton.localprops = [frl_optionsskin]
+    scrollbar.framebutton.localprops1 = []
+    scrollbar.framebutton.template = commanderfo.tframecomp2
+    scrollbar.colorglyph = -1610612730
+    onsetvalue = onsetsliderpianoR
+    controller = tsigcontroller1
+    max = 1
+  end
+  object volpiano: tintegerdisp
+    frame.levelo = 0
+    frame.framei_left = 4
+    frame.framei_top = 2
+    frame.framei_right = 4
+    frame.framei_bottom = 2
+    frame.frameimage_left = -4
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.frameimage_bottom = -4
+    frame.localprops = []
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = mainfo.tfaceplayerrev
+    taborder = 6
+    bounds_x = 110
+    bounds_y = 52
+    bounds_cx = 34
+    bounds_cy = 21
+    textflags = [tf_xcentered, tf_right, tf_ycentered]
+    value = 50
+    reffontheight = 15
+  end
+  object tsigslider3: tsigslider
+    color = -2147483645
+    frame.levelo = 0
+    frame.caption = 'V-L'
+    frame.captionpos = cp_left
+    frame.localprops = [frl_levelo]
+    frame.localprops1 = []
+    frame.outerframe = (
+      22
+      0
+      0
+      0
+    )
+    face.localprops = []
+    taborder = 7
+    hint = 'Volume Left of piano'
+    bounds_x = 7
+    bounds_y = 52
+    bounds_cx = 100
+    bounds_cy = 21
+    statfile = mainfo.tstatfile1
+    value = 0.5
+    scrollbar.buttonlength = 16
+    scrollbar.buttonendlength = -1
+    scrollbar.face.localprops = []
+    scrollbar.face1.localprops = []
+    scrollbar.face1.template = mainfo.tfaceplayer
+    scrollbar.face2.localprops = []
+    scrollbar.face2.template = mainfo.tfaceplayer
+    scrollbar.facebutton.image.origformat = 'png'
+    scrollbar.facebutton.localprops = [fal_image]
+    scrollbar.facebutton.template = mainfo.tfaceplayerrev
+    scrollbar.faceendbutton.localprops = []
+    scrollbar.framebutton.optionsskin = [fso_flat]
+    scrollbar.framebutton.localprops = [frl_optionsskin]
+    scrollbar.framebutton.localprops1 = []
+    scrollbar.framebutton.template = commanderfo.tframecomp2
+    scrollbar.colorglyph = -1610612730
+    onsetvalue = onsetsliderpiano
+    controller = tsigcontroller1
+    max = 1
   end
   object tsigfilter2: tsigfilter
     controller = tsigcontroller1
@@ -8820,7 +8804,6 @@ object pianofo: tpianofo
     qfactor.expstart = -Inf
     qfactor.expend = -Inf
     qfactor.value = 500
-    amplitude.source = tsigslider32.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf
@@ -8911,7 +8894,6 @@ object pianofo: tpianofo
     qfactor.expstart = -Inf
     qfactor.expend = -Inf
     qfactor.value = 500
-    amplitude.source = tsigslider3.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf

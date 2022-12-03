@@ -11,12 +11,6 @@ uses
 
 type
  tpianofo = class(tdockform)
-   tgroupbox6: tgroupbox;
-   tsigslider3: tsigslider;
-   volpiano: tintegerdisp;
-   volpianoR: tintegerdisp;
-   tsigslider32: tsigslider;
-   linkpianochan: tbooleanedit;
    onpianoon: tbooleanedit;
    tenvelopeedit1: tenvelopeedit;
    tsigkeyboard1: tsigkeyboard;
@@ -25,6 +19,11 @@ type
    tsignoise1: tsignoise;
    tsigcontroller1: tsigcontroller;
    tsigfilter1: tsigfilter;
+   linkpianochan: tbooleanedit;
+   volpianoR: tintegerdisp;
+   tsigslider32: tsigslider;
+   volpiano: tintegerdisp;
+   tsigslider3: tsigslider;
    procedure oncloseex(const sender: TObject);
    procedure oncreatedex(const sender: TObject);
    procedure onresizeex(const sender: TObject);
