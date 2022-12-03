@@ -26,8 +26,10 @@ object synthefo: tsynthefo
     434
     284
   )
-  dragdock.tab_facetab = commanderfo.tfacebutton
-  dragdock.tab_faceactivetab = commanderfo.tfacebutton
+  dragdock.tab_facetab = mainfo.tfacebutgray
+  dragdock.tab_faceactivetab = mainfo.tfacebutgray
+  dragdock.facetab = mainfo.tfacebutgray
+  dragdock.faceactivetab = mainfo.tfacebutgray
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canfloat, od_candock, od_captionhint]
   font.color = -1610612734
   font.name = 'stf_default'

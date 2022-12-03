@@ -7,7 +7,7 @@ uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  mseeditglob,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
  uos_mseaudio,uos_msesigaudio,msesignal,msestrings,msesignoise,msechartedit,
- msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,
+ msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msedock,
  msestatfile,msesigfft,msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,
  mserichstring,msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,
  msebitmap,msedropdownlist,Math;
@@ -291,7 +291,7 @@ end;
 procedure tsynthefo.onresizeform(const Sender: TObject);
 begin
  // if hasinit then
-   // tsigkeyboard1.keywidth := round(tsigkeyboard1.Width / 32);
+ // tsigkeyboard1.keywidth := round(tsigkeyboard1.Width / 32);
 end;
 
 
@@ -489,28 +489,38 @@ begin
           lang_mainfo[Ord(ma_tmainmenu1_show)] + ': Noise Generator';
           end;
           
-  if norefresh = False then
-    begin
-      if parentwidget <> nil then
+      if (norefresh = False) and (parentwidget <> nil) then
       begin
-      mainfo.updatelayoutstrum();
-
-      if dockpanel1fo.Visible then
+     
+       if (parentwidget = mainfo.basedock) or 
+       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          mainfo.updatelayoutstrum();
+      
+      if (parentwidget = dockpanel1fo.basedock) or 
+       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel1fo.Visible then
         dockpanel1fo.updatelayoutpan();
-
-      if dockpanel2fo.Visible then
+     
+      if (parentwidget = dockpanel2fo.basedock) or 
+       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel2fo.Visible then
         dockpanel2fo.updatelayoutpan();
-
-      if dockpanel3fo.Visible then
+     
+      if (parentwidget = dockpanel3fo.basedock) or 
+       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel3fo.Visible then
         dockpanel3fo.updatelayoutpan();
-
+      
+      if (parentwidget = dockpanel4fo.basedock) or 
+       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
       if dockpanel4fo.Visible then
         dockpanel4fo.updatelayoutpan();
-
+      
+      if (parentwidget = dockpanel5fo.basedock) or 
+       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
       if dockpanel5fo.Visible then
         dockpanel5fo.updatelayoutpan();
-      end;  
-    end;
+      end; 
   end;         
 end;
 

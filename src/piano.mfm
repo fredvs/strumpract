@@ -28,6 +28,8 @@ object pianofo: tpianofo
   dragdock.tab_coloractivetab = -2147483647
   dragdock.tab_facetab = commanderfo.tfacebutton
   dragdock.tab_faceactivetab = commanderfo.tfacebutton
+  dragdock.facetab = mainfo.tfacebutgray
+  dragdock.faceactivetab = mainfo.tfacebutgray
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canfloat, od_candock, od_captionhint]
   dragdock.onfloat = onfloatex
   dragdock.ondock = ondockex
@@ -37,6 +39,7 @@ object pianofo: tpianofo
   oncreated = oncreatedex
   onclose = oncloseex
   onresize = onresizeex
+  onshow = onchangest
   onhide = onchangest
   moduleclassname = 'tdockform'
   object onpianoon: tbooleanedit

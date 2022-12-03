@@ -2231,8 +2231,57 @@ begin
     bounds_cxmin := 0;
     bounds_cymax := 0;
     bounds_cymin := 0;
-
-    if basedock.dragdock.currentsplitdir = sd_tabed then
+    
+    if (pianofo.parentwidget <> nil) and (pianofo.visible) then
+      begin
+      pianofo.bounds_cxmax := fowidth;
+      pianofo.bounds_cx := fowidth;
+      end;
+      
+    if (imagedancerfo.parentwidget <> nil) and (imagedancerfo.visible) then
+      begin
+      imagedancerfo.bounds_cxmax := fowidth;
+      imagedancerfo.bounds_cx := fowidth;
+      imagedancerfo.bounds_cymax := imagedancerfo.bounds_cymin;
+      imagedancerfo.bounds_cy := imagedancerfo.bounds_cymin;
+      end;  
+      
+     if (infosdfo.parentwidget <> nil) and (infosdfo.visible) then
+      begin
+      infosdfo.bounds_cxmax := fowidth;
+      infosdfo.bounds_cx := fowidth;
+      infosdfo.bounds_cymax := infosdfo.bounds_cymin;
+      infosdfo.bounds_cy := infosdfo.bounds_cymax;
+     end;   
+      
+        if (infosdfo2.parentwidget <> nil) and (infosdfo2.visible) then
+      begin
+      infosdfo2.bounds_cxmax := fowidth;
+      infosdfo2.bounds_cx := fowidth;
+      infosdfo2.bounds_cymax := infosdfo2.bounds_cymin;
+      infosdfo2.bounds_cy := infosdfo2.bounds_cymax;
+        end;    
+      
+        if (wavefo.parentwidget <> nil) and (wavefo.visible) then
+      begin
+      wavefo.bounds_cxmax := fowidth;
+      wavefo.bounds_cx := fowidth;
+      end; 
+      
+          if (wavefo2.parentwidget <> nil) and (wavefo2.visible) then
+      begin
+      wavefo2.bounds_cxmax := fowidth;
+      wavefo2.bounds_cx := fowidth;
+      end; 
+      
+          if (filelistfo.parentwidget <> nil) and (filelistfo.visible) then
+      begin
+      filelistfo.bounds_cxmax := fowidth;
+      filelistfo.bounds_cx := fowidth;
+      end;     
+    
+      
+          if basedock.dragdock.currentsplitdir = sd_tabed then
     begin
       if basedock.dragdock.activewidget <> nil then
       begin
@@ -2325,7 +2374,8 @@ begin
   }
 
   // if filelistfo.parentwidget <> NIL THEN filelistfo.size := sizebefdock;
-
+  
+  
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
@@ -2354,9 +2404,15 @@ begin
 
   if drumsfo.Visible then
     drumsfo.dragdock.float();
-
+    
   if guitarsfo.Visible then
     guitarsfo.dragdock.float();
+
+   if pianofo.Visible then
+    pianofo.dragdock.float();
+
+  if synthefo.Visible then
+    synthefo.dragdock.float();
 
   if songplayerfo.Visible then
     songplayerfo.dragdock.float();
@@ -2435,13 +2491,21 @@ begin
 
   filelistfo.bounds_cxmax := fowidth;
   filelistfo.bounds_cymax := 0;
+ 
+  infosdfo.bounds_cxmax := 0;
+  infosdfo.bounds_cymax := 0;
   
+  infosdfo2.bounds_cxmax := 0;
+  infosdfo2.bounds_cymax := 0;
+ 
   infosdfo.height := 226;
   infosdfo.width := fowidth;
-  
+   
   infosdfo2.height :=  infosdfo.height;
   infosdfo2.width := infosdfo.width;
- 
+  
+  pianofo.bounds_cxmax := 0;
+   
   Height := emptyheight + 20;
   Width  := fowidth;
 
@@ -2474,6 +2538,18 @@ begin
   begin
     guitarsfo.left := leftposi + leftdec;
     leftposi       := guitarsfo.left;
+  end;
+  
+  if pianofo.Visible then
+  begin
+    pianofo.left := leftposi + leftdec;
+    leftposi       := pianofo.left;
+  end;
+  
+   if synthefo.Visible then
+  begin
+    synthefo.left := leftposi + leftdec;
+    leftposi       := synthefo.left;
   end;
 
   if spectrumrecfo.Visible then
@@ -2597,6 +2673,20 @@ begin
     guitarsfo.top := posi;
     posi          := guitarsfo.top + topdec;
     guitarsfo.activate;
+  end;
+  
+  if pianofo.Visible then
+  begin
+    pianofo.top := posi;
+    posi          := pianofo.top + topdec;
+    pianofo.activate;
+  end;
+  
+   if synthefo.Visible then
+  begin
+    synthefo.top := posi;
+    posi          := synthefo.top + topdec;
+    synthefo.activate;
   end;
 
   if spectrumrecfo.Visible then
@@ -2794,8 +2884,10 @@ begin
 
   oktimer := 1;
 
-  // imagedancerfo.Visible := False;
+ if imagedancerfo.visible then
+  imagedancerfo.dragdock.float();
 
+ 
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
 
@@ -3081,6 +3173,9 @@ begin
   synthefo.Visible := False;
   pianofo.Visible := False;
 
+  if imagedancerfo.visible then
+  imagedancerfo.dragdock.float();
+
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
   dockpanel4fo.Visible := False;
@@ -3280,6 +3375,8 @@ begin
   wavefo2.Visible      := False;
   synthefo.Visible := False;
   pianofo.Visible := False;
+  if imagedancerfo.visible then
+  imagedancerfo.dragdock.float();
 
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -3502,7 +3599,7 @@ begin
   waveforec.bounds_cxmax := fowidth;
   waveforec.bounds_cymax := 100;
   
-   imagedancerfo.height := 354;
+ imagedancerfo.height := 354;
  imagedancerfo.bounds_cxmax := fowidth;
  imagedancerfo.bounds_cx := fowidth;
  // infosdfo.height := 226;
@@ -3523,6 +3620,11 @@ begin
   
   if drumsfo.Visible then
     drumsfo.parentwidget       := basedock;
+  if synthefo.Visible then
+    synthefo.parentwidget       := basedock;
+   if pianofo.Visible then
+    pianofo.parentwidget       := basedock;
+      
   if filelistfo.Visible then
     filelistfo.parentwidget    := basedock;
   if songplayerfo.Visible then
@@ -3579,6 +3681,18 @@ begin
   begin
     drumsfo.pos := pt1;
     pt1.y       := pt1.y + drumsfo.Height + decorationheight;
+  end;
+  
+   if synthefo.Visible then
+  begin
+    synthefo.pos := pt1;
+    pt1.y       := pt1.y + synthefo.Height + decorationheight;
+  end;
+  
+  if pianofo.Visible then
+  begin
+    pianofo.pos := pt1;
+    pt1.y       := pt1.y + pianofo.Height + decorationheight;
   end;
 
   if filelistfo.Visible then
@@ -3747,7 +3861,6 @@ begin
 //  infosdfo2.width := fowidth;
  // infosdfo.bounds_cxmax := fowidth;
  // infosdfo2.bounds_cxmax := fowidth;
-
     
   beginlayout();
   oktimer := 1;
@@ -3797,6 +3910,7 @@ begin
   wavefo.Show();
   wavefo2.Show();
   waveforec.Show();
+  imagedancerfo.Show();
   norefresh := False;
   endlayout();
 
@@ -3821,6 +3935,11 @@ begin
   songplayerfo.Visible := False;
   songplayer2fo.Visible := False;
   synthefo.Visible := False;
+  
+  infosdfo.Visible := False;
+  infosdfo2.Visible := False;
+  imagedancerfo.Visible := False;
+  
   pianofo.Visible := False;
   commanderfo.Visible := False;
   guitarsfo.Visible   := False;
@@ -6518,6 +6637,8 @@ var
   decorationheight: integer = 5;
 begin
   oktimer := 1;
+ if imagedancerfo.visible then
+  imagedancerfo.dragdock.float();
 
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
@@ -6954,6 +7075,8 @@ begin
   left := 200;
   top  := 30;
   imagedancerfo.dragdock.float();
+  imagedancerfo.bounds_cxmax := 0;
+  imagedancerfo.bounds_cymax := 0;
   imagedancerfo.Height := Height;
   imagedancerfo.top    := top;
   imagedancerfo.left   := right + 10;

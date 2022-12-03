@@ -125,6 +125,7 @@ object dockpanel1fo: tdockpanel1fo
   oncreate = oncreate
   oncreated = oncreated
   ondestroy = ondestroy
+  onresize = onresized
   onshow = onvisiblech
   onhide = onvisiblech
   moduleclassname = 'tdockpanelform'

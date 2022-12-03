@@ -588,23 +588,38 @@ begin
           lang_mainfo[Ord(ma_fileslist)];
         end;
 
-    if norefresh = False then
-    begin
-      mainfo.updatelayoutstrum();
-      if dockpanel1fo.Visible then
+      if (norefresh = False) and (parentwidget <> nil) then
+      begin
+     
+       if (parentwidget = mainfo.basedock) or 
+       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          mainfo.updatelayoutstrum();
+      
+      if (parentwidget = dockpanel1fo.basedock) or 
+       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel1fo.Visible then
         dockpanel1fo.updatelayoutpan();
-      if dockpanel2fo.Visible then
+     
+      if (parentwidget = dockpanel2fo.basedock) or 
+       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel2fo.Visible then
         dockpanel2fo.updatelayoutpan();
-
-      if dockpanel3fo.Visible then
+     
+      if (parentwidget = dockpanel3fo.basedock) or 
+       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel3fo.Visible then
         dockpanel3fo.updatelayoutpan();
-
+      
+      if (parentwidget = dockpanel4fo.basedock) or 
+       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
       if dockpanel4fo.Visible then
         dockpanel4fo.updatelayoutpan();
-
+      
+      if (parentwidget = dockpanel5fo.basedock) or 
+       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
       if dockpanel5fo.Visible then
         dockpanel5fo.updatelayoutpan();
-    end;
+      end;    
   end;
 end;
 

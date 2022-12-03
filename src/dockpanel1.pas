@@ -98,24 +98,39 @@ begin
   end;
   //}
 
+    bounds_cxmax := 0;
+    bounds_cxmin := 0;
+
+
   if (fs_sbverton in container.frame.state) then
-    Width := fowidth + scrollwidth
+    Width := fowidth + 12
   else
     Width := fowidth;
+    
+     basedock.Width := Width;
+
+    bounds_cxmax := bounds_cx;
+    bounds_cxmin := bounds_cx;
+
+rect1 := application.screenrect(window);
+
+    maxheightfo := rect1.cy - 70;
+
+    if visiblecount = 1 then
+    begin
+      bounds_cymax := bounds_cy;
+      bounds_cymin := bounds_cy;
+    end
+    else if visiblecount > 1 then
+    begin
+      bounds_cymax := maxheightfo;
+      bounds_cymin := 50;
+    end;
 
   //   Width := fowidth + scrollwidth;
-  onvisiblech(Sender);
+  // onvisiblech(Sender);
   
-   rect1 := application.screenrect(window);
-  
-  bounds_cxmax := bounds_cx;
-  bounds_cxmin := bounds_cx;
-  if bounds_cy < rect1.cy - 30 then
-    bounds_cymax := bounds_cy
-  else
-    bounds_cymax := rect1.cy - 30;
-  bounds_cymin := bounds_cy;
-
+   
 end;
 
 procedure tdockpanel1fo.beginlayout();
@@ -283,8 +298,8 @@ end;
 
 procedure tdockpanel1fo.onresized(const Sender: TObject);
 begin
-  //Timerwaitdp.Enabled := False;
-  // Timerwaitdp.Enabled := True;
+  Timerwaitdp.Enabled := False;
+   Timerwaitdp.Enabled := True;
 end;
 
 procedure tdockpanel1fo.ontab(const Sender: TObject);
