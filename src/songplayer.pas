@@ -1377,6 +1377,7 @@ begin
 
           llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
+          
           DSPindex2 := uos_InputAddDSP(theplayer2, Inputindex2, @DSPReverseBefore2, @DSPReverseAfter, nil, nil);
           // add a custom DSP procedure for input
           // Playerindex2 : Index of a existing Player

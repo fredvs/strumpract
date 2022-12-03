@@ -525,6 +525,7 @@ object songplayerfo: tsongplayerfo
       onexecute = doplayerstart
     end
     object BtnCue: tbutton
+      Tag = 1
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
