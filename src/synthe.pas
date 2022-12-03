@@ -10,7 +10,7 @@ uses
  msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,
  msestatfile,msesigfft,msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,
  mserichstring,msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,
- msebitmap,msedropdownlist,msefiledialogx,Math;
+ msebitmap,msedropdownlist,Math;
 
 
 type
@@ -18,14 +18,6 @@ type
     cont: tsigcontroller;
     out: tsigoutaudio;
     noise: tsignoise;
-    tfacecomp1: tfacecomp;
-    tsigoutaudio1: tsigoutaudio;
-    tsigfilter1: tsigfilter;
-    tsignoise1: tsignoise;
-    tsigcontroller1: tsigcontroller;
-    tfacecomp2: tfacecomp;
-    tfacecomp3: tfacecomp;
-    tfacecomp4: tfacecomp;
     tsignoise4: tsignoise;
     tsigoutaudio4: tsigoutaudio;
     tsigcontroller4: tsigcontroller;
@@ -43,16 +35,7 @@ type
     sliderfreqwaveL: tslider;
     harmonwaveL: tintegeredit;
     OddwaveL: tbooleanedit;
-    onpianoon: tbooleanedit;
-    tsigkeyboard1: tsigkeyboard;
-    tenvelopeedit1: tenvelopeedit;
     onwavon: tbooleanedit;
-    tfacecomp5: tfacecomp;
-   tfacecomp6: tfacecomp;
-   tgroupbox6: tgroupbox;
-   tsigslider3: tsigslider;
-   volpiano: tintegerdisp;
-   tfacecomp7: tfacecomp;
    volwavL: tintegerdisp;
    noise2: tsignoise;
    tsignoise42: tsignoise;
@@ -62,15 +45,11 @@ type
    volwavR: tintegerdisp;
    sliderwaveR: tslider;
    freqwavR: tintegeredit;
-   volpianoR: tintegerdisp;
-   tsigslider32: tsigslider;
    sampcountdiL: tintegerdisp;
    sampcountL: tslider;
    noiseampL: tintegerdisp;
    tsigslider1L: tsigslider;
-   tsigfilter2: tsigfilter;
    linkwavchan: tbooleanedit;
-   linkpianochan: tbooleanedit;
    linknoisechan: tbooleanedit;
    OddwaveR: tbooleanedit;
    kinded: tenumtypeedit;
@@ -92,17 +71,6 @@ type
                    var accept: Boolean);
     procedure onresizeform(const Sender: TObject);
     procedure onquit(const Sender: TObject);
-    procedure evonshowhint(const Sender: TObject; var info: hintinfoty);
-   procedure onsetsliderpiano(const sender: TObject; var avalue: realty;
-                   var accept: Boolean);
-   procedure osetleftspectrum(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onrightspectrum(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onleftosci(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onsetrightosci(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
    procedure onvolwaveR(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
    procedure onfreqwaveR(const sender: TObject; var avalue: realty;
@@ -112,8 +80,6 @@ type
    procedure onsetampnoiseL(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
    procedure samcountsetexeL(const sender: TObject; var avalue: realty;
-                   var accept: Boolean);
-   procedure onsetsliderpianoR(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
    procedure onvaluefreqL(const sender: TObject; var avalue: Integer;
                    var accept: Boolean);
@@ -136,8 +102,7 @@ type
    procedure onchangest(const sender: TObject);
    procedure onnoiseactivate(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
-   procedure onpianoactivate(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
+
    end;
 
 var
@@ -147,18 +112,18 @@ var
 implementation
 
 uses
-captionstrumpract, main, synthe_mfm;
+captionstrumpract, dockpanel1, main, synthe_mfm;
 
 procedure tsynthefo.onclosexe(const Sender: TObject);
 begin
  if hasinit then
 begin
   out.audio.active           := False;
-  tsigoutaudio1.audio.active := False;
+//  tsigoutaudio1.audio.active := False;
   tsigoutaudio4.audio.active := False;
   onwavon.color := cl_transparent;
   onnoiseon.color := cl_transparent;
-  onpianoon.color := cl_transparent;
+ // onpianoon.color := cl_transparent;
 end;
 end;
 
@@ -197,15 +162,9 @@ var
 begin
 
   cont.inputtype := 0;            // from synth/noise
-  tsigcontroller1.inputtype := 0; // from synth/piano
-//  tsigcontroller2.inputtype := 1; // from file
- // tsigcontroller3.inputtype := 2; // from input/mic
   tsigcontroller4.inputtype := 3; // from waveform
-
-   Caption := 'Synthesizer' ;
-
+  Caption := 'Noise Generator' ;
   hasinit := True;
-  tsigkeyboard1.keywidth := tsigkeyboard1.Width div 32;
 
 end;
 
@@ -331,8 +290,8 @@ end;
 
 procedure tsynthefo.onresizeform(const Sender: TObject);
 begin
-  if hasinit then
-    tsigkeyboard1.keywidth := round(tsigkeyboard1.Width / 32);
+ // if hasinit then
+   // tsigkeyboard1.keywidth := round(tsigkeyboard1.Width / 32);
 end;
 
 
@@ -341,48 +300,6 @@ begin
   application.terminate;
 end;
 
-
-procedure tsynthefo.evonshowhint(const Sender: TObject; var info: hintinfoty);
-begin
-  //info.caption := 'Hello';
-end;
-
-
-procedure tsynthefo.onsetsliderpiano(const sender: TObject; var avalue: realty;
-               var accept: Boolean);
-begin
-  volpiano.Value := round(100 * avalue);
-   if linkpianochan.value then
-    begin
-   volpianoR.Value := volpiano.Value;
-   tsigslider32.value := avalue;
-   end;
-end;
-
-procedure tsynthefo.osetleftspectrum(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin
-
-end;
-
-procedure tsynthefo.onrightspectrum(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin
-
-
-end;
-
-procedure tsynthefo.onleftosci(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin
-
-end;
-
-procedure tsynthefo.onsetrightosci(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin
-
-end;
 
 procedure tsynthefo.onvolwaveR(const sender: TObject; var avalue: realty;
                var accept: Boolean);
@@ -448,16 +365,6 @@ begin
    sampcountdiR.Value := sampcountdiL.Value;
    sampcountR.value := avalue;
    end;  
-end;
-
-procedure tsynthefo.onsetsliderpianoR(const sender: TObject; var avalue: realty;
-               var accept: Boolean);
-begin
- volpianoR.Value := round(100 * avalue);
-    if linkpianochan.value then  begin
-   volpiano.Value := volpianoR.Value;
-   tsigslider3.value := avalue;
-   end;
 end;
 
 procedure tsynthefo.onvaluefreqL(const sender: TObject; var avalue: Integer;
@@ -573,15 +480,38 @@ begin
  if Visible then
         begin
           mainfo.tmainmenu1.menu.itembynames(['show','showsynth']).caption :=
-          lang_mainfo[Ord(ma_hide)] + ': Synthesizer'; 
+          lang_mainfo[Ord(ma_hide)] + ': Noise Generator'; 
          //  lang_infosfo[Ord(in_infosfo)] ;
          end
       else
         begin
           mainfo.tmainmenu1.menu.itembynames(['show','showsynth']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': Synthesizer';
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': Noise Generator';
           end;
- end;         
+          
+  if norefresh = False then
+    begin
+      if parentwidget <> nil then
+      begin
+      mainfo.updatelayoutstrum();
+
+      if dockpanel1fo.Visible then
+        dockpanel1fo.updatelayoutpan();
+
+      if dockpanel2fo.Visible then
+        dockpanel2fo.updatelayoutpan();
+
+      if dockpanel3fo.Visible then
+        dockpanel3fo.updatelayoutpan();
+
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayoutpan();
+
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayoutpan();
+      end;  
+    end;
+  end;         
 end;
 
 procedure tsynthefo.onnoiseactivate(const sender: TObject; var avalue: Boolean;
@@ -599,24 +529,6 @@ begin
    //   onnoiseon.color := cl_transparent;
       out.audio.active := False;
      end; 
-end;
-
-procedure tsynthefo.onpianoactivate(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin
-//application.processmessages;
-  if hasinit then
-    if avalue then
-    begin
-   //   onpianoon.color := $3B4F00;
-      tsigoutaudio1.audio.active := True;
-      end
-    else
-    begin
-  //    onpianoon.color := cl_transparent;
-      tsigoutaudio1.audio.active := False;
-  // application.processmessages; 
-  end;
 end;
 
 

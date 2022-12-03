@@ -32,6 +32,7 @@ uses
   imagedancer,
   infosd,
   status,
+  piano,
   conflang,
   spectrum1,
   waveform,
@@ -247,7 +248,11 @@ begin
   dialogfilesfo.icon := equalizerfo1.icon;
   
    application.createform(tsynthefo,synthefo);
-  
+     application.createform(tpianofo,pianofo);
+      pianofo.icon := synthefo.icon;
+     pianofo.dragdock.Caption := 'Pia';
+     synthefo.dragdock.Caption := 'Noi';
+        
  application.createform(tmainfo, mainfo);
   conflangfo.icon := mainfo.icon;
   statusfo.icon := mainfo.icon;

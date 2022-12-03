@@ -857,12 +857,12 @@ begin
     else
       mainfo.tmainmenu1.menu.itembynames(['show', 'showdrums']).Caption :=
         lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
-        lang_commanderfo[Ord(co_namedrums_hint)]//mainfo.drumsvisible.value := 0;
-    ;
+        lang_commanderfo[Ord(co_namedrums_hint)] ;
 
     if norefresh = False then
     begin
-
+      if parentwidget <> nil then
+      begin
       mainfo.updatelayoutstrum();
 
       if dockpanel1fo.Visible then
@@ -879,7 +879,10 @@ begin
 
       if dockpanel5fo.Visible then
         dockpanel5fo.updatelayoutpan();
+      end;  
     end;
+    
+    
   end;
 end;
 

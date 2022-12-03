@@ -160,6 +160,7 @@ type
    procedure onfloatdancer(const sender: TObject);
    procedure ondockdancer(const sender: TObject);
    procedure onshowsynth(const sender: TObject);
+   procedure onshowpiano(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -206,6 +207,7 @@ uses
   errorform,
   findmessage,
   infosd,
+  piano,
   conflang,
   config,
   drums,
@@ -3005,12 +3007,22 @@ begin
   dockpanel2fo.top  := dockpanel1fo.top;
   
   dockpanel3fo.left :=  dockpanel1fo.left ;
-  dockpanel3fo.top  := dockpanel1fo.bottom + 10 + decorationheight;
+  
+  dockpanel3fo.top  := songplayerfo.height + equalizerfo1.height + 24 + (2*decorationheight);
 
+  synthefo.dragdock.float();
   synthefo.top := dockpanel3fo.top;
-  synthefo.width := 880;
-  synthefo.left := mainfo.left + 10;
+ // synthefo.width := 880;
+  synthefo.left := dockpanel3fo.right + 10;
   synthefo.visible := true;
+  
+  pianofo.dragdock.float();
+  
+  pianofo.top := synthefo.top;
+  pianofo.width := fowidth;
+  pianofo.left := synthefo.right + 10;
+  pianofo.visible := true;
+ 
    
   //dockpanel4fo.left := left;
   // dockpanel4fo.top  := songplayerfo.Height + songplayerfo.Height + 30 + (2 * decorationheight);
@@ -3022,7 +3034,7 @@ begin
   // application.ProcessMessages;
 
   oktimer := 0;
-
+ 
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
@@ -3067,6 +3079,7 @@ begin
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
   synthefo.Visible := False;
+  pianofo.Visible := False;
 
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -3266,6 +3279,7 @@ begin
   wavefo.Visible       := False;
   wavefo2.Visible      := False;
   synthefo.Visible := False;
+  pianofo.Visible := False;
 
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -3779,6 +3793,7 @@ begin
   spectrum2fo.Show();
   spectrumrecfo.Show();
   synthefo.Show();
+  pianofo.show();
   wavefo.Show();
   wavefo2.Show();
   waveforec.Show();
@@ -3806,6 +3821,7 @@ begin
   songplayerfo.Visible := False;
   songplayer2fo.Visible := False;
   synthefo.Visible := False;
+  pianofo.Visible := False;
   commanderfo.Visible := False;
   guitarsfo.Visible   := False;
   recorderfo.Visible  := False;
@@ -4035,6 +4051,7 @@ begin
   begin
     font.color := cl_black;
     synthefo.font.color := cl_black;
+    pianofo.font.color := cl_black;
     
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
     dockpanel2fo.tmainmenu1.menu.font.color := cl_black;
@@ -4814,8 +4831,8 @@ begin
   if typecolor.Value = 1 then
   begin
     font.color := cl_black;
-     synthefo.font.color := cl_black;
-   
+    synthefo.font.color := cl_black;
+    pianofo.font.color := cl_black;
     dialogfilesfo.list_files.frame.colorclient := cl_ltgray;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
@@ -5576,8 +5593,8 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
   if typecolor.Value = 2 then
   begin
     font.color := cl_white;
-     synthefo.font.color := cl_white;
-   
+    synthefo.font.color := cl_white;
+    pianofo.font.color := cl_white;
     dialogfilesfo.list_files.frame.colorclient := cl_gray;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_white;
@@ -6505,6 +6522,7 @@ begin
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
   synthefo.Visible := False;
+  pianofo.Visible := False;
 
   // basedock.anchors := [an_left,an_top]  ;
   basedock.dragdock.currentsplitdir := sd_horz;
@@ -6714,6 +6732,7 @@ begin
   infosdfo2.Visible      := False;
   
   synthefo.Visible := False;
+  pianofo.Visible := False;
 
   hideall(nil);
 
@@ -6893,6 +6912,7 @@ begin
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
   synthefo.Visible := False;
+  pianofo.Visible := False;
 
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
@@ -7166,6 +7186,7 @@ begin
    infosdfo.onshow(nil);
    infosdfo2.onshow(nil);
    synthefo.onchangest(nil);
+   pianofo.onchangest(nil);
 
 end;
 
@@ -7196,6 +7217,11 @@ end;
 procedure tmainfo.onshowsynth(const sender: TObject);
 begin
 synthefo.Visible := not synthefo.Visible;
+end;
+
+procedure tmainfo.onshowpiano(const sender: TObject);
+begin
+pianofo.Visible := not pianofo.Visible;
 end;
 
 end.
