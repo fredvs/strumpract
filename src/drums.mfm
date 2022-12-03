@@ -7,7 +7,7 @@ object drumsfo: tdrumsfo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
-  frame.grip_faceactive.template = mainfo.tfacebutgray
+  frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
   bounds_x = 367

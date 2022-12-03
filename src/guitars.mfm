@@ -7,7 +7,7 @@ object guitarsfo: tguitarsfo
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
-  frame.grip_faceactive.template = mainfo.tfacebutgray
+  frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
