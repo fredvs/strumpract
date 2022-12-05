@@ -1618,7 +1618,7 @@ findoptions=1
 editpos=3
  0,0
  0,2391
- 0,421
+ 4,399
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1660,11 +1660,11 @@ nomenumodules=5
  0
 [sourcefo.files_tab]
 order=3
- 1
- 0
  2
+ 0
+ 1
 firsttab=0
-index=2
+index=0
 [layout]
 windowlayout=634
  [mainfo.basedock]
@@ -2163,11 +2163,11 @@ windowlayout=634
  rcy=0
  [sourcefo.files_tab]
  order=3
-  1
-  0
   2
+  0
+  1
  firsttab=0
- index=2
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2285,7 +2285,7 @@ windowlayout=634
  [_mse_dockpanel1fo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0

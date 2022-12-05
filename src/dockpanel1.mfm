@@ -174,20 +174,20 @@ object dockpanel1fo: tdockpanel1fo
     menu.submenu.count = 3
     menu.submenu.items = <    
       item
-        caption = 'V '
+        caption = '&V '
         hint = ' Dock windows in one form '
         name = 'dock'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ondock
       end    
       item
-        caption = 'H '
+        caption = '&H '
         name = 'dockv'
         state = [as_localcaption, as_localonexecute]
         onexecute = ondockv
       end    
       item
-        caption = ' T '
+        caption = ' &T '
         hint = ' About StrumPract '
         name = 'tab'
         state = [as_localcaption, as_localhint, as_localonexecute]

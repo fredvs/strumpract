@@ -240,20 +240,20 @@ object mainfo: tmainfo
     menu.submenu.count = 12
     menu.submenu.items = <    
       item
-        caption = 'V'
+        caption = '&V'
         hint = 'Dock windows in one form'
         name = 'dock'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onmaindock
       end    
       item
-        caption = 'H'
+        caption = '&H'
         hint = 'Dock all windows Horizontal'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ondockvert
       end    
       item
-        caption = 'T'
+        caption = '&T'
         hint = 'One form with tabs'
         name = 'tab'
         state = [as_localcaption, as_localhint, as_localonexecute]
