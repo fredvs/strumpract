@@ -2390,8 +2390,8 @@ var
       until sizeisequal(container.paintsize, si1) or (i1 > 8);
 
       if system.pos('(',caption) > 0 then
-         thetitlet := trim(system.Copy(caption, 1, system.pos('(',caption) - 1))
-         else thetitlet := trim(caption);
+         thetitlet := (system.Copy(caption, 1, system.pos('(',caption) - 2))
+         else thetitlet := (caption);
       
       caption := thetitlet + ' (' + thetitle + ' )' ;
  
@@ -2483,8 +2483,8 @@ var
         bounds_cxmin := bounds_cx;
       end;
       if system.pos('(',caption) > 0 then
-         thetitlet := trim(system.Copy(caption, 1, system.pos('(',caption) - 1))
-         else thetitlet := trim(caption);
+         thetitlet := (system.Copy(caption, 1, system.pos('(',caption) - 2))
+         else thetitlet := (caption);
       
       caption := thetitlet + ' (' + thetitle + ' )' ;
  

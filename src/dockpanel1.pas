@@ -422,8 +422,8 @@ begin
       
       
       if system.pos('(',caption) > 0 then
-         thetitlet := trim(system.Copy(caption, 1, system.pos('(',caption) - 1))
-         else thetitlet := trim(caption);
+         thetitlet := (system.Copy(caption, 1, system.pos('(',caption) - 2))
+         else thetitlet := (caption);
       
       caption := thetitlet + ' (' + thetitle + ' )' ;
  
@@ -519,8 +519,8 @@ begin
       end;
       
      if system.pos('(',caption) > 0 then
-         thetitlet := trim(system.Copy(caption, 1, system.pos('(',caption) - 1))
-         else thetitlet := trim(caption);
+         thetitlet := (system.Copy(caption, 1, system.pos('(',caption) - 2))
+         else thetitlet := (caption);
       
       caption := thetitlet + ' (' + thetitle + ' )' ;
     end;
