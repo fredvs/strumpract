@@ -387,8 +387,9 @@ begin
           heights[i1] := si1.cy;
           if Visible then
           begin
-          
-          thetitle := thetitle +  ' ' + tdockform(children1[i1]).dragdock.Caption ;
+          if i1 = 0 then
+          thetitle := tdockform(children1[i1]).dragdock.Caption else
+          thetitle := thetitle +  ' + ' + tdockform(children1[i1]).dragdock.Caption ;
  
             //   writeln('Child visible: ' + inttostr(i1));
 
@@ -425,7 +426,7 @@ begin
          thetitlet := (system.Copy(caption, 1, system.pos('(',caption) - 2))
          else thetitlet := (caption);
       
-      caption := thetitlet + ' (' + thetitle + ' )' ;
+      caption := thetitlet + ' ( ' + thetitle + ' )' ;
  
       if norefresh = False then
         if Timerwaitdp.Enabled then
@@ -458,7 +459,9 @@ begin
           if Visible then
           begin
 
-          thetitle := thetitle +  ' ' + tdockform(children1[i1]).dragdock.Caption ;
+          if i1 = 0 then
+          thetitle := tdockform(children1[i1]).dragdock.Caption else
+          thetitle := thetitle +  ' + ' + tdockform(children1[i1]).dragdock.Caption ;
  
             if si1.cy > maxheightpa then
               maxheightpa := si1.cy;
@@ -522,7 +525,7 @@ begin
          thetitlet := (system.Copy(caption, 1, system.pos('(',caption) - 2))
          else thetitlet := (caption);
       
-      caption := thetitlet + ' (' + thetitle + ' )' ;
+      caption := thetitlet + ' ( ' + thetitle + ' )' ;
     end;
   end;
 end;

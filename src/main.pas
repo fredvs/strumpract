@@ -2339,8 +2339,10 @@ var
           if Visible then
           begin
 
-            thetitle := thetitle +  ' ' + tdockform(children1[i1]).dragdock.Caption ;
- 
+          if i1 = 0 then
+          thetitle := tdockform(children1[i1]).dragdock.Caption else
+          thetitle := thetitle +  ' + ' + tdockform(children1[i1]).dragdock.Caption ;
+
             if si1.cx > maxwidth then
               maxwidth := si1.cx;
             totheight  := totheight + si1.cy;
@@ -2393,7 +2395,7 @@ var
          thetitlet := (system.Copy(caption, 1, system.pos('(',caption) - 2))
          else thetitlet := (caption);
       
-      caption := thetitlet + ' (' + thetitle + ' )' ;
+      caption := thetitlet + ' ( ' + thetitle + ' )' ;
  
       if timerwait.Enabled then
         timerwait.restart // to reset
@@ -2424,7 +2426,9 @@ var
           widths[i1] := si1.cx;
           if Visible then
           begin
-          thetitle := thetitle +  ' ' + tdockform(children1[i1]).dragdock.Caption ;
+          if i1 = 0 then
+          thetitle := tdockform(children1[i1]).dragdock.Caption else
+          thetitle := thetitle +  ' + ' + tdockform(children1[i1]).dragdock.Caption ;
            if si1.cy > maxheightpa then
               maxheightpa := si1.cy;
             totwidth      := totwidth + si1.cx;
@@ -2486,7 +2490,7 @@ var
          thetitlet := (system.Copy(caption, 1, system.pos('(',caption) - 2))
          else thetitlet := (caption);
       
-      caption := thetitlet + ' (' + thetitle + ' )' ;
+      caption := thetitlet + ' ( ' + thetitle + ' )' ;
  
     end;
 
