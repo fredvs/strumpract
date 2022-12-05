@@ -2390,8 +2390,8 @@ var
       until sizeisequal(container.paintsize, si1) or (i1 > 8);
 
       if system.pos('(',caption) > 0 then
-         thetitlet := system.Copy(caption, 1, system.pos('(',caption) - 1)
-         else thetitlet := caption;
+         thetitlet := trim(system.Copy(caption, 1, system.pos('(',caption) - 1))
+         else thetitlet := trim(caption);
       
       caption := thetitlet + ' (' + thetitle + ' )' ;
  
@@ -2483,8 +2483,8 @@ var
         bounds_cxmin := bounds_cx;
       end;
       if system.pos('(',caption) > 0 then
-         thetitlet := system.Copy(caption, 1, system.pos('(',caption) - 1)
-         else thetitlet := caption;
+         thetitlet := trim(system.Copy(caption, 1, system.pos('(',caption) - 1))
+         else thetitlet := trim(caption);
       
       caption := thetitlet + ' (' + thetitle + ' )' ;
  
@@ -3256,10 +3256,14 @@ begin
 
   oktimer           := 1;
   infosdfo.Visible  := False;
+  infosdfo.dragdock.float();
   infosdfo2.Visible := False;
+  infosdfo2.dragdock.float();
   synthefo.Visible  := False;
-  pianofo.Visible   := False;
-
+  synthefo.dragdock.float();
+  pianofo.Visible   := False; 
+  pianofo.dragdock.float();
+ 
   if imagedancerfo.Visible then
     imagedancerfo.dragdock.float();
 
@@ -3457,12 +3461,17 @@ begin
   norefresh := True;
 
   oktimer := 1;
-
+  
+  synthefo.Visible  := False;
+  synthefo.dragdock.float();
+  pianofo.Visible   := False; 
+  pianofo.dragdock.float();
   wavefo.Visible   := False;
+  wavefo.dragdock.float();
   wavefo2.Visible  := False;
-  synthefo.Visible := False;
-  pianofo.Visible  := False;
-  if imagedancerfo.Visible then
+  wavefo2.dragdock.float();
+ 
+   if imagedancerfo.Visible then
     imagedancerfo.dragdock.float();
 
   // imagedancerfo.Visible := False;
@@ -6724,13 +6733,26 @@ var
   decorationheight: integer = 5;
 begin
   oktimer := 1;
+   infosdfo.Visible  := False;
+  infosdfo.dragdock.float();
+  infosdfo2.Visible := False;
+  infosdfo2.dragdock.float();
+  synthefo.Visible  := False;
+  synthefo.dragdock.float();
+  pianofo.Visible   := False; 
+  pianofo.dragdock.float();
+ 
   if imagedancerfo.Visible then
     imagedancerfo.dragdock.float();
 
-  infosdfo.Visible  := False;
-  infosdfo2.Visible := False;
-  synthefo.Visible  := False;
-  pianofo.Visible   := False;
+  wavefo.Visible   := False;
+  wavefo.dragdock.float();
+ 
+  wavefo2.Visible  := False;
+  wavefo2.dragdock.float();
+ 
+   if imagedancerfo.Visible then
+    imagedancerfo.dragdock.float();
 
   // basedock.anchors := [an_left,an_top]  ;
   basedock.dragdock.currentsplitdir := sd_horz;
