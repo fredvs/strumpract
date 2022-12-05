@@ -104,8 +104,7 @@ type
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimercheck(const Sender: TObject);
     function ReadTag(filename: string): integer;
-
-  protected
+ protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
   end;

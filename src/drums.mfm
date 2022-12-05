@@ -4,6 +4,7 @@ object drumsfo: tdrumsfo
   frame.localprops1 = []
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
+  frame.grip_options = [go_closebutton, go_buttonhints, go_vert]
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
@@ -24,6 +25,8 @@ object drumsfo: tdrumsfo
   container.frame.framei_bottom = 0
   container.frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
   container.frame.localprops1 = []
+  container.frame.sbhorz.options = []
+  container.frame.sbvert.options = []
   container.bounds = (
     0
     0

@@ -5,14 +5,15 @@ object commanderfo: tcommanderfo
   frame.localprops1 = []
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
+  frame.grip_options = [go_closebutton, go_buttonhints, go_vert]
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = 'Use that grip panel to drag/drop the window.'
   visible = False
-  bounds_x = 490
-  bounds_y = 82
+  bounds_x = 484
+  bounds_y = 379
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442

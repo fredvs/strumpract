@@ -12,6 +12,7 @@ uses
   mseguiglob,
   po2arrays,
   msegraphedits,
+  msescrollbar,
   Process,
   mseguiintf,
   mseapplication,
@@ -155,12 +156,13 @@ type
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure onlangset(const Sender: TObject);
     procedure onactiv(const Sender: TObject);
-   procedure showinfos1(const sender: TObject);
-   procedure showinfos2(const sender: TObject);
-   procedure onfloatdancer(const sender: TObject);
-   procedure ondockdancer(const sender: TObject);
-   procedure onshowsynth(const sender: TObject);
-   procedure onshowpiano(const sender: TObject);
+    procedure showinfos1(const Sender: TObject);
+    procedure showinfos2(const Sender: TObject);
+    procedure onfloatdancer(const Sender: TObject);
+    procedure ondockdancer(const Sender: TObject);
+    procedure onshowsynth(const Sender: TObject);
+    procedure onshowpiano(const Sender: TObject);
+    procedure ondockvert(const Sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -563,11 +565,11 @@ begin
 
     basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];  {'Drag a form here using right-border grip.'}
 
-    tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
-    tmainmenu1.menu.itembynames(['dock']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+    //  tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+    tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
 
-    tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];  {'&Tab'}
-    tmainmenu1.menu.itembynames(['tab']).hint    := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+    //  tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];  {'&Tab'}
+    tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
 
     tmainmenu1.menu.itembynames(['layout', 'dockall']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_dockall)];  {'&Dock all visible windows'}
     tmainmenu1.menu.itembynames(['layout', 'dockall']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
@@ -804,52 +806,52 @@ begin
     begin
       basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];
 
-      tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
-      tmainmenu1.menu.itembynames(['dock']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+      //   tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
 
-      tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
-      tmainmenu1.menu.itembynames(['tab']).hint    := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      //  tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
     end;
 
     with dockpanel2fo do
     begin
       basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];
 
-      tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
-      tmainmenu1.menu.itembynames(['dock']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+      // tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
 
-      tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
-      tmainmenu1.menu.itembynames(['tab']).hint    := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      // tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
     end;
 
     with dockpanel3fo do
     begin
       basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];
 
-      tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
-      tmainmenu1.menu.itembynames(['dock']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+      //  tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
 
-      tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
-      tmainmenu1.menu.itembynames(['tab']).hint    := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      //  tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
     end;
 
     with dockpanel4fo do
     begin
       basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];
 
-      tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
-      tmainmenu1.menu.itembynames(['dock']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+      // tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
 
-      tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
-      tmainmenu1.menu.itembynames(['tab']).hint    := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
+      // tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
+      tmainmenu1.menu.itembynames(['tab']).hint := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
     end;
 
     with dockpanel5fo do
     begin
       basedock.dockingareacaption := lang_mainfo[Ord(ma_basedockdragdock)];
 
-      tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
-      tmainmenu1.menu.itembynames(['dock']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
+      //  tmainmenu1.menu.itembynames(['dock']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dock)];  {'&Dock'}
+      tmainmenu1.menu.itembynames(['dock']).hint := lang_mainfo[Ord(ma_tmainmenu1_dock_hint)];  {'Dock windows in one form'}
 
       tmainmenu1.menu.itembynames(['tab']).Caption := lang_mainfo[Ord(ma_tmainmenu1_tab)];    {'&Tab'}
       tmainmenu1.menu.itembynames(['tab']).hint    := lang_mainfo[Ord(ma_tmainmenu1_tab_hint)];  {'One form with tabs'}
@@ -1744,83 +1746,85 @@ var
   rect1: rectty;
 begin
 
-  if Visible and (oktimer = 0) then
-  begin
-    children1    := basedock.dragdock.getitems();
-    visiblecount := 0;
-
-    // writeln('Number of childs: ' + inttostr(high(children1)));
-
-    for i1 := 0 to high(children1) do
-      with children1[i1] do
-        if Visible then
-          Inc(visiblecount); //  writeln('Child visible: ' + inttostr(i1));
-
-    if (visiblecount = 0) then
+  if (basedock.dragdock.currentsplitdir = sd_horz) or (basedock.dragdock.currentsplitdir = sd_horz) then
+    if Visible and (oktimer = 0) then
     begin
-      //  writeln('No Child visible.');
-      Width           := fowidth;
-      Height          := emptyheight + 20;
-      application.ProcessMessages;
-      basedock.Height := Height - 20;
-      basedock.Width  := Width;
-      basedock.top    := 0;
-      basedock.left   := 0;
-      // writeln('width: ' + inttostr(width));
-      // writeln('height: ' + inttostr(height));
-      // writeln('basedock.width: ' + inttostr(basedock.width));
-      // writeln('basedock.height: ' + inttostr(basedock.height));
+
+      children1    := basedock.dragdock.getitems();
+      visiblecount := 0;
+
+      // writeln('Number of childs: ' + inttostr(high(children1)));
+
+      for i1 := 0 to high(children1) do
+        with children1[i1] do
+          if Visible then
+            Inc(visiblecount); //  writeln('Child visible: ' + inttostr(i1));
+
+      if (visiblecount = 0) then
+      begin
+        //  writeln('No Child visible.');
+        Width           := fowidth;
+        Height          := emptyheight + 20;
+        application.ProcessMessages;
+        basedock.Height := Height - 20;
+        basedock.Width  := Width;
+        basedock.top    := 0;
+        basedock.left   := 0;
+        // writeln('width: ' + inttostr(width));
+        // writeln('height: ' + inttostr(height));
+        // writeln('basedock.width: ' + inttostr(basedock.width));
+        // writeln('basedock.height: ' + inttostr(basedock.height));
+      end;
+      //}
+
+      bounds_cxmax := 0;
+      bounds_cxmin := 0;
+
+      if not fileexists(tstatfile1.filename) then
+        top := 30;
+
+      if (fs_sbverton in container.frame.state) then
+        Width := fowidth + scrollwidth
+      else
+        Width := fowidth;
+
+      basedock.Width := Width;
+
+      hasinit := 1;
+
+      bounds_cxmax := bounds_cx;
+      bounds_cxmin := bounds_cx;
+
+      rect1 := application.screenrect(window);
+
+      maxheightfo := rect1.cy - 70;
+
+      if visiblecount = 1 then
+      begin
+        bounds_cymax := bounds_cy;
+        bounds_cymin := bounds_cy;
+      end
+      else if visiblecount > 1 then
+      begin
+        bounds_cymax := maxheightfo;
+        bounds_cymin := 50;
+      end;
+
+      if dockpanel1fo.Visible then
+        dockpanel1fo.updatelayoutpan();
+
+      if dockpanel2fo.Visible then
+        dockpanel2fo.updatelayoutpan();
+
+      if dockpanel3fo.Visible then
+        dockpanel3fo.updatelayoutpan();
+
+      if dockpanel4fo.Visible then
+        dockpanel4fo.updatelayoutpan();
+
+      if dockpanel5fo.Visible then
+        dockpanel5fo.updatelayoutpan();
     end;
-    //}
-
-    bounds_cxmax := 0;
-    bounds_cxmin := 0;
-
-    if not fileexists(tstatfile1.filename) then
-      top := 30;
-
-    if (fs_sbverton in container.frame.state) then
-      Width := fowidth + scrollwidth
-    else
-      Width := fowidth;
-
-    basedock.Width := Width;
-
-    hasinit := 1;
-
-    bounds_cxmax := bounds_cx;
-    bounds_cxmin := bounds_cx;
-
-    rect1 := application.screenrect(window);
-
-    maxheightfo := rect1.cy - 70;
-
-    if visiblecount = 1 then
-    begin
-      bounds_cymax := bounds_cy;
-      bounds_cymin := bounds_cy;
-    end
-    else if visiblecount > 1 then
-    begin
-      bounds_cymax := maxheightfo;
-      bounds_cymin := 50;
-    end;
-
-    if dockpanel1fo.Visible then
-      dockpanel1fo.updatelayoutpan();
-
-    if dockpanel2fo.Visible then
-      dockpanel2fo.updatelayoutpan();
-
-    if dockpanel3fo.Visible then
-      dockpanel3fo.updatelayoutpan();
-
-    if dockpanel4fo.Visible then
-      dockpanel4fo.updatelayoutpan();
-
-    if dockpanel5fo.Visible then
-      dockpanel5fo.updatelayoutpan();
-  end;
 end;
 
 procedure resizeall();
@@ -2215,15 +2219,19 @@ end;
 
 procedure tmainfo.updatelayoutstrum();
 var
-  maxwidth: int32;
-  totheight: int32;
+  maxwidth, maxheight: int32;
+  totheight, totwidth: int32;
   visiblecount: int32;
   children1: widgetarty;
   heights: integerarty;
+  widths: integerarty;
   i1: int32;
   si1: sizety;
   w1: twidget;
-begin
+  rect1: rectty;
+  thetitle : string = '';
+  thetitlet : string = '';
+  begin
   if flayoutlock <= 0 then
   begin
 
@@ -2231,57 +2239,57 @@ begin
     bounds_cxmin := 0;
     bounds_cymax := 0;
     bounds_cymin := 0;
-    
-    if (pianofo.parentwidget <> nil) and (pianofo.visible) then
-      begin
+
+    if (pianofo.parentwidget <> nil) and (pianofo.Visible) then
+    begin
       pianofo.bounds_cxmax := fowidth;
-      pianofo.bounds_cx := fowidth;
-      end;
-      
-    if (imagedancerfo.parentwidget <> nil) and (imagedancerfo.visible) then
-      begin
+      pianofo.bounds_cx    := fowidth;
+    end;
+
+    if (imagedancerfo.parentwidget <> nil) and (imagedancerfo.Visible) then
+    begin
       imagedancerfo.bounds_cxmax := fowidth;
-      imagedancerfo.bounds_cx := fowidth;
+      imagedancerfo.bounds_cx    := fowidth;
       imagedancerfo.bounds_cymax := imagedancerfo.bounds_cymin;
-      imagedancerfo.bounds_cy := imagedancerfo.bounds_cymin;
-      end;  
-      
-     if (infosdfo.parentwidget <> nil) and (infosdfo.visible) then
-      begin
+      imagedancerfo.bounds_cy    := imagedancerfo.bounds_cymin;
+    end;
+
+    if (infosdfo.parentwidget <> nil) and (infosdfo.Visible) then
+    begin
       infosdfo.bounds_cxmax := fowidth;
-      infosdfo.bounds_cx := fowidth;
+      infosdfo.bounds_cx    := fowidth;
       infosdfo.bounds_cymax := infosdfo.bounds_cymin;
-      infosdfo.bounds_cy := infosdfo.bounds_cymax;
-     end;   
-      
-        if (infosdfo2.parentwidget <> nil) and (infosdfo2.visible) then
-      begin
+      infosdfo.bounds_cy    := infosdfo.bounds_cymax;
+    end;
+
+    if (infosdfo2.parentwidget <> nil) and (infosdfo2.Visible) then
+    begin
       infosdfo2.bounds_cxmax := fowidth;
-      infosdfo2.bounds_cx := fowidth;
+      infosdfo2.bounds_cx    := fowidth;
       infosdfo2.bounds_cymax := infosdfo2.bounds_cymin;
-      infosdfo2.bounds_cy := infosdfo2.bounds_cymax;
-        end;    
-      
-        if (wavefo.parentwidget <> nil) and (wavefo.visible) then
-      begin
+      infosdfo2.bounds_cy    := infosdfo2.bounds_cymax;
+    end;
+
+    if (wavefo.parentwidget <> nil) and (wavefo.Visible) then
+    begin
       wavefo.bounds_cxmax := fowidth;
-      wavefo.bounds_cx := fowidth;
-      end; 
-      
-          if (wavefo2.parentwidget <> nil) and (wavefo2.visible) then
-      begin
+      wavefo.bounds_cx    := fowidth;
+    end;
+
+    if (wavefo2.parentwidget <> nil) and (wavefo2.Visible) then
+    begin
       wavefo2.bounds_cxmax := fowidth;
-      wavefo2.bounds_cx := fowidth;
-      end; 
-      
-          if (filelistfo.parentwidget <> nil) and (filelistfo.visible) then
-      begin
+      wavefo2.bounds_cx    := fowidth;
+    end;
+
+    if (filelistfo.parentwidget <> nil) and (filelistfo.Visible) then
+    begin
       filelistfo.bounds_cxmax := fowidth;
-      filelistfo.bounds_cx := fowidth;
-      end;     
-    
-      
-          if basedock.dragdock.currentsplitdir = sd_tabed then
+      filelistfo.bounds_cx    := fowidth;
+    end;
+
+
+    if basedock.dragdock.currentsplitdir = sd_tabed then
     begin
       if basedock.dragdock.activewidget <> nil then
       begin
@@ -2294,8 +2302,25 @@ begin
         until sizeisequal(w1.size, basedock.dragdock.dockrect.size) or (i1 > 8);
       end;
       si1 := basedock.size;
+
+      container.frame.scrollpos := nullpoint;
+      addsize1(si1, sizety(basedock.pos));
+      i1 := 0;
+      repeat
+        container.frame.scrollpos := nullpoint;
+        size := addsize(size, subsize(si1, container.paintsize));
+        Inc(i1);
+      until sizeisequal(container.paintsize, si1) or (i1 > 8);
+
+      Width := fowidth;
+
+      if timerwait.Enabled then
+        timerwait.restart // to reset
+      else
+        timerwait.Enabled := True;
+
     end
-    else
+    else if basedock.dragdock.currentsplitdir = sd_horz then
     begin
       children1    := basedock.dragdock.getitems();
       setlength(heights, length(children1));
@@ -2303,7 +2328,8 @@ begin
       maxwidth     := 0;
       totheight    := 0;
 
-      //  writeln('Number of childs: ' + inttostr(high(children1)));
+      container.frame.sbvert.options := [sbo_thumbtrack, sbo_moveauto, sbo_showauto];
+      container.frame.sbhorz.options := [];
 
       for i1 := 0 to high(children1) do
         with children1[i1] do
@@ -2313,8 +2339,8 @@ begin
           if Visible then
           begin
 
-            //   writeln('Child visible: ' + inttostr(i1));
-
+            thetitle := thetitle +  ' ' + tdockform(children1[i1]).dragdock.Caption ;
+ 
             if si1.cx > maxwidth then
               maxwidth := si1.cx;
             totheight  := totheight + si1.cy;
@@ -2353,33 +2379,119 @@ begin
       //   writeln('final basedock.width: ' + inttostr(basedock.width));
       //   writeln('final basedock.height: ' + inttostr(basedock.height));
       //   writeln('final basedock.top: ' + inttostr(basedock.top));
-    end;
-    container.frame.scrollpos := nullpoint;
-    addsize1(si1, sizety(basedock.pos));
-    i1 := 0;
-    repeat
+
       container.frame.scrollpos := nullpoint;
-      size := addsize(size, subsize(si1, container.paintsize));
-      Inc(i1);
-    until sizeisequal(container.paintsize, si1) or (i1 > 8);
+      addsize1(si1, sizety(basedock.pos));
+      i1 := 0;
+      repeat
+        container.frame.scrollpos := nullpoint;
+        size := addsize(size, subsize(si1, container.paintsize));
+        Inc(i1);
+      until sizeisequal(container.paintsize, si1) or (i1 > 8);
+
+      if system.pos('(',caption) > 0 then
+         thetitlet := system.Copy(caption, 1, system.pos('(',caption) - 1)
+         else thetitlet := caption;
+      
+      caption := thetitlet + ' (' + thetitle + ' )' ;
+ 
+      if timerwait.Enabled then
+        timerwait.restart // to reset
+      else
+        timerwait.Enabled := True;
+
+    end
+
+    else if basedock.dragdock.currentsplitdir = sd_vert then
+    begin
+      children1    := basedock.dragdock.getitems();
+      setlength(widths, length(children1));
+      visiblecount := 0;
+      maxheightpa  := 0;
+      totwidth     := 0;
+
+      container.frame.sbhorz.options := [sbo_thumbtrack, sbo_moveauto, sbo_showauto];
+      container.frame.sbvert.options := [];
+
+      //setgrip(8);
+
+      // writeln('Number of childs: ' + inttostr(high(children1)));
+
+      for i1 := 0 to high(children1) do
+        with children1[i1] do
+        begin
+          si1        := size;
+          widths[i1] := si1.cx;
+          if Visible then
+          begin
+          thetitle := thetitle +  ' ' + tdockform(children1[i1]).dragdock.Caption ;
+           if si1.cy > maxheightpa then
+              maxheightpa := si1.cy;
+            totwidth      := totwidth + si1.cx;
+            Inc(visiblecount);
+          end
+          else
+            widths[i1] := 0//   writeln('Child not visible: ' + inttostr(i1));
+          ;
+        end;
+      // decorationheight := window.decoratedbounds_cy - Height;
+
+      maxheightpa   := maxheightpa + 20;
+      if maxheightpa > 400 then
+        maxheightpa := 400;
+      si1.cy := maxheightpa - 17;
+
+      if visiblecount = 0 then
+      begin
+        //   writeln('basedock.width: ' + inttostr(basedock.width));
+        si1.cy := emptyheight;
+        si1.cx := basedock.Width; //do not change width
+      end
+      else
+        si1.cx := totwidth + ((visiblecount - 1) * 6);
+      basedock.size := si1;
+      //  writeln('final basedock.width: ' + inttostr(basedock.width));
+      //  writeln('final basedock.height: ' + inttostr(basedock.height));
+      //   writeln('final totheight: ' + inttostr(totheight));
+      //  writeln('final basedock.top: ' + inttostr(basedock.top));
+
+      container.frame.scrollpos := nullpoint;
+      addsize1(si1, sizety(basedock.pos));
+      i1 := 0;
+      repeat
+        container.frame.scrollpos := nullpoint;
+        size := addsize(size, subsize(si1, container.paintsize));
+        Inc(i1);
+      until sizeisequal(container.paintsize, si1) or (i1 > 8);
+
+      //   container.frame.sbvert.width := 0;
+      //   container.frame.sbhorz.width := 10;
+
+      rect1      := application.screenrect(window);
+      maxwidthfo := rect1.cx - 20;
+
+      if maxwidthfo < bounds_cx then
+        bounds_cy := bounds_cy + 10;
+
+      bounds_cymax := bounds_cy;
+      bounds_cymin := bounds_cy;
+      bounds_cxmax := maxwidthfo;
+
+      if visiblecount = 1 then
+      begin
+        bounds_cxmax := bounds_cx;
+        bounds_cxmin := bounds_cx;
+      end;
+      if system.pos('(',caption) > 0 then
+         thetitlet := system.Copy(caption, 1, system.pos('(',caption) - 1)
+         else thetitlet := caption;
+      
+      caption := thetitlet + ' (' + thetitle + ' )' ;
+ 
+    end;
+
   end;
 
-
-{
-  writeln('final2 basedock.width: ' + inttostr(basedock.width));
-  writeln('final2 basedock.height: ' + inttostr(basedock.height));
-  writeln('final2 basedock.top: ' + inttostr(basedock.top));
-  writeln('final2 width: ' + inttostr(width));
-  writeln('final2 height: ' + inttostr(height));
-  }
-
-  // if filelistfo.parentwidget <> NIL THEN filelistfo.size := sizebefdock;
-  
-  
-  if timerwait.Enabled then
-    timerwait.restart // to reset
-  else
-    timerwait.Enabled := True;
 end;
 
 procedure tmainfo.updatedockev(const Sender: TObject; const awidget: twidget);
@@ -2404,11 +2516,11 @@ begin
 
   if drumsfo.Visible then
     drumsfo.dragdock.float();
-    
+
   if guitarsfo.Visible then
     guitarsfo.dragdock.float();
 
-   if pianofo.Visible then
+  if pianofo.Visible then
     pianofo.dragdock.float();
 
   if synthefo.Visible then
@@ -2417,17 +2529,17 @@ begin
   if songplayerfo.Visible then
     songplayerfo.dragdock.float();
 
- if infosdfo.Visible then
+  if infosdfo.Visible then
     infosdfo.dragdock.float();
- 
- if infosdfo2.Visible then
+
+  if infosdfo2.Visible then
     infosdfo2.dragdock.float();
 
   if spectrum1fo.Visible then
     spectrum1fo.dragdock.float();
-    
+
   if imagedancerfo.Visible then
-    imagedancerfo.dragdock.float();   
+    imagedancerfo.dragdock.float();
 
   if spectrum2fo.Visible then
     spectrum2fo.dragdock.float();
@@ -2491,21 +2603,21 @@ begin
 
   filelistfo.bounds_cxmax := fowidth;
   filelistfo.bounds_cymax := 0;
- 
+
   infosdfo.bounds_cxmax := 0;
   infosdfo.bounds_cymax := 0;
-  
+
   infosdfo2.bounds_cxmax := 0;
   infosdfo2.bounds_cymax := 0;
- 
-  infosdfo.height := 226;
-  infosdfo.width := fowidth;
-   
-  infosdfo2.height :=  infosdfo.height;
-  infosdfo2.width := infosdfo.width;
-  
+
+  infosdfo.Height := 226;
+  infosdfo.Width  := fowidth;
+
+  infosdfo2.Height := infosdfo.Height;
+  infosdfo2.Width  := infosdfo.Width;
+
   pianofo.bounds_cxmax := 0;
-   
+
   Height := emptyheight + 20;
   Width  := fowidth;
 
@@ -2515,11 +2627,11 @@ begin
   endlayout();
 
   leftposi := 0;
-  
+
   if imagedancerfo.Visible then
   begin
     imagedancerfo.left := leftposi + leftdec;
-    leftposi        := imagedancerfo.left;
+    leftposi           := imagedancerfo.left;
   end;
 
   if filelistfo.Visible then
@@ -2539,17 +2651,17 @@ begin
     guitarsfo.left := leftposi + leftdec;
     leftposi       := guitarsfo.left;
   end;
-  
+
   if pianofo.Visible then
   begin
     pianofo.left := leftposi + leftdec;
-    leftposi       := pianofo.left;
+    leftposi     := pianofo.left;
   end;
-  
-   if synthefo.Visible then
+
+  if synthefo.Visible then
   begin
     synthefo.left := leftposi + leftdec;
-    leftposi       := synthefo.left;
+    leftposi      := synthefo.left;
   end;
 
   if spectrumrecfo.Visible then
@@ -2575,11 +2687,11 @@ begin
     recorderfo.left := leftposi + leftdec;
     leftposi        := recorderfo.left;
   end;
- 
+
   if infosdfo.Visible then
- begin
+  begin
     infosdfo.left := leftposi + leftdec;
-    leftposi         := infosdfo.left;
+    leftposi      := infosdfo.left;
   end;
 
   if spectrum1fo.Visible then
@@ -2605,11 +2717,11 @@ begin
     songplayerfo.left := leftposi + leftdec;
     leftposi          := songplayerfo.left;
   end;
-  
-    if infosdfo2.Visible then
- begin
+
+  if infosdfo2.Visible then
+  begin
     infosdfo2.left := leftposi + leftdec;
-    leftposi         := infosdfo2.left;
+    leftposi       := infosdfo2.left;
   end;
 
   if spectrum2fo.Visible then
@@ -2646,11 +2758,11 @@ begin
   top := 0;
 
   posi := 124;
-  
-    if imagedancerfo.Visible then
+
+  if imagedancerfo.Visible then
   begin
     imagedancerfo.top := posi;
-    posi           := imagedancerfo.top + topdec;
+    posi := imagedancerfo.top + topdec;
     imagedancerfo.activate;
   end;
 
@@ -2674,18 +2786,18 @@ begin
     posi          := guitarsfo.top + topdec;
     guitarsfo.activate;
   end;
-  
+
   if pianofo.Visible then
   begin
     pianofo.top := posi;
-    posi          := pianofo.top + topdec;
+    posi        := pianofo.top + topdec;
     pianofo.activate;
   end;
-  
-   if synthefo.Visible then
+
+  if synthefo.Visible then
   begin
     synthefo.top := posi;
-    posi          := synthefo.top + topdec;
+    posi         := synthefo.top + topdec;
     synthefo.activate;
   end;
 
@@ -2716,11 +2828,11 @@ begin
     posi           := recorderfo.top + topdec;
     recorderfo.activate;
   end;
-  
-   if infosdfo.Visible then
+
+  if infosdfo.Visible then
   begin
     infosdfo.top := posi;
-    posi := infosdfo.top + topdec;
+    posi         := infosdfo.top + topdec;
     infosdfo.activate;
   end;
 
@@ -2751,11 +2863,11 @@ begin
     posi := songplayerfo.top + topdec;
     songplayerfo.activate;
   end;
-  
-   if infosdfo2.Visible then
+
+  if infosdfo2.Visible then
   begin
     infosdfo2.top := posi;
-    posi := infosdfo2.top + topdec;
+    posi          := infosdfo2.top + topdec;
     infosdfo2.activate;
   end;
 
@@ -2832,7 +2944,7 @@ begin
 
     if songplayerfo.parentwidget = basedock then
       songplayerfo.dragdock.float();
-   
+
     if songplayer2fo.parentwidget = basedock then
       songplayer2fo.dragdock.float();
 
@@ -2884,19 +2996,17 @@ begin
 
   oktimer := 1;
 
- if imagedancerfo.visible then
-  imagedancerfo.dragdock.float();
+  if imagedancerfo.Visible then
+    imagedancerfo.dragdock.float();
 
- 
+
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
 
-
-  dockpanel4fo.Visible := False;
   dockpanel5fo.Visible := False;
 
-  spectrum1fo.Visible := false;
-  spectrum2fo.Visible := false;
+  spectrum1fo.Visible := False;
+  spectrum2fo.Visible := False;
 
   recorderfo.dragdock.float();
   recorderfo.Visible := False;
@@ -2950,6 +3060,8 @@ begin
   begin
     //  dragfloat(dockpanel3fo);
 
+    basedock.dragdock.currentsplitdir := sd_horz;
+
     Visible := True;
 
     drumsfo.Visible      := True;
@@ -2958,13 +3070,13 @@ begin
     guitarsfo.Visible      := True;
     guitarsfo.parentwidget := basedock;
 
-      pt1 := nullpoint;
+    pt1 := nullpoint;
 
-     drumsfo.pos := pt1;
-      pt1.y       := pt1.y + drumsfo.Height + decorationheight;
- 
-     guitarsfo.pos := pt1;
-      pt1.y         := pt1.y + guitarsfo.Height + decorationheight;
+    drumsfo.pos := pt1;
+    pt1.y       := pt1.y + drumsfo.Height + decorationheight;
+
+    guitarsfo.pos := pt1;
+    pt1.y         := pt1.y + guitarsfo.Height + decorationheight;
 
     if dockpanel3fo.Timerwaitdp.Enabled then
       dockpanel3fo.Timerwaitdp.restart // to reset
@@ -2974,6 +3086,7 @@ begin
 
   with dockpanel1fo do
   begin
+    basedock.dragdock.currentsplitdir := sd_horz;
 
     //  dragfloat(dockpanel1fo);
 
@@ -2982,16 +3095,16 @@ begin
     songplayerfo.Visible      := True;
     songplayerfo.parentwidget := basedock;
 
-  //  spectrum1fo.Visible      := True;
-  //  spectrum1fo.parentwidget := basedock;
+    //  spectrum1fo.Visible      := True;
+    //  spectrum1fo.parentwidget := basedock;
 
     equalizerfo1.Visible      := True;
     equalizerfo1.parentwidget := basedock;
 
     pt1 := nullpoint;
 
- //   spectrum1fo.pos := pt1;
- //   pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
+    //   spectrum1fo.pos := pt1;
+    //   pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
 
     equalizerfo1.pos := pt1;
     pt1.y := pt1.y + equalizerfo1.Height + decorationheight;
@@ -3007,7 +3120,8 @@ begin
 
   with dockpanel2fo do
   begin
-    // dragfloat(dockpanel2fo);
+    basedock.dragdock.currentsplitdir := sd_horz;
+
 
     Visible := True;
 
@@ -3033,39 +3147,26 @@ begin
 
   end;
 
-{
   with dockpanel4fo do
   begin
+    basedock.dragdock.currentsplitdir := sd_vert;
 
-     Visible := True;
-    recorderfo.Visible := True;
-    recorderfo.parentwidget := basedock;
-    
-   recorderfo.sentcue1.Value := False;
+    Visible          := True;
+    synthefo.Visible := True;
+    synthefo.parentwidget := basedock;
 
-    spectrumrecfo.Visible      := True;
-    spectrumrecfo.parentwidget := basedock;
-    
-     equalizerforec.Visible      := True;
-    equalizerforec.parentwidget := basedock;
+    pianofo.Visible      := True;
+    pianofo.parentwidget := basedock;
 
     pt1 := nullpoint;
-    
-    spectrumrecfo.pos := pt1;
-    pt1.y           := pt1.y + spectrumrecfo.Height + decorationheight;
-  
-    equalizerforec.pos := pt1;
-    pt1.y          := pt1.y + equalizerforec.Height + decorationheight;
-    
-    recorderfo.pos := pt1;
-  
-    if dockpanel4fo.Timerwaitdp.Enabled then
-      dockpanel4fo.Timerwaitdp.restart // to reset
-    else
-      dockpanel4fo.Timerwaitdp.Enabled := True;
+
+    synthefo.pos := pt1;
+    pt1.x        := pt1.x + synthefo.Width + decorationheight;
+
+    pianofo.pos := pt1;
 
   end;
-}
+
 
   filelistfo.Visible  := True;
   commanderfo.Visible := True;
@@ -3097,27 +3198,13 @@ begin
 
   dockpanel2fo.left := left + Width + 8;
   dockpanel2fo.top  := dockpanel1fo.top;
-  
-  dockpanel3fo.left :=  dockpanel1fo.left ;
-  
-  dockpanel3fo.top  := songplayerfo.height + equalizerfo1.height + 24 + (2*decorationheight);
 
-  synthefo.dragdock.float();
-  synthefo.top := dockpanel3fo.top;
- // synthefo.width := 880;
-  synthefo.left := dockpanel3fo.right + 10;
-  synthefo.visible := true;
-  
-  pianofo.dragdock.float();
-  
-  pianofo.top := synthefo.top;
-  pianofo.width := fowidth;
-  pianofo.left := synthefo.right + 10;
-  pianofo.visible := true;
- 
-   
-  //dockpanel4fo.left := left;
-  // dockpanel4fo.top  := songplayerfo.Height + songplayerfo.Height + 30 + (2 * decorationheight);
+  dockpanel3fo.left := dockpanel1fo.left;
+
+  dockpanel3fo.top := songplayerfo.Height + equalizerfo1.Height + 24 + (2 * decorationheight);
+
+  dockpanel4fo.top  := dockpanel3fo.top;
+  dockpanel4fo.left := dockpanel3fo.right + 10;
 
   norefresh := False;
 
@@ -3126,7 +3213,7 @@ begin
   // application.ProcessMessages;
 
   oktimer := 0;
- 
+
   if timerwait.Enabled then
     timerwait.restart // to reset
   else
@@ -3167,14 +3254,14 @@ begin
 
   norefresh := True;
 
-  oktimer          := 1;
+  oktimer           := 1;
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
-  synthefo.Visible := False;
-  pianofo.Visible := False;
+  synthefo.Visible  := False;
+  pianofo.Visible   := False;
 
-  if imagedancerfo.visible then
-  imagedancerfo.dragdock.float();
+  if imagedancerfo.Visible then
+    imagedancerfo.dragdock.float();
 
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -3371,12 +3458,12 @@ begin
 
   oktimer := 1;
 
-  wavefo.Visible       := False;
-  wavefo2.Visible      := False;
+  wavefo.Visible   := False;
+  wavefo2.Visible  := False;
   synthefo.Visible := False;
-  pianofo.Visible := False;
-  if imagedancerfo.visible then
-  imagedancerfo.dragdock.float();
+  pianofo.Visible  := False;
+  if imagedancerfo.Visible then
+    imagedancerfo.dragdock.float();
 
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -3438,7 +3525,7 @@ begin
   begin
 
     // dragfloat(dockpanel1fo);
-   
+
     songplayerfo.parentwidget := basedock;
 
     spectrum1fo.parentwidget := basedock;
@@ -3448,12 +3535,12 @@ begin
     //infosdfo.Width  := songplayerfo.Width;
     //infosdfo.Height := 228;
     infosdfo.parentwidget := basedock;
-  
+
     //{
     pt1 := nullpoint;
-    
+
     infosdfo.pos := pt1;
-    pt1.y           := pt1.y + infosdfo.Height + decorationheight;
+    pt1.y        := pt1.y + infosdfo.Height + decorationheight;
 
     spectrum1fo.pos := pt1;
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
@@ -3473,7 +3560,7 @@ begin
     songplayer2fo.parentwidget := basedock;
     spectrum2fo.parentwidget   := basedock;
     equalizerfo2.parentwidget  := basedock;
-    
+
     //infosdfo2.Width  := songplayerfo.Width;
     //infosdfo2.Height := 228;
     infosdfo2.parentwidget := basedock;
@@ -3481,9 +3568,9 @@ begin
 
     //{
     pt1 := nullpoint;
-    
+
     infosdfo2.pos := pt1;
-    pt1.y           := pt1.y + infosdfo2.Height + decorationheight;
+    pt1.y         := pt1.y + infosdfo2.Height + decorationheight;
 
     spectrum2fo.pos := pt1;
     pt1.y           := pt1.y + spectrum1fo.Height + decorationheight;
@@ -3523,7 +3610,7 @@ begin
  }
 
   dockpanel1fo.left := 0;
-  dockpanel1fo.top  := decorationheight ;
+  dockpanel1fo.top  := decorationheight;
 
   filelistfo.left := commanderfo.Width + interv;
   filelistfo.top  := commanderfo.Height + round(2.5 * decorationheight) - 2;
@@ -3598,17 +3685,17 @@ begin
 
   waveforec.bounds_cxmax := fowidth;
   waveforec.bounds_cymax := 100;
-  
- imagedancerfo.height := 354;
- imagedancerfo.bounds_cxmax := fowidth;
- imagedancerfo.bounds_cx := fowidth;
- // infosdfo.height := 226;
- 
- //  infosdfo.width := songplayerfo.width;
-  
- // infosdfo2.height :=  infosdfo.height;
- // infosdfo2.width := infosdfo.width;
- 
+
+  imagedancerfo.Height       := 354;
+  imagedancerfo.bounds_cxmax := fowidth;
+  imagedancerfo.bounds_cx    := fowidth;
+  // infosdfo.height := 226;
+
+  //  infosdfo.width := songplayerfo.width;
+
+  // infosdfo2.height :=  infosdfo.height;
+  // infosdfo2.width := infosdfo.width;
+
   //sizeecbefdock.cy := 500;
   //size := sizebefdock;
 
@@ -3617,14 +3704,14 @@ begin
   beginlayout();
 
   basedock.dragdock.currentsplitdir := sd_horz;
-  
+
   if drumsfo.Visible then
-    drumsfo.parentwidget       := basedock;
+    drumsfo.parentwidget  := basedock;
   if synthefo.Visible then
-    synthefo.parentwidget       := basedock;
-   if pianofo.Visible then
-    pianofo.parentwidget       := basedock;
-      
+    synthefo.parentwidget := basedock;
+  if pianofo.Visible then
+    pianofo.parentwidget  := basedock;
+
   if filelistfo.Visible then
     filelistfo.parentwidget    := basedock;
   if songplayerfo.Visible then
@@ -3633,21 +3720,21 @@ begin
     songplayer2fo.parentwidget := basedock;
   if commanderfo.Visible then
     commanderfo.parentwidget   := basedock;
-    
-   if imagedancerfo.Visible then
-    imagedancerfo.parentwidget       := basedock;
+
+  if imagedancerfo.Visible then
+    imagedancerfo.parentwidget := basedock;
 
   if spectrum1fo.Visible then
     spectrum1fo.parentwidget  := basedock;
   if equalizerfo1.Visible then
     equalizerfo1.parentwidget := basedock;
-    
-  if infosdfo.Visible then
-    infosdfo.parentwidget  := basedock;
 
- if infosdfo2.Visible then
-    infosdfo2.parentwidget  := basedock;
-    
+  if infosdfo.Visible then
+    infosdfo.parentwidget := basedock;
+
+  if infosdfo2.Visible then
+    infosdfo2.parentwidget := basedock;
+
   if spectrum2fo.Visible then
     spectrum2fo.parentwidget  := basedock;
   if equalizerfo2.Visible then
@@ -3682,13 +3769,13 @@ begin
     drumsfo.pos := pt1;
     pt1.y       := pt1.y + drumsfo.Height + decorationheight;
   end;
-  
-   if synthefo.Visible then
+
+  if synthefo.Visible then
   begin
     synthefo.pos := pt1;
-    pt1.y       := pt1.y + synthefo.Height + decorationheight;
+    pt1.y        := pt1.y + synthefo.Height + decorationheight;
   end;
-  
+
   if pianofo.Visible then
   begin
     pianofo.pos := pt1;
@@ -3700,11 +3787,11 @@ begin
     filelistfo.pos := pt1;
     pt1.y          := pt1.y + filelistfo.Height + decorationheight;
   end;
-  
- if infosdfo.Visible then
+
+  if infosdfo.Visible then
   begin
     infosdfo.pos := pt1;
-    pt1.y           := pt1.y + infosdfo.Height + decorationheight;
+    pt1.y        := pt1.y + infosdfo.Height + decorationheight;
   end;
 
   if spectrum1fo.Visible then
@@ -3730,11 +3817,11 @@ begin
     songplayerfo.pos := pt1;
     pt1.y := pt1.y + songplayerfo.Height + decorationheight;
   end;
-  
-   if infosdfo2.Visible then
+
+  if infosdfo2.Visible then
   begin
     infosdfo2.pos := pt1;
-    pt1.y           := pt1.y + infosdfo2.Height + decorationheight;
+    pt1.y         := pt1.y + infosdfo2.Height + decorationheight;
   end;
 
   if spectrum2fo.Visible then
@@ -3760,13 +3847,13 @@ begin
     songplayer2fo.pos := pt1;
     pt1.y := pt1.y + songplayer2fo.Height + decorationheight;
   end;
-  
-    if imagedancerfo.Visible then
-    begin
+
+  if imagedancerfo.Visible then
+  begin
     imagedancerfo.pos := pt1;
-    pt1.y          := pt1.y + imagedancerfo.Height + decorationheight;
-   end;
- 
+    pt1.y := pt1.y + imagedancerfo.Height + decorationheight;
+  end;
+
 
   if commanderfo.Visible then
   begin
@@ -3856,12 +3943,12 @@ begin
   wavefo.bounds_cy    := wavefoheight;
   wavefo2.bounds_cy   := wavefoheight;
   waveforec.bounds_cy := wavefoheight;
-  
-//  infosdfo.width := fowidth;
-//  infosdfo2.width := fowidth;
- // infosdfo.bounds_cxmax := fowidth;
- // infosdfo2.bounds_cxmax := fowidth;
-    
+
+  //  infosdfo.width := fowidth;
+  //  infosdfo2.width := fowidth;
+  // infosdfo.bounds_cxmax := fowidth;
+  // infosdfo2.bounds_cxmax := fowidth;
+
   beginlayout();
   oktimer := 1;
 
@@ -3906,7 +3993,7 @@ begin
   spectrum2fo.Show();
   spectrumrecfo.Show();
   synthefo.Show();
-  pianofo.show();
+  pianofo.Show();
   wavefo.Show();
   wavefo2.Show();
   waveforec.Show();
@@ -3929,31 +4016,31 @@ end;
 procedure tmainfo.hideall(const Sender: TObject);
 begin
   beginlayout();
-  norefresh           := True;
-  drumsfo.Visible     := False;
-  filelistfo.Visible  := False;
+  norefresh          := True;
+  drumsfo.Visible    := False;
+  filelistfo.Visible := False;
   songplayerfo.Visible := False;
   songplayer2fo.Visible := False;
-  synthefo.Visible := False;
-  
-  infosdfo.Visible := False;
-  infosdfo2.Visible := False;
+  synthefo.Visible   := False;
+
+  infosdfo.Visible      := False;
+  infosdfo2.Visible     := False;
   imagedancerfo.Visible := False;
-  
+
   pianofo.Visible := False;
   commanderfo.Visible := False;
-  guitarsfo.Visible   := False;
-  recorderfo.Visible  := False;
+  guitarsfo.Visible := False;
+  recorderfo.Visible := False;
   spectrum1fo.Visible := False;
   spectrum2fo.Visible := False;
   spectrumrecfo.Visible := False;
-  wavefo.Visible      := False;
-  wavefo2.Visible     := False;
-  waveforec.Visible   := False;
+  wavefo.Visible := False;
+  wavefo2.Visible := False;
+  waveforec.Visible := False;
   equalizerfo1.Visible := False;
   equalizerfo2.Visible := False;
   equalizerforec.Visible := False;
-  norefresh           := False;
+  norefresh := False;
   endlayout();
   if timerwait.Enabled then
     timerwait.restart // to reset
@@ -4168,10 +4255,10 @@ begin
 
   if typecolor.Value = 0 then
   begin
-    font.color := cl_black;
+    font.color          := cl_black;
     synthefo.font.color := cl_black;
-    pianofo.font.color := cl_black;
-    
+    pianofo.font.color  := cl_black;
+
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
     dockpanel2fo.tmainmenu1.menu.font.color := cl_black;
     dockpanel3fo.tmainmenu1.menu.font.color := cl_black;
@@ -4752,7 +4839,7 @@ begin
 
     commanderfo.tfacegriptab.template.fade_color.items[0] := $F8DEFF;
     commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6;
-    
+
     commanderfo.timemix.frame.font.color := ltblack;
 
     commanderfo.genvolleft.scrollbar.face.template       := commanderfo.tfaceslider;
@@ -4949,9 +5036,9 @@ begin
 
   if typecolor.Value = 1 then
   begin
-    font.color := cl_black;
+    font.color          := cl_black;
     synthefo.font.color := cl_black;
-    pianofo.font.color := cl_black;
+    pianofo.font.color  := cl_black;
     dialogfilesfo.list_files.frame.colorclient := cl_ltgray;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
@@ -5711,9 +5798,9 @@ tfaceorange.template.fade_color.items[1] := $DDDDDD ;
 
   if typecolor.Value = 2 then
   begin
-    font.color := cl_white;
+    font.color          := cl_white;
     synthefo.font.color := cl_white;
-    pianofo.font.color := cl_white;
+    pianofo.font.color  := cl_white;
     dialogfilesfo.list_files.frame.colorclient := cl_gray;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_white;
@@ -6524,14 +6611,14 @@ end;
 
 procedure tmainfo.onmenuaudio(const Sender: TObject);
 begin
-  application.processmessages;
+  application.ProcessMessages;
   songplayerfo.doplayerstop(Sender);
   songplayer2fo.doplayerstop(Sender);
   uos_Stop(therecplayer);
-  application.processmessages;
+  application.ProcessMessages;
   configfo.oncheckdevices(nil);
-  application.processmessages;
-  configfo.tstringdisp1.visible := false;
+  application.ProcessMessages;
+  configfo.tstringdisp1.Visible := False;
   configfo.Show(True);
 end;
 
@@ -6637,13 +6724,13 @@ var
   decorationheight: integer = 5;
 begin
   oktimer := 1;
- if imagedancerfo.visible then
-  imagedancerfo.dragdock.float();
+  if imagedancerfo.Visible then
+    imagedancerfo.dragdock.float();
 
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
-  synthefo.Visible := False;
-  pianofo.Visible := False;
+  synthefo.Visible  := False;
+  pianofo.Visible   := False;
 
   // basedock.anchors := [an_left,an_top]  ;
   basedock.dragdock.currentsplitdir := sd_horz;
@@ -6849,11 +6936,11 @@ begin
   dockpanel4fo.Visible  := False;
   dockpanel5fo.Visible  := False;
   imagedancerfo.Visible := False;
-  infosdfo.Visible       := False;
-  infosdfo2.Visible      := False;
-  
+  infosdfo.Visible      := False;
+  infosdfo2.Visible     := False;
+
   synthefo.Visible := False;
-  pianofo.Visible := False;
+  pianofo.Visible  := False;
 
   hideall(nil);
 
@@ -7032,8 +7119,8 @@ procedure tmainfo.ondancerlayout(const Sender: TObject);
 begin
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
-  synthefo.Visible := False;
-  pianofo.Visible := False;
+  synthefo.Visible  := False;
+  pianofo.Visible   := False;
 
   dockpanel1fo.Visible := False;
   dockpanel2fo.Visible := False;
@@ -7078,11 +7165,11 @@ begin
   imagedancerfo.bounds_cxmax := 0;
   imagedancerfo.bounds_cymax := 0;
   imagedancerfo.Height := Height;
-  imagedancerfo.top    := top;
-  imagedancerfo.left   := right + 10;
-  imagedancerfo.Width  := Height;
-  imagedancerfo.top    := top;
- 
+  imagedancerfo.top := top;
+  imagedancerfo.left := right + 10;
+  imagedancerfo.Width := Height;
+  imagedancerfo.top := top;
+
   imagedancerfo.dragdock.float();
 
   imagedancerfo.Visible := True;
@@ -7091,7 +7178,7 @@ end;
 
 procedure tmainfo.onclose(const Sender: TObject);
 begin
-// synthefo.visible := false;
+  // synthefo.visible := false;
   if drumsfo.Visible then
     drumsvisible.Value := 1
   else
@@ -7167,32 +7254,32 @@ end;
 
 procedure tmainfo.onsetwindowdancer(const Sender: TObject);
 begin
-   if (tmenuitem(Sender).tag = 0) then      // normal
-   begin
+  if (tmenuitem(Sender).tag = 0) then      // normal
+  begin
     typwindow := 0;
-    imagedancerfo.OptionsWindow:= [];
+    imagedancerfo.OptionsWindow := [];
     imagedancerfo.frame.grip_size := 8;
-   end
+  end
   else if (tmenuitem(Sender).tag = 1) then // ellipse
-    begin
+  begin
     typwindow := 1;
-    imagedancerfo.OptionsWindow:= [wo_ellipse, wo_noframe];
+    imagedancerfo.OptionsWindow := [wo_ellipse, wo_noframe];
     imagedancerfo.frame.grip_size := 0;
-    end
+  end
   else if (tmenuitem(Sender).tag = 2) then // round rect
-    begin
+  begin
     typwindow := 2;
-    imagedancerfo.OptionsWindow:=  [wo_rounded, wo_noframe] ;
+    imagedancerfo.OptionsWindow := [wo_rounded, wo_noframe];
     imagedancerfo.frame.grip_size := 0;
-    end
+  end
   else if (tmenuitem(Sender).tag = 3) then // rect
-   begin
+  begin
     typwindow := 3;
-    imagedancerfo.OptionsWindow:=  [wo_noframe] ;
+    imagedancerfo.OptionsWindow := [wo_noframe];
     imagedancerfo.frame.grip_size := 0;
-   end;
+  end;
 
-  imagedancerfo.Window.RecreateWindow; 
+  imagedancerfo.Window.RecreateWindow;
   statusanim := 1;
 
   if alwaystop = 0 then
@@ -7205,16 +7292,16 @@ begin
   if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer', 'alwaystop']).state then
   begin
     alwaystop := 1;
-    imagedancerfo.OptionsWindow:= imagedancerfo.OptionsWindow +  [wo_alwaysontop] ;
-  end  
+    imagedancerfo.OptionsWindow := imagedancerfo.OptionsWindow + [wo_alwaysontop];
+  end
   else
   begin
     alwaystop := 0;
-    imagedancerfo.OptionsWindow:= imagedancerfo.OptionsWindow - [wo_alwaysontop] ;
-  end;  
+    imagedancerfo.OptionsWindow := imagedancerfo.OptionsWindow - [wo_alwaysontop];
+  end;
 
- imagedancerfo.Window.RecreateWindow; 
- statusanim := 1;
+  imagedancerfo.Window.RecreateWindow;
+  statusanim := 1;
 
   if alwaystop = 0 then
     imagedancerfo.bringtofront;
@@ -7307,46 +7394,52 @@ begin
   end;
   if mainfo.drumsvisible.Value = 1 then
     drumsfo.Visible := True;
-    
-   infosdfo.onshow(nil);
-   infosdfo2.onshow(nil);
-   synthefo.onchangest(nil);
-   pianofo.onchangest(nil);
+
+  infosdfo.onshow(nil);
+  infosdfo2.onshow(nil);
+  synthefo.onchangest(nil);
+  pianofo.onchangest(nil);
 
 end;
 
-procedure tmainfo.showinfos1(const sender: TObject);
+procedure tmainfo.showinfos1(const Sender: TObject);
 begin
- infosdfo.Visible := not infosdfo.Visible;
+  infosdfo.Visible := not infosdfo.Visible;
 end;
 
-procedure tmainfo.showinfos2(const sender: TObject);
+procedure tmainfo.showinfos2(const Sender: TObject);
 begin
- infosdfo2.Visible := not infosdfo2.Visible;
+  infosdfo2.Visible := not infosdfo2.Visible;
 end;
 
-procedure tmainfo.onfloatdancer(const sender: TObject);
+procedure tmainfo.onfloatdancer(const Sender: TObject);
 begin
-imagedancerfo.dragdock.float();
-imagedancerfo.visible := true;
-updatelayoutstrum();
+  imagedancerfo.dragdock.float();
+  imagedancerfo.Visible := True;
+  updatelayoutstrum();
 end;
 
-procedure tmainfo.ondockdancer(const sender: TObject);
+procedure tmainfo.ondockdancer(const Sender: TObject);
 begin
-imagedancerfo.parentwidget       := basedock;
-imagedancerfo.visible := true;
-updatelayoutstrum();
+  imagedancerfo.parentwidget := basedock;
+  imagedancerfo.Visible      := True;
+  updatelayoutstrum();
 end;
 
-procedure tmainfo.onshowsynth(const sender: TObject);
+procedure tmainfo.onshowsynth(const Sender: TObject);
 begin
-synthefo.Visible := not synthefo.Visible;
+  synthefo.Visible := not synthefo.Visible;
 end;
 
-procedure tmainfo.onshowpiano(const sender: TObject);
+procedure tmainfo.onshowpiano(const Sender: TObject);
 begin
-pianofo.Visible := not pianofo.Visible;
+  pianofo.Visible := not pianofo.Visible;
+end;
+
+procedure tmainfo.ondockvert(const Sender: TObject);
+begin
+  basedock.dragdock.currentsplitdir := sd_vert;
+  updatelayoutstrum();
 end;
 
 end.

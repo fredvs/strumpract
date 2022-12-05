@@ -1,5 +1,7 @@
 object dockpanel1fo: tdockpanel1fo
   optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton]
+  face.localprops = []
+  face.template = mainfo.tfacebutgray
   bounds_x = 462
   bounds_y = 211
   bounds_cx = 454
@@ -15,8 +17,14 @@ object dockpanel1fo: tdockpanel1fo
   container.frame.font.localprops = []
   container.frame.localprops = []
   container.frame.localprops1 = []
-  container.frame.sbhorz.options = []
   container.frame.sbhorz.width = 10
+  container.frame.sbhorz.face.localprops = []
+  container.frame.sbhorz.face.template = mainfo.tfacebutgray
+  container.frame.sbhorz.facebutton.localprops = []
+  container.frame.sbhorz.facebutton.template = mainfo.tfacebutgray
+  container.frame.sbhorz.framebutton.localprops = []
+  container.frame.sbhorz.framebutton.localprops1 = []
+  container.frame.sbhorz.framebutton.template = commanderfo.tframecomp2
   container.frame.sbvert.width = 10
   container.frame.sbvert.face.localprops = []
   container.frame.sbvert.face.template = mainfo.tfacebutgray
@@ -138,8 +146,9 @@ object dockpanel1fo: tdockpanel1fo
     frame.localprops1 = []
     frame.grip_size = 0
     frame.grip_grip = stb_default
-    frame.grip_options = [go_closebutton, go_buttonhints, go_showsplitcaption]
     frame.grip_face.localprops = []
+    face.localprops = []
+    face.template = mainfo.tfacebutgray
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 454
@@ -156,6 +165,7 @@ object dockpanel1fo: tdockpanel1fo
     dragdock.optionsdock = [od_acceptsdock, od_splithorz, od_captionhint]
     dragdock.onchilddock = updatedockev
     dragdock.onchildfloat = updatedockev
+    statfile = mainfo.tstatfile1
     dockingareacaption = 'Drag a form here using right-border grip.'
   end
   object tmainmenu1: tmainmenu
@@ -164,17 +174,23 @@ object dockpanel1fo: tdockpanel1fo
     facetemplate = mainfo.tfacebutgray
     itemfacetemplate = mainfo.tfacebutgray
     itemfacetemplateactive = mainfo.tfacebutgray
-    menu.submenu.count = 2
+    menu.submenu.count = 3
     menu.submenu.items = <    
       item
-        caption = ' &Dock  '
+        caption = 'V '
         hint = ' Dock windows in one form '
         name = 'dock'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ondock
       end    
       item
-        caption = ' &Tab '
+        caption = 'H '
+        name = 'dockv'
+        state = [as_localcaption, as_localonexecute]
+        onexecute = ondockv
+      end    
+      item
+        caption = ' T '
         hint = ' About StrumPract '
         name = 'tab'
         state = [as_localcaption, as_localhint, as_localonexecute]

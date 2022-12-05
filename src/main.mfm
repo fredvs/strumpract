@@ -33,6 +33,13 @@ object mainfo: tmainfo
   container.frame.localprops1 = []
   container.frame.sbhorz.options = []
   container.frame.sbhorz.width = 10
+  container.frame.sbhorz.face.localprops = []
+  container.frame.sbhorz.face.template = tfacebutgray
+  container.frame.sbhorz.facebutton.localprops = []
+  container.frame.sbhorz.facebutton.template = tfacebutltgray
+  container.frame.sbhorz.framebutton.localprops = []
+  container.frame.sbhorz.framebutton.localprops1 = []
+  container.frame.sbhorz.framebutton.template = commanderfo.tframecomp2
   container.frame.sbvert.width = 10
   container.frame.sbvert.face.localprops = []
   container.frame.sbvert.face.template = tfacebutgray
@@ -157,6 +164,8 @@ object mainfo: tmainfo
     frame.grip_options = [go_closebutton, go_buttonhints, go_showsplitcaption]
     frame.grip_face.localprops = []
     frame.grip_face.template = tfacecomp4
+    face.localprops = []
+    face.template = tfacebutgray
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 454
@@ -231,17 +240,23 @@ object mainfo: tmainfo
     itemframetemplate = tframecomp1
     itemfacetemplate = tfacebutgray
     itemfacetemplateactive = tfacebutgray
-    menu.submenu.count = 11
+    menu.submenu.count = 12
     menu.submenu.items = <    
       item
-        caption = '&Dock'
+        caption = 'V'
         hint = 'Dock windows in one form'
         name = 'dock'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onmaindock
       end    
       item
-        caption = '&Tab'
+        caption = 'H'
+        hint = 'Dock all windows Horizontal'
+        state = [as_localcaption, as_localhint, as_localonexecute]
+        onexecute = ondockvert
+      end    
+      item
+        caption = 'T'
         hint = 'One form with tabs'
         name = 'tab'
         state = [as_localcaption, as_localhint, as_localonexecute]

@@ -3,6 +3,7 @@ object synthefo: tsynthefo
   frame.localprops1 = []
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
+  frame.grip_options = [go_closebutton, go_buttonhints, go_vert]
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
@@ -18,6 +19,12 @@ object synthefo: tsynthefo
   bounds_cymax = 284
   container.frame.localprops = []
   container.frame.localprops1 = []
+  container.frame.sbhorz.options = [sbo_moveauto, sbo_showauto]
+  container.frame.sbhorz.width = 0
+  container.frame.sbhorz.buttonminlength = 0
+  container.frame.sbvert.options = [sbo_moveauto, sbo_showauto]
+  container.frame.sbvert.width = 0
+  container.frame.sbvert.buttonminlength = 0
   container.face.localprops = []
   container.face.template = mainfo.tfaceplayer
   container.bounds = (
