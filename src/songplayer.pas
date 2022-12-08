@@ -228,7 +228,6 @@ uses
   mseformatbmpicoread,
   mseformatjpgread,
   mseformatpngread,
-  //strutils,
   msegraphicstream,
   songplayer_mfm;
 
@@ -276,13 +275,8 @@ begin
   bounds_cymin := bounds_cymax;
   font.Height  := fontheight;
 
-  //  children1    := tgroupbox1.getitems();
-
-  //  for int1:= 0 to childrencount - 1 do 
-  // children[int1].enabled:= true;
   tgroupbox1.font.Height := fontheight;
   frame.grip_size        := round(8 * ratio);
-  // BtnCue.face.image. := mainfo.buttonicons.bitmaps[34];
 
   edtempo.frame.buttonsize    := round(22 * ratio);
   edvolleft.frame.buttonsize  := round(22 * ratio);
@@ -347,7 +341,6 @@ begin
   if (Data.position > Data.OutFrames div Data.channels) then
     uos_InputSeek(theplayer, InputIndex1, Data.position -
       (Data.OutFrames div Data.ratio));
-  // writeln('position: ' + inttostr(Data.position));
 end;
 
 function DSPReverseBefore2(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
@@ -370,11 +363,6 @@ begin
   begin
     SetLength(arfl, lengthbuf);
     x := 0;
-   { 
-    writeln('length buff: ' + inttostr(lengthbuf));
-    writeln('length OutFrames: ' + inttostr(Data.OutFrames));
-    writeln('length ratio: ' + inttostr(Data.ratio));
-    }
     while x < lengthbuf do
     begin
       arfl[x]     := Data.Buffer[lengthbuf - x - 2];
@@ -657,10 +645,6 @@ begin
 
       btnPause.Visible  := True;
       btnresume.Visible := False;
-      //vuright.value    := 0;
-      //vuleft.value     := 0;
-      //vuright.Height    := 0;
-      //vuleft.Height     := 0;
       vuLeft.Visible    := False;
       vuRight.Visible   := False;
     end;
@@ -673,7 +657,6 @@ begin
   if tag = 1 then
   begin
     theplaying2 := '';
-    //wavefo2.Caption := 'Wave Player 2';
     iswav2      := False;
     iscue2      := False;
 
@@ -997,11 +980,7 @@ begin
       if fileexists(historyfn.Value) then
       begin
 
-        //  if configfo.bit16.value then samformat := -1 else
         samformat := 0;
-
-        //  oninfowav(Sender);
-
 
         // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
         // If PlayerIndex exists already, it will be overwritten...
@@ -1211,8 +1190,6 @@ begin
             begin
               uos_Play(theplayer);  /// everything is ready, here we are, lets play it...
 
-              //drumsfo.dostart(Sender);
-
               btnpause.Enabled := True;
               btnpause.Visible := True;
             end;
@@ -1254,7 +1231,6 @@ begin
 
           cbloop.Visible := False;
           cbloop.Enabled := False;
-          //songdir.Value := historyfn.Value;
           historyfn.hint := historyfn.Value;
 
           if timerwait.Enabled then
@@ -1297,16 +1273,9 @@ begin
       (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
     begin
 
-        // writeln('avant tout');
       if fileexists(historyfn.Value) then
       begin
-        //  if configfo.bit16.value then samformat := -1 else
         samformat := 0;
-
-        //  oninfowav(Sender);
-
-        //  songdir.hint := songdir.value;
-
 
         // PlayerIndex : from 0 to what your computer can do ! (depends of ram, cpu, ...)
         // If PlayerIndex exists already, it will be overwritten...
@@ -1500,7 +1469,6 @@ begin
 
           if hassent = 0 then
           begin
-            //   writeln('tbutton(sender).tag = 0');
             iscue2 := False;
             btnresume.Enabled := False;
             btnresume.Visible := False;
@@ -1533,7 +1501,6 @@ begin
 
           if hassent = 1 then  /// cue
           begin
-            // writeln('tbutton(sender).tag = 1');
             iscue2           := True;
             btnresume.Enabled := True;
             btnpause.Visible := False;
@@ -1557,7 +1524,6 @@ begin
           cbloop.Enabled  := False;
           cbloopb.Enabled := False;
           cbloop.Visible  := False;
-          //songdir.Value := historyfn.Value;
           historyfn.hint  := historyfn.Value;
           if timerwait.Enabled then
             timerwait.restart // to reset
@@ -1567,19 +1533,14 @@ begin
           lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue2 := True;
-          // application.processmessages; 
-
           oninfowav(Sender);
 
           infosdfo2.infolength.Caption := copy(llength.Value, 1, 8);
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
           begin
-
-            //  wavefo2.doechelle(nil);
             ttimer1.Enabled := False;
             ttimer1.Enabled := True;
-            //  onwavform(Sender);
           end;
         end
         else
@@ -1684,10 +1645,6 @@ procedure tsongplayerfo.doplayerpause(const Sender: TObject);
 begin
   vuLeft.Visible  := False;
   vuRight.Visible := False;
-  //vuright.value    := 0;
-  //vuleft.value     := 0;
-  //vuright.Height    := 0;
-  //vuleft.Height     := 0;
 
   btnStop.Enabled   := True;
   btnPause.Enabled  := False;
@@ -1705,10 +1662,6 @@ begin
     begin
       vuLeft.Visible    := False;
       vuRight.Visible   := False;
-      // vuright.value    := 0;
-      // vuleft.value     := 0;
-      // vuright.Height    := 0;
-      // vuleft.Height     := 0;
       btnStop.Enabled   := True;
       btnPause.Enabled  := False;
       btnresume.Enabled := True;
@@ -1729,10 +1682,6 @@ begin
     begin
       vuLeft2.Visible    := False;
       vuRight2.Visible   := False;
-      //vuright2.value    := 0;
-      //vuleft2.value     := 0;
-      //vuright2.Height    := 0;
-      //vuleft2.Height     := 0;
       btnStop2.Enabled   := True;
       btnPause2.Enabled  := False;
       btnresume2.Enabled := True;
@@ -1814,7 +1763,6 @@ begin
     uos_InputSetFilter(aplayer, Inputindex1, Equalizer_Bands[aindex].theindex, -1, -1, -1, Gainl, -1, -1, -1, Gainr,
       True, nil, isenable);
   end;
-  // end;  
 
 end;
 
@@ -1832,15 +1780,6 @@ begin
       timersent.restart // to reset
     else
       timersent.Enabled := True;
-
-{
-if  (linkvol.value = true) then
-begin
-if (trealspinedit(sender).tag = 0)
-then edvolright.value := edvolleft.value else
-edvolleft.value := edvolright.value
-end;
-}
 
     if tag = 0 then
       uos_InputSetDSPVolume(theplayer, Inputindex1,
@@ -1881,7 +1820,6 @@ begin
         poswav.y := (trackbar1.Height div 2) - 2;
 
         poswav2.x := 6;
-        //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdata1[poswav.x * 2]) * ((trackbar1.Height div 2) - 3));
 
         while poswav.x < (length(waveformdata1) div chan1) - 1 do
         begin
@@ -1898,22 +1836,16 @@ begin
 
             Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.Value);
 
-            //      if mainfo.typecolor.Value <> 2 then
-            //    canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0); // frame of wave
 
             poswav.y := (trackbar1.Height div 2);
 
             poswav2.y := poswav.y + (round((waveformdata1[(poswavx * 2) + 1]) * ((trackbar1.Height div 2) - 3)));
 
-            //  if mainfo.typecolor.Value = 0 then
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
-            // if mainfo.typecolor.Value = 0 then
             Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.Value);
-            //     if mainfo.typecolor.Value <> 2 then
-            //   canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
           end;
@@ -1933,7 +1865,6 @@ begin
         poswav.y := (trackbar1.Height div 2) - 2;
 
         poswav2.x := 6;
-        //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdata2[poswav.x * 2]) * ((trackbar1.Height div 2) - 3));
 
         while poswav.x < length(waveformdata2) div chan2 do
         begin
@@ -1946,10 +1877,7 @@ begin
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
-            // if mainfo.typecolor.Value = 0 then
             Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.Value);
-            //     if mainfo.typecolor.Value <> 2 then
-            //   canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
             poswav.y := (trackbar1.Height div 2);
@@ -1959,13 +1887,8 @@ begin
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
-            // if mainfo.typecolor.Value = 0 then
             Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.Value);
-            //    if mainfo.typecolor.Value <> 2 then
-            //  canvas.drawline(poswav2, poswav3,cl_black) else
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
-            // else
-            //   canvas.drawline(poswav, poswav2, $8A8A8A);
 
           end;
           if chan2 = 1 then
@@ -1994,8 +1917,6 @@ begin
 
       poswav2.x := 6;
 
-      //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
-
       while (poswav.x < (length(waveformdataform1) div chan1) - 1) and (poswav.x < wavefo.trackbar1.Width) do
       begin
         if chan1 = 2 then
@@ -2007,11 +1928,8 @@ begin
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
-          // if mainfo.typecolor.Value = 0 then
           Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.Value);
 
-          //  if mainfo.typecolor.Value <> 2 then
-          //   canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
           poswav.y := (wavefo.trackbar1.Height div 2);
@@ -2021,10 +1939,7 @@ begin
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
-          // if mainfo.typecolor.Value = 0 then
           Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.Value);
-          //   if mainfo.typecolor.Value <> 2 then
-          //  canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
         end;
         if chan1 = 1 then
@@ -2043,7 +1958,6 @@ begin
       poswav.y := (wavefo2.trackbar1.Height div 2) - 2;
 
       poswav2.x := 6;
-      //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform2[poswav.x * 2]) * ((wavefo2.trackbar1.Height div 2) - 3));
 
       while (poswav.x < length(waveformdataform2) div chan2) and (poswav.x < wavefo2.trackbar1.Width) do
       begin
@@ -2057,10 +1971,7 @@ begin
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
-          // if mainfo.typecolor.Value = 0 then
           Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.Value);
-          //  if mainfo.typecolor.Value <> 2 then
-          // canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
           poswav.y := (wavefo2.trackbar1.Height div 2);
@@ -2069,10 +1980,7 @@ begin
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
-          // if mainfo.typecolor.Value = 0 then
           Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.Value);
-          //    if mainfo.typecolor.Value <> 2 then
-          // canvas.drawline(poswav2, poswav3,cl_black) else
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
         end;
@@ -2113,8 +2021,6 @@ begin
   if tag = 0 then
 
     if as_checked in wavefo.tmainmenu1.menu[0].state then
-
-      // if (wavefo.waveon.Value = True) then
     begin
       waveformdataform1 := uos_InputGetLevelArray(theplayerinfoform, 0);
       application.ProcessMessages;
@@ -2124,8 +2030,6 @@ begin
   if tag = 1 then
 
     if as_checked in wavefo2.tmainmenu1.menu[0].state then
-
-      //   if (wavefo2.waveon.Value = True) then
     begin
       waveformdataform2 := uos_InputGetLevelArray(theplayerinfoform2, 0);
       application.ProcessMessages;
@@ -2151,10 +2055,7 @@ begin
     if tag = 1 then
       DrawWaveFormbusy2 := True;
 
-    // if (waveformcheck.value = true) then begin
     trackbar1.invalidate();
-
-    //  writeln(inttostr(length(waveformdata1)));
     rect1.pos  := nullpoint;
     rect1.size := trackbar1.paintsize;
 
@@ -2271,8 +2172,6 @@ begin
         // Assign the procedure of object to execute at end of stream
         uos_EndProc(theplayerinfoform, @GetWaveDataform);
 
-        //   application.ProcessMessages;
-
         uos_Play(theplayerinfoform);  /// everything is ready, here we are, lets do it...
 
       end;
@@ -2317,8 +2216,6 @@ begin
 
         // Assign the procedure of object to execute at end of stream
         uos_EndProc(theplayerinfoform2, @GetWaveDataform);
-
-        //application.ProcessMessages;
 
         uos_Play(theplayerinfoform2);  /// everything is ready, here we are, lets do it...
 
@@ -2407,7 +2304,6 @@ begin
           if plugsoundtouch = True then
           begin
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
-            //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
             infosdfo.infobpm.Caption := trim(utf8decode(
               IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels,
               thebufferinfos.samplerate))))) + ' ';
@@ -2548,7 +2444,6 @@ begin
           uos_EndProc(theplayerinfo2, @GetWaveData);
 
           uos_Play(theplayerinfo2);  /// everything is ready, here we are, lets do it...
-          // application.processmessages;
 
         end;
       end;
@@ -2880,8 +2775,6 @@ end;
 procedure tsongplayerfo.onchachewav(const Sender: TObject);
 begin
   DrawWaveForm();
-  //  application.processmessages;
-  //  formDrawWaveForm();
 end;
 
 procedure tsongplayerfo.onsetvalvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
@@ -2985,13 +2878,8 @@ begin
 
       if fileexists(theplaying1) then
       begin
-
-        //writeln('pos= ' + inttostr( uos_InputPosition(theplayer, Inputindex1)));
-
         thebuffer := uos_File2Buffer(PChar(ansistring(theplaying1)), 0, thebufferinfos, uos_InputPosition(theplayer, Inputindex1), 1024);
-
-        //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
-        thebpm := uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate);
+        thebpm    := uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate);
         if thebpm = 0 then
           button2.Caption := 'BPM'
         else
@@ -3019,7 +2907,6 @@ begin
       begin
 
         thebuffer := uos_File2Buffer(PChar(ansistring(theplaying2)), 0, thebufferinfos, uos_InputPosition(theplayer2, Inputindex2), 1024);
-        //  writeln('length(thebuffer) = ' + inttostr(length(thebuffer)));
         thebpm    := uos_GetBPM(thebuffer, thebufferinfos.channels, thebufferinfos.samplerate);
         if thebpm = 0 then
           button2.Caption := 'BPM'

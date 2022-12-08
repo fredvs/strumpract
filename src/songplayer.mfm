@@ -533,6 +533,8 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = #8734
+      font.name = 'stf_default'
+      font.localprops = []
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght
@@ -552,6 +554,8 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '<'
+      font.name = 'stf_default'
+      font.localprops = []
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght
@@ -572,6 +576,8 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '~'
+      font.name = 'stf_default'
+      font.localprops = []
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght
@@ -592,6 +598,8 @@ object songplayerfo: tsongplayerfo
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '1.2'
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght

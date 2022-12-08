@@ -1020,6 +1020,7 @@ object configfo: tconfigfo
       frame.framei_bottom = 1
       frame.localprops = []
       frame.localprops1 = []
+      hint = 'Font height of all windows, size of form wll be scalled.'
       bounds_x = 7
       bounds_y = 17
       bounds_cx = 82
@@ -1039,7 +1040,7 @@ object configfo: tconfigfo
       frame.localprops1 = []
       frame.template = commanderfo.tframecomp2
       taborder = 1
-      hint = 'Re-load Devices Info'
+      hint = 'Apply font height and scalled forms.'
       bounds_x = 4
       bounds_y = 43
       bounds_cx = 88
