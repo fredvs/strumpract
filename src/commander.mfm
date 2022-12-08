@@ -574,6 +574,7 @@ object commanderfo: tcommanderfo
     font.name = 'stf_default'
     font.localprops = []
     object timemix: trealspinedit
+      optionswidget = [ow_mousefocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
       color = -2147483645
       frame.levelo = 0
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -604,6 +605,7 @@ object commanderfo: tcommanderfo
       frame.buttonsize = 20
       face.localprops = []
       face.template = mainfo.tfaceplayer
+      taborder = 29
       hint = 'Change mixing time in 1/100 second'
       bounds_x = 99
       bounds_y = 44
@@ -630,7 +632,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 3
+      taborder = 2
       hint = 'Stop player'
       bounds_x = 2
       bounds_y = 0
@@ -657,7 +659,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 5
+      taborder = 4
       hint = 'Resume player'
       bounds_x = 2
       bounds_y = 31
@@ -678,7 +680,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 2
+      taborder = 1
       hint = 'Load and Start Player'
       bounds_x = 2
       bounds_y = 62
@@ -693,7 +695,7 @@ object commanderfo: tcommanderfo
     object volumeleft1: tslider
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      taborder = 6
+      taborder = 5
       hint = 'Left Volume Player 1'
       bounds_x = 39
       bounds_y = 16
@@ -724,7 +726,7 @@ object commanderfo: tcommanderfo
       Tag = 1
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      taborder = 7
+      taborder = 6
       hint = 'Right Volume Player 1'
       bounds_x = 65
       bounds_y = 16
@@ -759,7 +761,6 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
-      taborder = 1
       hint = 'Start Player 1 --> MIX --> Stop Player 2'
       bounds_x = 99
       bounds_y = 83
@@ -780,7 +781,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 8
+      taborder = 7
       hint = 'Start Player 2 --> MIX --> Stop Player 1'
       bounds_x = 141
       bounds_y = 83
@@ -796,7 +797,7 @@ object commanderfo: tcommanderfo
       Tag = 3
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      taborder = 9
+      taborder = 8
       hint = 'Right Volume Player 2'
       bounds_x = 215
       bounds_y = 16
@@ -827,7 +828,7 @@ object commanderfo: tcommanderfo
       Tag = 2
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      taborder = 10
+      taborder = 9
       hint = 'Left Volume Player 2'
       bounds_x = 189
       bounds_y = 16
@@ -863,7 +864,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 11
+      taborder = 10
       hint = 'Cue-Load-Pause Player'
       bounds_x = 2
       bounds_y = 93
@@ -884,7 +885,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 12
+      taborder = 11
       hint = 'Load and Start Player'
       bounds_x = 249
       bounds_y = 62
@@ -905,7 +906,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 13
+      taborder = 12
       hint = 'Cue-Load-Pause Player'
       bounds_x = 249
       bounds_y = 93
@@ -926,7 +927,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 14
+      taborder = 13
       hint = 'Stop player'
       bounds_x = 249
       bounds_y = 0
@@ -954,7 +955,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 16
+      taborder = 15
       hint = 'Resume player'
       bounds_x = 249
       bounds_y = 31
@@ -967,7 +968,7 @@ object commanderfo: tcommanderfo
       onafterexecute = doresume
     end
     object vuright: tprogressbar
-      taborder = 17
+      taborder = 16
       bounds_x = 92
       bounds_y = 15
       bounds_cx = 5
@@ -989,7 +990,7 @@ object commanderfo: tcommanderfo
       format = ''
     end
     object vuright2: tprogressbar
-      taborder = 18
+      taborder = 17
       bounds_x = 242
       bounds_y = 17
       bounds_cx = 5
@@ -1011,7 +1012,7 @@ object commanderfo: tcommanderfo
       format = ''
     end
     object vuLeft2: tprogressbar
-      taborder = 19
+      taborder = 18
       bounds_x = 182
       bounds_y = 22
       bounds_cx = 5
@@ -1038,7 +1039,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 20
+      taborder = 19
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 39
       bounds_y = 106
@@ -1056,7 +1057,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 21
+      taborder = 20
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 65
       bounds_y = 106
@@ -1074,7 +1075,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 22
+      taborder = 21
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 215
       bounds_y = 106
@@ -1092,7 +1093,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 23
+      taborder = 22
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 189
       bounds_y = 106
@@ -1105,7 +1106,7 @@ object commanderfo: tcommanderfo
       onexecute = resetvolume
     end
     object vuLeft: tprogressbar
-      taborder = 24
+      taborder = 23
       bounds_x = 32
       bounds_y = 17
       bounds_cx = 5
@@ -1136,7 +1137,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 4
+      taborder = 3
       hint = 'Pause player'
       bounds_x = 2
       bounds_y = 31
@@ -1157,7 +1158,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerbut
-      taborder = 15
+      taborder = 14
       hint = 'Pause player'
       bounds_x = 249
       bounds_y = 31
@@ -1177,7 +1178,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
-      taborder = 26
+      taborder = 25
       hint = 'Pause Mixing'
       bounds_x = 99
       bounds_y = 83
@@ -1198,7 +1199,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
-      taborder = 27
+      taborder = 26
       hint = 'Pause Mixing'
       bounds_x = 141
       bounds_y = 83
@@ -1218,7 +1219,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange2
-      taborder = 25
+      taborder = 24
       hint = 'Pause Mixing'
       bounds_x = 99
       bounds_y = 83
@@ -1247,7 +1248,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 29
+      taborder = 28
       hint = 'Lock left and right volume Player 1'
       bounds_x = 80
       bounds_y = 1
@@ -1493,7 +1494,7 @@ object commanderfo: tcommanderfo
     object tstringdisp1: tstringdisp
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 28
+      taborder = 27
       visible = False
       bounds_x = 205
       bounds_y = 34
@@ -1813,8 +1814,8 @@ object commanderfo: tcommanderfo
     face.template = tfaceorange
     taborder = 4
     visible = False
-    bounds_x = 101
-    bounds_y = 58
+    bounds_x = 86
+    bounds_y = 41
     bounds_cx = 221
     bounds_cy = 36
     font.name = 'stf_default'
