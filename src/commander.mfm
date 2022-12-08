@@ -459,6 +459,8 @@ object commanderfo: tcommanderfo
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       onexecute = onexecbutlght
     end
     object namegen: tstringdisp
@@ -1255,6 +1257,8 @@ object commanderfo: tcommanderfo
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       onexecute = onexecbutlght
     end
     object linkvol2b: tbutton
@@ -1284,6 +1288,8 @@ object commanderfo: tcommanderfo
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       onexecute = onexecbutlght
     end
     object speccalcb: tbutton
@@ -1314,6 +1320,8 @@ object commanderfo: tcommanderfo
       caption = 'SCal'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       onexecute = onexecbutlght
     end
     object guimixb: tbutton
@@ -1378,6 +1386,8 @@ object commanderfo: tcommanderfo
       caption = 'VU'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       onexecute = onexecbutlght
     end
     object automixb: tbutton
@@ -1408,6 +1418,8 @@ object commanderfo: tcommanderfo
       caption = 'AMix'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       onexecute = onexecbutlght
     end
     object directmixb: tbutton
@@ -1436,6 +1448,8 @@ object commanderfo: tcommanderfo
       caption = 'DM'
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak]
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       onexecute = onexecbutlght
     end
     object nameplayers: tstringdisp
@@ -1470,6 +1484,8 @@ object commanderfo: tcommanderfo
       bounds_y = 1
       bounds_cx = 45
       bounds_cy = 16
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Play2'
       reffontheight = 15
@@ -1787,6 +1803,8 @@ object commanderfo: tcommanderfo
       caption = 'Ran'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
       onexecute = onexecbutlght
     end
   end
@@ -2762,8 +2780,8 @@ object commanderfo: tcommanderfo
       AEC8C801ADC6C601AAC5C501F0F0F008B3C9C901BCCDCD01B3C9C901F0F0F008
       D0D5D50156565607B3C9C901BCCDCD01B3C9C90156565607AAC5C501
     }
-    left = 82
-    top = 2
+    left = 74
+    top = 19
   end
   object tfacesliderred: tfacecomp
     template.image.origformat = 'png'
