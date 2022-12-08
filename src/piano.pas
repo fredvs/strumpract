@@ -25,7 +25,7 @@ type
    volpiano: tintegerdisp;
    tsigslider3: tsigslider;
    procedure oncloseex(const sender: TObject);
-   procedure oncreatedex(const sender: TObject);
+   procedure oncreated(const sender: TObject);
    procedure onresizeex(const sender: TObject);
    procedure onsetsliderpiano(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
@@ -36,30 +36,64 @@ type
    procedure onchangest(const sender: TObject);
    procedure ondockex(const sender: TObject);
    procedure onfloatex(const sender: TObject);
+   procedure resizepi(fontheight :  integer );
+   
+   procedure crea(const sender: TObject);
  end;
 var
  pianofo: tpianofo;
  hasinitp: Boolean = False;
 
- 
- 
 implementation
 uses
 main, dockpanel1, captionstrumpract, piano_mfm;
+
+var
+  boundchildpi: array of boundchild;
+  
+procedure tpianofo.resizepi(fontheight :  integer );
+var
+ i1, i2: integer;
+ ratio : double;
+begin
+    ratio := fontheight/12 ;
+    bounds_cxmax := 0;
+    bounds_cxmin := 0;
+    bounds_cymax := 0;
+    bounds_cymin := 0;
+    bounds_cx := round(442 * ratio);
+    bounds_cxmin := bounds_cx;
+    bounds_cymax := round(284 * ratio);
+    bounds_cymin := bounds_cymax;
+    font.height :=  fontheight;
+  
+   frame.grip_size := round(8 * ratio);
+  
+       for i1 := 0 to childrencount - 1 do
+         for i2 := 0 to length(boundchildpi) - 1 do
+        if children[i1].name = boundchildpi[i2].name then
+        begin
+          children[i1].left := round(boundchildpi[i2].left * ratio);  
+          children[i1].top := round(boundchildpi[i2].top * ratio);  
+          children[i1].width := round(boundchildpi[i2].width * ratio);   
+          children[i1].height := round(boundchildpi[i2].height * ratio); 
+         end; 
+ end; 
+
 procedure tpianofo.oncloseex(const sender: TObject);
 begin
  onpianoon.color := cl_transparent;
   tsigoutaudio1.audio.active := False;
 end;
 
-procedure tpianofo.oncreatedex(const sender: TObject);
+procedure tpianofo.oncreated(const sender: TObject);
 begin
   tsigkeyboard1.keywidth := tsigkeyboard1.Width div 32;
    tsigcontroller1.inputtype := 0; // from synth/piano
    Caption := 'Piano Synthesizer' ;
 
   hasinitp := True;
-
+  resizepi(fontheightused);
 end;
 
 procedure tpianofo.onresizeex(const sender: TObject);
@@ -156,20 +190,53 @@ if  (isactivated = true) then
       if dockpanel5fo.Visible then
         dockpanel5fo.updatelayoutpan();
       end; 
-        
- end;   
+  end;   
 end;
 
 procedure tpianofo.ondockex(const sender: TObject);
+var
+ratio : double;
 begin
- bounds_cxmax := fowidth;
- bounds_cx := fowidth;
+    resizepi(fontheightused);
+    ratio := fontheightused/12 ;
+    bounds_cxmin := round(442 * ratio);
+    bounds_cxmax := round(442 * ratio);
+    bounds_cx := bounds_cxmax;
+    bounds_cymin := round(284 * ratio);
+    bounds_cymax := round(284 * ratio);
+    bounds_cy := bounds_cymax;
 end;
 
 procedure tpianofo.onfloatex(const sender: TObject);
+var
+ratio : double;
 begin
- bounds_cxmax := 0;
- bounds_cx := fowidth;
+    resizepi(fontheightused);
+    ratio := fontheightused/12 ;
+    bounds_cxmin := round(442 * ratio);
+    bounds_cxmax := 0;
+    bounds_cx := bounds_cxmax;
+    bounds_cymin := round(284 * ratio);
+    bounds_cymax := round(284 * ratio);
+    bounds_cy := bounds_cymax;
+end;
+
+procedure tpianofo.crea(const sender: TObject);
+var
+i1, childn : integer;
+begin
+    setlength(boundchildpi,childrencount);
+     
+     childn := childrencount;
+ 
+       for i1 := 0 to childrencount - 1 do
+         begin
+          boundchildpi[i1].left := children[i1].left; 
+          boundchildpi[i1].top := children[i1].top; 
+          boundchildpi[i1].width := children[i1].width;  
+          boundchildpi[i1].height := children[i1].height;
+          boundchildpi[i1].name := children[i1].name;
+         end;
 end;
 
 end.

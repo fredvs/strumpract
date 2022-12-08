@@ -90,6 +90,7 @@ object commanderfo: tcommanderfo
   }
   oncreate = oncre
   oncreated = formcreated
+  oneventloopstart = onev
   ondestroy = ondest
   onmouseevent = onmouse
   onshow = visiblechangeev
@@ -109,6 +110,8 @@ object commanderfo: tcommanderfo
     bounds_y = 0
     bounds_cx = 58
     bounds_cy = 126
+    font.name = 'stf_default'
+    font.localprops = []
     object loop_start: tbutton
       Tag = 1
       color = -2147483645
@@ -212,17 +215,14 @@ object commanderfo: tcommanderfo
       face.template = drumsfo.tfacecomp2
       taborder = 4
       hint = 'Drums set'
-      bounds_x = 2
-      bounds_y = 2
-      bounds_cx = 54
-      bounds_cy = 14
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_x = 1
+      bounds_y = 1
+      bounds_cx = 56
+      bounds_cy = 16
+      anchors = [an_top]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Drums'
-      reffontheight = 13
+      reffontheight = 15
     end
     object tslider2val: tbutton
       frame.optionsskin = [fso_flat]
@@ -240,10 +240,6 @@ object commanderfo: tcommanderfo
       caption = '100'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 9
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = resetvolume
     end
   end
@@ -261,6 +257,8 @@ object commanderfo: tcommanderfo
     bounds_y = 0
     bounds_cx = 39
     bounds_cy = 126
+    font.name = 'stf_default'
+    font.localprops = []
     object tslider3: tslider
       color = -2147483645
       hint = 'Volume of input (mic or input)'
@@ -298,17 +296,14 @@ object commanderfo: tcommanderfo
       face.template = recorderfo.tfacereclight
       taborder = 1
       hint = 'Input (mic or aux in)'
-      bounds_x = 2
-      bounds_y = 2
-      bounds_cx = 34
-      bounds_cy = 14
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_x = 1
+      bounds_y = 1
+      bounds_cx = 37
+      bounds_cy = 16
+      anchors = [an_top]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Input'
-      reffontheight = 13
+      reffontheight = 15
     end
     object butinput: tbooleanedit
       color = -2147483645
@@ -317,26 +312,22 @@ object commanderfo: tcommanderfo
       frame.caption = 'On'
       frame.captionpos = cp_left
       frame.captiondist = 3
-      frame.font.color = 4013373
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_color, flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        19
-        0
-        0
+        22
         1
+        0
+        2
       )
       face.localprops = []
       face.template = recorderfo.tfacereclight
       taborder = 2
       hint = 'Enable Live Input'
-      bounds_x = 3
-      bounds_y = 16
-      bounds_cx = 30
-      bounds_cy = 15
+      bounds_x = 2
+      bounds_y = 15
+      bounds_cx = 33
+      bounds_cy = 17
       onchange = onsetinput
       colorglyph = 4868682
     end
@@ -356,10 +347,6 @@ object commanderfo: tcommanderfo
       caption = '100'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 9
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = resetvolume
     end
   end
@@ -373,44 +360,17 @@ object commanderfo: tcommanderfo
     face.localprops = []
     face.template = mainfo.tfacebutgray
     taborder = 3
-    bounds_x = 1
+    bounds_x = 0
     bounds_y = 0
     bounds_cx = 51
     bounds_cy = 126
+    font.name = 'stf_default'
+    font.localprops = []
     object genvolright: tslider
       Tag = 1
       color = -2147483645
       hint = 'Right Volume General in %'
       bounds_x = 33
-      bounds_y = 17
-      bounds_cx = 16
-      bounds_cy = 90
-      statfile = mainfo.tstatfile1
-      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
-      onchange = onchangegenvol
-      value = 0.666666
-      scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
-      scrollbar.buttonlength = 17
-      scrollbar.buttonminlength = -1
-      scrollbar.buttonendlength = -1
-      scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.facebutton.image.origformat = 'png'
-      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
-      scrollbar.facebutton.localprops = [fal_image]
-      scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
-      scrollbar.framebutton.optionsskin = [fso_flat]
-      scrollbar.framebutton.colorclient = -2147483645
-      scrollbar.framebutton.localprops = [frl_optionsskin]
-      scrollbar.framebutton.localprops1 = []
-      direction = gd_up
-    end
-    object genvolleft: tslider
-      color = -2147483645
-      taborder = 1
-      hint = 'Left Volume General in %'
-      bounds_x = 17
       bounds_y = 17
       bounds_cx = 16
       bounds_cy = 90
@@ -441,7 +401,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 2
+      taborder = 1
       hint = 'General left volume. Click to reset to 100%.'
       bounds_x = 17
       bounds_y = 107
@@ -451,10 +411,6 @@ object commanderfo: tcommanderfo
       caption = '10'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 8
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onresetgenvol
     end
     object genrightvolvalue: tbutton
@@ -464,7 +420,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 3
+      taborder = 2
       hint = 'General right volume. Click to reset to 100%.'
       bounds_x = 33
       bounds_y = 107
@@ -474,10 +430,6 @@ object commanderfo: tcommanderfo
       caption = '10'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 8
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onresetgenvol
     end
     object linkvolgenb: tbutton
@@ -497,7 +449,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 4
+      taborder = 3
       hint = 'Lock left and right volume General'
       bounds_x = 30
       bounds_y = 1
@@ -507,10 +459,6 @@ object commanderfo: tcommanderfo
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
     object namegen: tstringdisp
@@ -521,23 +469,19 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 5
+      taborder = 4
       hint = 'General Volume in %'
-      bounds_x = 1
-      bounds_y = 2
+      bounds_x = 2
+      bounds_y = 1
       bounds_cx = 28
-      bounds_cy = 14
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_cy = 16
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Gen'
-      reffontheight = 13
+      reffontheight = 15
     end
     object sysvol: tslider
       color = -2147483645
-      taborder = 6
+      taborder = 5
       hint = 'System Master Volume'
       bounds_x = -1
       bounds_y = 17
@@ -570,20 +514,46 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 7
+      taborder = 6
       hint = 'System Master Volume'
-      bounds_x = -1
+      bounds_x = 0
       bounds_y = 107
-      bounds_cx = 17
+      bounds_cx = 16
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = '10'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 8
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
+    end
+    object genvolleft: tslider
+      Tag = 1
+      color = -2147483645
+      taborder = 7
+      hint = 'Left Volume General in %'
+      bounds_x = 17
+      bounds_y = 17
+      bounds_cx = 16
+      bounds_cy = 90
+      statfile = mainfo.tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
+      onchange = onchangegenvol
+      value = 0.666666
+      scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
+      scrollbar.buttonlength = 17
+      scrollbar.buttonminlength = -1
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = mainfo.tfacecomp4
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      direction = gd_up
     end
   end
   object tgroupboxplayers: tgroupbox
@@ -599,6 +569,8 @@ object commanderfo: tcommanderfo
     bounds_y = 1
     bounds_cx = 280
     bounds_cy = 125
+    font.name = 'stf_default'
+    font.localprops = []
     object timemix: trealspinedit
       color = -2147483645
       frame.levelo = 0
@@ -634,13 +606,8 @@ object commanderfo: tcommanderfo
       bounds_x = 99
       bounds_y = 44
       bounds_cx = 60
-      bounds_cy = 36
+      bounds_cy = 34
       statfile = mainfo.tstatfile1
-      font.colorselect = 2105625
-      font.colorselectbackground = 14015399
-      font.height = 14
-      font.name = 'stf_default'
-      font.localprops = [flp_colorselect, flp_colorselectbackground, flp_height]
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       ontextedited = ontextedit
       onsetvalue = onsetvalvol
@@ -651,7 +618,7 @@ object commanderfo: tcommanderfo
       valuemax = 10000
       step = 10
       wheelsensitivity = 1
-      reffontheight = 17
+      reffontheight = 15
     end
     object btnStop: tbutton
       color = -2147483645
@@ -1000,9 +967,9 @@ object commanderfo: tcommanderfo
     object vuright: tprogressbar
       taborder = 17
       bounds_x = 92
-      bounds_y = 1
+      bounds_y = 15
       bounds_cx = 5
-      bounds_cy = 121
+      bounds_cy = 107
       direction = gd_up
       bar_face.fade_pos.count = 1
       bar_face.fade_pos.items = (
@@ -1022,9 +989,9 @@ object commanderfo: tcommanderfo
     object vuright2: tprogressbar
       taborder = 18
       bounds_x = 242
-      bounds_y = 1
+      bounds_y = 17
       bounds_cx = 5
-      bounds_cy = 121
+      bounds_cy = 105
       direction = gd_up
       bar_face.fade_pos.count = 1
       bar_face.fade_pos.items = (
@@ -1044,9 +1011,9 @@ object commanderfo: tcommanderfo
     object vuLeft2: tprogressbar
       taborder = 19
       bounds_x = 182
-      bounds_y = 1
+      bounds_y = 22
       bounds_cx = 5
-      bounds_cy = 121
+      bounds_cy = 100
       direction = gd_up
       bar_face.fade_pos.count = 1
       bar_face.fade_pos.items = (
@@ -1079,10 +1046,6 @@ object commanderfo: tcommanderfo
       caption = '100'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 9
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = resetvolume
     end
     object volumeright1val: tbutton
@@ -1101,10 +1064,6 @@ object commanderfo: tcommanderfo
       caption = '100'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 9
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = resetvolume
     end
     object volumeright2val: tbutton
@@ -1123,10 +1082,6 @@ object commanderfo: tcommanderfo
       caption = '100'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 9
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = resetvolume
     end
     object volumeleft2val: tbutton
@@ -1145,18 +1100,14 @@ object commanderfo: tcommanderfo
       caption = '100'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 9
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = resetvolume
     end
     object vuLeft: tprogressbar
       taborder = 24
       bounds_x = 32
-      bounds_y = 1
+      bounds_y = 17
       bounds_cx = 5
-      bounds_cy = 121
+      bounds_cy = 105
       direction = gd_up
       bar_face.fade_pos.count = 1
       bar_face.fade_pos.items = (
@@ -1296,18 +1247,14 @@ object commanderfo: tcommanderfo
       face.localprops = []
       taborder = 29
       hint = 'Lock left and right volume Player 1'
-      bounds_x = 73
-      bounds_y = 0
+      bounds_x = 80
+      bounds_y = 1
       bounds_cx = 16
-      bounds_cy = 15
+      bounds_cy = 16
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
     object linkvol2b: tbutton
@@ -1329,18 +1276,14 @@ object commanderfo: tcommanderfo
       face.localprops = []
       taborder = 30
       hint = 'Lock left and right volume Player 2'
-      bounds_x = 223
-      bounds_y = 0
+      bounds_x = 231
+      bounds_y = 1
       bounds_cx = 16
-      bounds_cy = 15
+      bounds_cy = 16
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
     object speccalcb: tbutton
@@ -1371,10 +1314,6 @@ object commanderfo: tcommanderfo
       caption = 'SCal'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
     object guimixb: tbutton
@@ -1410,10 +1349,6 @@ object commanderfo: tcommanderfo
       caption = 'GMix'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
     object vuinb: tbutton
@@ -1443,10 +1378,6 @@ object commanderfo: tcommanderfo
       caption = 'VU'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
     object automixb: tbutton
@@ -1477,10 +1408,6 @@ object commanderfo: tcommanderfo
       caption = 'AMix'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
     object directmixb: tbutton
@@ -1509,10 +1436,6 @@ object commanderfo: tcommanderfo
       caption = 'DM'
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
     object nameplayers: tstringdisp
@@ -1525,17 +1448,13 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 36
       hint = 'Player 1'
-      bounds_x = 40
+      bounds_x = 32
       bounds_y = 1
-      bounds_cx = 32
-      bounds_cy = 14
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_cx = 45
+      bounds_cy = 16
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Play1'
-      reffontheight = 13
+      reffontheight = 15
     end
     object nameplayers2: tstringdisp
       color = -2147483645
@@ -1547,25 +1466,21 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 37
       hint = 'Player 2'
-      bounds_x = 190
+      bounds_x = 182
       bounds_y = 1
-      bounds_cx = 32
-      bounds_cy = 14
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_cx = 45
+      bounds_cy = 16
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Play2'
-      reffontheight = 13
+      reffontheight = 15
     end
     object tstringdisp1: tstringdisp
       frame.localprops = []
       frame.localprops1 = []
       taborder = 28
       visible = False
-      bounds_x = 96
-      bounds_y = 18
+      bounds_x = 205
+      bounds_y = 34
       bounds_cx = 84
       bounds_cy = 83
       reffontheight = 15
@@ -1774,8 +1689,8 @@ object commanderfo: tcommanderfo
         face.template = mainfo.tfaceplayerlight
         taborder = 6
         hint = 'Lock left and right volume Player 1'
-        bounds_x = 8
-        bounds_y = 2
+        bounds_x = 16
+        bounds_y = 21
         bounds_cx = 33
         bounds_cy = 15
         statfile = mainfo.tstatfile1
@@ -1872,10 +1787,6 @@ object commanderfo: tcommanderfo
       caption = 'Ran'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_height]
       onexecute = onexecbutlght
     end
   end
@@ -1884,8 +1795,8 @@ object commanderfo: tcommanderfo
     face.template = tfaceorange
     taborder = 4
     visible = False
-    bounds_x = 5
-    bounds_y = 46
+    bounds_x = 101
+    bounds_y = 58
     bounds_cx = 221
     bounds_cy = 36
     font.name = 'stf_default'
@@ -1947,7 +1858,7 @@ object commanderfo: tcommanderfo
   end
   object tfaceslider: tfacecomp
     template.image.origformat = 'png'
-    template.image.alignment = [al_stretchx]
+    template.image.alignment = [al_stretchx, al_stretchy]
     template.image.image = {
       0000000000000000130000006200000038180000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF08BDBDBD01CECDCD01
@@ -2185,436 +2096,6 @@ object commanderfo: tcommanderfo
     template.fade_direction = gd_down
     top = 40
   end
-  object tfacesliderdark: tfacecomp
-    template.image.origformat = 'png'
-    template.image.alignment = [al_stretchx]
-    template.image.image = {
-      0000000000000000250000007600000070340000000000000000000000000000
-      0000000000000000000000000000000000000000454545014444440143434201
-      42424201414041013F3F3F013E3E3E013D3D3D013C3C3C013B3B3B013A3A3A01
-      3838390137383801373736013636350174747401424242023131310142424202
-      747474012D2D2D012C2B2C012B2A2A01292A2A01282929012828280126262601
-      252525012424240123232301222222012021210120201F011E1E1F0174747402
-      0000000E74747401424242023132320142424202747474010000000E74747402
-      444344014343430141424201CCCCCC0B74757501424242023132320142424202
-      74747401CCCCCC0B21212101202020011F1E1F01747474024444440143424301
-      41414201414141013F3F40013F3F3E013D3D3D013C3D3C013B3B3B013A3A3A01
-      3939390138383701373736013636360174747401424242023132310142424202
-      747474012D2D2D012C2C2C012B2B2B012A292A01292928012727280126272701
-      2525260125242401232423012222230121212101202020011F1F1F0174747402
-      44444401434343014242420141414101403F3F013E3F3F013D3E3D013C3D3C01
-      3B3B3B013B3B3A01393939013838380137373701363636017474740142424202
-      3131320142424202747474012D2D2D012C2C2C012B2B2B012A2A290129282901
-      2827270127262601262625012524250124242301222322012121220120202001
-      1F1F1F017474740244444401434344014242420141404101404040013F3E3F01
-      3D3E3D013C3D3C013B3B3B013A3A3B013A393901383838013737370135363601
-      74747401424242023231310142424202747474012D2E2D012C2C2C012B2B2B01
-      2A2A2A0128292901282828012727270126262601252525012323230123232201
-      21222101202021011F1F1F017474740244444401434343014242420141414001
-      40403F013F3E3F013E3E3E013C3D3D013B3C3C013B3A3A013A39390138393801
-      373737013636360174747501424242023232320142424202747474012D2E2D01
-      2C2C2D012B2B2B012A2A2B012929290128282801272726012526260125242401
-      242423012223220121212101202021011F1F1F01747474024444450143444401
-      4243430141414101404040013F3E3E013D3E3E013D3C3D013C3B3C013B3B3B01
-      39393A0139393801373737013636360174747401424242023232320142424202
-      747474012D2D2D012C2C2D012B2B2B012A2B2A01292929012828280127272701
-      262625012525250123232401222223012121210121212001201F1F0174747402
-      45454501444443014343420141414101404040013F3F3F013E3D3E013D3D3D01
-      3C3B3C013B3B3A013A3A39013839380137383801373636017474740142424202
-      3232320142424202747474012E2E2D012C2C2C012B2B2B012A2B2A01292A2901
-      2928280127272701252626012525250124242401232322012122220120212001
-      1F201F017474740244444501434444014242420142414101404040013F3F3F01
-      3E3E3E013D3D3D013C3C3C013A3B3A013A3A3A01383939013737370137363601
-      74747401424242023232320142424202747474012E2D2D012D2D2D012B2B2B01
-      2A2A2B0129292901282929012727270126262601252525012424240123222301
-      21222201202121011F1F2001747474020000000E747574014242420232323201
-      42424202747474010000000E74747402454545014444440142424301CCCCCC0B
-      7474740142424202323232014242420274747401CCCCCC0B2222220121212101
-      202020017474740244454501444444014242430141424101404040013F3F3F01
-      3F3E3F013D3D3D013D3C3C013B3B3B013A3A3901393839013838370137363701
-      74747401424242023333320142424202747474012E2E2E012D2D2D012B2B2B01
-      2A2A2A0129292902272727012627260125262501242424012323230121222201
-      21212101201F200174747402454544014444430142424202404140013F3F3F01
-      3E3E3E013D3E3E013C3D3C013B3B3B013A3A3A01393938013838380137363701
-      74747401424242023232320142424202747474012E2E2E012D2D2D012B2C2C01
-      2B2A2B012A292901292928012727280126262601252626012424240123232301
-      2222220121212101201F20017474740245454501444444014342430142414201
-      414140013F3F40013F3E3F013D3E3D013C3C3D013B3B3B013A3A3A0139393901
-      383838013737370175747401424242023232320142424202747474012E2E2F01
-      2D2D2D012C2B2C012B2B2B012A29290129292901282827012726260125252501
-      2424240123232301222222012121210120202001747474024645450144444401
-      434342014242420141414101404040013E3F3F013D3D3D013C3C3C013B3C3B01
-      3A3A3A0139393901383838013737370174747401424242023232320142424202
-      747474012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A012828290128272801
-      2627260125262501242424012424230122222201212121012120200174747402
-      4545450144444401434343014242420141414101404040013F3F3F013D3E3D01
-      3D3D3C013C3C3B013A3B3B013939390138393801373737017474740142424202
-      3233320142424202747474012E2E2E012D2D2D012C2C2D012B2B2B012A2A2A01
-      2929290128282801272627012525250223232301222222012122210120202001
-      747474024545460145444401434343014242420141414101403F40013F3E3E01
-      3E3E3E013D3D3C013B3B3C013A3A3A0139393901383838013737370174747401
-      424242023333330142424202747474012E2F2F012D2D2E012D2C2C012B2B2B01
-      2A2A2A0129292901272828012727270125262601252525012323240123232301
-      2221210121212001747474024645460144444401434343014242420141414101
-      404040013F3F3F013E3E3D013D3D3D013C3C3C013A3A3B0139393A0138383801
-      3738370174747401424242023333330142424202747474012E2F2F012D2D2D01
-      2D2C2C012C2B2B012A2A2B012929290128282801272727012626260125252401
-      24242401222322012121220120202001747474020000000E7474740142424202
-      3333330142424202747474010000000E74747402464646014545440144444301
-      CCCCCC0B7474740142424202343333014242420274747401CCCCCC0B23222301
-      2221220121212101747474024646460145444501444444014342430141414101
-      40404001403F40013E3E3E013D3D3D013C3C3C013A3A3B01393A3A0138393901
-      3738370174747401424242023333330142424202747474012F2F2F012D2E2E01
-      2D2C2D012B2B2C012B2A2B012929290128292801272727012626270125252501
-      2424240123222201212221012120210174747402454646014545450144434301
-      424243014142420141404001403F3F013E3F3E013E3D3D013C3C3C013A3B3A01
-      39393A0139393901383738017474740142424202333333014242420274747401
-      2F2E2F012E2E2D012D2D2C012B2C2B012A2A2A02292929012827270126262601
-      2525250124242401232323012221210121212001747474024646460144444501
-      434343014242420142414101404041013F3F3F013E3F3E013D3D3D013C3C3C01
-      3B3B3B013A393A01393939013738380174747401424242023434340142424202
-      747474012F2F2E012E2E2E012D2C2D012C2C2C012A2A2B012A2A290129282801
-      2727280126262601252625012424240123232301222221012121210174747402
-      4646460145454501444343014343430142424201414040013F3F3F013E3E3E01
-      3D3D3D013C3C3C013B3C3B013A3A3A0139393901373738017474740142424202
-      3334330142424202747474012F2F2F012E2E2E012C2D2C012B2C2C012B2B2B01
-      292A290129292801282727012626260224242401232323012221220121212101
-      747474024646470145454501444344014243430141424201414041013F3F3F01
-      3F3E3F013D3D3E013C3C3C013B3B3B013A3A3A01393939013738380174747401
-      424242023333340142424202747474012F2F2F012F2E2E012D2D2D012C2C2C01
-      2B2A2B01292A2901282928012828270127262601252625012424240123242301
-      2222220121202101747474024646460145454501444444014342430141414201
-      4141400140403F013E3F3E013D3D3D013D3C3D013B3C3B013B3A3A0139393901
-      383838017474740142424202333433014242420274747401302F2F012E2E2E01
-      2D2D2D012C2C2C012B2B2B012A2A290129282901282727012726270125252501
-      24252401232323012222220121212101747474020000000E7474740142424202
-      3434340142424202747474010000000E74747402474746014645450145444401
-      CCCCCC0B7474740142424202343433014242420274747401CCCCCC0B24232301
-      2223230121212101747474024646460145464501444444014343430142424201
-      4141410140403F013F3F3F013D3E3D013D3C3D013B3C3C013B3A3A013A393A01
-      383838017474740142424202343434014242420274747401302F30012E2F2E01
-      2D2D2E012C2C2D012B2B2B012A2A2A0129292901282828012626270126262501
-      2525240123232301222323012221210174747402474646014645450145444501
-      434443014242420141414101404040013F3F3F013E3E3E013D3C3C013B3C3B01
-      3A3B3B01393A3A01383938017474740142424202343434014242420274747401
-      302F30012E2F2F012D2E2D012C2C2C012C2C2B012A2A2A012A29290128282801
-      2727270126262501252425012423240123232301212221017474740246474701
-      4545460144454401444444014242420141414101404140013F3F3F013E3E3E01
-      3D3D3D013C3B3B013B3B3B01393A3A0138383801747474014242420234343401
-      4242420274747401302F30012E2F2F012D2E2E012D2C2C012C2B2B012B2A2A01
-      292A290128282801272727012626260125252501242424012323230121222101
-      7474740247474601454646014544440144444301424342014242410140404001
-      3F3F3F013E3E3E013D3D3D013C3B3C013B3B3A013A3A3A013839390174747401
-      42424202343434014242420274747401302F30012E2E2F012D2E2E012C2C2C02
-      2A2A2A012A292A01282828012727270126262601252525012424240123232301
-      2222220174747402474747014646460144444401434444014243420141424201
-      414040013F3F3F013E3E3E013D3D3D013C3C3C013A3B3B01393A390139393901
-      7474740142424202343434014242420274747401303030012F2F2F012D2E2E01
-      2D2D2C012C2C2C012B2A2A012929290128292801272827012626260125252501
-      2424240122222301222222017474740247474701464646014445450144434401
-      4343420142424101414141013F403F013E3F3E013D3D3D013C3C3C013B3B3B01
-      3A3A3A0138393901747474014242420235353501424242027474740130303001
-      2F2F2F012E2E2E012D2D2C012C2C2C012B2A2B01292929012828290128272701
-      2726260125252501252424012323230122222201747474024747470145464601
-      45454501444443014242430142424101404141013F3F3F013E3E3E013D3D3E01
-      3D3C3C013B3B3B013A3A3A013939380174747401424242023434350142424202
-      74747401303030012F2F2F012E2E2E012D2D2D012C2C2C012B2A2A0129292A01
-      2928280128282701272627012526250124242401232323012222210174747402
-      0000000E74747401424242023435340142424202747474010000000E74747402
-      484748014647460145454501CCCCCC0B74747401424242023535350142424202
-      74747401CCCCCC0B242424012324230122222201747474024847470146464701
-      4645450144444401434343014242420141414101403F3F013E3E3F013D3E3D01
-      3C3C3D013B3B3B013A3B3A013A39390174747401424242023535340142424202
-      74747401303030012F2F2F012E2E2E012D2D2D012C2C2C012B2B2B012A292A01
-      2828290128282801272727012526250124242401232423012222220174747402
-      4847480146464601454545014544440143434301424242014141410140404001
-      3F3F3F013D3E3E013C3C3C013B3B3B013B3B3A013A3939017474740142424202
-      3535350142424202747474013130300130302F012F2E2E012D2D2D012C2C2C01
-      2B2B2B01292A2A01292929012828280127272701262525012524250123242401
-      2323220174747402474848014647460145464501444444014344430142424201
-      414141013F4040013F3F3F013D3E3E013C3D3D013B3B3B023A39390174747401
-      42424202353534014242420274747401313130012F3030012E2E2E012E2D2D01
-      2C2D2C012B2B2C012A2A2A012929290128282801272626012625260124252401
-      2324240122222201747474024848470146464701454545014445440143434301
-      4242420141414101404040013F3E3F013E3E3E013D3D3D013B3C3B013B3A3A01
-      3A393901747575014242420236353501424242027474740131313001302F3001
-      2F2E2E012E2E2D012C2D2D012B2B2C012A2A2B01292929012828280127272701
-      2626250125252401242323012322220174747402484848014746460146454601
-      44444501444443014242420141414101404140013F3F3F013E3E3E013D3C3C01
-      3C3C3C013B3B3B0139393A017475750142424202363535014242420274747401
-      313031012F3030012F2F2F012E2E2E012D2D2D012B2C2B012B2A2A012A292A01
-      2829280127272601262626012525240123242401232222017474740247484801
-      474647014545460145444401434343014242420141414101404140013F3F3F01
-      3E3E3E013D3D3D013B3C3C013B3B3B013A3A3A01747475014242420235353501
-      424242027474740131313101303030012F2E2E012E2E2E012C2D2D012B2B2C01
-      2B2B2B012A292901282928012727270126262601252524012424240123232301
-      7474740248484801474747014646460145454501444343014342420142424101
-      404040013F3F3F013E3E3E013D3D3D013C3C3C013A3B3B013A3A3A0174747401
-      4242420235363601424242027474740131313101303030012F2F2F012E2E2E01
-      2D2D2D012C2B2C012A2B2A01292A290129282801272727012626260125252501
-      2424240123232301747474020000000E74747401424242023536350142424202
-      747474010000000E74747402484848014747470146464601CCCCCC0B74747401
-      42424202353535014242420274747401CCCCCC0B252525012424240123232301
-      7474740248484801474747014646460145444501444444014343430142424101
-      40404001403F40013E3F3F013D3D3D013C3D3C013B3B3B013A3A3A0174747501
-      4242420236353601424242027474740131313101303030012F2F2F012E2E2E01
-      2C2D2D012B2C2C012B2A2A012A292A0129292901282727012727270125252501
-      2424240123232301747474024848480148474701464646014545450144444301
-      4343430142414101414041013F3F40013E3F3E013D3D3D013D3C3D013B3B3C01
-      3B3A3A0174747401424242023536360142424202747474013231310130313001
-      30302F012E2E2E012D2D2D012C2C2C012B2B2B012A292A012929280127272801
-      2626270125252501242424012323240174747402484948014747480146464601
-      454545014444440143434301424242014041400140403F013E3F3E013D3D3E01
-      3D3C3C013B3B3B013A3B3A017474740142424202353636014242420274747401
-      3231320130303101302F2F012E2F2E012D2D2D012C2C2C012A2B2B012A2A2A01
-      2928290128272801262727012626260124242401232323017474740249494801
-      4748470146464601454545014444440143434301414242014140400140404001
-      3F3F3E013E3E3E013C3D3D013B3B3B013A3B3A01747474014242420236363601
-      424242027474740132313201303030012F2F2F012E2E2E012E2D2D012C2C2D01
-      2B2B2B012A292A01292929012828280127272701262626012525240123232301
-      7474740248494901474847014746460145464501444445014343430142424201
-      41414101404040013F3F3F013D3E3E013C3C3C013B3B3B013A3A3A0174747401
-      424242023636360142424202747474013132320131303001303030012E2F2E01
-      2D2D2D012C2C2C012B2B2B012A2A2A0129292901282828012727260126262501
-      2424250123232301747474024948490148484801464746014645450144454501
-      434443014242420141414101404040013F3F3E013E3E3E013D3D3D013B3C3B01
-      3A3B3B0174747401424242023636370142424202747474013232320131303101
-      302F2F012E2F2F012E2D2D012D2C2D012B2B2C012B2A2B012929290128282801
-      27272701262626012524250123232401747474020000000E7474740142424202
-      3636360142424202747474010000000E74747402494949014848470147474701
-      CCCCCC0B7474740142424202363636014242420274747401CCCCCC0B26262601
-      2525250123242401747474024949490148484701474747014646450145454401
-      434443014243420142424101404041013F403F013E3E3E013D3D3D013C3C3C01
-      3B3B3B0174747401424242023736360142424202747474013232320131313101
-      303030012F2F2E012E2D2E012D2D2D012B2B2B012B2A2A012929290128282801
-      2727270126262601252525012424240174747402494949014848480146474601
-      4546460145454501444344014342420141414101404040013F3F3F013E3E3E01
-      3D3D3D013C3C3C013B3B3B017474740142424202373737014242420274747401
-      3232320131313101303030012F2F2F012D2E2E012D2D2D012C2C2C012B2A2A01
-      2A292A0128282801272727012626260125252501242424017474740249494A01
-      4848480147474701464646014545450143434401424343014241410140414001
-      403F3F013E3E3E013D3D3D013C3C3C013B3B3B01747474014242420236373601
-      42424202747474013233320131313101303030012F2F2F012E2D2E012D2D2D01
-      2C2C2B012B2A2B01292A29012828280127282801262627012625250125242401
-      7474740249494901484848014747470146464601454544014444440143434201
-      4241410141414001403F3F013F3F3E013D3D3D013C3C3D013B3B3B0174747401
-      424242023736370142424202747474013332330131313101303030012F2F2F01
-      2D2E2E012D2D2D012C2B2C012B2B2A01292A2A01282928012827280126262601
-      2525260125242501747474024A49490148484802464646014545450144434401
-      4343430142424101414141013F403F013E3F3F013E3D3E013C3C3C013B3B3B01
-      7474740142424202373737014242420274747401323333013131310130303001
-      2F2F2F012E2E2E012D2D2D012C2C2C012B2A2B012A2A2A012928280128272801
-      26262601252526012524240174747402494A4901494848014747470147474601
-      45454501444444014343430142424201414041013F403F013E3E3E013D3D3D01
-      3D3D3C013B3B3B01747475014242420237373701424242027474740133323201
-      32323101303130012F2F30012E2E2E012D2D2D012C2C2C012B2B2B01292A2A01
-      2928280128272801262627012525250124252501747474024949490148494801
-      474747014747460145464501444444014343430142424201414140013F403F01
-      3F3E3F013D3D3E013C3D3D013B3B3C0174747401424242023737370142424202
-      747474013232320132323101303031012F2F30012E2E2E012D2D2D012C2C2C01
-      2B2B2B012A2A2A01282929012828270127272601262626012425240174747402
-      0000000E74747401424242023737370142424202747474010000000E74747402
-      4A4A4A014948480147484801CCCCCC0B74747401424242023738370142424202
-      74747401CCCCCC0B272727012626260124252501747474024A4A4A0149494801
-      484748014646460245454401434343014243430141424101404040013F3F3E01
-      3E3E3E013D3D3C013B3C3B017474740142424202373837014242420274747401
-      333333013232310130313001302F30012E2F2F012D2D2D012C2C2C012B2B2B01
-      2A2A2A012929290128282801272727012626250125252401747474024A4A4A01
-      4949480148484801464647014645450144444401434343014242420141414101
-      404140013F3F3F013E3D3D013D3D3D013C3C3B01747574014242420238383801
-      4242420274747401333333013232320131313101303030012F2E2E012D2D2D01
-      2D2D2C012C2C2C012A2A2A012A292A0128282801272727012626260125252501
-      747474024A4A4A01494949014847480147474701454545014444450144434401
-      4242420142414101404140013F3F40013E3E3E013D3D3D013C3B3C0174747401
-      4242420237383801424242027474740133333301323232013131310130303001
-      2F2F2F012D2E2E012C2D2D012C2B2C012A2A2A01292929012828280127272701
-      2626260125252501747474024A4A4A0149494901484848014746470146464601
-      45444501444344014342430141414101404041013F3F3F013E3E3E013D3D3D01
-      3C3C3C0175747401424242023738370142424202747474013333330132323201
-      31313101302F30012F2E2F012E2E2E012D2C2C012B2C2C012A2B2A01292A2901
-      29282801272828012626260125262501747474024B4A4A014949490148484801
-      474747014645460144454501434444014242430141414101404041013F3F3F01
-      3E3F3E013D3D3E013D3C3C017474740142424202373837014242420274747401
-      333334013232320131313101303030012F2F2F012E2E2E012D2D2D012C2C2B01
-      2B2B2B012929290129292801282727012627260125262501747474024A4A4A01
-      4A49490148484801474747014646460145454501444344014343430142414101
-      414141013F4040013F3E3F013E3E3D013C3C3C01757474014242420238383801
-      4242420274747401333333013332320132323101313130012F2F2F012E2E2E01
-      2D2C2D012B2C2C012A2A2B012A292A0129292901272827012726260126262601
-      747474024B4A4A01494949014848490147474701464646014545450144444401
-      434243014241420140404101403F3F013E3F3E013D3D3D013C3C3D0174747401
-      4242420238383801424242027474740133343401323232013131320130303001
-      2F2F30012E2E2E012D2D2D012C2C2B012B2B2B012A292A012929280128272701
-      2727260125252501747474020000000E74747401424242023838380142424202
-      747474010000000E747474024B4A4B014A4A490149494901CCCCCC0B74747401
-      42424202383838014242420274747401CCCCCC0B282827012727270126252501
-      747474024A4B4B014A4A49014849480147474701474646014546450144444401
-      434343014242420141404101404040013F3F3F013E3E3E013D3C3D0174747401
-      4242420238383801424242027474740134343401323332013132320130313001
-      302F30012F2F2E012D2E2D012C2C2D012B2B2B012A2A2A012929290127282701
-      2727260125252601747474024B4A4B014A4A4A01484849014747480146464701
-      45454601444545014343430142424201414141013F4040013E3F3F013E3E3E01
-      3D3C3D0174747401424242023938380142424202747474013334340133333201
-      32323201313131012F3030012E2F2E012D2D2D012C2C2D012B2B2B012B2A2A01
-      29292901282828012726270125262601747474024B4B4A014A4A4A0149494901
-      4848470147474601454645014444440143434301424242014141410140404001
-      3F3F3F013E3E3D013C3D3D017474750142424202393939014242420274747401
-      34343301333333013131320131313101303030012F2F2F012D2E2E012C2C2C01
-      2B2B2B012A2A2A0129292901282828012727270126252501747474024B4B4B01
-      494A4A0149494901484847014747460146454601444445014344440143424201
-      41424101404041013F3F3F013E3E3E013C3D3D01747474014242420238383801
-      424242027474740134343401333333013232320131313101303030012E2E2F01
-      2E2E2D012C2C2C012C2B2B012A2A2A0129292A01282828012727270126262601
-      747474024B4B4B014A4A4A014949480148484801474747014546450145444401
-      444444014242430141414101404040013F3F3F013E3E3E013D3C3D0174747401
-      4242420238383901424242027474740134343401333333013232320131313101
-      30302F012E2F2F012E2D2D012C2C2C012C2C2B012B2B2A012A29290128282801
-      2727270126262601747474024B4B4B014A4A4A01494949014848480147474701
-      4645450144454501444443014242430141424201404041013F3F3F013E3E3E01
-      3D3C3D0175757401424242023939390142424202747474013435340133333301
-      3232320131313101303030012E2F2F012E2E2E012D2C2C012C2C2C012B2B2B01
-      292A2901282829012727270126262701747474024B4B4B014A4A4B0149494901
-      4848480147474701464646014544450143444301434342014142420140404002
-      3E3E3E013D3D3D01747474014242420239383901424242027474740135353401
-      333433013232320131313101303030012F2F2F012D2E2E012C2D2C012C2C2B01
-      2B2A2A012A292A01292828012727280126262601747474020000000E74747401
-      424242023939390142424202747474010000000E747474024B4B4B014A4A4A01
-      49494901CCCCCC0B7475740142424202393939014242420274747401CCCCCC0B
-      292928012827270126272601747474024C4C4C014A4A4A014949490149494801
-      4747480146464601454545014344440143424201424242014041400140404001
-      3E3F3E013E3E3E01747474014242420239393901424242027474740134343401
-      343333013333330132323201303130012F2F2F012E2E2E012D2D2D012C2C2C01
-      2B2B2A012A2A2901292929012827280127262601747474024B4C4C014A4B4B01
-      494A490149484801484747014646460145454501444444014343430142424201
-      404141013F3F40013E3F3F013E3E3D0174747501424242023939390142424202
-      747474013534340134343401323232013131310130313001302F30012E2E2E01
-      2D2D2E012C2C2C012B2B2B012A2A2A0129292901282827012727270174747402
-      4C4C4C014B4B4B01494949014848480147484801474746014546450144444401
-      434343014242420141414101403F40013E3F3F013E3D3E017474740142424202
-      3A393A0142424202747474013535340134343401333332013232310131303001
-      2F302F012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A012929290128272801
-      27272701747474024C4C4C014B4B4B014A494A01494949014847480146474601
-      4546460144454401434343014242420141414101404040013F3F3F013E3E3E01
-      7474740142424202393939014242420274747401353535013434330133333301
-      323232013130300130302F012E2F2F012D2D2D012C2C2C012C2B2B012A2A2A01
-      292929012828280127272701747474024C4C4C014B4A4B014A4A4A0148494901
-      4847480147474701464645014445450143434401424242014141410140404001
-      3E3E3F013D3E3E017474740142424202393A3A01424242027474740135353501
-      34343401333333013132320131313001302F30012F2F2F012D2E2D012C2C2D01
-      2B2B2C012A2A2B01292929012728280127272701747474024C4C4C014A4B4B01
-      4A4A490149494901474848014747460145464601444445014343430143424201
-      41414101404040013F3E3F013E3E3D01747474014242420239393A0142424202
-      747474013535350134343401333333013232320131313101302F30012E2F2E01
-      2E2D2D012D2C2D012B2C2B012A2A2A0129292901282829012727270174747402
-      4C4C4C014B4B4B014A4A4A014949490148484801474747014646460144454501
-      434443014242420141414101404040013F3F3F013D3E3E017474740142424202
-      3A3A3A0142424202747474013635350134343401333333013232320131303101
-      303030012E2F2F012E2D2D012C2D2C012C2B2C012A2B2A01292A290128282801
-      27272701747474020000000E74747401424242023A3939014242420274747401
-      0000000E747474024D4C4C014B4B4B014A4A4B01CCCCCC0B7475750142424202
-      3A3A3A014242420274747401CCCCCC0B292A2A01292828012728280174747402
-      4C4C4C014B4B4C014A4A4A014949490148484801474747014646460144454501
-      444444014243430141424101404140013F403F013E3E3F017474740142424202
-      3A393A0142424202747474013536350134353401333333013232320131313101
-      313030012F2F2F012E2E2E012D2D2D012B2B2B012A2A2B012A2A290129292801
-      27282701747474024D4C4C014B4B4B014B4A4A01494A49014848480147474701
-      464646014545450144444401424243014241420140404001403F3F013F3E3E01
-      74747401424242023A3A3A014242420274747401363536013534340133333301
-      3232320131313101313030012F2F2F012E2E2E012D2C2D012C2C2C012B2A2A01
-      292A2A012929280127272701747474024D4D4D014B4C4B014A4B4A01494A4901
-      4848480147484701464646014545450144434401424343014141410140414101
-      40403F013E3F3F0174747401424242023A3A3A01424242027474740136363601
-      35353501333334013232320132323101303130012F2F2F012E2E2E012D2D2D01
-      2C2C2C012B2B2B012A292A012829280128282701747474024D4C4C014B4C4C01
-      4B4B4A0149494A01494849014847470146464601464545014444440142434301
-      4242410141414101404040013E3F3F0174747501424242023B3A3A0142424202
-      747474013536360134353401343434013233330131323201313131012F2F2F01
-      2F2E2E012D2D2D012C2C2C012B2A2B012A2A2A01292928012728270174747402
-      4D4D4C014B4C4C014A4A4B014A494A0149484901474747014746460146454501
-      44444401434343014242420140404101404040013F3F3F017474740142424202
-      3B3A3A0142424202747474013636360134343501343433013232320132313101
-      303030012F2F2F012E2E2F012E2E2D012C2C2C012B2B2B012A2A2A0128292901
-      28272801747474024D4D4D014C4C4C014B4B4B014A4A4A014849490147474701
-      474746014645450144444401434443014242420141414101403F40013F3F3E01
-      74747401424242023A3B3B014242420274747401363636013535350133343401
-      333233013231320130303001302F30012E2E2F012E2D2D012C2C2C012B2C2B01
-      2A2A2A012929290128282801747474024D4D4D014C4C4C014B4B4B0149494A01
-      4849480147484701464746014545450145454401444343014242420141414101
-      404040013F3F3F0174747401424242023A3B3A01424242027474740136363601
-      3535350134343401333333013131320131313101302F2F012F2E2F012D2D2D01
-      2C2C2D012B2C2B012A2A2A012929290128282801747474020000000E74757401
-      424242023B3A3B0142424202747474010000000E747474024D4D4D014C4C4C01
-      4B4B4B01CCCCCC0B74747401424242023A3B3B014242420274747401CCCCCC0B
-      2A2A2A012A292A0128282801747474024D4E4D014C4D4C014B4B4B014A4A4A01
-      4849490148484801474647014545450144454401444343014243420141414201
-      40404001403F3F0174747401424242023B3B3A01424242027474740136363601
-      363536013534350133333301323232013131310130302F012F2F2F012D2D2E01
-      2D2D2D012C2C2C012A2A2A012929290128292801747474024D4D4D014D4C4C01
-      4B4B4C014B4B4A01494949014848470146474701464646014545450144434301
-      4342430141414101404140013F403F0174747401424242023A3B3B0142424202
-      747474013737370135353501353534013334330132323201313131012F303001
-      2F2F2F012D2D2E012D2D2D012C2B2B012B2A2B01292929012928280174747402
-      4D4E4D014D4C4C014B4B4C014A4A4B0149494901484848014747460146464601
-      454545014344430143434301424242014141400140403F017574740142424202
-      3B3B3B0142424202747474013736370135363601343435013433330132323201
-      31323101303030012F2F2F012E2E2E012C2D2D012C2B2C012A2A2B012A2A2901
-      28292901747474024E4D4D014C4D4D014B4C4B014B4A4B014949490148484801
-      47484701464646014545450143444401434343014142420141414101403F4001
-      74747401424242023B3B3B014242420274747401373637013635360134353401
-      343433013232330131323101303031012F2F2F012E2E2E012D2D2D012C2C2B01
-      2B2B2B012A2A2A0128282801747474024E4D4E014C4C4D014C4C4B014B4B4A01
-      4949490148484901474747014646460144454501444444014343430141424201
-      414141013F3F400174747401424242023B3B3B01424242027474740136363602
-      35353401333434013233320131313101303130012F2F2F012E2E2E012D2D2D01
-      2C2B2C012A2B2B01292A2A0129292801747474024E4E4E014D4D4C014B4C4B01
-      4B4B4B01494A4A01484948014847470146464601454545014444440142434301
-      42424101404140013F403F0174747401424242023C3B3B014242420274747401
-      363737013635350135343501343433013232320131313201313030012F2F2F01
-      2E2E2E012D2D2D012C2C2C012B2B2A0129292A0129292901747474024E4D4E01
-      4D4D4D014B4B4C014A4B4B01494A490148494801474847014647470145454501
-      4444440143434301424142014141410140403F0174747401424242023B3B3B01
-      4242420274747401373737013636350135353501333433013333330131323101
-      31303101302F2F012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A0129292901
-      747474020000000E74747401424242023C3B3B0142424202747474010000000E
-      747474024E4E4E014D4D4D014C4C4B01CCCCCC0B74747401424242023B3B3C01
-      4242420274747401CCCCCC0B2B2B2B012A2B2A0129292901747474024E4E4F01
-      4D4D4D014C4C4C014B4B4B01494A4A0149494901474847014647470146464601
-      444444014343430142424301414141014040400174747401424242023B3C3C01
-      4242420274747401373737013636360135353501343434013333330132323201
-      31313001303030012E2F2E012D2D2E012C2D2D012C2B2B012B2A2B0129292901
-      747474024F4F4E014D4D4D014C4C4D014B4B4B014A4A4A014949490148484701
-      4747460146454501444545014443430142424201414241014040400174747401
-      424242023C3C3B01424242027474740138383701363636013536350134343401
-      333333013232320131313101303030012F2E2F012E2E2D012D2C2C012B2C2B01
-      2A2B2B012A292901747474024F4E4F014E4D4D014C4C4C014B4B4B014A4A4A01
-      4949490147474801474747014646460144444501444443014242420141424201
-      4041400174747401424242023C3B3C0142424202747474013837370136363601
-      35363501353434013333330132323201313131012F3030012F2F2F012D2E2E01
-      2C2D2D012C2C2B012A2A2B012A292901747474024F4E4E014D4E4D014C4C4C01
-      4C4B4B014A4A4A01484949014848480146474701454546014445440144434401
-      424242024041400174747401424242023C3C3C01424242027474740138373801
-      363637013535350134343401333333013232320131313101303030012F2F2F01
-      2E2E2D012D2D2D012B2C2B012A2B2A0129292901747474024F4E4F014E4D4D01
-      4C4C4C014B4B4B014A4B4A014949490148484801474747014546460145444501
-      4443430143424201424142014141400174747401424242023C3C3C0142424202
-      7474740138373701363737013535350134353401343333013332320132323101
-      303030012F2F2F012D2E2E012D2C2D012C2C2C012A2A2B01292A2A0174747402
-      4E4E4F014D4D4E014D4C4C014B4C4B014A4B4B0149494A014849480147474701
-      4646460145454501444444014342430142424101404140017474740142424202
-      3C3C3C0142424202747474013738380136363602353435013433330133323201
-      31313101303130012F2F2F012E2E2E012D2C2D012C2B2B012B2B2B01292A2A01
-      747474020000000E74747401424242023C3C3D0142424202747474010000000E
-      747474024F4F4F014E4E4E014D4D4D01CCCCCC0B74747401424242023C3D3C01
-      4242420274747401CCCCCC0B2C2C2C012B2B2B012A2A2A01747474024F4F4F01
-      4E4E4E014D4C4C014C4C4B014B4B4A01494A4A01494848014747480147464701
-      454545014444440143434301424242014141400174747401424242023D3D3C01
-      4242420274747401383838013737370136363601353535013434330133323201
-      3231320130303101302F30012E2E2E012D2D2D012C2C2C012B2B2B012A2A2A01
-      74747401
-    }
-    left = 2
-    top = 46
-  end
   object tfacecomp3: tfacecomp
     template.image.origformat = 'png'
     template.image.alignment = [al_stretchx]
@@ -2628,8 +2109,8 @@ object commanderfo: tcommanderfo
       750389
       16749824
     )
-    left = 3
-    top = 45
+    left = 82
+    top = 24
   end
   object tfacebutgray: tfacecomp
     template.fade_pos.count = 2
@@ -2673,8 +2154,8 @@ object commanderfo: tcommanderfo
       2572312
     )
     template.fade_direction = gd_down
-    left = 2
-    top = 34
+    left = 226
+    top = 94
   end
   object ttimer1: ttimer
     options = [to_single]
@@ -3084,7 +2565,7 @@ object commanderfo: tcommanderfo
   end
   object tfaceslidergold: tfacecomp
     template.image.origformat = 'png'
-    template.image.alignment = [al_stretchx]
+    template.image.alignment = [al_stretchx, al_stretchy]
     template.image.image = {
       0000000000000000130000006200000008180000000000000000000000000000
       0000000000000000000000000000000000000000F0F0F008B3C9C901C5D0D001
@@ -3281,12 +2762,12 @@ object commanderfo: tcommanderfo
       AEC8C801ADC6C601AAC5C501F0F0F008B3C9C901BCCDCD01B3C9C901F0F0F008
       D0D5D50156565607B3C9C901BCCDCD01B3C9C90156565607AAC5C501
     }
-    left = 33
-    top = 25
+    left = 82
+    top = 2
   end
   object tfacesliderred: tfacecomp
     template.image.origformat = 'png'
-    template.image.alignment = [al_stretchx]
+    template.image.alignment = [al_stretchx, al_stretchy]
     template.image.image = {
       000000000000000013000000620000002C180000000000000000000000000000
       0000000000000000000000000000000000000000F2F2F208C9C9D501DCDBE201
@@ -3489,7 +2970,7 @@ object commanderfo: tcommanderfo
   end
   object tfaceslidergreen: tfacecomp
     template.image.origformat = 'png'
-    template.image.alignment = [al_stretchx]
+    template.image.alignment = [al_stretchx, al_stretchy]
     template.image.image = {
       000000000000000013000000620000003C180000000000000000000000000000
       0000000000000000000000000000000000000000F2F2F208BDD1BE01CDE0D501
@@ -3688,7 +3169,191 @@ object commanderfo: tcommanderfo
       BDD1BE01C7DAC901BDD1BE01F2F2F205F9F6E203DEECDF0124510A07BDD1BE01
       C7DAC901BDD1BE0124510A07B3CAB401
     }
-    left = 51
-    top = 54
+    left = 246
+    top = 7
+  end
+  object tfacesliderdark: tfacecomp
+    template.image.origformat = 'png'
+    template.image.alignment = [al_stretchx, al_stretchy]
+    template.image.image = {
+      0000000000000000130000005B000000B8150000000000000000000000000000
+      00000000000000000000000000000000000000004A4A4901CCCCCC0742424201
+      3838380142424201CCCCCC07272727014A4A4A01474748014545460144454501
+      424242013F4040013E3E3E013D3C3D0142424201393838014242420133343401
+      33333201313131012E2F2E012C2C2D012B2B2B0129292901272627014A4A4A01
+      48484701454645014444440142424201404040013E3E3D013C3D3D0142424201
+      39393901424242013434330133333301313131012F2F2F012C2C2C012B2B2B01
+      2929290127272701494A4A014848470146454601444445014342420140404101
+      3E3E3E013C3D3D01424242013838380142424201343434013333330131313101
+      2E2E2F012C2C2C012C2B2B0129292A01272727014A4A4A014848480146454501
+      4445450142424301404041013E3E3E013D3C3D01424242013939390142424201
+      3435340133333301313131012E2F2F012D2C2C012C2C2C01292A290127272701
+      4A4A4B0148484801464646014544450143434201404040013E3E3E013D3D3D01
+      4242420139383901424242013535340133343301313131012F2F2F012C2D2C01
+      2C2C2B012A292A01272728010000000842424201393939014242420100000008
+      4A4A4A01CCCCCC07424242013939390142424201CCCCCC07282727014A4B4B01
+      49484801464646014545450143434301404141013E3F3F013E3E3D0142424201
+      3939390142424201353434013434340131313101302F30012D2D2E012C2C2C01
+      2A2A2A01282827014B4B4B014848480147474601454645014343430141414101
+      3E3F3F013E3D3E01424242013A393A0142424201353534013434340132323101
+      2F302F012D2D2D012C2C2C012A2A2A01282728014B4B4B014949490146474601
+      4546460143434301414141013F3F3F013E3E3E01424242013939390142424201
+      35353501343433013232320130302F012D2D2D012C2C2C012A2A2A0128282801
+      4B4A4B0148494901474747014646450143434401414141013E3E3F013D3E3E01
+      42424201393A3A0142424201353535013434340131323201302F30012D2E2D01
+      2C2C2D012A2A2B01272828014B4B4B0149494901474747014646460143444301
+      414141013F3F3F013D3E3E01424242013A3A3A01424242013635350134343401
+      32323201303030012E2D2D012C2D2C012A2B2A01282828010000000842424201
+      3A39390142424201000000084B4B4B01CCCCCC07424242013A3A3A0142424201
+      CCCCCC07292828014B4B4C014949490147474701464646014444440141424101
+      3F403F013E3E3F01424242013A393A0142424201353635013435340132323201
+      313030012E2E2E012D2D2D012A2A2B01292928014B4C4B01494A490147484701
+      46464601444344014141410140403F013E3F3F01424242013A3A3A0142424201
+      363636013535350132323201303130012E2E2E012D2D2D012B2B2B0128292801
+      4B4C4C0149494A0148474701464646014444440142424101404040013E3F3F01
+      424242013B3A3A0142424201353636013435340132333301313131012F2E2E01
+      2D2D2D012B2A2B01292928014B4C4C014A494A01474747014746460144444401
+      42424201404040013F3F3F01424242013B3A3A01424242013636360134343501
+      32323201303030012E2E2F012E2E2D012B2B2B01282929014C4C4C0149494A01
+      47484701464746014545440142424201404040013F3F3F01424242013A3B3A01
+      42424201363636013535350133333301313131012F2E2F012D2D2D012B2C2B01
+      2929290100000008424242013B3A3B0142424201000000084C4C4C01CCCCCC07
+      424242013A3B3B0142424201CCCCCC072A292A014C4D4C014A4A4A0148484801
+      47464701444544014243420140404001403F3F01424242013B3B3A0142424201
+      363636013635360133333301313131012F2F2F012D2D2E012C2C2C0129292901
+      4D4C4C014A4A4B01484848014747460145454501434343014141400140403F01
+      424242013B3B3B0142424201373637013536360134333301313231012F2F2F01
+      2E2E2E012C2B2C012A2A29014C4D4D014B4A4B01484848014748470145454501
+      4343430141414101403F4001424242013B3B3B01424242013736370136353601
+      34343301313231012F2F2F012E2E2E012C2C2B012A2A2A014C4C4D014B4B4A01
+      48484901474747014445450143434301414141013F3F4001424242013B3B3B01
+      424242013636360233343401313131012F2F2F012E2E2E012C2B2C01292A2A01
+      4D4D4C014B4B4B0148494801484747014545450142434301404140013F403F01
+      424242013C3B3B0142424201363737013635350134343301313132012F2F2F01
+      2E2E2E012C2C2C0129292A0100000008424242013C3B3B014242420100000008
+      4D4D4D01CCCCCC07424242013B3B3C0142424201CCCCCC072A2B2A014A4A4A01
+      474748014545460144454501424242013F4040013E3E3E013D3C3D0142424201
+      39383801424242013334340133333201313131012E2F2E012C2C2D012B2B2B01
+      29292901272627014A4A4A014848470145464501444444014242420140404001
+      3E3E3D013C3D3D01424242013939390142424201343433013333330131313101
+      2F2F2F012C2C2C012B2B2B012929290127272701494A4A014848470146454601
+      4444450143424201404041013E3E3E013C3D3D01424242013838380142424201
+      3434340133333301313131012E2E2F012C2C2C012C2B2B0129292A0127272701
+      4A4A4A0148484801464545014445450142424301404041013E3E3E013D3C3D01
+      4242420139393901424242013435340133333301313131012E2F2F012D2C2C01
+      2C2C2C01292A2901272727014A4A4B0148484801464646014544450143434201
+      404040013E3E3E013D3D3D014242420139383901424242013535340133343301
+      313131012F2F2F012C2D2C012C2C2B012A292A01272728010000000842424201
+      3939390142424201000000084A4A4A01CCCCCC07424242013939390142424201
+      CCCCCC07282727014A4B4B014948480146464601454545014343430140414101
+      3E3F3F013E3E3D01424242013939390142424201353434013434340131313101
+      302F30012D2D2E012C2C2C012A2A2A01282827014B4B4B014848480147474601
+      4546450143434301414141013E3F3F013E3D3E01424242013A393A0142424201
+      3535340134343401323231012F302F012D2D2D012C2C2C012A2A2A0128272801
+      4B4B4B0149494901464746014546460143434301414141013F3F3F013E3E3E01
+      42424201393939014242420135353501343433013232320130302F012D2D2D01
+      2C2C2C012A2A2A01282828014B4A4B0148494901474747014646450143434401
+      414141013E3E3F013D3E3E0142424201393A3A01424242013535350134343401
+      31323201302F30012D2E2D012C2C2D012A2A2B01272828014B4B4B0149494901
+      474747014646460143444301414141013F3F3F013D3E3E01424242013A3A3A01
+      42424201363535013434340132323201303030012E2D2D012C2D2C012A2B2A01
+      2828280100000008424242013A39390142424201000000084B4B4B01CCCCCC07
+      424242013A3A3A0142424201CCCCCC07292828014B4B4C014949490147474701
+      4646460144444401414241013F403F013E3E3F01424242013A393A0142424201
+      353635013435340132323201313030012E2E2E012D2D2D012A2A2B0129292801
+      4B4C4B01494A49014748470146464601444344014141410140403F013E3F3F01
+      424242013A3A3A0142424201363636013535350132323201303130012E2E2E01
+      2D2D2D012B2B2B01282928014B4C4C0149494A01484747014646460144444401
+      42424101404040013E3F3F01424242013B3A3A01424242013536360134353401
+      32333301313131012F2E2E012D2D2D012B2A2B01292928014B4C4C014A494A01
+      47474701474646014444440142424201404040013F3F3F01424242013B3A3A01
+      42424201363636013434350132323201303030012E2E2F012E2E2D012B2B2B01
+      282929014C4C4C0149494A014748470146474601454544014242420140404001
+      3F3F3F01424242013A3B3A014242420136363601353535013333330131313101
+      2F2E2F012D2D2D012B2C2B012929290100000008424242013B3A3B0142424201
+      000000084C4C4C01CCCCCC07424242013A3B3B0142424201CCCCCC072A292A01
+      4C4D4C014A4A4A014848480147464701444544014243420140404001403F3F01
+      424242013B3B3A0142424201363636013635360133333301313131012F2F2F01
+      2D2D2E012C2C2C01292929014D4C4C014A4A4B01484848014747460145454501
+      434343014141400140403F01424242013B3B3B01424242013736370135363601
+      34333301313231012F2F2F012E2E2E012C2B2C012A2A29014C4D4D014B4A4B01
+      4848480147484701454545014343430141414101403F4001424242013B3B3B01
+      42424201373637013635360134343301313231012F2F2F012E2E2E012C2C2B01
+      2A2A2A014C4C4D014B4B4A014848490147474701444545014343430141414101
+      3F3F4001424242013B3B3B01424242013636360233343401313131012F2F2F01
+      2E2E2E012C2B2C01292A2A014D4D4C014B4B4B01484948014847470145454501
+      42434301404140013F403F01424242013C3B3B01424242013637370136353501
+      34343301313132012F2F2F012E2E2E012C2C2C0129292A010000000842424201
+      3C3B3B0142424201000000084D4D4D01CCCCCC07424242013B3B3C0142424201
+      CCCCCC072A2B2A014A4A4A01474748014545460144454501424242013F404001
+      3E3E3E013D3C3D01424242013938380142424201333434013333320131313101
+      2E2F2E012C2C2D012B2B2B0129292901272627014A4A4A014848470145464501
+      4444440142424201404040013E3E3D013C3D3D01424242013939390142424201
+      3434330133333301313131012F2F2F012C2C2C012B2B2B012929290127272701
+      494A4A0148484701464546014444450143424201404041013E3E3E013C3D3D01
+      4242420138383801424242013434340133333301313131012E2E2F012C2C2C01
+      2C2B2B0129292A01272727014A4A4A0148484801464545014445450142424301
+      404041013E3E3E013D3C3D014242420139393901424242013435340133333301
+      313131012E2F2F012D2C2C012C2C2C01292A2901272727014A4A4B0148484801
+      464646014544450143434201404040013E3E3E013D3D3D014242420139383901
+      424242013535340133343301313131012F2F2F012C2D2C012C2C2B012A292A01
+      2727280100000008424242013939390142424201000000084A4A4A01CCCCCC07
+      424242013939390142424201CCCCCC07282727014A4B4B014948480146464601
+      4545450143434301404141013E3F3F013E3E3D01424242013939390142424201
+      353434013434340131313101302F30012D2D2E012C2C2C012A2A2A0128282701
+      4B4B4B0148484801474746014546450143434301414141013E3F3F013E3D3E01
+      424242013A393A01424242013535340134343401323231012F302F012D2D2D01
+      2C2C2C012A2A2A01282728014B4B4B0149494901464746014546460143434301
+      414141013F3F3F013E3E3E014242420139393901424242013535350134343301
+      3232320130302F012D2D2D012C2C2C012A2A2A01282828014B4A4B0148494901
+      474747014646450143434401414141013E3E3F013D3E3E0142424201393A3A01
+      42424201353535013434340131323201302F30012D2E2D012C2C2D012A2A2B01
+      272828014B4B4B0149494901474747014646460143444301414141013F3F3F01
+      3D3E3E01424242013A3A3A014242420136353501343434013232320130303001
+      2E2D2D012C2D2C012A2B2A012828280100000008424242013A39390142424201
+      000000084B4B4B01CCCCCC07424242013A3A3A0142424201CCCCCC0729282801
+      4B4B4C0149494901474747014646460144444401414241013F403F013E3E3F01
+      424242013A393A0142424201353635013435340132323201313030012E2E2E01
+      2D2D2D012A2A2B01292928014B4C4B01494A4901474847014646460144434401
+      4141410140403F013E3F3F01424242013A3A3A01424242013636360135353501
+      32323201303130012E2E2E012D2D2D012B2B2B01282928014B4C4C0149494A01
+      48474701464646014444440142424101404040013E3F3F01424242013B3A3A01
+      42424201353636013435340132333301313131012F2E2E012D2D2D012B2A2B01
+      292928014B4C4C014A494A014747470147464601444444014242420140404001
+      3F3F3F01424242013B3A3A014242420136363601343435013232320130303001
+      2E2E2F012E2E2D012B2B2B01282929014C4C4C0149494A014748470146474601
+      4545440142424201404040013F3F3F01424242013A3B3A014242420136363601
+      3535350133333301313131012F2E2F012D2D2D012B2C2B012929290100000008
+      424242013B3A3B0142424201000000084C4C4C01CCCCCC07424242013A3B3B01
+      42424201CCCCCC072A292A014C4D4C014A4A4A01484848014746470144454401
+      4243420140404001403F3F01424242013B3B3A01424242013636360136353601
+      33333301313131012F2F2F012D2D2E012C2C2C01292929014D4C4C014A4A4B01
+      484848014747460145454501434343014141400140403F01424242013B3B3B01
+      42424201373637013536360134333301313231012F2F2F012E2E2E012C2B2C01
+      2A2A29014C4D4D014B4A4B014848480147484701454545014343430141414101
+      403F4001424242013B3B3B014242420137363701363536013434330131323101
+      2F2F2F012E2E2E012C2C2B012A2A2A014C4C4D014B4B4A014848490147474701
+      4445450143434301414141013F3F4001424242013B3B3B014242420136363602
+      33343401313131012F2F2F012E2E2E012C2B2C01292A2A014D4D4C014B4B4B01
+      48494801484747014545450142434301404140013F403F01424242013C3B3B01
+      42424201363737013635350134343301313132012F2F2F012E2E2E012C2C2C01
+      29292A0100000008424242013C3B3B0142424201000000084D4D4D01CCCCCC07
+      424242013B3B3C0142424201CCCCCC072A2B2A014D4D4D014B4B4B0149494901
+      4748470146464601434343014141410140404001424242013B3C3C0142424201
+      37373701363636013434340132323201303030012E2F2E012C2D2D012B2A2B01
+      4E4D4D014B4B4B01494949014747480146464601444443014142420140414001
+      424242013C3B3C0142424201383737013636360135343401323232012F303001
+      2F2F2F012C2D2D012A2A2B014D4E4D014C4B4B01484949014848480145454601
+      444344014242420140414001424242013C3C3C01424242013837380136363701
+      3434340132323201303030012F2F2F012D2D2D012A2B2A014E4D4D014B4B4B01
+      494949014848480145464601444343014241420141414001424242013C3C3C01
+      4242420138373701363737013435340133323201303030012F2F2F012D2C2D01
+      2A2A2B014D4D4E014B4C4B0149494A0148494801464646014444440142424101
+      40414001424242013C3C3C014242420137383801363636013534350133323201
+      303130012F2F2F012D2C2D012B2B2B014E4E4E01CCCCCC07424242013C3D3C01
+      42424201CCCCCC072B2B2B01
+    }
+    left = 170
+    top = 47
   end
 end

@@ -85,8 +85,8 @@ order16=0
 order17=0
 order18=0
 [projectoptions]
-projectdir=/home/fred/strumpract/src
-projectfilename=/home/fred/strumpract/src/strumpract.prj
+projectdir=/home/fred/strumpractcopy5/src
+projectfilename=/home/fred/strumpractcopy5/src/strumpract.prj
 findinfiledialog=83
  [findinfileadialogfo.subdirs]
  value=1
@@ -113,15 +113,16 @@ findinfiledialog=83
   "*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.dir]
  filenames=1
-  /home/fred/mseide-msegui/
+  /home/fred/mseuniverse/
  filecolwidth=150
  x=432
  y=215
  cx=608
  cy=452
  filehistory=20
-  /home/fred/mseide-msegui/
   /home/fred/mseuniverse/
+  /home/fred/mseide-msegui/
+  /home/fred/ideU/
   /home/fred/fpc-source-main/
   /usr/share/fpcsrc/
   /home/fred/fpc-ootb_322/
@@ -139,36 +140,35 @@ findinfiledialog=83
   /usr/local/codetyphon/
   /home/fred/uos/src/
   /home/fred/aatest/
-  /home/fred/msefiledialogx/
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=system.pos
+ value=fo.resiz
  history=20
+  fo.resiz
+  window.
+  lsuglat
+  tchartleft.traces
+  scrollbar
+  tslider1
+  tstringdisp21
+  tstringdisp21.height
+  EQEN
+  groupbox1.frame.Cap
+  genrightvolvalue
+  sysvol.
+  sysvol.f
+  face.image.paint
+  face.canvas
+  face.image
+  children
   system.pos
   sbo_thumbtrack
   od_tab
-  llength.val
-  llength.
-  llength.t
-  llength.c
-  sd_tabed
-  parentwidget
-  updatelayoutstrum
-  upatelayoutstrum
-  upatelayoutstrump
-  setfocus
-  imagedancerfo.h
-  imagedancerfo.v
-  imagedancerfo.w
-  infosdfo.b
-  infosdfo.w
-  visiblechangeev
-  infosfo.
  [findinfileadialogfo]
  stackedunder=
- x=200
- y=100
+ x=210
+ y=158
  cx=339
  cy=308
 finddialog=8
@@ -176,8 +176,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=895
- y=159
+ x=906
+ y=353
  cx=298
  cy=269
 replacedialog=33
@@ -322,7 +322,7 @@ options=114
  index=1
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=1
+ index=2
  [projectoptionsfo]
  stackedunder=
  x=305
@@ -503,14 +503,16 @@ compnamedialog=5
 bmpfiledialog=32
  [filedialog]
  filenames=1
-  /home/fred/strumpract/src/images/infoaudio.png
+  /home/fred/Pictures/sliderdark.png
  filecolwidth=150
  x=698
  y=160
  cx=623
  cy=431
- lastdir=/home/fred/strumpract/src/images/
+ lastdir=/home/fred/Pictures/
  filehistory=20
+  /home/fred/Pictures/sliderdark.png
+  /home/fred/strumpract/src/images/dancer.png
   /home/fred/strumpract/src/images/infoaudio.png
   /home/fred/strumpract/strumpract.png
   /home/fred/Pictures/playlistdirectory1nb.png
@@ -529,10 +531,8 @@ bmpfiledialog=32
   /home/fred/Pictures/playlistcue22.png
   /home/fred/Pictures/playlistcue12.png
   /home/fred/Pictures/playlistdirectory1.png
-  /home/fred/Pictures/playlistosearch2.png
-  /home/fred/Pictures/playlistadd2.png
  filefilterindex=0
- filefilter="All" "*.jpg" "*.jpeg" "*.bmp" "*.ico" "*.png" "*.pnm" "*.pgm" "*.pbm" "*.tga" "*.tif" "*.tiff" "*.xpm"
+ filefilter="*.jpg" "*.jpeg" "*.bmp" "*.ico" "*.png" "*.pnm" "*.pgm" "*.pbm" "*.tga" "*.tif" "*.tiff" "*.xpm"
 mainfile=strumpract.pas
 targetfile=strumpract${EXEEXT}
 messageoutputfile=
@@ -807,15 +807,9 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
- DOCKPANEL1FO
- MAINFO
-moduletypes=2
- TDOCKPANEL1FO
- TMAINFO
-modulefiles=2
- /home/fred/strumpract/src/dockpanel1.mfm
- /home/fred/strumpract/src/main.mfm
+modulenames=0
+moduletypes=0
+modulefiles=0
 befcommandon=0
 makeoptionson=17
  4095
@@ -1101,7 +1095,7 @@ sigsettings=27
  30,30,T,F
 defaultmake=1
 [breakpoints]
-on=35
+on=36
  0
  0
  0
@@ -1137,7 +1131,8 @@ on=35
  0
  0
  0
-path=35
+ -1
+path=36
  /home/fred/drumspract/main.pas
  /home/fred/strumpract/uos.pas
  /home/fred/strumpract/uos.pas
@@ -1173,7 +1168,8 @@ path=35
  /home/fred/strumpract/src/songplayer.pas
  /home/fred/strumpract/src/imagedancer.pas
  /home/fred/strumpract/src/imagedancer.pas
-line=35
+ /home/fred/strumpract/src/drums.pas
+line=36
  553
  6389
  7495
@@ -1186,30 +1182,31 @@ line=35
  587
  276
  5733
- 3546
- 1541
- 293
- 329
- 538
- 563
- 786
- 798
+ 3556
+ 1598
+ 392
+ 548
+ 637
+ 782
+ 1005
+ 1017
  701
- 1645
+ 1702
  209
  1136
- 6166
- 500
+ 6149
+ 499
  5
- 790
+ 889
  1518
  171
- 1545
+ 1602
  408
- 1811
- 597
- 989
-address=35
+ 1868
+ 619
+ 1011
+ 6
+address=36
  5007158
  7989638
  8000139
@@ -1245,8 +1242,8 @@ address=35
  5159099
  5234779
  5244023
-addbkpt=35
  0
+addbkpt=36
  0
  0
  0
@@ -1281,9 +1278,9 @@ addbkpt=35
  0
  0
  0
-ignore=35
  0
  0
+ignore=36
  0
  0
  0
@@ -1317,7 +1314,11 @@ ignore=35
  0
  0
  0
-condition=35
+ 0
+ 0
+ 0
+condition=36
+ 
  
  
  
@@ -1592,81 +1593,63 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext='(
+finddtext=.resize
 findhistory=20
- '(
- thetitle :
- thetitle
+ .resize
+ onin
+ oncre
+ setlangstrumpract
+ list_files.
+ fowidthf
+ font.color
+ oncrea
+ imagedanc
   layout
- layout 
- d
- dockall
- hideall
- updatelayout
- timerw
- sbo_thumbtrack
- updatelayoutpan
- _tab
  jam
- ontab
- horz
- setgrip
- decorationheight
- _dock
- parentw
+ fontheight
+ fonth
+ font
+ fontuse
+ config
+ configfo
+ fontused
+ lsuglat
+ imagedancerfo.b
 findoptions=1
-editpos=3
- 0,-1073741823
- 0,2483
- 0,424
+editpos=1
+ 0,0
 bookmarks0=0
-bookmarks1=0
-bookmarks2=0
-sourcefiles=3
+sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/dockpanel1.pas
-relpaths=3
+relpaths=1
  strumpract.pas
- main.pas
- dockpanel1.pas
-ismoduletexts=3
+ismoduletexts=1
+ 0
+modules=4
+ /home/fred/strumpractcopy5/src/main.mfm
+ /home/fred/strumpractcopy5/src/commander.mfm
+ /home/fred/strumpractcopy5/src/drums.mfm
+ /home/fred/strumpractcopy5/src/recorder.mfm
+moduleoptions=4
  0
  0
  0
-modules=5
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/drums.mfm
- /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/dockpanel1.mfm
-moduleoptions=5
+ 0
+visiblemodules=4
  0
  0
  0
- 2
  0
-visiblemodules=5
- -1
- 0
- 0
- 0
- -1
-nomenumodules=5
- 0
+nomenumodules=4
  -1
  -1
  -1
- 0
+ -1
 [sourcefo.files_tab]
-order=3
- 2
- 0
- 1
 firsttab=0
-index=2
+index=0
 [layout]
-windowlayout=634
+windowlayout=600
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1680,13 +1663,13 @@ windowlayout=634
  ny=0
  ncx=0
  ncy=0
- x=0
- y=24
- cx=1366
- cy=711
+ x=34
+ y=53
+ cx=1224
+ cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [findmessagefo.findtext]
@@ -1708,15 +1691,15 @@ windowlayout=634
  ny=0
  ncx=0
  ncy=0
- x=62
- y=382
+ x=493
+ y=171
  cx=497
- cy=381
+ cy=314
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1738,7 +1721,7 @@ windowlayout=634
  [memoryfo]
  splitdir=0
  useroptions=268451963
- stackedunder=dialogfilesfo
+ stackedunder=findmessagefo
  parent=
  mdistate=0
  nx=0
@@ -1784,16 +1767,16 @@ windowlayout=634
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=187
- y=111
- cx=846
+ x=239
+ y=115
+ cx=678
  cy=414
  rcx=0
  rcy=0
@@ -1810,7 +1793,7 @@ windowlayout=634
  x=0
  y=0
  cx=205
- cy=520
+ cy=448
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1820,8 +1803,8 @@ windowlayout=634
  width1=86
  sortdescend1=0
  sorted=0
- col=0
- row=2
+ col=1
+ row=-1073741823
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1860,14 +1843,14 @@ windowlayout=634
  active=0
  visible=0
  [watchpointsfo.grid]
- propcolwidthref=332
+ propcolwidthref=352
  sortdescend0=0
  values1=0
  values1_ci=-1
  width1=33
  sortdescend1=0
  values2=0
- width2=149
+ width2=158
  sortdescend2=0
  width4=34
  sortdescend4=0
@@ -1876,7 +1859,7 @@ windowlayout=634
  width5=38
  sortdescend5=0
  values6=0
- width6=172
+ width6=184
  sortdescend6=0
  [breakpointsfo]
  splitdir=0
@@ -1900,10 +1883,10 @@ windowlayout=634
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=474
- width0=184
+ propcolwidthref=449
+ width0=199
  sortdescend0=0
- width1=284
+ width1=244
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1967,7 +1950,7 @@ windowlayout=634
  rcx=1262
  rcy=583
  [watchfo.grid]
- propcolwidthref=121
+ propcolwidthref=111
  values0=0
  values0_ci=-1
  sortdescend0=0
@@ -1996,9 +1979,9 @@ windowlayout=634
  ncx=0
  ncy=0
  x=0
- y=580
- cx=1354
- cy=110
+ y=508
+ cx=1212
+ cy=92
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2067,7 +2050,7 @@ windowlayout=634
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=objectinspectorfo
+ stackedunder=dialogfilesfo
  parent=
  mdistate=3
  nx=0
@@ -2097,7 +2080,7 @@ windowlayout=634
  ncy=0
  x=0
  y=0
- cx=1354
+ cx=1212
  cy=54
  rcx=0
  rcy=0
@@ -2109,11 +2092,11 @@ windowlayout=634
  mdistate=0
  nx=0
  ny=0
- ncx=1354
- ncy=61
+ ncx=1111
+ ncy=52
  x=0
  y=0
- cx=1354
+ cx=1212
  cy=61
  rcx=0
  rcy=0
@@ -2124,23 +2107,12 @@ windowlayout=634
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
- history=15
-  /home/fred/strumpract/src/dockpanel1.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract-git412/src/dockpanel1.mfm
-  /home/fred/strumpract/src/infosd.pas
-  /home/fred/strumpract-split2/src/dockpanel1.pas
-  /home/fred/strumpract/src/synthe.pas
-  /home/fred/strumpract/src/piano.pas
-  /home/fred/strumpract/src/guitars.pas
-  /home/fred/strumpract/src/drums.pas
-  /home/fred/strumpract/src/config.pas
-  /home/fred/strumpract/src/captionstrumpract.pas
-  /home/fred/Downloads/WavvieW-main/src/synthe.pas
-  /home/fred/Downloads/WavvieW-main/src/main_mfm.pas
-  /home/fred/strumpract/src/infos.pas
-  /home/fred/strumpract/src/infos3.pas
+ value=/home/fred/strumpractcopy5/src/strumpract.pas
+ history=4
+  /home/fred/ideU_lin64/layout/${PROJECTDIR}
+  
+  /home/fred/ideU/src/layout
+  ${PROJECTDIR}/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2157,17 +2129,13 @@ windowlayout=634
  ncy=0
  x=208
  y=0
- cx=1146
- cy=520
+ cx=1004
+ cy=448
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=3
-  2
-  0
-  1
  firsttab=0
- index=2
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2190,45 +2158,29 @@ windowlayout=634
  wsize=0
  active=0
  visible=0
- [mainfo.panel1]
- splitdir=1
- useroptions=302087659
- parent=mainfo.basedock
- visible=1
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=57
- cx=1354
- cy=520
- rcx=0
- rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_dockpanel1fo_mse_
+ stackedunder=_mse_recorderfo_mse_
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=622
- y=335
+ x=763
+ y=107
  cx=452
  cy=96
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2266,7 +2218,7 @@ windowlayout=634
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_recorderfo_mse_
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2282,25 +2234,22 @@ windowlayout=634
  wsize=0
  active=0
  visible=0
- [_mse_dockpanel1fo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=targetconsolefo
- parent=
- mdistate=3
+ [mainfo.panel1]
+ splitdir=1
+ useroptions=302087659
+ parent=mainfo.basedock
+ visible=1
+ mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=462
- y=211
- cx=464
- cy=96
+ x=0
+ y=57
+ cx=1212
+ cy=448
  rcx=0
  rcy=0
- wsize=0
- active=0
- visible=1
 [targetconsole]
 finddtext=
 findhistory=0

@@ -9,7 +9,6 @@ uses
  {$ifdef unix}baseunix,{$endif}Math,
   msetypes,
   mseglob,
-  
   mseguiglob,
   mseguiintf,
   msetimer,
@@ -81,8 +80,6 @@ type
     procedure whosent(const Sender: tfiledialogxcontroller; var dialogkind: filedialogkindty; var aresult: modalresultty);
     procedure onchangpathfromhist(const Sender: TObject);
     procedure onchangpath(const Sender: TObject; findex: integer);
-    procedure onafterdialog(const Sender: tfiledialogxcontroller; var aresult: modalresultty);
-    procedure befdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var processed: Boolean);
     procedure ondoc(const Sender: TObject);
     procedure onfloat(const Sender: TObject);
     procedure afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var accept: Boolean; var processed: Boolean);
@@ -91,18 +88,17 @@ type
     procedure onaftdrop(const Sender: TObject);
     procedure onchangecount(const Sender: TObject);
     procedure ondestr(const Sender: TObject);
-    procedure ondock(const Sender: TObject);
     procedure loadlist(const Sender: TObject);
     procedure savelist(const Sender: TObject);
     procedure addfile(const Sender: TObject);
     procedure oncreate(const Sender: TObject);
-    procedure ondrawcell(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
     procedure afterdragend(const asender: TObject; const apos: pointty; var adragobject: tdragobject; const accepted: Boolean; var processed: Boolean);
     procedure opendir(const Sender: TObject);
     procedure onexecfind(const Sender: TObject);
 
     procedure onactiv(const Sender: TObject);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
+    procedure resizefi(fontheight: integer);
   end;
 
 var
@@ -122,10 +118,40 @@ uses
   main,
   filelistform_mfm;
 
+var
+  fowidthf: integer;
+
+procedure tfilelistfo.resizefi(fontheight: integer);
+var
+  ratio: float;
+begin
+  ratio        := fontheight / 12;
+  bounds_cymax := 0;
+  bounds_cxmin := round(442 * ratio);
+  bounds_cxmax := bounds_cxmin;
+  bounds_cx    := bounds_cxmin;
+  bounds_cymin := round(128 * ratio);
+  font.Height  := fontheight;
+
+  list_files.font.Height        := fontheight;
+  list_files.rowfonts[0].Height := fontheight;
+  list_files.rowfonts[1].Height := fontheight;
+
+  frame.grip_size := round(8 * ratio);
+  fowidthf        := round(442 * ratio);
+  list_files[0].Width :=
+    round(list_files.Width - 16 - list_files.fixcols[-1].Width - list_files[1].Width - list_files[2].Width -
+    list_files[3].Width - list_files[4].Width);
+
+end;
+
 procedure tfilelistfo.formcreated(const Sender: TObject);
 var
   x: integer;
 begin
+
+  resizefi(fontheightused);
+
   Timersent          := ttimer.Create(nil);
   Timersent.interval := 2500000;
   Timersent.Enabled  := False;
@@ -273,13 +299,8 @@ begin
           songplayerfo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
 
           songplayerfo.historyfn.face.template := mainfo.tfaceorange;
-          
-          {
-          if (commanderfo.Visible = True) and (commanderfo.window.windowpos <> wp_minimized) and
-            (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
-            commanderfo.tbutton2.SetFocus;
-          }
-          
+
+
           if songplayerfo.timersent.Enabled then
             songplayerfo.timersent.restart // to reset
           else
@@ -306,12 +327,7 @@ begin
           songplayer2fo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
 
           songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
-       {
-          if (commanderfo.Visible = True) and (commanderfo.window.windowpos <> wp_minimized) and
-            (mainfo.basedock.dragdock.currentsplitdir <> sd_tabed) then
-           commanderfo.tbutton3.SetFocus;
-         }  
-           
+
           if songplayer2fo.timersent.Enabled then
             songplayer2fo.timersent.restart // to reset
           else
@@ -515,11 +531,7 @@ begin
         end;
 
         edfilescount.Value := list_files.rowcount;
-     //   if edfilescount.Value > 1 then
-          filescount.Value := msestring(IntToStr(edfilescount.Value)); 
-       //   lang_filelistfo[Ord(fi_filelistfodragdock)]);
-       // else
-       //   filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
+        filescount.Value   := msestring(IntToStr(edfilescount.Value));
 
       finally
         datalist_files.Free;
@@ -532,34 +544,17 @@ begin
     end;
 end;
 
-procedure tfilelistfo.onafterdialog(const Sender: tfiledialogxcontroller; var aresult: modalresultty);
-begin
-  //list_files.path := dir.value;
-end;
-
-procedure tfilelistfo.befdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var processed: Boolean);
-begin
-  // if parentwidget = nil then sizebefdock := size;
-end;
-
 procedure tfilelistfo.ondoc(const Sender: TObject);
 begin
-  //sizebefdock := size;
+  resizefi(fontheightused);
 end;
 
 procedure tfilelistfo.onfloat(const Sender: TObject);
 begin
-  //sizebefdock.cx := 500;
-  //sizebefdock.cy := 500;
-  //size := sizebefdock;
-  if parentwidget = nil then
-  begin
+  resizefi(fontheightused);
+  bounds_cxmax := fowidthf;
+  bounds_cymax := 0;
 
-    //  bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
-    bounds_cxmax := fowidth;
-    //  bounds_cymax := rect1.cy - 60;
-    bounds_cymax := 0;
-  end;
 end;
 
 procedure tfilelistfo.afterdrag(const asender: TObject; const apos: pointty; var adragobject: tdragobject; var accept: Boolean; var processed: Boolean);
@@ -571,55 +566,51 @@ end;
 
 procedure tfilelistfo.visiblechangeev(const Sender: TObject);
 begin
-  if (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(
+  if (isactivated = True) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(
     dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
 
-   if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showlist']).caption :=
-          lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_mainfo[Ord(ma_fileslist)];
-         end
-      else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showlist']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_mainfo[Ord(ma_fileslist)];
-        end;
+    if Visible then
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showlist']).Caption :=
+        lang_mainfo[Ord(ma_hide)] + ': ' +
+        lang_mainfo[Ord(ma_fileslist)]
+    else
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showlist']).Caption :=
+        lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+        lang_mainfo[Ord(ma_fileslist)];
 
-      if (norefresh = False) and (parentwidget <> nil) then
-      begin
-     
-       if (parentwidget = mainfo.basedock) or 
-       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
-          mainfo.updatelayoutstrum();
-      
-      if (parentwidget = dockpanel1fo.basedock) or 
-       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+    if (norefresh = False) and (parentwidget <> nil) then
+    begin
+
+      if (parentwidget = mainfo.basedock) or
+        (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.updatelayoutstrum();
+
+      if (parentwidget = dockpanel1fo.basedock) or
+        (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel2fo.basedock) or 
-       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel1fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel2fo.basedock) or
+        (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel3fo.basedock) or 
-       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel2fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel3fo.basedock) or
+        (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel4fo.basedock) or 
-       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel5fo.basedock) or 
-       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayoutpan();
-      end;    
+          dockpanel3fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel4fo.basedock) or
+        (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel4fo.Visible then
+          dockpanel4fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel5fo.basedock) or
+        (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel5fo.Visible then
+          dockpanel5fo.updatelayoutpan();
+    end;
   end;
 end;
 
@@ -680,34 +671,6 @@ begin
 
   if (info.eventkind = cek_buttonrelease) then
   begin
-
-{
-      if  (cellpos.row = -1) and  (cellpos.col < 3)
-
-        then
-        begin
-          if sortord = 1 then
-            begin
-              list_files.datacols.options := list_files.datacols.options + [co_sortdescend];
-              sortord := 0;
-            end
-          else
-            begin
-              list_files.datacols.options := list_files.datacols.options - [co_sortdescend];
-              sortord := 1;
-            end;
-          list_files.datacols.sortcol := info.cell.col ;
-        end;
-
-}
-    //      edfilescount.Value := list_files.rowcount;
-    //      filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files');
-
-    //   if filelistfo.tbutton1.face.template = mainfo.tfaceorange then
-    //   onsent(tbutton1) else
-    //   if filelistfo.tbutton2.face.template = mainfo.tfaceorange then  onsent(tbutton2)  ;
-
-    // {      
     if (cellpos.row > -1) and (ss_double in info.mouseeventinfopo^.shiftstate) then
     begin
 
@@ -715,7 +678,6 @@ begin
         onsent(tbutton1)
       else if filelistfo.tbutton2.face.template = mainfo.tfaceorange then
         onsent(tbutton2);
-
 
       //  writeln('button 2x click');   
       if commanderfo.tbutton2.face.template = mainfo.tfaceorange2 then
@@ -728,7 +690,6 @@ begin
       ;
 
     end;
-    // }
 
     if timercount.Enabled then
       timercount.restart // to reset
@@ -751,21 +712,13 @@ end;
 
 procedure tfilelistfo.onchangecount(const Sender: TObject);
 begin
- // if edfilescount.Value > 1 then
-    filescount.Value := intToStr(edfilescount.Value) ;
- // else
- //   filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
+  filescount.Value := IntToStr(edfilescount.Value);
 end;
 
 procedure tfilelistfo.ondestr(const Sender: TObject);
 begin
   timersent.Free;
   timercount.Free;
-end;
-
-procedure tfilelistfo.ondock(const Sender: TObject);
-begin
-  bounds_cy := 128;
 end;
 
 procedure tfilelistfo.loadlist(const Sender: TObject);
@@ -830,7 +783,6 @@ begin
   statusfo.Caption := 'Save Cue List as';
   statusfo.color   := $A7C9B9;
   statusfo.layoutname.Value := 'mycuelist';
-  //statusfo.layoutname.frame.caption := 'Choose a cue-list name';
   statusfo.layoutname.Visible := True;
   statusfo.activate;
 end;
@@ -922,8 +874,6 @@ begin
 
       list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
 
-      //   list_files[2][x] := msestring(IntToStr(siz Div 1000) + ' Kb');
-      // list_files[3][x] := formatdatetime('YYYY',datalist_files.items[x].extinfo1.ctime);
       list_files[3][x]   := msestring(IntToStr(1));
       list_files[4][x]   := tfiledialog1.controller.filename;
       edfilescount.Value := list_files.rowcount;
@@ -949,29 +899,15 @@ end;
 
 procedure tfilelistfo.oncreate(const Sender: TObject);
 begin
-  windowopacity       := 0;
+  windowopacity := 0;
+
   tstatfile1.filename := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini' +
     directoryseparator + 'list.ini');
 end;
 
-
-procedure tfilelistfo.ondrawcell(const Sender: tcol; const Canvas: tcanvas; var cellinfo: cellinfoty);
-begin
-  //pieceslist.paint(canvas,2,nullpoint,cl_default,cl_default,cl_default,0);
-end;
-
 procedure tfilelistfo.afterdragend(const asender: TObject; const apos: pointty; var adragobject: tdragobject; const accepted: Boolean; var processed: Boolean);
 begin
-  if parentwidget = nil then
-  begin
-    //rect1 := application.screenrect(window);
-
-    //  bounds_cy := ((list_files.rowcount + 1) * (list_files.datarowheight + 1)) + 37;
-    bounds_cxmax := fowidth;
-    //bounds_cymax := rect1.cy - 60;
-    bounds_cymax := 0;
-    bounds_cy    := fowidth;
-  end;
+  resizefi(fontheightused);
 end;
 
 procedure tfilelistfo.opendir(const Sender: TObject);
@@ -979,11 +915,10 @@ var
   x: integer;
   ara, arb: msestringarty;
 begin
-  tfiledialog1.controller.captiondir := 
-  lang_filelistfo[Ord(fi_tbutton6_hint)]; 
+  tfiledialog1.controller.captiondir :=
+    lang_filelistfo[Ord(fi_tbutton6_hint)];
   tfiledialog1.controller.nopanel    := False;
   tfiledialog1.controller.compact    := False;
-
 
   if mainfo.typecolor.Value = 2 then
     tfiledialog1.controller.backcolor := $A6A6A6
@@ -1042,10 +977,7 @@ end;
 procedure tfilelistfo.onactiv(const Sender: TObject);
 begin
   if historyfn.Value <> '' then
-    Caption    := historyfn.Value;
-  bounds_cxmax := 442;
-  bounds_cxmin := 442;
-  Width        := 442;
+    Caption := historyfn.Value;
 end;
 
 procedure tfilelistfo.onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -1055,7 +987,6 @@ begin
   else
     mainfo.ttimer2.Enabled := True;
 end;
-
 
 end.
 

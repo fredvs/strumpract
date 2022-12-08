@@ -6,42 +6,12 @@ unit drums;
 interface
 
 uses
-  mseglob,
-  msetimer,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  Math,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msesimplewidgets,
-  msewidgets,
-  msegraphedits,
-  msedataedits,
-  SysUtils,
-  Classes,
-  msedragglob,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msescrollbar,
-  msetypes,
-  mseact,
-  mseedit,
-  msestatfile,
-  msestream,
-  msestrings,
-  msedispwidgets,
-  mserichstring,
-  msebitmap,
-  msedropdownlist;
+ mseglob,msetimer,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
+ msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
+ msesimplewidgets,msewidgets,msegraphedits,msedataedits,SysUtils,Classes,
+ msedragglob,mseificomp,mseificompglob,mseifiglob,msescrollbar,msetypes,mseact,
+ mseedit,msestatfile,msestream,msestrings,msedispwidgets,mserichstring,
+ msebitmap,msedropdownlist;
 
 type
   talab  = array[0..15] of tlabel;
@@ -179,14 +149,14 @@ type
     hintlabel2: tlabel;
     multbpm: TButton;
     divbpm: TButton;
-    tgroupbox1: tgroupbox;
-    label2: tlabel;
-    label3: tlabel;
-    label4: tlabel;
     langcount: tdropdownlistedit;
     songtimer: tbooleanedit;
-    sensib: trealspinedit;
     tickcount: tintegeredit;
+   sensib: trealspinedit;
+   tgroupbox1: tgroupbox;
+   label3: tlabel;
+   label4: tlabel;
+   label2: tlabel;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -215,6 +185,8 @@ type
     procedure onchangelang(const Sender: TObject);
     procedure onchangesongtimer(const Sender: TObject);
     procedure onchansens(const Sender: TObject);
+    procedure resizedr(fontheight :  integer );
+  
 
   end;
 
@@ -245,6 +217,9 @@ uses
   dockpanel1,
   drums_mfm,
   randomnote;
+  
+var
+   boundchilddr: array of boundchild;   
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
 begin
@@ -253,6 +228,250 @@ begin
   ltempo.face.template      := tfacecomp3;
   hintpanel.Visible         := False;
 end;
+
+procedure tdrumsfo.resizedr(fontheight : integer );
+var
+ childrensp: widgetarty;
+ heights: integerarty;
+ widths: integerarty;
+ tops: integerarty;
+ lefts: integerarty;
+ i1, i2: integer;
+ spcx, spcy, posx, posy, ax: integer;
+ ratioft : double;
+begin
+    ratioft := fontheight/12 ;
+    bounds_cxmax := 0;
+    bounds_cxmin := 0;
+    bounds_cymax := 0;
+    bounds_cymin := 0;
+    bounds_cxmax := round(442 * ratioft);
+    bounds_cxmin := bounds_cxmax;
+    bounds_cymax := round(274 * ratioft);
+    bounds_cymin := bounds_cymax;
+    font.height :=  fontheight;
+    panel1.font.height :=  fontheight;
+    tdockpanel1.font.height :=  fontheight;
+    
+    label2.font.height := round(50 * ratioft);
+    label3.font.height := round(50 * ratioft);
+    label4.font.height := round(50 * ratioft);
+    
+    label2.width := round(32 * ratioft);
+    label3.width := round(18 * ratioft);
+    label4.width := round(18 * ratioft);
+    
+    label2.height := round(59 * ratioft);
+    label3.height := round(59 * ratioft);
+    label4.height := round(59 * ratioft);
+         
+    label4.left := round(35 * ratioft);
+    label2.left := round(11 * ratioft);
+    
+    edittempo.frame.buttonsize := round(20 * ratioft);   
+    volumedrums.frame.buttonsize := round(20 * ratioft);   
+    sensib.frame.buttonsize := round(20 * ratioft);   
+     
+    frame.grip_size := round(8 * ratioft);
+    
+    tdockpanel1.height := round(149 * ratioft);
+    
+    panel1.height := round(125 * ratioft);
+    panel1.top := round(148 * ratioft);
+  
+  // grid
+  
+   labpat.top := round(18 * ratioft);
+   lach.top := round(54 * ratioft);
+   laoh.top := round(78 * ratioft);
+   lasd.top := round(102 * ratioft);
+   labd.top := round(126 * ratioft);
+   
+   labpat.width := round(52 * ratioft);
+   lach.width := labpat.width;
+   laoh.width := labpat.width;
+   lasd.width := labpat.width;
+   labd.width := labpat.width;
+   
+   labpat.height := round(16 * ratioft);
+   lach.height := labpat.height;
+   laoh.height := labpat.height;
+   lasd.height := labpat.height;
+   labd.height := labpat.height;
+  
+  
+   spcx := round(24 * ratioft);
+  spcy := round(24 * ratioft);
+  // posx := -26;
+  posx := round(-33 * ratioft);
+
+  posy := round(6 * ratioft);
+
+ for ax := 0 to 3 do
+    with alab2[ax] do
+    begin
+      Width   :=round(16 * ratioft);
+      Height  := round(16 * ratioft);
+      color   := $D5D5D5;
+      Visible := True;
+      // textflags := [xcentered,tf_ycentered];
+      Caption := msestring(IntToStr(ax + 1));
+      if ax = 0 then
+      begin
+        left := posx + round(65 * ratioft) + (spcx * (1));
+        top  := posy;
+      end
+      else if ax = 1 then
+      begin
+        left := posx + round(65 * ratioft) + (spcx * (5));
+        top  := posy;
+      end
+      else if ax = 2 then
+      begin
+        left := posx + round(65 * ratioft) + (spcx * (9));
+        top  := posy;
+      end
+      else
+      begin
+        left := posx + round(65 * ratioft) + (spcx * (13));
+        top  := posy;
+      end;
+      // color := TfpgColor($FFD3D3D3);
+
+    end;
+      // }
+
+ for ax := 0 to 3 do
+    with alaband[ax] do
+    begin
+      Width   := round(16 * ratioft);;
+      Height  := round(16 * ratioft);;
+      Visible := True;
+      color   := $B5B5B5;
+      // textflags := [xcentered,tf_ycentered];
+      Caption := '&&';
+      if ax = 0 then
+      begin
+        left := posx + round(65 * ratioft) + (spcx * (3));
+        top  := posy;
+      end
+      else if ax = 1 then
+      begin
+        left := posx + round(65 * ratioft) + (spcx * (7));
+        top  := posy;
+      end
+      else if ax = 2 then
+      begin
+        left := posx + round(65 * ratioft) + (spcx * (11));
+        top  := posy;
+      end
+      else
+      begin
+        left := posx + round(65 * ratioft) + (spcx * (15));
+        top  := posy;
+      end;
+      // color := TfpgColor($FFD3D3D3);
+
+    end;
+
+ for ax := 0 to 15 do
+    with alab[ax] do
+    begin
+      optionswidget1 := [ow1_fontglyphheight];
+      Width := round(16 * ratioft);;
+      Height := round(16 * ratioft);;
+      color := $D5D5D5;
+      Visible := True;
+      // textflags := [xcentered,tf_ycentered];
+      Caption := msestring(IntToStr(ax + 1));
+      left := posx + round(65 * ratioft) + (spcx * (ax + 1));
+      top := posy + (spcy * 1);
+    end;
+
+  for ax := 0 to 15 do
+  begin
+    with ach[ax] do
+    begin
+      Name   := 'ch' + IntToStr(ax + 1);
+      left   := posx + round(65 * ratioft) + (spcx * (ax + 1));
+      top    := posy + (spcy * 2);
+      Width  := round(16 * ratioft);;
+      Height := round(16 * ratioft);;
+      frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
+      hint   := ' Add/Remove a Closed Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
+    end;
+    if (Copy(drum_beats[0], ax + 1, 1) = 'x') then
+      ach[ax].Value := True
+    else
+      ach[ax].Value := False;
+  end;
+
+ for ax := 0 to 15 do
+    with aoh[ax] do
+    begin
+      Name   := 'oh' + IntToStr(ax + 1);
+      left   := posx + round(65 * ratioft) + (spcx * (ax + 1));
+      top    := posy + (spcy * 3);
+      Width  := round(16 * ratioft);
+      Height := round(16 * ratioft);
+      frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
+      hint   := ' Add/Remove a Open Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
+
+      if (Copy(drum_beats[1], ax + 1, 1) = 'x') then
+        Value := True
+      else
+        Value := False;
+    end;
+
+  for ax := 0 to 15 do
+    with asd[ax] do
+    begin
+      Name   := 'sd' + IntToStr(ax + 1);
+      left   := posx + round(65 * ratioft) + (spcx * (ax + 1));
+      top    := posy + (spcy * 4);
+      Width  := round(16 * ratioft);
+      Height := round(16 * ratioft);
+      frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
+      hint   := ' Add/Remove a Snare Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
+
+      if (Copy(drum_beats[2], ax + 1, 1) = 'x') then
+        Value := True
+      else
+        Value := False;
+    end;
+
+ for ax := 0 to 15 do
+    with abd[ax] do
+    begin
+      Name   := 'bd' + IntToStr(ax + 1);
+      left   := posx + round(65 * ratioft) + (spcx * (ax + 1));
+      top    := posy + (spcy * 5);
+      Width  := round(16 * ratioft);;
+      Height := round(16 * ratioft);;
+      frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
+      hint   := ' Add/Remove a Bass Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
+
+      if (Copy(drum_beats[3], ax + 1, 1) = 'x') then
+        Value := True
+      else
+        Value := False;
+    end;
+
+
+// end grid
+
+
+    with panel1 do
+       for i1 := 0 to childrencount - 1 do
+         for i2 := 0 to length(boundchilddr) - 1 do
+        if children[i1].name = boundchilddr[i2].name then
+        begin
+          children[i1].left := round(boundchilddr[i2].left * ratioft);  
+          children[i1].top := round(boundchilddr[i2].top * ratioft);  
+          children[i1].width := round(boundchilddr[i2].width * ratioft);   
+          children[i1].height := round(boundchilddr[i2].height * ratioft); 
+         end; 
+ end;
 
 procedure tdrumsfo.ontimerpause(const Sender: TObject);
 var
@@ -1030,6 +1249,7 @@ var
   lib1, lib2, lib3, lib4: string;
   resu: integer = -1;
 begin
+  resizedr(fontheightused);
   allok   := False;
   resulib := -1;
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
@@ -1145,9 +1365,26 @@ var
   spcx, spcy, posx, posy, ax: integer;
   //  lib1, lib2, lib3, lib4: string;
   i1: int32;
+  //ratioft : double;
 begin
   // visible := false;
 
+  //ratioft := fontheightused/12;
+  
+    with panel1 do
+   begin
+      setlength(boundchilddr,childrencount);
+ 
+       for i1 := 0 to childrencount - 1 do
+         begin
+          boundchilddr[i1].left := children[i1].left; 
+          boundchilddr[i1].top := children[i1].top; 
+          boundchilddr[i1].width := children[i1].width;  
+          boundchilddr[i1].height := children[i1].height;
+          boundchilddr[i1].name := children[i1].name;
+         end;
+    end;
+  
   Timertick          := ttimer.Create(nil);
   Timertick.interval := 100000;
   Timertick.tag      := 0;
@@ -1176,14 +1413,14 @@ begin
   // snare
   drum_beats[3] := 'x0000000x0x00000';
   // kick
-
-  spcx := 24;
-  spcy := 24;
+{
+  spcx := round(24 * ratioft);
+  spcy := round(24 * ratioft);
   // posx := -26;
-  posx := -33;
+  posx := round(-33 * ratioft);
 
-  posy := 6;
-
+  posy := round(6 * ratioft);
+}
   alab2[0] := tlabel1;
   alab2[1] := tlabel2;
   alab2[2] := tlabel3;
@@ -1191,34 +1428,35 @@ begin
 
   for i1 := 0 to high(alab2) do
     alab2[i1].createfont();
+{
 
   for ax := 0 to 3 do
     with alab2[ax] do
     begin
-      Width   := 16;
-      Height  := 16;
+      Width   :=round(16 * ratioft);
+      Height  := round(16 * ratioft);
       color   := $D5D5D5;
       Visible := True;
       // textflags := [xcentered,tf_ycentered];
       Caption := msestring(IntToStr(ax + 1));
       if ax = 0 then
       begin
-        left := posx + 65 + (spcx * (1));
+        left := posx + round(65 * ratioft) + (spcx * (1));
         top  := posy;
       end
       else if ax = 1 then
       begin
-        left := posx + 65 + (spcx * (5));
+        left := posx + round(65 * ratioft) + (spcx * (5));
         top  := posy;
       end
       else if ax = 2 then
       begin
-        left := posx + 65 + (spcx * (9));
+        left := posx + round(65 * ratioft) + (spcx * (9));
         top  := posy;
       end
       else
       begin
-        left := posx + 65 + (spcx * (13));
+        left := posx + round(65 * ratioft) + (spcx * (13));
         top  := posy;
       end;
       // color := TfpgColor($FFD3D3D3);
@@ -1231,33 +1469,34 @@ begin
   alaband[2] := and3;
   alaband[3] := and4;
 
+{
   for ax := 0 to 3 do
     with alaband[ax] do
     begin
-      Width   := 16;
-      Height  := 16;
+      Width   := round(16 * ratioft);;
+      Height  := round(16 * ratioft);;
       Visible := True;
       color   := $B5B5B5;
       // textflags := [xcentered,tf_ycentered];
       Caption := '&&';
       if ax = 0 then
       begin
-        left := posx + 65 + (spcx * (3));
+        left := posx + round(65 * ratioft) + (spcx * (3));
         top  := posy;
       end
       else if ax = 1 then
       begin
-        left := posx + 65 + (spcx * (7));
+        left := posx + round(65 * ratioft) + (spcx * (7));
         top  := posy;
       end
       else if ax = 2 then
       begin
-        left := posx + 65 + (spcx * (11));
+        left := posx + round(65 * ratioft) + (spcx * (11));
         top  := posy;
       end
       else
       begin
-        left := posx + 65 + (spcx * (15));
+        left := posx + round(65 * ratioft) + (spcx * (15));
         top  := posy;
       end;
       // color := TfpgColor($FFD3D3D3);
@@ -1281,20 +1520,21 @@ begin
   alab[14] := tlabel19;
   alab[15] := tlabel20;
 
+{
   for ax := 0 to 15 do
     with alab[ax] do
     begin
       optionswidget1 := [ow1_fontglyphheight];
-      Width := 16;
-      Height := 16;
+      Width := round(16 * ratioft);;
+      Height := round(16 * ratioft);;
       color := $D5D5D5;
       Visible := True;
       // textflags := [xcentered,tf_ycentered];
       Caption := msestring(IntToStr(ax + 1));
-      left := posx + 65 + (spcx * (ax + 1));
+      left := posx + round(65 * ratioft) + (spcx * (ax + 1));
       top := posy + (spcy * 1);
     end;
-
+}
   ach[0]  := tbooleanedit1;
   ach[1]  := tbooleanedit2;
   ach[2]  := tbooleanedit3;
@@ -1311,16 +1551,16 @@ begin
   ach[13] := tbooleanedit14;
   ach[14] := tbooleanedit15;
   ach[15] := tbooleanedit16;
-
+{
   for ax := 0 to 15 do
   begin
     with ach[ax] do
     begin
       Name   := 'ch' + IntToStr(ax + 1);
-      left   := posx + 65 + (spcx * (ax + 1));
+      left   := posx + round(65 * ratioft) + (spcx * (ax + 1));
       top    := posy + (spcy * 2);
-      Width  := 16;
-      Height := 16;
+      Width  := round(16 * ratioft);;
+      Height := round(16 * ratioft);;
       frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
       hint   := ' Add/Remove a Closed Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
     end;
@@ -1329,7 +1569,7 @@ begin
     else
       ach[ax].Value := False;
   end;
-
+}
 
   aoh[0]  := tbooleanedit17;
   aoh[1]  := tbooleanedit18;
@@ -1347,15 +1587,15 @@ begin
   aoh[13] := tbooleanedit30;
   aoh[14] := tbooleanedit31;
   aoh[15] := tbooleanedit32;
-
+{
   for ax := 0 to 15 do
     with aoh[ax] do
     begin
       Name   := 'oh' + IntToStr(ax + 1);
-      left   := posx + 65 + (spcx * (ax + 1));
+      left   := posx + round(65 * ratioft) + (spcx * (ax + 1));
       top    := posy + (spcy * 3);
-      Width  := 16;
-      Height := 16;
+      Width  := round(16 * ratioft);
+      Height := round(16 * ratioft);
       frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
       hint   := ' Add/Remove a Open Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
@@ -1364,7 +1604,7 @@ begin
       else
         Value := False;
     end;
-
+}
   asd[0]  := tbooleanedit33;
   asd[1]  := tbooleanedit34;
   asd[2]  := tbooleanedit35;
@@ -1381,15 +1621,15 @@ begin
   asd[13] := tbooleanedit46;
   asd[14] := tbooleanedit47;
   asd[15] := tbooleanedit48;
-
+{
   for ax := 0 to 15 do
     with asd[ax] do
     begin
       Name   := 'sd' + IntToStr(ax + 1);
-      left   := posx + 65 + (spcx * (ax + 1));
+      left   := posx + round(65 * ratioft) + (spcx * (ax + 1));
       top    := posy + (spcy * 4);
-      Width  := 16;
-      Height := 16;
+      Width  := round(16 * ratioft);
+      Height := round(16 * ratioft);
       frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
       hint   := ' Add/Remove a Snare Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
@@ -1398,7 +1638,7 @@ begin
       else
         Value := False;
     end;
-
+}
   abd[0]  := tbooleanedit49;
   abd[1]  := tbooleanedit50;
   abd[2]  := tbooleanedit51;
@@ -1416,14 +1656,15 @@ begin
   abd[14] := tbooleanedit63;
   abd[15] := tbooleanedit64;
 
+{
   for ax := 0 to 15 do
     with abd[ax] do
     begin
       Name   := 'bd' + IntToStr(ax + 1);
-      left   := posx + 65 + (spcx * (ax + 1));
+      left   := posx + round(65 * ratioft) + (spcx * (ax + 1));
       top    := posy + (spcy * 5);
-      Width  := 16;
-      Height := 16;
+      Width  := round(16 * ratioft);;
+      Height := round(16 * ratioft);;
       frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
       hint   := ' Add/Remove a Bass Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
@@ -1432,7 +1673,7 @@ begin
       else
         Value := False;
     end;
-
+}
   for ax := 0 to 15 do
     if (ax = 0) or (ax = 4) or (ax = 8) or (ax = 12) then
     begin
@@ -1460,8 +1701,8 @@ end;
 
 procedure tdrumsfo.oncreateddrums(const Sender: TObject);
 begin
-  //height := 238;
-  //width := 458;
+  //height := 274;
+  //width := 442;
   Caption := 'Drums set';
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
@@ -1470,11 +1711,9 @@ begin
   adrums[2] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.ogg');
   adrums[3] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.ogg');
 
-  // if assigned( ams[i]) then ams[i].free;
-
-  // createdrumsplayers;
-
-  posi := 1;
+  posi := 1;    bounds_cxmax := 0;
+  
+     
 end;
 
 procedure tdrumsfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);

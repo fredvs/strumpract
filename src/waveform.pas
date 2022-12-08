@@ -108,8 +108,7 @@ begin
   if tag <> 2 then
     trackbar1.Width := Width - 15;
 
-  if ((tag = 0) and (Assigned(songplayerfo))) or ((tag = 1) and (Assigned(songplayer2fo)))
-  or ((tag = 2) and (Assigned(recorderfo)) and (islive = False)) then
+  if ((tag = 0) and (Assigned(songplayerfo))) or ((tag = 1) and (Assigned(songplayer2fo))) or ((tag = 2) and (Assigned(recorderfo)) and (islive = False)) then
   begin
     doechelle(nil);
     echelle.Visible  := True;
@@ -198,85 +197,72 @@ end;
 procedure twavefo.onvisiblech(const Sender: TObject);
 begin
 
-  if (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and
+  if (isactivated = True) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and
     (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-   
-     if tag = 0 then
-     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showwave1']).caption :=
+
+    if tag = 0 then
+      if Visible then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showwave1']).Caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];       
-   
-         end
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)]
       else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showwave1']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];       
-         end;
-        
-     if tag = 1 then
-     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showwave2']).caption :=
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showwave1']).Caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];
+
+    if tag = 1 then
+      if Visible then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showwave2']).Caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];       
-        end
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)]
       else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showwave2']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];       
-        end;
-        
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showwave2']).Caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];
+
     if tag = 2 then
-     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showwaverec']).caption :=
+      if Visible then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showwaverec']).Caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_mainfo[Ord(ma_recorder)];        
-        end
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_mainfo[Ord(ma_recorder)]
       else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showwaverec']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_mainfo[Ord(ma_recorder)];       
-        end;    
-         
-      if (norefresh = False) and (parentwidget <> nil) then
-      begin
-     
-       if (parentwidget = mainfo.basedock) or 
-       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
-          mainfo.updatelayoutstrum();
-      
-      if (parentwidget = dockpanel1fo.basedock) or 
-       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showwaverec']).Caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+          lang_mainfo[Ord(ma_waveform)] + ' ' + lang_mainfo[Ord(ma_recorder)];
+
+    if (norefresh = False) and (parentwidget <> nil) then
+    begin
+
+      if (parentwidget = mainfo.basedock) or
+        (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.updatelayoutstrum();
+
+      if (parentwidget = dockpanel1fo.basedock) or
+        (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel2fo.basedock) or 
-       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel1fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel2fo.basedock) or
+        (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel3fo.basedock) or 
-       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel2fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel3fo.basedock) or
+        (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel4fo.basedock) or 
-       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel5fo.basedock) or 
-       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayoutpan();
-      end;   
+          dockpanel3fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel4fo.basedock) or
+        (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel4fo.Visible then
+          dockpanel4fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel5fo.basedock) or
+        (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel5fo.Visible then
+          dockpanel5fo.updatelayoutpan();
+    end;
 
   end;
 

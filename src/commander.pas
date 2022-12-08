@@ -5,13 +5,47 @@ interface
 
 uses
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,
- {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,mseglob,mseguiglob,
- mseguiintf,mseapplication,msestat,msemenus,Math,msegui,msetimer,msegraphics,
- msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
- msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
- msefiledialogx,msegrids,mseificomp,mseificompglob,msefileutils,mseifiglob,
- mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,msegraphedits,
- msescrollbar,msedispwidgets,mserichstring,mseimage;
+ {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  Math,
+  msegui,
+  msetimer,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msedragglob,
+  msesimplewidgets,
+  msewidgets,
+  mseact,
+  msebitmap,
+  msedataedits,
+  msedatanodes,
+  mseedit,
+  msefiledialogx,
+  msegrids,
+  mseificomp,
+  mseificompglob,
+  msefileutils,
+  mseifiglob,
+  mselistbrowser,
+  msestatfile,
+  msestream,
+  msestrings,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -48,13 +82,11 @@ type
     btnResume2: TButton;
     namedrums: tstringdisp;
     tfacegriptab: tfacecomp;
-    tfacesliderdark: tfacecomp;
     vuright: tprogressbar;
     vuright2: tprogressbar;
     vuLeft2: tprogressbar;
     tgroupall: tgroupbox;
     genvolright: tslider;
-    genvolleft: tslider;
     nameinput: tstringdisp;
     butinput: tbooleanedit;
     genleftvolvalue: TButton;
@@ -106,9 +138,11 @@ type
     tfaceslidergold: tfacecomp;
     tfacesliderred: tfacecomp;
     tfaceslidergreen: tfacecomp;
-   hintpanel: tgroupbox;
-   hintlabel: tlabel;
-   hintlabel2: tlabel;
+    hintpanel: tgroupbox;
+    hintlabel: tlabel;
+    hintlabel2: tlabel;
+    genvolleft: tslider;
+    tfacesliderdark: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -142,6 +176,9 @@ type
     procedure onsetsysvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure dotimercallback(const Sender: TObject);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
+    procedure resizeco(fontheight: integer);
+
+    procedure onev(const Sender: TObject);
   end;
 
 var
@@ -170,7 +207,10 @@ uses
   ctypes,
   commander_mfm;
 
-{$if defined(linux) or defined(windows)}
+var
+  boundchildco: array of boundchild;
+
+  {$if defined(linux) or defined(windows)}
 procedure mixelemcallback;
 begin
   if docallback then
@@ -181,6 +221,90 @@ begin
 end;
 
 {$ENDIF}
+
+procedure tcommanderfo.resizeco(fontheight: integer);
+var
+  i1, i2: integer;
+  ratio: double;
+begin
+  ratio        := fontheight / 12;
+  bounds_cxmax := 0;
+  bounds_cxmin := 0;
+  bounds_cymax := 0;
+  bounds_cymin := 0;
+  bounds_cxmax := round(442 * ratio);
+  bounds_cxmin := bounds_cxmax;
+  bounds_cymax := round(128 * ratio);
+  bounds_cymin := bounds_cymax;
+  font.Height  := fontheight;
+
+  tgroupall.font.Height := fontheight;
+  frame.grip_size       := round(8 * ratio);
+
+  for i1 := 0 to childrencount - 1 do
+    for i2 := 0 to length(boundchildco) - 1 do
+      if children[i1].Name = boundchildco[i2].Name then
+      begin
+        children[i1].left   := round(boundchildco[i2].left * ratio);
+        children[i1].top    := round(boundchildco[i2].top * ratio);
+        children[i1].Width  := round(boundchildco[i2].Width * ratio);
+        children[i1].Height := round(boundchildco[i2].Height * ratio);
+      end;
+
+  with tgroupall do
+  begin
+    font.Height := fontheight;
+    for i1      := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildco) - 1 do
+        if tgroupall.children[i1].Name = boundchildco[i2].Name then
+        begin
+          tgroupall.children[i1].left   := round(boundchildco[i2].left * ratio);
+          tgroupall.children[i1].top    := round(boundchildco[i2].top * ratio);
+          tgroupall.children[i1].Width  := round(boundchildco[i2].Width * ratio);
+          tgroupall.children[i1].Height := round(boundchildco[i2].Height * ratio);
+        end;
+  end;
+
+  tgroupboxplayers.font.Height := fontheight;
+
+  with tgroupboxplayers do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildco) - 1 do
+        if children[i1].Name = boundchildco[i2].Name then
+        begin
+          children[i1].left   := round(boundchildco[i2].left * ratio);
+          children[i1].top    := round(boundchildco[i2].top * ratio);
+          children[i1].Width  := round(boundchildco[i2].Width * ratio);
+          children[i1].Height := round(boundchildco[i2].Height * ratio);
+        end;
+
+  tgroupboxdrums.font.Height := fontheight;
+
+  with tgroupboxdrums do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildco) - 1 do
+        if children[i1].Name = boundchildco[i2].Name then
+        begin
+          children[i1].left   := round(boundchildco[i2].left * ratio);
+          children[i1].top    := round(boundchildco[i2].top * ratio);
+          children[i1].Width  := round(boundchildco[i2].Width * ratio);
+          children[i1].Height := round(boundchildco[i2].Height * ratio);
+        end;
+
+  tgroupboxinput.font.Height := fontheight;
+
+  with tgroupboxinput do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildco) - 1 do
+        if children[i1].Name = boundchildco[i2].Name then
+        begin
+          children[i1].left   := round(boundchildco[i2].left * ratio);
+          children[i1].top    := round(boundchildco[i2].top * ratio);
+          children[i1].Width  := round(boundchildco[i2].Width * ratio);
+          children[i1].Height := round(boundchildco[i2].Height * ratio);
+        end;
+
+end;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
 begin
@@ -298,10 +422,6 @@ begin
 
         filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
         filelistfo.list_files.rowfontstate[lastrowplayed]  := 1;
-
-        // filelistfo.list_files.datacols[3].colorselect := $707070; 
-        // filelistfo.list_files.datacols[3].color := $707070;
-
       end
       else
       begin
@@ -343,13 +463,9 @@ begin
       filelistfo.tbutton2.face.template := mainfo.tfaceorange;
       filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
 
-      //tbutton3.focused := true;
-
       thetypemix         := 0;
       volumeleft1.Value  := 0;
       volumeright1.Value := 0;
-      //volumeleft2.value := 1;
-      //volumeright2.value := 1;
 
       if (Sender <> nil) and (commanderfo.automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
       begin
@@ -378,9 +494,6 @@ begin
       tbutton2.face.template := mainfo.tfaceorange2;
       filelistfo.tbutton1.face.template := mainfo.tfaceorange;
       filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
-      //volumeleft2.value := 1;
-      //volumeright2.value := 1;
-
       if (Sender <> nil) and (automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
       begin
         hasfocused1 := True;
@@ -396,25 +509,13 @@ begin
 
       hasmixed1        := True;
       timermix.Enabled := True;
-      //  filelistfo.list_files.rowcolorstate[4]:= 0;
 
     end;
 
-    //tbutton2.width := 26;
-    //tbutton2.left := 100;
-    //tbutton3.width := 26;
-    //tbutton3.left := 154;
-
     application.ProcessMessages;
-
-    //tbutton2.visible := false;
-    //tbutton3.visible := false;
     tbutton4.Visible := True;
     tbutton5.Visible := False;
     tbutton6.Visible := False;
-
-    //tbutton4.imagenr := 1; 
-    //tbutton4.imagenr := 30; // resume
   end;
 end;
 
@@ -423,8 +524,6 @@ procedure tcommanderfo.ontimermix(const Sender: TObject);
 var
   muststop: integer = 0;
 begin
-  // timermix.Enabled := False;
-  //  application.lock();
   if thetypemix = 0 then
   begin
     if incmixinterval < totmixinterval then
@@ -535,62 +634,57 @@ begin
     tbutton5.Visible   := False;
     tbutton6.Visible   := False;
   end;
-  //filelistfo.list_files.rowcolorstate[4]:= 0;
 end;
 
 
 procedure tcommanderfo.visiblechangeev(const Sender: TObject);
 begin
-  if (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
+  if (isactivated = True) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
     (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and
     (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-        
+
     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showcommander']).caption :=
-          lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_commanderfo[Ord(co_commanderfo)];
-          end
-      else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showcommander']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_commanderfo[Ord(co_commanderfo)];
-         end;
-   
-            if (norefresh = False) and (parentwidget <> nil) then
-      begin
-     
-       if (parentwidget = mainfo.basedock) or 
-       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
-          mainfo.updatelayoutstrum();
-      
-      if (parentwidget = dockpanel1fo.basedock) or 
-       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showcommander']).Caption :=
+        lang_mainfo[Ord(ma_hide)] + ': ' +
+        lang_commanderfo[Ord(co_commanderfo)]
+    else
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showcommander']).Caption :=
+        lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+        lang_commanderfo[Ord(co_commanderfo)];
+
+    if (norefresh = False) and (parentwidget <> nil) then
+    begin
+
+      if (parentwidget = mainfo.basedock) or
+        (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.updatelayoutstrum();
+
+      if (parentwidget = dockpanel1fo.basedock) or
+        (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel2fo.basedock) or 
-       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel1fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel2fo.basedock) or
+        (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel3fo.basedock) or 
-       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel2fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel3fo.basedock) or
+        (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel4fo.basedock) or 
-       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel5fo.basedock) or 
-       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayoutpan();
-      end;  
+          dockpanel3fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel4fo.basedock) or
+        (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel4fo.Visible then
+          dockpanel4fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel5fo.basedock) or
+        (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel5fo.Visible then
+          dockpanel5fo.updatelayoutpan();
+    end;
   end;
 end;
 
@@ -647,7 +741,6 @@ begin
         songplayerfo.edvolleft.Value  := trunc(volumeleft1.Value * 100)
       else
         songplayerfo.edvolright.Value := trunc(volumeright1.Value * 100);
-      //songplayerfo.changevolume(sender)
       volumeleft1val.Caption := utf8decode(IntToStr(trunc(songplayerfo.edvolleft.Value)));
       volumeright1val.Caption := utf8decode(IntToStr(trunc(songplayerfo.edvolright.Value)));
     end
@@ -689,7 +782,6 @@ begin
     begin
 
       nameinput.face.template := mainfo.tfacered;
-      //  tslider3val.face.template :=  mainfo.tfacered;
 
       tslider3.Enabled := True;
       uos_Stop(theinput);
@@ -723,18 +815,14 @@ begin
 
       uos_Play(theinput);  /////// everything is ready to play...
 
-
-      //   bsavetofile.Enabled := false;
-
     end
     else
     begin
       // writeln('uos_Stop = ' + inttostr(theinput));
       nameinput.face.template := recorderfo.tfacereclight;
-      //    tslider3val.face.template :=  mainfo.tfacebutltgray;
       uos_Stop(theinput);
     end;
-  // else butinput.Value := false;
+
 end;
 
 procedure tcommanderfo.onchangevolinput(const Sender: TObject);
@@ -786,7 +874,7 @@ begin
     genleftvolvalue.Caption  := utf8decode(IntToStr(round(genvolleft.Value * 15)))
   else
     genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 15)));
-  //songplayerfo.changevolume(sender)
+
   if hasinit = 1 then
   begin
     songplayerfo.changevolume(Sender);
@@ -801,8 +889,6 @@ begin
   begin
     genvolright.Value := 0.666666;
     genvolleft.Value  := 0.666666;
-    // genrightvolvalue.Value := 100;
-    //genrightvolvalue.Value := 100;
   end
   else if (TButton(Sender).tag = 0) then
     genvolleft.Value  := 0.666666
@@ -981,8 +1067,83 @@ begin
 end;
 
 procedure tcommanderfo.oncre(const Sender: TObject);
+var
+  i1, childn: integer;
 begin
   windowopacity := 0;
+
+  setlength(boundchildco, childrencount);
+
+  childn := childrencount;
+
+  for i1 := 0 to childrencount - 1 do
+  begin
+    boundchildco[i1].left   := children[i1].left;
+    boundchildco[i1].top    := children[i1].top;
+    boundchildco[i1].Width  := children[i1].Width;
+    boundchildco[i1].Height := children[i1].Height;
+    boundchildco[i1].Name   := children[i1].Name;
+  end;
+
+  with tgroupall do
+  begin
+    setlength(boundchildco, length(boundchildco) + tgroupall.childrencount);
+
+    for i1 := 0 to tgroupall.childrencount - 1 do
+    begin
+      boundchildco[i1 + childn].left   := children[i1].left;
+      boundchildco[i1 + childn].top    := children[i1].top;
+      boundchildco[i1 + childn].Width  := children[i1].Width;
+      boundchildco[i1 + childn].Height := children[i1].Height;
+      boundchildco[i1 + childn].Name   := children[i1].Name;
+    end;
+    childn := length(boundchildco);
+  end;
+
+  with tgroupboxplayers do
+  begin
+    setlength(boundchildco, length(boundchildco) + tgroupboxplayers.childrencount);
+
+    for i1 := 0 to childrencount - 1 do
+    begin
+      boundchildco[i1 + childn].left   := children[i1].left;
+      boundchildco[i1 + childn].top    := children[i1].top;
+      boundchildco[i1 + childn].Width  := children[i1].Width;
+      boundchildco[i1 + childn].Height := children[i1].Height;
+      boundchildco[i1 + childn].Name   := children[i1].Name;
+    end;
+    childn := length(boundchildco);
+  end;
+
+  with tgroupboxdrums do
+  begin
+    setlength(boundchildco, length(boundchildco) + childrencount);
+
+    for i1 := 0 to childrencount - 1 do
+    begin
+      boundchildco[i1 + childn].left   := children[i1].left;
+      boundchildco[i1 + childn].top    := children[i1].top;
+      boundchildco[i1 + childn].Width  := children[i1].Width;
+      boundchildco[i1 + childn].Height := children[i1].Height;
+      boundchildco[i1 + childn].Name   := children[i1].Name;
+    end;
+    childn := length(boundchildco);
+  end;
+
+  with tgroupboxinput do
+  begin
+    setlength(boundchildco, length(boundchildco) + childrencount);
+
+    for i1 := 0 to childrencount - 1 do
+    begin
+      boundchildco[i1 + childn].left   := children[i1].left;
+      boundchildco[i1 + childn].top    := children[i1].top;
+      boundchildco[i1 + childn].Width  := children[i1].Width;
+      boundchildco[i1 + childn].Height := children[i1].Height;
+      boundchildco[i1 + childn].Name   := children[i1].Name;
+    end;
+  end;
+
 end;
 
 procedure tcommanderfo.onchangevuset(const Sender: TObject);
@@ -992,25 +1153,17 @@ begin
   begin
     vuLeft.Visible   := False;
     vuRight.Visible  := False;
-    // vuLeft.Value     := 0;
-    // vuRight.Value    := 0;
     vuLeft2.Visible  := False;
     vuRight2.Visible := False;
-    // vuLeft2.Value    := 0;
-    // vuRight2.Value   := 0;
     with songplayerfo do
     begin
       vuLeft.Visible  := False;
       vuRight.Visible := False;
-      /// vuLeft.Value    := 0;
-      // vuRight.Value   := 0;
     end;
     with songplayer2fo do
     begin
       vuLeft.Visible  := False;
       vuRight.Visible := False;
-      // vuLeft.Value    := 0;
-      // vuRight.Value   := 0;
     end;
   end
   else
@@ -1356,6 +1509,11 @@ begin
     mainfo.ttimer2.restart // to reset
   else
     mainfo.ttimer2.Enabled := True;
+end;
+
+procedure tcommanderfo.onev(const Sender: TObject);
+begin
+  resizeco(fontheightused);
 end;
 
 end.

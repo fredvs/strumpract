@@ -14,8 +14,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 622
-  bounds_y = 335
+  bounds_x = 763
+  bounds_y = 107
   bounds_cx = 442
   bounds_cy = 96
   bounds_cxmin = 442
@@ -749,8 +749,8 @@ object mainfo: tmainfo
         submenu.count = 2
         submenu.items = <        
           item
-            caption = 'Audio'
-            hint = 'Config of audio and colors'
+            caption = 'Audio, System and Layout'
+            hint = 'Config of audio, font height, colors and more...'
             name = 'audio'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = onmenuaudio

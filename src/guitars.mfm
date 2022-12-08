@@ -140,7 +140,7 @@ object guitarsfo: tguitarsfo
     AEADB101
   }
   oncreate = oncreateguit
-  onmouseevent = onmousewindow
+  oneventloopstart = onevenloop
   onshow = onvisiblechangeev
   onhide = onvisiblechangeev
   moduleclassname = 'tdockform'
@@ -155,6 +155,7 @@ object guitarsfo: tguitarsfo
     bounds_y = 0
     bounds_cx = 434
     bounds_cy = 32
+    anchors = [an_top, an_bottom]
     font.name = 'stf_default'
     font.localprops = []
     object tbutton9: tbutton
@@ -343,6 +344,7 @@ object guitarsfo: tguitarsfo
     bounds_y = 32
     bounds_cx = 434
     bounds_cy = 32
+    anchors = [an_top, an_bottom]
     font.name = 'stf_default'
     font.localprops = []
     object tbutton16: tbutton

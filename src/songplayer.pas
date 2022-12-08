@@ -4,14 +4,53 @@ unit songplayer;
 interface
 
 uses
- ctypes,uos_flat,infosd,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
- msefileutils,mseapplication,msestat,msemenus,msegui,msegraphics,Math,
- msegraphutils,mseevent,mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
- msedataedits,msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,
- msegraphedits,msedragglob,mseact,mseedit,mseificomp,mseificompglob,mseifiglob,
- msestatfile,msestream,msestrings,msescrollbar,msebitmap,msedatanodes,
- msedispwidgets,mserichstring,msedropdownlist,mse_ovobasetag,mse_ovoaudiotag,
- msegridsglob;
+  ctypes,
+  uos_flat,
+  msetimer,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  msefileutils,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  Math,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msesimplewidgets,
+  msewidgets,
+  msedataedits,
+  msefiledialogx,
+  msegrids,
+  mselistbrowser,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msedragglob,
+  mseact,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestatfile,
+  msestream,
+  msestrings,
+  msescrollbar,
+  msebitmap,
+  msedatanodes,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist,
+  mse_ovobasetag,
+  mse_ovoaudiotag,
+  msegridsglob,
+  mseimage;
 
 type
   tsongplayerfo = class(tdockform)
@@ -57,7 +96,7 @@ type
     cbtempo: tbooleanedit;
     cbtempob: TButton;
     ttimer2: ttimer;
-   tfiledialog1: tfiledialogx;
+    tfiledialog1: tfiledialogx;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -103,8 +142,9 @@ type
     procedure setequalizerenable(asender: integer; avalue: Boolean);
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimercheck(const Sender: TObject);
+    procedure resizesp(fontheight: integer);
     function ReadTag(filename: string): integer;
- protected
+  protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
   end;
@@ -114,6 +154,7 @@ type
     lo_freq, hi_freq: cfloat;
     Text: string[10];
   end;
+
 
 var
   theinc: integer = 0;
@@ -171,7 +212,8 @@ var
 implementation
 
 uses
- mse_ovofile_mp3,
+  mse_ovofile_mp3,
+  infosd,
   captionstrumpract,
   main,
   imagedancer,
@@ -189,6 +231,10 @@ uses
   //strutils,
   msegraphicstream,
   songplayer_mfm;
+
+var
+  boundchildsp: array of boundchild;
+
 
 function DSPStereo2Mono(var Data: TuosF_Data; var fft: TuosF_FFT): TDArFloat;
 var
@@ -214,6 +260,50 @@ begin
     Result := Data.Buffer;
 end;
 
+procedure tsongplayerfo.resizesp(fontheight: integer);
+var
+  i1, i2: integer;
+  ratio: double;
+begin
+  ratio        := fontheight / 12;
+  bounds_cxmax := 0;
+  bounds_cxmin := 0;
+  bounds_cymax := 0;
+  bounds_cymin := 0;
+  bounds_cxmax := round(442 * ratio);
+  bounds_cxmin := bounds_cxmax;
+  bounds_cymax := round(128 * ratio);
+  bounds_cymin := bounds_cymax;
+  font.Height  := fontheight;
+
+  //  children1    := tgroupbox1.getitems();
+
+  //  for int1:= 0 to childrencount - 1 do 
+  // children[int1].enabled:= true;
+  tgroupbox1.font.Height := fontheight;
+  frame.grip_size        := round(8 * ratio);
+  // BtnCue.face.image. := mainfo.buttonicons.bitmaps[34];
+
+  edtempo.frame.buttonsize    := round(22 * ratio);
+  edvolleft.frame.buttonsize  := round(22 * ratio);
+  edvolright.frame.buttonsize := round(22 * ratio);
+
+  tstringdisp1.font.Height := fontheight;
+  tstringdisp1.font.color  := font.color;
+
+  with tgroupbox1 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildsp) - 1 do
+        if children[i1].Name = boundchildsp[i2].Name then
+        begin
+          children[i1].left   := round(boundchildsp[i2].left * ratio);
+          children[i1].top    := round(boundchildsp[i2].top * ratio);
+          children[i1].Width  := round(boundchildsp[i2].Width * ratio);
+          children[i1].Height := round(boundchildsp[i2].Height * ratio);
+        end;
+end;
+
+
 function tsongplayerfo.ReadTag(filename: string): integer;
 var
   tagClass: TTagReaderClass;
@@ -234,18 +324,6 @@ begin
   end;
 
 end;
-
- {
-procedure timageviewerfo.doLoadImage(const sender: TObject);
-begin
-
-  if imageFileName.value <> '' then
-  begin
-  ReadTag(imageFileName.value);
-    end;
- 
-end;
-}
 
 procedure tsongplayerfo.Changestereo2mono(const Sender: TObject);
 begin
@@ -312,7 +390,6 @@ end;
 
 procedure tsongplayerfo.ontimersent(const Sender: TObject);
 begin
-  // timersent.Enabled := False;
   hintpanel.Visible        := False;
   historyfn.face.template  := mainfo.tfaceplayerlight;
   edvolleft.face.template  := mainfo.tfaceplayer;
@@ -327,16 +404,36 @@ begin
 
   if tag = 0 then
   begin
-       with commanderfo do
+    with commanderfo do
     begin
       btncue.Enabled   := False;
       btnStart.Enabled := True;
       btnStop.Enabled  := True;
-     
+
       if (cbloop.Value = False) and (iscue1 = False) then
         btnPause.Enabled := True
       else
         btnPause.Enabled := False;
+
+      if iscue1 then
+      begin
+        btnPause.Visible  := False;
+        btnresume.Enabled := True;
+        btnresume.Visible := True;
+      end
+      else
+      begin
+        btnPause.Visible  := True;
+        btnresume.Visible := False;
+        btnresume.Enabled := False;
+      end;
+
+    end;
+
+    btnStart.Enabled := True;
+    btnStop.Enabled  := True;
+
+    btncue.Enabled := False;
 
     if iscue1 then
     begin
@@ -350,49 +447,29 @@ begin
       btnresume.Visible := False;
       btnresume.Enabled := False;
     end;
-    
-    end;
-    
-     btnStart.Enabled := True;
-      btnStop.Enabled  := True;
-     
-      btncue.Enabled   := False;
-     
-    if iscue1 then
-    begin
-      btnPause.Visible  := False;
-      btnresume.Enabled := True;
-      btnresume.Visible := True;
-     end
-    else
-    begin
-      btnPause.Visible  := True;
-      btnresume.Visible := False;
-      btnresume.Enabled := False;
-    end;
 
     cbloop.Enabled           := False;
     cbloopb.Enabled          := False;
     cbloop.Visible           := False;
     trackbar1.Enabled        := True;
     wavefo.trackbar1.Enabled := True;
-   
+
   end;
 
   if tag = 1 then
   begin
-  
+
     with commanderfo do
     begin
       btncue2.Enabled   := False;
       btnStart2.Enabled := True;
       btnStop2.Enabled  := True;
-    
+
       if (cbloop.Value = False) and (iscue2 = False) then
         btnPause2.Enabled := True
       else
         btnPause2.Enabled := False;
-   
+
       if iscue2 then
       begin
         btnPause2.Visible  := False;
@@ -406,28 +483,28 @@ begin
         btnresume2.Enabled := False;
       end;
     end;
-    
-   btncue.Enabled   := False;
-      
+
+    btncue.Enabled := False;
+
     if iscue2 then
     begin
       btnPause.Visible  := False;
       btnresume.Enabled := True;
       btnresume.Visible := True;
-     end
+    end
     else
     begin
       btnPause.Visible  := True;
       btnresume.Visible := False;
       btnresume.Enabled := False;
     end;
-    
-     if (cbloop.Value = False) and (iscue2 = False) then
+
+    if (cbloop.Value = False) and (iscue2 = False) then
       btnPause.Enabled := True
     else
       btnPause.Enabled := False;
 
-    cbloop.Visible := False;
+    cbloop.Visible    := False;
     cbloopb.Enabled   := False;
     trackbar1.Enabled := True;
     wavefo2.trackbar1.Enabled := True;
@@ -558,11 +635,9 @@ begin
 
   if tag = 0 then
   begin
-    theplaying1    := '';
-    //wavefo.Caption := 'Wave Player 1';
-
-    iswav  := False;
-    iscue1 := False;
+    theplaying1 := '';
+    iswav       := False;
+    iscue1      := False;
 
     if uos_GetStatus(theplayer) <> 1 then
     begin
@@ -597,10 +672,10 @@ begin
 
   if tag = 1 then
   begin
-    theplaying2     := '';
+    theplaying2 := '';
     //wavefo2.Caption := 'Wave Player 2';
-    iswav2          := False;
-    iscue2          := False;
+    iswav2      := False;
+    iscue2      := False;
 
     if uos_GetStatus(theplayer2) <> 1 then
     begin
@@ -662,16 +737,18 @@ begin
 
       spectrum1fo.tchartleft.traces[0].ydata  := arl;
       spectrum1fo.tchartright.traces[0].ydata := arr;
-    
-    if drumsfo.songtimer.value then
-    if tickcount = 0 then
-     if (arl[1] + arr[1]) / 2 > (1 - (drumsfo.sensib.value / 100)) then  drumsfo.ontimertick(Sender);
 
-    inc(tickcount);
-    if tickcount > drumsfo.tickcount.value then tickcount := 0;
-   
-   end;
-      
+      if drumsfo.songtimer.Value then
+        if tickcount = 0 then
+          if (arl[1] + arr[1]) / 2 > (1 - (drumsfo.sensib.Value / 100)) then
+            drumsfo.ontimertick(Sender);
+
+      Inc(tickcount);
+      if tickcount > drumsfo.tickcount.Value then
+        tickcount := 0;
+
+    end;
+
   if tag = 1 then
     if uos_getstatus(theplayer2) > 0 then
     begin
@@ -689,14 +766,16 @@ begin
 
       spectrum2fo.tchartleft.traces[0].ydata  := arl2;
       spectrum2fo.tchartright.traces[0].ydata := arr2;
-      
-     if drumsfo.songtimer.value then
-    if tickcount = 0 then
-    if (arl2[1] + arr2[1]) / 2 > ( 1 - (drumsfo.sensib.value / 100)) then  drumsfo.ontimertick(Sender);
 
-    inc(tickcount);
-    if tickcount > drumsfo.tickcount.value then tickcount := 0;
-   
+      if drumsfo.songtimer.Value then
+        if tickcount = 0 then
+          if (arl2[1] + arr2[1]) / 2 > (1 - (drumsfo.sensib.Value / 100)) then
+            drumsfo.ontimertick(Sender);
+
+      Inc(tickcount);
+      if tickcount > drumsfo.tickcount.Value then
+        tickcount := 0;
+
     end;
 
 end;
@@ -955,7 +1034,7 @@ begin
 
           Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
             //     uos_InputGetChannels(theplayer, Inputindex1), samformat,-1, -1);
-            uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8 , -1);
+            uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8, -1);
 
 
           // Add a Output into Device Output
@@ -1023,14 +1102,6 @@ begin
                 3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
 
 
-            { // add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
-  if plugbs2b = true then
-  begin
-   PlugInindex1 := uos_AddPlugin(Playerindex1, 'bs2b',
-   uos_InputGetSampleRate(Playerindex1, Inputindex1) , -1);
-   uos_SetPluginbs2b(Playerindex1, Pluginindex1, -1 , -1, -1, chkst2b.value);
-  end;
-   }
           /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
           /// SoundTouch plugin should be the last added.
           if plugsoundtouch = True then
@@ -1107,7 +1178,7 @@ begin
             begin
               btnPause.Visible := True;
               btnPause.Enabled := True;
-             end;
+            end;
 
           end;
 
@@ -1139,29 +1210,24 @@ begin
             else
             begin
               uos_Play(theplayer);  /// everything is ready, here we are, lets play it...
-         
+
               //drumsfo.dostart(Sender);
-  
+
               btnpause.Enabled := True;
               btnpause.Visible := True;
-             end;
+            end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying1);
-    
-    if configfo.focusplay.value then
-      
-   if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = nil) and (visible = true))
-   
-      then btnpause.setfocus;
-              
+
+            if configfo.focusplay.Value then
+
+              if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
+                ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
+                ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.Visible = True) and (Visible = True)) or
+                ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.Visible = True) and (Visible = True)) or
+                ((parentwidget = nil) and (Visible = True)) then
+                btnpause.SetFocus;
+
           end;
 
           if hassent = 1 then  /// cue
@@ -1206,11 +1272,6 @@ begin
 
           if as_checked in wavefo.tmainmenu1.menu[0].state then
           begin
-            // oninfowav(Sender);
-
-            //   wavefo.doechelle(Sender);
-
-            //   onwavform(Sender);
             ttimer1.Enabled := False;
             ttimer1.Enabled := True;
 
@@ -1257,7 +1318,7 @@ begin
           // If PlayerIndex exists already, it will be overwriten...
 
           Inputindex2 := uos_AddFromFile(theplayer2, PChar(ansistring(historyfn.Value)), -1,
-                           samformat, 1024 * 8);
+            samformat, 1024 * 8);
 
         // add input from audio file with custom parameters
         // FileName : filename of audio file
@@ -1278,7 +1339,7 @@ begin
             configfo.latplay.Value := -1;
 
           Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
-            uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 8 , -1);
+            uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 8, -1);
           //uos_InputGetChannels(theplayer2, Inputindex2), samformat, -1, -1);
 
           // Add a Output into Device Output
@@ -1344,17 +1405,7 @@ begin
               uos_InputAddFilter(theplayer2, Inputindex2,
                 3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
                 3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
-{
-   // add bs2b plugin with samplerate_of_input1 / default channels (2 = stereo)
-  if plugbs2b = true then
-  begin
-   PlugInindex2 := uos_AddPlugin(Playerindex2, 'bs2b',
-   uos_InputGetSampleRate(Playerindex2, Inputindex2) , -1);
-   uos_SetPluginbs2b(Playerindex2, Pluginindex2, -1 , -1, -1, chkst2b.value);
-  end;
 
-
-  }
           /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
           /// SoundTouch plugin should be the last added.
           if plugsoundtouch = True then
@@ -1376,7 +1427,7 @@ begin
 
           llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
-          
+
           DSPindex2 := uos_InputAddDSP(theplayer2, Inputindex2, @DSPReverseBefore2, @DSPReverseAfter, nil, nil);
           // add a custom DSP procedure for input
           // Playerindex2 : Index of a existing Player
@@ -1468,20 +1519,16 @@ begin
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying2);
-   
-         if configfo.focusplay.value then
-              
-     if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = nil) and (visible = true))
-      then btnpause.setfocus;
-            
+
+            if configfo.focusplay.Value then
+
+              if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
+                ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
+                ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.Visible = True) and (Visible = True)) or
+                ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.Visible = True) and (Visible = True)) or
+                ((parentwidget = nil) and (Visible = True)) then
+                btnpause.SetFocus;
+
           end;
 
           if hassent = 1 then  /// cue
@@ -1585,20 +1632,16 @@ begin
     iscue1 := False;
 
     tstringdisp1.Value := msestring('Playing ' + theplaying1);
-   
-    if configfo.focusplay.value then
-   
-   if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = nil) and (visible = true))
-      then btnpause.setfocus;
- 
+
+    if configfo.focusplay.Value then
+
+      if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
+        ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
+        ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.Visible = True) and (Visible = True)) or
+        ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.Visible = True) and (Visible = True)) or
+        ((parentwidget = nil) and (Visible = True)) then
+        btnpause.SetFocus;
+
   end;
 
   if tag = 1 then
@@ -1623,22 +1666,18 @@ begin
     uos_RePlay(theplayer2);
     iscue2 := False;
     tstringdisp1.Value := msestring('Playing ' + theplaying2);
-  
-    if configfo.focusplay.value then
-   
-    if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = nil) and (visible = true))
-      then btnpause.setfocus;
-      
+
+    if configfo.focusplay.Value then
+
+      if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
+        ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
+        ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.Visible = True) and (Visible = True)) or
+        ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.Visible = True) and (Visible = True)) or
+        ((parentwidget = nil) and (Visible = True)) then
+        btnpause.SetFocus;
+
   end;
- 
+
 end;
 
 procedure tsongplayerfo.doplayerpause(const Sender: TObject);
@@ -1681,7 +1720,7 @@ begin
 
 
     tstringdisp1.Value := msestring('Paused ' + theplaying1);
-      
+
   end;
 
   if tag = 1 then
@@ -1702,25 +1741,21 @@ begin
     end;
 
     uos_Pause(theplayer2);
-    tstringdisp1.Value := msestring('Paused ' + theplaying2); 
-    
+    tstringdisp1.Value := msestring('Paused ' + theplaying2);
+
   end;
-  multiplier           := 0;
+  multiplier := 0;
   resetspectrum();
-  
-   if configfo.focusplay.value then
-   
-   if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.visible = true) and (visible = true)) 
-          or
-          ((parentwidget = nil) and (visible = true))
-           then btnresume.setfocus;
- end;
+
+  if configfo.focusplay.Value then
+
+    if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
+      ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
+      ((parentwidget = dockpanel3fo.basedock) and (dockpanel3fo.Visible = True) and (Visible = True)) or
+      ((parentwidget = dockpanel4fo.basedock) and (dockpanel4fo.Visible = True) and (Visible = True)) or
+      ((parentwidget = nil) and (Visible = True)) then
+      btnresume.SetFocus;
+end;
 
 procedure tsongplayerfo.doplayerstop(const Sender: TObject);
 begin
@@ -1768,8 +1803,6 @@ begin
     isenable := equalizerfo1.EQEN.Value;
   if asender = 2 then
     isenable := equalizerfo2.EQEN.Value;
-
-  //if isenable then isenable := false else isenable := true;
 
   if asender = 1 then
     aplayer := theplayer
@@ -2354,15 +2387,14 @@ begin
           infosdfo.infoyear.Caption   := trim(CommonTags.Year) + ' ';
           infosdfo.infocom.Caption    := copy(trim(CommonTags.Comment), 1, 60) + ' ';
           infosdfo.infotag.Caption    := trim(CommonTags.Genre) + ' ';
-          infosdfo.tracktag.Caption    := inttostr(CommonTags.track) + '  ';
+          infosdfo.tracktag.Caption   := IntToStr(CommonTags.track) + '  ';
           infosdfo.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
             (CommonTags.Duration / MSecsPerDay)))) + ' ';
           infosdfo.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
 
           if (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo') or
-                      (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'dual channel') 
-           then
+            (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'dual channel') then
             infosdfo.infochan.Caption := 'Stereo '
           else
             infosdfo.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
@@ -2380,9 +2412,6 @@ begin
               IntToStr(round(uos_GetBPM(thebuffer, thebufferinfos.channels,
               thebufferinfos.samplerate))))) + ' ';
           end;
-
-          //  infosdfo.Width := 442;
-          //  infosdfo.height := 238 ;
 
           if (hassent = 1) then
           begin
@@ -2450,21 +2479,21 @@ begin
           infosdfo2.infoyear.Caption   := trim(CommonTags.Year) + ' ';
           infosdfo2.infocom.Caption    := copy(trim(CommonTags.Comment), 1, 60) + ' ';
 
-          infosdfo2.infofile.hint   := ' ' + trim(extractfilename(historyfn.Value)) + ' ';
-          infosdfo2.infoname.hint   := ' ' + trim(CommonTags.Title) + ' ';
-          infosdfo2.infoartist.hint := ' ' + trim(CommonTags.Artist) + ' ';
-          infosdfo2.infoalbum.hint  := ' ' + trim(CommonTags.Album) + ' ';
-          infosdfo2.infocom.hint    := ' ' + trim(CommonTags.Comment) + ' ';
-          infosdfo2.tracktag.Caption    := inttostr(CommonTags.track) + '  ';
+          infosdfo2.infofile.hint      := ' ' + trim(extractfilename(historyfn.Value)) + ' ';
+          infosdfo2.infoname.hint      := ' ' + trim(CommonTags.Title) + ' ';
+          infosdfo2.infoartist.hint    := ' ' + trim(CommonTags.Artist) + ' ';
+          infosdfo2.infoalbum.hint     := ' ' + trim(CommonTags.Album) + ' ';
+          infosdfo2.infocom.hint       := ' ' + trim(CommonTags.Comment) + ' ';
+          infosdfo2.tracktag.Caption   := IntToStr(CommonTags.track) + '  ';
           infosdfo2.infotag.Caption    := trim(CommonTags.Genre) + ' ';
           infosdfo2.infolength.Caption := trim(utf8decode(FormatDateTime('hh:nn:ss',
             (CommonTags.Duration / MSecsPerDay)))) + ' ';
           infosdfo2.inforate.Caption   := trim(IntToStr(TagReader.MediaProperty.Sampling)) + ' ';
           // format('%d Hz', [TagReader.MediaProperty.Sampling]);
           if (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'joint stereo') or
-              (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'dual channel') then
-       
-           infosdfo2.infochan.Caption := 'Stereo '
+            (trim(lowercase(TagReader.MediaProperty.ChannelMode)) = 'dual channel') then
+
+            infosdfo2.infochan.Caption := 'Stereo '
           else
             infosdfo2.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
 
@@ -2558,77 +2587,74 @@ end;
 
 procedure tsongplayerfo.visiblechangeev(const Sender: TObject);
 begin
-  if  (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
+  if (isactivated = True) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-    
-     if tag = 0 then
-     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showplay1']).caption :=
+
+    if tag = 0 then
+      if Visible then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showplay1']).Caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_commanderfo[Ord(co_nameplayers_hint)];
-         end
+          lang_commanderfo[Ord(co_nameplayers_hint)]
       else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showplay1']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_commanderfo[Ord(co_nameplayers_hint)];
-          uos_Stop(theplayer);
-        end;
-        
-     if tag = 1 then
-     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showplay2']).caption :=
-          lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_commanderfo[Ord(co_nameplayers2_hint)];
-         end
-      else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showplay2']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_commanderfo[Ord(co_nameplayers2_hint)];
-          uos_Stop(theplayer2);
-        end;
-     
-      if (norefresh = False) and (parentwidget <> nil) then
       begin
-  
-      if (parentwidget = mainfo.basedock) or 
-       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
-          mainfo.updatelayoutstrum();
-      
-      if (parentwidget = dockpanel1fo.basedock) or 
-       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showplay1']).Caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+          lang_commanderfo[Ord(co_nameplayers_hint)];
+        uos_Stop(theplayer);
+      end;
+
+    if tag = 1 then
+      if Visible then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showplay2']).Caption :=
+          lang_mainfo[Ord(ma_hide)] + ': ' +
+          lang_commanderfo[Ord(co_nameplayers2_hint)]
+      else
+      begin
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showplay2']).Caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+          lang_commanderfo[Ord(co_nameplayers2_hint)];
+        uos_Stop(theplayer2);
+      end;
+
+    if (norefresh = False) and (parentwidget <> nil) then
+    begin
+
+      if (parentwidget = mainfo.basedock) or
+        (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.updatelayoutstrum();
+
+      if (parentwidget = dockpanel1fo.basedock) or
+        (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel2fo.basedock) or 
-       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel1fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel2fo.basedock) or
+        (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel3fo.basedock) or 
-       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel2fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel3fo.basedock) or
+        (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel4fo.basedock) or 
-       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel5fo.basedock) or 
-       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayoutpan();
-      end; 
+          dockpanel3fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel4fo.basedock) or
+        (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel4fo.Visible then
+          dockpanel4fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel5fo.basedock) or
+        (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel5fo.Visible then
+          dockpanel5fo.updatelayoutpan();
+    end;
   end;
 end;
 
 procedure tsongplayerfo.onplayercreate(const Sender: TObject);
 var
   ordir: msestring;
+  i1: integer;
 begin
   windowopacity := 0;
 
@@ -2651,6 +2677,21 @@ begin
 
   if historyfn.Value = '' then
     historyfn.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg';
+
+
+  with tgroupbox1 do
+  begin
+    setlength(boundchildsp, childrencount);
+
+    for i1 := 0 to childrencount - 1 do
+    begin
+      boundchildsp[i1].left   := children[i1].left;
+      boundchildsp[i1].top    := children[i1].top;
+      boundchildsp[i1].Width  := children[i1].Width;
+      boundchildsp[i1].Height := children[i1].Height;
+      boundchildsp[i1].Name   := children[i1].Name;
+    end;
+  end;
 
 end;
 
@@ -2688,29 +2729,30 @@ end;
 
 procedure tsongplayerfo.checksoundtouch(const Sender: TObject);
 begin
- if plugsoundtouch = False then
+  if plugsoundtouch = False then
   begin
-    edtempo.Visible   := False;
-    cbtempo.Visible   := False;
-    Button1.Visible   := False;
-    Button2.Visible   := False;
-    cbtempob.Visible   := False;
-   end else
+    edtempo.Visible  := False;
+    cbtempo.Visible  := False;
+    Button1.Visible  := False;
+    Button2.Visible  := False;
+    cbtempob.Visible := False;
+  end
+  else
   begin
-    edtempo.Visible   := true;
-    cbtempo.Visible   := true;
-    Button1.Visible   := true;
-    Button2.Visible   := true;
-    cbtempob.Visible   := true;
+    edtempo.Visible  := True;
+    cbtempo.Visible  := True;
+    Button1.Visible  := True;
+    Button2.Visible  := True;
+    cbtempob.Visible := True;
   end;
 end;
 
 procedure tsongplayerfo.oncreated(const Sender: TObject);
 begin
 
-   checksoundtouch(Sender);
+  checksoundtouch(Sender);
 
-   Equalizer_Bands[1].lo_freq  := 18;
+  Equalizer_Bands[1].lo_freq  := 18;
   Equalizer_Bands[1].hi_freq  := 46;
   Equalizer_Bands[1].Text     := '31';
   Equalizer_Bands[2].lo_freq  := 47;
@@ -2748,6 +2790,8 @@ begin
   setlength(arr2, 10);
 
   ttimer2.Enabled := True;
+
+  resizesp(fontheightused);
 end;
 
 procedure tsongplayerfo.faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
@@ -2932,8 +2976,6 @@ var
   thebpm: float;
 begin
 
-  // {$if defined(linux)}
-
   if tag = 0 then
     if plugsoundtouch = True then
     begin
@@ -2955,10 +2997,10 @@ begin
         else
         begin
 
-          button2.Caption         := utf8decode(IntToStr(round(thebpm)));
+          button2.Caption          := utf8decode(IntToStr(round(thebpm)));
           infosdfo.infobpm.Caption := button2.Caption;
-          drumsfo.edittempo.Value := round(thebpm);
-          button2.face.template   := mainfo.tfaceorange;
+          drumsfo.edittempo.Value  := round(thebpm);
+          button2.face.template    := mainfo.tfaceorange;
           if timersent.Enabled then
             timersent.restart // to reset
           else
@@ -2983,11 +3025,11 @@ begin
           button2.Caption := 'BPM'
         else
         begin
-          button2.Caption         := utf8decode(IntToStr(round(thebpm)));
-          drumsfo.edittempo.Value := round(thebpm);
+          button2.Caption           := utf8decode(IntToStr(round(thebpm)));
+          drumsfo.edittempo.Value   := round(thebpm);
           infosdfo2.infobpm.Caption := button2.Caption;
-        
-          button2.face.template   := mainfo.tfaceorange;
+
+          button2.face.template := mainfo.tfaceorange;
 
           if timersent.Enabled then
             timersent.restart // to reset
@@ -3005,7 +3047,7 @@ end;
 
 procedure tsongplayerfo.opendir(const Sender: TObject);
 var
- ara, arb: msestringarty;
+  ara, arb: msestringarty;
 begin
   setlength(ara, 6);
   setlength(arb, 6);

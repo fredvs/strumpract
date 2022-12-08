@@ -62,11 +62,13 @@ type
     procedure updatelayoutpan();
   end;
 
+{
 const
   emptyheight = 40;
   fowidth     = 442;
   tabheight   = 39;
   scrollwidth = 14;
+}
 
 var
   dockpanel1fo: tdockpanel1fo;

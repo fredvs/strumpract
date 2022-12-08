@@ -53,7 +53,8 @@ type
     procedure doguitarstring(const Sender: TObject);
     procedure onvisiblechangeev(const Sender: TObject);
     procedure oncreateguit(const Sender: TObject);
-    procedure onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
+    procedure resizegu(fontheight: integer);
+    procedure onevenloop(const Sender: TObject);
   end;
 
 var
@@ -71,6 +72,55 @@ uses
   dockpanel1,
   config,
   guitars_mfm;
+
+var
+  boundchildgu: array of boundchild;
+
+procedure tguitarsfo.resizegu(fontheight: integer);
+var
+  i1, i2: integer;
+  ratio: double;
+begin
+  ratio        := fontheight / 12;
+  bounds_cxmax := 0;
+  bounds_cxmin := 0;
+  bounds_cymax := 0;
+  bounds_cymin := 0;
+  bounds_cxmax := round(442 * ratio);
+  bounds_cxmin := bounds_cxmax;
+  bounds_cymax := round(64 * ratio);
+  bounds_cymin := bounds_cymax;
+  font.Height  := fontheight;
+
+  frame.grip_size := round(8 * ratio);
+
+  tgroupbox1.font.Height := fontheight;
+  tgroupbox1.font.color  := font.color;
+  tgroupbox2.font.Height := fontheight;
+  tgroupbox2.font.color  := font.color;
+  
+  with tgroupbox1 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildgu) - 1 do
+        if children[i1].Name = boundchildgu[i2].Name then
+        begin
+          children[i1].left   := round(boundchildgu[i2].left * ratio);
+          children[i1].top    := round(boundchildgu[i2].top * ratio);
+          children[i1].Width  := round(boundchildgu[i2].Width * ratio);
+          children[i1].Height := round(boundchildgu[i2].Height * ratio);
+        end;
+
+  with tgroupbox2 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildgu) - 1 do
+        if children[i1].Name = boundchildgu[i2].Name then
+        begin
+          children[i1].left   := round(boundchildgu[i2].left * ratio);
+          children[i1].top    := round(boundchildgu[i2].top * ratio);
+          children[i1].Width  := round(boundchildgu[i2].Width * ratio);
+          children[i1].Height := round(boundchildgu[i2].Height * ratio);
+        end;
+end;
 
 procedure tguitarsfo.doguitarstring(const Sender: TObject);
 begin
@@ -117,59 +167,84 @@ end;
 
 procedure tguitarsfo.onvisiblechangeev(const Sender: TObject);
 begin
-   if  (isactivated = true) then
+  if (isactivated = True) then
     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showguitar']).caption :=
-          lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_randomnotefo[Ord(ra_tbutton5)];
-         end
-      else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showguitar']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-           lang_randomnotefo[Ord(ra_tbutton5)];
-        end;
-      if (norefresh = False) and (parentwidget <> nil) then
-      begin
-     
-       if (parentwidget = mainfo.basedock) or 
-       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
-          mainfo.updatelayoutstrum();
-      
-      if (parentwidget = dockpanel1fo.basedock) or 
-       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-        if dockpanel1fo.Visible then
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showguitar']).Caption :=
+        lang_mainfo[Ord(ma_hide)] + ': ' +
+        lang_randomnotefo[Ord(ra_tbutton5)]
+    else
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showguitar']).Caption :=
+        lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+        lang_randomnotefo[Ord(ra_tbutton5)];
+  if (norefresh = False) and (parentwidget <> nil) then
+  begin
+
+    if (parentwidget = mainfo.basedock) or
+      (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+      mainfo.updatelayoutstrum();
+
+    if (parentwidget = dockpanel1fo.basedock) or
+      (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+      if dockpanel1fo.Visible then
         dockpanel1fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel2fo.basedock) or 
-       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-        if dockpanel2fo.Visible then
+
+    if (parentwidget = dockpanel2fo.basedock) or
+      (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+      if dockpanel2fo.Visible then
         dockpanel2fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel3fo.basedock) or 
-       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-        if dockpanel3fo.Visible then
+
+    if (parentwidget = dockpanel3fo.basedock) or
+      (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+      if dockpanel3fo.Visible then
         dockpanel3fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel4fo.basedock) or 
-       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+
+    if (parentwidget = dockpanel4fo.basedock) or
+      (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
       if dockpanel4fo.Visible then
         dockpanel4fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel5fo.basedock) or 
-       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+
+    if (parentwidget = dockpanel5fo.basedock) or
+      (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
       if dockpanel5fo.Visible then
         dockpanel5fo.updatelayoutpan();
-      end;   
+  end;
 end;
 
 procedure tguitarsfo.oncreateguit(const Sender: TObject);
 var
   ordir: string;
   i: integer;
+  i1, childn: integer;
 begin
   windowopacity := 0;
+
+  with tgroupbox1 do
+  begin
+    setlength(boundchildgu, tgroupbox1.childrencount);
+
+    for i1 := 0 to childrencount - 1 do
+    begin
+      boundchildgu[i1].left   := children[i1].left;
+      boundchildgu[i1].top    := children[i1].top;
+      boundchildgu[i1].Width  := children[i1].Width;
+      boundchildgu[i1].Height := children[i1].Height;
+      boundchildgu[i1].Name   := children[i1].Name;
+    end;
+    childn := length(boundchildgu);
+  end;
+
+  with tgroupbox2 do
+  begin
+    setlength(boundchildgu, length(boundchildgu) + tgroupbox2.childrencount);
+    for i1 := 0 to childrencount - 1 do
+    begin
+      boundchildgu[i1 + childn].left   := children[i1].left;
+      boundchildgu[i1 + childn].top    := children[i1].top;
+      boundchildgu[i1 + childn].Width  := children[i1].Width;
+      boundchildgu[i1 + childn].Height := children[i1].Height;
+      boundchildgu[i1 + childn].Name   := children[i1].Name;
+    end;
+  end;
 
   Caption := 'Guitar and Bass tuned strings';
 
@@ -193,17 +268,9 @@ begin
 
 end;
 
-procedure tguitarsfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
+procedure tguitarsfo.onevenloop(const Sender: TObject);
 begin
-{
-with ainfo do
-  if (eventkind = ek_buttonpress) then
-  begin
-if mainfo.issomeplaying = false then dragdock.optionsdock := [od_savepos,od_savezorder,od_canmove,od_canfloat,od_candock,od_proportional,od_fixsize,od_captionhint]
-else
-dragdock.optionsdock := [od_savepos,od_savezorder,od_proportional,od_fixsize,od_captionhint] ;
-end;
-}
+  resizegu(fontheightused);
 end;
 
 end.

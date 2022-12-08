@@ -4,13 +4,50 @@ unit recorder;
 interface
 
 uses
- ctypes,uos_flat,infosd,msetimer,msetypes,mseglob,mseguiglob,mseguiintf,
- mseapplication,msestat,msemenus,msegui,msegraphics,msegraphutils,Math,mseevent,
- mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
- msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,msegraphedits,
- mseificomp,mseificompglob,mseifiglob,msescrollbar,msedragglob,mseact,mseedit,
- msestatfile,msestream,msestrings,msebitmap,msedatanodes,msedispwidgets,
- mserichstring,msedropdownlist,msegridsglob;
+  ctypes,
+  uos_flat,
+  infosd,
+  msetimer,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  Math,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msesimplewidgets,
+  msewidgets,
+  msedataedits,
+  msefiledialogx,
+  msegrids,
+  mselistbrowser,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msedragglob,
+  mseact,
+  mseedit,
+  msestatfile,
+  msestream,
+  msestrings,
+  msebitmap,
+  msedatanodes,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist,
+  msegridsglob;
 
 type
   trecorderfo = class(tdockform)
@@ -42,19 +79,19 @@ type
     bwav: tbooleaneditradio;
     bogg: tbooleaneditradio;
     bsavetofile: tbooleanedit;
-   tgroupbox3: tgroupbox;
-   cbtempo: tbooleanedit;
-   edtempo: trealspinedit;
-   button1: tbutton;
-   btnStop: tbutton;
-   btnPause: tbutton;
-   btnResume: tbutton;
-   btnStart: tbutton;
-   sentcue1: tbooleanedit;
-   cbloop: tbooleanedit;
-   hintpanel: tgroupbox;
-   hintlabel: tlabel;
-   hintlabel2: tlabel;
+    tgroupbox3: tgroupbox;
+    cbtempo: tbooleanedit;
+    edtempo: trealspinedit;
+    button1: TButton;
+    btnStop: TButton;
+    btnPause: TButton;
+    btnResume: TButton;
+    btnStart: TButton;
+    sentcue1: tbooleanedit;
+    cbloop: tbooleanedit;
+    hintpanel: tgroupbox;
+    hintlabel: tlabel;
+    hintlabel2: tlabel;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -63,7 +100,6 @@ type
     procedure showposition;
     procedure showlevel;
     procedure LoopProcPlayer1;
-    procedure onfinfos(const Sender: TObject);
     procedure onreset(const Sender: TObject);
     procedure changevolume(const Sender: TObject);
     procedure ChangePlugSetSoundTouch(const Sender: TObject);
@@ -90,7 +126,7 @@ type
     procedure oncreated(const Sender: TObject);
     procedure onex(const Sender: TObject);
     procedure onchangesave(const Sender: TObject);
-   procedure oneventloop(const sender: TObject);
+    procedure oneventloop(const Sender: TObject);
   end;
 
   equalizer_band_type = record
@@ -121,7 +157,6 @@ var
 implementation
 
 uses
-
   captionstrumpract,
   main,
   config,
@@ -246,11 +281,7 @@ end;
 
 procedure trecorderfo.ClosePlayer1;
 begin
-  {
-    radiobutton1.Enabled := True;
-    radiobutton2.Enabled := True;
-    radiobutton3.Enabled := True;
-    }
+
   tbutton2.Enabled := False;
   tbutton3.Enabled := True;
 
@@ -258,8 +289,6 @@ begin
   vuleft.Value        := 0;
   vuright.Height      := 0;
   vuleft.Height       := 0;
-  //vuLeft.Visible      := False;
-  //vuRight.Visible     := False;
   btnStart.Enabled    := True;
   btnStop.Enabled     := False;
   btnPause.Enabled    := False;
@@ -284,7 +313,7 @@ begin
 
   tbutton3.Visible := True;
   tbutton2.Visible := False;
-  
+
   resetspectrum();
   InitDrawLive();
 
@@ -335,26 +364,10 @@ begin
     end;
 
   if (leftlev >= 0) and (leftlev <= 1) then
-    vuLeft.Value := leftlev{
-    if leftlev < 0.80 then
-      vuLeft.bar_face.template := mainfo.tfacegreen
-    else
-    if leftlev < 0.90 then
-      vuLeft.bar_face.template := mainfo.tfaceorange
-    else
-      vuLeft.bar_face.template := mainfo.tfacered;
- };
+    vuLeft.Value := leftlev;
 
   if (rightlev >= 0) and (rightlev <= 1) then
-    vuRight.Value := rightlev{
-    if rightlev < 0.80 then
-      vuRight.bar_face.template := mainfo.tfacegreen
-    else
-    if rightlev < 0.90 then
-      vuRight.bar_face.template := mainfo.tfaceorange
-    else
-      vuRight.bar_face.template := mainfo.tfacered;
-      };
+    vuRight.Value := rightlev;
 end;
 
 procedure trecorderfo.ShowPosition;
@@ -543,7 +556,6 @@ begin
       end;
       lposition.face.template := tfacereclight;
       cbloop.Enabled          := False;
-      //songdir.Value := historyfn.Value;
       historyfn.hint          := historyfn.Value;
       if timerwait.Enabled then
         timerwait.restart // to reset
@@ -570,8 +582,6 @@ end;
 
 procedure trecorderfo.doplayerpause(const Sender: TObject);
 begin
-  //vuLeft.Visible    := False;
-  //vuRight.Visible   := False;
   vuright.Value     := 0;
   vuleft.Value      := 0;
   btnStop.Enabled   := True;
@@ -598,58 +608,6 @@ begin
   edtempo.Value := 1;
 end;
 
-procedure trecorderfo.onfinfos(const Sender: TObject);
-var
-  maxwidth: integer;
-  temptimeinfo: ttime;
-  ho, mi, se, ms: word;
-begin
-{
-  uos_Stop(therecplayerinfo);
-
- uos_CreatePlayer(therecplayerinfo);
-    //// Create the player.
-    //// PlayerIndex : from 0 to what your computer can do !
-    //// If PlayerIndex exists already, it will be overwriten...
-    
-   application.processmessages; 
-
-    if uos_AddFromFile(therecplayerinfo, PChar(ansistring(historyfn.Value)), -1, 0, -1) > -1 then
-    begin
-
-      inputlength := uos_InputLength(therecplayer, InputIndex3);
-      ////// Length of Input in samples
-
-      temptimeinfo := uos_InputLengthTime(therecplayerinfo, 0);
-      ////// Length of input in time
-
-      DecodeTime(temptimeinfo, ho, mi, se, ms);
-
-      infosforec.infofile.Caption   :=  extractfilename(historyfn.Value);
-      //infosforec.infolength.top := infosforec.infofile.bottom + 10;
-      infosforec.infoartist.visible := false ;
-      infosforec.infoname.visible := false ;
-      infosforec.infoalbum.visible := false ;
-      infosforec.infoyear.visible := false ;
-      infosforec.infocom.visible := false ;
-      infosforec.infotag.visible := false ;
-      infosforec.infolength.Caption := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
-      infosforec.inforate.Caption   :=  msestring(IntToStr(uos_InputGetSampleRate(therecplayerinfo, 0)));
-      infosforec.infochan.Caption   :=  msestring(IntToStr(uos_InputGetChannels(therecplayerinfo, 0)));
-      infosforec.infobpm.visible := false ;
-      infosforec.imgPreview.Visible := False;
-      infosforec.tlabel2.Visible := False;
-      
-      application.processmessages;
-      uos_play(therecplayerinfo);
-      uos_Stop(therecplayerinfo);
-
-       // infosfo.button1.left := (infosfo.width - infosfo.button1.width)  div 2 ;
-      infosforec.Show(true);
-    end;
-    }
-end;
-
 procedure trecorderfo.onsliderchange(const Sender: TObject);
 var
   temptime: ttime;
@@ -669,56 +627,54 @@ end;
 procedure trecorderfo.visiblechangeev(const Sender: TObject);
 begin
 
-  if  (isactivated = true) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
+  if (isactivated = True) and (Assigned(mainfo)) and (Assigned(dockpanel1fo)) and
     (Assigned(dockpanel2fo)) and (Assigned(dockpanel3fo)) and (Assigned(dockpanel4fo)) and (Assigned(dockpanel5fo)) then
   begin
-      
+
     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showrecorder']).caption :=
-          lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_mainfo[Ord(ma_recorder)];
-         end
-      else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showrecorder']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_mainfo[Ord(ma_recorder)];
-          uos_Stop(therecplayer);
-        end;
-      
-      if (norefresh = False) and (parentwidget <> nil) then
-      begin
-     
-       if (parentwidget = mainfo.basedock) or 
-       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
-          mainfo.updatelayoutstrum();
-      
-      if (parentwidget = dockpanel1fo.basedock) or 
-       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showrecorder']).Caption :=
+        lang_mainfo[Ord(ma_hide)] + ': ' +
+        lang_mainfo[Ord(ma_recorder)]
+    else
+    begin
+      mainfo.tmainmenu1.menu.itembynames(['show', 'showrecorder']).Caption :=
+        lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+        lang_mainfo[Ord(ma_recorder)];
+      uos_Stop(therecplayer);
+    end;
+
+    if (norefresh = False) and (parentwidget <> nil) then
+    begin
+
+      if (parentwidget = mainfo.basedock) or
+        (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.updatelayoutstrum();
+
+      if (parentwidget = dockpanel1fo.basedock) or
+        (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel2fo.basedock) or 
-       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel1fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel2fo.basedock) or
+        (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel3fo.basedock) or 
-       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel2fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel3fo.basedock) or
+        (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel4fo.basedock) or 
-       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel5fo.basedock) or 
-       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayoutpan();
-      end;    
+          dockpanel3fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel4fo.basedock) or
+        (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel4fo.Visible then
+          dockpanel4fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel5fo.basedock) or
+        (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel5fo.Visible then
+          dockpanel5fo.updatelayoutpan();
+    end;
   end;
 end;
 
@@ -783,7 +739,6 @@ begin
   Timerrec          := ttimer.Create(nil);
   Timerrec.interval := 100000;
   Timerrec.Enabled  := False;
-  //Timerrec.options := [to_single];
   Timerrec.ontimer  := @ontimerrec;
 
   Timersent          := ttimer.Create(nil);
@@ -792,7 +747,6 @@ begin
   Timersent.ontimer  := @ontimersent;
   Timersent.options  := [to_single];
 
- 
 end;
 
 procedure trecorderfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -808,7 +762,6 @@ var
   i, outformat: integer;
   outformatst: msestring;
 begin
-  // if (bsavetofile.value = True) or (blistenin.value = True) then begin
 
   uos_Stop(therecplayer); // done by  uos_CreatePlayer() but faster if already done before (no check)
 
@@ -824,9 +777,7 @@ begin
     historyfn.face.template := tfacereclight;
 
     lposition.face.template := mainfo.tfaceorange;
-
-    //historyfn.font.color := cl_black;
-    recpan.Visible := True;
+    recpan.Visible          := True;
 
     recpan.font.color := cl_black;
 
@@ -1109,11 +1060,8 @@ var
   isenable: Boolean = False;
 begin
   isenable := equalizerforec.EQEN.Value;
-  //if isenable then isenable := false else isenable := true;
 
   aplayer := therecplayer;
-
-  //  if (btnStart.Enabled = true) then
   uos_InputSetFilter(aplayer, InputIndex3, Equalizer_Bands[aindex].theindex, -1, -1, -1, Gainl, -1, -1, -1, Gainr,
     True, nil, isenable);
 end;
@@ -1151,20 +1099,21 @@ begin
   end;
 end;
 
-procedure trecorderfo.oneventloop(const sender: TObject);
+procedure trecorderfo.oneventloop(const Sender: TObject);
 begin
- if plugsoundtouch = False then
+  if plugsoundtouch = False then
   begin
     edtempo.Enabled := False;
     cbtempo.Enabled := False;
     Button1.Enabled := False;
-  end else
-   begin
-    edtempo.Enabled := true;
-    cbtempo.Enabled := true;
-    Button1.Enabled := true;
   end
-    
+  else
+  begin
+    edtempo.Enabled := True;
+    cbtempo.Enabled := True;
+    Button1.Enabled := True;
+  end;
+
 end;
 
 

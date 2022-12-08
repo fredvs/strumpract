@@ -27,23 +27,25 @@ type
     dbkl2: tbooleanedit;
     tcoloredit12: tcoloredit;
     tcoloredit22: tcoloredit;
-    bosleep: tbooleanedit;
     lsuglat: tlabel;
     tgroupbox4: tgroupbox;
-    bit16: tbooleaneditradio;
-    bit32: tbooleaneditradio;
     tgroupbox5: tgroupbox;
     defdevout: tlabel;
     devoutcfg: tintegeredit;
     defdevin: tlabel;
     devincfg: tintegeredit;
     tbutton2: TButton;
-    bnohint: tbooleanedit;
-    syslib: tbooleanedit;
     tstringdisp1: tstringdisp;
     tbutton3: TButton;
     tlabel1: tlabel;
    focusplay: tbooleanedit;
+   tgroupbox6: tgroupbox;
+   syslib: tbooleanedit;
+   bosleep: tbooleanedit;
+   tgroupbox7: tgroupbox;
+   fontheight: trealspinedit;
+   tbutton4: tbutton;
+   bnohint: tbooleanedit;
     procedure changelatplay(const Sender: TObject);
     procedure changelatdrums(const Sender: TObject);
     procedure changelatrec(const Sender: TObject);
@@ -56,6 +58,8 @@ type
     procedure onchangehint(const Sender: TObject);
     procedure onchangelib(const Sender: TObject);
     procedure onexecmessage(const Sender: TObject);
+   procedure applyfont(const sender: TObject);
+   procedure onloop(const sender: TObject);
   end;
 
 var
@@ -382,6 +386,15 @@ end;
 procedure tconfigfo.onexecmessage(const Sender: TObject);
 begin
   tstringdisp1.Visible := False;
+end;
+
+procedure tconfigfo.applyfont(const sender: TObject);
+begin
+mainfo.applyfont(round(fontheight.value));
+end;
+
+procedure tconfigfo.onloop(const sender: TObject);
+begin
 end;
 
 end.

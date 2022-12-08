@@ -9,8 +9,8 @@ object synthefo: tsynthefo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 250
-  bounds_y = 259
+  bounds_x = 392
+  bounds_y = 199
   bounds_cx = 442
   bounds_cy = 284
   bounds_cxmin = 442
@@ -169,1179 +169,325 @@ object synthefo: tsynthefo
     FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
   }
   oncreate = oninit
-  oncreated = oncreated
+  oneventloopstart = oncreated
   onclose = onclosexe
-  onresize = onresizeform
   onshow = onchangest
   onhide = onchangest
   moduleclassname = 'tdockform'
-  object tlayouter1: tlayouter
+  object tgroupbox3: tgroupbox
     color = -2147483645
-    bounds_x = 1
+    frame.levelo = 1
+    frame.caption = '                                     '
+    frame.captionpos = cp_top
+    frame.localprops = [frl_levelo]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    frame.outerframe = (
+      0
+      9
+      0
+      0
+    )
+    taborder = 3
+    bounds_x = 229
     bounds_y = 4
-    bounds_cx = 431
-    bounds_cy = 278
-    anchors = [an_left, an_top, an_right]
-    object tgroupbox3: tgroupbox
+    bounds_cx = 201
+    bounds_cy = 272
+    font.color = -1610612734
+    font.name = 'stf_default'
+    font.localprops = []
+    object sampcountR: tslider
       color = -2147483645
-      frame.levelo = 1
-      frame.caption = '                                     '
-      frame.captionpos = cp_top
-      frame.localprops = [frl_levelo]
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'C-R'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
       frame.outerframe = (
+        23
         0
-        9
+        0
+        0
+      )
+      hint = 'Samples count of noise'
+      bounds_x = 8
+      bounds_y = 189
+      bounds_cx = 137
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        8753023
+        6052956
+      )
+      scrollbar.faceendbutton.fade_direction = gd_left
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = samcountsetexeR
+    end
+    object tsigslider1: tsigslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'V-R'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        23
+        0
         0
         0
       )
       taborder = 1
-      bounds_x = 225
-      bounds_y = 5
-      bounds_cx = 201
-      bounds_cy = 266
-      object sampcountR: tslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'C-R'
-        frame.captionpos = cp_left
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        frame.outerframe = (
-          23
-          0
-          0
-          0
-        )
-        hint = 'Samples count of noise'
-        bounds_x = 8
-        bounds_y = 189
-        bounds_cx = 137
-        bounds_cy = 21
-        statfile = mainfo.tstatfile1
-        scrollbar.buttonlength = 16
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.face1.template = mainfo.tfaceplayer
-        scrollbar.face2.localprops = []
-        scrollbar.face2.template = mainfo.tfaceplayer
-        scrollbar.facebutton.localprops = []
-        scrollbar.facebutton.template = mainfo.tfaceplayerrev
-        scrollbar.faceendbutton.fade_pos.count = 2
-        scrollbar.faceendbutton.fade_pos.items = (
-          0
-          1
-        )
-        scrollbar.faceendbutton.fade_color.count = 2
-        scrollbar.faceendbutton.fade_color.items = (
-          8753023
-          6052956
-        )
-        scrollbar.faceendbutton.fade_direction = gd_left
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.localprops = [frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = commanderfo.tframecomp2
-        scrollbar.colorglyph = -1610612730
-        onsetvalue = samcountsetexeR
-      end
-      object tsigslider1: tsigslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'V-R'
-        frame.captionpos = cp_left
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        frame.outerframe = (
-          23
-          0
-          0
-          0
-        )
-        taborder = 1
-        hint = 'Amplitude of noise right'
-        bounds_x = 8
-        bounds_y = 167
-        bounds_cx = 137
-        bounds_cy = 21
-        statfile = mainfo.tstatfile1
-        value = 0.3
-        scrollbar.buttonlength = 16
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.face1.template = mainfo.tfaceplayer
-        scrollbar.face2.localprops = []
-        scrollbar.face2.template = mainfo.tfaceplayer
-        scrollbar.facebutton.localprops = []
-        scrollbar.facebutton.template = mainfo.tfaceplayerrev
-        scrollbar.faceendbutton.fade_pos.count = 2
-        scrollbar.faceendbutton.fade_pos.items = (
-          0
-          1
-        )
-        scrollbar.faceendbutton.fade_color.count = 2
-        scrollbar.faceendbutton.fade_color.items = (
-          8753023
-          6052956
-        )
-        scrollbar.faceendbutton.fade_direction = gd_left
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.localprops = [frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = commanderfo.tframecomp2
-        scrollbar.colorglyph = -1610612730
-        onsetvalue = onsetampnoiseR
-        controller = cont
-        max = 1
-        options = [sieo_expzero]
-      end
-      object sampcountdiR: tintegerdisp
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.localprops = []
-        frame.localprops1 = []
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 2
-        bounds_x = 147
-        bounds_y = 190
-        bounds_cx = 42
-        bounds_cy = 21
-        textflags = [tf_xcentered, tf_right, tf_ycentered]
-        reffontheight = 15
-      end
-      object noiseampR: tintegerdisp
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.localprops = []
-        frame.localprops1 = []
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 3
-        bounds_x = 147
-        bounds_y = 167
-        bounds_cx = 42
-        bounds_cy = 21
-        textflags = [tf_xcentered, tf_right, tf_ycentered]
-        reffontheight = 15
-      end
-      object sampcountdiL: tintegerdisp
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.localprops = []
-        frame.localprops1 = []
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 4
-        bounds_x = 147
-        bounds_y = 119
-        bounds_cx = 42
-        bounds_cy = 21
-        textflags = [tf_xcentered, tf_right, tf_ycentered]
-        reffontheight = 15
-      end
-      object sampcountL: tslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'C-L'
-        frame.captionpos = cp_left
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        frame.outerframe = (
-          22
-          0
-          0
-          0
-        )
-        taborder = 5
-        hint = 'Samples count of noise'
-        bounds_x = 8
-        bounds_y = 120
-        bounds_cx = 137
-        bounds_cy = 21
-        statfile = mainfo.tstatfile1
-        scrollbar.buttonlength = 16
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.face1.template = mainfo.tfaceplayer
-        scrollbar.face2.localprops = []
-        scrollbar.face2.template = mainfo.tfaceplayer
-        scrollbar.facebutton.localprops = []
-        scrollbar.facebutton.template = mainfo.tfaceplayerrev
-        scrollbar.faceendbutton.fade_pos.count = 2
-        scrollbar.faceendbutton.fade_pos.items = (
-          0
-          1
-        )
-        scrollbar.faceendbutton.fade_color.count = 2
-        scrollbar.faceendbutton.fade_color.items = (
-          8753023
-          6052956
-        )
-        scrollbar.faceendbutton.fade_direction = gd_left
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.localprops = [frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = commanderfo.tframecomp2
-        scrollbar.colorglyph = -1610612730
-        onsetvalue = samcountsetexeL
-      end
-      object noiseampL: tintegerdisp
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.localprops = []
-        frame.localprops1 = []
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 6
-        bounds_x = 147
-        bounds_y = 96
-        bounds_cx = 42
-        bounds_cy = 21
-        textflags = [tf_xcentered, tf_right, tf_ycentered]
-        reffontheight = 15
-      end
-      object tsigslider1L: tsigslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'V-L'
-        frame.captionpos = cp_left
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        frame.outerframe = (
-          22
-          0
-          0
-          0
-        )
-        taborder = 7
-        hint = 'Amplitude of noise left'
-        bounds_x = 8
-        bounds_y = 96
-        bounds_cx = 137
-        bounds_cy = 21
-        statfile = mainfo.tstatfile1
-        value = 0.3
-        scrollbar.buttonlength = 16
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.face1.template = mainfo.tfaceplayer
-        scrollbar.face2.localprops = []
-        scrollbar.face2.template = mainfo.tfaceplayer
-        scrollbar.facebutton.localprops = []
-        scrollbar.facebutton.template = mainfo.tfaceplayerrev
-        scrollbar.faceendbutton.fade_pos.count = 2
-        scrollbar.faceendbutton.fade_pos.items = (
-          0
-          1
-        )
-        scrollbar.faceendbutton.fade_color.count = 2
-        scrollbar.faceendbutton.fade_color.items = (
-          8753023
-          6052956
-        )
-        scrollbar.faceendbutton.fade_direction = gd_left
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.localprops = [frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = commanderfo.tframecomp2
-        scrollbar.colorglyph = -1610612730
-        onsetvalue = onsetampnoiseL
-        controller = cont
-        max = 1
-        options = [sieo_expzero]
-      end
-      object linknoisechan: tbooleanedit
-        color = -2147483645
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.caption = 'Link Left-Right'
-        frame.captionpos = cp_left
-        frame.captiondist = 10
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          100
-          1
-          0
-          2
-        )
-        face.fade_direction = gd_down
-        face.localprops = [fal_fadirection]
-        face.template = mainfo.tfaceplayerrev
-        taborder = 8
-        hint = 'Link Left+Right Channels'
-        bounds_x = 43
-        bounds_y = 237
-        bounds_cx = 113
-        bounds_cy = 17
-        statfile = mainfo.tstatfile1
-        colorglyph = -1610612728
-        value = True
-        valuedefault = True
-      end
-      object kinded: tenumtypeedit
-        color = -2147483645
-        frame.levelo = 0
-        frame.framei_left = 0
-        frame.framei_top = 0
-        frame.framei_right = 0
-        frame.framei_bottom = 0
-        frame.captionpos = cp_left
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.button.colorglyph = -1610612730
-        frame.button.face.localprops = []
-        frame.button.face.template = mainfo.tfaceplayerrev
-        frame.button.frame.framei_left = 4
-        frame.button.frame.framei_top = 2
-        frame.button.frame.framei_right = 4
-        frame.button.frame.framei_bottom = 2
-        frame.button.frame.frameimage_left = -4
-        frame.button.frame.frameimage_right = -4
-        frame.button.frame.frameimage_top = -4
-        frame.button.frame.frameimage_bottom = -4
-        frame.button.frame.optionsskin = [fso_flat]
-        frame.button.frame.localprops = [frl_optionsskin]
-        frame.button.frame.localprops1 = []
-        frame.buttons.count = 1
-        frame.buttons.items = <        
-          item
-            colorglyph = -1610612730
-            face.localprops = []
-            face.template = mainfo.tfaceplayerrev
-            frame.framei_left = 4
-            frame.framei_top = 2
-            frame.framei_right = 4
-            frame.framei_bottom = 2
-            frame.frameimage_left = -4
-            frame.frameimage_right = -4
-            frame.frameimage_top = -4
-            frame.frameimage_bottom = -4
-            frame.optionsskin = [fso_flat]
-            frame.localprops = [frl_optionsskin]
-            frame.localprops1 = []
-          end>
-        face.localprops = []
-        face.template = mainfo.tfaceplayer
-        taborder = 9
-        hint = 'Kind of Noise Left Channel'
-        bounds_x = 5
-        bounds_y = 38
-        bounds_cx = 95
-        bounds_cy = 22
-        textflags = [tf_xcentered, tf_ycentered, tf_noselect]
-        value = 0
-        valuemin = 0
-        onsetvalue = kindsetexe
-        dropdown.colorclient = -2147483645
-        dropdown.facetemplate = mainfo.tfaceplayer
-        dropdown.cols.count = 1
-        dropdown.cols.colorselect = 10724259
-        dropdown.cols.facetemplate = mainfo.tfaceplayer
-        dropdown.cols.items = <        
-          item
-            colorselect = 10724259
-          end>
-        oninit = typinitexe
-        reffontheight = 15
-      end
-      object kindedR: tenumtypeedit
-        color = -2147483645
-        frame.levelo = 0
-        frame.framei_left = 0
-        frame.framei_top = 0
-        frame.framei_right = 0
-        frame.framei_bottom = 0
-        frame.captionpos = cp_left
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.button.colorglyph = -1610612730
-        frame.button.face.localprops = []
-        frame.button.face.template = mainfo.tfaceplayerrev
-        frame.button.frame.framei_left = 4
-        frame.button.frame.framei_top = 2
-        frame.button.frame.framei_right = 4
-        frame.button.frame.framei_bottom = 2
-        frame.button.frame.frameimage_left = -4
-        frame.button.frame.frameimage_right = -4
-        frame.button.frame.frameimage_top = -4
-        frame.button.frame.frameimage_bottom = -4
-        frame.button.frame.optionsskin = [fso_flat]
-        frame.button.frame.localprops = [frl_optionsskin]
-        frame.button.frame.localprops1 = []
-        frame.buttons.count = 1
-        frame.buttons.items = <        
-          item
-            colorglyph = -1610612730
-            face.localprops = []
-            face.template = mainfo.tfaceplayerrev
-            frame.framei_left = 4
-            frame.framei_top = 2
-            frame.framei_right = 4
-            frame.framei_bottom = 2
-            frame.frameimage_left = -4
-            frame.frameimage_right = -4
-            frame.frameimage_top = -4
-            frame.frameimage_bottom = -4
-            frame.optionsskin = [fso_flat]
-            frame.localprops = [frl_optionsskin]
-            frame.localprops1 = []
-          end>
-        face.localprops = []
-        face.template = mainfo.tfaceplayer
-        taborder = 10
-        hint = 'Kind of Noise Right Channel'
-        bounds_x = 103
-        bounds_y = 38
-        bounds_cx = 91
-        bounds_cy = 22
-        textflags = [tf_xcentered, tf_ycentered, tf_noselect]
-        value = 0
-        valuemin = 0
-        onsetvalue = kindsetexeR
-        dropdown.colorclient = -2147483645
-        dropdown.facetemplate = mainfo.tfaceplayer
-        dropdown.cols.count = 1
-        dropdown.cols.colorselect = 10724259
-        dropdown.cols.facetemplate = mainfo.tfaceplayer
-        dropdown.cols.items = <        
-          item
-            colorselect = 10724259
-          end>
-        oninit = typinitexe
-        reffontheight = 15
-      end
-    end
-    object tgroupbox4: tgroupbox
-      color = -2147483645
-      frame.levelo = 1
-      frame.caption = '                                    '
-      frame.captionpos = cp_top
-      frame.localprops = [frl_levelo]
-      frame.localprops1 = []
-      frame.template = commanderfo.tframecomp2
-      frame.outerframe = (
+      hint = 'Amplitude of noise right'
+      bounds_x = 8
+      bounds_y = 167
+      bounds_cx = 137
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      value = 0.3
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
         0
-        9
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        8753023
+        6052956
+      )
+      scrollbar.faceendbutton.fade_direction = gd_left
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onsetampnoiseR
+      controller = cont
+      max = 1
+      options = [sieo_expzero]
+    end
+    object sampcountdiR: tintegerdisp
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = []
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 2
+      bounds_x = 147
+      bounds_y = 190
+      bounds_cx = 42
+      bounds_cy = 21
+      textflags = [tf_xcentered, tf_right, tf_ycentered]
+      reffontheight = 15
+    end
+    object noiseampR: tintegerdisp
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = []
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 3
+      bounds_x = 147
+      bounds_y = 167
+      bounds_cx = 42
+      bounds_cy = 21
+      textflags = [tf_xcentered, tf_right, tf_ycentered]
+      reffontheight = 15
+    end
+    object sampcountdiL: tintegerdisp
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = []
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 4
+      bounds_x = 147
+      bounds_y = 119
+      bounds_cx = 42
+      bounds_cy = 21
+      textflags = [tf_xcentered, tf_right, tf_ycentered]
+      reffontheight = 15
+    end
+    object sampcountL: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'C-L'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        22
+        0
         0
         0
       )
-      taborder = 2
-      bounds_x = 5
-      bounds_y = 5
-      bounds_cx = 214
-      bounds_cy = 266
-      object sliderfreqwaveL: tslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = ' F-L'
-        frame.captionpos = cp_topleft
-        frame.captiondist = 3
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        frame.outerframe = (
-          0
-          20
-          0
-          0
-        )
-        taborder = 3
-        hint = 'Frequency of Wave in Hz Left'
-        bounds_x = 2
-        bounds_y = 76
-        bounds_cx = 208
-        bounds_cy = 41
-        statfile = mainfo.tstatfile1
-        value = 0.3
-        scrollbar.buttonlength = 16
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.face1.template = mainfo.tfaceplayer
-        scrollbar.face2.localprops = []
-        scrollbar.face2.template = mainfo.tfaceplayer
-        scrollbar.facebutton.localprops = []
-        scrollbar.facebutton.template = mainfo.tfaceplayerrev
-        scrollbar.faceendbutton.fade_pos.count = 2
-        scrollbar.faceendbutton.fade_pos.items = (
-          0
-          1
-        )
-        scrollbar.faceendbutton.fade_color.count = 2
-        scrollbar.faceendbutton.fade_color.items = (
-          8753023
-          6052956
-        )
-        scrollbar.faceendbutton.fade_direction = gd_left
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.localprops = [frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = commanderfo.tframecomp2
-        scrollbar.colorglyph = -1610612730
-        onsetvalue = onfreqwaveL
-      end
-      object sliderfreqwaveR: tslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = ' F-R'
-        frame.captionpos = cp_topleft
-        frame.captiondist = 3
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        frame.outerframe = (
-          0
-          20
-          0
-          0
-        )
-        taborder = 9
-        hint = 'Frequency of Wave in Hz Right'
-        bounds_x = 2
-        bounds_y = 172
-        bounds_cx = 208
-        bounds_cy = 41
-        statfile = mainfo.tstatfile1
-        value = 0.3
-        scrollbar.buttonlength = 16
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.face1.template = mainfo.tfaceplayer
-        scrollbar.face2.localprops = []
-        scrollbar.face2.template = mainfo.tfaceplayer
-        scrollbar.facebutton.localprops = []
-        scrollbar.facebutton.template = mainfo.tfaceplayerrev
-        scrollbar.faceendbutton.fade_pos.count = 2
-        scrollbar.faceendbutton.fade_pos.items = (
-          0
-          1
-        )
-        scrollbar.faceendbutton.fade_color.count = 2
-        scrollbar.faceendbutton.fade_color.items = (
-          8753023
-          6052956
-        )
-        scrollbar.faceendbutton.fade_direction = gd_left
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.localprops = [frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = commanderfo.tframecomp2
-        scrollbar.colorglyph = -1610612730
-        onsetvalue = onfreqwaveR
-      end
-      object wavetypeL: tenumtypeedit
-        color = -2147483645
-        frame.levelo = 0
-        frame.framei_left = 0
-        frame.framei_top = 0
-        frame.framei_right = 0
-        frame.framei_bottom = 0
-        frame.captionpos = cp_left
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.button.colorglyph = -1610612730
-        frame.button.face.localprops = []
-        frame.button.face.template = mainfo.tfaceplayerrev
-        frame.button.frame.framei_left = 4
-        frame.button.frame.framei_top = 2
-        frame.button.frame.framei_right = 4
-        frame.button.frame.framei_bottom = 2
-        frame.button.frame.frameimage_left = -4
-        frame.button.frame.frameimage_right = -4
-        frame.button.frame.frameimage_top = -4
-        frame.button.frame.frameimage_bottom = -4
-        frame.button.frame.optionsskin = [fso_flat]
-        frame.button.frame.localprops = [frl_optionsskin]
-        frame.button.frame.localprops1 = []
-        frame.buttons.count = 1
-        frame.buttons.items = <        
-          item
-            colorglyph = -1610612730
-            face.localprops = []
-            face.template = mainfo.tfaceplayerrev
-            frame.framei_left = 4
-            frame.framei_top = 2
-            frame.framei_right = 4
-            frame.framei_bottom = 2
-            frame.frameimage_left = -4
-            frame.frameimage_right = -4
-            frame.frameimage_top = -4
-            frame.frameimage_bottom = -4
-            frame.optionsskin = [fso_flat]
-            frame.localprops = [frl_optionsskin]
-            frame.localprops1 = []
-          end>
-        face.localprops = []
-        face.template = mainfo.tfaceplayer
-        hint = 'Kind of Wave Left Channel'
-        bounds_x = 20
-        bounds_y = 20
-        bounds_cx = 85
-        bounds_cy = 22
-        statfile = mainfo.tstatfile1
-        optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly, oe_notnull]
-        textflags = [tf_xcentered, tf_ycentered, tf_noselect]
-        textflagsactive = [tf_ycentered, tf_noselect]
-        onchange = onchangewave
-        onclientmouseevent = onmousev
-        value = 0
-        valuedefault = 0
-        valuemin = 0
-        onsetvalue = onsetwavekindL
-        dropdown.colorclient = -2147483645
-        dropdown.facetemplate = mainfo.tfaceplayer
-        dropdown.cols.count = 1
-        dropdown.cols.colorselect = 10724259
-        dropdown.cols.facetemplate = mainfo.tfaceplayer
-        dropdown.cols.items = <        
-          item
-            colorselect = 10724259
-            data = (
-              'wk_sine'
-              'wk_square'
-              'wk_triangle'
-              'wk_sawtooth'
-            )
-          end>
-        reffontheight = 15
-      end
-      object sliderwaveL: tslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'V-L'
-        frame.captionpos = cp_left
-        frame.captiondist = 0
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        frame.outerframe = (
-          21
-          0
-          0
-          0
-        )
-        taborder = 1
-        hint = 'Volume of Wave Left'
-        bounds_x = 8
-        bounds_y = 50
-        bounds_cx = 149
-        bounds_cy = 21
-        statfile = mainfo.tstatfile1
-        value = 0.5
-        scrollbar.buttonlength = 16
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.face1.template = mainfo.tfaceplayer
-        scrollbar.face2.localprops = []
-        scrollbar.face2.template = mainfo.tfaceplayer
-        scrollbar.facebutton.localprops = []
-        scrollbar.facebutton.template = mainfo.tfaceplayerrev
-        scrollbar.faceendbutton.fade_pos.count = 2
-        scrollbar.faceendbutton.fade_pos.items = (
-          0
-          1
-        )
-        scrollbar.faceendbutton.fade_color.count = 2
-        scrollbar.faceendbutton.fade_color.items = (
-          8753023
-          6052956
-        )
-        scrollbar.faceendbutton.fade_direction = gd_left
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.localprops = [frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = commanderfo.tframecomp2
-        scrollbar.colorglyph = -1610612730
-        onsetvalue = onvolwaveL
-      end
-      object freqwavL: tintegeredit
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.caption = 'Hz'
-        frame.captionpos = cp_right
-        frame.captiondist = 2
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          0
-          19
-          0
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 2
-        hint = 'Frequency in Hz Left'
-        bounds_x = 80
-        bounds_y = 76
-        bounds_cx = 85
-        bounds_cy = 18
-        statfile = mainfo.tstatfile1
-        textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
-        onchange = onchangewave
-        onsetvalue = onvaluefreqL
-        value = 440
-        valuedefault = 440
-        valuemin = 100
-        valuemax = 10000
-        reffontheight = 15
-      end
-      object harmonwaveL: tintegeredit
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.caption = 'H-L'
-        frame.captionpos = cp_left
-        frame.captiondist = 3
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          25
-          0
-          0
-          0
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 4
-        hint = 'Number or Harmonics Left'
-        bounds_x = 23
-        bounds_y = 122
-        bounds_cx = 69
-        bounds_cy = 18
-        statfile = mainfo.tstatfile1
-        onchange = onchangewave
-        onsetvalue = onsetharmL
-        valuemax = 20
-        reffontheight = 15
-      end
-      object OddwaveL: tbooleanedit
-        color = -2147483645
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.caption = 'O-L'
-        frame.captionpos = cp_left
-        frame.captiondist = 4
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          26
-          1
-          0
-          2
-        )
-        face.fade_direction = gd_down
-        face.localprops = [fal_fadirection]
-        face.template = mainfo.tfaceplayer
-        taborder = 5
-        hint = 'Odd Harmonics only Left'
-        bounds_x = 159
-        bounds_y = 122
-        bounds_cx = 39
-        bounds_cy = 17
-        anchors = [an_top, an_right]
-        statfile = mainfo.tstatfile1
-        onchange = onchangewave
-        onsetvalue = onsetoddL
-      end
-      object volwavL: tintegerdisp
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.localprops = []
-        frame.localprops1 = []
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 6
-        bounds_x = 159
-        bounds_y = 52
-        bounds_cx = 42
-        bounds_cy = 18
-        textflags = [tf_xcentered, tf_right, tf_ycentered]
-        onchange = onchangewave
-        value = 50
-        reffontheight = 15
-      end
-      object wavetypeR: tenumtypeedit
-        color = -2147483645
-        frame.levelo = 0
-        frame.framei_left = 0
-        frame.framei_top = 0
-        frame.framei_right = 0
-        frame.framei_bottom = 0
-        frame.captionpos = cp_left
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.button.colorglyph = -1610612730
-        frame.button.face.localprops = []
-        frame.button.face.template = mainfo.tfaceplayerrev
-        frame.button.frame.framei_left = 4
-        frame.button.frame.framei_top = 2
-        frame.button.frame.framei_right = 4
-        frame.button.frame.framei_bottom = 2
-        frame.button.frame.frameimage_left = -4
-        frame.button.frame.frameimage_right = -4
-        frame.button.frame.frameimage_top = -4
-        frame.button.frame.frameimage_bottom = -4
-        frame.button.frame.optionsskin = [fso_flat]
-        frame.button.frame.localprops = [frl_optionsskin]
-        frame.button.frame.localprops1 = []
-        frame.buttons.count = 1
-        frame.buttons.items = <        
-          item
-            colorglyph = -1610612730
-            face.localprops = []
-            face.template = mainfo.tfaceplayerrev
-            frame.framei_left = 4
-            frame.framei_top = 2
-            frame.framei_right = 4
-            frame.framei_bottom = 2
-            frame.frameimage_left = -4
-            frame.frameimage_right = -4
-            frame.frameimage_top = -4
-            frame.frameimage_bottom = -4
-            frame.optionsskin = [fso_flat]
-            frame.localprops = [frl_optionsskin]
-            frame.localprops1 = []
-          end>
-        face.localprops = []
-        face.template = mainfo.tfaceplayer
-        taborder = 7
-        hint = 'Kind of Wave Right Channel'
-        bounds_x = 108
-        bounds_y = 20
-        bounds_cx = 85
-        bounds_cy = 22
-        empty_text = 'wk_sine'
-        optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly, oe_notnull]
-        textflags = [tf_xcentered, tf_ycentered, tf_noselect]
-        onchange = onchangewave
-        value = 0
-        valuedefault = 0
-        valuemin = 0
-        onsetvalue = onsetwavekindR
-        dropdown.colorclient = -2147483645
-        dropdown.facetemplate = mainfo.tfaceplayer
-        dropdown.cols.count = 1
-        dropdown.cols.colorselect = 10724259
-        dropdown.cols.facetemplate = mainfo.tfaceplayer
-        dropdown.cols.items = <        
-          item
-            colorselect = 10724259
-            data = (
-              'wk_sine'
-              'wk_square'
-              'wk_triangle'
-              'wk_sawtooth'
-            )
-          end>
-        reffontheight = 15
-      end
-      object harmonwaveR: tintegeredit
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.caption = 'H-R'
-        frame.captionpos = cp_left
-        frame.captiondist = 3
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          26
-          0
-          0
-          0
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 8
-        hint = 'Number or Harmonics Right'
-        bounds_x = 22
-        bounds_y = 218
-        bounds_cx = 70
-        bounds_cy = 18
-        statfile = mainfo.tstatfile1
-        onchange = onchangewave
-        onsetvalue = onsetharmR
-        valuemax = 20
-        reffontheight = 15
-      end
-      object volwavR: tintegerdisp
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.localprops = []
-        frame.localprops1 = []
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 10
-        bounds_x = 159
-        bounds_y = 148
-        bounds_cx = 42
-        bounds_cy = 18
-        textflags = [tf_xcentered, tf_right, tf_ycentered]
-        onchange = onchangewave
-        value = 50
-        reffontheight = 15
-      end
-      object sliderwaveR: tslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'V-R'
-        frame.captionpos = cp_left
-        frame.captiondist = 0
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        frame.outerframe = (
-          22
-          0
-          0
-          0
-        )
-        taborder = 11
-        hint = 'Volume of Wave left'
-        bounds_x = 8
-        bounds_y = 146
-        bounds_cx = 149
-        bounds_cy = 21
-        statfile = mainfo.tstatfile1
-        value = 0.5
-        scrollbar.buttonlength = 16
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.face1.template = mainfo.tfaceplayer
-        scrollbar.face2.localprops = []
-        scrollbar.face2.template = mainfo.tfaceplayer
-        scrollbar.facebutton.localprops = []
-        scrollbar.facebutton.template = mainfo.tfaceplayerrev
-        scrollbar.faceendbutton.fade_pos.count = 2
-        scrollbar.faceendbutton.fade_pos.items = (
-          0
-          1
-        )
-        scrollbar.faceendbutton.fade_color.count = 2
-        scrollbar.faceendbutton.fade_color.items = (
-          8753023
-          6052956
-        )
-        scrollbar.faceendbutton.fade_direction = gd_left
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.localprops = [frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = commanderfo.tframecomp2
-        scrollbar.colorglyph = -1610612730
-        onsetvalue = onvolwaveR
-      end
-      object freqwavR: tintegeredit
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.caption = 'Hz'
-        frame.captionpos = cp_righttop
-        frame.captiondist = 2
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          0
-          19
-          0
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerrev
-        taborder = 12
-        hint = 'Frequency in Hz Right'
-        bounds_x = 80
-        bounds_y = 172
-        bounds_cx = 85
-        bounds_cy = 18
-        statfile = mainfo.tstatfile1
-        textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
-        onchange = onchangewave
-        onsetvalue = onvaluefreqR
-        value = 440
-        valuedefault = 440
-        valuemin = 100
-        valuemax = 10000
-        reffontheight = 15
-      end
-      object linkwavchan: tbooleanedit
-        color = -2147483645
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.caption = 'Link Left-Right'
-        frame.captionpos = cp_left
-        frame.captiondist = 10
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          100
-          1
-          0
-          2
-        )
-        face.fade_direction = gd_down
-        face.localprops = [fal_fadirection]
-        face.template = mainfo.tfaceplayer
-        taborder = 13
-        hint = 'Link Left+Right Channels'
-        bounds_x = 56
-        bounds_y = 242
-        bounds_cx = 113
-        bounds_cy = 17
-        anchors = [an_left, an_bottom]
-        statfile = mainfo.tstatfile1
-        colorglyph = -1610612728
-        value = True
-        valuedefault = True
-      end
-      object OddwaveR: tbooleanedit
-        color = -2147483645
-        frame.levelo = 0
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.caption = 'O-R'
-        frame.captionpos = cp_left
-        frame.captiondist = 4
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          27
-          1
-          0
-          2
-        )
-        face.fade_direction = gd_down
-        face.localprops = [fal_fadirection]
-        face.template = mainfo.tfaceplayer
-        taborder = 14
-        hint = 'Odd Harmonics only Right'
-        bounds_x = 158
-        bounds_y = 218
-        bounds_cx = 40
-        bounds_cy = 17
-        anchors = [an_top, an_right]
-        statfile = mainfo.tstatfile1
-        onchange = onchangewave
-        onsetvalue = onsetoddR
-      end
+      taborder = 5
+      hint = 'Samples count of noise'
+      bounds_x = 8
+      bounds_y = 120
+      bounds_cx = 137
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        8753023
+        6052956
+      )
+      scrollbar.faceendbutton.fade_direction = gd_left
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = samcountsetexeL
     end
-    object onnoiseon: tbooleanedit
+    object noiseampL: tintegerdisp
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = []
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 6
+      bounds_x = 147
+      bounds_y = 96
+      bounds_cx = 42
+      bounds_cy = 21
+      textflags = [tf_xcentered, tf_right, tf_ycentered]
+      reffontheight = 15
+    end
+    object tsigslider1L: tsigslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'V-L'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        22
+        0
+        0
+        0
+      )
+      taborder = 7
+      hint = 'Amplitude of noise left'
+      bounds_x = 8
+      bounds_y = 96
+      bounds_cx = 137
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      value = 0.3
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        8753023
+        6052956
+      )
+      scrollbar.faceendbutton.fade_direction = gd_left
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onsetampnoiseL
+      controller = cont
+      max = 1
+      options = [sieo_expzero]
+    end
+    object linknoisechan: tbooleanedit
       color = -2147483645
       frame.levelo = 0
       frame.framei_left = 4
@@ -1352,13 +498,506 @@ object synthefo: tsynthefo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.caption = 'Noise Gen   Activate'
+      frame.caption = 'Link Left-Right'
+      frame.captionpos = cp_left
+      frame.captiondist = 10
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        100
+        1
+        0
+        2
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayerrev
+      taborder = 8
+      hint = 'Link Left+Right Channels'
+      bounds_x = 43
+      bounds_y = 237
+      bounds_cx = 113
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      colorglyph = -1610612728
+      value = True
+      valuedefault = True
+    end
+    object kinded: tenumtypeedit
+      color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
+      frame.captionpos = cp_left
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.button.colorglyph = -1610612730
+      frame.button.face.localprops = []
+      frame.button.face.template = mainfo.tfaceplayerrev
+      frame.button.frame.framei_left = 4
+      frame.button.frame.framei_top = 2
+      frame.button.frame.framei_right = 4
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.frameimage_left = -4
+      frame.button.frame.frameimage_right = -4
+      frame.button.frame.frameimage_top = -4
+      frame.button.frame.frameimage_bottom = -4
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          colorglyph = -1610612730
+          face.localprops = []
+          face.template = mainfo.tfaceplayerrev
+          frame.framei_left = 4
+          frame.framei_top = 2
+          frame.framei_right = 4
+          frame.framei_bottom = 2
+          frame.frameimage_left = -4
+          frame.frameimage_right = -4
+          frame.frameimage_top = -4
+          frame.frameimage_bottom = -4
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+        end>
+      face.localprops = []
+      face.template = mainfo.tfaceplayer
+      taborder = 9
+      hint = 'Kind of Noise Left Channel'
+      bounds_x = 5
+      bounds_y = 38
+      bounds_cx = 95
+      bounds_cy = 22
+      textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+      value = 0
+      valuemin = 0
+      onsetvalue = kindsetexe
+      dropdown.colorclient = -2147483645
+      dropdown.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.count = 1
+      dropdown.cols.colorselect = 10724259
+      dropdown.cols.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.items = <      
+        item
+          colorselect = 10724259
+        end>
+      oninit = typinitexe
+      reffontheight = 15
+    end
+    object kindedR: tenumtypeedit
+      color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
+      frame.captionpos = cp_left
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.button.colorglyph = -1610612730
+      frame.button.face.localprops = []
+      frame.button.face.template = mainfo.tfaceplayerrev
+      frame.button.frame.framei_left = 4
+      frame.button.frame.framei_top = 2
+      frame.button.frame.framei_right = 4
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.frameimage_left = -4
+      frame.button.frame.frameimage_right = -4
+      frame.button.frame.frameimage_top = -4
+      frame.button.frame.frameimage_bottom = -4
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          colorglyph = -1610612730
+          face.localprops = []
+          face.template = mainfo.tfaceplayerrev
+          frame.framei_left = 4
+          frame.framei_top = 2
+          frame.framei_right = 4
+          frame.framei_bottom = 2
+          frame.frameimage_left = -4
+          frame.frameimage_right = -4
+          frame.frameimage_top = -4
+          frame.frameimage_bottom = -4
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+        end>
+      face.localprops = []
+      face.template = mainfo.tfaceplayer
+      taborder = 10
+      hint = 'Kind of Noise Right Channel'
+      bounds_x = 103
+      bounds_y = 38
+      bounds_cx = 91
+      bounds_cy = 22
+      textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+      value = 0
+      valuemin = 0
+      onsetvalue = kindsetexeR
+      dropdown.colorclient = -2147483645
+      dropdown.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.count = 1
+      dropdown.cols.colorselect = 10724259
+      dropdown.cols.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.items = <      
+        item
+          colorselect = 10724259
+        end>
+      oninit = typinitexe
+      reffontheight = 15
+    end
+  end
+  object tgroupbox4: tgroupbox
+    color = -2147483645
+    frame.levelo = 1
+    frame.caption = '                                    '
+    frame.captionpos = cp_top
+    frame.localprops = [frl_levelo]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    frame.outerframe = (
+      0
+      9
+      0
+      0
+    )
+    bounds_x = 4
+    bounds_y = 4
+    bounds_cx = 219
+    bounds_cy = 272
+    font.color = -1610612734
+    font.name = 'stf_default'
+    font.localprops = []
+    object sliderfreqwaveL: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = ' F-L'
+      frame.captionpos = cp_topleft
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        0
+        20
+        0
+        0
+      )
+      taborder = 3
+      hint = 'Frequency of Wave in Hz Left'
+      bounds_x = 2
+      bounds_y = 76
+      bounds_cx = 208
+      bounds_cy = 41
+      statfile = mainfo.tstatfile1
+      value = 0.3
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        8753023
+        6052956
+      )
+      scrollbar.faceendbutton.fade_direction = gd_left
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onfreqwaveL
+    end
+    object sliderfreqwaveR: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = ' F-R'
+      frame.captionpos = cp_topleft
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        0
+        20
+        0
+        0
+      )
+      taborder = 9
+      hint = 'Frequency of Wave in Hz Right'
+      bounds_x = 2
+      bounds_y = 172
+      bounds_cx = 208
+      bounds_cy = 41
+      statfile = mainfo.tstatfile1
+      value = 0.3
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        8753023
+        6052956
+      )
+      scrollbar.faceendbutton.fade_direction = gd_left
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onfreqwaveR
+    end
+    object wavetypeL: tenumtypeedit
+      color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
+      frame.captionpos = cp_left
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.button.colorglyph = -1610612730
+      frame.button.face.localprops = []
+      frame.button.face.template = mainfo.tfaceplayerrev
+      frame.button.frame.framei_left = 4
+      frame.button.frame.framei_top = 2
+      frame.button.frame.framei_right = 4
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.frameimage_left = -4
+      frame.button.frame.frameimage_right = -4
+      frame.button.frame.frameimage_top = -4
+      frame.button.frame.frameimage_bottom = -4
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          colorglyph = -1610612730
+          face.localprops = []
+          face.template = mainfo.tfaceplayerrev
+          frame.framei_left = 4
+          frame.framei_top = 2
+          frame.framei_right = 4
+          frame.framei_bottom = 2
+          frame.frameimage_left = -4
+          frame.frameimage_right = -4
+          frame.frameimage_top = -4
+          frame.frameimage_bottom = -4
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+        end>
+      face.localprops = []
+      face.template = mainfo.tfaceplayer
+      hint = 'Kind of Wave Left Channel'
+      bounds_x = 20
+      bounds_y = 20
+      bounds_cx = 85
+      bounds_cy = 22
+      statfile = mainfo.tstatfile1
+      optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly, oe_notnull]
+      textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+      textflagsactive = [tf_ycentered, tf_noselect]
+      onchange = onchangewave
+      onclientmouseevent = onmousev
+      value = 0
+      valuedefault = 0
+      valuemin = 0
+      onsetvalue = onsetwavekindL
+      dropdown.colorclient = -2147483645
+      dropdown.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.count = 1
+      dropdown.cols.colorselect = 10724259
+      dropdown.cols.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.items = <      
+        item
+          colorselect = 10724259
+          data = (
+            'wk_sine'
+            'wk_square'
+            'wk_triangle'
+            'wk_sawtooth'
+          )
+        end>
+      reffontheight = 15
+    end
+    object sliderwaveL: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'V-L'
+      frame.captionpos = cp_left
+      frame.captiondist = 0
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        21
+        0
+        0
+        0
+      )
+      taborder = 1
+      hint = 'Volume of Wave Left'
+      bounds_x = 8
+      bounds_y = 50
+      bounds_cx = 149
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      value = 0.5
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        8753023
+        6052956
+      )
+      scrollbar.faceendbutton.fade_direction = gd_left
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onvolwaveL
+    end
+    object freqwavL: tintegeredit
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.caption = 'Hz'
+      frame.captionpos = cp_right
+      frame.captiondist = 2
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        0
+        19
+        0
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 2
+      hint = 'Frequency in Hz Left'
+      bounds_x = 80
+      bounds_y = 76
+      bounds_cx = 85
+      bounds_cy = 18
+      statfile = mainfo.tstatfile1
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = onchangewave
+      onsetvalue = onvaluefreqL
+      value = 440
+      valuedefault = 440
+      valuemin = 100
+      valuemax = 10000
+      reffontheight = 15
+    end
+    object harmonwaveL: tintegeredit
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.caption = 'H-L'
+      frame.captionpos = cp_left
+      frame.captiondist = 3
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        25
+        0
+        0
+        0
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 4
+      hint = 'Number or Harmonics Left'
+      bounds_x = 23
+      bounds_y = 122
+      bounds_cx = 69
+      bounds_cy = 18
+      statfile = mainfo.tstatfile1
+      onchange = onchangewave
+      onsetvalue = onsetharmL
+      valuemax = 20
+      reffontheight = 15
+    end
+    object OddwaveL: tbooleanedit
+      color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.caption = 'O-L'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        127
+        26
         1
         0
         2
@@ -1366,15 +1005,266 @@ object synthefo: tsynthefo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      hint = 'Activate Noise Generator'
-      bounds_x = 259
-      bounds_y = 4
-      bounds_cx = 140
+      taborder = 5
+      hint = 'Odd Harmonics only Left'
+      bounds_x = 164
+      bounds_y = 122
+      bounds_cx = 39
       bounds_cy = 17
-      colorglyph = -1610612728
-      onsetvalue = onnoiseactivate
+      anchors = [an_top, an_right]
+      statfile = mainfo.tstatfile1
+      onchange = onchangewave
+      onsetvalue = onsetoddL
     end
-    object onwavon: tbooleanedit
+    object volwavL: tintegerdisp
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = []
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 6
+      bounds_x = 159
+      bounds_y = 52
+      bounds_cx = 42
+      bounds_cy = 18
+      textflags = [tf_xcentered, tf_right, tf_ycentered]
+      onchange = onchangewave
+      value = 50
+      reffontheight = 15
+    end
+    object wavetypeR: tenumtypeedit
+      color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
+      frame.captionpos = cp_left
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.button.colorglyph = -1610612730
+      frame.button.face.localprops = []
+      frame.button.face.template = mainfo.tfaceplayerrev
+      frame.button.frame.framei_left = 4
+      frame.button.frame.framei_top = 2
+      frame.button.frame.framei_right = 4
+      frame.button.frame.framei_bottom = 2
+      frame.button.frame.frameimage_left = -4
+      frame.button.frame.frameimage_right = -4
+      frame.button.frame.frameimage_top = -4
+      frame.button.frame.frameimage_bottom = -4
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          colorglyph = -1610612730
+          face.localprops = []
+          face.template = mainfo.tfaceplayerrev
+          frame.framei_left = 4
+          frame.framei_top = 2
+          frame.framei_right = 4
+          frame.framei_bottom = 2
+          frame.frameimage_left = -4
+          frame.frameimage_right = -4
+          frame.frameimage_top = -4
+          frame.frameimage_bottom = -4
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+        end>
+      face.localprops = []
+      face.template = mainfo.tfaceplayer
+      taborder = 7
+      hint = 'Kind of Wave Right Channel'
+      bounds_x = 108
+      bounds_y = 20
+      bounds_cx = 85
+      bounds_cy = 22
+      empty_text = 'wk_sine'
+      optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly, oe_notnull]
+      textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+      onchange = onchangewave
+      value = 0
+      valuedefault = 0
+      valuemin = 0
+      onsetvalue = onsetwavekindR
+      dropdown.colorclient = -2147483645
+      dropdown.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.count = 1
+      dropdown.cols.colorselect = 10724259
+      dropdown.cols.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.items = <      
+        item
+          colorselect = 10724259
+          data = (
+            'wk_sine'
+            'wk_square'
+            'wk_triangle'
+            'wk_sawtooth'
+          )
+        end>
+      reffontheight = 15
+    end
+    object harmonwaveR: tintegeredit
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.caption = 'H-R'
+      frame.captionpos = cp_left
+      frame.captiondist = 3
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        26
+        0
+        0
+        0
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 8
+      hint = 'Number or Harmonics Right'
+      bounds_x = 22
+      bounds_y = 218
+      bounds_cx = 70
+      bounds_cy = 18
+      statfile = mainfo.tstatfile1
+      onchange = onchangewave
+      onsetvalue = onsetharmR
+      valuemax = 20
+      reffontheight = 15
+    end
+    object volwavR: tintegerdisp
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = []
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 10
+      bounds_x = 159
+      bounds_y = 148
+      bounds_cx = 42
+      bounds_cy = 18
+      textflags = [tf_xcentered, tf_right, tf_ycentered]
+      onchange = onchangewave
+      value = 50
+      reffontheight = 15
+    end
+    object sliderwaveR: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'V-R'
+      frame.captionpos = cp_left
+      frame.captiondist = 0
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        22
+        0
+        0
+        0
+      )
+      taborder = 11
+      hint = 'Volume of Wave left'
+      bounds_x = 8
+      bounds_y = 146
+      bounds_cx = 149
+      bounds_cy = 21
+      statfile = mainfo.tstatfile1
+      value = 0.5
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        8753023
+        6052956
+      )
+      scrollbar.faceendbutton.fade_direction = gd_left
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onvolwaveR
+    end
+    object freqwavR: tintegeredit
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.caption = 'Hz'
+      frame.captionpos = cp_righttop
+      frame.captiondist = 2
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        0
+        19
+        0
+      )
+      face.localprops = []
+      face.template = mainfo.tfaceplayerrev
+      taborder = 12
+      hint = 'Frequency in Hz Right'
+      bounds_x = 80
+      bounds_y = 172
+      bounds_cx = 85
+      bounds_cy = 18
+      statfile = mainfo.tstatfile1
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = onchangewave
+      onsetvalue = onvaluefreqR
+      value = 440
+      valuedefault = 440
+      valuemin = 100
+      valuemax = 10000
+      reffontheight = 15
+    end
+    object linkwavchan: tbooleanedit
       color = -2147483645
       frame.levelo = 0
       frame.framei_left = 4
@@ -1385,28 +1275,135 @@ object synthefo: tsynthefo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
-      frame.caption = 'Wave Gen   Activate'
+      frame.caption = 'Link Left-Right'
+      frame.captionpos = cp_left
+      frame.captiondist = 10
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        100
+        1
+        0
+        2
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayer
+      taborder = 13
+      hint = 'Link Left+Right Channels'
+      bounds_x = 56
+      bounds_y = 248
+      bounds_cx = 113
+      bounds_cy = 17
+      anchors = [an_left, an_bottom]
+      statfile = mainfo.tstatfile1
+      colorglyph = -1610612728
+      value = True
+      valuedefault = True
+    end
+    object OddwaveR: tbooleanedit
+      color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.caption = 'O-R'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        128
+        27
         1
         0
         2
       )
-      face.localprops = []
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayer
-      taborder = 3
-      hint = 'Activate Wave Generator'
-      bounds_x = 46
-      bounds_y = 4
-      bounds_cx = 141
+      taborder = 14
+      hint = 'Odd Harmonics only Right'
+      bounds_x = 163
+      bounds_y = 218
+      bounds_cx = 40
       bounds_cy = 17
-      colorglyph = -1610612728
-      onsetvalue = onwaveactivate
+      anchors = [an_top, an_right]
+      statfile = mainfo.tstatfile1
+      onchange = onchangewave
+      onsetvalue = onsetoddR
     end
+  end
+  object onnoiseon: tbooleanedit
+    color = -2147483645
+    frame.levelo = 0
+    frame.framei_left = 4
+    frame.framei_top = 2
+    frame.framei_right = 4
+    frame.framei_bottom = 2
+    frame.frameimage_left = -4
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.frameimage_bottom = -4
+    frame.caption = 'Noise Gen   Activate'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      127
+      1
+      0
+      2
+    )
+    face.fade_direction = gd_down
+    face.localprops = [fal_fadirection]
+    face.template = mainfo.tfaceplayer
+    taborder = 2
+    hint = 'Activate Noise Generator'
+    bounds_x = 259
+    bounds_y = 4
+    bounds_cx = 140
+    bounds_cy = 17
+    colorglyph = -1610612728
+    onsetvalue = onnoiseactivate
+  end
+  object onwavon: tbooleanedit
+    color = -2147483645
+    frame.levelo = 0
+    frame.framei_left = 4
+    frame.framei_top = 2
+    frame.framei_right = 4
+    frame.framei_bottom = 2
+    frame.frameimage_left = -4
+    frame.frameimage_top = -4
+    frame.frameimage_right = -4
+    frame.frameimage_bottom = -4
+    frame.caption = 'Wave Gen   Activate'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      128
+      1
+      0
+      2
+    )
+    face.localprops = []
+    face.template = mainfo.tfaceplayer
+    taborder = 1
+    hint = 'Activate Wave Generator'
+    bounds_x = 46
+    bounds_y = 4
+    bounds_cx = 141
+    bounds_cy = 17
+    colorglyph = -1610612728
+    onsetvalue = onwaveactivate
   end
   object cont: tsigcontroller
     samplefrequ = 44100
@@ -1439,7 +1436,6 @@ object synthefo: tsynthefo
   end
   object noise: tsignoise
     controller = cont
-    amplitude.source = tsigslider1L.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf
@@ -1504,7 +1500,6 @@ object synthefo: tsynthefo
   end
   object noise2: tsignoise
     controller = cont
-    amplitude.source = tsigslider1.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf

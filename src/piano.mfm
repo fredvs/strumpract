@@ -9,8 +9,8 @@ object pianofo: tpianofo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 349
-  bounds_y = 386
+  bounds_x = 620
+  bounds_y = 253
   bounds_cx = 442
   bounds_cy = 284
   bounds_cxmin = 442
@@ -39,7 +39,8 @@ object pianofo: tpianofo
   font.name = 'stf_default'
   font.localprops = []
   statfile = mainfo.tstatfile1
-  oncreated = oncreatedex
+  oncreate = crea
+  oneventloopstart = oncreated
   onclose = oncloseex
   onresize = onresizeex
   onshow = onchangest
@@ -96,7 +97,6 @@ object pianofo: tpianofo
     bounds_y = 5
     bounds_cx = 277
     bounds_cy = 148
-    anchors = [an_left, an_top, an_right]
     attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
     attack.frame.framei_right = 0
     attack.frame.framei_bottom = 0
@@ -8607,7 +8607,6 @@ object pianofo: tpianofo
     bounds_y = 158
     bounds_cx = 430
     bounds_cy = 118
-    anchors = [an_left, an_top, an_right]
     value = 100
     keywidth = 12
     controller = tsigcontroller1

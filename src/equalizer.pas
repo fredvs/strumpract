@@ -43,9 +43,6 @@ type
 type
   tequalizerfo = class(tdockform)
     groupbox1: tgroupbox;
-    tstringdisp1: tstringdisp;
-    tslider1: tslider;
-    tbutton1: TButton;
     tstringdisp2: tstringdisp;
     tslider2: tslider;
     tbutton2: TButton;
@@ -73,7 +70,6 @@ type
     tstringdisp10: tstringdisp;
     tslider10: tslider;
     tbutton10: TButton;
-    tlabel3: tlabel;
     groupbox2: tgroupbox;
     tstringdisp11: tstringdisp;
     tslider11: tslider;
@@ -105,14 +101,15 @@ type
     tstringdisp20: tstringdisp;
     tslider20: tslider;
     tbutton20: TButton;
-    tlabel2: tlabel;
     fond: tstringdisp;
     loadset: TButton;
     saveset: TButton;
-    tstringdisp21: tstringdisp;
-    EQEN: tbooleanedit;
     blight: TButton;
     bdark: TButton;
+    tstringdisp22: tstringdisp;
+    tslider1: tslider;
+    tbutton1: TButton;
+    EQEN: tbooleanedit;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
@@ -122,6 +119,8 @@ type
     procedure onvisiblechange(const Sender: TObject);
     procedure loadlist(const Sender: TObject);
     procedure savelist(const Sender: TObject);
+    procedure resizeeq(fontheight: integer);
+
   end;
 
 var
@@ -143,9 +142,71 @@ uses
   dialogfiles,
   equalizer_mfm;
 
+var
+  boundchildeq: array of boundchild;
+
+procedure tequalizerfo.resizeeq(fontheight: integer);
+var
+  i1, i2: integer;
+  ratio: double;
+begin
+  ratio           := fontheight / 12;
+  bounds_cxmax    := 0;
+  bounds_cxmin    := 0;
+  bounds_cymax    := 0;
+  bounds_cymin    := 0;
+  bounds_cxmax    := round(442 * ratio);
+  bounds_cxmin    := bounds_cxmax;
+  bounds_cymax    := round(142 * ratio);
+  bounds_cymin    := bounds_cymax;
+  font.Height     := fontheight;
+  frame.grip_size := round(8 * ratio);
+  eqen.frame.font.Height := fontheight;
+  eqen.frame.font.color := font.color;
+  eqen.frame.font.Height := fontheight;
+  eqen.top        := round(2 * ratio);
+  saveset.font.Height := fontheight;
+  saveset.font.color := font.color;
+  saveset.Width   := round(62 * ratio);
+  saveset.Height  := round(17 * ratio);
+  saveset.left    := round(264 * ratio);
+  loadset.font.Height := fontheight;
+  loadset.font.color := font.color;
+  loadset.Width   := round(62 * ratio);
+  loadset.Height  := round(17 * ratio);
+  loadset.left    := round(330 * ratio);
+  groupbox1.font.color := font.color;
+  groupbox1.left  := round(1 * ratio);
+  groupbox1.Width := round(216 * ratio);
+  groupbox2.left  := round(214 * ratio);
+  groupbox2.Width := round(218 * ratio);
+
+  with groupbox1 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildeq) - 1 do
+        if groupbox1.children[i1].Name = boundchildeq[i2].Name then
+        begin
+          groupbox1.children[i1].left   := round(boundchildeq[i2].left * ratio);
+          groupbox1.children[i1].top    := round(boundchildeq[i2].top * ratio);
+          groupbox1.children[i1].Width  := round(boundchildeq[i2].Width * ratio);
+          groupbox1.children[i1].Height := round(boundchildeq[i2].Height * ratio);
+        end;
+
+  with groupbox2 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildeq) - 1 do
+        if groupbox2.children[i1].Name = boundchildeq[i2].Name then
+        begin
+          groupbox2.children[i1].left   := round(boundchildeq[i2].left * ratio);
+          groupbox2.children[i1].top    := round(boundchildeq[i2].top * ratio);
+          groupbox2.children[i1].Width  := round(boundchildeq[i2].Width * ratio);
+          groupbox2.children[i1].Height := round(boundchildeq[i2].Height * ratio);
+        end;
+end;
+
 procedure tequalizerfo.oncrea(const Sender: TObject);
 var
-  x: integer;
+  x, i1, childn: integer;
   asliders: tasliders;
   abuttons: tabuttons;
 begin
@@ -170,6 +231,7 @@ begin
   asliders[18]  := tslider18;
   asliders[19]  := tslider19;
   asliders[20]  := tslider20;
+
 
   abuttons[1]  := tbutton1;
   abuttons[2]  := tbutton2;
@@ -200,6 +262,48 @@ begin
     abuttons[x].onexecute := @onexecbut;
     abuttons[x].hint      := ' Reset to 0 ';
   end;
+
+  childn := 0;
+
+  setlength(boundchildeq, childrencount);
+  childn := childrencount;
+
+
+  for i1 := 0 to childrencount - 1 do
+  begin
+    boundchildeq[i1].left   := children[i1].left;
+    boundchildeq[i1].top    := children[i1].top;
+    boundchildeq[i1].Width  := children[i1].Width;
+    boundchildeq[i1].Height := children[i1].Height;
+    boundchildeq[i1].Name   := children[i1].Name;
+  end;
+
+
+  setlength(boundchildeq, groupbox1.childrencount + childn);
+
+
+  with groupbox1 do
+    for i1 := 0 to groupbox1.childrencount - 1 do
+    begin
+      boundchildeq[i1 + childn].left   := children[i1].left;
+      boundchildeq[i1 + childn].top    := children[i1].top;
+      boundchildeq[i1 + childn].Width  := children[i1].Width;
+      boundchildeq[i1 + childn].Height := children[i1].Height;
+      boundchildeq[i1 + childn].Name   := children[i1].Name;
+    end;
+
+  childn := length(boundchildeq);
+  setlength(boundchildeq, length(boundchildeq) + groupbox2.childrencount);
+
+  with groupbox2 do
+    for i1 := 0 to groupbox2.childrencount - 1 do
+    begin
+      boundchildeq[i1 + childn].left   := children[i1].left;
+      boundchildeq[i1 + childn].top    := children[i1].top;
+      boundchildeq[i1 + childn].Width  := children[i1].Width;
+      boundchildeq[i1 + childn].Height := children[i1].Height;
+      boundchildeq[i1 + childn].Name   := children[i1].Name;
+    end;
 
 end;
 
@@ -314,6 +418,7 @@ end;
 procedure tequalizerfo.created(const Sender: TObject);
 begin
   iscreated := True;
+  resizeeq(fontheightused);
 end;
 
 procedure tequalizerfo.onexecbut(const Sender: TObject);
@@ -360,84 +465,72 @@ end;
 
 procedure tequalizerfo.onvisiblechange(const Sender: TObject);
 begin
- if  (isactivated = true) then
- begin
+  if (isactivated = True) then
+  begin
 
     if tag = 0 then
-     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showequ1']).caption :=
+      if Visible then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showequ1']).Caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];         
-        end
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)]
       else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showequ1']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];         
-        end;
-      
-     if tag = 1 then
-     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showequ2']).caption :=
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showequ1']).Caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers_hint)];
+
+    if tag = 1 then
+      if Visible then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showequ2']).Caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];         
-        end
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)]
       else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showequ2']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];         
-      end;
-      
-     if tag = 2 then
-     if Visible then
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showequrec']).caption :=
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showequ2']).Caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_commanderfo[Ord(co_nameplayers2_hint)];
+
+    if tag = 2 then
+      if Visible then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showequrec']).Caption :=
           lang_mainfo[Ord(ma_hide)] + ': ' +
-          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];          
-        end
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)]
       else
-        begin
-          mainfo.tmainmenu1.menu.itembynames(['show','showequrec']).caption :=
-          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' + 
-          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];          
-      end;   
-   
-       if (norefresh = False) and (parentwidget <> nil) then
-      begin
-     
-       if (parentwidget = mainfo.basedock) or 
-       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
-          mainfo.updatelayoutstrum();
-      
-      if (parentwidget = dockpanel1fo.basedock) or 
-       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.tmainmenu1.menu.itembynames(['show', 'showequrec']).Caption :=
+          lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
+          lang_mainfo[Ord(ma_equalizer)] + ' ' + lang_mainfo[Ord(ma_recorder)];
+
+    if (norefresh = False) and (parentwidget <> nil) then
+    begin
+
+      if (parentwidget = mainfo.basedock) or
+        (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.updatelayoutstrum();
+
+      if (parentwidget = dockpanel1fo.basedock) or
+        (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel2fo.basedock) or 
-       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel1fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel2fo.basedock) or
+        (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel3fo.basedock) or 
-       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel2fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel3fo.basedock) or
+        (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel4fo.basedock) or 
-       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel5fo.basedock) or 
-       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayoutpan();
-      end;
-       
+          dockpanel3fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel4fo.basedock) or
+        (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel4fo.Visible then
+          dockpanel4fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel5fo.basedock) or
+        (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel5fo.Visible then
+          dockpanel5fo.updatelayoutpan();
+    end;
+
   end;
 end;
 

@@ -213,7 +213,6 @@ object recorderfo: trecorderfo
       font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
-      onexecute = onfinfos
     end
     object edvol: trealspinedit
       color = -2147483645

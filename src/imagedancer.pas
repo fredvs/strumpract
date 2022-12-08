@@ -59,6 +59,8 @@ type
    procedure onevstart(const sender: TObject);
    procedure onfloat(const sender: TObject);
    procedure ondock(const sender: TObject);
+   procedure resizeda(fontheight: integer);
+
    
   protected
     thethread: tmsethread;
@@ -71,8 +73,6 @@ type
      thecolor: Byte;
     myData: TData;
     x2, y2: single;  
-    
-    
     rendercount: integer;
     renderstart: longword;
     frotx, froty, frotz: real;
@@ -129,9 +129,8 @@ var
   alwaystop: integer = 0;
   oripoint: pointty;
   ispressed: Boolean = False;
-  
-
-implementation
+ 
+ implementation
 
 uses
   captionstrumpract,
@@ -145,7 +144,23 @@ uses
 var
   Bitmap: tbgrabitmap;
   
-  // XBitmap: tbgrabitmap;
+procedure timagedancerfo.resizeda(fontheight: integer);
+var
+  ratio: float;
+begin 
+  ratio           := fontheight / 12;
+  bounds_cxmax    := 0;
+  bounds_cxmin    := 0;
+  bounds_cymax    := 0;
+  bounds_cymin    := 0;
+  bounds_cxmin    := round(442 * ratio);
+  bounds_cx   := bounds_cxmin;
+  bounds_cymin    := round(442 * ratio);
+  bounds_cy   := bounds_cymin;
+  //font.Height     := fontheight;
+  frame.grip_size := round(8 * ratio);
+  
+end;
   
 // Fractal circles
 
@@ -171,7 +186,6 @@ var
   lightness: word;
 begin
   HSL       := BGRAToHSLA(Pix);
-  // lightNess := maxSmallint div 4 + random(maxSmallint div 4);
   lightNess := maxSmallint div 4 + round(maxSmallint / 4 * multiplier);
   Result    := HSLAToBGRA(HSLA(HSL.hue, HSL.saturation, lightness));
 end;
@@ -188,7 +202,6 @@ begin
     offset := 180 + offset;
   if offset > 360 then
     offset := offset - 360;
-  // hue      := offset + (range) - range div 2;
   hue      := offset + round(range * multiplier) - range div 2;
   HSL      := HSLA(round(hue / 360 * $FFFF), $FFFF, maxSmallint);
   Result   := HSLAToBGRA(HSL);
@@ -322,7 +335,6 @@ var
   angle, turn: integer;
   sinus, cosinus: single;
 begin
-  //turn := TimerTic  mod 360;
   turn := round(TimerTic * multiplier * 10) mod 360;
 
   setlength(poly, 0);
@@ -427,8 +439,6 @@ while not done do
  hue := hi mod 360 - 140;
  hue := hue - hi div 360*5;// outer lines are a little bit "slow"
  hue := wrapTo360(hue);
-// hue := round( hue * multiplier);
-// cssCol := HSLAToBGRA(HSLA(round(hue /360 * $FFFF ),$FFFF,maxSmallint)); 
  cssCol := HSLAToBGRA(HSLA(round(hue /360 * round( $FFFF * multiplier* 2)),$FFFF,maxSmallint));
  img.DrawPolyLineAntialias(ar[i..hi],csscol ,L);
  inc(i,step);
@@ -452,7 +462,6 @@ begin
  rot := False;
 
  spiral := createSpiral(center, -10 * Turn, imagedancerfo.Width div 30, imagedancerfo.Width, 0, rot);
-  // spiral := createSpiral(center, -10 * Turn, 20, imagedancerfo.tpaintbox1.Width, 0, rot);
   bitmap.DrawPolyLineAntialias(spiral, getRandomHue(40), round(1 * 14));
 
 end;
@@ -578,22 +587,14 @@ procedure Ellipse(ax, ay, aw, ah: single);
 begin
   ax += x2;
   ay += y2;
-//  Bitmap.EllipseAntialias(ax, ay, aw / 2, ah / 2,BGRA(thecolor * 3, thecolor div 3, thecolor), w / 8, BGRA(thecolor div 2, thecolor div 3, thecolor));
 
  Bitmap.EllipseAntialias(ax, ay, aw / 2, ah / 2,
  BGRA(round(thecolor * 3 * multiplier),
   round(thecolor) , round(thecolor)),
    w / 8,
-   
-//   BGRA(round(thecolor * multiplier) div 2, 
-//  round(thecolor * multiplier) div 3, round(thecolor * multiplier)));
  
  BGRA(thecolor div 2, thecolor div 3, thecolor)); 
  
-  
-// BGRA(round(thecolor * 3 * multiplier), round(thecolor + 10), round(thecolor -10)));
-
-
 end;
 
 begin
@@ -681,10 +682,7 @@ begin
 
     if dancernum = 0 then // Fractral Tree
     begin
-
-      // multiplier := multiplier * Sender.bounds_cy / 50;
-
-      Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, cl_dkgreen, BGRA(0, 0, 0),
+       Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, cl_dkgreen, BGRA(0, 0, 0),
         gtLinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
 
       drawTree(Bitmap.Width div 2, Bitmap.Height, -91, 9, multiplier * Sender.bounds_cy / 50, Bitmap);
@@ -769,9 +767,7 @@ begin
     else if dancernum = 4 then // Atom
     begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
-      //   Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, BGRA(0, 10, 80), BGRABlack,
-      //     gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
-
+  
       bitmap.Fill(cssBlack);
 
       InitRings;
@@ -808,9 +804,7 @@ begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
       spi := createSpiral (Center,timertic mod 360 * 10,Bitmap.height div 60,Bitmap.Width*0.75,0,true);
       bitmap.Fill(cssBlack);
-  //   DrawIncreasing(Bitmap,spi,30,10,GetRandomHue(30)) ;
-     
-       DrawIncreasing(Bitmap,spi,Bitmap.width div 20,Bitmap.Width div 50,GetRandomHue(30+ round(0*2))) ;
+      DrawIncreasing(Bitmap,spi,Bitmap.width div 20,Bitmap.Width div 50,GetRandomHue(30+ round(0*2))) ;
      end 
     else if dancernum = 6 then // Spiral Raindow
     begin
@@ -818,10 +812,7 @@ begin
       spi := createSpiral (Center,timertic mod 360 * 10,Bitmap.height div 60,Bitmap.Width*0.75,0,true);
       bitmap.Fill(cssBlack);
       DrawIncreasing2(Bitmap,spi,Bitmap.width div 20,Bitmap.width div 60);
-
-    //  DrawIncreasing2(Bitmap,spi,30,10);
- 
-    end 
+  end 
     else if dancernum = 7 then // Spiral Move
     begin
       center := PointF(Bitmap.Width / 2*multiplier*1.5, Bitmap.Height / 2*multiplier*1.5);
@@ -830,14 +821,7 @@ begin
     end
     else if dancernum = 10 then // turtle 1
     begin
-    //  Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE, $FF9D4D,
-     //   gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
       bitmap.Fill(CSSblack);
- 
-   //   set_color(Bitmap, 255, round(128*multiplier), 64, 255);
-       
-     //  set_color(Bitmap, 255, 128, 64, 255);
-  
         centerX := Width div 2;
         centerY := Height div 2;
         if multiplier > 0.4 then  
@@ -854,38 +838,26 @@ begin
        
         for i := 1 to 490 do
          begin
-       //   set_color(Bitmap, i div 2, round(256*multiplier), 244, 255);
            set_color(Bitmap, i div 2, round(128), round(150*multiplier), 255);
       
            move(Bitmap, i);
-          //   set_color(Bitmap, round(256), i div 2, round(150*multiplier), 255);
           rotate(Bitmap, gAngle);
          end;    
        end else
         if dancernum = 11 then // turtle 2
     begin
-    //  Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE, $FF9D4D,
-     //   gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
       bitmap.Fill(CSSblack);
  
-   //   set_color(Bitmap, 255, round(128*multiplier), 64, 255);
-       
-     //  set_color(Bitmap, 255, 128, 64, 255);
-  
         centerX := Width div 2;
         centerY := Height div 2;
-     //{
+  
         if multiplier > 0.4 then  
         begin
-        //bitmap.Fill(cssBlack);      
-        gAngle := gAngle + (multiplier * 0.2)
+         gAngle := gAngle + (multiplier * 0.2)
         end else
         
         gAngle := gAngle - (multiplier);
-      // }
-        
-    //  gAngle := gAngle + (0.2);
-        
+            
         if (gAngle >= 360) or (gAngle < 0)  then gAngle := 0;
         reset(Bitmap);
         translate(Bitmap, centerX, centerY);
@@ -893,35 +865,16 @@ begin
         for i := 1 to 490*2 do
          begin
           set_color(Bitmap, i div 2, round(150*multiplier), 244, 255);
-      //     set_color(Bitmap, i div 2, round(128), round(150*multiplier), 255);
-      
-           move(Bitmap, round(i*multiplier*2));
-          //   set_color(Bitmap, round(256), i div 2, round(150*multiplier), 255);
+            move(Bitmap, round(i*multiplier*2));
           rotate(Bitmap, gAngle);
          end;    
        end else
         if dancernum = 12 then // fractal circles
     begin
-    //  Bitmap.GradientFill(0, 0, Bitmap.Width, Bitmap.Height, $FFEDDE, $FF9D4D,
-     //   gtlinear, PointF(0, 0), PointF(0, Bitmap.Height), dmSet);
-    //  bitmap.Fill(CSSpurple);
- 
- // if (multiplier >= 0.4) then
- //  zoom := zoom * (1.015 * multiplier) else
-//   zoom := zoom - (1.015 * multiplier);
-   
-   
-     if (multiplier >= 0.4) then
+        if (multiplier >= 0.4) then
      zoom := zoom + (multiplier / 10)
      else zoom :=  zoom - (multiplier / 10) ;
-    
-  //   if (multiplier >= 0.4) then
-   
-    //zoom *= 1.015;
-    
-    // else zoom := 0.1 ; 
-   
-  if (zoom < 0) then zoom := 0 ;
+   if (zoom < 0) then zoom := 0 ;
   
    if (zoom > 2) then zoom := 1;
   
@@ -970,8 +923,6 @@ begin
 end;
 
 procedure timagedancerfo.oncreat(const Sender: TObject);
-
-//var abitmap : TBGRABitmap = nil;
 begin
    SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
    [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
@@ -990,8 +941,6 @@ begin
 
 if alwaystop = 1 then 
  optionswindow := optionswindow + [wo_alwaysontop];
-
-//   if assigned(xbitmap) then xbitmap.free;
 
 end;
 
@@ -1113,7 +1062,6 @@ begin
     int1 := integer(Sender.rendertimestampus - renderstart);
     if int1 > 1000000 then
     begin
-      //fpsdisp.value:= (rendercount*1000000)/int1;
       rendercount := 0;
       renderstart := Sender.rendertimestampus;
     end;
@@ -1173,7 +1121,6 @@ end;
 
 procedure timagedancerfo.crea(const sender: TObject);
 begin
-// windowopacity := 1;
 if typwindow = 0 then
 optionswindow := []
 else
@@ -1228,28 +1175,35 @@ begin
       left := left + ainfo.pos.x - oripoint.x;
       top  := top + ainfo.pos.y - oripoint.y;
     end;
-    
-
 end;
 
 procedure timagedancerfo.ondock(const sender: TObject);
-begin
- bounds_cymax := 354;
- bounds_cy := 354;
- bounds_cxmax := fowidth;
- bounds_cx := fowidth;
+var
+  ratio: float;
+begin 
+ ratio           := fontheightused / 12;
+ bounds_cymax := round(442 * ratio);
+  bounds_cymin := round(442 * ratio);
+ bounds_cy :=round(442 * ratio);
+ bounds_cxmax := round(442 * ratio);
+ bounds_cxmin := round(442 * ratio);
+ bounds_cx := round(442 * ratio);
 end;
 
 procedure timagedancerfo.onfloat(const sender: TObject);
-begin
- height := 354;
+var
+  ratio: float;
+begin 
+ ratio           := fontheightused / 12;
+ height :=round(442 * ratio);
  bounds_cxmax := 0;
  bounds_cymax := 0;
- bounds_cx := fowidth;
+ bounds_cx := round(442 * ratio);
 end;
 
 procedure timagedancerfo.onevstart(const sender: TObject);
 begin
+resizeda(fontheightused);
 if parentwidget = nil then onfloat(sender) else ondock(sender);
 end;
 

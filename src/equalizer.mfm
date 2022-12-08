@@ -9,8 +9,8 @@ object equalizerfo: tequalizerfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 641
-  bounds_y = 136
+  bounds_x = 516
+  bounds_y = 59
   bounds_cx = 442
   bounds_cy = 142
   bounds_cxmin = 442
@@ -63,7 +63,7 @@ object equalizerfo: tequalizerfo
     FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
   }
   oncreate = oncrea
-  oncreated = created
+  oneventloopstart = created
   onshow = onvisiblechange
   onhide = onvisiblechange
   moduleclassname = 'tdockform'
@@ -79,45 +79,45 @@ object equalizerfo: tequalizerfo
   object groupbox2: tgroupbox
     color = -2147483645
     frame.levelo = 1
-    frame.leveli = 0
-    frame.colorhighlight = -1610612733
-    frame.caption = 'right '
-    frame.captiontextflags = [tf_xcentered, tf_bottom]
-    frame.captionpos = cp_topright
-    frame.captionoffset = -10
-    frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captionoffset, frl1_colorframedefault]
-    frame.outerframe = (
-      0
-      8
-      0
-      0
-    )
+    frame.leveli = -1
+    frame.colorhighlight = -1610612732
+    frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
+    frame.localprops1 = []
+    frame.template = mainfo.tframecomp1
     taborder = 1
     bounds_x = 214
-    bounds_y = 1
+    bounds_y = 0
     bounds_cx = 218
-    bounds_cy = 139
+    bounds_cy = 142
+    anchors = [an_left]
     object tstringdisp11: tstringdisp
       bounds_x = 4
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider11: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '31'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -130,24 +130,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton11: tbutton
@@ -167,9 +156,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -184,24 +174,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp12: tstringdisp
       taborder = 1
       bounds_x = 25
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider12: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '62'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -214,24 +212,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton12: tbutton
@@ -251,9 +238,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -268,24 +256,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp13: tstringdisp
       taborder = 2
       bounds_x = 46
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider13: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '1c'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -298,24 +294,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton13: tbutton
@@ -335,9 +320,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -352,24 +338,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp14: tstringdisp
       taborder = 3
       bounds_x = 67
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider14: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '2c'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -382,24 +376,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton14: tbutton
@@ -419,9 +402,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -436,24 +420,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp15: tstringdisp
       taborder = 4
       bounds_x = 88
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider15: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '5c'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -466,24 +458,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton15: tbutton
@@ -503,9 +484,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -520,24 +502,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp16: tstringdisp
       taborder = 5
       bounds_x = 109
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider16: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '1k'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -550,24 +540,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton16: tbutton
@@ -587,9 +566,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -604,24 +584,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp17: tstringdisp
       taborder = 6
       bounds_x = 130
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider17: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '2k'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -634,24 +622,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton17: tbutton
@@ -671,9 +648,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -688,24 +666,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp18: tstringdisp
       taborder = 7
       bounds_x = 151
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider18: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '4k'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -718,24 +704,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton18: tbutton
@@ -755,9 +730,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -772,24 +748,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp19: tstringdisp
       taborder = 8
       bounds_x = 172
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider19: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '8k'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -802,24 +786,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton19: tbutton
@@ -839,9 +812,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -856,24 +830,32 @@ object equalizerfo: tequalizerfo
     object tstringdisp20: tstringdisp
       taborder = 9
       bounds_x = 193
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider20: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '16'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          3
+          17
+          3
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -886,24 +868,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton20: tbutton
@@ -923,9 +894,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -937,22 +909,10 @@ object equalizerfo: tequalizerfo
         onexecute = onexecbut
       end
     end
-    object tlabel2: tlabel
-      color = -2147483645
-      taborder = 10
-      bounds_x = 6
-      bounds_y = 15
-      bounds_cx = 205
-      bounds_cy = 12
-      caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
-      font.height = 9
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
-      reffontheight = 12
-    end
     object blight: tbutton
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
+      face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
         00000000120000001400000010000000D8030000000000000000000000000000
         00000000000000000000000000000000000000009F9F9F01AAAAAA0195949501
@@ -999,7 +959,7 @@ object equalizerfo: tequalizerfo
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       }
       face.localprops = [fal_image]
-      taborder = 11
+      taborder = 10
       bounds_x = 113
       bounds_y = 65
       bounds_cx = 27
@@ -1009,6 +969,7 @@ object equalizerfo: tequalizerfo
     object bdark: tbutton
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
+      face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
         00000000120000001400000010000000F4030000000000000000000000000000
         0000000000000000000000000000000000000000616060016E6E6E0154535401
@@ -1056,7 +1017,7 @@ object equalizerfo: tequalizerfo
         FFFFFFFFFFFFFFFFFFFFFFFF
       }
       face.localprops = [fal_image]
-      taborder = 12
+      taborder = 11
       bounds_x = 146
       bounds_y = 66
       bounds_cx = 27
@@ -1064,169 +1025,47 @@ object equalizerfo: tequalizerfo
       state = [as_invisible, as_localinvisible]
     end
   end
-  object loadset: tbutton
-    color = -2147483645
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.localprops = []
-    face.template = mainfo.tfaceplayer
-    taborder = 3
-    hint = ' Load a Settings file  '
-    bounds_x = 233
-    bounds_y = 0
-    bounds_cx = 62
-    bounds_cy = 17
-    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Load'
-    textflags = [tf_xcentered, tf_ycentered]
-    captiondist = 0
-    onexecute = loadlist
-  end
-  object saveset: tbutton
-    color = -2147483645
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    face.localprops = []
-    face.template = mainfo.tfaceplayer
-    taborder = 4
-    hint = ' Save Settings in a file '
-    bounds_x = 298
-    bounds_y = 0
-    bounds_cx = 62
-    bounds_cy = 17
-    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Save'
-    textflags = [tf_xcentered, tf_ycentered]
-    captiondist = 0
-    onexecute = savelist
-  end
   object groupbox1: tgroupbox
     color = -2147483645
     frame.levelo = 1
-    frame.leveli = 0
-    frame.colorhighlight = -1610612733
-    frame.caption = 'left'
-    frame.captiontextflags = [tf_xcentered, tf_bottom]
-    frame.captionoffset = 10
-    frame.localprops = [frl_levelo, frl_leveli, frl_colorframe, frl_colordkshadow, frl_colorlight, frl_colorhighlight, frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist, frl1_captionoffset, frl1_colorframedefault]
-    frame.outerframe = (
-      0
-      8
-      0
-      0
-    )
-    bounds_x = 1
-    bounds_y = 1
+    frame.leveli = -1
+    frame.colorhighlight = -1610612732
+    frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
+    frame.localprops1 = []
+    frame.template = mainfo.tframecomp1
+    bounds_x = 0
+    bounds_y = 0
     bounds_cx = 216
-    bounds_cy = 139
-    object tstringdisp1: tstringdisp
-      bounds_x = 4
-      bounds_y = 26
-      bounds_cx = 21
-      bounds_cy = 118
-      reffontheight = 15
-      object tslider1: tslider
-        optionswidget1 = [ow1_autoscale, ow1_noclampinview]
-        color = -2147483645
-        frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
-        frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-        face.localprops = []
-        bounds_x = 0
-        bounds_y = 0
-        bounds_cx = 21
-        bounds_cy = 100
-        statfile = mainfo.tstatfile1
-        optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
-        value = 0.5
-        scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
-        scrollbar.buttonlength = 17
-        scrollbar.buttonminlength = -1
-        scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
-        scrollbar.facebutton.image.origformat = 'png'
-        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
-        scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
-        scrollbar.framebutton.optionsskin = [fso_flat]
-        scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
-        scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
-        direction = gd_up
-      end
-      object tbutton1: tbutton
-        Tag = 1
-        frame.framei_left = 4
-        frame.framei_top = 2
-        frame.framei_right = 4
-        frame.framei_bottom = 2
-        frame.frameimage_left = -4
-        frame.frameimage_top = -4
-        frame.frameimage_right = -4
-        frame.frameimage_bottom = -4
-        frame.optionsskin = [fso_flat]
-        frame.localprops = [frl_frameimagelist, frl_optionsskin]
-        frame.localprops1 = []
-        face.localprops = []
-        face.template = mainfo.tfacebutltgray
-        taborder = 1
-        hint = ' Reset to 0 gain '
-        bounds_x = 0
-        bounds_y = 100
-        bounds_cx = 21
-        bounds_cy = 12
-        state = [as_localcaption, as_localhint, as_localonexecute]
-        caption = '0'
-        textflags = [tf_xcentered, tf_ycentered]
-        captiondist = 0
-        font.color = 3881787
-        font.height = 8
-        font.name = 'stf_default'
-        font.localprops = [flp_color, flp_height]
-        onexecute = onexecbut
-      end
-    end
+    bounds_cy = 142
+    anchors = [an_left]
     object tstringdisp2: tstringdisp
-      taborder = 1
       bounds_x = 25
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider2: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '62'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1239,24 +1078,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton2: tbutton
@@ -1276,9 +1104,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1291,26 +1120,34 @@ object equalizerfo: tequalizerfo
       end
     end
     object tstringdisp3: tstringdisp
-      taborder = 2
+      taborder = 1
       bounds_x = 46
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider3: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '1c'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1323,24 +1160,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton3: tbutton
@@ -1360,9 +1186,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1375,26 +1202,34 @@ object equalizerfo: tequalizerfo
       end
     end
     object tstringdisp4: tstringdisp
-      taborder = 3
+      taborder = 2
       bounds_x = 67
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider4: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '2c'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1407,24 +1242,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton4: tbutton
@@ -1444,9 +1268,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1459,26 +1284,34 @@ object equalizerfo: tequalizerfo
       end
     end
     object tstringdisp5: tstringdisp
-      taborder = 4
+      taborder = 3
       bounds_x = 88
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider5: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '5c'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1491,24 +1324,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton5: tbutton
@@ -1528,9 +1350,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1543,26 +1366,34 @@ object equalizerfo: tequalizerfo
       end
     end
     object tstringdisp6: tstringdisp
-      taborder = 5
+      taborder = 4
       bounds_x = 109
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider6: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '1k'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1575,24 +1406,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton6: tbutton
@@ -1612,9 +1432,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1627,26 +1448,34 @@ object equalizerfo: tequalizerfo
       end
     end
     object tstringdisp7: tstringdisp
-      taborder = 6
+      taborder = 5
       bounds_x = 130
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider7: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '2k'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1659,24 +1488,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton7: tbutton
@@ -1696,9 +1514,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1711,26 +1530,34 @@ object equalizerfo: tequalizerfo
       end
     end
     object tstringdisp8: tstringdisp
-      taborder = 7
+      taborder = 6
       bounds_x = 151
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider8: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '4k'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1743,24 +1570,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton8: tbutton
@@ -1780,9 +1596,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1795,26 +1612,34 @@ object equalizerfo: tequalizerfo
       end
     end
     object tstringdisp9: tstringdisp
-      taborder = 8
+      taborder = 7
       bounds_x = 172
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider9: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '8k'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1827,24 +1652,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton9: tbutton
@@ -1864,9 +1678,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1879,26 +1694,34 @@ object equalizerfo: tequalizerfo
       end
     end
     object tstringdisp10: tstringdisp
-      taborder = 9
+      taborder = 8
       bounds_x = 193
-      bounds_y = 26
+      bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 118
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider10: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
         frame.levelo = 0
-        frame.colordkwidth = 0
-        frame.colorhlwidth = 0
+        frame.caption = '16'
+        frame.captionpos = cp_top
         frame.captiondist = 0
-        frame.localprops = [frl_levelo, frl_leveli, frl_colordkwidth, frl_colorhlwidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          2
+          17
+          3
+          0
+        )
         face.localprops = []
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 100
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
         value = 0.5
@@ -1911,24 +1734,13 @@ object equalizerfo: tequalizerfo
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
-        scrollbar.faceendbutton.localprops = []
-        scrollbar.faceendbutton.template = mainfo.tfacecomp4
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
         scrollbar.framebutton.optionsskin = [fso_flat]
         scrollbar.framebutton.colorclient = -2147483645
-        scrollbar.framebutton.localprops = [frl_colorlight, frl_colorhighlight, frl_optionsskin]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.frameendbutton1.optionsskin = [fso_flat]
-        scrollbar.frameendbutton1.colorclient = -2147483645
-        scrollbar.frameendbutton1.colordkwidth = 0
-        scrollbar.frameendbutton1.colorhlwidth = 0
-        scrollbar.frameendbutton1.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton1.localprops1 = []
-        scrollbar.frameendbutton2.optionsskin = [fso_flat]
-        scrollbar.frameendbutton2.colorclient = -2147483645
-        scrollbar.frameendbutton2.colordkwidth = 0
-        scrollbar.frameendbutton2.colorhlwidth = 0
-        scrollbar.frameendbutton2.localprops = [frl_colordkwidth, frl_colorhlwidth, frl_optionsskin]
-        scrollbar.frameendbutton2.localprops1 = []
         direction = gd_up
       end
       object tbutton10: tbutton
@@ -1949,9 +1761,10 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 100
+        bounds_y = 109
         bounds_cx = 21
-        bounds_cy = 12
+        bounds_cy = 14
+        anchors = [an_bottom]
         state = [as_localcaption, as_localhint, as_localonexecute]
         caption = '0'
         textflags = [tf_xcentered, tf_ycentered]
@@ -1963,59 +1776,157 @@ object equalizerfo: tequalizerfo
         onexecute = onexecbut
       end
     end
-    object tlabel3: tlabel
-      color = -2147483645
-      taborder = 10
-      bounds_x = 6
-      bounds_y = 15
-      bounds_cx = 205
-      bounds_cy = 12
-      caption = ' 31   62  125 250 500  1k    2k   4k   8k  16k'
-      font.height = 9
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
-      reffontheight = 12
+    object tstringdisp22: tstringdisp
+      taborder = 9
+      bounds_x = 4
+      bounds_y = 17
+      bounds_cx = 21
+      bounds_cy = 130
+      anchors = [an_left, an_top, an_bottom]
+      reffontheight = 15
+      object tslider1: tslider
+        optionswidget1 = [ow1_autoscale, ow1_noclampinview]
+        color = -2147483645
+        frame.levelo = 0
+        frame.caption = '31'
+        frame.captionpos = cp_top
+        frame.captiondist = 0
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          17
+          0
+          0
+        )
+        face.localprops = []
+        bounds_x = 0
+        bounds_y = 0
+        bounds_cx = 21
+        bounds_cy = 110
+        anchors = [an_top, an_bottom]
+        statfile = mainfo.tstatfile1
+        optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
+        value = 0.5
+        scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
+        scrollbar.buttonlength = 17
+        scrollbar.buttonminlength = -1
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face1.localprops = []
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
+        scrollbar.facebutton.localprops = [fal_image]
+        scrollbar.frame.optionsskin = [fso_flat]
+        scrollbar.frame.localprops = [frl_optionsskin]
+        scrollbar.frame.localprops1 = []
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        direction = gd_up
+      end
+      object tbutton1: tbutton
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_frameimagelist, frl_optionsskin]
+        frame.localprops1 = []
+        face.localprops = []
+        face.template = mainfo.tfacebutltgray
+        taborder = 1
+        hint = ' Reset to 0 gain '
+        bounds_x = 0
+        bounds_y = 109
+        bounds_cx = 21
+        bounds_cy = 14
+        anchors = [an_bottom]
+        state = [as_localcaption, as_localhint, as_localonexecute]
+        caption = '0'
+        textflags = [tf_xcentered, tf_ycentered]
+        captiondist = 0
+        font.color = 3881787
+        font.height = 8
+        font.name = 'stf_default'
+        font.localprops = [flp_color, flp_height]
+        onexecute = onexecbut
+      end
     end
   end
-  object tstringdisp21: tstringdisp
+  object loadset: tbutton
     color = -2147483645
-    frame.levelo = 1
-    frame.colorhighlight = -1610612733
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+    frame.options = [cfo_autoheight]
+    frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.localprops = []
+    face.template = mainfo.tfaceplayer
+    taborder = 3
+    hint = ' Load a Settings file  '
+    bounds_x = 262
+    bounds_y = 1
+    bounds_cx = 62
+    bounds_cy = 17
+    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Load'
+    textflags = [tf_xcentered, tf_ycentered]
+    captiondist = 0
+    font.name = 'stf_default'
+    font.localprops = []
+    onexecute = loadlist
+  end
+  object saveset: tbutton
+    color = -2147483645
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    face.localprops = []
+    face.template = mainfo.tfaceplayer
+    taborder = 4
+    hint = ' Save Settings in a file '
+    bounds_x = 330
+    bounds_y = 1
+    bounds_cx = 62
+    bounds_cy = 17
+    state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+    caption = 'Save'
+    textflags = [tf_xcentered, tf_ycentered]
+    captiondist = 0
+    font.name = 'stf_default'
+    font.localprops = []
+    onexecute = savelist
+  end
+  object EQEN: tbooleanedit
+    color = -2147483645
+    frame.levelo = 0
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.caption = 'Equalizer Player 1'
+    frame.font.name = 'stf_default'
+    frame.font.localprops = []
+    frame.localprops = [frl_levelo, frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      0
+      2
+      110
+      3
+    )
     face.localprops = []
     face.template = mainfo.tfaceplayer
     taborder = 5
-    hint = 'Ebable Equalizer'
-    bounds_x = 80
-    bounds_y = 0
-    bounds_cx = 114
+    hint = 'Enable Equalizer'
+    bounds_x = 71
+    bounds_y = 2
+    bounds_cx = 123
     bounds_cy = 17
-    textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 15
-    object EQEN: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.caption = 'Equalizer Player 1'
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        0
-        2
-        110
-        3
-      )
-      face.localprops = []
-      face.template = mainfo.tfaceplayer
-      hint = 'Enable Equalizer'
-      bounds_x = 0
-      bounds_y = -1
-      bounds_cx = 123
-      bounds_cy = 17
-      statfile = mainfo.tstatfile1
-      onchange = changenab
-      colorglyph = -1610612728
-    end
+    statfile = mainfo.tstatfile1
+    onchange = changenab
+    colorglyph = -1610612728
   end
 end
