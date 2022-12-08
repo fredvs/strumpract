@@ -80,18 +80,18 @@ type
     bogg: tbooleaneditradio;
     bsavetofile: tbooleanedit;
     tgroupbox3: tgroupbox;
-    cbtempo: tbooleanedit;
-    edtempo: trealspinedit;
-    button1: TButton;
+    hintpanel: tgroupbox;
+    hintlabel: tlabel;
+    hintlabel2: tlabel;
     btnStop: TButton;
     btnPause: TButton;
     btnResume: TButton;
     btnStart: TButton;
+    button1: TButton;
+    edtempo: trealspinedit;
     sentcue1: tbooleanedit;
+    cbtempo: tbooleanedit;
     cbloop: tbooleanedit;
-    hintpanel: tgroupbox;
-    hintlabel: tlabel;
-    hintlabel2: tlabel;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -127,6 +127,8 @@ type
     procedure onex(const Sender: TObject);
     procedure onchangesave(const Sender: TObject);
     procedure oneventloop(const Sender: TObject);
+    procedure resizere(fontheight: integer);
+
   end;
 
   equalizer_band_type = record
@@ -169,6 +171,67 @@ uses
   imagedancer,
   recorder_mfm;
 
+var
+  boundchildre: array of boundchild;
+
+procedure trecorderfo.resizere(fontheight: integer);
+var
+  i1, i2: integer;
+  ratio: double;
+begin
+  ratio        := fontheight / 12;
+  bounds_cxmax := 0;
+  bounds_cxmin := 0;
+  bounds_cymax := 0;
+  bounds_cymin := 0;
+  bounds_cxmax := round(442 * ratio);
+  bounds_cxmin := bounds_cxmax;
+  bounds_cymax := round(128 * ratio);
+  bounds_cymin := bounds_cymax;
+  font.Height  := fontheight;
+
+  tgroupbox1.font.Height := fontheight;
+  frame.grip_size        := round(8 * ratio);
+
+  edtempo.frame.buttonsize := round(22 * ratio);
+  edvol.frame.buttonsize   := round(22 * ratio);
+  edvolr.frame.buttonsize  := round(22 * ratio);
+
+  with tgroupbox1 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildre) - 1 do
+        if children[i1].Name = boundchildre[i2].Name then
+        begin
+          children[i1].left   := round(boundchildre[i2].left * ratio);
+          children[i1].top    := round(boundchildre[i2].top * ratio);
+          children[i1].Width  := round(boundchildre[i2].Width * ratio);
+          children[i1].Height := round(boundchildre[i2].Height * ratio);
+        end;
+
+  with tgroupbox2 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildre) - 1 do
+        if children[i1].Name = boundchildre[i2].Name then
+        begin
+          children[i1].left   := round(boundchildre[i2].left * ratio);
+          children[i1].top    := round(boundchildre[i2].top * ratio);
+          children[i1].Width  := round(boundchildre[i2].Width * ratio);
+          children[i1].Height := round(boundchildre[i2].Height * ratio);
+        end;
+
+  with tgroupbox3 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildre) - 1 do
+        if children[i1].Name = boundchildre[i2].Name then
+        begin
+          children[i1].left   := round(boundchildre[i2].left * ratio);
+          children[i1].top    := round(boundchildre[i2].top * ratio);
+          children[i1].Width  := round(boundchildre[i2].Width * ratio);
+          children[i1].Height := round(boundchildre[i2].Height * ratio);
+        end;
+
+end;
+
 procedure trecorderfo.InitDrawLive();
 const
   transpcolor = $FFF0F0;
@@ -208,27 +271,14 @@ begin
 
   poswavrec.x  := xreclive;
   poswavrec2.x := poswavrec.x;
-
-
-  //  poswav2.y := ((arect.cy div 2) - 2) - round((waveformdataform1[poswav.x * 2]) * ((wavefo.trackbar1.Height div 2) - 3));
-
   poswavrec.y  := (waveforec.trackbar1.Height div 2) - 2;
   poswavrec2.y := ((rectrecform.cy div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
-
-  // if mainfo.typecolor.Value = 0 then
   waveforec.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC99D6);
-  //  else
-  //    canvas.drawline(poswav, poswav2, $6A6A6A);
 
   poswavrec.y := (waveforec.trackbar1.Height div 2);
 
   poswavrec2.y := poswavrec.y + (round((rv) * ((waveforec.trackbar1.Height div 2) - 3)));
-
-  //  if mainfo.typecolor.Value = 0 then
   waveforec.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
-  //  else
-  //    canvas.drawline(poswav, poswav2, $8A8A8A);
-
 
   xreclive := xreclive + 1;
 
@@ -718,16 +768,74 @@ begin
 end;
 
 procedure trecorderfo.onplayercreate(const Sender: TObject);
+var
+  i1, childn: integer;
 begin
   windowopacity := 0;
 
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
+  setlength(boundchildre, childrencount);
+
+  childn := childrencount;
+
+  for i1 := 0 to childrencount - 1 do
+  begin
+    boundchildre[i1].left   := children[i1].left;
+    boundchildre[i1].top    := children[i1].top;
+    boundchildre[i1].Width  := children[i1].Width;
+    boundchildre[i1].Height := children[i1].Height;
+    boundchildre[i1].Name   := children[i1].Name;
+  end;
+
+  with tgroupbox1 do
+  begin
+    setlength(boundchildre, length(boundchildre) + tgroupbox1.childrencount);
+
+    for i1 := 0 to tgroupbox1.childrencount - 1 do
+    begin
+      boundchildre[i1 + childn].left   := children[i1].left;
+      boundchildre[i1 + childn].top    := children[i1].top;
+      boundchildre[i1 + childn].Width  := children[i1].Width;
+      boundchildre[i1 + childn].Height := children[i1].Height;
+      boundchildre[i1 + childn].Name   := children[i1].Name;
+    end;
+    childn := length(boundchildre);
+  end;
+
+  with tgroupbox2 do
+  begin
+    setlength(boundchildre, length(boundchildre) + tgroupbox2.childrencount);
+
+    for i1 := 0 to tgroupbox2.childrencount - 1 do
+    begin
+      boundchildre[i1 + childn].left   := children[i1].left;
+      boundchildre[i1 + childn].top    := children[i1].top;
+      boundchildre[i1 + childn].Width  := children[i1].Width;
+      boundchildre[i1 + childn].Height := children[i1].Height;
+      boundchildre[i1 + childn].Name   := children[i1].Name;
+    end;
+    childn := length(boundchildre);
+  end;
+
+  with tgroupbox3 do
+  begin
+    setlength(boundchildre, length(boundchildre) + tgroupbox3.childrencount);
+
+    for i1 := 0 to tgroupbox3.childrencount - 1 do
+    begin
+      boundchildre[i1 + childn].left   := children[i1].left;
+      boundchildre[i1 + childn].top    := children[i1].top;
+      boundchildre[i1 + childn].Width  := children[i1].Width;
+      boundchildre[i1 + childn].Height := children[i1].Height;
+      boundchildre[i1 + childn].Name   := children[i1].Name;
+    end;
+    childn := length(boundchildre);
+  end;
 
   setlength(arrecl, 10);
   setlength(arrecr, 10);
-
 
   Caption           := 'Recorder';
   Timerwait         := ttimer.Create(nil);
@@ -993,6 +1101,7 @@ end;
 
 procedure trecorderfo.oncreated(const Sender: TObject);
 begin
+
   if devin < 0 then
   begin
     tbutton3.Enabled := False;
@@ -1101,6 +1210,8 @@ end;
 
 procedure trecorderfo.oneventloop(const Sender: TObject);
 begin
+  resizere(fontheightused);
+
   if plugsoundtouch = False then
   begin
     edtempo.Enabled := False;

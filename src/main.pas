@@ -261,6 +261,7 @@ begin
   pianofo.resizepi(fontval);
   filelistfo.resizefi(fontval);
   guitarsfo.resizegu(fontval);
+  recorderfo.resizere(fontval);
 
   resizema(fontval);
 

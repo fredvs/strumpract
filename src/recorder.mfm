@@ -139,6 +139,9 @@ object recorderfo: trecorderfo
     bounds_y = 0
     bounds_cx = 434
     bounds_cy = 128
+    anchors = []
+    font.name = 'stf_default'
+    font.localprops = []
     object tbutton2: tbutton
       color = -2147483645
       frame.localprops = [frl_optionsskin]
@@ -559,6 +562,8 @@ object recorderfo: trecorderfo
       bounds_y = 25
       bounds_cx = 61
       bounds_cy = 69
+      font.name = 'stf_default'
+      font.localprops = []
       object bwav: tbooleaneditradio
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
         frame.caption = 'wav'
@@ -647,241 +652,242 @@ object recorderfo: trecorderfo
         0
       )
       taborder = 16
-      bounds_x = 287
-      bounds_y = 24
-      bounds_cx = 145
-      bounds_cy = 98
+      bounds_x = 285
+      bounds_y = 25
+      bounds_cx = 147
+      bounds_cy = 99
+      font.name = 'stf_default'
+      font.localprops = []
+      object btnStop: tbutton
+        color = -2147483645
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_optionsskin]
+        frame.localprops1 = []
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+        face.template = tfacerecorder
+        hint = ' Stop player '
+        bounds_x = 113
+        bounds_y = 64
+        bounds_cx = 30
+        bounds_cy = 30
+        state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+        imagelist = mainfo.buttonicons
+        imagenr = 2
+        focusrectdist = 0
+        onexecute = doplayerstop
+      end
+      object btnPause: tbutton
+        color = -2147483645
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_optionsskin]
+        frame.localprops1 = []
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+        face.template = tfacerecorder
+        taborder = 1
+        hint = ' Pause player '
+        bounds_x = 41
+        bounds_y = 64
+        bounds_cx = 30
+        bounds_cy = 30
+        state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+        imagelist = mainfo.buttonicons
+        imagenr = 1
+        focusrectdist = 0
+        onexecute = doplayerpause
+      end
+      object btnResume: tbutton
+        color = -2147483645
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_optionsskin]
+        frame.localprops1 = []
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+        face.template = tfacerecorder
+        taborder = 2
+        hint = ' Resume player '
+        bounds_x = 77
+        bounds_y = 64
+        bounds_cx = 30
+        bounds_cy = 30
+        state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+        imagelist = mainfo.buttonicons
+        imagenr = 28
+        focusrectdist = 0
+        onexecute = doplayeresume
+      end
+      object btnStart: tbutton
+        color = -2147483645
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_optionsskin]
+        frame.localprops1 = []
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+        face.template = tfacerecorder
+        taborder = 3
+        hint = ' Start player '
+        bounds_x = 5
+        bounds_y = 64
+        bounds_cx = 30
+        bounds_cy = 30
+        state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+        imagelist = mainfo.buttonicons
+        imagenr = 27
+        focusrectdist = 0
+        onexecute = doplayerstart
+      end
+      object button1: tbutton
+        Tag = 1
+        color = -2147483645
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_optionsskin]
+        frame.localprops1 = []
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
+        face.template = tfacerecorder
+        taborder = 4
+        hint = ' Reset to tempo original '
+        bounds_x = 78
+        bounds_y = 44
+        bounds_cx = 60
+        bounds_cy = 15
+        state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+        caption = 'Reset'
+        font.height = 11
+        font.name = 'stf_default'
+        font.localprops = [flp_height]
+        imagenr = 27
+        focusrectdist = 0
+        onexecute = onreset
+      end
+      object edtempo: trealspinedit
+        Tag = 9
+        color = -2147483645
+        frame.levelo = 0
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16515040
+        frame.framei_left = 0
+        frame.framei_top = 0
+        frame.framei_right = 0
+        frame.framei_bottom = 0
+        frame.optionsskin = [fso_flat]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = []
+        frame.buttonface.fade_direction = gd_down
+        frame.buttonface.localprops = [fal_fadirection]
+        frame.buttonface.template = tfacerecorder
+        frame.buttonframe.optionsskin = [fso_flat]
+        frame.buttonframe.colorclient = -2147483645
+        frame.buttonframe.localprops = [frl_optionsskin]
+        frame.buttonframe.localprops1 = []
+        frame.buttonsize = 30
+        face.localprops = []
+        face.template = tfacerecrev
+        taborder = 5
+        hint = ' Change tempo of song '
+        bounds_x = 76
+        bounds_y = 12
+        bounds_cx = 62
+        bounds_cy = 28
+        onchange = ChangePlugSetSoundTouch
+        onsetvalue = onsetvalvol
+        value = 1
+        valuedefault = 1
+        valuerange = 1
+        valuemin = -Inf
+        valuemax = 10
+        step = 0.05
+        wheelsensitivity = 1
+        reffontheight = 15
+      end
+      object sentcue1: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'Cue1'
+        frame.captionpos = cp_left
+        frame.captiondist = 3
+        frame.font.color = 2368548
+        frame.font.height = 11
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          34
+          2
+          0
+          2
+        )
+        face.localprops = []
+        face.template = tfacereclight
+        taborder = 6
+        hint = ' Sent saved record to Player 1 '
+        bounds_x = 12
+        bounds_y = 28
+        bounds_cx = 47
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+      end
+      object cbtempo: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'Strech'
+        frame.captionpos = cp_left
+        frame.captiondist = 3
+        frame.font.color = 2368548
+        frame.font.height = 11
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          41
+          2
+          0
+          2
+        )
+        face.localprops = []
+        face.template = tfacereclight
+        taborder = 7
+        hint = ' Enable stretching (changing temo) '
+        bounds_x = 5
+        bounds_y = 15
+        bounds_cx = 54
+        bounds_cy = 16
+        onchange = ChangePlugSetSoundTouch
+      end
+      object cbloop: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'Loop'
+        frame.captionpos = cp_left
+        frame.font.color = 2368548
+        frame.font.height = 11
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          30
+          1
+          0
+          1
+        )
+        face.localprops = []
+        face.template = tfacereclight
+        taborder = 8
+        hint = ' Enable looping the song '
+        bounds_x = 14
+        bounds_y = 43
+        bounds_cx = 45
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+      end
     end
-  end
-  object cbtempo: tbooleanedit
-    color = -2147483645
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.colorclient = 16580582
-    frame.caption = 'Strech'
-    frame.captionpos = cp_left
-    frame.captiondist = 3
-    frame.font.color = 2368548
-    frame.font.height = 11
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color, flp_height]
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist]
-    frame.outerframe = (
-      41
-      2
-      0
-      2
-    )
-    face.localprops = []
-    face.template = tfacereclight
-    taborder = 1
-    hint = ' Enable stretching (changing temo) '
-    bounds_x = 297
-    bounds_y = 56
-    bounds_cx = 54
-    bounds_cy = 16
-    onchange = ChangePlugSetSoundTouch
-  end
-  object edtempo: trealspinedit
-    Tag = 9
-    color = -2147483645
-    frame.levelo = 0
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.colorclient = 16515040
-    frame.framei_left = 0
-    frame.framei_top = 0
-    frame.framei_right = 0
-    frame.framei_bottom = 0
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = []
-    frame.buttonface.fade_direction = gd_down
-    frame.buttonface.localprops = [fal_fadirection]
-    frame.buttonface.template = tfacerecorder
-    frame.buttonframe.optionsskin = [fso_flat]
-    frame.buttonframe.colorclient = -2147483645
-    frame.buttonframe.localprops = [frl_optionsskin]
-    frame.buttonframe.localprops1 = []
-    frame.buttonsize = 30
-    face.localprops = []
-    face.template = tfacerecrev
-    taborder = 2
-    hint = ' Change tempo of song '
-    bounds_x = 363
-    bounds_y = 37
-    bounds_cx = 62
-    bounds_cy = 28
-    onchange = ChangePlugSetSoundTouch
-    onsetvalue = onsetvalvol
-    value = 1
-    valuedefault = 1
-    valuerange = 1
-    valuemin = -Inf
-    valuemax = 10
-    step = 0.05
-    wheelsensitivity = 1
-    reffontheight = 15
-  end
-  object button1: tbutton
-    Tag = 1
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    face.template = tfacerecorder
-    taborder = 3
-    hint = ' Reset to tempo original '
-    bounds_x = 365
-    bounds_y = 69
-    bounds_cx = 60
-    bounds_cy = 15
-    state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-    caption = 'Reset'
-    font.height = 11
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    imagenr = 27
-    focusrectdist = 0
-    onexecute = onreset
-  end
-  object btnStop: tbutton
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    face.template = tfacerecorder
-    taborder = 4
-    hint = ' Stop player '
-    bounds_x = 393
-    bounds_y = 91
-    bounds_cx = 30
-    bounds_cy = 30
-    state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-    imagelist = mainfo.buttonicons
-    imagenr = 2
-    focusrectdist = 0
-    onexecute = doplayerstop
-  end
-  object btnPause: tbutton
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    face.template = tfacerecorder
-    taborder = 5
-    hint = ' Pause player '
-    bounds_x = 362
-    bounds_y = 91
-    bounds_cx = 30
-    bounds_cy = 30
-    state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-    imagelist = mainfo.buttonicons
-    imagenr = 1
-    focusrectdist = 0
-    onexecute = doplayerpause
-  end
-  object btnResume: tbutton
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    face.template = tfacerecorder
-    taborder = 6
-    hint = ' Resume player '
-    bounds_x = 331
-    bounds_y = 91
-    bounds_cx = 30
-    bounds_cy = 30
-    state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-    imagelist = mainfo.buttonicons
-    imagenr = 28
-    focusrectdist = 0
-    onexecute = doplayeresume
-  end
-  object btnStart: tbutton
-    color = -2147483645
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    face.template = tfacerecorder
-    taborder = 7
-    hint = ' Start player '
-    bounds_x = 300
-    bounds_y = 91
-    bounds_cx = 30
-    bounds_cy = 30
-    state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-    imagelist = mainfo.buttonicons
-    imagenr = 27
-    focusrectdist = 0
-    onexecute = doplayerstart
-  end
-  object sentcue1: tbooleanedit
-    color = -2147483645
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.colorclient = 16580582
-    frame.caption = 'Cue1'
-    frame.captionpos = cp_left
-    frame.captiondist = 3
-    frame.font.color = 2368548
-    frame.font.height = 11
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color, flp_height]
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist]
-    frame.outerframe = (
-      34
-      2
-      0
-      2
-    )
-    face.localprops = []
-    face.template = tfacereclight
-    taborder = 8
-    hint = ' Sent saved record to Player 1 '
-    bounds_x = 298
-    bounds_y = 72
-    bounds_cx = 47
-    bounds_cy = 16
-    statfile = mainfo.tstatfile1
-  end
-  object cbloop: tbooleanedit
-    color = -2147483645
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.colorclient = 16580582
-    frame.caption = 'Loop'
-    frame.captionpos = cp_left
-    frame.font.color = 2368548
-    frame.font.height = 11
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color, flp_height]
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist]
-    frame.outerframe = (
-      30
-      1
-      0
-      1
-    )
-    face.localprops = []
-    face.template = tfacereclight
-    taborder = 9
-    hint = ' Enable looping the song '
-    bounds_x = 297
-    bounds_y = 39
-    bounds_cx = 45
-    bounds_cy = 16
-    statfile = mainfo.tstatfile1
   end
   object hintpanel: tgroupbox
     color = -2147483645
@@ -894,10 +900,10 @@ object recorderfo: trecorderfo
     frame.localprops1 = []
     face.localprops = []
     face.template = commanderfo.tfaceorange
-    taborder = 10
+    taborder = 1
     visible = False
-    bounds_x = 121
-    bounds_y = 37
+    bounds_x = 201
+    bounds_y = 25
     bounds_cx = 221
     bounds_cy = 52
     font.name = 'stf_default'
