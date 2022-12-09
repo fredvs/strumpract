@@ -807,15 +807,18 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
+modulenames=3
  EQUALIZERFO
  FILELISTFO
-moduletypes=2
+ INFOSDFO
+moduletypes=3
  TEQUALIZERFO
  TFILELISTFO
-modulefiles=2
+ TINFOSDFO
+modulefiles=3
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/filelistform.mfm
+ /home/fred/strumpract/src/infosd.mfm
 befcommandon=0
 makeoptionson=17
  4095
@@ -1622,31 +1625,36 @@ findhistory=20
  config
  configfo
 findoptions=1
-editpos=4
+editpos=5
  0,0
- 0,64
+ 0,948
  0,-1073741823
  0,58
+ 0,6
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
-sourcefiles=4
+bookmarks4=0
+sourcefiles=5
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/equalizer.pas
  /home/fred/mseide-msegui/lib/common/kernel/msescrollbar.pas
-relpaths=4
+ ${PROJECTDIR}/infosd.pas
+relpaths=5
  strumpract.pas
  filelistform.pas
  equalizer.pas
  ../mseide-msegui/lib/common/kernel/msescrollbar.pas
-ismoduletexts=4
+ infosd.pas
+ismoduletexts=5
  0
  0
  0
  0
-modules=7
+ 0
+modules=8
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
@@ -1654,7 +1662,8 @@ modules=7
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/filelistform.mfm
  /home/fred/strumpract/src/equalizer.mfm
-moduleoptions=7
+ /home/fred/strumpract/src/infosd.mfm
+moduleoptions=8
  0
  2
  0
@@ -1662,7 +1671,8 @@ moduleoptions=7
  0
  0
  0
-visiblemodules=7
+ 0
+visiblemodules=8
  0
  0
  0
@@ -1670,24 +1680,27 @@ visiblemodules=7
  0
  -1
  -1
-nomenumodules=7
+ -1
+nomenumodules=8
  -1
  -1
  -1
  -1
  -1
+ 0
  0
  0
 [sourcefo.files_tab]
-order=4
+order=5
  0
  1
+ 4
  3
  2
 firsttab=0
-index=1
+index=2
 [layout]
-windowlayout=666
+windowlayout=684
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2145,11 +2158,9 @@ windowlayout=666
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/filelistform.pas
- history=8
-  /home/fred/strumpract/src/equalizer.pas
-  /home/fred/strumpract/src/filelistform.pas
-  /home/fred/strumpract/src/strumpract.pas
+ value=/home/fred/strumpract/src/infosd.pas
+ history=6
+  /home/fred/strumpract/src/uos_define.inc
   /home/fred/strumpract/src/config.pas
   /home/fred/strumpractcopy5/src/infosd.pas
   /home/fred/strumpractcopy5/src/synthe.pas
@@ -2176,13 +2187,14 @@ windowlayout=666
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=4
+ order=5
   0
   1
+  4
   3
   2
  firsttab=0
- index=1
+ index=2
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2319,7 +2331,7 @@ windowlayout=666
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2349,6 +2361,25 @@ windowlayout=666
  y=59
  cx=452
  cy=142
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_infosdfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=172
+ y=166
+ cx=452
+ cy=226
  rcx=0
  rcy=0
  wsize=0

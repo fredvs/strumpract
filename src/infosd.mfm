@@ -285,6 +285,7 @@ object infosdfo: tinfosdfo
     reffontheight = 15
   end
   object infocom: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Comment'
     frame.captiondist = -3
@@ -300,16 +301,18 @@ object infosdfo: tinfosdfo
       0
     )
     taborder = 8
-    bounds_x = 2
+    bounds_x = 4
     bounds_y = 129
-    bounds_cx = 128
+    bounds_cx = 425
     bounds_cy = 27
+    anchors = [an_left, an_top, an_right]
     caption = '                                '
     font.name = 'stf_default'
     font.localprops = []
     reffontheight = 15
   end
   object infoalbum: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Album'
     frame.captiondist = -3
@@ -327,14 +330,16 @@ object infosdfo: tinfosdfo
     taborder = 9
     bounds_x = 4
     bounds_y = 99
-    bounds_cx = 128
+    bounds_cx = 425
     bounds_cy = 27
+    anchors = [an_left, an_top, an_right]
     caption = '                                '
     font.name = 'stf_default'
     font.localprops = []
     reffontheight = 15
   end
   object infoartist: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Artist'
     frame.captiondist = -3
@@ -352,14 +357,16 @@ object infosdfo: tinfosdfo
     taborder = 10
     bounds_x = 4
     bounds_y = 68
-    bounds_cx = 128
+    bounds_cx = 425
     bounds_cy = 27
+    anchors = [an_left, an_top, an_right]
     caption = '                                '
     font.name = 'stf_default'
     font.localprops = []
     reffontheight = 15
   end
   object infoname: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'Title'
     frame.captiondist = -3
@@ -377,14 +384,16 @@ object infosdfo: tinfosdfo
     taborder = 11
     bounds_x = 4
     bounds_y = 37
-    bounds_cx = 128
+    bounds_cx = 425
     bounds_cy = 27
+    anchors = [an_left, an_top, an_right]
     caption = '                                '
     font.name = 'stf_default'
     font.localprops = []
     reffontheight = 15
   end
   object infofile: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
     frame.caption = 'File Name'
     frame.captiondist = -3
@@ -399,8 +408,9 @@ object infosdfo: tinfosdfo
     taborder = 12
     bounds_x = 4
     bounds_y = 5
-    bounds_cx = 128
+    bounds_cx = 420
     bounds_cy = 29
+    anchors = [an_left, an_top, an_right]
     caption = '                                '
     font.name = 'stf_default'
     font.localprops = []
