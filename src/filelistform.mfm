@@ -399,6 +399,7 @@ object filelistfo: tfilelistfo
       frame.sbvert.face1.template = mainfo.tfacebutltgray
       frame.sbvert.facebutton.localprops = []
       frame.sbvert.facebutton.template = mainfo.tfacebutgray
+      frame.sbvert.onafterevent = onafterscroll
       frame.sbhorz.options = []
       frame.sbhorz.width = 0
       frame.localprops = [frl_levelo, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -406,7 +407,6 @@ object filelistfo: tfilelistfo
       face.localprops = []
       face.template = mainfo.tfacebutgray
       hint = 'To move a row: click+hold into the fixed column and drag the row where you want.'
-      onafterpaint = onpaintback
       bounds_x = 0
       bounds_y = 0
       bounds_cx = 434

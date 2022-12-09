@@ -1201,7 +1201,7 @@ line=36
  209
  1136
  6155
- 446
+ 447
  5
  853
  1518
@@ -1622,22 +1622,27 @@ findhistory=20
  config
  configfo
 findoptions=1
-editpos=3
+editpos=4
  0,0
+ 0,64
  0,-1073741823
- 0,178
+ 0,58
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
-sourcefiles=3
+bookmarks3=0
+sourcefiles=4
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/filelistform.pas
  ${PROJECTDIR}/equalizer.pas
-relpaths=3
+ /home/fred/mseide-msegui/lib/common/kernel/msescrollbar.pas
+relpaths=4
  strumpract.pas
  filelistform.pas
  equalizer.pas
-ismoduletexts=3
+ ../mseide-msegui/lib/common/kernel/msescrollbar.pas
+ismoduletexts=4
+ 0
  0
  0
  0
@@ -1674,14 +1679,15 @@ nomenumodules=7
  0
  0
 [sourcefo.files_tab]
-order=3
+order=4
  0
- 2
  1
+ 3
+ 2
 firsttab=0
 index=1
 [layout]
-windowlayout=664
+windowlayout=666
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1837,7 +1843,7 @@ windowlayout=664
  sorted=0
  col=0
  row=4
- rowheight=16
+ rowheight=17
  [stackfo]
  splitdir=0
  useroptions=268460137
@@ -1915,10 +1921,10 @@ windowlayout=664
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=449
- width0=199
+ propcolwidthref=436
+ width0=193
  sortdescend0=0
- width1=244
+ width1=237
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2012,7 +2018,7 @@ windowlayout=664
  ncy=0
  x=0
  y=524
- cx=1212
+ cx=1214
  cy=76
  rcx=0
  rcy=0
@@ -2082,7 +2088,7 @@ windowlayout=664
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2112,7 +2118,7 @@ windowlayout=664
  ncy=0
  x=0
  y=0
- cx=1212
+ cx=1214
  cy=54
  rcx=0
  rcy=0
@@ -2128,7 +2134,7 @@ windowlayout=664
  ncy=61
  x=0
  y=0
- cx=1212
+ cx=1214
  cy=61
  rcx=0
  rcy=0
@@ -2139,8 +2145,9 @@ windowlayout=664
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/equalizer.pas
- history=7
+ value=/home/fred/strumpract/src/filelistform.pas
+ history=8
+  /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/config.pas
@@ -2164,15 +2171,16 @@ windowlayout=664
  ncy=0
  x=208
  y=0
- cx=1004
+ cx=1006
  cy=464
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=3
+ order=4
   0
-  2
   1
+  3
+  2
  firsttab=0
  index=1
  [confideufo.usedefaulteditoroptions]
@@ -2209,7 +2217,7 @@ windowlayout=664
  ncy=0
  x=0
  y=57
- cx=1212
+ cx=1214
  cy=464
  rcx=0
  rcy=0
@@ -2292,7 +2300,7 @@ windowlayout=664
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2311,7 +2319,7 @@ windowlayout=664
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2330,7 +2338,7 @@ windowlayout=664
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0

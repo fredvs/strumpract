@@ -61,8 +61,9 @@ type
     procedure onactiv(const Sender: TObject);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure resizefi(fontheight: integer);
-    procedure onpaintback(const sender: twidget; const acanvas: tcanvas);
     procedure timrefresh(const sender: TObject);
+    procedure onafterscroll(const sender: tcustomscrollbar;
+                   const akind: scrolleventty; const avalue: Real);
   end;
 
 var
@@ -939,19 +940,6 @@ begin
     mainfo.ttimer2.Enabled := True;
 end;
 
-
-procedure tfilelistfo.onpaintback(const sender: twidget;
-               const acanvas: tcanvas);
-begin
-if fontheightused <> 12 then
-begin
- if ttimer1.Enabled then
-      ttimer1.restart // to reset
-    else
-      ttimer1.Enabled := True;
-end;      
-end;
-
 procedure tfilelistfo.timrefresh(const sender: TObject);
 var
 x : integer;
@@ -959,6 +947,20 @@ begin
 // force refresh
  for x := 0 to list_files.rowcount - 1 do
   list_files.rowfontstate[x] := list_files.rowfontstate[x];
+end;
+
+procedure tfilelistfo.onafterscroll(const sender: tcustomscrollbar;
+               const akind: scrolleventty; const avalue: Real);
+begin
+if fontheightused <> 12 then
+begin
+timrefresh(sender);
+
+ if ttimer1.Enabled then
+      ttimer1.restart // to reset
+    else
+      ttimer1.Enabled := True;
+end;   
 end;
 
 end.
