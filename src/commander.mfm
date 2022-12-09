@@ -22,6 +22,8 @@ object commanderfo: tcommanderfo
   bounds_cymax = 128
   container.frame.localprops = []
   container.frame.localprops1 = []
+  container.frame.sbhorz.options = []
+  container.frame.sbvert.options = []
   container.bounds = (
     0
     0

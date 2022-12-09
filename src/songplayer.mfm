@@ -25,9 +25,9 @@ object songplayerfo: tsongplayerfo
   container.frame.framei_bottom = 0
   container.frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
   container.frame.localprops1 = []
-  container.frame.sbhorz.options = [sbo_moveauto, sbo_showauto]
+  container.frame.sbhorz.options = []
   container.frame.sbhorz.width = 0
-  container.frame.sbvert.options = [sbo_moveauto, sbo_showauto]
+  container.frame.sbvert.options = []
   container.frame.sbvert.width = 0
   container.face.localprops = []
   container.face.template = mainfo.tfaceplayer
@@ -675,8 +675,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 24
       visible = False
-      bounds_x = 113
-      bounds_y = 17
+      bounds_x = 107
+      bounds_y = 55
       bounds_cx = 221
       bounds_cy = 41
       object hintlabel: tlabel
@@ -943,8 +943,8 @@ object songplayerfo: tsongplayerfo
   object tfacebuttonslider: tfacecomp
     template.fade_direction = gd_down
     template.onafterpaint = faceafterpaintbut
-    left = 280
-    top = 23
+    left = 281
+    top = 40
   end
   object sliderimage: tbitmapcomp
     left = 266

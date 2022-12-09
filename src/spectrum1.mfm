@@ -22,6 +22,8 @@ object spectrum1fo: tspectrum1fo
   container.color = -2147483645
   container.frame.localprops = []
   container.frame.localprops1 = []
+  container.frame.sbhorz.options = []
+  container.frame.sbvert.options = []
   container.face.localprops = []
   container.face.template = mainfo.tfaceplayer
   container.bounds = (

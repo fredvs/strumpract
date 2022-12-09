@@ -24,6 +24,8 @@ object recorderfo: trecorderfo
   container.frame.framei_bottom = 0
   container.frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
   container.frame.localprops1 = []
+  container.frame.sbhorz.options = []
+  container.frame.sbvert.options = []
   container.bounds = (
     0
     0

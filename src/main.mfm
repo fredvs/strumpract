@@ -237,7 +237,7 @@ object mainfo: tmainfo
     itemframetemplate = tframecomp1
     itemfacetemplate = tfacebutgray
     itemfacetemplateactive = tfacebutgray
-    menu.submenu.count = 12
+    menu.submenu.count = 11
     menu.submenu.items = <    
       item
         caption = '&V'
@@ -773,9 +773,6 @@ object mainfo: tmainfo
         name = 'about'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = onabout
-      end    
-      item
-        options = [mao_separator, mao_shortcutcaption]
       end    
       item
         caption = '&Quit'
