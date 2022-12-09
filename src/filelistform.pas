@@ -956,7 +956,6 @@ procedure tfilelistfo.timrefresh(const sender: TObject);
 var
 x : integer;
 begin
- if mainfo.typecolor.Value <> 2 then
  for x := 0 to list_files.rowcount - 1 do
   list_files.rowfontstate[x] := 0;
 end;
