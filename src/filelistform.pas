@@ -6,50 +6,13 @@ unit filelistform;
 interface
 
 uses
- {$ifdef unix}baseunix,{$endif}Math,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  msetimer,
-  mseapplication,
-  msestat,
-  msemenus,
-  msefileutils,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  msedatalist,
-  mseclasses,
-  msegridsglob,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  mclasses,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist;
+ {$ifdef unix}baseunix,{$endif}Math,msetypes,mseglob,mseguiglob,mseguiintf,
+ msetimer,mseapplication,msestat,msemenus,msefileutils,msegui,msegraphics,
+ msegraphutils,mseevent,msedatalist,mseclasses,msegridsglob,mseforms,msedock,
+ msedragglob,msesimplewidgets,mclasses,msewidgets,mseact,msebitmap,msedataedits,
+ msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
+ mseifiglob,mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,
+ msegraphedits,msescrollbar,msedispwidgets,mserichstring,msedropdownlist;
 
 type
   tfilelistfo = class(tdockform)
@@ -71,6 +34,7 @@ type
     tbutton6: TButton;
     tfiledialog1: tfiledialogx;
     tbutton11: TButton;
+   ttimer1: ttimer;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
@@ -97,6 +61,8 @@ type
     procedure onactiv(const Sender: TObject);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure resizefi(fontheight: integer);
+    procedure onpaintback(const sender: twidget; const acanvas: tcanvas);
+    procedure timrefresh(const sender: TObject);
   end;
 
 var
@@ -140,7 +106,7 @@ begin
   frame.grip_size := round(8 * ratio);
   fowidthf        := round(442 * ratio);
   list_files[0].Width :=
-    round(list_files.Width - 16 - list_files.fixcols[-1].Width - list_files[1].Width - list_files[2].Width -
+    round(list_files.Width - frame.grip_size - list_files.fixcols[-1].Width - list_files[1].Width - list_files[2].Width -
     list_files[3].Width - list_files[4].Width);
 
 end;
@@ -971,6 +937,28 @@ begin
     mainfo.ttimer2.restart // to reset
   else
     mainfo.ttimer2.Enabled := True;
+end;
+
+
+procedure tfilelistfo.onpaintback(const sender: twidget;
+               const acanvas: tcanvas);
+begin
+if fontheightused <> 12 then
+begin
+ if ttimer1.Enabled then
+      ttimer1.restart // to reset
+    else
+      ttimer1.Enabled := True;
+end;      
+end;
+
+procedure tfilelistfo.timrefresh(const sender: TObject);
+var
+x : integer;
+begin
+ if mainfo.typecolor.Value <> 2 then
+ for x := 0 to list_files.rowcount - 1 do
+  list_files.rowfontstate[x] := 0;
 end;
 
 end.
