@@ -155,7 +155,6 @@ type
     Text: string[10];
   end;
 
-
 var
   theinc: integer = 0;
   Equalizer_Bands: array[1..10] of equalizer_band_type;

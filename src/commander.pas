@@ -5,47 +5,13 @@ interface
 
 uses
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,
- {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  Math,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  msefileutils,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  mseimage;
+ {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,mseglob,mseguiglob,
+ mseguiintf,mseapplication,msestat,msemenus,Math,msegui,msetimer,msegraphics,
+ msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
+ msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
+ msefiledialogx,msegrids,mseificomp,mseificompglob,msefileutils,mseifiglob,
+ mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,msegraphedits,
+ msescrollbar,msedispwidgets,mserichstring,mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -72,7 +38,6 @@ type
     tslider3: tslider;
     volumeright2: tslider;
     volumeleft2: tslider;
-    tfaceslider: tfacecomp;
     tfacebutton: tfacecomp;
     btncue: TButton;
     btnStart2: TButton;
@@ -135,14 +100,13 @@ type
     timagelist1: timagelist;
     tframecomp2: tframecomp;
     timagelist3: timagelist;
-    tfaceslidergold: tfacecomp;
-    tfacesliderred: tfacecomp;
-    tfaceslidergreen: tfacecomp;
     hintpanel: tgroupbox;
     hintlabel: tlabel;
     hintlabel2: tlabel;
     genvolleft: tslider;
-    tfacesliderdark: tfacecomp;
+   sliderimage: tbitmapcomp;
+   sliderimage2: tbitmapcomp;
+   sliderimage3: tbitmapcomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);

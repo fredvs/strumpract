@@ -3329,4 +3329,8 @@ object mainfo: tmainfo
     left = 130
     top = 44
   end
+  object sliderimage: tbitmapcomp
+    left = 266
+    top = 96
+  end
 end

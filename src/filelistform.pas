@@ -61,7 +61,6 @@ type
     tbutton1: TButton;
     tbutton2: TButton;
     list_files: tstringgrid;
-    filescount: tstringdisp;
     edfilescount: tintegeredit;
     hintpanel: tgroupbox;
     hintlabel: tlabel;
@@ -86,7 +85,6 @@ type
     procedure oncellev(const Sender: TObject; var info: celleventinfoty);
     procedure onbefdrop(const Sender: TObject);
     procedure onaftdrop(const Sender: TObject);
-    procedure onchangecount(const Sender: TObject);
     procedure ondestr(const Sender: TObject);
     procedure loadlist(const Sender: TObject);
     procedure savelist(const Sender: TObject);
@@ -132,6 +130,8 @@ begin
   bounds_cx    := bounds_cxmin;
   bounds_cymin := round(128 * ratio);
   font.Height  := fontheight;
+  historyfn.font.Height  := fontheight;
+  historyfn.font.color  := font.color;
 
   list_files.font.Height        := fontheight;
   list_files.rowfonts[0].Height := fontheight;
@@ -531,7 +531,7 @@ begin
         end;
 
         edfilescount.Value := list_files.rowcount;
-        filescount.Value   := msestring(IntToStr(edfilescount.Value));
+        //filescount.Value   := msestring(IntToStr(edfilescount.Value));
 
       finally
         datalist_files.Free;
@@ -701,18 +701,13 @@ end;
 
 procedure tfilelistfo.onbefdrop(const Sender: TObject);
 begin
-  historyfn.Width := 402;
+  historyfn.Width := width - 38;
 end;
 
 procedure tfilelistfo.onaftdrop(const Sender: TObject);
 begin
-  historyfn.Width := 182;
+  historyfn.Width := tbutton3.left - 29;
   historyfn.Value := tosysfilepath(extractfilepath(historyfn.Value));
-end;
-
-procedure tfilelistfo.onchangecount(const Sender: TObject);
-begin
-  filescount.Value := IntToStr(edfilescount.Value);
 end;
 
 procedure tfilelistfo.ondestr(const Sender: TObject);
@@ -759,12 +754,7 @@ begin
       Caption := removefileext(tfiledialog1.controller.filename);
 
       list_files.fixcols[-1].captions.Count := filelistfo.list_files.rowCount;
-
-      if edfilescount.Value > 1 then
-        filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files')
-      else
-        filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
-
+   
       list_files.defocuscell;
       list_files.datacols.clearselection;
 
@@ -877,11 +867,6 @@ begin
       list_files[3][x]   := msestring(IntToStr(1));
       list_files[4][x]   := tfiledialog1.controller.filename;
       edfilescount.Value := list_files.rowcount;
-
-      if edfilescount.Value > 1 then
-        filescount.Value := msestring(IntToStr(edfilescount.Value) + ' files')
-      else
-        filescount.Value := msestring(IntToStr(edfilescount.Value) + ' file');
 
       list_files.fixcols[-1].captions.Count := list_files.rowCount;
 

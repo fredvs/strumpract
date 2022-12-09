@@ -125,7 +125,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -207,7 +208,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -289,7 +291,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -371,7 +374,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -453,7 +457,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -535,7 +540,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -617,7 +623,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -699,7 +706,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -781,7 +789,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -845,9 +854,9 @@ object equalizerfo: tequalizerfo
         frame.localprops = [frl_levelo]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          3
+          0
           17
-          3
+          0
           0
         )
         face.localprops = []
@@ -863,7 +872,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1073,7 +1083,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1155,7 +1166,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1237,7 +1249,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1319,7 +1332,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1401,7 +1415,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1483,7 +1498,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1565,7 +1581,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1647,7 +1664,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1711,9 +1729,9 @@ object equalizerfo: tequalizerfo
         frame.localprops = [frl_levelo]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          2
+          0
           17
-          3
+          0
           0
         )
         face.localprops = []
@@ -1729,7 +1747,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.face1.localprops = []
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
@@ -1812,8 +1831,8 @@ object equalizerfo: tequalizerfo
         scrollbar.buttonlength = 17
         scrollbar.buttonminlength = -1
         scrollbar.buttonendlength = -1
-        scrollbar.face.localprops = []
-        scrollbar.face1.localprops = []
+        scrollbar.face.image.source = mainfo.sliderimage
+        scrollbar.face.localprops = [fal_image]
         scrollbar.facebutton.image.origformat = 'png'
         scrollbar.facebutton.image.alignment = [al_stretchx, al_stretchy]
         scrollbar.facebutton.localprops = [fal_image]
@@ -1872,7 +1891,7 @@ object equalizerfo: tequalizerfo
     bounds_x = 262
     bounds_y = 1
     bounds_cx = 62
-    bounds_cy = 17
+    bounds_cy = 19
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Load'
     textflags = [tf_xcentered, tf_ycentered]
@@ -1893,7 +1912,7 @@ object equalizerfo: tequalizerfo
     bounds_x = 330
     bounds_y = 1
     bounds_cx = 62
-    bounds_cy = 17
+    bounds_cy = 19
     state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
     caption = 'Save'
     textflags = [tf_xcentered, tf_ycentered]

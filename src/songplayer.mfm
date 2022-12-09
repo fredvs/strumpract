@@ -948,7 +948,7 @@ object songplayerfo: tsongplayerfo
   end
   object sliderimage: tbitmapcomp
     left = 266
-    top = 20
+    top = 96
   end
   object ttimer1: ttimer
     interval = 1500000

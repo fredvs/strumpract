@@ -113,21 +113,6 @@ object filelistfo: tfilelistfo
     bounds_cx = 434
     bounds_cy = 128
     anchors = []
-    object filescount: tstringdisp
-      color = -2147483645
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 4
-      hint = 'Number of files in the list'
-      bounds_x = 210
-      bounds_y = 102
-      bounds_cx = 43
-      bounds_cy = 24
-      anchors = [an_right, an_bottom]
-      textflags = [tf_xcentered, tf_ycentered]
-      value = '1000'
-      reffontheight = 15
-    end
     object tbutton11: tbutton
       color = -2147483645
       frame.optionsskin = [fso_flat]
@@ -203,7 +188,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
       face.template = mainfo.tfacebutgray
-      taborder = 11
+      taborder = 10
       hint = 'Find a word in list'
       bounds_x = 279
       bounds_y = 102
@@ -658,14 +643,13 @@ object filelistfo: tfilelistfo
     object edfilescount: tintegeredit
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 5
+      taborder = 4
       visible = False
       bounds_x = 259
       bounds_y = 41
       bounds_cx = 20
       bounds_cy = 21
       statfile = mainfo.tstatfile1
-      onchange = onchangecount
       reffontheight = 15
     end
     object tbutton3: tbutton
@@ -727,7 +711,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
       face.template = mainfo.tfacebutgray
-      taborder = 7
+      taborder = 6
       hint = 'Load custom play-list'
       bounds_x = 254
       bounds_y = 102
@@ -805,7 +789,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
       face.template = mainfo.tfacebutgray
-      taborder = 8
+      taborder = 7
       hint = 'Save custom play-list'
       bounds_x = 329
       bounds_y = 102
@@ -879,7 +863,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
       face.template = mainfo.tfacebutgray
-      taborder = 9
+      taborder = 8
       hint = 'Add file in custom play-list'
       bounds_x = 304
       bounds_y = 102
@@ -899,10 +883,9 @@ object filelistfo: tfilelistfo
       frame.framei_top = 0
       frame.framei_right = 0
       frame.framei_bottom = 0
-      frame.colorclient = -2147483645
       frame.captionpos = cp_lefttop
       frame.captiondist = 0
-      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
+      frame.localprops = [frl_levelo, frl_leveli, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
       frame.localprops1 = [frl1_captiondist]
       frame.button.face.localprops = []
       frame.button.face.template = mainfo.tfacebutgray
@@ -925,7 +908,7 @@ object filelistfo: tfilelistfo
       hint = 'History of Directories'
       bounds_x = 27
       bounds_y = 102
-      bounds_cx = 182
+      bounds_cx = 226
       bounds_cy = 24
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
@@ -1023,7 +1006,7 @@ object filelistfo: tfilelistfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
       face.template = mainfo.tfacebutgray
-      taborder = 10
+      taborder = 9
       hint = 'Choose a audio directory with wav, ogg, flac or mp3'
       bounds_x = 2
       bounds_y = 102
@@ -1041,10 +1024,10 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfaceorange
-      taborder = 6
+      taborder = 5
       visible = False
       bounds_x = 0
-      bounds_y = 95
+      bounds_y = 61
       bounds_cx = 434
       bounds_cy = 32
       anchors = [an_bottom]
