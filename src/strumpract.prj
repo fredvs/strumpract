@@ -325,8 +325,8 @@ options=114
  index=2
  [projectoptionsfo]
  stackedunder=
- x=305
- y=31
+ x=304
+ y=77
  cx=818
  cy=686
 programparameters=18
@@ -562,7 +562,7 @@ makeoptions=17
  -WG
  -gw2
  -B
- -O3
+ -O1
  -OoFASTMATH
  -dmse_dynpo
  -sh
@@ -807,11 +807,14 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=2
+ EQUALIZERFO
  FILELISTFO
-moduletypes=1
+moduletypes=2
+ TEQUALIZERFO
  TFILELISTFO
-modulefiles=1
+modulefiles=2
+ /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/filelistform.mfm
 befcommandon=0
 makeoptionson=17
@@ -820,7 +823,7 @@ makeoptionson=17
  0
  192
  0
- 1007
+ 1003
  4095
  0
  4095
@@ -1596,8 +1599,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=if typecolor.Value =
+finddtext=groupbox1
 findhistory=20
+ groupbox1
  if typecolor.Value =
  font.color
  oncre
@@ -1617,55 +1621,67 @@ findhistory=20
  fontuse
  config
  configfo
- fontused
 findoptions=1
-editpos=2
+editpos=3
  0,0
- 9,958
+ 0,-1073741823
+ 0,178
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+sourcefiles=3
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/filelistform.pas
-relpaths=2
+ ${PROJECTDIR}/equalizer.pas
+relpaths=3
  strumpract.pas
  filelistform.pas
-ismoduletexts=2
+ equalizer.pas
+ismoduletexts=3
  0
  0
-modules=6
+ 0
+modules=7
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/filelistform.mfm
-moduleoptions=6
+ /home/fred/strumpract/src/equalizer.mfm
+moduleoptions=7
  0
  2
  0
  0
  0
  0
-visiblemodules=6
+ 0
+visiblemodules=7
  0
  0
  0
  0
  0
  -1
-nomenumodules=6
+ -1
+nomenumodules=7
  -1
  -1
  -1
  -1
  -1
+ 0
  0
 [sourcefo.files_tab]
+order=3
+ 0
+ 2
+ 1
 firsttab=0
-index=0
+index=1
 [layout]
-windowlayout=641
+windowlayout=664
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1809,7 +1825,7 @@ windowlayout=641
  x=0
  y=0
  cx=205
- cy=484
+ cy=464
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1820,7 +1836,7 @@ windowlayout=641
  sortdescend1=0
  sorted=0
  col=0
- row=5
+ row=4
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1995,9 +2011,9 @@ windowlayout=641
  ncx=0
  ncy=0
  x=0
- y=544
+ y=524
  cx=1212
- cy=56
+ cy=76
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2066,7 +2082,7 @@ windowlayout=641
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=mainfo
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2123,7 +2139,7 @@ windowlayout=641
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/filelistform.pas
+ value=/home/fred/strumpract/src/equalizer.pas
  history=7
   /home/fred/strumpract/src/filelistform.pas
   /home/fred/strumpract/src/strumpract.pas
@@ -2149,12 +2165,16 @@ windowlayout=641
  x=208
  y=0
  cx=1004
- cy=484
+ cy=464
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=3
+  0
+  2
+  1
  firsttab=0
- index=0
+ index=1
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2190,7 +2210,7 @@ windowlayout=641
  x=0
  y=57
  cx=1212
- cy=484
+ cy=464
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
@@ -2272,7 +2292,7 @@ windowlayout=641
  [_mse_guitarsfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2291,7 +2311,7 @@ windowlayout=641
  [_mse_filelistfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
@@ -2302,6 +2322,25 @@ windowlayout=641
  y=264
  cx=452
  cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_equalizerfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=516
+ y=59
+ cx=452
+ cy=142
  rcx=0
  rcy=0
  wsize=0
