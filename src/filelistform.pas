@@ -956,8 +956,9 @@ procedure tfilelistfo.timrefresh(const sender: TObject);
 var
 x : integer;
 begin
+// force refresh
  for x := 0 to list_files.rowcount - 1 do
-  list_files.rowfontstate[x] := 0;
+  list_files.rowfontstate[x] := list_files.rowfontstate[x];
 end;
 
 end.
