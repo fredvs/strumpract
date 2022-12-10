@@ -210,7 +210,7 @@ var
   poswav, poswav2 : pointty;
   x, heightslider, widthslider, step, step2: integer;
   rect1: rectty;
-  arimage : arraY[0..3] of tbitmapcomp;
+  arimage : arraY[0..4] of tbitmapcomp;
   
 begin
    
@@ -218,8 +218,9 @@ begin
    arimage[1] := commanderfo.sliderimage;
    arimage[2] := commanderfo.sliderimage2;
    arimage[3] := commanderfo.sliderimage3;
+   arimage[4] := commanderfo.sliderimage4;
 
-for x:= 0 to 3 do
+for x:= 0 to 4 do
 begin 
 
   rect1.pos  := nullpoint;
@@ -228,11 +229,12 @@ begin
   if x = 1 then rect1.size := commanderfo.sysvol.paintsize else  
   if x = 2 then rect1.size := commanderfo.volumeleft1.paintsize else  
   if x = 3 then rect1.size := commanderfo.tslider3.paintsize else;   
+  if x = 4 then rect1.size := commanderfo.sysvol.paintsize;   
       
     heightslider :=rect1.size.cy;
     widthslider  :=rect1.size.cx;
    
-    step  := heightslider div 11;
+   if x = 4 then step  := heightslider div 16 else step  := heightslider div 11;
      
     step2 := 0;
     
@@ -249,8 +251,9 @@ begin
           
         while poswav.y < heightslider do
         begin
-      
-        if (step2 = 5) and (x = 0) then Canvas.drawline(poswav, poswav2, cl_ltred) else
+        
+        if ((step2 < 6) and (x = 4)) or ((step2 = 5) and (x = 0)) 
+        then Canvas.drawline(poswav, poswav2, cl_ltred) else
         if typecolor.Value = 2 then
           Canvas.drawline(poswav, poswav2, cl_gray)
           else Canvas.drawline(poswav, poswav2, $FCFCFC);

@@ -107,6 +107,7 @@ type
    sliderimage: tbitmapcomp;
    sliderimage2: tbitmapcomp;
    sliderimage3: tbitmapcomp;
+   sliderimage4: tbitmapcomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -143,6 +144,7 @@ type
     procedure resizeco(fontheight: integer);
 
     procedure onev(const Sender: TObject);
+   procedure resetsysvol(const sender: TObject);
   end;
 
 var
@@ -1478,6 +1480,11 @@ end;
 procedure tcommanderfo.onev(const Sender: TObject);
 begin
   resizeco(fontheightused);
+end;
+
+procedure tcommanderfo.resetsysvol(const sender: TObject);
+begin
+  sysvol.Value := 0.666666;
 end;
 
 end.

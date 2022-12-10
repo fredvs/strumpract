@@ -386,7 +386,7 @@ object commanderfo: tcommanderfo
       scrollbar.buttonlength = 17
       scrollbar.buttonminlength = -1
       scrollbar.buttonendlength = -1
-      scrollbar.face.image.source = sliderimage
+      scrollbar.face.image.source = sliderimage4
       scrollbar.face.localprops = [fal_image]
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
@@ -522,6 +522,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutltgray
       taborder = 6
       hint = 'System Master Volume'
+      onenter = resetsysvol
       bounds_x = 0
       bounds_y = 107
       bounds_cx = 16
@@ -532,7 +533,6 @@ object commanderfo: tcommanderfo
       captiondist = 0
     end
     object genvolleft: tslider
-      Tag = 1
       color = -2147483645
       taborder = 7
       hint = 'Left Volume General in %'
@@ -548,7 +548,7 @@ object commanderfo: tcommanderfo
       scrollbar.buttonlength = 17
       scrollbar.buttonminlength = -1
       scrollbar.buttonendlength = -1
-      scrollbar.face.image.source = sliderimage
+      scrollbar.face.image.source = sliderimage4
       scrollbar.face.localprops = [fal_image]
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
@@ -2397,5 +2397,9 @@ object commanderfo: tcommanderfo
   object sliderimage3: tbitmapcomp
     left = 296
     top = 75
+  end
+  object sliderimage4: tbitmapcomp
+    left = 294
+    top = 92
   end
 end
