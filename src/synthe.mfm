@@ -1436,6 +1436,7 @@ object synthefo: tsynthefo
   end
   object noise: tsignoise
     controller = cont
+    amplitude.source = tsigslider1L.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf
@@ -1500,6 +1501,7 @@ object synthefo: tsynthefo
   end
   object noise2: tsignoise
     controller = cont
+    amplitude.source = tsigslider1.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf

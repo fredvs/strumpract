@@ -807,18 +807,24 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=3
+modulenames=5
  COMMANDERFO
  EQUALIZERFO
  MAINFO
-moduletypes=3
+ PIANOFO
+ SYNTHEFO
+moduletypes=5
  TCOMMANDERFO
  TEQUALIZERFO
  TMAINFO
-modulefiles=3
+ TPIANOFO
+ TSYNTHEFO
+modulefiles=5
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/piano.mfm
+ /home/fred/strumpract/src/synthe.mfm
 befcommandon=0
 makeoptionson=17
  4095
@@ -1625,64 +1631,84 @@ findhistory=20
  config
  configfo
 findoptions=1
-editpos=4
+editpos=6
  0,6
  0,-1073741823
- 0,255
- 0,4
+ 0,-1073741823
+ 0,0
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
-sourcefiles=4
+bookmarks4=0
+bookmarks5=0
+sourcefiles=6
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/commander.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/equalizer.pas
-relpaths=4
+ ${PROJECTDIR}/synthe.pas
+ ${PROJECTDIR}/piano.pas
+relpaths=6
  strumpract.pas
  commander.pas
  main.pas
  equalizer.pas
-ismoduletexts=4
+ synthe.pas
+ piano.pas
+ismoduletexts=6
  0
  0
  0
  0
-modules=5
+ 0
+ 0
+modules=7
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/equalizer.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/synthe.mfm
+ /home/fred/strumpract/src/piano.mfm
+moduleoptions=7
  0
  2
  0
  0
  0
-visiblemodules=5
+ 0
+ 0
+visiblemodules=7
  -1
  -1
  0
  0
  -1
-nomenumodules=5
+ -1
+ -1
+nomenumodules=7
  0
  0
  -1
  -1
+ 0
+ 0
  0
 [sourcefo.files_tab]
-order=4
+order=6
  0
- 3
+ 4
+ 5
  1
  2
+ 3
 firsttab=0
-index=1
+index=0
 [layout]
-windowlayout=626
+windowlayout=668
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1696,8 +1722,8 @@ windowlayout=626
  ny=0
  ncx=0
  ncy=0
- x=34
- y=53
+ x=68
+ y=142
  cx=1224
  cy=621
  rcx=0
@@ -1732,7 +1758,7 @@ windowlayout=626
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1916,10 +1942,10 @@ windowlayout=626
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=434
- width0=192
+ propcolwidthref=449
+ width0=199
  sortdescend0=0
- width1=236
+ width1=244
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2140,14 +2166,16 @@ windowlayout=626
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/equalizer.pas
- history=6
-  /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/ideU_lin64/layout/${PROJECTDIR}
-  
-  /home/fred/ideU/src/layout
-  ${PROJECTDIR}/main.pas
+ value=/home/fred/strumpract/src/synthe.pas
+ history=8
+  /home/fred/strumpract/src/synthe.pas
+  /home/fred/strumpract/src/config.pas
+  /home/fred/strumpract/src/infosd.pas
+  /home/fred/strumpract/src/uos_define.inc
+  /home/fred/strumpractcopy5/src/infosd.pas
+  /home/fred/strumpractcopy5/src/synthe.pas
+  /home/fred/strumpractcopy5/src/piano.pas
+  /home/fred/strumpractcopy5/src/config.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2169,13 +2197,15 @@ windowlayout=626
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=4
+ order=6
   0
-  3
+  4
+  5
   1
   2
+  3
  firsttab=0
- index=1
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2293,7 +2323,7 @@ windowlayout=626
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=_mse_synthefo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2304,6 +2334,44 @@ windowlayout=626
  y=59
  cx=452
  cy=142
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_synthefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_pianofo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=392
+ y=199
+ cx=452
+ cy=284
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_pianofo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=620
+ y=253
+ cx=452
+ cy=284
  rcx=0
  rcy=0
  wsize=0

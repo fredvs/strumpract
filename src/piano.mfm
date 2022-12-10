@@ -8809,6 +8809,7 @@ object pianofo: tpianofo
     qfactor.expstart = -Inf
     qfactor.expend = -Inf
     qfactor.value = 500
+    amplitude.source = tsigslider32.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf
@@ -8899,6 +8900,7 @@ object pianofo: tpianofo
     qfactor.expstart = -Inf
     qfactor.expend = -Inf
     qfactor.value = 500
+    amplitude.source = tsigslider3.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf
