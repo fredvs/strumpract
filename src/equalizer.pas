@@ -157,7 +157,7 @@ begin
   bounds_cymin    := 0;
   bounds_cxmax    := round(442 * ratio);
   bounds_cxmin    := bounds_cxmax;
-  bounds_cymax    := round(142 * ratio);
+  bounds_cymax    := round(128 * ratio);
   bounds_cymin    := bounds_cymax;
   font.Height     := fontheight;
   frame.grip_size := round(8 * ratio);

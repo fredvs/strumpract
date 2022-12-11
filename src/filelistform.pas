@@ -91,11 +91,14 @@ var
   ratio: float;
 begin
   ratio        := fontheight / 12;
-  bounds_cymax := 0;
   bounds_cxmin := round(442 * ratio);
   bounds_cxmax := bounds_cxmin;
-  bounds_cx    := bounds_cxmin;
   bounds_cymin := round(128 * ratio);
+  if (parentwidget <> nil) then
+   bounds_cymax := bounds_cymin
+   else bounds_cymax := 0;
+ //  bounds_cx    := bounds_cxmin;
+ 
   font.Height  := fontheight;
   historyfn.font.Height  := fontheight;
   historyfn.font.color  := font.color;

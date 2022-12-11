@@ -12,11 +12,11 @@ object equalizerfo: tequalizerfo
   bounds_x = 516
   bounds_y = 59
   bounds_cx = 442
-  bounds_cy = 142
+  bounds_cy = 128
   bounds_cxmin = 442
-  bounds_cymin = 142
+  bounds_cymin = 128
   bounds_cxmax = 442
-  bounds_cymax = 142
+  bounds_cymax = 128
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.frame.sbhorz.options = []
@@ -25,7 +25,7 @@ object equalizerfo: tequalizerfo
     0
     0
     434
-    142
+    128
   )
   dragdock.splitter_grip = stb_default
   dragdock.faceactivetab = mainfo.tfacebutltgray
@@ -72,7 +72,7 @@ object equalizerfo: tequalizerfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 434
-    bounds_cy = 142
+    bounds_cy = 128
     anchors = []
     reffontheight = 15
   end
@@ -88,13 +88,13 @@ object equalizerfo: tequalizerfo
     bounds_x = 214
     bounds_y = 0
     bounds_cx = 218
-    bounds_cy = 142
+    bounds_cy = 128
     anchors = [an_left]
     object tstringdisp11: tstringdisp
       bounds_x = 4
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider11: tslider
@@ -116,7 +116,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -157,7 +157,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -177,7 +177,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 25
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider12: tslider
@@ -199,7 +199,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -240,7 +240,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -260,7 +260,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 46
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider13: tslider
@@ -282,7 +282,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -323,7 +323,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -343,7 +343,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 67
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider14: tslider
@@ -365,7 +365,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -406,7 +406,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -426,7 +426,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 88
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider15: tslider
@@ -448,7 +448,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -489,7 +489,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -509,7 +509,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 109
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider16: tslider
@@ -531,7 +531,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -572,7 +572,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -592,7 +592,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 130
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider17: tslider
@@ -614,7 +614,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -655,7 +655,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -675,7 +675,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 151
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider18: tslider
@@ -697,7 +697,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -738,7 +738,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -758,7 +758,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 172
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider19: tslider
@@ -780,7 +780,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -821,7 +821,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -841,7 +841,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 193
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider20: tslider
@@ -863,7 +863,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -904,7 +904,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1046,13 +1046,13 @@ object equalizerfo: tequalizerfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 216
-    bounds_cy = 142
+    bounds_cy = 128
     anchors = [an_left]
     object tstringdisp2: tstringdisp
       bounds_x = 25
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider2: tslider
@@ -1074,7 +1074,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1115,7 +1115,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1135,7 +1135,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 46
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider3: tslider
@@ -1157,7 +1157,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1198,7 +1198,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1218,7 +1218,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 67
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider4: tslider
@@ -1240,7 +1240,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1281,7 +1281,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1301,7 +1301,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 88
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider5: tslider
@@ -1323,7 +1323,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1364,7 +1364,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1384,7 +1384,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 109
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider6: tslider
@@ -1406,7 +1406,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1447,7 +1447,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1467,7 +1467,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 130
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider7: tslider
@@ -1489,7 +1489,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1530,7 +1530,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1550,7 +1550,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 151
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider8: tslider
@@ -1572,7 +1572,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1613,7 +1613,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1633,7 +1633,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 172
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider9: tslider
@@ -1655,7 +1655,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1696,7 +1696,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1716,7 +1716,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 193
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider10: tslider
@@ -1738,7 +1738,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1780,7 +1780,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]
@@ -1800,7 +1800,7 @@ object equalizerfo: tequalizerfo
       bounds_x = 4
       bounds_y = 17
       bounds_cx = 21
-      bounds_cy = 130
+      bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
       reffontheight = 15
       object tslider1: tslider
@@ -1822,7 +1822,7 @@ object equalizerfo: tequalizerfo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 21
-        bounds_cy = 110
+        bounds_cy = 96
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1862,7 +1862,7 @@ object equalizerfo: tequalizerfo
         taborder = 1
         hint = ' Reset to 0 gain '
         bounds_x = 0
-        bounds_y = 109
+        bounds_y = 95
         bounds_cx = 21
         bounds_cy = 14
         anchors = [an_bottom]

@@ -2040,20 +2040,6 @@ begin
     end;
 end;
 
-procedure resizeall();
-begin
-  // filelistfo.height := filelistfoheight;
-end;
-
-procedure resizealltab();
-begin
-{
- mainfo.width := fowidth ;
- filelistfo.height := filelistfoheight + tabheight;;
- filelistfo.width := fowidth;
- }
-end;
-
 procedure tmainfo.oncreateform(const Sender: TObject);
 var
   rect1: rectty;
