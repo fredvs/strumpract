@@ -5,13 +5,47 @@ interface
 
 uses
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,
- {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,mseglob,mseguiglob,
- mseguiintf,mseapplication,msestat,msemenus,Math,msegui,msetimer,msegraphics,
- msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
- msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
- msefiledialogx,msegrids,mseificomp,mseificompglob,msefileutils,mseifiglob,
- mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,msegraphedits,
- msescrollbar,msedispwidgets,mserichstring,mseimage;
+ {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  Math,
+  msegui,
+  msetimer,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msedragglob,
+  msesimplewidgets,
+  msewidgets,
+  mseact,
+  msebitmap,
+  msedataedits,
+  msedatanodes,
+  mseedit,
+  msefiledialogx,
+  msegrids,
+  mseificomp,
+  mseificompglob,
+  msefileutils,
+  mseifiglob,
+  mselistbrowser,
+  msestatfile,
+  msestream,
+  msestrings,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -104,10 +138,10 @@ type
     hintlabel: tlabel;
     hintlabel2: tlabel;
     genvolleft: tslider;
-   sliderimage: tbitmapcomp;
-   sliderimage2: tbitmapcomp;
-   sliderimage3: tbitmapcomp;
-   sliderimage4: tbitmapcomp;
+    sliderimage: tbitmapcomp;
+    sliderimage2: tbitmapcomp;
+    sliderimage3: tbitmapcomp;
+    sliderimage4: tbitmapcomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -144,7 +178,7 @@ type
     procedure resizeco(fontheight: integer);
 
     procedure onev(const Sender: TObject);
-   procedure resetsysvol(const sender: TObject);
+    procedure resetsysvol(const Sender: TObject);
   end;
 
 var
@@ -216,6 +250,16 @@ begin
         children[i1].Width  := round(boundchildco[i2].Width * ratio);
         children[i1].Height := round(boundchildco[i2].Height * ratio);
       end;
+
+  linkvolgenb.font.Height := fontheight;
+  linkvol2b.font.Height   := fontheight;
+  linkvolb.font.Height    := fontheight;
+  linkvol2b.font.Height   := fontheight;
+  vuinb.font.Height       := fontheight;
+  speccalcb.font.Height   := fontheight;
+  automixb.font.Height    := fontheight;
+  Brandommix.font.Height  := fontheight;
+  directmixb.font.Height  := fontheight;
 
   with tgroupall do
   begin
@@ -1482,7 +1526,7 @@ begin
   resizeco(fontheightused);
 end;
 
-procedure tcommanderfo.resetsysvol(const sender: TObject);
+procedure tcommanderfo.resetsysvol(const Sender: TObject);
 begin
   sysvol.Value := 0.666666;
 end;

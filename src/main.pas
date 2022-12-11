@@ -359,7 +359,18 @@ begin
   paintslider();
   
   resizema(fontval);
-
+  
+  if fontval < 12 then 
+  begin
+   tmainmenu1.menu.itembynames(['sepquit']).visible := false;
+   tmainmenu1.menu.items[3].visible := false;
+  end  
+  else
+  begin
+   tmainmenu1.menu.itembynames(['sepquit']).visible := true;
+   tmainmenu1.menu.items[3].visible := true;
+  end;  
+  
   updatelayoutstrum();
 
   if dockpanel1fo.Visible then
@@ -1146,14 +1157,14 @@ begin
     tmainmenu1.menu.itembynames(['dancer']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dancer)];  {'Da&ncer'}
     tmainmenu1.menu.itembynames(['dancer']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dancer_hint)];  {'Dancing Animations'}
 
-    tmainmenu1.menu.itembynames(['style', 'gold']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
+    tmainmenu1.menu.itembynames(['config','style', 'gold']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
 
-    tmainmenu1.menu.itembynames(['style', 'silver']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
+    tmainmenu1.menu.itembynames(['config','style', 'silver']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
 
-    tmainmenu1.menu.itembynames(['style', 'carbon']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
+    tmainmenu1.menu.itembynames(['config','style', 'carbon']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
 
-    tmainmenu1.menu.itembynames(['style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
-    tmainmenu1.menu.itembynames(['style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
+    tmainmenu1.menu.itembynames(['config','style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
+    tmainmenu1.menu.itembynames(['config','style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
 
     tmainmenu1.menu.itembynames(['config', 'audio']).hint :=
       lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}

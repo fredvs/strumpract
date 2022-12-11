@@ -1493,8 +1493,6 @@ object commanderfo: tcommanderfo
       bounds_y = 1
       bounds_cx = 45
       bounds_cy = 16
-      font.name = 'stf_default'
-      font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Play2'
       reffontheight = 15
@@ -1823,7 +1821,7 @@ object commanderfo: tcommanderfo
     taborder = 4
     visible = False
     bounds_x = 86
-    bounds_y = 41
+    bounds_y = 45
     bounds_cx = 221
     bounds_cy = 36
     font.name = 'stf_default'

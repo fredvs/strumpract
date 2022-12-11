@@ -260,6 +260,7 @@ object mainfo: tmainfo
         onexecute = onmaintab
       end    
       item
+        name = 'separmenu'
         options = [mao_separator, mao_shortcutcaption]
       end    
       item
@@ -723,33 +724,7 @@ object mainfo: tmainfo
         submenu.count = 3
         submenu.items = <        
           item
-            caption = 'Gold'
-            name = 'gold'
-            state = [as_localcaption, as_localonexecute]
-            onexecute = changecolors
-          end        
-          item
-            caption = 'Silver'
-            name = 'silver'
-            state = [as_localcaption, as_localonexecute]
-            onexecute = changesilver
-          end        
-          item
-            caption = 'Carbon'
-            name = 'carbon'
-            state = [as_localcaption, as_localonexecute]
-            onexecute = changecarbon
-          end>
-        caption = '&Style'
-        hint = 'Layout style Gold, Silver or Carbon'
-        name = 'style'
-        state = [as_localcaption, as_localhint]
-      end    
-      item
-        submenu.count = 2
-        submenu.items = <        
-          item
-            caption = 'Audio, System and Layout'
+            caption = 'Audio and System Layout'
             hint = 'Config of audio, font height, colors and more...'
             name = 'audio'
             state = [as_localcaption, as_localhint, as_localonexecute]
@@ -761,6 +736,32 @@ object mainfo: tmainfo
             name = 'language'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = onlangset
+          end        
+          item
+            submenu.count = 3
+            submenu.items = <            
+              item
+                caption = 'Gold'
+                name = 'gold'
+                state = [as_localcaption, as_localonexecute]
+                onexecute = changecolors
+              end            
+              item
+                caption = 'Silver'
+                name = 'silver'
+                state = [as_localcaption, as_localonexecute]
+                onexecute = changesilver
+              end            
+              item
+                caption = 'Carbon'
+                name = 'carbon'
+                state = [as_localcaption, as_localonexecute]
+                onexecute = changecarbon
+              end>
+            caption = 'Style'
+            hint = 'Layout style Gold, Silver or Carbon'
+            name = 'style'
+            state = [as_localcaption, as_localhint]
           end>
         caption = '&Config'
         hint = 'Configuration setting'
@@ -775,6 +776,10 @@ object mainfo: tmainfo
         onexecute = onabout
       end    
       item
+        name = 'sepquit'
+        options = [mao_separator, mao_shortcutcaption]
+      end    
+      item
         caption = '&Quit'
         hint = 'Terminate StrumPract'
         name = 'quit'
@@ -783,9 +788,8 @@ object mainfo: tmainfo
       end>
     menu.name = 'mainmenu'
     menu.state = [as_localonexecute]
-    menu.options = [mao_shortcutcaption, mao_noshowhint]
     menu.font.name = 'stf_default'
-    menu.font.localprops = []
+    menu.font.localprops = [flp_options]
     left = 7
   end
   object tfacecomp4: tfacecomp
