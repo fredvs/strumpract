@@ -102,13 +102,14 @@ object infosdfo: tinfosdfo
   object tlabel2: tlabel
     color = -2147483645
     taborder = 13
-    bounds_x = 220
-    bounds_y = 96
+    bounds_x = 240
+    bounds_y = 105
     bounds_cx = 84
     bounds_cy = 15
     caption = 'No Image Tag'
+    font.style = [fs_italic]
     font.name = 'stf_default'
-    font.localprops = []
+    font.localprops = [flp_style]
     reffontheight = 15
   end
   object infolength: tlabel

@@ -328,8 +328,8 @@ begin
       else
         Canvas.drawline(poswav, poswav2, cl_ltgray);
 
-      poswav.x  := widthslider;
-      poswav2.x := widthslider;
+      poswav.x  := widthslider-1;
+      poswav2.x := widthslider-1;
       poswav.y  := 0;
       poswav2.y := heightslider;
       if typecolor.Value = 2 then
