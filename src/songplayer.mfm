@@ -951,7 +951,7 @@ object songplayerfo: tsongplayerfo
     top = 96
   end
   object ttimer1: ttimer
-    interval = 1500000
+    interval = 500000
     options = [to_single]
     ontimer = ontimerwaveform
     left = 127

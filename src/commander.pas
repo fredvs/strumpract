@@ -363,7 +363,7 @@ end;
 
 procedure tcommanderfo.onstartstop(const Sender: TObject);
 var
-  fromplay, x, y: integer;
+  fromplay, x: integer;
   fileex: msestring;
   resu: shortint = -1;
 begin
@@ -521,10 +521,10 @@ begin
       hasmixed1        := True;
       timermix.Enabled := True;
     end;
-
     tbutton4.Visible := True;
     tbutton5.Visible := False;
     tbutton6.Visible := False;
+    application.ProcessMessages;
   end;
 
 end;

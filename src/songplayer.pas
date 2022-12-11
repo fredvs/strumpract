@@ -1249,9 +1249,10 @@ begin
 
           if as_checked in wavefo.tmainmenu1.menu[0].state then
           begin
-            ttimer1.Enabled := False;
+            if ttimer1.Enabled then
+            ttimer1.restart // to reset
+          else
             ttimer1.Enabled := True;
-
           end;
 
         end
@@ -1540,7 +1541,9 @@ begin
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
           begin
-            ttimer1.Enabled := False;
+               if ttimer1.Enabled then
+            ttimer1.restart // to reset
+          else
             ttimer1.Enabled := True;
           end;
         end
