@@ -168,7 +168,6 @@ type
     procedure onchangevuset(const Sender: TObject);
     procedure onpausemix(const Sender: TObject);
     procedure onresumemix(const Sender: TObject);
-    procedure ondirectmix(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure onchangedirectmix(const Sender: TObject);
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimerinit(const Sender: TObject);
@@ -364,10 +363,11 @@ end;
 
 procedure tcommanderfo.onstartstop(const Sender: TObject);
 var
-  fromplay, x: integer;
+  fromplay, x, y: integer;
   fileex: msestring;
   resu: shortint = -1;
 begin
+
   fileex := fileext(PChar(ansistring(songplayerfo.historyfn.Value)));
   if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
     (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
@@ -490,7 +490,8 @@ begin
         else
           songplayerfo.doplayerstart(Sender);
 
-      hasmixed2        := True;
+      hasmixed2 := True;
+
       timermix.Enabled := True;
 
     end
@@ -519,14 +520,13 @@ begin
 
       hasmixed1        := True;
       timermix.Enabled := True;
-
     end;
 
-    application.ProcessMessages;
     tbutton4.Visible := True;
     tbutton5.Visible := False;
     tbutton6.Visible := False;
   end;
+
 end;
 
 
@@ -536,6 +536,7 @@ var
 begin
   if thetypemix = 0 then
   begin
+
     if incmixinterval < totmixinterval then
     begin
       Inc(incmixinterval);
@@ -1238,10 +1239,6 @@ begin
   tbutton4.Visible := True;
   tbutton5.Visible := False;
   tbutton6.Visible := False;
-end;
-
-procedure tcommanderfo.ondirectmix(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
-begin
 end;
 
 procedure tcommanderfo.onchangedirectmix(const Sender: TObject);

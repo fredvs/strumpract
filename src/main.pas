@@ -7,14 +7,53 @@ unit main;
 interface
 
 uses
- {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,config,mseguiglob,po2arrays,
- msegraphedits,msescrollbar,Process,mseguiintf,mseapplication,msestat,msegui,
- msetimer,msegraphics,msegraphutils,mseclasses,msewidgets,mseforms,msechart,
- status,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,Math,
- msebitmap,synthe,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,
- mseificomp,mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,
- msedropdownlist,msefiledialogx,msegridsglob,{$IFDEF unix}dynlibs,
- {$ENDIF}msestockobjects,mseconsts,captionstrumpract;
+ {$ifdef windows}win_mixer,{$endif}msetypes,
+  mseglob,
+  config,
+  mseguiglob,
+  po2arrays,
+  msegraphedits,
+  msescrollbar,
+  Process,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msegui,
+  msetimer,
+  msegraphics,
+  msegraphutils,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  msechart,
+  status,
+  msedock,
+  msedataedits,
+  mseedit,
+  msestatfile,
+  SysUtils,
+  Classes,
+  Math,
+  msebitmap,
+  synthe,
+  msesys,
+  msemenus,
+  msestream,
+  msegrids,
+  mselistbrowser,
+  mseact,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestrings,
+  msedatanodes,
+  msedragglob,
+  msedropdownlist,
+  msefiledialogx,
+  msegridsglob,{$IFDEF unix}dynlibs,
+ {$ENDIF}msestockobjects,
+  mseconsts,
+  captionstrumpract;
 
 type
   boundchild = record
@@ -204,135 +243,151 @@ uses
   guitars,
   dialogfiles,
   main_mfm;
-  
+
 procedure tmainfo.paintslider();
 var
-  poswav, poswav2 : pointty;
+  poswav, poswav2: pointty;
   x, heightslider, widthslider, step, step2: integer;
   rect1: rectty;
-  arimage : arraY[0..4] of tbitmapcomp;
-  
+  arimage: array[0..4] of tbitmapcomp;
 begin
-   
-   arimage[0] := sliderimage;
-   arimage[1] := commanderfo.sliderimage;
-   arimage[2] := commanderfo.sliderimage2;
-   arimage[3] := commanderfo.sliderimage3;
-   arimage[4] := commanderfo.sliderimage4;
 
-for x:= 0 to 4 do
-begin 
+  arimage[0] := sliderimage;
+  arimage[1] := commanderfo.sliderimage;
+  arimage[2] := commanderfo.sliderimage2;
+  arimage[3] := commanderfo.sliderimage3;
+  arimage[4] := commanderfo.sliderimage4;
 
-  rect1.pos  := nullpoint;
-  
-  if x = 0 then rect1.size := equalizerfo1.tslider1.paintsize else
-  if x = 1 then rect1.size := commanderfo.sysvol.paintsize else  
-  if x = 2 then rect1.size := commanderfo.volumeleft1.paintsize else  
-  if x = 3 then rect1.size := commanderfo.tslider3.paintsize else;   
-  if x = 4 then rect1.size := commanderfo.sysvol.paintsize;   
-      
-    heightslider :=rect1.size.cy;
-    widthslider  :=rect1.size.cx;
-   
-   if x = 4 then step  := heightslider div 16 else step  := heightslider div 11;
-     
+  for x := 0 to 4 do
+  begin
+
+    rect1.pos := nullpoint;
+
+    if x = 0 then
+      rect1.size := equalizerfo1.tslider1.paintsize
+    else if x = 1 then
+      rect1.size := commanderfo.sysvol.paintsize
+    else if x = 2 then
+      rect1.size := commanderfo.volumeleft1.paintsize
+    else if x = 3 then
+      rect1.size := commanderfo.tslider3.paintsize else;
+    if x = 4 then
+      rect1.size := commanderfo.sysvol.paintsize;
+
+    heightslider := rect1.size.cy;
+    widthslider  := rect1.size.cx;
+
+    if x = 4 then
+      step := heightslider div 16
+    else
+      step := heightslider div 11;
+
     step2 := 0;
-    
-     with arimage[x].bitmap do
+
+    with arimage[x].bitmap do
+    begin
+      size   := rect1.size;
+      masked := False;
+      init(cl_transparent);
+
+      poswav.x  := 0;
+      poswav2.x := widthslider;
+      poswav.y  := 0;
+      poswav2.y := 0;
+
+      while poswav.y < heightslider do
       begin
-        size   := rect1.size;
-        masked := False;
-        init(cl_transparent);
-        
-        poswav.x  := 0;
-        poswav2.x := widthslider;
-        poswav.y  := 0;
-        poswav2.y := 0;
-          
-        while poswav.y < heightslider do
-        begin
-        
-        if ((step2 < 6) and (x = 4)) or ((step2 = 5) and (x = 0)) 
-        then Canvas.drawline(poswav, poswav2, cl_ltred) else
-        if typecolor.Value = 2 then
+
+        if ((step2 < 6) and (x = 4)) or ((step2 = 5) and (x = 0)) then
+          Canvas.drawline(poswav, poswav2, cl_ltred)
+        else if typecolor.Value = 2 then
           Canvas.drawline(poswav, poswav2, cl_gray)
-          else Canvas.drawline(poswav, poswav2, $FCFCFC);
-       
-          Inc(poswav.y, 1);
-          poswav2.y := poswav.y;
-          Canvas.drawline(poswav, poswav2, cl_dkgray);
-           if typecolor.Value = 2 then
+        else
+          Canvas.drawline(poswav, poswav2, $FCFCFC);
+
+        Inc(poswav.y, 1);
+        poswav2.y := poswav.y;
+        Canvas.drawline(poswav, poswav2, cl_dkgray);
+        if typecolor.Value = 2 then
           Canvas.drawline(poswav, poswav2, cl_black)
-          else Canvas.drawline(poswav, poswav2, $FCFCFC);
-       
+        else
+          Canvas.drawline(poswav, poswav2, $FCFCFC);
 
-          Inc(poswav.y, step);
-          Inc(step2);
-          poswav2.y := poswav.y;
-        end;
 
-        poswav.x  := 0;
-        poswav2.x := 0;
-        poswav.y  := 0;
-        poswav2.y := heightslider;
-        if typecolor.Value = 2 then
-          Canvas.drawline(poswav, poswav2, cl_dkgray)
-          else Canvas.drawline(poswav, poswav2, cl_ltgray);
-       
-        poswav.x  := widthslider ;
-        poswav2.x := widthslider ;
-        poswav.y  := 0;
-        poswav2.y := heightslider;
-        if typecolor.Value = 2 then
-          Canvas.drawline(poswav, poswav2, cl_dkgray)
-          else Canvas.drawline(poswav, poswav2, cl_ltgray);
-       
-        poswav.x  := round((widthslider - 1) / 2) - 2;
-        poswav2.x := round((widthslider - 1) / 2) - 2;
-        poswav.y  := 0;
-        poswav2.y := heightslider;
-        if typecolor.Value = 2 then
-          Canvas.drawline(poswav, poswav2, cl_dkgray) else
-              Canvas.drawline(poswav, poswav2, cl_gray);
-
-        poswav.x  := round((widthslider - 1) / 2) + 2;
-        poswav2.x := round((widthslider - 1) / 2) + 2;
-        poswav.y  := 0;
-        poswav2.y := heightslider;
-        if typecolor.Value = 2 then
-        Canvas.drawline(poswav, poswav2, cl_dkgray) else
-              Canvas.drawline(poswav, poswav2, cl_gray);
-
-        poswav.x  := round((widthslider - 1) / 2) + 1;
-        poswav2.x := round((widthslider - 1) / 2) + 1;
-        poswav.y  := 0;
-        poswav2.y := heightslider;
-         if typecolor.Value = 2 then
-          Canvas.drawline(poswav, poswav2, cl_black) else
-              Canvas.drawline(poswav, poswav2, cl_ltgray);
-
-        poswav.x  := round((widthslider - 1) / 2) - 1;
-        poswav2.x := round((widthslider - 1) / 2) - 1;
-        poswav.y  := 0;
-        poswav2.y := heightslider;
-            if typecolor.Value = 2 then
-          Canvas.drawline(poswav, poswav2, cl_black) else
-              Canvas.drawline(poswav, poswav2, cl_ltgray);
-
-        poswav.x  := round((widthslider - 1) / 2);
-        poswav2.x := round((widthslider - 1) / 2);
-        poswav.y  := 0;
-        poswav2.y := heightslider;
-          if typecolor.Value = 2 then
-          Canvas.drawline(poswav, poswav2, cl_black) else
-              Canvas.drawline(poswav, poswav2, cl_ltgray);
-
-        transparentcolor := cl_transparent;
-        masked           := True;
+        Inc(poswav.y, step);
+        Inc(step2);
+        poswav2.y := poswav.y;
       end;
-  end;    
-     
-end;  
+
+      poswav.x  := 0;
+      poswav2.x := 0;
+      poswav.y  := 0;
+      poswav2.y := heightslider;
+      if typecolor.Value = 2 then
+        Canvas.drawline(poswav, poswav2, cl_dkgray)
+      else
+        Canvas.drawline(poswav, poswav2, cl_ltgray);
+
+      poswav.x  := widthslider;
+      poswav2.x := widthslider;
+      poswav.y  := 0;
+      poswav2.y := heightslider;
+      if typecolor.Value = 2 then
+        Canvas.drawline(poswav, poswav2, cl_dkgray)
+      else
+        Canvas.drawline(poswav, poswav2, cl_ltgray);
+
+      poswav.x  := round((widthslider - 1) / 2) - 2;
+      poswav2.x := round((widthslider - 1) / 2) - 2;
+      poswav.y  := 0;
+      poswav2.y := heightslider;
+      if typecolor.Value = 2 then
+        Canvas.drawline(poswav, poswav2, cl_dkgray)
+      else
+        Canvas.drawline(poswav, poswav2, cl_gray);
+
+      poswav.x  := round((widthslider - 1) / 2) + 2;
+      poswav2.x := round((widthslider - 1) / 2) + 2;
+      poswav.y  := 0;
+      poswav2.y := heightslider;
+      if typecolor.Value = 2 then
+        Canvas.drawline(poswav, poswav2, cl_dkgray)
+      else
+        Canvas.drawline(poswav, poswav2, cl_gray);
+
+      poswav.x  := round((widthslider - 1) / 2) + 1;
+      poswav2.x := round((widthslider - 1) / 2) + 1;
+      poswav.y  := 0;
+      poswav2.y := heightslider;
+      if typecolor.Value = 2 then
+        Canvas.drawline(poswav, poswav2, cl_black)
+      else
+        Canvas.drawline(poswav, poswav2, cl_ltgray);
+
+      poswav.x  := round((widthslider - 1) / 2) - 1;
+      poswav2.x := round((widthslider - 1) / 2) - 1;
+      poswav.y  := 0;
+      poswav2.y := heightslider;
+      if typecolor.Value = 2 then
+        Canvas.drawline(poswav, poswav2, cl_black)
+      else
+        Canvas.drawline(poswav, poswav2, cl_ltgray);
+
+      poswav.x  := round((widthslider - 1) / 2);
+      poswav2.x := round((widthslider - 1) / 2);
+      poswav.y  := 0;
+      poswav2.y := heightslider;
+      if typecolor.Value = 2 then
+        Canvas.drawline(poswav, poswav2, cl_black)
+      else
+        Canvas.drawline(poswav, poswav2, cl_ltgray);
+
+      transparentcolor := cl_transparent;
+      masked           := True;
+    end;
+  end;
+
+end;
 
 procedure tmainfo.applyfont(fontval: integer);
 begin
@@ -355,22 +410,22 @@ begin
   filelistfo.resizefi(fontval);
   guitarsfo.resizegu(fontval);
   recorderfo.resizere(fontval);
-  
+
   paintslider();
-  
+
   resizema(fontval);
-  
-  if fontval < 12 then 
+
+  if fontval < 12 then
   begin
-   tmainmenu1.menu.itembynames(['sepquit']).visible := false;
-   tmainmenu1.menu.items[3].visible := false;
-  end  
+    tmainmenu1.menu.itembynames(['sepquit']).Visible := False;
+    tmainmenu1.menu.items[3].Visible := False;
+  end
   else
   begin
-   tmainmenu1.menu.itembynames(['sepquit']).visible := true;
-   tmainmenu1.menu.items[3].visible := true;
-  end;  
-  
+    tmainmenu1.menu.itembynames(['sepquit']).Visible := True;
+    tmainmenu1.menu.items[3].Visible := True;
+  end;
+
   updatelayoutstrum();
 
   if dockpanel1fo.Visible then
@@ -1157,14 +1212,14 @@ begin
     tmainmenu1.menu.itembynames(['dancer']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dancer)];  {'Da&ncer'}
     tmainmenu1.menu.itembynames(['dancer']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dancer_hint)];  {'Dancing Animations'}
 
-    tmainmenu1.menu.itembynames(['config','style', 'gold']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
+    tmainmenu1.menu.itembynames(['config', 'style', 'gold']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
 
-    tmainmenu1.menu.itembynames(['config','style', 'silver']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
+    tmainmenu1.menu.itembynames(['config', 'style', 'silver']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
 
-    tmainmenu1.menu.itembynames(['config','style', 'carbon']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
+    tmainmenu1.menu.itembynames(['config', 'style', 'carbon']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
 
-    tmainmenu1.menu.itembynames(['config','style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
-    tmainmenu1.menu.itembynames(['config','style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
+    tmainmenu1.menu.itembynames(['config', 'style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
+    tmainmenu1.menu.itembynames(['config', 'style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
 
     tmainmenu1.menu.itembynames(['config', 'audio']).hint :=
       lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
@@ -4316,7 +4371,7 @@ var
   x: integer;
 begin
   paintslider();
-  
+
   wavefo.trackbar1.face.template    := tfaceplayer;
   wavefo2.trackbar1.face.template   := tfaceplayer;
   waveforec.trackbar1.face.template := recorderfo.tfacerecorder;
@@ -4483,7 +4538,7 @@ begin
     pianofo.font.color  := cl_black;
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
-    filelistfo.historyfn.font.color  := cl_black;
+    filelistfo.historyfn.font.color := cl_black;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
     dockpanel2fo.tmainmenu1.menu.font.color := cl_black;
@@ -4915,7 +4970,7 @@ begin
       asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
 
-     end;
+    end;
 
     // commander
     commanderfo.nameplayers.font.color      := ltblack;
@@ -5110,8 +5165,8 @@ begin
     pianofo.font.color  := cl_black;
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
-    filelistfo.historyfn.font.color  := cl_black;
-   
+    filelistfo.historyfn.font.color := cl_black;
+
     dialogfilesfo.list_files.frame.colorclient := cl_ltgray;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
@@ -5396,26 +5451,26 @@ begin
     // recorder
     recorderfo.font.color := ltblack;
 
-    recorderfo.bwav.colorglyph       := ltblack;
-    recorderfo.bogg.colorglyph       := ltblack;
-    recorderfo.bwav.frame.font.color := ltblack;
-    recorderfo.bogg.frame.font.color := ltblack;
-    recorderfo.cbloop.frame.font.color      := ltblack;
-    recorderfo.cbtempo.frame.font.color     := ltblack;
+    recorderfo.bwav.colorglyph           := ltblack;
+    recorderfo.bogg.colorglyph           := ltblack;
+    recorderfo.bwav.frame.font.color     := ltblack;
+    recorderfo.bogg.frame.font.color     := ltblack;
+    recorderfo.cbloop.frame.font.color   := ltblack;
+    recorderfo.cbtempo.frame.font.color  := ltblack;
     recorderfo.bsavetofile.frame.font.color := ltblack;
-    recorderfo.sentcue1.frame.font.color    := ltblack;
-    recorderfo.blistenin.frame.font.color   := ltblack;
+    recorderfo.sentcue1.frame.font.color := ltblack;
+    recorderfo.blistenin.frame.font.color := ltblack;
     //   recorderfo.label6.font.color       := ltblack;
-    recorderfo.btinfos.font.color           := ltblack;
-    recorderfo.button1.font.color           := ltblack;
-    recorderfo.tstringdisp2.font.color      := ltblack;
-    recorderfo.llength.font.color           := ltblack;
-    recorderfo.lposition.font.color         := ltblack;
-    recorderfo.cbloop.colorglyph      := ltblack;
-    recorderfo.cbtempo.colorglyph     := ltblack;
-    recorderfo.bsavetofile.colorglyph := ltblack;
-    recorderfo.sentcue1.colorglyph    := ltblack;
-    recorderfo.blistenin.colorglyph   := ltblack;
+    recorderfo.btinfos.font.color        := ltblack;
+    recorderfo.button1.font.color        := ltblack;
+    recorderfo.tstringdisp2.font.color   := ltblack;
+    recorderfo.llength.font.color        := ltblack;
+    recorderfo.lposition.font.color      := ltblack;
+    recorderfo.cbloop.colorglyph         := ltblack;
+    recorderfo.cbtempo.colorglyph        := ltblack;
+    recorderfo.bsavetofile.colorglyph    := ltblack;
+    recorderfo.sentcue1.colorglyph       := ltblack;
+    recorderfo.blistenin.colorglyph      := ltblack;
     recorderfo.historyfn.frame.button.colorglyph := ltblack;
     recorderfo.historyfn.dropdown.colorclient := ltblank;
     recorderfo.tfacerecorder.template.fade_color.items[0] := $EDEDED;
@@ -5495,7 +5550,7 @@ begin
       asliders[x].scrollbar.facebutton.template  := commanderfo.tfacebutton;
       asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
-   end;
+    end;
 
     // commander
     commanderfo.nameplayers.font.color      := ltblack;
@@ -5516,18 +5571,18 @@ begin
     commanderfo.tslider2val.font.color := ltblack;
     commanderfo.tslider3val.font.color := ltblack;
 
-    commanderfo.timemix.font.color       := ltblack;
-    commanderfo.timemix.frame.colorglyph := ltblack;
-    commanderfo.timemix.frame.font.color := ltblack;
-    commanderfo.sysvol.scrollbar.facebutton.image       := equalizerfo1.blight.face.image;
-    commanderfo.genvolleft.scrollbar.facebutton.image   := equalizerfo1.blight.face.image;
-    commanderfo.genvolright.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-    commanderfo.volumeleft1.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-    commanderfo.volumeleft2.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
+    commanderfo.timemix.font.color        := ltblack;
+    commanderfo.timemix.frame.colorglyph  := ltblack;
+    commanderfo.timemix.frame.font.color  := ltblack;
+    commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.genvolright.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.volumeleft1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.volumeleft2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
     commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
     commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.tslider2.scrollbar.facebutton.image     := equalizerfo1.blight.face.image;
-    commanderfo.tslider3.scrollbar.facebutton.image     := equalizerfo1.blight.face.image;
+    commanderfo.tslider2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.tslider3.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
     commanderfo.butinput.colorglyph       := ltblack;
     commanderfo.butinput.frame.font.color := ltblack;
     commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED;
@@ -5594,9 +5649,9 @@ begin
     with spectrum1fo do
     begin
 
-      tchartleft.colorchart  := cl_background;
-      tchartleft.color       := cl_default;
-      tchartright.color      := cl_default;
+      tchartleft.colorchart := cl_background;
+      tchartleft.color := cl_default;
+      tchartright.color := cl_default;
       tchartright.colorchart := cl_background;
       tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit1.Value;
       tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit2.Value;
@@ -5616,12 +5671,12 @@ begin
     with spectrum2fo do
     begin
       tchartleft.colorchart := cl_background;
-      tchartleft.color  := cl_default;
+      tchartleft.color := cl_default;
       tchartright.color := cl_default;
       tchartright.colorchart := cl_background;
-      tchartleft.traces[0].bar_face.fade_color.items[1]  := configfo.tcoloredit12.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit12.Value;
       tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit22.Value;
-      tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
+      tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       fond.color      := cl_default;
       groupbox1.color := cl_default;
@@ -5636,11 +5691,11 @@ begin
     with spectrumrecfo do
     begin
       tchartleft.colorchart := cl_background;
-      tchartleft.color      := cl_default;
-      tchartright.color     := cl_default;
-      tchartleft.traces[0].bar_face.fade_color.items[1]  := $9A9A9A;
+      tchartleft.color := cl_default;
+      tchartright.color := cl_default;
+      tchartleft.traces[0].bar_face.fade_color.items[1] := $9A9A9A;
       tchartright.traces[0].bar_face.fade_color.items[1] := $9A9A9A;
-      tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
+      tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.colorchart := cl_background;
       fond.color      := cl_default;
@@ -5660,13 +5715,13 @@ begin
     font.color          := cl_white;
     synthefo.font.color := cl_white;
     pianofo.font.color  := cl_white;
-    
-    filelistfo.historyfn.font.color  := cl_white;
+
+    filelistfo.historyfn.font.color := cl_white;
 
     synthefo.tgroupbox4.font.color := cl_white;
-    
+
     synthefo.tgroupbox3.font.color := cl_white;
-    
+
     dialogfilesfo.list_files.frame.colorclient := cl_gray;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_white;
@@ -5722,12 +5777,12 @@ begin
     waveforec.tmainmenu1.menu.colorglyph := cl_white;
     waveforec.tmainmenu1.menu.colorglyphactive := cl_white;
 
-    randomnotefo.tstringdisp1.font.color := cl_white;
-    randomnotefo.bchord1.font.color      := cl_white;
-    randomnotefo.bchord2.font.color      := cl_white;
-    randomnotefo.bchord3.font.color      := cl_white;
-    randomnotefo.bchord4.font.color      := cl_white;
-    randomnotefo.bchord5.font.color      := cl_white;
+    randomnotefo.tstringdisp1.font.color     := cl_white;
+    randomnotefo.bchord1.font.color          := cl_white;
+    randomnotefo.bchord2.font.color          := cl_white;
+    randomnotefo.bchord3.font.color          := cl_white;
+    randomnotefo.bchord4.font.color          := cl_white;
+    randomnotefo.bchord5.font.color          := cl_white;
     randomnotefo.withrandom.frame.font.color := cl_white;
     randomnotefo.nodrums.frame.font.color    := cl_white;
     randomnotefo.withsharp.frame.font.color  := cl_white;
@@ -5749,18 +5804,18 @@ begin
 
     with infosdfo do
     begin
-      infofile.font.color   := cl_white;
-      infoartist.font.color := cl_white;
-      infoname.font.color   := cl_white;
-      infoalbum.font.color  := cl_white;
-      infoyear.font.color   := cl_white;
-      infocom.font.color    := cl_white;
-      infotag.font.color    := cl_white;
-      tracktag.font.color   := cl_white;
-      infolength.font.color := cl_white;
-      inforate.font.color   := cl_white;
-      infochan.font.color   := cl_white;
-      infobpm.font.color    := cl_white;
+      infofile.font.color         := cl_white;
+      infoartist.font.color       := cl_white;
+      infoname.font.color         := cl_white;
+      infoalbum.font.color        := cl_white;
+      infoyear.font.color         := cl_white;
+      infocom.font.color          := cl_white;
+      infotag.font.color          := cl_white;
+      tracktag.font.color         := cl_white;
+      infolength.font.color       := cl_white;
+      inforate.font.color         := cl_white;
+      infochan.font.color         := cl_white;
+      infobpm.font.color          := cl_white;
       tracktag.frame.font.color   := cl_white;
       infofile.frame.font.color   := cl_white;
       infoartist.frame.font.color := cl_white;
@@ -5777,18 +5832,18 @@ begin
 
     with infosdfo2 do
     begin
-      infofile.font.color   := cl_white;
-      infoartist.font.color := cl_white;
-      infoname.font.color   := cl_white;
-      infoalbum.font.color  := cl_white;
-      tracktag.font.color   := cl_white;
-      infoyear.font.color   := cl_white;
-      infocom.font.color    := cl_white;
-      infotag.font.color    := cl_white;
-      infolength.font.color := cl_white;
-      inforate.font.color   := cl_white;
-      infochan.font.color   := cl_white;
-      infobpm.font.color    := cl_white;
+      infofile.font.color         := cl_white;
+      infoartist.font.color       := cl_white;
+      infoname.font.color         := cl_white;
+      infoalbum.font.color        := cl_white;
+      tracktag.font.color         := cl_white;
+      infoyear.font.color         := cl_white;
+      infocom.font.color          := cl_white;
+      infotag.font.color          := cl_white;
+      infolength.font.color       := cl_white;
+      inforate.font.color         := cl_white;
+      infochan.font.color         := cl_white;
+      infobpm.font.color          := cl_white;
       tracktag.frame.font.color   := cl_white;
       infofile.frame.font.color   := cl_white;
       infoartist.frame.font.color := cl_white;
@@ -5805,13 +5860,13 @@ begin
 
     with spectrum1fo do
     begin
-      tchartleft.color      := $3A3A3A;
+      tchartleft.color := $3A3A3A;
       tchartleft.colorchart := $3A3A3A;
       tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit1.Value;
       tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit2.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
-      tchartleft.color  := $3A3A3A;
+      tchartleft.color := $3A3A3A;
       tchartright.color := $3A3A3A;
       tchartleft.color := $3A3A3A;
       tchartright.colorchart := $3A3A3A;
@@ -5822,36 +5877,36 @@ begin
       groupbox2.color := $3A3A3A;
       spect1.frame.font.color := ltblank;
       spect1.frame.colorclient := $4A4A4A;
-      spect1.color := $3A3A3A;
+      spect1.color    := $3A3A3A;
     end;
 
     with spectrum2fo do
     begin
-      tchartleft.colorchart  := $3A3A3A;
+      tchartleft.colorchart := $3A3A3A;
       tchartright.colorchart := $3A3A3A;
       tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit12.Value;
       tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit22.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
-      tchartleft.color  := $3A3A3A;
+      tchartleft.color := $3A3A3A;
       tchartright.color := $3A3A3A;
-      fond.color        := $3A3A3A;
+      fond.color      := $3A3A3A;
       groupbox1.frame.font.color := ltblank;
       groupbox2.frame.font.color := ltblank;
-      groupbox1.color   := $3A3A3A;
-      groupbox2.color   := $3A3A3A;
+      groupbox1.color := $3A3A3A;
+      groupbox2.color := $3A3A3A;
       spect1.frame.font.color := ltblank;
       spect1.frame.colorclient := $4A4A4A;
-      spect1.color      := $3A3A3A;
+      spect1.color    := $3A3A3A;
     end;
 
     with spectrumrecfo do
     begin
       tchartleft.colorchart  := $3A3A3A;
       tchartright.colorchart := $3A3A3A;
-      tchartleft.traces[0].bar_face.fade_color.items[1]  := cl_white;
+      tchartleft.traces[0].bar_face.fade_color.items[1] := cl_white;
       tchartright.traces[0].bar_face.fade_color.items[1] := cl_white;
-      tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
+      tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
 
       tchartleft.color  := $3A3A3A;
@@ -5938,7 +5993,7 @@ begin
     drumsfo.volumedrums.frame.colorglyph      := ltblank;
     drumsfo.langcount.frame.button.colorglyph := ltblank;
     drumsfo.sensib.frame.colorglyph           := ltblank;
-    drumsfo.langcount.dropdown.colorclient := ltblack;
+    drumsfo.langcount.dropdown.colorclient    := ltblack;
 
     songplayerfo.tstringdisp1.font.color  := cl_black;
     songplayer2fo.tstringdisp1.font.color := cl_black;
@@ -6014,15 +6069,15 @@ begin
     drumsfo.novoice.frame.font.color   := ltblank;
     drumsfo.langcount.frame.font.color := ltblank;
     drumsfo.langcount.font.color       := ltblank;
-    drumsfo.noand.frame.font.color   := ltblank;
-    drumsfo.nodrums.frame.font.color := ltblank;
-    drumsfo.noanim.frame.font.color  := ltblank;
-    drumsfo.tlabel21.font.color      := ltblank;
-    drumsfo.tlabel22.font.color      := ltblank;
-    drumsfo.tlabel25.font.color      := ltblank;
-    drumsfo.tlabel23.font.color      := ltblank;
-    drumsfo.multbpm.font.color := ltblank;
-    drumsfo.divbpm.font.color  := ltblank;
+    drumsfo.noand.frame.font.color     := ltblank;
+    drumsfo.nodrums.frame.font.color   := ltblank;
+    drumsfo.noanim.frame.font.color    := ltblank;
+    drumsfo.tlabel21.font.color        := ltblank;
+    drumsfo.tlabel22.font.color        := ltblank;
+    drumsfo.tlabel25.font.color        := ltblank;
+    drumsfo.tlabel23.font.color        := ltblank;
+    drumsfo.multbpm.font.color         := ltblank;
+    drumsfo.divbpm.font.color          := ltblank;
     drumsfo.tfacedrums.template.fade_color.items[0] := $5A5A5A;
     drumsfo.tfacedrums.template.fade_color.items[1] := $2A2A2A;
 
@@ -6035,28 +6090,28 @@ begin
     drumsfo.tfacecomp3.template.fade_color.items[1] := $5A5A5A;
 
     // recorder
-    recorderfo.font.color := ltblank;
-    recorderfo.cbloop.frame.font.color  := ltblank;
+    recorderfo.font.color           := ltblank;
+    recorderfo.cbloop.frame.font.color := ltblank;
     recorderfo.cbtempo.frame.font.color := ltblank;
-    recorderfo.bwav.colorglyph       := ltblank;
-    recorderfo.bogg.colorglyph       := ltblank;
+    recorderfo.bwav.colorglyph      := ltblank;
+    recorderfo.bogg.colorglyph      := ltblank;
     recorderfo.bwav.frame.font.color := ltblank;
     recorderfo.bogg.frame.font.color := ltblank;
-    recorderfo.cbloop.colorglyph      := ltblank;
-    recorderfo.cbtempo.colorglyph     := ltblank;
+    recorderfo.cbloop.colorglyph    := ltblank;
+    recorderfo.cbtempo.colorglyph   := ltblank;
     recorderfo.bsavetofile.colorglyph := ltblank;
-    recorderfo.sentcue1.colorglyph    := ltblank;
-    recorderfo.blistenin.colorglyph   := ltblank;
+    recorderfo.sentcue1.colorglyph  := ltblank;
+    recorderfo.blistenin.colorglyph := ltblank;
     recorderfo.historyfn.frame.button.colorglyph := ltblank;
     recorderfo.historyfn.dropdown.colorclient := ltblack;
     recorderfo.bsavetofile.frame.font.color := ltblank;
-    recorderfo.sentcue1.frame.font.color    := ltblank;
-    recorderfo.blistenin.frame.font.color   := ltblank;
-    recorderfo.btinfos.font.color           := ltblank;
-    recorderfo.button1.font.color           := ltblank;
-    recorderfo.tstringdisp2.font.color      := ltblank;
-    recorderfo.llength.font.color           := ltblank;
-    recorderfo.lposition.font.color         := ltblank;
+    recorderfo.sentcue1.frame.font.color := ltblank;
+    recorderfo.blistenin.frame.font.color := ltblank;
+    recorderfo.btinfos.font.color   := ltblank;
+    recorderfo.button1.font.color   := ltblank;
+    recorderfo.tstringdisp2.font.color := ltblank;
+    recorderfo.llength.font.color   := ltblank;
+    recorderfo.lposition.font.color := ltblank;
     recorderfo.tfacerecorder.template.fade_color.items[0] := $5A5A5A;
     recorderfo.tfacerecorder.template.fade_color.items[1] := $2A2A2A;
 
@@ -6069,15 +6124,15 @@ begin
     recorderfo.tfacereclight.template.fade_color.items[1] := $2A2A2A;
 
     // guitar
-    guitarsfo.font.color := ltblank;
+    guitarsfo.font.color          := ltblank;
     guitarsfo.tgroupbox1.font.color := ltblank;
     guitarsfo.tgroupbox2.font.color := ltblank;
-    guitarsfo.loopguit.colorglyph       := ltblank;
-    guitarsfo.loopbass.colorglyph       := ltblank;
+    guitarsfo.loopguit.colorglyph := ltblank;
+    guitarsfo.loopbass.colorglyph := ltblank;
     guitarsfo.loopguit.frame.font.color := ltblank;
     guitarsfo.loopbass.frame.font.color := ltblank;
-    guitarsfo.tstringdisp2.font.color   := ltblank;
-    guitarsfo.tstringdisp3.font.color   := ltblank;
+    guitarsfo.tstringdisp2.font.color := ltblank;
+    guitarsfo.tstringdisp3.font.color := ltblank;
     guitarsfo.tfaceguit.template.fade_color.items[0] := $5A5A5A;
     guitarsfo.tfaceguit.template.fade_color.items[1] := $2A2A2A;
 
@@ -6131,7 +6186,7 @@ begin
       asliders[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
       asliders2[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
       aslidersr[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-      asliders[x].scrollbar.facebutton.template  := commanderfo.tfacebutton;
+      asliders[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
       aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
     end;
@@ -6169,19 +6224,19 @@ begin
     commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED;
     commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA;
 
-    commanderfo.timemix.frame.font.color := ltblank;
-    commanderfo.sysvol.scrollbar.facebutton.image       := equalizerfo1.bdark.face.image;
-    commanderfo.genvolleft.scrollbar.facebutton.image   := equalizerfo1.bdark.face.image;
-    commanderfo.genvolright.scrollbar.facebutton.image  := equalizerfo1.bdark.face.image;
-    commanderfo.volumeleft1.scrollbar.facebutton.image  := equalizerfo1.bdark.face.image;
-    commanderfo.volumeleft2.scrollbar.facebutton.image  := equalizerfo1.bdark.face.image;
+    commanderfo.timemix.frame.font.color          := ltblank;
+    commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.genvolright.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.volumeleft1.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.volumeleft2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
     commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
     commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.tslider2.scrollbar.facebutton.image     := equalizerfo1.bdark.face.image;
-    commanderfo.tslider3.scrollbar.facebutton.image     := equalizerfo1.bdark.face.image;
+    commanderfo.tslider2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
+    commanderfo.tslider3.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
 
     filelistfo.historyfn.frame.button.colorglyph := ltblank;
-    filelistfo.historyfn.dropdown.colorclient := ltblack;
+    filelistfo.historyfn.dropdown.colorclient    := ltblack;
 
     filelistfo.list_files.datacols[0].color      := ltblack;
     filelistfo.list_files.datacols[0].font.color := ltblank;
@@ -7029,6 +7084,21 @@ begin
   pianofo.onchangest(nil);
 
   updatelayoutstrum();
+
+  if dockpanel1fo.Visible then
+    dockpanel1fo.updatelayoutpan();
+
+  if dockpanel2fo.Visible then
+    dockpanel2fo.updatelayoutpan();
+
+  if dockpanel3fo.Visible then
+    dockpanel3fo.updatelayoutpan();
+
+  if dockpanel4fo.Visible then
+    dockpanel4fo.updatelayoutpan();
+
+  if dockpanel5fo.Visible then
+    dockpanel5fo.updatelayoutpan();
 
 end;
 

@@ -143,8 +143,10 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=genvolleft.val
+ value=timermix.Enabled
  history=20
+  timermix.Enabled
+  )'
   genvolleft.val
   update
   repaint
@@ -163,8 +165,6 @@ findinfiledialog=83
   genrightvolvalue
   sysvol.
   sysvol.f
-  face.image.paint
-  face.canvas
  [findinfileadialogfo]
  stackedunder=
  x=210
@@ -176,8 +176,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=955
- y=364
+ x=949
+ y=397
  cx=298
  cy=269
 replacedialog=33
@@ -562,7 +562,7 @@ makeoptions=17
  -WG
  -gw2
  -B
- -O3
+ -O2
  -OoFASTMATH
  -dmse_dynpo
  -sh
@@ -807,24 +807,9 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=5
- COMMANDERFO
- EQUALIZERFO
- MAINFO
- PIANOFO
- SYNTHEFO
-moduletypes=5
- TCOMMANDERFO
- TEQUALIZERFO
- TMAINFO
- TPIANOFO
- TSYNTHEFO
-modulefiles=5
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/equalizer.mfm
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/piano.mfm
- /home/fred/strumpract/src/synthe.mfm
+modulenames=0
+moduletypes=0
+modulefiles=0
 befcommandon=0
 makeoptionson=17
  4095
@@ -1200,26 +1185,26 @@ line=37
  276
  5733
  3663
- 1558
- 368
+ 1521
+ 367
  548
- 613
+ 614
  782
  1005
  1017
  701
- 1658
+ 1621
  209
  1136
  6169
  447
  5
- 865
+ 866
  1518
  171
- 1562
+ 1525
  408
- 1806
+ 1769
  619
  1011
  6
@@ -1615,8 +1600,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=tmainmenu1.
+finddtext=waveformcheck.Value
 findhistory=20
+ mix
+ fo.updatelayoutpan
  tmainmenu1.
  as_invisible
  'style'
@@ -1635,99 +1622,41 @@ findhistory=20
  oncrea
  imagedanc
   layout
- jam
- fontheight
 findoptions=1
-editpos=8
- 0,6
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 60,369
- 0,232
+editpos=1
+ 0,0
 bookmarks0=0
-bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-bookmarks7=0
-sourcefiles=8
+sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/commander.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/equalizer.pas
- ${PROJECTDIR}/synthe.pas
- ${PROJECTDIR}/piano.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/commander.pas
-relpaths=8
+relpaths=1
  strumpract.pas
- commander.pas
- main.pas
- equalizer.pas
- synthe.pas
- piano.pas
- main.pas
- commander.pas
-ismoduletexts=8
+ismoduletexts=1
  0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=7
+modules=4
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/equalizer.mfm
- /home/fred/strumpract/src/synthe.mfm
- /home/fred/strumpract/src/piano.mfm
-moduleoptions=7
+moduleoptions=4
  0
  0
  0
  0
+visiblemodules=4
  0
  0
  0
-visiblemodules=7
- -1
- -1
  0
- 0
+nomenumodules=4
  -1
  -1
  -1
-nomenumodules=7
- 0
- 0
  -1
- -1
- 0
- 0
- 0
 [sourcefo.files_tab]
-order=8
- 6
- 0
- 7
- 5
- 1
- 2
- 3
- 4
 firsttab=0
 index=0
 [layout]
-windowlayout=670
+windowlayout=606
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1741,8 +1670,8 @@ windowlayout=670
  ny=0
  ncx=0
  ncy=0
- x=94
- y=52
+ x=99
+ y=109
  cx=1224
  cy=621
  rcx=0
@@ -1882,7 +1811,7 @@ windowlayout=670
  sortdescend1=0
  sorted=0
  col=0
- row=1
+ row=14
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2128,7 +2057,7 @@ windowlayout=670
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=confdebuggerfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2143,9 +2072,9 @@ windowlayout=670
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=5
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -2185,8 +2114,10 @@ windowlayout=670
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
- history=8
+ value=/home/fred/strumpract/src/strumpract.pas
+ history=10
+  /home/fred/strumpract/src/songplayer.pas
+  /home/fred/strumpract/src/piano.pas
   /home/fred/strumpract/src/synthe.pas
   /home/fred/strumpract/src/config.pas
   /home/fred/strumpract/src/infosd.pas
@@ -2216,15 +2147,6 @@ windowlayout=670
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=8
-  6
-  0
-  7
-  5
-  1
-  2
-  3
-  4
  firsttab=0
  index=0
  [confideufo.usedefaulteditoroptions]
@@ -2268,7 +2190,7 @@ windowlayout=670
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2283,11 +2205,11 @@ windowlayout=670
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
@@ -2302,11 +2224,11 @@ windowlayout=670
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2341,63 +2263,6 @@ windowlayout=670
  wsize=0
  active=0
  visible=0
- [_mse_equalizerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=516
- y=59
- cx=452
- cy=142
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_synthefo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_pianofo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=392
- y=199
- cx=452
- cy=284
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_pianofo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=620
- y=253
- cx=452
- cy=284
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
 [targetconsole]
 finddtext=
 findhistory=0

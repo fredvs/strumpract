@@ -97,6 +97,7 @@ type
     cbtempob: TButton;
     ttimer2: ttimer;
     tfiledialog1: tfiledialogx;
+    ttimerwavdata: ttimer;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -144,6 +145,7 @@ type
     procedure ontimercheck(const Sender: TObject);
     procedure resizesp(fontheight: integer);
     function ReadTag(filename: string): integer;
+    procedure ontimerwavdata(const Sender: TObject);
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
@@ -2315,8 +2317,9 @@ begin
           end;
         end;
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav = False) then
-        begin
-
+          ttimerwavdata.Enabled := True{   
+          waveformcheck.Value
+          
           uos_Stop(theplayerinfo);
 
           uos_CreatePlayer(theplayerinfo);
@@ -2347,8 +2350,7 @@ begin
 
           uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
           //application.processmessages;
-
-        end;
+         };
 
       end;
 
@@ -2413,8 +2415,7 @@ begin
           end;
         end;
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav2 = False) then
-        begin
-
+          ttimerwavdata.Enabled := True{     
           uos_Stop(theplayerinfo2);
 
           uos_CreatePlayer(theplayerinfo2);
@@ -2443,8 +2444,7 @@ begin
           uos_EndProc(theplayerinfo2, @GetWaveData);
 
           uos_Play(theplayerinfo2);  /// everything is ready, here we are, lets do it...
-
-        end;
+    };
       end;
     end
     else
@@ -3102,6 +3102,78 @@ begin
   begin
     cbtempob.tag           := 0;
     cbtempob.face.template := commanderfo.tfacebutgray;
+  end;
+
+end;
+
+procedure tsongplayerfo.ontimerwavdata(const Sender: TObject);
+var
+  framewanted: integer;
+begin
+  if tag = 0 then
+  begin
+    uos_Stop(theplayerinfo);
+
+    uos_CreatePlayer(theplayerinfo);
+
+    application.ProcessMessages;
+
+    uos_AddFromFile(theplayerinfo, PChar(ansistring(historyfn.Value)), -1, 2, -1);
+
+    Inputlength1 := uos_Inputlength(theplayerinfo, 0);
+
+    chan1 := uos_InputGetChannels(theplayerinfo, 0);
+
+    // set calculation of level/volume into array (usefull for wave form procedure)
+    uos_InputSetLevelArrayEnable(theplayerinfo, 0, 2);
+    // set level calculation (default is 0)
+    // 0 => no calcul
+    // 1 => calcul before all DSP procedures.
+    // 2 => calcul after all DSP procedures.
+
+    // determine how much frame will be designed
+    framewanted := Inputlength1 div (trackbar1.Width - 7);
+
+    uos_InputSetFrameCount(theplayerinfo, 0, framewanted);
+
+    // Assign the procedure of object to execute at end of stream
+    uos_EndProc(theplayerinfo, @GetWaveData);
+    //  application.processmessages;
+
+    uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
+    //application.processmessages;
+  end;
+
+  if tag = 1 then
+  begin
+    uos_Stop(theplayerinfo2);
+    uos_CreatePlayer(theplayerinfo2);
+
+    application.ProcessMessages;
+
+    uos_AddFromFile(theplayerinfo2, PChar(ansistring(historyfn.Value)), -1, 2, -1);
+
+    Inputlength2 := uos_Inputlength(theplayerinfo2, 0);
+
+    chan2 := uos_InputGetChannels(theplayerinfo2, 0);
+
+    // set calculation of level/volume into array (usefull for wave form procedure)
+    uos_InputSetLevelArrayEnable(theplayerinfo2, 0, 2);
+    // set level calculation (default is 0)
+    // 0 => no calcul
+    // 1 => calcul before all DSP procedures.
+    // 2 => calcul after all DSP procedures.
+
+    // determine how much frame will be designed
+    framewanted := Inputlength2 div (trackbar1.Width - 7);
+
+    uos_InputSetFrameCount(theplayerinfo2, 0, framewanted);
+
+    // Assign the procedure of object to execute at end of stream
+    uos_EndProc(theplayerinfo2, @GetWaveData);
+
+    uos_Play(theplayerinfo2);  /// everything is ready, here we are, lets do it...
+
   end;
 
 end;
