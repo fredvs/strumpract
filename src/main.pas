@@ -7099,6 +7099,8 @@ begin
 
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayoutpan();
+    
+  onchangevalcolor(nil);
 
 end;
 

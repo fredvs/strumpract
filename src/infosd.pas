@@ -161,10 +161,10 @@ begin
   ratio        := fontheightused / 12;
   bounds_cxmax := round(442 * ratio);
   bounds_cxmin := round(442 * ratio);
-  bounds_cymax := round(226 * ratio);
-  bounds_cymin := round(226 * ratio);
+  bounds_cymax := round(216 * ratio);
+  bounds_cymin := round(216 * ratio);
   bounds_cx    := round(442 * ratio);
-  bounds_cy    := round(226 * ratio);
+  bounds_cy    := round(216 * ratio);
 end;
 
 procedure tinfosdfo.onfloat(const Sender: TObject);
@@ -175,9 +175,9 @@ begin
   bounds_cxmax := 0;
   bounds_cxmin := round(442 * ratio);
   bounds_cymax := 0;
-  bounds_cymin := round(226 * ratio);
+  bounds_cymin := round(216 * ratio);
   bounds_cx    := round(442 * ratio);
-  bounds_cy    := round(226 * ratio);
+  bounds_cy    := round(216 * ratio);
 end;
 
 procedure tinfosdfo.onevstart(const Sender: TObject);
