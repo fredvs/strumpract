@@ -3927,9 +3927,10 @@ object songplayerfo: tsongplayerfo
     top = 6
   end
   object ttimerwavdata: ttimer
+    interval = 500000
     options = [to_single]
     ontimer = ontimerwavdata
-    left = 241
-    top = 30
+    left = 214
+    top = 94
   end
 end
