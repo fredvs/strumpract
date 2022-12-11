@@ -250,15 +250,15 @@ begin
         children[i1].Height := round(boundchildco[i2].Height * ratio);
       end;
 
-  linkvolgenb.font.Height := fontheight;
-  linkvol2b.font.Height   := fontheight;
-  linkvolb.font.Height    := fontheight;
-  linkvol2b.font.Height   := fontheight;
-  vuinb.font.Height       := fontheight;
-  speccalcb.font.Height   := fontheight;
-  automixb.font.Height    := fontheight;
-  Brandommix.font.Height  := fontheight;
-  directmixb.font.Height  := fontheight;
+  linkvolgenb.font.Height := round(10 * ratio);
+  linkvol2b.font.Height   := linkvolgenb.font.Height;
+  linkvolb.font.Height    := linkvolgenb.font.Height;
+  linkvol2b.font.Height   := linkvolgenb.font.Height;
+  vuinb.font.Height       := linkvolgenb.font.Height;
+  speccalcb.font.Height   := linkvolgenb.font.Height;
+  automixb.font.Height    := linkvolgenb.font.Height;
+  Brandommix.font.Height  := linkvolgenb.font.Height;
+  directmixb.font.Height  := linkvolgenb.font.Height;
 
   with tgroupall do
   begin

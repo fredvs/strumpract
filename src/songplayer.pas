@@ -285,6 +285,14 @@ begin
 
   tstringdisp1.font.Height := fontheight;
   tstringdisp1.font.color  := font.color;
+  
+  cbloopb.font.Height := round(14 * ratio);
+  waveformcheckb.font.Height := cbloopb.font.Height ;
+  
+  playreverseb.font.Height := round(10 * ratio);
+  setmonob.font.Height := playreverseb.font.Height;
+  cbtempob.font.Height := playreverseb.font.Height;
+  button2.font.Height := playreverseb.font.Height;
 
   with tgroupbox1 do
     for i1 := 0 to childrencount - 1 do

@@ -1289,7 +1289,7 @@ object commanderfo: tcommanderfo
       face.localprops = []
       taborder = 30
       hint = 'Lock left and right volume Player 2'
-      bounds_x = 231
+      bounds_x = 230
       bounds_y = 1
       bounds_cx = 16
       bounds_cy = 16

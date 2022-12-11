@@ -175,7 +175,12 @@ begin
   loadset.Width   := round(62 * ratio);
   loadset.Height  := round(17 * ratio);
   loadset.left    := round(330 * ratio);
+ 
   groupbox1.font.color := font.color;
+  groupbox2.font.color := font.color;
+  groupbox1.font.height :=round(8 * ratio);
+  groupbox2.font.height :=groupbox1.font.height;
+  
   groupbox1.left  := round(2 * ratio);
   groupbox1.Width := round(216 * ratio);
   groupbox2.left  := round(214 * ratio);

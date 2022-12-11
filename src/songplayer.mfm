@@ -179,6 +179,9 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 15
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onreset
@@ -352,6 +355,9 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 15
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'BPM'
+      font.height = 10
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = ongetbpm
@@ -533,8 +539,9 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = #8734
+      font.height = 14
       font.name = 'stf_default'
-      font.localprops = []
+      font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght
@@ -554,8 +561,9 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '<'
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = []
+      font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght
@@ -576,8 +584,9 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '~'
+      font.height = 14
       font.name = 'stf_default'
-      font.localprops = []
+      font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght
@@ -598,8 +607,9 @@ object songplayerfo: tsongplayerfo
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '1-2'
       captiondist = 0
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = []
+      font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght
@@ -619,11 +629,9 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 14
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '<->'
-      font.color = 3881787
-      font.height = 12
-      font.style = [fs_bold]
+      font.height = 10
       font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onexecbutlght
@@ -675,8 +683,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 24
       visible = False
-      bounds_x = 108
-      bounds_y = 42
+      bounds_x = 213
+      bounds_y = 5
       bounds_cx = 221
       bounds_cy = 41
       object hintlabel: tlabel
