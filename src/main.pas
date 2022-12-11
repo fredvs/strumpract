@@ -403,18 +403,18 @@ begin
   spectrum2fo.resizespc(fontval);
   spectrumrecfo.resizespc(fontval);
   infosdfo.resizein(fontval);
-  infosdfo2.resizein(fontval);
-  imagedancerfo.resizeda(fontval);
   synthefo.resizesy(fontval);
   pianofo.resizepi(fontval);
   filelistfo.resizefi(fontval);
   guitarsfo.resizegu(fontval);
   recorderfo.resizere(fontval);
+  infosdfo2.resizein(fontval);
+  imagedancerfo.resizeda(fontval);
 
   paintslider();
 
   resizema(fontval);
-
+  
   if fontval < 12 then
   begin
     tmainmenu1.menu.itembynames(['sepquit']).Visible := False;
@@ -442,6 +442,8 @@ begin
 
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayoutpan();
+    
+application.processmessages;    
 end;
 
 procedure tmainfo.resizema(fontheight: integer);

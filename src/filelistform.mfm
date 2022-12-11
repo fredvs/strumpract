@@ -1029,7 +1029,7 @@ object filelistfo: tfilelistfo
       taborder = 5
       visible = False
       bounds_x = 0
-      bounds_y = 61
+      bounds_y = 97
       bounds_cx = 434
       bounds_cy = 32
       anchors = [an_bottom]

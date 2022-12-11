@@ -66,16 +66,35 @@ var
   ratio: double;
 begin
   ratio        := fontheight / 12;
-  bounds_cxmax := 0;
-  bounds_cxmin := 0;
-  bounds_cymax := 0;
-  bounds_cymin := 0;
-  bounds_cx    := round(442 * ratio);
-  bounds_cxmin := bounds_cx;
-  bounds_cy    := round(216 * ratio);
-  bounds_cymin := bounds_cy;
+  bounds_cxmin    := round(442 * ratio);
+  bounds_cymin    := round(216 * ratio);
+ 
+   if (parentwidget <> nil) then
+   begin
+   bounds_cxmax := bounds_cxmin;
+   bounds_cymax := bounds_cymin;
+   end
+   else begin
+   bounds_cxmax := 0;
+   bounds_cymax := 0;
+   end;
+ 
   font.Height  := fontheight;
 
+  infofile.frame.font.Height  := round(ratio * 10);
+  infoname.frame.font.Height  := infofile.frame.font.Height;
+  infoname.frame.font.Height  := infofile.frame.font.Height;
+  infoartist.frame.font.Height  := infofile.frame.font.Height;
+  infoalbum.frame.font.Height  := infofile.frame.font.Height;
+  infocom.frame.font.Height  := infofile.frame.font.Height;
+  infoyear.frame.font.Height  := infofile.frame.font.Height;
+  infotag.frame.font.Height  := infofile.frame.font.Height;
+  tracktag.frame.font.Height  := infofile.frame.font.Height;
+  inforate.frame.font.Height  := infofile.frame.font.Height;
+  infochan.frame.font.Height  := infofile.frame.font.Height;
+  infolength.frame.font.Height  := infofile.frame.font.Height;
+  infobpm.frame.font.Height  := infofile.frame.font.Height;
+ 
   frame.grip_size := round(8 * ratio);
 
   for i1 := 0 to childrencount - 1 do

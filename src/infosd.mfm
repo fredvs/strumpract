@@ -10,8 +10,8 @@ object infosdfo: tinfosdfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 539
-  bounds_y = 190
+  bounds_x = 490
+  bounds_y = 49
   bounds_cx = 442
   bounds_cy = 216
   bounds_cxmin = 442
@@ -117,8 +117,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Duration'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -142,20 +143,21 @@ object infosdfo: tinfosdfo
     frame.caption = 'BMP'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
       12
-      4
+      5
       0
     )
     taborder = 2
     bounds_x = 174
     bounds_y = 155
-    bounds_cx = 24
+    bounds_cx = 25
     bounds_cy = 27
     caption = '     '
     font.name = 'stf_default'
@@ -167,8 +169,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Track'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -192,8 +195,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Chan'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -217,8 +221,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Rate'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -242,8 +247,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Genre'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -267,20 +273,21 @@ object infosdfo: tinfosdfo
     frame.caption = 'Year'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
       12
-      4
+      5
       0
     )
     taborder = 7
     bounds_x = 4
     bounds_y = 155
-    bounds_cx = 24
+    bounds_cx = 25
     bounds_cy = 27
     caption = '     '
     font.name = 'stf_default'
@@ -293,8 +300,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Comment'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -320,8 +328,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Album'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -347,8 +356,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Artist'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -374,8 +384,9 @@ object infosdfo: tinfosdfo
     frame.caption = 'Title'
     frame.captiondist = -3
     frame.font.height = 10
+    frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_height]
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
@@ -400,19 +411,23 @@ object infosdfo: tinfosdfo
     color = -2147483645
     frame.caption = 'File Name'
     frame.captiondist = -3
+    frame.font.height = 10
+    frame.font.style = [fs_italic]
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_style, flp_height]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      14
+      12
       0
       0
     )
     taborder = 12
     bounds_x = 4
-    bounds_y = 5
+    bounds_y = 7
     bounds_cx = 420
-    bounds_cy = 29
+    bounds_cy = 27
     anchors = [an_left, an_top, an_right]
     caption = '                                '
     font.name = 'stf_default'
@@ -422,7 +437,6 @@ object infosdfo: tinfosdfo
   object imgPreview: timage
     frame.localprops = []
     frame.localprops1 = []
-    face.localprops = []
     visible = False
     bounds_x = 217
     bounds_y = 0
