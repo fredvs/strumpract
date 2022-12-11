@@ -346,7 +346,7 @@ type
       so_BtnCue_hint, {' Load from cue and Pause player '}
       so_tbutton6_hint, {' Choose a  wav, ogg, flac or mp3 audio file '}
       so_lposition_hint, {' Position of sound '}
-      so_llength_hint, {' Lenght of sound '}
+      so_llength_hint, {' Length of sound '}
       so_cbloopb_hint, {' Enable looping the song. (Pause is not enabled with loop.) '}
       so_setmono_hint, {'Set Mono/Stereo'}
       so_waveformcheck_hint, {' Show wave form in slider '}
@@ -561,7 +561,7 @@ const
      'Load from cue and Pause player', {so_BtnCue_hint}
      'Choose a  wav, ogg, flac or mp3 audio file', {so_tbutton6_hint}
      'Position of sound', {so_lposition_hint}
-     'Lenght of sound', {so_llength_hint}
+     'Length of sound', {so_llength_hint}
      'Enable looping the song. (Pause is not enabled with loop.)', {so_cbloopb_hint}
      'Set Mono/Stereo', {so_setmono_hint}
      'Show wave form in slider', {so_waveformcheck_hint}

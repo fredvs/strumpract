@@ -1336,7 +1336,7 @@ begin
 
     lposition.hint := lang_songplayerfo[Ord(so_lposition_hint)];  {' Position of sound '}
 
-    llength.hint := lang_songplayerfo[Ord(so_llength_hint)];      {' Lenght of sound '}
+   // llength.hint := lang_songplayerfo[Ord(so_llength_hint)];      {' Length of sound '}
 
     cbloopb.hint       := lang_songplayerfo[Ord(so_cbloopb_hint)];  {' Enable looping the song. (Pause is not enabled with loop.) '}
     setmono.hint       := lang_songplayerfo[Ord(so_setmono_hint)];  {'Mono/Stereo'}
@@ -1396,7 +1396,7 @@ begin
 
     lposition.hint := lang_songplayerfo[Ord(so_lposition_hint)];  {' Position of sound '}
 
-    llength.hint := lang_songplayerfo[Ord(so_llength_hint)];  {' Lenght of sound '}
+  //  llength.hint := lang_songplayerfo[Ord(so_llength_hint)];  {' Length of sound '}
 
     cbloop.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];   {' Enable looping the song. (Pause is not enabled with loop.) '}
 
@@ -1455,7 +1455,7 @@ begin
 
     lposition.hint := lang_songplayerfo[Ord(so_lposition_hint)];  {' Position of sound '}
 
-    llength.hint := lang_songplayerfo[Ord(so_llength_hint)];      {' Lenght of sound '}
+    llength.hint := lang_songplayerfo[Ord(so_llength_hint)];      {' Length of sound '}
 
     cbloopb.hint       := lang_songplayerfo[Ord(so_cbloopb_hint)];  {' Enable looping the song. (Pause is not enabled with loop.) '}
     setmono.hint       := lang_songplayerfo[Ord(so_setmono_hint)];  {'Mono/Stereo'}

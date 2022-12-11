@@ -129,6 +129,7 @@ object infosdfo: tinfosdfo
       0
     )
     taborder = 1
+    hint = 'Length of the song'
     bounds_x = 130
     bounds_y = 184
     bounds_cx = 45

@@ -509,7 +509,7 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       face.template = mainfo.tfaceplayerrev
       taborder = 18
-      hint = ' Lenght of sound '
+      hint = ' Length of sound '
       bounds_x = 316
       bounds_y = 73
       bounds_cx = 114
@@ -596,7 +596,7 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 28
       bounds_cy = 16
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = '1.2'
+      caption = '1-2'
       captiondist = 0
       font.name = 'stf_default'
       font.localprops = []
@@ -675,8 +675,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 24
       visible = False
-      bounds_x = 107
-      bounds_y = 55
+      bounds_x = 108
+      bounds_y = 42
       bounds_cx = 221
       bounds_cy = 41
       object hintlabel: tlabel

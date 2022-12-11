@@ -373,6 +373,7 @@ object commanderfo: tcommanderfo
     object genvolright: tslider
       Tag = 1
       color = -2147483645
+      taborder = 2
       hint = 'Right Volume General in %'
       bounds_x = 33
       bounds_y = 17
@@ -405,7 +406,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 1
+      taborder = 3
       hint = 'General left volume. Click to reset to 100%.'
       bounds_x = 17
       bounds_y = 107
@@ -424,7 +425,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 2
+      taborder = 4
       hint = 'General right volume. Click to reset to 100%.'
       bounds_x = 33
       bounds_y = 107
@@ -453,7 +454,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 3
+      taborder = 5
       hint = 'Lock left and right volume General'
       bounds_x = 30
       bounds_y = 1
@@ -475,7 +476,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 4
+      taborder = 6
       hint = 'General Volume in %'
       bounds_x = 2
       bounds_y = 1
@@ -487,7 +488,6 @@ object commanderfo: tcommanderfo
     end
     object sysvol: tslider
       color = -2147483645
-      taborder = 5
       hint = 'System Master Volume'
       bounds_x = 1
       bounds_y = 17
@@ -520,7 +520,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 6
+      taborder = 7
       hint = 'System Master Volume'
       onenter = resetsysvol
       bounds_x = 0
@@ -534,7 +534,7 @@ object commanderfo: tcommanderfo
     end
     object genvolleft: tslider
       color = -2147483645
-      taborder = 7
+      taborder = 1
       hint = 'Left Volume General in %'
       bounds_x = 17
       bounds_y = 17
@@ -1820,8 +1820,8 @@ object commanderfo: tcommanderfo
     face.template = tfaceorange
     taborder = 4
     visible = False
-    bounds_x = 86
-    bounds_y = 45
+    bounds_x = 92
+    bounds_y = 46
     bounds_cx = 221
     bounds_cy = 36
     font.name = 'stf_default'
