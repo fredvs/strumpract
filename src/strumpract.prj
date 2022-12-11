@@ -807,18 +807,9 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=3
- INFOSDFO
- MAINFO
- SONGPLAYERFO
-moduletypes=3
- TINFOSDFO
- TMAINFO
- TSONGPLAYERFO
-modulefiles=3
- /home/fred/strumpract/src/infosd.mfm
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/songplayer.mfm
+modulenames=0
+moduletypes=0
+modulefiles=0
 befcommandon=0
 makeoptionson=17
  4095
@@ -1632,68 +1623,40 @@ findhistory=20
  imagedanc
   layout
 findoptions=1
-editpos=4
+editpos=1
  0,0
- 0,-1073741823
- 0,0
- 0,331
 bookmarks0=0
-bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-sourcefiles=4
+sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/infosd.pas
- ${PROJECTDIR}/main.pas
-relpaths=4
+relpaths=1
  strumpract.pas
- songplayer.pas
- infosd.pas
- main.pas
-ismoduletexts=4
+ismoduletexts=1
  0
- 0
- 0
- 0
-modules=6
+modules=4
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/recorder.mfm
- /home/fred/strumpract/src/songplayer.mfm
- /home/fred/strumpract/src/infosd.mfm
-moduleoptions=6
+moduleoptions=4
  0
  0
  0
  0
- 0
- 0
-visiblemodules=6
- -1
+visiblemodules=4
  0
  0
  0
- -1
- -1
-nomenumodules=6
  0
+nomenumodules=4
  -1
  -1
  -1
- 0
- 0
+ -1
 [sourcefo.files_tab]
-order=4
- 0
- 3
- 1
- 2
 firsttab=0
-index=1
+index=0
 [layout]
-windowlayout=643
+windowlayout=601
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1707,8 +1670,8 @@ windowlayout=643
  ny=0
  ncx=0
  ncy=0
- x=34
- y=53
+ x=77
+ y=54
  cx=1224
  cy=621
  rcx=0
@@ -1743,7 +1706,7 @@ windowlayout=643
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1765,7 +1728,7 @@ windowlayout=643
  [memoryfo]
  splitdir=0
  useroptions=268451963
- stackedunder=findmessagefo
+ stackedunder=dialogfilesfo
  parent=
  mdistate=0
  nx=0
@@ -1847,8 +1810,8 @@ windowlayout=643
  width1=86
  sortdescend1=0
  sorted=0
- col=1
- row=-1073741823
+ col=0
+ row=14
  rowheight=16
  [stackfo]
  splitdir=0
@@ -2094,7 +2057,7 @@ windowlayout=643
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=objectinspectorfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2136,8 +2099,8 @@ windowlayout=643
  mdistate=0
  nx=0
  ny=0
- ncx=1111
- ncy=52
+ ncx=1212
+ ncy=61
  x=0
  y=0
  cx=1212
@@ -2151,8 +2114,9 @@ windowlayout=643
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
- history=4
+ value=/home/fred/strumpract/src/strumpract.pas
+ history=5
+  /home/fred/strumpract/src/main.pas
   /home/fred/ideU_lin64/layout/${PROJECTDIR}
   
   /home/fred/ideU/src/layout
@@ -2178,13 +2142,8 @@ windowlayout=643
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=4
-  0
-  3
-  1
-  2
  firsttab=0
- index=1
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2207,10 +2166,26 @@ windowlayout=643
  wsize=0
  active=0
  visible=0
+ [mainfo.panel1]
+ splitdir=1
+ useroptions=302087659
+ parent=mainfo.basedock
+ visible=1
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=0
+ y=57
+ cx=1212
+ cy=448
+ rcx=0
+ rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2225,11 +2200,11 @@ windowlayout=643
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
@@ -2283,60 +2258,6 @@ windowlayout=643
  wsize=0
  active=0
  visible=0
- [_mse_songplayerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_infosdfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=472
- y=29
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_infosdfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_mainfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=172
- y=166
- cx=452
- cy=226
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [mainfo.panel1]
- splitdir=1
- useroptions=302087659
- parent=mainfo.basedock
- visible=1
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=57
- cx=1212
- cy=448
- rcx=0
- rcy=0
 [targetconsole]
 finddtext=
 findhistory=0

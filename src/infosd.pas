@@ -72,7 +72,7 @@ begin
   bounds_cymin := 0;
   bounds_cx    := round(442 * ratio);
   bounds_cxmin := bounds_cx;
-  bounds_cy    := round(226 * ratio);
+  bounds_cy    := round(216 * ratio);
   bounds_cymin := bounds_cy;
   font.Height  := fontheight;
 

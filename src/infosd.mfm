@@ -10,12 +10,12 @@ object infosdfo: tinfosdfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 172
-  bounds_y = 166
+  bounds_x = 539
+  bounds_y = 190
   bounds_cx = 442
-  bounds_cy = 226
+  bounds_cy = 216
   bounds_cxmin = 442
-  bounds_cymin = 226
+  bounds_cymin = 216
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.frame.sbhorz.options = []
@@ -26,7 +26,7 @@ object infosdfo: tinfosdfo
     0
     0
     434
-    226
+    216
   )
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfaceplayerlight
@@ -129,7 +129,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 1
     bounds_x = 130
-    bounds_y = 192
+    bounds_y = 184
     bounds_cx = 45
     bounds_cy = 27
     caption = '          '
@@ -154,7 +154,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 2
     bounds_x = 174
-    bounds_y = 160
+    bounds_y = 155
     bounds_cx = 24
     bounds_cy = 27
     caption = '     '
@@ -179,7 +179,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 3
     bounds_x = 137
-    bounds_y = 160
+    bounds_y = 155
     bounds_cx = 36
     bounds_cy = 27
     caption = '         '
@@ -204,7 +204,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 4
     bounds_x = 59
-    bounds_y = 192
+    bounds_y = 184
     bounds_cx = 40
     bounds_cy = 27
     caption = '          '
@@ -229,7 +229,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 5
     bounds_x = 4
-    bounds_y = 192
+    bounds_y = 184
     bounds_cx = 32
     bounds_cy = 27
     caption = '        '
@@ -254,7 +254,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 6
     bounds_x = 51
-    bounds_y = 160
+    bounds_y = 155
     bounds_cx = 36
     bounds_cy = 27
     caption = '         '
@@ -279,7 +279,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 7
     bounds_x = 4
-    bounds_y = 160
+    bounds_y = 155
     bounds_cx = 24
     bounds_cy = 27
     caption = '     '
@@ -305,7 +305,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 8
     bounds_x = 4
-    bounds_y = 129
+    bounds_y = 123
     bounds_cx = 425
     bounds_cy = 27
     anchors = [an_left, an_top, an_right]
@@ -332,7 +332,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 9
     bounds_x = 4
-    bounds_y = 99
+    bounds_y = 94
     bounds_cx = 425
     bounds_cy = 27
     anchors = [an_left, an_top, an_right]
@@ -359,7 +359,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 10
     bounds_x = 4
-    bounds_y = 68
+    bounds_y = 65
     bounds_cx = 425
     bounds_cy = 27
     anchors = [an_left, an_top, an_right]
@@ -386,7 +386,7 @@ object infosdfo: tinfosdfo
     )
     taborder = 11
     bounds_x = 4
-    bounds_y = 37
+    bounds_y = 36
     bounds_cx = 425
     bounds_cy = 27
     anchors = [an_left, an_top, an_right]
@@ -424,10 +424,10 @@ object infosdfo: tinfosdfo
     frame.localprops1 = []
     face.localprops = []
     visible = False
-    bounds_x = 206
+    bounds_x = 217
     bounds_y = 0
-    bounds_cx = 226
-    bounds_cy = 226
+    bounds_cx = 216
+    bounds_cy = 216
     anchors = [an_left, an_top, an_right, an_bottom]
     bitmap.origformat = 'png'
     bitmap.alignment = [al_xcentered, al_ycentered, al_stretchx, al_stretchy, al_intpol]
