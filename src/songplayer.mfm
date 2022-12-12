@@ -892,11 +892,11 @@ object songplayerfo: tsongplayerfo
       dropdown.options = [deo_keydropdown, deo_autosavehistory, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
-      dropdown.cols.colorselect = 15115091
+      dropdown.cols.colorselect = 16764303
       dropdown.cols.items = <      
         item
           textflags = [tf_ycentered, tf_noselect, tf_ellipseleft]
-          colorselect = 15115091
+          colorselect = 16764303
         end>
       dropdown.historymaxcount = 50
       reffontheight = 15

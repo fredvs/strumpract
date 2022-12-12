@@ -4527,6 +4527,9 @@ begin
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
+    
+    songplayerfo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
+    songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
     dockpanel2fo.tmainmenu1.menu.font.color := cl_black;
@@ -5154,6 +5157,9 @@ begin
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
+    
+    songplayerfo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
+    songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
 
     dialogfilesfo.list_files.frame.colorclient := cl_ltgray;
 
@@ -5703,6 +5709,9 @@ begin
     font.color          := cl_white;
     synthefo.font.color := cl_white;
     pianofo.font.color  := cl_white;
+
+    songplayerfo.historyfn.dropdown.cols[0].colorselect := $573000;
+    songplayer2fo.historyfn.dropdown.cols[0].colorselect := $573000;
 
     filelistfo.historyfn.font.color := cl_white;
 
