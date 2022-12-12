@@ -678,43 +678,13 @@ object songplayerfo: tsongplayerfo
       scrollbar.color = -2147483645
       scrollbar.onafterevent = onafterev
     end
-    object hintpanel: tgroupbox
-      face.localprops = []
-      face.template = commanderfo.tfaceorange
-      taborder = 24
-      visible = False
-      bounds_x = 213
-      bounds_y = 5
-      bounds_cx = 221
-      bounds_cy = 41
-      object hintlabel: tlabel
-        bounds_x = 21
-        bounds_y = 6
-        bounds_cx = 169
-        bounds_cy = 15
-        caption = 'Invalid value.  Reset to 100.'
-        textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
-      end
-      object hintlabel2: tlabel
-        taborder = 1
-        bounds_x = 5
-        bounds_y = 23
-        bounds_cx = 215
-        bounds_cy = 15
-        caption = 'Or press Esc key for previous value.'
-        font.name = 'stf_default'
-        font.localprops = []
-        reffontheight = 15
-      end
-    end
     object tstringdisp3: tstringdisp
       frame.localprops = []
       frame.localprops1 = []
       taborder = 26
       visible = False
       bounds_x = 22
-      bounds_y = -2
+      bounds_y = 54
       bounds_cx = 148
       bounds_cy = 42
       reffontheight = 15
@@ -917,10 +887,9 @@ object songplayerfo: tsongplayerfo
       bounds_x = 85
       bounds_y = 4
       bounds_cx = 267
-      statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
-      dropdown.options = [deo_keydropdown, deo_cliphint]
+      dropdown.options = [deo_keydropdown, deo_autosavehistory, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
       dropdown.cols.colorselect = 15115091
@@ -931,6 +900,36 @@ object songplayerfo: tsongplayerfo
         end>
       dropdown.historymaxcount = 50
       reffontheight = 15
+    end
+    object hintpanel: tgroupbox
+      face.localprops = []
+      face.template = commanderfo.tfaceorange
+      taborder = 24
+      visible = False
+      bounds_x = 190
+      bounds_y = 51
+      bounds_cx = 221
+      bounds_cy = 41
+      object hintlabel: tlabel
+        bounds_x = 21
+        bounds_y = 6
+        bounds_cx = 169
+        bounds_cy = 15
+        caption = 'Invalid value.  Reset to 100.'
+        textflags = [tf_xcentered, tf_ycentered]
+        reffontheight = 15
+      end
+      object hintlabel2: tlabel
+        taborder = 1
+        bounds_x = 2
+        bounds_y = 22
+        bounds_cx = 215
+        bounds_cy = 15
+        caption = 'Or press Esc key for previous value.'
+        font.name = 'stf_default'
+        font.localprops = []
+        reffontheight = 15
+      end
     end
   end
   object tfaceslider: tfacecomp

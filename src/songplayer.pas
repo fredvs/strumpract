@@ -977,6 +977,7 @@ var
   ho, mi, se, ms: word;
   fileex: msestring;
   i: integer;
+  temphistory: msestringarty;
 begin
   if tag = 0 then
   begin
@@ -1198,7 +1199,12 @@ begin
             else
             begin
               uos_Play(theplayer);  /// everything is ready, here we are, lets play it...
-
+              
+              temphistory := historyfn.dropdown.history;
+              setlength(temphistory, length(temphistory) + 1) ;
+              temphistory[length(temphistory) - 1] := historyfn.Value;
+              historyfn.dropdown.history := temphistory;
+              
               btnpause.Enabled := True;
               btnpause.Visible := True;
             end;
@@ -1494,6 +1500,13 @@ begin
               uos_Play(theplayer2);  /// everything is ready, here we are, lets play it...
               btnpause.Enabled := True;
               btnpause.Visible := True;
+              
+              temphistory := historyfn.dropdown.history;
+              setlength(temphistory, length(temphistory) + 1) ;
+              temphistory[length(temphistory) - 1] := historyfn.Value;
+              historyfn.dropdown.history := temphistory;
+   
+              
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying2);
@@ -2966,7 +2979,6 @@ begin
   tfiledialog1.controller.filterlist.asarraya := ara;
   tfiledialog1.controller.filterlist.asarrayb := arb;
 
-
   tfiledialog1.controller.captionopen := lang_filelistfo[Ord(fi_filelistfo)];
   tfiledialog1.controller.filter      := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
   tfiledialog1.controller.fontcolor   := cl_black;
@@ -3152,7 +3164,8 @@ begin
     //  application.processmessages;
 
     uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
-    //application.processmessages;
+  
+      //application.processmessages;
   end;
 
   if tag = 1 then
