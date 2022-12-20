@@ -4910,8 +4910,13 @@ begin
     with equalizerfo1 do
     begin
       fond.color      := $D2D8A5;
-      groupbox1.frame.font.color := thecolor1;
-      groupbox2.frame.font.color := thecolor1;
+      
+      font.color := ltblack;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+     
+      groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
       groupbox1.color := $D2D8A5;
       groupbox2.color := $D2D8A5;
       EQEN.frame.font.color := thecolor1;
@@ -4923,11 +4928,17 @@ begin
     with equalizerfo2 do
     begin
       fond.color      := $D2D8A5;
-      groupbox1.frame.font.color := thecolor2;
-      groupbox2.frame.font.color := thecolor2;
+      groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
       groupbox1.color := $D2D8A5;
       groupbox2.color := $D2D8A5;
-      EQEN.frame.font.color := thecolor2;
+      
+       font.color := thecolor2;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+     
+      
+      EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := $D2D8A5;
       EQEN.color      := $D2D8A5;
     end;
@@ -4941,6 +4952,11 @@ begin
       groupbox2.color    := $EDC0C0;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
+   
+      font.color := ltblack;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+     
       EQEN.frame.colorclient := $EDC0C0;
       EQEN.color         := $EDC0C0;
       EQEN.frame.font.color := cl_black;
@@ -4953,6 +4969,7 @@ begin
       abuttons2[x].font.color := thecolor2;
       abuttonsR[x].font.color := ltblack;
 
+        
       asliders[x].scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
       asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
       aslidersr[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
@@ -5501,6 +5518,11 @@ begin
       groupbox2.frame.font.color := ltblack;
       groupbox1.color := cl_default;
       groupbox2.color := cl_default;
+      
+      font.color := ltblack;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+   
 
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
@@ -5514,6 +5536,10 @@ begin
       groupbox2.frame.font.color := ltblack;
       groupbox1.color := cl_default;
       groupbox2.color := cl_default;
+        font.color := ltblack;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+   
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
       EQEN.color      := cl_default;
@@ -5526,6 +5552,10 @@ begin
       groupbox2.frame.font.color := ltblack;
       groupbox1.color := cl_default;
       groupbox2.color := cl_default;
+        font.color := ltblack;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+   
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
       EQEN.color      := cl_default;
@@ -6143,9 +6173,11 @@ begin
       fond.color      := $3A3A3A;
       groupbox1.frame.font.color := ltblank;
       groupbox2.frame.font.color := ltblank;
+      groupbox1.font.color := ltblank;
+      groupbox2.font.color := ltblank;
+      font.color := ltblank;
       groupbox1.color := $3A3A3A;
       groupbox2.color := $3A3A3A;
-
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
       EQEN.color := $3A3A3A;
@@ -6158,6 +6190,9 @@ begin
       groupbox2.frame.font.color := ltblank;
       groupbox1.color := $3A3A3A;
       groupbox2.color := $3A3A3A;
+      groupbox1.font.color := ltblank;
+      groupbox2.font.color := ltblank;
+      font.color := ltblank;
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
       EQEN.color      := $3A3A3A;
@@ -6170,6 +6205,9 @@ begin
       groupbox2.frame.font.color := ltblank;
       groupbox1.color := $3A3A3A;
       groupbox2.color := $3A3A3A;
+      groupbox1.font.color := ltblank;
+      groupbox2.font.color := ltblank;
+      font.color := ltblank;
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
       EQEN.color      := $3A3A3A;
