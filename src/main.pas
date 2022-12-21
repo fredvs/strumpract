@@ -10,6 +10,7 @@ uses
  {$ifdef windows}win_mixer,{$endif}msetypes,
   mseglob,
   config,
+  configlayout,
   mseguiglob,
   po2arrays,
   msegraphedits,
@@ -120,9 +121,6 @@ type
     procedure hideall(const Sender: TObject);
     procedure showcommander(const Sender: TObject);
     procedure showfiles(const Sender: TObject);
-    procedure changecolors(const Sender: TObject);
-    procedure changesilver(const Sender: TObject);
-    procedure changecarbon(const Sender: TObject);
     procedure onchangevalcolor(const Sender: TObject);
     procedure onmenuaudio(const Sender: TObject);
     procedure onresized(const Sender: TObject);
@@ -177,6 +175,7 @@ type
     procedure ondockvert(const Sender: TObject);
     procedure resizema(fontheight: integer);
     procedure applyfont(fontval: integer);
+   procedure onconfiglayout(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -1214,14 +1213,14 @@ begin
     tmainmenu1.menu.itembynames(['dancer']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dancer)];  {'Da&ncer'}
     tmainmenu1.menu.itembynames(['dancer']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dancer_hint)];  {'Dancing Animations'}
 
-    tmainmenu1.menu.itembynames(['config', 'style', 'gold']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
+   // tmainmenu1.menu.itembynames(['config', 'style', 'gold']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
 
-    tmainmenu1.menu.itembynames(['config', 'style', 'silver']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
+  //  tmainmenu1.menu.itembynames(['config', 'style', 'silver']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
 
-    tmainmenu1.menu.itembynames(['config', 'style', 'carbon']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
+ //   tmainmenu1.menu.itembynames(['config', 'style', 'carbon']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
 
-    tmainmenu1.menu.itembynames(['config', 'style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
-    tmainmenu1.menu.itembynames(['config', 'style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
+ //   tmainmenu1.menu.itembynames(['config', 'style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
+  //   tmainmenu1.menu.itembynames(['config', 'style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
 
     tmainmenu1.menu.itembynames(['config', 'audio']).hint :=
       lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
@@ -2095,18 +2094,19 @@ end;
 
 procedure tmainfo.dodestroy(const Sender: TObject);
 begin
-  statusanim := 0;
-  ordir      := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
-
-  filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
-
-  // application.ProcessMessages;
-  uos_free();
   Timerwait.Enabled := False;
   Timeract.Enabled  := False;
   Timerwait.Free;
   Timeract.Free;
 
+  statusanim := 0;
+  ordir      := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+
+  filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
+
+ // application.ProcessMessages;
+ // uos_free();
+ 
 end;
 
 procedure tmainfo.oncreatedform(const Sender: TObject);
@@ -4329,21 +4329,6 @@ begin
   filelistfo.Visible := not filelistfo.Visible;
 end;
 
-procedure tmainfo.changecolors(const Sender: TObject);
-begin
-  typecolor.Value := 0;
-end;
-
-procedure tmainfo.changesilver(const Sender: TObject);
-begin
-  typecolor.Value := 1;
-end;
-
-procedure tmainfo.changecarbon(const Sender: TObject);
-begin
-  typecolor.Value := 2;
-end;
-
 procedure tmainfo.onchangevalcolor(const Sender: TObject);
 var
   ltblank: integer = $F0F0F0;
@@ -4364,14 +4349,14 @@ begin
   wavefo2.trackbar1.face.template   := tfaceplayer;
   waveforec.trackbar1.face.template := recorderfo.tfacerecorder;
 
-  commanderfo.vuleft.bar_face.fade_color.items[0]    := configfo.tcoloredit1.Value;
-  commanderfo.vuleft2.bar_face.fade_color.items[0]   := configfo.tcoloredit12.Value;
-  commanderfo.vuright.bar_face.fade_color.items[0]   := configfo.tcoloredit2.Value;
-  commanderfo.vuright2.bar_face.fade_color.items[0]  := configfo.tcoloredit22.Value;
-  songplayerfo.vuleft.bar_face.fade_color.items[0]   := configfo.tcoloredit1.Value;
-  songplayer2fo.vuleft.bar_face.fade_color.items[0]  := configfo.tcoloredit12.Value;
-  songplayerfo.vuright.bar_face.fade_color.items[0]  := configfo.tcoloredit2.Value;
-  songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.Value;
+  commanderfo.vuleft.bar_face.fade_color.items[0]    := configlayoutfo.tcoloredit1.Value;
+  commanderfo.vuleft2.bar_face.fade_color.items[0]   := configlayoutfo.tcoloredit12.Value;
+  commanderfo.vuright.bar_face.fade_color.items[0]   := configlayoutfo.tcoloredit2.Value;
+  commanderfo.vuright2.bar_face.fade_color.items[0]  := configlayoutfo.tcoloredit22.Value;
+  songplayerfo.vuleft.bar_face.fade_color.items[0]   := configlayoutfo.tcoloredit1.Value;
+  songplayer2fo.vuleft.bar_face.fade_color.items[0]  := configlayoutfo.tcoloredit12.Value;
+  songplayerfo.vuright.bar_face.fade_color.items[0]  := configlayoutfo.tcoloredit2.Value;
+  songplayer2fo.vuright.bar_face.fade_color.items[0] := configlayoutfo.tcoloredit22.Value;
 
   // commanderfo.sysvol.scrollbar.facebutton.template := commanderfo.tfacebutton;
 
@@ -5052,7 +5037,7 @@ begin
       tchartleft.color           := $D2D8A5;
       tchartleft.colorchart      := $D2D8A5;
       tchartleft.traces[0].chartkind := tck_bar;
-      tchartleft.traces[0].color := configfo.tcoloredit1.Value;
+      tchartleft.traces[0].color := configlayoutfo.tcoloredit1.Value;
 
       tchartright.color      := $D2D8A5;
       tchartright.colorchart := $D2D8A5;
@@ -5061,8 +5046,8 @@ begin
       tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
 
-      tchartleft.traces[0].bar_face.fade_color.items[1]  := configfo.tcoloredit1.Value;
-      tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit2.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[1]  := configlayoutfo.tcoloredit1.Value;
+      tchartright.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit2.Value;
 
       fond.color      := $D2D8A5;
       groupbox1.color := $D2D8A5;
@@ -5084,8 +5069,8 @@ begin
       tchartright.colorchart := $D2D8A5;
       tchartright.traces[0].chartkind := tck_bar;
 
-      tchartleft.traces[0].bar_face.fade_color.items[1]  := configfo.tcoloredit12.Value;
-      tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit22.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[1]  := configlayoutfo.tcoloredit12.Value;
+      tchartright.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit22.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
 
@@ -5677,8 +5662,8 @@ begin
       tchartleft.color := cl_default;
       tchartright.color := cl_default;
       tchartright.colorchart := cl_background;
-      tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit1.Value;
-      tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit2.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit1.Value;
+      tchartright.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit2.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       fond.color := cl_default;
@@ -5698,8 +5683,8 @@ begin
       tchartleft.color := cl_default;
       tchartright.color := cl_default;
       tchartright.colorchart := cl_background;
-      tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit12.Value;
-      tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit22.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit12.Value;
+      tchartright.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit22.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       fond.color      := cl_default;
@@ -5889,8 +5874,8 @@ begin
     begin
       tchartleft.color := $3A3A3A;
       tchartleft.colorchart := $3A3A3A;
-      tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit1.Value;
-      tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit2.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit1.Value;
+      tchartright.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit2.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartleft.color := $3A3A3A;
@@ -5911,8 +5896,8 @@ begin
     begin
       tchartleft.colorchart := $3A3A3A;
       tchartright.colorchart := $3A3A3A;
-      tchartleft.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit12.Value;
-      tchartright.traces[0].bar_face.fade_color.items[1] := configfo.tcoloredit22.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit12.Value;
+      tchartright.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit22.Value;
       tchartleft.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
       tchartleft.color := $3A3A3A;
@@ -6898,10 +6883,12 @@ end;
 
 procedure tmainfo.onclose(const Sender: TObject);
 begin
+
   if drumsfo.Visible then
     drumsvisible.Value := 1
   else
-    drumsvisible.Value := 0;
+    drumsvisible.Value := 0; 
+      
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);
@@ -7042,7 +7029,7 @@ begin
   application.mouse.pos := MousePos;
   application.ProcessMessages;
 
-  if configfo.bosleep.Value then
+  if configlayoutfo.bosleep.Value then
   begin
     AProcess := TProcess.Create(nil);
 
@@ -7084,7 +7071,7 @@ var
   x: integer;
   oldlang: msestring;
 begin
-  fontheightused := round(configfo.fontheight.Value);
+  fontheightused := round(configlayoutfo.fontheight.Value);
   resizema(fontheightused);
   applyfont(fontheightused);
 
@@ -7108,10 +7095,10 @@ begin
     else
       setlangstrumpract(MSEFallbackLang);
 
-    configfo.onchangehint(Sender);
+    configlayoutfo.onchangehint(Sender);
   end;
   if mainfo.drumsvisible.Value = 1 then
-    drumsfo.Visible := True;
+  drumsfo.Visible := True;
 
   infosdfo.onshow(nil);
   infosdfo2.onshow(nil);
@@ -7177,6 +7164,12 @@ procedure tmainfo.ondockvert(const Sender: TObject);
 begin
   basedock.dragdock.currentsplitdir := sd_vert;
   updatelayoutstrum();
+end;
+
+procedure tmainfo.onconfiglayout(const sender: TObject);
+begin
+configlayoutfo.onsetfontres(Sender);
+configlayoutfo.Show(True);
 end;
 
 end.

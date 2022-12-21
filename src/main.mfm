@@ -724,8 +724,8 @@ object mainfo: tmainfo
         submenu.count = 3
         submenu.items = <        
           item
-            caption = 'Audio and System Layout'
-            hint = 'Config of audio, font height, colors and more...'
+            caption = 'Audio'
+            hint = 'Config of audio, it will stop all players temporally...'
             name = 'audio'
             state = [as_localcaption, as_localhint, as_localonexecute]
             onexecute = onmenuaudio
@@ -738,35 +738,17 @@ object mainfo: tmainfo
             onexecute = onlangset
           end        
           item
-            submenu.count = 3
-            submenu.items = <            
-              item
-                caption = 'Gold'
-                name = 'gold'
-                state = [as_localcaption, as_localonexecute]
-                onexecute = changecolors
-              end            
-              item
-                caption = 'Silver'
-                name = 'silver'
-                state = [as_localcaption, as_localonexecute]
-                onexecute = changesilver
-              end            
-              item
-                caption = 'Carbon'
-                name = 'carbon'
-                state = [as_localcaption, as_localonexecute]
-                onexecute = changecarbon
-              end>
-            caption = 'Style'
-            hint = 'Layout style Gold, Silver or Carbon'
-            name = 'style'
-            state = [as_localcaption, as_localhint]
+            caption = 'Layout'
+            hint = 'Config font height, colors, ...'
+            name = 'layout'
+            state = [as_localcaption, as_localhint, as_localonexecute]
+            onexecute = onconfiglayout
           end>
         caption = '&Config'
         hint = 'Configuration setting'
         name = 'config'
         state = [as_localcaption, as_localhint, as_localonexecute]
+        onexecute = onconfiglayout
       end    
       item
         caption = '&About'

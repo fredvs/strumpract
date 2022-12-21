@@ -1,0 +1,528 @@
+object configlayoutfo: tconfiglayoutfo
+  visible = False
+  bounds_x = 570
+  bounds_y = 295
+  bounds_cx = 564
+  bounds_cy = 250
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.bounds = (
+    0
+    0
+    564
+    250
+  )
+  optionswindow = [wo_dialog]
+  font.name = 'stf_default'
+  font.localprops = []
+  statfile = mainfo.tstatfile1
+  caption = 'Config of Layout'
+  windowopacity = -Inf
+  moduleclassname = 'tmseform'
+  object tgroupbox2: tgroupbox
+    frame.levelo = 1
+    frame.leveli = 0
+    frame.colorhighlight = -1610612733
+    frame.caption = 'Wave Colors of Player 1'
+    frame.captiontextflags = [tf_bottom]
+    frame.captionpos = cp_top
+    frame.captionoffset = 8
+    frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+    frame.outerframe = (
+      0
+      8
+      0
+      0
+    )
+    bounds_x = 22
+    bounds_y = 9
+    bounds_cx = 194
+    bounds_cy = 155
+    object tcoloredit1: tcoloredit
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.caption = 'Color of Wave Left'
+      frame.localprops = [frl_levelo, frl_colorhighlight]
+      frame.localprops1 = []
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.buttons.count = 2
+      frame.buttons.items = <      
+        item
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+        end      
+        item
+          frame.levelo = 1
+          frame.optionsskin = [fso_flat]
+          frame.colorhighlight = -1610612733
+          frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+          frame.localprops1 = []
+          imagenr = 17
+        end>
+      frame.buttonellipse.frame.levelo = 1
+      frame.buttonellipse.frame.optionsskin = [fso_flat]
+      frame.buttonellipse.frame.colorhighlight = -1610612733
+      frame.buttonellipse.frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+      frame.buttonellipse.frame.localprops1 = []
+      frame.buttonellipse.imagenr = 17
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      bounds_x = 10
+      bounds_y = 50
+      bounds_cx = 172
+      bounds_cy = 39
+      value = 13872086
+      reffontheight = 15
+    end
+    object tcoloredit2: tcoloredit
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.caption = 'Color of Wave Right'
+      frame.localprops = [frl_levelo, frl_colorhighlight]
+      frame.localprops1 = []
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.buttons.count = 2
+      frame.buttons.items = <      
+        item
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+        end      
+        item
+          frame.levelo = 1
+          frame.optionsskin = [fso_flat]
+          frame.colorhighlight = -1610612733
+          frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+          frame.localprops1 = []
+          imagenr = 17
+        end>
+      frame.buttonellipse.frame.levelo = 1
+      frame.buttonellipse.frame.optionsskin = [fso_flat]
+      frame.buttonellipse.frame.colorhighlight = -1610612733
+      frame.buttonellipse.frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+      frame.buttonellipse.frame.localprops1 = []
+      frame.buttonellipse.imagenr = 17
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      taborder = 1
+      bounds_x = 10
+      bounds_y = 92
+      bounds_cx = 172
+      bounds_cy = 39
+      value = 13744312
+      reffontheight = 15
+    end
+    object dbkl1: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Dark background'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        110
+        3
+      )
+      taborder = 2
+      hint = 'Dark bakground of wave'
+      bounds_x = 33
+      bounds_y = 29
+      bounds_cx = 123
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      colorglyph = 4868682
+    end
+  end
+  object tgroupbox3: tgroupbox
+    frame.levelo = 1
+    frame.leveli = 0
+    frame.colorhighlight = -1610612733
+    frame.caption = 'Wave Colors of Player 2'
+    frame.captiontextflags = [tf_bottom]
+    frame.captionpos = cp_top
+    frame.captionoffset = 8
+    frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+    frame.outerframe = (
+      0
+      8
+      0
+      0
+    )
+    taborder = 1
+    bounds_x = 234
+    bounds_y = 9
+    bounds_cx = 194
+    bounds_cy = 155
+    object dbkl2: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Dark background'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        110
+        3
+      )
+      hint = 'Dark bakground of wave'
+      bounds_x = 33
+      bounds_y = 30
+      bounds_cx = 123
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      colorglyph = 4868682
+    end
+    object tcoloredit12: tcoloredit
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.caption = 'Color of Wave Left'
+      frame.localprops = [frl_levelo, frl_colorhighlight]
+      frame.localprops1 = []
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.buttons.count = 2
+      frame.buttons.items = <      
+        item
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+        end      
+        item
+          frame.levelo = 1
+          frame.optionsskin = [fso_flat]
+          frame.colorhighlight = -1610612733
+          frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+          frame.localprops1 = []
+          imagenr = 17
+        end>
+      frame.buttonellipse.frame.levelo = 1
+      frame.buttonellipse.frame.optionsskin = [fso_flat]
+      frame.buttonellipse.frame.colorhighlight = -1610612733
+      frame.buttonellipse.frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+      frame.buttonellipse.frame.localprops1 = []
+      frame.buttonellipse.imagenr = 17
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      taborder = 1
+      bounds_x = 10
+      bounds_y = 51
+      bounds_cx = 172
+      bounds_cy = 39
+      value = 11255766
+      valuedefault = -1610612721
+      reffontheight = 15
+    end
+    object tcoloredit22: tcoloredit
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.caption = 'Color of Wave Right'
+      frame.localprops = [frl_levelo, frl_colorhighlight]
+      frame.localprops1 = []
+      frame.button.frame.optionsskin = [fso_flat]
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.buttons.count = 2
+      frame.buttons.items = <      
+        item
+          frame.optionsskin = [fso_flat]
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+        end      
+        item
+          frame.levelo = 1
+          frame.optionsskin = [fso_flat]
+          frame.colorhighlight = -1610612733
+          frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+          frame.localprops1 = []
+          imagenr = 17
+        end>
+      frame.buttonellipse.frame.levelo = 1
+      frame.buttonellipse.frame.optionsskin = [fso_flat]
+      frame.buttonellipse.frame.colorhighlight = -1610612733
+      frame.buttonellipse.frame.localprops = [frl_levelo, frl_colorhighlight, frl_optionsskin]
+      frame.buttonellipse.frame.localprops1 = []
+      frame.buttonellipse.imagenr = 17
+      frame.outerframe = (
+        0
+        18
+        0
+        0
+      )
+      taborder = 2
+      bounds_x = 10
+      bounds_y = 93
+      bounds_cx = 172
+      bounds_cy = 39
+      value = 9424076
+      valuedefault = -1610612720
+      reffontheight = 15
+    end
+  end
+  object tgroupbox7: tgroupbox
+    frame.levelo = 1
+    frame.leveli = 0
+    frame.colorhighlight = -1610612733
+    frame.caption = 'Font height'
+    frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
+    frame.localprops1 = [frl1_captionoffset]
+    frame.outerframe = (
+      0
+      8
+      0
+      0
+    )
+    taborder = 2
+    bounds_x = 263
+    bounds_y = 170
+    bounds_cx = 288
+    bounds_cy = 70
+    object fontheight: trealspinedit
+      frame.framei_left = 1
+      frame.framei_top = 1
+      frame.framei_right = 1
+      frame.framei_bottom = 1
+      frame.localprops = []
+      frame.localprops1 = []
+      hint = 'Font height of all windows, size of form wll be scalled.'
+      bounds_x = 7
+      bounds_y = 17
+      bounds_cx = 82
+      bounds_cy = 24
+      statfile = mainfo.tstatfile1
+      value = 12
+      valuedefault = 12
+      valuerange = 1
+      valuemin = 4
+      valuemax = 100
+      step = 1
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+    object tbutton4: tbutton
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      taborder = 1
+      hint = 'Apply font height and scalled forms.'
+      bounds_x = 9
+      bounds_y = 42
+      bounds_cx = 79
+      bounds_cy = 21
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = 'Apply'
+      onexecute = onfontheight
+    end
+    object tbutton3: tbutton
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      taborder = 2
+      hint = 'Click to set font height suggested'
+      bounds_x = 100
+      bounds_y = 15
+      bounds_cx = 181
+      bounds_cy = 44
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = 'Set font height to '
+      onexecute = onbutsetfont
+    end
+  end
+  object tgroupbox4: tgroupbox
+    frame.levelo = 1
+    frame.leveli = 0
+    frame.colorhighlight = -1610612733
+    frame.caption = 'General'
+    frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
+    frame.localprops1 = [frl1_captionoffset]
+    frame.outerframe = (
+      0
+      8
+      0
+      0
+    )
+    taborder = 3
+    bounds_x = 438
+    bounds_y = 57
+    bounds_cx = 104
+    bounds_cy = 105
+    object focusplay: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Focus play'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        69
+        3
+      )
+      hint = 'Set focus to Player-form when mixing'
+      bounds_x = 6
+      bounds_y = 26
+      bounds_cx = 82
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      colorglyph = 4868682
+    end
+    object bnohint: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'No hint'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        49
+        3
+      )
+      taborder = 1
+      hint = 'Dont show the hint-info'
+      bounds_x = 6
+      bounds_y = 51
+      bounds_cx = 62
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      colorglyph = 4868682
+    end
+    object bosleep: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Mon Sleep'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        67
+        3
+      )
+      taborder = 2
+      hint = 'Enable sleep mode when inactive > 3 minutes'
+      bounds_x = 6
+      bounds_y = 76
+      bounds_cx = 80
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      colorglyph = 4868682
+    end
+  end
+  object tbutton1: tbutton
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    taborder = 4
+    bounds_x = 472
+    bounds_y = 15
+    bounds_cx = 40
+    bounds_cy = 34
+    state = [as_localcaption]
+    caption = 'OK'
+    modalresult = mr_windowclosed
+  end
+  object tgroupbox5: tgroupbox
+    frame.levelo = 1
+    frame.leveli = 0
+    frame.colorhighlight = -1610612733
+    frame.caption = 'Style'
+    frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
+    frame.localprops1 = [frl1_captionoffset]
+    frame.outerframe = (
+      0
+      8
+      0
+      0
+    )
+    taborder = 5
+    bounds_x = 23
+    bounds_y = 170
+    bounds_cx = 229
+    bounds_cy = 70
+    object bgold: tbooleaneditradio
+      frame.caption = 'Gold'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        30
+        2
+      )
+      bounds_x = 22
+      bounds_y = 30
+      bounds_cx = 43
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      onchange = onchangestyle
+    end
+    object bsilver: tbooleaneditradio
+      frame.caption = 'Silver'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        36
+        2
+      )
+      taborder = 1
+      bounds_x = 88
+      bounds_y = 30
+      bounds_cx = 49
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      onchange = onchangestyle
+    end
+    object bcarbon: tbooleaneditradio
+      frame.caption = 'Carbon'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        46
+        2
+      )
+      taborder = 2
+      bounds_x = 153
+      bounds_y = 30
+      bounds_cx = 59
+      bounds_cy = 17
+      onchange = onchangestyle
+      value = True
+    end
+  end
+end

@@ -23,9 +23,11 @@ uses
   synthe,
   mseact,
   drums,
+  uos_flat,
   songplayer,
   commander,
   config,
+  configlayout,
   guitars,
   recorder,
   imagedancer,
@@ -62,6 +64,8 @@ begin
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
   application.createform(tconfigfo, configfo);
+  application.createform(tconfiglayoutfo, configlayoutfo);
+  configlayoutfo.icon := configfo.icon;
 
   application.createform(tdrumsfo, drumsfo);
 
@@ -193,6 +197,7 @@ begin
   fs.Free;
   //  if fileexists(ordir) then deletefile(ordir);
 {$endif}
+ uos_free();
 
 end.
 

@@ -220,6 +220,7 @@ uses
   imagedancer,
   commander,
   config,
+  configlayout,
   waveform,
   filelistform,
   equalizer,
@@ -1211,7 +1212,7 @@ begin
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying1);
 
-            if configfo.focusplay.Value then
+            if configlayoutfo.focusplay.Value then
 
               if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
                 ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
@@ -1511,7 +1512,7 @@ begin
             tstringdisp1.face.template := mainfo.tfacegreen;
             tstringdisp1.Value := msestring('Playing ' + theplaying2);
 
-            if configfo.focusplay.Value then
+            if configlayoutfo.focusplay.Value then
 
               if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
                 ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
@@ -1619,7 +1620,7 @@ begin
 
     tstringdisp1.Value := msestring('Playing ' + theplaying1);
 
-    if configfo.focusplay.Value then
+    if configlayoutfo.focusplay.Value then
 
       if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
         ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
@@ -1653,7 +1654,7 @@ begin
     iscue2 := False;
     tstringdisp1.Value := msestring('Playing ' + theplaying2);
 
-    if configfo.focusplay.Value then
+    if configlayoutfo.focusplay.Value then
 
       if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
         ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
@@ -1721,7 +1722,7 @@ begin
   multiplier := 0;
   resetspectrum();
 
-  if configfo.focusplay.Value then
+  if configlayoutfo.focusplay.Value then
 
     if ((parentwidget = dockpanel1fo.basedock) and (dockpanel1fo.Visible = True) and (Visible = True)) or
       ((parentwidget = dockpanel2fo.basedock) and (dockpanel2fo.Visible = True) and (Visible = True)) or
@@ -1859,7 +1860,7 @@ begin
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
 
-            Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.Value);
+            Canvas.drawline(poswav, poswav2, configlayoutfo.tcoloredit1.Value);
 
             Canvas.drawline(poswav2, poswav3, $F0F0F0); // frame of wave
 
@@ -1870,7 +1871,7 @@ begin
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
-            Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.Value);
+            Canvas.drawline(poswav, poswav2, configlayoutfo.tcoloredit2.Value);
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
           end;
@@ -1902,7 +1903,7 @@ begin
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
-            Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.Value);
+            Canvas.drawline(poswav, poswav2, configlayoutfo.tcoloredit12.Value);
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
             poswav.y := (trackbar1.Height div 2);
@@ -1912,7 +1913,7 @@ begin
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
-            Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.Value);
+            Canvas.drawline(poswav, poswav2, configlayoutfo.tcoloredit22.Value);
             Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
           end;
@@ -1953,7 +1954,7 @@ begin
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
-          Canvas.drawline(poswav, poswav2, configfo.tcoloredit1.Value);
+          Canvas.drawline(poswav, poswav2, configlayoutfo.tcoloredit1.Value);
 
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
@@ -1964,7 +1965,7 @@ begin
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
-          Canvas.drawline(poswav, poswav2, configfo.tcoloredit2.Value);
+          Canvas.drawline(poswav, poswav2, configlayoutfo.tcoloredit2.Value);
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
         end;
         if chan1 = 1 then
@@ -1996,7 +1997,7 @@ begin
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
-          Canvas.drawline(poswav, poswav2, configfo.tcoloredit12.Value);
+          Canvas.drawline(poswav, poswav2, configlayoutfo.tcoloredit12.Value);
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
           poswav.y := (wavefo2.trackbar1.Height div 2);
@@ -2005,7 +2006,7 @@ begin
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
-          Canvas.drawline(poswav, poswav2, configfo.tcoloredit22.Value);
+          Canvas.drawline(poswav, poswav2, configlayoutfo.tcoloredit22.Value);
           Canvas.drawline(poswav2, poswav3, $F0F0F0);
 
         end;

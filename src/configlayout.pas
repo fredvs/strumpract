@@ -1,0 +1,285 @@
+unit configlayout;
+{$ifdef FPC}{$mode objfpc}{$h+}{$endif}
+interface
+uses
+ msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
+ msegui,msegraphics, msegraphutils, mseevent, mseclasses, msewidgets, mseforms,
+ msesimplewidgets, mseact, msecolordialog, msedataedits, msedropdownlist,
+ mseedit, mseificomp, mseificompglob, mseifiglob, msestatfile, msestream,
+ sysutils, msegraphedits, msescrollbar;
+type
+ tconfiglayoutfo = class(tmseform)
+   tgroupbox2: tgroupbox;
+   tcoloredit1: tcoloredit;
+   tcoloredit2: tcoloredit;
+   dbkl1: tbooleanedit;
+   tgroupbox3: tgroupbox;
+   dbkl2: tbooleanedit;
+   tcoloredit12: tcoloredit;
+   tcoloredit22: tcoloredit;
+   tgroupbox7: tgroupbox;
+   fontheight: trealspinedit;
+   tbutton4: tbutton;
+   tgroupbox4: tgroupbox;
+   focusplay: tbooleanedit;
+   bnohint: tbooleanedit;
+   bosleep: tbooleanedit;
+   tbutton1: tbutton;
+   tgroupbox5: tgroupbox;
+   bgold: tbooleaneditradio;
+   bsilver: tbooleaneditradio;
+   bcarbon: tbooleaneditradio;
+   tbutton3: tbutton;
+   procedure onfontheight(const sender: TObject);
+   procedure onchangehint(const Sender: TObject);
+   procedure onsetcolor();
+   procedure onsetfontres(const Sender: TObject);
+   procedure onchangestyle(const sender: TObject);
+   procedure onbutsetfont(const sender: TObject);
+  end;
+var
+ configlayoutfo: tconfiglayoutfo;
+implementation
+uses
+  spectrum1,
+  waveform,
+  commander,
+  songplayer,
+  guitars,
+  randomnote,
+  filelistform,
+  drums,
+  equalizer,
+  recorder,
+  main, configlayout_mfm;
+ 
+procedure tconfiglayoutfo.onfontheight(const sender: TObject);
+begin
+mainfo.applyfont(round(fontheight.value));
+end;
+
+procedure tconfiglayoutfo.onsetfontres(const Sender: TObject);
+var
+ rect1: rectty;
+begin
+ rect1      := application.screenrect(window);
+ tbutton3.caption := 'Resolution: ' + inttostr(rect1.cx) + 'x' + inttostr(rect1.cy)
+ + lineend + 'Font height suggested: ' + inttostr(round(rect1.cx / 1280) * 12);   
+end;
+
+procedure tconfiglayoutfo.onchangehint(const Sender: TObject);
+begin
+  if (isactivated = True) then
+    if bnohint.Value = True then
+    begin
+      mainfo.optionswidget           :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+      mainfo.tmainmenu1.menu.options := [mao_shortcutcaption, mao_noshowhint];
+
+      commanderfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      songplayerfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      songplayer2fo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      recorderfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      filelistfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      spectrum1fo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      spectrum2fo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      spectrumrecfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      equalizerfo1.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      equalizerfo2.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      equalizerforec.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      wavefo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      wavefo2.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      waveforec.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      drumsfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      guitarsfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      randomnotefo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+    end
+    else
+    begin
+      mainfo.optionswidget           :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+      mainfo.tmainmenu1.menu.options := [mao_shortcutcaption, mao_showhint];
+
+      commanderfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      songplayerfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      songplayer2fo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      recorderfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      filelistfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      spectrum1fo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      spectrum2fo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      spectrumrecfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      equalizerfo1.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      equalizerfo2.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      equalizerforec.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      wavefo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      wavefo2.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      waveforec.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      drumsfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
+
+      guitarsfo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+      randomnotefo.optionswidget :=
+        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+
+    end;
+end;
+
+procedure tconfiglayoutfo.onsetcolor();
+begin
+  spectrum1fo.tchartleft.traces[0].color           := tcoloredit1.Value;
+  spectrum1fo.tchartright.traces[0].color          := tcoloredit2.Value;
+  spectrum2fo.tchartleft.traces[0].color           := tcoloredit12.Value;
+  spectrum2fo.tchartright.traces[0].color          := tcoloredit22.Value;
+  commanderfo.vuleft.bar_face.fade_color.items[0]  := tcoloredit1.Value;
+  commanderfo.vuleft2.bar_face.fade_color.items[0] := tcoloredit12.Value;
+  commanderfo.vuright.bar_face.fade_color.items[0] := tcoloredit2.Value;
+  commanderfo.vuright2.bar_face.fade_color.items[0] := tcoloredit22.Value;
+  songplayerfo.vuleft.bar_face.fade_color.items[0] := tcoloredit1.Value;
+  songplayer2fo.vuleft.bar_face.fade_color.items[0] := tcoloredit12.Value;
+  songplayerfo.vuright.bar_face.fade_color.items[0] := tcoloredit2.Value;
+  songplayer2fo.vuright.bar_face.fade_color.items[0] := tcoloredit22.Value;
+
+  if dbkl1.Value then
+    wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
+  else
+    wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+
+  if dbkl2.Value then
+    wavefo2.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
+  else
+    wavefo2.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+
+  if dbkl1.Value then
+    songplayerfo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
+  else
+    songplayerfo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+
+  if dbkl2.Value then
+    songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
+  else
+    songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+
+end;
+
+procedure tconfiglayoutfo.onchangestyle(const sender: TObject);
+begin
+if (isactivated = True) then
+ begin
+ if bgold.value  then
+  mainfo.typecolor.Value :=  0 else
+if bsilver.value then
+  mainfo.typecolor.Value :=  1 else 
+  mainfo.typecolor.Value := 2; 
+end;
+
+end;
+
+procedure tconfiglayoutfo.onbutsetfont(const sender: TObject);
+var
+ rect1: rectty;
+begin
+ rect1      := application.screenrect(window);
+ fontheight.value := round(rect1.cx / 1368 * 12);   
+end;
+
+end.

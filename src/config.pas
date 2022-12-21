@@ -19,47 +19,20 @@ type
     latdrums: trealspinedit;
     tbutton1: TButton;
     infos_grid: tstringgrid;
-    tgroupbox2: tgroupbox;
-    tcoloredit1: tcoloredit;
-    tcoloredit2: tcoloredit;
-    dbkl1: tbooleanedit;
-    tgroupbox3: tgroupbox;
-    dbkl2: tbooleanedit;
-    tcoloredit12: tcoloredit;
-    tcoloredit22: tcoloredit;
     lsuglat: tlabel;
-    tgroupbox4: tgroupbox;
     tgroupbox5: tgroupbox;
     defdevout: tlabel;
     devoutcfg: tintegeredit;
     defdevin: tlabel;
     devincfg: tintegeredit;
-    tbutton2: TButton;
     tstringdisp1: tstringdisp;
     tbutton3: TButton;
     tlabel1: tlabel;
-   focusplay: tbooleanedit;
-   tgroupbox6: tgroupbox;
    syslib: tbooleanedit;
-   bosleep: tbooleanedit;
-   tgroupbox7: tgroupbox;
-   fontheight: trealspinedit;
-   tbutton4: tbutton;
-   bnohint: tbooleanedit;
-    procedure changelatplay(const Sender: TObject);
-    procedure changelatdrums(const Sender: TObject);
-    procedure changelatrec(const Sender: TObject);
-    procedure onsetcolor();
-
+   tbutton2: tbutton;
     procedure oncheckdevices(const Sender: TObject);
-    procedure onsetcolor1(const Sender: TObject; var avalue: colorty; var accept: Boolean);
-    procedure onsetback(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
-    procedure onchangeback(const Sender: TObject);
-    procedure onchangehint(const Sender: TObject);
     procedure onchangelib(const Sender: TObject);
     procedure onexecmessage(const Sender: TObject);
-   procedure applyfont(const sender: TObject);
-   procedure onloop(const sender: TObject);
   end;
 
 var
@@ -70,33 +43,8 @@ var
 implementation
 
 uses
-  spectrum1,
-  waveform,
-  commander,
-  songplayer,
-  guitars,
-  randomnote,
-  filelistform,
-  drums,
-  equalizer,
-  recorder,
-  main,
+  main, drums, songplayer, recorder,
   config_mfm;
-
-procedure tconfigfo.changelatplay(const Sender: TObject);
-begin
-  //if latplay.value < 0 then latplay.value := -1;
-end;
-
-procedure tconfigfo.changelatdrums(const Sender: TObject);
-begin
-  //if latdrums.value < 0 then latdrums.value := -1;
-end;
-
-procedure tconfigfo.changelatrec(const Sender: TObject);
-begin
-  /// if latrec.value < 0 then latrec.value := -1;
-end;
 
 procedure tconfigfo.oncheckdevices(const Sender: TObject);
 var
@@ -132,215 +80,6 @@ begin
     infos_grid[12][x] := msestring(UOSDeviceInfos[x].DeviceType);
     Inc(x);
   end;
-end;
-
-procedure tconfigfo.onsetcolor();
-begin
-  spectrum1fo.tchartleft.traces[0].color           := tcoloredit1.Value;
-  spectrum1fo.tchartright.traces[0].color          := tcoloredit2.Value;
-  spectrum2fo.tchartleft.traces[0].color           := tcoloredit12.Value;
-  spectrum2fo.tchartright.traces[0].color          := tcoloredit22.Value;
-  commanderfo.vuleft.bar_face.fade_color.items[0]  := configfo.tcoloredit1.Value;
-  commanderfo.vuleft2.bar_face.fade_color.items[0] := configfo.tcoloredit12.Value;
-  commanderfo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit2.Value;
-  commanderfo.vuright2.bar_face.fade_color.items[0] := configfo.tcoloredit22.Value;
-  songplayerfo.vuleft.bar_face.fade_color.items[0] := configfo.tcoloredit1.Value;
-  songplayer2fo.vuleft.bar_face.fade_color.items[0] := configfo.tcoloredit12.Value;
-  songplayerfo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit2.Value;
-  songplayer2fo.vuright.bar_face.fade_color.items[0] := configfo.tcoloredit22.Value;
-
-  if dbkl1.Value then
-    wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
-  else
-    wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
-
-  if dbkl2.Value then
-    wavefo2.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
-  else
-    wavefo2.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
-
-  if dbkl1.Value then
-    songplayerfo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
-  else
-    songplayerfo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
-
-  if dbkl2.Value then
-    songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
-  else
-    songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
-
-end;
-
-procedure tconfigfo.onsetcolor1(const Sender: TObject; var avalue: colorty; var accept: Boolean);
-begin
-  //onsetcolor;
-end;
-
-procedure tconfigfo.onsetback(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
-begin
-  //onsetcolor;
-end;
-
-procedure tconfigfo.onchangeback(const Sender: TObject);
-begin
-  onsetcolor;
-end;
-
-procedure tconfigfo.onchangehint(const Sender: TObject);
-begin
-  if (isactivated = True) then
-    if bnohint.Value = True then
-    begin
-      mainfo.optionswidget           :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-      mainfo.tmainmenu1.menu.options := [mao_shortcutcaption, mao_noshowhint];
-
-      commanderfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      songplayerfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      songplayer2fo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      recorderfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      filelistfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      spectrum1fo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      spectrum2fo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      spectrumrecfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      equalizerfo1.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      equalizerfo2.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      equalizerforec.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      wavefo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      wavefo2.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      waveforec.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      drumsfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      guitarsfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      randomnotefo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-    end
-    else
-    begin
-      mainfo.optionswidget           :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-      mainfo.tmainmenu1.menu.options := [mao_shortcutcaption, mao_showhint];
-
-      commanderfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      songplayerfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      songplayer2fo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      recorderfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      filelistfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      spectrum1fo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      spectrum2fo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      spectrumrecfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      equalizerfo1.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      equalizerfo2.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      equalizerforec.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      wavefo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      wavefo2.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      waveforec.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      drumsfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hinton];
-
-      guitarsfo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-      randomnotefo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
-
-    end;
 end;
 
 procedure tconfigfo.onchangelib(const Sender: TObject);
@@ -386,15 +125,6 @@ end;
 procedure tconfigfo.onexecmessage(const Sender: TObject);
 begin
   tstringdisp1.Visible := False;
-end;
-
-procedure tconfigfo.applyfont(const sender: TObject);
-begin
-mainfo.applyfont(round(fontheight.value));
-end;
-
-procedure tconfigfo.onloop(const sender: TObject);
-begin
 end;
 
 end.
