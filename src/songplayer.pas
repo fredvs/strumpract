@@ -703,9 +703,9 @@ begin
   lposition.face.template := mainfo.tfaceplayerrev;
 
   DrawWaveForm();
-
+  
   formDrawWaveForm();
-
+  
   resetspectrum();
 
 end;
@@ -2154,14 +2154,15 @@ var
   framewanted: integer;
 begin
 
-  if (tag = 0) and (as_checked in wavefo.tmainmenu1.menu[0].state) and (buzywaveform1 = False) then
+  if (tag = 0) and (as_checked in wavefo.tmainmenu1.menu[0].state) 
+   and (buzywaveform1 = False) 
+  then
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
 
       uos_Stop(theplayerinfoform);
       uos_CreatePlayer(theplayerinfoform);
-
-      application.ProcessMessages;
+  
       // Create the player.
       // PlayerIndex : from 0 to what your computer can do !
       // If PlayerIndex exists already, it will be overwriten...
@@ -2198,7 +2199,9 @@ begin
       end;
     end;
 
-  if (tag = 1) and (as_checked in wavefo2.tmainmenu1.menu[0].state) and (buzywaveform2 = False) then
+  if (tag = 1) and (as_checked in wavefo2.tmainmenu1.menu[0].state)
+   and (buzywaveform2 = False) 
+  then
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
 
@@ -2210,8 +2213,6 @@ begin
       // Create the player.
       // PlayerIndex : from 0 to what your computer can do !
       // If PlayerIndex exists already, it will be overwriten...
-
-      application.ProcessMessages;
 
       if uos_AddFromFile(theplayerinfoform2, PChar(ansistring(historyfn.Value)), -1, 2, -1) > -1 then
       begin
@@ -2337,7 +2338,12 @@ begin
           end;
         end;
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav = False) then
-          ttimerwavdata.Enabled := True{   
+         if ttimerwavdata.Enabled then
+           ttimerwavdata.restart // to reset
+           else
+          ttimerwavdata.Enabled := True;
+
+          {   
           waveformcheck.Value
           
           uos_Stop(theplayerinfo);
@@ -2370,7 +2376,7 @@ begin
 
           uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
           //application.processmessages;
-         };
+         }
 
       end;
 
@@ -2435,7 +2441,11 @@ begin
           end;
         end;
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav2 = False) then
-          ttimerwavdata.Enabled := True{     
+             if ttimerwavdata.Enabled then
+           ttimerwavdata.restart // to reset
+           else
+          ttimerwavdata.Enabled := True;
+   {     
           uos_Stop(theplayerinfo2);
 
           uos_CreatePlayer(theplayerinfo2);
@@ -2464,7 +2474,7 @@ begin
           uos_EndProc(theplayerinfo2, @GetWaveData);
 
           uos_Play(theplayerinfo2);  /// everything is ready, here we are, lets do it...
-    };
+    }
       end;
     end
     else
@@ -2949,6 +2959,7 @@ end;
 procedure tsongplayerfo.ontimerwaveform(const Sender: TObject);
 begin
   onwavform(Sender);
+  
 end;
 
 procedure tsongplayerfo.opendir(const Sender: TObject);
