@@ -1,16 +1,16 @@
 object configfo: tconfigfo
   visible = False
   bounds_x = 177
-  bounds_y = 161
+  bounds_y = 115
   bounds_cx = 1000
-  bounds_cy = 540
+  bounds_cy = 586
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     1000
-    540
+    586
   )
   optionswindow = [wo_dialog]
   font.color = -1610612734
@@ -570,6 +570,44 @@ object configfo: tconfigfo
     caption = 'OK'
     modalresult = mr_windowclosed
   end
+  object syslib: tbooleanedit
+    color = -2147483645
+    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+    frame.colorclient = 16580582
+    frame.caption = 'Use library of system'
+    frame.captiondist = 3
+    frame.localprops = [frl_hiddenedges, frl_colorclient]
+    frame.localprops1 = [frl1_captiondist]
+    frame.outerframe = (
+      0
+      2
+      131
+      3
+    )
+    taborder = 5
+    hint = 'Use libraries installed in system (otherwise uses library from StrumPract)'
+    bounds_x = 262
+    bounds_y = 74
+    bounds_cx = 144
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    onchange = onchangelib
+    colorglyph = 4868682
+  end
+  object tbutton2: tbutton
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
+    taborder = 6
+    hint = 'Re-load Devices Info'
+    bounds_x = 51
+    bounds_y = 69
+    bounds_cx = 150
+    bounds_cy = 30
+    state = [as_localcaption, as_localhint, as_localonexecute]
+    caption = 'Refresh Info'
+    onexecute = oncheckdevices
+  end
   object tstringdisp1: tstringdisp
     frame.localprops = []
     frame.localprops1 = []
@@ -616,43 +654,5 @@ object configfo: tconfigfo
       caption = 'Libraries from system are loaded'
       reffontheight = 15
     end
-  end
-  object syslib: tbooleanedit
-    color = -2147483645
-    frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-    frame.colorclient = 16580582
-    frame.caption = 'Use library of system'
-    frame.captiondist = 3
-    frame.localprops = [frl_hiddenedges, frl_colorclient]
-    frame.localprops1 = [frl1_captiondist]
-    frame.outerframe = (
-      0
-      2
-      131
-      3
-    )
-    taborder = 5
-    hint = 'Use libraries installed in system (otherwise uses library from StrumPract)'
-    bounds_x = 262
-    bounds_y = 74
-    bounds_cx = 144
-    bounds_cy = 17
-    statfile = mainfo.tstatfile1
-    onchange = onchangelib
-    colorglyph = 4868682
-  end
-  object tbutton2: tbutton
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    taborder = 6
-    hint = 'Re-load Devices Info'
-    bounds_x = 51
-    bounds_y = 69
-    bounds_cx = 150
-    bounds_cy = 30
-    state = [as_localcaption, as_localhint, as_localonexecute]
-    caption = 'Refresh Info'
-    onexecute = oncheckdevices
   end
 end
