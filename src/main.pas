@@ -1223,8 +1223,8 @@ begin
     //   tmainmenu1.menu.itembynames(['config', 'style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
     //   tmainmenu1.menu.itembynames(['config', 'style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
 
-    tmainmenu1.menu.itembynames(['config', 'audio']).hint :=
-      lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
+ //   tmainmenu1.menu.itembynames(['config', 'audio']).hint :=
+ //     lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
 
     //  tmainmenu1.menu.itembynames(['config', 'audio']).Caption :=
     //   lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}

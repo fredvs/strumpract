@@ -4,6 +4,10 @@ object configfo: tconfigfo
   bounds_y = 115
   bounds_cx = 1000
   bounds_cy = 586
+  bounds_cxmin = 1000
+  bounds_cymin = 586
+  bounds_cxmax = 1000
+  bounds_cymax = 586
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
@@ -16,7 +20,7 @@ object configfo: tconfigfo
   font.color = -1610612734
   font.name = 'stf_default'
   font.localprops = [flp_color]
-  caption = 'Configuration'
+  caption = 'Configuration of Audio'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
   icon.image = {
@@ -303,7 +307,7 @@ object configfo: tconfigfo
     bounds_x = 0
     bounds_y = 104
     bounds_cx = 1000
-    bounds_cy = 434
+    bounds_cy = 480
     anchors = [an_top]
     optionsgrid = [og_colsizing, og_focuscellonenter, og_autofirstrow, og_autoappend, og_colchangeontabkey, og_wrapcol, og_mousescrollcol]
     datacols.count = 13
@@ -626,8 +630,8 @@ object configfo: tconfigfo
     face.localprops = [fal_fadirection]
     taborder = 4
     visible = False
-    bounds_x = 200
-    bounds_y = 63
+    bounds_x = 201
+    bounds_y = 65
     bounds_cx = 292
     bounds_cy = 34
     reffontheight = 15

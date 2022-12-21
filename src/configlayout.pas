@@ -58,7 +58,7 @@ type
     tbutton3: TButton;
     procedure onfontheight(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
-    procedure onsetcolor();
+    procedure onsetcolor(const Sender: TObject);
     procedure onsetfontres(const Sender: TObject);
     procedure onchangestyle(const Sender: TObject);
     procedure onbutsetfont(const Sender: TObject);
@@ -94,8 +94,8 @@ var
 begin
   rect1 := application.screenrect(window);
   tbutton3.Caption := 'Resolution: ' + IntToStr(rect1.cx) + 'x' +
-   IntToStr(rect1.cy) + lineend + 'Font height suggested: ' +
-   IntToStr(round(rect1.cx / 1368 * 12));
+    IntToStr(rect1.cy) + lineend + 'Font height suggested: ' +
+    IntToStr(round(rect1.cx / 1368 * 12));
 end;
 
 procedure tconfiglayoutfo.onchangehint(const Sender: TObject);
@@ -255,41 +255,43 @@ begin
     end;
 end;
 
-procedure tconfiglayoutfo.onsetcolor();
+procedure tconfiglayoutfo.onsetcolor(const Sender: TObject);
 begin
-  spectrum1fo.tchartleft.traces[0].color           := tcoloredit1.Value;
-  spectrum1fo.tchartright.traces[0].color          := tcoloredit2.Value;
-  spectrum2fo.tchartleft.traces[0].color           := tcoloredit12.Value;
-  spectrum2fo.tchartright.traces[0].color          := tcoloredit22.Value;
-  commanderfo.vuleft.bar_face.fade_color.items[0]  := tcoloredit1.Value;
-  commanderfo.vuleft2.bar_face.fade_color.items[0] := tcoloredit12.Value;
-  commanderfo.vuright.bar_face.fade_color.items[0] := tcoloredit2.Value;
-  commanderfo.vuright2.bar_face.fade_color.items[0] := tcoloredit22.Value;
-  songplayerfo.vuleft.bar_face.fade_color.items[0] := tcoloredit1.Value;
-  songplayer2fo.vuleft.bar_face.fade_color.items[0] := tcoloredit12.Value;
-  songplayerfo.vuright.bar_face.fade_color.items[0] := tcoloredit2.Value;
-  songplayer2fo.vuright.bar_face.fade_color.items[0] := tcoloredit22.Value;
+  if (isactivated = True) then
+  begin
+    spectrum1fo.tchartleft.traces[0].color           := tcoloredit1.Value;
+    spectrum1fo.tchartright.traces[0].color          := tcoloredit2.Value;
+    spectrum2fo.tchartleft.traces[0].color           := tcoloredit12.Value;
+    spectrum2fo.tchartright.traces[0].color          := tcoloredit22.Value;
+    commanderfo.vuleft.bar_face.fade_color.items[0]  := tcoloredit1.Value;
+    commanderfo.vuleft2.bar_face.fade_color.items[0] := tcoloredit12.Value;
+    commanderfo.vuright.bar_face.fade_color.items[0] := tcoloredit2.Value;
+    commanderfo.vuright2.bar_face.fade_color.items[0] := tcoloredit22.Value;
+    songplayerfo.vuleft.bar_face.fade_color.items[0] := tcoloredit1.Value;
+    songplayer2fo.vuleft.bar_face.fade_color.items[0] := tcoloredit12.Value;
+    songplayerfo.vuright.bar_face.fade_color.items[0] := tcoloredit2.Value;
+    songplayer2fo.vuright.bar_face.fade_color.items[0] := tcoloredit22.Value;
 
-  if dbkl1.Value then
-    wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
-  else
-    wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+    if dbkl1.Value then
+      wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
+    else
+      wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
 
-  if dbkl2.Value then
-    wavefo2.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
-  else
-    wavefo2.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+    if dbkl2.Value then
+      wavefo2.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
+    else
+      wavefo2.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
 
-  if dbkl1.Value then
-    songplayerfo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
-  else
-    songplayerfo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+    if dbkl1.Value then
+      songplayerfo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
+    else
+      songplayerfo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
 
-  if dbkl2.Value then
-    songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
-  else
-    songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
-
+    if dbkl2.Value then
+      songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
+    else
+      songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+  end;
 end;
 
 procedure tconfiglayoutfo.onchangestyle(const Sender: TObject);

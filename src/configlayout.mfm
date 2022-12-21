@@ -1,15 +1,19 @@
 object configlayoutfo: tconfiglayoutfo
   visible = False
-  bounds_x = 570
-  bounds_y = 295
-  bounds_cx = 564
+  bounds_x = 400
+  bounds_y = 270
+  bounds_cx = 584
   bounds_cy = 250
+  bounds_cxmin = 584
+  bounds_cymin = 250
+  bounds_cxmax = 584
+  bounds_cymax = 250
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
-    564
+    584
     250
   )
   optionswindow = [wo_dialog]
@@ -79,6 +83,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 50
       bounds_cx = 172
       bounds_cy = 39
+      onchange = onsetcolor
       value = 13872086
       reffontheight = 15
     end
@@ -123,6 +128,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 92
       bounds_cx = 172
       bounds_cy = 39
+      onchange = onsetcolor
       value = 13744312
       reffontheight = 15
     end
@@ -147,6 +153,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_cx = 123
       bounds_cy = 17
       statfile = mainfo.tstatfile1
+      onchange = onsetcolor
       colorglyph = 4868682
     end
   end
@@ -191,6 +198,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_cx = 123
       bounds_cy = 17
       statfile = mainfo.tstatfile1
+      onchange = onsetcolor
       colorglyph = 4868682
     end
     object tcoloredit12: tcoloredit
@@ -234,6 +242,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 51
       bounds_cx = 172
       bounds_cy = 39
+      onchange = onsetcolor
       value = 11255766
       valuedefault = -1610612721
       reffontheight = 15
@@ -279,6 +288,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 93
       bounds_cx = 172
       bounds_cy = 39
+      onchange = onsetcolor
       value = 9424076
       valuedefault = -1610612720
       reffontheight = 15
@@ -300,7 +310,7 @@ object configlayoutfo: tconfiglayoutfo
     taborder = 2
     bounds_x = 263
     bounds_y = 170
-    bounds_cx = 288
+    bounds_cx = 300
     bounds_cy = 70
     object fontheight: trealspinedit
       frame.framei_left = 1
@@ -346,8 +356,8 @@ object configlayoutfo: tconfiglayoutfo
       hint = 'Click to set font height suggested'
       bounds_x = 100
       bounds_y = 15
-      bounds_cx = 181
-      bounds_cy = 44
+      bounds_cx = 189
+      bounds_cy = 46
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'Set font height to '
       onexecute = onbutsetfont
@@ -369,26 +379,26 @@ object configlayoutfo: tconfiglayoutfo
     taborder = 3
     bounds_x = 438
     bounds_y = 57
-    bounds_cx = 104
+    bounds_cx = 125
     bounds_cy = 105
     object focusplay: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Focus play'
+      frame.caption = 'Focus player'
       frame.captiondist = 3
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
         2
-        69
+        81
         3
       )
       hint = 'Set focus to Player-form when mixing'
       bounds_x = 6
       bounds_y = 26
-      bounds_cx = 82
+      bounds_cx = 94
       bounds_cy = 17
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
@@ -420,21 +430,21 @@ object configlayoutfo: tconfiglayoutfo
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
       frame.colorclient = 16580582
-      frame.caption = 'Mon Sleep'
+      frame.caption = 'Monitor sleep'
       frame.captiondist = 3
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
         2
-        67
+        85
         3
       )
       taborder = 2
       hint = 'Enable sleep mode when inactive > 3 minutes'
       bounds_x = 6
       bounds_y = 76
-      bounds_cx = 80
+      bounds_cx = 98
       bounds_cy = 17
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
@@ -445,8 +455,8 @@ object configlayoutfo: tconfiglayoutfo
     frame.localprops1 = []
     frame.template = commanderfo.tframecomp2
     taborder = 4
-    bounds_x = 472
-    bounds_y = 15
+    bounds_x = 504
+    bounds_y = 13
     bounds_cx = 40
     bounds_cy = 34
     state = [as_localcaption]
@@ -458,6 +468,7 @@ object configlayoutfo: tconfiglayoutfo
     frame.leveli = 0
     frame.colorhighlight = -1610612733
     frame.caption = 'Style'
+    frame.captionpos = cp_top
     frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
     frame.localprops1 = [frl1_captionoffset]
     frame.outerframe = (
