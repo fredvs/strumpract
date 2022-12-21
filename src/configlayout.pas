@@ -4,34 +4,11 @@ unit configlayout;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msesimplewidgets,
-  mseact,
-  msecolordialog,
-  msedataedits,
-  msedropdownlist,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  SysUtils,
-  msegraphedits,
-  msescrollbar;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
+ msesimplewidgets,mseact,msecolordialog,msedataedits,msedropdownlist,mseedit,
+ mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
+ msegraphedits,msescrollbar;
 
 type
   tconfiglayoutfo = class(tmseform)
@@ -56,6 +33,7 @@ type
     bsilver: tbooleaneditradio;
     bcarbon: tbooleaneditradio;
     tbutton3: TButton;
+   autoheight: tbooleanedit;
     procedure onfontheight(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
     procedure onsetcolor(const Sender: TObject);

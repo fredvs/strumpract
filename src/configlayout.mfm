@@ -3,18 +3,18 @@ object configlayoutfo: tconfiglayoutfo
   bounds_x = 400
   bounds_y = 270
   bounds_cx = 584
-  bounds_cy = 250
+  bounds_cy = 288
   bounds_cxmin = 584
-  bounds_cymin = 250
+  bounds_cymin = 288
   bounds_cxmax = 584
-  bounds_cymax = 250
+  bounds_cymax = 288
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     584
-    250
+    288
   )
   optionswindow = [wo_dialog]
   font.name = 'stf_default'
@@ -311,7 +311,7 @@ object configlayoutfo: tconfiglayoutfo
     bounds_x = 263
     bounds_y = 170
     bounds_cx = 300
-    bounds_cy = 70
+    bounds_cy = 105
     object fontheight: trealspinedit
       frame.framei_left = 1
       frame.framei_top = 1
@@ -323,7 +323,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_x = 7
       bounds_y = 17
       bounds_cx = 82
-      bounds_cy = 24
+      bounds_cy = 28
       statfile = mainfo.tstatfile1
       value = 12
       valuedefault = 12
@@ -341,8 +341,8 @@ object configlayoutfo: tconfiglayoutfo
       taborder = 1
       hint = 'Apply font height and scalled forms.'
       bounds_x = 9
-      bounds_y = 42
-      bounds_cx = 79
+      bounds_y = 48
+      bounds_cx = 82
       bounds_cy = 21
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'Apply'
@@ -357,10 +357,35 @@ object configlayoutfo: tconfiglayoutfo
       bounds_x = 100
       bounds_y = 15
       bounds_cx = 189
-      bounds_cy = 46
+      bounds_cy = 52
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'Set font height to '
       onexecute = onbutsetfont
+    end
+    object autoheight: tbooleanedit
+      color = -2147483645
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = 16580582
+      frame.caption = 'Use suggested font height at loading'
+      frame.captiondist = 3
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.outerframe = (
+        0
+        2
+        229
+        3
+      )
+      taborder = 3
+      hint = 'Set suggested height of font and scalling at loading'
+      bounds_x = 27
+      bounds_y = 76
+      bounds_cx = 242
+      bounds_cy = 17
+      statfile = mainfo.tstatfile1
+      colorglyph = 4868682
+      value = True
+      valuedefault = True
     end
   end
   object tgroupbox4: tgroupbox
@@ -424,6 +449,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_cx = 62
       bounds_cy = 17
       statfile = mainfo.tstatfile1
+      onchange = onchangehint
       colorglyph = 4868682
     end
     object bosleep: tbooleanedit
@@ -481,7 +507,7 @@ object configlayoutfo: tconfiglayoutfo
     bounds_x = 23
     bounds_y = 170
     bounds_cx = 229
-    bounds_cy = 70
+    bounds_cy = 105
     object bgold: tbooleaneditradio
       frame.caption = 'Gold'
       frame.localprops = []
@@ -492,8 +518,8 @@ object configlayoutfo: tconfiglayoutfo
         30
         2
       )
-      bounds_x = 22
-      bounds_y = 30
+      bounds_x = 21
+      bounds_y = 48
       bounds_cx = 43
       bounds_cy = 17
       statfile = mainfo.tstatfile1
@@ -510,8 +536,8 @@ object configlayoutfo: tconfiglayoutfo
         2
       )
       taborder = 1
-      bounds_x = 88
-      bounds_y = 30
+      bounds_x = 87
+      bounds_y = 48
       bounds_cx = 49
       bounds_cy = 17
       statfile = mainfo.tstatfile1
@@ -528,8 +554,8 @@ object configlayoutfo: tconfiglayoutfo
         2
       )
       taborder = 2
-      bounds_x = 153
-      bounds_y = 30
+      bounds_x = 152
+      bounds_y = 48
       bounds_cx = 59
       bounds_cy = 17
       onchange = onchangestyle

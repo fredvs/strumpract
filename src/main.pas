@@ -7071,7 +7071,14 @@ procedure tmainfo.onactiv(const Sender: TObject);
 var
   x: integer;
   oldlang: msestring;
+  rect1: rectty;
 begin
+  if configlayoutfo.autoheight.Value then
+  begin
+  rect1 := application.screenrect(window);
+  configlayoutfo.fontheight.Value := round(rect1.cx / 1368 * 12);
+  end; 
+
   fontheightused := round(configlayoutfo.fontheight.Value);
   resizema(fontheightused);
   applyfont(fontheightused);
