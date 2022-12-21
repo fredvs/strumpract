@@ -2498,7 +2498,7 @@ while (PlayersNotFree = true) and (nt > 0) do
   Sleep(10); 
   Dec(nt); 
  end; 
- sleep(20);
+ sleep(100);
  uos.uos_free();
 end;
 

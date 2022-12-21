@@ -4,12 +4,41 @@ unit config;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- uos_flat,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
- mseact,msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
- msestream,msestrings,SysUtils,msesimplewidgets,msegraphedits,msescrollbar,
- msedragglob,msegrids,msegridsglob,msedispwidgets,mserichstring,msedropdownlist,
- msecolordialog;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  uos_flat,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  mseact,
+  msedataedits,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestatfile,
+  msestream,
+  msestrings,
+  SysUtils,
+  msesimplewidgets,
+  msegraphedits,
+  msescrollbar,
+  msedragglob,
+  msegrids,
+  msegridsglob,
+  msedispwidgets,
+  mserichstring,
+  msedropdownlist,
+  msecolordialog;
 
 type
   tconfigfo = class(tmseform)
@@ -28,8 +57,8 @@ type
     tstringdisp1: tstringdisp;
     tbutton3: TButton;
     tlabel1: tlabel;
-   syslib: tbooleanedit;
-   tbutton2: tbutton;
+    syslib: tbooleanedit;
+    tbutton2: TButton;
     procedure oncheckdevices(const Sender: TObject);
     procedure onchangelib(const Sender: TObject);
     procedure onexecmessage(const Sender: TObject);
@@ -43,7 +72,10 @@ var
 implementation
 
 uses
-  main, drums, songplayer, recorder,
+  main,
+  drums,
+  songplayer,
+  recorder,
   config_mfm;
 
 procedure tconfigfo.oncheckdevices(const Sender: TObject);

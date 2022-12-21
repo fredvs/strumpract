@@ -175,7 +175,7 @@ type
     procedure ondockvert(const Sender: TObject);
     procedure resizema(fontheight: integer);
     procedure applyfont(fontval: integer);
-   procedure onconfiglayout(const sender: TObject);
+    procedure onconfiglayout(const Sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -222,6 +222,7 @@ implementation
 
 uses
   errorform,
+  splash,
   findmessage,
   infosd,
   piano,
@@ -327,8 +328,8 @@ begin
       else
         Canvas.drawline(poswav, poswav2, cl_ltgray);
 
-      poswav.x  := widthslider-1;
-      poswav2.x := widthslider-1;
+      poswav.x  := widthslider - 1;
+      poswav2.x := widthslider - 1;
       poswav.y  := 0;
       poswav2.y := heightslider;
       if typecolor.Value = 2 then
@@ -413,7 +414,7 @@ begin
   paintslider();
 
   resizema(fontval);
-  
+
   if fontval < 12 then
   begin
     tmainmenu1.menu.itembynames(['sepquit']).Visible := False;
@@ -441,8 +442,8 @@ begin
 
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayoutpan();
-    
-application.processmessages;    
+
+  application.ProcessMessages;
 end;
 
 procedure tmainfo.resizema(fontheight: integer);
@@ -1213,14 +1214,14 @@ begin
     tmainmenu1.menu.itembynames(['dancer']).Caption := lang_mainfo[Ord(ma_tmainmenu1_dancer)];  {'Da&ncer'}
     tmainmenu1.menu.itembynames(['dancer']).hint    := lang_mainfo[Ord(ma_tmainmenu1_dancer_hint)];  {'Dancing Animations'}
 
-   // tmainmenu1.menu.itembynames(['config', 'style', 'gold']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
+    // tmainmenu1.menu.itembynames(['config', 'style', 'gold']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_gold)];  {'Gold'}
 
-  //  tmainmenu1.menu.itembynames(['config', 'style', 'silver']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
+    //  tmainmenu1.menu.itembynames(['config', 'style', 'silver']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_silver)];  {'Silver'}
 
- //   tmainmenu1.menu.itembynames(['config', 'style', 'carbon']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
+    //   tmainmenu1.menu.itembynames(['config', 'style', 'carbon']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_carbon)];  {'Carbon'}
 
- //   tmainmenu1.menu.itembynames(['config', 'style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
-  //   tmainmenu1.menu.itembynames(['config', 'style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
+    //   tmainmenu1.menu.itembynames(['config', 'style']).Caption := lang_mainfo[Ord(ma_tmainmenu1_style)];  {'&Style'}
+    //   tmainmenu1.menu.itembynames(['config', 'style']).hint    := lang_mainfo[Ord(ma_tmainmenu1_style_hint)];  {'Layout style Gold, Silver or Carbon'}
 
     tmainmenu1.menu.itembynames(['config', 'audio']).hint :=
       lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio_hint)];  {'Config of audio and colors'}
@@ -1335,7 +1336,7 @@ begin
 
     lposition.hint := lang_songplayerfo[Ord(so_lposition_hint)];  {' Position of sound '}
 
-   // llength.hint := lang_songplayerfo[Ord(so_llength_hint)];      {' Length of sound '}
+    // llength.hint := lang_songplayerfo[Ord(so_llength_hint)];      {' Length of sound '}
 
     cbloopb.hint       := lang_songplayerfo[Ord(so_cbloopb_hint)];  {' Enable looping the song. (Pause is not enabled with loop.) '}
     setmono.hint       := lang_songplayerfo[Ord(so_setmono_hint)];  {'Mono/Stereo'}
@@ -1395,7 +1396,7 @@ begin
 
     lposition.hint := lang_songplayerfo[Ord(so_lposition_hint)];  {' Position of sound '}
 
-  //  llength.hint := lang_songplayerfo[Ord(so_llength_hint)];  {' Length of sound '}
+    //  llength.hint := lang_songplayerfo[Ord(so_llength_hint)];  {' Length of sound '}
 
     cbloop.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];   {' Enable looping the song. (Pause is not enabled with loop.) '}
 
@@ -2104,9 +2105,9 @@ begin
 
   filelistfo.tstatfile1.writestat(ordir + 'ini' + directoryseparator + 'list.ini');
 
- // application.ProcessMessages;
- // uos_free();
- 
+  // application.ProcessMessages;
+  // uos_free();
+
 end;
 
 procedure tmainfo.oncreatedform(const Sender: TObject);
@@ -4512,8 +4513,8 @@ begin
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
-    
-    songplayerfo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
+
+    songplayerfo.historyfn.dropdown.cols[0].colorselect  := $FFCD8F;
     songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
 
     dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
@@ -4894,17 +4895,17 @@ begin
     // Equalizer
     with equalizerfo1 do
     begin
-      fond.color      := $D2D8A5;
-      
-      font.color := ltblack;
+      fond.color := $D2D8A5;
+
+      font.color           := ltblack;
       groupbox1.font.color := ltblack;
       groupbox2.font.color := ltblack;
-     
+
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-      groupbox1.color := $D2D8A5;
-      groupbox2.color := $D2D8A5;
-      EQEN.frame.font.color := thecolor1;
+      groupbox1.color        := $D2D8A5;
+      groupbox2.color        := $D2D8A5;
+      EQEN.frame.font.color  := thecolor1;
       EQEN.frame.colorclient := $D2D8A5;
 
       EQEN.color := $D2D8A5;
@@ -4917,31 +4918,31 @@ begin
       groupbox2.frame.font.color := ltblack;
       groupbox1.color := $D2D8A5;
       groupbox2.color := $D2D8A5;
-      
-       font.color := thecolor2;
+
+      font.color           := thecolor2;
       groupbox1.font.color := ltblack;
       groupbox2.font.color := ltblack;
-     
-      
+
+
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := $D2D8A5;
-      EQEN.color      := $D2D8A5;
+      EQEN.color := $D2D8A5;
     end;
 
     with equalizerforec do
     begin
       loadset.face.template := recorderfo.tfacerecorder;
       saveset.face.template := recorderfo.tfacerecorder;
-      fond.color         := $EDC0C0;
-      groupbox1.color    := $EDC0C0;
-      groupbox2.color    := $EDC0C0;
+      fond.color      := $EDC0C0;
+      groupbox1.color := $EDC0C0;
+      groupbox2.color := $EDC0C0;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-   
-      font.color := ltblack;
+
+      font.color           := ltblack;
       groupbox1.font.color := ltblack;
       groupbox2.font.color := ltblack;
-     
+
       EQEN.frame.colorclient := $EDC0C0;
       EQEN.color         := $EDC0C0;
       EQEN.frame.font.color := cl_black;
@@ -4954,7 +4955,7 @@ begin
       abuttons2[x].font.color := thecolor2;
       abuttonsR[x].font.color := ltblack;
 
-        
+
       asliders[x].scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
       asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
       aslidersr[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
@@ -5159,8 +5160,8 @@ begin
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
-    
-    songplayerfo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
+
+    songplayerfo.historyfn.dropdown.cols[0].colorselect  := $FFCD8F;
     songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
 
     dialogfilesfo.list_files.frame.colorclient := cl_ltgray;
@@ -5503,11 +5504,11 @@ begin
       groupbox2.frame.font.color := ltblack;
       groupbox1.color := cl_default;
       groupbox2.color := cl_default;
-      
-      font.color := ltblack;
+
+      font.color           := ltblack;
       groupbox1.font.color := ltblack;
       groupbox2.font.color := ltblack;
-   
+
 
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
@@ -5516,34 +5517,34 @@ begin
 
     with equalizerfo2 do
     begin
-      fond.color      := cl_default;
+      fond.color           := cl_default;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-      groupbox1.color := cl_default;
-      groupbox2.color := cl_default;
-        font.color := ltblack;
+      groupbox1.color      := cl_default;
+      groupbox2.color      := cl_default;
+      font.color           := ltblack;
       groupbox1.font.color := ltblack;
       groupbox2.font.color := ltblack;
-   
+
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
-      EQEN.color      := cl_default;
+      EQEN.color := cl_default;
     end;
 
     with equalizerforec do
     begin
-      fond.color      := cl_default;
+      fond.color           := cl_default;
       groupbox1.frame.font.color := ltblack;
       groupbox2.frame.font.color := ltblack;
-      groupbox1.color := cl_default;
-      groupbox2.color := cl_default;
-        font.color := ltblack;
+      groupbox1.color      := cl_default;
+      groupbox2.color      := cl_default;
+      font.color           := ltblack;
       groupbox1.font.color := ltblack;
       groupbox2.font.color := ltblack;
-   
+
       EQEN.frame.font.color := ltblack;
       EQEN.frame.colorclient := cl_default;
-      EQEN.color      := cl_default;
+      EQEN.color := cl_default;
     end;
 
     for x := 1 to 20 do
@@ -5725,7 +5726,7 @@ begin
     synthefo.font.color := cl_white;
     pianofo.font.color  := cl_white;
 
-    songplayerfo.historyfn.dropdown.cols[0].colorselect := $573000;
+    songplayerfo.historyfn.dropdown.cols[0].colorselect  := $573000;
     songplayer2fo.historyfn.dropdown.cols[0].colorselect := $573000;
 
     filelistfo.historyfn.font.color := cl_white;
@@ -6155,47 +6156,47 @@ begin
     // Equalizer
     with equalizerfo1 do
     begin
-      fond.color      := $3A3A3A;
+      fond.color           := $3A3A3A;
       groupbox1.frame.font.color := ltblank;
       groupbox2.frame.font.color := ltblank;
       groupbox1.font.color := ltblank;
       groupbox2.font.color := ltblank;
-      font.color := ltblank;
-      groupbox1.color := $3A3A3A;
-      groupbox2.color := $3A3A3A;
+      font.color           := ltblank;
+      groupbox1.color      := $3A3A3A;
+      groupbox2.color      := $3A3A3A;
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
-      EQEN.color := $3A3A3A;
+      EQEN.color           := $3A3A3A;
     end;
 
     with equalizerfo2 do
     begin
-      fond.color      := $3A3A3A;
+      fond.color           := $3A3A3A;
       groupbox1.frame.font.color := ltblank;
       groupbox2.frame.font.color := ltblank;
-      groupbox1.color := $3A3A3A;
-      groupbox2.color := $3A3A3A;
+      groupbox1.color      := $3A3A3A;
+      groupbox2.color      := $3A3A3A;
       groupbox1.font.color := ltblank;
       groupbox2.font.color := ltblank;
-      font.color := ltblank;
+      font.color           := ltblank;
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
-      EQEN.color      := $3A3A3A;
+      EQEN.color           := $3A3A3A;
     end;
 
     with equalizerforec do
     begin
-      fond.color      := $3A3A3A;
+      fond.color           := $3A3A3A;
       groupbox1.frame.font.color := ltblank;
       groupbox2.frame.font.color := ltblank;
-      groupbox1.color := $3A3A3A;
-      groupbox2.color := $3A3A3A;
+      groupbox1.color      := $3A3A3A;
+      groupbox2.color      := $3A3A3A;
       groupbox1.font.color := ltblank;
       groupbox2.font.color := ltblank;
-      font.color := ltblank;
+      font.color           := ltblank;
       EQEN.frame.font.color := ltblank;
       EQEN.frame.colorclient := $4A4A4A;
-      EQEN.color      := $3A3A3A;
+      EQEN.color           := $3A3A3A;
     end;
 
     for x := 1 to 20 do
@@ -6887,8 +6888,8 @@ begin
   if drumsfo.Visible then
     drumsvisible.Value := 1
   else
-    drumsvisible.Value := 0; 
-      
+    drumsvisible.Value := 0;
+
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);
@@ -7098,7 +7099,7 @@ begin
     configlayoutfo.onchangehint(Sender);
   end;
   if mainfo.drumsvisible.Value = 1 then
-  drumsfo.Visible := True;
+    drumsfo.Visible := True;
 
   infosdfo.onshow(nil);
   infosdfo2.onshow(nil);
@@ -7121,9 +7122,10 @@ begin
 
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayoutpan();
-    
+
   onchangevalcolor(nil);
 
+  splashfo.Close;
 end;
 
 procedure tmainfo.showinfos1(const Sender: TObject);
@@ -7166,10 +7168,10 @@ begin
   updatelayoutstrum();
 end;
 
-procedure tmainfo.onconfiglayout(const sender: TObject);
+procedure tmainfo.onconfiglayout(const Sender: TObject);
 begin
-configlayoutfo.onsetfontres(Sender);
-configlayoutfo.Show(True);
+  configlayoutfo.onsetfontres(Sender);
+  configlayoutfo.Show(True);
 end;
 
 end.

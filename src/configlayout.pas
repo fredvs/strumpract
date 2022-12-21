@@ -1,45 +1,74 @@
 unit configlayout;
+
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
+
 uses
- msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
- msegui,msegraphics, msegraphutils, mseevent, mseclasses, msewidgets, mseforms,
- msesimplewidgets, mseact, msecolordialog, msedataedits, msedropdownlist,
- mseedit, mseificomp, mseificompglob, mseifiglob, msestatfile, msestream,
- sysutils, msegraphedits, msescrollbar;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  msesimplewidgets,
+  mseact,
+  msecolordialog,
+  msedataedits,
+  msedropdownlist,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestatfile,
+  msestream,
+  SysUtils,
+  msegraphedits,
+  msescrollbar;
+
 type
- tconfiglayoutfo = class(tmseform)
-   tgroupbox2: tgroupbox;
-   tcoloredit1: tcoloredit;
-   tcoloredit2: tcoloredit;
-   dbkl1: tbooleanedit;
-   tgroupbox3: tgroupbox;
-   dbkl2: tbooleanedit;
-   tcoloredit12: tcoloredit;
-   tcoloredit22: tcoloredit;
-   tgroupbox7: tgroupbox;
-   fontheight: trealspinedit;
-   tbutton4: tbutton;
-   tgroupbox4: tgroupbox;
-   focusplay: tbooleanedit;
-   bnohint: tbooleanedit;
-   bosleep: tbooleanedit;
-   tbutton1: tbutton;
-   tgroupbox5: tgroupbox;
-   bgold: tbooleaneditradio;
-   bsilver: tbooleaneditradio;
-   bcarbon: tbooleaneditradio;
-   tbutton3: tbutton;
-   procedure onfontheight(const sender: TObject);
-   procedure onchangehint(const Sender: TObject);
-   procedure onsetcolor();
-   procedure onsetfontres(const Sender: TObject);
-   procedure onchangestyle(const sender: TObject);
-   procedure onbutsetfont(const sender: TObject);
+  tconfiglayoutfo = class(tmseform)
+    tgroupbox2: tgroupbox;
+    tcoloredit1: tcoloredit;
+    tcoloredit2: tcoloredit;
+    dbkl1: tbooleanedit;
+    tgroupbox3: tgroupbox;
+    dbkl2: tbooleanedit;
+    tcoloredit12: tcoloredit;
+    tcoloredit22: tcoloredit;
+    tgroupbox7: tgroupbox;
+    fontheight: trealspinedit;
+    tbutton4: TButton;
+    tgroupbox4: tgroupbox;
+    focusplay: tbooleanedit;
+    bnohint: tbooleanedit;
+    bosleep: tbooleanedit;
+    tbutton1: TButton;
+    tgroupbox5: tgroupbox;
+    bgold: tbooleaneditradio;
+    bsilver: tbooleaneditradio;
+    bcarbon: tbooleaneditradio;
+    tbutton3: TButton;
+    procedure onfontheight(const Sender: TObject);
+    procedure onchangehint(const Sender: TObject);
+    procedure onsetcolor();
+    procedure onsetfontres(const Sender: TObject);
+    procedure onchangestyle(const Sender: TObject);
+    procedure onbutsetfont(const Sender: TObject);
   end;
+
 var
- configlayoutfo: tconfiglayoutfo;
+  configlayoutfo: tconfiglayoutfo;
+
 implementation
+
 uses
   spectrum1,
   waveform,
@@ -51,20 +80,20 @@ uses
   drums,
   equalizer,
   recorder,
-  main, configlayout_mfm;
- 
-procedure tconfiglayoutfo.onfontheight(const sender: TObject);
+  main,
+  configlayout_mfm;
+
+procedure tconfiglayoutfo.onfontheight(const Sender: TObject);
 begin
-mainfo.applyfont(round(fontheight.value));
+  mainfo.applyfont(round(fontheight.Value));
 end;
 
 procedure tconfiglayoutfo.onsetfontres(const Sender: TObject);
 var
- rect1: rectty;
+  rect1: rectty;
 begin
- rect1      := application.screenrect(window);
- tbutton3.caption := 'Resolution: ' + inttostr(rect1.cx) + 'x' + inttostr(rect1.cy)
- + lineend + 'Font height suggested: ' + inttostr(round(rect1.cx / 1280) * 12);   
+  rect1 := application.screenrect(window);
+  tbutton3.Caption := 'Resolution: ' + IntToStr(rect1.cx) + 'x' + IntToStr(rect1.cy) + lineend + 'Font height suggested: ' + IntToStr(round(rect1.cx / 1280) * 12);
 end;
 
 procedure tconfiglayoutfo.onchangehint(const Sender: TObject);
@@ -261,25 +290,25 @@ begin
 
 end;
 
-procedure tconfiglayoutfo.onchangestyle(const sender: TObject);
+procedure tconfiglayoutfo.onchangestyle(const Sender: TObject);
 begin
-if (isactivated = True) then
- begin
- if bgold.value  then
-  mainfo.typecolor.Value :=  0 else
-if bsilver.value then
-  mainfo.typecolor.Value :=  1 else 
-  mainfo.typecolor.Value := 2; 
-end;
+  if (isactivated = True) then
+    if bgold.Value then
+      mainfo.typecolor.Value := 0
+    else if bsilver.Value then
+      mainfo.typecolor.Value := 1
+    else
+      mainfo.typecolor.Value := 2;
 
 end;
 
-procedure tconfiglayoutfo.onbutsetfont(const sender: TObject);
+procedure tconfiglayoutfo.onbutsetfont(const Sender: TObject);
 var
- rect1: rectty;
+  rect1: rectty;
 begin
- rect1      := application.screenrect(window);
- fontheight.value := round(rect1.cx / 1368 * 12);   
+  rect1 := application.screenrect(window);
+  fontheight.Value := round(rect1.cx / 1368 * 12);
 end;
 
 end.
+

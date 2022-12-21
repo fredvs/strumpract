@@ -286,14 +286,14 @@ begin
 
   tstringdisp1.font.Height := fontheight;
   tstringdisp1.font.color  := font.color;
-  
-  cbloopb.font.Height := round(14 * ratio);
-  waveformcheckb.font.Height := cbloopb.font.Height ;
-  
+
+  cbloopb.font.Height        := round(14 * ratio);
+  waveformcheckb.font.Height := cbloopb.font.Height;
+
   playreverseb.font.Height := round(10 * ratio);
-  setmonob.font.Height := playreverseb.font.Height;
-  cbtempob.font.Height := playreverseb.font.Height;
-  button2.font.Height := playreverseb.font.Height;
+  setmonob.font.Height     := playreverseb.font.Height;
+  cbtempob.font.Height     := playreverseb.font.Height;
+  button2.font.Height      := playreverseb.font.Height;
 
   with tgroupbox1 do
     for i1 := 0 to childrencount - 1 do
@@ -1200,12 +1200,12 @@ begin
             else
             begin
               uos_Play(theplayer);  /// everything is ready, here we are, lets play it...
-              
+
               temphistory := historyfn.dropdown.history;
-              setlength(temphistory, length(temphistory) + 1) ;
+              setlength(temphistory, length(temphistory) + 1);
               temphistory[length(temphistory) - 1] := historyfn.Value;
               historyfn.dropdown.history := temphistory;
-              
+
               btnpause.Enabled := True;
               btnpause.Visible := True;
             end;
@@ -1263,12 +1263,10 @@ begin
           infosdfo.infolength.Caption := copy(llength.Value, 1, 8);
 
           if as_checked in wavefo.tmainmenu1.menu[0].state then
-          begin
             if ttimer1.Enabled then
-            ttimer1.restart // to reset
-          else
-            ttimer1.Enabled := True;
-          end;
+              ttimer1.restart // to reset
+            else
+              ttimer1.Enabled := True;
 
         end
         else
@@ -1501,16 +1499,15 @@ begin
               uos_Play(theplayer2);  /// everything is ready, here we are, lets play it...
               btnpause.Enabled := True;
               btnpause.Visible := True;
-              
+
               temphistory := historyfn.dropdown.history;
-              setlength(temphistory, length(temphistory) + 1) ;
+              setlength(temphistory, length(temphistory) + 1);
               temphistory[length(temphistory) - 1] := historyfn.Value;
               historyfn.dropdown.history := temphistory;
-   
-              
+
             end;
             tstringdisp1.face.template := mainfo.tfacegreen;
-            tstringdisp1.Value := msestring('Playing ' + theplaying2);
+            tstringdisp1.Value         := msestring('Playing ' + theplaying2);
 
             if configlayoutfo.focusplay.Value then
 
@@ -1562,12 +1559,10 @@ begin
           infosdfo2.infolength.Caption := copy(llength.Value, 1, 8);
 
           if as_checked in wavefo2.tmainmenu1.menu[0].state then
-          begin
-               if ttimer1.Enabled then
-            ttimer1.restart // to reset
-          else
-            ttimer1.Enabled := True;
-          end;
+            if ttimer1.Enabled then
+              ttimer1.restart // to reset
+            else
+              ttimer1.Enabled := True;
         end
         else
           ShowMessage(historyfn.Value + ' cannot load...');
@@ -3165,8 +3160,8 @@ begin
     //  application.processmessages;
 
     uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
-  
-      //application.processmessages;
+
+    //application.processmessages;
   end;
 
   if tag = 1 then
