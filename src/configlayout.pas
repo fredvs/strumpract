@@ -95,7 +95,7 @@ begin
   rect1 := application.screenrect(window);
   tbutton3.Caption := 'Resolution: ' + IntToStr(rect1.cx) + 'x' +
    IntToStr(rect1.cy) + lineend + 'Font height suggested: ' +
-   IntToStr(round(rect1.cx / 1368) * 12);
+   IntToStr(round(rect1.cx / 1368 * 12));
 end;
 
 procedure tconfiglayoutfo.onchangehint(const Sender: TObject);
