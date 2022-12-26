@@ -7072,13 +7072,22 @@ var
   x: integer;
   oldlang: msestring;
   rect1: rectty;
+  fontheightsugg: integer;
 begin
-  if configlayoutfo.autoheight.Value then
-  begin
-  rect1 := application.screenrect(window);
-  configlayoutfo.fontheight.Value := round(rect1.cx / 1368 * 12);
-  end; 
 
+  rect1 := application.screenrect(window);
+  
+ {$ifdef mswindows}
+ fontheightsugg := round(rect1.cx / 1280 * 12);
+ {$else}
+ fontheightsugg := round(rect1.cx / 1368 * 12);
+ {$endif}
+
+ configlayoutfo.autoheight.frame.caption := 'Use at loading suggested font height: ' + inttostr(fontheightsugg);
+  
+ if configlayoutfo.autoheight.Value then
+   configlayoutfo.fontheight.value := fontheightsugg ;
+   
   fontheightused := round(configlayoutfo.fontheight.Value);
   resizema(fontheightused);
   applyfont(fontheightused);

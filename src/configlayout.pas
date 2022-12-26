@@ -73,7 +73,11 @@ begin
   rect1 := application.screenrect(window);
   tbutton3.Caption := 'Resolution: ' + IntToStr(rect1.cx) + 'x' +
     IntToStr(rect1.cy) + lineend + 'Font height suggested: ' +
-    IntToStr(round(rect1.cx / 1368 * 12));
+  {$ifdef mswindows}
+   IntToStr(round(rect1.cx / 1280 * 12));
+  {$else}
+   IntToStr(round(rect1.cx / 1368 * 12));
+  {$endif}
 end;
 
 procedure tconfiglayoutfo.onchangehint(const Sender: TObject);
@@ -289,7 +293,11 @@ var
   rect1: rectty;
 begin
   rect1 := application.screenrect(window);
-  fontheight.Value := round(rect1.cx / 1368 * 12);
+   {$ifdef mswindows}
+    fontheight.Value := round(rect1.cx / 1280 * 12);
+   {$else}
+   fontheight.Value := round(rect1.cx / 1368 * 12);
+   {$endif}
 end;
 
 end.

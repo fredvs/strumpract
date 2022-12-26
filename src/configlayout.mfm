@@ -320,7 +320,7 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops = []
       frame.localprops1 = []
       hint = 'Font height of all windows, size of form wll be scalled.'
-      bounds_x = 7
+      bounds_x = 8
       bounds_y = 17
       bounds_cx = 82
       bounds_cy = 28
@@ -378,8 +378,8 @@ object configlayoutfo: tconfiglayoutfo
       )
       taborder = 3
       hint = 'Set suggested height of font and scalling at loading'
-      bounds_x = 27
-      bounds_y = 76
+      bounds_x = 8
+      bounds_y = 77
       bounds_cx = 242
       bounds_cy = 17
       statfile = mainfo.tstatfile1
