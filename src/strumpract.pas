@@ -33,8 +33,7 @@ begin
     + directoryseparator + 'log.txt' ;
     
   fs := TFileStream.Create(ordir, fmOpenReadWrite or fmCreate);
-  FpDup2(fs.Handle, StdErrorHandle);
-   
+  FpDup2(fs.Handle, StdErrorHandle);   
 {$endif}
 
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +

@@ -187,7 +187,7 @@ type
   end;
 
 const
-  versiontext = '3.2.0';
+  versiontext = '3.4.0';
 
 var
   drumsfoheight: integer = 274;

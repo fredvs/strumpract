@@ -812,7 +812,7 @@ modulenames=1
 moduletypes=1
  TMAINFO
 modulefiles=1
- /home/fred/strumpract/src/main.mfm
+ /Z:/home/fred/strumpract/src/main.mfm
 befcommandon=0
 makeoptionson=17
  4095
@@ -1629,11 +1629,11 @@ findhistory=20
  tmainmenu1
 findoptions=1
 editpos=5
- 0,0
- 0,5703
+ 12,3
  0,-1073741823
- 0,0
- 0,0
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1644,13 +1644,13 @@ sourcefiles=5
  /Z:/home/fred/strumpract/src/main.pas
  ${PROJECTDIR}/recorder.pas
  /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/drums.mfm
+ /Z:/home/fred/strumpract/src/drums.mfm
 relpaths=5
  strumpract.pas
  main.pas
  recorder.pas
- ../../../../home/fred/strumpract/src/commander.mfm
- ../../../../home/fred/strumpract/src/drums.mfm
+ ../../home/fred/strumpract/src/commander.mfm
+ drums.mfm
 ismoduletexts=5
  0
  0
@@ -1658,7 +1658,7 @@ ismoduletexts=5
  -1
  -1
 modules=1
- /home/fred/strumpract/src/main.mfm
+ /Z:/home/fred/strumpract/src/main.mfm
 moduleoptions=1
  0
 visiblemodules=1
@@ -1669,13 +1669,13 @@ nomenumodules=1
 firsttab=0
 index=0
 [layout]
-windowlayout=548
+windowlayout=551
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
  [mainfo]
  splitdir=0
- useroptions=301990011
+ useroptions=268435579
  stackedunder=
  parent=
  mdistate=0
@@ -1683,10 +1683,10 @@ windowlayout=548
  ny=0
  ncx=0
  ncy=0
- x=63
- y=48
- cx=1224
- cy=621
+ x=244
+ y=29
+ cx=1293
+ cy=828
  rcx=0
  rcy=0
  wsize=0
@@ -1711,15 +1711,15 @@ windowlayout=548
  ny=0
  ncx=0
  ncy=0
- x=493
- y=171
+ x=495
+ y=172
  cx=497
  cy=314
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1729,10 +1729,10 @@ windowlayout=548
  ny=0
  ncx=0
  ncy=0
- x=444
- y=431
- cx=418
- cy=126
+ x=362
+ y=177
+ cx=355
+ cy=107
  rcx=0
  rcy=0
  wsize=0
@@ -1741,7 +1741,7 @@ windowlayout=548
  [memoryfo]
  splitdir=0
  useroptions=268451963
- stackedunder=dialogfilesfo
+ stackedunder=findmessagefo
  parent=
  mdistate=0
  nx=0
@@ -1803,29 +1803,32 @@ windowlayout=548
  [projecttreefo]
  splitdir=0
  useroptions=268484715
- parent=mainfo.panel1.container
- visible=1
- mdistate=0
+ stackedunder=debuggerfo
+ parent=
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=0
- y=0
- cx=205
- cy=443
+ x=24
+ y=95
+ cx=181
+ cy=449
  rcx=0
  rcy=0
+ wsize=0
+ active=0
+ visible=0
  [projecttreefo.grid]
- propcolwidthref=88
- width0=117
+ propcolwidthref=24
+ width0=141
  sortdescend0=0
- width1=86
+ width1=22
  sortdescend1=0
  sorted=0
  col=0
- row=10
- rowheight=19
+ row=-1073741823
+ rowheight=16
  [stackfo]
  splitdir=0
  useroptions=268460137
@@ -1835,10 +1838,10 @@ windowlayout=548
  ny=0
  ncx=0
  ncy=0
- x=423
- y=321
- cx=344
- cy=155
+ x=337
+ y=280
+ cx=427
+ cy=144
  rcx=0
  rcy=0
  wsize=0
@@ -1903,10 +1906,10 @@ windowlayout=548
  [breakpointsfo.bkptson]
  value=0
  [objectinspectorfo.grid]
- propcolwidthref=240
- width0=106
+ propcolwidthref=238
+ width0=57
  sortdescend0=0
- width1=128
+ width1=175
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1967,8 +1970,8 @@ windowlayout=548
  y=0
  cx=247
  cy=44
- rcx=1262
- rcy=583
+ rcx=1129
+ rcy=679
  [watchfo.grid]
  propcolwidthref=111
  values0=0
@@ -1990,20 +1993,23 @@ windowlayout=548
  value=0
  [messagefo]
  splitdir=0
- useroptions=268517483
- parent=mainfo.basedock
- visible=1
- mdistate=0
+ useroptions=268550251
+ stackedunder=
+ parent=
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
  x=0
- y=508
- cx=1210
- cy=91
+ y=0
+ cx=0
+ cy=0
  rcx=0
  rcy=0
+ wsize=0
+ active=0
+ visible=0
  [componentstorefo]
  splitdir=0
  useroptions=268460155
@@ -2070,40 +2076,43 @@ windowlayout=548
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=objectinspectorfo
+ stackedunder=projecttreefo
  parent=
- mdistate=3
+ mdistate=0
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=240
- y=139
- cx=956
- cy=77
+ x=428
+ y=66
+ cx=440
+ cy=129
  rcx=0
  rcy=0
  wsize=0
  active=0
  visible=0
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=1
  [debuggerfo]
  splitdir=0
  useroptions=24683
- parent=mainfo.basedock
- visible=1
- mdistate=0
+ stackedunder=_mse_mainfo_mse_
+ parent=
+ mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=0
- y=0
- cx=1210
- cy=59
+ x=221
+ y=447
+ cx=960
+ cy=54
  rcx=0
  rcy=0
+ wsize=0
+ active=0
+ visible=0
  [debuggerfo.basedock]
  splitdir=2
  useroptions=268582019
@@ -2111,13 +2120,13 @@ windowlayout=548
  visible=1
  mdistate=0
  nx=0
- ny=0
- ncx=1212
- ncy=61
+ ny=47
+ ncx=1289
+ ncy=20
  x=0
- y=0
- cx=1210
- cy=65
+ y=47
+ cx=1289
+ cy=20
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2127,17 +2136,11 @@ windowlayout=548
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=\home\fred\strumpract\src\drums.mfm
- history=9
-  ${PROJECTDIR}\songplayer.pas
-  /home/fred/mseide-msegui/apps/ide/finddialogform.mfm
-  /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/equalizer.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/ideU_lin64/layout/${PROJECTDIR}
-  
+ value=Z:\home\fred\strumpract\src\strumpract.pas
+ history=3
   /home/fred/ideU/src/layout
   ${PROJECTDIR}/main.pas
+  
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2152,15 +2155,15 @@ windowlayout=548
  ny=0
  ncx=0
  ncy=0
- x=208
+ x=0
  y=0
- cx=1002
- cy=443
+ cx=1261
+ cy=805
  rcx=0
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=4
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpui386fo]
@@ -2183,26 +2186,10 @@ windowlayout=548
  wsize=0
  active=0
  visible=0
- [mainfo.panel1]
- splitdir=1
- useroptions=302087659
- parent=mainfo.basedock
- visible=1
- mdistate=0
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=62
- cx=1210
- cy=443
- rcx=0
- rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2218,6 +2205,22 @@ windowlayout=548
  wsize=0
  active=0
  visible=1
+ [mainfo.panel1]
+ splitdir=1
+ useroptions=302022123
+ parent=mainfo.basedock
+ visible=1
+ mdistate=0
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=0
+ y=0
+ cx=1277
+ cy=805
+ rcx=0
+ rcy=0
 [targetconsole]
 finddtext=
 findhistory=0
