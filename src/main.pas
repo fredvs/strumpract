@@ -6889,6 +6889,11 @@ begin
     drumsvisible.Value := 1
   else
     drumsvisible.Value := 0;
+    
+    songplayerfo.doplayerstop(Sender);
+  songplayer2fo.doplayerstop(Sender);
+  uos_Stop(therecplayer);
+
 
 end;
 
@@ -7141,7 +7146,8 @@ begin
 
   onchangevalcolor(nil);
 
-  splashfo.Close;
+  splashfo.close;
+ 
 end;
 
 procedure tmainfo.showinfos1(const Sender: TObject);

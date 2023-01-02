@@ -104,7 +104,7 @@ object infosdfo: tinfosdfo
     taborder = 13
     bounds_x = 240
     bounds_y = 105
-    bounds_cx = 84
+    bounds_cx = 83
     bounds_cy = 15
     caption = 'No Image Tag'
     font.style = [fs_italic]
@@ -125,14 +125,14 @@ object infosdfo: tinfosdfo
     frame.outerframe = (
       0
       12
-      5
+      6
       0
     )
     taborder = 1
     hint = 'Length of the song'
     bounds_x = 130
     bounds_y = 184
-    bounds_cx = 45
+    bounds_cx = 46
     bounds_cy = 27
     caption = '          '
     font.name = 'stf_default'
@@ -152,13 +152,13 @@ object infosdfo: tinfosdfo
     frame.outerframe = (
       0
       12
-      5
+      6
       0
     )
     taborder = 2
     bounds_x = 174
     bounds_y = 155
-    bounds_cx = 25
+    bounds_cx = 26
     bounds_cy = 27
     caption = '     '
     font.name = 'stf_default'

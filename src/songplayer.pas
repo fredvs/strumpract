@@ -144,7 +144,7 @@ type
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimercheck(const Sender: TObject);
     procedure resizesp(fontheight: integer);
-    function ReadTag(filename: string): integer;
+    // function ReadTag(filename: string): integer;
     procedure ontimerwavdata(const Sender: TObject);
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
@@ -207,7 +207,7 @@ var
   plugindex2, PluginIndex3: integer;
   Inputindex2, DSPIndex2, DSPIndex22, Outputindex2, Inputlength2: integer;
   poswav2, chan2: integer;
-  TagReader: TTagReader;
+  // TagReader: TTagReader;
   tickcount: integer = 0;
 
 implementation
@@ -307,7 +307,7 @@ begin
         end;
 end;
 
-
+{
 function tsongplayerfo.ReadTag(filename: string): integer;
 var
   tagClass: TTagReaderClass;
@@ -328,6 +328,7 @@ begin
   end;
 
 end;
+}
 
 procedure tsongplayerfo.Changestereo2mono(const Sender: TObject);
 begin
@@ -703,9 +704,9 @@ begin
   lposition.face.template := mainfo.tfaceplayerrev;
 
   DrawWaveForm();
-  
+
   formDrawWaveForm();
-  
+
   resetspectrum();
 
 end;
@@ -1262,12 +1263,12 @@ begin
 
           infosdfo.infolength.Caption := copy(llength.Value, 1, 8);
 
+
           if as_checked in wavefo.tmainmenu1.menu[0].state then
             if ttimer1.Enabled then
               ttimer1.restart // to reset
             else
               ttimer1.Enabled := True;
-
         end
         else
           ShowMessage(historyfn.Value + ' cannot load...');
@@ -2154,15 +2155,13 @@ var
   framewanted: integer;
 begin
 
-  if (tag = 0) and (as_checked in wavefo.tmainmenu1.menu[0].state) 
-   and (buzywaveform1 = False) 
-  then
+  if (tag = 0) and (as_checked in wavefo.tmainmenu1.menu[0].state) and (buzywaveform1 = False) then
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
 
       uos_Stop(theplayerinfoform);
       uos_CreatePlayer(theplayerinfoform);
-  
+
       // Create the player.
       // PlayerIndex : from 0 to what your computer can do !
       // If PlayerIndex exists already, it will be overwriten...
@@ -2199,9 +2198,7 @@ begin
       end;
     end;
 
-  if (tag = 1) and (as_checked in wavefo2.tmainmenu1.menu[0].state)
-   and (buzywaveform2 = False) 
-  then
+  if (tag = 1) and (as_checked in wavefo2.tmainmenu1.menu[0].state) and (buzywaveform2 = False) then
     if fileexists(PChar(ansistring(historyfn.Value))) then
     begin
 
@@ -2255,7 +2252,27 @@ var
   fileex: msestring;
   thebuffer: TDArFloat;
   thebufferinfos: TuosF_BufferInfos;
+  TagReader: TTagReader;
   CommonTags: TCommonTags;
+  tagClass: TTagReaderClass;
+
+  function ReadTag(filename: string): integer;
+  begin
+    Result := -1;
+
+    tagClass  := IdentifyKind(FileName);
+    TagReader := tagClass.Create;
+
+    TagReader.LoadFromFile(FileName);
+
+    if TagReader.Tags.ImageCount > 0 then
+    begin
+      Result := 0;
+      TagReader.Tags.Images[0].Image.Position := 0;
+    end;
+
+  end;
+
 begin
   fileex := fileext(PChar(ansistring(historyfn.Value)));
 
@@ -2338,45 +2355,10 @@ begin
           end;
         end;
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav = False) then
-         if ttimerwavdata.Enabled then
-           ttimerwavdata.restart // to reset
-           else
-          ttimerwavdata.Enabled := True;
-
-          {   
-          waveformcheck.Value
-          
-          uos_Stop(theplayerinfo);
-
-          uos_CreatePlayer(theplayerinfo);
-
-          application.ProcessMessages;
-
-          uos_AddFromFile(theplayerinfo, PChar(ansistring(historyfn.Value)), -1, 2, -1);
-
-          Inputlength1 := uos_Inputlength(theplayerinfo, 0);
-
-          chan1 := uos_InputGetChannels(theplayerinfo, 0);
-
-          // set calculation of level/volume into array (usefull for wave form procedure)
-          uos_InputSetLevelArrayEnable(theplayerinfo, 0, 2);
-          // set level calculation (default is 0)
-          // 0 => no calcul
-          // 1 => calcul before all DSP procedures.
-          // 2 => calcul after all DSP procedures.
-
-          // determine how much frame will be designed
-          framewanted := Inputlength1 div (trackbar1.Width - 7);
-
-          uos_InputSetFrameCount(theplayerinfo, 0, framewanted);
-
-          // Assign the procedure of object to execute at end of stream
-          uos_EndProc(theplayerinfo, @GetWaveData);
-          //  application.processmessages;
-
-          uos_Play(theplayerinfo);  /// everything is ready, here we are, lets do it...
-          //application.processmessages;
-         }
+          if ttimerwavdata.Enabled then
+            ttimerwavdata.restart // to reset
+          else
+            ttimerwavdata.Enabled := True;
 
       end;
 
@@ -2441,47 +2423,20 @@ begin
           end;
         end;
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav2 = False) then
-             if ttimerwavdata.Enabled then
-           ttimerwavdata.restart // to reset
-           else
-          ttimerwavdata.Enabled := True;
-   {     
-          uos_Stop(theplayerinfo2);
-
-          uos_CreatePlayer(theplayerinfo2);
-
-          application.ProcessMessages;
-
-          uos_AddFromFile(theplayerinfo2, PChar(ansistring(historyfn.Value)), -1, 2, -1);
-
-          Inputlength2 := uos_Inputlength(theplayerinfo2, 0);
-
-          chan2 := uos_InputGetChannels(theplayerinfo2, 0);
-
-          // set calculation of level/volume into array (usefull for wave form procedure)
-          uos_InputSetLevelArrayEnable(theplayerinfo2, 0, 2);
-          // set level calculation (default is 0)
-          // 0 => no calcul
-          // 1 => calcul before all DSP procedures.
-          // 2 => calcul after all DSP procedures.
-
-          // determine how much frame will be designed
-          framewanted := Inputlength2 div (trackbar1.Width - 7);
-
-          uos_InputSetFrameCount(theplayerinfo2, 0, framewanted);
-
-          // Assign the procedure of object to execute at end of stream
-          uos_EndProc(theplayerinfo2, @GetWaveData);
-
-          uos_Play(theplayerinfo2);  /// everything is ready, here we are, lets do it...
-    }
+          if ttimerwavdata.Enabled then
+            ttimerwavdata.restart // to reset
+          else
+            ttimerwavdata.Enabled := True;
       end;
+      
+      TagReader.Free;
     end
     else
       ShowMessage(historyfn.Value + ' does not exist or not mounted...');
   end
   else
     ShowMessage(historyfn.Value + ' is not a audio file...');
+
 end;
 
 procedure tsongplayerfo.onsliderchange(const Sender: TObject);
@@ -2959,7 +2914,7 @@ end;
 procedure tsongplayerfo.ontimerwaveform(const Sender: TObject);
 begin
   onwavform(Sender);
-  
+
 end;
 
 procedure tsongplayerfo.opendir(const Sender: TObject);
