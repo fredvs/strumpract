@@ -6889,12 +6889,7 @@ begin
     drumsvisible.Value := 1
   else
     drumsvisible.Value := 0;
-    
-    songplayerfo.doplayerstop(Sender);
-  songplayer2fo.doplayerstop(Sender);
-  uos_Stop(therecplayer);
-
-
+ 
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);

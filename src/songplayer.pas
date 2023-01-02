@@ -144,7 +144,6 @@ type
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimercheck(const Sender: TObject);
     procedure resizesp(fontheight: integer);
-    // function ReadTag(filename: string): integer;
     procedure ontimerwavdata(const Sender: TObject);
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
@@ -207,7 +206,6 @@ var
   plugindex2, PluginIndex3: integer;
   Inputindex2, DSPIndex2, DSPIndex22, Outputindex2, Inputlength2: integer;
   poswav2, chan2: integer;
-  // TagReader: TTagReader;
   tickcount: integer = 0;
 
 implementation
@@ -306,29 +304,6 @@ begin
           children[i1].Height := round(boundchildsp[i2].Height * ratio);
         end;
 end;
-
-{
-function tsongplayerfo.ReadTag(filename: string): integer;
-var
-  tagClass: TTagReaderClass;
-begin
-  Result := -1;
-  if Assigned(TagReader) then
-    TagReader.Free;
-
-  tagClass  := IdentifyKind(FileName);
-  TagReader := tagClass.Create;
-
-  TagReader.LoadFromFile(FileName);
-
-  if TagReader.Tags.ImageCount > 0 then
-  begin
-    Result := 0;
-    TagReader.Tags.Images[0].Image.Position := 0;
-  end;
-
-end;
-}
 
 procedure tsongplayerfo.Changestereo2mono(const Sender: TObject);
 begin
@@ -2428,7 +2403,7 @@ begin
           else
             ttimerwavdata.Enabled := True;
       end;
-      
+
       TagReader.Free;
     end
     else

@@ -41,9 +41,9 @@ begin
 
   application.createform(tsplashfo, splashfo);
   splashfo.windowopacity := 0.5;
-
+ 
   application.run;
-
+ 
   uos_free();
 
 {$ifdef unix}
