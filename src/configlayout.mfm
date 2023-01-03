@@ -43,6 +43,8 @@ object configlayoutfo: tconfiglayoutfo
     bounds_y = 9
     bounds_cx = 194
     bounds_cy = 155
+    font.name = 'stf_default'
+    font.localprops = []
     object tcoloredit1: tcoloredit
       frame.levelo = 1
       frame.colorhighlight = -1610612733
@@ -83,6 +85,8 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 50
       bounds_cx = 172
       bounds_cy = 39
+      font.name = 'stf_default'
+      font.localprops = []
       onchange = onsetcolor
       value = 13872086
       reffontheight = 15
@@ -128,6 +132,8 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 92
       bounds_cx = 172
       bounds_cy = 39
+      font.name = 'stf_default'
+      font.localprops = []
       onchange = onsetcolor
       value = 13744312
       reffontheight = 15
@@ -242,6 +248,8 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 51
       bounds_cx = 172
       bounds_cy = 39
+      font.name = 'stf_default'
+      font.localprops = []
       onchange = onsetcolor
       value = 11255766
       valuedefault = -1610612721
@@ -288,6 +296,8 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 93
       bounds_cx = 172
       bounds_cy = 39
+      font.name = 'stf_default'
+      font.localprops = []
       onchange = onsetcolor
       value = 9424076
       valuedefault = -1610612720
