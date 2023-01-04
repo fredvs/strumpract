@@ -4,8 +4,8 @@ object splashfo: tsplashfo
   face.image.origformat = 'png'
   face.image.alignment = [al_stretchx, al_stretchy]
   face.localprops = [fal_image]
-  bounds_x = 531
-  bounds_y = 290
+  bounds_x = 719
+  bounds_y = 381
   bounds_cx = 129
   bounds_cy = 134
   container.color = 16751872
@@ -2968,8 +2968,8 @@ object splashfo: tsplashfo
     129
     134
   )
-  optionswindow = [wo_notaskbar, wo_alwaysontop, wo_ellipse, wo_transparentbackground]
-  options = [fo_freeonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  optionswindow = [wo_splash, wo_noframe, wo_notaskbar, wo_alwaysontop, wo_ellipse, wo_transparentbackground]
+  options = [fo_freeonclose, fo_screencentered]
   caption = 'Splash'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
