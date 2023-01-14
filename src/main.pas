@@ -7140,6 +7140,8 @@ begin
     dockpanel5fo.updatelayoutpan();
 
   onchangevalcolor(nil);
+  
+  configlayoutfo.onsetcolor(nil);
 
   splashfo.close;
  

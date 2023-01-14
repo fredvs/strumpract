@@ -1,7 +1,7 @@
 object configlayoutfo: tconfiglayoutfo
   visible = False
-  bounds_x = 400
-  bounds_y = 270
+  bounds_x = 624
+  bounds_y = 436
   bounds_cx = 584
   bounds_cy = 288
   bounds_cxmin = 584
