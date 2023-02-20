@@ -194,8 +194,6 @@ procedure tspectrum1fo.onformcreated(const Sender: TObject);
 begin
   tchartleft.traces[0].chartkind  := tck_bar;
   tchartright.traces[0].chartkind := tck_bar;
-  resizespc(fontheightused);
-
 end;
 
 procedure tspectrum1fo.onshowspec(const Sender: TObject; var avalue: Boolean; var accept: Boolean);

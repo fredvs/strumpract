@@ -175,8 +175,6 @@ type
     procedure dotimercallback(const Sender: TObject);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure resizeco(fontheight: integer);
-
-    procedure onev(const Sender: TObject);
     procedure resetsysvol(const Sender: TObject);
   end;
 
@@ -1516,11 +1514,6 @@ begin
     mainfo.ttimer2.restart // to reset
   else
     mainfo.ttimer2.Enabled := True;
-end;
-
-procedure tcommanderfo.onev(const Sender: TObject);
-begin
-  resizeco(fontheightused);
 end;
 
 procedure tcommanderfo.resetsysvol(const Sender: TObject);

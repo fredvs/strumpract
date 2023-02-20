@@ -253,8 +253,6 @@ begin
   Caption        := 'Noise Generator';
   hasinit        := True;
 
-  resizesy(fontheightused);
-
 end;
 
 

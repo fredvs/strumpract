@@ -1203,7 +1203,6 @@ end;
 
 procedure timagedancerfo.onevstart(const sender: TObject);
 begin
-resizeda(fontheightused);
 if parentwidget = nil then onfloat(sender) else ondock(sender);
 end;
 

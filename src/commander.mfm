@@ -92,7 +92,6 @@ object commanderfo: tcommanderfo
   }
   oncreate = oncre
   oncreated = formcreated
-  oneventloopstart = onev
   ondestroy = ondest
   onmouseevent = onmouse
   onshow = visiblechangeev

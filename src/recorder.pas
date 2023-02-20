@@ -1210,8 +1210,7 @@ end;
 
 procedure trecorderfo.oneventloop(const Sender: TObject);
 begin
-  resizere(fontheightused);
-
+ 
   if plugsoundtouch = False then
   begin
     edtempo.Enabled := False;

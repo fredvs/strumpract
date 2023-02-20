@@ -93,7 +93,7 @@ begin
    Caption := 'Piano Synthesizer' ;
 
   hasinitp := True;
-  resizepi(fontheightused);
+
 end;
 
 procedure tpianofo.onresizeex(const sender: TObject);

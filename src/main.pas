@@ -2132,7 +2132,7 @@ begin
   end;
 {$ENDIF}
 
-  resizema(fontheightused);
+//  resizema(fontheightused);
 
   Caption := 'StrumPract ' + versiontext;
 

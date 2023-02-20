@@ -423,7 +423,6 @@ end;
 procedure tequalizerfo.created(const Sender: TObject);
 begin
   iscreated := True;
-  resizeeq(fontheightused);
 end;
 
 procedure tequalizerfo.onexecbut(const Sender: TObject);

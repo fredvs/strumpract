@@ -205,7 +205,6 @@ begin
     onfloat(Sender)
   else
     ondock(Sender);
-  resizein(fontheightused);
 end;
 
 procedure tinfosdfo.oncre(const Sender: TObject);

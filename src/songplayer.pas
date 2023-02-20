@@ -2645,7 +2645,6 @@ begin
 
   ttimer2.Enabled := True;
 
-  resizesp(fontheightused);
 end;
 
 procedure tsongplayerfo.faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);

@@ -54,7 +54,6 @@ type
     procedure onvisiblechangeev(const Sender: TObject);
     procedure oncreateguit(const Sender: TObject);
     procedure resizegu(fontheight: integer);
-    procedure onevenloop(const Sender: TObject);
   end;
 
 var
@@ -266,11 +265,6 @@ begin
   for i := 0 to 9 do
     aguitarisplaying[i] := False;
 
-end;
-
-procedure tguitarsfo.onevenloop(const Sender: TObject);
-begin
-  resizegu(fontheightused);
 end;
 
 end.

@@ -119,9 +119,6 @@ procedure tfilelistfo.formcreated(const Sender: TObject);
 var
   x: integer;
 begin
-
-  resizefi(fontheightused);
-
   Timersent          := ttimer.Create(nil);
   Timersent.interval := 2500000;
   Timersent.Enabled  := False;

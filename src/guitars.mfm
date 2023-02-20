@@ -142,7 +142,6 @@ object guitarsfo: tguitarsfo
     AEADB101
   }
   oncreate = oncreateguit
-  oneventloopstart = onevenloop
   onshow = onvisiblechangeev
   onhide = onvisiblechangeev
   moduleclassname = 'tdockform'

@@ -1249,7 +1249,6 @@ var
   lib1, lib2, lib3, lib4: string;
   resu: integer = -1;
 begin
-  resizedr(fontheightused);
   allok   := False;
   resulib := -1;
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
