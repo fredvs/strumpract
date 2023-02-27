@@ -143,7 +143,6 @@ object mainfo: tmainfo
     0000000000000000000000000000000000000000000000000000000000000000
     00000000000000000000000000000000
   }
-  windowopacity = -Inf
   oncreate = oncreateform
   oneventloopstart = onactiv
   ondestroy = dodestroy

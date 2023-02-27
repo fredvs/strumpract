@@ -111,7 +111,6 @@ object imagedancerfo: timagedancerfo
     0000000000000000000000000000000000000000000000000000000000000000
     000000000000000000000000
   }
-  dockingareacaption = 'ttest'
   oncreate = crea
   oncreated = oncreat
   oneventloopstart = onevstart

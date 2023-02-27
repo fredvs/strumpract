@@ -941,8 +941,8 @@ begin
 
 if alwaystop = 1 then 
  optionswindow := optionswindow + [wo_alwaysontop];
-
-end;
+ 
+ end;
 
 procedure timagedancerfo.onshow(const Sender: TObject);
 begin
@@ -1121,6 +1121,7 @@ end;
 
 procedure timagedancerfo.crea(const sender: TObject);
 begin
+windowopacity := 0;
 if typwindow = 0 then
 optionswindow := []
 else
