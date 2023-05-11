@@ -1318,18 +1318,23 @@ begin
     begin
       // writeln('Some libraries did not load...');
       resulib := -1;
-      resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil);
+      resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil);
+      configfo.syslib.Value := false;
     end;
   end
   else
   begin
     resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil);
-    resulib := 0;
+    if resu <> 0 then 
+    begin
+     resu   := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil);
+     configfo.syslib.Value := true;
+    end;
   end;
 
   if resu = 0 then
   begin
-
+     resulib := 0;
     if (uos_LoadPlugin('soundtouch', PChar(lib4)) = 0) then
       plugsoundtouch := True
     // writeln('Yes plugsoundtouch');
