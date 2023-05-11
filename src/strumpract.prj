@@ -85,8 +85,8 @@ order16=0
 order17=0
 order18=0
 [projectoptions]
-projectdir=/home/fred/strumpract-main/src
-projectfilename=/home/fred/strumpract-main/src/strumpract.prj
+projectdir=/home/fred/strumpract/src
+projectfilename=/home/fred/strumpract/src/strumpract.prj
 findinfiledialog=83
  [findinfileadialogfo.subdirs]
  value=1
@@ -252,7 +252,7 @@ options=114
  sorted=0
  col=-1073741823
  row=-1073741823
- rowheight=19
+ rowheight=22
  [projectoptionsfo.newfile]
  firsttab=1
  index=2
@@ -274,9 +274,9 @@ options=114
  sortdescend6=0
  [projectoptionsfo.macrosplitter]
  x=0
- y=213
+ y=211
  xprop=1
- yprop=0.34670947030498
+ yprop=0.34683954619125
  [projectoptionsfo.macrogrid]
  propcolwidthref=540
  sortdescend0=0
@@ -351,9 +351,9 @@ programparameters=18
 settings=8
  [settings_form]
  x=543
- y=54
- cx=446
- cy=660
+ y=32
+ cx=518
+ cy=820
  wsize=0
  active=1
  visible=1
@@ -807,60 +807,12 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=17
- COMMANDERFO
- DOCKPANEL1FO
- DRUMSFO
- EQUALIZERFO
- FILELISTFO
- GUITARSFO
- IMAGEDANCERFO
- INFOSDFO
+modulenames=1
  MAINFO
- PIANOFO
- RANDOMNOTEFO
- RECORDERFO
- SONGPLAYERFO
- SPECTRUM1FO
- STATUSFO
- SYNTHEFO
- WAVEFO
-moduletypes=17
- TCOMMANDERFO
- TDOCKPANEL1FO
- TDRUMSFO
- TEQUALIZERFO
- TFILELISTFO
- TGUITARSFO
- TIMAGEDANCERFO
- TINFOSDFO
+moduletypes=1
  TMAINFO
- TPIANOFO
- TRANDOMNOTEFO
- TRECORDERFO
- TSONGPLAYERFO
- TSPECTRUM1FO
- TSTATUSFO
- TSYNTHEFO
- TWAVEFO
-modulefiles=17
- /home/fred/strumpract-main/src/commander.mfm
- /home/fred/strumpract-main/src/dockpanel1.mfm
- /home/fred/strumpract-main/src/drums.mfm
- /home/fred/strumpract-main/src/equalizer.mfm
- /home/fred/strumpract-main/src/filelistform.mfm
- /home/fred/strumpract-main/src/guitars.mfm
- /home/fred/strumpract-main/src/imagedancer.mfm
- /home/fred/strumpract-main/src/infosd.mfm
- /home/fred/strumpract-main/src/main.mfm
- /home/fred/strumpract-main/src/piano.mfm
- /home/fred/strumpract-main/src/randomnote.mfm
- /home/fred/strumpract-main/src/recorder.mfm
- /home/fred/strumpract-main/src/songplayer.mfm
- /home/fred/strumpract-main/src/spectrum1.mfm
- /home/fred/strumpract-main/src/status.mfm
- /home/fred/strumpract-main/src/synthe.mfm
- /home/fred/strumpract-main/src/waveform.mfm
+modulefiles=1
+ /home/fred/strumpract/src/main.mfm
 befcommandon=0
 makeoptionson=17
  4095
@@ -1635,7 +1587,7 @@ files=
   )
  )
 [componentstore]
-storedir=/home/fred/mseide-msegui-main/apps/ide/compstore/
+storedir=/home/fred/mseide-msegui/apps/ide/compstore/
 filename=
 [components]
 [selecteditpage]
@@ -1676,280 +1628,45 @@ findhistory=20
  'style'
  carbon
 findoptions=1
-editpos=32
+editpos=2
  0,0
- 0,6336
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,120
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,177
- 0,565
- 0,1251
- 0,425
- 0,62
- 0,56
- 0,1205
- 0,0
- 0,1212
- 0,2647
- 0,196
- 0,0
- 0,0
- 0,211
- 20,35
+ 0,7
 bookmarks0=0
 bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-bookmarks7=0
-bookmarks8=0
-bookmarks9=0
-bookmarks10=0
-bookmarks11=0
-bookmarks12=0
-bookmarks13=0
-bookmarks14=0
-bookmarks15=0
-bookmarks16=0
-bookmarks17=0
-bookmarks18=0
-bookmarks19=0
-bookmarks20=0
-bookmarks21=0
-bookmarks22=0
-bookmarks23=0
-bookmarks24=0
-bookmarks25=0
-bookmarks26=0
-bookmarks27=0
-bookmarks28=0
-bookmarks29=0
-bookmarks30=0
-bookmarks31=0
-sourcefiles=32
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/recorder.pas
- /home/fred/strumpract/src/commander.mfm
- /Z:/home/fred/strumpract/src/drums.mfm
- ${PROJECTDIR}/uos_define.inc
- ${PROJECTDIR}/commander.pas
- ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/synthe.pas
- ${PROJECTDIR}/spectrum1.pas
- ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/piano.pas
- ${PROJECTDIR}/imagedancer.pas
- ${PROJECTDIR}/guitars.pas
- ${PROJECTDIR}/drums.pas
- ${PROJECTDIR}/equalizer.pas
- ${PROJECTDIR}/commander.pas
- ${PROJECTDIR}/dockpanel1.pas
- ${PROJECTDIR}/drums.pas
- ${PROJECTDIR}/equalizer.pas
- ${PROJECTDIR}/filelistform.pas
- ${PROJECTDIR}/guitars.pas
- ${PROJECTDIR}/imagedancer.pas
- ${PROJECTDIR}/randomnote.pas
- ${PROJECTDIR}/recorder.pas
- ${PROJECTDIR}/songplayer.pas
- ${PROJECTDIR}/spectrum1.pas
- ${PROJECTDIR}/status.pas
- ${PROJECTDIR}/waveform.pas
- ${PROJECTDIR}/piano.pas
- ${PROJECTDIR}/infosd.pas
-relpaths=32
+relpaths=2
  strumpract.pas
  main.pas
- recorder.pas
- home/fred/strumpract/src/commander.mfm
- drums.mfm
- uos_define.inc
- commander.pas
- filelistform.pas
- songplayer.pas
- synthe.pas
- spectrum1.pas
- recorder.pas
- piano.pas
- imagedancer.pas
- guitars.pas
- drums.pas
- equalizer.pas
- commander.pas
- dockpanel1.pas
- drums.pas
- equalizer.pas
- filelistform.pas
- guitars.pas
- imagedancer.pas
- randomnote.pas
- recorder.pas
- songplayer.pas
- spectrum1.pas
- status.pas
- waveform.pas
- piano.pas
- infosd.pas
-ismoduletexts=32
+ismoduletexts=2
+ 0
+ 0
+modules=4
+ /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/commander.mfm
+ /home/fred/strumpract/src/drums.mfm
+ /home/fred/strumpract/src/recorder.mfm
+moduleoptions=4
  0
  0
  0
- -1
+ 0
+visiblemodules=4
  -1
  0
  0
  0
+nomenumodules=4
  0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=17
- /home/fred/strumpract-main/src/main.mfm
- /home/fred/strumpract-main/src/commander.mfm
- /home/fred/strumpract-main/src/drums.mfm
- /home/fred/strumpract-main/src/recorder.mfm
- /home/fred/strumpract-main/src/filelistform.mfm
- /home/fred/strumpract-main/src/guitars.mfm
- /home/fred/strumpract-main/src/songplayer.mfm
- /home/fred/strumpract-main/src/synthe.mfm
- /home/fred/strumpract-main/src/spectrum1.mfm
- /home/fred/strumpract-main/src/piano.mfm
- /home/fred/strumpract-main/src/imagedancer.mfm
- /home/fred/strumpract-main/src/equalizer.mfm
- /home/fred/strumpract-main/src/dockpanel1.mfm
- /home/fred/strumpract-main/src/randomnote.mfm
- /home/fred/strumpract-main/src/status.mfm
- /home/fred/strumpract-main/src/waveform.mfm
- /home/fred/strumpract-main/src/infosd.mfm
-moduleoptions=17
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-visiblemodules=17
  -1
  -1
  -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
-nomenumodules=17
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
 [sourcefo.files_tab]
-order=32
- 0
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 1
- 24
- 25
- 26
- 27
- 28
- 29
- 5
- 2
- 15
- 16
- 3
- 4
- 8
- 9
- 30
- 31
- 10
- 11
- 12
- 7
- 13
- 14
- 6
-firsttab=13
-index=24
+firsttab=0
+index=0
 [layout]
-windowlayout=877
+windowlayout=583
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1963,17 +1680,17 @@ windowlayout=877
  ny=0
  ncx=0
  ncy=0
- x=85
- y=49
+ x=34
+ y=53
  cx=1428
  cy=724
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [findmessagefo.findtext]
- value=not inlined
+ value=
  history=3
   not inlined
   linux
@@ -1981,7 +1698,7 @@ windowlayout=877
  [findmessagefo.casesensitive]
  value=0
  [findmessagefo.copytoclip]
- value=1
+ value=0
  [targetconsolefo]
  splitdir=0
  useroptions=268451945
@@ -1999,7 +1716,7 @@ windowlayout=877
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -2076,7 +1793,7 @@ windowlayout=877
  ncy=0
  x=239
  y=115
- cx=951
+ cx=678
  cy=414
  rcx=0
  rcy=0
@@ -2093,7 +1810,7 @@ windowlayout=877
  x=0
  y=0
  cx=205
- cy=609
+ cy=522
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -2104,7 +1821,7 @@ windowlayout=877
  sortdescend1=0
  sorted=0
  col=0
- row=15
+ row=8
  rowheight=19
  [stackfo]
  splitdir=0
@@ -2181,12 +1898,12 @@ windowlayout=877
  active=0
  visible=0
  [breakpointsfo.bkptson]
- value=0
+ value=1
  [objectinspectorfo.grid]
- propcolwidthref=365
- width0=205
+ propcolwidthref=240
+ width0=107
  sortdescend0=0
- width1=154
+ width1=127
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2209,25 +1926,7 @@ windowlayout=877
  visible=0
  [symbolfo.grid]
  propcolwidthref=207
- values0=18
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ values0=0
  width0=111
  sortdescend0=0
  width1=125
@@ -2267,7 +1966,7 @@ windowlayout=877
  [watchfo.watchon]
  [watchfo.expression]
  [watchfo.watcheson]
- value=0
+ value=1
  [messagefo]
  splitdir=0
  useroptions=268517483
@@ -2279,9 +1978,9 @@ windowlayout=877
  ncx=0
  ncy=0
  x=0
- y=684
- cx=1586
- cy=126
+ y=591
+ cx=1414
+ cy=107
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2380,8 +2079,8 @@ windowlayout=877
  ncy=0
  x=0
  y=0
- cx=1586
- cy=69
+ cx=1414
+ cy=63
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2396,8 +2095,8 @@ windowlayout=877
  ncy=66
  x=0
  y=0
- cx=1586
- cy=74
+ cx=1414
+ cy=66
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2407,9 +2106,13 @@ windowlayout=877
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract-main/src/infosd.pas
- history=1
-  /home/fred/strumpract-main/src/piano.pas
+ value=/home/fred/strumpract/src/main.pas
+ history=5
+  /home/fred/strumpract/src/main.pas
+  /home/fred/ideU_lin64/layout/${PROJECTDIR}
+  
+  /home/fred/ideU/src/layout
+  ${PROJECTDIR}/main.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2426,53 +2129,20 @@ windowlayout=877
  ncy=0
  x=208
  y=0
- cx=1378
- cy=609
+ cx=1206
+ cy=522
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=32
-  0
-  17
-  18
-  19
-  20
-  21
-  22
-  23
-  1
-  24
-  25
-  26
-  27
-  28
-  29
-  5
-  2
-  15
-  16
-  3
-  4
-  8
-  9
-  30
-  31
-  10
-  11
-  12
-  7
-  13
-  14
-  6
- firsttab=13
- index=24
+ firsttab=0
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=componentpalettefo
+ stackedunder=_mse_drumsfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2499,15 +2169,15 @@ windowlayout=877
  ncx=0
  ncy=0
  x=0
- y=72
- cx=1586
- cy=609
+ y=66
+ cx=1414
+ cy=522
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2526,7 +2196,7 @@ windowlayout=877
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
@@ -2541,11 +2211,11 @@ windowlayout=877
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_filelistfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2560,7 +2230,7 @@ windowlayout=877
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_drumsfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2579,254 +2249,7 @@ windowlayout=877
  rcy=0
  wsize=0
  active=0
- visible=1
- [_mse_filelistfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_guitarsfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=397
- y=264
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_guitarsfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_songplayerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=853
- y=249
- cx=452
- cy=64
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_songplayerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_synthefo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=472
- y=29
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_synthefo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_spectrum1fo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=392
- y=199
- cx=452
- cy=284
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_spectrum1fo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_pianofo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=429
- y=231
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_pianofo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_imagedancerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=620
- y=253
- cx=452
- cy=284
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_imagedancerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=429
- y=240
- cx=452
- cy=206
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_equalizerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_dockpanel1fo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=516
- y=59
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_dockpanel1fo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_randomnotefo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=462
- y=211
- cx=464
- cy=96
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_randomnotefo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_statusfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=0
- y=29
- cx=1368
- cy=711
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_statusfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_wavefo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=442
- y=259
- cx=298
- cy=60
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_wavefo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_infosdfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=347
- y=305
- cx=452
- cy=110
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_infosdfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=targetconsolefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=490
- y=49
- cx=452
- cy=216
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
+ visible=0
 [targetconsole]
 finddtext=
 findhistory=0
