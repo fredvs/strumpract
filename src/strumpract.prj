@@ -176,8 +176,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=949
- y=397
+ x=155
+ y=253
  cx=298
  cy=324
 replacedialog=33
@@ -1603,8 +1603,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=fromfile
+finddtext=inttostr(StreamIn[x].Data.samplerate))
 findhistory=20
+ inttostr(StreamIn[x].Data.samplerate))
  fromfile
  loadlib
  resize
@@ -1626,12 +1627,11 @@ findhistory=20
  mix
  fo.updatelayoutpan
  tmainmenu1.
- as_invisible
 findoptions=1
 editpos=3
  0,4
- 0,0
- 28,2
+ 0,-1073741823
+ 19,12
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -2097,7 +2097,7 @@ windowlayout=579
  nx=0
  ny=0
  ncx=1586
- ncy=67
+ ncy=66
  x=0
  y=0
  cx=1586
