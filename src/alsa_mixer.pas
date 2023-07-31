@@ -273,7 +273,7 @@ begin
   while (not Terminated) do
       begin
           i := snd_mixer_wait(hmixcallback, -1); 
-          if i >= 0 then snd_mixer_handle_events(hmixcallback);
+          if i > 0 then snd_mixer_handle_events(hmixcallback);
       end;
   end;
  
