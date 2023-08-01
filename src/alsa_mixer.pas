@@ -128,6 +128,7 @@ function mixelemcallback(elem: Psnd_mixer_elem_t;
        
 // Dynamic load : Vars that will hold our dynamically loaded ALSA methods...
 var
+  CallbackCalled : boolean = false;
   CallbackThread : TCallbackThread;
   snd_mixer_open: function(mixer: PPsnd_mixer_t; mode: cint): cint; cdecl; 
   snd_mixer_attach: function(mixer: Psnd_mixer_t; name: PChar): cint; cdecl;
@@ -256,6 +257,8 @@ procedure TCallbackThread.Execute;
    elem : Psnd_mixer_elem_t;
    i : integer;
 begin
+  CallbackCalled := true;
+  
   if am_Handle = DynLibs.NilHandle then am_Load;       // load the library 
   
   snd_mixer_open(@hmixcallback,0); 
@@ -386,9 +389,12 @@ begin
 
  finalization  
  
- if assigned(CallbackThread) then CallbackThread.terminate;
-
- if assigned(hmixcallback) then snd_mixer_close(hmixcallback);
+ if CallbackCalled then
+  begin
+  CallbackThread.terminate;
+  snd_mixer_close(hmixcallback);
+  end;
+ 
  am_unload;
 
 end.
