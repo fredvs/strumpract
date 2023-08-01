@@ -524,6 +524,20 @@ begin
     inforate.frame.font.name := 'Unifont' ;
     infochan.frame.font.name := 'Unifont' ;
     infobpm.frame.font.name := 'Unifont' ;
+   
+    infoname.font.name := 'Unifont' ;
+    infoartist.font.name := 'Unifont' ;
+    infoalbum.font.name := 'Unifont' ;
+    infoyear.font.name := 'Unifont' ;
+    infolength.font.name := 'Unifont' ;
+    infotag.font.name := 'Unifont' ;
+    tracktag.font.name := 'Unifont' ;
+    infocom.font.name := 'Unifont' ;
+    infofile.font.name := 'Unifont' ;
+    inforate.font.name := 'Unifont' ;
+    infochan.font.name := 'Unifont' ;
+    infobpm.font.name := 'Unifont' ;
+    
     tlabel2.font.name := 'Unifont' ;
     
     infoname.frame.font.height := 12 ;
@@ -557,6 +571,19 @@ begin
     infochan.frame.font.name := 'Unifont' ;
     infobpm.frame.font.name := 'Unifont' ;
     tlabel2.font.name := 'Unifont' ;
+    
+     infoname.font.name := 'Unifont' ;
+    infoartist.font.name := 'Unifont' ;
+    infoalbum.font.name := 'Unifont' ;
+    infoyear.font.name := 'Unifont' ;
+    infolength.font.name := 'Unifont' ;
+    infotag.font.name := 'Unifont' ;
+    tracktag.font.name := 'Unifont' ;
+    infocom.font.name := 'Unifont' ;
+    infofile.font.name := 'Unifont' ;
+    inforate.font.name := 'Unifont' ;
+    infochan.font.name := 'Unifont' ;
+    infobpm.font.name := 'Unifont' ;
     
     infoname.frame.font.height := 12 ;
     infoartist.frame.font.height := 12 ;
@@ -671,6 +698,11 @@ begin
       songplayerfo.tstringdisp2.font.name := 'Unifont' ;
       songplayerfo.tstringdisp2.font.height := round(14*ratio);
       
+      songplayerfo.tstringdisp1.font.name := 'Unifont' ;
+      songplayerfo.tstringdisp1.font.height := round(14*ratio);
+      songplayer2fo.tstringdisp1.font.name := 'Unifont' ;
+      songplayer2fo.tstringdisp1.font.height := round(14*ratio);
+         
       songplayer2fo.btinfos.font.name := 'Unifont' ;
       songplayer2fo.btinfos.font.height := round(14*ratio);
       songplayer2fo.tstringdisp2.font.name := 'Unifont' ;
@@ -780,6 +812,18 @@ begin
     inforate.frame.font.name := 'stf_default' ;
     infochan.frame.font.name := 'stf_default' ;
     infobpm.frame.font.name := 'stf_default' ;
+     infoname.font.name := 'stf_default' ;
+    infoartist.font.name := 'stf_default' ;
+    infoalbum.font.name := 'stf_default' ;
+    infoyear.font.name := 'stf_default' ;
+    infolength.font.name := 'stf_default' ;
+    infotag.font.name := 'stf_default' ;
+    tracktag.font.name := 'stf_default' ;
+    infocom.font.name := 'stf_default' ;
+    infofile.font.name := 'stf_default' ;
+    inforate.font.name := 'stf_default' ;
+    infochan.font.name := 'stf_default' ;
+    infobpm.font.name := 'stf_default' ;
     infoname.frame.font.height := 10 ;
     infoartist.frame.font.height := 10 ;
     infoalbum.frame.font.height := 10 ;
@@ -811,6 +855,18 @@ begin
     inforate.frame.font.name := 'stf_default' ;
     infochan.frame.font.name := 'stf_default' ;
     infobpm.frame.font.name := 'stf_default' ;
+      infoname.font.name := 'stf_default' ;
+    infoartist.font.name := 'stf_default' ;
+    infoalbum.font.name := 'stf_default' ;
+    infoyear.font.name := 'stf_default' ;
+    infolength.font.name := 'stf_default' ;
+    infotag.font.name := 'stf_default' ;
+    tracktag.font.name := 'stf_default' ;
+    infocom.font.name := 'stf_default' ;
+    infofile.font.name := 'stf_default' ;
+    inforate.font.name := 'stf_default' ;
+    infochan.font.name := 'stf_default' ;
+    infobpm.font.name := 'stf_default' ;
      infoname.frame.font.height := 10 ;
     infoartist.frame.font.height := 10 ;
     infoalbum.frame.font.height := 10 ;
@@ -878,7 +934,12 @@ begin
       songplayer2fo.btinfos.font.height := round(12*ratio);
       songplayer2fo.tstringdisp2.font.name := 'stf_default' ;
       songplayer2fo.tstringdisp2.font.height := round(12*ratio);
-          
+      
+      songplayerfo.tstringdisp1.font.name := 'stf_default' ;
+      songplayerfo.tstringdisp1.font.height := round(12*ratio);
+      songplayer2fo.tstringdisp1.font.name := 'stf_default' ;
+      songplayer2fo.tstringdisp1.font.height := round(12*ratio);
+             
       spectrum1fo.spect1.frame.font.name := 'stf_default' ;
       spectrum1fo.spect1.frame.font.height := 14;
       spectrum2fo.spect1.frame.font.name := 'stf_default' ;
