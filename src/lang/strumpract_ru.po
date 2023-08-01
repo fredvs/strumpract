@@ -1055,8 +1055,8 @@ msgstr "Сохранить настройки в файле"
 msgid "left"
 msgstr "слева"
 
-msgid "Enable Equalizer"
-msgstr "Включить эквалайзер"
+msgid "Equalizer"
+msgstr "эквалайзер"
 
 msgid "Spect"
 msgstr "Призрак"

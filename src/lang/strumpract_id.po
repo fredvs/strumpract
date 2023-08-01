@@ -1055,8 +1055,8 @@ msgstr "Simpan Pengaturan dalam file"
 msgid "left"
 msgstr "kiri"
 
-msgid "Enable Equalizer"
-msgstr "Aktifkan Ekualiser"
+msgid "Equalizer"
+msgstr "Ekualiser"
 
 msgid "Spect"
 msgstr "Spek"

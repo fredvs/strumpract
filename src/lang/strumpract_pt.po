@@ -1055,8 +1055,8 @@ msgstr "Salvar configurações em um arquivo"
 msgid "left"
 msgstr "esquerda"
 
-msgid "Enable Equalizer"
-msgstr "Ativar Equalizador"
+msgid "Equalizer"
+msgstr "Equalizador"
 
 msgid "Spect"
 msgstr "Espectar"

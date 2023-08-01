@@ -1055,8 +1055,8 @@ msgstr "Instellingen opslaan in een bestand"
 msgid "left"
 msgstr "links"
 
-msgid "Enable Equalizer"
-msgstr "Equalizer inschakelen"
+msgid "Equalizer"
+msgstr "Equalizer"
 
 msgid "Spect"
 msgstr "Spect"

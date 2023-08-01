@@ -1055,8 +1055,8 @@ msgstr "Konservi agordojn en dosiero"
 msgid "left"
 msgstr "maldekstre"
 
-msgid "Enable Equalizer"
-msgstr "Ebligi Ekvalizilon"
+msgid "Equalizer"
+msgstr "Ekvalizilon"
 
 msgid "Spect"
 msgstr "Spektu"

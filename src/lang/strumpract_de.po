@@ -1056,7 +1056,7 @@ msgid "left"
 msgstr "Links"
 
 msgid "Enable Equalizer"
-msgstr "Equalizer aktivieren"
+msgstr "Equalizer"
 
 msgid "Spect"
 msgstr "Spect"

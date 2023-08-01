@@ -1056,7 +1056,7 @@ msgstr ""
 msgid "left"
 msgstr ""
 
-msgid "Enable Equalizer"
+msgid "Equalizer"
 msgstr ""
 
 msgid "Spect"

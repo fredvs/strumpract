@@ -1055,7 +1055,7 @@ msgstr "将设置保存在文件中"
 msgid "left"
 msgstr "左"
 
-msgid "Enable Equalizer"
+msgid "Equalizer"
 msgstr "启用均衡器"
 
 msgid "Spect"

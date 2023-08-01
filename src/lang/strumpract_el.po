@@ -1055,8 +1055,8 @@ msgstr "Αποθήκευση ρυθμίσεων σε ένα αρχείο"
 msgid "left"
 msgstr "αριστερά"
 
-msgid "Enable Equalizer"
-msgstr "Ενεργοποίηση ισοσταθμιστή"
+msgid "Equalizer"
+msgstr "Ενεργοποίηση"
 
 msgid "Spect"
 msgstr "Φάσμα"

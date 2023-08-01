@@ -1055,7 +1055,7 @@ msgstr "حفظ الإعدادات في ملف"
 msgid "left"
 msgstr "اليسار"
 
-msgid "Enable Equalizer"
+msgid "Equalizer"
 msgstr "تمكين المعادل"
 
 msgid "Spect"

@@ -7,54 +7,14 @@ unit main;
 interface
 
 uses
- {$ifdef windows}win_mixer,{$endif}msetypes,
-  mseglob,
-  config,
-  configlayout,
-  mseguiglob,
-  po2arrays,
-  msegraphedits,
-  msescrollbar,
-  Process,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msegui,
-  msetimer,
-  msegraphics,
-  msegraphutils,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msechart,
-  status,
-  msedock,
-  msedataedits,
-  mseedit,
-  msestatfile,
-  SysUtils,
-  Classes,
-  Math,
-  msebitmap,
-  synthe,
-  msesys,
-  msemenus,
-  msestream,
-  msegrids,
-  mselistbrowser,
-  mseact,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestrings,
-  msedatanodes,
-  msedragglob,
-  msedropdownlist,
-  msefiledialogx,
-  msegridsglob,{$IFDEF unix}dynlibs,
- {$ENDIF}msestockobjects,
-  mseconsts,
-  captionstrumpract;
+ {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,config,configlayout,
+ mseguiglob,po2arrays,msegraphedits,msescrollbar,Process,mseguiintf,
+ mseapplication,msestat,msegui,msetimer,msegraphics,msegraphutils,mseclasses,
+ msewidgets,mseforms,msechart,status,msedock,msedataedits,mseedit,msestatfile,
+ SysUtils,Classes,Math,msebitmap,synthe,msesys,msemenus,msestream,msegrids,
+ mselistbrowser,mseact,mseificomp,mseificompglob,mseifiglob,msestrings,
+ msedatanodes,msedragglob,msedropdownlist,msefiledialogx,msegridsglob,
+ {$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,mseconsts,captionstrumpract;
 
 type
   boundchild = record
@@ -98,6 +58,7 @@ type
     tframecomp1: tframecomp;
     drumsvisible: tintegeredit;
     sliderimage: tbitmapcomp;
+   vievmenuicons: timagelist;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -692,7 +653,14 @@ begin
       equalizerforec.loadset.font.height := round(14*ratio);
       equalizerforec.saveset.font.name := 'Unifont' ;
       equalizerforec.saveset.font.height := round(14*ratio);
-    
+           
+      equalizerfo1.EQEN.frame.font.name := 'Unifont' ;
+      equalizerfo1.EQEN.frame.font.height := round(14*ratio);
+      equalizerfo2.EQEN.frame.font.name := 'Unifont' ;
+      equalizerfo2.EQEN.frame.font.height := round(14*ratio);
+      equalizerforec.EQEN.frame.font.name := 'Unifont' ;
+      equalizerforec.EQEN.frame.font.height := round(14*ratio);
+
       songplayerfo.btinfos.font.name := 'Unifont' ;
       songplayerfo.btinfos.font.height := round(14*ratio);
       songplayerfo.tstringdisp2.font.name := 'Unifont' ;
@@ -925,6 +893,13 @@ begin
       equalizerforec.saveset.font.name := 'stf_default' ;
       equalizerforec.saveset.font.height := round(12*ratio);
     
+      equalizerfo1.EQEN.frame.font.name := 'stf_default' ;
+      equalizerfo1.EQEN.frame.font.height := round(12*ratio);
+      equalizerfo2.EQEN.frame.font.name := 'stf_default' ;
+      equalizerfo2.EQEN.frame.font.height := round(12*ratio);
+      equalizerforec.EQEN.frame.font.name := 'stf_default' ;
+      equalizerforec.EQEN.frame.font.height := round(12*ratio);
+      
       songplayerfo.btinfos.font.name := 'stf_default' ;
       songplayerfo.btinfos.font.height := round(12*ratio);
       songplayerfo.tstringdisp2.font.name := 'stf_default' ;
@@ -1408,8 +1383,7 @@ begin
 
     //   lang_mainfo[Ord(ma_tmainmenu1_parentitem_audio)] + ' + System ';  {'Audio'}
 
-    tmainmenu1.menu.itembynames(['config', 'language']).Caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language)] + ' (Lang)';  {'Language'}
-    tmainmenu1.menu.itembynames(['config', 'language']).hint    := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language_hint)];  {'Set language'}
+   // tmainmenu1.menu.itembynames(['language']).hint    := lang_mainfo[Ord(ma_tmainmenu1_parentitem_language_hint)];  {'Set language'}
 
     tmainmenu1.menu.itembynames(['config']).Caption := lang_mainfo[Ord(ma_tmainmenu1_config)];  {'&Config'}
     tmainmenu1.menu.itembynames(['config']).hint    := lang_mainfo[Ord(ma_tmainmenu1_config_hint)];  {'Configuration setting'}

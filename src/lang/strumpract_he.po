@@ -1055,7 +1055,7 @@ msgstr "שמור הגדרות בקובץ"
 msgid "left"
 msgstr "שמאל"
 
-msgid "Enable Equalizer"
+msgid "Equalizer"
 msgstr "הפעל אקולייזר"
 
 msgid "Spect"

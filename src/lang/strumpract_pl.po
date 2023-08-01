@@ -1055,8 +1055,8 @@ msgstr "Zapisz ustawienia w pliku"
 msgid "left"
 msgstr "w lewo"
 
-msgid "Enable Equalizer"
-msgstr "Włącz korektor"
+msgid "Equalizer"
+msgstr "Korektor"
 
 msgid "Spect"
 msgstr "Spect"
