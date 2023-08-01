@@ -64,6 +64,7 @@ type
     procedure timrefresh(const sender: TObject);
     procedure onafterscroll(const sender: tcustomscrollbar;
                    const akind: scrolleventty; const avalue: Real);
+   procedure onresized(const sender: TObject);
   end;
 
 var
@@ -113,6 +114,24 @@ begin
     round(list_files.Width - frame.grip_size - list_files.fixcols[-1].Width - list_files[1].Width - list_files[2].Width -
     list_files[3].Width - list_files[4].Width);
 
+  list_files.Height        := Height - historyfn.height - 4;
+ 
+  tbutton6.top := historyfn.top;
+  tbutton3.top := historyfn.top;
+  tbutton4.top := historyfn.top;
+  tbutton5.top := historyfn.top;
+  tbutton11.top := historyfn.top;
+  tbutton1.top := historyfn.top;
+  tbutton2.top := historyfn.top;
+  
+  tbutton6.Height := historyfn.Height;
+  tbutton3.Height := historyfn.Height;
+  tbutton4.Height := historyfn.Height;
+  tbutton5.Height := historyfn.Height;
+  tbutton11.Height := historyfn.Height;
+  tbutton1.Height := historyfn.Height;
+  tbutton2.Height := historyfn.Height;
+   
 end;
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
@@ -961,6 +980,11 @@ timrefresh(sender);
     else
       ttimer1.Enabled := True;
 end;   
+end;
+
+procedure tfilelistfo.onresized(const sender: TObject);
+begin
+
 end;
 
 end.

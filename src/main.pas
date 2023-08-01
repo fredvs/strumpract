@@ -524,6 +524,7 @@ begin
     inforate.frame.font.name := 'Unifont' ;
     infochan.frame.font.name := 'Unifont' ;
     infobpm.frame.font.name := 'Unifont' ;
+    tlabel2.font.name := 'Unifont' ;
     
     infoname.frame.font.height := 12 ;
     infoartist.frame.font.height := 12 ;
@@ -555,6 +556,8 @@ begin
     inforate.frame.font.name := 'Unifont' ;
     infochan.frame.font.name := 'Unifont' ;
     infobpm.frame.font.name := 'Unifont' ;
+    tlabel2.font.name := 'Unifont' ;
+    
     infoname.frame.font.height := 12 ;
     infoartist.frame.font.height := 12 ;
     infoalbum.frame.font.height := 12 ;
@@ -562,6 +565,7 @@ begin
     infolength.frame.font.height := 12 ;
     infotag.frame.font.height := 12 ;
     tracktag.frame.font.height := 12 ;
+    
     infocom.frame.font.height := 12 ;
     infofile.frame.font.height := 12 ;
     inforate.frame.font.height := 12 ;
@@ -572,12 +576,28 @@ begin
       commanderfo.font.name := 'Unifont' ;
       commanderfo.font.height := 14;
    
-      drumsfo.font.name := 'Unifont' ;
-      drumsfo.font.height := 14;
+   with drumsfo do
+    begin
+      font.name := 'Unifont' ;
+      font.height := 14;
       
-      drumsfo.font.name := 'Unifont' ;
-      drumsfo.font.height := 14;
-   
+      labpat.font.name := 'Unifont' ;
+      lach.font.name := 'Unifont' ;
+      laoh.font.name := 'Unifont' ;
+      lasd.font.name := 'Unifont' ;
+      labd.font.name := 'Unifont' ;
+      tstringdisp2.font.name := 'Unifont' ;
+      tlabel23.font.name := 'Unifont' ;
+      tlabel21.font.name := 'Unifont' ;
+      tlabel22.font.name := 'Unifont' ;
+      
+      langcount.frame.font.name := 'Unifont' ;
+      novoice.frame.font.name := 'Unifont' ;
+      noand.frame.font.name := 'Unifont' ;
+      nodrums.frame.font.name := 'Unifont' ;
+      noanim.frame.font.name := 'Unifont' ;
+     end;
+      
       randomnotefo.font.name := 'Unifont' ;
       randomnotefo.font.height := 20;
       
@@ -611,25 +631,58 @@ begin
       songplayerfo.font.name := 'Unifont' ;
       songplayer2fo.font.name := 'Unifont' ;
       recorderfo.font.name := 'Unifont' ;
-      songplayerfo.font.height := 14;
-      songplayer2fo.font.height := 14;
-      recorderfo.font.height := 14;
+      songplayerfo.font.height := round(14*ratio);
+      songplayer2fo.font.height := round(14*ratio);
+      recorderfo.font.height := round(14*ratio);
     
       conflangfo.font.name := 'Unifont' ;
-      conflangfo.font.height := 14;
+      conflangfo.font.height := round(14*ratio);
       spectrum1fo.font.name := 'Unifont' ;
-      spectrum1fo.font.height := 14;
+      spectrum1fo.font.height := round(14*ratio);
       spectrum2fo.font.name := 'Unifont' ;
-      spectrum2fo.font.height := 14;
+      spectrum2fo.font.height := round(14*ratio);
       spectrumrecfo.font.name := 'Unifont' ;
-      spectrumrecfo.font.height := 14;
-      equalizerfo1.font.name := 'Unifont' ;
-      equalizerfo1.font.height := 14;
-      equalizerfo2.font.name := 'Unifont' ;
-      equalizerfo2.font.height := 14;
-      equalizerforec.font.name := 'Unifont' ;
-      equalizerforec.font.height := 14;
+      spectrumrecfo.font.height := round(14*ratio);;
       
+      equalizerfo1.font.name := 'Unifont' ;
+      equalizerfo1.font.height := round(14*ratio);
+      equalizerfo2.font.name := 'Unifont' ;
+      equalizerfo2.font.height := round(14*ratio);
+      equalizerforec.font.name := 'Unifont' ;
+      equalizerforec.font.height := round(14*ratio);
+      
+      equalizerfo1.loadset.font.name := 'Unifont' ;
+      equalizerfo1.loadset.font.height := round(14*ratio);
+      equalizerfo1.saveset.font.name := 'Unifont' ;
+      equalizerfo1.saveset.font.height := round(14*ratio);
+    
+      equalizerfo2.loadset.font.name := 'Unifont' ;
+      equalizerfo2.loadset.font.height := round(14*ratio);
+      equalizerfo2.saveset.font.name := 'Unifont' ;
+      equalizerfo2.saveset.font.height := round(14*ratio);
+      
+      equalizerforec.loadset.font.name := 'Unifont' ;
+      equalizerforec.loadset.font.height := round(14*ratio);
+      equalizerforec.saveset.font.name := 'Unifont' ;
+      equalizerforec.saveset.font.height := round(14*ratio);
+    
+      songplayerfo.btinfos.font.name := 'Unifont' ;
+      songplayerfo.btinfos.font.height := round(14*ratio);
+      songplayerfo.tstringdisp2.font.name := 'Unifont' ;
+      songplayerfo.tstringdisp2.font.height := round(14*ratio);
+      
+      songplayer2fo.btinfos.font.name := 'Unifont' ;
+      songplayer2fo.btinfos.font.height := round(14*ratio);
+      songplayer2fo.tstringdisp2.font.name := 'Unifont' ;
+      songplayer2fo.tstringdisp2.font.height := round(14*ratio);
+          
+      spectrum1fo.spect1.frame.font.name := 'Unifont' ;
+      spectrum1fo.spect1.frame.font.height := 14;
+      spectrum2fo.spect1.frame.font.name := 'Unifont' ;
+      spectrum2fo.spect1.frame.font.height := 14;
+      spectrumrecfo.spect1.frame.font.name := 'Unifont' ;
+      spectrumrecfo.spect1.frame.font.height := 14;
+ 
       filelistfo.font.name := 'Unifont' ;
       filelistfo.font.height := round(14*ratio);;
       
@@ -714,6 +767,7 @@ begin
     begin
      font.name := 'stf_default' ;
     // font.height := 14;
+    tlabel2.font.name := 'stf_default' ;
     infoname.frame.font.name := 'stf_default' ;
     infoartist.frame.font.name := 'stf_default' ;
     tracktag.frame.font.name := 'stf_default' ;
@@ -744,6 +798,7 @@ begin
     begin
      font.name := 'stf_default' ;
     // font.height := 14;
+    tlabel2.font.name := 'stf_default' ;
     infoname.frame.font.name := 'stf_default' ;
     infoartist.frame.font.name := 'stf_default' ;
     infoalbum.frame.font.name := 'stf_default' ;
@@ -769,7 +824,68 @@ begin
     infobpm.frame.font.height := 10 ;
  
     end;
-       
+    
+      with drumsfo do
+    begin
+      font.name := 'stf_default' ;
+      font.height := 12;
+      
+      labpat.font.name := 'stf_default' ;
+      lach.font.name := 'stf_default' ;
+      laoh.font.name := 'stf_default' ;
+      lasd.font.name := 'stf_default' ;
+      labd.font.name := 'stf_default' ;
+      tstringdisp2.font.name := 'stf_default' ;
+      tlabel23.font.name := 'stf_default' ;
+      tlabel21.font.name := 'stf_default' ;
+      tlabel22.font.name := 'stf_default' ;
+      
+      langcount.frame.font.name := 'stf_default' ;
+      novoice.frame.font.name := 'stf_default' ;
+      noand.frame.font.name := 'stf_default' ;
+      nodrums.frame.font.name := 'stf_default' ;
+      noanim.frame.font.name := 'stf_default' ;
+     end;
+    
+      equalizerfo1.font.name := 'stf_default' ;
+      equalizerfo1.font.height := round(12*ratio);
+      equalizerfo2.font.name := 'stf_default' ;
+      equalizerfo2.font.height := round(12*ratio);
+      equalizerforec.font.name := 'stf_default' ;
+      equalizerforec.font.height := round(12*ratio);
+      
+      equalizerfo1.loadset.font.name := 'stf_default' ;
+      equalizerfo1.loadset.font.height := round(12*ratio);
+      equalizerfo1.saveset.font.name := 'stf_default' ;
+      equalizerfo1.saveset.font.height := round(12*ratio);
+    
+      equalizerfo2.loadset.font.name := 'stf_default' ;
+      equalizerfo2.loadset.font.height := round(12*ratio);
+      equalizerfo2.saveset.font.name := 'stf_default' ;
+      equalizerfo2.saveset.font.height := round(12*ratio);
+      
+      equalizerforec.loadset.font.name := 'stf_default' ;
+      equalizerforec.loadset.font.height := round(12*ratio);
+      equalizerforec.saveset.font.name := 'stf_default' ;
+      equalizerforec.saveset.font.height := round(12*ratio);
+    
+      songplayerfo.btinfos.font.name := 'stf_default' ;
+      songplayerfo.btinfos.font.height := round(12*ratio);
+      songplayerfo.tstringdisp2.font.name := 'stf_default' ;
+      songplayerfo.tstringdisp2.font.height := round(12*ratio);
+      
+      songplayer2fo.btinfos.font.name := 'stf_default' ;
+      songplayer2fo.btinfos.font.height := round(12*ratio);
+      songplayer2fo.tstringdisp2.font.name := 'stf_default' ;
+      songplayer2fo.tstringdisp2.font.height := round(12*ratio);
+          
+      spectrum1fo.spect1.frame.font.name := 'stf_default' ;
+      spectrum1fo.spect1.frame.font.height := 14;
+      spectrum2fo.spect1.frame.font.name := 'stf_default' ;
+      spectrum2fo.spect1.frame.font.height := 14;
+      spectrumrecfo.spect1.frame.font.name := 'stf_default' ;
+      spectrumrecfo.spect1.frame.font.height := 14;
+ 
       dockpanel1fo.mainmenu.menu.font.name := 'stf_default' ;
       dockpanel1fo.mainmenu.menu.font.height := round(12*ratio);
       dockpanel2fo.mainmenu.menu.font.name := 'stf_default' ;
