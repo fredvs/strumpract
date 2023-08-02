@@ -17,9 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "English [en]"
-msgstr ""
-
 msgid "&Cancel"
 msgstr ""
 
@@ -611,9 +608,6 @@ msgstr ""
 msgid "Hide All"
 msgstr ""
 
-msgid "Dock Panel"
-msgstr ""
-
 msgid "Panels"
 msgstr ""
 
@@ -746,6 +740,20 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
+msgid "Files list"
+msgstr ""
+
+msgid "Guitars"
+msgstr ""
+
+msgid "Wave form"
+msgstr ""
+
+msgid "Equalizer"
+msgstr ""
+
+msgid "Dock Panel"
+msgstr ""
 
 msgid "Use that grip panel to drag/drop the window."
 msgstr ""
@@ -808,9 +816,6 @@ msgid "Change mixing time in 1/100 second"
 msgstr ""
 
 msgid "Stop player"
-msgstr ""
-
-msgid "Resume player"
 msgstr ""
 
 msgid "Load and Start Player"
@@ -963,6 +968,9 @@ msgstr ""
 msgid "Genre"
 msgstr ""
 
+msgid "Track"
+msgstr ""
+
 msgid "Comment"
 msgstr ""
 
@@ -1023,7 +1031,7 @@ msgstr ""
 msgid "Position of sound"
 msgstr ""
 
-msgid "Lenght of sound"
+msgid "Length of sound"
 msgstr ""
 
 msgid "Enable looping the song. (Pause is not enabled with loop.)"
@@ -1056,7 +1064,7 @@ msgstr ""
 msgid "left"
 msgstr ""
 
-msgid "Equalizer"
+msgid "Enable Equalizer"
 msgstr ""
 
 msgid "Spect"
@@ -1101,13 +1109,13 @@ msgstr ""
 msgid "Drums Patern 4"
 msgstr ""
 
-msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now."
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now."
 msgstr ""
 
-msgid "3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
 msgstr ""
 
-msgid "Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice."
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
 msgstr ""
 
 msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
@@ -1125,10 +1133,10 @@ msgstr ""
 msgid "No graphic animation."
 msgstr ""
 
-msgid "no "and""
+msgid "no and"
 msgstr ""
 
-msgid "No "and" between 2 numbers."
+msgid "No and between 2 numbers."
 msgstr ""
 
 msgid "no voice"
@@ -1278,6 +1286,6 @@ msgstr ""
 msgid "Enable random Drums tempo"
 msgstr ""
 
-msgid "Configure the "Clear" message"
+msgid "Configure the Clear message"
 msgstr ""
 

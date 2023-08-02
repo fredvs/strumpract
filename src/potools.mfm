@@ -1,7 +1,7 @@
 object headerfo: theaderfo
   visible = False
-  bounds_x = 309
-  bounds_y = 172
+  bounds_x = 362
+  bounds_y = 190
   bounds_cx = 772
   bounds_cy = 437
   container.frame.localprops = []
@@ -14,7 +14,7 @@ object headerfo: theaderfo
   )
   font.name = 'stf_default'
   font.localprops = []
-  options = [fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
+  options = [fo_freeonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   caption = 'Po <> Po converter'
   windowopacity = -Inf
   oncreate = oncreateform
@@ -32,16 +32,16 @@ object headerfo: theaderfo
     frame.button.imagenr = 17
     frame.outerframe = (
       0
-      18
+      20
       0
       0
     )
     bounds_x = 16
-    bounds_y = 79
+    bounds_y = 77
     bounds_cx = 393
-    bounds_cy = 36
+    bounds_cy = 40
     value = '# SOME DESCRIPTIVE TITLE.'#10'# Copyright (C) YEAR THE PACKAGE''S COPYRIGHT HOLDER'#10'# This file is distributed under the same license as the PACKAGE package.'#10'# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.'#10'#'#10'#, fuzzy'#10'msgid ""'#10'msgstr ""'#10'"Project-Id-Version: \n"'#10'"Report-Msgid-Bugs-To: \n"'#10'"POT-Creation-Date: 2019-03-04 23:54+0300\n"'#10'"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"'#10'"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"'#10'"Language-Team: LANGUAGE <LL@li.org>\n"'#10'"Language: \n"'#10'"MIME-Version: 1.0\n"'#10'"Content-Type: text/plain; charset=UTF-8\n"'#10'"Content-Transfer-Encoding: 8bit\n"'
-    reffontheight = 15
+    reffontheight = 17
   end
   object tbutton2: tbutton
     taborder = 1
@@ -50,7 +50,7 @@ object headerfo: theaderfo
     bounds_cx = 737
     bounds_cy = 117
     state = [as_localdisabled, as_localcaption, as_localonexecute]
-    caption = 'After creating a translation from "podemo_empty.txt"   (by Google translate for example and saved as  "podemo_xz.txt" ("xz" is the code lang)).  Check if Google keep all the original lang code and did not translate some.  Convert it into Po file with original "msgid" + translated "msgstr" clicking here.    When done, paste that new po file into /lang directory.'
+    caption = 'After creating a translation from "strumpract_empty.txt"   (by Google translate for example and saved as  "strumpract_xz.txt" ("xz" is the code lang)).  Check if Google keep all the original lang code and did not translate some.  Convert it into Po file with original "msgid" + translated "msgstr" clicking here.    When done, paste that new po file into /lang directory.'
     textflags = [tf_left, tf_xcentered, tf_ycentered, tf_wordbreak]
     onexecute = createnew
   end
@@ -60,15 +60,15 @@ object headerfo: theaderfo
     frame.localprops1 = []
     frame.outerframe = (
       0
-      2
-      117
-      2
+      3
+      110
+      3
     )
     taborder = 2
     bounds_x = 264
-    bounds_y = 22
-    bounds_cx = 130
-    bounds_cy = 17
+    bounds_y = 21
+    bounds_cx = 123
+    bounds_cy = 19
     visible = False
   end
   object tbutton4: tbutton
@@ -79,7 +79,7 @@ object headerfo: theaderfo
     bounds_cx = 738
     bounds_cy = 52
     state = [as_localdisabled, as_localcaption, as_localonexecute]
-    caption = 'Create new "podemo_empty.po" file ready to be translated.   Paste a copy of it in /lang directory if arrays were updated.'
+    caption = 'Create new "strumpract_empty.po" file ready to be translated.   Paste a copy of it in /lang directory if arrays were updated.'
     textflags = [tf_left, tf_xcentered, tf_ycentered, tf_wordbreak]
     onexecute = createnew
   end
@@ -95,15 +95,15 @@ object headerfo: theaderfo
     frame.button.imagenr = 17
     frame.outerframe = (
       0
-      18
+      20
       0
       0
     )
     taborder = 5
     bounds_x = 416
-    bounds_y = 76
+    bounds_y = 74
     bounds_cx = 338
-    bounds_cy = 39
+    bounds_cy = 43
     controller.fontheight = 0
     controller.fontname = 'stf_default'
     controller.fontcolor = -1610612734
@@ -115,7 +115,7 @@ object headerfo: theaderfo
     controller.hideicons = False
     controller.showhidden = False
     controller.options = [fdo_directory, fdo_savelastdir]
-    reffontheight = 15
+    reffontheight = 17
   end
   object tlabel1: tlabel
     optionswidget1 = [ow1_fontglyphheight]
@@ -129,7 +129,7 @@ object headerfo: theaderfo
     font.name = 'stf_default'
     font.localprops = [flp_height]
     textflags = [tf_ycentered, tf_wordbreak]
-    reffontheight = 19
+    reffontheight = 23
   end
   object tbutton3: tbutton
     Tag = 2
@@ -139,7 +139,7 @@ object headerfo: theaderfo
     bounds_cx = 738
     bounds_cy = 36
     state = [as_localdisabled, as_localcaption, as_localonexecute]
-    caption = 'Create new "podemo_empty.txt" file ready for Google Translate'
+    caption = 'Create new "strumpract_empty.txt" file ready for Google Translate'
     onexecute = createnew
   end
   object tbutton5: tbutton
@@ -192,12 +192,12 @@ object headerfo: theaderfo
     frame.sbvert.pagesize = 1
     taborder = 9
     visible = False
-    bounds_x = 0
-    bounds_y = 64
+    bounds_x = 1
+    bounds_y = 65
     bounds_cx = 768
     bounds_cy = 368
     anchors = [an_left, an_top, an_right, an_bottom]
-    reffontheight = 15
+    reffontheight = 17
   end
   object tbutton8: tbutton
     Tag = 6
@@ -216,8 +216,8 @@ object headerfo: theaderfo
     frame.localprops1 = []
     taborder = 3
     visible = False
-    bounds_x = 0
-    bounds_y = 6
+    bounds_x = 1
+    bounds_y = 1
     bounds_cx = 770
     bounds_cy = 434
     anchors = [an_left, an_top, an_right, an_bottom]
@@ -227,13 +227,13 @@ object headerfo: theaderfo
       bounds_x = 204
       bounds_y = 181
       bounds_cx = 353
-      bounds_cy = 48
+      bounds_cy = 55
       caption = 'Done.'
       font.height = 40
       font.name = 'stf_default'
       font.localprops = [flp_height]
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 48
+      reffontheight = 55
     end
   end
   object ttimer1: ttimer

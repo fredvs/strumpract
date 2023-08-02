@@ -1007,9 +1007,6 @@ msgstr "Informoj"
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "Detektu BMP el nuna pozicio kaj agordu ĝin al Drums-takto."
 
-msgid "Resume player"
-msgstr "Rekomenci ludilon"
-
 msgid "Load from cue and Start player"
 msgstr "Ŝargi el signalvorto kaj Komencu ludilon"
 

@@ -473,22 +473,22 @@ begin
 
   setlength(defaultresult, length(en_modalresulttext));
   for imodalresultty := Low(modalresultty) to High(modalresultty) do
-    defaultresult[Ord(imodalresultty)] := en_modalresulttext[(imodalresultty)];
+    defaultresult[Ord(imodalresultty)] := en_modalresulttext[Ord(imodalresultty)];
 
   y := length(defaultresult);
   setlength(defaultresult, length(en_modalresulttextnoshortcut) + y);
   for imodalresultty := Low(modalresultty) to High(modalresultty) do
-    defaultresult[y + Ord(imodalresultty)] := en_modalresulttextnoshortcut[(imodalresultty)];
+    defaultresult[y + Ord(imodalresultty)] := en_modalresulttextnoshortcut[Ord(imodalresultty)];
 
   y := length(defaultresult);
   setlength(defaultresult, length(en_stockcaption) + y);
   for istockcaptionty := Low(stockcaptionty) to High(stockcaptionty) do
-    defaultresult[y + Ord(istockcaptionty)] := en_stockcaption[(istockcaptionty)];
+    defaultresult[y + Ord(istockcaptionty)] := en_stockcaption[Ord(istockcaptionty)];
 
   y := length(defaultresult);
   setlength(defaultresult, length(en_extendedtext) + y);
   for iextendedty := Low(extendedty) to High(extendedty) do
-    defaultresult[y + Ord(iextendedty)] := en_extendedtext[(iextendedty)];
+    defaultresult[y + Ord(iextendedty)] := en_extendedtext[Ord(iextendedty)];
 
   y := length(defaultresult);
   setlength(defaultresult, length(en_mainfotext) + y);

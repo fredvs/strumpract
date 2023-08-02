@@ -1007,9 +1007,6 @@ msgstr "Info"
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "Deteksi BMP dari posisi saat ini dan setel ke tempo Drum."
 
-msgid "Resume player"
-msgstr "Lanjutkan pemutar"
-
 msgid "Load from cue and Start player"
 msgstr "Muat dari isyarat dan Mulai pemutar"
 

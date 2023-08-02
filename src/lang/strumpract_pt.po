@@ -1007,9 +1007,6 @@ msgstr "Info"
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "Detectar BMP da posição atual e defini-lo para o andamento da bateria."
 
-msgid "Resume player"
-msgstr "Retomar jogador"
-
 msgid "Load from cue and Start player"
 msgstr "Carregar do cue e iniciar o player"
 

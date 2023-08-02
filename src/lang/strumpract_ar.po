@@ -1007,9 +1007,6 @@ msgstr "معلومات"
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "كشف BMP من الوضع الحالي وضبطه على سرعة الطبول."
 
-msgid "Resume player"
-msgstr "استئناف اللاعب"
-
 msgid "Load from cue and Start player"
 msgstr "تحميل من جديلة وبدء لاعب"
 

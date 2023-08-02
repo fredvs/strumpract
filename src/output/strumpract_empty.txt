@@ -394,55 +394,9 @@ msgstr "Show All"
 
 msgstr "Hide All"
 
-msgstr "Show Drums"
+msgstr "Panels"
 
-msgstr "Show File List"
-
-msgstr "Show Player 1"
-
-msgstr "Show Player 2"
-
-msgstr "Show Commander"
-
-msgstr "Show Recorder"
-
-msgstr "Show Guitars"
-
-msgstr "Show Spectrum 1"
-
-msgstr "Show Spectrum 2"
-
-msgstr "Show Spectrum Rec"
-
-msgstr "Show WaveForm 1"
-
-msgstr "Show WaveForm 2"
-
-msgstr "Show WaveForm Rec"
-
-msgstr "Show Equalizer 1"
-
-msgstr "Show Equalizer 2"
-
-msgstr "Show Equalizer Rec"
-
-msgstr "Show Chord Randomizer"
-
-msgstr "Show Image Dancer"
-
-msgstr "Show Dock Panel 1"
-
-msgstr "Show Dock Panel 2"
-
-msgstr "Show Dock Panel 3"
-
-msgstr "Show Dock Panel 4"
-
-msgstr "Show Dock Panel 5"
-
-msgstr "&Panels"
-
-msgstr "&Show"
+msgstr "Show"
 
 msgstr "Show/hide windows"
 
@@ -526,6 +480,18 @@ msgstr "Set as default"
 
 msgstr "Recorder"
 
+msgstr "Hide"
+
+msgstr "Files list"
+
+msgstr "Guitars"
+
+msgstr "Wave form"
+
+msgstr "Equalizer"
+
+msgstr "Dock Panel"
+
 msgstr "Use that grip panel to drag/drop the window."
 
 msgstr "Com"
@@ -567,8 +533,6 @@ msgstr "System Master Volume"
 msgstr "Change mixing time in 1/100 second"
 
 msgstr "Stop player"
-
-msgstr "Resume player"
 
 msgstr "Load and Start Player"
 
@@ -670,6 +634,8 @@ msgstr "Duration"
 
 msgstr "Genre"
 
+msgstr "Track"
+
 msgstr "Comment"
 
 msgstr "File Name"
@@ -710,7 +676,7 @@ msgstr "Choose a  wav, ogg, flac or mp3 audio file"
 
 msgstr "Position of sound"
 
-msgstr "Lenght of sound"
+msgstr "Length of sound"
 
 msgstr "Enable looping the song. (Pause is not enabled with loop.)"
 
@@ -762,11 +728,11 @@ msgstr "Drums Patern 3"
 
 msgstr "Drums Patern 4"
 
-msgstr "Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now."
+msgstr "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now."
 
-msgstr "3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
 
-msgstr "Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
 
 msgstr "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
 
@@ -778,9 +744,9 @@ msgstr "no anim"
 
 msgstr "No graphic animation."
 
-msgstr "no "and""
+msgstr "no and"
 
-msgstr "No "and" between 2 numbers."
+msgstr "No and between 2 numbers."
 
 msgstr "no voice"
 
@@ -880,35 +846,5 @@ msgstr "Enable Drums"
 
 msgstr "Enable random Drums tempo"
 
-msgstr "Configure the "Clear" message"
-
-msgstr "English [en]"
-
-msgstr "Russian [ru]"
-
-msgstr "French [fr]"
-
-msgstr "German [de]"
-
-msgstr "Spanish [es]"
-
-msgstr "Portuguese [pt]"
-
-msgstr "Chinese [zh]"
-
-msgstr "Italian [it]"
-
-msgstr "Dutch [nl]"
-
-msgstr "Hebrew [he]"
-
-msgstr "Indonesian [id]"
-
-msgstr "Polish [pl]"
-
-msgstr "Esperanto [eo]"
-
-msgstr "Greek [el]"
-
-msgstr "Arabic [ar]"
+msgstr "Configure the Clear message"
 

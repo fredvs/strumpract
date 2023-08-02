@@ -1007,9 +1007,6 @@ msgstr "Информация"
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "Определить BMP из текущей позиции и установить темп ударных."
 
-msgid "Resume player"
-msgstr "Возобновить игрока"
-
 msgid "Load from cue and Start player"
 msgstr "Загрузить из cue и запустить проигрыватель"
 

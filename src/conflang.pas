@@ -36,7 +36,7 @@ implementation
 uses
   main,
   msestockobjects,
-  // potools,
+  potools,
   conflang_mfm,
   captionstrumpract;
 
@@ -73,7 +73,8 @@ end;
 
 procedure tconflangfo.ontools(const sender: TObject);
 begin
-// headerfo.show(true);
+ application.createform(theaderfo, headerfo);
+ headerfo.show(true);
 end;
 
 end.

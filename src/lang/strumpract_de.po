@@ -809,9 +809,6 @@ msgstr "Mischzeit in 1/100 Sekunde ändern"
 msgid "Stop player"
 msgstr "Spieler stoppen"
 
-msgid "Resume player"
-msgstr "Spieler fortsetzen"
-
 msgid "Load and Start Player"
 msgstr "Player laden und starten"
 

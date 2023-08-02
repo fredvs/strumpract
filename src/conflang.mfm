@@ -155,8 +155,8 @@ object conflangfo: tconflangfo
     bounds_x = 58
     bounds_y = -1
     bounds_cx = 192
-    bounds_cy = 42
-    reffontheight = 15
+    bounds_cy = 44
+    reffontheight = 17
   end
   object setasdefault: tbooleanedit
     color = -2147483645
@@ -166,15 +166,15 @@ object conflangfo: tconflangfo
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      2
-      98
-      2
+      3
+      75
+      3
     )
     taborder = 1
     bounds_x = 36
-    bounds_y = 11
-    bounds_cx = 111
-    bounds_cy = 17
+    bounds_y = 10
+    bounds_cx = 88
+    bounds_cy = 19
     statfile = mainfo.tstatfile1
   end
   object ok: tbutton
@@ -208,12 +208,15 @@ object conflangfo: tconflangfo
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     taborder = 3
-    bounds_x = 169
+    hint = 'Tools'
+    bounds_x = 219
     bounds_y = 7
-    bounds_cx = 66
+    bounds_cx = 22
     bounds_cy = 26
     anchors = [an_top, an_right]
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
+    state = [as_localinvisible, as_localcaption, as_localimagelist, as_localimagenr, as_localcolor, as_localhint, as_localonexecute]
+    imagelist = mainfo.buttonicons
+    imagenr = 23
     onexecute = ontools
   end
 end

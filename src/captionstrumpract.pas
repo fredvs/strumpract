@@ -279,7 +279,6 @@ type
       co_sysvol_hint, {'System Master Volume'}
       co_timemix_hint, {'Change mixing time in 1/100 second'}
       co_btnStop_hint, {'Stop player'}
-      co_btnResume_hint, {'Resume player'}
       co_btnStart_hint, {'Load and Start Player'}
       co_volumeleft1_hint, {'Left Volume Player 1'}
       co_volumeright1_hint, {'Right Volume Player 1'}
@@ -501,7 +500,6 @@ const
       'System Master Volume', {co_sysvol_hint}
       'Change mixing time in 1/100 second', {co_timemix_hint}
       'Stop player', {co_btnStop_hint}
-      'Resume player', {co_btnResume_hint}
       'Load and Start Player', {co_btnStart_hint}
       'Left Volume Player 1', {co_volumeleft1_hint}
       'Right Volume Player 1', {co_volumeright1_hint}

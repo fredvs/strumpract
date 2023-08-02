@@ -608,79 +608,10 @@ msgstr ""
 msgid "Hide All"
 msgstr ""
 
-msgid "Show Drums"
+msgid "Panels"
 msgstr ""
 
-msgid "Show File List"
-msgstr ""
-
-msgid "Show Player 1"
-msgstr ""
-
-msgid "Show Player 2"
-msgstr ""
-
-msgid "Show Commander"
-msgstr ""
-
-msgid "Show Recorder"
-msgstr ""
-
-msgid "Show Guitars"
-msgstr ""
-
-msgid "Show Spectrum 1"
-msgstr ""
-
-msgid "Show Spectrum 2"
-msgstr ""
-
-msgid "Show Spectrum Rec"
-msgstr ""
-
-msgid "Show WaveForm 1"
-msgstr ""
-
-msgid "Show WaveForm 2"
-msgstr ""
-
-msgid "Show WaveForm Rec"
-msgstr ""
-
-msgid "Show Equalizer 1"
-msgstr ""
-
-msgid "Show Equalizer 2"
-msgstr ""
-
-msgid "Show Equalizer Rec"
-msgstr ""
-
-msgid "Show Chord Randomizer"
-msgstr ""
-
-msgid "Show Image Dancer"
-msgstr ""
-
-msgid "Show Dock Panel 1"
-msgstr ""
-
-msgid "Show Dock Panel 2"
-msgstr ""
-
-msgid "Show Dock Panel 3"
-msgstr ""
-
-msgid "Show Dock Panel 4"
-msgstr ""
-
-msgid "Show Dock Panel 5"
-msgstr ""
-
-msgid "&Panels"
-msgstr ""
-
-msgid "&Show"
+msgid "Show"
 msgstr ""
 
 msgid "Show/hide windows"
@@ -806,6 +737,24 @@ msgstr ""
 msgid "Recorder"
 msgstr ""
 
+msgid "Hide"
+msgstr ""
+
+msgid "Files list"
+msgstr ""
+
+msgid "Guitars"
+msgstr ""
+
+msgid "Wave form"
+msgstr ""
+
+msgid "Equalizer"
+msgstr ""
+
+msgid "Dock Panel"
+msgstr ""
+
 msgid "Use that grip panel to drag/drop the window."
 msgstr ""
 
@@ -867,9 +816,6 @@ msgid "Change mixing time in 1/100 second"
 msgstr ""
 
 msgid "Stop player"
-msgstr ""
-
-msgid "Resume player"
 msgstr ""
 
 msgid "Load and Start Player"
@@ -1022,6 +968,9 @@ msgstr ""
 msgid "Genre"
 msgstr ""
 
+msgid "Track"
+msgstr ""
+
 msgid "Comment"
 msgstr ""
 
@@ -1082,7 +1031,7 @@ msgstr ""
 msgid "Position of sound"
 msgstr ""
 
-msgid "Lenght of sound"
+msgid "Length of sound"
 msgstr ""
 
 msgid "Enable looping the song. (Pause is not enabled with loop.)"
@@ -1160,13 +1109,13 @@ msgstr ""
 msgid "Drums Patern 4"
 msgstr ""
 
-msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count "2" you may add a "boom" on the Bass Drum. Congratulation, you are a drummer now."
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now."
 msgstr ""
 
-msgid "3th lesson Do the same as second lesson and on count "3" add a "clack" on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
 msgstr ""
 
-msgid "Second lesson. Do the same as first lesson and on count "1" add a "boom" with your right foot on the Bass Drum. Still count loud with your voice."
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
 msgstr ""
 
 msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
@@ -1184,10 +1133,10 @@ msgstr ""
 msgid "No graphic animation."
 msgstr ""
 
-msgid "no "and""
+msgid "no and"
 msgstr ""
 
-msgid "No "and" between 2 numbers."
+msgid "No and between 2 numbers."
 msgstr ""
 
 msgid "no voice"
@@ -1337,51 +1286,6 @@ msgstr ""
 msgid "Enable random Drums tempo"
 msgstr ""
 
-msgid "Configure the "Clear" message"
-msgstr ""
-
-msgid "English [en]"
-msgstr ""
-
-msgid "Russian [ru]"
-msgstr ""
-
-msgid "French [fr]"
-msgstr ""
-
-msgid "German [de]"
-msgstr ""
-
-msgid "Spanish [es]"
-msgstr ""
-
-msgid "Portuguese [pt]"
-msgstr ""
-
-msgid "Chinese [zh]"
-msgstr ""
-
-msgid "Italian [it]"
-msgstr ""
-
-msgid "Dutch [nl]"
-msgstr ""
-
-msgid "Hebrew [he]"
-msgstr ""
-
-msgid "Indonesian [id]"
-msgstr ""
-
-msgid "Polish [pl]"
-msgstr ""
-
-msgid "Esperanto [eo]"
-msgstr ""
-
-msgid "Greek [el]"
-msgstr ""
-
-msgid "Arabic [ar]"
+msgid "Configure the Clear message"
 msgstr ""
 

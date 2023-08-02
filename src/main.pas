@@ -1678,7 +1678,7 @@ begin
 
     btnStop.hint := lang_commanderfo[Ord(co_btnStop_hint)];  {'Stop player'}
 
-    btnResume.hint := lang_commanderfo[Ord(co_btnResume_hint)];  {'Resume player'}
+    btnResume.hint := lang_songplayerfo[Ord(so_btnResume_hint)];  {'Resume player'}
 
     btnStart.hint := lang_commanderfo[Ord(co_btnStart_hint)];  {'Load and Start Player'}
 
@@ -1702,7 +1702,7 @@ begin
 
     btnStop2.hint := lang_commanderfo[Ord(co_btnStop_hint)];  {'Stop player'}
 
-    btnResume2.hint := lang_commanderfo[Ord(co_btnResume_hint)];  {'Resume player'}
+    btnResume2.hint := lang_songplayerfo[Ord(so_btnResume_hint)];  {'Resume player'}
 
     volumeleft1val.hint := lang_commanderfo[Ord(co_tslider2val_hint)];  {'Click to switch to 100% <> 0% '}
 

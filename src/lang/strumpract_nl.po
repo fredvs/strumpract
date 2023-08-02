@@ -1007,9 +1007,6 @@ msgstr "Info"
 msgid "Detect BMP from current position and set it to Drums tempo."
 msgstr "Detecteer BMP vanaf de huidige positie en zet het op Drums-tempo."
 
-msgid "Resume player"
-msgstr "Speler hervatten"
-
 msgid "Load from cue and Start player"
 msgstr "Laden van cue en Start speler"
 
