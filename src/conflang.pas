@@ -74,6 +74,7 @@ end;
 procedure tconflangfo.ontools(const sender: TObject);
 begin
  application.createform(theaderfo, headerfo);
+ headerfo.icon := icon;
  headerfo.show(true);
 end;
 

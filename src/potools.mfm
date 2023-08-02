@@ -16,6 +16,8 @@ object headerfo: theaderfo
   font.localprops = []
   options = [fo_freeonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
   caption = 'Po <> Po converter'
+  icon.options = [bmo_masked, bmo_graymask]
+  icon.origformat = 'png'
   windowopacity = -Inf
   oncreate = oncreateform
   oncreated = oncreated
