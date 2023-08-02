@@ -1,4 +1,5 @@
 
+msgstr "English [en]"
 
 msgstr "&Cancel"
 

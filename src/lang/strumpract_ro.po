@@ -1,0 +1,1294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-04 23:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "English [en]"
+msgstr "Română [ro]"
+
+msgid "&Cancel"
+msgstr "&Anulează"
+
+msgid "&Abort"
+msgstr "&Anulează"
+
+msgid "&OK"
+msgstr "&OK"
+
+msgid "&Yes"
+msgstr "&Da"
+
+msgid "&No"
+msgstr "&Nu"
+
+msgid "&All"
+msgstr "&Toate"
+
+msgid "Yes &all"
+msgstr "Da &toate"
+
+msgid "N&o all"
+msgstr "N&o toate"
+
+msgid "&Ignore"
+msgstr "&Ignorați"
+
+msgid "&Skip"
+msgstr "&Sariți"
+
+msgid "Skip a&ll"
+msgstr "Omite o&ll"
+
+msgid "Co&ntinue"
+msgstr "Co&continuați"
+
+msgid "Cancel"
+msgstr "Anulați"
+
+msgid "Abort"
+msgstr "Anulați"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Nu"
+
+msgid "All"
+msgstr "Toate"
+
+msgid "Yes all"
+msgstr "Da toate"
+
+msgid "No all"
+msgstr "Nu toate"
+
+msgid "Ignore"
+msgstr "Ignorați"
+
+msgid "Skip"
+msgstr "Omite"
+
+msgid "Skip all"
+msgstr "Omiteți toate"
+
+msgid "Continue"
+msgstr "Continuați"
+
+msgid "is invalid"
+msgstr "este invalid"
+
+msgid "Format error"
+msgstr "Eroare de format"
+
+msgid "Value is required"
+msgstr "Valoarea este necesară"
+
+msgid "Error"
+msgstr "Eroare"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Range error"
+msgstr "Eroare de interval"
+
+msgid "&Undo"
+msgstr "&Anulați"
+
+msgid "&Redo"
+msgstr "&Reface"
+
+msgid "&Copy"
+msgstr "&Copiere"
+
+msgid "Cu&t"
+msgstr "Cu&t"
+
+msgid "&Paste"
+msgstr "&Lipire"
+
+msgid "Select &all"
+msgstr "Selectați &toate"
+
+msgid "&Insert Row"
+msgstr "&Inserați rând"
+
+msgid "&Append Row"
+msgstr "&Adăugați rând"
+
+msgid "&Delete Row"
+msgstr "&Ștergeți rândul"
+
+msgid "&Dir"
+msgstr "&Dir"
+
+msgid "&Home"
+msgstr "&Acasă"
+
+msgid "&Up"
+msgstr "&Sus"
+
+msgid "&New"
+msgstr "&Nou"
+
+msgid "&Name"
+msgstr "&Nume"
+
+msgid "&Show hidden files"
+msgstr "&Afișează fișierele ascunse"
+
+msgid "&Filter"
+msgstr "&Filtru"
+
+msgid "Save"
+msgstr "Salvare"
+
+msgid "Open"
+msgstr "Deschidere"
+
+msgid "Name"
+msgstr "Nume"
+
+msgid "Create new directory"
+msgstr "Creează un director nou"
+
+msgid "Back"
+msgstr "Înapoi"
+
+msgid "Forward"
+msgstr "Înainte"
+
+msgid "Up"
+msgstr "Sus"
+
+msgid "exists, do you want to overwrite?"
+msgstr "există, doriți să suprascrieți?"
+
+msgid "is modified. Save?"
+msgstr "este modificat. Salvați?"
+
+msgid "WARNING"
+msgstr "ATENȚIE"
+
+msgid "Exception"
+msgstr "Excepție"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "does not exist"
+msgstr "nu există"
+
+msgid "PASSWORD"
+msgstr "PAROLA"
+
+msgid "Enter password"
+msgstr "Introduceți parola"
+
+msgid "Invalid password!"
+msgstr "Parolă nevalidă!"
+
+msgid "Can not read directory"
+msgstr "Nu se poate citi directorul"
+
+msgid "Graphic format not supported"
+msgstr "Format grafic nu este acceptat"
+
+msgid "Graphic format error"
+msgstr "Eroare de format grafic"
+
+msgid "All Images"
+msgstr "Toate imaginile"
+
+msgid "Confirmation"
+msgstr "Confirmare"
+
+msgid "Delete record?"
+msgstr "Ștergeți înregistrarea?"
+
+msgid "Copy record?"
+msgstr "Copiați înregistrarea?"
+
+msgid "Close page"
+msgstr "Închideți pagina"
+
+msgid "First"
+msgstr "Întâi"
+
+msgid "Prior"
+msgstr "Înainte"
+
+msgid "Next"
+msgstr "Următorul"
+
+msgid "Last"
+msgstr "Ultimul"
+
+msgid "Append"
+msgstr "Adăugați"
+
+msgid "Delete"
+msgstr "Ștergeți"
+
+msgid "Edit"
+msgstr "Editare"
+
+msgid "Post"
+msgstr "Postează"
+
+msgid "Annul"
+msgstr "Anulare"
+
+msgid "Refresh"
+msgstr "Actualizează"
+
+msgid "Edit filter"
+msgstr "Editați filtrul"
+
+msgid "Edit filter minimum"
+msgstr "Editați filtrul minim"
+
+msgid "Edit filter maximum"
+msgstr "Editați filtrul maxim"
+
+msgid "Reset filter"
+msgstr "Resetați filtrul"
+
+msgid "Filter on"
+msgstr "Filtrați pe"
+
+msgid "Search"
+msgstr "Căutare"
+
+msgid "Auto edit"
+msgstr "Editare automată"
+
+msgid "Copy record"
+msgstr "Copiați înregistrarea"
+
+msgid "Dialog"
+msgstr "Dialog"
+
+msgid "Insert"
+msgstr "Inserați"
+
+msgid "Copy"
+msgstr "Copiere"
+
+msgid "Paste"
+msgstr "Lipire"
+
+msgid "Row insert"
+msgstr "Inserare rând"
+
+msgid "Row append"
+msgstr "Adăugați rânduri"
+
+msgid "Row delete"
+msgstr "Ștergerea rândului"
+
+msgid "Undo"
+msgstr "Anulați"
+
+msgid "Redo"
+msgstr "Reface"
+
+msgid "Cut"
+msgstr "Tăiați"
+
+msgid "Select all"
+msgstr "Selectați tot"
+
+msgid "Filter off"
+msgstr "Filtrare dezactivată"
+
+msgid "Portrait"
+msgstr "Portret"
+
+msgid "Landscape"
+msgstr "Peisaj"
+
+msgid "Delete row?"
+msgstr "Ștergeți rândul?"
+
+msgid "selected rows?"
+msgstr "rândurile selectate?"
+
+msgid "Single item only"
+msgstr "Doar un singur articol"
+
+msgid "Copy Cells"
+msgstr "Copiați celulele"
+
+msgid "Paste Cells"
+msgstr "Lipiți celule"
+
+msgid "Close"
+msgstr "Închidere"
+
+msgid "Maximize"
+msgstr "Maximizați"
+
+msgid "Normalize"
+msgstr "Normalizare"
+
+msgid "Minimize"
+msgstr "Minimizează"
+
+msgid "Fix size"
+msgstr "Repare dimensiunea"
+
+msgid "Float"
+msgstr "Plutește"
+
+msgid "Stay on top"
+msgstr "Rămâneți în top"
+
+msgid "Stay in background"
+msgstr "Rămâneți în fundal"
+
+msgid "Lock children"
+msgstr "Încuiați copiii"
+
+msgid "No lock"
+msgstr "Fără blocare"
+
+msgid "Input"
+msgstr "Intrare"
+
+msgid "Button"
+msgstr "Buton"
+
+msgid "On"
+msgstr "Activat"
+
+msgid "Off"
+msgstr "Dezactivat"
+
+msgid "Left border"
+msgstr "Chenar din stânga"
+
+msgid "Top border"
+msgstr "Chenar de sus"
+
+msgid "Right border"
+msgstr "Chenar drept"
+
+msgid "Bottom border"
+msgstr "Chenar de jos"
+
+msgid "Begin of text"
+msgstr "Începutul textului"
+
+msgid "End of text"
+msgstr "Sfârșitul textului"
+
+msgid "Inputmode"
+msgstr "Mod de intrare"
+
+msgid "Overwrite"
+msgstr "Suprascrie"
+
+msgid "Deleted"
+msgstr "Șters"
+
+msgid "Copied"
+msgstr "Copiat"
+
+msgid "Inserted"
+msgstr "Inserat"
+
+msgid "Pasted"
+msgstr "Inserat"
+
+msgid "Withdrawn"
+msgstr "Retras"
+
+msgid "Window activated"
+msgstr "Fereastra activată"
+
+msgid "Menu"
+msgstr "Meniu"
+
+msgid "Beginning of file"
+msgstr "Începutul fișierului"
+
+msgid "End of file"
+msgstr "Sfârșitul fișierului"
+
+msgid "Voice output"
+msgstr "Ieșire vocală"
+
+msgid "Speak again"
+msgstr "Vorbește din nou"
+
+msgid "First column"
+msgstr "Prima coloană"
+
+msgid "First row"
+msgstr "Primul rând"
+
+msgid "Last column"
+msgstr "Ultima coloană"
+
+msgid "Last row"
+msgstr "Ultimul rând"
+
+msgid "Selection"
+msgstr "Selectare"
+
+msgid "Speak path"
+msgstr "Rostiți calea"
+
+msgid "Disabled button"
+msgstr "Buton dezactivat"
+
+msgid "First field"
+msgstr "Primul câmp"
+
+msgid "Last field"
+msgstr "Ultimul câmp"
+
+msgid "First element"
+msgstr "Primul element"
+
+msgid "Last element"
+msgstr "Ultimul element"
+
+msgid "Slower"
+msgstr "Mai lent"
+
+msgid "Faster"
+msgstr "Mai rapid"
+
+msgid "Window"
+msgstr "Fereastra"
+
+msgid "Area"
+msgstr "Zona"
+
+msgid "Area activated"
+msgstr "Zona activată"
+
+msgid "Volume down"
+msgstr "Reducerea volumului"
+
+msgid "Volume up"
+msgstr "Măriți volumul"
+
+msgid "Cancel speech"
+msgstr "Anulați vorbirea"
+
+msgid "New"
+msgstr "Nou"
+
+msgid "Tools"
+msgstr "Instrumente"
+
+msgid "Languages"
+msgstr "Limbi"
+
+msgid "Directory"
+msgstr "Director"
+
+msgid "No icons"
+msgstr "Fără pictograme"
+
+msgid "No lateral"
+msgstr "Fără laterale"
+
+msgid "Compact"
+msgstr "Compact"
+
+msgid "Path"
+msgstr "Cale"
+
+msgid "File"
+msgstr "Fișier"
+
+msgid "Delete selected row?"
+msgstr "Ștergeți rândul selectat?"
+
+msgid "Delete %s selected rows?"
+msgstr "Ștergeți %s rânduri selectate?"
+
+msgid "StrumPract"
+msgstr "StrumPract"
+
+msgid "Dock any window on this area."
+msgstr "Andocați orice fereastră în această zonă."
+
+msgid "Drag a form here using right-border grip."
+msgstr "Trageți un formular aici folosind prinderea marginii din dreapta."
+
+msgid "&Dock"
+msgstr "&Dock"
+
+msgid "Dock windows in one form"
+msgstr "Andocare ferestre într-un singur formular"
+
+msgid "&Tab"
+msgstr "&Tab"
+
+msgid "One form with tabs"
+msgstr "Un formular cu file"
+
+msgid "&Dock all visible windows"
+msgstr "&Anocați toate ferestrele vizibile"
+
+msgid "&Float all visible windows"
+msgstr "&Flotează toate ferestrele vizibile"
+
+msgid "Float windows in independent forms"
+msgstr "Flotează ferestrele în forme independente"
+
+msgid "&Tab all visible windows"
+msgstr "&Tabulați toate ferestrele vizibile"
+
+msgid "Make windows tabed in one form"
+msgstr "Faceți ferestrele cu tabele într-o singură formă"
+
+msgid "&Jam Session"
+msgstr "&Jam Session"
+
+msgid "DJ Console Wave"
+msgstr "DJ Console Wave"
+
+msgid "DJ Console Info"
+msgstr "Informații pe consola DJ"
+
+msgid "&Record stage"
+msgstr "&Înregistrare etapă"
+
+msgid "&Chords Randomizer"
+msgstr "&Acorduri Randomizer"
+
+msgid "&Image Dancer"
+msgstr "&Imagine Dansator"
+
+msgid "Save Layout"
+msgstr "Salvați aspectul"
+
+msgid "Save current layout"
+msgstr "Salvați aspectul curent"
+
+msgid "Load Layout"
+msgstr "Încărcați aspectul"
+
+msgid "Load saved layout"
+msgstr "Încărcați aspectul salvat"
+
+msgid "&Layout"
+msgstr "&Aspect"
+
+msgid "Layout of windows"
+msgstr "Dispunerea ferestrelor"
+
+msgid "Show All"
+msgstr "Afișați toate"
+
+msgid "Hide All"
+msgstr "Ascunde toate"
+
+msgid "Panels"
+msgstr "Panouri"
+
+msgid "Show"
+msgstr "Afișați"
+
+msgid "Show/hide windows"
+msgstr "Afișați/ascundeți ferestrele"
+
+msgid "Square"
+msgstr "Pătrat"
+
+msgid "Triangle"
+msgstr "Triunghi"
+
+msgid "Lines"
+msgstr "Rânduri"
+
+msgid "Fractal Tree"
+msgstr "Arborele fractal"
+
+msgid "Super Formula"
+msgstr "Super formulă"
+
+msgid "Hyper Formula"
+msgstr "Hiper formulă"
+
+msgid "Atom"
+msgstr "Atom"
+
+msgid "Spiral Hue"
+msgstr "Nuanță în spirală"
+
+msgid "Spiral Rainbow"
+msgstr "Curcubeu în spirală"
+
+msgid "Spiral Move"
+msgstr "Mișcare în spirală"
+
+msgid "Turtle 1"
+msgstr "Testoasa 1"
+
+msgid "Turtle 2"
+msgstr "Testoasa 2"
+
+msgid "Fractal Circles"
+msgstr "Cercuri fractale"
+
+msgid "Normal form"
+msgstr "Forma normala"
+
+msgid "Use this form to set the size for Ellipse and (Round)Rectangle forms."
+msgstr "Utilizați acest formular pentru a seta dimensiunea formelor Elipse și (Rotunde)Dreptunghi."
+
+msgid "Ellipse"
+msgstr "Elipsa"
+
+msgid "Rounded rect"
+msgstr "Rotunjit drept"
+
+msgid "Rectangle"
+msgstr "Dreptunghi"
+
+msgid "Always on top"
+msgstr "Întotdeauna în top"
+
+msgid "Transparent"
+msgstr "Transparent"
+
+msgid "Hide Dancer"
+msgstr "Ascunde Dansatorul"
+
+msgid "Da&ncer"
+msgstr "Dansator"
+
+msgid "Dancing Animations"
+msgstr "Animări de dans"
+
+msgid "Gold"
+msgstr "Aur"
+
+msgid "Silver"
+msgstr "Argint"
+
+msgid "Carbon"
+msgstr "Carbon"
+
+msgid "&Style"
+msgstr "&Stil"
+
+msgid "Layout style Gold, Silver or Carbon"
+msgstr "Stil de aspect Aur, argint sau carbon"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Config of audio and colors"
+msgstr "Configurare audio și culori"
+
+msgid "Language"
+msgstr "Limba"
+
+msgid "Set language"
+msgstr "Setați limba"
+
+msgid "&Config"
+msgstr "&Config"
+
+msgid "Configuration setting"
+msgstr "Setare de configurare"
+
+msgid "&About"
+msgstr "&Despre"
+
+msgid "About StrumPract"
+msgstr "Despre StrumPract"
+
+msgid "&Quit"
+msgstr "&Ieșire"
+
+msgid "Terminate StrumPract"
+msgstr "Începeți StrumPract"
+
+msgid "Set as default"
+msgstr "Setat ca implicit"
+
+msgid "Recorder"
+msgstr "Inregistrator"
+
+msgid "Hide"
+msgstr "Ascunde"
+
+msgid "Files list"
+msgstr "Lista de fișiere"
+
+msgid "Guitars"
+msgstr "Chitare"
+
+msgid "Wave form"
+msgstr "Formă de undă"
+
+msgid "Equalizer"
+msgstr "Egalizator"
+
+msgid "Dock Panel"
+msgstr "Panou de andocare"
+
+msgid "Use that grip panel to drag/drop the window."
+msgstr "Folosiți acel panou de prindere pentru a trage/arla fereastra."
+
+msgid "Com"
+msgstr "Com"
+
+msgid "Commander"
+msgstr "Comandant"
+
+msgid "Start Drums"
+msgstr "Începe tobe"
+
+msgid "Pause Drums"
+msgstr "Întrerupeți tobe"
+
+msgid "Resume Drums"
+msgstr "Reluați tobe"
+
+msgid "General Volume of drums"
+msgstr "Volum general al tobelor"
+
+msgid "Drums"
+msgstr "Tobe"
+
+msgid "Click to switch to 100% <> 0%"
+msgstr "Clic pentru a comuta la 100% <> 0%"
+
+msgid "Volume of input (mic or input)"
+msgstr "Volum de intrare (microfon sau intrare)"
+
+msgid "Input (mic or aux in)"
+msgstr "Intrare (microfon sau auxiliar)"
+
+msgid "Enable Live Input"
+msgstr "Activați intrarea live"
+
+msgid "Right Volume General in %"
+msgstr "Volum dreapta General în %"
+
+msgid "Left Volume General in %"
+msgstr "Volum stânga general în %"
+
+msgid "General left volume. Click to reset to 100%."
+msgstr "Volum general stânga. Faceți clic pentru a reseta la 100%."
+
+msgid "General right volume. Click to reset to 100%."
+msgstr "Volum general dreapta. Faceți clic pentru a reseta la 100%."
+
+msgid "Lock left and right channels"
+msgstr "Blocați canalele din stânga și din dreapta"
+
+msgid "General Volume in %"
+msgstr "Volum general în %"
+
+msgid "System Master Volume"
+msgstr "Volum principal al sistemului"
+
+msgid "Change mixing time in 1/100 second"
+msgstr "Schimbați timpul de amestecare în 1/100 de secundă"
+
+msgid "Stop player"
+msgstr "Opriți jucătorul"
+
+msgid "Load and Start Player"
+msgstr "Încărcați și porniți playerul"
+
+msgid "Left Volume Player 1"
+msgstr "Volum din stânga Player 1"
+
+msgid "Right Volume Player 1"
+msgstr "Volum Player dreapta 1"
+
+msgid "Start Player 1 --> MIX --> Stop Player 2"
+msgstr "Porniți Playerul 1 --> MIX --> Opriți Playerul 2"
+
+msgid "Start Player 2 --> MIX --> Stop Player 1"
+msgstr "Porniți Playerul 2 --> MIX --> Opriți Playerul 1"
+
+msgid "Right Volume Player 2"
+msgstr "Volum Player dreapta 2"
+
+msgid "Left Volume Player 2"
+msgstr "Volum stânga Player 2"
+
+msgid "Cue-Load-Pause Player"
+msgstr "Cue-Load-Pause Player"
+
+msgid "Pause player"
+msgstr "Întrerupe playerul"
+
+msgid "Pause Mixing"
+msgstr "Întrerupeți amestecarea"
+
+msgid "Enable Spectrum Frequencies Calculation"
+msgstr "Activați calculul frecvențelor spectrului"
+
+msgid "Graphic-anim while mixing (if cpu too low set it off)"
+msgstr "Anim grafic în timpul amestecării (dacă procesorul este prea scăzut dezactivați-l)"
+
+msgid "View Meters on/off"
+msgstr "Afișați contoarele activate/dezactivate"
+
+msgid "Auto Mixing on/off"
+msgstr "Activare/dezactivare amestecare automată"
+
+msgid "Direct MIX (0 second time)"
+msgstr "MIX direct (0 secundă oară)"
+
+msgid "Player 1"
+msgstr "Jucător 1"
+
+msgid "Player 2"
+msgstr "Jucător 2"
+
+msgid "Randomize mixing list"
+msgstr "Alatorizați lista de mixare"
+
+msgid "Invalid value.  Reset to 100."
+msgstr "Valoare nevalidă. Resetați la 100."
+
+msgid "Or press Esc key for previous value."
+msgstr "Sau apăsați tasta Esc pentru valoarea anterioară."
+
+msgid "Use this grip panel to drag/drop the window"
+msgstr "Folosiți acest panou de prindere pentru a trage/arla fereastra"
+
+msgid "Files"
+msgstr "Fișiere"
+
+msgid "Audio files"
+msgstr "Fișiere audio"
+
+msgid "Number of files in the list"
+msgstr "Numărul de fișiere din listă"
+
+msgid "Find a word in list"
+msgstr "Găsiți un cuvânt în listă"
+
+msgid "Sent selected song to cue for Player 1"
+msgstr "S-a trimis cântecul selectat pentru a primi jucătorul 1"
+
+msgid "Sent selected song to cue for Player 2"
+msgstr "S-a trimis melodia selectată pentru a introduce jucătorul 2"
+
+msgid "To move a row: click+hold into the fixed column and drag the row where you want."
+msgstr "Pentru a muta un rând: faceți clic + apăsat în coloana fixă și trageți rândul unde doriți."
+
+msgid "Name of sound"
+msgstr "Numele sunetului"
+
+msgid "Ext"
+msgstr "Ext"
+
+msgid "File extension"
+msgstr "Extensie de fișier"
+
+msgid "Size"
+msgstr "Dimensiune"
+
+msgid "Size in Kb of the file"
+msgstr "Dimensiunea în Kb a fișierului"
+
+msgid "Mix"
+msgstr "Amestec"
+
+msgid "Include for mix.  Clicking on the fixed cell ---> select all/none."
+msgstr "Includeți pentru amestecare. Făcând clic pe celula fixă ---> selectați toate/niciuna."
+
+msgid "Load custom play-list"
+msgstr "Încărcați lista de redare personalizată"
+
+msgid "Load"
+msgstr "Încărcare"
+
+msgid "Save custom play-list"
+msgstr "Salvați lista de redare personalizată"
+
+msgid "Add file in custom play-list"
+msgstr "Adăugați fișierul în lista de redare personalizată"
+
+msgid "Add"
+msgstr "Adaugă"
+
+msgid "History of Directories"
+msgstr "Istoricul directoarelor"
+
+msgid "Choose a audio directory with wav, ogg, flac or mp3"
+msgstr "Alegeți un director audio cu wav, ogg, flac sau mp3"
+
+msgid "Infos of song"
+msgstr "Informații despre cântec"
+
+msgid "No Image Tag"
+msgstr "Fără etichetă de imagine"
+
+msgid "Title"
+msgstr "Titlu"
+
+msgid "Artist"
+msgstr "Artist"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Year"
+msgstr "Anul"
+
+msgid "Duration"
+msgstr "Durata"
+
+msgid "Genre"
+msgstr "Gen"
+
+msgid "Track"
+msgstr "Urmărire"
+
+msgid "Comment"
+msgstr "Comentează"
+
+msgid "File Name"
+msgstr "Numele fișierului"
+
+msgid "Rate"
+msgstr "Rata"
+
+msgid "Chan"
+msgstr "Chan"
+
+msgid "BPM"
+msgstr "BPM"
+
+msgid "Play1"
+msgstr "Play1"
+
+msgid "Change Left volume"
+msgstr "Schimbați volumul din stânga"
+
+msgid "Reset to tempo original"
+msgstr "Resetați la tempo-ul original"
+
+msgid "Click to change position of sound"
+msgstr "Faceți clic pentru a schimba poziția sunetului"
+
+msgid "History of Cue files"
+msgstr "Istoricul fișierelor Cue"
+
+msgid "Change Right volume"
+msgstr "Schimbați volumul corect"
+
+msgid "Change tempo of song"
+msgstr "Schimbați tempo-ul cântecului"
+
+msgid "Show infos of the song"
+msgstr "Afișați informații despre melodie"
+
+msgid "Info"
+msgstr "Informații"
+
+msgid "Detect BMP from current position and set it to Drums tempo."
+msgstr "Detectați BMP din poziția curentă și setați-l la tempo de tobe."
+
+msgid "Resume player"
+msgstr "Reluați playerul"
+
+msgid "Load from cue and Start player"
+msgstr "Încărcați din tac și porniți playerul"
+
+msgid "Load from cue and Pause player"
+msgstr "Încărcați din tac și întrerupeți playerul"
+
+msgid "Choose a  wav, ogg, flac or mp3 audio file"
+msgstr "Alegeți un fișier audio wav, ogg, flac sau mp3"
+
+msgid "Position of sound"
+msgstr "Poziția sunetului"
+
+msgid "Length of sound"
+msgstr "Lungimea sunetului"
+
+msgid "Enable looping the song. (Pause is not enabled with loop.)"
+msgstr "Activați redarea în buclă a melodiei. (Pauza nu este activată cu bucla.)"
+
+msgid "Set Mono/Stereo"
+msgstr "Setați Mono/Stereo"
+
+msgid "Show wave form in slider"
+msgstr "Afișați forma de undă în glisor"
+
+msgid "Enable playing reverse."
+msgstr "Activați redarea inversă."
+
+msgid "Enable stretching (changing tempo)"
+msgstr "Activați întinderea (schimbarea tempoului)"
+
+msgid "right"
+msgstr "dreapta"
+
+msgid "Reset to 0 gain"
+msgstr "Resetați la 0 câștig"
+
+msgid "Load a Settings file"
+msgstr "Încărcați un fișier de setări"
+
+msgid "Save Settings in a file"
+msgstr "Salvați setările într-un fișier"
+
+msgid "left"
+msgstr "stânga"
+
+msgid "Enable Equalizer"
+msgstr "Activați egalizatorul"
+
+msgid "Spect"
+msgstr "Spect"
+
+msgid "Spectrum"
+msgstr "Spectru"
+
+msgid "Right Frequency spectrum"
+msgstr "Spectrul de frecvență corectă"
+
+msgid "Left Frequency spectrum"
+msgstr "Spectrul de frecvență stânga"
+
+msgid "Enable Spectrum"
+msgstr "Activați Spectrum"
+
+msgid "Bass"
+msgstr "Bas"
+
+msgid "Snare"
+msgstr "Capcană"
+
+msgid "Open H"
+msgstr "Deschide H"
+
+msgid "Close H"
+msgstr "Închide H"
+
+msgid "Patern 1"
+msgstr "Model 1"
+
+msgid "Drums Patern 1"
+msgstr "Tobe Patern 1"
+
+msgid "Drums Patern 2"
+msgstr "Drums Patern 2"
+
+msgid "Drums Patern 3"
+msgstr "Drums Patern 3"
+
+msgid "Drums Patern 4"
+msgstr "Tobe Patern 4"
+
+msgid "Last lesson. Do the same as 3th lesson but increasing the tempo. On count 2 you may add a boom on the Bass Drum. Congratulation, you are a drummer now."
+msgstr "Ultima lecție. Faceți la fel ca a 3-a lecție, dar măriți tempo-ul. La numărul 2 puteți adăuga un boom la toba bas. Felicitări, acum ești baterist."
+
+msgid "3th lesson Do the same as second lesson and on count 3 add a clack on the Snare Drum. This is the most difficult. Still count loud with your voice."
+msgstr "Lecția a 3-a Fă la fel ca a doua lecție și la numărătoarea a 3-a adaugă un clac pe tobă. Aceasta este cea mai dificilă. Numără totuși tare cu vocea ta."
+
+msgid "Second lesson. Do the same as first lesson and on count 1 add a boom with your right foot on the Bass Drum. Still count loud with your voice."
+msgstr "A doua lecție. Fă la fel ca prima lecție și la numărătoarea 1 adaugă un bum cu piciorul drept pe tobă. Numără în continuare tare cu vocea ta."
+
+msgid "First lesson. With the stick hit the closed hat on each count. Count loud with your voice too."
+msgstr "Prima lectie. Cu bastonul lovi palaria inchisa la fiecare numaratoare. Numara tare si cu vocea ta."
+
+msgid "Patern"
+msgstr "Patern"
+
+msgid "Lesson"
+msgstr "Lecție"
+
+msgid "no anim"
+msgstr "fără animație"
+
+msgid "No graphic animation."
+msgstr "Fără animație grafică."
+
+msgid "no and"
+msgstr "nu și"
+
+msgid "No and between 2 numbers."
+msgstr "Nu și între 2 numere."
+
+msgid "no voice"
+msgstr "fără voce"
+
+msgid "No counting voice"
+msgstr "Nu se numără vocea"
+
+msgid "no drums"
+msgstr "fără tobe"
+
+msgid "No drums sound."
+msgstr "Fără sunet de tobe."
+
+msgid "Stop loop"
+msgstr "Oprire buclă"
+
+msgid "Resume loop"
+msgstr "Reluați bucla"
+
+msgid "Start loop"
+msgstr "Începe bucla"
+
+msgid "BPM (Beats per minut)"
+msgstr "BPM (bătăi pe minut)"
+
+msgid "Volume"
+msgstr "Volum"
+
+msgid "General volume of Drums"
+msgstr "Volum general al tobei"
+
+msgid "Beats per minuts - interval in 1/10000 second."
+msgstr "Bătăi pe minute - interval în 1/10000 secundă."
+
+msgid "Set BPM X 2"
+msgstr "Setați BPM X 2"
+
+msgid "Set BPM / 2"
+msgstr "Setați BPM / 2"
+
+msgid "Lang"
+msgstr "Lang"
+
+msgid "Language for counting"
+msgstr "Limba pentru numărare"
+
+msgid "Chord Randomizer"
+msgstr "Choal doilea randomizer"
+
+msgid "Click to listen to the guitar chord"
+msgstr "Clic pentru a asculta acordul chitarei"
+
+msgid "Click to listen to piano chord"
+msgstr "Clic pentru a asculta acordul de pian"
+
+msgid "Select a chord"
+msgstr "Selectați un acord"
+
+msgid "Close all StrumPract (Click the icon in corner of the form to close only Randomizer)"
+msgstr "Închideți toate StrumPract (faceți clic pe pictograma din colțul formularului pentru a închide numai Randomizer)"
+
+msgid "Randomize chords"
+msgstr "Randomizează acordurile"
+
+msgid "Randomize"
+msgstr "Alatorizare"
+
+msgid "Manual fixed chords"
+msgstr "Acorduri fixe manuale"
+
+msgid "Fixed"
+msgstr "Reparat"
+
+msgid "Tuned guitar string"
+msgstr "Cordă de chitară acordată"
+
+msgid "Tuned Guitars"
+msgstr "Chitare reglate"
+
+msgid "Re-do a randomizer"
+msgstr "Refaceți o randomizare"
+
+msgid "Clear chords"
+msgstr "Șterge acordurile"
+
+msgid "Chords"
+msgstr "Acorduri"
+
+msgid "7th"
+msgstr "a șaptea"
+
+msgid "Enable 7th Chords"
+msgstr "Activați acordurile a șaptea"
+
+msgid "minor"
+msgstr "minor"
+
+msgid "Enable minor Chords"
+msgstr "Activați acordurile minore"
+
+msgid "Major"
+msgstr "Major"
+
+msgid "Enable Major Chords"
+msgstr "Activați acordurile majore"
+
+msgid "9th"
+msgstr "a 9-a"
+
+msgid "Enable 9th Chords"
+msgstr "Activați acordurile a 9-a"
+
+msgid "# (Sharp)"
+msgstr "# (Sharp)"
+
+msgid "Enable Sharp-Chords #"
+msgstr "Activați Sharp-Chords #"
+
+msgid "Sound"
+msgstr "Sunet"
+
+msgid "Enable Sound of Chords"
+msgstr "Activați sunetul acordurilor"
+
+msgid "Number"
+msgstr "Număr"
+
+msgid "Total chords"
+msgstr "Total acorduri"
+
+msgid "Maximum number of chords"
+msgstr "Număr maxim de acorduri"
+
+msgid "Random num"
+msgstr "Număr aleatoriu"
+
+msgid "Randomize the number of chords"
+msgstr "Randomizează numărul de acorduri"
+
+msgid "Tempo of Drums in BPM"
+msgstr "Tempo de tobe în BPM"
+
+msgid "Enable Drums"
+msgstr "Activați tobe"
+
+msgid "Enable random Drums tempo"
+msgstr "Activați tempo-ul aleatoriu pentru Drums"
+
+msgid "Configure the Clear message"
+msgstr "Configurați mesajul de ștergere"
+

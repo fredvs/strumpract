@@ -575,6 +575,17 @@ begin
     file1.writeln();
 
   file1.writeln();
+  
+   if forgoogle = False then
+      begin
+       file1.writeln('msgstr "English [en]"');
+       file1.writeln('msgstr ""');
+      end
+      else
+      file1.writeln('msgstr "English [en]"');
+
+      file1.writeln('');
+
 
   for x := 0 to length(defaultresult) - 1 do
     if trim(defaultresult[x]) <> '' then

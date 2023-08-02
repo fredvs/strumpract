@@ -192,8 +192,8 @@ object headerfo: theaderfo
     frame.sbvert.pagesize = 1
     taborder = 9
     visible = False
-    bounds_x = 1
-    bounds_y = 65
+    bounds_x = 0
+    bounds_y = 67
     bounds_cx = 768
     bounds_cy = 368
     anchors = [an_left, an_top, an_right, an_bottom]
@@ -217,7 +217,7 @@ object headerfo: theaderfo
     taborder = 3
     visible = False
     bounds_x = 1
-    bounds_y = 1
+    bounds_y = -1
     bounds_cx = 770
     bounds_cy = 434
     anchors = [an_left, an_top, an_right, an_bottom]
