@@ -721,15 +721,8 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localtag, as_localonexecute]
       end    
       item
-        submenu.count = 3
+        submenu.count = 2
         submenu.items = <        
-          item
-            caption = 'Language'
-            hint = 'Set language'
-            name = 'language'
-            state = [as_localcaption, as_localhint, as_localonexecute]
-            onexecute = onlangset
-          end        
           item
             caption = 'Audio'
             hint = 'Config of audio, it will stop all players temporally...'
