@@ -1056,7 +1056,7 @@ msgid "left"
 msgstr "αριστερά"
 
 msgid "Equalizer"
-msgstr "Ενεργοποίηση"
+msgstr "Εξισωτής"
 
 msgid "Spect"
 msgstr "Φάσμα"
