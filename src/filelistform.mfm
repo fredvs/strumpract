@@ -14,7 +14,7 @@ object filelistfo: tfilelistfo
   bounds_x = 397
   bounds_y = 264
   bounds_cx = 442
-  bounds_cy = 168
+  bounds_cy = 170
   bounds_cxmin = 442
   bounds_cymin = 128
   bounds_cxmax = 442
@@ -26,7 +26,7 @@ object filelistfo: tfilelistfo
     0
     0
     434
-    168
+    170
   )
   dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
@@ -112,7 +112,7 @@ object filelistfo: tfilelistfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 434
-    bounds_cy = 168
+    bounds_cy = 170
     anchors = []
     object tbutton11: tbutton
       color = -2147483645
@@ -192,7 +192,7 @@ object filelistfo: tfilelistfo
       taborder = 10
       hint = 'Find a word in list'
       bounds_x = 279
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 24
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -285,7 +285,7 @@ object filelistfo: tfilelistfo
       taborder = 2
       hint = 'Sent selected song to cue for Player 1'
       bounds_x = 354
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 38
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -379,7 +379,7 @@ object filelistfo: tfilelistfo
       taborder = 3
       hint = 'Sent selected song to cue for Player 2'
       bounds_x = 394
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 38
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -411,7 +411,7 @@ object filelistfo: tfilelistfo
       bounds_x = 0
       bounds_y = 0
       bounds_cx = 434
-      bounds_cy = 142
+      bounds_cy = 144
       anchors = [an_top, an_bottom]
       font.name = 'stf_default'
       font.localprops = []
@@ -717,7 +717,7 @@ object filelistfo: tfilelistfo
       taborder = 6
       hint = 'Load custom play-list'
       bounds_x = 254
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 24
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -795,7 +795,7 @@ object filelistfo: tfilelistfo
       taborder = 7
       hint = 'Save custom play-list'
       bounds_x = 329
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 24
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -869,7 +869,7 @@ object filelistfo: tfilelistfo
       taborder = 8
       hint = 'Add file in custom play-list'
       bounds_x = 304
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 24
       bounds_cy = 24
       anchors = [an_right, an_bottom]
@@ -910,7 +910,7 @@ object filelistfo: tfilelistfo
       taborder = 1
       hint = 'History of Directories'
       bounds_x = 27
-      bounds_y = 140
+      bounds_y = 142
       bounds_cx = 226
       bounds_cy = 26
       anchors = [an_left, an_right, an_bottom]
@@ -1012,7 +1012,7 @@ object filelistfo: tfilelistfo
       taborder = 9
       hint = 'Choose a audio directory with wav, ogg, flac or mp3'
       bounds_x = 2
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 24
       bounds_cy = 24
       anchors = [an_left, an_bottom]
@@ -1030,7 +1030,7 @@ object filelistfo: tfilelistfo
       taborder = 5
       visible = False
       bounds_x = 0
-      bounds_y = 136
+      bounds_y = 138
       bounds_cx = 434
       bounds_cy = 32
       anchors = [an_bottom]

@@ -152,6 +152,7 @@ object mainfo: tmainfo
   onresize = onresized
   moduleclassname = 'tmainform'
   object basedock: tdockpanel
+    color = 16771327
     frame.colordkwidth = 0
     frame.colorhlwidth = 0
     frame.localprops = [frl_colordkwidth, frl_colorhlwidth]

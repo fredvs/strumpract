@@ -2723,10 +2723,19 @@ begin
           color          := $474747;
         end
         else
+        if typecolor.Value = 3 then
+        begin
+          basedock.color := cl_gray;
+          color          := cl_gray;
+        end
+        else
         begin
           basedock.color := cl_gray;
           color          := cl_gray;
         end;
+        
+        
+        
       end
       else
       begin
@@ -4655,6 +4664,656 @@ begin
     abuttonsr[19] := tbutton19;
     abuttonsr[20] := tbutton20;
   end;
+  
+///  
+  if typecolor.Value = 3 then
+  begin
+    font.color          := cl_black;
+    synthefo.font.color := cl_black;
+    pianofo.font.color  := cl_black;
+    synthefo.tgroupbox4.font.color := cl_black;
+    synthefo.tgroupbox3.font.color := cl_black;
+    filelistfo.historyfn.font.color := cl_black;
+
+    songplayerfo.historyfn.dropdown.cols[0].colorselect  := $FFCD8F;
+    songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
+
+    dockpanel1fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel2fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel3fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel4fo.tmainmenu1.menu.font.color := cl_black;
+    dockpanel5fo.tmainmenu1.menu.font.color := cl_black;
+
+    wavefo.tmainmenu1.menu.font.color    := cl_black;
+    wavefo2.tmainmenu1.menu.font.color   := cl_black;
+    waveforec.tmainmenu1.menu.font.color := cl_black;
+
+    dockpanel1fo.basedock.dragdock.splitter_color := $B7BA8F;
+    dockpanel2fo.basedock.dragdock.splitter_color := $B7BA8F;
+    dockpanel3fo.basedock.dragdock.splitter_color := $B7BA8F;
+    dockpanel4fo.basedock.dragdock.splitter_color := $B7BA8F;
+    dockpanel5fo.basedock.dragdock.splitter_color := $B7BA8F;
+
+    basedock.dragdock.splitter_color := $B7BA8F;
+
+    wavefo.echelle.datacols.font.color := cl_black;
+    wavefo.echelle.datacols.color      := $B7BA8F;
+    wavefo.echelle.datacols.font.colorbackground := $B7BA8F;
+
+    wavefo2.echelle.datacols.font.color := cl_black;
+    wavefo2.echelle.datacols.color      := $B7BA8F;
+    wavefo2.echelle.datacols.font.colorbackground := $B7BA8F;
+
+    dialogfilesfo.list_files.frame.colorclient := $F9FFC2;
+
+    filelistfo.historyfn.dropdown.cols[0].colorselect := $FFC782;
+
+    wavefo.container.color  := cl_default;
+    wavefo2.container.color := cl_default;
+
+    spectrum1fo.container.color   := cl_default;
+    spectrum2fo.container.color   := cl_default;
+    spectrumrecfo.container.color := cl_default;
+    commanderfo.container.color   := cl_default;
+    guitarsfo.container.color     := cl_default;
+
+    filelistfo.list_files.fixrows.color          := cl_default;
+    filelistfo.list_files.fixrows[-1].font.color := cl_default;
+
+    filelistfo.list_files.fixcols.color           := cl_default;
+    filelistfo.list_files.fixcols[-1].font.color  := cl_default;
+    filelistfo.list_files.fixcols[-1].colorselect := cl_ltgray;
+
+    for x := 0 to filelistfo.list_files.rowcount - 1 do
+      filelistfo.list_files.rowfontstate[x] := 0;
+
+    filelistfo.list_files.datacols.colorselect := $FFC87A;
+
+    tmainmenu1.menu.font.color := cl_black;
+    tmainmenu1.menu.colorglyph := cl_black;
+    tmainmenu1.menu.colorglyphactive := cl_black;
+    wavefo.tmainmenu1.menu.colorglyph := thecolor1;
+    wavefo.tmainmenu1.menu.colorglyphactive := thecolor1;
+    waveforec.tmainmenu1.menu.colorglyph := cl_black;
+    waveforec.tmainmenu1.menu.colorglyphactive := cl_black;
+    wavefo2.tmainmenu1.menu.colorglyph := thecolor1;
+    wavefo2.tmainmenu1.menu.colorglyphactive := thecolor2;
+    randomnotefo.color := $DED9D1;
+    randomnotefo.tstringdisp1.font.color := cl_black;
+    randomnotefo.bchord1.font.color := cl_black;
+    randomnotefo.bchord2.font.color := cl_black;
+    randomnotefo.bchord3.font.color := cl_black;
+    randomnotefo.bchord4.font.color := cl_black;
+    randomnotefo.bchord5.font.color := cl_black;
+
+    with infosdfo do
+    begin
+      infofile.font.color   := cl_black;
+      infoartist.font.color := cl_black;
+      infoname.font.color   := cl_black;
+      infoalbum.font.color  := cl_black;
+      infoyear.font.color   := cl_black;
+      infocom.font.color    := cl_black;
+      infotag.font.color    := cl_black;
+      infolength.font.color := cl_black;
+      inforate.font.color   := cl_black;
+      tracktag.font.color   := cl_black;
+      infochan.font.color   := cl_black;
+      infobpm.font.color    := cl_black;
+
+      infofile.frame.font.color   := cl_black;
+      infoartist.frame.font.color := cl_black;
+      infoname.frame.font.color   := cl_black;
+      infoalbum.frame.font.color  := cl_black;
+      infoyear.frame.font.color   := cl_black;
+      infocom.frame.font.color    := cl_black;
+      infotag.frame.font.color    := cl_black;
+      tracktag.frame.font.color   := cl_black;
+      infolength.frame.font.color := cl_black;
+      inforate.frame.font.color   := cl_black;
+      infochan.frame.font.color   := cl_black;
+      infobpm.frame.font.color    := cl_black;
+    end;
+    with infosdfo2 do
+    begin
+      infofile.font.color   := cl_black;
+      infoartist.font.color := cl_black;
+      infoname.font.color   := cl_black;
+      infoalbum.font.color  := cl_black;
+      infoyear.font.color   := cl_black;
+      infocom.font.color    := cl_black;
+      infotag.font.color    := cl_black;
+      infolength.font.color := cl_black;
+      inforate.font.color   := cl_black;
+      infochan.font.color   := cl_black;
+      infobpm.font.color    := cl_black;
+      tracktag.font.color   := cl_black;
+
+
+      infofile.frame.font.color   := cl_black;
+      infoartist.frame.font.color := cl_black;
+      infoname.frame.font.color   := cl_black;
+      infoalbum.frame.font.color  := cl_black;
+      infoyear.frame.font.color   := cl_black;
+      infocom.frame.font.color    := cl_black;
+      infotag.frame.font.color    := cl_black;
+      tracktag.frame.font.color   := cl_black;
+      infolength.frame.font.color := cl_black;
+      inforate.frame.font.color   := cl_black;
+      infochan.frame.font.color   := cl_black;
+      infobpm.frame.font.color    := cl_black;
+    end;
+
+
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.nodrums.frame.font.color    := cl_black;
+    randomnotefo.withsharp.frame.font.color  := cl_black;
+    randomnotefo.maxnote.frame.font.color    := cl_black;
+    randomnotefo.bpm.frame.font.color        := cl_black;
+    randomnotefo.boolmajor.frame.font.color  := cl_black;
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.boolmajor.frame.font.color  := cl_black;
+    randomnotefo.boolminor.frame.font.color  := cl_black;
+    randomnotefo.bosound.frame.font.color    := cl_black;
+    randomnotefo.tbutton3.font.color         := cl_black;
+    randomnotefo.tbutton5.font.color         := cl_black;
+    randomnotefo.tbutton2.font.color         := cl_black;
+    randomnotefo.bnbchords.font.color        := cl_black;
+    randomnotefo.btnfixed.font.color         := cl_black;
+    randomnotefo.tgroupbox1.frame.font.color := cl_black;
+    randomnotefo.tgroupbox2.frame.font.color := cl_black;
+    randomnotefo.tgroupbox3.frame.font.color := cl_black;
+
+    // main
+    tfacegreen.template.fade_color.items[0] := $C2FF9E;
+    tfacegreen.template.fade_color.items[1] := $6EB545;
+
+    tfaceorange.template.fade_color.items[0] := $FFF9F0;
+    tfaceorange.template.fade_color.items[1] := $FF9D14;
+
+    tfacered.template.fade_color.items[0] := $FFC4C4;
+    tfacered.template.fade_color.items[1] := $FF7878;
+
+    songplayerfo.font.color  := thecolor1;
+    songplayer2fo.font.color := thecolor2;
+
+    tfaceplayer.template.fade_color.items[0]    := $FFE8FF;
+    tfaceplayer.template.fade_color.items[1]    := $E7B0E8;
+    tfaceplayerbut.template.fade_color.items[0] := $FFE8FF;
+    tfaceplayerbut.template.fade_color.items[1] := $E7B0E8;
+
+    tfacebutgray.template.fade_color.items[0] := $F2F2F2;
+    tfacebutgray.template.fade_color.items[1] := $E7B0E8;
+
+    tfacebutltgray.template.fade_color.items[0] := $FFE6FA;
+    tfacebutltgray.template.fade_color.items[1] := $E7B0E8;
+
+    songplayerfo.tstringdisp1.font.color  := cl_black;
+    songplayer2fo.tstringdisp1.font.color := cl_black;
+
+    songplayerfo.lposition.font.color  := thecolor1;
+    songplayer2fo.lposition.font.color := thecolor2;
+
+    songplayerfo.llength.font.color  := thecolor1;
+    songplayer2fo.llength.font.color := thecolor2;
+
+    songplayerfo.waveformcheck.frame.font.color  := thecolor1;
+    songplayer2fo.waveformcheck.frame.font.color := thecolor2;
+
+    songplayerfo.playreverse.frame.font.color  := thecolor1;
+    songplayer2fo.playreverse.frame.font.color := thecolor2;
+
+    songplayerfo.tstringdisp2.font.color  := thecolor1;
+    songplayer2fo.tstringdisp2.font.color := thecolor2;
+
+    songplayerfo.button1.font.color  := thecolor1;
+    songplayer2fo.button1.font.color := thecolor2;
+
+    songplayerfo.button2.font.color  := thecolor1;
+    songplayer2fo.button2.font.color := thecolor2;
+
+    equalizerfo1.loadset.font.color   := thecolor1;
+    equalizerfo2.loadset.font.color   := thecolor2;
+    equalizerforec.loadset.font.color := thecolor1;
+
+    equalizerfo1.saveset.font.color   := thecolor1;
+    equalizerfo2.saveset.font.color   := thecolor2;
+    equalizerforec.saveset.font.color := thecolor1;
+
+
+    songplayerfo.tstringdisp1.color  := cl_black;
+    songplayer2fo.tstringdisp1.color := cl_black;
+
+    songplayerfo.playreverse.frame.font.color  := thecolor1;
+    songplayer2fo.playreverse.frame.font.color := thecolor2;
+
+    songplayerfo.setmono.frame.font.color  := thecolor1;
+    songplayer2fo.setmono.frame.font.color := thecolor2;
+
+    songplayerfo.setmono.colorglyph  := thecolor1;
+    songplayer2fo.setmono.colorglyph := thecolor2;
+
+    songplayerfo.playreverse.colorglyph  := thecolor1;
+    songplayer2fo.playreverse.colorglyph := thecolor2;
+
+    songplayerfo.edvolleft.frame.colorglyph  := thecolor1;
+    songplayer2fo.edvolleft.frame.colorglyph := thecolor2;
+
+    recorderfo.edvol.frame.colorglyph   := thecolor1;
+    recorderfo.edvolr.frame.colorglyph  := thecolor1;
+    recorderfo.edtempo.frame.colorglyph := thecolor2;
+
+    songplayerfo.edvolright.frame.colorglyph  := thecolor1;
+    songplayer2fo.edvolright.frame.colorglyph := thecolor2;
+    songplayerfo.edtempo.frame.colorglyph     := thecolor1;
+    songplayer2fo.edtempo.frame.colorglyph    := thecolor2;
+
+    recorderfo.edvol.frame.colorglyph   := ltblack;
+    recorderfo.edvolr.frame.colorglyph  := ltblack;
+    recorderfo.edtempo.frame.colorglyph := ltblack;
+
+    waveforec.trackbar1.color := $F9FFC2;
+
+    waveforec.sliderimage.bitmap.Canvas.color := $FFC9FC;
+
+    songplayerfo.historyfn.frame.button.colorglyph  := thecolor1;
+    songplayer2fo.historyfn.frame.button.colorglyph := thecolor2;
+
+    songplayerfo.historyfn.dropdown.colorclient  := ltblank;
+    songplayer2fo.historyfn.dropdown.colorclient := ltblank;
+
+    songplayerfo.historyfn.font.color  := thecolor1;
+    songplayer2fo.historyfn.font.color := thecolor2;
+    songplayerfo.edvolleft.font.color  := thecolor1;
+    songplayer2fo.edvolleft.font.color := thecolor2;
+
+    recorderfo.edvol.font.color   := ltblack;
+    recorderfo.edvolr.font.color  := ltblack;
+    recorderfo.edtempo.font.color := ltblack;
+
+    songplayerfo.edvolright.font.color  := thecolor1;
+    songplayer2fo.edvolright.font.color := thecolor2;
+    songplayerfo.edtempo.font.color     := thecolor1;
+    songplayer2fo.edtempo.font.color    := thecolor2;
+
+    songplayerfo.btinfos.font.color  := thecolor1;
+    songplayer2fo.btinfos.font.color := thecolor2;
+
+    songplayerfo.tfaceslider.template.fade_color.items[0] := $FFC2F5;
+    songplayerfo.tfaceslider.template.fade_color.items[1] := $FD9EFF;
+    songplayer2fo.tfaceslider.template.fade_color.items[0] := $FFC2F5;
+    songplayer2fo.tfaceslider.template.fade_color.items[1] := $FD9EFF;
+
+
+    tfaceplayerlight.template.fade_color.items[0] := $FFDEEE;
+    tfaceplayerlight.template.fade_color.items[1] := $FD9EFF;
+
+    tfaceplayerrev.template.fade_color.items[0] := $FFDEEE;
+    tfaceplayerrev.template.fade_color.items[1] := $FD9EFF;
+
+    // drums
+    drumsfo.tdockpanel1.font.color := ltblack;
+
+    drumsfo.panel1.font.color := ltblack;
+
+    drumsfo.multbpm.font.color := ltblack;
+    drumsfo.divbpm.font.color  := ltblack;
+
+    drumsfo.edittempo.frame.colorglyph   := ltblack;
+    drumsfo.volumedrums.frame.colorglyph := ltblack;
+
+    drumsfo.sensib.frame.colorglyph := ltblack;
+
+    drumsfo.tfacedrums.template.fade_color.items[0] := $FFEBFD;
+    drumsfo.tfacedrums.template.fade_color.items[1] := $E7B0E8;
+    drumsfo.ltempo.font.color          := ltblack;
+    drumsfo.novoice.frame.font.color   := ltblack;
+    drumsfo.langcount.frame.font.color := ltblack;
+    drumsfo.langcount.font.color       := ltblack;
+    drumsfo.langcount.dropdown.colorclient := ltblank;
+
+    drumsfo.langcount.frame.button.colorglyph := ltblack;
+
+
+    drumsfo.noand.frame.font.color   := ltblack;
+    drumsfo.nodrums.frame.font.color := ltblack;
+    drumsfo.noanim.frame.font.color  := ltblack;
+    drumsfo.tlabel21.font.color      := ltblack;
+    drumsfo.tlabel22.font.color      := ltblack;
+    drumsfo.tlabel25.font.color      := ltblack;
+    drumsfo.tlabel23.font.color      := ltblack;
+
+    drumsfo.tstringdisp2.font.color := ltblack;
+
+    // rev
+    drumsfo.tfacecomp2.template.fade_color.items[0] := $FFEBFD;
+    drumsfo.tfacecomp2.template.fade_color.items[1] := $E7B0E8;
+
+    // light
+    drumsfo.tfacecomp3.template.fade_color.items[0] := $FFEBFD;
+    drumsfo.tfacecomp3.template.fade_color.items[1] := $E7B0E8;
+
+    // recorder
+    recorderfo.font.color := ltblack;
+
+    recorderfo.tfacerecorder.template.fade_color.items[0] := $FFE3E3;
+    recorderfo.tfacerecorder.template.fade_color.items[1] := $DA9D9D;
+
+    recorderfo.cbloop.colorglyph      := ltblack;
+    recorderfo.cbtempo.colorglyph     := ltblack;
+    recorderfo.bsavetofile.colorglyph := ltblack;
+    recorderfo.sentcue1.colorglyph    := ltblack;
+
+    recorderfo.bwav.colorglyph       := ltblack;
+    recorderfo.bogg.colorglyph       := ltblack;
+    recorderfo.bwav.frame.font.color := ltblack;
+    recorderfo.bogg.frame.font.color := ltblack;
+
+    recorderfo.blistenin.colorglyph := ltblack;
+
+    recorderfo.historyfn.frame.button.colorglyph := ltblack;
+
+    recorderfo.historyfn.dropdown.colorclient := ltblank;
+
+    recorderfo.cbloop.frame.font.color      := ltblack;
+    recorderfo.cbtempo.frame.font.color     := ltblack;
+    recorderfo.bsavetofile.frame.font.color := ltblack;
+    recorderfo.sentcue1.frame.font.color    := ltblack;
+    recorderfo.blistenin.frame.font.color   := ltblack;
+    recorderfo.btinfos.font.color           := ltblack;
+    recorderfo.button1.font.color           := ltblack;
+    recorderfo.tstringdisp2.font.color      := ltblack;
+    recorderfo.llength.font.color           := ltblack;
+    recorderfo.lposition.font.color         := ltblack;
+
+    // rev
+    recorderfo.tfacerecrev.template.fade_color.items[0] := $FFEBFD;
+    recorderfo.tfacerecrev.template.fade_color.items[1] := $E7B0E8;
+
+    // light
+    recorderfo.tfacereclight.template.fade_color.items[0] := $FFEBFD;
+    recorderfo.tfacereclight.template.fade_color.items[1] := $E7B0E8;
+
+    // guitar
+
+    guitarsfo.font.color          := ltblack;
+    guitarsfo.tgroupbox1.font.color := ltblack;
+    guitarsfo.tgroupbox2.font.color := ltblack;
+    guitarsfo.loopguit.colorglyph := ltblack;
+    guitarsfo.loopbass.colorglyph := ltblack;
+    guitarsfo.loopguit.frame.font.color := ltblack;
+    guitarsfo.loopbass.frame.font.color := ltblack;
+    guitarsfo.tstringdisp2.font.color := ltblack;
+    guitarsfo.tstringdisp3.font.color := ltblack;
+
+    guitarsfo.tfaceguit.template.fade_color.items[0] := $FFE6FF;
+    guitarsfo.tfaceguit.template.fade_color.items[1] := $FFB2FF;
+
+    // light
+    guitarsfo.tfaceguitlight.template.fade_color.items[0] := $FFE6FF;
+    guitarsfo.tfaceguitlight.template.fade_color.items[1] := $FFB2FF;
+
+    // Equalizer
+    with equalizerfo1 do
+    begin
+      fond.color := $E7B0E8;
+
+      font.color           := ltblack;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+
+      groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
+      groupbox1.color        := $E7B0E8;
+      groupbox2.color        := $E7B0E8;
+      EQEN.frame.font.color  := thecolor1;
+      EQEN.frame.colorclient := $E7B0E8;
+
+      EQEN.color := $E7B0E8;
+    end;
+
+    with equalizerfo2 do
+    begin
+      fond.color      := $E7B0E8;
+      groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
+      groupbox1.color := $E7B0E8;
+      groupbox2.color := $E7B0E8;
+
+      font.color           := thecolor2;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+
+
+      EQEN.frame.font.color := ltblack;
+      EQEN.frame.colorclient := $E7B0E8;
+      EQEN.color := $E7B0E8;
+    end;
+
+    with equalizerforec do
+    begin
+      loadset.face.template := recorderfo.tfacerecorder;
+      saveset.face.template := recorderfo.tfacerecorder;
+      fond.color      := $EDC0C0;
+      groupbox1.color := $EDC0C0;
+      groupbox2.color := $EDC0C0;
+      groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
+
+      font.color           := ltblack;
+      groupbox1.font.color := ltblack;
+      groupbox2.font.color := ltblack;
+
+      EQEN.frame.colorclient := $EDC0C0;
+      EQEN.color         := $EDC0C0;
+      EQEN.frame.font.color := cl_black;
+      EQEN.face.template := recorderfo.tfacerecorder;
+    end;
+
+    for x := 1 to 20 do
+    begin
+      abuttons[x].font.color  := thecolor1;
+      abuttons2[x].font.color := thecolor2;
+      abuttonsR[x].font.color := ltblack;
+
+
+      asliders[x].scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
+      asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+      aslidersr[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+
+      asliders[x].scrollbar.facebutton.template  := commanderfo.tfacebutton;
+      asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+      aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
+
+    end;
+
+    // commander
+    commanderfo.nameplayers.font.color      := ltblack;
+    commanderfo.nameplayers2.font.color     := ltblack;
+    commanderfo.namedrums.font.color        := ltblack;
+    commanderfo.namegen.font.color          := ltblack;
+    commanderfo.nameinput.font.color        := ltblack;
+    commanderfo.genleftvolvalue.font.color  := ltblack;
+    commanderfo.genrightvolvalue.font.color := ltblack;
+    commanderfo.sysvolbut.font.color        := ltblack;
+
+    commanderfo.volumeleft1val.font.color := ltblack;
+    commanderfo.volumeleft2val.font.color := ltblack;
+
+    commanderfo.volumeright1val.font.color := ltblack;
+    commanderfo.volumeright2val.font.color := ltblack;
+
+    commanderfo.tslider2val.font.color := ltblack;
+    commanderfo.tslider3val.font.color := ltblack;
+
+
+    commanderfo.butinput.colorglyph       := ltblack;
+    commanderfo.butinput.frame.font.color := ltblack;
+
+    commanderfo.timemix.font.color := ltblack;
+
+    commanderfo.timemix.frame.colorglyph := ltblack;
+
+    commanderfo.tfacegriptab.template.fade_color.items[0] := $F8DEFF;
+    commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6;
+
+    commanderfo.timemix.frame.font.color := ltblack;
+
+    commanderfo.genvolleft.scrollbar.facebutton.template := commanderfo.tfacebutton;
+
+    commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+
+    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+
+    commanderfo.genvolright.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
+    commanderfo.volumeleft1.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
+    commanderfo.volumeleft2.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
+    commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
+    commanderfo.tslider2.scrollbar.facebutton.image     := equalizerfo1.blight.face.image;
+    commanderfo.tslider3.scrollbar.facebutton.image     := equalizerfo1.blight.face.image;
+
+    filelistfo.list_files.font.color          := ltblack;
+    filelistfo.tgroupbox1.font.color          := ltblack;
+    filelistfo.historyfn.frame.button.colorglyph := ltblack;
+    filelistfo.historyfn.dropdown.colorclient := ltblank;
+    filelistfo.list_files.datacols[0].color   := $FFEBFD;
+    filelistfo.list_files.datacols[0].font.color := ltblack;
+    filelistfo.list_files.datacols[1].color   := $FFEBFD;
+    filelistfo.list_files.datacols[1].font.color := ltblack;
+    filelistfo.list_files.datacols[2].color   := $FFEBFD;
+    filelistfo.list_files.datacols[2].font.color := ltblack;
+    filelistfo.list_files.datacols[3].color   := $FFEBFD;
+    filelistfo.list_files.datacols[3].font.color := ltblack;
+    filelistfo.list_files.datacols[3].colorselect := $EDEDED;
+    filelistfo.list_files.datacols[3].colorglyph := ltblack;
+
+    filelistfo.list_files.datacols[0].colorselect := $FFC87A;
+    filelistfo.list_files.datacols[1].colorselect := $FFC87A;
+    filelistfo.list_files.datacols[2].colorselect := $FFC87A;
+
+    aboutfo.font.color := cl_black;
+
+    with spectrum1fo do
+    begin
+      tchartleft.color           := $E7B0E8;
+      tchartleft.colorchart      := $E7B0E8;
+      tchartleft.traces[0].chartkind := tck_bar;
+      tchartleft.traces[0].color := configlayoutfo.tcoloredit1.Value;
+
+      tchartright.color      := $E7B0E8;
+      tchartright.colorchart := $E7B0E8;
+      tchartright.traces[0].chartkind := tck_bar;
+
+      tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
+      tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
+
+      tchartleft.traces[0].bar_face.fade_color.items[1]  := configlayoutfo.tcoloredit1.Value;
+      tchartright.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit2.Value;
+
+      fond.color      := $E7B0E8;
+      groupbox1.color := $E7B0E8;
+      groupbox2.color := $E7B0E8;
+      spect1.frame.font.color := thecolor1;
+      groupbox1.frame.font.color := thecolor1;
+      groupbox2.frame.font.color := thecolor1;
+      spect1.frame.colorclient := cl_default;
+      spect1.color    := $E7B0E8;
+    end;
+
+    with spectrum2fo do
+    begin
+      tchartleft.color      := $E7B0E8;
+      tchartleft.colorchart := $E7B0E8;
+      tchartleft.traces[0].chartkind := tck_bar;
+
+      tchartright.color      := $E7B0E8;
+      tchartright.colorchart := $E7B0E8;
+      tchartright.traces[0].chartkind := tck_bar;
+
+      tchartleft.traces[0].bar_face.fade_color.items[1]  := configlayoutfo.tcoloredit12.Value;
+      tchartright.traces[0].bar_face.fade_color.items[1] := configlayoutfo.tcoloredit22.Value;
+      tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
+      tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
+
+      fond.color      := $E7B0E8;
+      groupbox1.color := $E7B0E8;
+      groupbox2.color := $E7B0E8;
+      spect1.frame.font.color := thecolor2;
+      groupbox1.frame.font.color := thecolor2;
+      groupbox2.frame.font.color := thecolor2;
+      spect1.frame.colorclient := thecolor2;
+      spect1.color    := $E7B0E8;
+    end;
+
+    with spectrumrecfo do
+    begin
+      tchartleft.colorchart          := $EDC0C0;
+      tchartleft.traces[0].chartkind := tck_bar;
+      tchartleft.traces[0].color     := $C69EFF;
+
+      tchartleft.color  := $EDC0C0;
+      tchartright.color := $EDC0C0;
+
+      tchartright.colorchart          := $EDC0C0;
+      tchartright.traces[0].chartkind := tck_bar;
+
+      tchartleft.traces[0].bar_face.fade_color.items[1]  := $C69EFF;
+      tchartright.traces[0].bar_face.fade_color.items[1] := $C69EFF;
+      tchartleft.traces[0].bar_face.fade_color.items[0]  := $F7F7F7;
+      tchartright.traces[0].bar_face.fade_color.items[0] := $F7F7F7;
+
+      tchartright.traces[0].color := $C69EFF;
+      fond.color      := $E7B0E8;
+      groupbox1.color := $E7B0E8;
+      groupbox2.color := $E7B0E8;
+      spect1.frame.font.color := ltblack;
+      groupbox1.frame.font.color := ltblack;
+      groupbox2.frame.font.color := ltblack;
+      spect1.frame.colorclient := cl_default;
+      spect1.color    := $E7B0E8;
+
+      spect1.face.template := recorderfo.tfacerecorder;
+    end;
+
+    songplayerfo.btnresume.imagenrdisabled  := -2;
+    songplayer2fo.btnresume.imagenrdisabled := -2;
+    songplayerfo.btncue.imagenrdisabled     := -2;
+    songplayer2fo.btncue.imagenrdisabled    := -2;
+    songplayerfo.btnstart.imagenrdisabled   := -2;
+    songplayer2fo.btnstart.imagenrdisabled  := -2;
+    songplayerfo.btnpause.imagenrdisabled   := -2;
+    songplayer2fo.btnpause.imagenrdisabled  := -2;
+    songplayerfo.btnstop.imagenrdisabled    := -2;
+    songplayer2fo.btnstop.imagenrdisabled   := -2;
+
+    commanderfo.btnresume.imagenrdisabled   := -2;
+    commanderfo.btnresume2.imagenrdisabled  := -2;
+    commanderfo.btncue.imagenrdisabled      := -2;
+    commanderfo.btncue2.imagenrdisabled     := -2;
+    commanderfo.btnstart.imagenrdisabled    := -2;
+    commanderfo.btnstart2.imagenrdisabled   := -2;
+    commanderfo.btnpause.imagenrdisabled    := -2;
+    commanderfo.btnpause2.imagenrdisabled   := -2;
+    commanderfo.btnstop.imagenrdisabled     := -2;
+    commanderfo.btnstop2.imagenrdisabled    := -2;
+    commanderfo.loop_start.imagenrdisabled  := -2;
+    commanderfo.loop_stop.imagenrdisabled   := -2;
+    commanderfo.loop_resume.imagenrdisabled := -2;
+
+    recorderfo.btnresume.imagenrdisabled := -2;
+    recorderfo.tbutton2.imagenrdisabled  := -2;
+    recorderfo.btnstart.imagenrdisabled  := -2;
+    recorderfo.btnpause.imagenrdisabled  := -2;
+    recorderfo.btnstop.imagenrdisabled   := -2;
+
+    drumsfo.loop_resume.imagenrdisabled := -2;
+    drumsfo.loop_start.imagenrdisabled  := -2;
+    drumsfo.loop_stop.imagenrdisabled   := -2;
+
+  end;  
+  
+///
 
   if typecolor.Value = 0 then
   begin

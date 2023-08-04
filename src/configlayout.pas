@@ -34,6 +34,7 @@ type
     bcarbon: tbooleaneditradio;
     tbutton3: TButton;
    autoheight: tbooleanedit;
+   bbarbie: tbooleaneditradio;
     procedure onfontheight(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
     procedure onsetcolor(const Sender: TObject);
@@ -278,14 +279,14 @@ end;
 
 procedure tconfiglayoutfo.onchangestyle(const Sender: TObject);
 begin
-  if (isactivated = True) then
+   if (isactivated = True) then
     if bgold.Value then
       mainfo.typecolor.Value := 0
     else if bsilver.Value then
       mainfo.typecolor.Value := 1
-    else
-      mainfo.typecolor.Value := 2;
-
+    else if bcarbon.Value then
+      mainfo.typecolor.Value := 2
+    else mainfo.typecolor.Value := 3;
 end;
 
 procedure tconfiglayoutfo.onbutsetfont(const Sender: TObject);

@@ -637,7 +637,6 @@ object songplayerfo: tsongplayerfo
     end
     object trackbar1: tslider
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
-      color = -2147483645
       face.localprops = []
       face.template = mainfo.tfaceplayer
       taborder = 17

@@ -11,7 +11,7 @@ program strumpract;
  {$PACKRECORDS C}
 
 uses
- {$ifdef FPC} {$ifdef unix} cthreads, BaseUnix,     {$endif} {$endif}
+ {$ifdef FPC} {$ifdef unix} cthreads, BaseUnix, {$endif} {$endif}
 
   Classes,
   Math,
