@@ -22,38 +22,26 @@ object headerfo: theaderfo
   oncreate = oncreateform
   oncreated = oncreated
   moduleclassname = 'tmseform'
-  object memopoheader: tmemodialogedit
-    frame.caption = 'Default PO header'
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.buttons.count = 1
-    frame.buttons.items = <    
-      item
-        imagenr = 17
-      end>
-    frame.button.imagenr = 17
-    frame.outerframe = (
-      0
-      20
-      0
-      0
-    )
-    bounds_x = 16
-    bounds_y = 77
-    bounds_cx = 393
-    bounds_cy = 40
-    value = '# SOME DESCRIPTIVE TITLE.'#10'# Copyright (C) YEAR THE PACKAGE''S COPYRIGHT HOLDER'#10'# This file is distributed under the same license as the PACKAGE package.'#10'# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.'#10'#'#10'#, fuzzy'#10'msgid ""'#10'msgstr ""'#10'"Project-Id-Version: \n"'#10'"Report-Msgid-Bugs-To: \n"'#10'"POT-Creation-Date: 2019-03-04 23:54+0300\n"'#10'"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"'#10'"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"'#10'"Language-Team: LANGUAGE <LL@li.org>\n"'#10'"Language: \n"'#10'"MIME-Version: 1.0\n"'#10'"Content-Type: text/plain; charset=UTF-8\n"'#10'"Content-Transfer-Encoding: 8bit\n"'
-    reffontheight = 17
+  object tbutton7: tbutton
+    Tag = 5
+    taborder = 12
+    bounds_x = 360
+    bounds_y = 38
+    bounds_cx = 346
+    bounds_cy = 24
+    state = [as_invisible, as_localdisabled, as_localinvisible, as_localcaption, as_localonexecute]
+    caption = 'Create consts from all captions of a form .mfm'
+    onexecute = createnew
   end
-  object tbutton2: tbutton
-    taborder = 1
-    bounds_x = 17
-    bounds_y = 252
-    bounds_cx = 737
-    bounds_cy = 117
-    state = [as_localdisabled, as_localcaption, as_localonexecute]
-    caption = 'After creating a translation from "strumpract_empty.txt"   (by Google translate for example and saved as  "strumpract_xz.txt" ("xz" is the code lang)).  Check if Google keep all the original lang code and did not translate some.  Convert it into Po file with original "msgid" + translated "msgstr" clicking here.    When done, paste that new po file into /lang directory.'
-    textflags = [tf_left, tf_xcentered, tf_ycentered, tf_wordbreak]
+  object tbutton6: tbutton
+    Tag = 4
+    taborder = 11
+    bounds_x = 16
+    bounds_y = 38
+    bounds_cx = 338
+    bounds_cy = 24
+    state = [as_invisible, as_localdisabled, as_localinvisible, as_localcaption, as_localonexecute]
+    caption = 'Create enums from all captions of a form .mfm'
     onexecute = createnew
   end
   object alldir: tbooleanedit
@@ -73,11 +61,67 @@ object headerfo: theaderfo
     bounds_cy = 19
     visible = False
   end
+  object tbutton8: tbutton
+    Tag = 6
+    taborder = 13
+    bounds_x = 360
+    bounds_y = 8
+    bounds_cx = 346
+    bounds_cy = 24
+    state = [as_invisible, as_localdisabled, as_localinvisible, as_localcaption, as_localonexecute]
+    caption = 'Extract all the captions from a form.mfm file to array'
+    onexecute = createnew
+  end
+  object tbutton5: tbutton
+    Tag = 3
+    taborder = 8
+    bounds_x = 16
+    bounds_y = 8
+    bounds_cx = 338
+    bounds_cy = 24
+    state = [as_invisible, as_localdisabled, as_localinvisible, as_localcaption, as_localonexecute]
+    caption = 'Extract all the captions from a form.mfm file '
+    onexecute = createnew
+  end
+  object memopoheader: tmemodialogedit
+    frame.caption = 'Default PO header'
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.buttons.count = 1
+    frame.buttons.items = <    
+      item
+        imagenr = 17
+      end>
+    frame.button.imagenr = 17
+    frame.outerframe = (
+      0
+      20
+      0
+      0
+    )
+    bounds_x = 15
+    bounds_y = 21
+    bounds_cx = 393
+    bounds_cy = 40
+    value = '# SOME DESCRIPTIVE TITLE.'#10'# Copyright (C) YEAR THE PACKAGE''S COPYRIGHT HOLDER'#10'# This file is distributed under the same license as the PACKAGE package.'#10'# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.'#10'#'#10'#, fuzzy'#10'msgid ""'#10'msgstr ""'#10'"Project-Id-Version: \n"'#10'"Report-Msgid-Bugs-To: \n"'#10'"POT-Creation-Date: 2019-03-04 23:54+0300\n"'#10'"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"'#10'"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"'#10'"Language-Team: LANGUAGE <LL@li.org>\n"'#10'"Language: \n"'#10'"MIME-Version: 1.0\n"'#10'"Content-Type: text/plain; charset=UTF-8\n"'#10'"Content-Transfer-Encoding: 8bit\n"'
+    reffontheight = 17
+  end
+  object tbutton2: tbutton
+    taborder = 1
+    bounds_x = 17
+    bounds_y = 217
+    bounds_cx = 737
+    bounds_cy = 152
+    state = [as_localdisabled, as_localcaption, as_localonexecute]
+    caption = 'After creating a translation from "strumpract_empty.txt"   (by Google translate for example and saved as  "strumpract_xz.txt" ("xz" is the code lang)).  Check if Google keep all the original lang code and did not translate some.  Convert it into Po file with original "msgid" + translated "msgstr" clicking here.    When done, paste that new po file into /lang directory.'
+    textflags = [tf_left, tf_xcentered, tf_ycentered, tf_wordbreak]
+    onexecute = createnew
+  end
   object tbutton4: tbutton
     Tag = 1
     taborder = 4
-    bounds_x = 16
-    bounds_y = 128
+    bounds_x = 15
+    bounds_y = 82
     bounds_cx = 738
     bounds_cy = 52
     state = [as_localdisabled, as_localcaption, as_localonexecute]
@@ -102,9 +146,9 @@ object headerfo: theaderfo
       0
     )
     taborder = 5
-    bounds_x = 416
-    bounds_y = 74
-    bounds_cx = 338
+    bounds_x = 422
+    bounds_y = 19
+    bounds_cx = 285
     bounds_cy = 43
     controller.fontheight = 0
     controller.fontname = 'stf_default'
@@ -137,22 +181,11 @@ object headerfo: theaderfo
     Tag = 2
     taborder = 7
     bounds_x = 16
-    bounds_y = 200
+    bounds_y = 160
     bounds_cx = 738
     bounds_cy = 36
     state = [as_localdisabled, as_localcaption, as_localonexecute]
     caption = 'Create new "strumpract_empty.txt" file ready for Google Translate'
-    onexecute = createnew
-  end
-  object tbutton5: tbutton
-    Tag = 3
-    taborder = 8
-    bounds_x = 16
-    bounds_y = 8
-    bounds_cx = 338
-    bounds_cy = 24
-    state = [as_localdisabled, as_localcaption, as_localonexecute]
-    caption = 'Extract all the captions from a form.mfm file '
     onexecute = createnew
   end
   object tbutton1: tbutton
@@ -165,28 +198,6 @@ object headerfo: theaderfo
     caption = 'Close'
     onexecute = onclose
   end
-  object tbutton6: tbutton
-    Tag = 4
-    taborder = 11
-    bounds_x = 16
-    bounds_y = 38
-    bounds_cx = 338
-    bounds_cy = 24
-    state = [as_localdisabled, as_localcaption, as_localonexecute]
-    caption = 'Create enums from all captions of a form .mfm'
-    onexecute = createnew
-  end
-  object tbutton7: tbutton
-    Tag = 5
-    taborder = 12
-    bounds_x = 360
-    bounds_y = 38
-    bounds_cx = 346
-    bounds_cy = 24
-    state = [as_localdisabled, as_localcaption, as_localonexecute]
-    caption = 'Create consts from all captions of a form .mfm'
-    onexecute = createnew
-  end
   object tmemoedit1: tmemoedit
     frame.localprops = []
     frame.localprops1 = []
@@ -195,22 +206,11 @@ object headerfo: theaderfo
     taborder = 9
     visible = False
     bounds_x = 0
-    bounds_y = 67
+    bounds_y = 65
     bounds_cx = 768
     bounds_cy = 368
     anchors = [an_left, an_top, an_right, an_bottom]
     reffontheight = 17
-  end
-  object tbutton8: tbutton
-    Tag = 6
-    taborder = 13
-    bounds_x = 360
-    bounds_y = 8
-    bounds_cx = 346
-    bounds_cy = 24
-    state = [as_localdisabled, as_localcaption, as_localonexecute]
-    caption = 'Extract all the captions from a form.mfm file to array'
-    onexecute = createnew
   end
   object paneldone: tgroupbox
     frame.colorclient = 16765345
@@ -218,11 +218,11 @@ object headerfo: theaderfo
     frame.localprops1 = []
     taborder = 3
     visible = False
-    bounds_x = 1
-    bounds_y = -1
-    bounds_cx = 770
-    bounds_cy = 434
-    anchors = [an_left, an_top, an_right, an_bottom]
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 772
+    bounds_cy = 437
+    anchors = []
     object labdone: tlabel
       optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
       color = -2147483645
