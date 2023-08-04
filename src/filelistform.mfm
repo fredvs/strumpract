@@ -121,7 +121,7 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
-      face.image.alignment = [al_xcentered, al_ycentered, al_thumbnail]
+      face.image.alignment = [al_xcentered, al_ycentered, al_stretchx, al_stretchy, al_thumbnail]
       face.image.image = {
         0000000012000000180000001800000034050000000000000000000000000000
         00000000000000000000000000000000000000000000003741AA31023BAD3401
@@ -209,6 +209,7 @@ object filelistfo: tfilelistfo
       frame.template = commanderfo.tframecomp2
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
+      face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
         0000000012000000260000001800000070040000000000000000000000000000
         0000000000000000000000000000000000000000000000559EB9A101E9A5B501
@@ -303,6 +304,7 @@ object filelistfo: tfilelistfo
       frame.template = commanderfo.tframecomp2
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
+      face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
         0000000012000000260000001800000080040000000000000000000000000000
         000000000000000000000000000000000000000000000055A1BCA401EAA8B701
@@ -662,6 +664,7 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
+      face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
         0000000012000000180000001800000060030000000000000000000000000000
         00000000000000000000000000000000000000000000003B51B67201FF60A301
@@ -734,6 +737,7 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
+      face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
         0000000012000000180000001800000018040000000000000000000000000000
         00000000000000000000000000000000000000000000004038AC5E01FF489601
@@ -812,6 +816,7 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
+      face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
         00000000120000001800000018000000A4030000000000000000000000000000
         0000000000000000000000000000000000000000000000405ABA7901FF67A801
@@ -940,6 +945,7 @@ object filelistfo: tfilelistfo
       frame.localprops1 = []
       face.image.options = [bmo_masked, bmo_graymask]
       face.image.origformat = 'png'
+      face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
         0000000012000000180000001800000078050000000000000000000000000000
         0000000000000000000000000000000000000000000000335858580168686801
@@ -1030,7 +1036,7 @@ object filelistfo: tfilelistfo
       taborder = 5
       visible = False
       bounds_x = 0
-      bounds_y = 138
+      bounds_y = 80
       bounds_cx = 434
       bounds_cy = 32
       anchors = [an_bottom]
