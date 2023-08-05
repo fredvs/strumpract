@@ -3,20 +3,19 @@ object msememodialogfo: tmsememodialogfo
   bounds_x = 444
   bounds_y = 208
   bounds_cx = 409
-  bounds_cy = 389
+  bounds_cy = 388
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     409
-    389
+    388
   )
   font.color = -1610612734
   font.name = 'stf_default'
   font.localprops = [flp_color]
   options = [fo_screencentered, fo_closeonesc, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savestate]
-  statfile = tstatfile1
   caption = 'Default PO header'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
@@ -2969,28 +2968,9 @@ object msememodialogfo: tmsememodialogfo
   }
   windowopacity = -Inf
   moduleclassname = 'tmseform'
-  object memo: tmemoedit
-    frame.localprops = [frl_colorclient]
-    frame.localprops1 = []
-    frame.template = commanderfo.tframecomp2
-    frame.sbhorz.pagesize = 1
-    frame.sbvert.pagesize = 1
-    bounds_x = 0
-    bounds_y = 0
-    bounds_cx = 409
-    bounds_cy = 357
-    anchors = [an_top, an_bottom]
-    optionsedit1 = [oe1_multiline, oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
-    optionsedit = [oe_closequery, oe_checkmrcancel, oe_linebreak, oe_shiftreturn, oe_resetselectonexit, oe_nofirstarrownavig, oe_caretonreadonly]
-    font.color = -1610612734
-    font.name = 'stf_default'
-    font.localprops = [flp_color]
-    reffontheight = 17
-  end
   object tlayouter1: tlayouter
-    taborder = 1
     bounds_x = 72
-    bounds_y = 361
+    bounds_y = 360
     bounds_cx = 330
     bounds_cy = 23
     anchors = [an_left, an_right, an_bottom]
@@ -3000,7 +2980,6 @@ object msememodialogfo: tmsememodialogfo
     place_mindist = 8
     place_maxdist = 8
     place_mode = wam_end
-    linktop = memo
     dist_top = 4
     options = [spao_gluebottom]
     object tbutton2: tbutton
@@ -3041,10 +3020,20 @@ object msememodialogfo: tmsememodialogfo
       reffontheight = 17
     end
   end
-  object tstatfile1: tstatfile
-    filename = 'memodialog.sta'
-    options = [sfo_memory, sfo_activatorread, sfo_activatorwrite]
-    left = 64
-    top = 104
+  object memo: tmemoedit
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.sbhorz.pagesize = 1
+    frame.sbvert.pagesize = 1
+    taborder = 1
+    bounds_x = 2
+    bounds_y = 8
+    bounds_cx = 405
+    bounds_cy = 345
+    anchors = [an_left, an_top, an_right, an_bottom]
+    font.color = -1610612734
+    font.name = 'stf_default'
+    font.localprops = []
+    reffontheight = 17
   end
 end
