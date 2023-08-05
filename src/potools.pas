@@ -65,7 +65,6 @@ type
     tbutton4: TButton;
     outputdir: tfilenameeditx;
     impexpfiledialog: tfiledialogx;
-    tlabel1: tlabel;
     tbutton3: TButton;
     tbutton5: TButton;
     tmemoedit1: tmemoedit;
@@ -806,8 +805,9 @@ end;
 
 procedure theaderfo.onclose(const Sender: TObject);
 begin
-  tbutton1.Visible   := False;
-  tmemoedit1.Visible := False;
+ // tbutton1.Visible   := False;
+ // tmemoedit1.Visible := False;
+ close;
 end;
 
 procedure theaderfo.onactiv(const Sender: TObject);

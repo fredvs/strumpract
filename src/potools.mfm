@@ -1,16 +1,20 @@
 object headerfo: theaderfo
   visible = False
-  bounds_x = 362
-  bounds_y = 190
-  bounds_cx = 772
-  bounds_cy = 437
+  bounds_x = 349
+  bounds_y = 174
+  bounds_cx = 780
+  bounds_cy = 462
+  bounds_cxmin = 780
+  bounds_cymin = 462
+  bounds_cxmax = 780
+  bounds_cymax = 462
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
-    772
-    437
+    780
+    462
   )
   font.name = 'stf_default'
   font.localprops = []
@@ -22,9 +26,19 @@ object headerfo: theaderfo
   oncreate = oncreateform
   oncreated = oncreated
   moduleclassname = 'tmseform'
+  object tbutton1: tbutton
+    taborder = 9
+    bounds_x = 714
+    bounds_y = 8
+    bounds_cx = 50
+    bounds_cy = 54
+    state = [as_localinvisible, as_localcaption, as_localonexecute]
+    caption = 'Close'
+    onexecute = onclose
+  end
   object tbutton7: tbutton
     Tag = 5
-    taborder = 12
+    taborder = 11
     bounds_x = 360
     bounds_y = 38
     bounds_cx = 346
@@ -35,7 +49,7 @@ object headerfo: theaderfo
   end
   object tbutton6: tbutton
     Tag = 4
-    taborder = 11
+    taborder = 10
     bounds_x = 16
     bounds_y = 38
     bounds_cx = 338
@@ -63,7 +77,7 @@ object headerfo: theaderfo
   end
   object tbutton8: tbutton
     Tag = 6
-    taborder = 13
+    taborder = 12
     bounds_x = 360
     bounds_y = 8
     bounds_cx = 346
@@ -74,7 +88,7 @@ object headerfo: theaderfo
   end
   object tbutton5: tbutton
     Tag = 3
-    taborder = 8
+    taborder = 7
     bounds_x = 16
     bounds_y = 8
     bounds_cx = 338
@@ -100,16 +114,19 @@ object headerfo: theaderfo
       0
     )
     bounds_x = 15
-    bounds_y = 21
+    bounds_y = 20
     bounds_cx = 393
-    bounds_cy = 40
+    bounds_cy = 43
+    font.color = -1610612734
+    font.name = 'stf_default'
+    font.localprops = [flp_color]
     value = '# SOME DESCRIPTIVE TITLE.'#10'# Copyright (C) YEAR THE PACKAGE''S COPYRIGHT HOLDER'#10'# This file is distributed under the same license as the PACKAGE package.'#10'# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.'#10'#'#10'#, fuzzy'#10'msgid ""'#10'msgstr ""'#10'"Project-Id-Version: \n"'#10'"Report-Msgid-Bugs-To: \n"'#10'"POT-Creation-Date: 2019-03-04 23:54+0300\n"'#10'"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"'#10'"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"'#10'"Language-Team: LANGUAGE <LL@li.org>\n"'#10'"Language: \n"'#10'"MIME-Version: 1.0\n"'#10'"Content-Type: text/plain; charset=UTF-8\n"'#10'"Content-Transfer-Encoding: 8bit\n"'
     reffontheight = 17
   end
   object tbutton2: tbutton
     taborder = 1
-    bounds_x = 17
-    bounds_y = 217
+    bounds_x = 18
+    bounds_y = 259
     bounds_cx = 737
     bounds_cy = 152
     state = [as_localdisabled, as_localcaption, as_localonexecute]
@@ -147,9 +164,12 @@ object headerfo: theaderfo
     )
     taborder = 5
     bounds_x = 422
-    bounds_y = 19
-    bounds_cx = 285
+    bounds_y = 20
+    bounds_cx = 283
     bounds_cy = 43
+    font.color = -1610612734
+    font.name = 'stf_default'
+    font.localprops = [flp_color]
     controller.fontheight = 0
     controller.fontname = 'stf_default'
     controller.fontcolor = -1610612734
@@ -163,23 +183,9 @@ object headerfo: theaderfo
     controller.options = [fdo_directory, fdo_savelastdir]
     reffontheight = 17
   end
-  object tlabel1: tlabel
-    optionswidget1 = [ow1_fontglyphheight]
-    taborder = 6
-    bounds_x = 80
-    bounds_y = 384
-    bounds_cx = 586
-    bounds_cy = 43
-    caption = 'Sorry this form is not yet translated, feel free to do it as exercice! '
-    font.height = 16
-    font.name = 'stf_default'
-    font.localprops = [flp_height]
-    textflags = [tf_ycentered, tf_wordbreak]
-    reffontheight = 23
-  end
   object tbutton3: tbutton
     Tag = 2
-    taborder = 7
+    taborder = 6
     bounds_x = 16
     bounds_y = 160
     bounds_cx = 738
@@ -188,27 +194,17 @@ object headerfo: theaderfo
     caption = 'Create new "strumpract_empty.txt" file ready for Google Translate'
     onexecute = createnew
   end
-  object tbutton1: tbutton
-    taborder = 10
-    bounds_x = 714
-    bounds_y = 8
-    bounds_cx = 50
-    bounds_cy = 54
-    state = [as_invisible, as_localinvisible, as_localcaption, as_localonexecute]
-    caption = 'Close'
-    onexecute = onclose
-  end
   object tmemoedit1: tmemoedit
     frame.localprops = []
     frame.localprops1 = []
     frame.sbhorz.pagesize = 1
     frame.sbvert.pagesize = 1
-    taborder = 9
+    taborder = 8
     visible = False
-    bounds_x = 0
-    bounds_y = 65
-    bounds_cx = 768
-    bounds_cy = 368
+    bounds_x = 211
+    bounds_y = 127
+    bounds_cx = 4
+    bounds_cy = 215
     anchors = [an_left, an_top, an_right, an_bottom]
     reffontheight = 17
   end
@@ -218,11 +214,10 @@ object headerfo: theaderfo
     frame.localprops1 = []
     taborder = 3
     visible = False
-    bounds_x = 0
-    bounds_y = 0
-    bounds_cx = 772
-    bounds_cy = 437
-    anchors = []
+    bounds_x = 3
+    bounds_y = 6
+    bounds_cx = 775
+    bounds_cy = 439
     object labdone: tlabel
       optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
       color = -2147483645
