@@ -12,8 +12,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = 'Use that grip panel to drag/drop the window.'
   visible = False
-  bounds_x = 665
-  bounds_y = 331
+  bounds_x = 505
+  bounds_y = 346
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -459,7 +459,7 @@ object commanderfo: tcommanderfo
       bounds_x = 30
       bounds_y = 1
       bounds_cx = 18
-      bounds_cy = 15
+      bounds_cy = 16
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
@@ -2359,7 +2359,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 11
+    left = 10
+    top = 36
     image = {
       00000000120000000C0000000C000000E8000000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501

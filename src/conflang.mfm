@@ -181,6 +181,7 @@ object conflangfo: tconflangfo
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
+    frame.template = commanderfo.tframecomp2
     face.fade_pos.count = 2
     face.fade_pos.items = (
       0
@@ -193,9 +194,9 @@ object conflangfo: tconflangfo
     )
     face.fade_direction = gd_down
     face.localprops = []
-    bounds_x = 245
+    bounds_x = 246
     bounds_y = 7
-    bounds_cx = 78
+    bounds_cx = 77
     bounds_cy = 26
     anchors = [an_top, an_right]
     state = [as_localcaption, as_localonexecute]
