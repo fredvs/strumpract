@@ -4505,7 +4505,7 @@ begin
     afile := '';
 
   thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
-            'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
+            'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.mp3';
  
    if fileexists(thedir) then
     begin
@@ -4545,7 +4545,7 @@ begin
     afile := '';
 
   thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
-            'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.ogg';
+            'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.mp3';
 
   if fileexists(thedir) then
     begin
@@ -4585,7 +4585,7 @@ begin
         afile := '';
 
       thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
-        'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.ogg';
+        'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.mp3';
 
       if fileexists(thedir) then
       begin
@@ -4632,7 +4632,7 @@ begin
         afile := '';
 
       thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
-        'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.ogg';
+        'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.mp3';
 
       if fileexists(thedir) then
       begin

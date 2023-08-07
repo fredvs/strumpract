@@ -249,18 +249,18 @@ begin
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
-  aguitar[0] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '1_MI_E.ogg';
-  aguitar[1] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '2_SI_B.ogg';
-  aguitar[2] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '3_SOL_G.ogg';
-  aguitar[3] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '4_RE_D.ogg';
+  aguitar[0] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '1_MI_E.mp3';
+  aguitar[1] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '2_SI_B.mp3';
+  aguitar[2] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '3_SOL_G.mp3';
+  aguitar[3] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '4_RE_D.mp3';
 
-  aguitar[4] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '5_LA_A.ogg';
-  aguitar[5] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '6_MI_E.ogg';
+  aguitar[4] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '5_LA_A.mp3';
+  aguitar[5] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '6_MI_E.mp3';
 
-  aguitar[6] := ordir + 'sound' + directoryseparator + 'bass' + directoryseparator + 'Ba1_SOL_G.ogg';
-  aguitar[7] := ordir + 'sound' + directoryseparator + 'bass' + directoryseparator + 'Ba2_RE_D.ogg';
-  aguitar[8] := ordir + 'sound' + directoryseparator + 'bass' + directoryseparator + 'Ba3_LA_A.ogg';
-  aguitar[9] := ordir + 'sound' + directoryseparator + 'bass' + directoryseparator + 'Ba4_MI_E.ogg';
+  aguitar[6] := ordir + 'sound' + directoryseparator + 'bass' + directoryseparator + 'Ba1_SOL_G.mp3';
+  aguitar[7] := ordir + 'sound' + directoryseparator + 'bass' + directoryseparator + 'Ba2_RE_D.mp3';
+  aguitar[8] := ordir + 'sound' + directoryseparator + 'bass' + directoryseparator + 'Ba3_LA_A.mp3';
+  aguitar[9] := ordir + 'sound' + directoryseparator + 'bass' + directoryseparator + 'Ba4_MI_E.mp3';
 
   for i := 0 to 9 do
     aguitarisplaying[i] := False;

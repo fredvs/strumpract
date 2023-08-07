@@ -140,6 +140,7 @@ object randomnotefo: trandomnotefo
     EAEAEA01C5C5C501F1F1F103CACACA01E9E9E901F1F1F102EDEDED01C5C5C501
     F1F1F103CECECE01E3E3E301F1F1F102F0F0F001C9C9C901F1F1F103D2D2D201
   }
+  windowopacity = -Inf
   oncreate = crea
   oncreated = oncreatedev
   onclose = onclosev
@@ -274,16 +275,16 @@ object randomnotefo: trandomnotefo
     frame.localprops1 = []
     frame.outerframe = (
       0
-      14
+      16
       0
       0
     )
     taborder = 7
     onfocus = refreshform
     bounds_x = 27
-    bounds_y = 111
+    bounds_y = 109
     bounds_cx = 453
-    bounds_cy = 94
+    bounds_cy = 96
     font.height = 22
     font.name = 'stf_default'
     font.localprops = []
@@ -294,15 +295,15 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        5
-        47
-        5
+        7
+        44
+        7
       )
       hint = 'Enable 7th Chords'
       bounds_x = 9
       bounds_y = 56
-      bounds_cx = 63
-      bounds_cy = 29
+      bounds_cx = 60
+      bounds_cy = 33
       statfile = mainfo.tstatfile1
       onchange = refreshform
       enabled = False
@@ -314,16 +315,16 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        5
-        73
-        5
+        7
+        72
+        7
       )
       taborder = 1
       hint = 'Enable minor Chords'
       bounds_x = 118
       bounds_y = 28
-      bounds_cx = 89
-      bounds_cy = 29
+      bounds_cx = 88
+      bounds_cy = 33
       statfile = mainfo.tstatfile1
       onchange = refreshform
       value = True
@@ -336,16 +337,16 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        5
-        70
-        5
+        7
+        69
+        7
       )
       taborder = 2
       hint = 'Enable Major Chords'
       bounds_x = 9
       bounds_y = 28
-      bounds_cx = 86
-      bounds_cy = 29
+      bounds_cx = 85
+      bounds_cy = 33
       statfile = mainfo.tstatfile1
       onchange = refreshform
       value = True
@@ -358,16 +359,16 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        5
-        47
-        5
+        7
+        44
+        7
       )
       taborder = 3
       hint = 'Enable 9th Chords'
       bounds_x = 118
       bounds_y = 56
-      bounds_cx = 63
-      bounds_cy = 29
+      bounds_cx = 60
+      bounds_cy = 33
       statfile = mainfo.tstatfile1
       onchange = refreshform
       enabled = False
@@ -379,16 +380,16 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        5
-        117
-        5
+        7
+        104
+        7
       )
       taborder = 4
       hint = 'Enable Sharp-Chords #'
       bounds_x = 257
       bounds_y = 56
-      bounds_cx = 133
-      bounds_cy = 29
+      bounds_cx = 120
+      bounds_cy = 33
       statfile = mainfo.tstatfile1
       onchange = refreshform
       enabled = False
@@ -400,16 +401,16 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        5
-        79
-        5
+        7
+        76
+        7
       )
       taborder = 5
       hint = 'Enable Sound of Chords'
       bounds_x = 280
       bounds_y = 23
-      bounds_cx = 95
-      bounds_cy = 29
+      bounds_cx = 92
+      bounds_cy = 33
       statfile = mainfo.tstatfile1
       onchange = refreshform
       value = True
@@ -426,16 +427,16 @@ object randomnotefo: trandomnotefo
     frame.localprops1 = [frl1_captionoffset]
     frame.outerframe = (
       0
-      14
+      16
       0
       0
     )
     taborder = 8
     onfocus = refreshform
     bounds_x = 27
-    bounds_y = 1
+    bounds_y = -1
     bounds_cx = 226
-    bounds_cy = 107
+    bounds_cy = 109
     font.height = 22
     font.name = 'stf_default'
     font.localprops = []
@@ -457,15 +458,15 @@ object randomnotefo: trandomnotefo
       hint = 'Total chords'
       visible = False
       bounds_x = 161
-      bounds_y = 57
+      bounds_y = 59
       bounds_cx = 52
-      bounds_cy = 38
+      bounds_cy = 45
       font.color = 4040192
       font.height = 32
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       onchange = refreshform
-      reffontheight = 38
+      reffontheight = 45
     end
     object maxnote: tdropdownlistedit
       color = -2147483645
@@ -494,7 +495,7 @@ object randomnotefo: trandomnotefo
           frame.localprops1 = []
         end>
       frame.outerframe = (
-        48
+        47
         0
         0
         0
@@ -513,10 +514,10 @@ object randomnotefo: trandomnotefo
       face.localprops = []
       taborder = 1
       hint = 'Maximum number of chords'
-      bounds_x = 15
-      bounds_y = 57
-      bounds_cx = 121
-      bounds_cy = 38
+      bounds_x = 16
+      bounds_y = 59
+      bounds_cx = 120
+      bounds_cy = 45
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
       font.color = 5000268
@@ -551,7 +552,7 @@ object randomnotefo: trandomnotefo
             '5'
           )
         end>
-      reffontheight = 38
+      reffontheight = 45
     end
     object withrandom: tbooleanedit
       color = -2147483645
@@ -560,16 +561,16 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        5
-        156
-        5
+        7
+        152
+        7
       )
       taborder = 2
       hint = 'Randomize the number of chords'
       bounds_x = 16
       bounds_y = 28
-      bounds_cx = 172
-      bounds_cy = 29
+      bounds_cx = 168
+      bounds_cy = 33
       statfile = mainfo.tstatfile1
       onchange = refreshform
     end
@@ -584,16 +585,16 @@ object randomnotefo: trandomnotefo
     frame.localprops1 = []
     frame.outerframe = (
       0
-      14
+      16
       0
       0
     )
     taborder = 9
     onfocus = refreshform
     bounds_x = 254
-    bounds_y = 1
+    bounds_y = -1
     bounds_cx = 226
-    bounds_cy = 107
+    bounds_cy = 109
     font.height = 22
     font.name = 'stf_default'
     font.localprops = []
@@ -617,15 +618,15 @@ object randomnotefo: trandomnotefo
       hint = 'Tempo of Drums in BPM'
       visible = False
       bounds_x = 20
-      bounds_y = 58
+      bounds_y = 60
       bounds_cx = 168
-      bounds_cy = 38
+      bounds_cy = 45
       font.color = 4040192
       font.height = 32
       font.name = 'stf_default'
       font.localprops = [flp_color, flp_height]
       onchange = refreshform
-      reffontheight = 38
+      reffontheight = 45
     end
     object nodrums: tbooleanedit
       color = -2147483645
@@ -634,16 +635,16 @@ object randomnotefo: trandomnotefo
       frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
       frame.outerframe = (
         0
-        5
-        164
-        5
+        7
+        156
+        7
       )
       taborder = 1
       hint = 'Enable random Drums tempo'
       bounds_x = 12
       bounds_y = 28
-      bounds_cx = 180
-      bounds_cy = 29
+      bounds_cx = 172
+      bounds_cy = 33
       statfile = mainfo.tstatfile1
       onchange = refreshform
       value = True
@@ -682,14 +683,14 @@ object randomnotefo: trandomnotefo
     bounds_x = 72
     bounds_y = 239
     bounds_cx = 352
-    bounds_cy = 284
+    bounds_cy = 289
     anchors = [an_top, an_right]
     text = 'Text of Init message'
     font.height = 24
     font.name = 'stf_default'
     font.localprops = []
     textflags = [tf_left, tf_xcentered, tf_top]
-    reffontheight = 29
+    reffontheight = 34
     object tmemoedit1: tmemoedit
       frame.localprops = []
       frame.localprops1 = []
@@ -698,7 +699,7 @@ object randomnotefo: trandomnotefo
       bounds_x = 24
       bounds_y = 38
       bounds_cx = 303
-      bounds_cy = 190
+      bounds_cy = 195
       statfile = mainfo.tstatfile1
       font.height = 24
       font.name = 'stf_default'
@@ -706,7 +707,7 @@ object randomnotefo: trandomnotefo
       textflags = [tf_xcentered, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       value = 'The chords of chance'
-      reffontheight = 29
+      reffontheight = 34
     end
     object tbutton6: tbutton
       color = -2147483645
@@ -741,7 +742,7 @@ object randomnotefo: trandomnotefo
     font.name = 'stf_default'
     font.localprops = []
     textflags = [tf_xcentered, tf_ycentered]
-    reffontheight = 29
+    reffontheight = 34
     object bass1: tstringdisp
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -759,14 +760,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 740
       bounds_y = 0
       bounds_cx = 126
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = 9502720
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage2: timage
         frame.localprops = []
         frame.localprops1 = []
@@ -774,7 +775,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 126
-        bounds_cy = 156
+        bounds_cy = 160
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
         bitmap.origformat = 'png'
@@ -3908,7 +3909,7 @@ object randomnotefo: trandomnotefo
       bounds_x = 588
       bounds_y = 0
       bounds_cx = 148
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       text = ' X 0       0'#10' '#9552#9552#9552#9552#9552#9552#9552#9552#9552#9552'  0'
       font.color = 9502720
@@ -3916,7 +3917,7 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage1: timage
         frame.localprops = []
         frame.localprops1 = []
@@ -3924,7 +3925,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 22
         bounds_cx = 130
-        bounds_cy = 136
+        bounds_cy = 140
         anchors = [an_left, an_top, an_bottom]
         bitmap.origformat = 'png'
         bitmap.alignment = [al_stretchx, al_stretchy]
@@ -5784,14 +5785,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 312
       bounds_y = 0
       bounds_cx = 272
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = -1610612734
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_colorbackground, flp_height]
       textflags = [tf_xcentered]
-      reffontheight = 19
+      reffontheight = 23
       object keyb1: timage
         color = -2147483645
         frame.localprops = []
@@ -5800,7 +5801,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 270
-        bounds_cy = 156
+        bounds_cy = 160
         bounds_cymin = 1
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
@@ -10450,7 +10451,7 @@ object randomnotefo: trandomnotefo
           end>
         onbeforedropdown = onbefdrop
         onafterclosedropdown = onafterdrop
-        reffontheight = 48
+        reffontheight = 55
       end
     end
     object bass2: tstringdisp
@@ -10471,14 +10472,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 740
       bounds_y = 162
       bounds_cx = 126
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = 9502720
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage6: timage
         frame.localprops = []
         frame.localprops1 = []
@@ -10486,7 +10487,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 126
-        bounds_cy = 156
+        bounds_cy = 160
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
         bitmap.origformat = 'png'
@@ -10553,14 +10554,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 312
       bounds_y = 162
       bounds_cx = 272
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = -1610612734
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_colorbackground, flp_height]
       textflags = [tf_xcentered]
-      reffontheight = 19
+      reffontheight = 23
       object keyb2: timage
         Tag = 1
         color = -2147483645
@@ -10570,7 +10571,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 270
-        bounds_cy = 156
+        bounds_cy = 160
         bounds_cymin = 1
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
@@ -10762,7 +10763,7 @@ object randomnotefo: trandomnotefo
           end>
         onbeforedropdown = onbefdrop
         onafterclosedropdown = onafterdrop
-        reffontheight = 48
+        reffontheight = 55
       end
     end
     object bchord2: tbutton
@@ -10809,7 +10810,7 @@ object randomnotefo: trandomnotefo
       bounds_x = 588
       bounds_y = 162
       bounds_cx = 148
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       text = #9552'0'#9552'0'#9552#9552#9552#9552#9552#9552#9552'0'#9552' '#10' '#9552#9552#9552#9552#9552#9552#9552#9552#9552#9552'  3'
       font.color = 9502720
@@ -10817,7 +10818,7 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage8: timage
         Tag = 1
         frame.localprops = []
@@ -10827,7 +10828,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 22
         bounds_cx = 130
-        bounds_cy = 136
+        bounds_cy = 140
         anchors = [an_left, an_top, an_bottom]
         bitmap.origformat = 'png'
         bitmap.alignment = [al_stretchx, al_stretchy]
@@ -11040,7 +11041,7 @@ object randomnotefo: trandomnotefo
           end>
         onbeforedropdown = onbefdrop
         onafterclosedropdown = onafterdrop
-        reffontheight = 48
+        reffontheight = 55
       end
     end
     object piano3: tstringdisp
@@ -11061,14 +11062,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 312
       bounds_y = 324
       bounds_cx = 272
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = -1610612734
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_colorbackground, flp_height]
       textflags = [tf_xcentered]
-      reffontheight = 19
+      reffontheight = 23
       object keyb3: timage
         Tag = 2
         color = -2147483645
@@ -11078,7 +11079,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 270
-        bounds_cy = 156
+        bounds_cy = 160
         bounds_cymin = 1
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
@@ -11150,7 +11151,7 @@ object randomnotefo: trandomnotefo
       bounds_x = 588
       bounds_y = 324
       bounds_cx = 148
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       text = #9552'0'#9552'0'#9552#9552#9552#9552#9552#9552#9552'0'#9552' '#10' '#9552#9552#9552#9552#9552#9552#9552#9552#9552#9552'  3'
       font.color = 9502720
@@ -11158,7 +11159,7 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage12: timage
         Tag = 2
         frame.localprops = []
@@ -11168,7 +11169,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 22
         bounds_cx = 130
-        bounds_cy = 136
+        bounds_cy = 140
         anchors = [an_left, an_top, an_bottom]
         bitmap.origformat = 'png'
         bitmap.alignment = [al_stretchx, al_stretchy]
@@ -11237,14 +11238,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 740
       bounds_y = 324
       bounds_cx = 126
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = 9502720
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage11: timage
         frame.localprops = []
         frame.localprops1 = []
@@ -11252,7 +11253,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 126
-        bounds_cy = 156
+        bounds_cy = 160
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
         bitmap.origformat = 'png'
@@ -11319,14 +11320,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 740
       bounds_y = 487
       bounds_cx = 126
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = 9502720
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage15: timage
         frame.localprops = []
         frame.localprops1 = []
@@ -11334,7 +11335,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 126
-        bounds_cy = 156
+        bounds_cy = 160
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
         bitmap.origformat = 'png'
@@ -11401,7 +11402,7 @@ object randomnotefo: trandomnotefo
       bounds_x = 588
       bounds_y = 488
       bounds_cx = 148
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       text = #9552'0'#9552'0'#9552#9552#9552#9552#9552#9552#9552'0'#9552' '#10' '#9552#9552#9552#9552#9552#9552#9552#9552#9552#9552'  3'
       font.color = 9502720
@@ -11409,7 +11410,7 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage9: timage
         Tag = 3
         frame.localprops = []
@@ -11419,7 +11420,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 22
         bounds_cx = 130
-        bounds_cy = 136
+        bounds_cy = 140
         anchors = [an_left, an_top, an_bottom]
         bitmap.origformat = 'png'
         bitmap.alignment = [al_stretchx, al_stretchy]
@@ -11488,14 +11489,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 312
       bounds_y = 489
       bounds_cx = 272
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = -1610612734
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_colorbackground, flp_height]
       textflags = [tf_xcentered]
-      reffontheight = 19
+      reffontheight = 23
       object keyb4: timage
         Tag = 3
         color = -2147483645
@@ -11505,7 +11506,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 270
-        bounds_cy = 156
+        bounds_cy = 160
         bounds_cymin = 1
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
@@ -11697,7 +11698,7 @@ object randomnotefo: trandomnotefo
           end>
         onbeforedropdown = onbefdrop
         onafterclosedropdown = onafterdrop
-        reffontheight = 48
+        reffontheight = 55
       end
     end
     object bchord4: tbutton
@@ -11742,14 +11743,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 740
       bounds_y = 650
       bounds_cx = 126
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = 9502720
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage27: timage
         frame.localprops = []
         frame.localprops1 = []
@@ -11757,7 +11758,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 126
-        bounds_cy = 156
+        bounds_cy = 160
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
         bitmap.origformat = 'png'
@@ -11824,7 +11825,7 @@ object randomnotefo: trandomnotefo
       bounds_x = 588
       bounds_y = 653
       bounds_cx = 148
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       text = #9552'0'#9552'0'#9552#9552#9552#9552#9552#9552#9552'0'#9552' '#10' '#9552#9552#9552#9552#9552#9552#9552#9552#9552#9552'  3'
       font.color = 9502720
@@ -11832,7 +11833,7 @@ object randomnotefo: trandomnotefo
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_height]
       textflags = [tf_left, tf_top]
-      reffontheight = 19
+      reffontheight = 23
       object timage23: timage
         Tag = 4
         frame.localprops = []
@@ -11842,7 +11843,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 22
         bounds_cx = 130
-        bounds_cy = 136
+        bounds_cy = 140
         anchors = [an_left, an_top, an_bottom]
         bitmap.origformat = 'png'
         bitmap.alignment = [al_stretchx, al_stretchy]
@@ -11911,14 +11912,14 @@ object randomnotefo: trandomnotefo
       bounds_x = 312
       bounds_y = 653
       bounds_cx = 272
-      bounds_cy = 158
+      bounds_cy = 162
       anchors = [an_top, an_right]
       font.color = -1610612734
       font.height = 16
       font.name = 'stf_fixed'
       font.localprops = [flp_color, flp_colorbackground, flp_height]
       textflags = [tf_xcentered]
-      reffontheight = 19
+      reffontheight = 23
       object keyb5: timage
         Tag = 4
         color = -2147483645
@@ -11928,7 +11929,7 @@ object randomnotefo: trandomnotefo
         bounds_x = 0
         bounds_y = 0
         bounds_cx = 270
-        bounds_cy = 156
+        bounds_cy = 160
         bounds_cymin = 1
         anchors = [an_left, an_top, an_bottom]
         bitmap.options = [bmo_masked, bmo_graymask]
@@ -12120,7 +12121,7 @@ object randomnotefo: trandomnotefo
           end>
         onbeforedropdown = onbefdrop
         onafterclosedropdown = onafterdrop
-        reffontheight = 48
+        reffontheight = 55
       end
     end
     object bchord5: tbutton

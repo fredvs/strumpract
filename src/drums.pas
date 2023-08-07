@@ -186,8 +186,6 @@ type
     procedure onchangesongtimer(const Sender: TObject);
     procedure onchansens(const Sender: TObject);
     procedure resizedr(fontheight :  integer );
-  
-
   end;
 
 var
@@ -1198,15 +1196,15 @@ begin
   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
   adrums[4] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-    langcount.Value + directoryseparator + '1.ogg');
+    langcount.Value + directoryseparator + '1.mp3');
   adrums[5] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-    langcount.Value + directoryseparator + '2.ogg');
+    langcount.Value + directoryseparator + '2.mp3');
   adrums[6] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-    langcount.Value + directoryseparator + '3.ogg');
+    langcount.Value + directoryseparator + '3.mp3');
   adrums[7] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-    langcount.Value + directoryseparator + '4.ogg');
+    langcount.Value + directoryseparator + '4.mp3');
   adrums[8] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
-    langcount.Value + directoryseparator + 'and.ogg');
+    langcount.Value + directoryseparator + 'and.mp3');
 
   if tag = 0 then
     for i := 4 to 8 do
@@ -1710,10 +1708,10 @@ begin
   Caption := 'Drums set';
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
-  adrums[0] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.ogg');
-  adrums[1] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.ogg');
-  adrums[2] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.ogg');
-  adrums[3] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.ogg');
+  adrums[0] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.mp3');
+  adrums[1] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.mp3');
+  adrums[2] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.mp3');
+  adrums[3] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.mp3');
 
   posi := 1;    bounds_cxmax := 0;
   

@@ -11,8 +11,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 370
-  bounds_y = 51
+  bounds_x = 512
+  bounds_y = 261
   bounds_cx = 442
   bounds_cy = 274
   bounds_cxmin = 442

@@ -2530,7 +2530,7 @@ begin
   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
   if historyfn.Value = '' then
-    historyfn.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.ogg';
+    historyfn.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.mp3';
 
 
   with tgroupbox1 do

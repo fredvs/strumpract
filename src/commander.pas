@@ -128,6 +128,7 @@ type
     tfaceorange: tfacecomp;
     sysvol: tslider;
     sysvolbut: TButton;
+    timercallback: ttimer;
     Brandommix: TButton;
     randommix: tbooleanedit;
     timagelist1: timagelist;
@@ -171,6 +172,7 @@ type
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimerinit(const Sender: TObject);
     procedure onsetsysvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure dotimercallback(const Sender: TObject);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure resizeco(fontheight: integer);
     procedure resetsysvol(const Sender: TObject);
@@ -182,7 +184,7 @@ var
   initvolleft1, initvolright1, initvolleft2, initvolright2: double;
   maxvolleft1, maxvolright1, maxvolleft2, maxvolright2: double;
   thetypemix: integer = 0;
-  // docallback: Boolean = False;
+  docallback: Boolean = False;
   theinput: integer = 30;
   lastrowplayed: integer = -1;
   vuinvar: Boolean = True;
@@ -204,6 +206,18 @@ uses
 
 var
   boundchildco: array of boundchild;
+
+  {$if defined(linux) or defined(windows)}
+procedure mixelemcallback;
+begin
+  if docallback then
+    if commanderfo.timercallback.Enabled then
+      commanderfo.timercallback.restart // to reset
+    else
+      commanderfo.timercallback.Enabled := True;
+end;
+
+{$ENDIF}
 
 procedure tcommanderfo.resizeco(fontheight: integer);
 var
@@ -327,12 +341,16 @@ begin
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
   sysvol.Value      := ALSAmixerGetVolume(0) / 100;
   sysvolbut.Caption := msestring(IntToStr(round(sysvol.Value * 10)));
- {$ENDIF}
+  ALSAmixerSetCallBack(@mixelemcallback);
+  docallback        := True;
+   {$ENDIF}
 
    {$if defined(windows)}
     sysvol.value := WinmixerGetVolume(0)/100;
     sysvolbut.caption := msestring(inttostr(round(sysvol.value*10)));
- {$ENDIF}
+     WinMixerSetCallBack(@mixelemcallback); // gives memory leak
+     docallback := true;
+   {$ENDIF}
 end;
 
 procedure tcommanderfo.ontimersent(const Sender: TObject);
@@ -757,6 +775,7 @@ end;
 
 procedure tcommanderfo.ondest(const Sender: TObject);
 begin
+  docallback        := False;
   Timermix.Enabled  := False;
   timersent.Enabled := False;
 
@@ -1457,14 +1476,36 @@ procedure tcommanderfo.onsetsysvol(const Sender: TObject; var avalue: realty; va
 begin
   sysvolbut.Caption := msestring(IntToStr(round(avalue * 10)));
 {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
+  docallback        := False;
   ALSAmixerSetVolume(0, round(avalue * 100));
   ALSAmixerSetVolume(1, round(avalue * 100));
+  docallback        := True;
   {$ENDIF}
 
   {$if defined(windows)}
+    docallback := false;
     WINmixerSetVolume(0, round(avalue * 100));
-    WINmixerSetVolume(1, round(avalue * 100));
-   {$ENDIF}
+    docallback := true;
+  {$ENDIF}
+end;
+
+procedure tcommanderfo.dotimercallback(const Sender: TObject);
+begin
+{$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
+  if docallback then
+  begin
+    commanderfo.sysvol.Value      := ALSAmixerGetVolume(0) / 100;
+    commanderfo.sysvolbut.Caption := msestring(IntToStr(round(commanderfo.sysvol.Value * 10)));
+  end;
+{$ENDIF}
+
+{$if defined(windows)}
+ if docallback then
+  begin
+    commanderfo.sysvol.value := wm_MasterVolLeft / 100;
+    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
+  end;
+ {$ENDIF}
 end;
 
 procedure tcommanderfo.onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
