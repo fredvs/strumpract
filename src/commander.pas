@@ -1485,6 +1485,7 @@ begin
   {$if defined(windows)}
     docallback := false;
     WINmixerSetVolume(0, round(avalue * 100));
+    WINmixerSetVolume(1, round(avalue * 100));
     docallback := true;
   {$ENDIF}
 end;
