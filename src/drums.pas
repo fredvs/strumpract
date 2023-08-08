@@ -202,7 +202,6 @@ var
   adrums: array[0..8] of string;
   drum_beats: array[0..3] of string;
   drum_input: array[0..3] of integer;
-  ams: array[0..8] of Tmemorystream;
   alab: talab;
   alab2: talab2;
   alaband: talab2;
@@ -1140,20 +1139,7 @@ begin
 
   for i := 0 to 3 do
   begin
-    //uos_Stop(i);
-{
-    ams[i]          := TMemoryStream.Create;
-    ams[i].LoadFromFile(PChar(adrums[i]));
-    ams[i].Position := 0;
- }
-    // {
-    // if assigned( ams[i]) then ams[i].free;
-    //ams[i] := TMemoryStream.Create;
-    // ams[i].LoadFromFile(pchar(adrums[i]));
-    // ams[i].Position:= 0;
-    // }
-    // Create a memory buffer from a audio file
-    //  thebuffer[i] := uos_File2Buffer(pchar(sound[i]), 0, thebuffer[i], thebufferinfos[i]);
+  //  uos_Stop(i);
 
     if uos_CreatePlayer(i) then
 
@@ -1238,12 +1224,6 @@ begin
     for i := 4 to 8 do
     begin
       uos_Stop(i);
-      // uos_freeplayer(i);
-{
-      ams[i]          := TMemoryStream.Create;
-      ams[i].LoadFromFile(PChar(adrums[i]));
-      ams[i].Position := 0;
-}
  
       if uos_CreatePlayer(i) then
 
@@ -1252,19 +1232,20 @@ begin
           //One event (for example replay) will have impact on all players.
 
           // using memorystream
-         //  if uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512) > -1 then
-             if uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024 * 2) > -1 then
-  
-            // using memorybuffer
-              // if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
+          //  if uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512) > -1 then
+            
+          // using memorybuffer
+          // if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
 
+           if uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024 * 2) > -1 then
+  
            if uos_AddFromEndlessMuted(i, channels, 1024) > -1 then
-              // this for a dummy endless input, must be last input
+            // this for a dummy endless input, must be last input
 
             uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 * 2, -1) ;
-
     end;
   tag := 1;
+
   if timerisenabled = True then
     if songtimer.Value = False then
       timertick.Enabled := True;
