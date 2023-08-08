@@ -157,7 +157,6 @@ type
    label3: tlabel;
    label4: tlabel;
    label2: tlabel;
-   ttimer1: ttimer;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -187,7 +186,6 @@ type
     procedure onchangesongtimer(const Sender: TObject);
     procedure onchansens(const Sender: TObject);
     procedure resizedr(fontheight :  integer );
-   procedure ontimdum(const sender: TObject);
   end;
 
 var
@@ -1914,12 +1912,6 @@ begin
   if sensib.Value < 10 then
     sensib.Value := 10;
 end;
-
-procedure tdrumsfo.ontimdum(const sender: TObject);
-begin
-
-end;
-
 
 end.
 

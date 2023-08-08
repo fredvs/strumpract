@@ -1881,11 +1881,4 @@ object drumsfo: tdrumsfo
     left = 324
     top = 55
   end
-  object ttimer1: ttimer
-    interval = 100000
-    ontimer = ontimdum
-    enabled = True
-    left = 248
-    top = 22
-  end
 end
