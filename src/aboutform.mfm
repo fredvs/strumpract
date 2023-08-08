@@ -1,20 +1,20 @@
 object about_form: taboutfo
   visible = False
-  bounds_x = 446
-  bounds_y = 255
+  bounds_x = 443
+  bounds_y = 261
   bounds_cx = 372
-  bounds_cy = 276
+  bounds_cy = 290
   bounds_cxmin = 372
-  bounds_cymin = 276
+  bounds_cymin = 290
   bounds_cxmax = 372
-  bounds_cymax = 276
+  bounds_cymax = 290
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
     0
     0
     372
-    276
+    290
   )
   optionswindow = [wo_dialog]
   font.name = 'stf_default'
@@ -116,11 +116,11 @@ object about_form: taboutfo
     bounds_x = 8
     bounds_y = 9
     bounds_cx = 357
-    bounds_cy = 259
+    bounds_cy = 274
     optionsedit = [oe_readonly, oe_closequery, oe_checkmrcancel, oe_linebreak, oe_eatreturn, oe_resetselectonexit, oe_nofirstarrownavig, oe_focusrectonreadonly]
     textflags = [tf_xcentered, tf_wordbreak, tf_noselect]
     textflagsactive = [tf_xcentered, tf_wordbreak]
     value = 'Drums Pract version 1.0.'
-    reffontheight = 15
+    reffontheight = 17
   end
 end
