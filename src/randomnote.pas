@@ -4514,14 +4514,12 @@ begin
       begin
       application.processmessages;
 
-        if uos_AddFromFile(20, PChar(thedir)) > -1 then
-        begin
-
-
-   {$if defined(cpuarm)}
-          if uos_AddIntoDevOut(20, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
+   if uos_AddFromFile(20,  PChar(thedir), -1, -1, 1024 * 8) > -1 then
+    begin
+     {$if defined(cpuarm)}
+          if uos_AddIntoDevOut(20, configfo.devoutcfg.value, 0.3, -1, -1, -1, 1024 * 8, -1) > -1 then
    {$else}
-          if uos_AddIntoDevOut(20, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+          if uos_AddIntoDevOut(20, configfo.devoutcfg.value, -1, -1, -1, -1, 1024 * 8, -1) > -1 then
  
     {$endif}
             begin
@@ -4552,12 +4550,14 @@ begin
       uos_Stop(21);
       if uos_CreatePlayer(21) then
       application.processmessages;
-      if uos_AddFromFile(21, PChar(thedir)) > -1 then
-   {$if defined(cpuarm)}
-      if uos_AddIntoDevOut(21, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
+     
+      if uos_AddFromFile(21,  PChar(thedir), -1, -1, 1024 * 8) > -1 then
+       {$if defined(cpuarm)}
+          if uos_AddIntoDevOut(21, configfo.devoutcfg.value, 0.3, -1, -1, -1, 1024 * 8, -1) > -1 then
    {$else}
-      if uos_AddIntoDevOut(21, configfo.devoutcfg.value, -1, -1, -1, -1, -1, -1) > -1 then
+          if uos_AddIntoDevOut(21, configfo.devoutcfg.value, -1, -1, -1, -1, 1024 * 8, -1) > -1 then
     {$endif}
+    
       uos_Play(21);
       sleep(6000);
     end;
@@ -4594,14 +4594,15 @@ begin
 
         if uos_CreatePlayer(Timage(Sender).tag + 10) then
           application.ProcessMessages;
+   
+      if uos_AddFromFile(Timage(Sender).tag + 10,  PChar(thedir), -1, -1, 1024 * 8) > -1 then
+        {$if defined(cpuarm)}
+      if uos_AddIntoDevOut(Timage(Sender).tag + 10, configfo.devoutcfg.value, 0.3, -1, -1, -1, 1024 * 8, -1) > -1 then
+         {$else}
+      if uos_AddIntoDevOut(Timage(Sender).tag + 10, configfo.devoutcfg.value, -1, -1, -1, -1, 1024 * 8, -1) > -1 then
+        {$endif}
 
-        if uos_AddFromFile(Timage(Sender).tag + 10, PChar(thedir)) > -1 then
-   {$if defined(cpuarm)}
-          if uos_AddIntoDevOut(Timage(Sender).tag + 10, -1, 0.3, -1, -1, -1, -1, -1) > -1 then
-   {$else}
-          if uos_AddIntoDevOut(Timage(Sender).tag + 10) > -1 then
-    {$endif}
-            uos_Play(Timage(Sender).tag + 10);
+        uos_Play(Timage(Sender).tag + 10);
       end;
       if chordsonly.tag = 0 then
         refreshform(Sender);
@@ -4643,7 +4644,6 @@ begin
           application.ProcessMessages;
 
         if uos_AddFromFile(Timage(Sender).tag + 20, PChar(thedir)) > -1 then
-
 
    {$if defined(cpuarm)}
           if uos_AddIntoDevOut(Timage(Sender).tag + 20, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then

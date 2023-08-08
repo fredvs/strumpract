@@ -1164,7 +1164,7 @@ begin
         // using memorystream
       //  drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
         
-     drum_input[i] := uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024 * 4) ;
+     drum_input[i] := uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024 * 2) ;
     
     if drum_input[i] < 0 then wascreatedok := false;
 
@@ -1173,10 +1173,10 @@ begin
 
     if drum_input[i] > -1 then
 
-      if uos_AddFromEndlessMuted(i, channels, 1024 * 2) > -1 then
+    if uos_AddFromEndlessMuted(i, channels, 1024) > -1 then
 
         // this for a dummy endless input, must be last input
-        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 * 4, -1) > -1 then
+        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 * 2, -1) > -1 then
         begin
 
           uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
@@ -1239,11 +1239,12 @@ begin
     begin
       uos_Stop(i);
       // uos_freeplayer(i);
-
+{
       ams[i]          := TMemoryStream.Create;
       ams[i].LoadFromFile(PChar(adrums[i]));
       ams[i].Position := 0;
-
+}
+ 
       if uos_CreatePlayer(i) then
 
         if uos_SetGlobalEvent(i, True) then
@@ -1251,15 +1252,16 @@ begin
           //One event (for example replay) will have impact on all players.
 
           // using memorystream
-          if uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512) > -1 then
-
+         //  if uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512) > -1 then
+             if uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024 * 2) > -1 then
+  
             // using memorybuffer
               // if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
 
-            if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
+           if uos_AddFromEndlessMuted(i, channels, 1024) > -1 then
               // this for a dummy endless input, must be last input
 
-              if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then;
+            uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 * 2, -1) ;
 
     end;
   tag := 1;
