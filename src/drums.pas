@@ -1150,7 +1150,7 @@ begin
         // using memorystream
       //  drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
         
-     drum_input[i] := uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024 * 2) ;
+     drum_input[i] := uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024) ;
     
     if drum_input[i] < 0 then wascreatedok := false;
 
@@ -1159,10 +1159,10 @@ begin
 
     if drum_input[i] > -1 then
 
-    if uos_AddFromEndlessMuted(i, channels, 1024) > -1 then
+    if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
 
         // this for a dummy endless input, must be last input
-        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 * 2, -1) > -1 then
+        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 , -1) > -1 then
         begin
 
           uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
@@ -1237,12 +1237,12 @@ begin
           // using memorybuffer
           // if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
 
-           if uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024 * 2) > -1 then
+           if uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024) > -1 then
   
-           if uos_AddFromEndlessMuted(i, channels, 1024) > -1 then
+           if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
             // this for a dummy endless input, must be last input
 
-            uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 * 2, -1) ;
+            uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024, -1) ;
     end;
   tag := 1;
 
