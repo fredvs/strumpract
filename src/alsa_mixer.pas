@@ -259,6 +259,8 @@ procedure TCallbackThread.Execute;
 begin
   CallbackCalled := true;
   
+  { // disabled not works always
+  
   if am_Handle = DynLibs.NilHandle then am_Load;       // load the library 
   
   snd_mixer_open(@hmixcallback,0); 
@@ -273,14 +275,16 @@ begin
   elem := snd_mixer_find_selem(hmixcallback, sid);
   snd_mixer_elem_set_callback(elem, @mixelemcallback);
  
+ }
   while (not Terminated) do
       begin
-          i := snd_mixer_wait(hmixcallback, -1); 
-          if i > 0 then snd_mixer_handle_events(hmixcallback);
+      sleep(50); // this to stimulate Drums synchro
+      
+       //   i := snd_mixer_wait(hmixcallback, -1); 
+       //   if i > 0 then snd_mixer_handle_events(hmixcallback);
       end;
   end;
  
-
 procedure am_Unload();
 begin
   // < Reference counting
@@ -392,7 +396,7 @@ begin
  if CallbackCalled then
   begin
   CallbackThread.terminate;
-  snd_mixer_close(hmixcallback);
+  //snd_mixer_close(hmixcallback);
   end;
  
  am_unload;
