@@ -123,19 +123,29 @@ end;
 
 procedure tguitarsfo.doguitarstring(const Sender: TObject);
 begin
-  uos_Stop(TButton(Sender).tag + 9);
+  //uos_Stop(TButton(Sender).tag + 9);
   if ((loopguit.Value = False) and (TButton(Sender).tag < 7)) or ((loopbass.Value = False) and (TButton(Sender).tag > 6)) then
   begin
+    // writeln('Guit no loop init');
     if uos_CreatePlayer(TButton(Sender).tag + 9) then
-      if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
-
+    begin
+      // writeln('OK uos_CreatePlayer ' + inttostr(TButton(Sender).tag + 9));
+      if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1])), -1, -1, 1024 * 8) > -1 then
+      begin
+         // writeln('OK uos_AddFromFile ' + inttostr(TButton(Sender).tag + 9) + ' ' + PChar(aguitar[TButton(Sender).tag - 1]));
           {$if defined(cpuarm)}
-        if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1, -1) > -1 then
+        if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, 1024 * 8, -1) > -1 then
          {$else}
-        if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.Value, -1, -1, -1, -1, -1, -1) > -1 then
-        {$endif}
-
+        if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.Value, 0.3, -1, -1, -1, 1024 *8, -1) > -1 then
+         {$endif}
+          begin
+          // writeln('OK uos_AddIntoDevOut ' + inttostr(TButton(Sender).tag + 9));
+           sleep(10);
           uos_Play(TButton(Sender).tag + 9);
+          // writeln('OK uos_Play ' + inttostr(TButton(Sender).tag + 9));
+          end;
+      end;
+     end; 
   end
   else if (aguitarisplaying[TButton(Sender).tag - 1] = False) then
   begin
@@ -144,14 +154,15 @@ begin
 
     if uos_CreatePlayer(TButton(Sender).tag + 9) then
 
-      if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1]))) > -1 then
-
+       if uos_AddFromFile(TButton(Sender).tag + 9, (PChar(aguitar[TButton(Sender).tag - 1])), -1, -1, 1024 * 8) > -1 then
+  
         {$if defined(cpuarm)}
-          if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, -1,-1) > -1 then
+          if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, 1024 * 8,-1) > -1 then
          {$else}
-        if uos_AddIntoDevOut(TButton(Sender).tag + 9) > -1 then
-         {$endif}
+          if uos_AddIntoDevOut(TButton(Sender).tag + 9, configfo.devoutcfg.value, 0.3, -1, -1, -1, 1024 * 8,-1) > -1 then
+          {$endif}
         begin
+          application.processmessages;
           uos_Play(TButton(Sender).tag + 9, -1);
           aguitarisplaying[TButton(Sender).tag - 1] := True;
         end;
@@ -253,7 +264,6 @@ begin
   aguitar[1] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '2_SI_B.mp3';
   aguitar[2] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '3_SOL_G.mp3';
   aguitar[3] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '4_RE_D.mp3';
-
   aguitar[4] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '5_LA_A.mp3';
   aguitar[5] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '6_MI_E.mp3';
 

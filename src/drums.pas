@@ -157,6 +157,9 @@ type
    label3: tlabel;
    label4: tlabel;
    label2: tlabel;
+   pnotloaded: tstringdisp;
+   tlabel24: tlabel;
+   tbutton1: tbutton;
     procedure ontimertick(const Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -186,6 +189,7 @@ type
     procedure onchangesongtimer(const Sender: TObject);
     procedure onchansens(const Sender: TObject);
     procedure resizedr(fontheight :  integer );
+   procedure bnotload(const sender: TObject);
   end;
 
 var
@@ -193,6 +197,7 @@ var
   posi: integer = 1;
   initdrum: integer = 1;
   wascreated: Boolean = False;
+  wascreatedok: Boolean = False;
 
   adrums: array[0..8] of string;
   drum_beats: array[0..3] of string;
@@ -527,6 +532,7 @@ begin
 
       if ach[posi - 1].Value = True then
       begin
+      if drum_input[0] > -1 then
         uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.
           genvolleft.Value * 1.5
           , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
@@ -536,6 +542,7 @@ begin
 
       if aoh[posi - 1].Value then
       begin
+       if drum_input[1] > -1 then
         uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.
           genvolleft.Value * 1.5
           , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
@@ -545,6 +552,7 @@ begin
 
       if asd[posi - 1].Value then
       begin
+         if drum_input[2] > -1 then
         uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.
           genvolleft.Value * 1.5
           , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
@@ -554,6 +562,7 @@ begin
 
       if abd[posi - 1].Value then
       begin
+         if drum_input[3] > -1 then
         uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.
           genvolleft.Value * 1.5
           , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
@@ -829,6 +838,8 @@ begin
   if wascreated = False then
     createdrumsplayers;
 
+if wascreatedok then
+begin
   wascreated     := True;
   stopit         := False;
   label2.Enabled := True;
@@ -843,10 +854,13 @@ begin
 
   commanderfo.loop_resume.Enabled := False;
   commanderfo.loop_stop.Enabled   := True;
+end else pnotloaded.visible := true;
 
 end;
 
 procedure tdrumsfo.dostop(const Sender: TObject);
+begin
+if wascreatedok then
 begin
   label2.Enabled := False;
   loop_stop.Enabled := False;
@@ -859,8 +873,11 @@ begin
   else
     timerpause.Enabled := True;
 end;
+end;
 
 procedure tdrumsfo.doresume(const Sender: TObject);
+begin
+if wascreatedok then
 begin
   label2.Enabled := False;
   stopit         := False;
@@ -872,7 +889,7 @@ begin
 
   commanderfo.loop_resume.Enabled := False;
   commanderfo.loop_stop.Enabled   := True;
-
+end;
 end;
 
 procedure tdrumsfo.onchangetempo(const Sender: TObject);
@@ -890,7 +907,8 @@ begin
 
   if hasinit = 1 then
   begin
-
+   if wascreatedok then
+begin
     if randomnotefo.Visible then
       randomnotefo.bpm.Value := round(edittempo.Value / 2);
 
@@ -905,6 +923,7 @@ begin
     else
       timersent.Enabled := True;
   end;
+ end; 
 end;
 
 
@@ -1117,13 +1136,16 @@ var
   i: integer;
 begin
 
+  wascreatedok := true;
+
   for i := 0 to 3 do
   begin
-    uos_Stop(i);
-
+    //uos_Stop(i);
+{
     ams[i]          := TMemoryStream.Create;
     ams[i].LoadFromFile(PChar(adrums[i]));
     ams[i].Position := 0;
+ }
     // {
     // if assigned( ams[i]) then ams[i].free;
     //ams[i] := TMemoryStream.Create;
@@ -1140,17 +1162,21 @@ begin
         //One event (for example replay) will have impact on all players.
 
         // using memorystream
-        drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
+      //  drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
+        
+     drum_input[i] := uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024 * 4) ;
+    
+    if drum_input[i] < 0 then wascreatedok := false;
 
     if configfo.latdrums.Value < 0 then
       configfo.latdrums.Value := -1;
 
     if drum_input[i] > -1 then
 
-      if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
+      if uos_AddFromEndlessMuted(i, channels, 1024 * 2) > -1 then
 
         // this for a dummy endless input, must be last input
-        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, 2, 512, -1) > -1 then
+        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 * 4, -1) > -1 then
         begin
 
           uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
@@ -1162,6 +1188,8 @@ begin
           uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) * commanderfo.
             genvolleft.Value * 1.5
             , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+            
+          application.processmessages;  
 
         end;
   end;
@@ -1911,6 +1939,11 @@ procedure tdrumsfo.onchansens(const Sender: TObject);
 begin
   if sensib.Value < 10 then
     sensib.Value := 10;
+end;
+
+procedure tdrumsfo.bnotload(const sender: TObject);
+begin
+pnotloaded.visible := false;
 end;
 
 end.

@@ -11,8 +11,8 @@ object drumsfo: tdrumsfo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use that grip panel to drag/drop Drums form. '
   visible = False
-  bounds_x = 512
-  bounds_y = 261
+  bounds_x = 415
+  bounds_y = 260
   bounds_cx = 442
   bounds_cy = 274
   bounds_cxmin = 442
@@ -1031,6 +1031,38 @@ object drumsfo: tdrumsfo
         reffontheight = 69
       end
     end
+    object pnotloaded: tstringdisp
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 31
+      visible = False
+      bounds_x = 5
+      bounds_y = 40
+      bounds_cx = 261
+      bounds_cy = 47
+      font.color = -1610612734
+      font.name = 'stf_default'
+      font.localprops = [flp_color]
+      reffontheight = 17
+      object tlabel24: tlabel
+        bounds_x = 8
+        bounds_y = 15
+        bounds_cx = 182
+        bounds_cy = 17
+        caption = 'The Drums sounds did not load...'
+        reffontheight = 17
+      end
+      object tbutton1: tbutton
+        taborder = 1
+        bounds_x = 214
+        bounds_y = 13
+        bounds_cx = 40
+        bounds_cy = 23
+        state = [as_localcaption, as_localonexecute]
+        caption = 'OK'
+        onexecute = bnotload
+      end
+    end
   end
   object tdockpanel1: tgroupbox
     color = -2147483645
@@ -1164,8 +1196,8 @@ object drumsfo: tdrumsfo
     object tlabel3: tlabel
       optionswidget1 = [ow1_fontglyphheight]
       taborder = 10
-      bounds_x = 44
-      bounds_y = 8
+      bounds_x = -18
+      bounds_y = 201
       bounds_cx = 41
       bounds_cy = 15
       caption = 'tlabel3'
