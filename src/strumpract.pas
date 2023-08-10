@@ -13,7 +13,7 @@ program strumpract;
 uses
  {$ifdef FPC} {$ifdef unix} cthreads, BaseUnix, {$endif} {$endif}
 
-  Classes,
+  Classes, 
   Math,
   SysUtils,
   msegui,

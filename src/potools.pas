@@ -41,7 +41,7 @@ uses
   msedragglob,
   msegrids,
   msegridsglob,
-  LazUTF8,
+  //LazUTF8,
   mselistbrowser,
   msesys,
   msegraphedits,
@@ -689,7 +689,7 @@ begin
     filename1 := copy(filename(str1), 1, length(filename(str1)) - 4);
     strlang   := trim(copy(filename1, system.pos('_', filename1) + 1, length(filename1)));
 
-    strlang := utf8StringReplace(strlang, '@', '_', [rfReplaceAll]);
+    strlang := StringReplace(strlang, '@', '_', [rfReplaceAll]);
 
     file1.encoding := ce_utf8;
 
@@ -702,13 +702,13 @@ begin
       str1 := '';
       file1.readln(str1);
       str2 := '';
-      if (trim(str1) <> '') and (UTF8Copy(str1, 1, 1) <> '#') then
-        if (UTF8Copy(str1, 1, 6) = 'msgstr') then
+      if (trim(str1) <> '') and (Copy(str1, 1, 1) <> '#') then
+        if (Copy(str1, 1, 6) = 'msgstr') then
         begin
-          str2 := UTF8Copy(str1, 7, length(str1));
-          str2 := utf8StringReplace(str2, '\n', '', [rfReplaceAll]);
-          str2 := utf8StringReplace(str2, '\', '', [rfReplaceAll]);
-          str2 := utf8StringReplace(str2, '"', '', [rfReplaceAll]);
+          str2 := Copy(str1, 7, length(str1));
+          str2 := StringReplace(str2, '\n', '', [rfReplaceAll]);
+          str2 := StringReplace(str2, '\', '', [rfReplaceAll]);
+          str2 := StringReplace(str2, '"', '', [rfReplaceAll]);
           if str2 <> '' then
           begin
             setlength(constvaluearray, length(constvaluearray) + 1);
@@ -737,13 +737,13 @@ begin
         str1 := '';
         file1.readln(str1);
         str2 := '';
-        if (trim(str1) <> '') and (UTF8Copy(str1, 1, 1) <> '#') then
-          if (UTF8Copy(str1, 1, 5) = 'msgid') then
+        if (trim(str1) <> '') and (Copy(str1, 1, 1) <> '#') then
+          if (Copy(str1, 1, 5) = 'msgid') then
           begin
-            str2 := UTF8Copy(str1, 7, length(str1));
-            str2 := utf8StringReplace(str2, '\n', '', [rfReplaceAll]);
-            str2 := utf8StringReplace(str2, '\', '', [rfReplaceAll]);
-            str2 := utf8StringReplace(str2, '"', '', [rfReplaceAll]);
+            str2 := Copy(str1, 7, length(str1));
+            str2 := StringReplace(str2, '\n', '', [rfReplaceAll]);
+            str2 := StringReplace(str2, '\', '', [rfReplaceAll]);
+            str2 := StringReplace(str2, '"', '', [rfReplaceAll]);
             if trim(str2) <> '' then
             begin
               setlength(defaultresult, length(defaultresult) + 1);
