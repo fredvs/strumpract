@@ -116,6 +116,7 @@ object imagedancerfo: timagedancerfo
   oncreated = oncreat
   oneventloopstart = onevstart
   ondestroy = ondestroy
+  onmouseevent = onmouseevform
   onshow = onshow
   onhide = onhide
   moduleclassname = 'tdockform'
