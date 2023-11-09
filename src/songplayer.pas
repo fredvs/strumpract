@@ -2280,6 +2280,7 @@ begin
            end  
           else
           begin
+            infosdfo.tbutton1.visible := false;
             infosdfo.ttimer1.enabled := false;
             infosdfo.imgPreview.bitmap   := mainfo.inotag.bitmap;
             infosdfo.imgPreview.Visible  := True;
@@ -2351,6 +2352,7 @@ begin
             infosdfo2.loadimagetag(TagReader.Tags.Images[0].Image)
           else
           begin
+            infosdfo2.tbutton1.visible := false;
             infosdfo2.ttimer1.enabled := false;
             infosdfo2.imgPreview.bitmap   := mainfo.inotag.bitmap;
             infosdfo2.imgPreview.Visible  := True;
