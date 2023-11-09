@@ -4,32 +4,10 @@ unit infosd;
 interface
 
 uses
-  types,
-  msethread,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  SysUtils,
-  mseapplication,
-  fptimer,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  Classes,
-  mseclasses,
-  mseforms,
-  msedock,
-  BGRABitmap,
-  BGRAAnimatedGif,
-  BGRABitmapTypes,
-  captionstrumpract,
-  mseimage,
-  msesimplewidgets,
-  msewidgets;
+ types,msethread,msetypes,mseglob,mseguiglob,mseguiintf,SysUtils,mseapplication,
+ fptimer,msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,Classes,
+ mseclasses,mseforms,msedock,BGRABitmap,BGRAAnimatedGif,BGRABitmapTypes,
+ captionstrumpract,mseimage,msesimplewidgets,msewidgets;
 
 type
   tinfosdfo = class(tdockform)
@@ -51,6 +29,7 @@ type
     PimgPreview: tpaintbox;
     ttimer1: tfptimer;
 
+   tbutton1: tbutton;
     procedure onshow(const Sender: TObject);
     procedure ondock(const Sender: TObject);
     procedure onfloat(const Sender: TObject);
@@ -61,6 +40,7 @@ type
     procedure loadimagetag(aitag: TStream);
     procedure ondest(const Sender: TObject);
     procedure ontime(Sender: TObject);
+   procedure onexec(const sender: TObject);
   end;
 
 var
@@ -235,6 +215,7 @@ end;
 procedure tinfosdfo.loadimagetag(aitag: TStream);
 begin
   ttimer1.Enabled := False;
+  tbutton1.visible := false;
 
   if Assigned(aimage) then
     aimage.Free;
@@ -251,7 +232,12 @@ begin
   PimgPreview.invalidate;
 
  if countframe > 1 then
-    ttimer1.Enabled := True;
+ begin
+ tbutton1.caption := '||';
+ tbutton1.visible := true;
+ ttimer1.Enabled := True;
+ end;
+    
 end;
 
 procedure tinfosdfo.ontime(Sender: TObject);
@@ -299,6 +285,20 @@ begin
     aimage.Free;
   ttimer1.Enabled := False;
   ttimer1.Free;
+end;
+
+procedure tinfosdfo.onexec(const sender: TObject);
+begin
+if tbutton1.caption = '||' then
+begin
+tbutton1.caption := '>';
+ttimer1.Enabled := False;
+end else
+begin
+tbutton1.caption := '||';
+ttimer1.Enabled := true;
+end;
+
 end;
 
 end.

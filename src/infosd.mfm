@@ -10,8 +10,8 @@ object infosdfo: tinfosdfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 580
-  bounds_y = 219
+  bounds_x = 548
+  bounds_y = 274
   bounds_cx = 442
   bounds_cy = 216
   bounds_cxmin = 442
@@ -462,5 +462,19 @@ object infosdfo: tinfosdfo
     bounds_cx = 216
     bounds_cy = 216
     anchors = [an_left, an_top, an_right, an_bottom]
+    object tbutton1: tbutton
+      color = 13619151
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      bounds_x = 4
+      bounds_y = 192
+      bounds_cx = 20
+      bounds_cy = 20
+      anchors = [an_left, an_bottom]
+      state = [as_invisible, as_localinvisible, as_localcaption, as_localcolor, as_localonexecute]
+      caption = '||'
+      onexecute = onexec
+    end
   end
 end
