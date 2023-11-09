@@ -250,7 +250,7 @@ begin
 
   PimgPreview.invalidate;
 
-  if countframe > 1 then
+ if countframe > 1 then
     ttimer1.Enabled := True;
 end;
 
@@ -269,8 +269,6 @@ begin
   theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
   theMemBitmap.draw(acanvas, 0, 0, True);
   theMemBitmap.Free;
-  if countframe > 1 then
-    ttimer1.Enabled := True;
 end;
 
 procedure tinfosdfo.oncre(const Sender: TObject);
