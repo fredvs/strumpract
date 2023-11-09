@@ -253,10 +253,11 @@ procedure tinfosdfo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
 var
   theMemBitmap: TBGRABitmap;
 begin
- // theMemBitmap := TBGRABitmap.Create(PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0)); 
+  theMemBitmap := TBGRABitmap.Create(PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0)); 
   theMemBitmap := aimage.MemBitmap.Resample(PimgPreview.Width, PimgPreview.Height,rmFineResample) as TBGRABitmap;
   theMemBitmap.Rectangle(0,0,PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0),BGRA(150,150,150,255),dmDrawWithTransparency,8192);
   theMemBitmap.draw(acanvas, 0, 0, True);
+  theMemBitmap.free;
 end;
 
 function tinfosdfo.Execute(thread: tmsethread): integer;
@@ -292,7 +293,7 @@ end;
 
 procedure tinfosdfo.ondest(const Sender: TObject);
 begin
-  if Assigned(aimage) then
+ if Assigned(aimage) then
     aimage.Free;
   if Assigned(thethread) then
     thethread.terminate;

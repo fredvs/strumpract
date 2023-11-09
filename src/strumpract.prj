@@ -325,8 +325,8 @@ options=114
  index=2
  [projectoptionsfo]
  stackedunder=
- x=394
- y=119
+ x=586
+ y=209
  cx=818
  cy=686
 programparameters=18
@@ -557,7 +557,7 @@ befcommand=0
 aftcommand=0
 makeoptions=17
  -Mobjfpc -Fcutf8
- -gl
+ -ghl
  -FE.
  -WG
  -gw2
@@ -819,12 +819,12 @@ modulefiles=2
 befcommandon=0
 makeoptionson=17
  4095
- 0
+ 12
  0
  192
  0
  1019
- 4095
+ 4091
  4
  4095
  0
@@ -866,12 +866,12 @@ compilerusedon=29
  0
  0
 debuggerusedon=6
- 3856
+ 3860
  0
  0
  0
  0
- 239
+ 235
 exeusedon=14
  3903
  0
@@ -1620,7 +1620,7 @@ findoptions=1
 editpos=4
  0,13
  0,-1073741823
- 0,-1073741823
+ 0,266
  0,-1073741823
 bookmarks0=0
 bookmarks1=0
@@ -1675,7 +1675,7 @@ nomenumodules=7
  0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=2
 [layout]
 windowlayout=658
  [mainfo.basedock]
@@ -1691,8 +1691,8 @@ windowlayout=658
  ny=0
  ncx=0
  ncy=0
- x=140
- y=331
+ x=45
+ y=112
  cx=1428
  cy=724
  rcx=0
@@ -1719,8 +1719,8 @@ windowlayout=658
  ny=0
  ncx=0
  ncy=0
- x=493
- y=171
+ x=550
+ y=222
  cx=497
  cy=314
  rcx=0
@@ -2135,7 +2135,7 @@ windowlayout=658
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/strumpract.pas
+ value=/home/fred/strumpract/src/infosd.pas
  history=5
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/infosd.pas
@@ -2164,7 +2164,7 @@ windowlayout=658
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=2
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
