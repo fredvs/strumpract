@@ -143,8 +143,9 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=resizein
+ value=infolength
  history=20
+  infolength
   resizein
   TResampleMode
   imgPreview
@@ -164,7 +165,6 @@ findinfiledialog=83
   lenght
   filelistfo.bounds_cy
   filelistfo.hei
-  timermix.Enabled
  [findinfileadialogfo]
  stackedunder=
  x=210
@@ -1204,7 +1204,7 @@ line=35
  1643
  209
  1136
- 6168
+ 6175
  450
  5
  866
@@ -1623,30 +1623,35 @@ findhistory=20
 +    tbutton6.Visible := False;
  onstartsto
 findoptions=1
-editpos=5
+editpos=6
  0,7
- 19,289
- 0,2352
+ 0,17
  0,-1073741823
  0,-1073741823
+ 0,-1073741823
+ 0,6671
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
-sourcefiles=5
+bookmarks5=0
+sourcefiles=6
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/infosd.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/imagedancer.pas
-relpaths=5
+ ${PROJECTDIR}/main.pas
+relpaths=6
  strumpract.pas
  infosd.pas
  songplayer.pas
  main.pas
  imagedancer.pas
-ismoduletexts=5
+ main.pas
+ismoduletexts=6
+ 0
  0
  0
  0
@@ -1689,10 +1694,17 @@ nomenumodules=8
  0
  0
 [sourcefo.files_tab]
+order=6
+ 0
+ 1
+ 5
+ 2
+ 3
+ 4
 firsttab=0
-index=1
+index=2
 [layout]
-windowlayout=680
+windowlayout=687
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1810,7 +1822,7 @@ windowlayout=680
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=targetconsolefo
  parent=
  mdistate=0
  nx=0
@@ -1907,7 +1919,7 @@ windowlayout=680
  [breakpointsfo]
  splitdir=0
  useroptions=268451947
- stackedunder=conflangfo
+ stackedunder=memoryfo
  parent=
  mdistate=0
  nx=0
@@ -2150,8 +2162,9 @@ windowlayout=680
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/infosd.pas
+ value=/home/fred/strumpract/src/main.pas
  history=8
+  /home/fred/strumpract/src/infosd.pas
   /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/imagedancer.pas
   /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgraanimatedgif.pas
@@ -2159,7 +2172,6 @@ windowlayout=680
   /home/fred/Downloads/strumpract-betterdrum0/src/alsa_mixer.pas
   /home/fred/Downloads/strumpract-360/src/drums.pas
   /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgrafreetype.pas
-  /home/fred/strumpract/src/infosd.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2181,8 +2193,15 @@ windowlayout=680
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=6
+  0
+  1
+  5
+  2
+  3
+  4
  firsttab=0
- index=1
+ index=2
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]

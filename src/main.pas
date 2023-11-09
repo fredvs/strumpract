@@ -4758,6 +4758,7 @@ begin
       infocom.font.color    := cl_black;
       infotag.font.color    := cl_black;
       infolength.font.color := cl_black;
+      tbutton1.font.color := cl_black;
       inforate.font.color   := cl_black;
       tracktag.font.color   := cl_black;
       infochan.font.color   := cl_black;
@@ -4785,6 +4786,7 @@ begin
       infoyear.font.color   := cl_black;
       infocom.font.color    := cl_black;
       infotag.font.color    := cl_black;
+      tbutton1.font.color := cl_black;
       infolength.font.color := cl_black;
       inforate.font.color   := cl_black;
       infochan.font.color   := cl_black;
@@ -5405,8 +5407,10 @@ begin
       infoalbum.font.color  := cl_black;
       infoyear.font.color   := cl_black;
       infocom.font.color    := cl_black;
+      tbutton1.font.color := cl_black;
       infotag.font.color    := cl_black;
       infolength.font.color := cl_black;
+      tbutton1.font.color := cl_black;
       inforate.font.color   := cl_black;
       tracktag.font.color   := cl_black;
       infochan.font.color   := cl_black;
@@ -5432,6 +5436,7 @@ begin
       infoname.font.color   := cl_black;
       infoalbum.font.color  := cl_black;
       infoyear.font.color   := cl_black;
+      tbutton1.font.color := cl_black;
       infocom.font.color    := cl_black;
       infotag.font.color    := cl_black;
       infolength.font.color := cl_black;
@@ -6069,6 +6074,7 @@ begin
       infoartist.font.color := cl_black;
       infoname.font.color   := cl_black;
       infoalbum.font.color  := cl_black;
+      tbutton1.font.color := cl_black;
       infoyear.font.color   := cl_black;
       infocom.font.color    := cl_black;
       infotag.font.color    := cl_black;
@@ -6099,6 +6105,7 @@ begin
       infoname.font.color   := cl_black;
       tracktag.font.color   := cl_black;
       infoalbum.font.color  := cl_black;
+      tbutton1.font.color := cl_black;
       infoyear.font.color   := cl_black;
       infocom.font.color    := cl_black;
       infotag.font.color    := cl_black;
@@ -6631,6 +6638,7 @@ begin
     begin
       infofile.font.color         := cl_white;
       infoartist.font.color       := cl_white;
+      tbutton1.font.color         := cl_white;
       infoname.font.color         := cl_white;
       infoalbum.font.color        := cl_white;
       infoyear.font.color         := cl_white;
@@ -6661,6 +6669,7 @@ begin
       infoartist.font.color       := cl_white;
       infoname.font.color         := cl_white;
       infoalbum.font.color        := cl_white;
+      tbutton1.font.color         := cl_white;
       tracktag.font.color         := cl_white;
       infoyear.font.color         := cl_white;
       infocom.font.color          := cl_white;
