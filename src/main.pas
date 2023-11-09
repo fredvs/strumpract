@@ -7702,6 +7702,9 @@ begin
   else
     drumsvisible.Value := 0;
  
+ infosdfo.ttimer1.enabled := false;
+ infosdfo2.ttimer1.enabled := false;   
+
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);

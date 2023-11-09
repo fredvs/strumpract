@@ -12,6 +12,7 @@ uses
   mseguiintf,
   SysUtils,
   mseapplication,
+  fptimer,
   msestat,
   msemenus,
   msegui,
@@ -25,7 +26,6 @@ uses
   BGRABitmap,
   BGRAAnimatedGif,
   BGRABitmapTypes,
-  fptimer,
   captionstrumpract,
   mseimage,
   msesimplewidgets,
@@ -49,6 +49,7 @@ type
     aimage: TBGRAAnimatedGif;
     imgPreview: timage;
     PimgPreview: tpaintbox;
+    ttimer1: tfptimer;
 
     procedure onshow(const Sender: TObject);
     procedure ondock(const Sender: TObject);
@@ -57,12 +58,9 @@ type
     procedure resizein(fontheight: integer);
     procedure oncre(const Sender: TObject);
     procedure onpaintimg(const Sender: twidget; const acanvas: tcanvas);
-    procedure loadimagetag(aitag: Tstream);
+    procedure loadimagetag(aitag: TStream);
     procedure ondest(const Sender: TObject);
-
-  protected
-    thethread: tmsethread;
-    function Execute(thread: tmsethread): integer;
+    procedure ontime(Sender: TObject);
   end;
 
 var
@@ -128,6 +126,14 @@ begin
         children[i1].Width  := round(boundchildin[i2].Width * ratio);
         children[i1].Height := round(boundchildin[i2].Height * ratio);
       end;
+
+  PimgPreview.left   := round(217 * ratio);
+  PimgPreview.Height := round(216 * ratio);
+  PimgPreview.Width  := round(216 * ratio);
+
+  imgPreview.left   := round(217 * ratio);
+  imgPreview.Height := round(216 * ratio);
+  imgPreview.Width  := round(216 * ratio);
 
 end;
 
@@ -226,53 +232,45 @@ begin
     ondock(Sender);
 end;
 
-procedure tinfosdfo.loadimagetag(aitag: Tstream);
+procedure tinfosdfo.loadimagetag(aitag: TStream);
 begin
-  //  if Assigned(aimage) then aimage.Free;
+  ttimer1.Enabled := False;
+
+  if Assigned(aimage) then
+    aimage.Free;
   aimage := TBGRAAnimatedGif.Create(aitag);
-  
-  aimage.BackgroundMode := gbmEraseBackground;
-  aimage.EraseColor     := PimgPreview.Color; // assign the actual color of the form
+
+  //aimage.BackgroundMode := gbmEraseBackground;
+  //aimage.EraseColor     := PimgPreview.Color; // assign the actual color of the form
 
   countframe := aimage.Count;
 
   imgPreview.Visible  := False;
   PimgPreview.Visible := True;
-  
-  if Assigned(thethread) then
-  begin
-    thethread.terminate;
-    sleep(10);
-  end;
 
-  thethread := tmsethread.Create(@Execute);
-  thethread.freeonterminate := True;
+  PimgPreview.invalidate;
+
+  if countframe > 1 then
+    ttimer1.Enabled := True;
+end;
+
+procedure tinfosdfo.ontime(Sender: TObject);
+begin
+  PimgPreview.invalidate;
+  //ttimer1.interval := aImage.TimeUntilNextImageMs; // wait until next frame needs to be drawn
 end;
 
 procedure tinfosdfo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
 var
   theMemBitmap: TBGRABitmap;
 begin
-  theMemBitmap := TBGRABitmap.Create(PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0)); 
-  theMemBitmap := aimage.MemBitmap.Resample(PimgPreview.Width, PimgPreview.Height,rmFineResample) as TBGRABitmap;
-  theMemBitmap.Rectangle(0,0,PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0),BGRA(150,150,150,255),dmDrawWithTransparency,8192);
+  //theMemBitmap := TBGRABitmap.Create(PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0)); 
+  theMemBitmap := aimage.MemBitmap.Resample(PimgPreview.Width, PimgPreview.Height, rmFineResample) as TBGRABitmap;
+  theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
   theMemBitmap.draw(acanvas, 0, 0, True);
-  theMemBitmap.free;
-end;
-
-function tinfosdfo.Execute(thread: tmsethread): integer;
-begin
-  Result := 0;
-  application.queueasynccall(@PimgPreview.invalidate);
-
+  theMemBitmap.Free;
   if countframe > 1 then
-  begin
-    sleep(150);
-    repeat
-      application.queueasynccall(@PimgPreview.invalidate);
-      sleep(150);
-    until False;
-  end;
+    ttimer1.Enabled := True;
 end;
 
 procedure tinfosdfo.oncre(const Sender: TObject);
@@ -289,14 +287,20 @@ begin
     boundchildin[i1].Height := children[i1].Height;
     boundchildin[i1].Name   := children[i1].Name;
   end;
+
+  ttimer1          := tfptimer.Create(nil);
+  ttimer1.OnTimer  := @ontime;
+  ttimer1.interval := 130;
+  ttimer1.Enabled  := False;
+
 end;
 
 procedure tinfosdfo.ondest(const Sender: TObject);
 begin
- if Assigned(aimage) then
+  if Assigned(aimage) then
     aimage.Free;
-  if Assigned(thethread) then
-    thethread.terminate;
+  ttimer1.Enabled := False;
+  ttimer1.Free;
 end;
 
 end.

@@ -2274,7 +2274,10 @@ begin
         begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
-            infosdfo.loadimagetag(TagReader.Tags.Images[0].Image)
+          begin
+           // istream1 := TagReader.Tags.Images[0].Image;
+            infosdfo.loadimagetag(TagReader.Tags.Images[0].Image);
+           end  
           else
           begin
             infosdfo.imgPreview.bitmap   := mainfo.inotag.bitmap;
@@ -2405,8 +2408,7 @@ begin
           else
             ttimerwavdata.Enabled := True;
       end;
-
-      TagReader.Free;
+        TagReader.Free;
     end
     else
       ShowMessage(historyfn.Value + ' does not exist or not mounted...');
@@ -2571,6 +2573,7 @@ procedure tsongplayerfo.ondestr(const Sender: TObject);
 begin
   uos_Stop(theplayer);
   uos_Stop(theplayer2);
+  
   statusanim        := 0;
   Timerwait.Enabled := False;
   Timerwait.Enabled := False;
