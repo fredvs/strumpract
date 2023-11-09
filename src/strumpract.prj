@@ -1598,7 +1598,7 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=LoadFromStreamAsPng
+finddtext=infosd
 findhistory=20
  infosd
  draw
@@ -1625,8 +1625,8 @@ findhistory=20
 findoptions=1
 editpos=5
  0,7
- 0,0
  0,-1073741823
+ 0,2352
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1690,7 +1690,7 @@ nomenumodules=8
  0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=2
 [layout]
 windowlayout=679
  [mainfo.basedock]
@@ -1934,7 +1934,7 @@ windowlayout=679
  [symbolfo]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
@@ -2150,7 +2150,7 @@ windowlayout=679
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/imagedancer.pas
+ value=/home/fred/strumpract/src/songplayer.pas
  history=7
   /home/fred/strumpract/src/imagedancer.pas
   /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgraanimatedgif.pas
@@ -2181,7 +2181,7 @@ windowlayout=679
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=2
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2356,7 +2356,7 @@ windowlayout=679
  [_mse_imagedancerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=stackfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
