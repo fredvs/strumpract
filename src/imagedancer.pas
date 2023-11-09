@@ -34,7 +34,6 @@ type
   timagedancerfo = class(tdockform)
 
     openglwidget: topenglwidget;
-   tpaintbox1: tpaintbox;
     procedure onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
     procedure InvalidateImage;
     procedure ondestroy(const Sender: TObject);

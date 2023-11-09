@@ -13,7 +13,6 @@ uses
   msemenus,
   msegui,
   SysUtils,
-  msetimer,
   msegraphics,
   msegraphutils,
   mseevent,
@@ -28,6 +27,7 @@ uses
   mseifiglob,
   msescrollbar,
   msesimplewidgets,
+  msetimer,
   msewidgets;
 
 type

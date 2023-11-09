@@ -9,12 +9,13 @@ interface
 uses
  {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,config,configlayout,
  mseguiglob,po2arrays,msegraphedits,msescrollbar,Process,mseguiintf,
- mseapplication,msestat,msegui,msetimer,msegraphics,msegraphutils,mseclasses,
+ mseapplication,msestat,msegui,msegraphics,msegraphutils,mseclasses,
  msewidgets,mseforms,msechart,status,msedock,msedataedits,mseedit,msestatfile,
  SysUtils,Classes,Math,msebitmap,synthe,msesys,msemenus,msestream,msegrids,
  mselistbrowser,mseact,mseificomp,mseificompglob,mseifiglob,msestrings,
- msedatanodes,msedragglob,msedropdownlist,msefiledialogx,msegridsglob,
- {$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,mseconsts,captionstrumpract;
+ msedatanodes,msedragglob,msedropdownlist,msefiledialogx,msegridsglob,msetimer,
+ {$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,mseconsts,captionstrumpract,
+  mseimage;
 
 type
   boundchild = record
@@ -59,6 +60,7 @@ type
     drumsvisible: tintegeredit;
     sliderimage: tbitmapcomp;
    vievmenuicons: timagelist;
+   inotag: timage;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);

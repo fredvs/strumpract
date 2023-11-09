@@ -7,7 +7,6 @@ uses
   ctypes,
   uos_flat,
   infosd,
-  msetimer,
   msetypes,
   mseglob,
   mseguiglob,
@@ -47,6 +46,7 @@ uses
   msedispwidgets,
   mserichstring,
   msedropdownlist,
+  msetimer,
   msegridsglob;
 
 type

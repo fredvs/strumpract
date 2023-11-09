@@ -14,7 +14,6 @@ uses
   msemenus,
   Math,
   msegui,
-  msetimer,
   msegraphics,
   msegraphutils,
   mseevent,
@@ -45,6 +44,7 @@ uses
   msescrollbar,
   msedispwidgets,
   mserichstring,
+  msetimer,
   mseimage;
 
 type

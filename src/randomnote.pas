@@ -12,6 +12,7 @@ uses
   mseguiintf,
   mseapplication,
   msestat,
+  msetimer,
   msemenus,
   msegui,
   msegraphics,
@@ -39,8 +40,7 @@ uses
   msechartedit,
   msesiggui,
   msesignal,
-  mseimage,
-  msetimer;
+  mseimage;
 
 type
   trandomnotefo = class(tdockform)

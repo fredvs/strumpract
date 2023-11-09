@@ -6,7 +6,6 @@ interface
 uses
   ctypes,
   uos_flat,
-  msetimer,
   msetypes,
   mseglob,
   mseguiglob,
@@ -50,6 +49,7 @@ uses
   mse_ovobasetag,
   mse_ovoaudiotag,
   msegridsglob,
+  msetimer,
   mseimage;
 
 type
@@ -2274,12 +2274,13 @@ begin
         begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
-          begin
-            infosdfo.imgPreview.bitmap.LoadFromStream(TagReader.Tags.Images[0].Image);
-            infosdfo.imgPreview.Visible := True;
-          end
+            infosdfo.loadimagetag(TagReader.Tags.Images[0].Image)
           else
-            infosdfo.imgPreview.Visible := False;
+          begin
+            infosdfo.imgPreview.bitmap   := mainfo.inotag.bitmap;
+            infosdfo.imgPreview.Visible  := True;
+            infosdfo.PimgPreview.Visible := False;
+          end;
 
           CommonTags := TagReader.GetCommonTags;
 
@@ -2343,12 +2344,13 @@ begin
         begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
-          begin
-            infosdfo2.imgPreview.bitmap.LoadFromStream(TagReader.Tags.Images[0].Image);
-            infosdfo2.imgPreview.Visible := True;
-          end
+            infosdfo2.loadimagetag(TagReader.Tags.Images[0].Image)
           else
-            infosdfo2.imgPreview.Visible := False;
+          begin
+            infosdfo2.imgPreview.bitmap   := mainfo.inotag.bitmap;
+            infosdfo2.imgPreview.Visible  := True;
+            infosdfo2.PimgPreview.Visible := False;
+          end;
 
           CommonTags := TagReader.GetCommonTags;
 

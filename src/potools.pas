@@ -46,11 +46,11 @@ uses
   msesys,
   msegraphedits,
   msescrollbar,
-  msetimer,
   msedispwidgets,
   mserichstring,
   msestringcontainer,
   captionstrumpract,
+  msetimer,
   msefiledialogx;
 
 type

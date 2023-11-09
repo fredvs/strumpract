@@ -4,10 +4,13 @@ unit infosd;
 interface
 
 uses
+  types,
+  msethread,
   msetypes,
   mseglob,
   mseguiglob,
   mseguiintf,
+  SysUtils,
   mseapplication,
   msestat,
   msemenus,
@@ -15,9 +18,14 @@ uses
   msegraphics,
   msegraphutils,
   mseevent,
+  Classes,
   mseclasses,
   mseforms,
   msedock,
+  BGRABitmap,
+  BGRAAnimatedGif,
+  BGRABitmapTypes,
+  fptimer,
   captionstrumpract,
   mseimage,
   msesimplewidgets,
@@ -25,7 +33,6 @@ uses
 
 type
   tinfosdfo = class(tdockform)
-    imgPreview: timage;
     infolength: tlabel;
     infobpm: tlabel;
     tracktag: tlabel;
@@ -39,12 +46,23 @@ type
     infoname: tlabel;
     infofile: tlabel;
     tlabel2: tlabel;
+    aimage: TBGRAAnimatedGif;
+    imgPreview: timage;
+    PimgPreview: tpaintbox;
+
     procedure onshow(const Sender: TObject);
     procedure ondock(const Sender: TObject);
     procedure onfloat(const Sender: TObject);
     procedure onevstart(const Sender: TObject);
     procedure resizein(fontheight: integer);
     procedure oncre(const Sender: TObject);
+    procedure onpaintimg(const Sender: twidget; const acanvas: tcanvas);
+    procedure loadimagetag(aitag: Tstream);
+    procedure ondest(const Sender: TObject);
+
+  protected
+    thethread: tmsethread;
+    function Execute(thread: tmsethread): integer;
   end;
 
 var
@@ -59,6 +77,7 @@ uses
 
 var
   boundchildin: array of boundchild;
+  countframe: integer = 0;
 
 procedure tinfosdfo.resizein(fontheight: integer);
 var
@@ -66,35 +85,36 @@ var
   ratio: double;
 begin
   ratio        := fontheight / 12;
-  bounds_cxmin    := round(442 * ratio);
-  bounds_cymin    := round(216 * ratio);
- 
-   if (parentwidget <> nil) then
-   begin
-   bounds_cxmax := bounds_cxmin;
-   bounds_cymax := bounds_cymin;
-   end
-   else begin
-   bounds_cxmax := 0;
-   bounds_cymax := 0;
-   end;
- 
-  font.Height  := fontheight;
+  bounds_cxmin := round(442 * ratio);
+  bounds_cymin := round(216 * ratio);
 
-  infofile.frame.font.Height  := round(ratio * 10);
-  infoname.frame.font.Height  := infofile.frame.font.Height;
-  infoname.frame.font.Height  := infofile.frame.font.Height;
-  infoartist.frame.font.Height  := infofile.frame.font.Height;
+  if (parentwidget <> nil) then
+  begin
+    bounds_cxmax := bounds_cxmin;
+    bounds_cymax := bounds_cymin;
+  end
+  else
+  begin
+    bounds_cxmax := 0;
+    bounds_cymax := 0;
+  end;
+
+  font.Height := fontheight;
+
+  infofile.frame.font.Height   := round(ratio * 10);
+  infoname.frame.font.Height   := infofile.frame.font.Height;
+  infoname.frame.font.Height   := infofile.frame.font.Height;
+  infoartist.frame.font.Height := infofile.frame.font.Height;
   infoalbum.frame.font.Height  := infofile.frame.font.Height;
-  infocom.frame.font.Height  := infofile.frame.font.Height;
-  infoyear.frame.font.Height  := infofile.frame.font.Height;
-  infotag.frame.font.Height  := infofile.frame.font.Height;
-  tracktag.frame.font.Height  := infofile.frame.font.Height;
-  inforate.frame.font.Height  := infofile.frame.font.Height;
-  infochan.frame.font.Height  := infofile.frame.font.Height;
-  infolength.frame.font.Height  := infofile.frame.font.Height;
-  infobpm.frame.font.Height  := infofile.frame.font.Height;
- 
+  infocom.frame.font.Height    := infofile.frame.font.Height;
+  infoyear.frame.font.Height   := infofile.frame.font.Height;
+  infotag.frame.font.Height    := infofile.frame.font.Height;
+  tracktag.frame.font.Height   := infofile.frame.font.Height;
+  inforate.frame.font.Height   := infofile.frame.font.Height;
+  infochan.frame.font.Height   := infofile.frame.font.Height;
+  infolength.frame.font.Height := infofile.frame.font.Height;
+  infobpm.frame.font.Height    := infofile.frame.font.Height;
+
   frame.grip_size := round(8 * ratio);
 
   for i1 := 0 to childrencount - 1 do
@@ -135,7 +155,6 @@ begin
         mainfo.tmainmenu1.menu.itembynames(['show', 'showinfos2']).Caption :=
           lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
           lang_infosfo[Ord(in_infosfo)] + ' 2';
-
 
     if (norefresh = False) and (parentwidget <> nil) then
     begin
@@ -207,6 +226,54 @@ begin
     ondock(Sender);
 end;
 
+procedure tinfosdfo.loadimagetag(aitag: Tstream);
+begin
+  //  if Assigned(aimage) then aimage.Free;
+  aimage := TBGRAAnimatedGif.Create(aitag);
+  
+  aimage.BackgroundMode := gbmEraseBackground;
+  aimage.EraseColor     := PimgPreview.Color; // assign the actual color of the form
+
+  countframe := aimage.Count;
+
+  imgPreview.Visible  := False;
+  PimgPreview.Visible := True;
+  
+  if Assigned(thethread) then
+  begin
+    thethread.terminate;
+    sleep(10);
+  end;
+
+  thethread := tmsethread.Create(@Execute);
+  thethread.freeonterminate := True;
+end;
+
+procedure tinfosdfo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
+var
+  theMemBitmap: TBGRABitmap;
+begin
+ // theMemBitmap := TBGRABitmap.Create(PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0)); 
+  theMemBitmap := aimage.MemBitmap.Resample(PimgPreview.Width, PimgPreview.Height,rmFineResample) as TBGRABitmap;
+  theMemBitmap.Rectangle(0,0,PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0),BGRA(150,150,150,255),dmDrawWithTransparency,8192);
+  theMemBitmap.draw(acanvas, 0, 0, True);
+end;
+
+function tinfosdfo.Execute(thread: tmsethread): integer;
+begin
+  Result := 0;
+  application.queueasynccall(@PimgPreview.invalidate);
+
+  if countframe > 1 then
+  begin
+    sleep(150);
+    repeat
+      application.queueasynccall(@PimgPreview.invalidate);
+      sleep(150);
+    until False;
+  end;
+end;
+
 procedure tinfosdfo.oncre(const Sender: TObject);
 var
   i1: integer;
@@ -221,7 +288,14 @@ begin
     boundchildin[i1].Height := children[i1].Height;
     boundchildin[i1].Name   := children[i1].Name;
   end;
+end;
 
+procedure tinfosdfo.ondest(const Sender: TObject);
+begin
+  if Assigned(aimage) then
+    aimage.Free;
+  if Assigned(thethread) then
+    thethread.terminate;
 end;
 
 end.

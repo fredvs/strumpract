@@ -40,8 +40,8 @@ uses
   msehash,
   msesystypes,
   msereal,
-  msetimer,
   mseglob,
+  msetimer,
   Math;
 
 const

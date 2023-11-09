@@ -27,7 +27,6 @@ uses
   mseifiglob,
   msescrollbar,
   msebitmap,
-  msetimer,
   msesimplewidgets,
   msewidgets,
   msegrids,
@@ -35,6 +34,7 @@ uses
   msedropdownlist,
   mseedit,
   msestatfile,
+  msetimer,
   msestream;
 
 type

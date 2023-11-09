@@ -6,11 +6,11 @@ unit drums;
 interface
 
 uses
- mseglob,msetimer,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
+ mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
  msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msesimplewidgets,msewidgets,msegraphedits,msedataedits,SysUtils,Classes,
  msedragglob,mseificomp,mseificompglob,mseifiglob,msescrollbar,msetypes,mseact,
- mseedit,msestatfile,msestream,msestrings,msedispwidgets,mserichstring,
+ mseedit,msestatfile,msestream,msestrings,msedispwidgets,mserichstring,msetimer,
  msebitmap,msedropdownlist;
 
 type

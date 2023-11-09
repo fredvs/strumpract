@@ -7,7 +7,7 @@ interface
 
 uses
  {$ifdef unix}baseunix,{$endif}Math,msetypes,mseglob,mseguiglob,mseguiintf,
- msetimer,mseapplication,msestat,msemenus,msefileutils,msegui,msegraphics,
+ mseapplication,msestat,msemenus,msefileutils,msegui,msegraphics,msetimer,
  msegraphutils,mseevent,msedatalist,mseclasses,msegridsglob,mseforms,msedock,
  msedragglob,msesimplewidgets,mclasses,msewidgets,mseact,msebitmap,msedataedits,
  msedatanodes,mseedit,msefiledialogx,msegrids,mseificomp,mseificompglob,
