@@ -257,9 +257,14 @@ begin
 end;
 
 procedure tinfosdfo.ontime(Sender: TObject);
+var
+interva : integer;
 begin
+  ttimer1.Enabled  := false;
   PimgPreview.invalidate;
-  //ttimer1.interval := aImage.TimeUntilNextImageMs; // wait until next frame needs to be drawn
+  interva := aImage.TimeUntilNextImageMs; 
+  if interva < 15 then interva := 15;
+  if tbutton1.Caption = '||' then ttimer1.Enabled := True;
 end;
 
 procedure tinfosdfo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
@@ -290,7 +295,7 @@ begin
 
   ttimer1          := tfptimer.Create(nil);
   ttimer1.OnTimer  := @ontime;
-  ttimer1.interval := 130;
+  ttimer1.interval := 15;
   ttimer1.Enabled  := False;
 
 end;
