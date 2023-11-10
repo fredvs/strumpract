@@ -7227,7 +7227,6 @@ end;
 
 procedure tmainfo.onexit(const Sender: TObject);
 begin
-
   Close;
 end;
 
@@ -7713,7 +7712,7 @@ begin
  
  infosdfo.ttimer1.enabled := false;
  infosdfo2.ttimer1.enabled := false;   
-
+ 
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);

@@ -1709,14 +1709,19 @@ begin
   begin
     hasmixed1 := True;
     uos_Stop(theplayer);
+    infosdfo.ttimer1.enabled := false;
+    infosdfo.tbutton1.Caption := '>';
   end;
 
   if tag = 1 then
   begin
     hasmixed2 := True;
     uos_Stop(theplayer2);
+    infosdfo2.ttimer1.enabled := false;
+    infosdfo2.tbutton1.Caption := '>';
   end;
   multiplier := 0;
+  application.processmessages;
 end;
 
 procedure tsongplayerfo.setequalizerenable(asender: integer; avalue: Boolean);

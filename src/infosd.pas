@@ -263,7 +263,7 @@ begin
   ttimer1.Enabled  := false;
   PimgPreview.invalidate;
   interva := aImage.TimeUntilNextImageMs; 
-  if interva < 100 then interva := 100;
+  if interva < 15 then interva := 15;
   ttimer1.interval := interva;
   if tbutton1.Caption = '||' then ttimer1.Enabled := True;
 end;
@@ -296,7 +296,7 @@ begin
 
   ttimer1          := tfptimer.Create(nil);
   ttimer1.OnTimer  := @ontime;
-  ttimer1.interval := 100;
+  ttimer1.interval := 15;
   ttimer1.Enabled  := False;
 
 end;
