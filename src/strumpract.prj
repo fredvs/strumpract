@@ -819,7 +819,7 @@ modulefiles=2
 befcommandon=0
 makeoptionson=17
  4095
- 0
+ 4
  0
  192
  0
@@ -1619,7 +1619,7 @@ findhistory=20
 findoptions=1
 editpos=4
  0,7
- 0,266
+ 0,265
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -1691,8 +1691,8 @@ windowlayout=662
  ny=0
  ncx=0
  ncy=0
- x=39
- y=87
+ x=54
+ y=61
  cx=1428
  cy=724
  rcx=0
