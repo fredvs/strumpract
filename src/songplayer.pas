@@ -1721,8 +1721,7 @@ begin
     infosdfo2.tbutton1.Caption := '>';
   end;
   multiplier := 0;
-  application.processmessages;
-end;
+ end;
 
 procedure tsongplayerfo.setequalizerenable(asender: integer; avalue: Boolean);
 var
