@@ -2240,8 +2240,10 @@ begin
     '.' + c_linefeed + 'https://github.com/mse-org/mseide-msegui' +
     c_linefeed + c_linefeed +
     'Audio library: uos 1.8.0.' + c_linefeed +
-    'https://github.com/fredvs/uos' + c_linefeed +
-    c_linefeed + '© 2017-2023' + c_linefeed +
+    'https://github.com/fredvs/uos' + c_linefeed + c_linefeed +
+    'Graphic library: BGRABitmap v11.5.7.' + c_linefeed +
+    'https://github.com/bgrabitmap/bgrabitmap' + c_linefeed + c_linefeed
+     + '© 2017-2023' + c_linefeed +
     'Fred van Stappen <fiens@hotmail.com>';
   aboutfo.Show(True);
 end;
