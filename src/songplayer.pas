@@ -956,6 +956,8 @@ var
   i: integer;
   temphistory: msestringarty;
 begin
+  if filelistfo.list_files.rowcount > 0 then
+  begin
   if tag = 0 then
   begin
     fileex := fileext(PChar(ansistring(historyfn.Value)));
@@ -1550,7 +1552,7 @@ begin
     else
       ShowMessage(historyfn.Value + ' is not a audio file...');
   end;
-
+  end else ShowMessage('There is no audio file in the list...');
 end;
 
 procedure tsongplayerfo.doplayeresume(const Sender: TObject);

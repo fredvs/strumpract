@@ -7,7 +7,7 @@ uses
  msesimplewidgets, msewidgets, mseact, msechartedit, msedataedits,
  msedropdownlist, mseedit, msegraphedits, mseificomp, mseificompglob,mseifiglob,
  msescrollbar, msesiggui, msesignal, msestatfile, msestream,sysutils,
- msedispwidgets, mserichstring, msefilter, msesigaudio, msesignoise;
+ msedispwidgets, mserichstring, msefilter, uos_msesigaudio, msesignoise;
 
 type
  tpianofo = class(tdockform)

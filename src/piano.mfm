@@ -39,6 +39,7 @@ object pianofo: tpianofo
   font.name = 'stf_default'
   font.localprops = []
   statfile = mainfo.tstatfile1
+  windowopacity = -Inf
   oncreate = crea
   oneventloopstart = oncreated
   onclose = oncloseex

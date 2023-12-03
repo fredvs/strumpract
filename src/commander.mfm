@@ -221,11 +221,11 @@ object commanderfo: tcommanderfo
       bounds_x = 1
       bounds_y = 1
       bounds_cx = 56
-      bounds_cy = 18
+      bounds_cy = 16
       anchors = [an_top]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Drums'
-      reffontheight = 17
+      reffontheight = 15
     end
     object tslider2val: tbutton
       frame.optionsskin = [fso_flat]
@@ -303,11 +303,11 @@ object commanderfo: tcommanderfo
       bounds_x = 1
       bounds_y = 1
       bounds_cx = 37
-      bounds_cy = 18
+      bounds_cy = 16
       anchors = [an_top]
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Input'
-      reffontheight = 17
+      reffontheight = 15
     end
     object butinput: tbooleanedit
       color = -2147483645
@@ -319,19 +319,19 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        21
-        2
+        22
+        1
         0
-        3
+        2
       )
       face.localprops = []
       face.template = recorderfo.tfacereclight
       taborder = 2
       hint = 'Enable Live Input'
-      bounds_x = 3
-      bounds_y = 14
-      bounds_cx = 32
-      bounds_cy = 19
+      bounds_x = 2
+      bounds_y = 15
+      bounds_cx = 33
+      bounds_cy = 17
       onchange = onsetinput
       colorglyph = 4868682
     end
@@ -481,10 +481,10 @@ object commanderfo: tcommanderfo
       bounds_x = 2
       bounds_y = 1
       bounds_cx = 28
-      bounds_cy = 18
+      bounds_cy = 16
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Gen'
-      reffontheight = 17
+      reffontheight = 15
     end
     object sysvol: tslider
       color = -2147483645
@@ -614,7 +614,7 @@ object commanderfo: tcommanderfo
       bounds_x = 99
       bounds_y = 44
       bounds_cx = 60
-      bounds_cy = 36
+      bounds_cy = 34
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       ontextedited = ontextedit
@@ -626,7 +626,7 @@ object commanderfo: tcommanderfo
       valuemax = 10000
       step = 10
       wheelsensitivity = 1
-      reffontheight = 17
+      reffontheight = 15
     end
     object btnStop: tbutton
       color = -2147483645
@@ -1474,10 +1474,10 @@ object commanderfo: tcommanderfo
       bounds_x = 32
       bounds_y = 1
       bounds_cx = 45
-      bounds_cy = 18
+      bounds_cy = 16
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Play1'
-      reffontheight = 17
+      reffontheight = 15
     end
     object nameplayers2: tstringdisp
       color = -2147483645
@@ -1492,10 +1492,10 @@ object commanderfo: tcommanderfo
       bounds_x = 182
       bounds_y = 1
       bounds_cx = 45
-      bounds_cy = 18
+      bounds_cy = 16
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Play2'
-      reffontheight = 17
+      reffontheight = 15
     end
     object tstringdisp1: tstringdisp
       frame.localprops = []
@@ -1505,8 +1505,8 @@ object commanderfo: tcommanderfo
       bounds_x = 205
       bounds_y = 34
       bounds_cx = 84
-      bounds_cy = 85
-      reffontheight = 17
+      bounds_cy = 83
+      reffontheight = 15
       object directmix: tbooleanedit
         color = -2147483645
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -1522,7 +1522,7 @@ object commanderfo: tcommanderfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
@@ -1530,8 +1530,8 @@ object commanderfo: tcommanderfo
         face.template = mainfo.tfaceplayerlight
         hint = 'Direct MIX (0 second time)'
         bounds_x = 35
-        bounds_y = 40
-        bounds_cy = 27
+        bounds_y = 41
+        bounds_cy = 26
         statfile = mainfo.tstatfile1
         onchange = onchangedirectmix
         colorglyph = 4868682
@@ -1550,19 +1550,19 @@ object commanderfo: tcommanderfo
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          18
+          19
           2
           0
-          3
+          2
         )
         face.localprops = []
         face.template = mainfo.tfaceplayerlight
         taborder = 1
         hint = 'View Meters on/off'
-        bounds_x = 43
+        bounds_x = 42
         bounds_y = 33
-        bounds_cx = 31
-        bounds_cy = 16
+        bounds_cx = 32
+        bounds_cy = 15
         statfile = mainfo.tstatfile1
         onchange = onchangevuset
         colorglyph = 4868682
@@ -1581,8 +1581,8 @@ object commanderfo: tcommanderfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          2
-          20
+          1
+          21
           2
         )
         face.localprops = []
@@ -1590,9 +1590,9 @@ object commanderfo: tcommanderfo
         taborder = 2
         hint = 'Auto Mixing on/off'
         bounds_x = 9
-        bounds_y = 30
-        bounds_cx = 33
-        bounds_cy = 16
+        bounds_y = 31
+        bounds_cx = 34
+        bounds_cy = 15
         statfile = mainfo.tstatfile1
         colorglyph = 4868682
         value = True
@@ -1612,8 +1612,8 @@ object commanderfo: tcommanderfo
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          16
-          2
+          18
+          1
           0
           2
         )
@@ -1621,10 +1621,10 @@ object commanderfo: tcommanderfo
         face.template = mainfo.tfaceplayerlight
         taborder = 3
         hint = 'Enable Spectrum Frequencies Calculation'
-        bounds_x = 45
-        bounds_y = 16
-        bounds_cx = 29
-        bounds_cy = 16
+        bounds_x = 43
+        bounds_y = 17
+        bounds_cx = 31
+        bounds_cy = 15
         statfile = mainfo.tstatfile1
         colorglyph = 4868682
         value = True
@@ -1645,8 +1645,8 @@ object commanderfo: tcommanderfo
         frame.outerframe = (
           0
           2
-          20
-          3
+          21
+          2
         )
         face.localprops = []
         face.template = mainfo.tfaceplayerlight
@@ -1654,8 +1654,8 @@ object commanderfo: tcommanderfo
         hint = 'Graphic-anim while mixing (if cpu too low set it off)'
         bounds_x = 5
         bounds_y = 17
-        bounds_cx = 33
-        bounds_cy = 16
+        bounds_cx = 34
+        bounds_cy = 15
         statfile = mainfo.tstatfile1
         colorglyph = 4868682
       end
@@ -1673,8 +1673,8 @@ object commanderfo: tcommanderfo
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          16
-          2
+          17
+          1
           0
           2
         )
@@ -1682,10 +1682,10 @@ object commanderfo: tcommanderfo
         face.template = mainfo.tfaceplayerlight
         taborder = 5
         hint = 'Lock left and right volume Player 2'
-        bounds_x = 45
-        bounds_y = 0
-        bounds_cx = 29
-        bounds_cy = 16
+        bounds_x = 44
+        bounds_y = 1
+        bounds_cx = 30
+        bounds_cy = 15
         statfile = mainfo.tstatfile1
         colorglyph = 4868682
         value = True
@@ -1704,8 +1704,8 @@ object commanderfo: tcommanderfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          2
-          19
+          1
+          20
           2
         )
         face.localprops = []
@@ -1713,9 +1713,9 @@ object commanderfo: tcommanderfo
         taborder = 6
         hint = 'Lock left and right volume Player 1'
         bounds_x = 16
-        bounds_y = 20
-        bounds_cx = 32
-        bounds_cy = 16
+        bounds_y = 21
+        bounds_cx = 33
+        bounds_cy = 15
         statfile = mainfo.tstatfile1
         colorglyph = 4868682
         value = True
@@ -1735,7 +1735,7 @@ object commanderfo: tcommanderfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           17
-          2
+          1
           0
           2
         )
@@ -1744,9 +1744,9 @@ object commanderfo: tcommanderfo
         taborder = 7
         hint = 'Link left and right volume general'
         bounds_x = 29
-        bounds_y = 66
+        bounds_y = 67
         bounds_cx = 30
-        bounds_cy = 16
+        bounds_cy = 15
         statfile = mainfo.tstatfile1
         colorglyph = 4868682
         value = True
@@ -1765,19 +1765,19 @@ object commanderfo: tcommanderfo
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          18
+          19
           2
           0
-          3
+          2
         )
         face.localprops = []
         face.template = mainfo.tfaceplayerlight
         taborder = 8
         hint = 'View Meters on/off'
-        bounds_x = 45
+        bounds_x = 44
         bounds_y = 46
-        bounds_cx = 31
-        bounds_cy = 16
+        bounds_cx = 32
+        bounds_cy = 15
         statfile = mainfo.tstatfile1
         onchange = onchangevuset
         colorglyph = 4868682
@@ -1830,25 +1830,25 @@ object commanderfo: tcommanderfo
       color = -2147483645
       bounds_x = 26
       bounds_y = 1
-      bounds_cx = 151
-      bounds_cy = 17
+      bounds_cx = 169
+      bounds_cy = 15
       caption = 'Invalid value.  Reset to 100.'
       font.name = 'stf_default'
       font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 17
+      reffontheight = 15
     end
     object hintlabel2: tlabel
       color = -2147483645
       taborder = 1
       bounds_x = 3
       bounds_y = 17
-      bounds_cx = 198
-      bounds_cy = 17
+      bounds_cx = 215
+      bounds_cy = 15
       caption = 'Or press Esc key for previous value.'
       font.name = 'stf_default'
       font.localprops = []
-      reffontheight = 17
+      reffontheight = 15
     end
   end
   object tfacecomp7: tfacecomp

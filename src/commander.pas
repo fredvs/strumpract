@@ -366,6 +366,9 @@ var
   resu: shortint = -1;
 begin
 
+   if filelistfo.list_files.rowcount > 0 then
+  begin
+
   fileex := fileext(PChar(ansistring(songplayerfo.historyfn.Value)));
   if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
     (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
@@ -524,7 +527,7 @@ begin
     tbutton6.Visible := False;
     application.ProcessMessages;
   end;
-
+  end else ShowMessage('There is no audio file in the list...');
 end;
 
 

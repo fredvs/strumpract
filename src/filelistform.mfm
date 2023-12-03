@@ -643,7 +643,7 @@ object filelistfo: tfilelistfo
       statfile = tstatfile1
       statpriority = 1
       oncellevent = oncellev
-      reffontheight = 17
+      reffontheight = 15
     end
     object edfilescount: tintegeredit
       frame.localprops = []
@@ -653,9 +653,9 @@ object filelistfo: tfilelistfo
       bounds_x = 259
       bounds_y = 41
       bounds_cx = 20
-      bounds_cy = 23
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
-      reffontheight = 17
+      reffontheight = 15
     end
     object tbutton3: tbutton
       color = -2147483645
@@ -915,9 +915,9 @@ object filelistfo: tfilelistfo
       taborder = 1
       hint = 'History of Directories'
       bounds_x = 27
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 226
-      bounds_cy = 26
+      bounds_cy = 24
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -935,7 +935,7 @@ object filelistfo: tfilelistfo
       dropdown.historymaxcount = 50
       onbeforedropdown = onbefdrop
       onafterclosedropdown = onaftdrop
-      reffontheight = 17
+      reffontheight = 15
     end
     object tbutton6: tbutton
       Tag = 1
@@ -1046,11 +1046,11 @@ object filelistfo: tfilelistfo
         bounds_x = 2
         bounds_y = 10
         bounds_cx = 430
-        bounds_cy = 17
+        bounds_cy = 15
         anchors = [an_top]
         caption = 'error'
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 17
+        reffontheight = 15
       end
     end
   end
