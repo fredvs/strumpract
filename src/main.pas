@@ -3390,7 +3390,7 @@ begin
   infosdfo2.Visible := False;
 
   dockpanel5fo.Visible := False;
-
+  dockpanel4fo.Visible := False;
   spectrum1fo.Visible := False;
   spectrum2fo.Visible := False;
 
@@ -3508,7 +3508,6 @@ begin
   begin
     basedock.dragdock.currentsplitdir := sd_horz;
 
-
     Visible := True;
 
     waveforec.Visible := False;
@@ -3533,29 +3532,31 @@ begin
 
   end;
 
-  with dockpanel4fo do
-  begin
-    basedock.dragdock.currentsplitdir := sd_vert;
+ // with dockpanel4fo do
+ // begin
+ //   basedock.dragdock.currentsplitdir := sd_vert;
 
-    Visible          := True;
+  //  Visible          := True;
     synthefo.Visible := True;
-    synthefo.parentwidget := basedock;
+    synthefo.parentwidget := nil;
 
     pianofo.Visible      := True;
-    pianofo.parentwidget := basedock;
+    pianofo.parentwidget := nil;
 
-    pt1 := nullpoint;
+   { pt1 := nullpoint;
 
     synthefo.pos := pt1;
     pt1.x        := pt1.x + synthefo.Width + decorationheight;
 
     pianofo.pos := pt1;
-
-  end;
-
+   }
+ // end;
 
   filelistfo.Visible  := True;
+  filelistfo.parentwidget := basedock;
+  
   commanderfo.Visible := True;
+  commanderfo.parentwidget := basedock;
 
   filelistfo.bounds_cxmax  := fowidth;
   filelistfo.bounds_cymax  := filelistfoheight;
@@ -3588,10 +3589,13 @@ begin
   dockpanel3fo.left := dockpanel1fo.left;
 
   dockpanel3fo.top := songplayerfo.Height + equalizerfo1.Height + 24 + (2 * decorationheight);
-
-  dockpanel4fo.top  := dockpanel3fo.top;
-  dockpanel4fo.left := dockpanel3fo.right + 10;
-
+  
+ synthefo.top  := dockpanel3fo.top;
+ synthefo.left := dockpanel3fo.right + 10;
+ 
+ pianofo.top  := synthefo.top;
+ pianofo.left := synthefo.right + 10;
+ 
   norefresh := False;
 
   endlayout();
