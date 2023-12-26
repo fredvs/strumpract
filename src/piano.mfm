@@ -155,7 +155,7 @@ object pianofo: tpianofo
     decay.traces.yrange = 1
     decay.traces.items = <    
       item
-        color = -1610612728
+        color = -1610612724
         widthmm = 0.3
         xserrange = 1
         xrange = 10
@@ -190,6 +190,7 @@ object pianofo: tpianofo
           end>
       end>
     decay.ydials.range = 1
+    decay.activetrace = 1
     release.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
     release.frame.framei_right = 0
     release.frame.framei_bottom = 0

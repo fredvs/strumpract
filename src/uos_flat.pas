@@ -214,14 +214,14 @@ a5 = 1760.0;
 
 // General public procedure/function (accessible for library uos too)
 
-function uos_GetInfoLibraries() : PansiChar ;
+function uos_GetInfoLibraries() : PChar ;
 
 {$IF DEFINED(portaudio)}
 procedure uos_GetInfoDevice();
 
 procedure uos_UpdateDevice();
 
-function uos_GetInfoDeviceStr() : Pansichar ;
+function uos_GetInfoDeviceStr() : PChar ;
 {$endif}
 
 function uos_LoadLib(PortAudioFileName, SndFileFileName, Mpg123FileName, Mp4ffFileName, FaadFileName, opusfileFileName: PChar) : cint32;
