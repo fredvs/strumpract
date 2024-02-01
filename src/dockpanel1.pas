@@ -89,7 +89,9 @@ uses
   filelistform,
   guitars,
   recorder,
+     {$if not defined(darwin)}
   imagedancer,
+     {$endif}
   main,
   spectrum1,
   waveform,
@@ -112,9 +114,11 @@ begin
   if (guitarsfo.parentwidget = basedock) then
     guitarsfo.frame.grip_size := gsize;
 
+   {$if not defined(darwin)}
   if (imagedancerfo.parentwidget = basedock) then
     imagedancerfo.frame.grip_size := gsize;
-
+   {$endif}
+  
   if (recorderfo.parentwidget = basedock) then
     recorderfo.frame.grip_size := gsize;
 
@@ -296,7 +300,8 @@ begin
       equalizerfo1.bounds_cxmax := fowidth;
       equalizerfo1.bounds_cx    := fowidth;
     end;
-
+    
+       {$if not defined(darwin)}
     if (imagedancerfo.parentwidget <> nil) and (imagedancerfo.Visible) then
     begin
       imagedancerfo.bounds_cxmax := fowidth;
@@ -304,6 +309,7 @@ begin
       imagedancerfo.bounds_cymax := imagedancerfo.bounds_cymin;
       imagedancerfo.bounds_cy    := imagedancerfo.bounds_cymin;
     end;
+      {$endif}
 
     if (infosdfo.parentwidget <> nil) and (infosdfo.Visible) then
     begin

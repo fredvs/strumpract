@@ -46,7 +46,9 @@ uses
   configlayout,
   guitars,
   recorder,
+  {$if not defined(darwin)}
   imagedancer,
+  {$endif}
   infosd,
   status,
   piano,
@@ -170,10 +172,13 @@ begin
   dockpanel5fo.tag := 4;
 
   application.createform(trandomnotefo, randomnotefo);
+  
+  {$if not defined(darwin)}
   application.createform(timagedancerfo, imagedancerfo);
 
   imagedancerfo.dragdock.Caption := 'Dan';
-
+  {$endif}
+  
   application.createform(tfindmessagefo, findmessagefo);
   application.createform(tdialogfilesfo, dialogfilesfo);
 
