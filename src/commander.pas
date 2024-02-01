@@ -1,51 +1,22 @@
 unit commander;
 
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
+
+{$if defined(netbsd) or defined(darwin)}
+ {$define nofade}
+{$endif}
+
 interface
 
 uses
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,
- {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  Math,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  msefileutils,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  msetimer,
-  mseimage;
+ {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,mseglob,mseguiglob,
+ mseguiintf,mseapplication,msestat,msemenus,Math,msegui,msegraphics,
+ msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
+ msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
+ msefiledialogx,msegrids,mseificomp,mseificompglob,msefileutils,mseifiglob,
+ mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,msegraphedits,
+ msescrollbar,msedispwidgets,mserichstring,msetimer,mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -142,6 +113,8 @@ type
     sliderimage2: tbitmapcomp;
     sliderimage3: tbitmapcomp;
     sliderimage4: tbitmapcomp;
+   tframecompnul: tframecomp;
+   tfacecompnul: tfacecomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -469,7 +442,7 @@ begin
     if fromplay = 0 then
     begin
       tbutton2.face.template := mainfo.tfacebutgray;
-      tbutton3.face.template := mainfo.tfaceorange2;
+      tbutton3.face.template := mainfo.tfaceorange;
 
       filelistfo.tbutton2.face.template := mainfo.tfaceorange;
       filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
@@ -503,9 +476,9 @@ begin
       volumeleft2.Value  := 0;
       volumeright2.Value := 0;
       tbutton3.face.template := mainfo.tfacebutgray;
-      tbutton2.face.template := mainfo.tfaceorange2;
+      tbutton2.face.template := mainfo.tfaceorange;
       filelistfo.tbutton1.face.template := mainfo.tfaceorange;
-      filelistfo.tbutton2.face.template := mainfo.tfaceplayer;
+      filelistfo.tbutton2.face.template := mainfo.tfaceplayerlight;
       if (Sender <> nil) and (automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
       begin
         hasfocused1 := True;
@@ -1082,6 +1055,15 @@ procedure tcommanderfo.oncre(const Sender: TObject);
 var
   i1, childn: integer;
 begin
+ {$if defined(netbsd) or defined(darwin)}
+  timagelist1.options := [bmo_masked]; 
+  timagelist3.options := [bmo_masked]; 
+ {$endif}
+ 
+ {$if defined(nofade)}
+ tframecomp2.template := tframecompnul.template;
+ {$endif}
+ 
   windowopacity := 0;
 
   setlength(boundchildco, childrencount);
@@ -1222,15 +1204,15 @@ begin
     if TButton(Sender).tag = 0 then
     begin
       tbutton2.face.template := mainfo.tfacebutgray;
-      tbutton3.face.template := mainfo.tfaceorange2;
+      tbutton3.face.template := mainfo.tfaceorange;
       filelistfo.tbutton2.face.template := mainfo.tfaceorange;
       filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
     end
     else
     begin
-      tbutton2.face.template := mainfo.tfaceorange2;
+      tbutton2.face.template := mainfo.tfaceorange;
       tbutton3.face.template := mainfo.tfacebutgray;
-      filelistfo.tbutton2.face.template := mainfo.tfacebutgray;
+      filelistfo.tbutton2.face.template := mainfo.tfaceplayerlight;
       filelistfo.tbutton1.face.template := mainfo.tfaceorange;
     end;
   end;
@@ -1258,13 +1240,13 @@ begin
     begin
       randommix.Value     := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       randommix.Value     := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'linkvolgenb' then
@@ -1272,13 +1254,13 @@ begin
     begin
       linkvolgen.Value    := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       linkvolgen.Value    := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
 
@@ -1287,13 +1269,13 @@ begin
     begin
       linkvol.Value       := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       linkvol.Value       := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'guimixb' then
@@ -1301,13 +1283,13 @@ begin
     begin
       guimix.Value        := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       guimix.Value        := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'speccalcb' then
@@ -1315,13 +1297,13 @@ begin
     begin
       speccalc.Value      := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       speccalc.Value      := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'linkvol2b' then
@@ -1329,13 +1311,13 @@ begin
     begin
       linkvol2.Value      := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       linkvol2.Value      := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'automixb' then
@@ -1343,13 +1325,13 @@ begin
     begin
       automix.Value       := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       automix.Value       := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'vuinb' then
@@ -1357,13 +1339,13 @@ begin
     begin
       vuin.Value          := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       vuin.Value          := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'directmixb' then
@@ -1371,13 +1353,13 @@ begin
     begin
       directmix.Value     := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       directmix.Value     := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
 end;
@@ -1388,89 +1370,89 @@ begin
   if linkvolgen.Value then
   begin
     linkvolgenb.tag           := 1;
-    linkvolgenb.face.template := tfacegreen;
+    linkvolgenb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     linkvolgenb.tag           := 0;
-    linkvolgenb.face.template := tfacebutgray;
+    linkvolgenb.face.template := mainfo.tfacebutgray;
   end;
 
   if linkvol.Value then
   begin
     linkvolb.tag           := 1;
-    linkvolb.face.template := tfacegreen;
+    linkvolb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     linkvolb.tag           := 0;
-    linkvolb.face.template := tfacebutgray;
+    linkvolb.face.template := mainfo.tfacebutgray;
   end;
 
   if guimix.Value then
   begin
     guimixb.tag           := 1;
-    guimixb.face.template := tfacegreen;
+    guimixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     guimixb.tag           := 0;
-    guimixb.face.template := tfacebutgray;
+    guimixb.face.template := mainfo.tfacebutgray;
   end;
 
   if speccalc.Value then
   begin
     speccalcb.tag           := 1;
-    speccalcb.face.template := tfacegreen;
+    speccalcb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     speccalcb.tag           := 0;
-    speccalcb.face.template := tfacebutgray;
+    speccalcb.face.template := mainfo.tfacebutgray;
   end;
 
   if linkvol2.Value then
   begin
     linkvol2b.tag           := 1;
-    linkvol2b.face.template := tfacegreen;
+    linkvol2b.face.template := mainfo.tfacegreen;
   end
   else
   begin
     linkvol2b.tag           := 0;
-    linkvol2b.face.template := tfacebutgray;
+    linkvol2b.face.template := mainfo.tfacebutgray;
   end;
 
   if automix.Value then
   begin
     automixb.tag           := 1;
-    automixb.face.template := tfacegreen;
+    automixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     automixb.tag           := 0;
-    automixb.face.template := tfacebutgray;
+    automixb.face.template := mainfo.tfacebutgray;
   end;
 
   if vuin.Value then
   begin
     vuinb.tag           := 1;
-    vuinb.face.template := tfacegreen;
+    vuinb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     vuinb.tag           := 0;
-    vuinb.face.template := tfacebutgray;
+    vuinb.face.template := mainfo.tfacebutgray;
   end;
 
   if directmix.Value then
   begin
     directmixb.tag           := 1;
-    directmixb.face.template := tfacegreen;
+    directmixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     directmixb.tag           := 0;
-    directmixb.face.template := tfacebutgray;
+    directmixb.face.template := mainfo.tfacebutgray;
   end;
 
 end;

@@ -188,7 +188,7 @@ object filelistfo: tfilelistfo
       }
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayerlight
       taborder = 10
       hint = 'Find a word in list'
       bounds_x = 279
@@ -377,7 +377,7 @@ object filelistfo: tfilelistfo
       }
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 3
       hint = 'Sent selected song to cue for Player 2'
       bounds_x = 394
@@ -644,6 +644,14 @@ object filelistfo: tfilelistfo
       statpriority = 1
       oncellevent = oncellev
       reffontheight = 15
+      object tbutton7: tbutton
+        face.localprops = []
+        bounds_x = 119
+        bounds_y = 90
+        bounds_cx = 50
+        bounds_cy = 21
+        state = [as_invisible, as_localinvisible]
+      end
     end
     object edfilescount: tintegeredit
       frame.localprops = []
@@ -716,7 +724,7 @@ object filelistfo: tfilelistfo
       }
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayerlight
       taborder = 6
       hint = 'Load custom play-list'
       bounds_x = 254
@@ -795,7 +803,7 @@ object filelistfo: tfilelistfo
       }
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayerlight
       taborder = 7
       hint = 'Save custom play-list'
       bounds_x = 329
@@ -870,7 +878,7 @@ object filelistfo: tfilelistfo
       }
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayerlight
       taborder = 8
       hint = 'Add file in custom play-list'
       bounds_x = 304
@@ -943,11 +951,11 @@ object filelistfo: tfilelistfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
-      face.image.options = [bmo_masked, bmo_graymask]
+      face.image.options = [bmo_masked]
       face.image.origformat = 'png'
       face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
-        0000000012000000180000001800000078050000000000000000000000000000
+        0000000002000000180000001800000078050000000000000000000000000000
         0000000000000000000000000000000000000000000000335858580168686801
         6D6D6D01797979017F7F7F01888888019196910194929301A7A9A701AAB0AB01
         9AA99D0174957901809F86010000000A82828201B8B8B801B9B9B901C4C4C401
@@ -992,29 +1000,14 @@ object filelistfo: tfilelistfo
         CECECE01C6C6C601CFCECE01D0CFCF01D1D1D101D5D5D501D4D4D401A0A0A001
         00000007839688019FBAA301779A7C0165926E016B94740183978601858D8601
         7B7D7B0181818101878787018989890182808001888888018787870194949401
-        9C9C9C018A8A8A01000000344002000000000000000000000000000000000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        00000022FFFFFFFFFFFFFFFFFFFFFFA600000000000000000000FFFFFFFFFFFF
-        FFFFFFFFFFFFFFB600000000000000000019FFFFFFFFFFFFFFFFFFFFFFFFFF0A
-        00000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000
-        0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFF0000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000
-        0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFF00000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000
-        0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000
-        0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFF000000000000002843BCE8F6FFFFFFFFFFFFFFFFFFFFFFFF00000000
-        0000000000000000000000000000000000000000000000000000000000000000
-        00000000000000000000000000000000
+        9C9C9C018A8A8A01000000340000000000000000F8FF0000FCFF0000FEFF0000
+        FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0700
+        FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00
+        F8FF0F000000000000000000
       }
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
-      face.template = mainfo.tfacebutgray
+      face.template = mainfo.tfaceplayerlight
       taborder = 9
       hint = 'Choose a audio directory with wav, ogg, flac or mp3'
       bounds_x = 2
@@ -1036,7 +1029,7 @@ object filelistfo: tfilelistfo
       taborder = 5
       visible = False
       bounds_x = 0
-      bounds_y = 136
+      bounds_y = 99
       bounds_cx = 434
       bounds_cy = 32
       anchors = [an_bottom]

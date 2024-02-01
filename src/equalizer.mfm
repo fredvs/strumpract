@@ -9,8 +9,8 @@ object equalizerfo: tequalizerfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 516
-  bounds_y = 59
+  bounds_x = 438
+  bounds_y = 255
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -75,7 +75,7 @@ object equalizerfo: tequalizerfo
     bounds_cx = 434
     bounds_cy = 128
     anchors = []
-    reffontheight = 17
+    reffontheight = 15
   end
   object groupbox2: tgroupbox
     color = -2147483645
@@ -100,7 +100,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider11: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -112,15 +112,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -183,7 +183,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider12: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -195,15 +195,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -266,7 +266,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider13: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -278,15 +278,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -349,7 +349,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider14: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -361,15 +361,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -432,7 +432,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider15: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -444,15 +444,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -515,7 +515,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider16: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -527,15 +527,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -598,7 +598,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider17: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -610,15 +610,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -681,7 +681,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider18: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -693,15 +693,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -764,7 +764,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider19: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -776,15 +776,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -847,7 +847,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider20: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -859,15 +859,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -924,11 +924,11 @@ object equalizerfo: tequalizerfo
       end
     end
     object blight: tbutton
-      face.image.options = [bmo_masked, bmo_graymask]
+      face.image.options = [bmo_masked]
       face.image.origformat = 'png'
       face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
-        00000000120000001400000010000000D8030000000000000000000000000000
+        00000000020000001400000010000000D8030000000000000000000000000000
         00000000000000000000000000000000000000009F9F9F01AAAAAA0195949501
         9A9A9A01A2A2A201A8A8A801A7A7A702A6A6A601A7A7A702ACACAC01B0B0B001
         B2B2B202ACACAC01A7A7A7019F9D9E01BBB9B9019C9B9B018A898801BDBDBD01
@@ -960,17 +960,9 @@ object equalizerfo: tequalizerfo
         9A9A9A01A2A2A201A8A8A801A7A7A702A6A6A601A7A7A702ACACAC01B0B0B001
         B2B2B202ACACAC01A7A7A7019F9D9E01BBB9B9019C9B9B019B9B9901BBB9B901
         AEAEAE01ACACAC05ACABAC01ABABAB01AAAAAA02AAA9A901AAAAAA02ABABAB02
-        ADADAD01BBB9B901A6A6A60140010000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        ADADAD01BBB9B901A6A6A601FFFF0F00FFFF0F00FFFF0F00FFFF0F00FFFF0F00
+        FFFF0F00FFFF0F00FEFF0F00FFFF0F00FFFF0F00FFFF0F00FFFF0F00FFFF0F00
+        FFFF0F00FFFF0F00FEFF0F00
       }
       face.localprops = [fal_image]
       taborder = 10
@@ -981,11 +973,11 @@ object equalizerfo: tequalizerfo
       state = [as_invisible, as_localinvisible]
     end
     object bdark: tbutton
-      face.image.options = [bmo_masked, bmo_graymask]
+      face.image.options = [bmo_masked]
       face.image.origformat = 'png'
       face.image.alignment = [al_stretchx, al_stretchy]
       face.image.image = {
-        00000000120000001400000010000000F4030000000000000000000000000000
+        00000000020000001400000010000000F4030000000000000000000000000000
         0000000000000000000000000000000000000000616060016E6E6E0154535401
         5A5A5A01646464016C6C6C016B6B6B02696969016A6A6A027070700176767601
         78787802717171016B6B6B01615E5F01838181015D5B5B014645440186868601
@@ -1018,17 +1010,9 @@ object equalizerfo: tequalizerfo
         6C6C6C016B6B6B02696969016A6A6A0270707001767676017878780271717101
         6B6B6B01615E5F01838181015D5B5B015B5B5901838181017373730171717101
         70707004706F70016F6F6F016E6E6E026E6D6D016E6E6E026F6F6F0272727201
-        838181016969690140010000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFFFF
-        FFFFFFFFFFFFFFFFFFFFFFFF
+        8381810169696901FFFF0F00FFFF0F00FFFF0F00FFFF0F00FFFF0F00FFFF0F00
+        FFFF0F00FEFF0F00FFFF0F00FFFF0F00FFFF0F00FFFF0F00FFFF0F00FFFF0F00
+        FFFF0F00FEFF0F00
       }
       face.localprops = [fal_image]
       taborder = 11
@@ -1064,7 +1048,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider2: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1076,15 +1060,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1147,7 +1131,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider3: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1159,15 +1143,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1230,7 +1214,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider4: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1242,15 +1226,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1313,7 +1297,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider5: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1325,15 +1309,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1396,7 +1380,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider6: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1408,15 +1392,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1479,7 +1463,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider7: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1491,15 +1475,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1562,7 +1546,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider8: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1574,15 +1558,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1645,7 +1629,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider9: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1657,15 +1641,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1728,7 +1712,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider10: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1740,15 +1724,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1812,7 +1796,7 @@ object equalizerfo: tequalizerfo
       bounds_cx = 21
       bounds_cy = 116
       anchors = [an_left, an_top, an_bottom]
-      reffontheight = 14
+      reffontheight = 13
       object tslider1: tslider
         optionswidget1 = [ow1_autoscale, ow1_noclampinview]
         color = -2147483645
@@ -1824,15 +1808,15 @@ object equalizerfo: tequalizerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           0
-          16
+          15
           0
           0
         )
         face.localprops = []
         bounds_x = 0
-        bounds_y = 1
+        bounds_y = 2
         bounds_cx = 21
-        bounds_cy = 95
+        bounds_cy = 94
         anchors = [an_top, an_bottom]
         statfile = mainfo.tstatfile1
         optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1942,18 +1926,18 @@ object equalizerfo: tequalizerfo
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
+      2
+      110
       3
-      103
-      4
     )
     face.localprops = []
     face.template = mainfo.tfaceplayer
     taborder = 5
     hint = 'Enable Equalizer'
     bounds_x = 71
-    bounds_y = 1
-    bounds_cx = 116
-    bounds_cy = 19
+    bounds_y = 2
+    bounds_cx = 123
+    bounds_cy = 17
     statfile = mainfo.tstatfile1
     onchange = changenab
     colorglyph = -1610612728

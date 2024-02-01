@@ -2,12 +2,17 @@ unit imagedancer;
 
 {$mode objfpc}{$H+}{$inline on}
 {$modeswitch advancedrecords} 
+
+// {$if not defined(netbsd) and not defined(darwin)}
+ {$define msethread}
+// {$endif}
+
 interface
 
 uses
  msepointer,bgragraphics,BGRABitmap,BGRADefaultBitmap,BGRABitmapTypes,msethread,
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,Math,
+ msegraphics,msegraphutils,mseevent,Classes,mseclasses,mseforms,msedock,Math,
  msesimplewidgets,msewidgets,mseact,msedataedits,msedropdownlist,mseedit,
  mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
  mseopenglwidget,msewindowwidget;
@@ -17,6 +22,25 @@ type
     thecolor: integer;
     x, y: single;
   end;
+
+{$IF DEFINED(msethread)}
+{$else}
+type 
+  TstrumThread = class(TThread)
+    protected 
+      procedure execute;
+      override;
+    public 
+      theparent : Tobject;
+      constructor Create(CreateSuspended: boolean; AParent: TObject;
+                         Const StackSize: SizeUInt = DefaultStackSize);
+      overload;
+      virtual;
+      procedure DoTerminate;
+      override;
+  end;
+{$endif}
+
 
   { TData }
 
@@ -62,9 +86,14 @@ type
 
    
   protected
-    thethread: tmsethread;
-    function Execute(thread: tmsethread): integer;
-
+  
+   {$IF DEFINED(msethread)}
+      thethread : tmsethread;
+      function Execute(thread: tmsethread): integer;
+   {$else}
+      thethread : TstrumThread;
+   {$endif}
+  
   private
     zoom: single; 
     increase: byte;
@@ -205,6 +234,25 @@ begin
   HSL      := HSLA(round(hue / 360 * $FFFF), $FFFF, maxSmallint);
   Result   := HSLAToBGRA(HSL);
 end;
+
+   {$IF DEFINED(msethread)}
+    {$else}
+
+constructor TstrumThread.Create(CreateSuspended: boolean; AParent: TObject;
+                              Const StackSize: SizeUInt);
+begin
+  FreeOnTerminate := true;
+  inherited Create(CreateSuspended, StackSize);
+  Priority :=  tpTimeCritical;
+end;
+ 
+procedure TstrumThread.DoTerminate;
+begin
+ imagedancerfo.thethread := Nil;
+  //execute player destroy
+ 
+end;
+ {$endif}
 
 
 function CreateSegments(SgCount: integer): TSEgmentAr;  // SgCount ..3..6
@@ -886,13 +934,29 @@ begin
 
 end;
 
-function timagedancerfo.Execute(thread: tmsethread): integer;
+
+{$IF DEFINED(msethread)}
+function timagedancerfo.execute(thread: tmsethread): integer;
+// The Main Loop Procedure
+  {$else}
+procedure TstrumThread.Execute;
+// The Main Loop Procedure
+  {$endif}
+
 begin
+{$IF DEFINED(msethread)}
   result := 0;
+  {$endif} 
+ {$IF not DEFINED(darwin)}  
   repeat
-   if (isbuzy = False) and (Visible = True) and (openglwidget.Visible = false) then
+   if (isbuzy = False) and (imagedancerfo.Visible = True) and (imagedancerfo.openglwidget.Visible = false) then
        begin
+      {$IF DEFINED(msethread)} 
       application.queueasynccall(@InvalidateImage);
+       {$else}
+      imagedancerfo.thethread.Synchronize(@imagedancerfo.InvalidateImage);
+      {$endif}
+      
       RTLeventResetEvent(evPauseImage);
       RTLeventWaitFor(evPauseImage);// is there a pause waiting ?
       RTLeventSetEvent(evPauseImage);
@@ -900,7 +964,7 @@ begin
     end;
     sleep(30);
   until statusanim = 0;
-
+ {$endif}
 end;
 
 procedure timagedancerfo.InvalidateImage;
@@ -914,19 +978,35 @@ procedure timagedancerfo.ondestroy(const Sender: TObject);
 begin
   statusanim := 0;
   RTLeventSetEvent(evPauseimage);
+  
+ {$IF not DEFINED(darwin)}
+  
   thethread.terminate();
+  {$IF DEFINED(msethread)}
   application.waitforthread(thethread);
+    {$else}
+   {$endif}  
   thethread.Destroy();
+  
+ {$endif}  
   Bitmap.Free;
   RTLeventdestroy(evPauseImage);
 end;
 
 procedure timagedancerfo.oncreat(const Sender: TObject);
 begin
+  {$IF not DEFINED(darwin)}
    SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
    [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
-   evPauseImage := RTLEventCreate;
-  thethread    := tmsethread.Create(@Execute);
+ 
+    evPauseImage := RTLEventCreate;
+   
+   {$IF DEFINED(msethread)}
+          thethread := tmsethread.create(@execute);
+  {$else}
+          thethread := tstrumthread.Create(false,self);
+  {$endif}
+ 
   RTLeventResetEvent(evPauseImage);
   Bitmap       := tbgrabitmap.Create(1000, 600);
   InitRings;
@@ -938,9 +1018,9 @@ begin
   increase := 1;      
   randomize;
 
-if alwaystop = 1 then 
- optionswindow := optionswindow + [wo_alwaysontop];
- 
+  if alwaystop = 1 then 
+  optionswindow := optionswindow + [wo_alwaysontop];
+  {$endif}
  end;
 
 procedure timagedancerfo.onshow(const Sender: TObject);

@@ -35,6 +35,7 @@ type
     tfiledialog1: tfiledialogx;
     tbutton11: TButton;
    ttimer1: ttimer;
+   tbutton7: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
@@ -871,6 +872,23 @@ end;
 procedure tfilelistfo.oncreate(const Sender: TObject);
 begin
   windowopacity := 0;
+  
+ {$if defined(netbsd) or defined(darwin)}
+//  tbutton6.face.image :=  tbutton7.face.image; 
+//  tbutton6.caption := 'C';
+  tbutton1.face.image := tbutton7.face.image; 
+  tbutton1.caption := '>1';
+  tbutton11.face.image := tbutton7.face.image; 
+  tbutton11.caption := 'F';
+  tbutton2.face.image := tbutton7.face.image;
+  tbutton2.caption := '>2'; 
+  tbutton3.face.image := tbutton7.face.image; 
+  tbutton3.caption := 'L';
+  tbutton4.face.image := tbutton7.face.image; 
+  tbutton4.caption := 'S';
+  tbutton5.face.image := tbutton7.face.image; 
+  tbutton5.caption := '+'; 
+  {$endif} 
 
   tstatfile1.filename := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini' +
     directoryseparator + 'list.ini');

@@ -13,6 +13,7 @@ uses
   msemenus,
   msegui,
   msegraphics,
+  msebitmap,
   msegraphutils,
   mseevent,
   mseclasses,
@@ -22,8 +23,8 @@ uses
 
 type
   tsplashfo = class(tmseform)
-    tlabel1: tlabel;
     procedure oneventloop(const Sender: TObject);
+   procedure oncrea(const sender: TObject);
   end;
 
 var
@@ -189,6 +190,14 @@ begin
   application.createform(tmainfo, mainfo);
   conflangfo.icon := mainfo.icon;
   statusfo.icon   := mainfo.icon;
+
+end;
+
+procedure tsplashfo.oncrea(const sender: TObject);
+begin
+ {$if defined(netbsd) or defined(darwin)}
+ container.face.image.options := [bmo_masked]; 
+ {$endif}
 
 end;
 

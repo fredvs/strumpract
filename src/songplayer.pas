@@ -365,7 +365,7 @@ end;
 procedure tsongplayerfo.ontimersent(const Sender: TObject);
 begin
   hintpanel.Visible        := False;
-  historyfn.face.template  := mainfo.tfaceplayerlight;
+  historyfn.face.template  := mainfo.tfaceplayer;
   edvolleft.face.template  := mainfo.tfaceplayer;
   edvolright.face.template := mainfo.tfaceplayer;
   edtempo.face.template    := mainfo.tfaceplayer;
@@ -676,7 +676,7 @@ begin
   trackbar1.Enabled := False;
 
   lposition.Value         := '00:00:00.000';
-  lposition.face.template := mainfo.tfaceplayerrev;
+  lposition.face.template := mainfo.tfaceplayerlight;
 
   DrawWaveForm();
 
@@ -1219,7 +1219,7 @@ begin
               btnpause.Enabled := False;
             end;
             uos_Pause(theplayer);
-            tstringdisp1.face.template := mainfo.tfaceorange2;
+            tstringdisp1.face.template := mainfo.tfaceorange;
             tstringdisp1.Value         := msestring('Loaded ' + theplaying1);
           end;
 
@@ -1232,7 +1232,7 @@ begin
           else
             timerwait.Enabled := True;
 
-          lposition.face.template := mainfo.tfaceplayerlight;
+        //  lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue := True;
 
@@ -1516,7 +1516,7 @@ begin
               btnpause.Enabled := False;
             end;
             uos_Pause(theplayer2);
-            tstringdisp1.face.template := mainfo.tfaceorange2;
+            tstringdisp1.face.template := mainfo.tfaceorange;
             tstringdisp1.Value         := msestring('Loaded ' + theplaying2);
           end;
 
@@ -1529,7 +1529,7 @@ begin
           else
             timerwait.Enabled := True;
 
-          lposition.face.template := mainfo.tfaceplayerlight;
+        //  lposition.face.template := mainfo.tfaceplayerlight;
 
           hascue2 := True;
           oninfowav(Sender);
@@ -1564,7 +1564,7 @@ begin
   btnresume.Visible := False;
 
   tstringdisp1.face.template := mainfo.tfacegreen;
-  lposition.face.template    := mainfo.tfaceplayerrev;
+  lposition.face.template    := mainfo.tfaceplayerlight;
 
   if tag = 0 then
   begin
@@ -1653,7 +1653,7 @@ begin
   btnresume.Visible := True;
 
   tstringdisp1.face.template := mainfo.tfacered;
-  lposition.face.template    := mainfo.tfaceplayerrev;
+  lposition.face.template    := mainfo.tfaceplayerlight;
 
   if tag = 0 then
   begin
@@ -2953,13 +2953,13 @@ begin
     begin
       cbloop.Value        := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := commanderfo.tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       cbloop.Value        := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := commanderfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'playreverseb' then
@@ -2967,13 +2967,13 @@ begin
     begin
       playreverse.Value   := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := commanderfo.tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       playreverse.Value   := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := commanderfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'waveformcheckb' then
@@ -2981,13 +2981,13 @@ begin
     begin
       waveformcheck.Value           := True;
       TButton(Sender).tag           := 1;
-      TButton(Sender).face.template := commanderfo.tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       waveformcheck.Value           := False;
       TButton(Sender).tag           := 0;
-      TButton(Sender).face.template := commanderfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'setmonob' then
@@ -2995,13 +2995,13 @@ begin
     begin
       setmono.Value       := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := commanderfo.tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       setmono.Value       := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := commanderfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
   if TButton(Sender).Name = 'cbtempob' then
@@ -3009,13 +3009,13 @@ begin
     begin
       cbtempo.Value       := True;
       TButton(Sender).tag := 1;
-      TButton(Sender).face.template := commanderfo.tfacegreen;
+      TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
       cbtempo.Value       := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := commanderfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
 end;
@@ -3026,56 +3026,56 @@ begin
   if cbloop.Value then
   begin
     cbloopb.tag           := 1;
-    cbloopb.face.template := commanderfo.tfacegreen;
+    cbloopb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     cbloopb.tag           := 0;
-    cbloopb.face.template := commanderfo.tfacebutgray;
+    cbloopb.face.template := mainfo.tfacebutgray;
   end;
 
   if playreverse.Value then
   begin
     playreverseb.tag           := 1;
-    playreverseb.face.template := commanderfo.tfacegreen;
+    playreverseb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     playreverseb.tag           := 0;
-    playreverseb.face.template := commanderfo.tfacebutgray;
+    playreverseb.face.template := mainfo.tfacebutgray;
   end;
 
   if waveformcheck.Value then
   begin
     waveformcheckb.tag           := 1;
-    waveformcheckb.face.template := commanderfo.tfacegreen;
+    waveformcheckb.face.template := mainfo.tfacegreen;
   end
   else
   begin
     waveformcheckb.tag           := 0;
-    waveformcheckb.face.template := commanderfo.tfacebutgray;
+    waveformcheckb.face.template := mainfo.tfacebutgray;
   end;
 
   if setmono.Value then
   begin
     setmonob.tag           := 1;
-    setmonob.face.template := commanderfo.tfacegreen;
+    setmonob.face.template := mainfo.tfacegreen;
   end
   else
   begin
     setmonob.tag           := 0;
-    setmonob.face.template := commanderfo.tfacebutgray;
+    setmonob.face.template := mainfo.tfacebutgray;
   end;
 
   if cbtempo.Value then
   begin
     cbtempob.tag           := 1;
-    cbtempob.face.template := commanderfo.tfacegreen;
+    cbtempob.face.template := mainfo.tfacegreen;
   end
   else
   begin
     cbtempob.tag           := 0;
-    cbtempob.face.template := commanderfo.tfacebutgray;
+    cbtempob.face.template := mainfo.tfacebutgray;
   end;
 
 end;
