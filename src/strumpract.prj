@@ -809,21 +809,24 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=5
+modulenames=6
  DOCKPANEL1FO
  MAINFO
+ RANDOMNOTEFO
  RECORDERFO
  SONGPLAYERFO
  SPLASHFO
-moduletypes=5
+moduletypes=6
  TDOCKPANEL1FO
  TMAINFO
+ TRANDOMNOTEFO
  TRECORDERFO
  TSONGPLAYERFO
  TSPLASHFO
-modulefiles=5
+modulefiles=6
  /home/fred/strumpract/src/dockpanel1.mfm
  /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/randomnote.mfm
  /home/fred/strumpract/src/recorder.mfm
  /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/splash.mfm
@@ -1627,41 +1630,46 @@ findhistory=20
  tfaceplayerlight
  tfaceplayer
 findoptions=1
-editpos=6
+editpos=7
  0,20
- 0,8198
+ 0,8096
  0,45
- 0,93
+ 0,83
  0,218
  0,171
+ 0,5
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
 bookmarks5=0
-sourcefiles=6
+bookmarks6=0
+sourcefiles=7
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/splash.pas
  ${PROJECTDIR}/dockpanel1.pas
  ${PROJECTDIR}/songplayer.pas
  ${PROJECTDIR}/recorder.pas
-relpaths=6
+ ${PROJECTDIR}/randomnote.pas
+relpaths=7
  strumpract.pas
  main.pas
  splash.pas
  dockpanel1.pas
  songplayer.pas
  recorder.pas
-ismoduletexts=6
+ randomnote.pas
+ismoduletexts=7
  0
  0
  0
  0
  0
  0
-modules=7
+ 0
+modules=8
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/splash.mfm
@@ -1669,7 +1677,8 @@ modules=7
  /home/fred/strumpract/src/songplayer.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/recorder.mfm
-moduleoptions=7
+ /home/fred/strumpract/src/randomnote.mfm
+moduleoptions=8
  0
  0
  0
@@ -1677,7 +1686,8 @@ moduleoptions=7
  0
  0
  0
-visiblemodules=7
+ 0
+visiblemodules=8
  -1
  0
  -1
@@ -1685,26 +1695,29 @@ visiblemodules=7
  -1
  0
  -1
-nomenumodules=7
+ -1
+nomenumodules=8
  0
  -1
  0
  0
  0
  -1
+ 0
  0
 [sourcefo.files_tab]
-order=6
+order=7
  0
  2
  5
  4
  3
  1
+ 6
 firsttab=0
-index=5
+index=6
 [layout]
-windowlayout=672
+windowlayout=691
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1822,7 +1835,7 @@ windowlayout=672
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -1938,10 +1951,10 @@ windowlayout=672
  [breakpointsfo.bkptson]
  value=1
  [objectinspectorfo.grid]
- propcolwidthref=607
- width0=358
+ propcolwidthref=622
+ width0=367
  sortdescend0=0
- width1=243
+ width1=249
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2162,10 +2175,9 @@ windowlayout=672
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
- history=12
-  /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/strumpract.pas
+ value=/home/fred/strumpract/src/randomnote.pas
+ history=11
+  /home/fred/strumpract/src/uos.pas
   /home/fred/strumpract/src/splash.pas
   /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/libwebp.pas
   /home/fred/ideu/src/po2arrays.pas
@@ -2197,15 +2209,16 @@ windowlayout=672
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=6
+ order=7
   0
   2
   5
   4
   3
   1
+  6
  firsttab=0
- index=5
+ index=6
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2247,7 +2260,7 @@ windowlayout=672
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=findinfilefo
  parent=
  mdistate=3
  nx=0
@@ -2342,7 +2355,7 @@ windowlayout=672
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
@@ -2361,7 +2374,7 @@ windowlayout=672
  [_mse_recorderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2372,6 +2385,25 @@ windowlayout=672
  y=180
  cx=452
  cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_randomnotefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=targetconsolefo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=125
+ y=50
+ cx=1368
+ cy=776
  rcx=0
  rcy=0
  wsize=0

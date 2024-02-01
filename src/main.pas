@@ -8102,7 +8102,7 @@ begin
   statusanim := 1;
 
   if alwaystop = 0 then
-    imagedancerfo.bringtofront;ç
+    imagedancerfo.bringtofront;
      {$endif}  
 end;
 
