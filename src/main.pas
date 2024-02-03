@@ -13,13 +13,13 @@ interface
 uses
  {$ifdef windows}win_mixer,{$endif}msetypes,mseglob,config,configlayout,
  mseguiglob,po2arrays,msegraphedits,msescrollbar,Process,mseguiintf,
- mseapplication,msestat,msegui,msegraphics,msegraphutils,mseclasses,
- msewidgets,mseforms,msechart,status,msedock,msedataedits,mseedit,msestatfile,
- SysUtils,Classes,Math,msebitmap,synthe,msesys,msemenus,msestream,msegrids,
+ mseapplication,msestat,msegui,msegraphics,msegraphutils,mseclasses,msewidgets,
+ mseforms,msechart,status,msedock,msedataedits,mseedit,msestatfile,SysUtils,
+ Classes,Math,msebitmap,synthe,msesys,msemenus,msestream,msegrids,
  mselistbrowser,mseact,mseificomp,mseificompglob,mseifiglob,msestrings,
  msedatanodes,msedragglob,msedropdownlist,msefiledialogx,msegridsglob,msetimer,
  {$IFDEF unix}dynlibs,{$ENDIF}msestockobjects,mseconsts,captionstrumpract,
-  mseimage;
+ mseimage;
 
 type
   boundchild = record
@@ -52,7 +52,6 @@ type
     tfaceorangehz: tfacecomp;
     typecolor: tintegeredit;
     tfacebutltgray: tfacecomp;
-    buttonicons: timagelist;
     tfaceplayerbut: tfacecomp;
     tfiledialog1: tfiledialogx;
     dancnum: tintegeredit;
@@ -65,6 +64,7 @@ type
     sliderimage: tbitmapcomp;
    vievmenuicons: timagelist;
    inotag: timage;
+   buttonicons: timagelist;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -2215,7 +2215,7 @@ var
 begin
 
 {$if defined(netbsd) or defined(darwin)}
-  vievmenuicons.options := [bmo_masked]; 
+   vievmenuicons.options := [bmo_masked]; 
    buttonicons.options := [bmo_masked]; 
    inotag.bitmap.options := [bmo_masked]; 
 {$endif}

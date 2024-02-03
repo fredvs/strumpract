@@ -102,7 +102,6 @@ type
     timercallback: ttimer;
     Brandommix: TButton;
     randommix: tbooleanedit;
-    timagelist1: timagelist;
     tframecomp2: tframecomp;
     timagelist3: timagelist;
     hintpanel: tgroupbox;
@@ -115,6 +114,7 @@ type
     sliderimage4: tbitmapcomp;
    tframecompnul: tframecomp;
    tfacecompnul: tfacecomp;
+   timagelist1: timagelist;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
