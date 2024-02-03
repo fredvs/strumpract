@@ -65,6 +65,7 @@ type
    vievmenuicons: timagelist;
    inotag: timage;
    buttonicons: timagelist;
+   
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -2179,21 +2180,27 @@ begin
       if not fileexists(tstatfile1.filename) then
         top := 30;
 
-      if (fs_sbverton in container.frame.state) then
-        Width := fowidth + scrollwidth
-      else
-        Width := fowidth;
-
-      basedock.Width := Width;
-
       hasinit := 1;
-
-      bounds_cxmax := bounds_cx;
-      bounds_cxmin := bounds_cx;
 
       rect1 := application.screenrect(window);
 
       maxheightfo := rect1.cy - 70;
+             
+      if (fs_sbverton in container.frame.state) then
+      begin
+        Width := fowidth + scrollwidth;
+      //  writeln('Has scrollwidth');
+      end else
+      begin
+        Width := fowidth;
+      // writeln('Has NO scrollwidth');
+      end;
+      
+      bounds_cx := Width;
+      
+      bounds_cxmax := bounds_cx;
+      bounds_cxmin := bounds_cx;
+      basedock.Width := Width ;
 
       if visiblecount = 1 then
       begin

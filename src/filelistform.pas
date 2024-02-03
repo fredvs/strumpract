@@ -667,11 +667,11 @@ begin
         onsent(tbutton2);
 
       //  writeln('button 2x click');   
-      if commanderfo.tbutton2.face.template = mainfo.tfaceorange2 then
+      if commanderfo.tbutton2.face.template = mainfo.tfaceorange then
 
         commanderfo.onstartstop(commanderfo.tbutton2)//   writeln('onstartstop(tbutton2)');  
 
-      else if commanderfo.tbutton3.face.template = mainfo.tfaceorange2 then
+      else if commanderfo.tbutton3.face.template = mainfo.tfaceorange then
 
         commanderfo.onstartstop(commanderfo.tbutton3)//  writeln('onstartstop(tbutton3)');  
       ;
