@@ -1231,19 +1231,20 @@ begin
   else
     totmixinterval := round(timemix.Value / 10);
 end;
-
 procedure tcommanderfo.onexecbutlght(const Sender: TObject);
 begin
 
   if TButton(Sender).Name = 'Brandommix' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_black;
       randommix.Value     := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_white;    
       randommix.Value     := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -1252,27 +1253,30 @@ begin
   if TButton(Sender).Name = 'linkvolgenb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_black;    
       linkvolgen.Value    := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_white;        
       linkvolgen.Value    := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
 
-
   if TButton(Sender).Name = 'linkvolb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_black;    
       linkvol.Value       := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_white;        
       linkvol.Value       := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -1281,12 +1285,14 @@ begin
   if TButton(Sender).Name = 'guimixb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_black;    
       guimix.Value        := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_white;        
       guimix.Value        := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -1295,12 +1301,14 @@ begin
   if TButton(Sender).Name = 'speccalcb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_black;    
       speccalc.Value      := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_white;        
       speccalc.Value      := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -1309,12 +1317,14 @@ begin
   if TButton(Sender).Name = 'linkvol2b' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_black;    
       linkvol2.Value      := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_white;    
       linkvol2.Value      := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -1323,12 +1333,14 @@ begin
   if TButton(Sender).Name = 'automixb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then automixb.font.color := cl_black;    
       automix.Value       := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then automixb.font.color := cl_white;        
       automix.Value       := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -1337,12 +1349,14 @@ begin
   if TButton(Sender).Name = 'vuinb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_black;    
       vuin.Value          := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_white;        
       vuin.Value          := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -1351,17 +1365,18 @@ begin
   if TButton(Sender).Name = 'directmixb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_black;    
       directmix.Value     := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_white;        
       directmix.Value     := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
     end;
-
 end;
 
 procedure tcommanderfo.ontimerinit(const Sender: TObject);
@@ -1369,90 +1384,119 @@ begin
 
   if linkvolgen.Value then
   begin
+    if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_black;
     linkvolgenb.tag           := 1;
     linkvolgenb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_white;
     linkvolgenb.tag           := 0;
     linkvolgenb.face.template := mainfo.tfacebutgray;
   end;
 
   if linkvol.Value then
   begin
+     if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_black;
     linkvolb.tag           := 1;
     linkvolb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_white;
     linkvolb.tag           := 0;
     linkvolb.face.template := mainfo.tfacebutgray;
   end;
 
   if guimix.Value then
   begin
+    if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_black;
     guimixb.tag           := 1;
     guimixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_white;
     guimixb.tag           := 0;
     guimixb.face.template := mainfo.tfacebutgray;
   end;
 
   if speccalc.Value then
   begin
+    if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_black;
     speccalcb.tag           := 1;
     speccalcb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_white;
     speccalcb.tag           := 0;
     speccalcb.face.template := mainfo.tfacebutgray;
   end;
 
   if linkvol2.Value then
   begin
+    if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_black;  
     linkvol2b.tag           := 1;
     linkvol2b.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_white;
     linkvol2b.tag           := 0;
     linkvol2b.face.template := mainfo.tfacebutgray;
   end;
 
   if automix.Value then
   begin
+    if mainfo.typecolor.Value = 2 then automixb.font.color := cl_black;  
     automixb.tag           := 1;
     automixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then automixb.font.color := cl_white;
     automixb.tag           := 0;
     automixb.face.template := mainfo.tfacebutgray;
   end;
 
   if vuin.Value then
   begin
+    if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_black;  
     vuinb.tag           := 1;
     vuinb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_white;
     vuinb.tag           := 0;
     vuinb.face.template := mainfo.tfacebutgray;
   end;
 
   if directmix.Value then
   begin
+    if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_black;  
     directmixb.tag           := 1;
     directmixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_white;
     directmixb.tag           := 0;
     directmixb.face.template := mainfo.tfacebutgray;
+  end;
+  
+  if randommix.Value then
+  begin
+    if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_black;  
+    Brandommix.tag           := 1;
+    Brandommix.face.template := mainfo.tfacegreen;
+  end
+  else
+  begin
+     if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_white;
+     Brandommix.tag           := 0;
+    Brandommix.face.template := mainfo.tfacebutgray;
   end;
 
 end;

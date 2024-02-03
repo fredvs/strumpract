@@ -396,7 +396,7 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 28
       bounds_cy = 28
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localshortcut, as_localshortcut1, as_localonexecute]
-      imagelist = mainfo.buttonicons2
+      imagelist = mainfo.buttonicons
       imagenr = 28
       focusrectdist = 0
       onexecute = doplayeresume

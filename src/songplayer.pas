@@ -2964,12 +2964,14 @@ begin
   if TButton(Sender).Name = 'cbloopb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then cbloopb.font.color := cl_black;    
       cbloop.Value        := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then cbloopb.font.color := cl_white;        
       cbloop.Value        := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -2978,12 +2980,14 @@ begin
   if TButton(Sender).Name = 'playreverseb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then playreverseb.font.color := cl_black;        
       playreverse.Value   := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then playreverseb.font.color := cl_white;        
       playreverse.Value   := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -2992,12 +2996,14 @@ begin
   if TButton(Sender).Name = 'waveformcheckb' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then waveformcheckb.font.color := cl_black;        
       waveformcheck.Value           := True;
       TButton(Sender).tag           := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then waveformcheckb.font.color := cl_white;        
       waveformcheck.Value           := False;
       TButton(Sender).tag           := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -3006,12 +3012,14 @@ begin
   if TButton(Sender).Name = 'setmonob' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then setmonob.font.color := cl_black;        
       setmono.Value       := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then setmonob.font.color := cl_white;        
       setmono.Value       := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -3020,12 +3028,14 @@ begin
   if TButton(Sender).Name = 'cbtempob' then
     if TButton(Sender).tag = 0 then
     begin
+      if mainfo.typecolor.Value = 2 then cbtempob.font.color := cl_black;        
       cbtempo.Value       := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
+      if mainfo.typecolor.Value = 2 then cbtempob.font.color := cl_white;        
       cbtempo.Value       := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfacebutgray;
@@ -3038,55 +3048,65 @@ begin
 
   if cbloop.Value then
   begin
+    if mainfo.typecolor.Value = 2 then cbloopb.font.color := cl_black;  
     cbloopb.tag           := 1;
     cbloopb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then cbloopb.font.color := cl_white;    
     cbloopb.tag           := 0;
     cbloopb.face.template := mainfo.tfacebutgray;
   end;
 
   if playreverse.Value then
   begin
+    if mainfo.typecolor.Value = 2 then playreverseb.font.color := cl_black;    
     playreverseb.tag           := 1;
     playreverseb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then playreverseb.font.color := cl_white;    
     playreverseb.tag           := 0;
     playreverseb.face.template := mainfo.tfacebutgray;
   end;
 
   if waveformcheck.Value then
   begin
+    if mainfo.typecolor.Value = 2 then waveformcheckb.font.color := cl_black;    
     waveformcheckb.tag           := 1;
     waveformcheckb.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then waveformcheckb.font.color := cl_white;    
     waveformcheckb.tag           := 0;
     waveformcheckb.face.template := mainfo.tfacebutgray;
   end;
 
   if setmono.Value then
   begin
+    if mainfo.typecolor.Value = 2 then setmonob.font.color := cl_black;    
     setmonob.tag           := 1;
     setmonob.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then setmonob.font.color := cl_white;    
     setmonob.tag           := 0;
     setmonob.face.template := mainfo.tfacebutgray;
   end;
 
   if cbtempo.Value then
   begin
+    if mainfo.typecolor.Value = 2 then cbtempob.font.color := cl_black;    
     cbtempob.tag           := 1;
     cbtempob.face.template := mainfo.tfacegreen;
   end
   else
   begin
+    if mainfo.typecolor.Value = 2 then cbtempob.font.color := cl_white;    
     cbtempob.tag           := 0;
     cbtempob.face.template := mainfo.tfacebutgray;
   end;

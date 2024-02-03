@@ -1511,7 +1511,7 @@ begin
 
     playreverse.hint := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
 
-    cbloop.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];       {' Enable looping the song. (Pause is not enabled with loop.) '}
+    cbloopb.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];       {' Enable looping the song. (Pause is not enabled with loop.) '}
 
     cbtempo.hint := lang_songplayerfo[Ord(so_cbtempo_hint)];      {' Enable stretching (changing tempo) '}
 
@@ -1630,7 +1630,7 @@ begin
 
     playreverse.hint := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
 
-    cbloop.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];       {' Enable looping the song. (Pause is not enabled with loop.) '}
+    cbloopb.hint := lang_songplayerfo[Ord(so_cbloopb_hint)];       {' Enable looping the song. (Pause is not enabled with loop.) '}
 
     cbtempo.hint := lang_songplayerfo[Ord(so_cbtempo_hint)];      {' Enable stretching (changing tempo) '}
 
@@ -5387,40 +5387,40 @@ begin
       spect1.face.template := recorderfo.tfacerecorder;
     end;
 
-    songplayerfo.btnresume.imagenrdisabled  := -1;
-    songplayer2fo.btnresume.imagenrdisabled := -1;
-    songplayerfo.btncue.imagenrdisabled     := -1;
-    songplayer2fo.btncue.imagenrdisabled    := -1;
-    songplayerfo.btnstart.imagenrdisabled   := -1;
-    songplayer2fo.btnstart.imagenrdisabled  := -1;
-    songplayerfo.btnpause.imagenrdisabled   := -1;
-    songplayer2fo.btnpause.imagenrdisabled  := -1;
-    songplayerfo.btnstop.imagenrdisabled    := -1;
-    songplayer2fo.btnstop.imagenrdisabled   := -1;
+    songplayerfo.btnresume.imagenrdisabled  := -2;
+    songplayer2fo.btnresume.imagenrdisabled := -2;
+    songplayerfo.btncue.imagenrdisabled     := -2;
+    songplayer2fo.btncue.imagenrdisabled    := -2;
+    songplayerfo.btnstart.imagenrdisabled   := -2;
+    songplayer2fo.btnstart.imagenrdisabled  := -2;
+    songplayerfo.btnpause.imagenrdisabled   := -2;
+    songplayer2fo.btnpause.imagenrdisabled  := -2;
+    songplayerfo.btnstop.imagenrdisabled    := -2;
+    songplayer2fo.btnstop.imagenrdisabled   := -2;
 
-    commanderfo.btnresume.imagenrdisabled   := -1;
-    commanderfo.btnresume2.imagenrdisabled  := -1;
-    commanderfo.btncue.imagenrdisabled      := -1;
-    commanderfo.btncue2.imagenrdisabled     := -1;
-    commanderfo.btnstart.imagenrdisabled    := -1;
-    commanderfo.btnstart2.imagenrdisabled   := -1;
-    commanderfo.btnpause.imagenrdisabled    := -1;
-    commanderfo.btnpause2.imagenrdisabled   := -1;
-    commanderfo.btnstop.imagenrdisabled     := -1;
-    commanderfo.btnstop2.imagenrdisabled    := -1;
-    commanderfo.loop_start.imagenrdisabled  := -1;
-    commanderfo.loop_stop.imagenrdisabled   := -1;
-    commanderfo.loop_resume.imagenrdisabled := -1;
+    commanderfo.btnresume.imagenrdisabled   := -2;
+    commanderfo.btnresume2.imagenrdisabled  := -2;
+    commanderfo.btncue.imagenrdisabled      := -2;
+    commanderfo.btncue2.imagenrdisabled     := -2;
+    commanderfo.btnstart.imagenrdisabled    := -2;
+    commanderfo.btnstart2.imagenrdisabled   := -2;
+    commanderfo.btnpause.imagenrdisabled    := -2;
+    commanderfo.btnpause2.imagenrdisabled   := -2;
+    commanderfo.btnstop.imagenrdisabled     := -2;
+    commanderfo.btnstop2.imagenrdisabled    := -2;
+    commanderfo.loop_start.imagenrdisabled  := -2;
+    commanderfo.loop_stop.imagenrdisabled   := -2;
+    commanderfo.loop_resume.imagenrdisabled := -2;
 
-    recorderfo.btnresume.imagenrdisabled := -1;
-    recorderfo.tbutton2.imagenrdisabled  := -1;
-    recorderfo.btnstart.imagenrdisabled  := -1;
-    recorderfo.btnpause.imagenrdisabled  := -1;
-    recorderfo.btnstop.imagenrdisabled   := -1;
+    recorderfo.btnresume.imagenrdisabled := -2;
+    recorderfo.tbutton2.imagenrdisabled  := -2;
+    recorderfo.btnstart.imagenrdisabled  := -2;
+    recorderfo.btnpause.imagenrdisabled  := -2;
+    recorderfo.btnstop.imagenrdisabled   := -2;
 
-    drumsfo.loop_resume.imagenrdisabled := -1;
-    drumsfo.loop_start.imagenrdisabled  := -1;
-    drumsfo.loop_stop.imagenrdisabled   := -1;
+    drumsfo.loop_resume.imagenrdisabled := -2;
+    drumsfo.loop_start.imagenrdisabled  := -2;
+    drumsfo.loop_stop.imagenrdisabled   := -2;
 
   end;  
   
@@ -5632,6 +5632,7 @@ begin
 
     tfaceplayer.template.fade_color.items[0]    := $F9FFC2;
     tfaceplayer.template.fade_color.items[1]    := $C4C999;
+   
     tfaceplayerbut.template.fade_color.items[0] := $F9FFC2;
     tfaceplayerbut.template.fade_color.items[1] := $C4C999;
 
@@ -5641,8 +5642,8 @@ begin
     tfacebutltgray.template.fade_color.items[0] := $FAFAFA;
     tfacebutltgray.template.fade_color.items[1] := $D1D1D1;
     
-    tfaceplayerlight.template.fade_color.items[0] := $FDFFEB;
-    tfaceplayerlight.template.fade_color.items[1] := $E3E8B0;
+    tfaceplayerlight.template.fade_color.items[0] := $EBEDDA;
+    tfaceplayerlight.template.fade_color.items[1] := $D2D6A3;
 
     tfaceplayerrev.template.fade_color.items[0] := $C4C999;
     tfaceplayerrev.template.fade_color.items[1] := $F3FABE;
@@ -6100,40 +6101,40 @@ begin
       spect1.face.template := recorderfo.tfacerecorder;
     end;
 
-    songplayerfo.btnresume.imagenrdisabled  := -1;
-    songplayer2fo.btnresume.imagenrdisabled := -1;
-    songplayerfo.btncue.imagenrdisabled     := -1;
-    songplayer2fo.btncue.imagenrdisabled    := -1;
-    songplayerfo.btnstart.imagenrdisabled   := -1;
-    songplayer2fo.btnstart.imagenrdisabled  := -1;
-    songplayerfo.btnpause.imagenrdisabled   := -1;
-    songplayer2fo.btnpause.imagenrdisabled  := -1;
-    songplayerfo.btnstop.imagenrdisabled    := -1;
-    songplayer2fo.btnstop.imagenrdisabled   := -1;
+    songplayerfo.btnresume.imagenrdisabled  := -2;
+    songplayer2fo.btnresume.imagenrdisabled := -2;
+    songplayerfo.btncue.imagenrdisabled     := -2;
+    songplayer2fo.btncue.imagenrdisabled    := -2;
+    songplayerfo.btnstart.imagenrdisabled   := -2;
+    songplayer2fo.btnstart.imagenrdisabled  := -2;
+    songplayerfo.btnpause.imagenrdisabled   := -2;
+    songplayer2fo.btnpause.imagenrdisabled  := -2;
+    songplayerfo.btnstop.imagenrdisabled    := -2;
+    songplayer2fo.btnstop.imagenrdisabled   := -2;
 
-    commanderfo.btnresume.imagenrdisabled   := -1;
-    commanderfo.btnresume2.imagenrdisabled  := -1;
-    commanderfo.btncue.imagenrdisabled      := -1;
-    commanderfo.btncue2.imagenrdisabled     := -1;
-    commanderfo.btnstart.imagenrdisabled    := -1;
-    commanderfo.btnstart2.imagenrdisabled   := -1;
-    commanderfo.btnpause.imagenrdisabled    := -1;
-    commanderfo.btnpause2.imagenrdisabled   := -1;
-    commanderfo.btnstop.imagenrdisabled     := -1;
-    commanderfo.btnstop2.imagenrdisabled    := -1;
-    commanderfo.loop_start.imagenrdisabled  := -1;
-    commanderfo.loop_stop.imagenrdisabled   := -1;
-    commanderfo.loop_resume.imagenrdisabled := -1;
+    commanderfo.btnresume.imagenrdisabled   := -2;
+    commanderfo.btnresume2.imagenrdisabled  := -2;
+    commanderfo.btncue.imagenrdisabled      := -2;
+    commanderfo.btncue2.imagenrdisabled     := -2;
+    commanderfo.btnstart.imagenrdisabled    := -2;
+    commanderfo.btnstart2.imagenrdisabled   := -2;
+    commanderfo.btnpause.imagenrdisabled    := -2;
+    commanderfo.btnpause2.imagenrdisabled   := -2;
+    commanderfo.btnstop.imagenrdisabled     := -2;
+    commanderfo.btnstop2.imagenrdisabled    := -2;
+    commanderfo.loop_start.imagenrdisabled  := -2;
+    commanderfo.loop_stop.imagenrdisabled   := -2;
+    commanderfo.loop_resume.imagenrdisabled := -2;
 
-    recorderfo.btnresume.imagenrdisabled := -1;
-    recorderfo.tbutton2.imagenrdisabled  := -1;
-    recorderfo.btnstart.imagenrdisabled  := -1;
-    recorderfo.btnpause.imagenrdisabled  := -1;
-    recorderfo.btnstop.imagenrdisabled   := -1;
+    recorderfo.btnresume.imagenrdisabled := -2;
+    recorderfo.tbutton2.imagenrdisabled  := -2;
+    recorderfo.btnstart.imagenrdisabled  := -2;
+    recorderfo.btnpause.imagenrdisabled  := -2;
+    recorderfo.btnstop.imagenrdisabled   := -2;
 
-    drumsfo.loop_resume.imagenrdisabled := -1;
-    drumsfo.loop_start.imagenrdisabled  := -1;
-    drumsfo.loop_stop.imagenrdisabled   := -1;
+    drumsfo.loop_resume.imagenrdisabled := -2;
+    drumsfo.loop_start.imagenrdisabled  := -2;
+    drumsfo.loop_stop.imagenrdisabled   := -2;
 
   end;
 
@@ -6345,8 +6346,8 @@ begin
     tfaceplayerbut.template.fade_color.items[0] := $EDEDED;
     tfaceplayerbut.template.fade_color.items[1] := $BABABA;
 
-    tfaceplayerlight.template.fade_color.items[0] := $FDFDFD;
-    tfaceplayerlight.template.fade_color.items[1] := $DDDDDD;
+    tfaceplayerlight.template.fade_color.items[0] := $E6E6E6;
+    tfaceplayerlight.template.fade_color.items[1] := $C7C7C7;
     
     tfaceplayerrev.template.fade_color.items[0] := $BABABA;
     tfaceplayerrev.template.fade_color.items[1] := $EDEDED;
@@ -6664,39 +6665,39 @@ begin
 
     aboutfo.font.color := cl_black;
 
-    songplayerfo.btnresume.imagenrdisabled  := -1;
-    songplayer2fo.btnresume.imagenrdisabled := -1;
-    songplayerfo.btncue.imagenrdisabled     := -1;
-    songplayer2fo.btncue.imagenrdisabled    := -1;
-    songplayerfo.btnstart.imagenrdisabled   := -1;
-    songplayer2fo.btnstart.imagenrdisabled  := -1;
-    songplayerfo.btnpause.imagenrdisabled   := -1;
-    songplayer2fo.btnpause.imagenrdisabled  := -1;
-    songplayerfo.btnstop.imagenrdisabled    := -1;
-    songplayer2fo.btnstop.imagenrdisabled   := -1;
-    commanderfo.btnresume.imagenrdisabled   := -1;
-    commanderfo.btnresume2.imagenrdisabled  := -1;
-    commanderfo.btncue.imagenrdisabled      := -1;
-    commanderfo.btncue2.imagenrdisabled     := -1;
-    commanderfo.btnstart.imagenrdisabled    := -1;
-    commanderfo.btnstart2.imagenrdisabled   := -1;
-    commanderfo.btnpause.imagenrdisabled    := -1;
-    commanderfo.btnpause2.imagenrdisabled   := -1;
-    commanderfo.btnstop.imagenrdisabled     := -1;
-    commanderfo.btnstop2.imagenrdisabled    := -1;
-    commanderfo.loop_start.imagenrdisabled  := -1;
-    commanderfo.loop_stop.imagenrdisabled   := -1;
-    commanderfo.loop_resume.imagenrdisabled := -1;
+    songplayerfo.btnresume.imagenrdisabled  := -2;
+    songplayer2fo.btnresume.imagenrdisabled := -2;
+    songplayerfo.btncue.imagenrdisabled     := -2;
+    songplayer2fo.btncue.imagenrdisabled    := -2;
+    songplayerfo.btnstart.imagenrdisabled   := -2;
+    songplayer2fo.btnstart.imagenrdisabled  := -2;
+    songplayerfo.btnpause.imagenrdisabled   := -2;
+    songplayer2fo.btnpause.imagenrdisabled  := -2;
+    songplayerfo.btnstop.imagenrdisabled    := -2;
+    songplayer2fo.btnstop.imagenrdisabled   := -2;
+    commanderfo.btnresume.imagenrdisabled   := -2;
+    commanderfo.btnresume2.imagenrdisabled  := -2;
+    commanderfo.btncue.imagenrdisabled      := -2;
+    commanderfo.btncue2.imagenrdisabled     := -2;
+    commanderfo.btnstart.imagenrdisabled    := -2;
+    commanderfo.btnstart2.imagenrdisabled   := -2;
+    commanderfo.btnpause.imagenrdisabled    := -2;
+    commanderfo.btnpause2.imagenrdisabled   := -2;
+    commanderfo.btnstop.imagenrdisabled     := -2;
+    commanderfo.btnstop2.imagenrdisabled    := -2;
+    commanderfo.loop_start.imagenrdisabled  := -2;
+    commanderfo.loop_stop.imagenrdisabled   := -2;
+    commanderfo.loop_resume.imagenrdisabled := -2;
 
-    recorderfo.btnresume.imagenrdisabled := -1;
-    recorderfo.tbutton2.imagenrdisabled  := -1;
-    recorderfo.btnstart.imagenrdisabled  := -1;
-    recorderfo.btnpause.imagenrdisabled  := -1;
-    recorderfo.btnstop.imagenrdisabled   := -1;
+    recorderfo.btnresume.imagenrdisabled := -2;
+    recorderfo.tbutton2.imagenrdisabled  := -2;
+    recorderfo.btnstart.imagenrdisabled  := -2;
+    recorderfo.btnpause.imagenrdisabled  := -2;
+    recorderfo.btnstop.imagenrdisabled   := -2;
 
-    drumsfo.loop_resume.imagenrdisabled := -1;
-    drumsfo.loop_start.imagenrdisabled  := -1;
-    drumsfo.loop_stop.imagenrdisabled   := -1;
+    drumsfo.loop_resume.imagenrdisabled := -2;
+    drumsfo.loop_start.imagenrdisabled  := -2;
+    drumsfo.loop_stop.imagenrdisabled   := -2;
 
     with spectrum1fo do
     begin
@@ -7420,6 +7421,9 @@ begin
 
   songplayerfo.DrawWaveForm();
   songplayer2fo.DrawWaveForm();
+  
+  commanderfo.ontimerinit(nil);
+  songplayerfo.ontimercheck(nil);
 
 end;
 
