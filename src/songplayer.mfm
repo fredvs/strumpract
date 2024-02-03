@@ -171,7 +171,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfacebutgray
       taborder = 12
       hint = ' Reset to tempo original '
       bounds_x = 229
@@ -282,7 +282,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerlight
+      face.template = mainfo.tfacebutgray
       taborder = 15
       hint = ' Show infos of the song '
       bounds_x = 5
@@ -347,7 +347,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfacebutgray
       taborder = 13
       hint = ' Detect BMP from current position and set it to Drums tempo. '
       bounds_x = 229
@@ -477,7 +477,7 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerlight
+      face.template = mainfo.tfacebutgray
       taborder = 25
       hint = ' Choose a  wav, ogg, flac or mp3 audio file '
       bounds_x = 61
@@ -621,7 +621,7 @@ object songplayerfo: tsongplayerfo
       frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = commanderfo.tfacebutgray
+      face.template = mainfo.tfacebutgray
       taborder = 11
       hint = ' Enable stretching (changing tempo) '
       bounds_x = 229
@@ -906,8 +906,8 @@ object songplayerfo: tsongplayerfo
       face.template = commanderfo.tfaceorange
       taborder = 24
       visible = False
-      bounds_x = 130
-      bounds_y = 53
+      bounds_x = 147
+      bounds_y = 13
       bounds_cx = 221
       bounds_cy = 41
       object hintlabel: tlabel
@@ -3936,7 +3936,7 @@ object songplayerfo: tsongplayerfo
     interval = 500000
     options = [to_single]
     ontimer = ontimerwavdata
-    left = 214
-    top = 94
+    left = 105
+    top = 87
   end
 end

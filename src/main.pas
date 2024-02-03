@@ -4946,8 +4946,8 @@ begin
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
     tfacebutgray.template.fade_color.items[1] := $E7B0E8;
 
-    tfacebutltgray.template.fade_color.items[0] := $FFE6FA;
-    tfacebutltgray.template.fade_color.items[1] := $E7B0E8;
+    tfacebutltgray.template.fade_color.items[0] := $DADADA;
+    tfacebutltgray.template.fade_color.items[1] := $D5D5D5;
     tfaceplayerlight.template.fade_color.items[0] := $FFDEEE;
     tfaceplayerlight.template.fade_color.items[1] := $FD9EFF;
     tfaceplayerrev.template.fade_color.items[0] := $FFDEEE;
@@ -4960,8 +4960,8 @@ begin
     tfaceplayer.template.fade_color.items[0]    := $E7B0E8;
     tfaceplayerbut.template.fade_color.items[0] := $E7B0E8;
     tfacebutgray.template.fade_color.items[0] := $E7B0E8;
-    tfacebutltgray.template.fade_color.items[0] := $E7B0E8;
-    tfaceplayerlight.template.fade_color.items[0] := $FFDEEE;
+    tfacebutltgray.template.fade_color.items[0] := $D2D2D2;
+    tfaceplayerlight.template.fade_color.items[0] := $E7BAE8;
     tfaceplayerrev.template.fade_color.items[0] := $FFDEEE;
     {$endif}
     
@@ -5639,8 +5639,8 @@ begin
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
     tfacebutgray.template.fade_color.items[1] := $9E9E9E;
 
-    tfacebutltgray.template.fade_color.items[0] := $FAFAFA;
-    tfacebutltgray.template.fade_color.items[1] := $D1D1D1;
+    tfacebutltgray.template.fade_color.items[0] := $DADADA;
+    tfacebutltgray.template.fade_color.items[1] := $D2D2D2;
     
     tfaceplayerlight.template.fade_color.items[0] := $EBEDDA;
     tfaceplayerlight.template.fade_color.items[1] := $D2D6A3;
@@ -5668,10 +5668,10 @@ begin
     tfacebutgray.template.fade_color.items[0] := $9E9E9E;
 
   //  tfacebutltgray.template.fade_color.items[0] := $FAFAFA;
-    tfacebutltgray.template.fade_color.items[0] := $D1D1D1;
+    tfacebutltgray.template.fade_color.items[0] := $D2D2D2;
     
   //   tfaceplayerlight.template.fade_color.items[0] := $FDFFEB;
-    tfaceplayerlight.template.fade_color.items[0] := $E3E8B0;
+    tfaceplayerlight.template.fade_color.items[0] := $CFD4A1;
 
   //  tfaceplayerrev.template.fade_color.items[0] := $C4C999;
     tfaceplayerrev.template.fade_color.items[0] := $F3FABE;
@@ -6327,8 +6327,8 @@ begin
     tfacebutgray.template.fade_color.items[0] := $F2F2F2;
     tfacebutgray.template.fade_color.items[1] := $9E9E9E;
 
-    tfacebutltgray.template.fade_color.items[0] := $FAFAFA;
-    tfacebutltgray.template.fade_color.items[1] := $D1D1D1;
+    tfacebutltgray.template.fade_color.items[0] := $DADADA;
+    tfacebutltgray.template.fade_color.items[1] := $D5D5D5;
 
     tfacegreen.template.fade_color.items[0] := $C2FF9E;
     tfacegreen.template.fade_color.items[1] := $6EB545;
@@ -6358,7 +6358,7 @@ begin
    tfacebutgray.template.fade_color.items[0] := $9E9E9E;
 
 //    tfacebutltgray.template.fade_color.items[0] := $FAFAFA;
-    tfacebutltgray.template.fade_color.items[0] := $D1D1D1;
+    tfacebutltgray.template.fade_color.items[0] := $D2D2D2;
 
   //  tfacegreen.template.fade_color.items[0] := $C2FF9E;
     tfacegreen.template.fade_color.items[0] := $6EB545;
@@ -6370,13 +6370,13 @@ begin
     tfacered.template.fade_color.items[0] := $FF7878;
 
 //    tfaceplayer.template.fade_color.items[0] := $EDEDED;
-    tfaceplayer.template.fade_color.items[0] := $BABABA;
+    tfaceplayer.template.fade_color.items[0] := $C4C4C4;
 
  //   tfaceplayerbut.template.fade_color.items[0] := $EDEDED;
    tfaceplayerbut.template.fade_color.items[0] := $BABABA;
 
   //  tfaceplayerlight.template.fade_color.items[0] := $FDFDFD;
-    tfaceplayerlight.template.fade_color.items[0] := $DDDDDD;
+    tfaceplayerlight.template.fade_color.items[0] := $CCCCCC;
   
 //   tfaceplayerrev.template.fade_color.items[0] := $BABABA;
     tfaceplayerrev.template.fade_color.items[0] := $EDEDED;
@@ -7029,11 +7029,11 @@ begin
     tfaceplayerbut.template.fade_color.items[0] := $5A5A5A;
     tfaceplayerbut.template.fade_color.items[1] := $2A2A2A;
 
-    tfaceplayerlight.template.fade_color.items[0] := $5A5A5A;
-    tfaceplayerlight.template.fade_color.items[1] := $2A2A2A;
+    tfaceplayerlight.template.fade_color.items[0] := $6A6A6A;
+    tfaceplayerlight.template.fade_color.items[1] := $3A3A3A;
     
-    tfaceplayerrev.template.fade_color.items[0] := $BABABA;
-    tfaceplayerrev.template.fade_color.items[1] := $EDEDED;
+    tfaceplayerrev.template.fade_color.items[0] := $BDBDBD;
+    tfaceplayerrev.template.fade_color.items[1] := $9A9A9A;
    
     {$else}
     
@@ -7059,10 +7059,10 @@ begin
     tfaceplayerbut.template.fade_color.items[0] := $2A2A2A;
 
  //   tfaceplayerlight.template.fade_color.items[0] := $5A5A5A;
-   tfaceplayerlight.template.fade_color.items[0] := $353535;
+   tfaceplayerlight.template.fade_color.items[0] := $454545;
 
 //     tfaceplayerrev.template.fade_color.items[0] := $BABABA;
-    tfaceplayerrev.template.fade_color.items[0] := $EDEDED;
+    tfaceplayerrev.template.fade_color.items[0] := $BDBDBD;
 
      {$endif}
 

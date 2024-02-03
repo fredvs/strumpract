@@ -212,6 +212,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 17
       onchange = dopatern
       options = [bo_executeonclick, bo_executeonkey, bo_executeonshortcut, bo_executedefaultonenterkey, bo_nodefaultframeactive]
+      colorglyph = 54784
       value = True
     end
     object tbooleaneditradio7: tbooleaneditradio
@@ -239,6 +240,7 @@ object drumsfo: tdrumsfo
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
+      colorglyph = 54784
     end
     object tbooleaneditradio6: tbooleaneditradio
       Tag = 7
@@ -265,6 +267,7 @@ object drumsfo: tdrumsfo
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
+      colorglyph = 54784
     end
     object tbooleaneditradio5: tbooleaneditradio
       Tag = 8
@@ -291,6 +294,7 @@ object drumsfo: tdrumsfo
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
+      colorglyph = 54784
     end
     object lesson4: tbooleaneditradio
       Tag = 4
@@ -317,6 +321,7 @@ object drumsfo: tdrumsfo
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
+      colorglyph = 54784
     end
     object lesson3: tbooleaneditradio
       Tag = 3
@@ -343,6 +348,7 @@ object drumsfo: tdrumsfo
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
+      colorglyph = 54784
     end
     object lesson2: tbooleaneditradio
       Tag = 2
@@ -369,6 +375,7 @@ object drumsfo: tdrumsfo
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
+      colorglyph = 54784
     end
     object lesson1: tbooleaneditradio
       Tag = 1
@@ -395,6 +402,7 @@ object drumsfo: tdrumsfo
       bounds_cx = 30
       bounds_cy = 17
       onchange = dopatern
+      colorglyph = 54784
     end
     object tlabel22: tlabel
       color = -2147483645
@@ -436,6 +444,7 @@ object drumsfo: tdrumsfo
       bounds_y = 71
       bounds_cx = 65
       bounds_cy = 17
+      colorglyph = 54784
     end
     object noand: tbooleanedit
       color = -2147483645
@@ -458,6 +467,7 @@ object drumsfo: tdrumsfo
       bounds_y = 43
       bounds_cx = 70
       bounds_cy = 17
+      colorglyph = 54784
       value = True
     end
     object novoice: tbooleanedit
@@ -482,6 +492,7 @@ object drumsfo: tdrumsfo
       bounds_cx = 66
       bounds_cy = 17
       onchange = onchangenovoice
+      colorglyph = 54784
       value = True
     end
     object nodrums: tbooleanedit
@@ -505,6 +516,7 @@ object drumsfo: tdrumsfo
       bounds_y = 57
       bounds_cx = 74
       bounds_cy = 17
+      colorglyph = 54784
     end
     object loop_stop: tbutton
       color = -2147483645
@@ -887,6 +899,7 @@ object drumsfo: tdrumsfo
       bounds_cy = 17
       statfile = mainfo.tstatfile1
       onchange = onchangesongtimer
+      colorglyph = 54784
     end
     object tickcount: tintegeredit
       frame.caption = 'Max ticks'
@@ -1027,8 +1040,8 @@ object drumsfo: tdrumsfo
         font.grayed_shifty = 2
         font.height = 50
         font.name = 'stf_default'
-        font.options = [foo_script, foo_antialiased2]
-        font.localprops = []
+        font.options = [foo_antialiased]
+        font.localprops = [flp_options]
         textflags = [tf_xcentered, tf_ycentered]
         reffontheight = 59
       end
@@ -1038,8 +1051,8 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       taborder = 31
       visible = False
-      bounds_x = 136
-      bounds_y = 38
+      bounds_x = 97
+      bounds_y = 60
       bounds_cx = 261
       bounds_cy = 45
       font.color = -1610612734

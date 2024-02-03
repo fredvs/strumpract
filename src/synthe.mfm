@@ -9,8 +9,8 @@ object synthefo: tsynthefo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 392
-  bounds_y = 199
+  bounds_x = 157
+  bounds_y = 72
   bounds_cx = 442
   bounds_cy = 284
   bounds_cxmin = 442
@@ -168,6 +168,7 @@ object synthefo: tsynthefo
     FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
   }
+  windowopacity = -Inf
   oncreate = oninit
   oneventloopstart = oncreated
   onclose = onclosexe
@@ -220,9 +221,9 @@ object synthefo: tsynthefo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face1.template = mainfo.tfaceplayerlight
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfaceplayerrev
       scrollbar.faceendbutton.fade_pos.count = 2
@@ -241,6 +242,7 @@ object synthefo: tsynthefo
       scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       scrollbar.colorglyph = -1610612730
       onsetvalue = samcountsetexeR
     end
@@ -270,9 +272,9 @@ object synthefo: tsynthefo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face1.template = mainfo.tfaceplayerlight
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfaceplayerrev
       scrollbar.faceendbutton.fade_pos.count = 2
@@ -291,6 +293,7 @@ object synthefo: tsynthefo
       scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       scrollbar.colorglyph = -1610612730
       onsetvalue = onsetampnoiseR
       controller = cont
@@ -310,7 +313,7 @@ object synthefo: tsynthefo
       frame.localprops = []
       frame.localprops1 = []
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 2
       bounds_x = 147
       bounds_y = 190
@@ -332,7 +335,7 @@ object synthefo: tsynthefo
       frame.localprops = []
       frame.localprops1 = []
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 3
       bounds_x = 147
       bounds_y = 167
@@ -354,7 +357,7 @@ object synthefo: tsynthefo
       frame.localprops = []
       frame.localprops1 = []
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 4
       bounds_x = 147
       bounds_y = 119
@@ -388,9 +391,9 @@ object synthefo: tsynthefo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face1.template = mainfo.tfaceplayerlight
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfaceplayerrev
       scrollbar.faceendbutton.fade_pos.count = 2
@@ -409,6 +412,7 @@ object synthefo: tsynthefo
       scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       scrollbar.colorglyph = -1610612730
       onsetvalue = samcountsetexeL
     end
@@ -425,7 +429,7 @@ object synthefo: tsynthefo
       frame.localprops = []
       frame.localprops1 = []
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 6
       bounds_x = 147
       bounds_y = 96
@@ -460,9 +464,9 @@ object synthefo: tsynthefo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face1.template = mainfo.tfaceplayerlight
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfaceplayerrev
       scrollbar.faceendbutton.fade_pos.count = 2
@@ -481,6 +485,7 @@ object synthefo: tsynthefo
       scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       scrollbar.colorglyph = -1610612730
       onsetvalue = onsetampnoiseL
       controller = cont
@@ -511,7 +516,7 @@ object synthefo: tsynthefo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 8
       hint = 'Link Left+Right Channels'
       bounds_x = 43
@@ -535,7 +540,7 @@ object synthefo: tsynthefo
       frame.localprops1 = []
       frame.button.colorglyph = -1610612730
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerrev
+      frame.button.face.template = mainfo.tfaceplayerlight
       frame.button.frame.framei_left = 4
       frame.button.frame.framei_top = 2
       frame.button.frame.framei_right = 4
@@ -552,7 +557,7 @@ object synthefo: tsynthefo
         item
           colorglyph = -1610612730
           face.localprops = []
-          face.template = mainfo.tfaceplayerrev
+          face.template = mainfo.tfaceplayerlight
           frame.framei_left = 4
           frame.framei_top = 2
           frame.framei_right = 4
@@ -566,7 +571,7 @@ object synthefo: tsynthefo
           frame.localprops1 = []
         end>
       face.localprops = []
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 9
       hint = 'Kind of Noise Left Channel'
       bounds_x = 5
@@ -601,7 +606,7 @@ object synthefo: tsynthefo
       frame.localprops1 = []
       frame.button.colorglyph = -1610612730
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerrev
+      frame.button.face.template = mainfo.tfaceplayerlight
       frame.button.frame.framei_left = 4
       frame.button.frame.framei_top = 2
       frame.button.frame.framei_right = 4
@@ -618,7 +623,7 @@ object synthefo: tsynthefo
         item
           colorglyph = -1610612730
           face.localprops = []
-          face.template = mainfo.tfaceplayerrev
+          face.template = mainfo.tfaceplayerlight
           frame.framei_left = 4
           frame.framei_top = 2
           frame.framei_right = 4
@@ -632,7 +637,7 @@ object synthefo: tsynthefo
           frame.localprops1 = []
         end>
       face.localprops = []
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 10
       hint = 'Kind of Noise Right Channel'
       bounds_x = 103
@@ -704,9 +709,9 @@ object synthefo: tsynthefo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face1.template = mainfo.tfaceplayerlight
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfaceplayerrev
       scrollbar.faceendbutton.fade_pos.count = 2
@@ -725,6 +730,7 @@ object synthefo: tsynthefo
       scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       scrollbar.colorglyph = -1610612730
       onsetvalue = onfreqwaveL
     end
@@ -755,9 +761,9 @@ object synthefo: tsynthefo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face1.template = mainfo.tfaceplayerlight
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfaceplayerrev
       scrollbar.faceendbutton.fade_pos.count = 2
@@ -776,6 +782,7 @@ object synthefo: tsynthefo
       scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       scrollbar.colorglyph = -1610612730
       onsetvalue = onfreqwaveR
     end
@@ -791,7 +798,7 @@ object synthefo: tsynthefo
       frame.localprops1 = []
       frame.button.colorglyph = -1610612730
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerrev
+      frame.button.face.template = mainfo.tfaceplayerlight
       frame.button.frame.framei_left = 4
       frame.button.frame.framei_top = 2
       frame.button.frame.framei_right = 4
@@ -808,7 +815,7 @@ object synthefo: tsynthefo
         item
           colorglyph = -1610612730
           face.localprops = []
-          face.template = mainfo.tfaceplayerrev
+          face.template = mainfo.tfaceplayerlight
           frame.framei_left = 4
           frame.framei_top = 2
           frame.framei_right = 4
@@ -822,7 +829,7 @@ object synthefo: tsynthefo
           frame.localprops1 = []
         end>
       face.localprops = []
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       hint = 'Kind of Wave Left Channel'
       bounds_x = 20
       bounds_y = 20
@@ -839,10 +846,10 @@ object synthefo: tsynthefo
       valuemin = 0
       onsetvalue = onsetwavekindL
       dropdown.colorclient = -2147483645
-      dropdown.facetemplate = mainfo.tfaceplayer
+      dropdown.facetemplate = mainfo.tfaceplayerlight
       dropdown.cols.count = 1
       dropdown.cols.colorselect = 10724259
-      dropdown.cols.facetemplate = mainfo.tfaceplayer
+      dropdown.cols.facetemplate = mainfo.tfaceplayerlight
       dropdown.cols.items = <      
         item
           colorselect = 10724259
@@ -882,9 +889,9 @@ object synthefo: tsynthefo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face1.template = mainfo.tfaceplayerlight
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfaceplayerrev
       scrollbar.faceendbutton.fade_pos.count = 2
@@ -903,6 +910,7 @@ object synthefo: tsynthefo
       scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       scrollbar.colorglyph = -1610612730
       onsetvalue = onvolwaveL
     end
@@ -928,7 +936,7 @@ object synthefo: tsynthefo
         0
       )
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 2
       hint = 'Frequency in Hz Left'
       bounds_x = 80
@@ -967,7 +975,7 @@ object synthefo: tsynthefo
         0
       )
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 4
       hint = 'Number or Harmonics Left'
       bounds_x = 23
@@ -1004,7 +1012,7 @@ object synthefo: tsynthefo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 5
       hint = 'Odd Harmonics only Left'
       bounds_x = 164
@@ -1029,7 +1037,7 @@ object synthefo: tsynthefo
       frame.localprops = []
       frame.localprops1 = []
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 6
       bounds_x = 159
       bounds_y = 52
@@ -1052,7 +1060,7 @@ object synthefo: tsynthefo
       frame.localprops1 = []
       frame.button.colorglyph = -1610612730
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerrev
+      frame.button.face.template = mainfo.tfaceplayerlight
       frame.button.frame.framei_left = 4
       frame.button.frame.framei_top = 2
       frame.button.frame.framei_right = 4
@@ -1069,7 +1077,7 @@ object synthefo: tsynthefo
         item
           colorglyph = -1610612730
           face.localprops = []
-          face.template = mainfo.tfaceplayerrev
+          face.template = mainfo.tfaceplayerlight
           frame.framei_left = 4
           frame.framei_top = 2
           frame.framei_right = 4
@@ -1083,7 +1091,7 @@ object synthefo: tsynthefo
           frame.localprops1 = []
         end>
       face.localprops = []
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 7
       hint = 'Kind of Wave Right Channel'
       bounds_x = 108
@@ -1099,7 +1107,7 @@ object synthefo: tsynthefo
       valuemin = 0
       onsetvalue = onsetwavekindR
       dropdown.colorclient = -2147483645
-      dropdown.facetemplate = mainfo.tfaceplayer
+      dropdown.facetemplate = mainfo.tfaceplayerlight
       dropdown.cols.count = 1
       dropdown.cols.colorselect = 10724259
       dropdown.cols.facetemplate = mainfo.tfaceplayer
@@ -1137,7 +1145,7 @@ object synthefo: tsynthefo
         0
       )
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 8
       hint = 'Number or Harmonics Right'
       bounds_x = 22
@@ -1163,7 +1171,7 @@ object synthefo: tsynthefo
       frame.localprops = []
       frame.localprops1 = []
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 10
       bounds_x = 159
       bounds_y = 148
@@ -1201,9 +1209,9 @@ object synthefo: tsynthefo
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
       scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayer
+      scrollbar.face1.template = mainfo.tfaceplayerlight
       scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayer
+      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = mainfo.tfaceplayerrev
       scrollbar.faceendbutton.fade_pos.count = 2
@@ -1222,6 +1230,7 @@ object synthefo: tsynthefo
       scrollbar.framebutton.localprops = [frl_optionsskin]
       scrollbar.framebutton.localprops1 = []
       scrollbar.framebutton.template = commanderfo.tframecomp2
+      scrollbar.color = -2147483645
       scrollbar.colorglyph = -1610612730
       onsetvalue = onvolwaveR
     end
@@ -1247,7 +1256,7 @@ object synthefo: tsynthefo
         0
       )
       face.localprops = []
-      face.template = mainfo.tfaceplayerrev
+      face.template = mainfo.tfaceplayerlight
       taborder = 12
       hint = 'Frequency in Hz Right'
       bounds_x = 80
@@ -1288,7 +1297,7 @@ object synthefo: tsynthefo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 13
       hint = 'Link Left+Right Channels'
       bounds_x = 56
@@ -1325,7 +1334,7 @@ object synthefo: tsynthefo
       )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayer
+      face.template = mainfo.tfaceplayerlight
       taborder = 14
       hint = 'Odd Harmonics only Right'
       bounds_x = 163
@@ -1407,8 +1416,8 @@ object synthefo: tsynthefo
   end
   object cont: tsigcontroller
     samplefrequ = 44100
-    left = 148
-    top = 245
+    left = 125
+    top = 190
   end
   object out: tsigoutaudio
     controller = cont
@@ -1431,8 +1440,8 @@ object synthefo: tsynthefo
         expend = -Inf
       end>
     audio.latency = 0.1
-    left = 137
-    top = 211
+    left = 123
+    top = 176
   end
   object noise: tsignoise
     controller = cont
@@ -1449,8 +1458,8 @@ object synthefo: tsynthefo
     offset.expstart = -Inf
     offset.expend = -Inf
     cutofffrequ = 0.0001
-    left = 32
-    top = 216
+    left = 19
+    top = 190
   end
   object tsignoise4: tsignoise
     controller = tsigcontroller4
@@ -1467,8 +1476,8 @@ object synthefo: tsynthefo
     offset.expend = -Inf
     kind = nk_brown
     cutofffrequ = 0.0001
-    left = 79
-    top = 121
+    left = 333
+    top = 70
   end
   object tsigoutaudio4: tsigoutaudio
     controller = tsigcontroller4
@@ -1492,12 +1501,12 @@ object synthefo: tsynthefo
       end>
     audio.latency = 0.1
     left = 92
-    top = 83
+    top = 102
   end
   object tsigcontroller4: tsigcontroller
     samplefrequ = 44100
-    left = 80
-    top = 99
+    left = 259
+    top = 68
   end
   object noise2: tsignoise
     controller = cont
@@ -1532,7 +1541,7 @@ object synthefo: tsynthefo
     offset.expend = -Inf
     kind = nk_brown
     cutofffrequ = 0.0001
-    left = 77
-    top = 127
+    left = 291
+    top = 68
   end
 end

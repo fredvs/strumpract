@@ -904,7 +904,7 @@ object filelistfo: tfilelistfo
       frame.localprops = [frl_levelo, frl_leveli, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
       frame.localprops1 = [frl1_captiondist]
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfacebutgray
+      frame.button.face.template = mainfo.tfaceplayer
       frame.button.frame.optionsskin = [fso_flat]
       frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
@@ -912,14 +912,14 @@ object filelistfo: tfilelistfo
       frame.buttons.items = <      
         item
           face.localprops = []
-          face.template = mainfo.tfacebutgray
+          face.template = mainfo.tfaceplayer
           frame.optionsskin = [fso_flat]
           frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
         end>
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfacebutltgray
+      face.template = mainfo.tfaceplayerlight
       taborder = 1
       hint = 'History of Directories'
       bounds_x = 27

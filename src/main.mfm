@@ -124,6 +124,7 @@ object mainfo: tmainfo
   onresize = onresized
   moduleclassname = 'tmainform'
   object basedock: tdockpanel
+    color = -2147483645
     frame.colordkwidth = 0
     frame.colorhlwidth = 0
     frame.localprops = [frl_colordkwidth, frl_colorhlwidth]
@@ -5210,12 +5211,12 @@ object mainfo: tmainfo
     reffontheight = 15
   end
   object tmainmenu1: tmainmenu
-    popupfacetemplate = tfacebutgray
-    popupitemfacetemplateactive = tfacebutgray
-    facetemplate = tfacebutgray
+    popupfacetemplate = tfacebutltgray
+    popupitemfacetemplateactive = tfacebutltgray
+    facetemplate = tfacebutltgray
     itemframetemplate = tframecomp1
-    itemfacetemplate = tfacebutgray
-    itemfacetemplateactive = tfacebutgray
+    itemfacetemplate = tfacebutltgray
+    itemfacetemplateactive = tfacebutltgray
     menu.submenu.count = 12
     menu.submenu.items = <    
       item

@@ -31,9 +31,9 @@ object dockpanel1fo: tdockpanel1fo
   container.face.template = mainfo.tfacebutgray
   container.bounds = (
     0
-    19
+    17
     454
-    77
+    79
   )
   dragdock.facetab = mainfo.tfacebutgray
   dragdock.faceactivetab = mainfo.tfacebutltgray
@@ -146,7 +146,7 @@ object dockpanel1fo: tdockpanel1fo
     frame.grip_grip = stb_default
     frame.grip_face.localprops = []
     face.localprops = []
-    face.template = mainfo.tfacebutgray
+    face.template = mainfo.tfacebutltgray
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 454
@@ -167,11 +167,11 @@ object dockpanel1fo: tdockpanel1fo
     dockingareacaption = 'Drag a form here using right-border grip.'
   end
   object tmainmenu1: tmainmenu
-    popupfacetemplate = mainfo.tfacebutgray
-    popupitemfacetemplate = mainfo.tfacebutgray
-    facetemplate = mainfo.tfacebutgray
-    itemfacetemplate = mainfo.tfacebutgray
-    itemfacetemplateactive = mainfo.tfacebutgray
+    popupfacetemplate = mainfo.tfacebutltgray
+    popupitemfacetemplate = mainfo.tfacebutltgray
+    facetemplate = mainfo.tfacebutltgray
+    itemfacetemplate = mainfo.tfacebutltgray
+    itemfacetemplateactive = mainfo.tfacebutltgray
     menu.submenu.count = 3
     menu.submenu.items = <    
       item

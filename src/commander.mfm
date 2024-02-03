@@ -1448,9 +1448,9 @@ object commanderfo: tcommanderfo
       face.localprops = []
       taborder = 35
       hint = 'Direct MIX (0 second time)'
-      bounds_x = 161
+      bounds_x = 162
       bounds_y = 44
-      bounds_cx = 19
+      bounds_cx = 16
       bounds_cy = 36
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'DM'
