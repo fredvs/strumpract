@@ -812,18 +812,18 @@ settingsautosave=0
 modulenames=4
  COMMANDERFO
  FILELISTFO
- MAINFO
  INFOSDFO
+ MAINFO
 moduletypes=4
  TCOMMANDERFO
  TFILELISTFO
- TMAINFO
  TINFOSDFO
+ TMAINFO
 modulefiles=4
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/filelistform.mfm
- /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/infosd.mfm
+ /home/fred/strumpract/src/main.mfm
 befcommandon=0
 makeoptionson=18
  4095
@@ -1629,7 +1629,7 @@ editpos=5
  0,2220
  0,-1073741823
  0,-1073741823
- 0,274
+ 37,265
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1681,20 +1681,20 @@ nomenumodules=5
 order=5
  0
  1
+ 3
  4
  2
- 3
 firsttab=0
-index=1
+index=3
 [layout]
-windowlayout=630
+windowlayout=631
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
  [mainfo]
  splitdir=0
  useroptions=302055547
- stackedunder=
+ stackedunder=_mse_infosdfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1708,7 +1708,7 @@ windowlayout=630
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
  [findmessagefo.findtext]
  value=
@@ -1805,7 +1805,7 @@ windowlayout=630
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_infosdfo_mse_
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1813,7 +1813,7 @@ windowlayout=630
  ncx=0
  ncy=0
  x=81
- y=391
+ y=152
  cx=1360
  cy=748
  rcx=0
@@ -1921,10 +1921,10 @@ windowlayout=630
  [breakpointsfo.bkptson]
  value=1
  [objectinspectorfo.grid]
- propcolwidthref=591
- width0=349
+ propcolwidthref=576
+ width0=340
  sortdescend0=0
- width1=236
+ width1=230
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2088,7 +2088,7 @@ windowlayout=630
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=findinfilefo
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2145,8 +2145,9 @@ windowlayout=630
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
- history=9
+ value=/home/fred/strumpract/src/infosd.pas
+ history=10
+  /home/fred/strumpract/src/main.pas
   /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/piano.pas
   /home/fred/strumpract/src/synthe.pas
@@ -2180,11 +2181,11 @@ windowlayout=630
  order=5
   0
   1
+  3
   4
   2
-  3
  firsttab=0
- index=1
+ index=3
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2226,7 +2227,7 @@ windowlayout=630
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_filelistfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2264,7 +2265,7 @@ windowlayout=630
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2302,7 +2303,7 @@ windowlayout=630
  [_mse_infosdfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

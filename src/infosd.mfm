@@ -454,8 +454,6 @@ object infosdfo: tinfosdfo
     color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
-    face.localprops = []
-    face.template = mainfo.tfaceplayerlight
     taborder = 14
     onpaint = onpaintimg
     visible = False
