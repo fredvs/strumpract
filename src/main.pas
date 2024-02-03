@@ -7424,6 +7424,7 @@ begin
   
   commanderfo.ontimerinit(nil);
   songplayerfo.ontimercheck(nil);
+  songplayer2fo.ontimercheck(nil);
 
 end;
 
