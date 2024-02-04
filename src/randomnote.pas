@@ -6,41 +6,12 @@ unit randomnote;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msetimer,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msesimplewidgets,
-  msewidgets,
-  mseedit,
-  msestatfile,
-  msestream,
-  SysUtils,
-  mseact,
-  msedataedits,
-  msedropdownlist,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msedispwidgets,
-  mserichstring,
-  msegraphedits,
-  msescrollbar,
-  msechartedit,
-  msesiggui,
-  msesignal,
-  mseimage;
+ BGRABitmap, BGRABitmapTypes,  BGRAAnimatedGif,msetypes,mseglob,mseguiglob,
+ mseguiintf,mseapplication,msestat,msetimer,msemenus,msegui,msegraphics,
+ msegraphutils,mseevent,mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
+ mseedit,msestatfile,msestream,SysUtils,mseact,msedataedits,msedropdownlist,
+ mseificomp,mseificompglob,mseifiglob,msedispwidgets,mserichstring,
+ msegraphedits,msescrollbar,msechartedit,msesiggui,msesignal,mseimage;
 
 type
   trandomnotefo = class(tdockform)
@@ -70,25 +41,19 @@ type
     tmemoedit1: tmemoedit;
     tbutton6: TButton;
     bass1: tstringdisp;
-    timage2: timage;
     belipse1_3: timage;
     belipse1_1: timage;
     belipse1_2: timage;
     guitar1: tstringdisp;
-    timage1: timage;
     gelipse1_3: timage;
     gelipse1_2: timage;
     gelipse1_1: timage;
     piano1: tstringdisp;
     keyb1: timage;
-    elipse1_1: timage;
-    elipse1_2: timage;
-    elipse1_3: timage;
     bchord1: TButton;
     chord1: TButton;
     chord1drop: tdropdownlistedit;
     bass2: tstringdisp;
-    timage6: timage;
     belipse2_3: timage;
     belipse2_1: timage;
     belipse2_2: timage;
@@ -101,7 +66,6 @@ type
     chord2drop: tdropdownlistedit;
     bchord2: TButton;
     guitar2: tstringdisp;
-    timage8: timage;
     gelipse2_3: timage;
     gelipse2_1: timage;
     gelipse2_2: timage;
@@ -114,22 +78,18 @@ type
     elipse3_2: timage;
     elipse3_3: timage;
     guitar3: tstringdisp;
-    timage12: timage;
     gelipse3_3: timage;
     gelipse3_2: timage;
     gelipse3_1: timage;
     bass3: tstringdisp;
-    timage11: timage;
     belipse3_3: timage;
     belipse3_1: timage;
     belipse3_2: timage;
     bass4: tstringdisp;
-    timage15: timage;
     belipse4_3: timage;
     belipse4_1: timage;
     belipse4_2: timage;
     guitar4: tstringdisp;
-    timage9: timage;
     gelipse4_3: timage;
     gelipse4_2: timage;
     gelipse4_1: timage;
@@ -142,12 +102,10 @@ type
     chord4drop: tdropdownlistedit;
     bchord4: TButton;
     bass5: tstringdisp;
-    timage27: timage;
     belipse5_3: timage;
     belipse5_1: timage;
     belipse5_2: timage;
     guitar5: tstringdisp;
-    timage23: timage;
     gelipse5_3: timage;
     gelipse5_2: timage;
     gelipse5_1: timage;
@@ -161,6 +119,24 @@ type
     bchord5: TButton;
     chordsonly: TButton;
     ttimer1: ttimer;
+    keyb1pb: tpaintbox;
+    keyb2pb: tpaintbox;
+    keyb3pb: tpaintbox;
+    keyb4pb: tpaintbox;
+    keyb5pb: tpaintbox;
+    elipse1_3: timage;
+    elipse1_2: timage;
+    elipse1_1: timage;
+   guitpb1: tpaintbox;
+   guitpb2: tpaintbox;
+   guitpb3: tpaintbox;
+   guitpb4: tpaintbox;
+   guitpb5: tpaintbox;
+   basspb1: tpaintbox;
+   basspb2: tpaintbox;
+   basspb3: tpaintbox;
+   basspb4: tpaintbox;
+   basspb5: tpaintbox;
     procedure onmousevdrop(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure dorandomchordbut(const Sender: TObject);
     procedure dorandomchord(const Sender: TObject);
@@ -187,7 +163,10 @@ type
     procedure doinit(const Sender: TObject);
     procedure doconfig(const Sender: TObject);
     procedure onconfigtext(const Sender: TObject);
-
+    procedure onpaintimg(const Sender: twidget; const acanvas: tcanvas);
+    procedure onpaintguit(const Sender: twidget; const acanvas: tcanvas);
+    procedure onpaintbass(const Sender: twidget; const acanvas: tcanvas);
+  
     procedure onhide(const Sender: TObject);
     procedure onshowrand(const Sender: TObject);
     procedure crea(const Sender: TObject);
@@ -198,6 +177,7 @@ type
   end;
 
 var
+  aimagepiano, aimageguit, aimagebass: TBGRAAnimatedGif;
   randomnotefo: trandomnotefo;
   chordran: integer;
   chorddrop: integer = 0;
@@ -216,6 +196,42 @@ uses
   uos_flat,
   guitars,
   drums;
+  
+procedure trandomnotefo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
+var
+  theMemBitmap: TBGRABitmap;
+begin
+
+  theMemBitmap := aimagepiano.MemBitmap.Resample(keyb1pb.Width, keyb1pb.Height, rmFineResample) as TBGRABitmap;
+  theMemBitmap.Rectangle(0, 0, keyb1pb.Width, keyb1pb.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
+  theMemBitmap.draw(acanvas, 0, 0, True);
+  theMemBitmap.Free;
+
+end;  
+
+procedure trandomnotefo.onpaintguit(const Sender: twidget; const acanvas: tcanvas);
+var
+  theMemBitmap : TBGRABitmap;
+begin
+
+  theMemBitmap:= aimageguit.MemBitmap.Resample(guitpb1.Width, guitpb1.Height, rmFineResample) as TBGRABitmap;
+  theMemBitmap.Rectangle(0, 0, guitpb1.Width, guitpb1.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
+  theMemBitmap.draw(acanvas, 0, 0, True);
+  theMemBitmap.Free;
+
+end; 
+
+procedure trandomnotefo.onpaintbass(const Sender: twidget; const acanvas: tcanvas);
+var
+  theMemBitmap : TBGRABitmap;
+begin
+
+  theMemBitmap:= aimagebass.MemBitmap.Resample(basspb1.Width, basspb1.Height, rmFineResample) as TBGRABitmap;
+  theMemBitmap.Rectangle(0, 0, basspb1.Width, basspb1.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
+  theMemBitmap.draw(acanvas, 0, 0, True);
+  theMemBitmap.Free;
+
+end; 
 
 procedure trandomnotefo.guitarchord(num, ranchord, ismin, isseven: integer);
 var
@@ -1551,7 +1567,7 @@ begin
 
       // mi 2
       elipse1_3.top  := round(96 * ratioheight);
-      elipse1_3.left := 240;
+      elipse1_3.left := 236;
     end
     else if num = 2 then
     begin
@@ -1626,7 +1642,7 @@ begin
 
       // mi 2
       elipse1_3.top  := round(96 * ratioheight);
-      elipse1_3.left := 240;
+      elipse1_3.left := 236;
     end
     else if num = 2 then
     begin
@@ -2650,7 +2666,7 @@ begin
 
       // mi 2
       belipse1_3.top  := 96;
-      belipse1_3.left := 240;
+      belipse1_3.left := 236;
     end
     else if num = 2 then
     begin
@@ -2725,7 +2741,7 @@ begin
 
       // mi 2
       belipse1_3.top  := 96;
-      belipse1_3.left := 240;
+      belipse1_3.left := 236;
     end
     else if num = 2 then
     begin
@@ -3969,6 +3985,8 @@ begin
 end;
 
 procedure trandomnotefo.oncreatedev(const Sender: TObject);
+var
+ordir : msestring;
 begin
   randomize;
 
@@ -3977,19 +3995,29 @@ begin
 
   //lineend + lineend +    '_____________________' + lineending + lineending +  lineending + 'The chords of chance';
   // Visible := False;
-  keyb2.bitmap    := keyb1.bitmap;
-  keyb3.bitmap    := keyb1.bitmap;
-  keyb4.bitmap    := keyb1.bitmap;
-  keyb5.bitmap    := keyb1.bitmap;
-  timage8.bitmap  := timage1.bitmap;
-  timage12.bitmap := timage1.bitmap;
-  timage9.bitmap  := timage1.bitmap;
-  timage23.bitmap := timage1.bitmap;
-  timage6.bitmap  := timage2.bitmap;
-  timage11.bitmap := timage2.bitmap;
+ 
+ 
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'pianokeyb.png')
+  then
+  begin
+  aimagepiano := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'pianokeyb.png');  
+  keyb1pb.invalidate;
+  end;
 
-  timage15.bitmap := timage2.bitmap;
-  timage27.bitmap := timage2.bitmap;
+  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'guiaretab.png')
+  then
+  begin
+  aimageguit := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'guiaretab.png');  
+  guitpb1.invalidate;
+  end;
+  
+   if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'basschord.png')
+  then
+  begin
+  aimagebass := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'basschord.png');  
+  basspb1.invalidate;
+  end;
 
   elipse1_2.bitmap := elipse1_1.bitmap;
   elipse1_3.bitmap := elipse1_1.bitmap;
@@ -4037,7 +4065,6 @@ begin
   doinit(Sender);
 
 end;
-
 
 procedure trandomnotefo.randomnum(const Sender: TObject);
 var

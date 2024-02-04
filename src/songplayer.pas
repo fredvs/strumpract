@@ -2292,19 +2292,9 @@ begin
         begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
-          begin
-           // istream1 := TagReader.Tags.Images[0].Image;
-            infosdfo.loadimagetag(TagReader.Tags.Images[0].Image);
-           end  
-          else
-          begin
-            infosdfo.tbutton1.visible := false;
-            infosdfo.ttimer1.enabled := false;
-            infosdfo.imgPreview.bitmap   := mainfo.inotag.bitmap;
-            infosdfo.imgPreview.Visible  := True;
-            infosdfo.PimgPreview.Visible := False;
-          end;
-
+            infosdfo.loadimagetag(TagReader.Tags.Images[0].Image)
+           else  infosdfo.loadimagetag(nil);
+          
           CommonTags := TagReader.GetCommonTags;
 
           infosdfo.infofile.Caption := copy(trim(extractfilename(historyfn.Value)), 1, 60);
@@ -2368,15 +2358,8 @@ begin
 
           if readtag(ansistring(historyfn.Value)) = 0 then
             infosdfo2.loadimagetag(TagReader.Tags.Images[0].Image)
-          else
-          begin
-            infosdfo2.tbutton1.visible := false;
-            infosdfo2.ttimer1.enabled := false;
-            infosdfo2.imgPreview.bitmap   := mainfo.inotag.bitmap;
-            infosdfo2.imgPreview.Visible  := True;
-            infosdfo2.PimgPreview.Visible := False;
-          end;
-
+          else infosdfo2.loadimagetag(nil);
+         
           CommonTags := TagReader.GetCommonTags;
 
           infosdfo2.infofile.Caption   := copy(trim(extractfilename(historyfn.Value)), 1, 60);

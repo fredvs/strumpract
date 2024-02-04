@@ -47,7 +47,6 @@ type
     infofile: tlabel;
     tlabel2: tlabel;
     aimage: TBGRAAnimatedGif;
-    imgPreview: timage;
     PimgPreview: tpaintbox;
     ttimer1: tfptimer;
 
@@ -132,9 +131,9 @@ begin
   PimgPreview.Height := round(216 * ratio);
   PimgPreview.Width  := round(216 * ratio);
 
-  imgPreview.left   := round(217 * ratio);
-  imgPreview.Height := round(216 * ratio);
-  imgPreview.Width  := round(216 * ratio);
+  //imgPreview.left   := round(217 * ratio);
+  //imgPreview.Height := round(216 * ratio);
+  //imgPreview.Width  := round(216 * ratio);
 
 end;
 
@@ -234,24 +233,37 @@ begin
 end;
 
 procedure tinfosdfo.loadimagetag(aitag: TStream);
+var
+ordir : msestring;
 begin
   ttimer1.Enabled  := False;
   tbutton1.Visible := False;
-
   if Assigned(aimage) then
     aimage.Free;
-  aimage := TBGRAAnimatedGif.Create(aitag);
-
-  imgPreview.Visible  := False;
+    
+   if aitag = nil then
+   begin 
+   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'noimagetag.png')
+  then
+  begin
+  aimage := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'noimagetag.png');  
   PimgPreview.Visible := True;
-
   PimgPreview.invalidate;
-
+  end;
+  end
+  else
+  begin
+  aimage := TBGRAAnimatedGif.Create(aitag);
+  PimgPreview.Visible := True;
+  PimgPreview.invalidate;
   if aimage.Count > 1 then
   begin
     tbutton1.Caption := '||';
     tbutton1.Visible := True;
     ttimer1.Enabled  := True;
+  end;
+  
   end;
 
 end;

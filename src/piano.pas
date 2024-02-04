@@ -2,12 +2,13 @@ unit piano;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
+ BGRABitmap, BGRABitmapTypes,  BGRAAnimatedGif,
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
  msegui,msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
  msesimplewidgets, msewidgets, mseact, msechartedit, msedataedits,
  msedropdownlist, mseedit, msegraphedits, mseificomp, mseificompglob,mseifiglob,
  msescrollbar, msesiggui, msesignal, msestatfile, msestream,sysutils,
- msedispwidgets, mserichstring, msefilter, uos_msesigaudio, msesignoise;
+ msedispwidgets, mserichstring, msefilter, uos_msesigaudio, msesignoise,mseimage;
 
 type
  tpianofo = class(tdockform)
@@ -24,6 +25,7 @@ type
    tsigslider32: tsigslider;
    volpiano: tintegerdisp;
    tsigslider3: tsigslider;
+   keyb1pb: tpaintbox;
    procedure oncloseex(const sender: TObject);
    procedure oncreated(const sender: TObject);
    procedure onresizeex(const sender: TObject);
@@ -37,7 +39,7 @@ type
    procedure ondockex(const sender: TObject);
    procedure onfloatex(const sender: TObject);
    procedure resizepi(fontheight :  integer );
-   
+   procedure onpaintimg(const Sender: twidget; const acanvas: tcanvas);
    procedure crea(const sender: TObject);
  end;
 var
@@ -50,6 +52,19 @@ main, dockpanel1, captionstrumpract, piano_mfm;
 
 var
   boundchildpi: array of boundchild;
+  aimagepiano4oct : TBGRAAnimatedGif;
+  
+procedure tpianofo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
+var
+  theMemBitmap: TBGRABitmap;
+begin
+
+  theMemBitmap := aimagepiano4oct.MemBitmap.Resample(keyb1pb.Width, keyb1pb.Height, rmFineResample) as TBGRABitmap;
+  theMemBitmap.Rectangle(0, 0, keyb1pb.Width, keyb1pb.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
+  theMemBitmap.draw(acanvas, 0, 0, True);
+  theMemBitmap.Free;
+
+end;    
   
 procedure tpianofo.resizepi(fontheight :  integer );
 var
@@ -224,6 +239,7 @@ end;
 procedure tpianofo.crea(const sender: TObject);
 var
 i1, childn : integer;
+ordir : msestring;
 begin
     setlength(boundchildpi,childrencount);
      
@@ -237,6 +253,15 @@ begin
           boundchildpi[i1].height := children[i1].height;
           boundchildpi[i1].name := children[i1].name;
          end;
+
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'piano4oct.png')
+  then
+  begin
+  aimagepiano4oct := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'piano4oct.png');  
+  keyb1pb.invalidate;
+  end;
+
 end;
 
 end.

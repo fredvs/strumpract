@@ -63,7 +63,6 @@ type
     drumsvisible: tintegeredit;
     sliderimage: tbitmapcomp;
    vievmenuicons: timagelist;
-   inotag: timage;
    buttonicons: timagelist;
    
     procedure ontimerwait(const Sender: TObject);
@@ -2006,9 +2005,9 @@ begin
   begin
     Caption := lang_randomnotefo[Ord(ra_randomnotefo)];  {'Chord Randomizer'}
 
-    timage8.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
 
-    keyb1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+    keyb1pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
     elipse1_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
@@ -2016,9 +2015,9 @@ begin
 
     elipse1_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
-    timage1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
 
-    keyb2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+    keyb2pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
     elipse2_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
@@ -2026,7 +2025,7 @@ begin
 
     elipse2_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
-    keyb3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];   {'Click to listen to piano chord'}
+    keyb3pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];   {'Click to listen to piano chord'}
 
     elipse3_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
@@ -2052,7 +2051,7 @@ begin
     tbutton5.Caption := lang_randomnotefo[Ord(ra_tbutton5)];  {'Tuned Guitars'}
 
 
-    keyb4.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+    keyb4pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
     elipse4_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
@@ -2060,11 +2059,11 @@ begin
 
     elipse4_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
-    timage9.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to the guitar chord'}
+    guitpb1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to the guitar chord'}
 
     chord5drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
 
-    keyb5.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+    keyb5pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
     elipse5_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
@@ -2072,7 +2071,7 @@ begin
 
     elipse5_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
 
-    timage23.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
 
     bchord1.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 1'}
     bchord5.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 5'}
@@ -2224,7 +2223,6 @@ begin
 {$if defined(netbsd) or defined(darwin)}
    vievmenuicons.options := [bmo_masked]; 
    buttonicons.options := [bmo_masked]; 
-   inotag.bitmap.options := [bmo_masked]; 
 {$endif}
 
 {$if defined(nofade)}
