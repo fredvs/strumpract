@@ -243,6 +243,7 @@ begin
     
    if aitag = nil then
    begin 
+   //tlabel2.visible := true;
    ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
   if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'noimagetag.png')
   then
@@ -250,10 +251,17 @@ begin
   aimage := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'noimagetag.png');  
   PimgPreview.Visible := True;
   PimgPreview.invalidate;
+   if aimage.Count > 1 then
+  begin
+    tbutton1.Caption := '||';
+    tbutton1.Visible := True;
+    ttimer1.Enabled  := True;
+  end;
   end;
   end
   else
   begin
+  //tlabel2.visible := false;
   aimage := TBGRAAnimatedGif.Create(aitag);
   PimgPreview.Visible := True;
   PimgPreview.invalidate;

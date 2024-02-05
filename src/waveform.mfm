@@ -10,10 +10,10 @@ object wavefo: twavefo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use that grip to drag the form '
   visible = False
-  bounds_x = 347
-  bounds_y = 305
+  bounds_x = 378
+  bounds_y = 500
   bounds_cx = 442
-  bounds_cy = 110
+  bounds_cy = 108
   bounds_cxmin = 442
   bounds_cymin = 94
   bounds_cxmax = 442
@@ -32,7 +32,7 @@ object wavefo: twavefo
     0
     17
     434
-    93
+    91
   )
   dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
@@ -112,41 +112,13 @@ object wavefo: twavefo
     DA72AA01D679AC029DCFC91B9CD0CA01A5C3C501C88FB401D876AB01D778AC01
     9CCDC81B9CCEC9019ECAC701B1AFBE01CB89B101BBA1B901
   }
+  windowopacity = -Inf
   oncreate = crea
   oncreated = oncreated
   onresize = onresiz
   onshow = onvisiblech
   onhide = onvisiblech
   moduleclassname = 'tdockform'
-  object trackbar1: tslider
-    optionswidget1 = [ow1_autoscale, ow1_noclampinview]
-    color = -2147483645
-    frame.levelo = 0
-    frame.localprops = [frl_levelo, frl_leveli]
-    frame.localprops1 = []
-    face.localprops = []
-    face.template = mainfo.tfaceplayer
-    taborder = 1
-    hint = ' Click to change position of sound '
-    bounds_x = 0
-    bounds_y = 0
-    bounds_cx = 432
-    bounds_cy = 78
-    enabled = False
-    scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
-    scrollbar.buttonlength = 2
-    scrollbar.buttonminlength = 1
-    scrollbar.buttonendlength = -1
-    scrollbar.face.image.source = sliderimage
-    scrollbar.face.fade_direction = gd_down
-    scrollbar.face.localprops = [fal_fadirection, fal_image]
-    scrollbar.face1.image.source = sliderimage
-    scrollbar.face1.framei_right = -6
-    scrollbar.face1.localprops = [fal_framei_right, fal_image]
-    scrollbar.face1.template = commanderfo.tfacegreen
-    scrollbar.color = -2147483645
-    scrollbar.onafterevent = onafterev
-  end
   object echelle: tstringgrid
     color = 13882323
     frame.levelo = 0
@@ -164,7 +136,7 @@ object wavefo: twavefo
     frame.localprops1 = []
     enabled = False
     bounds_x = 0
-    bounds_y = 77
+    bounds_y = 75
     bounds_cx = 432
     bounds_cy = 16
     anchors = [an_left, an_bottom]
@@ -183,6 +155,46 @@ object wavefo: twavefo
     datarowheight = 15
     statpriority = 1
     reffontheight = 15
+  end
+  object trackbar1: tslider
+    optionswidget1 = [ow1_autoscale, ow1_noclampinview]
+    face.localprops = []
+    face.template = mainfo.tfaceplayerlight
+    taborder = 1
+    hint = ' Click to change position of sound '
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 432
+    bounds_cy = 76
+    enabled = False
+    scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
+    scrollbar.buttonlength = 4
+    scrollbar.buttonminlength = 4
+    scrollbar.buttonendlength = -1
+    scrollbar.face.image.source = sliderimage
+    scrollbar.face.fade_direction = gd_down
+    scrollbar.face.localprops = [fal_fadirection, fal_image]
+    scrollbar.face1.image.source = sliderimage
+    scrollbar.face1.framei_right = -6
+    scrollbar.face1.fade_pos.count = 2
+    scrollbar.face1.fade_pos.items = (
+      0
+      1
+    )
+    scrollbar.face1.fade_color.count = 2
+    scrollbar.face1.fade_color.items = (
+      12779422
+      7255365
+    )
+    scrollbar.face1.fade_direction = gd_down
+    scrollbar.face1.localprops = [fal_framei_right, fal_image]
+    scrollbar.facebutton.localprops = []
+    scrollbar.facebutton.template = tfacebuttonslider
+    scrollbar.framebutton.colorclient = -2147483645
+    scrollbar.framebutton.localprops = [frl_colorframe, frl_hiddenedges, frl_optionsskin]
+    scrollbar.framebutton.localprops1 = []
+    scrollbar.color = -2147483645
+    scrollbar.onafterevent = onafterev
   end
   object sliderimage: tbitmapcomp
     left = 72
@@ -262,7 +274,7 @@ object wavefo: twavefo
   object tfacebuttonslider: tfacecomp
     template.fade_direction = gd_down
     template.onafterpaint = faceafterpaintbut
-    left = 107
-    top = 29
+    left = 162
+    top = 26
   end
 end

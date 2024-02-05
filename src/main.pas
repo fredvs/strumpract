@@ -5232,15 +5232,6 @@ begin
       abuttons2[x].font.color := thecolor2;
       abuttonsR[x].font.color := ltblack;
 
-
-      asliders[x].scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-      asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-      aslidersr[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-
-      asliders[x].scrollbar.facebutton.template  := commanderfo.tfacebutton;
-      asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
-      aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
-
     end;
 
     // commander
@@ -5274,20 +5265,6 @@ begin
     commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6;
 
     commanderfo.timemix.frame.font.color := ltblack;
-
-    commanderfo.genvolleft.scrollbar.facebutton.template := commanderfo.tfacebutton;
-
-    commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-
-    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-
-    commanderfo.genvolright.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-    commanderfo.volumeleft1.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-    commanderfo.volumeleft2.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-    commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.tslider2.scrollbar.facebutton.image     := equalizerfo1.blight.face.image;
-    commanderfo.tslider3.scrollbar.facebutton.image     := equalizerfo1.blight.face.image;
 
     filelistfo.list_files.font.color          := ltblack;
     filelistfo.tgroupbox1.font.color          := ltblack;
@@ -5945,16 +5922,6 @@ begin
       abuttons[x].font.color  := thecolor1;
       abuttons2[x].font.color := thecolor2;
       abuttonsR[x].font.color := ltblack;
-
-
-      asliders[x].scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-      asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-      aslidersr[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-
-      asliders[x].scrollbar.facebutton.template  := commanderfo.tfacebutton;
-      asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
-      aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
-
     end;
 
     // commander
@@ -5988,20 +5955,6 @@ begin
     commanderfo.tfacegriptab.template.fade_color.items[1] := $CEB2D6;
 
     commanderfo.timemix.frame.font.color := ltblack;
-
-    commanderfo.genvolleft.scrollbar.facebutton.template := commanderfo.tfacebutton;
-
-    commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-
-    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-
-    commanderfo.genvolright.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-    commanderfo.volumeleft1.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-    commanderfo.volumeleft2.scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-    commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.tslider2.scrollbar.facebutton.image     := equalizerfo1.blight.face.image;
-    commanderfo.tslider3.scrollbar.facebutton.image     := equalizerfo1.blight.face.image;
 
     filelistfo.list_files.font.color          := ltblack;
     filelistfo.tgroupbox1.font.color          := ltblack;
@@ -6600,14 +6553,6 @@ begin
       abuttons[x].font.color  := ltblack;
       abuttons2[x].font.color := ltblack;
       abuttonsR[x].font.color := ltblack;
-
-      asliders[x].scrollbar.facebutton.image  := equalizerfo1.blight.face.image;
-      asliders2[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-      aslidersr[x].scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-
-      asliders[x].scrollbar.facebutton.template  := commanderfo.tfacebutton;
-      asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
-      aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
     end;
 
     // commander
@@ -6632,15 +6577,6 @@ begin
     commanderfo.timemix.font.color        := ltblack;
     commanderfo.timemix.frame.colorglyph  := ltblack;
     commanderfo.timemix.frame.font.color  := ltblack;
-    commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.genvolright.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.volumeleft1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.volumeleft2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.tslider2.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
-    commanderfo.tslider3.scrollbar.facebutton.image := equalizerfo1.blight.face.image;
     commanderfo.butinput.colorglyph       := ltblack;
     commanderfo.butinput.frame.font.color := ltblack;
     commanderfo.tfacegriptab.template.fade_color.items[0] := $EDEDED;
@@ -7312,12 +7248,6 @@ begin
       abuttons[x].font.color  := ltblank;
       abuttons2[x].font.color := ltblank;
       abuttonsR[x].font.color := ltblank;
-      asliders[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-      asliders2[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-      aslidersr[x].scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-      asliders[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
-      asliders2[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
-      aslidersr[x].scrollbar.facebutton.template := commanderfo.tfacebutton;
     end;
 
     // commander
@@ -7354,16 +7284,8 @@ begin
     commanderfo.tfacegriptab.template.fade_color.items[1] := $BABABA;
 
     commanderfo.timemix.frame.font.color          := ltblank;
-    commanderfo.sysvol.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.genvolleft.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.genvolright.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.volumeleft1.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.volumeleft2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.volumeright1.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.volumeright2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.tslider2.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-    commanderfo.tslider3.scrollbar.facebutton.image := equalizerfo1.bdark.face.image;
-
+    
+    
     filelistfo.historyfn.frame.button.colorglyph := ltblank;
     filelistfo.historyfn.dropdown.colorclient    := ltblack;
 

@@ -104,14 +104,42 @@ object infosdfo: tinfosdfo
   object tlabel2: tlabel
     color = -2147483645
     taborder = 12
-    bounds_x = 240
-    bounds_y = 105
+    bounds_x = 277
+    bounds_y = 157
     bounds_cx = 83
     bounds_cy = 15
     caption = 'No Image Tag'
     font.style = [fs_italic]
     font.name = 'stf_default'
     font.localprops = [flp_style]
+    reffontheight = 15
+  end
+  object infoalbum: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
+    color = -2147483645
+    frame.caption = 'Album'
+    frame.captiondist = -3
+    frame.font.height = 10
+    frame.font.style = [fs_italic]
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_style, flp_height]
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
+    frame.outerframe = (
+      0
+      12
+      0
+      0
+    )
+    taborder = 8
+    bounds_x = 4
+    bounds_y = 94
+    bounds_cx = 425
+    bounds_cy = 27
+    anchors = [an_left, an_top, an_right]
+    caption = '                                '
+    font.name = 'stf_default'
+    font.localprops = []
     reffontheight = 15
   end
   object infolength: tlabel
@@ -324,34 +352,6 @@ object infosdfo: tinfosdfo
     font.localprops = []
     reffontheight = 15
   end
-  object infoalbum: tlabel
-    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
-    color = -2147483645
-    frame.caption = 'Album'
-    frame.captiondist = -3
-    frame.font.height = 10
-    frame.font.style = [fs_italic]
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_style, flp_height]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
-    frame.outerframe = (
-      0
-      12
-      0
-      0
-    )
-    taborder = 8
-    bounds_x = 4
-    bounds_y = 94
-    bounds_cx = 425
-    bounds_cy = 27
-    anchors = [an_left, an_top, an_right]
-    caption = '                                '
-    font.name = 'stf_default'
-    font.localprops = []
-    reffontheight = 15
-  end
   object infoartist: tlabel
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
@@ -444,7 +444,7 @@ object infosdfo: tinfosdfo
     taborder = 13
     onpaint = onpaintimg
     visible = False
-    bounds_x = 218
+    bounds_x = 217
     bounds_y = 0
     bounds_cx = 216
     bounds_cy = 216

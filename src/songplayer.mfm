@@ -945,17 +945,18 @@ object songplayerfo: tsongplayerfo
       11120261
     )
     template.fade_direction = gd_down
-    left = 217
+    left = 98
+    top = 33
   end
   object tfacebuttonslider: tfacecomp
     template.fade_direction = gd_down
     template.onafterpaint = faceafterpaintbut
-    left = 278
-    top = 27
+    left = 6
+    top = 19
   end
   object sliderimage: tbitmapcomp
-    left = 266
-    top = 96
+    left = 62
+    top = 44
   end
   object ttimer1: ttimer
     options = [to_single]

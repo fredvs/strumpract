@@ -4,47 +4,20 @@ unit waveform;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  Math,
-  mseact,
-  msegui,
-  SysUtils,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msegraphedits,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msescrollbar,
-  msebitmap,
-  msesimplewidgets,
-  msewidgets,
-  msegrids,
-  msedataedits,
-  msedropdownlist,
-  mseedit,
-  msestatfile,
-  msetimer,
-  msestream;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
+ mseact,msegui,SysUtils,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
+ msedock,msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
+ msebitmap,msesimplewidgets,msewidgets,msegrids,msedataedits,msedropdownlist,
+ mseedit,msestatfile,msetimer,msestream;
 
 type
   twavefo = class(tdockform)
     sliderimage: tbitmapcomp;
     ttimer1: ttimer;
     echelle: tstringgrid;
-    trackbar1: tslider;
     tmainmenu1: tmainmenu;
-    tfacebuttonslider: tfacecomp;
+   trackbar1: tslider;
+   tfacebuttonslider: tfacecomp;
     procedure onresiz(const Sender: TObject);
     procedure ontimer(const Sender: TObject);
     procedure onfloat(const Sender: TObject);
@@ -85,7 +58,8 @@ procedure twavefo.faceafterpaintbut(const Sender: tcustomface; const Canvas: tca
 var
   point1, point2: pointty;
 begin
-  point1.x := arect.x + (arect.cx div 2);
+
+  point1.x := arect.x  + (arect.cx div 2 );
   point1.y := 0;
   point2.x := point1.x;
   point2.y := arect.cy;

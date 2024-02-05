@@ -199,6 +199,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
@@ -282,6 +283,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
@@ -392,6 +394,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
@@ -505,6 +508,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
@@ -553,6 +557,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
@@ -719,6 +724,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
@@ -751,6 +757,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
@@ -823,6 +830,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
@@ -855,6 +863,7 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.origformat = 'png'
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
       scrollbar.faceendbutton.localprops = []
       scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]

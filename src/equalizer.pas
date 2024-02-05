@@ -4,37 +4,11 @@ unit equalizer;
 interface
 
 uses
-  Classes,
-  ctypes,
-  SysUtils,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msegraphedits,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msescrollbar,
-  msesimplewidgets,
-  msewidgets,
-  msechart,
-  msedispwidgets,
-  mserichstring,
-  msefiledialogx,
-  msestatfile,
-  msebitmap,
-  mseimage;
+ Classes,ctypes,SysUtils,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,
+ msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
+ msedock,msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
+ msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring,
+ msefiledialogx,msestatfile,msebitmap,mseimage;
 
 type
   tasliders = array[1..20] of tslider;
@@ -104,12 +78,11 @@ type
     fond: tstringdisp;
     loadset: TButton;
     saveset: TButton;
-    blight: TButton;
-    bdark: TButton;
     tstringdisp22: tstringdisp;
     tslider1: tslider;
     tbutton1: TButton;
     EQEN: tbooleanedit;
+   tfacebuttonslider: tfacecomp;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
@@ -120,6 +93,7 @@ type
     procedure loadlist(const Sender: TObject);
     procedure savelist(const Sender: TObject);
     procedure resizeeq(fontheight: integer);
+    procedure faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
 
   end;
 
@@ -144,6 +118,158 @@ uses
 
 var
   boundchildeq: array of boundchild;
+  
+procedure tequalizerfo.faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
+var
+  point1, point2: pointty;
+ 
+begin
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y ;
+  point2.x := arect.x + arect.cx - 2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $aDaDaD) else
+  Canvas.drawline(point1, point2, cl_white);
+  
+  point1.x := arect.x + 1 ;
+  point1.y := arect.y + 1;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A8A8A8);
+  
+  point1.x := arect.x + 1 ;
+  point1.y := arect.y + 2;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A8A8A8);
+    
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y + 3;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A8A8A8);
+  
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y + 4;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A8A8A8);
+   
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y +  5;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A8A8A8);
+   
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y + 6;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $929292) else
+  Canvas.drawline(point1, point2, $CFCFCF);
+    
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y + 7;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $929292) else
+  Canvas.drawline(point1, point2, $CFCFCF);
+    
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y + 8;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, cl_black) else
+  Canvas.drawline(point1, point2, $747474);
+  
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y + 9;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $FF8C00) else
+  Canvas.drawline(point1, point2, $F7BB71);
+  
+  point1.x := arect.x  + 1;
+  point1.y := arect.y + 10;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, cl_black) else
+  Canvas.drawline(point1, point2, $747474);
+  
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y + 11;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $A3A3A3) else
+  Canvas.drawline(point1, point2, $D2D2D2);
+  
+  point1.x := arect.x  + 1 ;
+  point1.y := arect.y + 12;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $929292) else
+  Canvas.drawline(point1, point2, $D2D2D2);
+  
+  point1.x := arect.x  + 1;
+  point1.y := arect.y + 13;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A7A7A7);
+   
+  point1.x := arect.x  + 1;
+  point1.y := arect.y + 14;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A7A7A7);
+  
+  point1.x := arect.x  + 1;
+  point1.y := arect.y + 15;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A7A7A7);
+ 
+  point1.x := arect.x  + 1;
+  point1.y := arect.y + 16;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $6E6E6E) else
+  Canvas.drawline(point1, point2, $A7A7A7);
+  
+  point1.x := arect.x  + 1;
+  point1.y := arect.y + arect.cy;
+  point2.x := arect.x + arect.cx -2 ;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+  Canvas.drawline(point1, point2, $808080) else
+  Canvas.drawline(point1, point2, $808080);
+  
+end;  
 
 procedure tequalizerfo.resizeeq(fontheight: integer);
 var
