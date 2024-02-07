@@ -4,7 +4,7 @@ unit imagedancer;
 {$modeswitch advancedrecords} 
 
  //{$if not defined(netbsd) and not defined(darwin)}
- //{$define msethread}
+ {$define msethread}
  //{$endif}
 
 interface
