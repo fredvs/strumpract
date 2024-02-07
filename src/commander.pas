@@ -1065,11 +1065,9 @@ begin
  {$endif}
  
  {$if defined(nofade)}
- tframecomp2.template := tframecompnul.template;
+ //tframecomp2.template := tframecompnul.template;
  {$endif}
  
- 
-
   setlength(boundchildco, childrencount);
 
   childn := childrencount;

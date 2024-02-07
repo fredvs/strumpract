@@ -1237,8 +1237,8 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceorange
       taborder = 24
       hint = 'Pause Mixing'
-      bounds_x = -147
-      bounds_y = -115
+      bounds_x = 99
+      bounds_y = 83
       bounds_cx = 82
       bounds_cy = 37
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -1510,7 +1510,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       taborder = 27
       visible = False
-      bounds_x = 152
+      bounds_x = 214
       bounds_y = 35
       bounds_cx = 84
       bounds_cy = 83
