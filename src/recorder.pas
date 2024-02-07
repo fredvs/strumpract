@@ -168,9 +168,9 @@ uses
   waveform,
   songplayer,
   equalizer,
-    {$if not defined(darwin)}
+ //   {$if not defined(darwin)}
   imagedancer,
-    {$endif}
+   // {$endif}
   recorder_mfm;
 
 var
@@ -381,7 +381,7 @@ begin
   leftlev  := uos_InputGetLevelLeft(therecplayer, Inputindex3);
   rightlev := uos_InputGetLevelRight(therecplayer, Inputindex3);
 
-  {$if not defined(darwin)}  
+//  {$if not defined(darwin)}  
   multiplier   := ((leftlev + rightlev) / 2);
   if multiplier > 1 then
     multiplier := 1;
@@ -405,7 +405,7 @@ begin
     RTLeventSetEvent(evPauseimage); // to resume 
 
   end;
-   {$endif}
+  // {$endif}
   if waveforec.Visible = True then
     if (as_checked in waveforec.tmainmenu1.menu[0].state) then
     begin
@@ -774,7 +774,12 @@ procedure trecorderfo.onplayercreate(const Sender: TObject);
 var
   i1, childn: integer;
 begin
-  windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
+
 
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);

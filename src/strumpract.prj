@@ -143,8 +143,9 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=paintslider
+ value=darwin
  history=20
+  darwin
   paintslider
   tslider1
   sliderimage
@@ -164,7 +165,6 @@ findinfiledialog=83
   tbitmapcomp1
   imagedancer,
   imagedancerfo
-  btnPause
  [findinfileadialogfo]
  stackedunder=
  x=210
@@ -809,15 +809,18 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
+modulenames=3
  EQUALIZERFO
  INFOSDFO
-moduletypes=2
+ WAVEFO
+moduletypes=3
  TEQUALIZERFO
  TINFOSDFO
-modulefiles=2
+ TWAVEFO
+modulefiles=3
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/infosd.mfm
+ /home/fred/strumpract/src/waveform.mfm
 befcommandon=0
 makeoptionson=18
  4095
@@ -1618,58 +1621,68 @@ findhistory=20
  darwin
  thethread
 findoptions=1
-editpos=3
+editpos=4
  0,4
  7,262
- 0,280
+ 0,-1073741823
+ 39,376
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
-sourcefiles=3
+bookmarks3=0
+sourcefiles=4
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/infosd.pas
  ${PROJECTDIR}/equalizer.pas
-relpaths=3
+ ${PROJECTDIR}/waveform.pas
+relpaths=4
  strumpract.pas
  infosd.pas
  equalizer.pas
-ismoduletexts=3
+ waveform.pas
+ismoduletexts=4
  0
  0
  0
-modules=5
+ 0
+modules=6
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/guitars.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/equalizer.mfm
  /home/fred/strumpract/src/infosd.mfm
-moduleoptions=5
+ /home/fred/strumpract/src/waveform.mfm
+moduleoptions=6
  0
  0
  2
  0
  0
-visiblemodules=5
+ 0
+visiblemodules=6
  0
  0
  0
  -1
  -1
-nomenumodules=5
+ -1
+nomenumodules=6
  -1
  -1
  -1
+ 0
  0
  0
 [sourcefo.files_tab]
-order=3
+order=4
  0
- 2
+ 3
  1
+ 2
 firsttab=0
 index=1
 [layout]
-windowlayout=632
+windowlayout=653
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1683,13 +1696,13 @@ windowlayout=632
  ny=0
  ncx=0
  ncy=0
- x=0
- y=24
+ x=5
+ y=29
  cx=1600
  cy=843
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [findmessagefo.findtext]
@@ -1787,7 +1800,7 @@ windowlayout=632
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=
+ stackedunder=_mse_wavefo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2070,7 +2083,7 @@ windowlayout=632
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=findinfilefo
  parent=
  mdistate=3
  nx=0
@@ -2112,7 +2125,7 @@ windowlayout=632
  mdistate=0
  nx=0
  ny=0
- ncx=1576
+ ncx=1586
  ncy=70
  x=0
  y=0
@@ -2127,8 +2140,9 @@ windowlayout=632
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/equalizer.pas
- history=13
+ value=/home/fred/strumpract/src/waveform.pas
+ history=14
+  /home/fred/strumpract/src/equalizer.pas
   /home/fred/strumpract/src/infosd.pas
   /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts_strings.inc
   /home/fred/ideu/src/msestockobjects.pas
@@ -2163,10 +2177,11 @@ windowlayout=632
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=3
+ order=4
   0
-  2
+  3
   1
+  2
  firsttab=0
  index=1
  [confideufo.usedefaulteditoroptions]
@@ -2255,8 +2270,8 @@ windowlayout=632
  ny=0
  ncx=0
  ncy=0
- x=577
- y=306
+ x=547
+ y=213
  cx=452
  cy=128
  rcx=0
@@ -2267,7 +2282,7 @@ windowlayout=632
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_infosdfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2286,7 +2301,7 @@ windowlayout=632
  [_mse_infosdfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2297,6 +2312,25 @@ windowlayout=632
  y=274
  cx=452
  cy=216
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_wavefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=mainfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=378
+ y=500
+ cx=452
+ cy=108
  rcx=0
  rcy=0
  wsize=0

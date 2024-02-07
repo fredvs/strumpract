@@ -116,10 +116,23 @@ object imagedancerfo: timagedancerfo
   oncreated = oncreat
   oneventloopstart = onevstart
   ondestroy = ondestroy
-  onmouseevent = onmouseevform
   onshow = onshow
   onhide = onhide
   moduleclassname = 'tdockform'
+  object pb: tpaintbox
+    optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
+    color = -2147483645
+    frame.localprops = []
+    frame.localprops1 = []
+    taborder = 1
+    onpaint = onpaint_imagedancerfo
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 434
+    bounds_cy = 206
+    anchors = []
+    onmouseevent = onmouseevform
+  end
   object openglwidget: topenglwidget
     color = -2147483645
     visible = False

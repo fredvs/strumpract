@@ -215,9 +215,9 @@ uses
   infosd,
   captionstrumpract,
   main,
-  {$if not defined(darwin)}
+//  {$if not defined(darwin)}
   imagedancer,
-  {$endif}
+//  {$endif}
   commander,
   config,
   configlayout,
@@ -899,28 +899,30 @@ begin
       ShowPosition(nil);
 
     if ((vuinvar = True) and (Visible = True))
-     {$if not defined(darwin)}
+   //  {$if not defined(darwin)}
      or
-      ((imagedancerfo.Visible = True))  {$endif} then
+      ((imagedancerfo.Visible = True)) 
+  //     {$endif}
+        then
     begin
       ll1 := uos_InputGetLevelLeft(theplayer, Inputindex1);
       lr1 := uos_InputGetLevelright(theplayer, Inputindex1);
       ll2 := uos_InputGetLevelLeft(theplayer2, Inputindex2);
       lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
 
-        {$if not defined(darwin)}
+    //    {$if not defined(darwin)}
       multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
 
       if multiplier > 1 then
         multiplier := 1;
       if multiplier < 0 then
         multiplier := 0;
-        {$endif} 
+   //     {$endif} 
 
       if (vuinvar = True) and (Visible = True) then
         ShowLevel(nil, ll1, lr1, ll2, lr2);
 
-        {$if not defined(darwin)}
+     //   {$if not defined(darwin)}
       if (imagedancerfo.Visible = True) and (isbuzy = False) and
         (imagedancerfo.openglwidget.Visible = False) then
       begin
@@ -941,7 +943,7 @@ begin
         RTLeventSetEvent(evPauseimage); // to resume 
 
       end;
-        {$endif} 
+      //  {$endif} 
     end;
 
     if tag = 0 then
@@ -1700,9 +1702,9 @@ begin
     tstringdisp1.Value := msestring('Paused ' + theplaying2);
 
   end;
-  {$if not defined(darwin)} 
+//  {$if not defined(darwin)} 
   multiplier := 0;
-  {$endif}
+//  {$endif}
   resetspectrum();
 
   if configlayoutfo.focusplay.Value then
@@ -1732,9 +1734,9 @@ begin
     infosdfo2.ttimer1.enabled := false;
     infosdfo2.tbutton1.Caption := '>';
   end;
-  {$if not defined(darwin)} 
+//  {$if not defined(darwin)} 
   multiplier := 0;
-  {$endif}
+//  {$endif}
  end;
 
 procedure tsongplayerfo.setequalizerenable(asender: integer; avalue: Boolean);
@@ -2519,7 +2521,11 @@ var
   ordir: msestring;
   i1: integer;
 begin
-  windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
 
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
@@ -2578,9 +2584,9 @@ procedure tsongplayerfo.ondestr(const Sender: TObject);
 begin
   uos_Stop(theplayer);
   uos_Stop(theplayer2);
-  {$if not defined(darwin)}  
+//  {$if not defined(darwin)}  
   statusanim        := 0;
-  {$endif}
+//  {$endif}
   Timerwait.Enabled := False;
   Timerwait.Enabled := False;
   Timerwait.Free;

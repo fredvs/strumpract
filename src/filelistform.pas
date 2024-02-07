@@ -871,7 +871,11 @@ end;
 
 procedure tfilelistfo.oncreate(const Sender: TObject);
 begin
-  windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
   
  {$if defined(netbsd) or defined(darwin)}
 //  tbutton6.face.image :=  tbutton7.face.image; 

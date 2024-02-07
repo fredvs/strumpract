@@ -211,7 +211,12 @@ procedure tspectrum1fo.crea(const Sender: TObject);
 var
   x, i1, childn: integer;
 begin
-  windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
+
   childn        := 0;
 
   setlength(boundchildspc, childrencount);

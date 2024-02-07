@@ -40,7 +40,12 @@ begin
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
   application.createform(tsplashfo, splashfo);
+  
+ {$if defined(netbsd) or defined(darwin)}
+  splashfo.windowopacity := 1;
+ {$else}
   splashfo.windowopacity := 0.5;
+ {$endif}
  
   application.run;
  

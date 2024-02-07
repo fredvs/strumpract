@@ -112,9 +112,10 @@ type
     sliderimage2: tbitmapcomp;
     sliderimage3: tbitmapcomp;
     sliderimage4: tbitmapcomp;
-   tframecompnul: tframecomp;
    tfacecompnul: tfacecomp;
    timagelist1: timagelist;
+   tframecompnul: tframecomp;
+   
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -1058,13 +1059,16 @@ begin
  {$if defined(netbsd) or defined(darwin)}
   timagelist1.options := [bmo_masked]; 
   timagelist3.options := [bmo_masked]; 
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
  {$endif}
  
  {$if defined(nofade)}
  tframecomp2.template := tframecompnul.template;
  {$endif}
  
-  windowopacity := 0;
+ 
 
   setlength(boundchildco, childrencount);
 

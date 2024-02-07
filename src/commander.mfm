@@ -12,8 +12,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = 'Use that grip panel to drag/drop the window.'
   visible = False
-  bounds_x = 577
-  bounds_y = 306
+  bounds_x = 547
+  bounds_y = 213
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -2067,11 +2067,6 @@ object commanderfo: tcommanderfo
     left = 134
     top = 58
   end
-  object tframecompnul: tframecomp
-    template.optionsskin = [fso_flat]
-    left = 64
-    top = 75
-  end
   object tfacecompnul: tfacecomp
     left = 8
     top = 86
@@ -2413,5 +2408,10 @@ object commanderfo: tcommanderfo
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFFFFF
     }
+  end
+  object tframecompnul: tframecomp
+    template.optionsskin = [fso_flat]
+    left = 293
+    top = 66
   end
 end

@@ -89,9 +89,9 @@ uses
   filelistform,
   guitars,
   recorder,
-     {$if not defined(darwin)}
+  //   {$if not defined(darwin)}
   imagedancer,
-     {$endif}
+  //   {$endif}
   main,
   spectrum1,
   waveform,
@@ -114,10 +114,10 @@ begin
   if (guitarsfo.parentwidget = basedock) then
     guitarsfo.frame.grip_size := gsize;
 
-   {$if not defined(darwin)}
+//   {$if not defined(darwin)}
   if (imagedancerfo.parentwidget = basedock) then
     imagedancerfo.frame.grip_size := gsize;
-   {$endif}
+//   {$endif}
   
   if (recorderfo.parentwidget = basedock) then
     recorderfo.frame.grip_size := gsize;
@@ -301,7 +301,7 @@ begin
       equalizerfo1.bounds_cx    := fowidth;
     end;
     
-       {$if not defined(darwin)}
+   //    {$if not defined(darwin)}
     if (imagedancerfo.parentwidget <> nil) and (imagedancerfo.Visible) then
     begin
       imagedancerfo.bounds_cxmax := fowidth;
@@ -309,7 +309,7 @@ begin
       imagedancerfo.bounds_cymax := imagedancerfo.bounds_cymin;
       imagedancerfo.bounds_cy    := imagedancerfo.bounds_cymin;
     end;
-      {$endif}
+  //    {$endif}
 
     if (infosdfo.parentwidget <> nil) and (infosdfo.Visible) then
     begin
@@ -545,7 +545,11 @@ end;
 
 procedure tdockpanel1fo.oncreate(const Sender: TObject);
 begin
-  windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
   flayoutlock := 0;
   Timerwaitdp := ttimer.Create(nil);
   Timerwaitdp.options := [to_single];

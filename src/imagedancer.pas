@@ -3,9 +3,9 @@ unit imagedancer;
 {$mode objfpc}{$H+}{$inline on}
 {$modeswitch advancedrecords} 
 
-// {$if not defined(netbsd) and not defined(darwin)}
- {$define msethread}
-// {$endif}
+ //{$if not defined(netbsd) and not defined(darwin)}
+ //{$define msethread}
+ //{$endif}
 
 interface
 
@@ -58,6 +58,7 @@ type
   timagedancerfo = class(tdockform)
 
     openglwidget: topenglwidget;
+    pb: tpaintbox;
     procedure onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
     procedure InvalidateImage;
     procedure ondestroy(const Sender: TObject);
@@ -928,7 +929,7 @@ begin
    FractalcirclesRedraw(Sender, Bitmap);        
        end;
 
-    Bitmap.draw(acanvas, 0, 0, False);
+  if visible then Bitmap.draw(acanvas, 0, 0, true);
     isbuzy := False;
   end;
 
@@ -947,7 +948,7 @@ begin
 {$IF DEFINED(msethread)}
   result := 0;
   {$endif} 
- {$IF not DEFINED(darwin)}  
+// {$IF not DEFINED(darwin)}  
   repeat
    if (isbuzy = False) and (imagedancerfo.Visible = True) and (imagedancerfo.openglwidget.Visible = false) then
        begin
@@ -964,14 +965,17 @@ begin
     end;
     sleep(30);
   until statusanim = 0;
- {$endif}
+// {$endif}
 end;
 
 procedure timagedancerfo.InvalidateImage;
 begin
+ {$IF not DEFINED(darwin) and not defined(netbsd)} 
    if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer','transparent']).state then
   windowopacity := multiplier * 0.4 else windowopacity := 1;
-  onpaint_imagedancerfo(imagedancerfo, imagedancerfo.getcanvas);
+  {$endif}
+//  onpaint_imagedancerfo(pb, pb.getcanvas);
+ if visible then pb.invalidate;
 end;
 
 procedure timagedancerfo.ondestroy(const Sender: TObject);
@@ -979,7 +983,7 @@ begin
   statusanim := 0;
   RTLeventSetEvent(evPauseimage);
   
- {$IF not DEFINED(darwin)}
+ //{$IF not DEFINED(darwin)}
   
   thethread.terminate();
   {$IF DEFINED(msethread)}
@@ -988,14 +992,14 @@ begin
    {$endif}  
   thethread.Destroy();
   
- {$endif}  
+// {$endif}  
   Bitmap.Free;
   RTLeventdestroy(evPauseImage);
 end;
 
 procedure timagedancerfo.oncreat(const Sender: TObject);
 begin
-  {$IF not DEFINED(darwin)}
+//  {$IF not DEFINED(darwin)}
    SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
    [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
  
@@ -1020,7 +1024,7 @@ begin
 
   if alwaystop = 1 then 
   optionswindow := optionswindow + [wo_alwaysontop];
-  {$endif}
+ // {$endif}
  end;
 
 procedure timagedancerfo.onshow(const Sender: TObject);
@@ -1096,12 +1100,14 @@ var
 begin
   if openglwidget.Visible then
   begin
+   {$if not defined(netbsd) and not defined(darwin)}
       if multiplier = 0 then windowopacity := 1
    else
    begin
    if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer','transparent']).state then
   windowopacity := multiplier * 0.4 else windowopacity := 1;
   end;
+   {$endif}
   
     glclear(gl_color_buffer_bit);
 
@@ -1129,13 +1135,15 @@ begin
     glvertex3f(-0.5, 0.5, 0);
     glend();
     glpopmatrix();
-    
+ 
+   {$if not defined(netbsd) and not defined(darwin)}    
    if multiplier = 0 then windowopacity := 1
    else
    begin
    if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer','transparent']).state then
    windowopacity := multiplier * 0.4 else windowopacity := 1;
-  end;
+   end;
+   {$endif}
 
     Inc(rendercount);
     int1 := integer(Sender.rendertimestampus - renderstart);
@@ -1200,7 +1208,12 @@ end;
 
 procedure timagedancerfo.crea(const sender: TObject);
 begin
-windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
+ 
 if typwindow = 0 then
 optionswindow := []
 else
@@ -1243,12 +1256,12 @@ begin
     begin
       ispressed := True;
       oripoint  := ainfo.pos;
-      cursor := cr_pointinghand;
+      pb.cursor := cr_pointinghand;
     end;
   if ainfo.eventkind = ek_buttonrelease then
     begin
       ispressed := False;
-      cursor := cr_default;
+      pb.cursor := cr_default;
     end;
   if (ispressed = True) and (ainfo.eventkind = ek_mousemove) then
     begin

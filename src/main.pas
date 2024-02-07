@@ -4,9 +4,9 @@ unit main;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 {$I uos_define.inc}
 
- {$if defined(netbsd) or defined(darwin)}
+{$if defined(netbsd) or defined(darwin)}
  {$define nofade}
- {$endif}
+{$endif}
 
 interface
 
@@ -200,9 +200,9 @@ uses
   commander,
   randomnote,
   
-  {$if not defined(darwin)}  
+ // {$if not defined(darwin)}  
    imagedancer,
-  {$endif}
+ // {$endif}
   
  filelistform,
   spectrum1,
@@ -381,9 +381,9 @@ begin
   recorderfo.resizere(fontval);
   infosdfo2.resizein(fontval);
   
-   {$if not defined(darwin)}
+//   {$if not defined(darwin)}
   imagedancerfo.resizeda(fontval);
-   {$endif}
+//   {$endif}
   
   paintslider();
 
@@ -1197,7 +1197,7 @@ begin
 
     //      tmainmenu1.menu.itembynames(['show','showchords']).caption := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showchords)];  {'Show Chord Randomizer'}
 
-       {$if not defined(darwin)}
+//       {$if not defined(darwin)}
     if imagedancerfo.Visible then
       str := lang_mainfo[Ord(ma_hide)]
     else
@@ -1207,7 +1207,7 @@ begin
     tmainmenu1.menu.itembynames(['show', 'showimagedancer']).Caption := str +
       lang_mainfo[Ord(ma_tmainmenu1_parentitem_imagedancer)];
       
-     {$endif}   
+  //   {$endif}   
 
     with dockpanel1fo do
     begin
@@ -2241,7 +2241,11 @@ tfaceplayerrev.template.fade_color.count := 1;
 
 {$endif}
 
-  windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
 
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
@@ -2296,9 +2300,9 @@ begin
   Timeract.Enabled  := False;
   Timerwait.Free;
   Timeract.Free;
-    {$if not defined(darwin)}
+ //   {$if not defined(darwin)}
   statusanim := 0;
-    {$endif}
+//    {$endif}
   
   ordir      := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
 
@@ -2461,7 +2465,7 @@ begin
   else
     timerwait.Enabled := True;
     
-    {$if not defined(darwin)}  
+ //   {$if not defined(darwin)}  
 
   if dancnum.Value = 12 then
   begin
@@ -2555,7 +2559,7 @@ begin
   if imagedancerfo.Visible = True then
     multiplier := 0.7;
     
-    {$endif}  
+  //  {$endif}  
 
   if randomnotefo.Visible = True then
   begin
@@ -2655,7 +2659,7 @@ begin
       pianofo.bounds_cx    := fowidth;
     end;
 
-  {$if not defined(darwin)}
+ // {$if not defined(darwin)}
     if (imagedancerfo.parentwidget <> nil) and (imagedancerfo.Visible) then
     begin
       imagedancerfo.bounds_cxmax := fowidth;
@@ -2663,7 +2667,7 @@ begin
       imagedancerfo.bounds_cymax := imagedancerfo.bounds_cymin;
       imagedancerfo.bounds_cy    := imagedancerfo.bounds_cymin;
     end;
-     {$endif} 
+   //  {$endif} 
 
     if (infosdfo.parentwidget <> nil) and (infosdfo.Visible) then
     begin
@@ -2970,10 +2974,10 @@ begin
   if spectrum1fo.Visible then
     spectrum1fo.dragdock.float();
     
-  {$if not defined(darwin)}
+ // {$if not defined(darwin)}
   if imagedancerfo.Visible then
     imagedancerfo.dragdock.float();
-   {$endif}  
+ //  {$endif}  
 
   if spectrum2fo.Visible then
     spectrum2fo.dragdock.float();
@@ -3066,13 +3070,13 @@ begin
 
   leftposi := 0;
   
-       {$if not defined(darwin)}
+   //    {$if not defined(darwin)}
   if imagedancerfo.Visible then
   begin
     imagedancerfo.left := leftposi + leftdec;
     leftposi           := imagedancerfo.left;
   end;
-    {$endif}
+   // {$endif}
 
   if filelistfo.Visible then
   begin
@@ -3199,14 +3203,14 @@ begin
 
   posi := 124;
 
-  {$if not defined(darwin)}
+ // {$if not defined(darwin)}
   if imagedancerfo.Visible then
   begin
     imagedancerfo.top := posi;
     posi := imagedancerfo.top + topdec;
     imagedancerfo.activate;
   end;
-   {$endif}
+ //  {$endif}
 
   if filelistfo.Visible then
   begin
@@ -3438,10 +3442,10 @@ begin
 
   oktimer := 1;
 
- {$if not defined(darwin)}
+// {$if not defined(darwin)}
       if imagedancerfo.Visible then
     imagedancerfo.dragdock.float();
- {$endif}
+// {$endif}
 
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
@@ -3717,10 +3721,10 @@ begin
   pianofo.Visible   := False;
   pianofo.dragdock.float();
 
-  {$if not defined(darwin)}
+//  {$if not defined(darwin)}
   if imagedancerfo.Visible then
     imagedancerfo.dragdock.float();
-    {$endif}
+  //  {$endif}
     
   // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -3944,10 +3948,10 @@ begin
   wavefo2.Visible  := False;
   wavefo2.dragdock.float();
  
-  {$if not defined(darwin)}
+ // {$if not defined(darwin)}
   if imagedancerfo.Visible then
     imagedancerfo.dragdock.float();
-  {$endif}
+ // {$endif}
     
    // imagedancerfo.Visible := False;
   dockpanel3fo.Visible := False;
@@ -4188,12 +4192,12 @@ begin
   waveforec.bounds_cxmax := fowidth;
   waveforec.bounds_cymax := 100;
 
-   {$if not defined(darwin)}
+  // {$if not defined(darwin)}
   imagedancerfo.Height       := fowidth;
 
   imagedancerfo.bounds_cxmax := fowidth;
   imagedancerfo.bounds_cx    := fowidth;
-   {$endif}
+ //  {$endif}
   rect1 := application.screenrect(window);
 
   beginlayout();
@@ -4215,10 +4219,10 @@ begin
     songplayer2fo.parentwidget := basedock;
   if commanderfo.Visible then
     commanderfo.parentwidget   := basedock;
-   {$if not defined(darwin)}
+ //  {$if not defined(darwin)}
   if imagedancerfo.Visible then
     imagedancerfo.parentwidget := basedock;
-    {$endif}
+   // {$endif}
     
   if spectrum1fo.Visible then
     spectrum1fo.parentwidget  := basedock;
@@ -4344,13 +4348,13 @@ begin
     pt1.y := pt1.y + songplayer2fo.Height + decorationheight;
   end;
 
-     {$if not defined(darwin)}
+  //   {$if not defined(darwin)}
   if imagedancerfo.Visible then
   begin
     imagedancerfo.pos := pt1;
     pt1.y := pt1.y + imagedancerfo.Height + decorationheight;
   end;
-    {$endif}
+  //  {$endif}
 
   if commanderfo.Visible then
   begin
@@ -4494,9 +4498,9 @@ begin
   wavefo.Show();
   wavefo2.Show();
   waveforec.Show();
-     {$if not defined(darwin)}
+   //  {$if not defined(darwin)}
   imagedancerfo.Show();
-   {$endif}
+   // {$endif}
   
   norefresh := False;
   endlayout();
@@ -4525,9 +4529,9 @@ begin
 
   infosdfo.Visible      := False;
   infosdfo2.Visible     := False;
-       {$if not defined(darwin)}
+   //    {$if not defined(darwin)}
   imagedancerfo.Visible := False;
-   {$endif}
+   // {$endif}
 
   pianofo.Visible := False;
   commanderfo.Visible := False;
@@ -7478,10 +7482,10 @@ begin
   pianofo.Visible   := False;
   pianofo.dragdock.float();
 
-       {$if not defined(darwin)}
+    //   {$if not defined(darwin)}
   if imagedancerfo.Visible then
     imagedancerfo.dragdock.float();
-   {$endif}
+  // {$endif}
    
   wavefo.Visible := False;
   wavefo.dragdock.float();
@@ -7686,9 +7690,9 @@ begin
   dockpanel3fo.Visible  := False;
   dockpanel4fo.Visible  := False;
   dockpanel5fo.Visible  := False;
-        {$if not defined(darwin)}
+   //     {$if not defined(darwin)}
   imagedancerfo.Visible := False;
-     {$endif}
+   //  {$endif}
   infosdfo.Visible      := False;
   infosdfo2.Visible     := False;
 
@@ -7721,11 +7725,11 @@ end;
 
 procedure tmainfo.showimagedancer(const Sender: TObject);
 begin
-   {$if not defined(darwin)}
+//   {$if not defined(darwin)}
   imagedancerfo.Visible := not imagedancerfo.Visible;
   if imagedancerfo.Visible then
     imagedancerfo.bringtofront;
-    {$endif}   
+  //  {$endif}   
 end;
 
 procedure tmainfo.onimagedancer(const Sender: TObject);
@@ -7735,7 +7739,7 @@ bo : boolean;
 gl_Handle:TLibHandle=dynlibs.NilHandle;
 {$ENDIF}
 begin
- {$if not defined(darwin)}
+ //{$if not defined(darwin)}
 {$IFDEF unix}
   gl_Handle := DynLibs.SafeLoadLibrary('libGL.so.1'); // check if gl is installed
  if gl_Handle  <> DynLibs.NilHandle then bo := true
@@ -7855,12 +7859,12 @@ begin
   end;
 
   imagedancerfo.Visible := True;
-   {$ENDIF}
+ //  {$ENDIF}
 end;
 
 procedure tmainfo.ondancerlayout(const Sender: TObject);
 begin
- {$if not defined(darwin)}
+ //{$if not defined(darwin)}
   infosdfo.Visible  := False;
   infosdfo2.Visible := False;
   synthefo.Visible  := False;
@@ -7918,7 +7922,7 @@ begin
 
   imagedancerfo.Visible := True;
   
-   {$ENDIF}
+ //  {$ENDIF}
 
 end;
 
@@ -7929,7 +7933,9 @@ begin
     drumsvisible.Value := 1
   else
     drumsvisible.Value := 0;
- 
+    
+  imagedancerfo.visible := false;  
+  
  infosdfo.ttimer1.enabled := false;
  infosdfo2.ttimer1.enabled := false;   
  
@@ -7941,7 +7947,11 @@ begin
   if allok = False then
   begin
     ttimer1.Enabled := False;
-    windowopacity   := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
     application.ProcessMessages;
     application.createform(terrorfo, errorfo);
     errorfo.Show;
@@ -7951,6 +7961,7 @@ begin
   end
   else
   begin
+   {$if not defined(netbsd) and not defined(darwin)}
     windowopacity := windowopacity + 0.1;
     //{
     dockpanel1fo.windowopacity := dockpanel1fo.windowopacity + 0.1;
@@ -7977,9 +7988,8 @@ begin
     guitarsfo.windowopacity      := guitarsfo.windowopacity + 0.1;
     recorderfo.windowopacity     := recorderfo.windowopacity + 0.1;
     
-       {$if not defined(darwin)}
     imagedancerfo.windowopacity  := imagedancerfo.windowopacity + 0.1;
-     {$ENDIF}
+    {$ENDIF}
     if windowopacity = 1 then
       ttimer1.Enabled := False;
 
@@ -8004,7 +8014,7 @@ end;
 
 procedure tmainfo.onsetwindowdancer(const Sender: TObject);
 begin
-       {$if not defined(darwin)}
+//       {$if not defined(darwin)}
   if (tmenuitem(Sender).tag = 0) then      // normal
   begin
     typwindow := 0;
@@ -8035,12 +8045,12 @@ begin
 
   if alwaystop = 0 then
     imagedancerfo.bringtofront;
-     {$endif}  
+ //    {$endif}  
 end;
 
 procedure tmainfo.onalwaysontop(const Sender: TObject);
 begin
-   {$if not defined(darwin)}
+ //  {$if not defined(darwin)}
   if as_checked in mainfo.tmainmenu1.menu.itembynames(['dancer', 'alwaystop']).state then
   begin
     alwaystop := 1;
@@ -8057,14 +8067,14 @@ begin
 
   if alwaystop = 0 then
     imagedancerfo.bringtofront;
-    {$endif}   
+ //   {$endif}   
 end;
 
 procedure tmainfo.onhidedancer(const Sender: TObject);
 begin
-     {$if not defined(darwin)}
+   //  {$if not defined(darwin)}
   imagedancerfo.Visible := False;
-     {$endif}
+   //  {$endif}
 end;
 
 procedure tmainfo.ontimeridle(const Sender: TObject);
@@ -8124,11 +8134,11 @@ var
   rect1: rectty;
   fontheightsugg: integer;
 begin
-  {$ifdef darwin}  // TODO
-  tmainmenu1.menu.itembynames(['dancer']).visible := false;
-  tmainmenu1.menu.itembynames(['show', 'showimagedancer']).visible := false;
-  tmainmenu1.menu.itembynames(['layout', 'imagedancer']).visible := false;
-  {$endif}
+//  {$ifdef darwin}  // TODO
+//  tmainmenu1.menu.itembynames(['dancer']).visible := false;
+//  tmainmenu1.menu.itembynames(['show', 'showimagedancer']).visible := false;
+//  tmainmenu1.menu.itembynames(['layout', 'imagedancer']).visible := false;
+//  {$endif}
 
   rect1 := application.screenrect(window);
   
@@ -8214,20 +8224,20 @@ end;
 
 procedure tmainfo.onfloatdancer(const Sender: TObject);
 begin
-   {$if not defined(darwin)}
+//   {$if not defined(darwin)}
   imagedancerfo.dragdock.float();
   imagedancerfo.Visible := True;
   updatelayoutstrum();
-    {$endif}
+//    {$endif}
 end;
 
 procedure tmainfo.ondockdancer(const Sender: TObject);
 begin
-   {$if not defined(darwin)}
+//   {$if not defined(darwin)}
   imagedancerfo.parentwidget := basedock;
   imagedancerfo.Visible      := True;
   updatelayoutstrum();
-    {$endif}
+//    {$endif}
 end;
 
 procedure tmainfo.onshowsynth(const Sender: TObject);

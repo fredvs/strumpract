@@ -350,7 +350,11 @@ var
   asliders: tasliders;
   abuttons: tabuttons;
 begin
-  windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
   asliders[1]   := tslider1;
   asliders[2]   := tslider2;
   asliders[3]   := tslider3;

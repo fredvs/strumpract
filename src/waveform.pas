@@ -374,7 +374,11 @@ end;
 
 procedure twavefo.crea(const Sender: TObject);
 begin
-  windowopacity := 0;
+ {$if defined(netbsd) or defined(darwin)}
+  windowopacity := 1;
+ {$else}
+  windowopacity := 0;  
+ {$endif}
 end;
 
 
