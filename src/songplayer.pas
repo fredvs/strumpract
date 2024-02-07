@@ -2588,7 +2588,7 @@ begin
   statusanim        := 0;
 //  {$endif}
   Timerwait.Enabled := False;
-  Timerwait.Enabled := False;
+  Timersent.Enabled := False;
   Timerwait.Free;
   timersent.Free;
 end;

@@ -7939,6 +7939,16 @@ begin
  infosdfo.ttimer1.enabled := false;
  infosdfo2.ttimer1.enabled := false;   
  
+  uos_Stop(theplayer);
+  uos_Stop(theplayer2);
+//  {$if not defined(darwin)}  
+  statusanim        := 0;
+//  {$endif}
+  songplayerfo.Timerwait.Enabled := False;
+  songplayerfo.Timersent.Enabled := False;
+  songplayer2fo.Timerwait.Enabled := False;
+  songplayer2fo.Timersent.Enabled := False;
+  
 end;
 
 procedure tmainfo.ontimertransp(const Sender: TObject);
