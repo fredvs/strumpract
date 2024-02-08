@@ -22,6 +22,10 @@ uses
  
 const
 libst=
+
+{$IFDEF darwin}
+ 'libSoundTouchDLL.dylib';
+  {$ELSE}
  {$IFDEF unix}
  'libSoundTouch.so.1';
   {$ELSE}
@@ -31,7 +35,8 @@ libst=
    'SoundTouch.dll';
      {$endif}
   {$ENDIF}     
-
+   {$ENDIF} 
+   
 {$IF not DEFINED(windows)}
 type
   THandle = pointer;

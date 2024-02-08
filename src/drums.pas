@@ -1288,8 +1288,7 @@ begin
   lib1 := AnsiString(ordir + 'lib/Mac/64bit/LibPortaudio-64.dylib');
   lib2 := AnsiString(ordir + 'lib/Mac/64bit/LibSndFile-64.dylib');
   lib3 := AnsiString(ordir + 'lib/Mac/64bit/LibMpg123-64.dylib');
-  // lib4 := AnsiString(ordir + 'lib/Mac/64bit/LibSoundTouch-64.so');
-  lib4 := '';
+  lib4 := AnsiString(ordir + 'lib/Mac/64bit/libSoundTouchDLL.dylib');
      {$ENDIF}   
      
   {$if defined(cpu86) and defined(linux)}

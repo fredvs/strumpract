@@ -4,65 +4,24 @@ unit recorder;
 interface
 
 uses
-  ctypes,
-  uos_flat,
-  infosd,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  Math,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msesimplewidgets,
-  msewidgets,
-  msedataedits,
-  msefiledialogx,
-  msegrids,
-  mselistbrowser,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msescrollbar,
-  msedragglob,
-  mseact,
-  mseedit,
-  msestatfile,
-  msestream,
-  msestrings,
-  msebitmap,
-  msedatanodes,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  msetimer,
-  msegridsglob;
+ ctypes,uos_flat,infosd,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,
+ msestat,msemenus,msegui,msegraphics,msegraphutils,Math,mseevent,mseclasses,
+ mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,msefiledialogx,
+ msegrids,mselistbrowser,msesys,SysUtils,msegraphedits,mseificomp,
+ mseificompglob,mseifiglob,msescrollbar,msedragglob,mseact,mseedit,msestatfile,
+ msestream,msestrings,msebitmap,msedatanodes,msedispwidgets,mserichstring,
+ msedropdownlist,msetimer,msegridsglob;
 
 type
   trecorderfo = class(tdockform)
     Timerwait: Ttimer;
     Timerrec: Ttimer;
     Timersent: Ttimer;
-    tfacereclight: tfacecomp;
-    tfacerecrev: tfacecomp;
     tgroupbox1: tgroupbox;
-    tfacerecorder: tfacecomp;
     tbutton3: TButton;
     tbutton2: TButton;
     blistenin: tbooleanedit;
     btinfos: TButton;
-    edvol: trealspinedit;
     trackbar1: tslider;
     historyfn: thistoryedit;
     llength: tstringdisp;
@@ -71,9 +30,7 @@ type
     vuRight: tprogressbar;
     vuLeft: tprogressbar;
     recpan: tgroupbox;
-    tfacecomp2: tfacecomp;
     tbutton6: TButton;
-    edvolr: trealspinedit;
     tfiledialog1: tfiledialogx;
     tgroupbox2: tgroupbox;
     bwav: tbooleaneditradio;
@@ -92,6 +49,8 @@ type
     sentcue1: tbooleanedit;
     cbtempo: tbooleanedit;
     cbloop: tbooleanedit;
+   edvol: trealspinedit;
+   edvolr: trealspinedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -350,8 +309,8 @@ begin
   trackbar1.Enabled   := False;
   bsavetofile.Enabled := True;
   lposition.Value     := '00:00:00.000';
-  lposition.face.template := tfacereclight;
-  historyfn.face.template := tfacereclight;
+ // lposition.face.template := tfacereclight;
+ // historyfn.face.template := tfacereclight;
 
   isrecording := False;
 
@@ -360,8 +319,8 @@ begin
   recpan.Visible := False;
 
   llength.Value           := '00:00:00.000';
-  lposition.face.template := tfacereclight;
-  historyfn.face.template := tfacereclight;
+ // lposition.face.template := tfacereclight;
+ // historyfn.face.template := tfacereclight;
 
   tbutton3.Visible := True;
   tbutton2.Visible := False;
@@ -607,7 +566,7 @@ begin
         uos_Play(therecplayer);  /////// everything is ready, here we are, lets play it...
         btnpause.Enabled      := True;
       end;
-      lposition.face.template := tfacereclight;
+    //  lposition.face.template := tfacereclight;
       cbloop.Enabled          := False;
       historyfn.hint          := historyfn.Value;
       if timerwait.Enabled then
@@ -890,7 +849,7 @@ begin
     tbutton3.Enabled := False;
     btnStart.Enabled := False;
 
-    historyfn.face.template := tfacereclight;
+   // historyfn.face.template := tfacereclight;
 
     lposition.face.template := mainfo.tfaceorange;
     recpan.Visible          := True;

@@ -32,9 +32,7 @@ uses
 
 type
   tguitarsfo = class(tdockform)
-    tfaceguitlight: tfacecomp;
     tgroupbox1: tgroupbox;
-    tfaceguit: tfacecomp;
     tgroupbox2: tgroupbox;
     tbutton16: TButton;
     tbutton15: TButton;

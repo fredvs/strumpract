@@ -4,60 +4,20 @@ unit songplayer;
 interface
 
 uses
-  ctypes,
-  uos_flat,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  msefileutils,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  Math,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msesimplewidgets,
-  msewidgets,
-  msedataedits,
-  msefiledialogx,
-  msegrids,
-  mselistbrowser,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msedragglob,
-  mseact,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  msestrings,
-  msescrollbar,
-  msebitmap,
-  msedatanodes,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  mse_ovobasetag,
-  mse_ovoaudiotag,
-  msegridsglob,
-  msetimer,
-  mseimage;
+ ctypes,uos_flat,msetypes,mseglob,mseguiglob,mseguiintf,msefileutils,
+ mseapplication,msestat,msemenus,msegui,msegraphics,Math,msegraphutils,mseevent,
+ mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,
+ msefiledialogx,msegrids,mselistbrowser,msesys,SysUtils,msegraphedits,
+ msedragglob,mseact,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
+ msestream,msestrings,msescrollbar,msebitmap,msedatanodes,msedispwidgets,
+ mserichstring,msedropdownlist,mse_ovobasetag,mse_ovoaudiotag,msegridsglob,
+ msetimer,mseimage;
 
 type
   tsongplayerfo = class(tdockform)
     Timerwait: Ttimer;
     Timersent: Ttimer;
     tgroupbox1: tgroupbox;
-    edvolleft: trealspinedit;
     edtempo: trealspinedit;
     button1: TButton;
     trackbar1: tslider;
@@ -98,6 +58,7 @@ type
     ttimer2: ttimer;
     tfiledialog1: tfiledialogx;
     ttimerwavdata: ttimer;
+   edvolleft: trealspinedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -2963,7 +2924,7 @@ begin
       if mainfo.typecolor.Value = 2 then cbloopb.font.color := cl_white;        
       cbloop.Value        := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'playreverseb' then
@@ -2979,7 +2940,7 @@ begin
       if mainfo.typecolor.Value = 2 then playreverseb.font.color := cl_white;        
       playreverse.Value   := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'waveformcheckb' then
@@ -2995,7 +2956,7 @@ begin
       if mainfo.typecolor.Value = 2 then waveformcheckb.font.color := cl_white;        
       waveformcheck.Value           := False;
       TButton(Sender).tag           := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'setmonob' then
@@ -3011,7 +2972,7 @@ begin
       if mainfo.typecolor.Value = 2 then setmonob.font.color := cl_white;        
       setmono.Value       := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'cbtempob' then
@@ -3027,7 +2988,7 @@ begin
       if mainfo.typecolor.Value = 2 then cbtempob.font.color := cl_white;        
       cbtempo.Value       := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
 end;
@@ -3045,7 +3006,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then cbloopb.font.color := cl_white;    
     cbloopb.tag           := 0;
-    cbloopb.face.template := mainfo.tfacebutgray;
+    cbloopb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if playreverse.Value then
@@ -3058,7 +3019,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then playreverseb.font.color := cl_white;    
     playreverseb.tag           := 0;
-    playreverseb.face.template := mainfo.tfacebutgray;
+    playreverseb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if waveformcheck.Value then
@@ -3071,7 +3032,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then waveformcheckb.font.color := cl_white;    
     waveformcheckb.tag           := 0;
-    waveformcheckb.face.template := mainfo.tfacebutgray;
+    waveformcheckb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if setmono.Value then
@@ -3084,7 +3045,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then setmonob.font.color := cl_white;    
     setmonob.tag           := 0;
-    setmonob.face.template := mainfo.tfacebutgray;
+    setmonob.face.template := mainfo.tfaceplayerlight;
   end;
 
   if cbtempo.Value then
@@ -3097,7 +3058,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then cbtempob.font.color := cl_white;    
     cbtempob.tag           := 0;
-    cbtempob.face.template := mainfo.tfacebutgray;
+    cbtempob.face.template := mainfo.tfaceplayerlight;
   end;
 
 end;

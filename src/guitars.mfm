@@ -36,7 +36,6 @@ object guitarsfo: tguitarsfo
   )
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
-  dragdock.faceactivetab = tfaceguitlight
   dragdock.caption = ' Guit '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]
   statfile = mainfo.tstatfile1
@@ -485,35 +484,5 @@ object guitarsfo: tguitarsfo
       value = 'Bass strings'
       reffontheight = 13
     end
-  end
-  object tfaceguitlight: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      14406595
-      16774627
-    )
-    template.fade_direction = gd_down
-    left = 117
-    top = 27
-  end
-  object tfaceguit: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16116442
-      12564394
-    )
-    template.fade_direction = gd_down
-    left = 150
-    top = 20
   end
 end

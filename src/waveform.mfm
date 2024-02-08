@@ -10,8 +10,8 @@ object wavefo: twavefo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use that grip to drag the form '
   visible = False
-  bounds_x = 378
-  bounds_y = 500
+  bounds_x = 656
+  bounds_y = 434
   bounds_cx = 442
   bounds_cy = 108
   bounds_cxmin = 442
@@ -24,7 +24,7 @@ object wavefo: twavefo
   container.frame.sbhorz.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto]
   container.frame.sbhorz.width = 10
   container.frame.sbhorz.face.localprops = []
-  container.frame.sbhorz.face.template = mainfo.tfacecomp4
+  container.frame.sbhorz.face.template = mainfo.tfacebutgray
   container.frame.sbhorz.facebutton.localprops = []
   container.frame.sbhorz.facebutton.template = mainfo.tfacebutgray
   container.frame.sbvert.width = 1
@@ -158,8 +158,8 @@ object wavefo: twavefo
   end
   object trackbar1: tslider
     optionswidget1 = [ow1_autoscale, ow1_noclampinview]
+    face.fade_direction = gd_down
     face.localprops = []
-    face.template = mainfo.tfaceplayerlight
     taborder = 1
     hint = ' Click to change position of sound '
     bounds_x = 0
@@ -174,20 +174,8 @@ object wavefo: twavefo
     scrollbar.face.image.source = sliderimage
     scrollbar.face.fade_direction = gd_down
     scrollbar.face.localprops = [fal_fadirection, fal_image]
-    scrollbar.face1.image.source = sliderimage
-    scrollbar.face1.framei_right = -6
-    scrollbar.face1.fade_pos.count = 2
-    scrollbar.face1.fade_pos.items = (
-      0
-      1
-    )
-    scrollbar.face1.fade_color.count = 2
-    scrollbar.face1.fade_color.items = (
-      12779422
-      7255365
-    )
-    scrollbar.face1.fade_direction = gd_down
-    scrollbar.face1.localprops = [fal_framei_right, fal_image]
+    scrollbar.face1.localprops = []
+    scrollbar.face2.localprops = []
     scrollbar.facebutton.localprops = []
     scrollbar.facebutton.template = tfacebuttonslider
     scrollbar.framebutton.colorclient = -2147483645

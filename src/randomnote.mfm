@@ -1,7 +1,7 @@
 object randomnotefo: trandomnotefo
   color = 14604753
   face.localprops = []
-  face.template = guitarsfo.tfaceguit
+  face.template = mainfo.tfacebutgray
   onactivate = onconfigtext
   visible = False
   bounds_x = 202
@@ -11,7 +11,7 @@ object randomnotefo: trandomnotefo
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.face.localprops = []
-  container.face.template = guitarsfo.tfaceguit
+  container.face.template = mainfo.tfacebutgray
   container.bounds = (
     0
     0

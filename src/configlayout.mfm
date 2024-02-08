@@ -35,14 +35,14 @@ object configlayoutfo: tconfiglayoutfo
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     bounds_x = 22
-    bounds_y = 8
+    bounds_y = 9
     bounds_cx = 194
-    bounds_cy = 156
+    bounds_cy = 155
     font.name = 'stf_default'
     font.localprops = []
     object tcoloredit1: tcoloredit
@@ -77,19 +77,19 @@ object configlayoutfo: tconfiglayoutfo
       frame.buttonellipse.imagenr = 17
       frame.outerframe = (
         0
-        20
+        18
         0
         0
       )
       bounds_x = 10
-      bounds_y = 49
+      bounds_y = 50
       bounds_cx = 172
-      bounds_cy = 43
+      bounds_cy = 39
       font.name = 'stf_default'
       font.localprops = []
       onchange = onsetcolor
       value = 13872086
-      reffontheight = 17
+      reffontheight = 15
     end
     object tcoloredit2: tcoloredit
       frame.levelo = 1
@@ -123,20 +123,20 @@ object configlayoutfo: tconfiglayoutfo
       frame.buttonellipse.imagenr = 17
       frame.outerframe = (
         0
-        20
+        18
         0
         0
       )
       taborder = 1
       bounds_x = 10
-      bounds_y = 91
+      bounds_y = 92
       bounds_cx = 172
-      bounds_cy = 43
+      bounds_cy = 39
       font.name = 'stf_default'
       font.localprops = []
       onchange = onsetcolor
       value = 13744312
-      reffontheight = 17
+      reffontheight = 15
     end
     object dbkl1: tbooleanedit
       color = -2147483645
@@ -148,16 +148,16 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
+        2
+        110
         3
-        101
-        4
       )
       taborder = 2
       hint = 'Dark bakground of wave'
       bounds_x = 33
       bounds_y = 29
-      bounds_cx = 114
-      bounds_cy = 19
+      bounds_cx = 123
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       onchange = onsetcolor
       colorglyph = 4868682
@@ -175,15 +175,15 @@ object configlayoutfo: tconfiglayoutfo
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     taborder = 1
     bounds_x = 234
-    bounds_y = 8
+    bounds_y = 9
     bounds_cx = 194
-    bounds_cy = 156
+    bounds_cy = 155
     object dbkl2: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -194,15 +194,15 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
+        2
+        110
         3
-        101
-        4
       )
       hint = 'Dark bakground of wave'
       bounds_x = 33
       bounds_y = 30
-      bounds_cx = 114
-      bounds_cy = 19
+      bounds_cx = 123
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       onchange = onsetcolor
       colorglyph = 4868682
@@ -239,21 +239,21 @@ object configlayoutfo: tconfiglayoutfo
       frame.buttonellipse.imagenr = 17
       frame.outerframe = (
         0
-        20
+        18
         0
         0
       )
       taborder = 1
       bounds_x = 10
-      bounds_y = 50
+      bounds_y = 51
       bounds_cx = 172
-      bounds_cy = 43
+      bounds_cy = 39
       font.name = 'stf_default'
       font.localprops = []
       onchange = onsetcolor
       value = 11255766
       valuedefault = -1610612721
-      reffontheight = 17
+      reffontheight = 15
     end
     object tcoloredit22: tcoloredit
       frame.levelo = 1
@@ -287,21 +287,21 @@ object configlayoutfo: tconfiglayoutfo
       frame.buttonellipse.imagenr = 17
       frame.outerframe = (
         0
-        20
+        18
         0
         0
       )
       taborder = 2
       bounds_x = 10
-      bounds_y = 92
+      bounds_y = 93
       bounds_cx = 172
-      bounds_cy = 43
+      bounds_cy = 39
       font.name = 'stf_default'
       font.localprops = []
       onchange = onsetcolor
       value = 9424076
       valuedefault = -1610612720
-      reffontheight = 17
+      reffontheight = 15
     end
   end
   object tgroupbox7: tgroupbox
@@ -313,15 +313,15 @@ object configlayoutfo: tconfiglayoutfo
     frame.localprops1 = [frl1_captionoffset]
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     taborder = 2
     bounds_x = 263
-    bounds_y = 169
+    bounds_y = 170
     bounds_cx = 300
-    bounds_cy = 106
+    bounds_cy = 105
     object fontheight: trealspinedit
       frame.framei_left = 1
       frame.framei_top = 1
@@ -331,9 +331,9 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = []
       hint = 'Font height of all windows, size of form wll be scalled.'
       bounds_x = 8
-      bounds_y = 18
+      bounds_y = 17
       bounds_cx = 82
-      bounds_cy = 30
+      bounds_cy = 28
       statfile = mainfo.tstatfile1
       value = 12
       valuedefault = 12
@@ -342,7 +342,7 @@ object configlayoutfo: tconfiglayoutfo
       valuemax = 100
       step = 1
       wheelsensitivity = 1
-      reffontheight = 17
+      reffontheight = 15
     end
     object tbutton4: tbutton
       frame.localprops = [frl_optionsskin]
@@ -351,7 +351,7 @@ object configlayoutfo: tconfiglayoutfo
       taborder = 1
       hint = 'Apply font height and scalled forms.'
       bounds_x = 9
-      bounds_y = 49
+      bounds_y = 48
       bounds_cx = 82
       bounds_cy = 21
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -365,7 +365,7 @@ object configlayoutfo: tconfiglayoutfo
       taborder = 2
       hint = 'Click to set font height suggested'
       bounds_x = 100
-      bounds_y = 16
+      bounds_y = 15
       bounds_cx = 189
       bounds_cy = 52
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -382,16 +382,16 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
+        2
+        229
         3
-        209
-        4
       )
       taborder = 3
       hint = 'Set suggested height of font and scalling at loading'
       bounds_x = 8
       bounds_y = 77
-      bounds_cx = 222
-      bounds_cy = 19
+      bounds_cx = 242
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
       value = True
@@ -407,15 +407,15 @@ object configlayoutfo: tconfiglayoutfo
     frame.localprops1 = [frl1_captionoffset]
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     taborder = 3
     bounds_x = 438
-    bounds_y = 56
+    bounds_y = 57
     bounds_cx = 125
-    bounds_cy = 106
+    bounds_cy = 105
     object focusplay: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -426,15 +426,15 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
+        2
+        81
         3
-        75
-        4
       )
       hint = 'Set focus to Player-form when mixing'
       bounds_x = 6
       bounds_y = 26
-      bounds_cx = 88
-      bounds_cy = 19
+      bounds_cx = 94
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
     end
@@ -448,16 +448,16 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
+        2
+        49
         3
-        45
-        4
       )
       taborder = 1
       hint = 'Dont show the hint-info'
       bounds_x = 6
       bounds_y = 51
-      bounds_cx = 58
-      bounds_cy = 19
+      bounds_cx = 62
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       onchange = onchangehint
       colorglyph = 4868682
@@ -472,16 +472,16 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
         0
+        2
+        85
         3
-        82
-        4
       )
       taborder = 2
       hint = 'Enable sleep mode when inactive > 3 minutes'
       bounds_x = 6
       bounds_y = 76
-      bounds_cx = 95
-      bounds_cy = 19
+      bounds_cx = 98
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       colorglyph = 4868682
     end
@@ -509,29 +509,29 @@ object configlayoutfo: tconfiglayoutfo
     frame.localprops1 = [frl1_captionoffset]
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     taborder = 5
     bounds_x = 23
-    bounds_y = 169
+    bounds_y = 170
     bounds_cx = 229
-    bounds_cy = 106
+    bounds_cy = 105
     object bgold: tbooleaneditradio
       frame.caption = 'Gold'
       frame.localprops = []
       frame.localprops1 = []
       frame.outerframe = (
         0
-        3
-        29
-        3
+        2
+        30
+        2
       )
       bounds_x = 20
       bounds_y = 22
-      bounds_cx = 42
-      bounds_cy = 19
+      bounds_cx = 43
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       onchange = onchangestyle
     end
@@ -541,15 +541,15 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = []
       frame.outerframe = (
         0
-        3
-        34
-        3
+        2
+        36
+        2
       )
       taborder = 1
       bounds_x = 66
       bounds_y = 39
-      bounds_cx = 47
-      bounds_cy = 19
+      bounds_cx = 49
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       onchange = onchangestyle
     end
@@ -559,15 +559,15 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = []
       frame.outerframe = (
         0
-        3
-        44
-        3
+        2
+        46
+        2
       )
       taborder = 2
       bounds_x = 100
       bounds_y = 57
-      bounds_cx = 57
-      bounds_cy = 19
+      bounds_cx = 59
+      bounds_cy = 17
       onchange = onchangestyle
       value = True
     end
@@ -577,15 +577,15 @@ object configlayoutfo: tconfiglayoutfo
       frame.localprops1 = []
       frame.outerframe = (
         0
-        3
-        40
-        3
+        2
+        41
+        2
       )
       taborder = 3
       bounds_x = 155
       bounds_y = 77
-      bounds_cx = 53
-      bounds_cy = 19
+      bounds_cx = 54
+      bounds_cy = 17
       statfile = mainfo.tstatfile1
       onchange = onchangestyle
     end

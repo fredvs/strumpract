@@ -255,6 +255,7 @@ begin
     songplayerfo.vuright.bar_face.fade_color.items[0] := tcoloredit2.Value;
     songplayer2fo.vuright.bar_face.fade_color.items[0] := tcoloredit22.Value;
 
+ {
     if dbkl1.Value then
       wavefo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
     else
@@ -274,6 +275,8 @@ begin
       songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
     else
       songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
+   }   
+      
   end;
 end;
 

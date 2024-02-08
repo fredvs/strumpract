@@ -10,8 +10,8 @@ object recorderfo: trecorderfo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use that grip panel to drag/drop Recorder. '
   visible = False
-  bounds_x = 530
-  bounds_y = 180
+  bounds_x = 419
+  bounds_y = 167
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -34,7 +34,6 @@ object recorderfo: trecorderfo
   )
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
-  dragdock.faceactivetab = tfacereclight
   dragdock.caption = ' Rec '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
   font.name = 'stf_default'
@@ -140,7 +139,7 @@ object recorderfo: trecorderfo
     face.template = mainfo.tfaceplayer
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 434
+    bounds_cx = 444
     bounds_cy = 128
     anchors = []
     font.name = 'stf_default'
@@ -149,9 +148,18 @@ object recorderfo: trecorderfo
       color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16770019
+        14327197
+      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacerecorder
       taborder = 1
       hint = ' Stop recording '
       bounds_x = 6
@@ -203,9 +211,18 @@ object recorderfo: trecorderfo
       color = -2147483645
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        16770019
+        14327197
+      )
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = tfacerecorder
       taborder = 3
       hint = ' Show infos of the song '
       bounds_x = 7
@@ -220,55 +237,11 @@ object recorderfo: trecorderfo
       imagenr = 27
       focusrectdist = 0
     end
-    object edvol: trealspinedit
-      color = -2147483645
-      frame.levelo = 0
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16515040
-      frame.framei_left = 0
-      frame.framei_top = 0
-      frame.framei_right = 0
-      frame.framei_bottom = 0
-      frame.optionsskin = [fso_flat]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = []
-      frame.buttonface.fade_direction = gd_down
-      frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = mainfo.tfaceplayerlight
-      frame.buttonframe.optionsskin = [fso_flat]
-      frame.buttonframe.colorclient = -2147483645
-      frame.buttonframe.localprops = [frl_optionsskin]
-      frame.buttonframe.localprops1 = []
-      frame.buttonsize = 30
-      frame.buttonslast = True
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 4
-      hint = ' Change left volume '
-      bounds_x = 172
-      bounds_y = 28
-      bounds_cx = 45
-      bounds_cy = 64
-      statfile = mainfo.tstatfile1
-      textflags = [tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
-      textflagsactive = [tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
-      onchange = changevolume
-      ontextedited = ontextedit
-      onsetvalue = onsetvalvol
-      value = 100
-      valuedefault = 100
-      valuerange = 1
-      valuemin = -Inf
-      valuemax = 9999999
-      step = 1
-      wheelsensitivity = 1
-      reffontheight = 15
-    end
     object trackbar1: tslider
       color = -2147483645
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 5
+      taborder = 4
       hint = ' Position of sound '
       bounds_x = 6
       bounds_y = 100
@@ -280,13 +253,8 @@ object recorderfo: trecorderfo
       scrollbar.face.fade_direction = gd_down
       scrollbar.face.localprops = [fal_fadirection]
       scrollbar.face.template = mainfo.tfaceplayerlight
-      scrollbar.face1.fade_direction = gd_down
-      scrollbar.face1.localprops = [fal_fadirection]
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -305,7 +273,7 @@ object recorderfo: trecorderfo
       frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
       frame.localprops1 = [frl1_captiondist]
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerlight
+      frame.button.face.template = mainfo.tfacebutgray
       frame.button.frame.optionsskin = [fso_flat]
       frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
@@ -313,7 +281,7 @@ object recorderfo: trecorderfo
       frame.buttons.items = <      
         item
           face.localprops = []
-          face.template = mainfo.tfaceplayerlight
+          face.template = mainfo.tfacebutgray
           frame.optionsskin = [fso_flat]
           frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
@@ -321,7 +289,7 @@ object recorderfo: trecorderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 6
+      taborder = 5
       hint = ' Choose a filename for saving  '
       bounds_x = 37
       bounds_y = 3
@@ -330,7 +298,6 @@ object recorderfo: trecorderfo
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
-      dropdown.facetemplate = tfacereclight
       dropdown.options = [deo_keydropdown, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
@@ -352,7 +319,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 7
+      taborder = 6
       hint = ' Lenght of sound '
       bounds_x = 193
       bounds_y = 110
@@ -371,7 +338,7 @@ object recorderfo: trecorderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 8
+      taborder = 7
       hint = ' Position of sound '
       bounds_x = 193
       bounds_y = 94
@@ -390,7 +357,7 @@ object recorderfo: trecorderfo
       frame.template = commanderfo.tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 9
+      taborder = 8
       hint = ' Input recorder '
       bounds_x = 355
       bounds_y = 2
@@ -402,7 +369,7 @@ object recorderfo: trecorderfo
     end
     object vuRight: tprogressbar
       color = -2147483645
-      taborder = 10
+      taborder = 9
       bounds_x = 270
       bounds_y = 28
       bounds_cx = 8
@@ -425,7 +392,7 @@ object recorderfo: trecorderfo
     end
     object vuLeft: tprogressbar
       color = -2147483645
-      taborder = 11
+      taborder = 10
       bounds_x = 163
       bounds_y = 28
       bounds_cx = 8
@@ -449,9 +416,9 @@ object recorderfo: trecorderfo
     object recpan: tgroupbox
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 12
+      taborder = 11
       visible = False
-      bounds_x = 6
+      bounds_x = 7
       bounds_y = 98
       bounds_cx = 185
       bounds_cy = 24
@@ -487,7 +454,7 @@ object recorderfo: trecorderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 13
+      taborder = 12
       hint = ' Choose a audio file '
       bounds_x = 8
       bounds_y = 3
@@ -499,51 +466,6 @@ object recorderfo: trecorderfo
       imagenr = 27
       focusrectdist = 0
       onexecute = onex
-    end
-    object edvolr: trealspinedit
-      color = -2147483645
-      frame.levelo = 0
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16515040
-      frame.framei_left = 0
-      frame.framei_top = 0
-      frame.framei_right = 0
-      frame.framei_bottom = 0
-      frame.optionsskin = [fso_flat]
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = []
-      frame.buttonface.fade_direction = gd_down
-      frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = mainfo.tfaceplayerlight
-      frame.buttonframe.optionsskin = [fso_flat]
-      frame.buttonframe.colorclient = -2147483645
-      frame.buttonframe.localprops = [frl_optionsskin]
-      frame.buttonframe.localprops1 = []
-      frame.buttonsize = 30
-      frame.buttonpos = sbp_left
-      frame.buttonslast = True
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 14
-      hint = ' Change right volume  '
-      bounds_x = 221
-      bounds_y = 28
-      bounds_cx = 45
-      bounds_cy = 64
-      statfile = mainfo.tstatfile1
-      textflags = [tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
-      textflagsactive = [tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
-      onchange = changevolume
-      ontextedited = ontextedit
-      onsetvalue = onsetvalvol
-      value = 100
-      valuedefault = 100
-      valuerange = 1
-      valuemin = -Inf
-      valuemax = 9999999
-      step = 1
-      wheelsensitivity = 1
-      reffontheight = 15
     end
     object tgroupbox2: tgroupbox
       color = -2147483645
@@ -560,7 +482,7 @@ object recorderfo: trecorderfo
         0
         0
       )
-      taborder = 15
+      taborder = 13
       bounds_x = 98
       bounds_y = 25
       bounds_cx = 61
@@ -654,7 +576,7 @@ object recorderfo: trecorderfo
         0
         0
       )
-      taborder = 16
+      taborder = 14
       bounds_x = 285
       bounds_y = 25
       bounds_cx = 147
@@ -666,6 +588,7 @@ object recorderfo: trecorderfo
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         face.template = mainfo.tfaceplayerlight
@@ -685,6 +608,7 @@ object recorderfo: trecorderfo
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         face.template = mainfo.tfaceplayerlight
@@ -705,6 +629,7 @@ object recorderfo: trecorderfo
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         face.template = mainfo.tfaceplayerlight
@@ -725,6 +650,7 @@ object recorderfo: trecorderfo
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
+        frame.template = commanderfo.tframecomp2
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         face.template = mainfo.tfaceplayerlight
@@ -779,11 +705,11 @@ object recorderfo: trecorderfo
         frame.localprops1 = []
         frame.buttonface.fade_direction = gd_down
         frame.buttonface.localprops = [fal_fadirection]
-        frame.buttonface.template = mainfo.tfaceplayerlight
+        frame.buttonface.template = mainfo.tfacebutgray
         frame.buttonframe.optionsskin = [fso_flat]
-        frame.buttonframe.colorclient = -2147483645
         frame.buttonframe.localprops = [frl_optionsskin]
         frame.buttonframe.localprops1 = []
+        frame.buttonframe.template = commanderfo.tframecomp2
         frame.buttonsize = 30
         face.localprops = []
         face.template = mainfo.tfaceplayerlight
@@ -891,22 +817,120 @@ object recorderfo: trecorderfo
         statfile = mainfo.tstatfile1
       end
     end
+    object edvol: trealspinedit
+      optionswidget1 = [ow1_fontglyphheight]
+      frame.colorclient = -2147483645
+      frame.localprops = [frl_hiddenedges, frl_frameimagelist, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = mainfo.tfacebutgray
+      frame.buttonframe.framei_left = 4
+      frame.buttonframe.framei_top = 2
+      frame.buttonframe.framei_right = 4
+      frame.buttonframe.framei_bottom = 2
+      frame.buttonframe.frameimage_list = commanderfo.timagelist3
+      frame.buttonframe.frameimage_left = -4
+      frame.buttonframe.frameimage_right = -4
+      frame.buttonframe.frameimage_top = -4
+      frame.buttonframe.frameimage_bottom = -4
+      frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
+      frame.buttonframe.localprops = [frl_optionsskin]
+      frame.buttonframe.localprops1 = []
+      frame.buttonsize = 22
+      face.localprops = []
+      face.template = mainfo.tfacebutgray
+      taborder = 15
+      hint = ' Change Left volume '
+      bounds_x = 179
+      bounds_y = 38
+      bounds_cx = 37
+      bounds_cy = 44
+      statfile = mainfo.tstatfile1
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      caretwidth = 0
+      onchange = changevolume
+      ontextedited = ontextedit
+      onsetvalue = onsetvalvol
+      value = 100
+      valuedefault = 100
+      valuerange = 1
+      valuemin = -Inf
+      valuemax = 9999999
+      step = 1
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
+    object edvolr: trealspinedit
+      Tag = 1
+      optionswidget1 = [ow1_fontglyphheight]
+      frame.levelo = 0
+      frame.colorclient = -2147483645
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
+      frame.localprops = [frl_hiddenedges, frl_frameimagelist, frl_colorclient]
+      frame.localprops1 = []
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonface.template = mainfo.tfacebutgray
+      frame.buttonframe.framei_left = 4
+      frame.buttonframe.framei_top = 2
+      frame.buttonframe.framei_right = 4
+      frame.buttonframe.framei_bottom = 2
+      frame.buttonframe.frameimage_list = commanderfo.timagelist3
+      frame.buttonframe.frameimage_left = -4
+      frame.buttonframe.frameimage_right = -4
+      frame.buttonframe.frameimage_top = -4
+      frame.buttonframe.frameimage_bottom = -4
+      frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.colorclient = -2147483645
+      frame.buttonframe.localprops = [frl_optionsskin]
+      frame.buttonframe.localprops1 = []
+      frame.buttonsize = 22
+      frame.buttonpos = sbp_left
+      face.localprops = []
+      face.template = mainfo.tfacebutgray
+      taborder = 16
+      hint = ' Change Right volume '
+      bounds_x = 225
+      bounds_y = 38
+      bounds_cx = 37
+      bounds_cy = 44
+      statfile = mainfo.tstatfile1
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      caretwidth = 0
+      onchange = changevolume
+      ontextedited = ontextedit
+      onsetvalue = onsetvalvol
+      value = 100
+      valuedefault = 100
+      valuerange = 1
+      valuemin = -Inf
+      valuemax = 9999999
+      step = 1
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
   end
   object hintpanel: tgroupbox
-    color = -2147483645
-    frame.levelo = 0
-    frame.leveli = 0
-    frame.framei_left = 0
-    frame.framei_right = 0
-    frame.optionsskin = [fso_flat]
+    color = -1610612731
     frame.localprops = []
     frame.localprops1 = []
-    face.localprops = []
-    face.template = commanderfo.tfaceorange
+    frame.template = commanderfo.tframecomp2
     taborder = 1
     visible = False
-    bounds_x = 168
-    bounds_y = 39
+    bounds_x = 223
+    bounds_y = -3
     bounds_cx = 221
     bounds_cy = 52
     font.name = 'stf_default'
@@ -935,64 +959,6 @@ object recorderfo: trecorderfo
       font.localprops = []
       reffontheight = 15
     end
-  end
-  object tfacereclight: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16775159
-      15586259
-    )
-    template.fade_direction = gd_down
-    left = 239
-    top = 1
-  end
-  object tfacerecrev: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      14270913
-      16770019
-    )
-    template.fade_direction = gd_down
-    left = 222
-  end
-  object tfacerecorder: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16770019
-      14327197
-    )
-    template.fade_direction = gd_down
-    left = 216
-    top = 1
-  end
-  object tfacecomp2: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16775159
-      15586259
-    )
-    template.fade_direction = gd_down
-    left = 206
   end
   object tfiledialog1: tfiledialogx
     statfile = mainfo.tstatfile1

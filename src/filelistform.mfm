@@ -10,6 +10,8 @@ object filelistfo: tfilelistfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use this grip panel to drag/drop the window'
+  face.localprops = []
+  face.template = mainfo.tfacebutgray
   visible = False
   bounds_x = 397
   bounds_y = 264
@@ -22,6 +24,8 @@ object filelistfo: tfilelistfo
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.frame.sbhorz.options = []
+  container.face.localprops = []
+  container.face.template = mainfo.tfacebutgray
   container.bounds = (
     0
     0
@@ -30,7 +34,7 @@ object filelistfo: tfilelistfo
   )
   dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
-  dragdock.faceactivetab = guitarsfo.tfaceguitlight
+  dragdock.faceactivetab = mainfo.tfacebutgray
   dragdock.caption = 'Files'
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_cansize, od_canfloat, od_candock, od_fixsize, od_captionhint]
   dragdock.onfloat = onfloat
@@ -106,9 +110,6 @@ object filelistfo: tfilelistfo
   onhide = visiblechangeev
   moduleclassname = 'tdockform'
   object tgroupbox1: tgroupbox
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    face.template = mainfo.tfaceplayer
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 434
@@ -394,6 +395,7 @@ object filelistfo: tfilelistfo
     object list_files: tstringgrid
       optionswidget1 = [ow1_fontglyphheight, ow1_noclampinview]
       optionsskin = [osk_noalignx, osk_noaligny]
+      color = -2147483645
       frame.levelo = 0
       frame.sbvert.width = 10
       frame.sbvert.face.localprops = []
@@ -407,8 +409,16 @@ object filelistfo: tfilelistfo
       frame.sbhorz.width = 0
       frame.localprops = [frl_levelo, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
       frame.localprops1 = []
+      face.fade_pos.count = 1
+      face.fade_pos.items = (
+        0
+      )
+      face.fade_color.count = 1
+      face.fade_color.items = (
+        -1610612731
+      )
+      face.fade_direction = gd_down
       face.localprops = []
-      face.template = mainfo.tfacebutgray
       hint = 'To move a row: click+hold into the fixed column and drag the row where you want.'
       bounds_x = 0
       bounds_y = 0
@@ -734,6 +744,7 @@ object filelistfo: tfilelistfo
       anchors = [an_right, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       captiondist = 0
+      imagelist = commanderfo.timagelist1
       imagenr = 27
       focusrectdist = 0
       onexecute = loadlist
@@ -903,16 +914,16 @@ object filelistfo: tfilelistfo
       frame.captiondist = 0
       frame.localprops = [frl_levelo, frl_leveli, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimagelist, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
       frame.localprops1 = [frl1_captiondist]
+      frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayer
       frame.button.frame.optionsskin = [fso_flat]
       frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
       frame.buttons.count = 1
       frame.buttons.items = <      
         item
+          face.fade_direction = gd_down
           face.localprops = []
-          face.template = mainfo.tfaceplayer
           frame.optionsskin = [fso_flat]
           frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
@@ -1017,7 +1028,7 @@ object filelistfo: tfilelistfo
       anchors = [an_left, an_bottom]
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       captiondist = 0
-      imagenr = 27
+      imagenr = 15
       focusrectdist = 0
       onexecute = opendir
     end
@@ -1029,7 +1040,7 @@ object filelistfo: tfilelistfo
       taborder = 5
       visible = False
       bounds_x = 0
-      bounds_y = 99
+      bounds_y = 136
       bounds_cx = 434
       bounds_cy = 32
       anchors = [an_bottom]
@@ -1065,8 +1076,8 @@ object filelistfo: tfilelistfo
   object tstatfile1: tstatfile
     filename = 'cue.lis'
     options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
-    left = 272
-    top = 59
+    left = 228
+    top = 77
   end
   object tfiledialog1: tfiledialogx
     statfile = tstatfile1

@@ -523,6 +523,7 @@ object drumsfo: tdrumsfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
@@ -543,6 +544,7 @@ object drumsfo: tdrumsfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
@@ -563,6 +565,7 @@ object drumsfo: tdrumsfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = commanderfo.tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
@@ -592,11 +595,11 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = mainfo.tfaceplayerlight
+      frame.buttonface.template = mainfo.tfacebutgray
       frame.buttonframe.optionsskin = [fso_flat]
-      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp2
       frame.buttonsize = 20
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
@@ -655,11 +658,11 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = mainfo.tfaceplayerlight
+      frame.buttonface.template = mainfo.tfacebutgray
       frame.buttonframe.optionsskin = [fso_flat]
-      frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
       frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp2
       frame.buttonsize = 20
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
@@ -823,7 +826,7 @@ object drumsfo: tdrumsfo
       frame.button.color = 13421772
       frame.button.face.fade_direction = gd_down
       frame.button.face.localprops = [fal_fadirection]
-      frame.button.face.template = mainfo.tfaceplayerlight
+      frame.button.face.template = mainfo.tfacebutgray
       frame.button.frame.optionsskin = [fso_flat]
       frame.button.frame.localprops = [frl_optionsskin]
       frame.button.frame.localprops1 = []
@@ -833,7 +836,7 @@ object drumsfo: tdrumsfo
           color = 13421772
           face.fade_direction = gd_down
           face.localprops = [fal_fadirection]
-          face.template = mainfo.tfaceplayerlight
+          face.template = mainfo.tfacebutgray
           frame.optionsskin = [fso_flat]
           frame.localprops = [frl_optionsskin]
           frame.localprops1 = []
@@ -943,7 +946,7 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = mainfo.tfaceplayerlight
+      frame.buttonface.template = mainfo.tfacebutgray
       frame.buttonframe.optionsskin = [fso_flat]
       frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
@@ -1051,8 +1054,8 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       taborder = 31
       visible = False
-      bounds_x = 97
-      bounds_y = 60
+      bounds_x = 36
+      bounds_y = -15
       bounds_cx = 261
       bounds_cy = 45
       font.color = -1610612734

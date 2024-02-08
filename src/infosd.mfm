@@ -20,8 +20,6 @@ object infosdfo: tinfosdfo
   container.frame.localprops1 = []
   container.frame.sbhorz.options = []
   container.frame.sbvert.options = []
-  container.face.localprops = []
-  container.face.template = mainfo.tfaceplayer
   container.bounds = (
     0
     0

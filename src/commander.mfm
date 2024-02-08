@@ -12,8 +12,8 @@ object commanderfo: tcommanderfo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = 'Use that grip panel to drag/drop the window.'
   visible = False
-  bounds_x = 547
-  bounds_y = 213
+  bounds_x = 420
+  bounds_y = 223
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -120,6 +120,7 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
@@ -140,6 +141,7 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
@@ -161,6 +163,7 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
@@ -200,8 +203,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -284,8 +297,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -331,7 +354,7 @@ object commanderfo: tcommanderfo
       taborder = 2
       hint = 'Enable Live Input'
       bounds_x = 2
-      bounds_y = 15
+      bounds_y = 16
       bounds_cx = 33
       bounds_cy = 17
       onchange = onsetinput
@@ -363,8 +386,6 @@ object commanderfo: tcommanderfo
     frame.colorhighlight = -1610612733
     frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
     frame.localprops1 = []
-    face.localprops = []
-    face.template = mainfo.tfacebutgray
     taborder = 3
     bounds_x = 0
     bounds_y = 0
@@ -395,8 +416,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -462,7 +493,7 @@ object commanderfo: tcommanderfo
       bounds_x = 30
       bounds_y = 1
       bounds_cx = 18
-      bounds_cy = 15
+      bounds_cy = 16
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
@@ -478,7 +509,7 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_levelo, frl_colorhighlight]
       frame.localprops1 = []
       face.localprops = []
-      face.template = mainfo.tfacebutltgray
+      face.template = mainfo.tfaceplayerlight
       taborder = 6
       hint = 'General Volume in %'
       bounds_x = 2
@@ -509,8 +540,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -558,8 +599,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -576,7 +627,7 @@ object commanderfo: tcommanderfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    bounds_x = 53
+    bounds_x = 48
     bounds_y = 1
     bounds_cx = 280
     bounds_cy = 125
@@ -606,7 +657,6 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       frame.buttonface.fade_direction = gd_down
       frame.buttonface.localprops = [fal_fadirection]
-      frame.buttonface.template = mainfo.tfaceplayer
       frame.buttonframe.optionsskin = [fso_flat]
       frame.buttonframe.colorclient = -2147483645
       frame.buttonframe.localprops = [frl_optionsskin]
@@ -614,7 +664,7 @@ object commanderfo: tcommanderfo
       frame.buttonsize = 20
       face.localprops = []
       face.template = mainfo.tfaceplayer
-      taborder = 29
+      taborder = 28
       hint = 'Change mixing time in 1/100 second'
       bounds_x = 99
       bounds_y = 44
@@ -638,6 +688,7 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
@@ -663,12 +714,13 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerbut
-      taborder = 4
+      face.template = mainfo.tfaceplayerlight
+      taborder = 3
       hint = 'Resume player'
       bounds_x = 2
       bounds_y = 31
@@ -686,6 +738,7 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
@@ -704,7 +757,7 @@ object commanderfo: tcommanderfo
     object volumeleft1: tslider
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      taborder = 5
+      taborder = 4
       hint = 'Left Volume Player 1'
       bounds_x = 39
       bounds_y = 16
@@ -725,8 +778,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -737,7 +800,7 @@ object commanderfo: tcommanderfo
       Tag = 1
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      taborder = 6
+      taborder = 5
       hint = 'Right Volume Player 1'
       bounds_x = 65
       bounds_y = 16
@@ -758,8 +821,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -793,8 +866,8 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerbut
-      taborder = 7
+      face.template = mainfo.tfaceplayerlight
+      taborder = 6
       hint = 'Start Player 2 --> MIX --> Stop Player 1'
       bounds_x = 141
       bounds_y = 83
@@ -810,7 +883,7 @@ object commanderfo: tcommanderfo
       Tag = 3
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      taborder = 8
+      taborder = 7
       hint = 'Right Volume Player 2'
       bounds_x = 215
       bounds_y = 16
@@ -831,8 +904,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -843,7 +926,7 @@ object commanderfo: tcommanderfo
       Tag = 2
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
-      taborder = 9
+      taborder = 8
       hint = 'Left Volume Player 2'
       bounds_x = 189
       bounds_y = 16
@@ -864,8 +947,18 @@ object commanderfo: tcommanderfo
       scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
       scrollbar.facebutton.localprops = [fal_image]
       scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
       scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = mainfo.tfacecomp4
       scrollbar.framebutton.optionsskin = [fso_flat]
       scrollbar.framebutton.colorclient = -2147483645
       scrollbar.framebutton.localprops = [frl_optionsskin]
@@ -878,10 +971,11 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 10
+      taborder = 9
       hint = 'Cue-Load-Pause Player'
       bounds_x = 2
       bounds_y = 93
@@ -899,10 +993,11 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 11
+      taborder = 10
       hint = 'Load and Start Player'
       bounds_x = 249
       bounds_y = 62
@@ -920,10 +1015,11 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 12
+      taborder = 11
       hint = 'Cue-Load-Pause Player'
       bounds_x = 249
       bounds_y = 93
@@ -941,10 +1037,11 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 13
+      taborder = 12
       hint = 'Stop player'
       bounds_x = 249
       bounds_y = 0
@@ -967,12 +1064,13 @@ object commanderfo: tcommanderfo
       frame.frameimage_top = -4
       frame.frameimage_right = -4
       frame.frameimage_bottom = -4
+      frame.optionsskin = [fso_flat]
       frame.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.localprops1 = []
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerbut
-      taborder = 15
+      face.template = mainfo.tfaceplayerlight
+      taborder = 14
       hint = 'Resume player'
       bounds_x = 249
       bounds_y = 31
@@ -985,7 +1083,7 @@ object commanderfo: tcommanderfo
       onafterexecute = doresume
     end
     object vuright: tprogressbar
-      taborder = 16
+      taborder = 15
       bounds_x = 92
       bounds_y = 15
       bounds_cx = 5
@@ -1007,7 +1105,7 @@ object commanderfo: tcommanderfo
       format = ''
     end
     object vuright2: tprogressbar
-      taborder = 17
+      taborder = 16
       bounds_x = 242
       bounds_y = 17
       bounds_cx = 5
@@ -1029,7 +1127,7 @@ object commanderfo: tcommanderfo
       format = ''
     end
     object vuLeft2: tprogressbar
-      taborder = 18
+      taborder = 17
       bounds_x = 182
       bounds_y = 22
       bounds_cx = 5
@@ -1056,7 +1154,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 19
+      taborder = 18
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 39
       bounds_y = 106
@@ -1074,7 +1172,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 20
+      taborder = 19
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 65
       bounds_y = 106
@@ -1092,7 +1190,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 21
+      taborder = 20
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 215
       bounds_y = 106
@@ -1110,7 +1208,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
-      taborder = 22
+      taborder = 21
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 189
       bounds_y = 106
@@ -1123,7 +1221,7 @@ object commanderfo: tcommanderfo
       onexecute = resetvolume
     end
     object vuLeft: tprogressbar
-      taborder = 23
+      taborder = 22
       bounds_x = 32
       bounds_y = 17
       bounds_cx = 5
@@ -1151,10 +1249,11 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 3
+      taborder = 38
       hint = 'Pause player'
       bounds_x = 2
       bounds_y = 31
@@ -1164,7 +1263,6 @@ object commanderfo: tcommanderfo
       imagelist = mainfo.buttonicons
       imagenr = 1
       focusrectdist = 0
-      onexecute = doplayerpause
     end
     object btnPause2: tbutton
       Tag = 1
@@ -1172,10 +1270,11 @@ object commanderfo: tcommanderfo
       frame.optionsskin = [fso_flat]
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 14
+      taborder = 13
       hint = 'Pause player'
       bounds_x = 249
       bounds_y = 31
@@ -1195,7 +1294,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange
-      taborder = 25
+      taborder = 24
       hint = 'Pause Mixing'
       bounds_x = 99
       bounds_y = 83
@@ -1216,7 +1315,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceorange
-      taborder = 26
+      taborder = 25
       hint = 'Pause Mixing'
       bounds_x = 141
       bounds_y = 83
@@ -1235,7 +1334,7 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceorange
-      taborder = 24
+      taborder = 23
       hint = 'Pause Mixing'
       bounds_x = 99
       bounds_y = 83
@@ -1264,7 +1363,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 28
+      taborder = 27
       hint = 'Lock left and right volume Player 1'
       bounds_x = 80
       bounds_y = 1
@@ -1295,7 +1394,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 30
+      taborder = 29
       hint = 'Lock left and right volume Player 2'
       bounds_x = 230
       bounds_y = 1
@@ -1327,7 +1426,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 31
+      taborder = 30
       hint = 'Enable Spectrum Frequencies Calculation'
       bounds_x = 140
       bounds_y = 4
@@ -1364,7 +1463,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 32
+      taborder = 31
       hint = 'Graphic-anim while mixing (if cpu too low set it off)'
       bounds_x = 183
       bounds_y = 3
@@ -1381,19 +1480,9 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       frame.template = tframecomp2
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        14935011
-        8750469
-      )
-      face.fade_direction = gd_down
       face.localprops = []
-      taborder = 33
+      face.template = mainfo.tfaceplayerlight
+      taborder = 32
       hint = 'View Meters on/off'
       bounds_x = 99
       bounds_y = 4
@@ -1425,7 +1514,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 34
+      taborder = 33
       hint = 'Auto Mixing on/off'
       bounds_x = 99
       bounds_y = 24
@@ -1455,7 +1544,7 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 35
+      taborder = 34
       hint = 'Direct MIX (0 second time)'
       bounds_x = 162
       bounds_y = 44
@@ -1477,7 +1566,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 36
+      taborder = 35
       hint = 'Player 1'
       bounds_x = 32
       bounds_y = 1
@@ -1495,7 +1584,7 @@ object commanderfo: tcommanderfo
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 37
+      taborder = 36
       hint = 'Player 2'
       bounds_x = 182
       bounds_y = 1
@@ -1508,10 +1597,10 @@ object commanderfo: tcommanderfo
     object tstringdisp1: tstringdisp
       frame.localprops = []
       frame.localprops1 = []
-      taborder = 27
+      taborder = 26
       visible = False
-      bounds_x = 214
-      bounds_y = 35
+      bounds_x = 288
+      bounds_y = 27
       bounds_cx = 84
       bounds_cy = 83
       reffontheight = 15
@@ -1796,19 +1885,9 @@ object commanderfo: tcommanderfo
       frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
       frame.template = tframecomp2
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        14935011
-        8750469
-      )
-      face.fade_direction = gd_down
       face.localprops = []
-      taborder = 38
+      face.template = mainfo.tfaceplayerlight
+      taborder = 37
       hint = 'Randomize mixing list'
       bounds_x = 140
       bounds_y = 24
@@ -1824,12 +1903,22 @@ object commanderfo: tcommanderfo
     end
   end
   object hintpanel: tgroupbox
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775664
+      16751892
+    )
+    face.fade_direction = gd_down
     face.localprops = []
-    face.template = tfaceorange
     taborder = 4
     visible = False
-    bounds_x = 70
-    bounds_y = 39
+    bounds_x = 88
+    bounds_y = 44
     bounds_cx = 221
     bounds_cy = 36
     font.name = 'stf_default'
@@ -1859,36 +1948,6 @@ object commanderfo: tcommanderfo
       reffontheight = 15
     end
   end
-  object tfacecomp7: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      11250603
-      15921906
-    )
-    template.fade_direction = gd_left
-    left = 6
-    top = 45
-  end
-  object tfacecomp2: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      15921906
-      10921638
-    )
-    template.fade_direction = gd_down
-    left = 8
-    top = 43
-  end
   object tfacebutton: tfacecomp
     template.image.origformat = 'png'
     template.image.alignment = [al_stretchx, al_stretchy]
@@ -1908,8 +1967,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 9
-    top = 43
+    left = 87
+    top = 18
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -1923,89 +1982,13 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    top = 40
-  end
-  object tfacecomp3: tfacecomp
-    template.image.origformat = 'png'
-    template.image.alignment = [al_stretchx]
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      750389
-      16749824
-    )
-    left = 82
-    top = 24
-  end
-  object tfacebutgray: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      13421772
-      8750469
-    )
-    template.fade_direction = gd_down
-    left = 103
-    top = 64
-  end
-  object tfacegreen: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      12779422
-      7255365
-    )
-    template.fade_direction = gd_down
-    left = 143
-    top = 71
-  end
-  object tfacegreendark: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      6784852
-      2572312
-    )
-    template.fade_direction = gd_down
-    left = 165
-    top = 93
+    top = 49
   end
   object ttimer1: ttimer
     options = [to_single]
     ontimer = ontimerinit
     left = 17
     top = 78
-  end
-  object tfaceorange: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16775664
-      16751892
-    )
-    template.fade_direction = gd_down
-    left = 79
-    top = 79
   end
   object timercallback: ttimer
     interval = 500000
@@ -2024,8 +2007,8 @@ object commanderfo: tcommanderfo
     template.frameimage_top = -4
     template.frameimage_right = -4
     template.frameimage_bottom = -4
-    left = 108
-    top = 91
+    left = 96
+    top = 59
   end
   object timagelist3: timagelist
     width = 4
@@ -2035,8 +2018,8 @@ object commanderfo: tcommanderfo
     cornermask_bottomleft = #2#1
     cornermask_bottomright = #2#1
     cornermask_topright = #2#1
-    left = 97
-    top = 18
+    left = 101
+    top = 60
     image = {
       00000000020000000C0000000C000000E8000000000000000000000000000000
       0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
@@ -2056,20 +2039,12 @@ object commanderfo: tcommanderfo
     top = 34
   end
   object sliderimage2: tbitmapcomp
-    left = 181
+    left = 132
     top = 59
   end
   object sliderimage3: tbitmapcomp
-    left = 176
-    top = 50
-  end
-  object sliderimage4: tbitmapcomp
-    left = 134
-    top = 58
-  end
-  object tfacecompnul: tfacecomp
-    left = 8
-    top = 86
+    left = 152
+    top = 30
   end
   object timagelist1: timagelist
     width = 32
@@ -2077,7 +2052,7 @@ object commanderfo: tcommanderfo
     options = [bmo_masked, bmo_graymask]
     count = 2
     left = 18
-    top = 16
+    top = 65
     image = {
       00000000120000004000000040000000B4180000000000000000000000000000
       000000000000000000000000000000000000000000000045DFCEC301D1B4A301
@@ -2413,5 +2388,9 @@ object commanderfo: tcommanderfo
     template.optionsskin = [fso_flat]
     left = 293
     top = 66
+  end
+  object sliderimage4: tbitmapcomp
+    left = 15
+    top = 12
   end
 end

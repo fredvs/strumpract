@@ -4,7 +4,7 @@ unit commander;
 
 {$if defined(netbsd) or defined(darwin)}
  {$define nofade}
-{$endif}
+ {$endif}
 
 interface
 
@@ -24,12 +24,9 @@ type
     Timersent: Ttimer;
     tgroupboxplayers: tgroupbox;
     btnStop: TButton;
-    btnPause: TButton;
     btnResume: TButton;
     btnStart: TButton;
     volumeleft1: tslider;
-    tfacecomp7: tfacecomp;
-    tfacecomp2: tfacecomp;
     volumeright1: tslider;
     timemix: trealspinedit;
     tbutton2: TButton;
@@ -91,7 +88,6 @@ type
     linkvolgenb: TButton;
     tfacebutgray: tfacecomp;
     tfacegreen: tfacecomp;
-    tfacegreendark: tfacecomp;
     ttimer1: ttimer;
     nameplayers: tstringdisp;
     nameplayers2: tstringdisp;
@@ -111,11 +107,11 @@ type
     sliderimage: tbitmapcomp;
     sliderimage2: tbitmapcomp;
     sliderimage3: tbitmapcomp;
-    sliderimage4: tbitmapcomp;
-   tfacecompnul: tfacecomp;
    timagelist1: timagelist;
    tframecompnul: tframecomp;
    
+   btnPause: tbutton;
+   sliderimage4: tbitmapcomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -442,11 +438,11 @@ begin
 
     if fromplay = 0 then
     begin
-      tbutton2.face.template := mainfo.tfacebutgray;
+      tbutton2.face.template := mainfo.tfaceplayerlight;
       tbutton3.face.template := mainfo.tfaceorange;
 
       filelistfo.tbutton2.face.template := mainfo.tfaceorange;
-      filelistfo.tbutton1.face.template := mainfo.tfaceplayer;
+      filelistfo.tbutton1.face.template := mainfo.tfaceplayerlight;
 
       thetypemix         := 0;
       volumeleft1.Value  := 0;
@@ -476,7 +472,7 @@ begin
       thetypemix         := 1;
       volumeleft2.Value  := 0;
       volumeright2.Value := 0;
-      tbutton3.face.template := mainfo.tfacebutgray;
+      tbutton3.face.template := mainfo.tfaceplayerlight;
       tbutton2.face.template := mainfo.tfaceorange;
       filelistfo.tbutton1.face.template := mainfo.tfaceorange;
       filelistfo.tbutton2.face.template := mainfo.tfaceplayerlight;
@@ -805,7 +801,7 @@ begin
     else
     begin
       // writeln('uos_Stop = ' + inttostr(theinput));
-      nameinput.face.template := recorderfo.tfacereclight;
+    //  nameinput.face.template := recorderfo.tfacereclight;
       uos_Stop(theinput);
     end;
 
@@ -1065,7 +1061,7 @@ begin
  {$endif}
  
  {$if defined(nofade)}
- //tframecomp2.template := tframecompnul.template;
+  tframecomp2.template := tframecompnul.template;
  {$endif}
  
   setlength(boundchildco, childrencount);
@@ -1249,7 +1245,7 @@ begin
       if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_white;    
       randommix.Value     := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'linkvolgenb' then
@@ -1265,7 +1261,7 @@ begin
       if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_white;        
       linkvolgen.Value    := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'linkvolb' then
@@ -1281,7 +1277,7 @@ begin
       if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_white;        
       linkvol.Value       := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'guimixb' then
@@ -1297,7 +1293,7 @@ begin
       if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_white;        
       guimix.Value        := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'speccalcb' then
@@ -1313,7 +1309,7 @@ begin
       if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_white;        
       speccalc.Value      := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'linkvol2b' then
@@ -1329,7 +1325,7 @@ begin
       if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_white;    
       linkvol2.Value      := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'automixb' then
@@ -1345,7 +1341,7 @@ begin
       if mainfo.typecolor.Value = 2 then automixb.font.color := cl_white;        
       automix.Value       := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'vuinb' then
@@ -1361,7 +1357,7 @@ begin
       if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_white;        
       vuin.Value          := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'directmixb' then
@@ -1377,9 +1373,11 @@ begin
       if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_white;        
       directmix.Value     := False;
       TButton(Sender).tag := 0;
-      TButton(Sender).face.template := mainfo.tfacebutgray;
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 end;
+
+
 
 procedure tcommanderfo.ontimerinit(const Sender: TObject);
 begin
@@ -1394,7 +1392,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_white;
     linkvolgenb.tag           := 0;
-    linkvolgenb.face.template := mainfo.tfacebutgray;
+    linkvolgenb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if linkvol.Value then
@@ -1407,7 +1405,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_white;
     linkvolb.tag           := 0;
-    linkvolb.face.template := mainfo.tfacebutgray;
+    linkvolb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if guimix.Value then
@@ -1420,7 +1418,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_white;
     guimixb.tag           := 0;
-    guimixb.face.template := mainfo.tfacebutgray;
+    guimixb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if speccalc.Value then
@@ -1433,7 +1431,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_white;
     speccalcb.tag           := 0;
-    speccalcb.face.template := mainfo.tfacebutgray;
+    speccalcb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if linkvol2.Value then
@@ -1446,7 +1444,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_white;
     linkvol2b.tag           := 0;
-    linkvol2b.face.template := mainfo.tfacebutgray;
+    linkvol2b.face.template := mainfo.tfaceplayerlight;
   end;
 
   if automix.Value then
@@ -1459,7 +1457,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then automixb.font.color := cl_white;
     automixb.tag           := 0;
-    automixb.face.template := mainfo.tfacebutgray;
+    automixb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if vuin.Value then
@@ -1472,7 +1470,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_white;
     vuinb.tag           := 0;
-    vuinb.face.template := mainfo.tfacebutgray;
+    vuinb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if directmix.Value then
@@ -1485,7 +1483,7 @@ begin
   begin
     if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_white;
     directmixb.tag           := 0;
-    directmixb.face.template := mainfo.tfacebutgray;
+    directmixb.face.template := mainfo.tfaceplayerlight;
   end;
   
   if randommix.Value then
@@ -1498,7 +1496,7 @@ begin
   begin
      if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_white;
      Brandommix.tag           := 0;
-    Brandommix.face.template := mainfo.tfacebutgray;
+    Brandommix.face.template := mainfo.tfaceplayerlight;
   end;
 
 end;

@@ -8,6 +8,8 @@ object synthefo: tsynthefo
   frame.grip_face.template = mainfo.tfacebutgray
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
+  face.localprops = []
+  face.template = mainfo.tfaceplayer
   visible = False
   bounds_x = 157
   bounds_y = 72
@@ -220,12 +222,9 @@ object synthefo: tsynthefo
       scrollbar.buttonlength = 16
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
+      scrollbar.face.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.faceendbutton.fade_pos.count = 2
       scrollbar.faceendbutton.fade_pos.items = (
         0
@@ -271,12 +270,9 @@ object synthefo: tsynthefo
       scrollbar.buttonlength = 16
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
+      scrollbar.face.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.faceendbutton.fade_pos.count = 2
       scrollbar.faceendbutton.fade_pos.items = (
         0
@@ -316,7 +312,7 @@ object synthefo: tsynthefo
       face.template = mainfo.tfaceplayerlight
       taborder = 2
       bounds_x = 147
-      bounds_y = 190
+      bounds_y = 189
       bounds_cx = 42
       bounds_cy = 21
       textflags = [tf_xcentered, tf_right, tf_ycentered]
@@ -360,7 +356,7 @@ object synthefo: tsynthefo
       face.template = mainfo.tfaceplayerlight
       taborder = 4
       bounds_x = 147
-      bounds_y = 119
+      bounds_y = 120
       bounds_cx = 42
       bounds_cy = 21
       textflags = [tf_xcentered, tf_right, tf_ycentered]
@@ -390,12 +386,9 @@ object synthefo: tsynthefo
       scrollbar.buttonlength = 16
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
+      scrollbar.face.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.faceendbutton.fade_pos.count = 2
       scrollbar.faceendbutton.fade_pos.items = (
         0
@@ -463,12 +456,9 @@ object synthefo: tsynthefo
       scrollbar.buttonlength = 16
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
+      scrollbar.face.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.faceendbutton.fade_pos.count = 2
       scrollbar.faceendbutton.fade_pos.items = (
         0
@@ -540,7 +530,7 @@ object synthefo: tsynthefo
       frame.localprops1 = []
       frame.button.colorglyph = -1610612730
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerlight
+      frame.button.face.template = mainfo.tfacebutgray
       frame.button.frame.framei_left = 4
       frame.button.frame.framei_top = 2
       frame.button.frame.framei_right = 4
@@ -557,7 +547,7 @@ object synthefo: tsynthefo
         item
           colorglyph = -1610612730
           face.localprops = []
-          face.template = mainfo.tfaceplayerlight
+          face.template = mainfo.tfacebutgray
           frame.framei_left = 4
           frame.framei_top = 2
           frame.framei_right = 4
@@ -606,7 +596,7 @@ object synthefo: tsynthefo
       frame.localprops1 = []
       frame.button.colorglyph = -1610612730
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerlight
+      frame.button.face.template = mainfo.tfacebutgray
       frame.button.frame.framei_left = 4
       frame.button.frame.framei_top = 2
       frame.button.frame.framei_right = 4
@@ -623,7 +613,7 @@ object synthefo: tsynthefo
         item
           colorglyph = -1610612730
           face.localprops = []
-          face.template = mainfo.tfaceplayerlight
+          face.template = mainfo.tfacebutgray
           frame.framei_left = 4
           frame.framei_top = 2
           frame.framei_right = 4
@@ -708,12 +698,9 @@ object synthefo: tsynthefo
       scrollbar.buttonlength = 16
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
+      scrollbar.face.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.faceendbutton.fade_pos.count = 2
       scrollbar.faceendbutton.fade_pos.items = (
         0
@@ -760,12 +747,9 @@ object synthefo: tsynthefo
       scrollbar.buttonlength = 16
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
+      scrollbar.face.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.faceendbutton.fade_pos.count = 2
       scrollbar.faceendbutton.fade_pos.items = (
         0
@@ -798,7 +782,7 @@ object synthefo: tsynthefo
       frame.localprops1 = []
       frame.button.colorglyph = -1610612730
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerlight
+      frame.button.face.template = mainfo.tfacebutgray
       frame.button.frame.framei_left = 4
       frame.button.frame.framei_top = 2
       frame.button.frame.framei_right = 4
@@ -815,7 +799,7 @@ object synthefo: tsynthefo
         item
           colorglyph = -1610612730
           face.localprops = []
-          face.template = mainfo.tfaceplayerlight
+          face.template = mainfo.tfacebutgray
           frame.framei_left = 4
           frame.framei_top = 2
           frame.framei_right = 4
@@ -888,12 +872,9 @@ object synthefo: tsynthefo
       scrollbar.buttonlength = 16
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
+      scrollbar.face.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.faceendbutton.fade_pos.count = 2
       scrollbar.faceendbutton.fade_pos.items = (
         0
@@ -1040,9 +1021,9 @@ object synthefo: tsynthefo
       face.template = mainfo.tfaceplayerlight
       taborder = 6
       bounds_x = 159
-      bounds_y = 52
+      bounds_y = 50
       bounds_cx = 42
-      bounds_cy = 18
+      bounds_cy = 21
       textflags = [tf_xcentered, tf_right, tf_ycentered]
       onchange = onchangewave
       value = 50
@@ -1060,7 +1041,7 @@ object synthefo: tsynthefo
       frame.localprops1 = []
       frame.button.colorglyph = -1610612730
       frame.button.face.localprops = []
-      frame.button.face.template = mainfo.tfaceplayerlight
+      frame.button.face.template = mainfo.tfacebutgray
       frame.button.frame.framei_left = 4
       frame.button.frame.framei_top = 2
       frame.button.frame.framei_right = 4
@@ -1077,7 +1058,7 @@ object synthefo: tsynthefo
         item
           colorglyph = -1610612730
           face.localprops = []
-          face.template = mainfo.tfaceplayerlight
+          face.template = mainfo.tfacebutgray
           frame.framei_left = 4
           frame.framei_top = 2
           frame.framei_right = 4
@@ -1174,9 +1155,9 @@ object synthefo: tsynthefo
       face.template = mainfo.tfaceplayerlight
       taborder = 10
       bounds_x = 159
-      bounds_y = 148
+      bounds_y = 146
       bounds_cx = 42
-      bounds_cy = 18
+      bounds_cy = 21
       textflags = [tf_xcentered, tf_right, tf_ycentered]
       onchange = onchangewave
       value = 50
@@ -1208,12 +1189,9 @@ object synthefo: tsynthefo
       scrollbar.buttonlength = 16
       scrollbar.buttonendlength = -1
       scrollbar.face.localprops = []
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = mainfo.tfaceplayerlight
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = mainfo.tfaceplayerlight
+      scrollbar.face.template = mainfo.tfaceplayerlight
       scrollbar.facebutton.localprops = []
-      scrollbar.facebutton.template = mainfo.tfaceplayerrev
+      scrollbar.facebutton.template = mainfo.tfacebutgray
       scrollbar.faceendbutton.fade_pos.count = 2
       scrollbar.faceendbutton.fade_pos.items = (
         0

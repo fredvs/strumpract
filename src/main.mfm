@@ -14,8 +14,8 @@ object mainfo: tmainfo
   face.fade_direction = gd_down
   face.localprops = [fal_fadirection]
   visible = False
-  bounds_x = 763
-  bounds_y = 107
+  bounds_x = 488
+  bounds_y = 218
   bounds_cx = 442
   bounds_cy = 96
   bounds_cxmin = 442
@@ -131,8 +131,18 @@ object mainfo: tmainfo
     frame.grip_size = 0
     frame.grip_grip = stb_default
     frame.grip_options = [go_closebutton, go_buttonhints, go_showsplitcaption]
+    frame.grip_face.fade_pos.count = 2
+    frame.grip_face.fade_pos.items = (
+      0
+      1
+    )
+    frame.grip_face.fade_color.count = 2
+    frame.grip_face.fade_color.items = (
+      12237498
+      15592941
+    )
+    frame.grip_face.fade_direction = gd_down
     frame.grip_face.localprops = []
-    frame.grip_face.template = tfacecomp4
     face.localprops = []
     face.template = tfacebutgray
     bounds_x = 0
@@ -203,12 +213,13 @@ object mainfo: tmainfo
     reffontheight = 15
   end
   object tmainmenu1: tmainmenu
-    popupfacetemplate = tfacebutgray
-    popupitemfacetemplateactive = tfacebutgray
-    facetemplate = tfacebutgray
+    popupfacetemplate = tfacebutltgray
+    popupitemfacetemplate = tfacebutltgray
+    popupitemfacetemplateactive = tfacebutltgray
+    facetemplate = tfacebutltgray
     itemframetemplate = tframecomp1
-    itemfacetemplate = tfacebutgray
-    itemfacetemplateactive = tfacebutgray
+    itemfacetemplate = tfacebutltgray
+    itemfacetemplateactive = tfacebutltgray
     menu.submenu.count = 12
     menu.submenu.items = <    
       item
@@ -520,7 +531,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 27
+        submenu.count = 26
         submenu.items = <        
           item
             caption = 'Square'
@@ -654,10 +665,6 @@ object mainfo: tmainfo
             onexecute = onalwaysontop
           end        
           item
-            state = [as_localcaption]
-            options = [mao_separator, mao_shortcutcaption]
-          end        
-          item
             caption = 'Transparent'
             name = 'transparent'
             state = [as_localcaption]
@@ -747,21 +754,6 @@ object mainfo: tmainfo
     menu.font.localprops = [flp_options]
     left = 7
   end
-  object tfacecomp4: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      12237498
-      15592941
-    )
-    template.fade_direction = gd_down
-    left = 154
-    top = 8
-  end
   object tstatfile1: tstatfile
     filename = 'stat.ini'
     options = [sfo_transaction, sfo_savedata, sfo_activatorread, sfo_activatorwrite]
@@ -769,21 +761,6 @@ object mainfo: tmainfo
     onstatafterread = afterreadev
     left = 259
     top = 11
-  end
-  object tfacecomp5: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      13421772
-      15461355
-    )
-    template.fade_direction = gd_down
-    left = 266
-    top = 7
   end
   object tfacebutgray: tfacecomp
     template.fade_pos.count = 2
@@ -797,23 +774,8 @@ object mainfo: tmainfo
       10395294
     )
     template.fade_direction = gd_down
-    left = 170
+    left = 97
     top = 9
-  end
-  object tfacecomp7: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      11250603
-      15921906
-    )
-    template.fade_direction = gd_left
-    left = 281
-    top = 7
   end
   object tfacered: tfacecomp
     template.fade_pos.count = 2
@@ -827,7 +789,8 @@ object mainfo: tmainfo
       16742520
     )
     template.fade_direction = gd_down
-    left = 132
+    left = 300
+    top = 36
   end
   object tfacegreen: tfacecomp
     template.fade_pos.count = 2
@@ -837,12 +800,12 @@ object mainfo: tmainfo
     )
     template.fade_color.count = 2
     template.fade_color.items = (
-      12779422
-      7255365
+      -1610612731
+      -1610612731
     )
     template.fade_direction = gd_down
-    left = 113
-    top = 7
+    left = 68
+    top = 19
   end
   object tfaceorange: tfacecomp
     template.fade_pos.count = 2
@@ -856,96 +819,20 @@ object mainfo: tmainfo
       16751892
     )
     template.fade_direction = gd_down
-    left = 288
-    top = 11
+    left = 176
+    top = 8
   end
   object tfaceplayer: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16383938
-      12896665
-    )
     template.fade_direction = gd_down
-    left = 157
-    top = 28
+    template.onbeforepaint = beforefaceplayer
+    left = 67
+    top = 43
   end
   object tfaceplayerlight: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16646123
-      14936240
-    )
     template.fade_direction = gd_down
-    left = 279
-  end
-  object tfaceplayerrev: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      12896665
-      15989438
-    )
-    template.fade_direction = gd_down
-    left = 220
-    top = 10
-  end
-  object tfacecomp1: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16383938
-      12896665
-    )
-    template.fade_direction = gd_down
-    left = 133
-    top = 1
-  end
-  object tfaceorangelt: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16775664
-      16764802
-    )
-    template.fade_direction = gd_down
-    left = 267
-    top = 17
-  end
-  object tfaceorangehz: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16775664
-      16762227
-    )
-    left = 227
-    top = 15
+    template.onbeforepaint = beforefaceplayer
+    left = 233
+    top = 42
   end
   object tfacebutltgray: tfacecomp
     template.fade_pos.count = 2
@@ -959,15 +846,16 @@ object mainfo: tmainfo
       13750737
     )
     template.fade_direction = gd_down
-    left = 164
+    left = 285
+    top = 9
   end
   object buttonicons: timagelist
     width = 24
     height = 24
     options = [bmo_masked, bmo_graymask]
     count = 38
-    left = 12
-    top = 20
+    left = 318
+    top = 5
     image = {
       0000000012000000A8000000A800000044A30000000000000000000000000000
       0000000000000000000000000000000000000000C0C0C01800000030D0D0D018
@@ -3161,21 +3049,6 @@ object mainfo: tmainfo
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
     }
   end
-  object tfaceplayerbut: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      14870704
-      11317382
-    )
-    template.fade_direction = gd_down
-    left = 106
-    top = 16
-  end
   object tfiledialog1: tfiledialogx
     statfile = tstatfile1
     controller.fontheight = 0
@@ -3243,42 +3116,12 @@ object mainfo: tmainfo
     left = 170
     top = 42
   end
-  object tfaceplayer2: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      15258032
-      12561553
-    )
-    template.fade_direction = gd_down
-    left = 161
-    top = 37
-  end
-  object tfaceorange2: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16773078
-      16751892
-    )
-    template.fade_direction = gd_down
-    left = 247
-    top = 53
-  end
   object ttimer2: ttimer
     interval = 180000000
     ontimer = ontimeridle
     enabled = True
-    left = 176
-    top = 10
+    left = 172
+    top = 53
   end
   object tframecomp1: tframecomp
     template.extraspace = 10
