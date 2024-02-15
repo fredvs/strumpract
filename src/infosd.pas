@@ -49,7 +49,6 @@ type
     aimage: TBGRAAnimatedGif;
     PimgPreview: tpaintbox;
     ttimer1: tfptimer;
-
     tbutton1: TButton;
     procedure onshow(const Sender: TObject);
     procedure ondock(const Sender: TObject);
@@ -62,7 +61,6 @@ type
     procedure ondest(const Sender: TObject);
     procedure ontime(Sender: TObject);
     procedure onexec(const Sender: TObject);
-   procedure onresize(const sender: TObject);
   end;
 
 var
@@ -339,15 +337,6 @@ begin
     ttimer1.Enabled  := True;
   end;
 
-end;
-
-procedure tinfosdfo.onresize(const sender: TObject);
-begin
-{
-  PimgPreview.left   := (width div 2)-1;
-  PimgPreview.Height := Height;
-  PimgPreview.Width  := width div 2;
-}
 end;
 
 end.

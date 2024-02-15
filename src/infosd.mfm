@@ -96,7 +96,6 @@ object infosdfo: tinfosdfo
   oncreate = oncre
   oneventloopstart = onevstart
   ondestroy = ondest
-  onresize = onresize
   onshow = onshow
   onhide = onshow
   moduleclassname = 'tdockform'

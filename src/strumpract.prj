@@ -809,12 +809,15 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
+modulenames=2
  EQUALIZERFO
-moduletypes=1
+ INFOSDFO
+moduletypes=2
  TEQUALIZERFO
-modulefiles=1
+ TINFOSDFO
+modulefiles=2
  /home/fred/strumpract/src/equalizer.mfm
+ /home/fred/strumpract/src/infosd.mfm
 befcommandon=0
 makeoptionson=18
  4095
@@ -1615,41 +1618,54 @@ findhistory=20
  commander
  edtempo.
 findoptions=1
-editpos=2
+editpos=3
  0,10
  0,903
+ 0,51
 bookmarks0=0
 bookmarks1=0
-sourcefiles=2
+bookmarks2=0
+sourcefiles=3
  ${PROJECTDIR}/strumpract.pas
  ${PROJECTDIR}/equalizer.pas
-relpaths=2
+ ${PROJECTDIR}/infosd.pas
+relpaths=3
  strumpract.pas
  equalizer.pas
-ismoduletexts=2
+ infosd.pas
+ismoduletexts=3
  0
  0
-modules=3
+ 0
+modules=4
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/equalizer.mfm
-moduleoptions=3
+ /home/fred/strumpract/src/infosd.mfm
+moduleoptions=4
  0
  0
  0
-visiblemodules=3
+ 0
+visiblemodules=4
  0
  0
  -1
-nomenumodules=3
+ -1
+nomenumodules=4
  -1
  -1
+ 0
  0
 [sourcefo.files_tab]
+order=3
+ 0
+ 2
+ 1
 firsttab=0
 index=1
 [layout]
-windowlayout=597
+windowlayout=625
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -2050,7 +2066,7 @@ windowlayout=597
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=_mse_infosdfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2107,11 +2123,9 @@ windowlayout=597
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/equalizer.pas
- history=20
-  /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/equalizer.pas
+ value=/home/fred/strumpract/src/infosd.pas
+ history=25
+  /home/fred/strumpract/src/msefiledialogx.pas
   /home/fred/strumpract/src/configlayout.pas
   /home/fred/strumpract/src/config.pas
   /home/fred/strumpract/src/infosd.pas
@@ -2129,6 +2143,13 @@ windowlayout=597
   /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts_strings.inc
   /home/fred/ideu/src/msestockobjects.pas
   /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/guitars.pas
+  /home/fred/strumpract/src/synthe.pas
+  /home/fred/ideu/src/ideusettings.pas
+  /home/fred/uos/examples/uos.pas
+  /home/fred/uos/examples/consolesynth.pas
+  /home/fred/uos/examples/consoleplay.pas
+  /home/fred/ideu/src/msegdbutils.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2150,6 +2171,10 @@ windowlayout=597
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=3
+  0
+  2
+  1
  firsttab=0
  index=1
  [confideufo.usedefaulteditoroptions]
@@ -2242,6 +2267,25 @@ windowlayout=597
  y=255
  cx=452
  cy=128
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
+ [_mse_infosdfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=548
+ y=274
+ cx=452
+ cy=216
  rcx=0
  rcy=0
  wsize=0
