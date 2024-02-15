@@ -756,8 +756,6 @@ begin
 end;
 
 procedure tfilelistfo.savelist(const Sender: TObject);
-var
-noext : string;
 begin
 
    if tfiledialogx2.controller.filename = '' then
@@ -771,8 +769,6 @@ begin
 
   tfiledialogx2.controller.filter   := '"*.lis"';
   
- // if tfiledialogx2.controller.filename = '' then
-  //tfiledialogx2.controller.filename := ordir + 'mylist.lis';
   tfiledialogx2.controller.options  := [fdo_sysfilename, fdo_savelastdir];
 
   if tfiledialogx2.controller.Execute(fdk_save) = mr_ok then
