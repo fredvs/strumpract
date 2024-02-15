@@ -424,7 +424,6 @@ begin
   asliders[19]  := tslider19;
   asliders[20]  := tslider20;
 
-
   abuttons[1]  := tbutton1;
   abuttons[2]  := tbutton2;
   abuttons[3]  := tbutton3;
@@ -460,7 +459,6 @@ begin
   setlength(boundchildeq, childrencount);
   childn := childrencount;
 
-
   for i1 := 0 to childrencount - 1 do
   begin
     boundchildeq[i1].left   := children[i1].left;
@@ -470,9 +468,7 @@ begin
     boundchildeq[i1].Name   := children[i1].Name;
   end;
 
-
   setlength(boundchildeq, groupbox1.childrencount + childn);
-
 
   with groupbox1 do
     for i1 := 0 to groupbox1.childrencount - 1 do
@@ -603,7 +599,6 @@ begin
         recorderfo.changefrequency(2, tagsender, again, -1)
       else
         recorderfo.changefrequency(2, tagsender - 10, -1, again);
-
   end;
 end;
 
@@ -728,11 +723,13 @@ end;
 
 procedure tequalizerfo.applylist(afilename: string; atag: integer; asave: Boolean);
 var
-  str, str2, dataeq: msestring;
+  str, str2 : msestring;
   ds: char;
   asliders: tasliders;
   x: integer;
 begin
+  ds := decimalseparator;
+  decimalseparator := '.';
 
   if asave = False then
   begin
@@ -743,13 +740,8 @@ begin
       finally
         Free;
       end;
-
     str2 := copy(str, 1, system.pos('|', str) - 1);
-
   end;
-
-  ds := decimalseparator;
-  decimalseparator := '.';
 
   if (atag = 0) then
     with equalizerfo1 do
@@ -828,48 +820,32 @@ begin
 
   if asave = False then
   begin
-
     asliders[1].Value := strtofloat(str2);
-
     x := 1;
-
     while (system.pos('|', str) > 0) and (x < 20) do
     begin
       Inc(x);
       str2 := system.copy(str, system.pos('|', str) + 1, 6);
-      str  := stringreplace(str, '|', ' ',
-        [rfIgnoreCase]);
-
+      str  := stringreplace(str, '|', ' ', [rfIgnoreCase]);
       if trim(str2) <> '' then
         asliders[x].Value := strtofloat(str2);
-
     end;
-
   end;
 
   if asave then
   begin
-
-    dataeq := '';
-
-    ds := decimalseparator;
-
-    decimalseparator := '.';
-
+    str := '';
     for x := 1 to 20 do
-      dataeq         := dataeq + floattostrf(asliders[x].Value, ffFixed, 8, 4) + '|';
-    decimalseparator := ds;
-
+      str         := str + floattostrf(asliders[x].Value, ffFixed, 8, 4) + '|';
     with TStringList.Create do
       try
-        Add(dataeq);
+        Add(str);
         SaveToFile(afilename);
       finally
         Free;
       end;
-
   end;
-
+  
   decimalseparator := ds;
 
 end;
@@ -907,21 +883,8 @@ begin
 end;
 
 procedure tequalizerfo.savelist(const Sender: TObject);
-var
-  typstat, x: integer;
-  asliders: tasliders;
-  dataeq: string;
-  ds: char;
-begin
-
-  if tag = 0 then
-    typstat := 3
-  else if tag = 1 then
-    typstat := 4
-  else
-    typstat := 5;
-
-  if tfiledialog1.controller.filename = '' then
+ begin
+   if tfiledialog1.controller.filename = '' then
     tfiledialog1.controller.filename := GetUserDir + directoryseparator + 'myequalizer.equ';
 
   tfiledialog1.controller.icon := icon;
@@ -938,4 +901,3 @@ begin
 end;
 
 end.
-

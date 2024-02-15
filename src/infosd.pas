@@ -62,6 +62,7 @@ type
     procedure ondest(const Sender: TObject);
     procedure ontime(Sender: TObject);
     procedure onexec(const Sender: TObject);
+   procedure onresize(const sender: TObject);
   end;
 
 var
@@ -130,10 +131,6 @@ begin
   PimgPreview.left   := round(217 * ratio);
   PimgPreview.Height := round(216 * ratio);
   PimgPreview.Width  := round(216 * ratio);
-
-  //imgPreview.left   := round(217 * ratio);
-  //imgPreview.Height := round(216 * ratio);
-  //imgPreview.Width  := round(216 * ratio);
 
 end;
 
@@ -342,6 +339,15 @@ begin
     ttimer1.Enabled  := True;
   end;
 
+end;
+
+procedure tinfosdfo.onresize(const sender: TObject);
+begin
+{
+  PimgPreview.left   := (width div 2)-1;
+  PimgPreview.Height := Height;
+  PimgPreview.Width  := width div 2;
+}
 end;
 
 end.

@@ -382,10 +382,8 @@ begin
   recorderfo.resizere(fontval);
   infosdfo2.resizein(fontval);
   
-//   {$if not defined(darwin)}
   imagedancerfo.resizeda(fontval);
-//   {$endif}
-  
+
   paintslider();
 
   resizema(fontval);
