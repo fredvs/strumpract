@@ -708,13 +708,9 @@ end;
 procedure tfilelistfo.loadlist(const Sender: TObject);
 var
   x: integer;
-  ordir: msestring;
   cellpos: gridcoordty;
 begin
   
-//  ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'list' + directoryseparator);
-   ordir := GetUserDir + directoryseparator;
- 
   tfiledialog1.controller.icon := icon;
   
   tfiledialogx2.controller.captionopen := 'Open List File';
@@ -727,7 +723,9 @@ begin
     tfiledialogx2.controller.backcolor := cl_default;
 
   tfiledialogx2.controller.filter   := '"*.lis"';
-  tfiledialogx2.controller.filename := ordir;
+
+  if tfiledialogx2.controller.filename = '' then
+  tfiledialogx2.controller.filename := GetUserDir + directoryseparator;
 
   if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
     if fileexists(tfiledialogx2.controller.filename) then
@@ -758,10 +756,13 @@ begin
 end;
 
 procedure tfilelistfo.savelist(const Sender: TObject);
+var
+noext : string;
 begin
 
    if tfiledialogx2.controller.filename = '' then
-   ordir := GetUserDir + directoryseparator;
+   tfiledialogx2.controller.filename := GetUserDir + directoryseparator + 'mylist.lis' else
+   tfiledialogx2.controller.filename :=   ExtractFilePath(tfiledialogx2.controller.filename) + 'mylist.lis' ;
    
   tfiledialogx2.controller.icon := icon;
  
@@ -769,7 +770,9 @@ begin
   tfiledialogx2.controller.fontcolor := cl_black;
 
   tfiledialogx2.controller.filter   := '"*.lis"';
-  tfiledialogx2.controller.filename := ordir + 'mylist.lis';
+  
+ // if tfiledialogx2.controller.filename = '' then
+  //tfiledialogx2.controller.filename := ordir + 'mylist.lis';
   tfiledialogx2.controller.options  := [fdo_sysfilename, fdo_savelastdir];
 
   if tfiledialogx2.controller.Execute(fdk_save) = mr_ok then

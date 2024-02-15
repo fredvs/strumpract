@@ -809,12 +809,9 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=1
- MAINFO
-moduletypes=1
- TMAINFO
-modulefiles=1
- /home/fred/strumpract/src/main.mfm
+modulenames=0
+moduletypes=0
+modulefiles=0
 befcommandon=0
 makeoptionson=18
  4095
@@ -1592,8 +1589,10 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=controller.history
+finddtext=getus
 findhistory=20
+ getus
+ .lis
  controller.history
  tfiledialog1
  status
@@ -1612,22 +1611,15 @@ findhistory=20
  ttf
  faceplayerrev
  tfacegreen
- tfacebutltgray
- infosdfo.
 findoptions=1
-editpos=2
+editpos=1
  0,21
- 0,-1073741823
 bookmarks0=0
-bookmarks1=0
-sourcefiles=2
+sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/main.pas
-relpaths=2
+relpaths=1
  strumpract.pas
- main.pas
-ismoduletexts=2
- 0
+ismoduletexts=1
  0
 modules=3
  /home/fred/strumpract/src/main.mfm
@@ -1638,11 +1630,11 @@ moduleoptions=3
  0
  0
 visiblemodules=3
- -1
+ 0
  0
  0
 nomenumodules=3
- 0
+ -1
  -1
  -1
 [sourcefo.files_tab]
@@ -1804,7 +1796,7 @@ windowlayout=589
  sortdescend1=0
  sorted=0
  col=0
- row=14
+ row=5
  rowheight=19
  [stackfo]
  splitdir=0
@@ -2050,7 +2042,7 @@ windowlayout=589
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2107,7 +2099,7 @@ windowlayout=589
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
+ value=/home/fred/strumpract/src/filelistform.pas
  history=12
   /home/fred/strumpract/src/main.pas
   /home/fred/mseide-msegui/lib/common/dialogs/msefiledialog.mfm
@@ -2200,7 +2192,7 @@ windowlayout=589
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
