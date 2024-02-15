@@ -15,9 +15,7 @@ type
     tgroupbox2: tgroupbox;
     tcoloredit1: tcoloredit;
     tcoloredit2: tcoloredit;
-    dbkl1: tbooleanedit;
     tgroupbox3: tgroupbox;
-    dbkl2: tbooleanedit;
     tcoloredit12: tcoloredit;
     tcoloredit22: tcoloredit;
     tgroupbox7: tgroupbox;

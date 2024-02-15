@@ -81,8 +81,8 @@ object configlayoutfo: tconfiglayoutfo
         0
         0
       )
-      bounds_x = 10
-      bounds_y = 50
+      bounds_x = 13
+      bounds_y = 39
       bounds_cx = 172
       bounds_cy = 39
       font.name = 'stf_default'
@@ -128,7 +128,7 @@ object configlayoutfo: tconfiglayoutfo
         0
       )
       taborder = 1
-      bounds_x = 10
+      bounds_x = 13
       bounds_y = 92
       bounds_cx = 172
       bounds_cy = 39
@@ -137,30 +137,6 @@ object configlayoutfo: tconfiglayoutfo
       onchange = onsetcolor
       value = 13744312
       reffontheight = 15
-    end
-    object dbkl1: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Dark background'
-      frame.captiondist = 3
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        0
-        2
-        110
-        3
-      )
-      taborder = 2
-      hint = 'Dark bakground of wave'
-      bounds_x = 33
-      bounds_y = 29
-      bounds_cx = 123
-      bounds_cy = 17
-      statfile = mainfo.tstatfile1
-      onchange = onsetcolor
-      colorglyph = 4868682
     end
   end
   object tgroupbox3: tgroupbox
@@ -184,29 +160,6 @@ object configlayoutfo: tconfiglayoutfo
     bounds_y = 9
     bounds_cx = 194
     bounds_cy = 155
-    object dbkl2: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Dark background'
-      frame.captiondist = 3
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        0
-        2
-        110
-        3
-      )
-      hint = 'Dark bakground of wave'
-      bounds_x = 33
-      bounds_y = 30
-      bounds_cx = 123
-      bounds_cy = 17
-      statfile = mainfo.tstatfile1
-      onchange = onsetcolor
-      colorglyph = 4868682
-    end
     object tcoloredit12: tcoloredit
       frame.levelo = 1
       frame.colorhighlight = -1610612733
@@ -243,9 +196,8 @@ object configlayoutfo: tconfiglayoutfo
         0
         0
       )
-      taborder = 1
-      bounds_x = 10
-      bounds_y = 51
+      bounds_x = 13
+      bounds_y = 40
       bounds_cx = 172
       bounds_cy = 39
       font.name = 'stf_default'
@@ -291,8 +243,8 @@ object configlayoutfo: tconfiglayoutfo
         0
         0
       )
-      taborder = 2
-      bounds_x = 10
+      taborder = 1
+      bounds_x = 13
       bounds_y = 93
       bounds_cx = 172
       bounds_cy = 39

@@ -1013,6 +1013,7 @@ begin
  
   RTLeventResetEvent(evPauseImage);
   Bitmap       := tbgrabitmap.Create(1000, 600);
+  
   InitRings;
   center       := PointF(Width / 2, Height / 2);
   zoom := 1;

@@ -97,15 +97,15 @@ object configfo: tconfigfo
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     taborder = 1
     bounds_x = 491
-    bounds_y = -1
+    bounds_y = 0
     bounds_cx = 350
-    bounds_cy = 91
+    bounds_cy = 90
     object latrec: trealspinedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -135,7 +135,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        20
+        18
         0
         0
       )
@@ -153,8 +153,8 @@ object configfo: tconfigfo
       face.localprops = []
       hint = ' Change latency of Recorder/Direct Input.  ---->  -1 = Latency suggested. '
       bounds_x = 233
-      bounds_y = 11
-      bounds_cy = 48
+      bounds_y = 12
+      bounds_cy = 44
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       value = -1
@@ -164,7 +164,7 @@ object configfo: tconfigfo
       valuemax = 10
       step = 0.001
       wheelsensitivity = 1
-      reffontheight = 17
+      reffontheight = 15
     end
     object latplay: trealspinedit
       color = -2147483645
@@ -195,7 +195,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        20
+        18
         0
         0
       )
@@ -214,8 +214,8 @@ object configfo: tconfigfo
       taborder = 1
       hint = ' Change latency of Players.  ---->  -1 = Latency suggested. '
       bounds_x = 124
-      bounds_y = 11
-      bounds_cy = 48
+      bounds_y = 12
+      bounds_cy = 44
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       value = -1
@@ -225,7 +225,7 @@ object configfo: tconfigfo
       valuemax = 10
       step = 0.001
       wheelsensitivity = 1
-      reffontheight = 17
+      reffontheight = 15
     end
     object latdrums: trealspinedit
       color = -2147483645
@@ -256,7 +256,7 @@ object configfo: tconfigfo
       frame.buttonsize = 40
       frame.outerframe = (
         0
-        20
+        18
         0
         0
       )
@@ -275,9 +275,9 @@ object configfo: tconfigfo
       taborder = 2
       hint = ' Change latency of Drums.  ---->  -1 = Latency suggested. Need to close-reload Strumpract to feel the change. '
       bounds_x = 16
-      bounds_y = 11
+      bounds_y = 12
       bounds_cx = 98
-      bounds_cy = 48
+      bounds_cy = 44
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
       value = -1
@@ -287,17 +287,17 @@ object configfo: tconfigfo
       valuemax = 10
       step = 0.001
       wheelsensitivity = 1
-      reffontheight = 17
+      reffontheight = 15
     end
     object lsuglat: tlabel
       taborder = 3
       bounds_x = 8
-      bounds_y = 65
-      bounds_cx = 108
-      bounds_cy = 17
+      bounds_y = 64
+      bounds_cx = 121
+      bounds_cy = 15
       caption = 'Suggested latency: '
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 17
+      reffontheight = 15
     end
   end
   object infos_grid: tstringgrid
@@ -394,7 +394,7 @@ object configfo: tconfigfo
     fixrows.count = 1
     fixrows.items = <    
       item
-        height = 19
+        height = 17
         captions.count = 13
         captions.items = <        
           item
@@ -472,8 +472,8 @@ object configfo: tconfigfo
           item
           end>
       end>
-    datarowheight = 19
-    reffontheight = 17
+    datarowheight = 17
+    reffontheight = 15
   end
   object tgroupbox5: tgroupbox
     frame.levelo = 1
@@ -485,22 +485,22 @@ object configfo: tconfigfo
     frame.localprops1 = []
     frame.outerframe = (
       0
-      9
+      8
       0
       0
     )
     taborder = 3
     bounds_x = 43
-    bounds_y = -1
+    bounds_y = 0
     bounds_cx = 381
-    bounds_cy = 65
+    bounds_cy = 64
     object defdevout: tlabel
       bounds_x = 211
-      bounds_y = 39
-      bounds_cx = 134
-      bounds_cy = 17
+      bounds_y = 38
+      bounds_cx = 146
+      bounds_cy = 15
       caption = 'Default Device OUT = -1'
-      reffontheight = 17
+      reffontheight = 15
     end
     object devoutcfg: tintegeredit
       frame.levelo = 1
@@ -510,31 +510,31 @@ object configfo: tconfigfo
       frame.localprops = [frl_levelo, frl_colorhighlight]
       frame.localprops1 = []
       frame.outerframe = (
-        112
+        121
         0
         0
         0
       )
       taborder = 1
       hint = 'Device OUT to use ( -1 = default )'
-      bounds_x = 212
-      bounds_y = 15
-      bounds_cx = 144
-      bounds_cy = 23
+      bounds_x = 203
+      bounds_y = 14
+      bounds_cx = 153
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       value = -1
       valuedefault = -1
       valuemin = -1
-      reffontheight = 17
+      reffontheight = 15
     end
     object defdevin: tlabel
       taborder = 2
       bounds_x = 23
-      bounds_y = 39
-      bounds_cx = 122
-      bounds_cy = 17
+      bounds_y = 38
+      bounds_cx = 134
+      bounds_cy = 15
       caption = 'Default Device IN = -1'
-      reffontheight = 17
+      reffontheight = 15
     end
     object devincfg: tintegeredit
       frame.levelo = 1
@@ -544,22 +544,22 @@ object configfo: tconfigfo
       frame.localprops = [frl_levelo, frl_colorhighlight]
       frame.localprops1 = []
       frame.outerframe = (
-        100
+        109
         0
         0
         0
       )
       taborder = 3
       hint = 'Device IN to use ( -1 = default )'
-      bounds_x = 32
-      bounds_y = 15
-      bounds_cx = 130
-      bounds_cy = 23
+      bounds_x = 23
+      bounds_y = 14
+      bounds_cx = 139
+      bounds_cy = 21
       statfile = mainfo.tstatfile1
       value = -1
       valuedefault = -1
       valuemin = -1
-      reffontheight = 17
+      reffontheight = 15
     end
   end
   object tbutton1: tbutton
@@ -584,16 +584,16 @@ object configfo: tconfigfo
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
+      2
+      131
       3
-      123
-      4
     )
     taborder = 5
     hint = 'Use libraries installed in system (otherwise uses library from StrumPract)'
     bounds_x = 262
-    bounds_y = 73
-    bounds_cx = 136
-    bounds_cy = 19
+    bounds_y = 74
+    bounds_cx = 144
+    bounds_cy = 17
     statfile = mainfo.tstatfile1
     onchange = onchangelib
     colorglyph = 4868682
@@ -633,8 +633,8 @@ object configfo: tconfigfo
     bounds_x = 201
     bounds_y = 65
     bounds_cx = 292
-    bounds_cy = 36
-    reffontheight = 17
+    bounds_cy = 34
+    reffontheight = 15
     object tbutton3: tbutton
       frame.captionpos = cp_center
       frame.localprops = []
@@ -653,10 +653,10 @@ object configfo: tconfigfo
       taborder = 1
       bounds_x = 12
       bounds_y = 10
-      bounds_cx = 185
-      bounds_cy = 17
+      bounds_cx = 197
+      bounds_cy = 15
       caption = 'Libraries from system are loaded'
-      reffontheight = 17
+      reffontheight = 15
     end
   end
 end

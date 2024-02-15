@@ -873,8 +873,11 @@ begin
      
      historyfn.Value :=  tfiledialog1.controller.filename  + 'rec_' +
         msestring(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.' + outformatst;
+     
         
     history := historyfn.dropdown.history;
+    
+    if  historyfn.dropdown.historymaxcount >  length(history) -1 then
     setlength(history, length(history) + 1);
     
     history[length(history)-1] := historyfn.Value;
