@@ -682,6 +682,8 @@ uses
   msekeyboard,
   msestockobjects,
   msesysintf,
+  main,
+  equalizer,
   //commandorform, // extra ideu
   msearrayutils;
   //captionideu;
@@ -2208,7 +2210,19 @@ begin
         if filename.tag = 1 then
           filename.Value := dir.Value;
         filename.Value := tosysfilepath(filename.Value);
-
+        
+        if dialoglive then
+        begin
+        if tagequ = 0 then
+        equalizerfo1.loadlistlive(dir.Value + filename.Value)
+        else
+         if tagequ = 1 then
+        equalizerfo2.loadlistlive(dir.Value + filename.Value)
+        else
+        equalizerforec.loadlistlive(dir.Value + filename.Value);
+       
+        end;
+        
       end
       else
       begin

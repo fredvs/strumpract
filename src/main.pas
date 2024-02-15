@@ -157,6 +157,7 @@ const
   statdirname = '^/.strumpract';
 
 var
+  dialoglive: boolean = false;
   drumsfoheight: integer = 274;
   filelistfoheight: integer = 128;
   wavefoheight: integer = 128;

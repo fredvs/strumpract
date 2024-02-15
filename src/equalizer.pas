@@ -4,11 +4,37 @@ unit equalizer;
 interface
 
 uses
- Classes,ctypes,SysUtils,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,
- msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,
- msedock,msegraphedits,mseificomp,mseificompglob,mseifiglob,msescrollbar,
- msesimplewidgets,msewidgets,msechart,msedispwidgets,mserichstring,
- msefiledialogx,msestatfile,msebitmap,mseimage;
+  Classes,
+  ctypes,
+  SysUtils,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msegraphedits,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msesimplewidgets,
+  msewidgets,
+  msechart,
+  msedispwidgets,
+  mserichstring,
+  msefiledialogx,
+  msestatfile,
+  msebitmap,
+  mseimage;
 
 type
   tasliders = array[1..20] of tslider;
@@ -84,7 +110,7 @@ type
     EQEN: tbooleanedit;
     tfacebuttonslider: tfacecomp;
     tfiledialog1: tfiledialogx;
-   tfiledialogx2: tfiledialogx;
+    tfiledialogx2: tfiledialogx;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
@@ -96,7 +122,8 @@ type
     procedure savelist(const Sender: TObject);
     procedure resizeeq(fontheight: integer);
     procedure faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
-
+    procedure loadlistlive(filename: string);
+    procedure applylist(afilename: string; atag: integer; asave: Boolean);
   end;
 
 var
@@ -104,6 +131,7 @@ var
   equalizerfo2: tequalizerfo;
   equalizerforec: tequalizerfo;
   iscreated: Boolean = False;
+  tagequ: integer = 0;
 
 implementation
 
@@ -119,167 +147,186 @@ uses
 
 var
   boundchildeq: array of boundchild;
-  
+
 procedure tequalizerfo.faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
 var
   point1, point2: pointty;
- 
 begin
 
   point1.x := arect.x + 1;
-  point1.y := arect.y ;
-  point2.x := arect.x + arect.cx - 2 ;
+  point1.y := arect.y;
+  point2.x := arect.x + arect.cx - 2;
   point2.y := point1.y;
   if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $aDaDaD) else
-  Canvas.drawline(point1, point2, cl_white);
-  
-  point1.x := arect.x + 1 ;
-  point1.y := arect.y + 1;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $6E6E6E) else
-  Canvas.drawline(point1, point2, $A8A8A8);
-  
-  point1.x := arect.x + 1 ;
-  point1.y := arect.y + 2;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $6E6E6E) else
-  Canvas.drawline(point1, point2, $A8A8A8);
-    
-  point1.x := arect.x  + 1 ;
-  point1.y := arect.y + 3;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $6E6E6E) else
-  Canvas.drawline(point1, point2, $A8A8A8);
-    
-  point1.x := arect.x  + 1 ;
-  point1.y := arect.y + 4;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $6E6E6E) else
-  Canvas.drawline(point1, point2, $A8A8A8);
-    
-  point1.x := arect.x  + 1 ;
-  point1.y := arect.y + 5;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $929292) else
-  Canvas.drawline(point1, point2, $CFCFCF);
-    
-  point1.x := arect.x  + 1 ;
-  point1.y := arect.y + 6;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $929292) else
-  Canvas.drawline(point1, point2, $CFCFCF);
-    
-  point1.x := arect.x  + 1 ;
-  point1.y := arect.y + 7;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, cl_black) else
-  Canvas.drawline(point1, point2, $747474);
-  
-  point1.x := arect.x  + 1 ;
-  point1.y := arect.y + 8;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $FF8C00) else // orange
-  Canvas.drawline(point1, point2, $F7BB71);
-  
-  point1.x := arect.x  + 1;
-  point1.y := arect.y + 9;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, cl_black) else
-  Canvas.drawline(point1, point2, $747474);
-  
-  point1.x := arect.x  + 1 ;
-  point1.y := arect.y + 10;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $A3A3A3) else
-  Canvas.drawline(point1, point2, $D2D2D2);
-  
-  point1.x := arect.x  + 1 ;
-  point1.y := arect.y + 11;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $A3A3A3) else
-  Canvas.drawline(point1, point2, $D2D2D2);
-  
-  point1.x := arect.x  + 1;
-  point1.y := arect.y + 12;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $6E6E6E) else
-  Canvas.drawline(point1, point2, $A7A7A7);
-   
-  point1.x := arect.x  + 1;
-  point1.y := arect.y + 13;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $6E6E6E) else
-  Canvas.drawline(point1, point2, $A7A7A7);
-  
-  point1.x := arect.x  + 1;
-  point1.y := arect.y + 14;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $6E6E6E) else
-  Canvas.drawline(point1, point2, $A7A7A7);
- 
-  point1.x := arect.x  + 1;
-  point1.y := arect.y + 15;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $6E6E6E) else
-  Canvas.drawline(point1, point2, $A7A7A7);
-  
-  point1.x := arect.x  + 1;
-  point1.y := arect.y + arect.cy -1;
-  point2.x := arect.x + arect.cx -2 ;
-  point2.y := point1.y;
-  if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $606060) else
-  Canvas.drawline(point1, point2, $808080);
-   
-  // vertical
-  
+    Canvas.drawline(point1, point2, $aDaDaD)
+  else
+    Canvas.drawline(point1, point2, cl_white);
+
   point1.x := arect.x + 1;
-  point1.y := arect.y ;
-  point2.x := point1.x;
-  point2.y := point1.y + arect.cy -2;
+  point1.y := arect.y + 1;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
   if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $aDaDaD) else
-  Canvas.drawline(point1, point2, cl_white);
-  
-  point1.x := arect.x + arect.cx -2 ;
-  point1.y := arect.y +1 ;
-  point2.x := point1.x;
-  point2.y := point1.y + arect.cy;;
+    Canvas.drawline(point1, point2, $6E6E6E)
+  else
+    Canvas.drawline(point1, point2, $A8A8A8);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 2;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
   if mainfo.typecolor.Value = 2 then
-  Canvas.drawline(point1, point2, $606060) else
-  Canvas.drawline(point1, point2, $808080);
-end;  
+    Canvas.drawline(point1, point2, $6E6E6E)
+  else
+    Canvas.drawline(point1, point2, $A8A8A8);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 3;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $6E6E6E)
+  else
+    Canvas.drawline(point1, point2, $A8A8A8);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 4;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $6E6E6E)
+  else
+    Canvas.drawline(point1, point2, $A8A8A8);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 5;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $929292)
+  else
+    Canvas.drawline(point1, point2, $CFCFCF);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 6;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $929292)
+  else
+    Canvas.drawline(point1, point2, $CFCFCF);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 7;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, cl_black)
+  else
+    Canvas.drawline(point1, point2, $747474);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 8;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $FF8C00)
+  else // orange
+    Canvas.drawline(point1, point2, $F7BB71);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 9;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, cl_black)
+  else
+    Canvas.drawline(point1, point2, $747474);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 10;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $A3A3A3)
+  else
+    Canvas.drawline(point1, point2, $D2D2D2);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 11;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $A3A3A3)
+  else
+    Canvas.drawline(point1, point2, $D2D2D2);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 12;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $6E6E6E)
+  else
+    Canvas.drawline(point1, point2, $A7A7A7);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 13;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $6E6E6E)
+  else
+    Canvas.drawline(point1, point2, $A7A7A7);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 14;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $6E6E6E)
+  else
+    Canvas.drawline(point1, point2, $A7A7A7);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + 15;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $6E6E6E)
+  else
+    Canvas.drawline(point1, point2, $A7A7A7);
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y + arect.cy - 1;
+  point2.x := arect.x + arect.cx - 2;
+  point2.y := point1.y;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $606060)
+  else
+    Canvas.drawline(point1, point2, $808080);
+
+  // vertical
+
+  point1.x := arect.x + 1;
+  point1.y := arect.y;
+  point2.x := point1.x;
+  point2.y := point1.y + arect.cy - 2;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $aDaDaD)
+  else
+    Canvas.drawline(point1, point2, cl_white);
+
+  point1.x := arect.x + arect.cx - 2;
+  point1.y := arect.y + 1;
+  point2.x := point1.x;
+  point2.y := point1.y + arect.cy;
+  ;
+  if mainfo.typecolor.Value = 2 then
+    Canvas.drawline(point1, point2, $606060)
+  else
+    Canvas.drawline(point1, point2, $808080);
+end;
 
 procedure tequalizerfo.resizeeq(fontheight: integer);
 var
@@ -354,7 +401,7 @@ begin
  {$if defined(netbsd) or defined(darwin)}
   windowopacity := 1;
  {$else}
-  windowopacity := 0;  
+  windowopacity := 0;
  {$endif}
   asliders[1]   := tslider1;
   asliders[2]   := tslider2;
@@ -678,78 +725,33 @@ begin
   end;
 end;
 
-procedure tequalizerfo.loadlist(const Sender: TObject);
+
+procedure tequalizerfo.applylist(afilename: string; atag: integer; asave: Boolean);
 var
-  ordir, str, str2: msestring;
-  ds : char;
+  str, str2, dataeq: msestring;
+  ds: char;
   asliders: tasliders;
-  typstat, x: integer;
+  x: integer;
 begin
-{
-  ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
-  dialogfilesfo.tag := tag;
-  dialogfilesfo.Caption := 'Load a Equalizer Settings File';
-  dialogfilesfo.list_files.mask := '*.equ';
-  dialogfilesfo.list_files.path := ordir;
-  dialogfilesfo.selected_file.Text := '';
 
-  if tag < 2 then
-    dialogfilesfo.setother.Visible := True
-  else
-    dialogfilesfo.setother.Visible := False;
-
-  if (mainfo.typecolor.Value = 0) then
+  if asave = False then
   begin
-    if tag = 2 then
-      dialogfilesfo.list_files.frame.colorclient := cl_ltgray
-    else
-      dialogfilesfo.list_files.frame.colorclient := $F9FFC2;
-  end
-  else if (mainfo.typecolor.Value = 1) then
-    dialogfilesfo.list_files.frame.colorclient := cl_ltgray
-  else
-    dialogfilesfo.list_files.frame.colorclient := cl_gray;
-
-  application.ProcessMessages;
-  dialogfilesfo.Show;
-  }
-  
-  if tag = 0 then
-    typstat := 3
-  else if tag = 1 then
-    typstat := 4
-  else
-    typstat := 5;
- 
-  ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
-   
-  tfiledialogx2.controller.captionopen := 'Open Equalizer File';
-  tfiledialogx2.controller.fontcolor := cl_black;
-  
-  tfiledialogx2.controller.icon := icon;
-
-  tfiledialogx2.controller.filter   := '"*.equ"';
-  tfiledialogx2.controller.filename := ordir;
-  tfiledialogx2.controller.options  := [fdo_sysfilename, fdo_savelastdir];
-
-  if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
-   if fileexists(tfiledialogx2.controller.filename) then
-   begin
-   
     with TStringList.Create do
-    try
-      Loadfromfile(tfiledialogx2.controller.filename);
-      str := Text;
-    finally
-      Free;
-    end;
+      try
+        Loadfromfile(afilename);
+        str := Text;
+      finally
+        Free;
+      end;
 
-  str2 := copy(str, 1, system.pos('|', str) - 1);
+    str2 := copy(str, 1, system.pos('|', str) - 1);
+
+  end;
 
   ds := decimalseparator;
   decimalseparator := '.';
-  
-   if (typstat = 3) then
+
+  if (atag = 0) then
     with equalizerfo1 do
     begin
       asliders[1]  := tslider1;
@@ -774,7 +776,7 @@ begin
       asliders[20] := tslider20;
     end;
 
-  if (typstat = 4) then
+  if (atag = 1) then
     with equalizerfo2 do
     begin
       asliders[1]  := tslider1;
@@ -799,7 +801,7 @@ begin
       asliders[20] := tslider20;
     end;
 
-  if (typstat = 5) then
+  if (atag = 2) then
     with equalizerforec do
     begin
       asliders[1]  := tslider1;
@@ -824,131 +826,28 @@ begin
       asliders[20] := tslider20;
     end;
 
-  asliders[1].Value := strtofloat(str2);
-  
-  x := 1;
-
-  while (system.pos('|', str) > 0) and (x < 20) do
+  if asave = False then
   begin
-    Inc(x);
-    str2 := system.copy(str, system.pos('|', str) + 1, 6);
-    str  := stringreplace(str, '|', ' ',
-      [rfIgnoreCase]);
 
-    if trim(str2) <> '' then
-      asliders[x].Value := strtofloat(str2);
+    asliders[1].Value := strtofloat(str2);
+
+    x := 1;
+
+    while (system.pos('|', str) > 0) and (x < 20) do
+    begin
+      Inc(x);
+      str2 := system.copy(str, system.pos('|', str) + 1, 6);
+      str  := stringreplace(str, '|', ' ',
+        [rfIgnoreCase]);
+
+      if trim(str2) <> '' then
+        asliders[x].Value := strtofloat(str2);
+
+    end;
 
   end;
-  decimalseparator := ds;
-  
-  end;
-  
-end;
 
-procedure tequalizerfo.savelist(const Sender: TObject);
-var
-typstat, x : integer;
-asliders: tasliders;
-dataeq: string;
-ds: char;
-begin
-
-  if tag = 0 then
-    typstat := 3
-  else if tag = 1 then
-    typstat := 4
-  else
-    typstat := 5;
-    
-  if tfiledialog1.controller.filename = '' then
-  tfiledialog1.controller.filename := GetUserDir + directoryseparator + 'myequalizer.equ';
- 
-  tfiledialog1.controller.icon := icon;
-
-  tfiledialog1.controller.captionsave := 'Save Equalizer File (must be with ".equ" extension).';
-  tfiledialog1.controller.fontcolor := cl_black;
-
-  tfiledialog1.controller.filter   := '"*.equ"';
-  tfiledialog1.controller.options  := [fdo_sysfilename, fdo_savelastdir];
-
-  if tfiledialog1.controller.Execute(fdk_save) = mr_ok then
-  begin
-   if (typstat = 3) then
-    with equalizerfo1 do
-    begin
-      asliders[1]  := tslider1;
-      asliders[2]  := tslider2;
-      asliders[3]  := tslider3;
-      asliders[4]  := tslider4;
-      asliders[5]  := tslider5;
-      asliders[6]  := tslider6;
-      asliders[7]  := tslider7;
-      asliders[8]  := tslider8;
-      asliders[9]  := tslider9;
-      asliders[10] := tslider10;
-      asliders[11] := tslider11;
-      asliders[12] := tslider12;
-      asliders[13] := tslider13;
-      asliders[14] := tslider14;
-      asliders[15] := tslider15;
-      asliders[16] := tslider16;
-      asliders[17] := tslider17;
-      asliders[18] := tslider18;
-      asliders[19] := tslider19;
-      asliders[20] := tslider20;
-    end;
-
-  if (typstat = 4) then
-    with equalizerfo2 do
-    begin
-      asliders[1]  := tslider1;
-      asliders[2]  := tslider2;
-      asliders[3]  := tslider3;
-      asliders[4]  := tslider4;
-      asliders[5]  := tslider5;
-      asliders[6]  := tslider6;
-      asliders[7]  := tslider7;
-      asliders[8]  := tslider8;
-      asliders[9]  := tslider9;
-      asliders[10] := tslider10;
-      asliders[11] := tslider11;
-      asliders[12] := tslider12;
-      asliders[13] := tslider13;
-      asliders[14] := tslider14;
-      asliders[15] := tslider15;
-      asliders[16] := tslider16;
-      asliders[17] := tslider17;
-      asliders[18] := tslider18;
-      asliders[19] := tslider19;
-      asliders[20] := tslider20;
-    end;
-
-  if (typstat = 5) then
-    with equalizerforec do
-    begin
-      asliders[1]  := tslider1;
-      asliders[2]  := tslider2;
-      asliders[3]  := tslider3;
-      asliders[4]  := tslider4;
-      asliders[5]  := tslider5;
-      asliders[6]  := tslider6;
-      asliders[7]  := tslider7;
-      asliders[8]  := tslider8;
-      asliders[9]  := tslider9;
-      asliders[10] := tslider10;
-      asliders[11] := tslider11;
-      asliders[12] := tslider12;
-      asliders[13] := tslider13;
-      asliders[14] := tslider14;
-      asliders[15] := tslider15;
-      asliders[16] := tslider16;
-      asliders[17] := tslider17;
-      asliders[18] := tslider18;
-      asliders[19] := tslider19;
-      asliders[20] := tslider20;
-    end;
-
-  if (typstat = 3) or (typstat = 4) or (typstat = 5) then
+  if asave then
   begin
 
     dataeq := '';
@@ -958,18 +857,83 @@ begin
     decimalseparator := '.';
 
     for x := 1 to 20 do
-    dataeq         := dataeq + floattostrf(asliders[x].Value, ffFixed, 8, 4) + '|';
+      dataeq         := dataeq + floattostrf(asliders[x].Value, ffFixed, 8, 4) + '|';
     decimalseparator := ds;
- 
-      with TStringList.Create do
-        try
-          Add(dataeq);
-          SaveToFile(tfiledialog1.controller.filename);
-        finally
-          Free;
-        end;
-    end;
+
+    with TStringList.Create do
+      try
+        Add(dataeq);
+        SaveToFile(afilename);
+      finally
+        Free;
+      end;
+
   end;
+
+  decimalseparator := ds;
+
+end;
+
+procedure tequalizerfo.loadlist(const Sender: TObject);
+var
+  ordir: msestring;
+begin
+  tagequ := tag;
+
+  dialoglive := True;
+  ordir      := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
+
+  tfiledialogx2.controller.captionopen := 'Open Equalizer File';
+  tfiledialogx2.controller.fontcolor   := cl_black;
+
+  tfiledialogx2.controller.icon := icon;
+
+  tfiledialogx2.controller.filter   := '"*.equ"';
+  tfiledialogx2.controller.filename := ordir;
+  tfiledialogx2.controller.options  := [fdo_sysfilename, fdo_savelastdir];
+
+  if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
+    if fileexists(tfiledialogx2.controller.filename) then
+      applylist(tfiledialogx2.controller.filename, tag, False);
+
+  dialoglive := False;
+
+end;
+
+procedure tequalizerfo.loadlistlive(filename: string);
+begin
+  if fileexists(filename) then
+    applylist(filename, tag, False);
+end;
+
+procedure tequalizerfo.savelist(const Sender: TObject);
+var
+  typstat, x: integer;
+  asliders: tasliders;
+  dataeq: string;
+  ds: char;
+begin
+
+  if tag = 0 then
+    typstat := 3
+  else if tag = 1 then
+    typstat := 4
+  else
+    typstat := 5;
+
+  if tfiledialog1.controller.filename = '' then
+    tfiledialog1.controller.filename := GetUserDir + directoryseparator + 'myequalizer.equ';
+
+  tfiledialog1.controller.icon := icon;
+
+  tfiledialog1.controller.captionsave := 'Save Equalizer File (must be with ".equ" extension).';
+  tfiledialog1.controller.fontcolor   := cl_black;
+
+  tfiledialog1.controller.filter  := '"*.equ"';
+  tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir];
+
+  if tfiledialog1.controller.Execute(fdk_save) = mr_ok then
+    applylist(tfiledialog1.controller.filename, tag, True);
 
 end;
 
