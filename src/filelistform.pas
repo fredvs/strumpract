@@ -18,7 +18,6 @@ type
   tfilelistfo = class(tdockform)
     Timersent: Ttimer;
     Timercount: Ttimer;
-    tfacecomp1: tfacecomp;
     tgroupbox1: tgroupbox;
     historyfn: thistoryedit;
     tbutton1: TButton;
@@ -34,8 +33,9 @@ type
     tbutton6: TButton;
     tfiledialog1: tfiledialogx;
     tbutton11: TButton;
-   ttimer1: ttimer;
-   tbutton7: tbutton;
+    ttimer1: ttimer;
+    tbutton7: tbutton;
+    tfiledialogx2: tfiledialogx;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onsent(const Sender: TObject);
@@ -81,7 +81,6 @@ uses
   songplayer,
   commander,
   dockpanel1,
-  status,
   main,
   filelistform_mfm;
 
@@ -138,6 +137,7 @@ end;
 procedure tfilelistfo.formcreated(const Sender: TObject);
 var
   x: integer;
+  ordir2 : msestring;
 begin
   Timersent          := ttimer.Create(nil);
   Timersent.interval := 2500000;
@@ -158,9 +158,11 @@ begin
 
 
   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  
+  ordir2 := filepath(statdirname);
 
-  if fileexists(ordir + 'ini' + directoryseparator + 'list.ini') then
-    filelistfo.tstatfile1.readstat(msestring(ordir + 'ini' + directoryseparator + 'list.ini'))
+  if fileexists(ordir2 + directoryseparator + 'list.ini') then
+    filelistfo.tstatfile1.readstat(msestring(ordir2 + directoryseparator + 'list.ini'))
   else if trim(historyfn.Value) = '' then
   begin
     hasinit         := 1;
@@ -709,28 +711,29 @@ var
   ordir: msestring;
   cellpos: gridcoordty;
 begin
-  ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'list' + directoryseparator);
-  tfiledialog1.controller.captionopen := 'Open List File';
-  tfiledialog1.controller.options := [fdo_savelastdir, fdo_sysfilename];
-
-  tfiledialog1.controller.nopanel := True;
-  tfiledialog1.controller.compact := True;
-
-  tfiledialog1.controller.fontcolor   := cl_black;
+  
+//  ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'list' + directoryseparator);
+   ordir := GetUserDir + directoryseparator;
+ 
+  tfiledialog1.controller.icon := icon;
+  
+  tfiledialogx2.controller.captionopen := 'Open List File';
+  tfiledialogx2.controller.options := [fdo_savelastdir, fdo_sysfilename];
+ 
+  tfiledialogx2.controller.fontcolor   := cl_black;
   if mainfo.typecolor.Value = 2 then
-    tfiledialog1.controller.backcolor := $A6A6A6
+    tfiledialogx2.controller.backcolor := $A6A6A6
   else
-    tfiledialog1.controller.backcolor := cl_default;
+    tfiledialogx2.controller.backcolor := cl_default;
 
+  tfiledialogx2.controller.filter   := '"*.lis"';
+  tfiledialogx2.controller.filename := ordir;
 
-  tfiledialog1.controller.filter   := '"*.lis"';
-  tfiledialog1.controller.filename := ordir;
-
-  if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
-    if fileexists(tfiledialog1.controller.filename) then
+  if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
+    if fileexists(tfiledialogx2.controller.filename) then
     begin
 
-      tstatfile1.readstat(msestring(tfiledialog1.controller.filename));
+      tstatfile1.readstat(msestring(tfiledialogx2.controller.filename));
       cellpos.row := 0;
       cellpos.col := 0;
 
@@ -738,7 +741,7 @@ begin
 
       edfilescount.Value := filelistfo.list_files.rowcount;
 
-      Caption := removefileext(tfiledialog1.controller.filename);
+      Caption := removefileext(tfiledialogx2.controller.filename);
 
       list_files.fixcols[-1].captions.Count := filelistfo.list_files.rowCount;
    
@@ -756,38 +759,52 @@ end;
 
 procedure tfilelistfo.savelist(const Sender: TObject);
 begin
-  typstat          := 2;
-  statusfo.Caption := 'Save Cue List as';
-  statusfo.color   := $A7C9B9;
-  statusfo.layoutname.Value := 'mycuelist';
-  statusfo.layoutname.Visible := True;
-  statusfo.activate;
+
+   if tfiledialogx2.controller.filename = '' then
+   ordir := GetUserDir + directoryseparator;
+   
+  tfiledialogx2.controller.icon := icon;
+ 
+  tfiledialogx2.controller.captionsave := 'Save List as (must have ".lis" as extension).';
+  tfiledialogx2.controller.fontcolor := cl_black;
+
+  tfiledialogx2.controller.filter   := '"*.lis"';
+  tfiledialogx2.controller.filename := ordir + 'mylist.lis';
+  tfiledialogx2.controller.options  := [fdo_sysfilename, fdo_savelastdir];
+
+  if tfiledialogx2.controller.Execute(fdk_save) = mr_ok then
+     tstatfile1.writestat(tfiledialogx2.controller.filename);
+
 end;
 
 procedure tfilelistfo.addfile(const Sender: TObject);
 var
   x, siz, y, y2, z: integer;
   info: fileinfoty;
-  thestrnum, thestrx, thestrext, thestrfract: msestring;
+   thestrnum, thestrx, thestrext, thestrfract: msestring;
 begin
+  
+  tfiledialogx2.controller.icon := icon;
+  tfiledialogx2.controller.captionopen := '+ ' + lang_filelistfo[Ord(fi_filelistfo)];
+  
+  if tfiledialogx2.controller.filename = '' then
+  tfiledialogx2.controller.filename := GetUserDir + directoryseparator;
 
-  tfiledialog1.controller.captionopen := lang_filelistfo[Ord(fi_filelistfo)];
-
-  tfiledialog1.controller.fontcolor   := cl_black;
+  tfiledialogx2.controller.fontcolor   := cl_black;
   if mainfo.typecolor.Value = 2 then
-    tfiledialog1.controller.backcolor := $A6A6A6
+    tfiledialogx2.controller.backcolor := $A6A6A6
   else
-    tfiledialog1.controller.backcolor := cl_default;
+    tfiledialogx2.controller.backcolor := cl_default;
 
-  tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir];
+  tfiledialogx2.controller.options := [fdo_sysfilename, fdo_savelastdir];
 
-  tfiledialog1.controller.filter :=
+  tfiledialogx2.controller.filter :=
     '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"';
 
-  if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
-    if fileexists(tfiledialog1.controller.filename) then
+  if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
+    if fileexists(tfiledialogx2.controller.filename) then
     begin
-      getfileinfo(tfiledialog1.controller.filename, info);
+      getfileinfo(tfiledialogx2.controller.filename, info);
 
       siz := info.extinfo1.size;
 
@@ -804,8 +821,8 @@ begin
       x := list_files.rowcount - 1;
 
       //    if x > 0 then  list_files[-1][x] := inttostr(x+1);
-      list_files[0][x] := msestring(filenamebase(tfiledialog1.controller.filename));
-      list_files[1][x] := msestring(fileext(tfiledialog1.controller.filename));
+      list_files[0][x] := msestring(filenamebase(tfiledialogx2.controller.filename));
+      list_files[1][x] := msestring(fileext(tfiledialogx2.controller.filename));
 
       if siz div 1000000000 > 0 then
       begin
@@ -852,7 +869,7 @@ begin
       list_files[2][x] := thestrx + thestrnum + thestrfract + thestrext;
 
       list_files[3][x]   := msestring(IntToStr(1));
-      list_files[4][x]   := tfiledialog1.controller.filename;
+      list_files[4][x]   := tfiledialogx2.controller.filename;
       edfilescount.Value := list_files.rowcount;
 
       list_files.fixcols[-1].captions.Count := list_files.rowCount;
@@ -870,6 +887,9 @@ begin
 end;
 
 procedure tfilelistfo.oncreate(const Sender: TObject);
+var
+ordir : msestring;
+
 begin
  {$if defined(netbsd) or defined(darwin)}
   windowopacity := 1;
@@ -893,9 +913,11 @@ begin
   tbutton5.face.image := tbutton7.face.image; 
   tbutton5.caption := '+'; 
   {$endif} 
+  
+  ordir := filepath(statdirname);
 
-  tstatfile1.filename := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini' +
-    directoryseparator + 'list.ini');
+  tstatfile1.filename := msestring(ordir +  directoryseparator + 'list.ini');
+
 end;
 
 procedure tfilelistfo.afterdragend(const asender: TObject; const apos: pointty; var adragobject: tdragobject; const accepted: Boolean; var processed: Boolean);
@@ -908,6 +930,8 @@ var
   x: integer;
   ara, arb: msestringarty;
 begin
+
+  tfiledialog1.controller.icon := icon;
   tfiledialog1.controller.captiondir :=
     lang_filelistfo[Ord(fi_tbutton6_hint)];
   tfiledialog1.controller.nopanel    := False;

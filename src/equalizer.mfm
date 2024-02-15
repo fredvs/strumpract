@@ -1866,7 +1866,41 @@ object equalizerfo: tequalizerfo
   object tfacebuttonslider: tfacecomp
     template.fade_direction = gd_down
     template.onafterpaint = faceafterpaintbut
-    left = 162
+    left = 126
     top = 43
+  end
+  object tfiledialog1: tfiledialogx
+    statfile = mainfo.tstatfile1
+    controller.fontheight = 0
+    controller.fontname = 'stf_default'
+    controller.fontcolor = -1610612734
+    controller.backcolor = -2147483647
+    controller.nopanel = False
+    controller.icon.options = [bmo_masked, bmo_graymask]
+    controller.icon.origformat = 'png'
+    controller.compact = False
+    controller.showoptions = False
+    controller.hidehistory = False
+    controller.hideicons = False
+    controller.showhidden = False
+    left = 64
+    top = 58
+  end
+  object tfiledialogx2: tfiledialogx
+    statfile = mainfo.tstatfile1
+    controller.fontheight = 0
+    controller.fontname = 'stf_default'
+    controller.fontcolor = -1610612734
+    controller.backcolor = -2147483647
+    controller.nopanel = False
+    controller.icon.options = [bmo_masked, bmo_graymask]
+    controller.icon.origformat = 'png'
+    controller.compact = False
+    controller.showoptions = False
+    controller.hidehistory = False
+    controller.hideicons = False
+    controller.showhidden = False
+    left = 23
+    top = 36
   end
 end

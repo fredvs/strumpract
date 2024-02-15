@@ -82,7 +82,9 @@ type
     tslider1: tslider;
     tbutton1: TButton;
     EQEN: tbooleanedit;
-   tfacebuttonslider: tfacecomp;
+    tfacebuttonslider: tfacecomp;
+    tfiledialog1: tfiledialogx;
+   tfiledialogx2: tfiledialogx;
     procedure oncrea(const Sender: TObject);
     procedure onchangeslider(const Sender: TObject);
     procedure onchangeall();
@@ -112,7 +114,6 @@ uses
   recorder,
   main,
   dockpanel1,
-  status,
   dialogfiles,
   equalizer_mfm;
 
@@ -679,8 +680,12 @@ end;
 
 procedure tequalizerfo.loadlist(const Sender: TObject);
 var
-  ordir: msestring;
+  ordir, str, str2: msestring;
+  ds : char;
+  asliders: tasliders;
+  typstat, x: integer;
 begin
+{
   ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
   dialogfilesfo.tag := tag;
   dialogfilesfo.Caption := 'Load a Equalizer Settings File';
@@ -707,9 +712,145 @@ begin
 
   application.ProcessMessages;
   dialogfilesfo.Show;
+  }
+  
+  if tag = 0 then
+    typstat := 3
+  else if tag = 1 then
+    typstat := 4
+  else
+    typstat := 5;
+ 
+  ordir := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
+   
+  tfiledialogx2.controller.captionopen := 'Open Equalizer File';
+  tfiledialogx2.controller.fontcolor := cl_black;
+  
+  tfiledialogx2.controller.icon := icon;
+
+  tfiledialogx2.controller.filter   := '"*.equ"';
+  tfiledialogx2.controller.filename := ordir;
+  tfiledialogx2.controller.options  := [fdo_sysfilename, fdo_savelastdir];
+
+  if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
+   if fileexists(tfiledialogx2.controller.filename) then
+   begin
+   
+    with TStringList.Create do
+    try
+      Loadfromfile(tfiledialogx2.controller.filename);
+      str := Text;
+    finally
+      Free;
+    end;
+
+  str2 := copy(str, 1, system.pos('|', str) - 1);
+
+  ds := decimalseparator;
+  decimalseparator := '.';
+  
+   if (typstat = 3) then
+    with equalizerfo1 do
+    begin
+      asliders[1]  := tslider1;
+      asliders[2]  := tslider2;
+      asliders[3]  := tslider3;
+      asliders[4]  := tslider4;
+      asliders[5]  := tslider5;
+      asliders[6]  := tslider6;
+      asliders[7]  := tslider7;
+      asliders[8]  := tslider8;
+      asliders[9]  := tslider9;
+      asliders[10] := tslider10;
+      asliders[11] := tslider11;
+      asliders[12] := tslider12;
+      asliders[13] := tslider13;
+      asliders[14] := tslider14;
+      asliders[15] := tslider15;
+      asliders[16] := tslider16;
+      asliders[17] := tslider17;
+      asliders[18] := tslider18;
+      asliders[19] := tslider19;
+      asliders[20] := tslider20;
+    end;
+
+  if (typstat = 4) then
+    with equalizerfo2 do
+    begin
+      asliders[1]  := tslider1;
+      asliders[2]  := tslider2;
+      asliders[3]  := tslider3;
+      asliders[4]  := tslider4;
+      asliders[5]  := tslider5;
+      asliders[6]  := tslider6;
+      asliders[7]  := tslider7;
+      asliders[8]  := tslider8;
+      asliders[9]  := tslider9;
+      asliders[10] := tslider10;
+      asliders[11] := tslider11;
+      asliders[12] := tslider12;
+      asliders[13] := tslider13;
+      asliders[14] := tslider14;
+      asliders[15] := tslider15;
+      asliders[16] := tslider16;
+      asliders[17] := tslider17;
+      asliders[18] := tslider18;
+      asliders[19] := tslider19;
+      asliders[20] := tslider20;
+    end;
+
+  if (typstat = 5) then
+    with equalizerforec do
+    begin
+      asliders[1]  := tslider1;
+      asliders[2]  := tslider2;
+      asliders[3]  := tslider3;
+      asliders[4]  := tslider4;
+      asliders[5]  := tslider5;
+      asliders[6]  := tslider6;
+      asliders[7]  := tslider7;
+      asliders[8]  := tslider8;
+      asliders[9]  := tslider9;
+      asliders[10] := tslider10;
+      asliders[11] := tslider11;
+      asliders[12] := tslider12;
+      asliders[13] := tslider13;
+      asliders[14] := tslider14;
+      asliders[15] := tslider15;
+      asliders[16] := tslider16;
+      asliders[17] := tslider17;
+      asliders[18] := tslider18;
+      asliders[19] := tslider19;
+      asliders[20] := tslider20;
+    end;
+
+  asliders[1].Value := strtofloat(str2);
+  
+  x := 1;
+
+  while (system.pos('|', str) > 0) and (x < 20) do
+  begin
+    Inc(x);
+    str2 := system.copy(str, system.pos('|', str) + 1, 6);
+    str  := stringreplace(str, '|', ' ',
+      [rfIgnoreCase]);
+
+    if trim(str2) <> '' then
+      asliders[x].Value := strtofloat(str2);
+
+  end;
+  decimalseparator := ds;
+  
+  end;
+  
 end;
 
 procedure tequalizerfo.savelist(const Sender: TObject);
+var
+typstat, x : integer;
+asliders: tasliders;
+dataeq: string;
+ds: char;
 begin
 
   if tag = 0 then
@@ -718,12 +859,118 @@ begin
     typstat := 4
   else
     typstat := 5;
+    
+  if tfiledialog1.controller.filename = '' then
+  tfiledialog1.controller.filename := GetUserDir + directoryseparator + 'myequalizer.equ';
+ 
+  tfiledialog1.controller.icon := icon;
 
-  statusfo.Caption := 'Save Equalizer Settings as';
-  statusfo.color   := $A7C9B9;
-  statusfo.layoutname.Value := 'MyEqualizerSettings';
-  statusfo.layoutname.Visible := True;
-  statusfo.activate;
+  tfiledialog1.controller.captionsave := 'Save Equalizer File (must be with ".equ" extension).';
+  tfiledialog1.controller.fontcolor := cl_black;
+
+  tfiledialog1.controller.filter   := '"*.equ"';
+  tfiledialog1.controller.options  := [fdo_sysfilename, fdo_savelastdir];
+
+  if tfiledialog1.controller.Execute(fdk_save) = mr_ok then
+  begin
+   if (typstat = 3) then
+    with equalizerfo1 do
+    begin
+      asliders[1]  := tslider1;
+      asliders[2]  := tslider2;
+      asliders[3]  := tslider3;
+      asliders[4]  := tslider4;
+      asliders[5]  := tslider5;
+      asliders[6]  := tslider6;
+      asliders[7]  := tslider7;
+      asliders[8]  := tslider8;
+      asliders[9]  := tslider9;
+      asliders[10] := tslider10;
+      asliders[11] := tslider11;
+      asliders[12] := tslider12;
+      asliders[13] := tslider13;
+      asliders[14] := tslider14;
+      asliders[15] := tslider15;
+      asliders[16] := tslider16;
+      asliders[17] := tslider17;
+      asliders[18] := tslider18;
+      asliders[19] := tslider19;
+      asliders[20] := tslider20;
+    end;
+
+  if (typstat = 4) then
+    with equalizerfo2 do
+    begin
+      asliders[1]  := tslider1;
+      asliders[2]  := tslider2;
+      asliders[3]  := tslider3;
+      asliders[4]  := tslider4;
+      asliders[5]  := tslider5;
+      asliders[6]  := tslider6;
+      asliders[7]  := tslider7;
+      asliders[8]  := tslider8;
+      asliders[9]  := tslider9;
+      asliders[10] := tslider10;
+      asliders[11] := tslider11;
+      asliders[12] := tslider12;
+      asliders[13] := tslider13;
+      asliders[14] := tslider14;
+      asliders[15] := tslider15;
+      asliders[16] := tslider16;
+      asliders[17] := tslider17;
+      asliders[18] := tslider18;
+      asliders[19] := tslider19;
+      asliders[20] := tslider20;
+    end;
+
+  if (typstat = 5) then
+    with equalizerforec do
+    begin
+      asliders[1]  := tslider1;
+      asliders[2]  := tslider2;
+      asliders[3]  := tslider3;
+      asliders[4]  := tslider4;
+      asliders[5]  := tslider5;
+      asliders[6]  := tslider6;
+      asliders[7]  := tslider7;
+      asliders[8]  := tslider8;
+      asliders[9]  := tslider9;
+      asliders[10] := tslider10;
+      asliders[11] := tslider11;
+      asliders[12] := tslider12;
+      asliders[13] := tslider13;
+      asliders[14] := tslider14;
+      asliders[15] := tslider15;
+      asliders[16] := tslider16;
+      asliders[17] := tslider17;
+      asliders[18] := tslider18;
+      asliders[19] := tslider19;
+      asliders[20] := tslider20;
+    end;
+
+  if (typstat = 3) or (typstat = 4) or (typstat = 5) then
+  begin
+
+    dataeq := '';
+
+    ds := decimalseparator;
+
+    decimalseparator := '.';
+
+    for x := 1 to 20 do
+    dataeq         := dataeq + floattostrf(asliders[x].Value, ffFixed, 8, 4) + '|';
+    decimalseparator := ds;
+ 
+      with TStringList.Create do
+        try
+          Add(dataeq);
+          SaveToFile(tfiledialog1.controller.filename);
+        finally
+          Free;
+        end;
+    end;
+  end;
+
 end;
 
 end.

@@ -16,8 +16,10 @@ uses
   Classes, 
   Math,
   SysUtils,
+  msefileutils,
   msegui,
   uos_flat,
+  main,
   splash;
 
 {$ifdef unix}
@@ -28,9 +30,12 @@ ordir: string;
 
 begin
 {$ifdef unix}  
-  ordir := ExtractFilePath(ParamStr(0)) + 
-      directoryseparator + 'ini' 
-    + directoryseparator + 'log.txt' ;
+  
+  ordir := filepath(statdirname);
+  if not finddir(ordir) then
+      createdir(ordir);
+
+  ordir := ordir + directoryseparator + 'log.txt' ;
     
   fs := TFileStream.Create(ordir, fmOpenReadWrite or fmCreate);
   FpDup2(fs.Handle, StdErrorHandle);   

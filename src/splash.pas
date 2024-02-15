@@ -50,7 +50,6 @@ uses
   imagedancer,
  // {$endif}
   infosd,
-  status,
   piano,
   conflang,
   spectrum1,
@@ -157,8 +156,6 @@ begin
   infosdfo2.dragdock.Caption := 'In2';
   infosdfo2.tag := 1;
 
-  application.createform(tstatusfo, statusfo);
-
   application.createform(tdockpanel1fo, dockpanel1fo);
   application.createform(tdockpanel1fo, dockpanel2fo);
   application.createform(tdockpanel1fo, dockpanel3fo);
@@ -194,8 +191,7 @@ begin
 
   application.createform(tmainfo, mainfo);
   conflangfo.icon := mainfo.icon;
-  statusfo.icon   := mainfo.icon;
-
+  
 end;
 
 procedure tsplashfo.oncrea(const sender: TObject);

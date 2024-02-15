@@ -139,7 +139,7 @@ object recorderfo: trecorderfo
     face.template = mainfo.tfaceplayer
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 444
+    bounds_cx = 434
     bounds_cy = 128
     anchors = []
     font.name = 'stf_default'
@@ -291,9 +291,9 @@ object recorderfo: trecorderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 5
       hint = ' Choose a filename for saving  '
-      bounds_x = 37
+      bounds_x = 84
       bounds_y = 3
-      bounds_cx = 317
+      bounds_cx = 270
       bounds_cy = 22
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -458,10 +458,10 @@ object recorderfo: trecorderfo
       hint = ' Choose a audio file '
       bounds_x = 8
       bounds_y = 3
-      bounds_cx = 26
+      bounds_cx = 71
       bounds_cy = 22
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      caption = '...'
+      caption = 'Dir of rec'
       captiondist = 0
       imagenr = 27
       focusrectdist = 0
@@ -483,8 +483,8 @@ object recorderfo: trecorderfo
         0
       )
       taborder = 13
-      bounds_x = 98
-      bounds_y = 25
+      bounds_x = 97
+      bounds_y = 26
       bounds_cx = 61
       bounds_cy = 69
       font.name = 'stf_default'
@@ -837,7 +837,7 @@ object recorderfo: trecorderfo
       frame.buttonframe.frameimage_bottom = -4
       frame.buttonframe.optionsskin = [fso_flat]
       frame.buttonframe.colorclient = -2147483645
-      frame.buttonframe.localprops = [frl_optionsskin]
+      frame.buttonframe.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 22
       face.localprops = []
@@ -893,7 +893,7 @@ object recorderfo: trecorderfo
       frame.buttonframe.frameimage_bottom = -4
       frame.buttonframe.optionsskin = [fso_flat]
       frame.buttonframe.colorclient = -2147483645
-      frame.buttonframe.localprops = [frl_optionsskin]
+      frame.buttonframe.localprops = [frl_frameimagelist, frl_optionsskin]
       frame.buttonframe.localprops1 = []
       frame.buttonsize = 22
       frame.buttonpos = sbp_left
@@ -929,8 +929,8 @@ object recorderfo: trecorderfo
     frame.template = commanderfo.tframecomp2
     taborder = 1
     visible = False
-    bounds_x = 223
-    bounds_y = -3
+    bounds_x = 149
+    bounds_y = 33
     bounds_cx = 221
     bounds_cy = 52
     font.name = 'stf_default'
@@ -1016,6 +1016,8 @@ object recorderfo: trecorderfo
     controller.hidehistory = False
     controller.hideicons = False
     controller.showhidden = False
+    controller.options = [fdo_directory, fdo_savelastdir]
+    controller.captiondir = 'Directory for record.'
     left = 16
     top = 54
   end

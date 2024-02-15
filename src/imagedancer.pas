@@ -15,7 +15,7 @@ uses
  msegraphics,msegraphutils,mseevent,Classes,mseclasses,mseforms,msedock,Math,
  msesimplewidgets,msewidgets,mseact,msedataedits,msedropdownlist,mseedit,
  mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
- mseopenglwidget,msewindowwidget;
+ mseopenglwidget,msewindowwidget, msebitmap;
   
 type
   TProp = record
@@ -724,7 +724,7 @@ begin
   begin
 
     isbuzy := True;
-
+    
     if (Bitmap.Width <> Sender.bounds_cx) or (Bitmap.Height <> Sender.bounds_cy) then
       bitmap.SetSize(Sender.bounds_cx, Sender.bounds_cy);
 

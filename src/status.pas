@@ -76,9 +76,13 @@ var
   ds: char;
 begin
 
+   ordir := filepath(statdirname)  + directoryseparator;
+  
   if typstat = 0 then
   begin
-    ordir := msestring(ExtractFilePath((ParamStr(0))) + 'layout' + directoryseparator);
+   // ordir := msestring(ExtractFilePath((ParamStr(0))) + 'layout' + directoryseparator);
+   //   ordir := filepath(statdirname)  + directoryseparator;
+    
     if layoutname.Value <> '' then
     begin
       ordir := ordir + utf8decode(RawByteString(statusfo.layoutname.Value) + '.lay');
@@ -88,7 +92,7 @@ begin
 
   if typstat = 2 then
   begin
-    ordir := msestring(ExtractFilePath(ParamStr(0)) + 'list' + directoryseparator);
+   // ordir := msestring(ExtractFilePath(ParamStr(0)) + 'list' + directoryseparator);
     if layoutname.Value <> '' then
     begin
       ordir := msestring(ordir + statusfo.layoutname.Value + '.lis');
@@ -184,8 +188,10 @@ begin
     for x := 1 to 20 do
       dataeq         := dataeq + floattostrf(asliders[x].Value, ffFixed, 8, 4) + '|';
     decimalseparator := ds;
-
-    ordir := msestring(ExtractFilePath(ParamStr(0)) + 'equ' + directoryseparator);
+    
+    ordir := filepath(statdirname)  + directoryseparator;
+    
+    //ordir := msestring(ExtractFilePath(ParamStr(0)) + 'equ' + directoryseparator);
     if statusfo.layoutname.Value <> '' then
     begin
       ordir := msestring(ordir + statusfo.layoutname.Value + '.equ');

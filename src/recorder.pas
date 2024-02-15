@@ -4,7 +4,7 @@ unit recorder;
 interface
 
 uses
- ctypes,uos_flat,infosd,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,
+ ctypes,uos_flat,infosd,msetypes,msefileutils,mseglob,mseguiglob,mseguiintf,mseapplication,
  msestat,msemenus,msegui,msegraphics,msegraphutils,Math,mseevent,mseclasses,
  mseforms,msedock,msesimplewidgets,msewidgets,msedataedits,msefiledialogx,
  msegrids,mselistbrowser,msesys,SysUtils,msegraphedits,mseificomp,
@@ -836,6 +836,7 @@ procedure trecorderfo.dorecorderstart(const Sender: TObject);
 var
   i, outformat: integer;
   outformatst: msestring;
+   history: msestringarty;
 begin
 
   uos_Stop(therecplayer); // done by  uos_CreatePlayer() but faster if already done before (no check)
@@ -869,12 +870,17 @@ begin
         outformatst := 'ogg';
         outformat   := 3;
       end;
-
-      historyfn.Value := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) +
-        'sound' + directoryseparator + 'record' + directoryseparator + 'rec_' +
+     
+     historyfn.Value :=  tfiledialog1.controller.filename  + 'rec_' +
         msestring(formatdatetime('YY_MM_DD_HH_mm_ss', now)) + '.' + outformatst;
-
-
+        
+    history := historyfn.dropdown.history;
+    setlength(history, length(history) + 1);
+    
+    history[length(history)-1] := historyfn.Value;
+   
+    historyfn.dropdown.history  := history;   
+  
       uos_AddIntoFile(therecplayer, PChar(ansistring(historyfn.Value)), -1, -1, -1, 4096, outformat);
       if sentcue1.Value = True then
         songplayerfo.historyfn.Value := historyfn.Value;
@@ -1111,21 +1117,20 @@ end;
 
 procedure trecorderfo.onex(const Sender: TObject);
 begin
-  tfiledialog1.controller.basedir :=
-    utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'sound' + directoryseparator + 'record' + directoryseparator);
+if tfiledialog1.controller.basedir = '' then
 
-  tfiledialog1.controller.filename :=
-    utf8decode(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'sound' + directoryseparator + 'record' + directoryseparator);
+  tfiledialog1.controller.basedir := GetUserDir ;
+ 
+ if tfiledialog1.controller.filename = '' then
+  tfiledialog1.controller.filename := GetUserDir ;
 
-  tfiledialog1.controller.captionopen := 'Open Audio File';
+ // tfiledialog1.controller.captionopen := 'Open Audio File';
   tfiledialog1.controller.fontcolor   := cl_black;
-  tfiledialog1.controller.filter      := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+  tfiledialog1.controller.filter      := '"*.wav" "*.ogg"';
 
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
   begin
     historyfn.Value := tfiledialog1.controller.filename;
-    historyfn.dropdown.history :=
-      tfiledialog1.controller.history;
   end;
 
 end;

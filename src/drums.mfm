@@ -35,7 +35,7 @@ object drumsfo: tdrumsfo
   )
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
-  dragdock.faceactivetab = tfacedrums
+  dragdock.faceactivetab = mainfo.tfacebutgray
   dragdock.caption = ' Drums '
   dragdock.optionsdock = [od_savepos, od_savezorder, od_canmove, od_canfloat, od_candock, od_fixsize, od_captionhint]
   font.name = 'stf_default'
@@ -1054,8 +1054,8 @@ object drumsfo: tdrumsfo
       frame.localprops1 = []
       taborder = 31
       visible = False
-      bounds_x = 36
-      bounds_y = -15
+      bounds_x = 75
+      bounds_y = 24
       bounds_cx = 261
       bounds_cy = 45
       font.color = -1610612734
@@ -1885,50 +1885,5 @@ object drumsfo: tdrumsfo
       bounds_x = 176
       bounds_y = 111
     end
-  end
-  object tfacedrums: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      10136983
-      14086353
-    )
-    template.fade_direction = gd_down
-    left = 177
-    top = 81
-  end
-  object tfacecomp2: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      14086353
-      10268569
-    )
-    template.fade_direction = gd_down
-    left = 305
-    top = 101
-  end
-  object tfacecomp3: tfacecomp
-    template.fade_pos.count = 2
-    template.fade_pos.items = (
-      0
-      1
-    )
-    template.fade_color.count = 2
-    template.fade_color.items = (
-      16383991
-      12375224
-    )
-    template.fade_direction = gd_down
-    left = 324
-    top = 55
   end
 end
