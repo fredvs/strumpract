@@ -304,6 +304,11 @@ begin
   if (tag = 1) and (hascue2 = True) and (totsec2 > 0) and (Assigned(songplayer2fo)) then
     songplayer2fo.onwavform(Sender);
 
+          
+  if trackbar1.width > width then
+   trackbar1.height := height - echelle.height - 30
+   else trackbar1.height := height - echelle.height -18;
+
 end;
 
 procedure twavefo.pageup(const Sender: TObject);
