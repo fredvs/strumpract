@@ -168,8 +168,8 @@ object wavefo: twavefo
     bounds_cy = 76
     enabled = False
     scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
-    scrollbar.buttonlength = 4
-    scrollbar.buttonminlength = 4
+    scrollbar.buttonlength = 12
+    scrollbar.buttonminlength = 12
     scrollbar.buttonendlength = -1
     scrollbar.face.image.source = sliderimage
     scrollbar.face.fade_direction = gd_down

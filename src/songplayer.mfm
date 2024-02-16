@@ -656,20 +656,6 @@ object songplayerfo: tsongplayerfo
       scrollbar.face.fade_direction = gd_down
       scrollbar.face.localprops = [fal_fadirection, fal_image]
       scrollbar.face.template = tfaceslider
-      scrollbar.face1.image.source = sliderimage
-      scrollbar.face1.framei_right = -6
-      scrollbar.face1.fade_pos.count = 2
-      scrollbar.face1.fade_pos.items = (
-        0
-        1
-      )
-      scrollbar.face1.fade_color.count = 2
-      scrollbar.face1.fade_color.items = (
-        12779422
-        7255365
-      )
-      scrollbar.face1.fade_direction = gd_down
-      scrollbar.face1.localprops = [fal_framei_right, fal_image]
       scrollbar.facebutton.localprops = []
       scrollbar.facebutton.template = tfacebuttonslider
       scrollbar.framebutton.colorclient = -2147483645

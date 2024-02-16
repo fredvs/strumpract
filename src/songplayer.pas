@@ -247,6 +247,9 @@ begin
 
   tstringdisp1.font.Height := fontheight;
   tstringdisp1.font.color  := font.color;
+  
+  historyfn.font.Height := fontheight;
+  historyfn.font.color  := font.color;
 
   cbloopb.font.Height        := round(14 * ratio);
   waveformcheckb.font.Height := cbloopb.font.Height;
