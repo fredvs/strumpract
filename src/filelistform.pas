@@ -286,9 +286,12 @@ begin
         if fileexists((list_files[4][thefocusedcell.row])) then
         begin
           songplayerfo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
+          
+          songplayerfo.historyfn.font.color := cl_black;
+          songplayerfo.edvolleft.font.color := cl_black;
+          songplayerfo.edvolright.font.color := cl_black;
 
           songplayerfo.historyfn.face.template := mainfo.tfaceorange;
-
 
           if songplayerfo.timersent.Enabled then
             songplayerfo.timersent.restart // to reset
@@ -314,7 +317,12 @@ begin
         begin
 
           songplayer2fo.historyfn.Value := tosysfilepath(list_files[4][thefocusedcell.row]);
-
+          
+          songplayer2fo.historyfn.font.color := cl_black;
+          
+          songplayer2fo.edvolleft.font.color := cl_black;
+          songplayer2fo.edvolright.font.color := cl_black;
+         
           songplayer2fo.historyfn.face.template := mainfo.tfaceorange;
 
           if songplayer2fo.timersent.Enabled then

@@ -4758,6 +4758,9 @@ begin
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
+     
+    songplayerfo.historyfn.font.color := cl_black;
+    songplayer2fo.historyfn.font.color := cl_black;
 
     songplayerfo.historyfn.dropdown.cols[0].colorselect  := $FFCD8F;
     songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
@@ -4858,6 +4861,11 @@ begin
     filelistfo.container.color := $FDB0FB;
     filelistfo.color := $FDB0FB;
     
+    songplayerfo.edvolleft.font.color := cl_black;
+    songplayerfo.edvolright.font.color := cl_black;
+    songplayer2fo.edvolleft.font.color := cl_black;
+    songplayer2fo.edvolright.font.color := cl_black;
+       
     songplayerfo.historyfn.frame.button.color := $FDB0FB;
     songplayerfo.edvolleft.color := $FDB0FB;
     songplayerfo.edvolleft.frame.colorbutton := $FDB0FB;
@@ -5467,6 +5475,14 @@ begin
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
+    
+    songplayerfo.edvolleft.font.color := cl_black;
+    songplayerfo.edvolright.font.color := cl_black;
+    songplayer2fo.edvolleft.font.color := cl_black;
+    songplayer2fo.edvolright.font.color := cl_black;
+    
+    songplayerfo.historyfn.font.color := cl_black;
+    songplayer2fo.historyfn.font.color := cl_black;
     
      songplayerfo.cbloopb.font.color := cl_black;
     songplayer2fo.cbloopb.font.color := cl_black;
@@ -6191,7 +6207,15 @@ begin
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
+ 
+    songplayerfo.historyfn.font.color := cl_black;
+    songplayer2fo.historyfn.font.color := cl_black;
 
+    songplayerfo.edvolleft.font.color := cl_black;
+    songplayerfo.edvolright.font.color := cl_black;
+    songplayer2fo.edvolleft.font.color := cl_black;
+    songplayer2fo.edvolright.font.color := cl_black;
+    
     songplayerfo.historyfn.dropdown.cols[0].colorselect  := $FFCD8F;
     songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
     
@@ -6834,10 +6858,18 @@ begin
     synthefo.font.color := cl_white;
     pianofo.font.color  := cl_white;
 
+    songplayerfo.edvolleft.font.color := cl_white;
+    songplayerfo.edvolright.font.color := cl_white;
+    songplayer2fo.edvolleft.font.color := cl_white;
+    songplayer2fo.edvolright.font.color := cl_white;
+  
     songplayerfo.historyfn.dropdown.cols[0].colorselect  := $573000;
     songplayer2fo.historyfn.dropdown.cols[0].colorselect := $573000;
     
-     songplayerfo.cbloopb.font.color := cl_white;
+    songplayerfo.historyfn.font.color := cl_white;
+    songplayer2fo.historyfn.font.color := cl_white;
+
+    songplayerfo.cbloopb.font.color := cl_white;
     songplayer2fo.cbloopb.font.color := cl_white;
 
     songplayerfo.playreverseb.font.color := cl_white;
@@ -7114,8 +7146,11 @@ begin
     tfacegreen.template.fade_color.items[0] := $C2FF9E;
     tfacegreen.template.fade_color.items[1] := $6EB545;
 
-    tfaceorange.template.fade_color.items[0] := $D97E00;
-    tfaceorange.template.fade_color.items[1] := $6E4000;
+   // tfaceorange.template.fade_color.items[0] := $D97E00;
+   // tfaceorange.template.fade_color.items[1] := $6E4000;
+    
+    tfaceorange.template.fade_color.items[0] := $FFF9F0;
+    tfaceorange.template.fade_color.items[1] := $FF9D14;
 
     tfacered.template.fade_color.items[0] := $FFC4C4;
     tfacered.template.fade_color.items[1] := $FF7878;

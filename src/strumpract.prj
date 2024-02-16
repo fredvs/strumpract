@@ -1619,9 +1619,9 @@ findhistory=20
  edtempo.
 findoptions=1
 editpos=3
- 0,10
+ 0,9
  0,903
- 0,51
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1658,14 +1658,10 @@ nomenumodules=4
  0
  0
 [sourcefo.files_tab]
-order=3
- 0
- 2
- 1
 firsttab=0
-index=1
+index=0
 [layout]
-windowlayout=625
+windowlayout=616
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1679,8 +1675,8 @@ windowlayout=625
  ny=0
  ncx=0
  ncy=0
- x=98
- y=112
+ x=76
+ y=71
  cx=1428
  cy=724
  rcx=0
@@ -2066,7 +2062,7 @@ windowlayout=625
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_infosdfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2124,11 +2120,11 @@ windowlayout=625
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/strumpract/src/infosd.pas
- history=25
+ history=20
+  /home/fred/strumpract/src/infosd.pas
   /home/fred/strumpract/src/msefiledialogx.pas
   /home/fred/strumpract/src/configlayout.pas
   /home/fred/strumpract/src/config.pas
-  /home/fred/strumpract/src/infosd.pas
   /home/fred/mseide-msegui/apps/ide/main.pas
   /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
   /home/fred/mseide-msegui/lib/common/designutils/msegdbutils.pas
@@ -2145,11 +2141,6 @@ windowlayout=625
   /home/fred/strumpract/src/randomnote.pas
   /home/fred/strumpract/src/guitars.pas
   /home/fred/strumpract/src/synthe.pas
-  /home/fred/ideu/src/ideusettings.pas
-  /home/fred/uos/examples/uos.pas
-  /home/fred/uos/examples/consolesynth.pas
-  /home/fred/uos/examples/consoleplay.pas
-  /home/fred/ideu/src/msegdbutils.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2171,12 +2162,8 @@ windowlayout=625
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=3
-  0
-  2
-  1
  firsttab=0
- index=1
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2256,7 +2243,7 @@ windowlayout=625
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_infosdfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2275,7 +2262,7 @@ windowlayout=625
  [_mse_infosdfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0

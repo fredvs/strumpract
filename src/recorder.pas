@@ -153,6 +153,9 @@ begin
 
   tgroupbox1.font.Height := fontheight;
   frame.grip_size        := round(8 * ratio);
+  
+  lposition.font.color := font.color;
+  lposition.font.Height := fontheight;
 
   edtempo.frame.buttonsize := round(22 * ratio);
   edvol.frame.buttonsize   := round(22 * ratio);
@@ -607,6 +610,12 @@ begin
   cbloop.Enabled := True;
   uos_Stop(therecplayer);
   application.ProcessMessages;
+
+  if mainfo.typecolor.Value = 2 then    
+    lposition.font.color := cl_white else
+    lposition.font.color := cl_black;
+    
+ lposition.face.template := mainfo.tfacebutgray;
 end;
 
 procedure trecorderfo.changevolume(const Sender: TObject);
@@ -851,7 +860,8 @@ begin
     btnStart.Enabled := False;
 
    // historyfn.face.template := tfacereclight;
-
+    
+    lposition.font.color := cl_black;
     lposition.face.template := mainfo.tfaceorange;
     recpan.Visible          := True;
 

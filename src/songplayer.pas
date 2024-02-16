@@ -328,6 +328,19 @@ end;
 procedure tsongplayerfo.ontimersent(const Sender: TObject);
 begin
   hintpanel.Visible        := False;
+  
+  if mainfo.typecolor.Value = 2 then
+  begin
+    historyfn.font.color := cl_white; 
+    edvolleft.font.color := cl_white;
+    edvolright.font.color := cl_white;
+   end else 
+   begin
+    historyfn.font.color := cl_black;
+    edvolleft.font.color := cl_black;
+    edvolright.font.color := cl_black;
+   end;
+   
   historyfn.face.template  := mainfo.tfaceplayer;
   edvolleft.face.template  := mainfo.tfaceplayer;
   edvolright.face.template := mainfo.tfaceplayer;
@@ -1750,9 +1763,15 @@ begin
   if hasinit = 1 then
   begin
     if (trealspinedit(Sender).tag = 0) then
-      edvolleft.face.template  := mainfo.tfaceorange
-    else
+      begin
+        edvolleft.face.template  := mainfo.tfaceorange;
+        edvolleft.font.color := cl_black;
+      end  
+    else 
+      begin
       edvolright.face.template := mainfo.tfaceorange;
+      edvolright.font.color := cl_black;
+      end;
 
     if timersent.Enabled then
       timersent.restart // to reset

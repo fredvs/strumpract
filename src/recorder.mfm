@@ -344,6 +344,8 @@ object recorderfo: trecorderfo
       bounds_y = 94
       bounds_cx = 90
       bounds_cy = 15
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
       reffontheight = 15

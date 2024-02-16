@@ -124,6 +124,8 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 37
       bounds_cy = 44
       statfile = mainfo.tstatfile1
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       caretwidth = 0
@@ -210,6 +212,8 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 37
       bounds_cy = 44
       statfile = mainfo.tstatfile1
+      font.name = 'stf_default'
+      font.localprops = []
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
       caretwidth = 0
@@ -885,6 +889,8 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 267
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
       optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_resetselectonexit, oe_exitoncursor, oe_autoselect, oe_autoselectonfirstclick]
+      font.name = 'stf_default'
+      font.localprops = []
       dropdown.options = [deo_keydropdown, deo_autosavehistory, deo_cliphint]
       dropdown.dropdownrowcount = 10
       dropdown.cols.count = 1
@@ -912,8 +918,8 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       taborder = 23
       visible = False
-      bounds_x = 170
-      bounds_y = 20
+      bounds_x = 122
+      bounds_y = 53
       bounds_cx = 221
       bounds_cy = 41
       object hintlabel: tlabel
@@ -922,6 +928,8 @@ object songplayerfo: tsongplayerfo
         bounds_cx = 169
         bounds_cy = 15
         caption = 'Invalid value.  Reset to 100.'
+        font.name = 'stf_default'
+        font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
         reffontheight = 15
       end
