@@ -809,24 +809,9 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=5
- COMMANDERFO
- DRUMSFO
- INFOSDFO
- MAINFO
- RANDOMNOTEFO
-moduletypes=5
- TCOMMANDERFO
- TDRUMSFO
- TINFOSDFO
- TMAINFO
- TRANDOMNOTEFO
-modulefiles=5
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/drums.mfm
- /home/fred/strumpract/src/infosd.mfm
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/randomnote.mfm
+modulenames=0
+moduletypes=0
+modulefiles=0
 befcommandon=0
 makeoptionson=18
  4095
@@ -1201,11 +1186,11 @@ line=35
  3732
  1529
  337
- 540
+ 541
  587
- 774
- 999
- 1011
+ 775
+ 1000
+ 1012
  701
  1631
  209
@@ -1627,92 +1612,41 @@ findhistory=20
  resiz
  assign
 findoptions=1
-editpos=8
+editpos=2
  0,39
- 0,-1073741823
- 0,-1073741823
- 0,4022
- 0,-1073741823
- 0,181
- 0,-1073741823
- 13,862
+ 14,1925
 bookmarks0=0
 bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-bookmarks7=0
-sourcefiles=8
+sourcefiles=2
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/commander.pas
- /home/fred/mseide-msegui/lib/common/widgets/msewidgets.pas
- ${PROJECTDIR}/randomnote.pas
- ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/drums.pas
- ${PROJECTDIR}/infosd.pas
- ${PROJECTDIR}/commander.pas
-relpaths=8
+relpaths=2
  strumpract.pas
- commander.pas
- mseide-msegui/lib/common/widgets/msewidgets.pas
- randomnote.pas
- main.pas
  drums.pas
- infosd.pas
- commander.pas
-ismoduletexts=8
+ismoduletexts=2
  0
  0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=6
- /home/fred/strumpract/src/randomnote.mfm
+modules=3
  /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/drums.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/equalizer.mfm
- /home/fred/strumpract/src/infosd.mfm
-moduleoptions=6
+moduleoptions=3
  0
  0
  0
+visiblemodules=3
  0
  0
  0
-visiblemodules=6
+nomenumodules=3
  -1
  -1
  -1
- -1
- 0
- -1
-nomenumodules=6
- 0
- 0
- 0
- 0
- -1
- 0
 [sourcefo.files_tab]
-order=8
- 0
- 3
- 4
- 5
- 7
- 6
- 1
- 2
 firsttab=0
-index=4
+index=1
 [layout]
-windowlayout=663
+windowlayout=597
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1946,10 +1880,10 @@ windowlayout=663
  [breakpointsfo.bkptson]
  value=1
  [objectinspectorfo.grid]
- propcolwidthref=551
- width0=244
+ propcolwidthref=566
+ width0=251
  sortdescend0=0
- width1=301
+ width1=309
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2170,8 +2104,9 @@ windowlayout=663
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/commander.pas
+ value=/home/fred/strumpract/src/drums.pas
  history=20
+  /home/fred/strumpract/src/commander.pas
   /home/fred/strumpract/src/drums.pas
   /home/fred/strumpract/src/synthe.pas
   /home/fred/strumpract/src/infosd.pas
@@ -2191,7 +2126,6 @@ windowlayout=663
   /home/fred/strumpract_fade_bgra/src/synthe.pas
   /home/fred/strumpract/src/uos.pas
   /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts_strings.inc
-  /home/fred/ideu/src/msestockobjects.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2213,17 +2147,8 @@ windowlayout=663
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=8
-  0
-  3
-  4
-  5
-  7
-  6
-  1
-  2
  firsttab=0
- index=4
+ index=1
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2262,29 +2187,10 @@ windowlayout=663
  cy=525
  rcx=0
  rcy=0
- [_mse_randomnotefo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_mainfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=202
- y=50
- cx=1368
- cy=776
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_infosdfo_mse_
+ stackedunder=_mse_commanderfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -2299,30 +2205,11 @@ windowlayout=663
  rcy=0
  wsize=0
  active=0
- visible=1
- [_mse_drumsfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=objectinspectorfo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=415
- y=260
- cx=452
- cy=274
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2337,7 +2224,7 @@ windowlayout=663
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_equalizerfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2357,25 +2244,6 @@ windowlayout=663
  wsize=0
  active=0
  visible=0
- [_mse_infosdfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_drumsfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=548
- y=274
- cx=452
- cy=216
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
 [targetconsole]
 finddtext=
 findhistory=0

@@ -188,6 +188,7 @@ type
     procedure onchansens(const Sender: TObject);
     procedure resizedr(fontheight :  integer );
    procedure bnotload(const sender: TObject);
+   procedure onclose(const sender: TObject);
   end;
 
 var
@@ -1918,6 +1919,11 @@ end;
 procedure tdrumsfo.bnotload(const sender: TObject);
 begin
 pnotloaded.visible := false;
+end;
+
+procedure tdrumsfo.onclose(const sender: TObject);
+begin
+dostop(sender);
 end;
 
 end.

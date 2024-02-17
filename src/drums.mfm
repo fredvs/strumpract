@@ -169,6 +169,7 @@ object drumsfo: tdrumsfo
   oncreate = oncreatedrums
   oneventloopstart = loadsoundlib
   ondestroy = ondestroi
+  onclose = onclose
   onmouseevent = onmousewindow
   onshow = visiblechangeev
   onhide = visiblechangeev
