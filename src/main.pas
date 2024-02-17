@@ -4754,6 +4754,10 @@ begin
   begin
     font.color          := cl_black;
     synthefo.font.color := cl_black;
+    
+    synthefo.color := $FEB7F9;
+    pianofo.color := $FEB7F9;
+    
     pianofo.font.color  := cl_black;
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
@@ -5486,6 +5490,9 @@ begin
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
+     
+    synthefo.color := $DBDFB8;
+    pianofo.color := $DBDFB8;    
     
     songplayerfo.edvolleft.font.color := cl_black;
     songplayerfo.edvolright.font.color := cl_black;
@@ -6226,6 +6233,10 @@ begin
     font.color          := cl_black;
     synthefo.font.color := cl_black;
     pianofo.font.color  := cl_black;
+    
+    synthefo.color := $D2D2D2;
+    pianofo.color := $D2D2D2;    
+ 
     synthefo.tgroupbox4.font.color := cl_black;
     synthefo.tgroupbox3.font.color := cl_black;
     filelistfo.historyfn.font.color := cl_black;
@@ -6890,6 +6901,9 @@ begin
     font.color          := cl_white;
     synthefo.font.color := cl_white;
     pianofo.font.color  := cl_white;
+    
+    synthefo.color :=  $4B4B4B;
+    pianofo.color :=  $4B4B4B;
 
     songplayerfo.edvolleft.font.color := cl_white;
     songplayerfo.edvolright.font.color := cl_white;

@@ -809,15 +809,9 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=2
- DRUMSFO
- MAINFO
-moduletypes=2
- TDRUMSFO
- TMAINFO
-modulefiles=2
- /home/fred/strumpract/src/drums.mfm
- /home/fred/strumpract/src/main.mfm
+modulenames=0
+moduletypes=0
+modulefiles=0
 befcommandon=0
 makeoptionson=18
  4095
@@ -1201,7 +1195,7 @@ line=35
  1631
  209
  1136
- 6514
+ 6525
  454
  5
  839
@@ -1595,8 +1589,13 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=button1.hi
+finddtext=synthefo.font.color
 findhistory=20
+ synthefo.
+ typeco
+ colorva
+ synthefo
+ synthe
  button1.hi
  timersent
  cbtempob
@@ -1612,84 +1611,37 @@ findhistory=20
  use
  history
  as tbitmap
- .create
- noext
- getus
- .lis
- controller.history
 findoptions=1
-editpos=7
+editpos=1
  0,6
- 0,-1073741823
- 0,-1073741823
- 0,1452
- 0,0
- 0,1355
- 0,2846
 bookmarks0=0
-bookmarks1=0
-bookmarks2=0
-bookmarks3=0
-bookmarks4=0
-bookmarks5=0
-bookmarks6=0
-sourcefiles=7
+sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/equalizer.pas
- ${PROJECTDIR}/waveform.pas
- ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/infosd.pas
- ${PROJECTDIR}/drums.pas
- ${PROJECTDIR}/songplayer.pas
-relpaths=7
+relpaths=1
  strumpract.pas
- equalizer.pas
- waveform.pas
- main.pas
- infosd.pas
- drums.pas
- songplayer.pas
-ismoduletexts=7
+ismoduletexts=1
  0
- 0
- 0
- 0
- 0
- 0
- 0
-modules=4
+modules=3
  /home/fred/strumpract/src/main.mfm
  /home/fred/strumpract/src/commander.mfm
  /home/fred/strumpract/src/equalizer.mfm
- /home/fred/strumpract/src/drums.mfm
-moduleoptions=4
+moduleoptions=3
  0
  0
  0
- 0
-visiblemodules=4
- -1
+visiblemodules=3
  0
  0
- -1
-nomenumodules=4
  0
+nomenumodules=3
  -1
  -1
- 0
+ -1
 [sourcefo.files_tab]
-order=7
- 0
- 7
- 8
- 1
- 2
- 3
- 5
 firsttab=0
-index=6
+index=0
 [layout]
-windowlayout=624
+windowlayout=603
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1703,8 +1655,8 @@ windowlayout=624
  ny=0
  ncx=0
  ncy=0
- x=82
- y=107
+ x=47
+ y=100
  cx=1428
  cy=724
  rcx=0
@@ -1807,7 +1759,7 @@ windowlayout=624
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=mainfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -2090,7 +2042,7 @@ windowlayout=624
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_drumsfo_mse_
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2147,10 +2099,8 @@ windowlayout=624
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
- history=20
-  /home/fred/strumpract/src/main.pas
-  /home/fred/strumpract/src/songplayer.pas
+ value=/home/fred/strumpract/src/synthe.pas
+ history=26
   /home/fred/strumpract/src/infosd.pas
   /home/fred/xelplayer/playlist.mfm
   /home/fred/strumpract/src/msefiledialogx.pas
@@ -2169,6 +2119,14 @@ windowlayout=624
   /home/fred/strumpract/src/uos.pas
   /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts_strings.inc
   /home/fred/ideu/src/msestockobjects.pas
+  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/guitars.pas
+  /home/fred/strumpract/src/synthe.pas
+  /home/fred/ideu/src/ideusettings.pas
+  /home/fred/uos/examples/uos.pas
+  /home/fred/uos/examples/consolesynth.pas
+  /home/fred/uos/examples/consoleplay.pas
+  /home/fred/ideu/src/msegdbutils.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2190,16 +2148,8 @@ windowlayout=624
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=7
-  0
-  7
-  8
-  1
-  2
-  3
-  5
  firsttab=0
- index=6
+ index=0
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2241,7 +2191,7 @@ windowlayout=624
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0
@@ -2256,7 +2206,7 @@ windowlayout=624
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -2295,25 +2245,6 @@ windowlayout=624
  wsize=0
  active=0
  visible=0
- [_mse_drumsfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=findinfilefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=415
- y=260
- cx=452
- cy=274
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
 [targetconsole]
 finddtext=
 findhistory=0
