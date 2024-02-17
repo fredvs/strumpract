@@ -119,8 +119,6 @@ type
     tbooleanedit62: tbooleanedit;
     tbooleanedit63: tbooleanedit;
     tbooleanedit64: tbooleanedit;
-    tfacecomp2: tfacecomp;
-    tfacecomp3: tfacecomp;
     panel1: tgroupbox;
     tbooleaneditradio8: tbooleaneditradio;
     tbooleaneditradio7: tbooleaneditradio;
@@ -181,7 +179,6 @@ type
     procedure onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure onsetnovoice(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure ondestroi(const Sender: TObject);
-    procedure onchangevol(const Sender: TObject);
     procedure onchangenovoice(const Sender: TObject);
     procedure onsetvalvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure ontextedit(const Sender: tcustomedit; var atext: msestring);
@@ -226,9 +223,6 @@ var
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
 begin
-  edittempo.face.template   := tfacecomp3;
-  volumedrums.face.template := tfacecomp3;
-  ltempo.face.template      := tfacecomp3;
   hintpanel.Visible         := False;
 end;
 
@@ -912,18 +906,20 @@ begin
     if randomnotefo.Visible then
       randomnotefo.bpm.Value := round(edittempo.Value / 2);
 
-
     //TimerTick.Interval := trunc(edittempo.Value * 1000);
     TimerTick.Interval := round(60000 / 4 / edittempo.Value);
 
+{
     edittempo.face.template := mainfo.tfaceorange;
     ltempo.face.template    := mainfo.tfaceorange;
     if timersent.Enabled then
       timersent.restart // to reset
     else
       timersent.Enabled := True;
+} 
   end;
  end; 
+ 
 end;
 
 
@@ -1765,18 +1761,6 @@ begin
   Timerpause.Free;
   Timertick.Free;
   timersent.Free;
-end;
-
-procedure tdrumsfo.onchangevol(const Sender: TObject);
-begin
-  if hasinit = 1 then
-  begin
-    volumedrums.face.template := mainfo.tfaceorange;
-    if timersent.Enabled then
-      timersent.restart // to reset
-    else
-      timersent.Enabled := True;
-  end;
 end;
 
 procedure tdrumsfo.onchangenovoice(const Sender: TObject);

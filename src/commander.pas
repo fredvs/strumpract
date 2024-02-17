@@ -861,9 +861,8 @@ begin
   begin
     songplayerfo.changevolume(Sender);
     songplayer2fo.changevolume(Sender);
-    drumsfo.onchangevol(Sender);
   end;
-end;
+end;  
 
 procedure tcommanderfo.onresetgenvol(const Sender: TObject);
 begin

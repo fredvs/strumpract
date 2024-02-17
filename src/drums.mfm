@@ -674,7 +674,6 @@ object drumsfo: tdrumsfo
       bounds_cy = 41
       statfile = mainfo.tstatfile1
       textflagsactive = [tf_xcentered, tf_ycentered]
-      onchange = onchangevol
       ontextedited = ontextedit
       onsetvalue = onsetvalvol
       value = 100
@@ -1073,7 +1072,7 @@ object drumsfo: tdrumsfo
       object tbutton1: tbutton
         taborder = 1
         bounds_x = 214
-        bounds_y = 13
+        bounds_y = 10
         bounds_cx = 40
         bounds_cy = 23
         state = [as_localcaption, as_localonexecute]
