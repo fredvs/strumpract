@@ -1616,12 +1616,12 @@ findhistory=20
  user
 findoptions=1
 editpos=6
- 18,6
+ 0,6
  0,-1073741823
  0,-1073741823
- 0,4752
  0,-1073741823
  0,-1073741823
+ 0,291
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1659,7 +1659,7 @@ nomenumodules=1
  0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=5
 [layout]
 windowlayout=559
  [mainfo.basedock]
@@ -2062,7 +2062,7 @@ windowlayout=559
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=mainfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2163,7 +2163,7 @@ windowlayout=559
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=5
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
@@ -2205,7 +2205,7 @@ windowlayout=559
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=componentpalettefo
  parent=
  mdistate=3
  nx=0

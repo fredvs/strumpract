@@ -288,8 +288,7 @@ procedure tinfosdfo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
 var
   theMemBitmap: TBGRABitmap;
 begin
-  theMemBitmap := TBGRABitmap.Create(PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0)); 
-  
+
   theMemBitmap := aimage.MemBitmap.Resample(PimgPreview.Width, PimgPreview.Height, rmFineResample) as TBGRABitmap;
   
   if mainfo.typecolor.Value = 2 then
