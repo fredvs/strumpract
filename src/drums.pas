@@ -6,7 +6,7 @@ unit drums;
 interface
 
 uses
- mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,
+ mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,Math,  fptimer,
  msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
  msesimplewidgets,msewidgets,msegraphedits,msedataedits,SysUtils,Classes,
  msedragglob,mseificomp,mseificompglob,mseifiglob,msescrollbar,msetypes,mseact,
@@ -20,7 +20,8 @@ type
 
 type
   tdrumsfo = class(tdockform)
-    Timertick: Ttimer;
+   // Timertick: Ttimer;
+    Timertick: tfptimer;
     Timerpause: Ttimer;
     Timersent: Ttimer;
     tfacedrums: tfacecomp;
@@ -160,7 +161,7 @@ type
    pnotloaded: tstringdisp;
    tlabel24: tlabel;
    tbutton1: tbutton;
-    procedure ontimertick(const Sender: TObject);
+    procedure ontimertick(Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
     procedure dostart(const Sender: TObject);
@@ -501,11 +502,11 @@ begin
   end;
 end;
 
-procedure tdrumsfo.ontimertick(const Sender: TObject);
+procedure tdrumsfo.ontimertick(Sender: TObject);
 var
   ax: integer;
 begin
-
+  
   if stopit = False then
   begin
     if novoice.Value = False then
@@ -913,7 +914,7 @@ begin
 
 
     //TimerTick.Interval := trunc(edittempo.Value * 1000);
-    TimerTick.Interval := round(60000 / 4 / edittempo.Value * 1000);
+    TimerTick.Interval := round(60000 / 4 / edittempo.Value);
 
     edittempo.face.template := mainfo.tfaceorange;
     ltempo.face.template    := mainfo.tfaceorange;
@@ -1405,14 +1406,12 @@ begin
           boundchilddr[i1].name := children[i1].name;
          end;
     end;
-  
-  Timertick          := ttimer.Create(nil);
-  Timertick.interval := 100000;
-  Timertick.tag      := 0;
+ 
+  Timertick          := tfptimer.Create(nil);
+  Timertick.OnTimer  := @ontimertick;
+  Timertick.interval := 100;
   Timertick.Enabled  := False;
-  Timertick.options  := [to_highres];
-  Timertick.options  := [to_leak];
-  Timertick.ontimer  := @ontimertick;
+  Timertick.tag      := 0;
 
   Timerpause          := ttimer.Create(nil);
   Timerpause.interval := 10000000;
