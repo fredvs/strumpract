@@ -59,6 +59,7 @@ type
     tfiledialog1: tfiledialogx;
     ttimerwavdata: ttimer;
    edvolleft: trealspinedit;
+   edpitch: trealspinedit;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -242,6 +243,8 @@ begin
   frame.grip_size        := round(8 * ratio);
 
   edtempo.frame.buttonsize    := round(22 * ratio);
+  edpitch.frame.buttonsize    := round(22 * ratio);
+  
   edvolleft.frame.buttonsize  := round(22 * ratio);
   edvolright.frame.buttonsize := round(22 * ratio);
 
@@ -337,17 +340,27 @@ begin
     historyfn.font.color := cl_white; 
     edvolleft.font.color := cl_white;
     edvolright.font.color := cl_white;
+    button1.font.color := cl_white;
+    button2.font.color := cl_white;
+    edtempo.font.color := cl_white;
+    edpitch.font.color := cl_white;    
    end else 
    begin
     historyfn.font.color := cl_black;
     edvolleft.font.color := cl_black;
     edvolright.font.color := cl_black;
+    button1.font.color := cl_black;
+    button2.font.color := cl_black;
+    edtempo.font.color := cl_black;
+    edpitch.font.color := cl_black;    
+    
    end;
    
   historyfn.face.template  := mainfo.tfaceplayer;
   edvolleft.face.template  := mainfo.tfaceplayer;
   edvolright.face.template := mainfo.tfaceplayer;
   edtempo.face.template    := mainfo.tfaceplayer;
+  edpitch.face.template    := mainfo.tfaceplayer;
   button1.face.template    := mainfo.tfaceplayer;
   button2.face.template    := mainfo.tfaceplayer;
 end;
@@ -475,7 +488,8 @@ begin
 
         if cbtempo.Value = True then
         begin
-          edtempo.face.template := mainfo.tfaceorange;
+         
+         // edtempo.face.template := mainfo.tfaceorange;
 
           if timersent.Enabled then
             timersent.restart // to reset
@@ -484,7 +498,7 @@ begin
 
         end;
 
-        uos_SetPluginSoundTouch(theplayer, PluginIndex2, edtempo.Value, 1, cbtempo.Value);
+        uos_SetPluginSoundTouch(theplayer, PluginIndex2, edtempo.Value, edpitch.Value, cbtempo.Value);
 
       end;
 
@@ -494,7 +508,7 @@ begin
 
         if cbtempo.Value = True then
         begin
-          edtempo.face.template := mainfo.tfaceorange;
+         // edtempo.face.template := mainfo.tfaceorange;
 
           if timersent.Enabled then
             timersent.restart // to reset
@@ -502,7 +516,7 @@ begin
             timersent.Enabled := True;
         end;
 
-        uos_SetPluginSoundTouch(theplayer2, PluginIndex3, edtempo.Value, 1, cbtempo.Value);
+        uos_SetPluginSoundTouch(theplayer2, PluginIndex3, edtempo.Value,  edpitch.Value, cbtempo.Value);
 
       end;
   end;
@@ -1795,8 +1809,10 @@ end;
 procedure tsongplayerfo.onreset(const Sender: TObject);
 begin
   edtempo.Value         := 1;
-  edtempo.face.template := mainfo.tfaceorange;
+  edpitch.Value         := 1;
+ // edtempo.face.template := mainfo.tfaceorange;
   button1.face.template := mainfo.tfaceorange;
+  button1.font.color := cl_black;
   if timersent.Enabled then
     timersent.restart // to reset
   else
@@ -2847,6 +2863,8 @@ begin
           infosdfo.infobpm.Caption := button2.Caption;
           drumsfo.edittempo.Value  := round(thebpm);
           button2.face.template    := mainfo.tfaceorange;
+          button2.font.color := cl_black;
+          
           if timersent.Enabled then
             timersent.restart // to reset
           else
@@ -2875,6 +2893,7 @@ begin
           infosdfo2.infobpm.Caption := button2.Caption;
 
           button2.face.template := mainfo.tfaceorange;
+          button2.font.color := cl_black;
 
           if timersent.Enabled then
             timersent.restart // to reset
@@ -2888,7 +2907,6 @@ end;
 procedure tsongplayerfo.ontimerwaveform(const Sender: TObject);
 begin
   onwavform(Sender);
-
 end;
 
 procedure tsongplayerfo.opendir(const Sender: TObject);

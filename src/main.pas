@@ -1511,7 +1511,7 @@ begin
     playreverseb.hint   := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
     waveformcheckb.hint := lang_songplayerfo[Ord(so_waveformcheck_hint)];  {' Show wave form in slider '}
     setmonob.hint       := lang_songplayerfo[Ord(so_setmono_hint)];  {' Set Mono-Stereo '}
-    cbtempob.hint       := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
+ //   cbtempob.hint       := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
     hintlabel.Caption   := lang_commanderfo[Ord(co_hintlabel)];   {'Invalid value.  Reset to 100.'}
 
     hintlabel2.Caption := lang_commanderfo[Ord(co_hintlabel2)];   {'Or press Esc key for previous value.'}
@@ -1630,7 +1630,7 @@ begin
     playreverseb.hint   := lang_songplayerfo[Ord(so_playreverse_hint)];  {' Enable playing reverse.'}
     waveformcheckb.hint := lang_songplayerfo[Ord(so_waveformcheck_hint)];  {' Show wave form in slider '}
     setmonob.hint       := lang_songplayerfo[Ord(so_setmono_hint)];  {' Set Mono-Stereo '}
-    cbtempob.hint       := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
+ //   cbtempob.hint       := lang_songplayerfo[Ord(so_cbtempo_hint)];  {' Enable stretching (changing tempo) '}
     hintlabel.Caption   := lang_commanderfo[Ord(co_hintlabel)];   {'Invalid value.  Reset to 100.'}
 
     hintlabel2.Caption := lang_commanderfo[Ord(co_hintlabel2)];   {'Or press Esc key for previous value.'}
@@ -4873,7 +4873,12 @@ begin
     songplayerfo.edvolright.frame.colorbutton := $FDB0FB;
     songplayerfo.edtempo.color := $FDB0FB;
     songplayerfo.edtempo.frame.colorbutton := $FDB0FB;
- 
+  
+    songplayerfo.edpitch.color := $FDB0FB;
+    songplayerfo.edpitch.frame.colorbutton := $FDB0FB;
+    songplayer2fo.edpitch.color := $FDB0FB;
+    songplayer2fo.edpitch.frame.colorbutton := $FDB0FB;
+  
     recorderfo.edtempo.color := $FDB0FB;
     recorderfo.edtempo.frame.colorbutton := $FDB0FB;
      
@@ -5087,6 +5092,9 @@ begin
     songplayer2fo.edvolright.frame.colorglyph := thecolor2;
     songplayerfo.edtempo.frame.colorglyph     := thecolor1;
     songplayer2fo.edtempo.frame.colorglyph    := thecolor2;
+    
+    songplayerfo.edpitch.frame.colorglyph     := thecolor1;
+    songplayer2fo.edpitch.frame.colorglyph    := thecolor2;
 
     recorderfo.edvol.frame.colorglyph   := thecolor1;
     recorderfo.edvolr.frame.colorglyph  := thecolor1;
@@ -5115,6 +5123,9 @@ begin
     songplayer2fo.edvolright.font.color := thecolor2;
     songplayerfo.edtempo.font.color     := thecolor1;
     songplayer2fo.edtempo.font.color    := thecolor2;
+
+    songplayerfo.edpitch.font.color     := thecolor1;
+    songplayer2fo.edpitch.font.color    := thecolor2;
 
     songplayerfo.btinfos.font.color  := thecolor1;
     songplayer2fo.btinfos.font.color := thecolor2;
@@ -5591,6 +5602,11 @@ begin
     songplayerfo.edtempo.color := $D2D8A5;
     songplayerfo.edtempo.frame.colorbutton := $D2D8A5;
     
+    songplayerfo.edpitch.color := $D2D8A5;
+    songplayerfo.edpitch.frame.colorbutton := $D2D8A5;
+    songplayer2fo.edpitch.color := $D2D8A5;
+    songplayer2fo.edpitch.frame.colorbutton := $D2D8A5;
+       
     songplayer2fo.historyfn.frame.button.color := $D2D8A5;
     songplayer2fo.edvolleft.color := $D2D8A5;
     songplayer2fo.edvolleft.frame.colorbutton := $D2D8A5;
@@ -5823,6 +5839,9 @@ begin
     songplayer2fo.edvolright.frame.colorglyph := thecolor2;
     songplayerfo.edtempo.frame.colorglyph     := thecolor1;
     songplayer2fo.edtempo.frame.colorglyph    := thecolor2;
+    
+    songplayerfo.edpitch.frame.colorglyph     := thecolor1;
+    songplayer2fo.edpitch.frame.colorglyph    := thecolor2;
 
     recorderfo.edvol.frame.colorglyph   := ltblack;
     recorderfo.edvolr.frame.colorglyph  := ltblack;
@@ -5847,6 +5866,9 @@ begin
     recorderfo.edvolr.font.color  := ltblack;
     recorderfo.edtempo.font.color := ltblack;
 
+    songplayerfo.edpitch.font.color     := thecolor1;
+    songplayer2fo.edpitch.font.color    := thecolor2;
+    
     songplayerfo.edvolright.font.color  := thecolor1;
     songplayer2fo.edvolright.font.color := thecolor2;
     songplayerfo.edtempo.font.color     := thecolor1;
@@ -6340,6 +6362,11 @@ begin
     songplayerfo.edtempo.color := $D0D0D0;
     songplayerfo.edtempo.frame.colorbutton := $D0D0D0;
     
+    songplayerfo.edpitch.color := $D0D0D0;
+    songplayerfo.edpitch.frame.colorbutton := $D0D0D0;
+    songplayer2fo.edpitch.color := $D0D0D0;
+    songplayer2fo.edpitch.frame.colorbutton := $D0D0D0;
+        
     songplayer2fo.historyfn.frame.button.color := $D0D0D0;
     songplayer2fo.edvolleft.color := $D0D0D0;
     songplayer2fo.edvolleft.frame.colorbutton := $D0D0D0;
@@ -6526,6 +6553,9 @@ begin
     songplayer2fo.edvolright.frame.colorglyph := ltblack;
     songplayerfo.edtempo.frame.colorglyph     := ltblack;
     songplayer2fo.edtempo.frame.colorglyph    := ltblack;
+    
+    songplayerfo.edpitch.frame.colorglyph     := ltblack;
+    songplayer2fo.edpitch.frame.colorglyph    := ltblack;
 
     songplayerfo.historyfn.frame.button.colorglyph  := ltblack;
     songplayer2fo.historyfn.frame.button.colorglyph := ltblack;
@@ -6542,6 +6572,9 @@ begin
     songplayer2fo.edvolright.font.color := ltblack;
     songplayerfo.edtempo.font.color     := ltblack;
     songplayer2fo.edtempo.font.color    := ltblack;
+
+    songplayerfo.edpitch.font.color     := ltblack;
+    songplayer2fo.edpitch.font.color    := ltblack;
 
     songplayerfo.btinfos.font.color  := ltblack;
     songplayer2fo.btinfos.font.color := ltblack;
@@ -6990,6 +7023,11 @@ begin
     songplayerfo.edtempo.color := $474747;
     songplayerfo.edtempo.frame.colorbutton := $474747;
     
+    songplayerfo.edpitch.color := $474747;
+    songplayerfo.edpitch.frame.colorbutton := $474747;
+    songplayer2fo.edpitch.color := $474747;
+    songplayer2fo.edpitch.frame.colorbutton := $474747;
+     
     songplayer2fo.historyfn.frame.button.color := $474747;
     songplayer2fo.edvolleft.color := $474747;
     songplayer2fo.edvolleft.frame.colorbutton := $474747;
@@ -7261,6 +7299,9 @@ begin
     recorderfo.edvolr.frame.colorglyph := ltblank;
 
     recorderfo.edtempo.frame.colorglyph := ltblank;
+    
+    songplayerfo.edpitch.frame.colorglyph     := ltblank;
+    songplayer2fo.edpitch.frame.colorglyph    := ltblank;
 
     songplayerfo.edvolright.frame.colorglyph  := ltblank;
     songplayer2fo.edvolright.frame.colorglyph := ltblank;
@@ -7274,7 +7315,7 @@ begin
 
     recorderfo.edtempo.font.color  := ltblank;
     recorderfo.edtempo.font.color := ltblank;
-
+  
 
     songplayerfo.historyfn.dropdown.colorclient  := ltblack;
     songplayer2fo.historyfn.dropdown.colorclient := ltblack;
@@ -7283,6 +7324,8 @@ begin
     songplayer2fo.edvolright.font.color := ltblank;
     songplayerfo.edtempo.font.color     := ltblank;
     songplayer2fo.edtempo.font.color    := ltblank;
+    songplayerfo.edpitch.font.color     := ltblank;
+    songplayer2fo.edpitch.font.color    := ltblank;
 
     songplayerfo.btinfos.font.color  := ltblank;
     songplayer2fo.btinfos.font.color := ltblank;

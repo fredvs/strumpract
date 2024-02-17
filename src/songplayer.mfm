@@ -166,10 +166,10 @@ object songplayerfo: tsongplayerfo
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
       taborder = 11
-      hint = ' Reset to tempo original '
-      bounds_x = 229
+      hint = ' Reset to tempo/pitch original '
+      bounds_x = 222
       bounds_y = 65
-      bounds_cx = 38
+      bounds_cx = 34
       bounds_cy = 15
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
@@ -251,9 +251,9 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       taborder = 13
       hint = ' Change tempo of song '
-      bounds_x = 270
+      bounds_x = 258
       bounds_y = 50
-      bounds_cx = 44
+      bounds_cx = 36
       bounds_cy = 44
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
       textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
@@ -345,9 +345,9 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 12
       hint = ' Detect BMP from current position and set it to Drums tempo. '
-      bounds_x = 229
+      bounds_x = 222
       bounds_y = 81
-      bounds_cx = 38
+      bounds_cx = 34
       bounds_cy = 15
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = 'BPM'
@@ -500,9 +500,9 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 18
       hint = ' Position of sound '
-      bounds_x = 316
-      bounds_y = 50
-      bounds_cx = 114
+      bounds_x = 334
+      bounds_y = 52
+      bounds_cx = 96
       bounds_cy = 18
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
@@ -517,9 +517,9 @@ object songplayerfo: tsongplayerfo
       face.template = mainfo.tfaceplayerlight
       taborder = 17
       hint = ' Length of sound '
-      bounds_x = 316
+      bounds_x = 334
       bounds_y = 73
-      bounds_cx = 114
+      bounds_cx = 96
       bounds_cy = 18
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
@@ -623,10 +623,10 @@ object songplayerfo: tsongplayerfo
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
       taborder = 10
-      hint = ' Enable stretching (changing tempo) '
-      bounds_x = 229
+      hint = ' Enable stretching (changing tempo) and pitching (changing tuning)'
+      bounds_x = 222
       bounds_y = 49
-      bounds_cx = 38
+      bounds_cx = 34
       bounds_cy = 14
       state = [as_localdisabled, as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '<->'
@@ -669,8 +669,8 @@ object songplayerfo: tsongplayerfo
       frame.localprops1 = []
       taborder = 25
       visible = False
-      bounds_x = 284
-      bounds_y = 32
+      bounds_x = 125
+      bounds_y = -2
       bounds_cx = 148
       bounds_cy = 42
       reffontheight = 15
@@ -889,6 +889,46 @@ object songplayerfo: tsongplayerfo
       dropdown.historymaxcount = 50
       reffontheight = 15
     end
+    object edpitch: trealspinedit
+      Tag = 9
+      optionswidget1 = [ow1_fontglyphheight]
+      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+      frame.colorclient = -2147483645
+      frame.framei_left = 1
+      frame.framei_top = 1
+      frame.framei_right = 1
+      frame.framei_bottom = 1
+      frame.localprops = [frl_hiddenedges, frl_colorclient]
+      frame.localprops1 = []
+      frame.buttonface.fade_direction = gd_down
+      frame.buttonface.localprops = [fal_fadirection]
+      frame.buttonframe.optionsskin = [fso_flat]
+      frame.buttonframe.localprops = [frl_optionsskin]
+      frame.buttonframe.localprops1 = []
+      frame.buttonframe.template = commanderfo.tframecomp2
+      frame.buttonsize = 22
+      face.fade_direction = gd_down
+      face.localprops = []
+      taborder = 27
+      hint = ' Change pitch of song '
+      bounds_x = 296
+      bounds_y = 50
+      bounds_cx = 36
+      bounds_cy = 44
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_wordbreak, tf_noselect]
+      textflagsactive = [tf_xcentered, tf_ycentered, tf_wordbreak]
+      caretwidth = 0
+      onchange = ChangePlugSetSoundTouch
+      onsetvalue = onsetvalvol
+      value = 1
+      valuedefault = 1
+      valuerange = 1
+      valuemin = -Inf
+      valuemax = 9999999
+      step = 0.01
+      wheelsensitivity = 1
+      reffontheight = 15
+    end
     object hintpanel: tgroupbox
       face.fade_pos.count = 2
       face.fade_pos.items = (
@@ -904,10 +944,10 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       taborder = 23
       visible = False
-      bounds_x = 122
-      bounds_y = 53
-      bounds_cx = 221
-      bounds_cy = 41
+      bounds_x = 104
+      bounds_y = 46
+      bounds_cx = 228
+      bounds_cy = 50
       object hintlabel: tlabel
         bounds_x = 21
         bounds_y = 6
@@ -921,8 +961,8 @@ object songplayerfo: tsongplayerfo
       end
       object hintlabel2: tlabel
         taborder = 1
-        bounds_x = 5
-        bounds_y = 25
+        bounds_x = 7
+        bounds_y = 27
         bounds_cx = 215
         bounds_cy = 15
         caption = 'Or press Esc key for previous value.'
