@@ -1595,8 +1595,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=timersent
+finddtext=button1.hi
 findhistory=20
+ button1.hi
  timersent
  cbtempob
  edtempo
@@ -1616,16 +1617,15 @@ findhistory=20
  getus
  .lis
  controller.history
- tfiledialog1
 findoptions=1
 editpos=7
  0,6
- 0,0
- 0,0
- 0,4781
- 12,11
- 0,291
- 0,724
+ 0,-1073741823
+ 0,-1073741823
+ 16,1446
+ 0,10
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -1678,18 +1678,10 @@ nomenumodules=4
  -1
  -1
 [sourcefo.files_tab]
-order=7
- 0
- 1
- 2
- 3
- 4
- 6
- 5
 firsttab=0
-index=4
+index=3
 [layout]
-windowlayout=624
+windowlayout=616
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1844,7 +1836,7 @@ windowlayout=624
  sortdescend1=0
  sorted=0
  col=0
- row=11
+ row=8
  rowheight=19
  [stackfo]
  splitdir=0
@@ -1923,10 +1915,10 @@ windowlayout=624
  [breakpointsfo.bkptson]
  value=1
  [objectinspectorfo.grid]
- propcolwidthref=566
- width0=251
+ propcolwidthref=551
+ width0=244
  sortdescend0=0
- width1=309
+ width1=301
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -2090,7 +2082,7 @@ windowlayout=624
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_songplayerfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2147,8 +2139,9 @@ windowlayout=624
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/songplayer.pas
+ value=/home/fred/strumpract/src/main.pas
  history=20
+  /home/fred/strumpract/src/songplayer.pas
   /home/fred/strumpract/src/infosd.pas
   /home/fred/xelplayer/playlist.mfm
   /home/fred/strumpract/src/msefiledialogx.pas
@@ -2168,7 +2161,6 @@ windowlayout=624
   /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts_strings.inc
   /home/fred/ideu/src/msestockobjects.pas
   /home/fred/strumpract/src/randomnote.pas
-  /home/fred/strumpract/src/guitars.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2190,23 +2182,15 @@ windowlayout=624
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=7
-  0
-  1
-  2
-  3
-  4
-  6
-  5
  firsttab=0
- index=4
+ index=3
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2241,7 +2225,7 @@ windowlayout=624
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
@@ -2260,7 +2244,7 @@ windowlayout=624
  [_mse_songplayerfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0
@@ -2279,7 +2263,7 @@ windowlayout=624
  [_mse_commanderfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0

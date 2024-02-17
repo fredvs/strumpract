@@ -1465,7 +1465,7 @@ begin
 
     edvolleft.hint := lang_songplayerfo[Ord(so_edvolleft_hint)];  {' Change Left volume '}
 
-    button1.hint := lang_songplayerfo[Ord(so_button1_hint)];      {' Reset to tempo original '}
+  //  button1.hint := lang_songplayerfo[Ord(so_button1_hint)];      {' Reset to tempo original '}
 
     trackbar1.hint := lang_songplayerfo[Ord(so_trackbar1_hint)];  {' Click to change position of sound '}
 
@@ -1584,7 +1584,7 @@ begin
 
     edvolleft.hint := lang_songplayerfo[Ord(so_edvolleft_hint)];  {' Change Left volume '}
 
-    button1.hint := lang_songplayerfo[Ord(so_button1_hint)];      {' Reset to tempo original '}
+ //   button1.hint := lang_songplayerfo[Ord(so_button1_hint)];      {' Reset to tempo original '}
 
     trackbar1.hint := lang_songplayerfo[Ord(so_trackbar1_hint)];  {' Click to change position of sound '}
 
