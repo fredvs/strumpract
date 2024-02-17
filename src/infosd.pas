@@ -244,6 +244,7 @@ begin
   then
   begin
   aimage := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'noimagetag.png');  
+  
   PimgPreview.Visible := True;
   PimgPreview.invalidate;
    if aimage.Count > 1 then
@@ -287,9 +288,15 @@ procedure tinfosdfo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
 var
   theMemBitmap: TBGRABitmap;
 begin
-  //theMemBitmap := TBGRABitmap.Create(PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0)); 
+  theMemBitmap := TBGRABitmap.Create(PimgPreview.Width,PimgPreview.Height,BGRA(255, 192, 0)); 
+  
   theMemBitmap := aimage.MemBitmap.Resample(PimgPreview.Width, PimgPreview.Height, rmFineResample) as TBGRABitmap;
-  theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
+  
+  if mainfo.typecolor.Value = 2 then
+    theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(80, 80, 80, 255), dmDrawWithTransparency, 8192) 
+    else
+    theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(190, 190, 190, 255), dmDrawWithTransparency, 8192) ;
+  
   theMemBitmap.draw(acanvas, 0, 0, True);
   theMemBitmap.Free;
 end;

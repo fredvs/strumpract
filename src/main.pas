@@ -511,7 +511,7 @@ begin
     infochan.font.name := 'Unifont' ;
     infobpm.font.name := 'Unifont' ;
     
-    tlabel2.font.name := 'Unifont' ;
+    //tlabel2.font.name := 'Unifont' ;
     
     infoname.frame.font.height := 12 ;
     infoartist.frame.font.height := 12 ;
@@ -543,7 +543,7 @@ begin
     inforate.frame.font.name := 'Unifont' ;
     infochan.frame.font.name := 'Unifont' ;
     infobpm.frame.font.name := 'Unifont' ;
-    tlabel2.font.name := 'Unifont' ;
+    //tlabel2.font.name := 'Unifont' ;
     
      infoname.font.name := 'Unifont' ;
     infoartist.font.name := 'Unifont' ;
@@ -779,7 +779,7 @@ begin
     begin
      font.name := 'stf_default' ;
     // font.height := 14;
-    tlabel2.font.name := 'stf_default' ;
+    //tlabel2.font.name := 'stf_default' ;
     infoname.frame.font.name := 'stf_default' ;
     infoartist.frame.font.name := 'stf_default' ;
     tracktag.frame.font.name := 'stf_default' ;
@@ -822,7 +822,7 @@ begin
     begin
      font.name := 'stf_default' ;
     // font.height := 14;
-    tlabel2.font.name := 'stf_default' ;
+    //tlabel2.font.name := 'stf_default' ;
     infoname.frame.font.name := 'stf_default' ;
     infoartist.frame.font.name := 'stf_default' ;
     infoalbum.frame.font.name := 'stf_default' ;
@@ -1418,7 +1418,7 @@ begin
   begin
     Caption         := lang_commanderfo[Ord(co_nameplayers_hint)] + ' ' +
       lang_infosfo[Ord(in_infosfo)];
-    tlabel2.Caption := lang_infosfo[Ord(in_tlabel2)] + ' ';  {'No Image Tag'}
+    //tlabel2.Caption := lang_infosfo[Ord(in_tlabel2)] + ' ';  {'No Image Tag'}
     infoname.frame.Caption := lang_infosfo[Ord(in_infonameframe)];  {'Title'}
     infoartist.frame.Caption := lang_infosfo[Ord(in_infoartistframe)];  {'Artist'}
     infoalbum.frame.Caption := lang_infosfo[Ord(in_infoalbumframe)];  {'Album'}
@@ -1437,7 +1437,7 @@ begin
   begin
     Caption         := lang_commanderfo[Ord(co_nameplayers2_hint)] + ' ' +
       lang_infosfo[Ord(in_infosfo)];
-    tlabel2.Caption := lang_infosfo[Ord(in_tlabel2)] + ' ';  {'No Image Tag'}
+    //tlabel2.Caption := lang_infosfo[Ord(in_tlabel2)] + ' ';  {'No Image Tag'}
     infoname.frame.Caption := lang_infosfo[Ord(in_infonameframe)];  {'Title'}
     infoartist.frame.Caption := lang_infosfo[Ord(in_infoartistframe)];  {'Artist'}
     infoalbum.frame.Caption := lang_infosfo[Ord(in_infoalbumframe)];  {'Album'}

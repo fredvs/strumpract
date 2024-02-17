@@ -99,19 +99,6 @@ object infosdfo: tinfosdfo
   onshow = onshow
   onhide = onshow
   moduleclassname = 'tdockform'
-  object tlabel2: tlabel
-    color = -2147483645
-    taborder = 12
-    bounds_x = 277
-    bounds_y = 157
-    bounds_cx = 83
-    bounds_cy = 15
-    caption = 'No Image Tag'
-    font.style = [fs_italic]
-    font.name = 'stf_default'
-    font.localprops = [flp_style]
-    reffontheight = 15
-  end
   object infoalbum: tlabel
     optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autoheight]
     color = -2147483645
@@ -439,7 +426,7 @@ object infosdfo: tinfosdfo
     color = -2147483645
     frame.localprops = []
     frame.localprops1 = []
-    taborder = 13
+    taborder = 12
     onpaint = onpaintimg
     visible = False
     bounds_x = 217
@@ -455,7 +442,7 @@ object infosdfo: tinfosdfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    taborder = 14
+    taborder = 13
     hint = 'Pause/Resume the animation'
     bounds_x = 194
     bounds_y = 193
