@@ -2602,6 +2602,7 @@ begin
   if plugsoundtouch = False then
   begin
     edtempo.Visible  := False;
+    edpitch.Visible  := False;
     cbtempo.Visible  := False;
     Button1.Visible  := False;
     Button2.Visible  := False;
@@ -2610,6 +2611,7 @@ begin
   else
   begin
     edtempo.Visible  := True;
+    edpitch.Visible  := true;    
     cbtempo.Visible  := True;
     Button1.Visible  := True;
     Button2.Visible  := True;
