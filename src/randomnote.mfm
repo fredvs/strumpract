@@ -1,7 +1,5 @@
 object randomnotefo: trandomnotefo
   color = 14604753
-  face.localprops = []
-  face.template = mainfo.tfacebutgray
   onactivate = onconfigtext
   visible = False
   bounds_x = 202
@@ -10,8 +8,6 @@ object randomnotefo: trandomnotefo
   bounds_cy = 776
   container.frame.localprops = []
   container.frame.localprops1 = []
-  container.face.localprops = []
-  container.face.template = mainfo.tfacebutgray
   container.bounds = (
     0
     0
@@ -149,9 +145,7 @@ object randomnotefo: trandomnotefo
   onhide = onhide
   moduleclassname = 'tdockform'
   object tbutton4: tbutton
-    color = -2147483645
-    face.localprops = []
-    face.template = mainfo.tfacebutgray
+    color = -1610612732
     hint = 'Close all StrumPract (Click the icon in corner of the form to close only Randomizer)'
     bounds_x = 3
     bounds_y = 52
@@ -625,9 +619,7 @@ object randomnotefo: trandomnotefo
     end
   end
   object bconfig: tbutton
-    color = -2147483645
-    face.localprops = []
-    face.template = mainfo.tfacebutgray
+    color = -1610612732
     taborder = 10
     hint = 'Configure the "Clear" message'
     bounds_x = 3
@@ -705,9 +697,7 @@ object randomnotefo: trandomnotefo
   end
   object tstringdisp1: tstringdisp
     optionswidget1 = [ow1_fontglyphheight]
-    face.fade_direction = gd_down
-    face.localprops = [fal_fadirection]
-    face.template = mainfo.tfaceplayer
+    color = -2147483645
     taborder = 1
     bounds_x = 484
     bounds_y = 1
@@ -2874,9 +2864,7 @@ object randomnotefo: trandomnotefo
     end
   end
   object chordsonly: tbutton
-    color = -2147483645
-    face.localprops = []
-    face.template = mainfo.tfacebutgray
+    color = -1610612732
     taborder = 12
     hint = 'Switch full chords only <> all'
     bounds_x = 3

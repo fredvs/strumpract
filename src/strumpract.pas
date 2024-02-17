@@ -34,9 +34,9 @@ begin
   ordir := filepath(statdirname);
   if not finddir(ordir) then
       createdir(ordir);
-
+      
   ordir := ordir + directoryseparator + 'log.txt' ;
-    
+  
   fs := TFileStream.Create(ordir, fmOpenReadWrite or fmCreate);
   FpDup2(fs.Handle, StdErrorHandle);   
 {$endif}

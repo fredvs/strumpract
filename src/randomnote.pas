@@ -3990,18 +3990,16 @@ ordir : msestring;
 begin
   randomize;
 
-
   //tstringdisp1.text := 'Los acordes de la suerte'  + 
 
   //lineend + lineend +    '_____________________' + lineending + lineending +  lineending + 'The chords of chance';
   // Visible := False;
  
- 
   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
-  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'pianokeyb.png')
+  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'piano1oct.png')
   then
   begin
-  aimagepiano := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'pianokeyb.png');  
+  aimagepiano := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'piano1oct.png');  
   keyb1pb.invalidate;
   end;
 
@@ -4012,10 +4010,10 @@ begin
   guitpb1.invalidate;
   end;
   
-   if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'basschord.png')
+   if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'basstab.png')
   then
   begin
-  aimagebass := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'basschord.png');  
+  aimagebass := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'basstab.png');  
   basspb1.invalidate;
   end;
 

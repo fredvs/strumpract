@@ -143,8 +143,10 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc" "*.mfm"
  [findinfileadialogfo.findtext]
- value=plugsoundtouch
+ value=basschord
  history=20
+  basschord
+  message
   plugsoundtouch
   soundtouch
   edtempo
@@ -163,8 +165,6 @@ findinfiledialog=83
   writestat
   controller.Execute(fdk_save
   status
-  tfiledialogx
-  tfiledialogx1
  [findinfileadialogfo]
  stackedunder=
  x=210
@@ -809,9 +809,15 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
-modulenames=0
-moduletypes=0
-modulefiles=0
+modulenames=2
+ MAINFO
+ RANDOMNOTEFO
+moduletypes=2
+ TMAINFO
+ TRANDOMNOTEFO
+modulefiles=2
+ /home/fred/strumpract/src/main.mfm
+ /home/fred/strumpract/src/randomnote.mfm
 befcommandon=0
 makeoptionson=18
  4095
@@ -1589,8 +1595,9 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=synthefo.font.color
+finddtext=randomnotefo
 findhistory=20
+ randomnotefo
  synthefo.
  typeco
  colorva
@@ -1610,38 +1617,53 @@ findhistory=20
  uses
  use
  history
- as tbitmap
 findoptions=1
-editpos=1
- 0,6
+editpos=5
+ 0,39
+ 0,0
+ 0,-1073741823
+ 0,4022
+ 0,-1073741823
 bookmarks0=0
-sourcefiles=1
+bookmarks1=0
+bookmarks2=0
+bookmarks3=0
+bookmarks4=0
+sourcefiles=5
  ${PROJECTDIR}/strumpract.pas
-relpaths=1
+ ${PROJECTDIR}/commander.pas
+ /home/fred/mseide-msegui/lib/common/widgets/msewidgets.pas
+ ${PROJECTDIR}/randomnote.pas
+ ${PROJECTDIR}/main.pas
+relpaths=5
  strumpract.pas
-ismoduletexts=1
+ commander.pas
+ mseide-msegui/lib/common/widgets/msewidgets.pas
+ randomnote.pas
+ main.pas
+ismoduletexts=5
  0
-modules=3
+ 0
+ 0
+ 0
+ 0
+modules=2
+ /home/fred/strumpract/src/randomnote.mfm
  /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/equalizer.mfm
-moduleoptions=3
+moduleoptions=2
  0
  0
- 0
-visiblemodules=3
- 0
- 0
- 0
-nomenumodules=3
+visiblemodules=2
  -1
  -1
- -1
+nomenumodules=2
+ 0
+ 0
 [sourcefo.files_tab]
 firsttab=0
-index=0
+index=3
 [layout]
-windowlayout=603
+windowlayout=578
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1655,8 +1677,8 @@ windowlayout=603
  ny=0
  ncx=0
  ncy=0
- x=47
- y=100
+ x=58
+ y=78
  cx=1428
  cy=724
  rcx=0
@@ -2042,7 +2064,7 @@ windowlayout=603
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=targetconsolefo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2057,7 +2079,7 @@ windowlayout=603
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
  activetab=4
  [debuggerfo]
@@ -2099,8 +2121,11 @@ windowlayout=603
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/synthe.pas
- history=26
+ value=/home/fred/strumpract/src/randomnote.pas
+ history=20
+  /home/fred/strumpract/src/randomnote.pas
+  /home/fred/strumpract/src/strumpract.pas
+  /home/fred/strumpract/src/synthe.pas
   /home/fred/strumpract/src/infosd.pas
   /home/fred/xelplayer/playlist.mfm
   /home/fred/strumpract/src/msefiledialogx.pas
@@ -2118,15 +2143,6 @@ windowlayout=603
   /home/fred/strumpract_fade_bgra/src/synthe.pas
   /home/fred/strumpract/src/uos.pas
   /home/fred/mseide-msegui/lib/common/lang_consts/mseconsts_strings.inc
-  /home/fred/ideu/src/msestockobjects.pas
-  /home/fred/strumpract/src/randomnote.pas
-  /home/fred/strumpract/src/guitars.pas
-  /home/fred/strumpract/src/synthe.pas
-  /home/fred/ideu/src/ideusettings.pas
-  /home/fred/uos/examples/uos.pas
-  /home/fred/uos/examples/consolesynth.pas
-  /home/fred/uos/examples/consoleplay.pas
-  /home/fred/ideu/src/msegdbutils.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2149,14 +2165,14 @@ windowlayout=603
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=0
+ index=3
  [confideufo.usedefaulteditoroptions]
  value=0
  [cpuc86_64fo]
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_equalizerfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=0
  nx=0
@@ -2188,10 +2204,29 @@ windowlayout=603
  cy=525
  rcx=0
  rcy=0
+ [_mse_randomnotefo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=mainfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=202
+ y=50
+ cx=1368
+ cy=776
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -2206,45 +2241,7 @@ windowlayout=603
  rcy=0
  wsize=0
  active=0
- visible=0
- [_mse_commanderfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=confdebuggerfo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=420
- y=223
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [_mse_equalizerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=438
- y=255
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0
