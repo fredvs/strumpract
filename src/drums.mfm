@@ -610,7 +610,6 @@ object drumsfo: tdrumsfo
       bounds_y = 19
       bounds_cx = 50
       bounds_cy = 36
-      statfile = mainfo.tstatfile1
       textflagsactive = [tf_xcentered, tf_ycentered]
       onchange = onchangetempo
       ontextedited = ontextedit
@@ -1055,7 +1054,7 @@ object drumsfo: tdrumsfo
       taborder = 31
       visible = False
       bounds_x = 75
-      bounds_y = 24
+      bounds_y = -55
       bounds_cx = 261
       bounds_cy = 45
       font.color = -1610612734
