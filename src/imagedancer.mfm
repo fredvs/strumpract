@@ -9,8 +9,8 @@ object imagedancerfo: timagedancerfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 429
-  bounds_y = 240
+  bounds_x = 318
+  bounds_y = 252
   bounds_cx = 442
   bounds_cy = 206
   bounds_cxmin = 442
