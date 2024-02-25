@@ -42,6 +42,7 @@ object pianofo: tpianofo
   windowopacity = -Inf
   oncreate = crea
   oneventloopstart = oncreated
+  ondestroy = ondestro
   onclose = oncloseex
   onresize = onresizeex
   onshow = onchangest

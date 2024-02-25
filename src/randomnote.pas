@@ -174,6 +174,7 @@ type
     procedure onafterdrop(const Sender: TObject);
     procedure ontime(const Sender: TObject);
     procedure onbefdrop(const Sender: TObject);
+   procedure ondestro(const sender: TObject);
   end;
 
 var
@@ -5108,6 +5109,13 @@ end;
 procedure trandomnotefo.onbefdrop(const Sender: TObject);
 begin
   dropbuz := 1;
+end;
+
+procedure trandomnotefo.ondestro(const sender: TObject);
+begin
+  aimagepiano.Free; 
+  aimageguit.Free;
+  aimagebass.Free;
 end;
 
 end.

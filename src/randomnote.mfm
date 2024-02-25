@@ -139,6 +139,7 @@ object randomnotefo: trandomnotefo
   windowopacity = -Inf
   oncreate = crea
   oncreated = oncreatedev
+  ondestroy = ondestro
   onclose = onclosev
   onmouseevent = onmousev
   onshow = onshowrand

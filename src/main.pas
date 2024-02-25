@@ -8558,7 +8558,7 @@ begin
  
  image.Draw(Canvas,0,0,True);
   image.free;
-
+  grad.free;
 end;
 
 procedure tmainfo.beforefaceplayer(const sender: tcustomface;
@@ -8569,16 +8569,6 @@ var
   image: TBGRABitmap;
   grad: TBGRAGradientScanner;
 begin
-{  
-  point1.x := arect.x + (arect.cx div 2);
-  point1.y := 0;
-  point2.x := point1.x;
-  point2.y := arect.cy;
-
-  Canvas.drawline(point1, point2, cl_red);
-
-}
-
   handled := false;
 
   image := TBGRABitmap.Create(ClientWidth,ClientHeight, CSSSilver );
@@ -8601,7 +8591,7 @@ begin
  
  image.Draw(Canvas,0,0,True);
   image.free;
-
+  grad.free;
 end;
 
 procedure tmainfo.aftergreen(const sender: tcustomface; const canvas: tcanvas;
@@ -8630,7 +8620,7 @@ begin
  
  image.Draw(Canvas,0,0,True);
   image.free;
-
+   grad.free;
 end;
 
 procedure tmainfo.beforegreen(const sender: tcustomface; const canvas: tcanvas;
@@ -8651,6 +8641,7 @@ begin
  
  image.Draw(Canvas,0,0,True);
   image.free;
+   grad.free;
 end;
 
 

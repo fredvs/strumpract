@@ -41,6 +41,7 @@ type
    procedure resizepi(fontheight :  integer );
    procedure onpaintimg(const Sender: twidget; const acanvas: tcanvas);
    procedure crea(const sender: TObject);
+   procedure ondestro(const sender: TObject);
  end;
 var
  pianofo: tpianofo;
@@ -262,6 +263,11 @@ begin
   keyb1pb.invalidate;
   end;
 
+end;
+
+procedure tpianofo.ondestro(const sender: TObject);
+begin
+ aimagepiano4oct.Free; 
 end;
 
 end.
