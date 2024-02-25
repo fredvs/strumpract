@@ -13,6 +13,7 @@ unit alsa_mixer;
 interface
 
 uses
+  math,
   classes,
   sysutils,
   dynlibs,
@@ -335,7 +336,7 @@ begin
   if chan = 1 then snd_mixer_selem_get_playback_volume(elem, SND_MIXER_SCHN_FRONT_Right, @vol);
   //writeln('vol right = ' + inttostr(vol));
  
-   result := round(vol/max*100);
+   result := floor(vol/max*100);
  
     snd_mixer_close(hmix);
       
@@ -366,13 +367,13 @@ begin
   
   snd_mixer_selem_get_playback_volume_range(elem, @min, @max);
  
-  snd_mixer_selem_set_playback_volume_all(elem, round(volume * max / 100));
+  snd_mixer_selem_set_playback_volume_all(elem, floor(volume * max / 100));
   
   if chan = 0 then snd_mixer_selem_set_playback_volume(elem, SND_MIXER_SCHN_FRONT_LEFT,
-   round(volume * max / 100));
+   floor(volume * max / 100));
  
   if chan = 1 then snd_mixer_selem_set_playback_volume(elem, SND_MIXER_SCHN_FRONT_right,
-   round(volume * max / 100));
+   floor(volume * max / 100));
   
    snd_mixer_close(hmix);
       

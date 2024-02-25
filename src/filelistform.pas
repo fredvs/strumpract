@@ -92,9 +92,9 @@ var
   ratio: float;
 begin
   ratio        := fontheight / 12;
-  bounds_cxmin := round(442 * ratio);
+  bounds_cxmin := floor(442 * ratio);
   bounds_cxmax := bounds_cxmin;
-  bounds_cymin := round(128 * ratio);
+  bounds_cymin := floor(128 * ratio);
   if (parentwidget <> nil) then
    bounds_cymax := bounds_cymin
    else bounds_cymax := 0;
@@ -108,10 +108,10 @@ begin
   list_files.rowfonts[0].Height := fontheight;
   list_files.rowfonts[1].Height := fontheight;
 
-  frame.grip_size := round(8 * ratio);
-  fowidthf        := round(442 * ratio);
+  frame.grip_size := floor(8 * ratio);
+  fowidthf        := floor(442 * ratio);
   list_files[0].Width :=
-    round(list_files.Width - frame.grip_size - list_files.fixcols[-1].Width - list_files[1].Width - list_files[2].Width -
+    floor(list_files.Width - frame.grip_size - list_files.fixcols[-1].Width - list_files[1].Width - list_files[2].Width -
     list_files[3].Width - list_files[4].Width);
 
   list_files.Height        := Height - historyfn.height - 4;

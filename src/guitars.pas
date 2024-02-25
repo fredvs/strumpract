@@ -4,6 +4,7 @@ unit guitars;
 interface
 
 uses
+  math,
   mseglob,
   mseguiglob,
   mseguiintf,
@@ -83,13 +84,13 @@ begin
   bounds_cxmin := 0;
   bounds_cymax := 0;
   bounds_cymin := 0;
-  bounds_cxmax := round(442 * ratio);
+  bounds_cxmax := floor(442 * ratio);
   bounds_cxmin := bounds_cxmax;
-  bounds_cymax := round(64 * ratio);
+  bounds_cymax := floor(64 * ratio);
   bounds_cymin := bounds_cymax;
   font.Height  := fontheight;
 
-  frame.grip_size := round(8 * ratio);
+  frame.grip_size := floor(8 * ratio);
 
   tgroupbox1.font.Height := fontheight;
   tgroupbox1.font.color  := font.color;
@@ -101,10 +102,10 @@ begin
       for i2 := 0 to length(boundchildgu) - 1 do
         if children[i1].Name = boundchildgu[i2].Name then
         begin
-          children[i1].left   := round(boundchildgu[i2].left * ratio);
-          children[i1].top    := round(boundchildgu[i2].top * ratio);
-          children[i1].Width  := round(boundchildgu[i2].Width * ratio);
-          children[i1].Height := round(boundchildgu[i2].Height * ratio);
+          children[i1].left   := floor(boundchildgu[i2].left * ratio);
+          children[i1].top    := floor(boundchildgu[i2].top * ratio);
+          children[i1].Width  := floor(boundchildgu[i2].Width * ratio);
+          children[i1].Height := floor(boundchildgu[i2].Height * ratio);
         end;
 
   with tgroupbox2 do
@@ -112,10 +113,10 @@ begin
       for i2 := 0 to length(boundchildgu) - 1 do
         if children[i1].Name = boundchildgu[i2].Name then
         begin
-          children[i1].left   := round(boundchildgu[i2].left * ratio);
-          children[i1].top    := round(boundchildgu[i2].top * ratio);
-          children[i1].Width  := round(boundchildgu[i2].Width * ratio);
-          children[i1].Height := round(boundchildgu[i2].Height * ratio);
+          children[i1].left   := floor(boundchildgu[i2].left * ratio);
+          children[i1].top    := floor(boundchildgu[i2].top * ratio);
+          children[i1].Width  := floor(boundchildgu[i2].Width * ratio);
+          children[i1].Height := floor(boundchildgu[i2].Height * ratio);
         end;
 end;
 

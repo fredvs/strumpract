@@ -3376,7 +3376,7 @@ begin
       if sico_freerun in foptions then
         application.registeronidle(@doidle)
       else if sico_autorun in foptions then
-        ftimer := tsimpletimer.Create(round(1000000.0 * fstepcount / fsamplefrequ), @doautotick, True, [to_leak]);
+        ftimer := tsimpletimer.Create(floor(1000000.0 * fstepcount / fsamplefrequ), @doautotick, True, [to_leak]);
 end;
 
 function tsigcontroller.getfreerun: Boolean;
@@ -3966,11 +3966,11 @@ var
     setscale(options, progindex, double(sta));
     with ainfo.fprog[progindex] do
     begin
-      maxeventdelay := round(maxeventtime * eventtimescale);
+      maxeventdelay := floor(maxeventtime * eventtimescale);
       starttime := ti;
       startval := sta;
       int3    := ti;
-      ti      := round((valueitem.re + timoffs) * timsca);
+      ti      := floor((valueitem.re + timoffs) * timsca);
       endtime := ti;
       if int3 >= ti then
         int3 := ti - 1;

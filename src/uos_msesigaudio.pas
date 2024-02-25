@@ -28,6 +28,7 @@ interface
 {$endif}
 uses
   ctypes,
+  math,
   uos_mpg123,
   uos_mseaudio,
   uos_portaudio,
@@ -142,7 +143,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      pbyte(dest)^ := $80 + round(do1 * $7f);
+      pbyte(dest)^ := $80 + floor(do1 * $7f);
       Inc(Source);
       Inc(pbyte(dest));
     end;
@@ -161,8 +162,8 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      psmallint(dest)^ := round(do1 * $7fff);
-      psmallint(dest)^ := round(do1);
+      psmallint(dest)^ := floor(do1 * $7fff);
+      psmallint(dest)^ := floor(do1);
       Inc(Source);
       Inc(psmallint(dest));
     end;
@@ -182,7 +183,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      int2 := round(do1 * $7fffff);
+      int2 := floor(do1 * $7fffff);
   {$ifdef FPC}
       pbyte(dest)[0] := pbyte(@int2)[0];
       pbyte(dest)[1] := pbyte(@int2)[1];
@@ -210,7 +211,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      Objpas.pinteger(dest)^ := round(do1 * $7fffffff);
+      Objpas.pinteger(dest)^ := floor(do1 * $7fffffff);
       Inc(Source);
       Inc(pinteger(dest));
     end;
@@ -242,7 +243,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      Objpas.pinteger(dest)^ := round(do1 * $7fffff);
+      Objpas.pinteger(dest)^ := floor(do1 * $7fffff);
       Inc(Source);
       Inc(pinteger(dest));
     end;
@@ -261,7 +262,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      psmallint(dest)^ := swapendian(smallint(round(do1 * $7fff)));
+      psmallint(dest)^ := swapendian(smallint(floor(do1 * $7fff)));
       Inc(Source);
       Inc(psmallint(dest));
     end;
@@ -281,7 +282,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      int2 := round(do1 * $7fffff);
+      int2 := floor(do1 * $7fffff);
   {$ifdef FPC}
       pbyte(dest)[0] := pbyte(@int2)[2];
       pbyte(dest)[1] := pbyte(@int2)[1];
@@ -309,7 +310,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      Objpas.pinteger(dest)^ := swapendian(integer(round(do1 * $7fffffff)));
+      Objpas.pinteger(dest)^ := swapendian(integer(floor(do1 * $7fffffff)));
       Inc(Source);
       Inc(pinteger(dest));
     end;
@@ -347,7 +348,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      Objpas.pinteger(dest)^ := swapendian(integer(round(do1 * $7fffff)));
+      Objpas.pinteger(dest)^ := swapendian(integer(floor(do1 * $7fffff)));
       Inc(Source);
       Inc(pinteger(dest));
     end;

@@ -199,26 +199,26 @@ begin
   bounds_cxmin := 0;
   bounds_cymax := 0;
   bounds_cymin := 0;
-  bounds_cxmax := round(442 * ratio);
+  bounds_cxmax := floor(442 * ratio);
   bounds_cxmin := bounds_cxmax;
-  bounds_cymax := round(128 * ratio);
+  bounds_cymax := floor(128 * ratio);
   bounds_cymin := bounds_cymax;
   font.Height  := fontheight;
 
   tgroupall.font.Height := fontheight;
-  frame.grip_size       := round(8 * ratio);
+  frame.grip_size       := floor(8 * ratio);
 
   for i1 := 0 to childrencount - 1 do
     for i2 := 0 to length(boundchildco) - 1 do
       if children[i1].Name = boundchildco[i2].Name then
       begin
-        children[i1].left   := round(boundchildco[i2].left * ratio);
-        children[i1].top    := round(boundchildco[i2].top * ratio);
-        children[i1].Width  := round(boundchildco[i2].Width * ratio);
-        children[i1].Height := round(boundchildco[i2].Height * ratio);
+        children[i1].left   := floor(boundchildco[i2].left * ratio);
+        children[i1].top    := floor(boundchildco[i2].top * ratio);
+        children[i1].Width  := floor(boundchildco[i2].Width * ratio);
+        children[i1].Height := floor(boundchildco[i2].Height * ratio);
       end;
 
-  linkvolgenb.font.Height := round(10 * ratio);
+  linkvolgenb.font.Height := floor(10 * ratio);
   linkvol2b.font.Height   := linkvolgenb.font.Height;
   linkvolb.font.Height    := linkvolgenb.font.Height;
   linkvol2b.font.Height   := linkvolgenb.font.Height;
@@ -235,10 +235,10 @@ begin
       for i2 := 0 to length(boundchildco) - 1 do
         if tgroupall.children[i1].Name = boundchildco[i2].Name then
         begin
-          tgroupall.children[i1].left   := round(boundchildco[i2].left * ratio);
-          tgroupall.children[i1].top    := round(boundchildco[i2].top * ratio);
-          tgroupall.children[i1].Width  := round(boundchildco[i2].Width * ratio);
-          tgroupall.children[i1].Height := round(boundchildco[i2].Height * ratio);
+          tgroupall.children[i1].left   := floor(boundchildco[i2].left * ratio);
+          tgroupall.children[i1].top    := floor(boundchildco[i2].top * ratio);
+          tgroupall.children[i1].Width  := floor(boundchildco[i2].Width * ratio);
+          tgroupall.children[i1].Height := floor(boundchildco[i2].Height * ratio);
         end;
   end;
 
@@ -249,10 +249,10 @@ begin
       for i2 := 0 to length(boundchildco) - 1 do
         if children[i1].Name = boundchildco[i2].Name then
         begin
-          children[i1].left   := round(boundchildco[i2].left * ratio);
-          children[i1].top    := round(boundchildco[i2].top * ratio);
-          children[i1].Width  := round(boundchildco[i2].Width * ratio);
-          children[i1].Height := round(boundchildco[i2].Height * ratio);
+          children[i1].left   := floor(boundchildco[i2].left * ratio);
+          children[i1].top    := floor(boundchildco[i2].top * ratio);
+          children[i1].Width  := floor(boundchildco[i2].Width * ratio);
+          children[i1].Height := floor(boundchildco[i2].Height * ratio);
         end;
 
   tgroupboxdrums.font.Height := fontheight;
@@ -262,10 +262,10 @@ begin
       for i2 := 0 to length(boundchildco) - 1 do
         if children[i1].Name = boundchildco[i2].Name then
         begin
-          children[i1].left   := round(boundchildco[i2].left * ratio);
-          children[i1].top    := round(boundchildco[i2].top * ratio);
-          children[i1].Width  := round(boundchildco[i2].Width * ratio);
-          children[i1].Height := round(boundchildco[i2].Height * ratio);
+          children[i1].left   := floor(boundchildco[i2].left * ratio);
+          children[i1].top    := floor(boundchildco[i2].top * ratio);
+          children[i1].Width  := floor(boundchildco[i2].Width * ratio);
+          children[i1].Height := floor(boundchildco[i2].Height * ratio);
         end;
 
   tgroupboxinput.font.Height := fontheight;
@@ -275,10 +275,10 @@ begin
       for i2 := 0 to length(boundchildco) - 1 do
         if children[i1].Name = boundchildco[i2].Name then
         begin
-          children[i1].left   := round(boundchildco[i2].left * ratio);
-          children[i1].top    := round(boundchildco[i2].top * ratio);
-          children[i1].Width  := round(boundchildco[i2].Width * ratio);
-          children[i1].Height := round(boundchildco[i2].Height * ratio);
+          children[i1].left   := floor(boundchildco[i2].left * ratio);
+          children[i1].top    := floor(boundchildco[i2].top * ratio);
+          children[i1].Width  := floor(boundchildco[i2].Width * ratio);
+          children[i1].Height := floor(boundchildco[i2].Height * ratio);
         end;
 
 end;
@@ -310,14 +310,14 @@ begin
 
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
   sysvol.Value      := ALSAmixerGetVolume(0) / 100;
-  sysvolbut.Caption := msestring(IntToStr(round(sysvol.Value * 10)));
+  sysvolbut.Caption := msestring(IntToStr(floor(sysvol.Value * 10)));
   ALSAmixerSetCallBack(@mixelemcallback);
   docallback        := True;
    {$ENDIF}
 
    {$if defined(windows)}
     sysvol.value := WinmixerGetVolume(0)/100;
-    sysvolbut.caption := msestring(inttostr(round(sysvol.value*10)));
+    sysvolbut.caption := msestring(inttostr(floor(sysvol.value*10)));
      WinMixerSetCallBack(@mixelemcallback); // gives memory leak
      docallback := true;
    {$ENDIF}
@@ -378,7 +378,7 @@ begin
     if directmix.Value then
       totmixinterval := 1
     else
-      totmixinterval := round(timemix.Value / 10);
+      totmixinterval := floor(timemix.Value / 10);
 
     incmixinterval := 0;
 
@@ -849,13 +849,13 @@ begin
       genvolright.Value := genvolleft.Value
     else
       genvolleft.Value  := genvolright.Value;
-    genleftvolvalue.Caption := utf8decode(IntToStr(round(genvolleft.Value * 15)));
-    genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 15)));
+    genleftvolvalue.Caption := utf8decode(IntToStr(floor(genvolleft.Value * 15)));
+    genrightvolvalue.Caption := utf8decode(IntToStr(floor(genvolright.Value * 15)));
   end
   else if (tslider(Sender).tag = 0) then
-    genleftvolvalue.Caption  := utf8decode(IntToStr(round(genvolleft.Value * 15)))
+    genleftvolvalue.Caption  := utf8decode(IntToStr(floor(genvolleft.Value * 15)))
   else
-    genrightvolvalue.Caption := utf8decode(IntToStr(round(genvolright.Value * 15)));
+    genrightvolvalue.Caption := utf8decode(IntToStr(floor(genvolright.Value * 15)));
 
   if hasinit = 1 then
   begin
@@ -1226,7 +1226,7 @@ begin
   if directmix.Value then
     totmixinterval := 1
   else
-    totmixinterval := round(timemix.Value / 10);
+    totmixinterval := floor(timemix.Value / 10);
 end;
 procedure tcommanderfo.onexecbutlght(const Sender: TObject);
 begin
@@ -1502,18 +1502,18 @@ end;
 
 procedure tcommanderfo.onsetsysvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
-  sysvolbut.Caption := msestring(IntToStr(round(avalue * 10)));
+  sysvolbut.Caption := msestring(IntToStr(floor(avalue * 10)));
 {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
   docallback        := False;
-  ALSAmixerSetVolume(0, round(avalue * 100));
-  ALSAmixerSetVolume(1, round(avalue * 100));
+  ALSAmixerSetVolume(0, floor(avalue * 100));
+  ALSAmixerSetVolume(1, floor(avalue * 100));
   docallback        := True;
   {$ENDIF}
 
   {$if defined(windows)}
     docallback := false;
-    WINmixerSetVolume(0, round(avalue * 100));
-    WINmixerSetVolume(1, round(avalue * 100));
+    WINmixerSetVolume(0, floor(avalue * 100));
+    WINmixerSetVolume(1, floor(avalue * 100));
     docallback := true;
   {$ENDIF}
 end;
@@ -1524,7 +1524,7 @@ begin
   if docallback then
   begin
     commanderfo.sysvol.Value      := ALSAmixerGetVolume(0) / 100;
-    commanderfo.sysvolbut.Caption := msestring(IntToStr(round(commanderfo.sysvol.Value * 10)));
+    commanderfo.sysvolbut.Caption := msestring(IntToStr(floor(commanderfo.sysvol.Value * 10)));
   end;
 {$ENDIF}
 
@@ -1532,7 +1532,7 @@ begin
  if docallback then
   begin
     commanderfo.sysvol.value := wm_MasterVolLeft / 100;
-    commanderfo.sysvolbut.caption := inttostr(round(commanderfo.sysvol.value*10));
+    commanderfo.sysvolbut.caption := inttostr(floor(commanderfo.sysvol.value*10));
   end;
  {$ENDIF}
 end;

@@ -145,31 +145,31 @@ begin
   bounds_cxmin := 0;
   bounds_cymax := 0;
   bounds_cymin := 0;
-  bounds_cxmax := round(442 * ratio);
+  bounds_cxmax := floor(442 * ratio);
   bounds_cxmin := bounds_cxmax;
-  bounds_cymax := round(128 * ratio);
+  bounds_cymax := floor(128 * ratio);
   bounds_cymin := bounds_cymax;
   font.Height  := fontheight;
 
   tgroupbox1.font.Height := fontheight;
-  frame.grip_size        := round(8 * ratio);
+  frame.grip_size        := floor(8 * ratio);
   
   lposition.font.color := font.color;
   lposition.font.Height := fontheight;
 
-  edtempo.frame.buttonsize := round(22 * ratio);
-  edvol.frame.buttonsize   := round(22 * ratio);
-  edvolr.frame.buttonsize  := round(22 * ratio);
+  edtempo.frame.buttonsize := floor(22 * ratio);
+  edvol.frame.buttonsize   := floor(22 * ratio);
+  edvolr.frame.buttonsize  := floor(22 * ratio);
 
   with tgroupbox1 do
     for i1 := 0 to childrencount - 1 do
       for i2 := 0 to length(boundchildre) - 1 do
         if children[i1].Name = boundchildre[i2].Name then
         begin
-          children[i1].left   := round(boundchildre[i2].left * ratio);
-          children[i1].top    := round(boundchildre[i2].top * ratio);
-          children[i1].Width  := round(boundchildre[i2].Width * ratio);
-          children[i1].Height := round(boundchildre[i2].Height * ratio);
+          children[i1].left   := floor(boundchildre[i2].left * ratio);
+          children[i1].top    := floor(boundchildre[i2].top * ratio);
+          children[i1].Width  := floor(boundchildre[i2].Width * ratio);
+          children[i1].Height := floor(boundchildre[i2].Height * ratio);
         end;
 
   with tgroupbox2 do
@@ -177,10 +177,10 @@ begin
       for i2 := 0 to length(boundchildre) - 1 do
         if children[i1].Name = boundchildre[i2].Name then
         begin
-          children[i1].left   := round(boundchildre[i2].left * ratio);
-          children[i1].top    := round(boundchildre[i2].top * ratio);
-          children[i1].Width  := round(boundchildre[i2].Width * ratio);
-          children[i1].Height := round(boundchildre[i2].Height * ratio);
+          children[i1].left   := floor(boundchildre[i2].left * ratio);
+          children[i1].top    := floor(boundchildre[i2].top * ratio);
+          children[i1].Width  := floor(boundchildre[i2].Width * ratio);
+          children[i1].Height := floor(boundchildre[i2].Height * ratio);
         end;
 
   with tgroupbox3 do
@@ -188,10 +188,10 @@ begin
       for i2 := 0 to length(boundchildre) - 1 do
         if children[i1].Name = boundchildre[i2].Name then
         begin
-          children[i1].left   := round(boundchildre[i2].left * ratio);
-          children[i1].top    := round(boundchildre[i2].top * ratio);
-          children[i1].Width  := round(boundchildre[i2].Width * ratio);
-          children[i1].Height := round(boundchildre[i2].Height * ratio);
+          children[i1].left   := floor(boundchildre[i2].left * ratio);
+          children[i1].top    := floor(boundchildre[i2].top * ratio);
+          children[i1].Width  := floor(boundchildre[i2].Width * ratio);
+          children[i1].Height := floor(boundchildre[i2].Height * ratio);
         end;
 
 end;
@@ -236,12 +236,12 @@ begin
   poswavrec.x  := xreclive;
   poswavrec2.x := poswavrec.x;
   poswavrec.y  := (waveforec.trackbar1.Height div 2) - 2;
-  poswavrec2.y := ((rectrecform.cy div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
+  poswavrec2.y := ((rectrecform.cy div 2) - 1) - floor((lv) * ((rectrecform.cy div 2) - 3));
   waveforec.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC99D6);
 
   poswavrec.y := (waveforec.trackbar1.Height div 2);
 
-  poswavrec2.y := poswavrec.y + (round((rv) * ((waveforec.trackbar1.Height div 2) - 3)));
+  poswavrec2.y := poswavrec.y + (floor((rv) * ((waveforec.trackbar1.Height div 2) - 3)));
   waveforec.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
 
   xreclive := xreclive + 1;

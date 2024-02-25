@@ -160,7 +160,7 @@ begin
     
   (pEndpointVolume.GetMasterVolumeLevelScaler(avol));
    
-   result := round(avol * 100);
+   result := floor(avol * 100);
 end;
  
 procedure WINmixerSetCallBack(callback: Tproc);
@@ -197,7 +197,7 @@ end;
  
 function TEndpointVolumeCallback.OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall;
 begin
-  wm_MasterVolLeft := Round(100 * pNotify^.fMasterVolume);
+  wm_MasterVolLeft := floor(100 * pNotify^.fMasterVolume);
   wm_MasterVolRight := wm_MasterVolLeft; // todo
   wm_MasterMuted := pNotify^.bMuted;
  

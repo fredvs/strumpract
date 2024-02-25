@@ -4,6 +4,7 @@ unit spectrum1;
 interface
 
 uses
+  math,
   msetypes,
   mseglob,
   mseguiglob,
@@ -75,37 +76,37 @@ begin
   bounds_cxmin    := 0;
   bounds_cymax    := 0;
   bounds_cymin    := 0;
-  bounds_cxmax    := round(442 * ratio);
+  bounds_cxmax    := floor(442 * ratio);
   bounds_cxmin    := bounds_cxmax;
-  bounds_cymax    := round(128 * ratio);
+  bounds_cymax    := floor(128 * ratio);
   bounds_cymin    := bounds_cymax;
   font.Height     := fontheight;
-  frame.grip_size := round(8 * ratio);
+  frame.grip_size := floor(8 * ratio);
 
-  tchartleft.traces[0].bar_width  := round(18 * ratio);
-  tchartright.traces[0].bar_width := round(18 * ratio);
+  tchartleft.traces[0].bar_width  := floor(18 * ratio);
+  tchartright.traces[0].bar_width := floor(18 * ratio);
 
 
   Spect1.frame.font.Height := fontheight;
   Spect1.frame.font.color := font.color;
-  Spect1.left := round(150 * ratio);
-  Spect1.top  := round(2 * ratio);
+  Spect1.left := floor(150 * ratio);
+  Spect1.top  := floor(2 * ratio);
 
   groupbox1.font.color := font.color;
-  groupbox1.left       := round(1 * ratio);
-  groupbox1.Width      := round(216 * ratio);
-  groupbox2.left       := round(214 * ratio);
-  groupbox2.Width      := round(218 * ratio);
+  groupbox1.left       := floor(1 * ratio);
+  groupbox1.Width      := floor(216 * ratio);
+  groupbox2.left       := floor(214 * ratio);
+  groupbox2.Width      := floor(218 * ratio);
 
   with groupbox1 do
     for i1 := 0 to childrencount - 1 do
       for i2 := 0 to length(boundchildspc) - 1 do
         if groupbox1.children[i1].Name = boundchildspc[i2].Name then
         begin
-          groupbox1.children[i1].left   := round(boundchildspc[i2].left * ratio);
-          groupbox1.children[i1].top    := round(boundchildspc[i2].top * ratio);
-          groupbox1.children[i1].Width  := round(boundchildspc[i2].Width * ratio);
-          groupbox1.children[i1].Height := round(boundchildspc[i2].Height * ratio);
+          groupbox1.children[i1].left   := floor(boundchildspc[i2].left * ratio);
+          groupbox1.children[i1].top    := floor(boundchildspc[i2].top * ratio);
+          groupbox1.children[i1].Width  := floor(boundchildspc[i2].Width * ratio);
+          groupbox1.children[i1].Height := floor(boundchildspc[i2].Height * ratio);
         end;
 
   with groupbox2 do
@@ -113,10 +114,10 @@ begin
       for i2 := 0 to length(boundchildspc) - 1 do
         if groupbox2.children[i1].Name = boundchildspc[i2].Name then
         begin
-          groupbox2.children[i1].left   := round(boundchildspc[i2].left * ratio);
-          groupbox2.children[i1].top    := round(boundchildspc[i2].top * ratio);
-          groupbox2.children[i1].Width  := round(boundchildspc[i2].Width * ratio);
-          groupbox2.children[i1].Height := round(boundchildspc[i2].Height * ratio);
+          groupbox2.children[i1].left   := floor(boundchildspc[i2].left * ratio);
+          groupbox2.children[i1].top    := floor(boundchildspc[i2].top * ratio);
+          groupbox2.children[i1].Width  := floor(boundchildspc[i2].Width * ratio);
+          groupbox2.children[i1].Height := floor(boundchildspc[i2].Height * ratio);
         end;
 end;
 
