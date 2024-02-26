@@ -175,8 +175,8 @@ begin
 
   for x := 0 to list_files.rowCount - 1 do
     list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
-
-end;
+    
+ end;
 
 procedure tfilelistfo.ontimersent(const Sender: TObject);
 begin
@@ -191,7 +191,6 @@ begin
 
   for x := 0 to list_files.rowCount - 1 do
     list_files.fixcols[-1].captions[x] := msestring(IntToStr(x + 1));
-
 end;
 
 procedure tfilelistfo.onsent(const Sender: TObject);
@@ -543,7 +542,7 @@ end;
 
 procedure tfilelistfo.ondoc(const Sender: TObject);
 begin
-  resizefi(fontheightused);
+ resizefi(fontheightused);
 end;
 
 procedure tfilelistfo.onfloat(const Sender: TObject);
@@ -607,6 +606,7 @@ begin
         (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel5fo.Visible then
           dockpanel5fo.updatelayoutpan();
+                
     end;
   end;
 end;

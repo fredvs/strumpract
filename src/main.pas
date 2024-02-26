@@ -184,7 +184,7 @@ var
   maxheightfo: integer;
   norefresh: Boolean = False;
   thesender: integer;
-  fontheightused: integer = 15;
+  fontheightused: integer = 12;
 
 implementation
 
@@ -377,12 +377,11 @@ begin
   infosdfo.resizein(fontval);
   synthefo.resizesy(fontval);
   pianofo.resizepi(fontval);
-  filelistfo.resizefi(fontval);
   guitarsfo.resizegu(fontval);
   recorderfo.resizere(fontval);
   infosdfo2.resizein(fontval);
-  
   imagedancerfo.resizeda(fontval);
+  filelistfo.resizefi(fontval);
 
   paintslider();
 
@@ -741,15 +740,16 @@ begin
       equalizerforec.font.height := 10;
       
       filelistfo.font.name := 'stf_default' ;
-      filelistfo.font.height := floor(12*ratio);;
+      filelistfo.font.height := floor(13*ratio);;
       filelistfo.list_files.font.name := 'stf_default' ;
-      filelistfo.list_files.font.height := floor(12*ratio);;
+      filelistfo.list_files.font.height := fontheightused;
       
       filelistfo.list_files.rowfonts[0].name := 'stf_default' ;
-      filelistfo.list_files.rowfonts[0].height := floor(12*ratio);;
+      filelistfo.list_files.rowfonts[0].height := fontheightused;
+  
       filelistfo.list_files.rowfonts[1].name := 'stf_default' ;
-      filelistfo.list_files.rowfonts[1].height := floor(12*ratio);;
-      
+      filelistfo.list_files.rowfonts[1].height := fontheightused;
+          
       randomnotefo.font.name := 'stf_default' ;
       randomnotefo.font.height := 24;
       
@@ -8260,8 +8260,10 @@ begin
     
     imagedancerfo.windowopacity  := imagedancerfo.windowopacity + 0.1;
     {$ENDIF}
-    if windowopacity = 1 then
+    if windowopacity >= 1 then
+    begin
       ttimer1.Enabled := False;
+    end;  
 
   end;
 

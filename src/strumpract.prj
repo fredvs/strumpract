@@ -143,8 +143,12 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=BGRAAnimatedGif
+ value=list_files
  history=20
+  list_files
+  filelistfo
+  resizefi
+  list_files.font
   BGRAAnimatedGif
   loadimagetag
   brabitmap
@@ -161,10 +165,6 @@ findinfiledialog=83
   basschord
   message
   plugsoundtouch
-  soundtouch
-  edtempo
-  tmaskedbitmap
-  PimgPreview
  [findinfileadialogfo]
  stackedunder=
  x=210
@@ -1196,7 +1196,7 @@ line=35
  209
  1136
  6525
- 454
+ 453
  5
  839
  1518
@@ -1589,8 +1589,13 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=aimagepiano4oct
+finddtext=fontheightused
 findhistory=20
+ resiz
+ fontused
+ timercount
+ round(
+ resi
  TagReader
  stream
  .create
@@ -1598,7 +1603,6 @@ findhistory=20
  Image
  BEFOREFACEPLAYER
  floor
- round(
  floor(
  canvas
  onpaint
@@ -1607,10 +1611,6 @@ findhistory=20
  orange
  timertick.inter
  timertick
- timer
- ontim
- randomnotefo
- synthefo.
 findoptions=1
 editpos=1
  0,8
@@ -1655,13 +1655,13 @@ windowlayout=605
  ny=0
  ncx=0
  ncy=0
- x=80
- y=138
- cx=1428
- cy=724
+ x=0
+ y=24
+ cx=1600
+ cy=843
  rcx=0
  rcy=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [findmessagefo.findtext]
@@ -1691,7 +1691,7 @@ windowlayout=605
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1759,7 +1759,7 @@ windowlayout=605
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=objectinspectorfo
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
@@ -1785,7 +1785,7 @@ windowlayout=605
  x=0
  y=0
  cx=205
- cy=525
+ cy=622
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1796,7 +1796,7 @@ windowlayout=605
  sortdescend1=0
  sorted=0
  col=0
- row=8
+ row=5
  rowheight=19
  [stackfo]
  splitdir=0
@@ -1971,9 +1971,9 @@ windowlayout=605
  ncx=0
  ncy=0
  x=0
- y=591
- cx=1414
- cy=110
+ y=689
+ cx=1586
+ cy=131
  rcx=0
  rcy=0
  [componentstorefo]
@@ -2042,7 +2042,7 @@ windowlayout=605
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_mainfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -2072,8 +2072,8 @@ windowlayout=605
  ncy=0
  x=0
  y=0
- cx=1414
- cy=60
+ cx=1586
+ cy=61
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -2088,8 +2088,8 @@ windowlayout=605
  ncy=70
  x=0
  y=0
- cx=1414
- cy=70
+ cx=1586
+ cy=71
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2099,10 +2099,10 @@ windowlayout=605
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/infosd.pas
+ value=/home/fred/strumpract/src/configlayout.pas
  history=28
-  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgraanimatedgif.pas
   /home/fred/strumpract/src/infosd.pas
+  /home/fred/Downloads/bgrabitmap-dev-bgrabitmap/bgrabitmap/bgraanimatedgif.pas
   /home/fred/strumpract/src/uos.pas
   /home/fred/mse_test/maskedbitmap_to_bgrabitmap/maskedbitmaptobgrabitmap.pas
   /home/fred/strumpract/src/synthe.pas
@@ -2145,8 +2145,8 @@ windowlayout=605
  ncy=0
  x=208
  y=0
- cx=1206
- cy=525
+ cx=1378
+ cy=622
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2158,7 +2158,7 @@ windowlayout=605
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_equalizerfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -2185,15 +2185,15 @@ windowlayout=605
  ncx=0
  ncy=0
  x=0
- y=63
- cx=1414
- cy=525
+ y=64
+ cx=1586
+ cy=622
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=findinfilefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
