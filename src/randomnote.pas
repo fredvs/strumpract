@@ -6,7 +6,7 @@ unit randomnote;
 interface
 
 uses
- math,BGRABitmap, BGRABitmapTypes,  BGRAAnimatedGif,msetypes,mseglob,mseguiglob,
+ BGRABitmap, BGRABitmapTypes,  BGRAAnimatedGif,msetypes,mseglob,mseguiglob,
  mseguiintf,mseapplication,msestat,msetimer,msemenus,msegui,msegraphics,
  msegraphutils,mseevent,mseclasses,mseforms,msedock,msesimplewidgets,msewidgets,
  mseedit,msestatfile,msestream,SysUtils,mseact,msedataedits,msedropdownlist,
@@ -277,15 +277,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 68;
 
       // 2-2
-      gelipse1_3.top  := floor(74 * ratioheight);
+      gelipse1_3.top  := roundmath(74 * ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -294,15 +294,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 68;
 
       // 2-2
-      gelipse2_3.top  := floor(74 * ratioheight);
+      gelipse2_3.top  := roundmath(74 * ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -311,15 +311,15 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 68;
 
       // 2-2
-      gelipse3_3.top  := floor(74 * ratioheight);
+      gelipse3_3.top  := roundmath(74 * ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -327,15 +327,15 @@ begin
     else if num = 4 then
     begin
       // 4-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 48;
 
       // 3-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 68;
 
       // 2-2
-      gelipse4_3.top  := floor(74 * ratioheight);
+      gelipse4_3.top  := roundmath(74 * ratioheight);
       gelipse4_3.left := 88;
 
       guitar4.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -343,15 +343,15 @@ begin
     else if num = 5 then
     begin
       // 4-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 48;
 
       // 3-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 68;
 
       // 2-2
-      gelipse5_3.top  := floor(74 * ratioheight);
+      gelipse5_3.top  := roundmath(74 * ratioheight);
       gelipse5_3.left := 88;
 
       guitar5.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -364,15 +364,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 68;
 
       // 2-1
-      gelipse1_3.top  := floor(32 * ratioheight);
+      gelipse1_3.top  := roundmath(32 * ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -381,15 +381,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 68;
 
       // 2-1
-      gelipse2_3.top  := floor(32 * ratioheight);
+      gelipse2_3.top  := roundmath(32 * ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -398,15 +398,15 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 68;
 
       // 2-1
-      gelipse3_3.top  := floor(32 * ratioheight);
+      gelipse3_3.top  := roundmath(32 * ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -414,15 +414,15 @@ begin
     else if num = 4 then
     begin
       // 4-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 48;
 
       // 3-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 68;
 
       // 2-1
-      gelipse4_3.top  := floor(32 * ratioheight);
+      gelipse4_3.top  := roundmath(32 * ratioheight);
       gelipse4_3.left := 88;
 
       guitar4.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -430,15 +430,15 @@ begin
     else if num = 5 then
     begin
       // 4-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 48;
 
       // 3-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 68;
 
       // 2-1
-      gelipse5_3.top  := floor(32 * ratioheight);
+      gelipse5_3.top  := roundmath(32 * ratioheight);
       gelipse5_3.left := 88;
 
       guitar5.Text := ' X 0       0' + lineend + ' ══════════  0';
@@ -451,15 +451,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 68;
 
       // 2-2
-      gelipse1_3.top  := floor(74 * ratioheight);
+      gelipse1_3.top  := roundmath(74 * ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := '═X═0═══════0═ ' + lineend +
@@ -469,15 +469,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 68;
 
       // 2-2
-      gelipse2_3.top  := floor(74 * ratioheight);
+      gelipse2_3.top  := roundmath(74 * ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := '═X═0═══════0═ ' + lineend +
@@ -487,15 +487,15 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 68;
 
       // 2-2
-      gelipse3_3.top  := floor(74 * ratioheight);
+      gelipse3_3.top  := roundmath(74 * ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := '═X═0═══════0═ ' + lineend +
@@ -504,15 +504,15 @@ begin
     else if num = 4 then
     begin
       // 4-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 48;
 
       // 3-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 68;
 
       // 2-2
-      gelipse4_3.top  := floor(74 * ratioheight);
+      gelipse4_3.top  := roundmath(74 * ratioheight);
       gelipse4_3.left := 88;
 
       guitar4.Text := '═X═0═══════0═ ' + lineend +
@@ -521,15 +521,15 @@ begin
     else if num = 5 then
     begin
       // 4-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 48;
 
       // 3-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 68;
 
       // 2-2
-      gelipse5_3.top  := floor(74 * ratioheight);
+      gelipse5_3.top  := roundmath(74 * ratioheight);
       gelipse5_3.left := 88;
 
       guitar5.Text := '═X═0═══════0═ ' + lineend +
@@ -544,15 +544,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 68;
 
       // 2-1
-      gelipse1_3.top  := floor(32 * ratioheight);
+      gelipse1_3.top  := roundmath(32 * ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := '═X═0═══════0═ ' + lineend +
@@ -562,15 +562,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 68;
 
       // 2-1
-      gelipse2_3.top  := floor(32 * ratioheight);
+      gelipse2_3.top  := roundmath(32 * ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := '═X═0═══════0═ ' + lineend +
@@ -580,15 +580,15 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 68;
 
       // 2-1
-      gelipse3_3.top  := floor(32 * ratioheight);
+      gelipse3_3.top  := roundmath(32 * ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := '═X═0═══════0═ ' + lineend +
@@ -597,15 +597,15 @@ begin
     else if num = 4 then
     begin
       // 4-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 48;
 
       // 3-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 68;
 
       // 2-1
-      gelipse4_3.top  := floor(32 * ratioheight);
+      gelipse4_3.top  := roundmath(32 * ratioheight);
       gelipse4_3.left := 88;
 
       guitar4.Text := '═X═0═══════0═ ' + lineend +
@@ -619,15 +619,15 @@ begin
     if num = 1 then
     begin
       // 5-3
-      gelipse1_1.top  := floor(114 * ratioheight);
+      gelipse1_1.top  := roundmath(114 * ratioheight);
       gelipse1_1.left := 28;
 
       // 4-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 48;
 
       // 2-1
-      gelipse1_3.top  := floor(32 * ratioheight);
+      gelipse1_3.top  := roundmath(32 * ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := ' X         0' + lineend + ' ══════════  0';
@@ -636,15 +636,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := floor(114 * ratioheight);
+      gelipse2_1.top  := roundmath(114 * ratioheight);
       gelipse2_1.left := 28;
 
       // 4-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 48;
 
       // 2-1
-      gelipse2_3.top  := floor(32 * ratioheight);
+      gelipse2_3.top  := roundmath(32 * ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := ' X         0' + lineend + ' ══════════  0';
@@ -653,15 +653,15 @@ begin
     else if num = 3 then
     begin
 
-      gelipse3_1.top  := floor(114 * ratioheight);
+      gelipse3_1.top  := roundmath(114 * ratioheight);
       gelipse3_1.left := 28;
 
       // 4-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 48;
 
       // 2-1
-      gelipse3_3.top  := floor(32 * ratioheight);
+      gelipse3_3.top  := roundmath(32 * ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := ' X         0' + lineend + ' ══════════  0';
@@ -669,15 +669,15 @@ begin
     else if num = 4 then
     begin
 
-      gelipse4_1.top  := floor(114 * ratioheight);
+      gelipse4_1.top  := roundmath(114 * ratioheight);
       gelipse4_1.left := 28;
 
       // 4-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 48;
 
       // 2-1
-      gelipse4_3.top  := floor(32 * ratioheight);
+      gelipse4_3.top  := roundmath(32 * ratioheight);
       gelipse4_3.left := 88;
 
       guitar4.Text := ' X         0' + lineend + ' ══════════  0';
@@ -685,15 +685,15 @@ begin
     else if num = 5 then
     begin
 
-      gelipse5_1.top  := floor(114 * ratioheight);
+      gelipse5_1.top  := roundmath(114 * ratioheight);
       gelipse5_1.left := 28;
 
       // 4-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 48;
 
       // 2-1
-      gelipse5_3.top  := floor(32 * ratioheight);
+      gelipse5_3.top  := roundmath(32 * ratioheight);
       gelipse5_3.left := 88;
 
       guitar5.Text := ' X         0' + lineend + ' ══════════  0';
@@ -707,15 +707,15 @@ begin
     if num = 1 then
     begin
       // 4-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 48;
 
       // 3-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 68;
 
       // 2-1
-      gelipse1_3.top  := floor(32 * ratioheight);
+      gelipse1_3.top  := roundmath(32 * ratioheight);
       gelipse1_3.left := 88;
 
       guitar1.Text := '═X═0═══════0═' + lineend +
@@ -725,15 +725,15 @@ begin
     else if num = 2 then
     begin
       // 4-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 48;
 
       // 3-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 68;
 
       // 2-1
-      gelipse2_3.top  := floor(32 * ratioheight);
+      gelipse2_3.top  := roundmath(32 * ratioheight);
       gelipse2_3.left := 88;
 
       guitar2.Text := '═X═0═══════0═' + lineend +
@@ -743,15 +743,15 @@ begin
     else if num = 3 then
     begin
       // 4-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 48;
 
       // 3-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 68;
 
       // 2-1
-      gelipse3_3.top  := floor(32 * ratioheight);
+      gelipse3_3.top  := roundmath(32 * ratioheight);
       gelipse3_3.left := 88;
 
       guitar3.Text := '═X═0═══════0═' + lineend +
@@ -760,15 +760,15 @@ begin
     else if num = 4 then
     begin
       // 4-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 48;
 
       // 3-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 68;
 
       // 2-1
-      gelipse4_3.top  := floor(32 * ratioheight);
+      gelipse4_3.top  := roundmath(32 * ratioheight);
       gelipse4_3.left := 88;
 
       guitar4.Text := '═X═0═══════0═' + lineend +
@@ -777,15 +777,15 @@ begin
     else if num = 5 then
     begin
       // 4-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 48;
 
       // 3-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 68;
 
       // 2-1
-      gelipse5_3.top  := floor(32 * ratioheight);
+      gelipse5_3.top  := roundmath(32 * ratioheight);
       gelipse5_3.left := 88;
 
       guitar5.Text := '═X═0═══════0═' + lineend +
@@ -799,15 +799,15 @@ begin
     if num = 1 then
     begin
       // 3-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 68;
 
       // 2-3
-      gelipse1_2.top  := floor(116 * ratioheight);
+      gelipse1_2.top  := roundmath(116 * ratioheight);
       gelipse1_2.left := 90;
 
       // 2-1
-      gelipse1_3.top  := floor(74 * ratioheight);
+      gelipse1_3.top  := roundmath(74 * ratioheight);
       gelipse1_3.left := 108;
 
       guitar1.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -816,15 +816,15 @@ begin
     else if num = 2 then
     begin
       // 3-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 68;
 
       // 2-3
-      gelipse2_2.top  := floor(116 * ratioheight);
+      gelipse2_2.top  := roundmath(116 * ratioheight);
       gelipse2_2.left := 90;
 
       // 2-1
-      gelipse2_3.top  := floor(74 * ratioheight);
+      gelipse2_3.top  := roundmath(74 * ratioheight);
       gelipse2_3.left := 108;
 
       guitar2.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -833,15 +833,15 @@ begin
     else if num = 3 then
     begin
       // 3-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 68;
 
       // 2-3
-      gelipse3_2.top  := floor(116 * ratioheight);
+      gelipse3_2.top  := roundmath(116 * ratioheight);
       gelipse3_2.left := 90;
 
       // 2-1
-      gelipse3_3.top  := floor(74 * ratioheight);
+      gelipse3_3.top  := roundmath(74 * ratioheight);
       gelipse3_3.left := 108;
 
       guitar3.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -849,15 +849,15 @@ begin
     else if num = 4 then
     begin
       // 3-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 68;
 
       // 2-3
-      gelipse4_2.top  := floor(116 * ratioheight);
+      gelipse4_2.top  := roundmath(116 * ratioheight);
       gelipse4_2.left := 90;
 
       // 2-1
-      gelipse4_3.top  := floor(74 * ratioheight);
+      gelipse4_3.top  := roundmath(74 * ratioheight);
       gelipse4_3.left := 108;
 
       guitar4.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -865,15 +865,15 @@ begin
     else if num = 5 then
     begin
       // 3-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 68;
 
       // 2-3
-      gelipse5_2.top  := floor(116 * ratioheight);
+      gelipse5_2.top  := roundmath(116 * ratioheight);
       gelipse5_2.left := 90;
 
       // 2-1
-      gelipse5_3.top  := floor(74 * ratioheight);
+      gelipse5_3.top  := roundmath(74 * ratioheight);
       gelipse5_3.left := 108;
 
       guitar5.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -887,15 +887,15 @@ begin
     if num = 1 then
     begin
       // 3-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 68;
 
       // 2-3
-      gelipse1_2.top  := floor(116 * ratioheight);
+      gelipse1_2.top  := roundmath(116 * ratioheight);
       gelipse1_2.left := 90;
 
       // 2-1
-      gelipse1_3.top  := floor(32 * ratioheight);
+      gelipse1_3.top  := roundmath(32 * ratioheight);
       gelipse1_3.left := 108;
 
       guitar1.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -903,15 +903,15 @@ begin
     else if num = 2 then
     begin
       // 3-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 68;
 
       // 2-3
-      gelipse2_2.top  := floor(116 * ratioheight);
+      gelipse2_2.top  := roundmath(116 * ratioheight);
       gelipse2_2.left := 90;
 
       // 2-1
-      gelipse2_3.top  := floor(32 * ratioheight);
+      gelipse2_3.top  := roundmath(32 * ratioheight);
       gelipse2_3.left := 108;
 
       guitar2.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -920,15 +920,15 @@ begin
     else if num = 3 then
     begin
       // 3-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 68;
 
       // 2-3
-      gelipse3_2.top  := floor(116 * ratioheight);
+      gelipse3_2.top  := roundmath(116 * ratioheight);
       gelipse3_2.left := 90;
 
       // 2-1
-      gelipse3_3.top  := floor(32 * ratioheight);
+      gelipse3_3.top  := roundmath(32 * ratioheight);
       gelipse3_3.left := 108;
 
       guitar3.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -936,15 +936,15 @@ begin
     else if num = 4 then
     begin
       // 3-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 68;
 
       // 2-3
-      gelipse4_2.top  := floor(116 * ratioheight);
+      gelipse4_2.top  := roundmath(116 * ratioheight);
       gelipse4_2.left := 90;
 
       // 2-1
-      gelipse4_3.top  := floor(32 * ratioheight);
+      gelipse4_3.top  := roundmath(32 * ratioheight);
       gelipse4_3.left := 108;
 
       guitar4.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -952,15 +952,15 @@ begin
     else if num = 5 then
     begin
       // 3-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 68;
 
       // 2-3
-      gelipse5_2.top  := floor(116 * ratioheight);
+      gelipse5_2.top  := roundmath(116 * ratioheight);
       gelipse5_2.left := 90;
 
       // 2-1
-      gelipse5_3.top  := floor(32 * ratioheight);
+      gelipse5_3.top  := roundmath(32 * ratioheight);
       gelipse5_3.left := 108;
 
       guitar5.Text := ' X X 0      ' + lineend + ' ══════════  0';
@@ -973,15 +973,15 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 48;
 
       // 3-1
-      gelipse1_3.top  := floor(30 * ratioheight);
+      gelipse1_3.top  := roundmath(30 * ratioheight);
       gelipse1_3.left := 70;
 
       guitar1.Text := ' 0       0 0' + lineend + ' ══════════  0';
@@ -990,15 +990,15 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 48;
 
       // 3-1
-      gelipse2_3.top  := floor(30 * ratioheight);
+      gelipse2_3.top  := roundmath(30 * ratioheight);
       gelipse2_3.left := 70;
       ;
 
@@ -1008,15 +1008,15 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 48;
 
       // 3-1
-      gelipse3_3.top  := floor(30 * ratioheight);
+      gelipse3_3.top  := roundmath(30 * ratioheight);
       gelipse3_3.left := 70;
 
       guitar3.Text := ' 0       0 0' + lineend + ' ══════════  0';
@@ -1024,15 +1024,15 @@ begin
     else if num = 4 then
     begin
       // 5-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 26;
 
       // 4-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 48;
 
       // 3-1
-      gelipse4_3.top  := floor(30 * ratioheight);
+      gelipse4_3.top  := roundmath(30 * ratioheight);
       gelipse4_3.left := 70;
 
       guitar4.Text := ' 0       0 0' + lineend + ' ══════════  0';
@@ -1040,15 +1040,15 @@ begin
     else if num = 5 then
     begin
       // 5-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 26;
 
       // 4-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 48;
 
       // 3-1
-      gelipse5_3.top  := floor(30 * ratioheight);
+      gelipse5_3.top  := roundmath(30 * ratioheight);
       gelipse5_3.left := 70;
 
       guitar5.Text := ' 0       0 0' + lineend + ' ══════════  0';
@@ -1062,11 +1062,11 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 48;
 
       gelipse1_3.Visible := False;
@@ -1076,11 +1076,11 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 48;
 
       gelipse2_3.Visible := False;
@@ -1091,11 +1091,11 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 48;
 
       gelipse3_3.Visible := False;
@@ -1105,11 +1105,11 @@ begin
     else if num = 4 then
     begin
       // 5-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 26;
 
       // 4-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 48;
 
       gelipse4_3.Visible := False;
@@ -1119,11 +1119,11 @@ begin
     else if num = 5 then
     begin
       // 5-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 26;
 
       // 4-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 48;
 
       gelipse5_3.Visible := False;
@@ -1139,15 +1139,15 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 48;
 
       // 3-1
-      gelipse1_3.top  := floor(30 * ratioheight);
+      gelipse1_3.top  := roundmath(30 * ratioheight);
       gelipse1_3.left := 70;
 
       guitar1.Text := '═0═══════0═0═' + lineend +
@@ -1157,15 +1157,15 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 48;
 
       // 3-1
-      gelipse2_3.top  := floor(30 * ratioheight);
+      gelipse2_3.top  := roundmath(30 * ratioheight);
       gelipse2_3.left := 70;
       ;
 
@@ -1176,15 +1176,15 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 48;
 
       // 3-1
-      gelipse3_3.top  := floor(30 * ratioheight);
+      gelipse3_3.top  := roundmath(30 * ratioheight);
       gelipse3_3.left := 70;
 
       guitar3.Text := '═0═══════0═0═' + lineend +
@@ -1193,15 +1193,15 @@ begin
     else if num = 4 then
     begin
       // 5-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 26;
 
       // 4-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 48;
 
       // 3-1
-      gelipse4_3.top  := floor(30 * ratioheight);
+      gelipse4_3.top  := roundmath(30 * ratioheight);
       gelipse4_3.left := 70;
 
       guitar4.Text := '═0═══════0═0═' + lineend +
@@ -1210,15 +1210,15 @@ begin
     else if num = 5 then
     begin
       // 5-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 26;
 
       // 4-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 48;
 
       // 3-1
-      gelipse5_3.top  := floor(30 * ratioheight);
+      gelipse5_3.top  := roundmath(30 * ratioheight);
       gelipse5_3.left := 70;
 
       guitar5.Text := '═0═══════0═0═' + lineend +
@@ -1233,11 +1233,11 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 48;
 
       gelipse1_3.Visible := False;
@@ -1248,11 +1248,11 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 48;
 
       gelipse2_3.Visible := False;
@@ -1264,11 +1264,11 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 48;
 
       gelipse3_3.Visible := False;
@@ -1279,11 +1279,11 @@ begin
     else if num = 4 then
     begin
       // 5-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 26;
 
       // 4-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 48;
 
       gelipse4_3.Visible := False;
@@ -1294,11 +1294,11 @@ begin
     else if num = 5 then
     begin
       // 5-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 26;
 
       // 4-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 48;
 
       gelipse5_3.Visible := False;
@@ -1314,15 +1314,15 @@ begin
     if num = 1 then
     begin
       // 6-3
-      gelipse1_1.top  := floor(114 * ratioheight);
+      gelipse1_1.top  := roundmath(114 * ratioheight);
       gelipse1_1.left := 6;
 
       // 5-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 26;
 
       // 1-3
-      gelipse1_3.top  := floor(114 * ratioheight);
+      gelipse1_3.top  := roundmath(114 * ratioheight);
       gelipse1_3.left := 110;
 
       guitar1.Text := '     0 0 0   ' + lineend + ' ══════════  0';
@@ -1331,15 +1331,15 @@ begin
     else if num = 2 then
     begin
       // 6-3
-      gelipse2_1.top  := floor(114 * ratioheight);
+      gelipse2_1.top  := roundmath(114 * ratioheight);
       gelipse2_1.left := 6;
 
       // 5-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 26;
 
       // 1-3
-      gelipse2_3.top  := floor(114 * ratioheight);
+      gelipse2_3.top  := roundmath(114 * ratioheight);
       gelipse2_3.left := 110;
       guitar2.Text    := '     0 0 0   ' + lineend +
         ' ══════════  0';
@@ -1348,15 +1348,15 @@ begin
     else if num = 3 then
     begin
       // 6-3
-      gelipse3_1.top  := floor(114 * ratioheight);
+      gelipse3_1.top  := roundmath(114 * ratioheight);
       gelipse3_1.left := 6;
 
       // 5-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 26;
 
       // 1-3
-      gelipse3_3.top  := floor(114 * ratioheight);
+      gelipse3_3.top  := roundmath(114 * ratioheight);
       gelipse3_3.left := 110;
       guitar3.Text    := '     0 0 0   ' + lineend +
         ' ══════════  0';
@@ -1364,15 +1364,15 @@ begin
     else if num = 4 then
     begin
       // 6-3
-      gelipse4_1.top  := floor(114 * ratioheight);
+      gelipse4_1.top  := roundmath(114 * ratioheight);
       gelipse4_1.left := 6;
 
       // 5-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 26;
 
       // 1-3
-      gelipse4_3.top  := floor(114 * ratioheight);
+      gelipse4_3.top  := roundmath(114 * ratioheight);
       gelipse4_3.left := 110;
       guitar4.Text    := '     0 0 0   ' + lineend +
         ' ══════════  0';
@@ -1380,15 +1380,15 @@ begin
     else if num = 5 then
     begin
       // 6-3
-      gelipse5_1.top  := floor(114 * ratioheight);
+      gelipse5_1.top  := roundmath(114 * ratioheight);
       gelipse5_1.left := 6;
 
       // 5-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 26;
 
       // 1-3
-      gelipse5_3.top  := floor(114 * ratioheight);
+      gelipse5_3.top  := roundmath(114 * ratioheight);
       gelipse5_3.left := 110;
       guitar5.Text    := '     0 0 0   ' + lineend +
         ' ══════════  0';
@@ -1402,11 +1402,11 @@ begin
     if num = 1 then
     begin
       // 5-2
-      gelipse1_1.top  := floor(74 * ratioheight);
+      gelipse1_1.top  := roundmath(74 * ratioheight);
       gelipse1_1.left := 26;
 
       // 4-2
-      gelipse1_2.top  := floor(74 * ratioheight);
+      gelipse1_2.top  := roundmath(74 * ratioheight);
       gelipse1_2.left := 48;
 
       gelipse1_3.Visible := False;
@@ -1417,11 +1417,11 @@ begin
     else if num = 2 then
     begin
       // 5-2
-      gelipse2_1.top  := floor(74 * ratioheight);
+      gelipse2_1.top  := roundmath(74 * ratioheight);
       gelipse2_1.left := 26;
 
       // 4-2
-      gelipse2_2.top  := floor(74 * ratioheight);
+      gelipse2_2.top  := roundmath(74 * ratioheight);
       gelipse2_2.left := 48;
 
       gelipse2_3.Visible := False;
@@ -1433,11 +1433,11 @@ begin
     else if num = 3 then
     begin
       // 5-2
-      gelipse3_1.top  := floor(74 * ratioheight);
+      gelipse3_1.top  := roundmath(74 * ratioheight);
       gelipse3_1.left := 26;
 
       // 4-2
-      gelipse3_2.top  := floor(74 * ratioheight);
+      gelipse3_2.top  := roundmath(74 * ratioheight);
       gelipse3_2.left := 48;
 
       gelipse3_3.Visible := False;
@@ -1448,11 +1448,11 @@ begin
     else if num = 4 then
     begin
       // 5-2
-      gelipse4_1.top  := floor(74 * ratioheight);
+      gelipse4_1.top  := roundmath(74 * ratioheight);
       gelipse4_1.left := 26;
 
       // 4-2
-      gelipse4_2.top  := floor(74 * ratioheight);
+      gelipse4_2.top  := roundmath(74 * ratioheight);
       gelipse4_2.left := 48;
 
       gelipse4_3.Visible := False;
@@ -1463,11 +1463,11 @@ begin
     else if num = 5 then
     begin
       // 5-2
-      gelipse5_1.top  := floor(74 * ratioheight);
+      gelipse5_1.top  := roundmath(74 * ratioheight);
       gelipse5_1.left := 26;
 
       // 4-2
-      gelipse5_2.top  := floor(74 * ratioheight);
+      gelipse5_2.top  := roundmath(74 * ratioheight);
       gelipse5_2.left := 48;
 
       gelipse5_3.Visible := False;
@@ -1559,71 +1559,71 @@ begin
     if num = 1 then
     begin
       // la
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 136;
 
       // do# 2
-      elipse1_2.top  := floor(24 * ratioheight);
+      elipse1_2.top  := roundmath(24 * ratioheight);
       elipse1_2.left := 201;
 
       // mi 2
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 236;
     end
     else if num = 2 then
     begin
       // la
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 136;
 
       // do# 2
-      elipse2_2.top  := floor(24 * ratioheight);
+      elipse2_2.top  := roundmath(24 * ratioheight);
       elipse2_2.left := 201;
 
       // mi 2
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 240;
     end
     else if num = 3 then
     begin
       // la
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 136;
 
       // do# 2
-      elipse3_2.top  := floor(24 * ratioheight);
+      elipse3_2.top  := roundmath(24 * ratioheight);
       elipse3_2.left := 201;
 
       // mi 2
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 240;
     end
     else if num = 4 then
     begin
       // la
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 136;
 
       // do# 2
-      elipse4_2.top  := floor(24 * ratioheight);
+      elipse4_2.top  := roundmath(24 * ratioheight);
       elipse4_2.left := 201;
 
       // mi 2
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 240;
     end
     else if num = 5 then
     begin
       // la
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 136;
 
       // do# 2
-      elipse5_2.top  := floor(24 * ratioheight);
+      elipse5_2.top  := roundmath(24 * ratioheight);
       elipse5_2.left := 201;
 
       // mi 2
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 240;
     end;
 
@@ -1634,71 +1634,71 @@ begin
     if num = 1 then
     begin
       // la
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 136;
 
       // do 2
-      elipse1_2.top  := floor(96 * ratioheight);
+      elipse1_2.top  := roundmath(96 * ratioheight);
       elipse1_2.left := 188;
 
       // mi 2
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 236;
     end
     else if num = 2 then
     begin
       // la
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 136;
 
       // do 2
-      elipse2_2.top  := floor(96 * ratioheight);
+      elipse2_2.top  := roundmath(96 * ratioheight);
       elipse2_2.left := 188;
 
       // mi 2
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 240;
     end
     else if num = 3 then
     begin
       // la
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 136;
 
       // do 2
-      elipse3_2.top  := floor(96 * ratioheight);
+      elipse3_2.top  := roundmath(96 * ratioheight);
       elipse3_2.left := 188;
 
       // mi 2
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 240;
     end
     else if num = 4 then
     begin
       // la
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 136;
 
       // do 2
-      elipse4_2.top  := floor(96 * ratioheight);
+      elipse4_2.top  := roundmath(96 * ratioheight);
       elipse4_2.left := 188;
 
       // mi 2
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 240;
     end
     else if num = 5 then
     begin
       // la
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 136;
 
       // do 2
-      elipse5_2.top  := floor(96 * ratioheight);
+      elipse5_2.top  := roundmath(96 * ratioheight);
       elipse5_2.left := 188;
 
       // mi 2
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 240;
     end;
   end
@@ -1709,71 +1709,71 @@ begin
     if num = 1 then
     begin
       // fa#
-      elipse1_1.top  := floor(24 * ratioheight);
+      elipse1_1.top  := roundmath(24 * ratioheight);
       elipse1_1.left := 92;
 
       // si
-      elipse1_2.top  := floor(96 * ratioheight);
+      elipse1_2.top  := roundmath(96 * ratioheight);
       elipse1_2.left := 160;
 
       // ré# 2
-      elipse1_3.top  := floor(24 * ratioheight);
+      elipse1_3.top  := roundmath(24 * ratioheight);
       elipse1_3.left := 228;
     end
     else if num = 2 then
     begin
       // fa#
-      elipse2_1.top  := floor(24 * ratioheight);
+      elipse2_1.top  := roundmath(24 * ratioheight);
       elipse2_1.left := 92;
 
       // si
-      elipse2_2.top  := floor(96 * ratioheight);
+      elipse2_2.top  := roundmath(96 * ratioheight);
       elipse2_2.left := 160;
 
       // ré# 2
-      elipse2_3.top  := floor(24 * ratioheight);
+      elipse2_3.top  := roundmath(24 * ratioheight);
       elipse2_3.left := 228;
     end
     else if num = 3 then
     begin
       // fa#
-      elipse3_1.top  := floor(24 * ratioheight);
+      elipse3_1.top  := roundmath(24 * ratioheight);
       elipse3_1.left := 92;
 
       // si
-      elipse3_2.top  := floor(96 * ratioheight);
+      elipse3_2.top  := roundmath(96 * ratioheight);
       elipse3_2.left := 160;
 
       // ré# 2
-      elipse3_3.top  := floor(24 * ratioheight);
+      elipse3_3.top  := roundmath(24 * ratioheight);
       elipse3_3.left := 228;
     end
     else if num = 4 then
     begin
       // fa#
-      elipse4_1.top  := floor(24 * ratioheight);
+      elipse4_1.top  := roundmath(24 * ratioheight);
       elipse4_1.left := 92;
 
       // si
-      elipse4_2.top  := floor(96 * ratioheight);
+      elipse4_2.top  := roundmath(96 * ratioheight);
       elipse4_2.left := 160;
 
       // ré# 2
-      elipse4_3.top  := floor(24 * ratioheight);
+      elipse4_3.top  := roundmath(24 * ratioheight);
       elipse4_3.left := 228;
     end
     else if num = 5 then
     begin
       // fa#
-      elipse5_1.top  := floor(24 * ratioheight);
+      elipse5_1.top  := roundmath(24 * ratioheight);
       elipse5_1.left := 92;
 
       // si
-      elipse5_2.top  := floor(96 * ratioheight);
+      elipse5_2.top  := roundmath(96 * ratioheight);
       elipse5_2.left := 160;
 
       // ré# 2
-      elipse5_3.top  := floor(24 * ratioheight);
+      elipse5_3.top  := roundmath(24 * ratioheight);
       elipse5_3.left := 228;
     end;
 
@@ -1785,71 +1785,71 @@ begin
     if num = 1 then
     begin
       // fa#
-      elipse1_1.top  := floor(24 * ratioheight);
+      elipse1_1.top  := roundmath(24 * ratioheight);
       elipse1_1.left := 92;
 
       // si
-      elipse1_2.top  := floor(96 * ratioheight);
+      elipse1_2.top  := roundmath(96 * ratioheight);
       elipse1_2.left := 160;
 
       // ré 2
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 214;
     end
     else if num = 2 then
     begin
       // fa#
-      elipse2_1.top  := floor(24 * ratioheight);
+      elipse2_1.top  := roundmath(24 * ratioheight);
       elipse2_1.left := 92;
 
       // si
-      elipse2_2.top  := floor(96 * ratioheight);
+      elipse2_2.top  := roundmath(96 * ratioheight);
       elipse2_2.left := 160;
 
       // ré 2
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 214;
     end
     else if num = 3 then
     begin
       // fa#
-      elipse3_1.top  := floor(24 * ratioheight);
+      elipse3_1.top  := roundmath(24 * ratioheight);
       elipse3_1.left := 92;
 
       // si
-      elipse3_2.top  := floor(96 * ratioheight);
+      elipse3_2.top  := roundmath(96 * ratioheight);
       elipse3_2.left := 160;
 
       // ré 2
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 214;
     end
     else if num = 4 then
     begin
       // fa#
-      elipse4_1.top  := floor(24 * ratioheight);
+      elipse4_1.top  := roundmath(24 * ratioheight);
       elipse4_1.left := 92;
 
       // si
-      elipse4_2.top  := floor(96 * ratioheight);
+      elipse4_2.top  := roundmath(96 * ratioheight);
       elipse4_2.left := 160;
 
       // ré 2
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 214;
     end
     else if num = 5 then
     begin
       // fa#
-      elipse5_1.top  := floor(24 * ratioheight);
+      elipse5_1.top  := roundmath(24 * ratioheight);
       elipse5_1.left := 92;
 
       // si
-      elipse5_2.top  := floor(96 * ratioheight);
+      elipse5_2.top  := roundmath(96 * ratioheight);
       elipse5_2.left := 160;
 
       // ré 2
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 214;
     end;
 
@@ -1862,71 +1862,71 @@ begin
     if num = 1 then
     begin
       // do
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 0;
 
       // mi
-      elipse1_2.top  := floor(96 * ratioheight);
+      elipse1_2.top  := roundmath(96 * ratioheight);
       elipse1_2.left := 54;
 
       // sol
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 108;
     end
     else if num = 2 then
     begin
       // do
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 0;
 
       // mi
-      elipse2_2.top  := floor(96 * ratioheight);
+      elipse2_2.top  := roundmath(96 * ratioheight);
       elipse2_2.left := 54;
 
       // sol
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 108;
     end
     else if num = 3 then
     begin
       // do
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 0;
 
       // mi
-      elipse3_2.top  := floor(96 * ratioheight);
+      elipse3_2.top  := roundmath(96 * ratioheight);
       elipse3_2.left := 54;
 
       // sol
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 108;
     end
     else if num = 4 then
     begin
       // do
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 0;
 
       // mi
-      elipse4_2.top  := floor(96 * ratioheight);
+      elipse4_2.top  := roundmath(96 * ratioheight);
       elipse4_2.left := 54;
 
       // sol
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 108;
     end
     else if num = 5 then
     begin
       // do
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 0;
 
       // mi
-      elipse5_2.top  := floor(96 * ratioheight);
+      elipse5_2.top  := roundmath(96 * ratioheight);
       elipse5_2.left := 54;
 
       // sol
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 108;
     end;
 
@@ -1938,71 +1938,71 @@ begin
     if num = 1 then
     begin
       // do
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 0;
 
       // ré #
-      elipse1_2.top  := floor(24 * ratioheight);
+      elipse1_2.top  := roundmath(24 * ratioheight);
       elipse1_2.left := 40;
 
       // sol
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 108;
     end
     else if num = 2 then
     begin
       // do
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 0;
 
       // ré #
-      elipse2_2.top  := floor(24 * ratioheight);
+      elipse2_2.top  := roundmath(24 * ratioheight);
       elipse2_2.left := 40;
 
       // sol
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 108;
     end
     else if num = 3 then
     begin
       // do
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 0;
 
       // ré #
-      elipse3_2.top  := floor(24 * ratioheight);
+      elipse3_2.top  := roundmath(24 * ratioheight);
       elipse3_2.left := 40;
 
       // sol
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 108;
     end
     else if num = 4 then
     begin
       // do
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 0;
 
       // ré #
-      elipse4_2.top  := floor(24 * ratioheight);
+      elipse4_2.top  := roundmath(24 * ratioheight);
       elipse4_2.left := 40;
 
       // sol
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 108;
     end
     else if num = 5 then
     begin
       // do
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 0;
 
       // ré #
-      elipse5_2.top  := floor(24 * ratioheight);
+      elipse5_2.top  := roundmath(24 * ratioheight);
       elipse5_2.left := 40;
 
       // sol
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 108;
     end;
   end
@@ -2013,67 +2013,67 @@ begin
     // ré
     if num = 1 then
     begin
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 28;
 
       // fa #
-      elipse1_2.top  := floor(24 * ratioheight);
+      elipse1_2.top  := roundmath(24 * ratioheight);
       elipse1_2.left := 94;
 
       // la
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 134;
     end
     else if num = 2 then
     begin
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 28;
 
       // fa #
-      elipse2_2.top  := floor(24 * ratioheight);
+      elipse2_2.top  := roundmath(24 * ratioheight);
       elipse2_2.left := 94;
 
       // la
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 134;
     end
     else if num = 3 then
     begin
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 28;
 
       // fa #
-      elipse3_2.top  := floor(24 * ratioheight);
+      elipse3_2.top  := roundmath(24 * ratioheight);
       elipse3_2.left := 94;
 
       // la
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 134;
     end
     else if num = 4 then
     begin
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 28;
 
       // fa #
-      elipse4_2.top  := floor(24 * ratioheight);
+      elipse4_2.top  := roundmath(24 * ratioheight);
       elipse4_2.left := 94;
 
       // la
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 134;
     end
     else if num = 5 then
     begin
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 28;
 
       // fa #
-      elipse5_2.top  := floor(26 * ratioheight);
+      elipse5_2.top  := roundmath(26 * ratioheight);
       elipse5_2.left := 94;
 
       // la
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 134;
     end;
   end
@@ -2084,71 +2084,71 @@ begin
     if num = 1 then
     begin
       // ré
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 28;
 
       // fa
-      elipse1_2.top  := floor(96 * ratioheight);
+      elipse1_2.top  := roundmath(96 * ratioheight);
       elipse1_2.left := 80;
 
       // la
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 134;
     end
     else if num = 2 then
     begin
       // ré
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 28;
 
       // fa
-      elipse2_2.top  := floor(96 * ratioheight);
+      elipse2_2.top  := roundmath(96 * ratioheight);
       elipse2_2.left := 80;
 
       // la
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 134;
     end
     else if num = 3 then
     begin
       // ré
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 28;
 
       // fa
-      elipse3_2.top  := floor(96 * ratioheight);
+      elipse3_2.top  := roundmath(96 * ratioheight);
       elipse3_2.left := 80;
 
       // la
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 134;
     end
     else if num = 4 then
     begin
       // ré
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 28;
 
       // fa
-      elipse4_2.top  := floor(96 * ratioheight);
+      elipse4_2.top  := roundmath(96 * ratioheight);
       elipse4_2.left := 80;
 
       // la
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 134;
     end
     else if num = 5 then
     begin
       // ré
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 28;
 
       // fa
-      elipse5_2.top  := floor(96 * ratioheight);
+      elipse5_2.top  := roundmath(96 * ratioheight);
       elipse5_2.left := 80;
 
       // la
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 134;
     end;
 
@@ -2160,71 +2160,71 @@ begin
     if num = 1 then
     begin
       // mi
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 54;
 
       // sol #
-      elipse1_2.top  := floor(24 * ratioheight);
+      elipse1_2.top  := roundmath(24 * ratioheight);
       elipse1_2.left := 122;
 
       // si
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 162;
     end
     else if num = 2 then
     begin
       // mi
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 54;
 
       // sol #
-      elipse2_2.top  := floor(24 * ratioheight);
+      elipse2_2.top  := roundmath(24 * ratioheight);
       elipse2_2.left := 122;
 
       // si
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 162;
     end
     else if num = 3 then
     begin
       // mi
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 54;
 
       // sol #
-      elipse3_2.top  := floor(24 * ratioheight);
+      elipse3_2.top  := roundmath(24 * ratioheight);
       elipse3_2.left := 122;
 
       // si
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 162;
     end
     else if num = 4 then
     begin
       // mi
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 54;
 
       // sol #
-      elipse4_2.top  := floor(24 * ratioheight);
+      elipse4_2.top  := roundmath(24 * ratioheight);
       elipse4_2.left := 122;
 
       // si
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 162;
     end
     else if num = 5 then
     begin
       // mi
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 54;
 
       // sol #
-      elipse5_2.top  := floor(24 * ratioheight);
+      elipse5_2.top  := roundmath(24 * ratioheight);
       elipse5_2.left := 122;
 
       // si
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 162;
     end;
 
@@ -2236,67 +2236,67 @@ begin
     // mi
     if num = 1 then
     begin
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 54;
 
       // sol
-      elipse1_2.top  := floor(96 * ratioheight);
+      elipse1_2.top  := roundmath(96 * ratioheight);
       elipse1_2.left := 108;
 
       // si
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 162;
     end
     else if num = 2 then
     begin
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 54;
 
       // sol
-      elipse2_2.top  := floor(96 * ratioheight);
+      elipse2_2.top  := roundmath(96 * ratioheight);
       elipse2_2.left := 108;
 
       // si
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 162;
     end
     else if num = 3 then
     begin
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 54;
 
       // sol
-      elipse3_2.top  := floor(96 * ratioheight);
+      elipse3_2.top  := roundmath(96 * ratioheight);
       elipse3_2.left := 108;
 
       // si
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 162;
     end
     else if num = 4 then
     begin
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 54;
 
       // sol
-      elipse4_2.top  := floor(96 * ratioheight);
+      elipse4_2.top  := roundmath(96 * ratioheight);
       elipse4_2.left := 108;
 
       // si
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 162;
     end
     else if num = 5 then
     begin
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 54;
 
       // sol
-      elipse5_2.top  := floor(96 * ratioheight);
+      elipse5_2.top  := roundmath(96 * ratioheight);
       elipse5_2.left := 108;
 
       // si
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 162;
     end;
 
@@ -2308,71 +2308,71 @@ begin
     if num = 1 then
     begin
       // fa
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 80;
 
       // la
-      elipse1_2.top  := floor(96 * ratioheight);
+      elipse1_2.top  := roundmath(96 * ratioheight);
       elipse1_2.left := 134;
 
       // do 2
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 190;
     end
     else if num = 2 then
     begin
       // fa
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 80;
 
       // la
-      elipse2_2.top  := floor(96 * ratioheight);
+      elipse2_2.top  := roundmath(96 * ratioheight);
       elipse2_2.left := 134;
 
       // do 2
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 190;
     end
     else if num = 3 then
     begin
       // fa
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 80;
 
       // la
-      elipse3_2.top  := floor(96 * ratioheight);
+      elipse3_2.top  := roundmath(96 * ratioheight);
       elipse3_2.left := 134;
 
       // do 2
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 190;
     end
     else if num = 4 then
     begin
       // fa
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 80;
 
       // la
-      elipse4_2.top  := floor(96 * ratioheight);
+      elipse4_2.top  := roundmath(96 * ratioheight);
       elipse4_2.left := 134;
 
       // do 2
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 190;
     end
     else if num = 5 then
     begin
       // fa
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 80;
 
       // la
-      elipse5_2.top  := floor(96 * ratioheight);
+      elipse5_2.top  := roundmath(96 * ratioheight);
       elipse5_2.left := 134;
 
       // do 2
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 190;
     end;
 
@@ -2384,71 +2384,71 @@ begin
     if num = 1 then
     begin
       // fa
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 80;
 
       // la
-      elipse1_2.top  := floor(24 * ratioheight);
+      elipse1_2.top  := roundmath(24 * ratioheight);
       elipse1_2.left := 120;
 
       // do 2
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 190;
     end
     else if num = 2 then
     begin
       // fa
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 80;
 
       // la
-      elipse2_2.top  := floor(24 * ratioheight);
+      elipse2_2.top  := roundmath(24 * ratioheight);
       elipse2_2.left := 120;
 
       // do 2
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 190;
     end
     else if num = 3 then
     begin
       // fa
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 80;
 
       // la
-      elipse3_2.top  := floor(24 * ratioheight);
+      elipse3_2.top  := roundmath(24 * ratioheight);
       elipse3_2.left := 120;
 
       // do 2
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 190;
     end
     else if num = 4 then
     begin
       // fa
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 80;
 
       // la
-      elipse4_2.top  := floor(24 * ratioheight);
+      elipse4_2.top  := roundmath(24 * ratioheight);
       elipse4_2.left := 120;
 
       // do 2
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 190;
     end
     else if num = 5 then
     begin
       // fa
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 80;
 
       // la
-      elipse5_2.top  := floor(24 * ratioheight);
+      elipse5_2.top  := roundmath(24 * ratioheight);
       elipse5_2.left := 120;
 
       // do 2
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 190;
     end;
   end
@@ -2459,67 +2459,67 @@ begin
     // sol
     if num = 1 then
     begin
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 108;
 
       // si
-      elipse1_2.top  := floor(96 * ratioheight);
+      elipse1_2.top  := roundmath(96 * ratioheight);
       elipse1_2.left := 160;
 
       // ré 2
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 218;
     end
     else if num = 2 then
     begin
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 108;
 
       // si
-      elipse2_2.top  := floor(96 * ratioheight);
+      elipse2_2.top  := roundmath(96 * ratioheight);
       elipse2_2.left := 160;
 
       // ré 2
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 218;
     end
     else if num = 3 then
     begin
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 108;
 
       // si
-      elipse3_2.top  := floor(96 * ratioheight);
+      elipse3_2.top  := roundmath(96 * ratioheight);
       elipse3_2.left := 160;
 
       // ré 2
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 218;
     end
     else if num = 4 then
     begin
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 108;
 
       // si
-      elipse4_2.top  := floor(96 * ratioheight);
+      elipse4_2.top  := roundmath(96 * ratioheight);
       elipse4_2.left := 160;
 
       // ré 2
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 218;
     end
     else if num = 5 then
     begin
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 108;
 
       // si
-      elipse5_2.top  := floor(96 * ratioheight);
+      elipse5_2.top  := roundmath(96 * ratioheight);
       elipse5_2.left := 160;
 
       // ré 2
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 218;
     end;
 
@@ -2531,71 +2531,71 @@ begin
     if num = 1 then
     begin
       // sol
-      elipse1_1.top  := floor(96 * ratioheight);
+      elipse1_1.top  := roundmath(96 * ratioheight);
       elipse1_1.left := 108;
 
       // la#
-      elipse1_2.top  := floor(24 * ratioheight);
+      elipse1_2.top  := roundmath(24 * ratioheight);
       elipse1_2.left := 148;
 
       // ré 2
-      elipse1_3.top  := floor(96 * ratioheight);
+      elipse1_3.top  := roundmath(96 * ratioheight);
       elipse1_3.left := 218;
     end
     else if num = 2 then
     begin
       // sol
-      elipse2_1.top  := floor(96 * ratioheight);
+      elipse2_1.top  := roundmath(96 * ratioheight);
       elipse2_1.left := 108;
 
       // la#
-      elipse2_2.top  := floor(24 * ratioheight);
+      elipse2_2.top  := roundmath(24 * ratioheight);
       elipse2_2.left := 148;
 
       // ré 2
-      elipse2_3.top  := floor(96 * ratioheight);
+      elipse2_3.top  := roundmath(96 * ratioheight);
       elipse2_3.left := 218;
     end
     else if num = 3 then
     begin
       // sol
-      elipse3_1.top  := floor(96 * ratioheight);
+      elipse3_1.top  := roundmath(96 * ratioheight);
       elipse3_1.left := 108;
 
       // la#
-      elipse3_2.top  := floor(24 * ratioheight);
+      elipse3_2.top  := roundmath(24 * ratioheight);
       elipse3_2.left := 148;
 
       // ré 2
-      elipse3_3.top  := floor(96 * ratioheight);
+      elipse3_3.top  := roundmath(96 * ratioheight);
       elipse3_3.left := 218;
     end
     else if num = 4 then
     begin
       // sol
-      elipse4_1.top  := floor(96 * ratioheight);
+      elipse4_1.top  := roundmath(96 * ratioheight);
       elipse4_1.left := 108;
 
       // la#
-      elipse4_2.top  := floor(24 * ratioheight);
+      elipse4_2.top  := roundmath(24 * ratioheight);
       elipse4_2.left := 148;
 
       // ré 2
-      elipse4_3.top  := floor(96 * ratioheight);
+      elipse4_3.top  := roundmath(96 * ratioheight);
       elipse4_3.left := 218;
     end
     else if num = 5 then
     begin
       // sol
-      elipse5_1.top  := floor(96 * ratioheight);
+      elipse5_1.top  := roundmath(96 * ratioheight);
       elipse5_1.left := 108;
 
       // la#
-      elipse5_2.top  := floor(24 * ratioheight);
+      elipse5_2.top  := roundmath(24 * ratioheight);
       elipse5_2.left := 148;
 
       // ré 2
-      elipse5_3.top  := floor(96 * ratioheight);
+      elipse5_3.top  := roundmath(96 * ratioheight);
       elipse5_3.left := 218;
     end;
   end
@@ -2658,7 +2658,7 @@ begin
     if num = 1 then
     begin
       // la
-      belipse1_1.top  := floor(130 * ratioheight);
+      belipse1_1.top  := roundmath(130 * ratioheight);
       belipse1_1.left := 10;
 
       // do# 2
@@ -2672,7 +2672,7 @@ begin
     else if num = 2 then
     begin
       // la
-      belipse2_1.top  := floor(130 * ratioheight);
+      belipse2_1.top  := roundmath(130 * ratioheight);
       belipse2_1.left := 10;
 
       // do# 2
@@ -2686,7 +2686,7 @@ begin
     else if num = 3 then
     begin
       // la
-      belipse3_1.top  := floor(130 * ratioheight);
+      belipse3_1.top  := roundmath(130 * ratioheight);
       belipse3_1.left := 10;
 
       // do# 2
@@ -2700,7 +2700,7 @@ begin
     else if num = 4 then
     begin
       // la
-      belipse4_1.top  := floor(130 * ratioheight);
+      belipse4_1.top  := roundmath(130 * ratioheight);
       belipse4_1.left := 10;
 
       // do# 2
@@ -2714,7 +2714,7 @@ begin
     else if num = 5 then
     begin
       // la
-      belipse5_1.top  := floor(130 * ratioheight);
+      belipse5_1.top  := roundmath(130 * ratioheight);
       belipse5_1.left := 10;
 
       // do# 2
@@ -2733,7 +2733,7 @@ begin
     if num = 1 then
     begin
       // la
-      belipse1_1.top  := floor(130 * ratioheight);
+      belipse1_1.top  := roundmath(130 * ratioheight);
       belipse1_1.left := 10;
 
       // do 2
@@ -2747,7 +2747,7 @@ begin
     else if num = 2 then
     begin
       // la
-      belipse2_1.top  := floor(130 * ratioheight);
+      belipse2_1.top  := roundmath(130 * ratioheight);
       belipse2_1.left := 10;
 
       // do 2
@@ -2761,7 +2761,7 @@ begin
     else if num = 3 then
     begin
       // la
-      belipse3_1.top  := floor(130 * ratioheight);
+      belipse3_1.top  := roundmath(130 * ratioheight);
       belipse3_1.left := 10;
 
       // do 2
@@ -2775,7 +2775,7 @@ begin
     else if num = 4 then
     begin
       // la
-      belipse4_1.top  := floor(130 * ratioheight);
+      belipse4_1.top  := roundmath(130 * ratioheight);
       belipse4_1.left := 10;
 
       // do 2
@@ -2789,7 +2789,7 @@ begin
     else if num = 5 then
     begin
       // la
-      belipse5_1.top  := floor(130 * ratioheight);
+      belipse5_1.top  := roundmath(130 * ratioheight);
       belipse5_1.left := 10;
 
       // do 2
@@ -2808,7 +2808,7 @@ begin
     if num = 1 then
     begin
       // fa#
-      belipse1_1.top  := floor(42 * ratioheight);
+      belipse1_1.top  := roundmath(42 * ratioheight);
       belipse1_1.left := 38;
 
       // si
@@ -2822,7 +2822,7 @@ begin
     else if num = 2 then
     begin
       // fa#
-      belipse2_1.top  := floor(42 * ratioheight);
+      belipse2_1.top  := roundmath(42 * ratioheight);
       belipse2_1.left := 38;
 
       // si
@@ -2836,7 +2836,7 @@ begin
     else if num = 3 then
     begin
       // fa#
-      belipse3_1.top  := floor(42 * ratioheight);
+      belipse3_1.top  := roundmath(42 * ratioheight);
       belipse3_1.left := 38;
 
       // si
@@ -2850,7 +2850,7 @@ begin
     else if num = 4 then
     begin
       // fa#
-      belipse4_1.top  := floor(42 * ratioheight);
+      belipse4_1.top  := roundmath(42 * ratioheight);
       belipse4_1.left := 38;
 
       // si
@@ -2864,7 +2864,7 @@ begin
     else if num = 5 then
     begin
       // fa#
-      belipse5_1.top  := floor(42 * ratioheight);
+      belipse5_1.top  := roundmath(42 * ratioheight);
       belipse5_1.left := 38;
 
       // si
@@ -2884,7 +2884,7 @@ begin
     if num = 1 then
     begin
       // fa#
-      belipse1_1.top  := floor(42 * ratioheight);
+      belipse1_1.top  := roundmath(42 * ratioheight);
       belipse1_1.left := 38;
 
       // si
@@ -2898,7 +2898,7 @@ begin
     else if num = 2 then
     begin
       // fa#
-      belipse2_1.top  := floor(42 * ratioheight);
+      belipse2_1.top  := roundmath(42 * ratioheight);
       belipse2_1.left := 38;
 
       // si
@@ -2912,7 +2912,7 @@ begin
     else if num = 3 then
     begin
       // fa#
-      belipse3_1.top  := floor(42 * ratioheight);
+      belipse3_1.top  := roundmath(42 * ratioheight);
       belipse3_1.left := 38;
 
       // si
@@ -2926,7 +2926,7 @@ begin
     else if num = 4 then
     begin
       // fa#
-      belipse4_1.top  := floor(42 * ratioheight);
+      belipse4_1.top  := roundmath(42 * ratioheight);
       belipse4_1.left := 38;
 
       // si
@@ -2940,7 +2940,7 @@ begin
     else if num = 5 then
     begin
       // fa#
-      belipse5_1.top  := floor(42 * ratioheight);
+      belipse5_1.top  := roundmath(42 * ratioheight);
       belipse5_1.left := 38;
 
       // si
@@ -2960,7 +2960,7 @@ begin
     if num = 1 then
     begin
       // do
-      belipse1_1.top  := floor(74 * ratioheight);
+      belipse1_1.top  := roundmath(74 * ratioheight);
       belipse1_1.left := 38;
 
       // mi
@@ -2974,7 +2974,7 @@ begin
     else if num = 2 then
     begin
       // do
-      belipse2_1.top  := floor(74 * ratioheight);
+      belipse2_1.top  := roundmath(74 * ratioheight);
       belipse2_1.left := 38;
 
       // mi
@@ -2988,7 +2988,7 @@ begin
     else if num = 3 then
     begin
       // do
-      belipse3_1.top  := floor(74 * ratioheight);
+      belipse3_1.top  := roundmath(74 * ratioheight);
       belipse3_1.left := 38;
 
       // mi
@@ -3002,7 +3002,7 @@ begin
     else if num = 4 then
     begin
       // do
-      belipse4_1.top  := floor(74 * ratioheight);
+      belipse4_1.top  := roundmath(74 * ratioheight);
       belipse4_1.left := 38;
 
       // mi
@@ -3016,7 +3016,7 @@ begin
     else if num = 5 then
     begin
       // do
-      belipse5_1.top  := floor(74 * ratioheight);
+      belipse5_1.top  := roundmath(74 * ratioheight);
       belipse5_1.left := 38;
 
       // mi
@@ -3036,7 +3036,7 @@ begin
     if num = 1 then
     begin
       // do
-      belipse1_1.top  := floor(74 * ratioheight);
+      belipse1_1.top  := roundmath(74 * ratioheight);
       belipse1_1.left := 38;
 
       // ré #
@@ -3050,7 +3050,7 @@ begin
     else if num = 2 then
     begin
       // do
-      belipse2_1.top  := floor(74 * ratioheight);
+      belipse2_1.top  := roundmath(74 * ratioheight);
       belipse2_1.left := 38;
 
       // ré #
@@ -3064,7 +3064,7 @@ begin
     else if num = 3 then
     begin
       // do
-      belipse3_1.top  := floor(74 * ratioheight);
+      belipse3_1.top  := roundmath(74 * ratioheight);
       belipse3_1.left := 38;
 
       // ré #
@@ -3078,7 +3078,7 @@ begin
     else if num = 4 then
     begin
       // do
-      belipse4_1.top  := floor(74 * ratioheight);
+      belipse4_1.top  := roundmath(74 * ratioheight);
       belipse4_1.left := 38;
 
       // ré #
@@ -3092,7 +3092,7 @@ begin
     else if num = 5 then
     begin
       // do
-      belipse5_1.top  := floor(74 * ratioheight);
+      belipse5_1.top  := roundmath(74 * ratioheight);
       belipse5_1.left := 38;
 
       // ré #
@@ -3111,7 +3111,7 @@ begin
     // ré
     if num = 1 then
     begin
-      belipse1_1.top  := floor(128 * ratioheight);
+      belipse1_1.top  := roundmath(128 * ratioheight);
       belipse1_1.left := 36;
 
       // fa #
@@ -3124,7 +3124,7 @@ begin
     end
     else if num = 2 then
     begin
-      belipse2_1.top  := floor(128 * ratioheight);
+      belipse2_1.top  := roundmath(128 * ratioheight);
       belipse2_1.left := 36;
 
       // fa #
@@ -3137,7 +3137,7 @@ begin
     end
     else if num = 3 then
     begin
-      belipse3_1.top  := floor(128 * ratioheight);
+      belipse3_1.top  := roundmath(128 * ratioheight);
       belipse3_1.left := 36;
 
       // fa #
@@ -3150,7 +3150,7 @@ begin
     end
     else if num = 4 then
     begin
-      belipse4_1.top  := floor(128 * ratioheight);
+      belipse4_1.top  := roundmath(128 * ratioheight);
       belipse4_1.left := 36;
 
       // fa #
@@ -3163,7 +3163,7 @@ begin
     end
     else if num = 5 then
     begin
-      belipse5_1.top  := floor(128 * ratioheight);
+      belipse5_1.top  := roundmath(128 * ratioheight);
       belipse5_1.left := 36;
 
       // fa #
@@ -3182,7 +3182,7 @@ begin
     if num = 1 then
     begin
       // ré
-      belipse1_1.top  := floor(128 * ratioheight);
+      belipse1_1.top  := roundmath(128 * ratioheight);
       belipse1_1.left := 36;
 
       // fa
@@ -3196,7 +3196,7 @@ begin
     else if num = 2 then
     begin
       // ré
-      belipse2_1.top  := floor(128 * ratioheight);
+      belipse2_1.top  := roundmath(128 * ratioheight);
       belipse2_1.left := 36;
 
       // fa
@@ -3210,7 +3210,7 @@ begin
     else if num = 3 then
     begin
       // ré
-      belipse3_1.top  := floor(128 * ratioheight);
+      belipse3_1.top  := roundmath(128 * ratioheight);
       belipse3_1.left := 36;
 
       // fa
@@ -3224,7 +3224,7 @@ begin
     else if num = 4 then
     begin
       // ré
-      belipse4_1.top  := floor(128 * ratioheight);
+      belipse4_1.top  := roundmath(128 * ratioheight);
       belipse4_1.left := 36;
 
       // fa
@@ -3238,7 +3238,7 @@ begin
     else if num = 5 then
     begin
       // ré
-      belipse5_1.top  := floor(128 * ratioheight);
+      belipse5_1.top  := roundmath(128 * ratioheight);
       belipse5_1.left := 36;
 
       // fa
@@ -3257,7 +3257,7 @@ begin
     if num = 1 then
     begin
       // mi
-      belipse1_1.top  := floor(42 * ratioheight);
+      belipse1_1.top  := roundmath(42 * ratioheight);
       belipse1_1.left := 68;
 
       // sol #
@@ -3271,7 +3271,7 @@ begin
     else if num = 2 then
     begin
       // mi
-      belipse2_1.top  := floor(42 * ratioheight);
+      belipse2_1.top  := roundmath(42 * ratioheight);
       belipse2_1.left := 68;
 
       // sol #
@@ -3285,7 +3285,7 @@ begin
     else if num = 3 then
     begin
       // mi
-      belipse3_1.top  := floor(42 * ratioheight);
+      belipse3_1.top  := roundmath(42 * ratioheight);
       belipse3_1.left := 68;
 
       // sol #
@@ -3299,7 +3299,7 @@ begin
     else if num = 4 then
     begin
       // mi
-      belipse4_1.top  := floor(42 * ratioheight);
+      belipse4_1.top  := roundmath(42 * ratioheight);
       belipse4_1.left := 68;
 
       // sol #
@@ -3313,7 +3313,7 @@ begin
     else if num = 5 then
     begin
       // mi
-      belipse5_1.top  := floor(42 * ratioheight);
+      belipse5_1.top  := roundmath(42 * ratioheight);
       belipse5_1.left := 68;
 
       // sol #
@@ -3333,7 +3333,7 @@ begin
     // mi
     if num = 1 then
     begin
-      belipse1_1.top  := floor(42 * ratioheight);
+      belipse1_1.top  := roundmath(42 * ratioheight);
       belipse1_1.left := 68;
 
       // sol
@@ -3346,7 +3346,7 @@ begin
     end
     else if num = 2 then
     begin
-      belipse2_1.top  := floor(42 * ratioheight);
+      belipse2_1.top  := roundmath(42 * ratioheight);
       belipse2_1.left := 68;
 
       // sol
@@ -3359,7 +3359,7 @@ begin
     end
     else if num = 3 then
     begin
-      belipse3_1.top  := floor(42 * ratioheight);
+      belipse3_1.top  := roundmath(42 * ratioheight);
       belipse3_1.left := 68;
 
       // sol
@@ -3372,7 +3372,7 @@ begin
     end
     else if num = 4 then
     begin
-      belipse4_1.top  := floor(42 * ratioheight);
+      belipse4_1.top  := roundmath(42 * ratioheight);
       belipse4_1.left := 68;
 
       // sol
@@ -3385,7 +3385,7 @@ begin
     end
     else if num = 5 then
     begin
-      belipse5_1.top  := floor(42 * ratioheight);
+      belipse5_1.top  := roundmath(42 * ratioheight);
       belipse5_1.left := 68;
 
       // sol
@@ -3405,7 +3405,7 @@ begin
     if num = 1 then
     begin
       // fa
-      belipse1_1.top  := floor(8 * ratioheight);
+      belipse1_1.top  := roundmath(8 * ratioheight);
       belipse1_1.left := 12;
 
       // la
@@ -3419,7 +3419,7 @@ begin
     else if num = 2 then
     begin
       // fa
-      belipse2_1.top  := floor(8 * ratioheight);
+      belipse2_1.top  := roundmath(8 * ratioheight);
       belipse2_1.left := 12;
 
       // la
@@ -3433,7 +3433,7 @@ begin
     else if num = 3 then
     begin
       // fa
-      belipse3_1.top  := floor(8 * ratioheight);
+      belipse3_1.top  := roundmath(8 * ratioheight);
       belipse3_1.left := 12;
 
       // la
@@ -3447,7 +3447,7 @@ begin
     else if num = 4 then
     begin
       // fa
-      belipse4_1.top  := floor(8 * ratioheight);
+      belipse4_1.top  := roundmath(8 * ratioheight);
       belipse4_1.left := 12;
 
       // la
@@ -3461,7 +3461,7 @@ begin
     else if num = 5 then
     begin
       // fa
-      belipse5_1.top  := floor(8 * ratioheight);
+      belipse5_1.top  := roundmath(8 * ratioheight);
       belipse5_1.left := 12;
 
       // la
@@ -3481,7 +3481,7 @@ begin
     if num = 1 then
     begin
       // fa
-      belipse1_1.top  := floor(8 * ratioheight);
+      belipse1_1.top  := roundmath(8 * ratioheight);
       belipse1_1.left := 12;
 
       // la
@@ -3495,7 +3495,7 @@ begin
     else if num = 2 then
     begin
       // fa
-      belipse2_1.top  := floor(8 * ratioheight);
+      belipse2_1.top  := roundmath(8 * ratioheight);
       belipse2_1.left := 12;
 
       // la
@@ -3509,7 +3509,7 @@ begin
     else if num = 3 then
     begin
       // fa
-      belipse3_1.top  := floor(8 * ratioheight);
+      belipse3_1.top  := roundmath(8 * ratioheight);
       belipse3_1.left := 12;
 
       // la
@@ -3523,7 +3523,7 @@ begin
     else if num = 4 then
     begin
       // fa
-      belipse4_1.top  := floor(8 * ratioheight);
+      belipse4_1.top  := roundmath(8 * ratioheight);
       belipse4_1.left := 12;
 
       // la
@@ -3537,7 +3537,7 @@ begin
     else if num = 5 then
     begin
       // fa
-      belipse5_1.top  := floor(8 * ratioheight);
+      belipse5_1.top  := roundmath(8 * ratioheight);
       belipse5_1.left := 12;
 
       // la
@@ -3556,7 +3556,7 @@ begin
     // sol
     if num = 1 then
     begin
-      belipse1_1.top  := floor(74 * ratioheight);
+      belipse1_1.top  := roundmath(74 * ratioheight);
       belipse1_1.left := 10;
 
       // si
@@ -3569,7 +3569,7 @@ begin
     end
     else if num = 2 then
     begin
-      belipse2_1.top  := floor(74 * ratioheight);
+      belipse2_1.top  := roundmath(74 * ratioheight);
       belipse2_1.left := 10;
 
       // si
@@ -3582,7 +3582,7 @@ begin
     end
     else if num = 3 then
     begin
-      belipse3_1.top  := floor(74 * ratioheight);
+      belipse3_1.top  := roundmath(74 * ratioheight);
       belipse3_1.left := 10;
 
       // si
@@ -3595,7 +3595,7 @@ begin
     end
     else if num = 4 then
     begin
-      belipse4_1.top  := floor(74 * ratioheight);
+      belipse4_1.top  := roundmath(74 * ratioheight);
       belipse4_1.left := 10;
 
       // si
@@ -3608,7 +3608,7 @@ begin
     end
     else if num = 5 then
     begin
-      belipse5_1.top  := floor(74 * ratioheight);
+      belipse5_1.top  := roundmath(74 * ratioheight);
       belipse5_1.left := 10;
 
       // si
@@ -3628,7 +3628,7 @@ begin
     if num = 1 then
     begin
       // sol
-      belipse1_1.top  := floor(74 * ratioheight);
+      belipse1_1.top  := roundmath(74 * ratioheight);
       belipse1_1.left := 10;
 
       // la#
@@ -3642,7 +3642,7 @@ begin
     else if num = 2 then
     begin
       // sol
-      belipse2_1.top  := floor(74 * ratioheight);
+      belipse2_1.top  := roundmath(74 * ratioheight);
       belipse2_1.left := 10;
 
       // la#
@@ -3656,7 +3656,7 @@ begin
     else if num = 3 then
     begin
       // sol
-      belipse3_1.top  := floor(74 * ratioheight);
+      belipse3_1.top  := roundmath(74 * ratioheight);
       belipse3_1.left := 10;
 
       // la#
@@ -3670,7 +3670,7 @@ begin
     else if num = 4 then
     begin
       // sol
-      belipse4_1.top  := floor(74 * ratioheight);
+      belipse4_1.top  := roundmath(74 * ratioheight);
       belipse4_1.left := 10;
 
       // la#
@@ -3684,7 +3684,7 @@ begin
     else if num = 5 then
     begin
       // sol
-      belipse5_1.top  := floor(74 * ratioheight);
+      belipse5_1.top  := roundmath(74 * ratioheight);
       belipse5_1.left := 10;
 
       // la#
@@ -4491,7 +4491,7 @@ begin
   drumsfo.dragdock.float();
   drumsfo.Visible := True;
   bpm.Visible     := True;
-  bpm.Value       := floor(drumsfo.edittempo.Value / 2);
+  bpm.Value       := roundmath(drumsfo.edittempo.Value / 2);
   if chordsonly.tag = 0 then
     refreshform(Sender);
 end;

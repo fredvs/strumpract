@@ -13,7 +13,7 @@ unit msecolordialog;
 
 interface
 uses
- math,msegui,mseclasses,mseforms,msegraphedits,msewidgets,msesimplewidgets,
+ msegui,mseclasses,mseforms,msegraphedits,msewidgets,msesimplewidgets,
  msedataedits,msegraphics,mseglob,mseguiglob,msedialog,classes,mclasses,
  msetypes,msedropdownlist,msegrids,msestrings,mseedit,msestat,msestatfile,
  msegraphutils,msemenus,mseevent,mseificomp,mseificompglob,mseifiglob,
@@ -213,6 +213,22 @@ type
               const aowner: tgridarrayprop;
                 const acontroller: tcustomdropdownlistcontroller); override;
  end;
+ 
+function RoundMath(aV:double):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end;
+
+function RoundMath(aV:single):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end; 
 
 function colordialog(var acolor: colorty;
                       const aoncolorchange: coloreventty = nil;
@@ -635,19 +651,19 @@ end;
 procedure tcolordialogfo.hueonsetvalue(const sender: TObject;
                                var avalue: realty; var accept: Boolean);
 begin
- hue.value:= floor(avalue * 360);
+ hue.value:= roundmath(avalue * 360);
 end;
 
 procedure tcolordialogfo.satonsetvalue(const sender: TObject;
                                var avalue: realty; var accept: Boolean);
 begin
- sat.value:= floor(avalue * 100);
+ sat.value:= roundmath(avalue * 100);
 end;
 
 procedure tcolordialogfo.brightonsetvalue(const sender: TObject;
                                var avalue: realty; var accept: Boolean);
 begin
- bright.value:= floor(avalue * 100);
+ bright.value:= roundmath(avalue * 100);
 end;
 
 procedure tcolordialogfo.hsbchange(const sender: TObject);
@@ -693,9 +709,9 @@ begin
    end;
   end;
  end;
- r1:= floor(r*255/60);
- g1:= floor(g*255/60);
- b1:= floor(b*255/60);
+ r1:= roundmath(r*255/60);
+ g1:= roundmath(g*255/60);
+ b1:= roundmath(b*255/60);
  slidersat.scrollbar.face.fade_color[1]:= rgbtocolor(r1,g1,b1);
  rea1:= sat.value / 100;
  rea2:= 1-rea1;
@@ -703,9 +719,9 @@ begin
  r:= r * rea1 + rea2;
  g:= g * rea1 + rea2;
  b:= b * rea1 + rea2;
- r1:= floor(r*255);
- g1:= floor(g*255);
- b1:= floor(b*255);
+ r1:= roundmath(r*255);
+ g1:= roundmath(g*255);
+ b1:= roundmath(b*255);
  sliderbright.scrollbar.face.fade_color[1]:= rgbtocolor(r1,g1,b1);
  rea1:= bright.value / 100;
  r:= r*rea1;
@@ -716,9 +732,9 @@ begin
  sliderbright.value:= bright.value/100;
  if not fupdating then begin
   fupdating:= true;
-  red.value:= floor(r*255);
-  green.value:= floor(g*255);
-  blue.value:= floor(b*255);
+  red.value:= roundmath(r*255);
+  green.value:= roundmath(g*255);
+  blue.value:= roundmath(b*255);
   fupdating:= false;
  end;
 end;
@@ -726,19 +742,19 @@ end;
 procedure tcolordialogfo.blueonsetvalue(const sender: TObject;
                  var avalue: realty; var accept: Boolean);
 begin
- blue.value:= floor(avalue * 255);
+ blue.value:= roundmath(avalue * 255);
 end;
 
 procedure tcolordialogfo.greenonsetvalue(const sender: TObject;
                 var avalue: realty; var accept: Boolean);
 begin
- green.value:= floor(avalue * 255);
+ green.value:= roundmath(avalue * 255);
 end;
 
 procedure tcolordialogfo.redonsetvalue(const sender: TObject;
                var avalue: realty; var accept: Boolean);
 begin
- red.value:= floor(avalue * 255);
+ red.value:= roundmath(avalue * 255);
 end;
 
 
@@ -807,20 +823,20 @@ begin
   else begin
    sa:= 0
   end;
-  bright.value:= floor(br*100);
-  sat.value:= floor(sa*100);
+  bright.value:= roundmath(br*100);
+  sat.value:= roundmath(sa*100);
   case segment of
    cs_red: begin
     hu:= calchue(blue.value,red.value,green.value);
-    hue.value:= (floor(hu*60)+360) mod 360;
+    hue.value:= (roundmath(hu*60)+360) mod 360;
    end;
    cs_green: begin
     hu:= calchue(red.value,green.value,blue.value);
-    hue.value:= floor(hu*60) + 120;
+    hue.value:= roundmath(hu*60) + 120;
    end;
    cs_blue: begin
     hu:= calchue(green.value,blue.value,red.value);
-    hue.value:= (floor(hu*60) + 240) mod 360;
+    hue.value:= (roundmath(hu*60) + 240) mod 360;
    end;
   end;
   fupdating:= false;

@@ -182,12 +182,12 @@ begin
   bounds_cxmin    := 0;
   bounds_cymax    := 0;
   bounds_cymin    := 0;
-  bounds_cxmin    := floor(442 * ratio);
+  bounds_cxmin    := roundmath(442 * ratio);
   bounds_cx   := bounds_cxmin;
-  bounds_cymin    := floor(442 * ratio);
+  bounds_cymin    := roundmath(442 * ratio);
   bounds_cy   := bounds_cymin;
   //font.Height     := fontheight;
-  frame.grip_size := floor(8 * ratio);
+  frame.grip_size := roundmath(8 * ratio);
   
 end;
   
@@ -215,7 +215,7 @@ var
   lightness: word;
 begin
   HSL       := BGRAToHSLA(Pix);
-  lightNess := maxSmallint div 4 + floor(maxSmallint / 4 * multiplier);
+  lightNess := maxSmallint div 4 + roundmath(maxSmallint / 4 * multiplier);
   Result    := HSLAToBGRA(HSLA(HSL.hue, HSL.saturation, lightness));
 end;
 
@@ -231,8 +231,8 @@ begin
     offset := 180 + offset;
   if offset > 360 then
     offset := offset - 360;
-  hue      := offset + floor(range * multiplier) - range div 2;
-  HSL      := HSLA(floor(hue / 360 * $FFFF), $FFFF, maxSmallint);
+  hue      := offset + roundmath(range * multiplier) - range div 2;
+  HSL      := HSLA(roundmath(hue / 360 * $FFFF), $FFFF, maxSmallint);
   Result   := HSLAToBGRA(HSL);
 end;
 
@@ -286,7 +286,7 @@ begin
   for i := 0 to high(ar) do
     ar[i] := random(seglen);
 
-  // ar[i] := floor(seglen * multiplier);
+  // ar[i] := roundmath(seglen * multiplier);
   dumbsort;
   setlength(Result, numparts);
   i := 0;
@@ -310,18 +310,18 @@ begin
     with Rings[i] do
     begin
       // radius       := MinRadius + i * 20 + random(11) - 5;
-      radius := MinRadius + floor(i * 34 * multiplier);
+      radius := MinRadius + roundmath(i * 34 * multiplier);
 
       ColBright    := GetRandomHue(i);
-      //    ColBright    := GetRandomHue(floor(i * multiplier));
+      //    ColBright    := GetRandomHue(roundmath(i * multiplier));
       ColDark      := GetRandomDark(ColBright);
       //  LineWidth    := Random(7) + 2; // 2..8
-      LineWidth    := floor(8 * multiplier) + 1;
+      LineWidth    := roundmath(8 * multiplier) + 1;
       //   SegmentCount := random(4) + 3; // 3 .. 6
-      SegmentCount := floor(7 * multiplier) + 1;
+      SegmentCount := roundmath(7 * multiplier) + 1;
       Segments     := CreateSegments(SegmentCount);
       //  speed        := random(11) + 1;
-      speed        := floor(12 * multiplier) + 1;
+      speed        := roundmath(12 * multiplier) + 1;
       Clockwise    := boolean(random(2));
     end// with
   ;    // i
@@ -383,7 +383,7 @@ var
   angle, turn: integer;
   sinus, cosinus: single;
 begin
-  turn := floor(TimerTic * multiplier * 10) mod 360;
+  turn := roundmath(TimerTic * multiplier * 10) mod 360;
 
   setlength(poly, 0);
   for angle := 90 + 45 to 360 + 45 do
@@ -393,12 +393,12 @@ begin
     poly[high(poly)] := PointF(cosinus * rx + Center.x, sinus * ry + Center.y);
   end;
   poly1 := rotatePoly(poly, turn, center);
-  img.DrawPolyLineAntialias(poly1, getRandomHue(floor(multiplier * 10)), 2);
+  img.DrawPolyLineAntialias(poly1, getRandomHue(roundmath(multiplier * 10)), 2);
   poly1 := rotatePoly(poly, -60 + turn, center);
-  img.DrawPolyLineAntialias(poly1, getRandomHue(floor(multiplier * 20)), 2);
+  img.DrawPolyLineAntialias(poly1, getRandomHue(roundmath(multiplier * 20)), 2);
   poly1 := rotatePoly(poly, 240 + turn, center);
-  img.DrawPolyLineAntialias(poly1, getRandomHue(floor(multiplier * 30)), 2);
-  Img.FillEllipseAntialias(Center.x, Center.y, 10, 10, getRandomHue(floor(multiplier * 40)));
+  img.DrawPolyLineAntialias(poly1, getRandomHue(roundmath(multiplier * 30)), 2);
+  Img.FillEllipseAntialias(Center.x, Center.y, 10, 10, getRandomHue(roundmath(multiplier * 40)));
   setlength(poly, 0);
   for angle := 90 + 45 downto 90 do
   begin
@@ -407,7 +407,7 @@ begin
     poly[high(poly)] := PointF(cosinus * rx + Center.x, sinus * ry + Center.y);
   end;
   poly1 := rotatePoly(poly, 240 + turn, center);
-  img.DrawPolyLineAntialias(poly1, getRandomHue(floor(multiplier * 30)), 2);
+  img.DrawPolyLineAntialias(poly1, getRandomHue(roundmath(multiplier * 30)), 2);
 
 end;
 
@@ -487,7 +487,7 @@ while not done do
  hue := hi mod 360 - 140;
  hue := hue - hi div 360*5;// outer lines are a little bit "slow"
  hue := wrapTo360(hue);
- cssCol := HSLAToBGRA(HSLA(floor(hue /360 * floor( $FFFF * multiplier* 2)),$FFFF,maxSmallint));
+ cssCol := HSLAToBGRA(HSLA(roundmath(hue /360 * roundmath( $FFFF * multiplier* 2)),$FFFF,maxSmallint));
  img.DrawPolyLineAntialias(ar[i..hi],csscol ,L);
  inc(i,step);
  end;
@@ -510,7 +510,7 @@ begin
  rot := False;
 
  spiral := createSpiral(center, -10 * Turn, imagedancerfo.Width div 30, imagedancerfo.Width, 0, rot);
-  bitmap.DrawPolyLineAntialias(spiral, getRandomHue(40), floor(1 * 14));
+  bitmap.DrawPolyLineAntialias(spiral, getRandomHue(40), roundmath(1 * 14));
 
 end;
 
@@ -587,7 +587,7 @@ begin
     x2 := x1 + (cos(angle * deg_to_rad) * depth * multiplierdraw);
     y2 := y1 + (sin(angle * deg_to_rad) * depth * multiplierdraw);
 
-    bgra.DrawLineAntialias(x1, y1, x2, y2, floor(cl_yellow * multiplier / 20), depth, False);
+    bgra.DrawLineAntialias(x1, y1, x2, y2, roundmath(cl_yellow * multiplier / 20), depth, False);
 
     // Use even values without randomness to get a 'real' fractal image
 
@@ -637,8 +637,8 @@ begin
   ay += y2;
 
  Bitmap.EllipseAntialias(ax, ay, aw / 2, ah / 2,
- BGRA(floor(thecolor * 3 * multiplier),
-  floor(thecolor) , floor(thecolor)),
+ BGRA(roundmath(thecolor * 3 * multiplier),
+  roundmath(thecolor) , roundmath(thecolor)),
    w / 8,
  
  BGRA(thecolor div 2, thecolor div 3, thecolor)); 
@@ -746,12 +746,12 @@ begin
       Bitmap.Canvas2D.resetTransform;
       Bitmap.Canvas2D.translate(Width div 2, Height div 2);
 
-      y2 := floor(4 * multiplier);
+      y2 := roundmath(4 * multiplier);
 
       if y2 = 0 then
         y2 := 1;
       Bitmap.Canvas2D.lineWidth := y2;
-      Bitmap.Canvas2D.strokeStyle(floor(cl_yellow * multiplier / 20));
+      Bitmap.Canvas2D.strokeStyle(roundmath(cl_yellow * multiplier / 20));
       Bitmap.Canvas2D.beginPath;
       while (theta <= 2 * pi) do
       begin
@@ -782,14 +782,14 @@ begin
       Bitmap.Canvas2D.resetTransform;
       Bitmap.Canvas2D.translate(Width div 2, Height div 2);
 
-      y2 := floor(4 * multiplier);
+      y2 := roundmath(4 * multiplier);
 
       if y2 = 0 then
         y2 := 1;
       Bitmap.Canvas2D.lineWidth := y2;
-      Bitmap.Canvas2D.strokeStyle(floor(cl_yellow * multiplier / 20));
+      Bitmap.Canvas2D.strokeStyle(roundmath(cl_yellow * multiplier / 20));
       Bitmap.Canvas2D.beginPath;
-      y2   := floor(15 * multiplier);
+      y2   := roundmath(15 * multiplier);
       if y2 < 3 then
         y2 := 3;
 
@@ -803,8 +803,8 @@ begin
           tan(multiplier * 8) * 0.5 + 0.5, // n2 - shape
           tan(multiplier * 8) * 0.5 + 0.5 // n3 - shape
           );
-        x     := floor(multiplier * 5 * rad * cos(theta) * (Width div 4));
-        y     := floor(multiplier * 5 * rad * sin(theta) * (Height div 4));
+        x     := roundmath(multiplier * 5 * rad * cos(theta) * (Width div 4));
+        y     := roundmath(multiplier * 5 * rad * sin(theta) * (Height div 4));
         Bitmap.Canvas2D.lineTo(x, y);
         theta += 0.01;           // resolution of the drawing
       end;
@@ -852,7 +852,7 @@ begin
       center := PointF(Bitmap.Width / 2, Bitmap.Height / 2);
       spi := createSpiral (Center,timertic mod 360 * 10,Bitmap.height div 60,Bitmap.Width*0.75,0,true);
       bitmap.Fill(cssBlack);
-      DrawIncreasing(Bitmap,spi,Bitmap.width div 20,Bitmap.Width div 50,GetRandomHue(30+ floor(0*2))) ;
+      DrawIncreasing(Bitmap,spi,Bitmap.width div 20,Bitmap.Width div 50,GetRandomHue(30+ roundmath(0*2))) ;
      end 
     else if dancernum = 6 then // Spiral Raindow
     begin
@@ -886,7 +886,7 @@ begin
        
         for i := 1 to 490 do
          begin
-           set_color(Bitmap, i div 2, floor(128), floor(150*multiplier), 255);
+           set_color(Bitmap, i div 2, roundmath(128), roundmath(150*multiplier), 255);
       
            move(Bitmap, i);
           rotate(Bitmap, gAngle);
@@ -912,8 +912,8 @@ begin
        
         for i := 1 to 490*2 do
          begin
-          set_color(Bitmap, i div 2, floor(150*multiplier), 244, 255);
-            move(Bitmap, floor(i*multiplier*2));
+          set_color(Bitmap, i div 2, roundmath(150*multiplier), 244, 255);
+            move(Bitmap, roundmath(i*multiplier*2));
           rotate(Bitmap, gAngle);
          end;    
        end else
@@ -1276,12 +1276,12 @@ var
   ratio: float;
 begin 
  ratio           := fontheightused / 12;
- bounds_cymax := floor(442 * ratio);
-  bounds_cymin := floor(442 * ratio);
- bounds_cy :=floor(442 * ratio);
- bounds_cxmax := floor(442 * ratio);
- bounds_cxmin := floor(442 * ratio);
- bounds_cx := floor(442 * ratio);
+ bounds_cymax := roundmath(442 * ratio);
+  bounds_cymin := roundmath(442 * ratio);
+ bounds_cy :=roundmath(442 * ratio);
+ bounds_cxmax := roundmath(442 * ratio);
+ bounds_cxmin := roundmath(442 * ratio);
+ bounds_cx := roundmath(442 * ratio);
 end;
 
 procedure timagedancerfo.onfloat(const sender: TObject);
@@ -1289,10 +1289,10 @@ var
   ratio: float;
 begin 
  ratio           := fontheightused / 12;
- height :=floor(442 * ratio);
+ height :=roundmath(442 * ratio);
  bounds_cxmax := 0;
  bounds_cymax := 0;
- bounds_cx := floor(442 * ratio);
+ bounds_cx := roundmath(442 * ratio);
 end;
 
 procedure timagedancerfo.onevstart(const sender: TObject);

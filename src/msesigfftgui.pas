@@ -16,7 +16,7 @@ unit msesigfftgui;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
- msesignal,msechart,classes,mclasses,msesigfft,msegui,msegraphutils,msemenus, math,
+ msesignal,msechart,classes,mclasses,msesigfft,msegui,msegraphutils,msemenus,
  msegraphics,mseguiglob,mseclasses,msetypes;
 
 type

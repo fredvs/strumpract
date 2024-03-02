@@ -233,20 +233,20 @@ begin
   bounds_cxmin := 0;
   bounds_cymax := 0;
   bounds_cymin := 0;
-  bounds_cxmax := floor(442 * ratio);
+  bounds_cxmax := roundmath(442 * ratio);
   bounds_cxmin := bounds_cxmax;
-  bounds_cymax := floor(128 * ratio);
+  bounds_cymax := roundmath(128 * ratio);
   bounds_cymin := bounds_cymax;
   font.Height  := fontheight;
 
   tgroupbox1.font.Height := fontheight;
-  frame.grip_size        := floor(8 * ratio);
+  frame.grip_size        := roundmath(8 * ratio);
 
-  edtempo.frame.buttonsize    := floor(22 * ratio);
-  edpitch.frame.buttonsize    := floor(22 * ratio);
+  edtempo.frame.buttonsize    := roundmath(22 * ratio);
+  edpitch.frame.buttonsize    := roundmath(22 * ratio);
   
-  edvolleft.frame.buttonsize  := floor(22 * ratio);
-  edvolright.frame.buttonsize := floor(22 * ratio);
+  edvolleft.frame.buttonsize  := roundmath(22 * ratio);
+  edvolright.frame.buttonsize := roundmath(22 * ratio);
 
   tstringdisp1.font.Height := fontheight;
   tstringdisp1.font.color  := font.color;
@@ -254,10 +254,10 @@ begin
   historyfn.font.Height := fontheight;
   historyfn.font.color  := font.color;
 
-  cbloopb.font.Height        := floor(14 * ratio);
+  cbloopb.font.Height        := roundmath(14 * ratio);
   waveformcheckb.font.Height := cbloopb.font.Height;
 
-  playreverseb.font.Height := floor(10 * ratio);
+  playreverseb.font.Height := roundmath(10 * ratio);
   setmonob.font.Height     := playreverseb.font.Height;
   cbtempob.font.Height     := playreverseb.font.Height;
   button2.font.Height      := playreverseb.font.Height;
@@ -267,10 +267,10 @@ begin
       for i2 := 0 to length(boundchildsp) - 1 do
         if children[i1].Name = boundchildsp[i2].Name then
         begin
-          children[i1].left   := floor(boundchildsp[i2].left * ratio);
-          children[i1].top    := floor(boundchildsp[i2].top * ratio);
-          children[i1].Width  := floor(boundchildsp[i2].Width * ratio);
-          children[i1].Height := floor(boundchildsp[i2].Height * ratio);
+          children[i1].left   := roundmath(boundchildsp[i2].left * ratio);
+          children[i1].top    := roundmath(boundchildsp[i2].top * ratio);
+          children[i1].Width  := roundmath(boundchildsp[i2].Width * ratio);
+          children[i1].Height := roundmath(boundchildsp[i2].Height * ratio);
         end;
 end;
 
@@ -1844,7 +1844,7 @@ begin
             poswav.y  := (trackbar1.Height div 2) - 2;
             poswav2.x := poswav.x;
             poswavx   := poswav.x - 6;
-            poswav2.y := ((arect.cy div 2) - 1) - floor((waveformdata1[poswavx * 2]) * ((arect.cy div 2) - 3));
+            poswav2.y := ((arect.cy div 2) - 1) - roundmath((waveformdata1[poswavx * 2]) * ((arect.cy div 2) - 3));
 
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
@@ -1856,7 +1856,7 @@ begin
 
             poswav.y := (trackbar1.Height div 2);
 
-            poswav2.y := poswav.y + (floor((waveformdata1[(poswavx * 2) + 1]) * ((trackbar1.Height div 2) - 3)));
+            poswav2.y := poswav.y + (roundmath((waveformdata1[(poswavx * 2) + 1]) * ((trackbar1.Height div 2) - 3)));
 
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
@@ -1867,7 +1867,7 @@ begin
           end;
           if chan1 = 1 then
             // Custom1.Canvas.drawLine(poswav, 0, poswav, ((Custom1.Height) - 1)
-            // - floor((waveformdata[poswav]) * (Custom1.Height) - 1));
+            // - roundmath((waveformdata[poswav]) * (Custom1.Height) - 1));
           ;
           Inc(poswav.x, 1);
         end;
@@ -1889,7 +1889,7 @@ begin
             poswav.y  := (trackbar1.Height div 2) - 2;
             poswav2.x := poswav.x;
             poswavx   := poswav.x - 6;
-            poswav2.y := ((arect.cy div 2) - 1) - floor((waveformdata2[poswavx * 2]) * ((arect.cy div 2) - 3));
+            poswav2.y := ((arect.cy div 2) - 1) - roundmath((waveformdata2[poswavx * 2]) * ((arect.cy div 2) - 3));
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
             poswav3.y := poswav2.y + 1;
@@ -1898,7 +1898,7 @@ begin
 
             poswav.y := (trackbar1.Height div 2);
 
-            poswav2.y := poswav.y + (floor((waveformdata2[(poswavx * 2) + 1]) * ((trackbar1.Height div 2) - 3)));
+            poswav2.y := poswav.y + (roundmath((waveformdata2[(poswavx * 2) + 1]) * ((trackbar1.Height div 2) - 3)));
 
             poswav2.y := poswav2.y - 1;
             poswav3.x := poswav2.x;
@@ -1909,7 +1909,7 @@ begin
           end;
           if chan2 = 1 then
             // Custom1.Canvas.drawLine(poswav, 0, poswav, ((Custom1.Height) - 1)
-            // - floor((waveformdata[poswav]) * (Custom1.Height) - 1));
+            // - roundmath((waveformdata[poswav]) * (Custom1.Height) - 1));
           ;
           Inc(poswav.x, 1);
         end;
@@ -1940,7 +1940,7 @@ begin
           poswav.y  := (wavefo.trackbar1.Height div 2) - 2;
           poswav2.x := poswav.x;
           poswavx   := poswav.x - 6;
-          poswav2.y := ((arect.cy div 2) - 1) - floor((waveformdataform1[poswavx * 2]) * ((arect.cy div 2) - 3));
+          poswav2.y := ((arect.cy div 2) - 1) - roundmath((waveformdataform1[poswavx * 2]) * ((arect.cy div 2) - 3));
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
@@ -1950,7 +1950,7 @@ begin
 
           poswav.y := (wavefo.trackbar1.Height div 2);
 
-          poswav2.y := poswav.y + (floor((waveformdataform1[(poswavx * 2) + 1]) * ((wavefo.trackbar1.Height div 2) - 3)));
+          poswav2.y := poswav.y + (roundmath((waveformdataform1[(poswavx * 2) + 1]) * ((wavefo.trackbar1.Height div 2) - 3)));
 
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
@@ -1960,7 +1960,7 @@ begin
         end;
         if chan1 = 1 then
           // Custom1.Canvas.drawLine(poswav, 0, poswav, ((Custom1.Height) - 1)
-          // - floor((waveformdata[poswav]) * (Custom1.Height) - 1));
+          // - roundmath((waveformdata[poswav]) * (Custom1.Height) - 1));
         ;
         Inc(poswav.x, 1);
       end;
@@ -1982,7 +1982,7 @@ begin
           poswav.y  := (wavefo2.trackbar1.Height div 2) - 2;
           poswav2.x := poswav.x;
           poswavx   := poswav.x - 6;
-          poswav2.y := ((arect.cy div 2) - 1) - floor((waveformdataform2[poswavx * 2]) * ((arect.cy div 2) - 3));
+          poswav2.y := ((arect.cy div 2) - 1) - roundmath((waveformdataform2[poswavx * 2]) * ((arect.cy div 2) - 3));
 
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
@@ -1992,7 +1992,7 @@ begin
 
           poswav.y := (wavefo2.trackbar1.Height div 2);
 
-          poswav2.y := poswav.y + (floor((waveformdataform2[(poswavx * 2) + 1]) * ((wavefo2.trackbar1.Height div 2) - 3)));
+          poswav2.y := poswav.y + (roundmath((waveformdataform2[(poswavx * 2) + 1]) * ((wavefo2.trackbar1.Height div 2) - 3)));
           poswav2.y := poswav2.y - 1;
           poswav3.x := poswav2.x;
           poswav3.y := poswav2.y + 1;
@@ -2002,7 +2002,7 @@ begin
         end;
         if chan2 = 1 then
           // Custom1.Canvas.drawLine(poswav, 0, poswav, ((Custom1.Height) - 1)
-          // - floor((waveformdata[poswav]) * (Custom1.Height) - 1));
+          // - roundmath((waveformdata[poswav]) * (Custom1.Height) - 1));
         ;
         Inc(poswav.x, 1);
       end;
@@ -2334,7 +2334,7 @@ begin
           begin
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
             infosdfo.infobpm.Caption := trim(utf8decode(
-              IntToStr(floor(uos_GetBPM(thebuffer, thebufferinfos.channels,
+              IntToStr(roundmath(uos_GetBPM(thebuffer, thebufferinfos.channels,
               thebufferinfos.samplerate))))) + ' ';
           end;
 
@@ -2397,7 +2397,7 @@ begin
 
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
             infosdfo2.infobpm.Caption :=
-              trim(utf8decode(IntToStr(floor(uos_GetBPM(thebuffer, thebufferinfos.channels,
+              trim(utf8decode(IntToStr(roundmath(uos_GetBPM(thebuffer, thebufferinfos.channels,
               thebufferinfos.samplerate))))) + ' ';
 
           end;
@@ -2861,9 +2861,9 @@ begin
         else
         begin
 
-          button2.Caption          := utf8decode(IntToStr(floor(thebpm)));
+          button2.Caption          := utf8decode(IntToStr(roundmath(thebpm)));
           infosdfo.infobpm.Caption := button2.Caption;
-          drumsfo.edittempo.Value  := floor(thebpm);
+          drumsfo.edittempo.Value  := roundmath(thebpm);
           button2.face.template    := mainfo.tfaceorange;
           button2.font.color := cl_black;
           
@@ -2890,8 +2890,8 @@ begin
           button2.Caption := 'BPM'
         else
         begin
-          button2.Caption           := utf8decode(IntToStr(floor(thebpm)));
-          drumsfo.edittempo.Value   := floor(thebpm);
+          button2.Caption           := utf8decode(IntToStr(roundmath(thebpm)));
+          drumsfo.edittempo.Value   := roundmath(thebpm);
           infosdfo2.infobpm.Caption := button2.Caption;
 
           button2.face.template := mainfo.tfaceorange;

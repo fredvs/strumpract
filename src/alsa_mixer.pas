@@ -13,7 +13,6 @@ unit alsa_mixer;
 interface
 
 uses
-  math,
   classes,
   sysutils,
   dynlibs,
@@ -174,6 +173,22 @@ procedure ALSAmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = 
 procedure ALSAmixerSetCallBack(callback: TProc);
 
 implementation
+
+function RoundMath(aV:double):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end;
+
+function RoundMath(aV:single):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end;
   
 function am_IsLoaded: Boolean;
 begin
@@ -336,7 +351,7 @@ begin
   if chan = 1 then snd_mixer_selem_get_playback_volume(elem, SND_MIXER_SCHN_FRONT_Right, @vol);
   //writeln('vol right = ' + inttostr(vol));
  
-   result := floor(vol/max*100);
+   result := roundmath(vol/max*100);
  
     snd_mixer_close(hmix);
       
@@ -367,13 +382,13 @@ begin
   
   snd_mixer_selem_get_playback_volume_range(elem, @min, @max);
  
-  snd_mixer_selem_set_playback_volume_all(elem, floor(volume * max / 100));
+  snd_mixer_selem_set_playback_volume_all(elem, roundmath(volume * max / 100));
   
   if chan = 0 then snd_mixer_selem_set_playback_volume(elem, SND_MIXER_SCHN_FRONT_LEFT,
-   floor(volume * max / 100));
+   roundmath(volume * max / 100));
  
   if chan = 1 then snd_mixer_selem_set_playback_volume(elem, SND_MIXER_SCHN_FRONT_right,
-   floor(volume * max / 100));
+   roundmath(volume * max / 100));
   
    snd_mixer_close(hmix);
       

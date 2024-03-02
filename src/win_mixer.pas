@@ -130,6 +130,22 @@ implementation
 var
  AEndpoint: IAudioEndpointVolumeCallbackEx = nil;
  
+function RoundMath(aV:double):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end;
+
+function RoundMath(aV:single):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end; 
+ 
 procedure WINmixerSetVolume(chan, volume :integer); // chan 0 = left, chan 1 = right volume
 var
   pEndpointVolume: IAudioEndpointVolume;
@@ -160,7 +176,7 @@ begin
     
   (pEndpointVolume.GetMasterVolumeLevelScaler(avol));
    
-   result := floor(avol * 100);
+   result := roundmath(avol * 100);
 end;
  
 procedure WINmixerSetCallBack(callback: Tproc);
@@ -197,7 +213,7 @@ end;
  
 function TEndpointVolumeCallback.OnNotify(pNotify: PAUDIO_VOLUME_NOTIFICATION_DATA): HRESULT; stdcall;
 begin
-  wm_MasterVolLeft := floor(100 * pNotify^.fMasterVolume);
+  wm_MasterVolLeft := roundmath(100 * pNotify^.fMasterVolume);
   wm_MasterVolRight := wm_MasterVolLeft; // todo
   wm_MasterMuted := pNotify^.bMuted;
  

@@ -2,7 +2,7 @@ unit piano;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
- math,BGRABitmap, BGRABitmapTypes,  BGRAAnimatedGif,
+ BGRABitmap, BGRABitmapTypes,  BGRAAnimatedGif,
  msetypes, mseglob, mseguiglob, mseguiintf, mseapplication, msestat, msemenus,
  msegui,msegraphics, msegraphutils, mseevent, mseclasses, mseforms, msedock,
  msesimplewidgets, msewidgets, mseact, msechartedit, msedataedits,
@@ -77,22 +77,22 @@ begin
     bounds_cxmin := 0;
     bounds_cymax := 0;
     bounds_cymin := 0;
-    bounds_cx := floor(442 * ratio);
+    bounds_cx := roundmath(442 * ratio);
     bounds_cxmin := bounds_cx;
-    bounds_cymax := floor(284 * ratio);
+    bounds_cymax := roundmath(284 * ratio);
     bounds_cymin := bounds_cymax;
     font.height :=  fontheight;
   
-   frame.grip_size := floor(8 * ratio);
+   frame.grip_size := roundmath(8 * ratio);
   
        for i1 := 0 to childrencount - 1 do
          for i2 := 0 to length(boundchildpi) - 1 do
         if children[i1].name = boundchildpi[i2].name then
         begin
-          children[i1].left := floor(boundchildpi[i2].left * ratio);  
-          children[i1].top := floor(boundchildpi[i2].top * ratio);  
-          children[i1].width := floor(boundchildpi[i2].width * ratio);   
-          children[i1].height := floor(boundchildpi[i2].height * ratio); 
+          children[i1].left := roundmath(boundchildpi[i2].left * ratio);  
+          children[i1].top := roundmath(boundchildpi[i2].top * ratio);  
+          children[i1].width := roundmath(boundchildpi[i2].width * ratio);   
+          children[i1].height := roundmath(boundchildpi[i2].height * ratio); 
          end; 
  end; 
 
@@ -116,14 +116,14 @@ procedure tpianofo.onresizeex(const sender: TObject);
 begin
  if hasinitp then
  begin
-    tsigkeyboard1.keywidth := floor(tsigkeyboard1.Width / 32);
+    tsigkeyboard1.keywidth := roundmath(tsigkeyboard1.Width / 32);
  end;
 end;
 
 procedure tpianofo.onsetsliderpiano(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
- volpiano.Value := floor(100 * avalue);
+ volpiano.Value := roundmath(100 * avalue);
    if linkpianochan.value then
     begin
    volpianoR.Value := volpiano.Value;
@@ -134,7 +134,7 @@ end;
 procedure tpianofo.onsetsliderpianoR(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
-volpianoR.Value := floor(100 * avalue);
+volpianoR.Value := roundmath(100 * avalue);
     if linkpianochan.value then  begin
    volpiano.Value := volpianoR.Value;
    tsigslider3.value := avalue;
@@ -215,11 +215,11 @@ ratio : double;
 begin
     resizepi(fontheightused);
     ratio := fontheightused/12 ;
-    bounds_cxmin := floor(442 * ratio);
-    bounds_cxmax := floor(442 * ratio);
+    bounds_cxmin := roundmath(442 * ratio);
+    bounds_cxmax := roundmath(442 * ratio);
     bounds_cx := bounds_cxmax;
-    bounds_cymin := floor(284 * ratio);
-    bounds_cymax := floor(284 * ratio);
+    bounds_cymin := roundmath(284 * ratio);
+    bounds_cymax := roundmath(284 * ratio);
     bounds_cy := bounds_cymax;
 end;
 
@@ -229,11 +229,11 @@ ratio : double;
 begin
     resizepi(fontheightused);
     ratio := fontheightused/12 ;
-    bounds_cxmin := floor(442 * ratio);
+    bounds_cxmin := roundmath(442 * ratio);
     bounds_cxmax := 0;
     bounds_cx := bounds_cxmax;
-    bounds_cymin := floor(284 * ratio);
-    bounds_cymax := floor(284 * ratio);
+    bounds_cymin := roundmath(284 * ratio);
+    bounds_cymax := roundmath(284 * ratio);
     bounds_cy := bounds_cymax;
 end;
 

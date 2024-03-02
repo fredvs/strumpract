@@ -4,7 +4,6 @@ unit equalizer;
 interface
 
 uses
-  math,
   Classes,
   ctypes,
   SysUtils,
@@ -339,46 +338,46 @@ begin
   bounds_cxmin    := 0;
   bounds_cymax    := 0;
   bounds_cymin    := 0;
-  bounds_cxmax    := floor(442 * ratio);
+  bounds_cxmax    := roundmath(442 * ratio);
   bounds_cxmin    := bounds_cxmax;
-  bounds_cymax    := floor(128 * ratio);
+  bounds_cymax    := roundmath(128 * ratio);
   bounds_cymin    := bounds_cymax;
   font.Height     := fontheight;
-  frame.grip_size := floor(8 * ratio);
+  frame.grip_size := roundmath(8 * ratio);
   eqen.frame.font.Height := fontheight;
   eqen.frame.font.color := font.color;
   eqen.frame.font.Height := fontheight;
-  eqen.top        := floor(2 * ratio);
+  eqen.top        := roundmath(2 * ratio);
   saveset.font.Height := fontheight;
   saveset.font.color := font.color;
-  saveset.Width   := floor(62 * ratio);
-  saveset.Height  := floor(17 * ratio);
-  saveset.left    := floor(264 * ratio);
+  saveset.Width   := roundmath(62 * ratio);
+  saveset.Height  := roundmath(17 * ratio);
+  saveset.left    := roundmath(264 * ratio);
   loadset.font.Height := fontheight;
   loadset.font.color := font.color;
-  loadset.Width   := floor(62 * ratio);
-  loadset.Height  := floor(17 * ratio);
-  loadset.left    := floor(330 * ratio);
+  loadset.Width   := roundmath(62 * ratio);
+  loadset.Height  := roundmath(17 * ratio);
+  loadset.left    := roundmath(330 * ratio);
 
   groupbox1.font.color  := font.color;
   groupbox2.font.color  := font.color;
-  groupbox1.font.Height := floor(8 * ratio);
+  groupbox1.font.Height := roundmath(8 * ratio);
   groupbox2.font.Height := groupbox1.font.Height;
 
-  groupbox1.left  := floor(2 * ratio);
-  groupbox1.Width := floor(216 * ratio);
-  groupbox2.left  := floor(214 * ratio);
-  groupbox2.Width := floor(218 * ratio);
+  groupbox1.left  := roundmath(2 * ratio);
+  groupbox1.Width := roundmath(216 * ratio);
+  groupbox2.left  := roundmath(214 * ratio);
+  groupbox2.Width := roundmath(218 * ratio);
 
   with groupbox1 do
     for i1 := 0 to childrencount - 1 do
       for i2 := 0 to length(boundchildeq) - 1 do
         if groupbox1.children[i1].Name = boundchildeq[i2].Name then
         begin
-          groupbox1.children[i1].left   := floor(boundchildeq[i2].left * ratio);
-          groupbox1.children[i1].top    := floor(boundchildeq[i2].top * ratio);
-          groupbox1.children[i1].Width  := floor(boundchildeq[i2].Width * ratio);
-          groupbox1.children[i1].Height := floor(boundchildeq[i2].Height * ratio);
+          groupbox1.children[i1].left   := roundmath(boundchildeq[i2].left * ratio);
+          groupbox1.children[i1].top    := roundmath(boundchildeq[i2].top * ratio);
+          groupbox1.children[i1].Width  := roundmath(boundchildeq[i2].Width * ratio);
+          groupbox1.children[i1].Height := roundmath(boundchildeq[i2].Height * ratio);
         end;
 
   with groupbox2 do
@@ -386,10 +385,10 @@ begin
       for i2 := 0 to length(boundchildeq) - 1 do
         if groupbox2.children[i1].Name = boundchildeq[i2].Name then
         begin
-          groupbox2.children[i1].left   := floor(boundchildeq[i2].left * ratio);
-          groupbox2.children[i1].top    := floor(boundchildeq[i2].top * ratio);
-          groupbox2.children[i1].Width  := floor(boundchildeq[i2].Width * ratio);
-          groupbox2.children[i1].Height := floor(boundchildeq[i2].Height * ratio);
+          groupbox2.children[i1].left   := roundmath(boundchildeq[i2].left * ratio);
+          groupbox2.children[i1].top    := roundmath(boundchildeq[i2].top * ratio);
+          groupbox2.children[i1].Width  := roundmath(boundchildeq[i2].Width * ratio);
+          groupbox2.children[i1].Height := roundmath(boundchildeq[i2].Height * ratio);
         end;
 end;
 
@@ -548,14 +547,14 @@ begin
     else if avalue >= 0.52 then
     begin
       again   := 1 + ((avalue - 0.52) * 4);
-      astring := msestring(IntToStr(floor(again * 3.5)));
+      astring := msestring(IntToStr(roundmath(again * 3.5)));
     end
     else
     begin
       again   := (0.48 - avalue);
       if again < 0.2 then
         again := 0;
-      astring := msestring('-' + IntToStr(floor(again * 20)));
+      astring := msestring('-' + IntToStr(roundmath(again * 20)));
     end;
 
     case tagsender of

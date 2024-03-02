@@ -4,7 +4,7 @@ unit configlayout;
 interface
 
 uses
- math,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
  msesimplewidgets,mseact,msecolordialog,msedataedits,msedropdownlist,mseedit,
  mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
@@ -62,7 +62,7 @@ uses
 
 procedure tconfiglayoutfo.onfontheight(const Sender: TObject);
 begin
-  mainfo.applyfont(floor(fontheight.Value));
+  mainfo.applyfont(roundmath(fontheight.Value));
 end;
 
 procedure tconfiglayoutfo.onsetfontres(const Sender: TObject);
@@ -73,9 +73,9 @@ begin
   tbutton3.Caption := 'Resolution: ' + IntToStr(rect1.cx) + 'x' +
     IntToStr(rect1.cy) + lineend + 'Font height suggested: ' +
   {$ifdef mswindows}
-   IntToStr(floor(rect1.cx / 1280 * 12));
+   IntToStr(roundmath(rect1.cx / 1280 * 12));
   {$else}
-   IntToStr(floor(rect1.cx / 1368 * 12));
+   IntToStr(roundmath(rect1.cx / 1368 * 12));
   {$endif}
 end;
 
@@ -296,9 +296,9 @@ var
 begin
   rect1 := application.screenrect(window);
    {$ifdef mswindows}
-    fontheight.Value := floor(rect1.cx / 1280 * 12);
+    fontheight.Value := roundmath(rect1.cx / 1280 * 12);
    {$else}
-   fontheight.Value := floor(rect1.cx / 1368 * 12);
+   fontheight.Value := roundmath(rect1.cx / 1368 * 12);
    {$endif}
 end;
 

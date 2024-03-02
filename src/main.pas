@@ -152,6 +152,9 @@ type
     procedure updatelayoutstrum();
   end;
 
+function RoundMath(aV:double):int64;overload;
+function RoundMath(aV:single):int64;overload;
+
 const
   versiontext = '3.8.0';
   statdirname = '^/.strumpract';
@@ -215,6 +218,22 @@ uses
   guitars,
   dialogfiles,
   main_mfm;
+
+function RoundMath(aV:double):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end;
+
+function RoundMath(aV:single):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end;
 
 procedure tmainfo.paintslider();
 var
@@ -309,8 +328,8 @@ begin
       else
         Canvas.drawline(poswav, poswav2, cl_ltgray);
 
-      poswav.x  := floor((widthslider - 1) / 2) - 2;
-      poswav2.x := floor((widthslider - 1) / 2) - 2;
+      poswav.x  := roundmath((widthslider - 1) / 2) - 2;
+      poswav2.x := roundmath((widthslider - 1) / 2) - 2;
       poswav.y  := 0;
       poswav2.y := heightslider;
       if typecolor.Value = 2 then
@@ -318,8 +337,8 @@ begin
       else
         Canvas.drawline(poswav, poswav2, cl_gray);
 
-      poswav.x  := floor((widthslider - 1) / 2) + 2;
-      poswav2.x := floor((widthslider - 1) / 2) + 2;
+      poswav.x  := roundmath((widthslider - 1) / 2) + 2;
+      poswav2.x := roundmath((widthslider - 1) / 2) + 2;
       poswav.y  := 0;
       poswav2.y := heightslider;
       if typecolor.Value = 2 then
@@ -327,8 +346,8 @@ begin
       else
         Canvas.drawline(poswav, poswav2, cl_gray);
 
-      poswav.x  := floor((widthslider - 1) / 2) + 1;
-      poswav2.x := floor((widthslider - 1) / 2) + 1;
+      poswav.x  := roundmath((widthslider - 1) / 2) + 1;
+      poswav2.x := roundmath((widthslider - 1) / 2) + 1;
       poswav.y  := 0;
       poswav2.y := heightslider;
       if typecolor.Value = 2 then
@@ -336,8 +355,8 @@ begin
       else
         Canvas.drawline(poswav, poswav2, cl_ltgray);
 
-      poswav.x  := floor((widthslider - 1) / 2) - 1;
-      poswav2.x := floor((widthslider - 1) / 2) - 1;
+      poswav.x  := roundmath((widthslider - 1) / 2) - 1;
+      poswav2.x := roundmath((widthslider - 1) / 2) - 1;
       poswav.y  := 0;
       poswav2.y := heightslider;
       if typecolor.Value = 2 then
@@ -345,8 +364,8 @@ begin
       else
         Canvas.drawline(poswav, poswav2, cl_ltgray);
 
-      poswav.x  := floor((widthslider - 1) / 2);
-      poswav2.x := floor((widthslider - 1) / 2);
+      poswav.x  := roundmath((widthslider - 1) / 2);
+      poswav2.x := roundmath((widthslider - 1) / 2);
       poswav.y  := 0;
       poswav2.y := heightslider;
       if typecolor.Value = 2 then
@@ -423,18 +442,18 @@ var
   ratio: double;
 begin
   ratio           := fontheight / 12;
-  emptyheight     := floor(40 * ratio);
-  fowidth         := floor(442 * ratio);
-  tabheight       := floor(39 * ratio);
-  drumsfoheight   := floor(274 * ratio);
-  filelistfoheight := floor(128 * ratio);
-  wavefoheight    := floor(128 * ratio);
-  guitarsfoheight := floor(64 * ratio);
-  songplayerfoheight := floor(128 * ratio);
-  spectrum1foheight := floor(128 * ratio);
-  recorderfoheight := floor(128 * ratio);
-  commanderfoheight := floor(128 * ratio);
-  equalizerfoheight := floor(142 * ratio);
+  emptyheight     := roundmath(40 * ratio);
+  fowidth         := roundmath(442 * ratio);
+  tabheight       := roundmath(39 * ratio);
+  drumsfoheight   := roundmath(274 * ratio);
+  filelistfoheight := roundmath(128 * ratio);
+  wavefoheight    := roundmath(128 * ratio);
+  guitarsfoheight := roundmath(64 * ratio);
+  songplayerfoheight := roundmath(128 * ratio);
+  spectrum1foheight := roundmath(128 * ratio);
+  recorderfoheight := roundmath(128 * ratio);
+  commanderfoheight := roundmath(128 * ratio);
+  equalizerfoheight := roundmath(142 * ratio);
   tmainmenu1.menu.font.Height := fontheight;
 
 end;
@@ -468,22 +487,22 @@ begin
       (thelang = 'ar') or (thelang = 'he') or (thelang = 'zh') then
       begin
       mainfo.mainmenu.menu.font.name := 'Unifont' ;
-      mainfo.mainmenu.menu.font.height := floor(14*ratio);
+      mainfo.mainmenu.menu.font.height := roundmath(14*ratio);
       dockpanel1fo.mainmenu.menu.font.name := 'Unifont' ;
-      dockpanel1fo.mainmenu.menu.font.height := floor(14*ratio);
+      dockpanel1fo.mainmenu.menu.font.height := roundmath(14*ratio);
       dockpanel2fo.mainmenu.menu.font.name := 'Unifont' ;
-      dockpanel2fo.mainmenu.menu.font.height := floor(14*ratio);
+      dockpanel2fo.mainmenu.menu.font.height := roundmath(14*ratio);
       dockpanel3fo.mainmenu.menu.font.name := 'Unifont' ;
-      dockpanel3fo.mainmenu.menu.font.height := floor(14*ratio);
+      dockpanel3fo.mainmenu.menu.font.height := roundmath(14*ratio);
       dockpanel4fo.mainmenu.menu.font.name := 'Unifont' ;
-      dockpanel4fo.mainmenu.menu.font.height := floor(14*ratio);
+      dockpanel4fo.mainmenu.menu.font.height := roundmath(14*ratio);
       dockpanel5fo.mainmenu.menu.font.name := 'Unifont' ;
-      dockpanel5fo.mainmenu.menu.font.height := floor(14*ratio);
+      dockpanel5fo.mainmenu.menu.font.height := roundmath(14*ratio);
       
    with infosdfo do
     begin
      font.name := 'Unifont' ;
-     //font.height := floor(14*ratio);
+     //font.height := roundmath(14*ratio);
     infoname.frame.font.name := 'Unifont' ;
     infoartist.frame.font.name := 'Unifont' ;
     infoalbum.frame.font.name := 'Unifont' ;
@@ -630,62 +649,62 @@ begin
       songplayerfo.font.name := 'Unifont' ;
       songplayer2fo.font.name := 'Unifont' ;
       recorderfo.font.name := 'Unifont' ;
-      songplayerfo.font.height := floor(14*ratio);
-      songplayer2fo.font.height := floor(14*ratio);
-      recorderfo.font.height := floor(14*ratio);
+      songplayerfo.font.height := roundmath(14*ratio);
+      songplayer2fo.font.height := roundmath(14*ratio);
+      recorderfo.font.height := roundmath(14*ratio);
     
       conflangfo.font.name := 'Unifont' ;
-      conflangfo.font.height := floor(14*ratio);
+      conflangfo.font.height := roundmath(14*ratio);
       spectrum1fo.font.name := 'Unifont' ;
-      spectrum1fo.font.height := floor(14*ratio);
+      spectrum1fo.font.height := roundmath(14*ratio);
       spectrum2fo.font.name := 'Unifont' ;
-      spectrum2fo.font.height := floor(14*ratio);
+      spectrum2fo.font.height := roundmath(14*ratio);
       spectrumrecfo.font.name := 'Unifont' ;
-      spectrumrecfo.font.height := floor(14*ratio);;
+      spectrumrecfo.font.height := roundmath(14*ratio);;
       
       equalizerfo1.font.name := 'Unifont' ;
-      equalizerfo1.font.height := floor(14*ratio);
+      equalizerfo1.font.height := roundmath(14*ratio);
       equalizerfo2.font.name := 'Unifont' ;
-      equalizerfo2.font.height := floor(14*ratio);
+      equalizerfo2.font.height := roundmath(14*ratio);
       equalizerforec.font.name := 'Unifont' ;
-      equalizerforec.font.height := floor(14*ratio);
+      equalizerforec.font.height := roundmath(14*ratio);
       
       equalizerfo1.loadset.font.name := 'Unifont' ;
-      equalizerfo1.loadset.font.height := floor(14*ratio);
+      equalizerfo1.loadset.font.height := roundmath(14*ratio);
       equalizerfo1.saveset.font.name := 'Unifont' ;
-      equalizerfo1.saveset.font.height := floor(14*ratio);
+      equalizerfo1.saveset.font.height := roundmath(14*ratio);
     
       equalizerfo2.loadset.font.name := 'Unifont' ;
-      equalizerfo2.loadset.font.height := floor(14*ratio);
+      equalizerfo2.loadset.font.height := roundmath(14*ratio);
       equalizerfo2.saveset.font.name := 'Unifont' ;
-      equalizerfo2.saveset.font.height := floor(14*ratio);
+      equalizerfo2.saveset.font.height := roundmath(14*ratio);
       
       equalizerforec.loadset.font.name := 'Unifont' ;
-      equalizerforec.loadset.font.height := floor(14*ratio);
+      equalizerforec.loadset.font.height := roundmath(14*ratio);
       equalizerforec.saveset.font.name := 'Unifont' ;
-      equalizerforec.saveset.font.height := floor(14*ratio);
+      equalizerforec.saveset.font.height := roundmath(14*ratio);
            
       equalizerfo1.EQEN.frame.font.name := 'Unifont' ;
-      equalizerfo1.EQEN.frame.font.height := floor(14*ratio);
+      equalizerfo1.EQEN.frame.font.height := roundmath(14*ratio);
       equalizerfo2.EQEN.frame.font.name := 'Unifont' ;
-      equalizerfo2.EQEN.frame.font.height := floor(14*ratio);
+      equalizerfo2.EQEN.frame.font.height := roundmath(14*ratio);
       equalizerforec.EQEN.frame.font.name := 'Unifont' ;
-      equalizerforec.EQEN.frame.font.height := floor(14*ratio);
+      equalizerforec.EQEN.frame.font.height := roundmath(14*ratio);
 
       songplayerfo.btinfos.font.name := 'Unifont' ;
-      songplayerfo.btinfos.font.height := floor(14*ratio);
+      songplayerfo.btinfos.font.height := roundmath(14*ratio);
       songplayerfo.tstringdisp2.font.name := 'Unifont' ;
-      songplayerfo.tstringdisp2.font.height := floor(14*ratio);
+      songplayerfo.tstringdisp2.font.height := roundmath(14*ratio);
       
       songplayerfo.tstringdisp1.font.name := 'Unifont' ;
-      songplayerfo.tstringdisp1.font.height := floor(14*ratio);
+      songplayerfo.tstringdisp1.font.height := roundmath(14*ratio);
       songplayer2fo.tstringdisp1.font.name := 'Unifont' ;
-      songplayer2fo.tstringdisp1.font.height := floor(14*ratio);
+      songplayer2fo.tstringdisp1.font.height := roundmath(14*ratio);
          
       songplayer2fo.btinfos.font.name := 'Unifont' ;
-      songplayer2fo.btinfos.font.height := floor(14*ratio);
+      songplayer2fo.btinfos.font.height := roundmath(14*ratio);
       songplayer2fo.tstringdisp2.font.name := 'Unifont' ;
-      songplayer2fo.tstringdisp2.font.height := floor(14*ratio);
+      songplayer2fo.tstringdisp2.font.height := roundmath(14*ratio);
           
       spectrum1fo.spect1.frame.font.name := 'Unifont' ;
       spectrum1fo.spect1.frame.font.height := 14;
@@ -695,24 +714,24 @@ begin
       spectrumrecfo.spect1.frame.font.height := 14;
  
       filelistfo.font.name := 'Unifont' ;
-      filelistfo.font.height := floor(14*ratio);;
+      filelistfo.font.height := roundmath(14*ratio);;
       
       filelistfo.list_files.font.name := 'Unifont' ;
-      filelistfo.list_files.font.height := floor(14*ratio);
+      filelistfo.list_files.font.height := roundmath(14*ratio);
       
       filelistfo.list_files.rowfonts[0].name := 'Unifont' ;
-      filelistfo.list_files.rowfonts[0].height := floor(14*ratio);
+      filelistfo.list_files.rowfonts[0].height := roundmath(14*ratio);
       filelistfo.list_files.rowfonts[1].name := 'Unifont' ;
-      filelistfo.list_files.rowfonts[1].height := floor(14*ratio);
+      filelistfo.list_files.rowfonts[1].height := roundmath(14*ratio);
      
       messagefontname := 'Unifont';
-      messagefontheight := floor(14*ratio);
+      messagefontheight := roundmath(14*ratio);
          
       end else
       begin
      
       mainfo.mainmenu.menu.font.name := 'stf_default' ;
-      mainfo.mainmenu.menu.font.height := floor(12*ratio);
+      mainfo.mainmenu.menu.font.height := roundmath(12*ratio);
       commanderfo.font.name := 'stf_default' ;
       commanderfo.font.height := 12;
       drumsfo.font.name := 'stf_default' ;
@@ -740,7 +759,7 @@ begin
       equalizerforec.font.height := 10;
       
       filelistfo.font.name := 'stf_default' ;
-      filelistfo.font.height := floor(13*ratio);;
+      filelistfo.font.height := roundmath(13*ratio);;
       filelistfo.list_files.font.name := 'stf_default' ;
       filelistfo.list_files.font.height := fontheightused;
       
@@ -884,48 +903,48 @@ begin
      end;
     
       equalizerfo1.font.name := 'stf_default' ;
-      equalizerfo1.font.height := floor(12*ratio);
+      equalizerfo1.font.height := roundmath(12*ratio);
       equalizerfo2.font.name := 'stf_default' ;
-      equalizerfo2.font.height := floor(12*ratio);
+      equalizerfo2.font.height := roundmath(12*ratio);
       equalizerforec.font.name := 'stf_default' ;
-      equalizerforec.font.height := floor(12*ratio);
+      equalizerforec.font.height := roundmath(12*ratio);
       
       equalizerfo1.loadset.font.name := 'stf_default' ;
-      equalizerfo1.loadset.font.height := floor(12*ratio);
+      equalizerfo1.loadset.font.height := roundmath(12*ratio);
       equalizerfo1.saveset.font.name := 'stf_default' ;
-      equalizerfo1.saveset.font.height := floor(12*ratio);
+      equalizerfo1.saveset.font.height := roundmath(12*ratio);
     
       equalizerfo2.loadset.font.name := 'stf_default' ;
-      equalizerfo2.loadset.font.height := floor(12*ratio);
+      equalizerfo2.loadset.font.height := roundmath(12*ratio);
       equalizerfo2.saveset.font.name := 'stf_default' ;
-      equalizerfo2.saveset.font.height := floor(12*ratio);
+      equalizerfo2.saveset.font.height := roundmath(12*ratio);
       
       equalizerforec.loadset.font.name := 'stf_default' ;
-      equalizerforec.loadset.font.height := floor(12*ratio);
+      equalizerforec.loadset.font.height := roundmath(12*ratio);
       equalizerforec.saveset.font.name := 'stf_default' ;
-      equalizerforec.saveset.font.height := floor(12*ratio);
+      equalizerforec.saveset.font.height := roundmath(12*ratio);
     
       equalizerfo1.EQEN.frame.font.name := 'stf_default' ;
-      equalizerfo1.EQEN.frame.font.height := floor(12*ratio);
+      equalizerfo1.EQEN.frame.font.height := roundmath(12*ratio);
       equalizerfo2.EQEN.frame.font.name := 'stf_default' ;
-      equalizerfo2.EQEN.frame.font.height := floor(12*ratio);
+      equalizerfo2.EQEN.frame.font.height := roundmath(12*ratio);
       equalizerforec.EQEN.frame.font.name := 'stf_default' ;
-      equalizerforec.EQEN.frame.font.height := floor(12*ratio);
+      equalizerforec.EQEN.frame.font.height := roundmath(12*ratio);
       
       songplayerfo.btinfos.font.name := 'stf_default' ;
-      songplayerfo.btinfos.font.height := floor(12*ratio);
+      songplayerfo.btinfos.font.height := roundmath(12*ratio);
       songplayerfo.tstringdisp2.font.name := 'stf_default' ;
-      songplayerfo.tstringdisp2.font.height := floor(12*ratio);
+      songplayerfo.tstringdisp2.font.height := roundmath(12*ratio);
       
       songplayer2fo.btinfos.font.name := 'stf_default' ;
-      songplayer2fo.btinfos.font.height := floor(12*ratio);
+      songplayer2fo.btinfos.font.height := roundmath(12*ratio);
       songplayer2fo.tstringdisp2.font.name := 'stf_default' ;
-      songplayer2fo.tstringdisp2.font.height := floor(12*ratio);
+      songplayer2fo.tstringdisp2.font.height := roundmath(12*ratio);
       
       songplayerfo.tstringdisp1.font.name := 'stf_default' ;
-      songplayerfo.tstringdisp1.font.height := floor(12*ratio);
+      songplayerfo.tstringdisp1.font.height := roundmath(12*ratio);
       songplayer2fo.tstringdisp1.font.name := 'stf_default' ;
-      songplayer2fo.tstringdisp1.font.height := floor(12*ratio);
+      songplayer2fo.tstringdisp1.font.height := roundmath(12*ratio);
              
       spectrum1fo.spect1.frame.font.name := 'stf_default' ;
       spectrum1fo.spect1.frame.font.height := 14;
@@ -935,15 +954,15 @@ begin
       spectrumrecfo.spect1.frame.font.height := 14;
  
       dockpanel1fo.mainmenu.menu.font.name := 'stf_default' ;
-      dockpanel1fo.mainmenu.menu.font.height := floor(12*ratio);
+      dockpanel1fo.mainmenu.menu.font.height := roundmath(12*ratio);
       dockpanel2fo.mainmenu.menu.font.name := 'stf_default' ;
-      dockpanel2fo.mainmenu.menu.font.height := floor(12*ratio);;
+      dockpanel2fo.mainmenu.menu.font.height := roundmath(12*ratio);;
       dockpanel3fo.mainmenu.menu.font.name := 'stf_default' ;
-      dockpanel3fo.mainmenu.menu.font.height := floor(12*ratio);;
+      dockpanel3fo.mainmenu.menu.font.height := roundmath(12*ratio);;
       dockpanel4fo.mainmenu.menu.font.name := 'stf_default' ;
-      dockpanel4fo.mainmenu.menu.font.height := floor(12*ratio);;
+      dockpanel4fo.mainmenu.menu.font.height := roundmath(12*ratio);;
       dockpanel5fo.mainmenu.menu.font.name := 'stf_default' ;
-      dockpanel5fo.mainmenu.menu.font.height := floor(12*ratio);;
+      dockpanel5fo.mainmenu.menu.font.height := roundmath(12*ratio);;
          
       end;
       
@@ -3033,17 +3052,17 @@ begin
   waveforec.bounds_cxmax := 0;
   waveforec.bounds_cymax := 0;
 
-  wavefo2.bounds_cx := floor(300 * ratio);
-  wavefo2.bounds_cy := floor(100 * ratio);
+  wavefo2.bounds_cx := roundmath(300 * ratio);
+  wavefo2.bounds_cy := roundmath(100 * ratio);
   ;
 
-  wavefo.bounds_cx := floor(300 * ratio);
+  wavefo.bounds_cx := roundmath(300 * ratio);
   ;
-  wavefo.bounds_cy := floor(100 * ratio);
+  wavefo.bounds_cy := roundmath(100 * ratio);
   ;
 
-  waveforec.bounds_cx := floor(300 * ratio);
-  waveforec.bounds_cy := floor(100 * ratio);
+  waveforec.bounds_cx := roundmath(300 * ratio);
+  waveforec.bounds_cy := roundmath(100 * ratio);
 
   filelistfo.bounds_cxmax := fowidth;
   filelistfo.bounds_cymax := 0;
@@ -3054,7 +3073,7 @@ begin
   infosdfo2.bounds_cxmax := 0;
   infosdfo2.bounds_cymax := 0;
 
-  infosdfo.Height := floor(226 * ratio);
+  infosdfo.Height := roundmath(226 * ratio);
   ;
   infosdfo.Width  := fowidth;
 
@@ -3847,7 +3866,7 @@ begin
   dockpanel1fo.top  := decorationheight;
 
   filelistfo.left := commanderfo.Width + interv;
-  filelistfo.top  := commanderfo.Height + floor(2.5 * decorationheight) - 2;
+  filelistfo.top  := commanderfo.Height + roundmath(2.5 * decorationheight) - 2;
 
   filelistfo.Height := (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height) - commanderfo.Height - (decorationheight div 2);
 
@@ -4104,7 +4123,7 @@ begin
   dockpanel1fo.top  := decorationheight;
 
   filelistfo.left := commanderfo.Width + interv;
-  filelistfo.top  := commanderfo.Height + floor(2.5 * decorationheight) - 2;
+  filelistfo.top  := commanderfo.Height + roundmath(2.5 * decorationheight) - 2;
 
   filelistfo.Height := (songplayerfo.Height + spectrum1fo.Height + equalizerfo1.Height + equalizerfo1.Height) - (decorationheight div 2);
 
@@ -8415,9 +8434,9 @@ begin
   rect1 := application.screenrect(window);
   
  {$ifdef mswindows}
- fontheightsugg := floor(rect1.cx / 1280 * 12);
+ fontheightsugg := roundmath(rect1.cx / 1280 * 12);
  {$else}
- fontheightsugg := floor(rect1.cx / 1368 * 12);
+ fontheightsugg := roundmath(rect1.cx / 1368 * 12);
  {$endif}
 
  configlayoutfo.autoheight.frame.caption := 'Use at loading suggested font height: ' + inttostr(fontheightsugg);
@@ -8425,7 +8444,7 @@ begin
  if configlayoutfo.autoheight.Value then
    configlayoutfo.fontheight.value := fontheightsugg ;
    
-  fontheightused := floor(configlayoutfo.fontheight.Value);
+  fontheightused := roundmath(configlayoutfo.fontheight.Value);
   resizema(fontheightused);
   applyfont(fontheightused);
 

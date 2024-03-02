@@ -152,22 +152,22 @@ begin
   bounds_cxmin := 0;
   bounds_cymax := 0;
   bounds_cymin := 0;
-  bounds_cxmax := floor(442 * ratio);
+  bounds_cxmax := roundmath(442 * ratio);
   bounds_cxmin := bounds_cxmax;
-  bounds_cymax := floor(284 * ratio);
+  bounds_cymax := roundmath(284 * ratio);
   bounds_cymin := bounds_cymax;
   font.Height  := fontheight;
 
-  frame.grip_size := floor(8 * ratio);
+  frame.grip_size := roundmath(8 * ratio);
 
   for i1 := 0 to childrencount - 1 do
     for i2 := 0 to length(boundchildsy) - 1 do
       if children[i1].Name = boundchildsy[i2].Name then
       begin
-        children[i1].left   := floor(boundchildsy[i2].left * ratio);
-        children[i1].top    := floor(boundchildsy[i2].top * ratio);
-        children[i1].Width  := floor(boundchildsy[i2].Width * ratio);
-        children[i1].Height := floor(boundchildsy[i2].Height * ratio);
+        children[i1].left   := roundmath(boundchildsy[i2].left * ratio);
+        children[i1].top    := roundmath(boundchildsy[i2].top * ratio);
+        children[i1].Width  := roundmath(boundchildsy[i2].Width * ratio);
+        children[i1].Height := roundmath(boundchildsy[i2].Height * ratio);
       end;
 
   tgroupbox4.font.Height := fontheight;
@@ -180,10 +180,10 @@ begin
       for i2 := 0 to length(boundchildsy) - 1 do
         if children[i1].Name = boundchildsy[i2].Name then
         begin
-          children[i1].left   := floor(boundchildsy[i2].left * ratio);
-          children[i1].top    := floor(boundchildsy[i2].top * ratio);
-          children[i1].Width  := floor(boundchildsy[i2].Width * ratio);
-          children[i1].Height := floor(boundchildsy[i2].Height * ratio);
+          children[i1].left   := roundmath(boundchildsy[i2].left * ratio);
+          children[i1].top    := roundmath(boundchildsy[i2].top * ratio);
+          children[i1].Width  := roundmath(boundchildsy[i2].Width * ratio);
+          children[i1].Height := roundmath(boundchildsy[i2].Height * ratio);
         end;
 
   tgroupbox3.font.Height := fontheight;
@@ -193,10 +193,10 @@ begin
       for i2 := 0 to length(boundchildsy) - 1 do
         if children[i1].Name = boundchildsy[i2].Name then
         begin
-          children[i1].left   := floor(boundchildsy[i2].left * ratio);
-          children[i1].top    := floor(boundchildsy[i2].top * ratio);
-          children[i1].Width  := floor(boundchildsy[i2].Width * ratio);
-          children[i1].Height := floor(boundchildsy[i2].Height * ratio);
+          children[i1].left   := roundmath(boundchildsy[i2].left * ratio);
+          children[i1].top    := roundmath(boundchildsy[i2].top * ratio);
+          children[i1].Width  := roundmath(boundchildsy[i2].Width * ratio);
+          children[i1].Height := roundmath(boundchildsy[i2].Height * ratio);
         end;
 end;
 
@@ -215,7 +215,7 @@ end;
 
 procedure tsynthefo.samcountsetexeR(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
-  noise.samplecount  := floor(19 * avalue) + 1;
+  noise.samplecount  := roundmath(19 * avalue) + 1;
   sampcountdiR.Value := noise.samplecount;
 
   if linknoisechan.Value then
@@ -325,7 +325,7 @@ end;
 
 procedure tsynthefo.onvolwaveL(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
-  volwavL.Value := floor(100 * avalue);
+  volwavL.Value := roundmath(100 * avalue);
   if linkwavchan.Value then
   begin
     volwavR.Value     := volwavL.Value;
@@ -337,7 +337,7 @@ procedure tsynthefo.onfreqwaveL(const Sender: TObject; var avalue: realty; var a
 var
   bvalue: integer;
 begin
-  bvalue   := floor(avalue * avalue * 10000);
+  bvalue   := roundmath(avalue * avalue * 10000);
   if bvalue > 10000 then
     bvalue := 10000;
   if bvalue < 100 then
@@ -393,7 +393,7 @@ end;
 
 procedure tsynthefo.onsetampnoiseR(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
-  noiseampR.Value := floor(avalue * 100);
+  noiseampR.Value := roundmath(avalue * 100);
   if linknoisechan.Value then
   begin
     noiseampL.Value    := noiseampR.Value;
@@ -409,7 +409,7 @@ end;
 
 procedure tsynthefo.onvolwaveR(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
-  volwavR.Value := floor(100 * avalue);
+  volwavR.Value := roundmath(100 * avalue);
   if linkwavchan.Value then
   begin
     volwavL.Value     := volwavR.Value;
@@ -421,7 +421,7 @@ procedure tsynthefo.onfreqwaveR(const Sender: TObject; var avalue: realty; var a
 var
   bvalue: integer;
 begin
-  bvalue   := floor(avalue * avalue * 10000);
+  bvalue   := roundmath(avalue * avalue * 10000);
   if bvalue > 10000 then
     bvalue := 10000;
   if bvalue < 100 then
@@ -448,7 +448,7 @@ end;
 
 procedure tsynthefo.onsetampnoiseL(const Sender: TObject; var avalue: realty; var accept: Boolean);
 begin
-  noiseampL.Value := floor(avalue * 100);
+  noiseampL.Value := roundmath(avalue * 100);
   if linknoisechan.Value then
   begin
     noiseampR.Value   := noiseampL.Value;

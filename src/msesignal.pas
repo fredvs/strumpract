@@ -1099,6 +1099,23 @@ uses
 type
   tmsecomponent1 = class(tmsecomponent);
 
+function RoundMath(aV:double):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end;
+
+function RoundMath(aV:single):int64;overload;
+begin
+  if aV>=0 then
+    result:=Trunc(aV+0.5)
+  else
+    result:=Trunc(aV-0.5);
+end;
+
+
 procedure initscale(const amin, amax: double; const aoptions: valuescaleoptionsty; out ainfo: doublescaleinfoty);
 begin
   with ainfo do
@@ -3376,7 +3393,7 @@ begin
       if sico_freerun in foptions then
         application.registeronidle(@doidle)
       else if sico_autorun in foptions then
-        ftimer := tsimpletimer.Create(floor(1000000.0 * fstepcount / fsamplefrequ), @doautotick, True, [to_leak]);
+        ftimer := tsimpletimer.Create(roundmath(1000000.0 * fstepcount / fsamplefrequ), @doautotick, True, [to_leak]);
 end;
 
 function tsigcontroller.getfreerun: Boolean;
@@ -3966,11 +3983,11 @@ var
     setscale(options, progindex, double(sta));
     with ainfo.fprog[progindex] do
     begin
-      maxeventdelay := floor(maxeventtime * eventtimescale);
+      maxeventdelay := roundmath(maxeventtime * eventtimescale);
       starttime := ti;
       startval := sta;
       int3    := ti;
-      ti      := floor((valueitem.re + timoffs) * timsca);
+      ti      := roundmath((valueitem.re + timoffs) * timsca);
       endtime := ti;
       if int3 >= ti then
         int3 := ti - 1;

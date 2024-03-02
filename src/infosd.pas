@@ -4,7 +4,6 @@ unit infosd;
 interface
 
 uses
-  math,
   types,
   msethread,
   msetypes,
@@ -83,8 +82,8 @@ var
   ratio: double;
 begin
   ratio        := fontheight / 12;
-  bounds_cxmin := floor(442 * ratio);
-  bounds_cymin := floor(216 * ratio);
+  bounds_cxmin := roundmath(442 * ratio);
+  bounds_cymin := roundmath(216 * ratio);
 
   if (parentwidget <> nil) then
   begin
@@ -99,7 +98,7 @@ begin
 
   font.Height := fontheight;
 
-  infofile.frame.font.Height   := floor(ratio * 10);
+  infofile.frame.font.Height   := roundmath(ratio * 10);
   infoname.frame.font.Height   := infofile.frame.font.Height;
   infoname.frame.font.Height   := infofile.frame.font.Height;
   infoartist.frame.font.Height := infofile.frame.font.Height;
@@ -113,7 +112,7 @@ begin
   infolength.frame.font.Height := infofile.frame.font.Height;
   infobpm.frame.font.Height    := infofile.frame.font.Height;
 
-  frame.grip_size := floor(8 * ratio);
+  frame.grip_size := roundmath(8 * ratio);
 
   for i1 := 0 to childrencount - 1 do
     for i2 := 0 to length(boundchildin) - 1 do
@@ -121,15 +120,15 @@ begin
       begin
         if children[i1] is tlabel then
           tlabel(children[i1]).font.Height := fontheightused;
-        children[i1].left   := floor(boundchildin[i2].left * ratio);
-        children[i1].top    := floor(boundchildin[i2].top * ratio);
-        children[i1].Width  := floor(boundchildin[i2].Width * ratio);
-        children[i1].Height := floor(boundchildin[i2].Height * ratio);
+        children[i1].left   := roundmath(boundchildin[i2].left * ratio);
+        children[i1].top    := roundmath(boundchildin[i2].top * ratio);
+        children[i1].Width  := roundmath(boundchildin[i2].Width * ratio);
+        children[i1].Height := roundmath(boundchildin[i2].Height * ratio);
       end;
 
-  PimgPreview.left   := floor(217 * ratio);
-  PimgPreview.Height := floor(216 * ratio);
-  PimgPreview.Width  := floor(216 * ratio);
+  PimgPreview.left   := roundmath(217 * ratio);
+  PimgPreview.Height := roundmath(216 * ratio);
+  PimgPreview.Width  := roundmath(216 * ratio);
 
 end;
 
@@ -199,12 +198,12 @@ var
   ratio: double;
 begin
   ratio        := fontheightused / 12;
-  bounds_cxmax := floor(442 * ratio);
-  bounds_cxmin := floor(442 * ratio);
-  bounds_cymax := floor(216 * ratio);
-  bounds_cymin := floor(216 * ratio);
-  bounds_cx    := floor(442 * ratio);
-  bounds_cy    := floor(216 * ratio);
+  bounds_cxmax := roundmath(442 * ratio);
+  bounds_cxmin := roundmath(442 * ratio);
+  bounds_cymax := roundmath(216 * ratio);
+  bounds_cymin := roundmath(216 * ratio);
+  bounds_cx    := roundmath(442 * ratio);
+  bounds_cy    := roundmath(216 * ratio);
 end;
 
 procedure tinfosdfo.onfloat(const Sender: TObject);
@@ -213,11 +212,11 @@ var
 begin
   ratio        := fontheightused / 12;
   bounds_cxmax := 0;
-  bounds_cxmin := floor(442 * ratio);
+  bounds_cxmin := roundmath(442 * ratio);
   bounds_cymax := 0;
-  bounds_cymin := floor(216 * ratio);
-  bounds_cx    := floor(442 * ratio);
-  bounds_cy    := floor(216 * ratio);
+  bounds_cymin := roundmath(216 * ratio);
+  bounds_cx    := roundmath(442 * ratio);
+  bounds_cy    := roundmath(216 * ratio);
 end;
 
 procedure tinfosdfo.onevstart(const Sender: TObject);
