@@ -37,6 +37,10 @@ Jam Layout Silver Style:
 
 ![alt text](https://user-images.githubusercontent.com/3421249/99883960-de9cd200-2c2a-11eb-943a-55d128e03afa.png)
 
+Jam Layout Carbon:
+
+![alt text](https://user-images.githubusercontent.com/3421249/210138213-9384b9d8-396e-48e9-a781-9fe3036f3827.png)
+
 All docked:
 
 ![alt text](https://user-images.githubusercontent.com/3421249/89722588-a3fc8a00-d9eb-11ea-86cb-aba8dad9e2ce.png)
