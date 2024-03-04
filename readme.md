@@ -17,8 +17,11 @@ There are compiled executable for Linux 32/64, Windows 32/64, FreeBSD 64
 and arm-aarch64 Rpi 32/64. =\> https://github.com/fredvs/strumpract/releases/
 
 StrumPract was compiled with: FPC 3.2.2: http://www.freepascal.org
+
 Graphic widgetset: MSEgui 5.10.0: https://github.com/mse-org/mseide-msegui
+
 Graphic library: BGRABitmap v11.5.8: https://github.com/bgrabitmap/bgrabitmap
+
 Audio library: uos 1.8.0: https://github.com/fredvs/uos
   
 
