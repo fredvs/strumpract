@@ -137,7 +137,7 @@ end;
 procedure tfilelistfo.formcreated(const Sender: TObject);
 var
   x: integer;
-  ordir2 : msestring;
+  ordir1, ordir2 : msestring;
 begin
   Timersent          := ttimer.Create(nil);
   Timersent.interval := 2500000;
@@ -151,22 +151,25 @@ begin
   Timercount.options  := [to_single];
   Timercount.ontimer  := @ontimercount;
 
-  randomize;
+ // randomize;
 
   list_files.hint := ' To move a row: click+hold into the fixed column ' + lineend +
     ' and drag the row where you want. ';
-
-
-  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
-  
-  ordir2 := filepath(statdirname);
-
+    
+   ordir1 := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+    
+  {$ifdef mswindows}
+   if fileexists(ordir1 + 'ini' + directoryseparator + 'list.ini') then
+    tstatfile1.readstat(msestring(ordir1 + 'ini' + directoryseparator + 'list.ini'))
+  {$else}  
+    ordir2 := filepath(statdirname);
   if fileexists(ordir2 + directoryseparator + 'list.ini') then
     filelistfo.tstatfile1.readstat(msestring(ordir2 + directoryseparator + 'list.ini'))
+  {$endif}
   else if trim(historyfn.Value) = '' then
   begin
     hasinit         := 1;
-    historyfn.Value := msestring(ordir + 'sound' + directoryseparator + 'song' +
+    historyfn.Value := msestring(ordir1 + 'sound' + directoryseparator + 'song' +
       directoryseparator);
     onchangpath(Sender, 0);
   end;

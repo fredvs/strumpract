@@ -157,9 +157,9 @@ function RoundMath(aV:single):int64;overload;
 
 const
   versiontext = '3.8.0';
-  statdirname = '^/.strumpract';
-
+ 
 var
+  statdirname: msestring = '^/.strumpract';
   dialoglive: boolean = false;
   drumsfoheight: integer = 274;
   filelistfoheight: integer = 128;
@@ -2270,6 +2270,10 @@ tfacered.template.fade_color.count := 1;
 
   maxheightfo         := rect1.cy - 70;
   // for x := 0 to 4 do tmainmenu1.menu.items[x].visible := false;
+  
+{$ifdef mswindows}
+ statdirname := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini');
+{$endif}
   
    ordir := filepath(statdirname);
    
@@ -8433,13 +8437,13 @@ begin
 
   rect1 := application.screenrect(window);
   
- {$ifdef mswindows}
- fontheightsugg := roundmath(rect1.cx / 1280 * 12);
+ {$ifdef mswindows} // to check
+ fontheightsugg := roundmath(rect1.cx / 1330 * 12) ;
  {$else}
  fontheightsugg := roundmath(rect1.cx / 1368 * 12);
  {$endif}
 
- configlayoutfo.autoheight.frame.caption := 'Use at loading suggested font height: ' + inttostr(fontheightsugg);
+  configlayoutfo.autoheight.frame.caption := 'Use at loading suggested font height: ' + inttostr(fontheightsugg);
   
  if configlayoutfo.autoheight.Value then
    configlayoutfo.fontheight.value := fontheightsugg ;

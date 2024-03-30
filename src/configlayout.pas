@@ -73,7 +73,7 @@ begin
   tbutton3.Caption := 'Resolution: ' + IntToStr(rect1.cx) + 'x' +
     IntToStr(rect1.cy) + lineend + 'Font height suggested: ' +
   {$ifdef mswindows}
-   IntToStr(roundmath(rect1.cx / 1280 * 12));
+   IntToStr(roundmath(rect1.cx / 1340 * 12));
   {$else}
    IntToStr(roundmath(rect1.cx / 1368 * 12));
   {$endif}
@@ -296,7 +296,7 @@ var
 begin
   rect1 := application.screenrect(window);
    {$ifdef mswindows}
-    fontheight.Value := roundmath(rect1.cx / 1280 * 12);
+    fontheight.Value := roundmath(rect1.cx / 1340 * 12);
    {$else}
    fontheight.Value := roundmath(rect1.cx / 1368 * 12);
    {$endif}
