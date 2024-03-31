@@ -1,7 +1,7 @@
 object configlayoutfo: tconfiglayoutfo
   visible = False
-  bounds_x = 624
-  bounds_y = 436
+  bounds_x = 354
+  bounds_y = 293
   bounds_cx = 584
   bounds_cy = 288
   bounds_cxmin = 584
@@ -22,6 +22,7 @@ object configlayoutfo: tconfiglayoutfo
   statfile = mainfo.tstatfile1
   caption = 'Config of Layout'
   windowopacity = -Inf
+  oncreate = oncrea
   moduleclassname = 'tmseform'
   object tgroupbox2: tgroupbox
     frame.levelo = 1
@@ -43,8 +44,6 @@ object configlayoutfo: tconfiglayoutfo
     bounds_y = 9
     bounds_cx = 194
     bounds_cy = 155
-    font.name = 'stf_default'
-    font.localprops = []
     object tcoloredit1: tcoloredit
       frame.levelo = 1
       frame.colorhighlight = -1610612733
@@ -85,8 +84,6 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 39
       bounds_cx = 172
       bounds_cy = 39
-      font.name = 'stf_default'
-      font.localprops = []
       onchange = onsetcolor
       value = 13872086
       reffontheight = 15
@@ -132,8 +129,6 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 92
       bounds_cx = 172
       bounds_cy = 39
-      font.name = 'stf_default'
-      font.localprops = []
       onchange = onsetcolor
       value = 13744312
       reffontheight = 15
@@ -200,8 +195,6 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 40
       bounds_cx = 172
       bounds_cy = 39
-      font.name = 'stf_default'
-      font.localprops = []
       onchange = onsetcolor
       value = 11255766
       valuedefault = -1610612721
@@ -248,8 +241,6 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 93
       bounds_cx = 172
       bounds_cy = 39
-      font.name = 'stf_default'
-      font.localprops = []
       onchange = onsetcolor
       value = 9424076
       valuedefault = -1610612720
@@ -273,7 +264,7 @@ object configlayoutfo: tconfiglayoutfo
     bounds_x = 263
     bounds_y = 170
     bounds_cx = 300
-    bounds_cy = 105
+    bounds_cy = 75
     object fontheight: trealspinedit
       frame.framei_left = 1
       frame.framei_top = 1
@@ -323,31 +314,6 @@ object configlayoutfo: tconfiglayoutfo
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'Set font height to '
       onexecute = onbutsetfont
-    end
-    object autoheight: tbooleanedit
-      color = -2147483645
-      frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-      frame.colorclient = 16580582
-      frame.caption = 'Use suggested font height at loading'
-      frame.captiondist = 3
-      frame.localprops = [frl_hiddenedges, frl_colorclient]
-      frame.localprops1 = [frl1_captiondist]
-      frame.outerframe = (
-        0
-        2
-        229
-        3
-      )
-      taborder = 3
-      hint = 'Set suggested height of font and scalling at loading'
-      bounds_x = 8
-      bounds_y = 77
-      bounds_cx = 242
-      bounds_cy = 17
-      statfile = mainfo.tstatfile1
-      colorglyph = 4868682
-      value = True
-      valuedefault = True
     end
   end
   object tgroupbox4: tgroupbox
@@ -541,5 +507,23 @@ object configlayoutfo: tconfiglayoutfo
       statfile = mainfo.tstatfile1
       onchange = onchangestyle
     end
+  end
+  object autoheight: tbooleanedit
+    frame.caption = 'Use suggested font height at loading'
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.outerframe = (
+      0
+      2
+      227
+      2
+    )
+    taborder = 6
+    bounds_x = 282
+    bounds_y = 255
+    bounds_cx = 240
+    bounds_cy = 17
+    statfile = mainfo.tstatfile1
+    value = True
   end
 end

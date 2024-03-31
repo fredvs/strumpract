@@ -4,11 +4,34 @@ unit configlayout;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
- msesimplewidgets,mseact,msecolordialog,msedataedits,msedropdownlist,mseedit,
- mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
- msegraphedits,msescrollbar;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  msesimplewidgets,
+  mseact,
+  msecolordialog,
+  msedataedits,
+  msedropdownlist,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestatfile,
+  msestream,
+  SysUtils,
+  msegraphedits,
+  msescrollbar;
 
 type
   tconfiglayoutfo = class(tmseform)
@@ -31,14 +54,16 @@ type
     bsilver: tbooleaneditradio;
     bcarbon: tbooleaneditradio;
     tbutton3: TButton;
-   autoheight: tbooleanedit;
-   bbarbie: tbooleaneditradio;
+    bbarbie: tbooleaneditradio;
+    autoheight: tbooleanedit;
     procedure onfontheight(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
     procedure onsetcolor(const Sender: TObject);
     procedure onsetfontres(const Sender: TObject);
     procedure onchangestyle(const Sender: TObject);
     procedure onbutsetfont(const Sender: TObject);
+    procedure resizecl(fonth: integer);
+    procedure oncrea(const Sender: TObject);
   end;
 
 var
@@ -60,6 +85,133 @@ uses
   main,
   configlayout_mfm;
 
+var
+  boundchildscl: array of boundchild;
+
+procedure tconfiglayoutfo.resizecl(fonth: integer);
+var
+  childrensp: widgetarty;
+  heights: integerarty;
+  widths: integerarty;
+  tops: integerarty;
+  lefts: integerarty;
+  i1, i2: integer;
+  spcx, spcy, posx, posy, ax: integer;
+  ratio: double;
+begin
+  ratio        := fonth / 12;
+  bounds_cxmax := 0;
+  bounds_cxmin := 0;
+  bounds_cymax := 0;
+  bounds_cymin := 0;
+  bounds_cxmax := roundmath(584 * ratio);
+  bounds_cxmin := bounds_cxmax;
+  bounds_cymax := roundmath(288 * ratio);
+  bounds_cymin := bounds_cymax;
+  font.Height  := fonth;
+
+  tbutton1.font.color  := font.color;
+  tbutton1.font.Height := font.Height;
+  tbutton1.left        := roundmath(504 * ratio);
+  tbutton1.Width       := roundmath(40 * ratio);
+  tbutton1.Height      := roundmath(34 * ratio);
+  tbutton1.top         := roundmath(13 * ratio);
+
+  autoheight.frame.font.color := font.color;
+  autoheight.frame.font.Height := font.Height;
+  autoheight.left := roundmath(280 * ratio);
+  //tbutton1.Width      := roundmath(40 * ratio);
+  //tbutton1.height      := roundmath(34 * ratio);
+  autoheight.top  := roundmath(257 * ratio);
+
+
+  tgroupbox2.font.color := font.color;
+  tgroupbox2.left       := roundmath(22 * ratio);
+  tgroupbox2.Width      := roundmath(194 * ratio);
+  tgroupbox2.Height     := roundmath(155 * ratio);
+  tgroupbox2.top        := roundmath(9 * ratio);
+
+  with tgroupbox2 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildscl) - 1 do
+        if tgroupbox2.children[i1].Name = boundchildscl[i2].Name then
+        begin
+          tgroupbox2.children[i1].left   := roundmath(boundchildscl[i2].left * ratio);
+          tgroupbox2.children[i1].top    := roundmath(boundchildscl[i2].top * ratio);
+          tgroupbox2.children[i1].Width  := roundmath(boundchildscl[i2].Width * ratio);
+          tgroupbox2.children[i1].Height := roundmath(boundchildscl[i2].Height * ratio);
+        end;
+
+  tgroupbox3.font.color := font.color;
+  tgroupbox3.left       := roundmath(234 * ratio);
+  tgroupbox3.Width      := roundmath(194 * ratio);
+  tgroupbox3.Height     := roundmath(155 * ratio);
+  tgroupbox3.top        := roundmath(9 * ratio);
+
+  with tgroupbox3 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildscl) - 1 do
+        if tgroupbox3.children[i1].Name = boundchildscl[i2].Name then
+        begin
+          tgroupbox3.children[i1].left   := roundmath(boundchildscl[i2].left * ratio);
+          tgroupbox3.children[i1].top    := roundmath(boundchildscl[i2].top * ratio);
+          tgroupbox3.children[i1].Width  := roundmath(boundchildscl[i2].Width * ratio);
+          tgroupbox3.children[i1].Height := roundmath(boundchildscl[i2].Height * ratio);
+        end;
+
+  tgroupbox4.font.color := font.color;
+  tgroupbox4.left       := roundmath(438 * ratio);
+  tgroupbox4.Width      := roundmath(125 * ratio);
+  tgroupbox4.Height     := roundmath(105 * ratio);
+  tgroupbox4.top        := roundmath(57 * ratio);
+
+  with tgroupbox4 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildscl) - 1 do
+        if tgroupbox4.children[i1].Name = boundchildscl[i2].Name then
+        begin
+          tgroupbox4.children[i1].left   := roundmath(boundchildscl[i2].left * ratio);
+          tgroupbox4.children[i1].top    := roundmath(boundchildscl[i2].top * ratio);
+          tgroupbox4.children[i1].Width  := roundmath(boundchildscl[i2].Width * ratio);
+          tgroupbox4.children[i1].Height := roundmath(boundchildscl[i2].Height * ratio);
+        end;
+
+  tgroupbox5.font.color := font.color;
+  tgroupbox5.left       := roundmath(22 * ratio);
+  tgroupbox5.Width      := roundmath(229 * ratio);
+  tgroupbox5.Height     := roundmath(105 * ratio);
+  tgroupbox5.top        := roundmath(170 * ratio);
+
+  with tgroupbox5 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildscl) - 1 do
+        if tgroupbox5.children[i1].Name = boundchildscl[i2].Name then
+        begin
+          tgroupbox5.children[i1].left   := roundmath(boundchildscl[i2].left * ratio);
+          tgroupbox5.children[i1].top    := roundmath(boundchildscl[i2].top * ratio);
+          tgroupbox5.children[i1].Width  := roundmath(boundchildscl[i2].Width * ratio);
+          tgroupbox5.children[i1].Height := roundmath(boundchildscl[i2].Height * ratio);
+        end;
+
+  tgroupbox7.font.color := font.color;
+  tgroupbox7.left       := roundmath(263 * ratio);
+  tgroupbox7.Width      := roundmath(300 * ratio);
+  tgroupbox7.Height     := roundmath(75 * ratio);
+  tgroupbox7.top        := roundmath(170 * ratio);
+
+  with tgroupbox7 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildscl) - 1 do
+        if tgroupbox7.children[i1].Name = boundchildscl[i2].Name then
+        begin
+          tgroupbox7.children[i1].left   := roundmath(boundchildscl[i2].left * ratio);
+          tgroupbox7.children[i1].top    := roundmath(boundchildscl[i2].top * ratio);
+          tgroupbox7.children[i1].Width  := roundmath(boundchildscl[i2].Width * ratio);
+          tgroupbox7.children[i1].Height := roundmath(boundchildscl[i2].Height * ratio);
+        end;
+
+end;
+
 procedure tconfiglayoutfo.onfontheight(const Sender: TObject);
 begin
   mainfo.applyfont(roundmath(fontheight.Value));
@@ -73,7 +225,7 @@ begin
   tbutton3.Caption := 'Resolution: ' + IntToStr(rect1.cx) + 'x' +
     IntToStr(rect1.cy) + lineend + 'Font height suggested: ' +
   {$ifdef mswindows}
-   IntToStr(roundmath(rect1.cx / 1340 * 12));
+    IntToStr(roundmath(rect1.cx / 1340 * 12));
   {$else}
    IntToStr(roundmath(rect1.cx / 1368 * 12));
   {$endif}
@@ -273,21 +425,22 @@ begin
       songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreendark
     else
       songplayer2fo.trackbar1.scrollbar.face1.template := commanderfo.tfacegreen;
-   }   
-      
+   }
+
   end;
 end;
 
 procedure tconfiglayoutfo.onchangestyle(const Sender: TObject);
 begin
-   if (isactivated = True) then
+  if (isactivated = True) then
     if bgold.Value then
       mainfo.typecolor.Value := 0
     else if bsilver.Value then
       mainfo.typecolor.Value := 1
     else if bcarbon.Value then
       mainfo.typecolor.Value := 2
-    else mainfo.typecolor.Value := 3;
+    else
+      mainfo.typecolor.Value := 3;
 end;
 
 procedure tconfiglayoutfo.onbutsetfont(const Sender: TObject);
@@ -296,10 +449,94 @@ var
 begin
   rect1 := application.screenrect(window);
    {$ifdef mswindows}
-    fontheight.Value := roundmath(rect1.cx / 1340 * 12);
+  fontheight.Value := roundmath(rect1.cx / 1340 * 12);
    {$else}
    fontheight.Value := roundmath(rect1.cx / 1368 * 12);
    {$endif}
+end;
+
+procedure tconfiglayoutfo.oncrea(const Sender: TObject);
+var
+  x, i1, childn: integer;
+begin
+  childn := 0;
+
+  setlength(boundchildscl, childrencount);
+  childn := childrencount;
+
+  for i1 := 0 to childrencount - 1 do
+  begin
+    boundchildscl[i1].left   := children[i1].left;
+    boundchildscl[i1].top    := children[i1].top;
+    boundchildscl[i1].Width  := children[i1].Width;
+    boundchildscl[i1].Height := children[i1].Height;
+    boundchildscl[i1].Name   := children[i1].Name;
+  end;
+
+  setlength(boundchildscl, tgroupbox2.childrencount + childn);
+
+  with tgroupbox2 do
+    for i1 := 0 to tgroupbox2.childrencount - 1 do
+    begin
+      boundchildscl[i1 + childn].left   := children[i1].left;
+      boundchildscl[i1 + childn].top    := children[i1].top;
+      boundchildscl[i1 + childn].Width  := children[i1].Width;
+      boundchildscl[i1 + childn].Height := children[i1].Height;
+      boundchildscl[i1 + childn].Name   := children[i1].Name;
+    end;
+
+  childn := length(boundchildscl);
+  setlength(boundchildscl, length(boundchildscl) + tgroupbox3.childrencount);
+
+  with tgroupbox3 do
+    for i1 := 0 to tgroupbox3.childrencount - 1 do
+    begin
+      boundchildscl[i1 + childn].left   := children[i1].left;
+      boundchildscl[i1 + childn].top    := children[i1].top;
+      boundchildscl[i1 + childn].Width  := children[i1].Width;
+      boundchildscl[i1 + childn].Height := children[i1].Height;
+      boundchildscl[i1 + childn].Name   := children[i1].Name;
+    end;
+
+  childn := length(boundchildscl);
+  setlength(boundchildscl, length(boundchildscl) + tgroupbox4.childrencount);
+
+  with tgroupbox4 do
+    for i1 := 0 to tgroupbox4.childrencount - 1 do
+    begin
+      boundchildscl[i1 + childn].left   := children[i1].left;
+      boundchildscl[i1 + childn].top    := children[i1].top;
+      boundchildscl[i1 + childn].Width  := children[i1].Width;
+      boundchildscl[i1 + childn].Height := children[i1].Height;
+      boundchildscl[i1 + childn].Name   := children[i1].Name;
+    end;
+
+  childn := length(boundchildscl);
+  setlength(boundchildscl, length(boundchildscl) + tgroupbox5.childrencount);
+
+  with tgroupbox5 do
+    for i1 := 0 to tgroupbox5.childrencount - 1 do
+    begin
+      boundchildscl[i1 + childn].left   := children[i1].left;
+      boundchildscl[i1 + childn].top    := children[i1].top;
+      boundchildscl[i1 + childn].Width  := children[i1].Width;
+      boundchildscl[i1 + childn].Height := children[i1].Height;
+      boundchildscl[i1 + childn].Name   := children[i1].Name;
+    end;
+
+  childn := length(boundchildscl);
+  setlength(boundchildscl, length(boundchildscl) + tgroupbox7.childrencount);
+
+  with tgroupbox7 do
+    for i1 := 0 to tgroupbox7.childrencount - 1 do
+    begin
+      boundchildscl[i1 + childn].left   := children[i1].left;
+      boundchildscl[i1 + childn].top    := children[i1].top;
+      boundchildscl[i1 + childn].Width  := children[i1].Width;
+      boundchildscl[i1 + childn].Height := children[i1].Height;
+      boundchildscl[i1 + childn].Name   := children[i1].Name;
+    end;
+
 end;
 
 end.

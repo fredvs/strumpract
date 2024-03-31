@@ -1,7 +1,7 @@
 object configfo: tconfigfo
   visible = False
-  bounds_x = 177
-  bounds_y = 115
+  bounds_x = 201
+  bounds_y = 175
   bounds_cx = 1000
   bounds_cy = 586
   bounds_cxmin = 1000
@@ -85,6 +85,7 @@ object configfo: tconfigfo
     000000000000000000000000000000000000000000000000
   }
   windowopacity = -Inf
+  oncreate = oncrea
   moduleclassname = 'tmseform'
   object tgroupbox1: tgroupbox
     frame.levelo = 1
@@ -630,7 +631,7 @@ object configfo: tconfigfo
     face.localprops = [fal_fadirection]
     taborder = 4
     visible = False
-    bounds_x = 201
+    bounds_x = 197
     bounds_y = 65
     bounds_cx = 292
     bounds_cy = 34

@@ -1,7 +1,7 @@
 object about_form: taboutfo
   visible = False
-  bounds_x = 440
-  bounds_y = 262
+  bounds_x = 475
+  bounds_y = 239
   bounds_cx = 372
   bounds_cy = 320
   bounds_cxmin = 372
