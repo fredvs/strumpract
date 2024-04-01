@@ -444,7 +444,8 @@ begin
   configlayoutfo.resizecl(fontval);
   configfo.resizecs(fontval);
   aboutfo.resizeab(fontval);
-
+  findmessagefo.resizefm(fontval);
+  
   paintslider();
 
   resizema(fontval);
