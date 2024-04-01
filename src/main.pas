@@ -445,6 +445,7 @@ begin
   configfo.resizecs(fontval);
   aboutfo.resizeab(fontval);
   findmessagefo.resizefm(fontval);
+  conflangfo.resizecl(fontval);
   
   paintslider();
 
@@ -8453,6 +8454,7 @@ end;
 procedure tmainfo.onlangset(const Sender: TObject);
 begin
   conflangfo.Show(True);
+ // conflangfo.resizecl(fontheightused);
 end;
 
 procedure tmainfo.onactiv(const Sender: TObject);

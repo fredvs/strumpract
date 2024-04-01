@@ -153,10 +153,10 @@ object conflangfo: tconflangfo
     color = -2147483645
     taborder = 4
     bounds_x = 58
-    bounds_y = -1
+    bounds_y = 0
     bounds_cx = 192
-    bounds_cy = 44
-    reffontheight = 17
+    bounds_cy = 42
+    reffontheight = 15
   end
   object setasdefault: tbooleanedit
     color = -2147483645
@@ -166,15 +166,15 @@ object conflangfo: tconflangfo
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      3
-      75
-      3
+      2
+      98
+      2
     )
     taborder = 1
     bounds_x = 36
-    bounds_y = 10
-    bounds_cx = 88
-    bounds_cy = 19
+    bounds_y = 11
+    bounds_cx = 111
+    bounds_cy = 17
     statfile = mainfo.tstatfile1
   end
   object ok: tbutton
