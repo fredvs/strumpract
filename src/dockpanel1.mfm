@@ -176,7 +176,7 @@ object dockpanel1fo: tdockpanel1fo
     menu.submenu.items = <    
       item
         caption = '&V '
-        hint = ' Dock windows in one form '
+        hint = ' Dock windows vertically in one form '
         name = 'dock'
         state = [as_localcaption, as_localhint, as_localonexecute]
         onexecute = ondock

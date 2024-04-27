@@ -230,6 +230,9 @@ end;
 procedure tinfosdfo.loadimagetag(aitag: TStream);
 var
 ordir : msestring;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
 begin
   ttimer1.Enabled  := False;
   tbutton1.Visible := False;
@@ -238,11 +241,18 @@ begin
     
    if aitag = nil then
    begin 
-   ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
-  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'noimagetag.png')
+     
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
+  
+  if fileexists(ordir  +'images' + directoryseparator + 'noimagetag.png')
   then
   begin
-  aimage := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'noimagetag.png');  
+  aimage := TBGRAAnimatedGif.Create(ordir +'images' + directoryseparator + 'noimagetag.png');  
   
   PimgPreview.Visible := True;
   PimgPreview.invalidate;

@@ -677,6 +677,9 @@ var
   file1: ttextdatastream;
   str1, strlang, filename1: msestring;
   str2: utf8String;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
 begin
   str1    := fn;
   strlang := '';
@@ -718,10 +721,15 @@ begin
     end;
 
     file1.Free;
-
-    str1 := ExtractFilePath(ParamStr(0)) + directoryseparator + 'lang' + directoryseparator +
+    
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  str1 := copy(binPath, 1, length(binPath) -6) + 'Resources/lang/strumpract_empty.po';
+  {$else}
+  str1 := ExtractFilePath(ParamStr(0)) + directoryseparator + 'lang' + directoryseparator +
       'strumpract_empty.po';
-
+  {$ENDIF}  
+   
     if fileexists(str1) then
     begin
 
@@ -789,8 +797,17 @@ begin
 end;
 
 procedure theaderfo.oncreateform(const Sender: TObject);
+{$if defined(darwin) and defined(macapp)}
+var
+  binPath: string;
+{$ENDIF}  
 begin
+ {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  outputdir.Value := copy(binPath, 1, length(binPath) -6) + 'Resources/output/';
+  {$else}
   outputdir.Value := ExtractFilePath(ParamStr(0)) + 'output' + directoryseparator;
+  {$ENDIF}  
 end;
 
 procedure theaderfo.ontime(const Sender: TObject);

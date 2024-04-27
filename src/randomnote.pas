@@ -3988,6 +3988,9 @@ end;
 procedure trandomnotefo.oncreatedev(const Sender: TObject);
 var
 ordir : msestring;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
 begin
   randomize;
 
@@ -3995,26 +3998,31 @@ begin
 
   //lineend + lineend +    '_____________________' + lineending + lineending +  lineending + 'The chords of chance';
   // Visible := False;
- 
-  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
-  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'piano1oct.png')
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
+   
+  if fileexists(ordir + 'images' + directoryseparator + 'piano1oct.png')
   then
   begin
-  aimagepiano := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'piano1oct.png');  
+  aimagepiano := TBGRAAnimatedGif.Create(ordir + 'images' + directoryseparator + 'piano1oct.png');  
   keyb1pb.invalidate;
   end;
 
-  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'guiaretab.png')
+  if fileexists(ordir + 'images' + directoryseparator + 'guiaretab.png')
   then
   begin
-  aimageguit := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'guiaretab.png');  
+  aimageguit := TBGRAAnimatedGif.Create(ordir + 'images' + directoryseparator + 'guiaretab.png');  
   guitpb1.invalidate;
   end;
   
-   if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'basstab.png')
+   if fileexists(ordir + 'images' + directoryseparator + 'basstab.png')
   then
   begin
-  aimagebass := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'basstab.png');  
+  aimagebass := TBGRAAnimatedGif.Create(ordir + 'images' + directoryseparator + 'basstab.png');  
   basspb1.invalidate;
   end;
 
@@ -4515,6 +4523,9 @@ end;
 procedure trandomnotefo.playrandomchords(thenum: integer);
 var 
   thedir, afile: string;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}    
 begin
 
   if thenum = 0 then
@@ -4529,9 +4540,14 @@ begin
          afile := chordmem5 + '_PIANO'
   else
     afile := '';
-
+    
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/sound/piano/'+ afile + '.mp3';
+  {$else}
   thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
             'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.mp3';
+  {$ENDIF}
  
    if fileexists(thedir) then
     begin
@@ -4567,10 +4583,15 @@ begin
          afile := chordmem5 + '_GUIT'
   else
     afile := '';
-
+    
+   {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/sound/guitar/'+ afile + '.mp3';
+  {$else}
   thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
             'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.mp3';
-
+  {$ENDIF}
+    
   if fileexists(thedir) then
     begin
       uos_Stop(21);
@@ -4592,6 +4613,9 @@ end;
 procedure trandomnotefo.onmouseguit(const Sender: twidget; var ainfo: mouseeventinfoty);
 var
   thedir, afile: msestring;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
 begin
   with ainfo do
     if eventkind in [ek_buttonpress] then
@@ -4610,10 +4634,15 @@ begin
       else
         afile := '';
 
-      thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
-        'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.mp3';
-
-      if fileexists(thedir) then
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/sound/guitar/'+ afile + '.mp3';
+  {$else}
+  thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
+            'sound' + directoryseparator + 'guitar' + directoryseparator + afile + '.mp3';
+  {$ENDIF}
+ 
+       if fileexists(thedir) then
       begin
 
         uos_Stop(Timage(Sender).tag + 10);
@@ -4640,6 +4669,9 @@ end;
 procedure trandomnotefo.onmousepiano(const Sender: twidget; var ainfo: mouseeventinfoty);
 var
   thedir, afile: msestring;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
 begin
   with ainfo do
     if eventkind in [ek_buttonpress] then
@@ -4658,10 +4690,15 @@ begin
       else
         afile := '';
 
-      thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
-        'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.mp3';
-
-      if fileexists(thedir) then
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/sound/piano/'+ afile + '.mp3';
+  {$else}
+  thedir := IncludeTrailingBackslash(ExtractFilePath(msestring(ParamStr(0)))) +
+            'sound' + directoryseparator + 'piano' + directoryseparator + afile + '.mp3';
+  {$ENDIF}
+         
+    if fileexists(thedir) then
       begin
 
         uos_Stop(Timage(Sender).tag + 20);

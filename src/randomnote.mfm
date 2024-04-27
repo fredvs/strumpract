@@ -649,8 +649,8 @@ object randomnotefo: trandomnotefo
     face.localprops = []
     taborder = 11
     visible = False
-    bounds_x = 72
-    bounds_y = 239
+    bounds_x = 61
+    bounds_y = 237
     bounds_cx = 352
     bounds_cy = 284
     anchors = [an_top, an_right]

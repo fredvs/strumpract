@@ -241,6 +241,9 @@ procedure tpianofo.crea(const sender: TObject);
 var
 i1, childn : integer;
 ordir : msestring;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF} 
 begin
     setlength(boundchildpi,childrencount);
      
@@ -255,11 +258,17 @@ begin
           boundchildpi[i1].name := children[i1].name;
          end;
 
-  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
-  if fileexists(ordir + directoryseparator +'images' + directoryseparator + 'piano4oct.png')
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
+  
+  if fileexists(ordir +'images' + directoryseparator + 'piano4oct.png')
   then
   begin
-  aimagepiano4oct := TBGRAAnimatedGif.Create(ordir + directoryseparator +'images' + directoryseparator + 'piano4oct.png');  
+  aimagepiano4oct := TBGRAAnimatedGif.Create(ordir + 'images' + directoryseparator + 'piano4oct.png');  
   keyb1pb.invalidate;
   end;
 

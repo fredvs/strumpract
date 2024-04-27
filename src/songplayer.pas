@@ -2519,6 +2519,9 @@ procedure tsongplayerfo.onplayercreate(const Sender: TObject);
 var
   ordir: msestring;
   i1: integer;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
 begin
  {$if defined(netbsd) or defined(darwin)}
   windowopacity := 1;
@@ -2541,11 +2544,15 @@ begin
   Timersent.ontimer  := @ontimersent;
   Timersent.options  := [to_single];
 
-  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
-
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
+ 
   if historyfn.Value = '' then
     historyfn.Value := ordir + 'sound' + directoryseparator + 'song' + directoryseparator + 'test.mp3';
-
 
   with tgroupbox1 do
   begin

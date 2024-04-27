@@ -138,6 +138,9 @@ procedure tfilelistfo.formcreated(const Sender: TObject);
 var
   x: integer;
   ordir1, ordir2 : msestring;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF} 
 begin
   Timersent          := ttimer.Create(nil);
   Timersent.interval := 2500000;
@@ -156,7 +159,12 @@ begin
   list_files.hint := ' To move a row: click+hold into the fixed column ' + lineend +
     ' and drag the row where you want. ';
     
-   ordir1 := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir1 := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
+  ordir1   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
     
   {$ifdef mswindows}
    if fileexists(ordir1 + 'ini' + directoryseparator + 'list.ini') then

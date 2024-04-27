@@ -220,9 +220,12 @@ end;
 
 procedure tguitarsfo.oncreateguit(const Sender: TObject);
 var
-  ordir: string;
+  ordir: msestring;
   i: integer;
   i1, childn: integer;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
 begin
  {$if defined(netbsd) or defined(darwin)}
   windowopacity := 1;
@@ -260,7 +263,12 @@ begin
 
   Caption := 'Guitar and Bass tuned strings';
 
-  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
 
   aguitar[0] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '1_MI_E.mp3';
   aguitar[1] := ordir + 'sound' + directoryseparator + 'guitar' + directoryseparator + '2_SI_B.mp3';

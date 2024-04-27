@@ -228,6 +228,7 @@ var
   norefresh: Boolean = False;
   thesender: integer;
   fontheightused: integer = 12;
+  // stopplayers: boolean = false;
 
 implementation
 
@@ -2266,7 +2267,7 @@ begin
       end;
 
     end;
-end;
+ end;
 
 procedure tmainfo.oncreateform(const Sender: TObject);
 var
@@ -8004,6 +8005,9 @@ end;
 
 procedure tmainfo.onrandomlayout(const Sender: TObject);
 begin
+   //  {$if not defined(darwin)}  
+  statusanim := 0;
+  //  {$endif}
   dockpanel1fo.Visible  := False;
   dockpanel2fo.Visible  := False;
   dockpanel3fo.Visible  := False;
@@ -8031,16 +8035,16 @@ begin
   ondockall(nil);
 
   oktimer := 0;
-
-  if timerwait.Enabled then
+ 
+   if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
-
+    
   sleep(200);
   randomnotefo.Visible := True;
   randomnotefo.bringtofront;
-end;
+ end;
 
 procedure tmainfo.showimagedancer(const Sender: TObject);
 begin

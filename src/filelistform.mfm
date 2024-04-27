@@ -192,7 +192,7 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayerlight
       taborder = 10
       hint = 'Find a word in list'
-      bounds_x = 279
+      bounds_x = 329
       bounds_y = 144
       bounds_cx = 24
       bounds_cy = 24
@@ -817,7 +817,7 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceplayerlight
       taborder = 7
       hint = 'Save custom play-list'
-      bounds_x = 329
+      bounds_x = 279
       bounds_y = 144
       bounds_cx = 24
       bounds_cy = 24
@@ -1040,7 +1040,7 @@ object filelistfo: tfilelistfo
       taborder = 5
       visible = False
       bounds_x = 0
-      bounds_y = 136
+      bounds_y = 137
       bounds_cx = 434
       bounds_cy = 32
       anchors = [an_bottom]

@@ -853,11 +853,20 @@ end;
 procedure tequalizerfo.loadlist(const Sender: TObject);
 var
   ordir: msestring;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF} 
 begin
   tagequ := tag;
 
   dialoglive := True;
+ 
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/equ/' ;
+  {$else}
   ordir      := msestring(ExtractFilePath(msestring(ParamStr(0))) + 'equ' + directoryseparator);
+ {$ENDIF}  
 
   tfiledialogx2.controller.captionopen := 'Open Equalizer File';
   tfiledialogx2.controller.fontcolor   := cl_black;

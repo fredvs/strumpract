@@ -1196,6 +1196,9 @@ var
   i: integer;
   ordir: msestring;
   timerisenabled: Boolean = False;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
 begin
 
   if timertick.Enabled = True then
@@ -1205,7 +1208,12 @@ begin
   //  writeln(langcount.text);
   //langcount.value  := 'es';
   // writeln(langcount.text);
-  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
 
   adrums[4] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
     langcount.Value + directoryseparator + '1.mp3');
@@ -1255,12 +1263,21 @@ var
   ordir: msestring;
   lib1, lib2, lib3, lib4: string;
   resu: integer = -1;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+{$ENDIF}  
+  
 begin
   allok   := False;
   resulib := -1;
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
 
-    {$IFDEF Windows}
+  {$IFDEF Windows}
          {$if defined(cpu64)}
   lib1 := AnsiString(ordir + 'lib\Windows\64bit\LibPortaudio-64.dll');
   lib2 := AnsiString(ordir + 'lib\Windows\64bit\LibSndFile-64.dll');
@@ -1717,11 +1734,22 @@ begin
 end;
 
 procedure tdrumsfo.oncreateddrums(const Sender: TObject);
+var
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+{$ENDIF}  
+ordir : msestring;
 begin
   //height := 274;
   //width := 442;
   Caption := 'Drums set';
-  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+ 
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
+  {$else}
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
+  {$ENDIF}  
 
   adrums[0] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.mp3');
   adrums[1] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.mp3');

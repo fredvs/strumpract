@@ -46,14 +46,21 @@ var
   i: integer = 0;
   x: integer;
   str1, str2, pat: string;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF} 
 begin
   Attribute := faReadOnly or faArchive;
 
   SetLength(ListOfFiles, 0);
-
+  
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  str1 := copy(binPath, 1, length(binPath) -6) + 'Resources/lang/';
+  {$else}
   str1 := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator;
-
-  // writeln(str1);
+  {$ENDIF}  
+ // writeln(str1);
 
   // List the files
   FindFirst(str1 + '*.po', Attribute, SearchResult);
@@ -70,8 +77,13 @@ begin
   setlength(lang_langnames, 1);
   lang_langnames[0] := 'English [en]';
 
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  pat := copy(binPath, 1, length(binPath) -6) + 'Resources/lang/';
+  {$else}
   pat := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator;
-
+  {$ENDIF}
+  
   for i := Low(ListOfFiles) to High(ListOfFiles) do
     if system.pos('empty', ListOfFiles[i]) = 0 then
     begin
@@ -138,6 +150,9 @@ var
   x, x2, x3: integer;
   file1: ttextdatastream;
   str1: msestring;
+  {$if defined(darwin) and defined(macapp)}
+  binPath: string;
+  {$ENDIF}  
   str2, str3, str4, strtemp: utf8String;
   isstring: Boolean = False;
   isid: Boolean = False;
@@ -158,8 +173,12 @@ var
   default_randomnotefotext, default_drumsfotext, default_spectrum1fotext, default_equalizerfotext, default_songplayerfotext, default_infosfotext, default_filelistfotext, default_commanderfotext,
   default_modalresulttext, default_modalresulttextnoshortcut, default_mainfotext, default_stockcaption, default_extendedtext: array of msestring;
 begin
-
+  {$if defined(darwin) and defined(macapp)}
+  binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+  str1 := copy(binPath, 1, length(binPath) -6) + 'Resources/lang/strumpract_' + alang + '.po';
+  {$else}
   str1 := ExtractFilePath(ParamStr(0)) + 'lang' + directoryseparator + 'strumpract_' + alang + '.po';
+  {$ENDIF}  
 
   // writeln(str1);
 
