@@ -143,8 +143,10 @@ findinfiledialog=83
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=ExtractFilePath
+ value=fred
  history=20
+  fred
+  apps
   ExtractFilePath
   application.createform
   onlangset
@@ -163,8 +165,6 @@ findinfiledialog=83
   brabitmap
   round(
   transpa
-  fstat@
-  fstat
  [findinfileadialogfo]
  stackedunder=
  x=210
@@ -276,7 +276,7 @@ options=114
  x=0
  y=248
  xprop=1
- yprop=0.34670947030498
+ yprop=0.34668508287293
  [projectoptionsfo.macrogrid]
  propcolwidthref=540
  sortdescend0=0
@@ -301,7 +301,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=3
+ index=2
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=758
  width0=47
@@ -325,7 +325,7 @@ options=114
  index=2
  [projectoptionsfo]
  stackedunder=
- x=494
+ x=187
  y=75
  cx=818
  cy=787
@@ -555,7 +555,7 @@ objpref=-Fo
 targpref=-o
 befcommand=0
 aftcommand=0
-makeoptions=19
+makeoptions=20
  -Mobjfpc -Fcutf8
  -ghl
  -FE.
@@ -572,10 +572,11 @@ makeoptions=19
  -dclass_bridge
  -dBGRABITMAP_USE_MSEGUI
  -Tdarwin -Fl/home/fred/fpcupdeluxe/cross/lib/all-darwin/
+ -Tfreebsd
  -Cg -k-znow -k-pie
  -dmacapp
  -Clv13.0 -XlS-13
-makeoptpurpose=19
+makeoptpurpose=20
  Define Object Pascal
  Debug infos/Memory leak
  Exe path
@@ -592,6 +593,7 @@ makeoptpurpose=19
  Classes bridge define
  BGRABitmap define
  Cross Darwin
+ Cross FreeBSD
  Create a PIE binary
  For MacOs app
  For LLVM
@@ -815,14 +817,14 @@ modulenames=0
 moduletypes=0
 modulefiles=0
 befcommandon=0
-makeoptionson=19
+makeoptionson=20
  4095
  0
  0
  192
  0
  4095
- 4095
+ 4063
  4
  4095
  0
@@ -831,10 +833,11 @@ makeoptionson=19
  4095
  4095
  4095
- 768
+ 256
+ 512
  0
- 4
- 16
+ 256
+ 0
 compilerusedon=29
  3075
  4
@@ -843,8 +846,8 @@ compilerusedon=29
  32
  64
  128
- 256
- 512
+ 768
+ 0
  0
  0
  0
@@ -1616,7 +1619,7 @@ findhistory=20
  timercount
 findoptions=1
 editpos=1
- 0,0
+ 0,8
 bookmarks0=0
 sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
@@ -1644,7 +1647,7 @@ nomenumodules=3
 firsttab=0
 index=0
 [layout]
-windowlayout=592
+windowlayout=588
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1694,7 +1697,7 @@ windowlayout=592
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -2102,14 +2105,10 @@ windowlayout=592
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/filelistform.pas
- history=15
-  /home/fred/strumpract/src/filelistform.pas
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/equalizer.pas
-  /home/fred/strumpract/src/dockpanel1.pas
-  /home/fred/mseide-msegui/lib/common/kernel/mselibc.pas
-  /home/fred/mseide-msegui/lib/common/kernel/linux/mxlib.pas
+ value=/home/fred/strumpract/src/uos_define.inc
+ history=11
+  /home/fred/mseide-msegui/apps/ide/mseide.pas
+  /home/fred/mseide-msegui/apps/ide/sourceform.pas
   /home/fred/strumpract/src/config.pas
   /home/fred/strumpract/src/aboutform.pas
   /home/fred/strumpract/src/configlayout.pas
