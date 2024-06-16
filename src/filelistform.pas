@@ -984,7 +984,7 @@ begin
   tfiledialog1.controller.fontcolor := cl_black;
 
   tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir, fdo_directory];
-
+  
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
   begin
     historyfn.Value := tosysfilepath(tfiledialog1.controller.filename);

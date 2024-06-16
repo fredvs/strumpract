@@ -1298,6 +1298,13 @@ begin
   lib3 := AnsiString(ordir + 'lib/Linux/64bit/LibMpg123-64.so');
   lib4 := AnsiString(ordir + 'lib/Linux/64bit/LibSoundTouch-64.so');
      {$ENDIF}
+
+  {$if defined(CPUAMD64) and defined(openbsd) }
+  lib1 := AnsiString(ordir + 'lib/OpenBSD/64bit/LibPortaudio-64.so');
+  lib2 := AnsiString(ordir + 'lib/OpenBSD/64bit/LibSndFile-64.so');
+  lib3 := AnsiString(ordir + 'lib/OpenBSD/64bit/LibMpg123-64.so');
+  lib4 := AnsiString(ordir + 'lib/OpenBSD/64bit/LibSoundTouch-64.so');
+     {$ENDIF}
      
      {$if defined(cpu64) and defined(darwin) }
   lib1 := AnsiString(ordir + 'lib/Mac/64bit/LibPortaudio-64.dylib');
