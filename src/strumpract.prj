@@ -85,8 +85,37 @@ order16=0
 order17=0
 order18=0
 [projectoptions]
-projectdir=/home/fred/strumpract/src
-projectfilename=/home/fred/strumpract/src/strumpract.prj
+ [findinfileadialogfo.subdirs]
+ value=1
+ [findinfileadialogfo.incurrentfile]
+ value=0
+ [findinfileadialogfo.inopenfiles]
+ value=0
+ [findinfileadialogfo.wholeword]
+ value=0
+ [findinfileadialogfo.indirectories]
+ value=0
+ [findinfileadialogfo.inprojectdir]
+ value=1
+ [findinfileadialogfo.casesensitive]
+ value=0
+ [findinfileadialogfo.mask]
+ value="*.pas" "*.pp" "*.inc" 
+ history=6
+  "*.pas" "*.pp" "*.inc" 
+  "*.pas" "*.pp" "*.inc" "*.mfm" 
+  "*.pas" "*.pp" "*.*" 
+  "*.pas" "*.pp" "*.inc"
+  "*.pas" "*.pp" "*.inc" "*.mfm" "*.*"
+  "*.pas" "*.pp" "*.inc" "*.mfm"
+ [findinfileadialogfo.dir]
+ [findinfileadialogfo.findtext]
+ [findinfileadialogfo]
+ stackedunder=
+ x=210
+ y=158
+ cx=339
+ cy=334
 finddialog=8
  [finddialogfo.selectedonly]
  value=0
@@ -108,28 +137,6 @@ replacedialog=33
  y=356
  cx=427
  cy=200
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 options=114
  [projectoptionsfo.toolshortcuts]
  dropdowncolwidths=3
@@ -217,7 +224,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=0
+ index=3
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=877
  width0=47
@@ -241,8 +248,8 @@ options=114
  index=2
  [projectoptionsfo]
  stackedunder=
- x=33
- y=87
+ x=120
+ y=58
  cx=937
  cy=686
 programparameters=18
@@ -330,80 +337,6 @@ imagelisteditor=89
  wsize=0
  active=1
  visible=1
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 colordialog=5
  [colordialogfo]
  x=1019
@@ -417,38 +350,6 @@ compnamedialog=5
  cx=295
  cy=203
 bmpfiledialog=32
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 mainfile=strumpract.pas
 targetfile=strumpract${EXEEXT}
 messageoutputfile=
@@ -470,13 +371,13 @@ objpref=-Fo
 targpref=-o
 befcommand=0
 aftcommand=0
-makeoptions=19
+makeoptions=18
  -Mobjfpc -Fcutf8
  -gl
  -FE.
  -WG
  -gw2
- -B 
+ -B
  -O2
  -OoFASTMATH
  -dmse_dynpo
@@ -486,11 +387,10 @@ makeoptions=19
  -FUunits
  -dclass_bridge
  -dBGRABITMAP_USE_MSEGUI
- -Topenbsd
  -Tdarwin -Fl/home/fred/fpcupdeluxe/cross/lib/all-darwin/
  -Cg -k-znow -k-pie
  -Clv13.0 -XlS-13
-makeoptpurpose=19
+makeoptpurpose=18
  Define Object Pascal
  Debug infos/Memory leak
  Exe path
@@ -507,7 +407,6 @@ makeoptpurpose=19
  Classes bridge define
  BGRABitmap define
  
- Cross Darwin
  Create a PIE binary
  
 compilerused=29
@@ -730,14 +629,14 @@ modulenames=0
 moduletypes=0
 modulefiles=0
 befcommandon=0
-makeoptionson=19
+makeoptionson=18
  4095
  0
  0
  192
  0
- 767
- 3071
+ 763
+ 4095
  4
  4095
  0
@@ -746,19 +645,18 @@ makeoptionson=19
  69631
  4095
  69631
- 1024
  768
  0
  65552
 compilerusedon=29
- 2055
+ 3079
  0
  8
  16
  32
  64
  128
- 1280
+ 256
  512
  0
  0
@@ -828,8 +726,8 @@ unitdirson=8
  200703
  200703
  197376
- 196800
- 200511
+ 199872
+ 197439
  69631
 macroon=0
 macronames=0
@@ -1016,111 +914,6 @@ sigsettings=27
 defaultmake=1
 [breakpoints]
 on=34
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
- -1
-path=34
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-line=34
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
- 0
-address=34
  0
  0
  0
@@ -1483,8 +1276,6 @@ files=
   )
  )
 [componentstore]
-storedir=/home/fred/mseide-msegui/apps/ide/compstore/
-filename=
 [components]
 [selecteditpage]
 colwidth=100
@@ -1499,7 +1290,7 @@ envvarons=0
 [edit]
 hintwidth=314
 hintheight=200
-finddtext=LoopProcPlayer1
+finddtext=onpaint_imagedancerfo
 findhistory=20
  onpaint_imagedancerfo
  canvas
@@ -1523,7 +1314,7 @@ findhistory=20
  tfaceplayerlight
 findoptions=1
 editpos=1
- 0,11
+ 0,5
 bookmarks0=0
 sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
@@ -1531,27 +1322,15 @@ relpaths=1
  strumpract.pas
 ismoduletexts=1
  0
-modules=3
- /home/fred/strumpract/src/main.mfm
- /home/fred/strumpract/src/commander.mfm
- /home/fred/strumpract/src/equalizer.mfm
-moduleoptions=3
- 0
- 0
- 0
-visiblemodules=3
- 0
- 0
- 0
-nomenumodules=3
- -1
- -1
- -1
+modules=0
+moduleoptions=0
+visiblemodules=0
+nomenumodules=0
 [sourcefo.files_tab]
 firsttab=0
 index=0
 [layout]
-windowlayout=581
+windowlayout=524
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1565,10 +1344,10 @@ windowlayout=581
  ny=0
  ncx=0
  ncy=0
- x=5
- y=29
- cx=1590
- cy=843
+ x=34
+ y=53
+ cx=1428
+ cy=724
  rcx=0
  rcy=0
  wsize=0
@@ -1601,7 +1380,7 @@ windowlayout=581
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1623,7 +1402,7 @@ windowlayout=581
  [memoryfo]
  splitdir=0
  useroptions=268451963
- stackedunder=dialogfilesfo
+ stackedunder=findmessagefo
  parent=
  mdistate=0
  nx=0
@@ -1695,7 +1474,7 @@ windowlayout=581
  x=0
  y=0
  cx=205
- cy=624
+ cy=525
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1706,7 +1485,7 @@ windowlayout=581
  sortdescend1=0
  sorted=0
  col=0
- row=11
+ row=14
  rowheight=19
  [stackfo]
  splitdir=0
@@ -1881,9 +1660,9 @@ windowlayout=581
  ncx=0
  ncy=0
  x=0
- y=690
- cx=1576
- cy=130
+ y=592
+ cx=1414
+ cy=109
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1915,29 +1694,6 @@ windowlayout=581
  width3=185
  sortdescend3=0
  [componentstorefo.storefiledialog]
- filenames=1
-  /home/fred/mseide-msegui/apps/ide/compstore/
- filecolwidth=0
- x=0
- y=0
- cx=0
- cy=0
- lastdir=/home/fred/mseide-msegui/apps/ide/compstore/
- filehistory=0
- filefilterindex=0
- filefilter=
- [componentstorefo.groupfiledialog]
- filenames=1
-  /home/fred/mseide-msegui/apps/ide/compstore/
- filecolwidth=0
- x=0
- y=0
- cx=0
- cy=0
- lastdir=/home/fred/mseide-msegui/apps/ide/compstore/
- filehistory=0
- filefilterindex=0
- filefilter=
  [componentstorefo.compfiledialog]
  filenames=0
  filecolwidth=0
@@ -1952,7 +1708,7 @@ windowlayout=581
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=confdebuggerfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -1982,8 +1738,8 @@ windowlayout=581
  ncy=0
  x=0
  y=0
- cx=1576
- cy=60
+ cx=1414
+ cy=61
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1994,12 +1750,12 @@ windowlayout=581
  mdistate=0
  nx=0
  ny=0
- ncx=1576
- ncy=63
+ ncx=1111
+ ncy=52
  x=0
  y=0
- cx=1576
- cy=63
+ cx=1414
+ cy=64
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -2009,12 +1765,6 @@ windowlayout=581
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/main.pas
- history=4
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/songplayer.pas
-  /home/fred/strumpract/src/main.pas
-  
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -2031,8 +1781,8 @@ windowlayout=581
  ncy=0
  x=208
  y=0
- cx=1368
- cy=624
+ cx=1206
+ cy=525
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -2044,7 +1794,7 @@ windowlayout=581
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=0
  nx=0
@@ -2071,68 +1821,11 @@ windowlayout=581
  ncx=0
  ncy=0
  x=0
- y=63
- cx=1576
- cy=624
+ y=64
+ cx=1414
+ cy=525
  rcx=0
  rcy=0
- [_mse_commanderfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=componentpalettefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=420
- y=223
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [_mse_equalizerfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_commanderfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=438
- y=255
- cx=452
- cy=128
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
- [_mse_mainfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=_mse_equalizerfo_mse_
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=488
- y=218
- cx=452
- cy=96
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=0
 [targetconsole]
 finddtext=
 findhistory=0

@@ -603,8 +603,8 @@ procedure timagedancerfo.fractalcirclesRedraw(Sender: TObject; Bitmap: TBGRABitm
 
 procedure Translatefc(toX, toY: single);
 begin
-  x2 += toX;
-  y2 += toY;
+  x2 := x2 + toX;
+  y2 := y2 + toY;
 end;
 
 procedure push();
@@ -633,8 +633,8 @@ procedure Circles(w: single);
 
 procedure Ellipse(ax, ay, aw, ah: single);
 begin
-  ax += x2;
-  ay += y2;
+  ax := ax + x2;
+  ay := ay + y2;
 
  Bitmap.EllipseAntialias(ax, ay, aw / 2, ah / 2,
  BGRA(roundmath(thecolor * 3 * multiplier),
@@ -653,9 +653,9 @@ begin
     if (decrease) and (thecolor - increase < 0) then
       decrease := false;
     if decrease then
-      thecolor -= increase
+      thecolor := thecolor - increase
     else
-      thecolor += increase;
+      thecolor := thecolor + increase;
     Ellipse(w / 2, 0, w, w);
     Circles(w / 2);
     push();
@@ -766,7 +766,7 @@ begin
         x     := rad * cos(theta) * (Width div 4);
         y     := rad * sin(theta) * (Height div 4);
         Bitmap.Canvas2D.lineTo(x, y);
-        theta += 0.01;           // resolution of the drawing
+        theta := theta + 0.01;           // resolution of the drawing
       end;
       Bitmap.Canvas2D.closePath; // prevent holes
       Bitmap.Canvas2D.stroke;
@@ -806,7 +806,7 @@ begin
         x     := roundmath(multiplier * 5 * rad * cos(theta) * (Width div 4));
         y     := roundmath(multiplier * 5 * rad * sin(theta) * (Height div 4));
         Bitmap.Canvas2D.lineTo(x, y);
-        theta += 0.01;           // resolution of the drawing
+        theta := theta + 0.01;           // resolution of the drawing
       end;
       Bitmap.Canvas2D.closePath; // prevent holes
       Bitmap.Canvas2D.stroke;

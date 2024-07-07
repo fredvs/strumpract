@@ -1325,6 +1325,7 @@ begin
   lib3 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so');
   lib4 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libsoundtouch-arm.so');
   {$ENDIF}
+  
   {$if defined(linux) and defined(cpuaarch64)}
   lib1 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so');
   lib2 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so');
@@ -1332,20 +1333,26 @@ begin
   lib4 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libsoundtouch_aarch64.so');
   {$ENDIF}
 
-      {$IFDEF freebsd}
-        {$if defined(cpu64)}
-  lib1 := AnsiString(ordir + 'lib/FreeBSD/64bit/libportaudio-64.so');
-  lib2 := AnsiString(ordir + 'lib/FreeBSD/64bit/libsndfile-64.so');
-  lib3 := AnsiString(ordir + 'lib/FreeBSD/64bit/libmpg123-64.so');
-  lib4 := AnsiString(ordir + 'lib/FreeBSD/64bit/libsoundtouch-64.so');
-        {$else}
-  lib1 := AnsiString(ordir + 'lib/FreeBSD/32bit/libportaudio-32.so');
-  lib2 := AnsiString(ordir + 'lib/FreeBSD/32bit/libsndfile-32.so');
-  lib3 := AnsiString(ordir + 'lib/FreeBSD/32bit/libmpg123-32.so');
+   {$if defined(freebsd) and defined(cpuamd64) }
+  lib1 := AnsiString(ordir + 'lib/FreeBSD/amd64/libportaudio-64.so');
+  lib2 := AnsiString(ordir + 'lib/FreeBSD/amd64/libsndfile-64.so');
+  lib3 := AnsiString(ordir + 'lib/FreeBSD/amd64/libmpg123-64.so');
+  lib4 := AnsiString(ordir + 'lib/FreeBSD/amd64/libsoundtouch-64.so');
+   {$endif}
+ 
+  {$if defined(freebsd) and defined(cpui386) }
+  lib1 := AnsiString(ordir + 'lib/FreeBSD/i386/libportaudio-32.so');
+  lib2 := AnsiString(ordir + 'lib/FreeBSD/i386/libsndfile-32.so');
+  lib3 := AnsiString(ordir + 'lib/FreeBSD/i386/libmpg123-32.so');
   lib4 := '';
-        {$endif}
-      {$ENDIF}
-
+  {$endif}
+         
+  {$if defined(freebsd) and defined(cpuamd64) }
+  lib1 := AnsiString(ordir + 'lib/FreeBSD/aarch64/libportaudio-64.so');
+  lib2 := AnsiString(ordir + 'lib/FreeBSD/aarch64/libsndfile-64.so');
+  lib3 := AnsiString(ordir + 'lib/FreeBSD/aarch64/libmpg123-64.so');
+  lib4 := '';
+  {$endif}
 
   if configfo.syslib.Value = True then
   begin
