@@ -63,7 +63,7 @@ uses
 
 procedure tsplashfo.oneventloop(const Sender: TObject);
 begin
-  application.ProcessMessages;
+ // application.ProcessMessages;
   application.createform(tconfigfo, configfo);
   application.createform(tconfiglayoutfo, configlayoutfo);
   configlayoutfo.icon := configfo.icon;
