@@ -1967,8 +1967,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 87
-    top = 18
+    left = 39
+    top = 34
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -2043,8 +2043,8 @@ object commanderfo: tcommanderfo
     top = 59
   end
   object sliderimage3: tbitmapcomp
-    left = 152
-    top = 30
+    left = 90
+    top = 49
   end
   object timagelist1: timagelist
     width = 32

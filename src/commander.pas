@@ -10,13 +10,47 @@ interface
 
 uses
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,
- {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,math,mseglob,mseguiglob,
- mseguiintf,mseapplication,msestat,msemenus,msegui,msegraphics,
- msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
- msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
- msefiledialogx,msegrids,mseificomp,mseificompglob,msefileutils,mseifiglob,
- mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,msegraphedits,
- msescrollbar,msedispwidgets,mserichstring,msetimer,mseimage;
+ {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,
+  Math,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msedragglob,
+  msesimplewidgets,
+  msewidgets,
+  mseact,
+  msebitmap,
+  msedataedits,
+  msedatanodes,
+  mseedit,
+  msefiledialogx,
+  msegrids,
+  mseificomp,
+  mseificompglob,
+  msefileutils,
+  mseifiglob,
+  mselistbrowser,
+  msestatfile,
+  msestream,
+  msestrings,
+  msesys,
+  SysUtils,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  msetimer,
+  mseimage;
 
 type
   tcommanderfo = class(tdockform)
@@ -107,11 +141,11 @@ type
     sliderimage: tbitmapcomp;
     sliderimage2: tbitmapcomp;
     sliderimage3: tbitmapcomp;
-   timagelist1: timagelist;
-   tframecompnul: tframecomp;
-   
-   btnPause: tbutton;
-   sliderimage4: tbitmapcomp;
+    timagelist1: timagelist;
+    tframecompnul: tframecomp;
+
+    btnPause: TButton;
+    sliderimage4: tbitmapcomp;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -336,168 +370,174 @@ var
   resu: shortint = -1;
 begin
 
-   if filelistfo.list_files.rowcount > 0 then
+  if filelistfo.list_files.rowcount > 0 then
   begin
 
-  fileex := fileext(PChar(ansistring(songplayerfo.historyfn.Value)));
-  if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
-    (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
-    resu := 0
-  else
-    ShowMessage(songplayerfo.historyfn.Value + ' is not audio file...');
-
-  if resu = 0 then
-    if not fileexists(songplayerfo.historyfn.Value) then
-    begin
-      resu := -1;
-      ShowMessage(songplayerfo.historyfn.Value + ' does not exist...');
-    end;
-
-  if resu = 0 then
-  begin
-    fileex := fileext(PChar(ansistring(songplayer2fo.historyfn.Value)));
+    fileex := fileext(PChar(ansistring(songplayerfo.historyfn.Value)));
     if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
-      (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') then
+      (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') or
+      (lowercase(fileex) = 'mod') or (lowercase(fileex) = 'it') or
+      (lowercase(fileex) = 's3m') or (lowercase(fileex) = 'xm') then
+      resu := 0
     else
-    begin
-      resu := -1;
-      ShowMessage(songplayer2fo.historyfn.Value + ' is not audio file...');
-    end;
+      ShowMessage(songplayerfo.historyfn.Value + ' is not a audio file...');
 
-  end;
-
-  if resu = 0 then
-    if not fileexists(songplayer2fo.historyfn.Value) then
-    begin
-      resu := -1;
-      ShowMessage(songplayer2fo.historyfn.Value + ' does not exist...');
-    end;
-
-  if resu = 0 then
-  begin
-    if directmix.Value then
-      totmixinterval := 1
-    else
-      totmixinterval := roundmath(timemix.Value / 10);
-
-    incmixinterval := 0;
-
-    if lastrowplayed >= filelistfo.list_files.rowcount then
-      lastrowplayed := 0;
-
-    if lastrowplayed = -1 then
-    begin
-      filelistfo.onsent(filelistfo.tbutton1);
-      lastrowplayed := filelistfo.list_files.focusedcell.row;
-    end;
-
-    filelistfo.list_files.rowcolorstate[lastrowplayed] := -1;
-
-    lastrowplayed := filelistfo.list_files.focusedcell.row;
-
-    if lastrowplayed <> -1 then
-      if mainfo.typecolor.Value = 2 then
+    if resu = 0 then
+      if not fileexists(songplayerfo.historyfn.Value) then
       begin
-        for x := 0 to filelistfo.list_files.rowcount - 1 do
-          filelistfo.list_files.rowfontstate[x] := 1;
+        resu := -1;
+        ShowMessage(songplayerfo.historyfn.Value + ' does not exist...');
+      end;
 
-        filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
-        filelistfo.list_files.rowfontstate[lastrowplayed]  := 1;
+    if resu = 0 then
+    begin
+      fileex := fileext(PChar(ansistring(songplayer2fo.historyfn.Value)));
+      if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
+        (lowercase(fileex) = 'flac') or (lowercase(fileex) = 'mp3') or
+        (lowercase(fileex) = 'mod') or (lowercase(fileex) = 'it') or
+        (lowercase(fileex) = 's3m') or (lowercase(fileex) = 'xm') then
+      else
+      begin
+        resu := -1;
+        ShowMessage(songplayer2fo.historyfn.Value + ' is not a audio file...');
+      end;
+
+    end;
+
+    if resu = 0 then
+      if not fileexists(songplayer2fo.historyfn.Value) then
+      begin
+        resu := -1;
+        ShowMessage(songplayer2fo.historyfn.Value + ' does not exist...');
+      end;
+
+    if resu = 0 then
+    begin
+      if directmix.Value then
+        totmixinterval := 1
+      else
+        totmixinterval := roundmath(timemix.Value / 10);
+
+      incmixinterval := 0;
+
+      if lastrowplayed >= filelistfo.list_files.rowcount then
+        lastrowplayed := 0;
+
+      if lastrowplayed = -1 then
+      begin
+        filelistfo.onsent(filelistfo.tbutton1);
+        lastrowplayed := filelistfo.list_files.focusedcell.row;
+      end;
+
+      filelistfo.list_files.rowcolorstate[lastrowplayed] := -1;
+
+      lastrowplayed := filelistfo.list_files.focusedcell.row;
+
+      if lastrowplayed <> -1 then
+        if mainfo.typecolor.Value = 2 then
+        begin
+          for x := 0 to filelistfo.list_files.rowcount - 1 do
+            filelistfo.list_files.rowfontstate[x] := 1;
+
+          filelistfo.list_files.rowcolorstate[lastrowplayed] := 2;
+          filelistfo.list_files.rowfontstate[lastrowplayed]  := 1;
+        end
+        else
+        begin
+          for x := 0 to filelistfo.list_files.rowcount - 1 do
+            filelistfo.list_files.rowfontstate[x] := 0;
+          filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
+          filelistfo.list_files.rowfontstate[lastrowplayed] := 0;
+        end;
+
+      maxvolleft1  := 1;
+      maxvolright1 := 1;
+
+      maxvolleft2  := 1;
+      maxvolright2 := 1;
+
+      initvolleft1  := 0;
+      initvolright1 := 0;
+
+      initvolleft2  := 0;
+      initvolright2 := 0;
+
+      if Sender <> nil then
+      begin
+        if (TButton(Sender).tag = 0) then
+          fromplay := 0
+        else
+          fromplay := 1;
+      end
+      else if hasmixed1 = True then
+        fromplay := 1
+      else
+        fromplay := 0;
+
+      if fromplay = 0 then
+      begin
+        tbutton2.face.template := mainfo.tfaceplayerlight;
+        tbutton3.face.template := mainfo.tfaceorange;
+
+        filelistfo.tbutton2.face.template := mainfo.tfaceorange;
+        filelistfo.tbutton1.face.template := mainfo.tfaceplayerlight;
+
+        thetypemix         := 0;
+        volumeleft1.Value  := 0;
+        volumeright1.Value := 0;
+
+        if (Sender <> nil) and (commanderfo.automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
+        begin
+          hasfocused2 := True;
+          filelistfo.onsent(nil);
+          hasfocused2 := False;
+        end;
+
+        if uos_GetStatus(theplayer) <> 1 then
+          if (iscue1 = True) or (uos_GetStatus(theplayer) = 2) then
+            songplayerfo.doplayeresume(Sender)
+          else
+            songplayerfo.doplayerstart(Sender);
+
+        hasmixed2 := True;
+
+        timermix.Enabled := True;
+
       end
       else
       begin
-        for x := 0 to filelistfo.list_files.rowcount - 1 do
-          filelistfo.list_files.rowfontstate[x]           := 0;
-        filelistfo.list_files.rowcolorstate[lastrowplayed] := 0;
-        filelistfo.list_files.rowfontstate[lastrowplayed] := 0;
+
+        thetypemix         := 1;
+        volumeleft2.Value  := 0;
+        volumeright2.Value := 0;
+        tbutton3.face.template := mainfo.tfaceplayerlight;
+        tbutton2.face.template := mainfo.tfaceorange;
+        filelistfo.tbutton1.face.template := mainfo.tfaceorange;
+        filelistfo.tbutton2.face.template := mainfo.tfaceplayerlight;
+        if (Sender <> nil) and (automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
+        begin
+          hasfocused1 := True;
+          filelistfo.onsent(nil);
+          hasfocused1 := False;
+        end;
+
+        if uos_GetStatus(theplayer2) <> 1 then
+          if (iscue2 = True) or (uos_GetStatus(theplayer2) = 2) then
+            songplayer2fo.doplayeresume(Sender)
+          else
+            songplayer2fo.doplayerstart(Sender);
+
+        hasmixed1        := True;
+        timermix.Enabled := True;
       end;
-
-    maxvolleft1  := 1;
-    maxvolright1 := 1;
-
-    maxvolleft2  := 1;
-    maxvolright2 := 1;
-
-    initvolleft1  := 0;
-    initvolright1 := 0;
-
-    initvolleft2  := 0;
-    initvolright2 := 0;
-
-    if Sender <> nil then
-    begin
-      if (TButton(Sender).tag = 0) then
-        fromplay := 0
-      else
-        fromplay := 1;
-    end
-    else if hasmixed1 = True then
-      fromplay := 1
-    else
-      fromplay := 0;
-
-    if fromplay = 0 then
-    begin
-      tbutton2.face.template := mainfo.tfaceplayerlight;
-      tbutton3.face.template := mainfo.tfaceorange;
-
-      filelistfo.tbutton2.face.template := mainfo.tfaceorange;
-      filelistfo.tbutton1.face.template := mainfo.tfaceplayerlight;
-
-      thetypemix         := 0;
-      volumeleft1.Value  := 0;
-      volumeright1.Value := 0;
-
-      if (Sender <> nil) and (commanderfo.automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
-      begin
-        hasfocused2 := True;
-        filelistfo.onsent(nil);
-        hasfocused2 := False;
-      end;
-
-      if uos_GetStatus(theplayer) <> 1 then
-        if (iscue1 = True) or (uos_GetStatus(theplayer) = 2) then
-          songplayerfo.doplayeresume(Sender)
-        else
-          songplayerfo.doplayerstart(Sender);
-
-      hasmixed2 := True;
-
-      timermix.Enabled := True;
-
-    end
-    else
-    begin
-
-      thetypemix         := 1;
-      volumeleft2.Value  := 0;
-      volumeright2.Value := 0;
-      tbutton3.face.template := mainfo.tfaceplayerlight;
-      tbutton2.face.template := mainfo.tfaceorange;
-      filelistfo.tbutton1.face.template := mainfo.tfaceorange;
-      filelistfo.tbutton2.face.template := mainfo.tfaceplayerlight;
-      if (Sender <> nil) and (automix.Value = True) and (filelistfo.list_files.rowcount > 0) then
-      begin
-        hasfocused1 := True;
-        filelistfo.onsent(nil);
-        hasfocused1 := False;
-      end;
-
-      if uos_GetStatus(theplayer2) <> 1 then
-        if (iscue2 = True) or (uos_GetStatus(theplayer2) = 2) then
-          songplayer2fo.doplayeresume(Sender)
-        else
-          songplayer2fo.doplayerstart(Sender);
-
-      hasmixed1        := True;
-      timermix.Enabled := True;
+      tbutton4.Visible := True;
+      tbutton5.Visible := False;
+      tbutton6.Visible := False;
+      application.ProcessMessages;
     end;
-    tbutton4.Visible := True;
-    tbutton5.Visible := False;
-    tbutton6.Visible := False;
-    application.ProcessMessages;
-  end;
-  end else ShowMessage('There is no audio file in the list...');
+  end
+  else
+    ShowMessage('There is no audio file in the list...');
 end;
 
 
@@ -799,11 +839,9 @@ begin
 
     end
     else
-    begin
-      // writeln('uos_Stop = ' + inttostr(theinput));
-    //  nameinput.face.template := recorderfo.tfacereclight;
-      uos_Stop(theinput);
-    end;
+      uos_Stop(theinput)// writeln('uos_Stop = ' + inttostr(theinput));
+      //  nameinput.face.template := recorderfo.tfacereclight;
+  ;
 
 end;
 
@@ -862,7 +900,7 @@ begin
     songplayerfo.changevolume(Sender);
     songplayer2fo.changevolume(Sender);
   end;
-end;  
+end;
 
 procedure tcommanderfo.onresetgenvol(const Sender: TObject);
 begin
@@ -1056,13 +1094,13 @@ begin
   timagelist3.options := [bmo_masked]; 
   windowopacity := 1;
  {$else}
-  windowopacity := 0;  
+  windowopacity := 0;
  {$endif}
- 
+
  {$if defined(nofade)}
   tframecomp2.template := tframecompnul.template;
  {$endif}
- 
+
   setlength(boundchildco, childrencount);
 
   childn := childrencount;
@@ -1228,132 +1266,149 @@ begin
   else
     totmixinterval := roundmath(timemix.Value / 10);
 end;
+
 procedure tcommanderfo.onexecbutlght(const Sender: TObject);
 begin
 
   if TButton(Sender).Name = 'Brandommix' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_black;
-      randommix.Value     := True;
-      TButton(Sender).tag := 1;
+      if mainfo.typecolor.Value = 2 then
+        Brandommix.font.color := cl_black;
+      randommix.Value         := True;
+      TButton(Sender).tag     := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_white;    
-      randommix.Value     := False;
-      TButton(Sender).tag := 0;
+      if mainfo.typecolor.Value = 2 then
+        Brandommix.font.color := cl_white;
+      randommix.Value         := False;
+      TButton(Sender).tag     := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'linkvolgenb' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_black;    
-      linkvolgen.Value    := True;
-      TButton(Sender).tag := 1;
+      if mainfo.typecolor.Value = 2 then
+        linkvolgenb.font.color := cl_black;
+      linkvolgen.Value         := True;
+      TButton(Sender).tag      := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_white;        
-      linkvolgen.Value    := False;
-      TButton(Sender).tag := 0;
+      if mainfo.typecolor.Value = 2 then
+        linkvolgenb.font.color := cl_white;
+      linkvolgen.Value         := False;
+      TButton(Sender).tag      := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'linkvolb' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_black;    
-      linkvol.Value       := True;
-      TButton(Sender).tag := 1;
+      if mainfo.typecolor.Value = 2 then
+        linkvolb.font.color := cl_black;
+      linkvol.Value         := True;
+      TButton(Sender).tag   := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_white;        
-      linkvol.Value       := False;
-      TButton(Sender).tag := 0;
+      if mainfo.typecolor.Value = 2 then
+        linkvolb.font.color := cl_white;
+      linkvol.Value         := False;
+      TButton(Sender).tag   := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'guimixb' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_black;    
-      guimix.Value        := True;
-      TButton(Sender).tag := 1;
+      if mainfo.typecolor.Value = 2 then
+        guimixb.font.color := cl_black;
+      guimix.Value         := True;
+      TButton(Sender).tag  := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_white;        
-      guimix.Value        := False;
-      TButton(Sender).tag := 0;
+      if mainfo.typecolor.Value = 2 then
+        guimixb.font.color := cl_white;
+      guimix.Value         := False;
+      TButton(Sender).tag  := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'speccalcb' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_black;    
-      speccalc.Value      := True;
-      TButton(Sender).tag := 1;
+      if mainfo.typecolor.Value = 2 then
+        speccalcb.font.color := cl_black;
+      speccalc.Value         := True;
+      TButton(Sender).tag    := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_white;        
-      speccalc.Value      := False;
-      TButton(Sender).tag := 0;
+      if mainfo.typecolor.Value = 2 then
+        speccalcb.font.color := cl_white;
+      speccalc.Value         := False;
+      TButton(Sender).tag    := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'linkvol2b' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_black;    
-      linkvol2.Value      := True;
-      TButton(Sender).tag := 1;
+      if mainfo.typecolor.Value = 2 then
+        linkvol2b.font.color := cl_black;
+      linkvol2.Value         := True;
+      TButton(Sender).tag    := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_white;    
-      linkvol2.Value      := False;
-      TButton(Sender).tag := 0;
+      if mainfo.typecolor.Value = 2 then
+        linkvol2b.font.color := cl_white;
+      linkvol2.Value         := False;
+      TButton(Sender).tag    := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'automixb' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then automixb.font.color := cl_black;    
-      automix.Value       := True;
-      TButton(Sender).tag := 1;
+      if mainfo.typecolor.Value = 2 then
+        automixb.font.color := cl_black;
+      automix.Value         := True;
+      TButton(Sender).tag   := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then automixb.font.color := cl_white;        
-      automix.Value       := False;
-      TButton(Sender).tag := 0;
+      if mainfo.typecolor.Value = 2 then
+        automixb.font.color := cl_white;
+      automix.Value         := False;
+      TButton(Sender).tag   := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 
   if TButton(Sender).Name = 'vuinb' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_black;    
+      if mainfo.typecolor.Value = 2 then
+        vuinb.font.color  := cl_black;
       vuin.Value          := True;
       TButton(Sender).tag := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_white;        
+      if mainfo.typecolor.Value = 2 then
+        vuinb.font.color  := cl_white;
       vuin.Value          := False;
       TButton(Sender).tag := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
@@ -1362,20 +1417,21 @@ begin
   if TButton(Sender).Name = 'directmixb' then
     if TButton(Sender).tag = 0 then
     begin
-      if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_black;    
-      directmix.Value     := True;
-      TButton(Sender).tag := 1;
+      if mainfo.typecolor.Value = 2 then
+        directmixb.font.color := cl_black;
+      directmix.Value         := True;
+      TButton(Sender).tag     := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
     end
     else
     begin
-      if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_white;        
-      directmix.Value     := False;
-      TButton(Sender).tag := 0;
+      if mainfo.typecolor.Value = 2 then
+        directmixb.font.color := cl_white;
+      directmix.Value         := False;
+      TButton(Sender).tag     := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
 end;
-
 
 
 procedure tcommanderfo.ontimerinit(const Sender: TObject);
@@ -1383,118 +1439,136 @@ begin
 
   if linkvolgen.Value then
   begin
-    if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_black;
+    if mainfo.typecolor.Value = 2 then
+      linkvolgenb.font.color  := cl_black;
     linkvolgenb.tag           := 1;
     linkvolgenb.face.template := mainfo.tfacegreen;
   end
   else
   begin
-    if mainfo.typecolor.Value = 2 then linkvolgenb.font.color := cl_white;
+    if mainfo.typecolor.Value = 2 then
+      linkvolgenb.font.color  := cl_white;
     linkvolgenb.tag           := 0;
     linkvolgenb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if linkvol.Value then
   begin
-     if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_black;
+    if mainfo.typecolor.Value = 2 then
+      linkvolb.font.color  := cl_black;
     linkvolb.tag           := 1;
     linkvolb.face.template := mainfo.tfacegreen;
   end
   else
   begin
-    if mainfo.typecolor.Value = 2 then linkvolb.font.color := cl_white;
+    if mainfo.typecolor.Value = 2 then
+      linkvolb.font.color  := cl_white;
     linkvolb.tag           := 0;
     linkvolb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if guimix.Value then
   begin
-    if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_black;
+    if mainfo.typecolor.Value = 2 then
+      guimixb.font.color  := cl_black;
     guimixb.tag           := 1;
     guimixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
-    if mainfo.typecolor.Value = 2 then guimixb.font.color := cl_white;
+    if mainfo.typecolor.Value = 2 then
+      guimixb.font.color  := cl_white;
     guimixb.tag           := 0;
     guimixb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if speccalc.Value then
   begin
-    if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_black;
+    if mainfo.typecolor.Value = 2 then
+      speccalcb.font.color  := cl_black;
     speccalcb.tag           := 1;
     speccalcb.face.template := mainfo.tfacegreen;
   end
   else
   begin
-    if mainfo.typecolor.Value = 2 then speccalcb.font.color := cl_white;
+    if mainfo.typecolor.Value = 2 then
+      speccalcb.font.color  := cl_white;
     speccalcb.tag           := 0;
     speccalcb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if linkvol2.Value then
   begin
-    if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_black;  
+    if mainfo.typecolor.Value = 2 then
+      linkvol2b.font.color  := cl_black;
     linkvol2b.tag           := 1;
     linkvol2b.face.template := mainfo.tfacegreen;
   end
   else
   begin
-    if mainfo.typecolor.Value = 2 then linkvol2b.font.color := cl_white;
+    if mainfo.typecolor.Value = 2 then
+      linkvol2b.font.color  := cl_white;
     linkvol2b.tag           := 0;
     linkvol2b.face.template := mainfo.tfaceplayerlight;
   end;
 
   if automix.Value then
   begin
-    if mainfo.typecolor.Value = 2 then automixb.font.color := cl_black;  
+    if mainfo.typecolor.Value = 2 then
+      automixb.font.color  := cl_black;
     automixb.tag           := 1;
     automixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
-    if mainfo.typecolor.Value = 2 then automixb.font.color := cl_white;
+    if mainfo.typecolor.Value = 2 then
+      automixb.font.color  := cl_white;
     automixb.tag           := 0;
     automixb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if vuin.Value then
   begin
-    if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_black;  
+    if mainfo.typecolor.Value = 2 then
+      vuinb.font.color  := cl_black;
     vuinb.tag           := 1;
     vuinb.face.template := mainfo.tfacegreen;
   end
   else
   begin
-    if mainfo.typecolor.Value = 2 then vuinb.font.color := cl_white;
+    if mainfo.typecolor.Value = 2 then
+      vuinb.font.color  := cl_white;
     vuinb.tag           := 0;
     vuinb.face.template := mainfo.tfaceplayerlight;
   end;
 
   if directmix.Value then
   begin
-    if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_black;  
+    if mainfo.typecolor.Value = 2 then
+      directmixb.font.color  := cl_black;
     directmixb.tag           := 1;
     directmixb.face.template := mainfo.tfacegreen;
   end
   else
   begin
-    if mainfo.typecolor.Value = 2 then directmixb.font.color := cl_white;
+    if mainfo.typecolor.Value = 2 then
+      directmixb.font.color  := cl_white;
     directmixb.tag           := 0;
     directmixb.face.template := mainfo.tfaceplayerlight;
   end;
-  
+
   if randommix.Value then
   begin
-    if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_black;  
+    if mainfo.typecolor.Value = 2 then
+      Brandommix.font.color  := cl_black;
     Brandommix.tag           := 1;
     Brandommix.face.template := mainfo.tfacegreen;
   end
   else
   begin
-     if mainfo.typecolor.Value = 2 then Brandommix.font.color := cl_white;
-     Brandommix.tag           := 0;
+    if mainfo.typecolor.Value = 2 then
+      Brandommix.font.color  := cl_white;
+    Brandommix.tag           := 0;
     Brandommix.face.template := mainfo.tfaceplayerlight;
   end;
 

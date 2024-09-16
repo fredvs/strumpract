@@ -1261,7 +1261,7 @@ end;
 procedure tdrumsfo.loadsoundlib(const Sender: TObject);
 var
   ordir: msestring;
-  lib1, lib2, lib3, lib4: string;
+  lib1, lib2, lib3, lib4, lib5: string;
   resu: integer = -1;
   {$if defined(darwin) and defined(macapp)}
   binPath: string;
@@ -1275,7 +1275,9 @@ begin
   ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
   {$else}
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
-  {$ENDIF}  
+  {$ENDIF} 
+  
+  lib5 :=  '';
 
   {$IFDEF Windows}
          {$if defined(cpu64)}
@@ -1283,12 +1285,14 @@ begin
   lib2 := AnsiString(ordir + 'lib\Windows\64bit\LibSndFile-64.dll');
   lib3 := AnsiString(ordir + 'lib\Windows\64bit\LibMpg123-64.dll');
   lib4 := AnsiString(ordir + 'lib\Windows\64bit\LibSoundTouch-64.dll');
+  lib5 := AnsiString(ordir + 'lib\Windows\64bit\libxmp-64.dll');
 
        {$else}
   lib1 := AnsiString(ordir + 'lib\Windows\32bit\LibPortaudio-32.dll');
   lib2 := AnsiString(ordir + 'lib\Windows\32bit\LibSndFile-32.dll');
   lib3 := AnsiString(ordir + 'lib\Windows\32bit\LibMpg123-32.dll');
   lib4 := AnsiString(ordir + 'lib\Windows\32bit\LibSoundTouch-32.dll');
+  lib5 := AnsiString(ordir + 'lib\Windows\32bit\libxmp-32.dll');
          {$endif}
      {$ENDIF}
 
@@ -1297,6 +1301,7 @@ begin
   lib2 := AnsiString(ordir + 'lib/Linux/64bit/LibSndFile-64.so');
   lib3 := AnsiString(ordir + 'lib/Linux/64bit/LibMpg123-64.so');
   lib4 := AnsiString(ordir + 'lib/Linux/64bit/LibSoundTouch-64.so');
+  lib5 := AnsiString(ordir + 'lib/Linux/64bit/libxmp-64.so');
      {$ENDIF}
 
   {$if defined(CPUAMD64) and defined(openbsd) }
@@ -1318,6 +1323,7 @@ begin
   lib2 := AnsiString(ordir + 'lib/Linux/32bit/LibSndFile-32.so');
   lib3 := AnsiString(ordir + 'lib/Linux/32bit/LibMpg123-32.so');
   lib4 := AnsiString(ordir + 'lib/Linux/32bit/LibSoundTouch-32.so');
+  lib5 := AnsiString(ordir + 'lib/Linux/32bit/libxmp-32.so');
   {$ENDIF}
    {$if defined(linux) and defined(cpuarm)}
   lib1 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so');
@@ -1331,6 +1337,7 @@ begin
   lib2 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so');
   lib3 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libmpg123_aarch64.so');
   lib4 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libsoundtouch_aarch64.so');
+  lib5 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libxmp_aarch64.so');
   {$ENDIF}
 
    {$if defined(freebsd) and defined(cpuamd64) }
@@ -1357,23 +1364,23 @@ begin
   if configfo.syslib.Value = True then
   begin
     // writeln('Yes system');
-    resu      := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil);
+    resu      := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil, PChar('system'));
     if resu = 0 then
       resulib := 0
     else
     begin
       // writeln('Some libraries did not load...');
       resulib := -1;
-      resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil);
+      resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
       configfo.syslib.Value := false;
     end;
   end
   else
   begin
-    resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil);
+    resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
     if resu <> 0 then 
     begin
-     resu   := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil);
+     resu   := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil, PChar('system'));
      configfo.syslib.Value := true;
     end;
   end;

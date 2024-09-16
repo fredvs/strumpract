@@ -380,7 +380,7 @@ procedure tfilelistfo.onchangpath(const Sender: TObject; findex: integer);
 var
   x, y, y2, z, fsize: integer;
   // datalist_files: tfiledatalist;
-  strfilter1, strfilter2, strfilter3, strfilter4: msestring;
+  strfilter1, strfilter2, strfilter3, strfilter4, strfilter5, strfilter6, strfilter7, strfilter8: msestring;
   thestrnum, thestrx, thestrext, thestrfract: msestring;
   datalist_files: TStringList;
   SR: TSearchRec;
@@ -401,6 +401,10 @@ begin
         strfilter2 := 'wav';
         strfilter3 := 'ogg';
         strfilter4 := 'flac';
+        strfilter5 := 'it';
+        strfilter6 := 'mod';
+        strfilter7 := 'xm';
+        strfilter8 := 's3m';
       end
       else if findex = 1 then
       begin
@@ -408,6 +412,10 @@ begin
         strfilter2 := 'mp3';
         strfilter3 := 'mp3';
         strfilter4 := 'mp3';
+        strfilter5 := 'mp3';
+        strfilter6 := 'mp3';
+        strfilter7 := 'mp3';
+        strfilter8 := 'mp3';
       end
       else if findex = 2 then
       begin
@@ -415,6 +423,10 @@ begin
         strfilter2 := 'wav';
         strfilter3 := 'wav';
         strfilter4 := 'wav';
+        strfilter5 := 'wav';
+        strfilter6 := 'wav';
+        strfilter7 := 'wav';
+        strfilter8 := 'wav';
       end
       else if findex = 3 then
       begin
@@ -422,6 +434,10 @@ begin
         strfilter2 := 'ogg';
         strfilter3 := 'ogg';
         strfilter4 := 'ogg';
+        strfilter5 := 'ogg';
+        strfilter6 := 'ogg';
+        strfilter7 := 'ogg';
+        strfilter8 := 'ogg';
       end
       else if findex = 4 then
       begin
@@ -429,6 +445,10 @@ begin
         strfilter2 := 'flac';
         strfilter3 := 'flac';
         strfilter4 := 'flac';
+        strfilter5 := 'flac';
+        strfilter6 := 'flac';
+        strfilter7 := 'flac';
+        strfilter8 := 'flac';
       end
       else
       begin
@@ -436,6 +456,10 @@ begin
         strfilter2 := 'wav';
         strfilter3 := 'ogg';
         strfilter4 := 'flac';
+        strfilter5 := 'it';
+        strfilter6 := 'mod';
+        strfilter7 := 'xm';
+        strfilter8 := 's3m';
       end;
 
       historyfn.hint := ' Selected: ' + historyfn.Value + ' ';
@@ -448,7 +472,12 @@ begin
             if (lowercase(fileext(msestring(SR.Name))) = strfilter1) or
               (lowercase(fileext(msestring(SR.Name))) = strfilter2) or
               (lowercase(fileext(msestring(SR.Name))) = strfilter3) or
-              (lowercase(fileext(msestring(SR.Name))) = strfilter4) then
+              (lowercase(fileext(msestring(SR.Name))) = strfilter4) or
+              (lowercase(fileext(msestring(SR.Name))) = strfilter5) or
+              (lowercase(fileext(msestring(SR.Name))) = strfilter6) or
+              (lowercase(fileext(msestring(SR.Name))) = strfilter7) or
+              (lowercase(fileext(msestring(SR.Name))) = strfilter8) 
+              then
               datalist_files.Add(SR.Name); //Fill the list
           until FindNext(SR) <> 0;
           FindClose(SR);
@@ -960,27 +989,35 @@ begin
   else
     tfiledialog1.controller.backcolor := cl_default;
 
-  setlength(ara, 6);
-  setlength(arb, 6);
+  setlength(ara, 10);
+  setlength(arb, 10);
 
   ara[0] := lang_mainfo[Ord(ma_tmainmenu1_parentitem_showall)];  {'Show All'}
   ara[1] := 'Mp3"';
   ara[2] := 'Wav';
   ara[3] := 'Ogg';
   ara[4] := 'Flac';
-  ara[5] := 'All';
+  ara[5] := 'It"';
+  ara[6] := 'Mod';
+  ara[7] := 'S3m';
+  ara[8] := 'xm';
+  ara[9] := 'All';
 
-  arb[0] := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+  arb[0] := '"*.mp3" "*.wav" "*.ogg" "*.flac" "*.it" "*.mod" "*.s3m" "*.xm"';
   arb[1] := '"*.mp3"';
   arb[2] := '"*.wav"';
   arb[3] := '"*.ogg"';
   arb[4] := '"*.flac"';
-  arb[5] := '"*.*"';
+  arb[5] := '"*.it"';
+  arb[6] := '"*.mod"';
+  arb[7] := '"*.s3m"';
+  arb[8] := '"*.xm"';
+  arb[9] := '"*.*"';
 
   tfiledialog1.controller.filterlist.asarraya := ara;
   tfiledialog1.controller.filterlist.asarrayb := arb;
 
-  tfiledialog1.controller.filter    := '"*.mp3" "*.wav" "*.ogg" "*.flac"';
+  tfiledialog1.controller.filter    := '"*.mp3" "*.wav" "*.ogg" "*.flac" "*.it" "*.mod" "*.s3m" "*.xm"';
   tfiledialog1.controller.fontcolor := cl_black;
 
   tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir, fdo_directory];
@@ -1000,7 +1037,6 @@ begin
     for x := 0 to list_files.rowCount - 1 do
       list_files.rowcolorstate[x] := -1;
   end;
-
 end;
 
 procedure tfilelistfo.onexecfind(const Sender: TObject);

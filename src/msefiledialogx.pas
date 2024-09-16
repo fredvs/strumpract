@@ -2285,6 +2285,10 @@ begin
       (lowercase(list_log[1][cellinfo.cell.row]) = '.mp3') or
       (lowercase(list_log[1][cellinfo.cell.row]) = '.opus') or
       (lowercase(list_log[1][cellinfo.cell.row]) = '.flac') or
+      (lowercase(list_log[1][cellinfo.cell.row]) = '.it') or
+      (lowercase(list_log[1][cellinfo.cell.row]) = '.mod') or
+      (lowercase(list_log[1][cellinfo.cell.row]) = '.xm') or
+      (lowercase(list_log[1][cellinfo.cell.row]) = '.s3m') or
       (lowercase(list_log[1][cellinfo.cell.row]) = '.ogg') then
       aicon := 3
     else if (lowercase(list_log[1][cellinfo.cell.row]) = '.avi') or

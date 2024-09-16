@@ -17,6 +17,7 @@
 {$DEFINE portaudio} // uncomment to enable portaudio In/Out sound port
 {$DEFINE sndfile} // uncomment to enable sndfile (wav, ogg, flac audio file)
 {$DEFINE mpg123} // uncomment to enable mpg123 (mp3 audio file)
+{$DEFINE xmp} // uncomment to enable xmp (mod, it, sp3 audio file)
 {.$DEFINE neaac} // uncomment to enable neaac (m4a audio file)
 {.$DEFINE opus} // uncomment to enable opus (opus audio file)
 {.$DEFINE cdrom} // uncomment to enable cdrom audio decoder (cda)
