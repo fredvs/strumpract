@@ -834,23 +834,26 @@ begin
   if (not TrackBar1.clicked) then
   begin
     if (tag = 0) and (not wavefo.TrackBar1.clicked) then
+
       if uos_InputPosition(theplayer, Inputindex1) > 0 then
       begin
         if Inputlength1 <> 0 then
+        begin
           TrackBar1.Value := uos_InputPosition(theplayer, Inputindex1) / Inputlength1;
 
-        if (wavefo.Visible = True) and (as_checked in wavefo.tmainmenu1.menu[0].state) then
-        begin
-
-          wavefo.TrackBar1.Value := TrackBar1.Value;
-
-          if ((wavefo.TrackBar1.Value * wavefo.TrackBar1.Width) > (wavefo.Width - 10)) and (as_checked in wavefo.tmainmenu1.menu[8].state) then
+          if (wavefo.Visible = True) and (as_checked in wavefo.tmainmenu1.menu[0].state) then
           begin
 
-            rat := trunc((wavefo.TrackBar1.Value * wavefo.TrackBar1.Width) / (wavefo.Width - 10));
-            if (((wavefo.Width - 10) * rat) * -1) <> wavefo.container.frame.scrollpos_x then
-              wavefo.container.frame.scrollpos_x := (((wavefo.Width - 10) * rat) * -1);
+            wavefo.TrackBar1.Value := TrackBar1.Value;
 
+            if ((wavefo.TrackBar1.Value * wavefo.TrackBar1.Width) > (wavefo.Width - 10)) and (as_checked in wavefo.tmainmenu1.menu[8].state) then
+            begin
+
+              rat := trunc((wavefo.TrackBar1.Value * wavefo.TrackBar1.Width) / (wavefo.Width - 10));
+              if (((wavefo.Width - 10) * rat) * -1) <> wavefo.container.frame.scrollpos_x then
+                wavefo.container.frame.scrollpos_x := (((wavefo.Width - 10) * rat) * -1);
+
+            end;
           end;
         end;
 
@@ -879,19 +882,21 @@ begin
       if uos_InputPosition(theplayer2, Inputindex2) > 0 then
       begin
         if Inputlength2 <> 0 then
+        begin
           TrackBar1.Value := uos_InputPosition(theplayer2, Inputindex2) / Inputlength2;
 
-        if (wavefo2.Visible = True) and (as_checked in wavefo2.tmainmenu1.menu[0].state) then
-        begin
-
-          wavefo2.TrackBar1.Value := TrackBar1.Value;
-
-          if ((wavefo2.TrackBar1.Value * wavefo2.TrackBar1.Width) > (wavefo2.Width - 10)) and (as_checked in wavefo2.tmainmenu1.menu[8].state) then
+          if (wavefo2.Visible = True) and (as_checked in wavefo2.tmainmenu1.menu[0].state) then
           begin
 
-            rat := trunc((wavefo2.TrackBar1.Value * wavefo2.TrackBar1.Width) / (wavefo2.Width - 10));
-            if (((wavefo2.Width - 10) * rat) * -1) <> wavefo2.container.frame.scrollpos_x then
-              wavefo2.container.frame.scrollpos_x := (((wavefo2.Width - 10) * rat) * -1);
+            wavefo2.TrackBar1.Value := TrackBar1.Value;
+
+            if ((wavefo2.TrackBar1.Value * wavefo2.TrackBar1.Width) > (wavefo2.Width - 10)) and (as_checked in wavefo2.tmainmenu1.menu[8].state) then
+            begin
+
+              rat := trunc((wavefo2.TrackBar1.Value * wavefo2.TrackBar1.Width) / (wavefo2.Width - 10));
+              if (((wavefo2.Width - 10) * rat) * -1) <> wavefo2.container.frame.scrollpos_x then
+                wavefo2.container.frame.scrollpos_x := (((wavefo2.Width - 10) * rat) * -1);
+            end;
           end;
         end;
 
@@ -1075,18 +1080,18 @@ begin
 
     rectrecform.pos  := nullpoint;
     rectrecform.size := wavefo2.panelwave.size;
-    
+
     wavefo2.sliderimage.bitmap.masked := False;
-    poswavrec.x      := xreclivewav2;
-    poswavrec2.x     := poswavrec.x;
-    poswavrec.y      := (wavefo2.panelwave.Height div 2) - 2;
-    poswavrec2.y     := ((wavefo2.panelwave.Height div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
+    poswavrec.x  := xreclivewav2;
+    poswavrec2.x := poswavrec.x;
+    poswavrec.y  := (wavefo2.panelwave.Height div 2) - 2;
+    poswavrec2.y := ((wavefo2.panelwave.Height div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
     wavefo2.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC99D6);
-    poswavrec.y      := (wavefo2.panelwave.Height div 2);
-    poswavrec2.y     := poswavrec.y + (round((rv) * ((wavefo2.panelwave.Height div 2) - 3)));
+    poswavrec.y  := (wavefo2.panelwave.Height div 2);
+    poswavrec2.y := poswavrec.y + (round((rv) * ((wavefo2.panelwave.Height div 2) - 3)));
     wavefo2.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
     wavefo2.panelwave.invalidate();
-    xreclivewav2     := xreclivewav2 + 1;
+    xreclivewav2 := xreclivewav2 + 1;
   end;
 end;
 
@@ -1099,10 +1104,10 @@ begin
     ((commanderfo.timermix.Enabled = True) and (commanderfo.guimix.Value = True)) then
   begin
 
-    if (tag = 0) and (Inputlength1 > 0) and (Visible = True) then
-      ShowPosition(nil);
-    if (tag = 1) and (Inputlength2 > 0) and (Visible = True) then
-      ShowPosition(nil);
+      // if (tag = 0) and (Inputlength1 > 0) and (Visible = True) then
+    ShowPosition(nil);
+      // if (tag = 1) and (Inputlength2 > 0) and (Visible = True) then
+      //   ShowPosition(nil);
 
     if ((vuinvar = True) and (Visible = True))
       //  {$if not defined(darwin)}
@@ -1264,8 +1269,8 @@ begin
             // 2 => calcul after all DSP procedures.
             // 3 => calcul before and after all DSP procedures.
 
-            if Inputlength1 > 0 then
-              uos_InputSetPositionEnable(theplayer, Inputindex1, 1);
+            //  if Inputlength1 > 0 then
+            uos_InputSetPositionEnable(theplayer, Inputindex1, 1);
             // set calculation of position (usefull for positions procedure)
             // set position calculation (default is 0)
             // 0 => no calcul
@@ -1333,15 +1338,19 @@ begin
               wavefo.panelwave.Visible := False;
             end;
             // Length of Input in samples
+            if Inputlength1 > 0 then
+            begin
+              tottime1 := uos_InputlengthTime(theplayer, Inputindex1);
+              // Length of input in time
 
-            tottime1 := uos_InputlengthTime(theplayer, Inputindex1);
-            // Length of input in time
+              DecodeTime(tottime1, ho, mi, se, ms);
 
-            DecodeTime(tottime1, ho, mi, se, ms);
+              totsec1 := (ho * 3600) + (mi * 60) + se;
 
-            totsec1 := (ho * 3600) + (mi * 60) + se;
-
-            llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
+              llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
+            end
+            else
+              llength.Value := '??:??:??.???';
 
             DSPindex1 := uos_InputAddDSP(theplayer, Inputindex1, @DSPReverseBefore1, @DSPReverseAfter, nil, nil);
             // add a custom DSP procedure for input
@@ -1583,8 +1592,8 @@ begin
             // 2 => calcul after all DSP procedures.
             // 3 => calcul before and after all DSP procedures.
 
-            if Inputlength2 > 0 then
-              uos_InputSetPositionEnable(theplayer2, Inputindex2, 1);
+            //if Inputlength2 > 0 then
+            uos_InputSetPositionEnable(theplayer2, Inputindex2, 1);
             // set calculation of position (usefull for positions procedure)
             // set position calculation (default is 0)
             // 0 => no calcul
@@ -1652,6 +1661,20 @@ begin
               panelwave.Visible         := False;
               wavefo2.panelwave.Visible := False;
             end;
+
+            if Inputlength2 > 0 then
+            begin
+              tottime2 := uos_InputlengthTime(theplayer2, Inputindex2);
+              // Length of input in time
+
+              DecodeTime(tottime2, ho, mi, se, ms);
+
+              totsec2 := (ho * 3600) + (mi * 60) + se;
+
+              llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
+            end
+            else
+              llength.Value := '??:??:??.???';
 
             tottime2 := uos_InputlengthTime(theplayer2, Inputindex2);
             // Length of input in time
