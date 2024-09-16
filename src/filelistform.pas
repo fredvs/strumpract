@@ -846,7 +846,7 @@ begin
   tfiledialogx2.controller.options := [fdo_sysfilename, fdo_savelastdir];
 
   tfiledialogx2.controller.filter :=
-    '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC"';
+    '"*.mp3" "*.MP3" "*.wav" "*.WAV" "*.ogg" "*.OGG" "*.flac" "*.FLAC" "*.it" "*.IT" "*.mod" "*.MOD" "*.xm" "*.XM" "*.s3m" "*.S3M"';
 
   if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
     if fileexists(tfiledialogx2.controller.filename) then
