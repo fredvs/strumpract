@@ -944,7 +944,7 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       taborder = 23
       visible = False
-      bounds_x = 107
+      bounds_x = 204
       bounds_y = 47
       bounds_cx = 228
       bounds_cy = 50

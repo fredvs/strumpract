@@ -1487,7 +1487,8 @@ begin
       configfo.defdevout.Caption := 'Default Device OUT = ' + msestring(IntToStr(devout))
     else
       configfo.defdevout.Caption := 'No Default Device OUT';
-  end;
+      
+   end;
 end;
 
 procedure tdrumsfo.oncreatedrums(const Sender: TObject);

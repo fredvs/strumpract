@@ -228,7 +228,7 @@ var
   norefresh: Boolean = False;
   thesender: integer;
   fontheightused: integer = 12;
-  // stopplayers: boolean = false;
+// stopplayers: boolean = false;
 
 implementation
 
@@ -447,7 +447,7 @@ begin
   aboutfo.resizeab(fontval);
   findmessagefo.resizefm(fontval);
   conflangfo.resizecl(fontval);
-  
+
   paintslider();
 
   resizema(fontval);
@@ -2267,7 +2267,7 @@ begin
       end;
 
     end;
- end;
+end;
 
 procedure tmainfo.oncreateform(const Sender: TObject);
 var
@@ -8005,19 +8005,19 @@ end;
 
 procedure tmainfo.onrandomlayout(const Sender: TObject);
 begin
-   //  {$if not defined(darwin)}  
-  statusanim := 0;
+  //  {$if not defined(darwin)}  
+  statusanim           := 0;
   //  {$endif}
-  dockpanel1fo.Visible  := False;
-  dockpanel2fo.Visible  := False;
-  dockpanel3fo.Visible  := False;
-  dockpanel4fo.Visible  := False;
-  dockpanel5fo.Visible  := False;
+  dockpanel1fo.Visible := False;
+  dockpanel2fo.Visible := False;
+  dockpanel3fo.Visible := False;
+  dockpanel4fo.Visible := False;
+  dockpanel5fo.Visible := False;
   //     {$if not defined(darwin)}
   imagedancerfo.Visible := False;
   //  {$endif}
-  infosdfo.Visible      := False;
-  infosdfo2.Visible     := False;
+  infosdfo.Visible     := False;
+  infosdfo2.Visible    := False;
 
   synthefo.Visible := False;
   pianofo.Visible  := False;
@@ -8035,16 +8035,16 @@ begin
   ondockall(nil);
 
   oktimer := 0;
- 
-   if timerwait.Enabled then
+
+  if timerwait.Enabled then
     timerwait.restart // to reset
   else
     timerwait.Enabled := True;
-    
+
   sleep(200);
   randomnotefo.Visible := True;
   randomnotefo.bringtofront;
- end;
+end;
 
 procedure tmainfo.showimagedancer(const Sender: TObject);
 begin
@@ -8458,7 +8458,7 @@ end;
 procedure tmainfo.onlangset(const Sender: TObject);
 begin
   conflangfo.Show(True);
- // conflangfo.resizecl(fontheightused);
+  // conflangfo.resizecl(fontheightused);
 end;
 
 procedure tmainfo.onactiv(const Sender: TObject);
@@ -8543,6 +8543,21 @@ begin
   configlayoutfo.onsetcolor(nil);
 
   splashfo.Close;
+
+  if fileexists(ParamStr(1)) then
+  begin
+    songplayerfo.historyfn.Value   := ParamStr(1);
+    songplayer2fo.historyfn.Value  := ParamStr(1);
+    songplayerfo.edvolleft.Value   := 100;
+    songplayerfo.edvolright.Value  := 100;
+    songplayer2fo.edvolleft.Value  := 0;
+    songplayer2fo.edvolright.Value := 0;
+    commanderfo.volumeright1.Value := 1;
+    commanderfo.volumeleft1.Value  := 1;
+    commanderfo.volumeright2.Value := 0;
+    commanderfo.volumeleft2.Value  := 0;
+    songplayerfo.doplayerstart(nil);
+  end;
 
 end;
 
