@@ -184,6 +184,21 @@ object wavefo: twavefo
     scrollbar.color = -2147483645
     scrollbar.onafterevent = onafterev
   end
+  object panelwave: tpaintbox
+    optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
+    color = -2147483645
+    frame.localprops = []
+    frame.localprops1 = []
+    face.image.source = sliderimage
+    face.localprops = [fal_image]
+    taborder = 2
+    visible = False
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 434
+    bounds_cy = 91
+    anchors = []
+  end
   object sliderimage: tbitmapcomp
     left = 72
     top = 21

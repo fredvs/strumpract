@@ -944,8 +944,8 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       taborder = 23
       visible = False
-      bounds_x = 204
-      bounds_y = 47
+      bounds_x = 203
+      bounds_y = 40
       bounds_cx = 228
       bounds_cy = 50
       object hintlabel: tlabel
@@ -970,6 +970,21 @@ object songplayerfo: tsongplayerfo
         font.localprops = []
         reffontheight = 15
       end
+    end
+    object panelwave: tpaintbox
+      optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      face.image.source = sliderimage
+      face.localprops = [fal_image]
+      face.template = tfaceslider
+      taborder = 28
+      visible = False
+      bounds_x = 0
+      bounds_y = 97
+      bounds_cx = 434
+      bounds_cy = 30
     end
   end
   object tfaceslider: tfacecomp
@@ -1001,8 +1016,8 @@ object songplayerfo: tsongplayerfo
   object ttimer1: ttimer
     options = [to_single]
     ontimer = ontimerwaveform
-    left = 127
-    top = 94
+    left = 48
+    top = 60
   end
   object ttimer2: ttimer
     options = [to_single]
@@ -3977,7 +3992,7 @@ object songplayerfo: tsongplayerfo
     interval = 500000
     options = [to_single]
     ontimer = ontimerwavdata
-    left = 105
-    top = 87
+    left = 90
+    top = 53
   end
 end

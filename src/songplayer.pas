@@ -99,6 +99,7 @@ type
     ttimerwavdata: ttimer;
     edvolleft: trealspinedit;
     edpitch: trealspinedit;
+    panelwave: tpaintbox;
     procedure doplayerstart(const Sender: TObject);
     procedure doplayeresume(const Sender: TObject);
     procedure doplayerpause(const Sender: TObject);
@@ -146,6 +147,10 @@ type
     procedure ontimercheck(const Sender: TObject);
     procedure resizesp(fontheight: integer);
     procedure ontimerwavdata(const Sender: TObject);
+    procedure InitDrawLive();
+    procedure InitDrawLivewav();
+    procedure DrawLive(lv, rv: double);
+
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
@@ -159,6 +164,8 @@ type
 
 var
   theinc: integer = 0;
+  xreclive1, xreclive2, xreclivewav1, xreclivewav2: integer;
+  rectrecform: rectty;
   Equalizer_Bands: array[1..10] of equalizer_band_type;
   thearray: array of cfloat;
   thearray2: array of cfloat;
@@ -779,6 +786,7 @@ begin
 
   if tag = 0 then
   begin
+
     if (l1 >= 0) and (l1 <= 1) then
     begin
       vuLeft.Value := l1;
@@ -797,6 +805,7 @@ begin
 
   if tag = 1 then
   begin
+
     if (l2 >= 0) and (l2 <= 1) then
     begin
       vuLeft.Value := l2;
@@ -916,6 +925,171 @@ begin
 
 end;
 
+procedure tsongplayerfo.InitDrawLive();
+var
+  transpcolor: integer;
+begin
+
+  if mainfo.typecolor.Value = 2 then
+    transpcolor := $444444;
+
+  if mainfo.typecolor.Value = 0 then
+    transpcolor := $C9CF9E;
+
+  if mainfo.typecolor.Value = 1 then
+    transpcolor := $BABABA;
+
+  if mainfo.typecolor.Value = 3 then
+    transpcolor := $FF87E3;
+
+  //  transpcolor := $d6d6d6;
+
+  rectrecform.pos  := nullpoint;
+  rectrecform.size := panelwave.size;
+
+  if tag = 0 then
+    xreclive1 := 1
+  else
+    xreclive2 := 1;
+
+  with sliderimage.bitmap do
+  begin
+    size   := rectrecform.size;
+    init(transpcolor);
+    masked := True;
+    transparentcolor := transpcolor;
+  end;
+
+  panelwave.invalidate();
+
+end;
+
+procedure tsongplayerfo.InitDrawLivewav();
+var
+  transpcolor: integer;
+begin
+
+  if mainfo.typecolor.Value = 2 then
+    transpcolor := $444444;
+
+  if mainfo.typecolor.Value = 0 then
+    transpcolor := $C9CF9E;
+
+  if mainfo.typecolor.Value = 1 then
+    transpcolor := $BABABA;
+
+  if mainfo.typecolor.Value = 3 then
+    transpcolor := $FF87E3;
+
+  if tag = 0 then
+  begin
+    xreclivewav1     := 1;
+    rectrecform.pos  := nullpoint;
+    rectrecform.size := wavefo.panelwave.size;
+
+    with wavefo.sliderimage.bitmap do
+    begin
+      size   := rectrecform.size;
+      init(transpcolor);
+      masked := True;
+      transparentcolor := transpcolor;
+    end;
+
+    wavefo.panelwave.invalidate();
+
+  end;
+
+  if tag = 1 then
+  begin
+    xreclivewav2     := 1;
+    rectrecform.pos  := nullpoint;
+    rectrecform.size := wavefo2.panelwave.size;
+
+    with wavefo2.sliderimage.bitmap do
+    begin
+      size   := rectrecform.size;
+      init(transpcolor);
+      masked := True;
+      transparentcolor := transpcolor;
+    end;
+
+    wavefo2.panelwave.invalidate();
+
+  end;
+
+end;
+
+procedure tsongplayerfo.DrawLive(lv, rv: double);
+var
+  poswavrec, poswavrec2: pointty;
+begin
+
+  if tag = 0 then
+  begin
+    rectrecform.pos  := nullpoint;
+    rectrecform.size := panelwave.size;
+
+    sliderimage.bitmap.masked := False;
+    poswavrec.x  := xreclive1;
+    poswavrec2.x := poswavrec.x;
+    poswavrec.y  := (panelwave.Height div 2) - 2;
+    poswavrec2.y := ((panelwave.Height div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
+    sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC99D6);
+    poswavrec.y  := (panelwave.Height div 2);
+    poswavrec2.y := poswavrec.y + (round((rv) * ((panelwave.Height div 2) - 3)));
+    sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
+    panelwave.invalidate();
+    xreclive1    := xreclive1 + 1;
+
+    rectrecform.pos  := nullpoint;
+    rectrecform.size := wavefo2.panelwave.size;
+
+    wavefo.sliderimage.bitmap.masked := False;
+    poswavrec.x  := xreclivewav1;
+    poswavrec2.x := poswavrec.x;
+    poswavrec.y  := (wavefo.panelwave.Height div 2) - 2;
+    poswavrec2.y := ((wavefo.panelwave.Height div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
+    wavefo.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC99D6);
+    poswavrec.y  := (wavefo.panelwave.Height div 2);
+    poswavrec2.y := poswavrec.y + (round((rv) * ((wavefo.panelwave.Height div 2) - 3)));
+    wavefo.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
+    wavefo.panelwave.invalidate();
+    xreclivewav1 := xreclivewav1 + 1;
+  end;
+
+  if tag = 1 then
+  begin
+    rectrecform.pos := nullpoint;
+    rectrecform.size := panelwave.size;
+    sliderimage.bitmap.masked := False;
+    poswavrec.x  := xreclive2;
+    poswavrec2.x := poswavrec.x;
+    poswavrec.y  := (panelwave.Height div 2) - 2;
+    poswavrec2.y := ((panelwave.Height div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
+    sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC99D6);
+    poswavrec.y  := (panelwave.Height div 2);
+    poswavrec2.y := poswavrec.y + (round((rv) * ((panelwave.Height div 2) - 3)));
+    sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
+    panelwave.invalidate();
+    xreclive2    := xreclive2 + 1;
+
+    rectrecform.pos  := nullpoint;
+    rectrecform.size := wavefo2.panelwave.size;
+    
+    wavefo2.sliderimage.bitmap.masked := False;
+    poswavrec.x      := xreclivewav2;
+    poswavrec2.x     := poswavrec.x;
+    poswavrec.y      := (wavefo2.panelwave.Height div 2) - 2;
+    poswavrec2.y     := ((wavefo2.panelwave.Height div 2) - 1) - round((lv) * ((rectrecform.cy div 2) - 3));
+    wavefo2.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC99D6);
+    poswavrec.y      := (wavefo2.panelwave.Height div 2);
+    poswavrec2.y     := poswavrec.y + (round((rv) * ((wavefo2.panelwave.Height div 2) - 3)));
+    wavefo2.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
+    wavefo2.panelwave.invalidate();
+    xreclivewav2     := xreclivewav2 + 1;
+  end;
+end;
+
 procedure tsongplayerfo.LoopProcPlayer1();
 var
   ll1, ll2, lr1, lr2: double;
@@ -925,7 +1099,9 @@ begin
     ((commanderfo.timermix.Enabled = True) and (commanderfo.guimix.Value = True)) then
   begin
 
-    if (Visible = True) then
+    if (tag = 0) and (Inputlength1 > 0) and (Visible = True) then
+      ShowPosition(nil);
+    if (tag = 1) and (Inputlength2 > 0) and (Visible = True) then
       ShowPosition(nil);
 
     if ((vuinvar = True) and (Visible = True))
@@ -939,6 +1115,28 @@ begin
       lr1 := uos_InputGetLevelright(theplayer, Inputindex1);
       ll2 := uos_InputGetLevelLeft(theplayer2, Inputindex2);
       lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
+
+      if (tag = 0) and (wavefo.panelwave.Visible = True) then
+        if (xreclivewav1) > (wavefo.panelwave.Width) then
+          InitDrawLivewav();
+
+      if (tag = 1) and (wavefo2.panelwave.Visible = True) then
+        if (xreclivewav2) > (wavefo2.panelwave.Width) then
+          InitDrawLivewav();
+
+      if (tag = 0) and (panelwave.Visible = True) then
+      begin
+        if (xreclive1) > (panelwave.Width) then
+          InitDrawLive();
+        DrawLive(ll1, lr1);
+      end;
+
+      if (tag = 1) and (panelwave.Visible = True) then
+      begin
+        if (xreclive2) > (panelwave.Width) then
+          InitDrawLive();
+        DrawLive(ll2, lr2);
+      end;
 
       //    {$if not defined(darwin)}
       multiplier := ((ll1 + lr1) / 2) + ((ll2 + lr2) / 2);
@@ -1046,16 +1244,17 @@ begin
               //     uos_InputGetChannels(theplayer, Inputindex1), samformat,-1, -1);
               uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8, -1);
 
+              // Add a Output into Device Output
+              // Device ( -1 is default device )
+              // Latency  ( -1 is latency suggested )
+              // SampleRate : delault : -1 (44100)
+              // Channels : delault : -1 (2:stereo) (0: no channels, 1:mono, 2:stereo, ...)
+              // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
+              // FramesCount : default : -1 (= 65536)
+              // ChunkCount : default : -1 (= 512)
+              //  result :  Output Index in array  -1 = error
 
-            // Add a Output into Device Output
-            // Device ( -1 is default device )
-            // Latency  ( -1 is latency suggested )
-            // SampleRate : delault : -1 (44100)
-            // Channels : delault : -1 (2:stereo) (0: no channels, 1:mono, 2:stereo, ...)
-            // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
-            // FramesCount : default : -1 (= 65536)
-            // ChunkCount : default : -1 (= 512)
-            //  result :  Output Index in array  -1 = error
+            Inputlength1 := uos_Inputlength(theplayer, Inputindex1);
 
             uos_InputSetLevelEnable(theplayer, Inputindex1, 2);
             // set calculation of level/volume (usefull for showvolume procedure)
@@ -1065,7 +1264,8 @@ begin
             // 2 => calcul after all DSP procedures.
             // 3 => calcul before and after all DSP procedures.
 
-            uos_InputSetPositionEnable(theplayer, Inputindex1, 1);
+            if Inputlength1 > 0 then
+              uos_InputSetPositionEnable(theplayer, Inputindex1, 1);
             // set calculation of position (usefull for positions procedure)
             // set position calculation (default is 0)
             // 0 => no calcul
@@ -1120,7 +1320,18 @@ begin
               ChangePlugSetSoundTouch(self); // custom procedure to Change plugin settings
             end;
 
-            Inputlength1 := uos_Inputlength(theplayer, Inputindex1);
+            if Inputlength1 = 0 then
+            begin
+              panelwave.Visible        := True;
+              wavefo.panelwave.Visible := True;
+              InitDrawLive();
+              InitDrawLivewav();
+            end
+            else
+            begin
+              panelwave.Visible        := False;
+              wavefo.panelwave.Visible := False;
+            end;
             // Length of Input in samples
 
             tottime1 := uos_InputlengthTime(theplayer, Inputindex1);
@@ -1156,13 +1367,17 @@ begin
 
             hasmixed1 := False;
 
-            trackbar1.Value   := 0;
-            trackbar1.Enabled := True;
+            if Inputlength1 > 0 then
+            begin
+              trackbar1.Value   := 0;
+              trackbar1.Enabled := True;
 
-            wavefo.trackbar1.Value   := 0;
-            wavefo.container.frame.scrollpos_x := 0;
-            wavefo.trackbar1.Enabled := True;
-            wavefo.Caption           := 'Wave1 of ' + historyfn.Value;
+              wavefo.trackbar1.Value   := 0;
+              wavefo.container.frame.scrollpos_x := 0;
+              wavefo.trackbar1.Enabled := True;
+            end;
+
+            wavefo.Caption := 'Wave1 of ' + historyfn.Value;
 
             theplaying1 := historyfn.Value;
 
@@ -1357,6 +1572,9 @@ begin
             // FramesCount : default : -1 (= 65536)
             // ChunkCount : default : -1 (= 512)
 
+            Inputlength2 := uos_Inputlength(theplayer2, Inputindex2);
+            // Length of Input in samples
+
             uos_InputSetLevelEnable(theplayer2, Inputindex2, 2);
             // set calculation of level/volume (usefull for showvolume procedure)
             // set level calculation (default is 0)
@@ -1365,7 +1583,8 @@ begin
             // 2 => calcul after all DSP procedures.
             // 3 => calcul before and after all DSP procedures.
 
-            uos_InputSetPositionEnable(theplayer2, Inputindex2, 1);
+            if Inputlength2 > 0 then
+              uos_InputSetPositionEnable(theplayer2, Inputindex2, 1);
             // set calculation of position (usefull for positions procedure)
             // set position calculation (default is 0)
             // 0 => no calcul
@@ -1421,8 +1640,18 @@ begin
               ChangePlugSetSoundTouch(self); // custom procedure to Change plugin settings
             end;
 
-            Inputlength2 := uos_Inputlength(theplayer2, Inputindex2);
-            // Length of Input in samples
+            if Inputlength2 = 0 then
+            begin
+              panelwave.Visible         := True;
+              wavefo2.panelwave.Visible := True;
+              InitDrawLive();
+              InitDrawLivewav();
+            end
+            else
+            begin
+              panelwave.Visible         := False;
+              wavefo2.panelwave.Visible := False;
+            end;
 
             tottime2 := uos_InputlengthTime(theplayer2, Inputindex2);
             // Length of input in time
@@ -1456,12 +1685,15 @@ begin
 
             btinfos.Enabled := True;
 
-            trackbar1.Value   := 0;
-            trackbar1.Enabled := True;
+            if Inputlength2 > 0 then
+            begin
+              trackbar1.Value   := 0;
+              trackbar1.Enabled := True;
 
-            wavefo2.trackbar1.Value   := 0;
-            wavefo2.container.frame.scrollpos_x := 0;
-            wavefo2.trackbar1.Enabled := True;
+              wavefo2.trackbar1.Value   := 0;
+              wavefo2.container.frame.scrollpos_x := 0;
+              wavefo2.trackbar1.Enabled := True;
+            end;
 
             theplaying2     := historyfn.Value;
             wavefo2.Caption := 'Wave2 of ' + historyfn.Value;

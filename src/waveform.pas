@@ -18,6 +18,7 @@ type
     tmainmenu1: tmainmenu;
    trackbar1: tslider;
    tfacebuttonslider: tfacecomp;
+   panelwave: tpaintbox;
     procedure onresiz(const Sender: TObject);
     procedure ontimer(const Sender: TObject);
     procedure onfloat(const Sender: TObject);
