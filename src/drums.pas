@@ -6,12 +6,42 @@ unit drums;
 interface
 
 uses
- mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,fptimer,
- msegui,msegraphics,msegraphutils,mseevent,mseclasses,mseforms,msedock,
- msesimplewidgets,msewidgets,msegraphedits,msedataedits,SysUtils,Classes,
- msedragglob,mseificomp,mseificompglob,mseifiglob,msescrollbar,msetypes,mseact,
- mseedit,msestatfile,msestream,msestrings,msedispwidgets,mserichstring,msetimer,
- msebitmap,msedropdownlist;
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  fptimer,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  mseforms,
+  msedock,
+  msesimplewidgets,
+  msewidgets,
+  msegraphedits,
+  msedataedits,
+  SysUtils,
+  Classes,
+  msedragglob,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msescrollbar,
+  msetypes,
+  mseact,
+  mseedit,
+  msestatfile,
+  msestream,
+  msestrings,
+  msedispwidgets,
+  mserichstring,
+  msetimer,
+  msebitmap,
+  msedropdownlist;
 
 type
   talab  = array[0..15] of tlabel;
@@ -20,7 +50,7 @@ type
 
 type
   tdrumsfo = class(tdockform)
-   // Timertick: Ttimer;
+    // Timertick: Ttimer;
     Timertick: tfptimer;
     Timerpause: Ttimer;
     Timersent: Ttimer;
@@ -151,14 +181,14 @@ type
     langcount: tdropdownlistedit;
     songtimer: tbooleanedit;
     tickcount: tintegeredit;
-   sensib: trealspinedit;
-   tgroupbox1: tgroupbox;
-   label3: tlabel;
-   label4: tlabel;
-   label2: tlabel;
-   pnotloaded: tstringdisp;
-   tlabel24: tlabel;
-   tbutton1: tbutton;
+    sensib: trealspinedit;
+    tgroupbox1: tgroupbox;
+    label3: tlabel;
+    label4: tlabel;
+    label2: tlabel;
+    pnotloaded: tstringdisp;
+    tlabel24: tlabel;
+    tbutton1: TButton;
     procedure ontimertick(Sender: TObject);
     procedure ontimerpause(const Sender: TObject);
     procedure ontimersent(const Sender: TObject);
@@ -186,9 +216,9 @@ type
     procedure onchangelang(const Sender: TObject);
     procedure onchangesongtimer(const Sender: TObject);
     procedure onchansens(const Sender: TObject);
-    procedure resizedr(fontheight :  integer );
-   procedure bnotload(const sender: TObject);
-   procedure onclose(const sender: TObject);
+    procedure resizedr(fontheight: integer);
+    procedure bnotload(const Sender: TObject);
+    procedure onclose(const Sender: TObject);
   end;
 
 var
@@ -218,97 +248,97 @@ uses
   dockpanel1,
   drums_mfm,
   randomnote;
-  
+
 var
-   boundchilddr: array of boundchild;   
+  boundchilddr: array of boundchild;
 
 procedure tdrumsfo.ontimersent(const Sender: TObject);
 begin
-  hintpanel.Visible         := False;
+  hintpanel.Visible := False;
 end;
 
-procedure tdrumsfo.resizedr(fontheight : integer );
+procedure tdrumsfo.resizedr(fontheight: integer);
 var
- childrensp: widgetarty;
- heights: integerarty;
- widths: integerarty;
- tops: integerarty;
- lefts: integerarty;
- i1, i2: integer;
- spcx, spcy, posx, posy, ax: integer;
- ratioft : double;
+  childrensp: widgetarty;
+  heights: integerarty;
+  widths: integerarty;
+  tops: integerarty;
+  lefts: integerarty;
+  i1, i2: integer;
+  spcx, spcy, posx, posy, ax: integer;
+  ratioft: double;
 begin
-    ratioft := fontheight/12 ;
-    bounds_cxmax := 0;
-    bounds_cxmin := 0;
-    bounds_cymax := 0;
-    bounds_cymin := 0;
-    bounds_cxmax := roundmath(442 * ratioft);
-    bounds_cxmin := bounds_cxmax;
-    bounds_cymax := roundmath(274 * ratioft);
-    bounds_cymin := bounds_cymax;
-    font.height :=  fontheight;
-    panel1.font.height :=  fontheight;
-    tdockpanel1.font.height :=  fontheight;
-    
-    label2.font.height := roundmath(50 * ratioft);
-    label3.font.height := roundmath(50 * ratioft);
-    label4.font.height := roundmath(50 * ratioft);
-    
-    label2.width := roundmath(32 * ratioft);
-    label3.width := roundmath(18 * ratioft);
-    label4.width := roundmath(18 * ratioft);
-    
-    label2.height := roundmath(59 * ratioft);
-    label3.height := roundmath(59 * ratioft);
-    label4.height := roundmath(59 * ratioft);
-         
-    label4.left := roundmath(35 * ratioft);
-    label2.left := roundmath(11 * ratioft);
-    
-    edittempo.frame.buttonsize := roundmath(20 * ratioft);   
-    volumedrums.frame.buttonsize := roundmath(20 * ratioft);   
-    sensib.frame.buttonsize := roundmath(20 * ratioft);   
-     
-    frame.grip_size := roundmath(8 * ratioft);
-    
-    tdockpanel1.height := roundmath(149 * ratioft);
-    
-    panel1.height := roundmath(125 * ratioft);
-    panel1.top := roundmath(148 * ratioft);
-  
+  ratioft      := fontheight / 12;
+  bounds_cxmax := 0;
+  bounds_cxmin := 0;
+  bounds_cymax := 0;
+  bounds_cymin := 0;
+  bounds_cxmax := roundmath(442 * ratioft);
+  bounds_cxmin := bounds_cxmax;
+  bounds_cymax := roundmath(274 * ratioft);
+  bounds_cymin := bounds_cymax;
+  font.Height  := fontheight;
+  panel1.font.Height := fontheight;
+  tdockpanel1.font.Height := fontheight;
+
+  label2.font.Height := roundmath(50 * ratioft);
+  label3.font.Height := roundmath(50 * ratioft);
+  label4.font.Height := roundmath(50 * ratioft);
+
+  label2.Width := roundmath(32 * ratioft);
+  label3.Width := roundmath(18 * ratioft);
+  label4.Width := roundmath(18 * ratioft);
+
+  label2.Height := roundmath(59 * ratioft);
+  label3.Height := roundmath(59 * ratioft);
+  label4.Height := roundmath(59 * ratioft);
+
+  label4.left := roundmath(35 * ratioft);
+  label2.left := roundmath(11 * ratioft);
+
+  edittempo.frame.buttonsize   := roundmath(20 * ratioft);
+  volumedrums.frame.buttonsize := roundmath(20 * ratioft);
+  sensib.frame.buttonsize      := roundmath(20 * ratioft);
+
+  frame.grip_size := roundmath(8 * ratioft);
+
+  tdockpanel1.Height := roundmath(149 * ratioft);
+
+  panel1.Height := roundmath(125 * ratioft);
+  panel1.top    := roundmath(148 * ratioft);
+
   // grid
-  
-   labpat.top := roundmath(18 * ratioft);
-   lach.top := roundmath(54 * ratioft);
-   laoh.top := roundmath(78 * ratioft);
-   lasd.top := roundmath(102 * ratioft);
-   labd.top := roundmath(126 * ratioft);
-   
-   labpat.width := roundmath(52 * ratioft);
-   lach.width := labpat.width;
-   laoh.width := labpat.width;
-   lasd.width := labpat.width;
-   labd.width := labpat.width;
-   
-   labpat.height := roundmath(16 * ratioft);
-   lach.height := labpat.height;
-   laoh.height := labpat.height;
-   lasd.height := labpat.height;
-   labd.height := labpat.height;
-  
-  
-   spcx := roundmath(24 * ratioft);
+
+  labpat.top := roundmath(18 * ratioft);
+  lach.top   := roundmath(54 * ratioft);
+  laoh.top   := roundmath(78 * ratioft);
+  lasd.top   := roundmath(102 * ratioft);
+  labd.top   := roundmath(126 * ratioft);
+
+  labpat.Width := roundmath(52 * ratioft);
+  lach.Width   := labpat.Width;
+  laoh.Width   := labpat.Width;
+  lasd.Width   := labpat.Width;
+  labd.Width   := labpat.Width;
+
+  labpat.Height := roundmath(16 * ratioft);
+  lach.Height   := labpat.Height;
+  laoh.Height   := labpat.Height;
+  lasd.Height   := labpat.Height;
+  labd.Height   := labpat.Height;
+
+
+  spcx := roundmath(24 * ratioft);
   spcy := roundmath(24 * ratioft);
   // posx := -26;
   posx := roundmath(-33 * ratioft);
 
   posy := roundmath(6 * ratioft);
 
- for ax := 0 to 3 do
+  for ax := 0 to 3 do
     with alab2[ax] do
     begin
-      Width   :=roundmath(16 * ratioft);
+      Width   := roundmath(16 * ratioft);
       Height  := roundmath(16 * ratioft);
       color   := $D5D5D5;
       Visible := True;
@@ -339,11 +369,13 @@ begin
     end;
       // }
 
- for ax := 0 to 3 do
+  for ax := 0 to 3 do
     with alaband[ax] do
     begin
-      Width   := roundmath(16 * ratioft);;
-      Height  := roundmath(16 * ratioft);;
+      Width   := roundmath(16 * ratioft);
+      ;
+      Height  := roundmath(16 * ratioft);
+      ;
       Visible := True;
       color   := $B5B5B5;
       // textflags := [xcentered,tf_ycentered];
@@ -372,12 +404,14 @@ begin
 
     end;
 
- for ax := 0 to 15 do
+  for ax := 0 to 15 do
     with alab[ax] do
     begin
       optionswidget1 := [ow1_fontglyphheight];
-      Width := roundmath(16 * ratioft);;
-      Height := roundmath(16 * ratioft);;
+      Width := roundmath(16 * ratioft);
+      ;
+      Height := roundmath(16 * ratioft);
+      ;
       color := $D5D5D5;
       Visible := True;
       // textflags := [xcentered,tf_ycentered];
@@ -393,8 +427,10 @@ begin
       Name   := 'ch' + IntToStr(ax + 1);
       left   := posx + roundmath(65 * ratioft) + (spcx * (ax + 1));
       top    := posy + (spcy * 2);
-      Width  := roundmath(16 * ratioft);;
-      Height := roundmath(16 * ratioft);;
+      Width  := roundmath(16 * ratioft);
+      ;
+      Height := roundmath(16 * ratioft);
+      ;
       frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
       hint   := ' Add/Remove a Closed Hat at position ' + msestring(IntToStr(ax + 1)) + ' ';
     end;
@@ -404,7 +440,7 @@ begin
       ach[ax].Value := False;
   end;
 
- for ax := 0 to 15 do
+  for ax := 0 to 15 do
     with aoh[ax] do
     begin
       Name   := 'oh' + IntToStr(ax + 1);
@@ -438,14 +474,16 @@ begin
         Value := False;
     end;
 
- for ax := 0 to 15 do
+  for ax := 0 to 15 do
     with abd[ax] do
     begin
       Name   := 'bd' + IntToStr(ax + 1);
       left   := posx + roundmath(65 * ratioft) + (spcx * (ax + 1));
       top    := posy + (spcy * 5);
-      Width  := roundmath(16 * ratioft);;
-      Height := roundmath(16 * ratioft);;
+      Width  := roundmath(16 * ratioft);
+      ;
+      Height := roundmath(16 * ratioft);
+      ;
       frame.hiddenedges := [edg_right, edg_top, edg_left, edg_bottom];
       hint   := ' Add/Remove a Bass Drum at position ' + msestring(IntToStr(ax + 1)) + ' ';
 
@@ -456,20 +494,20 @@ begin
     end;
 
 
-// end grid
+  // end grid
 
 
-    with panel1 do
-       for i1 := 0 to childrencount - 1 do
-         for i2 := 0 to length(boundchilddr) - 1 do
-        if children[i1].name = boundchilddr[i2].name then
+  with panel1 do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchilddr) - 1 do
+        if children[i1].Name = boundchilddr[i2].Name then
         begin
-          children[i1].left := roundmath(boundchilddr[i2].left * ratioft);  
-          children[i1].top := roundmath(boundchilddr[i2].top * ratioft);  
-          children[i1].width := roundmath(boundchilddr[i2].width * ratioft);   
-          children[i1].height := roundmath(boundchilddr[i2].height * ratioft); 
-         end; 
- end;
+          children[i1].left   := roundmath(boundchilddr[i2].left * ratioft);
+          children[i1].top    := roundmath(boundchilddr[i2].top * ratioft);
+          children[i1].Width  := roundmath(boundchilddr[i2].Width * ratioft);
+          children[i1].Height := roundmath(boundchilddr[i2].Height * ratioft);
+        end;
+end;
 
 procedure tdrumsfo.ontimerpause(const Sender: TObject);
 var
@@ -501,7 +539,7 @@ procedure tdrumsfo.ontimertick(Sender: TObject);
 var
   ax: integer;
 begin
-  
+
   if stopit = False then
   begin
     if novoice.Value = False then
@@ -527,40 +565,40 @@ begin
 
       if ach[posi - 1].Value = True then
       begin
-      if drum_input[0] > -1 then
-        uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.
-          genvolleft.Value * 1.5
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+        if drum_input[0] > -1 then
+          uos_InputSetDSPVolume(0, drum_input[0], (volumedrums.Value / 100) * commanderfo.
+            genvolleft.Value * 1.5
+            , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
         uos_PlaynofreePaused(0);
       end;
 
       if aoh[posi - 1].Value then
       begin
-       if drum_input[1] > -1 then
-        uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.
-          genvolleft.Value * 1.5
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+        if drum_input[1] > -1 then
+          uos_InputSetDSPVolume(1, drum_input[1], (volumedrums.Value / 100) * commanderfo.
+            genvolleft.Value * 1.5
+            , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
         uos_PlaynofreePaused(1);
       end;
 
       if asd[posi - 1].Value then
       begin
-         if drum_input[2] > -1 then
-        uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.
-          genvolleft.Value * 1.5
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+        if drum_input[2] > -1 then
+          uos_InputSetDSPVolume(2, drum_input[2], (volumedrums.Value / 100) * commanderfo.
+            genvolleft.Value * 1.5
+            , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
         uos_PlaynofreePaused(2);
       end;
 
       if abd[posi - 1].Value then
       begin
-         if drum_input[3] > -1 then
-        uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.
-          genvolleft.Value * 1.5
-          , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+        if drum_input[3] > -1 then
+          uos_InputSetDSPVolume(3, drum_input[3], (volumedrums.Value / 100) * commanderfo.
+            genvolleft.Value * 1.5
+            , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
         uos_PlaynofreePaused(3);
       end;
@@ -833,58 +871,60 @@ begin
   if wascreated = False then
     createdrumsplayers;
 
-if wascreatedok then
-begin
-  wascreated     := True;
-  stopit         := False;
-  label2.Enabled := True;
-  Timerpause.Enabled := False;
-  posi           := 1;
-  loop_resume.Enabled := False;
-  if songtimer.Value = False then
-    TimerTick.Enabled := True
-  else
-    TimerTick.Enabled := False;
-  loop_stop.Enabled   := True;
+  if wascreatedok then
+  begin
+    wascreated     := True;
+    stopit         := False;
+    label2.Enabled := True;
+    Timerpause.Enabled := False;
+    posi           := 1;
+    loop_resume.Enabled := False;
+    if songtimer.Value = False then
+      TimerTick.Enabled := True
+    else
+      TimerTick.Enabled := False;
+    loop_stop.Enabled   := True;
 
-  commanderfo.loop_resume.Enabled := False;
-  commanderfo.loop_stop.Enabled   := True;
-end else pnotloaded.visible := true;
+    commanderfo.loop_resume.Enabled := False;
+    commanderfo.loop_stop.Enabled := True;
+  end
+  else
+    pnotloaded.Visible := True;
 
 end;
 
 procedure tdrumsfo.dostop(const Sender: TObject);
 begin
-if wascreatedok then
-begin
-  label2.Enabled := False;
-  loop_stop.Enabled := False;
-  loop_resume.Enabled := True;
-  commanderfo.loop_resume.Enabled := True;
-  commanderfo.loop_stop.Enabled := False;
-  stopit := True;
-  if timerpause.Enabled then
-    timerpause.restart // to reset
-  else
-    timerpause.Enabled := True;
-end;
+  if wascreatedok then
+  begin
+    label2.Enabled := False;
+    loop_stop.Enabled := False;
+    loop_resume.Enabled := True;
+    commanderfo.loop_resume.Enabled := True;
+    commanderfo.loop_stop.Enabled := False;
+    stopit := True;
+    if timerpause.Enabled then
+      timerpause.restart // to reset
+    else
+      timerpause.Enabled := True;
+  end;
 end;
 
 procedure tdrumsfo.doresume(const Sender: TObject);
 begin
-if wascreatedok then
-begin
-  label2.Enabled := False;
-  stopit         := False;
-  Timerpause.Enabled := False;
-  loop_resume.Enabled := False;
-  loop_stop.Enabled := True;
-  if songtimer.Value = False then
-    TimerTick.Enabled := True;
+  if wascreatedok then
+  begin
+    label2.Enabled := False;
+    stopit         := False;
+    Timerpause.Enabled := False;
+    loop_resume.Enabled := False;
+    loop_stop.Enabled := True;
+    if songtimer.Value = False then
+      TimerTick.Enabled := True;
 
-  commanderfo.loop_resume.Enabled := False;
-  commanderfo.loop_stop.Enabled   := True;
-end;
+    commanderfo.loop_resume.Enabled := False;
+    commanderfo.loop_stop.Enabled   := True;
+  end;
 end;
 
 procedure tdrumsfo.onchangetempo(const Sender: TObject);
@@ -901,14 +941,13 @@ begin
   end;
 
   if hasinit = 1 then
-  begin
-   if wascreatedok then
-begin
-    if randomnotefo.Visible then
-      randomnotefo.bpm.Value := roundmath(edittempo.Value / 2);
+    if wascreatedok then
+    begin
+      if randomnotefo.Visible then
+        randomnotefo.bpm.Value := roundmath(edittempo.Value / 2);
 
-    //TimerTick.Interval := trunc(edittempo.Value * 1000);
-    TimerTick.Interval := roundmath(60000 / 4 / edittempo.Value);
+      //TimerTick.Interval := trunc(edittempo.Value * 1000);
+      TimerTick.Interval := roundmath(60000 / 4 / edittempo.Value);
 
 {
     edittempo.face.template := mainfo.tfaceorange;
@@ -917,10 +956,9 @@ begin
       timersent.restart // to reset
     else
       timersent.Enabled := True;
-} 
-  end;
- end; 
- 
+}
+    end;
+
 end;
 
 
@@ -1090,41 +1128,41 @@ begin
     else
       mainfo.tmainmenu1.menu.itembynames(['show', 'showdrums']).Caption :=
         lang_mainfo[Ord(ma_tmainmenu1_show)] + ': ' +
-        lang_commanderfo[Ord(co_namedrums_hint)] ;
+        lang_commanderfo[Ord(co_namedrums_hint)];
 
-      if (norefresh = False) and (parentwidget <> nil) then
-      begin
-     
-       if (parentwidget = mainfo.basedock) or 
-       (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
-          mainfo.updatelayoutstrum();
-      
-      if (parentwidget = dockpanel1fo.basedock) or 
-       (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+    if (norefresh = False) and (parentwidget <> nil) then
+    begin
+
+      if (parentwidget = mainfo.basedock) or
+        (mainfo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        mainfo.updatelayoutstrum();
+
+      if (parentwidget = dockpanel1fo.basedock) or
+        (dockpanel1fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel1fo.Visible then
-        dockpanel1fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel2fo.basedock) or 
-       (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel1fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel2fo.basedock) or
+        (dockpanel2fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel2fo.Visible then
-        dockpanel2fo.updatelayoutpan();
-     
-      if (parentwidget = dockpanel3fo.basedock) or 
-       (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+          dockpanel2fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel3fo.basedock) or
+        (dockpanel3fo.basedock.dragdock.currentsplitdir = sd_tabed) then
         if dockpanel3fo.Visible then
-        dockpanel3fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel4fo.basedock) or 
-       (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel4fo.Visible then
-        dockpanel4fo.updatelayoutpan();
-      
-      if (parentwidget = dockpanel5fo.basedock) or 
-       (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
-      if dockpanel5fo.Visible then
-        dockpanel5fo.updatelayoutpan();
-      end;  
-    
+          dockpanel3fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel4fo.basedock) or
+        (dockpanel4fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel4fo.Visible then
+          dockpanel4fo.updatelayoutpan();
+
+      if (parentwidget = dockpanel5fo.basedock) or
+        (dockpanel5fo.basedock.dragdock.currentsplitdir = sd_tabed) then
+        if dockpanel5fo.Visible then
+          dockpanel5fo.updatelayoutpan();
+    end;
+
   end;
 end;
 
@@ -1133,11 +1171,11 @@ var
   i: integer;
 begin
 
-  wascreatedok := true;
+  wascreatedok := True;
 
   for i := 0 to 3 do
   begin
-  //  uos_Stop(i);
+    //  uos_Stop(i);
 
     if uos_CreatePlayer(i) then
 
@@ -1146,21 +1184,22 @@ begin
         //One event (for example replay) will have impact on all players.
 
         // using memorystream
-      //  drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
-        
-     drum_input[i] := uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024) ;
-    
-    if drum_input[i] < 0 then wascreatedok := false;
+        //  drum_input[i] := uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512);
+
+        drum_input[i] := uos_AddFromFile(i, PChar(adrums[i]), -1, -1, 1024);
+
+    if drum_input[i] < 0 then
+      wascreatedok := False;
 
     if configfo.latdrums.Value < 0 then
       configfo.latdrums.Value := -1;
 
     if drum_input[i] > -1 then
 
-    if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
+      if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
 
         // this for a dummy endless input, must be last input
-        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024 , -1) > -1 then
+        if uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024, -1) > -1 then
         begin
 
           uos_InputAddDSPVolume(i, drum_input[i], 1, 1);
@@ -1172,8 +1211,8 @@ begin
           uos_InputSetDSPVolume(i, drum_input[i], (volumedrums.Value / 100) * commanderfo.
             genvolleft.Value * 1.5
             , (volumedrums.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-            
-          application.processmessages;  
+
+          application.ProcessMessages;
 
         end;
   end;
@@ -1198,7 +1237,7 @@ var
   timerisenabled: Boolean = False;
   {$if defined(darwin) and defined(macapp)}
   binPath: string;
-  {$ENDIF}  
+  {$ENDIF}
 begin
 
   if timertick.Enabled = True then
@@ -1212,8 +1251,8 @@ begin
   binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
   ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
   {$else}
-  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
-  {$ENDIF}  
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  {$ENDIF}
 
   adrums[4] := rawbytestring(ordir + 'sound' + directoryseparator + 'voice' + directoryseparator +
     langcount.Value + directoryseparator + '1.mp3');
@@ -1230,7 +1269,7 @@ begin
     for i := 4 to 8 do
     begin
       uos_Stop(i);
- 
+
       if uos_CreatePlayer(i) then
 
         if uos_SetGlobalEvent(i, True) then
@@ -1239,16 +1278,16 @@ begin
 
           // using memorystream
           //  if uos_AddFromMemoryStream(i, ams[i], 0, -1, 2, 512) > -1 then
-            
+
           // using memorybuffer
           // if uos_AddFromMemoryBuffer(i,thebuffer[i],thebufferinfos[i], -1, 1024) > -1 then
 
-           if uos_AddFromFile(i, PChar(adrums[i]) , -1, -1, 1024) > -1 then
-  
-           if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
-            // this for a dummy endless input, must be last input
+          if uos_AddFromFile(i, PChar(adrums[i]), -1, -1, 1024) > -1 then
 
-            uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024, -1) ;
+            if uos_AddFromEndlessMuted(i, channels, 512) > -1 then
+              // this for a dummy endless input, must be last input
+
+              uos_AddIntoDevOut(i, configfo.devoutcfg.Value, configfo.latdrums.Value, -1, -1, -1, 1024, -1);
     end;
   tag := 1;
 
@@ -1265,8 +1304,7 @@ var
   resu: integer = -1;
   {$if defined(darwin) and defined(macapp)}
   binPath: string;
-{$ENDIF}  
-  
+{$ENDIF}
 begin
   allok   := False;
   resulib := -1;
@@ -1274,10 +1312,10 @@ begin
   binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
   ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
   {$else}
-  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
-  {$ENDIF} 
-  
-  lib5 :=  '';
+  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  {$ENDIF}
+
+  lib5 := '';
 
   {$IFDEF Windows}
          {$if defined(cpu64)}
@@ -1310,14 +1348,14 @@ begin
   lib3 := AnsiString(ordir + 'lib/OpenBSD/64bit/LibMpg123-64.so');
   lib4 := AnsiString(ordir + 'lib/OpenBSD/64bit/LibSoundTouch-64.so');
      {$ENDIF}
-     
+
      {$if defined(cpu64) and defined(darwin) }
   lib1 := AnsiString(ordir + 'lib/Mac/64bit/LibPortaudio-64.dylib');
   lib2 := AnsiString(ordir + 'lib/Mac/64bit/LibSndFile-64.dylib');
   lib3 := AnsiString(ordir + 'lib/Mac/64bit/LibMpg123-64.dylib');
   lib4 := AnsiString(ordir + 'lib/Mac/64bit/libSoundTouchDLL.dylib');
-     {$ENDIF}   
-     
+     {$ENDIF}
+
   {$if defined(cpu86) and defined(linux)}
   lib1 := AnsiString(ordir + 'lib/Linux/32bit/LibPortaudio-32.so');
   lib2 := AnsiString(ordir + 'lib/Linux/32bit/LibSndFile-32.so');
@@ -1331,7 +1369,7 @@ begin
   lib3 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so');
   lib4 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libsoundtouch-arm.so');
   {$ENDIF}
-  
+
   {$if defined(linux) and defined(cpuaarch64)}
   lib1 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so');
   lib2 := AnsiString(ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so');
@@ -1346,14 +1384,14 @@ begin
   lib3 := AnsiString(ordir + 'lib/FreeBSD/amd64/libmpg123-64.so');
   lib4 := AnsiString(ordir + 'lib/FreeBSD/amd64/libsoundtouch-64.so');
    {$endif}
- 
+
   {$if defined(freebsd) and defined(cpui386) }
   lib1 := AnsiString(ordir + 'lib/FreeBSD/i386/libportaudio-32.so');
   lib2 := AnsiString(ordir + 'lib/FreeBSD/i386/libsndfile-32.so');
   lib3 := AnsiString(ordir + 'lib/FreeBSD/i386/libmpg123-32.so');
   lib4 := '';
   {$endif}
-         
+
   {$if defined(freebsd) and defined(cpuamd64) }
   lib1 := AnsiString(ordir + 'lib/FreeBSD/aarch64/libportaudio-64.so');
   lib2 := AnsiString(ordir + 'lib/FreeBSD/aarch64/libsndfile-64.so');
@@ -1371,31 +1409,67 @@ begin
     begin
       // writeln('Some libraries did not load...');
       resulib := -1;
-      resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
-      configfo.syslib.Value := false;
+      resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
+      configfo.syslib.Value := False;
+    end;
+
+    if resu <> 0 then
+    begin
+      resu := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil, nil);
+      if resu = 0 then
+      begin
+        configfo.syslib.Value := True;
+        resulib := 0;
+      end
+      else
+      begin
+        // writeln('Some libraries did not load...');
+        resulib := -1;
+        resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, nil);
+        configfo.syslib.Value := False;
+      end;
     end;
   end
+
   else
   begin
-    resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
-    if resu <> 0 then 
+    resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
+
+    if resu <> 0 then
     begin
-     resu   := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil, PChar('system'));
-     configfo.syslib.Value := true;
+      resu := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil, PChar('system'));
+      configfo.syslib.Value := True;
+    end;
+
+    if resu <> 0 then
+    begin
+      resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, nil);
+      if resu = 0 then
+      begin
+        configfo.syslib.Value := False;
+        resulib := 0;
+      end
+      else
+      begin
+        // writeln('Some libraries did not load...');
+        resulib := -1;
+        resu    := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil, nil);
+        configfo.syslib.Value := True;
+      end;
     end;
   end;
 
   if resu = 0 then
   begin
-     resulib := 0;
+    resulib          := 0;
     if (uos_LoadPlugin('soundtouch', PChar(lib4)) = 0) then
       plugsoundtouch := True
     // writeln('Yes plugsoundtouch');
 
     else
       plugsoundtouch := False;
-      // writeln('NO plugsoundtouch');
-   
+    // writeln('NO plugsoundtouch');
+
     allok := True;
 
     UOS_GetInfoDevice();
@@ -1427,21 +1501,21 @@ begin
   // visible := false;
 
   //ratioft := fontheightused/12;
-  
-    with panel1 do
-   begin
-      setlength(boundchilddr,childrencount);
- 
-       for i1 := 0 to childrencount - 1 do
-         begin
-          boundchilddr[i1].left := children[i1].left; 
-          boundchilddr[i1].top := children[i1].top; 
-          boundchilddr[i1].width := children[i1].width;  
-          boundchilddr[i1].height := children[i1].height;
-          boundchilddr[i1].name := children[i1].name;
-         end;
+
+  with panel1 do
+  begin
+    setlength(boundchilddr, childrencount);
+
+    for i1 := 0 to childrencount - 1 do
+    begin
+      boundchilddr[i1].left   := children[i1].left;
+      boundchilddr[i1].top    := children[i1].top;
+      boundchilddr[i1].Width  := children[i1].Width;
+      boundchilddr[i1].Height := children[i1].Height;
+      boundchilddr[i1].Name   := children[i1].Name;
     end;
- 
+  end;
+
   Timertick          := tfptimer.Create(nil);
   Timertick.OnTimer  := @ontimertick;
   Timertick.interval := 100;
@@ -1476,10 +1550,10 @@ begin
 
   posy := roundmath(6 * ratioft);
 }
-  alab2[0] := tlabel1;
-  alab2[1] := tlabel2;
-  alab2[2] := tlabel3;
-  alab2[3] := tlabel4;
+  alab2[0]      := tlabel1;
+  alab2[1]      := tlabel2;
+  alab2[2]      := tlabel3;
+  alab2[3]      := tlabel4;
 
   for i1 := 0 to high(alab2) do
     alab2[i1].createfont();
@@ -1758,28 +1832,28 @@ procedure tdrumsfo.oncreateddrums(const Sender: TObject);
 var
   {$if defined(darwin) and defined(macapp)}
   binPath: string;
-{$ENDIF}  
-ordir : msestring;
+{$ENDIF}
+  ordir: msestring;
 begin
   //height := 274;
   //width := 442;
   Caption := 'Drums set';
- 
+
   {$if defined(darwin) and defined(macapp)}
   binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
   ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
   {$else}
-  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
-  {$ENDIF}  
+  ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  {$ENDIF}
 
   adrums[0] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.mp3');
   adrums[1] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.mp3');
   adrums[2] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.mp3');
   adrums[3] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.mp3');
 
-  posi := 1;    bounds_cxmax := 0;
-  
-     
+  posi         := 1;
+  bounds_cxmax := 0;
+
 end;
 
 procedure tdrumsfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
@@ -1965,14 +2039,14 @@ begin
     sensib.Value := 10;
 end;
 
-procedure tdrumsfo.bnotload(const sender: TObject);
+procedure tdrumsfo.bnotload(const Sender: TObject);
 begin
-pnotloaded.visible := false;
+  pnotloaded.Visible := False;
 end;
 
-procedure tdrumsfo.onclose(const sender: TObject);
+procedure tdrumsfo.onclose(const Sender: TObject);
 begin
-dostop(sender);
+  dostop(Sender);
 end;
 
 end.
