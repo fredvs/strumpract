@@ -1408,6 +1408,10 @@ begin
     else
     begin
       // writeln('Some libraries did not load...');
+     {$if defined(CPUAMD64) and defined(linux) }      
+      if (lib2 <> 'system') and (lib2 <> '') then     
+      if uos_TestLoadLibrary(PChar(lib2)) = false then lib2 := lib2 + '.2';
+     {$endif}        
       resulib := -1;
       resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
       configfo.syslib.Value := False;
@@ -1425,6 +1429,10 @@ begin
       begin
         // writeln('Some libraries did not load...');
         resulib := -1;
+       {$if defined(CPUAMD64) and defined(linux) }      
+       if (lib2 <> 'system') and (lib2 <> '') then     
+       if uos_TestLoadLibrary(PChar(lib2)) = false then lib2 := lib2 + '.2';
+      {$endif}
         resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, nil);
         configfo.syslib.Value := False;
       end;
@@ -1443,6 +1451,10 @@ begin
 
     if resu <> 0 then
     begin
+     {$if defined(CPUAMD64) and defined(linux) }      
+      if (lib2 <> 'system') and (lib2 <> '') then     
+      if uos_TestLoadLibrary(PChar(lib2)) = false then lib2 := lib2 + '.2';
+     {$endif}        
       resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, nil);
       if resu = 0 then
       begin
