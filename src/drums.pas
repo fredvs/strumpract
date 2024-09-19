@@ -1367,6 +1367,7 @@ begin
   lib1 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so');
   lib2 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so');
   lib3 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so');
+  lib5 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libxmp-arm.so');
   lib4 := AnsiString(ordir + 'lib/Linux/arm_raspberrypi/libsoundtouch-arm.so');
   {$ENDIF}
 
