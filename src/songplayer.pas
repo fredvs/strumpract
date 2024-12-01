@@ -150,8 +150,7 @@ type
     procedure InitDrawLive();
     procedure InitDrawLivewav();
     procedure DrawLive(lv, rv: double);
-    procedure LoopProcXMP();
-
+    
    procedure onmouseev(const sender: twidget; var ainfo: mouseeventinfoty);
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
@@ -1095,28 +1094,6 @@ begin
     wavefo2.panelwave.invalidate();
     xreclivewav2 := xreclivewav2 + 1;
   end;
-end;
-
-procedure tsongplayerfo.LoopProcXMP();
-begin
-if (tag = 0) then
-begin
-writeln('uos_InputPositi = ' + inttostr(uos_InputPosition(theplayerinfo, 0)));
-writeln('uos_Inputlength = ' + inttostr(uos_Inputlength(theplayerinfo, 0)));
-if uos_InputPosition(theplayerinfo, 0) > uos_Inputlength(theplayerinfo, 0) -1000 then
-begin
-uos_stop(theplayerinfo);
-writeln('uos_stop(theplayerinfo)');
-end;
-end;
-
-if (tag = 1) then
-begin
-if uos_InputPosition(theplayerinfo2, 0) > uos_Inputlength(theplayerinfo2, 0) -1000 then
-uos_stop(theplayerinfo2);
-
-end;
-
 end;
 
 procedure tsongplayerfo.LoopProcPlayer1();
@@ -3555,14 +3532,6 @@ begin
 
     Inputlength1 := uos_Inputlength(theplayerinfo, 0);
     
-    {
-    if uos_InputGetLibUsed(theplayerinfo, 0) = 5 then
-    begin
-      uos_InputSetPositionEnable(theplayerinfo, 0, 1);
-      uos_LoopProcIn(theplayerinfo, 0, @LoopProcXMP);
-    end;
-    }
-    
     chan1 := uos_InputGetChannels(theplayerinfo, 0);
 
     // set calculation of level/volume into array (usefull for wave form procedure)
@@ -3600,13 +3569,6 @@ begin
 
     Inputlength2 := uos_Inputlength(theplayerinfo2, 0);
     
-    {
-    if uos_InputGetLibUsed(theplayerinfo2, 0) = 5 then
-    begin
-      uos_InputSetPositionEnable(theplayerinfo2, 0, 1);  
-      uos_LoopProcIn(theplayerinfo2, 0, @LoopProcXMP);
-    end;
-    }
     chan2 := uos_InputGetChannels(theplayerinfo2, 0);
 
     // set calculation of level/volume into array (usefull for wave form procedure)
