@@ -34,6 +34,9 @@ type
     procedure oncreated(const Sender: TObject);
     procedure crea(const Sender: TObject);
     procedure onresiztimer(const Sender: TObject);
+    procedure onmouseevw(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+
 
   end;
 
@@ -52,6 +55,7 @@ uses
   songplayer,
   recorder,
   main,
+  uos_flat,
   dockpanel1,
   waveform_mfm;
 
@@ -385,6 +389,27 @@ begin
  {$else}
   windowopacity := 0;  
  {$endif}
+end;
+
+procedure twavefo.onmouseevw(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+  if ainfo.eventkind = ek_buttonrelease then
+    begin
+    if tag = 0 then
+    begin
+     uos_InputSeek(theplayer, Inputindex1, trunc(ainfo.pos.x / panelwave.width * Inputlength1));
+      songplayerfo.InitDrawLive();
+      songplayerfo.InitDrawLivewav();
+    end;
+    
+    if tag = 1 then
+    begin
+     uos_InputSeek(theplayer2, Inputindex2, trunc(ainfo.pos.x / panelwave.width * Inputlength2));
+      songplayer2fo.InitDrawLive();
+      songplayer2fo.InitDrawLivewav();
+    end;
+    end;
 end;
 
 

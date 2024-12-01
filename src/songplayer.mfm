@@ -985,6 +985,7 @@ object songplayerfo: tsongplayerfo
       bounds_y = 97
       bounds_cx = 434
       bounds_cy = 30
+      onmouseevent = onmouseev
     end
   end
   object tfaceslider: tfacecomp

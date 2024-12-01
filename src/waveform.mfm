@@ -198,6 +198,7 @@ object wavefo: twavefo
     bounds_cx = 434
     bounds_cy = 91
     anchors = []
+    onmouseevent = onmouseevw
   end
   object sliderimage: tbitmapcomp
     left = 72

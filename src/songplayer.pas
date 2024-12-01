@@ -150,7 +150,9 @@ type
     procedure InitDrawLive();
     procedure InitDrawLivewav();
     procedure DrawLive(lv, rv: double);
+    procedure LoopProcXMP();
 
+   procedure onmouseev(const sender: twidget; var ainfo: mouseeventinfoty);
   protected
     procedure paintsliderimage(const Canvas: tcanvas; const arect: rectty);
     procedure paintsliderimageform(const Canvas: tcanvas; const arect: rectty);
@@ -1095,6 +1097,28 @@ begin
   end;
 end;
 
+procedure tsongplayerfo.LoopProcXMP();
+begin
+if (tag = 0) then
+begin
+writeln('uos_InputPositi = ' + inttostr(uos_InputPosition(theplayerinfo, 0)));
+writeln('uos_Inputlength = ' + inttostr(uos_Inputlength(theplayerinfo, 0)));
+if uos_InputPosition(theplayerinfo, 0) > uos_Inputlength(theplayerinfo, 0) -1000 then
+begin
+uos_stop(theplayerinfo);
+writeln('uos_stop(theplayerinfo)');
+end;
+end;
+
+if (tag = 1) then
+begin
+if uos_InputPosition(theplayerinfo2, 0) > uos_Inputlength(theplayerinfo2, 0) -1000 then
+uos_stop(theplayerinfo2);
+
+end;
+
+end;
+
 procedure tsongplayerfo.LoopProcPlayer1();
 var
   ll1, ll2, lr1, lr2: double;
@@ -1325,7 +1349,7 @@ begin
               ChangePlugSetSoundTouch(self); // custom procedure to Change plugin settings
             end;
 
-            if Inputlength1 = 0 then
+            if uos_InputGetLibUsed(theplayer, Inputindex1) = 5 then
             begin
               panelwave.Visible        := True;
               wavefo.panelwave.Visible := True;
@@ -1337,6 +1361,7 @@ begin
               panelwave.Visible        := False;
               wavefo.panelwave.Visible := False;
             end;
+            
             // Length of Input in samples
             if Inputlength1 > 0 then
             begin
@@ -1507,11 +1532,14 @@ begin
             infosdfo.infolength.Caption := copy(llength.Value, 1, 8);
 
 
+            if uos_InputGetLibUsed(theplayer, Inputindex1) <> 5 then
+            begin           
             if as_checked in wavefo.tmainmenu1.menu[0].state then
               if ttimer1.Enabled then
                 ttimer1.restart // to reset
               else
                 ttimer1.Enabled := True;
+            end;    
           end
           else
             ShowMessage(historyfn.Value + ' cannot load...');
@@ -1649,7 +1677,7 @@ begin
               ChangePlugSetSoundTouch(self); // custom procedure to Change plugin settings
             end;
 
-            if Inputlength2 = 0 then
+           if uos_InputGetLibUsed(theplayer2, Inputindex2) = 5 then
             begin
               panelwave.Visible         := True;
               wavefo2.panelwave.Visible := True;
@@ -1823,6 +1851,7 @@ begin
             cbloopb.Enabled := False;
             cbloop.Visible  := False;
             historyfn.hint  := historyfn.Value;
+        
             if timerwait.Enabled then
               timerwait.restart // to reset
             else
@@ -1835,11 +1864,14 @@ begin
 
             infosdfo2.infolength.Caption := copy(llength.Value, 1, 8);
 
+            if uos_InputGetLibUsed(theplayer2, Inputindex2) <> 5 then
+            begin
             if as_checked in wavefo2.tmainmenu1.menu[0].state then
               if ttimer1.Enabled then
                 ttimer1.restart // to reset
               else
                 ttimer1.Enabled := True;
+            end;    
           end
           else
             ShowMessage(historyfn.Value + ' cannot load...');
@@ -2677,12 +2709,15 @@ begin
             infosdfo.bringtofront;
           end;
         end;
+        
+        if uos_InputGetLibUsed(theplayer, Inputindex1) <> 5 then
+        begin
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav = False) then
           if ttimerwavdata.Enabled then
             ttimerwavdata.restart // to reset
           else
             ttimerwavdata.Enabled := True;
-
+        end;
       end;
 
       if tag = 1 then
@@ -2754,12 +2789,10 @@ begin
 
           if plugsoundtouch = True then
           begin
-
             thebuffer := uos_File2Buffer(PChar(ansistring(historyfn.Value)), 0, thebufferinfos, -1, 1024 * 2);
             infosdfo2.infobpm.Caption :=
               trim(utf8decode(IntToStr(roundmath(uos_GetBPM(thebuffer, thebufferinfos.channels,
               thebufferinfos.samplerate))))) + ' ';
-
           end;
 
           if (hassent = 1) then
@@ -2768,11 +2801,15 @@ begin
             infosdfo2.bringtofront;
           end;
         end;
+         if uos_InputGetLibUsed(theplayer2, Inputindex2) <> 5 then
+        begin
+       
         if (hassent = 0) and (waveformcheck.Value = True) and (iswav2 = False) then
           if ttimerwavdata.Enabled then
             ttimerwavdata.restart // to reset
           else
             ttimerwavdata.Enabled := True;
+         end;   
       end;
       if (lowercase(fileex) = 'mp3') then
         TagReader.Free;
@@ -3517,7 +3554,15 @@ begin
     uos_AddFromFile(theplayerinfo, PChar(ansistring(historyfn.Value)), -1, 2, -1);
 
     Inputlength1 := uos_Inputlength(theplayerinfo, 0);
-
+    
+    {
+    if uos_InputGetLibUsed(theplayerinfo, 0) = 5 then
+    begin
+      uos_InputSetPositionEnable(theplayerinfo, 0, 1);
+      uos_LoopProcIn(theplayerinfo, 0, @LoopProcXMP);
+    end;
+    }
+    
     chan1 := uos_InputGetChannels(theplayerinfo, 0);
 
     // set calculation of level/volume into array (usefull for wave form procedure)
@@ -3554,7 +3599,14 @@ begin
     uos_AddFromFile(theplayerinfo2, PChar(ansistring(historyfn.Value)), -1, 2, -1);
 
     Inputlength2 := uos_Inputlength(theplayerinfo2, 0);
-
+    
+    {
+    if uos_InputGetLibUsed(theplayerinfo2, 0) = 5 then
+    begin
+      uos_InputSetPositionEnable(theplayerinfo2, 0, 1);  
+      uos_LoopProcIn(theplayerinfo2, 0, @LoopProcXMP);
+    end;
+    }
     chan2 := uos_InputGetChannels(theplayerinfo2, 0);
 
     // set calculation of level/volume into array (usefull for wave form procedure)
@@ -3580,6 +3632,28 @@ begin
   end;
 
 end;
+
+procedure tsongplayerfo.onmouseev(const sender: twidget;
+               var ainfo: mouseeventinfoty);
+begin
+  if ainfo.eventkind = ek_buttonrelease then
+    begin
+    if tag = 0 then
+    begin
+     uos_InputSeek(theplayer, Inputindex1, trunc(ainfo.pos.x / panelwave.width * Inputlength1));
+      InitDrawLive();
+      InitDrawLivewav();
+    end;
+    
+    if tag = 1 then
+    begin
+     uos_InputSeek(theplayer2, Inputindex2, trunc(ainfo.pos.x / panelwave.width * Inputlength2));
+      InitDrawLive();
+      InitDrawLivewav();
+    end;
+    end;
+end;
+
 
 end.
 
