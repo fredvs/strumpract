@@ -1263,6 +1263,7 @@ object commanderfo: tcommanderfo
       imagelist = mainfo.buttonicons
       imagenr = 1
       focusrectdist = 0
+      onexecute = doplayerpause
     end
     object btnPause2: tbutton
       Tag = 1
