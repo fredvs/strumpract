@@ -1442,20 +1442,22 @@ begin
 
   else
   begin
+    
+    {$if defined(CPUAMD64) and defined(linux) }      
+      if (lib2 <> 'system') and (lib2 <> '') then     
+      if uos_TestLoadLibrary(PChar(lib2)) = false then lib2 := lib2 + '.2';
+    {$endif}  
+  
     resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
 
     if resu <> 0 then
     begin
       resu := uos_LoadLib(PChar('system'), PChar('system'), PChar('system'), nil, nil, nil, PChar('system'));
-      configfo.syslib.Value := True;
+      if resu = 0 then configfo.syslib.Value := True;
     end;
 
     if resu <> 0 then
     begin
-     {$if defined(CPUAMD64) and defined(linux) }      
-      if (lib2 <> 'system') and (lib2 <> '') then     
-      if uos_TestLoadLibrary(PChar(lib2)) = false then lib2 := lib2 + '.2';
-     {$endif}        
       resu := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, nil);
       if resu = 0 then
       begin
