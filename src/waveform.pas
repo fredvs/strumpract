@@ -38,6 +38,7 @@ type
                var ainfo: mouseeventinfoty);
 
 
+   procedure onaferexmenu(const sender: TObject);
   end;
 
 var
@@ -410,6 +411,16 @@ begin
       songplayer2fo.InitDrawLivewav();
     end;
     end;
+end;
+
+procedure twavefo.onaferexmenu(const sender: TObject);
+begin
+ if (as_checked in tmainmenu1.menu[0].state) then
+ begin
+if (tag = 0) and (panelwave.visible = true) then songplayerfo.InitDrawLivewav();
+if (tag = 1) and (panelwave.visible = true) then songplayer2fo.InitDrawLivewav();
+end;
+panelwave.invalidate;
 end;
 
 

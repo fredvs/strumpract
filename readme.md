@@ -5,7 +5,8 @@ Like:
 -   Learn to play drums set in 4 lessons and develop your art.
 -   Practice your other instruments with a editable drums machine.
 -   Tune your guitar and bass.
--   Play audio files and loop it, adjusting the tempo of the song to what you want.
+-   Play audio files and loop it, can be mp3, ogg, wav, flac, mod, it, s3m, xm files.
+-   Adjust the tempo of the playing song to what you want.
 -   DJ console for auto-mixing, with 2 players and direct-output of mic.
 -   Record your ideas-jam.
 -   Chords randomizer for jamming.

@@ -1029,12 +1029,12 @@ procedure tsongplayerfo.DrawLive(lv, rv: double);
 var
   poswavrec, poswavrec2: pointty;
 begin
-
   if tag = 0 then
   begin
+    if (waveformcheck.Value = true) then
+    begin
     rectrecform.pos  := nullpoint;
     rectrecform.size := panelwave.size;
-
     sliderimage.bitmap.masked := False;
     poswavrec.x  := xreclive1;
     poswavrec2.x := poswavrec.x;
@@ -1046,9 +1046,12 @@ begin
     sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
     panelwave.invalidate();
     xreclive1    := xreclive1 + 1;
-
+    end;
+    
+    if (as_checked in wavefo.tmainmenu1.menu[0].state) then
+    begin
     rectrecform.pos  := nullpoint;
-    rectrecform.size := wavefo2.panelwave.size;
+    rectrecform.size := wavefo.panelwave.size;
 
     wavefo.sliderimage.bitmap.masked := False;
     poswavrec.x  := xreclivewav1;
@@ -1061,10 +1064,13 @@ begin
     wavefo.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
     wavefo.panelwave.invalidate();
     xreclivewav1 := xreclivewav1 + 1;
+    end;
   end;
 
   if tag = 1 then
   begin
+  if (waveformcheck.Value = true) then
+    begin
     rectrecform.pos := nullpoint;
     rectrecform.size := panelwave.size;
     sliderimage.bitmap.masked := False;
@@ -1078,7 +1084,10 @@ begin
     sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
     panelwave.invalidate();
     xreclive2    := xreclive2 + 1;
-
+    end;
+    
+    if (as_checked in wavefo2.tmainmenu1.menu[0].state) then
+    begin
     rectrecform.pos  := nullpoint;
     rectrecform.size := wavefo2.panelwave.size;
 
@@ -1093,6 +1102,7 @@ begin
     wavefo2.sliderimage.bitmap.Canvas.drawline(poswavrec, poswavrec2, $AC79D6);
     wavefo2.panelwave.invalidate();
     xreclivewav2 := xreclivewav2 + 1;
+    end;
   end;
 end;
 
@@ -1110,7 +1120,7 @@ begin
       // if (tag = 1) and (Inputlength2 > 0) and (Visible = True) then
       //   ShowPosition(nil);
 
-    if ((vuinvar = True) and (Visible = True))
+    if (Visible = True)
       //  {$if not defined(darwin)}
       or
       ((imagedancerfo.Visible = True))
@@ -1132,15 +1142,13 @@ begin
 
       if (tag = 0) and (panelwave.Visible = True) then
       begin
-        if (xreclive1) > (panelwave.Width) then
-          InitDrawLive();
+        if (xreclive1) > (panelwave.Width) then InitDrawLive();
         DrawLive(ll1, lr1);
       end;
 
       if (tag = 1) and (panelwave.Visible = True) then
       begin
-        if (xreclive2) > (panelwave.Width) then
-          InitDrawLive();
+        if (xreclive2) > (panelwave.Width) then  InitDrawLive();
         DrawLive(ll2, lr2);
       end;
 
@@ -3388,6 +3396,12 @@ begin
       waveformcheck.Value           := True;
       TButton(Sender).tag           := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
+      
+      if (panelwave.Visible = True) and (wavefo.panelwave.Visible = True) and (waveformcheck.Value = true) then
+      begin
+      initDrawLive();
+      end;
+      
     end
     else
     begin
@@ -3396,6 +3410,10 @@ begin
       waveformcheck.Value           := False;
       TButton(Sender).tag           := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
+      if (panelwave.Visible = True) and (waveformcheck.Value = true) then
+      begin
+      initDrawLive();
+      end;
     end;
 
   if TButton(Sender).Name = 'setmonob' then

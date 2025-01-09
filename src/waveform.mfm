@@ -30,9 +30,9 @@ object wavefo: twavefo
   container.frame.sbvert.width = 1
   container.bounds = (
     0
-    17
+    19
     434
-    91
+    89
   )
   dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
@@ -136,7 +136,7 @@ object wavefo: twavefo
     frame.localprops1 = []
     enabled = False
     bounds_x = 0
-    bounds_y = 75
+    bounds_y = 73
     bounds_cx = 432
     bounds_cy = 16
     anchors = [an_left, an_bottom]
@@ -152,9 +152,9 @@ object wavefo: twavefo
       -1610612732
     )
     datarowlinecolor = -1879048167
-    datarowheight = 15
+    datarowheight = 17
     statpriority = 1
-    reffontheight = 15
+    reffontheight = 17
   end
   object trackbar1: tslider
     optionswidget1 = [ow1_autoscale, ow1_noclampinview]
@@ -196,7 +196,7 @@ object wavefo: twavefo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 434
-    bounds_cy = 91
+    bounds_cy = 89
     anchors = []
     onmouseevent = onmouseevw
   end
@@ -223,8 +223,9 @@ object wavefo: twavefo
       item
         caption = ' Enable '
         hint = ' Enable Wave Form rendering '
-        state = [as_checked, as_localchecked, as_localcaption, as_localhint]
+        state = [as_checked, as_localchecked, as_localcaption, as_localhint, as_localonafterexecute]
         options = [mao_checkbox, mao_shortcutcaption]
+        onafterexecute = onaferexmenu
       end    
       item
         options = [mao_separator, mao_shortcutcaption]
