@@ -417,8 +417,14 @@ procedure twavefo.onaferexmenu(const sender: TObject);
 begin
  if (as_checked in tmainmenu1.menu[0].state) then
  begin
+trackbar1.visible := true;
+echelle.visible := true; 
 if (tag = 0) and (panelwave.visible = true) then songplayerfo.InitDrawLivewav();
 if (tag = 1) and (panelwave.visible = true) then songplayer2fo.InitDrawLivewav();
+end else
+begin
+trackbar1.visible := false;
+echelle.visible := false; 
 end;
 
 end;
