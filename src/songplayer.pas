@@ -3397,7 +3397,7 @@ begin
       TButton(Sender).tag           := 1;
       TButton(Sender).face.template := mainfo.tfacegreen;
       
-      if (panelwave.Visible = True) and (wavefo.panelwave.Visible = True) and (waveformcheck.Value = true) then
+      if (panelwave.Visible = True) then
       begin
       initDrawLive();
       end;
@@ -3410,7 +3410,8 @@ begin
       waveformcheck.Value           := False;
       TButton(Sender).tag           := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
-      if (panelwave.Visible = True) and (waveformcheck.Value = true) then
+    
+      if (panelwave.Visible = True) then
       begin
       initDrawLive();
       end;
