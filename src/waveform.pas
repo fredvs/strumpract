@@ -419,13 +419,14 @@ begin
  begin
 trackbar1.visible := true;
 echelle.visible := true; 
-if (tag = 0) and (panelwave.visible = true) then songplayerfo.InitDrawLivewav();
-if (tag = 1) and (panelwave.visible = true) then songplayer2fo.InitDrawLivewav();
 end else
 begin
 trackbar1.visible := false;
 echelle.visible := false; 
 end;
+
+if (tag = 0) and (panelwave.visible = true) then songplayerfo.InitDrawLivewav();
+if (tag = 1) and (panelwave.visible = true) then songplayer2fo.InitDrawLivewav();
 
 end;
 
