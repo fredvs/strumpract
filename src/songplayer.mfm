@@ -978,7 +978,6 @@ object songplayerfo: tsongplayerfo
       face.localprops = [fal_image]
       face.template = tfaceslider
       taborder = 28
-      visible = False
       bounds_x = 0
       bounds_y = 97
       bounds_cx = 434

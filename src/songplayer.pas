@@ -670,6 +670,7 @@ begin
     wavefo.trackbar1.Value := 0;
     wavefo.container.frame.scrollpos_x := 0;
     wavefo.trackbar1.Enabled := False;
+    wavefo.panelwave.visible := true;
     hasmixed1 := False;
   end;
 
@@ -701,7 +702,8 @@ begin
     wavefo2.trackbar1.Value   := 0;
     wavefo2.container.frame.scrollpos_x := 0;
     wavefo2.trackbar1.Enabled := False;
-  end;
+    wavefo2.panelwave.visible := true;
+   end;
   cbloop.Visible := True;
   cbloopb.Enabled   := True;
   cbloop.Enabled    := True;
@@ -716,8 +718,10 @@ begin
   formDrawWaveForm();
 
   resetspectrum();
-
-end;
+  
+  panelwave.visible := true;
+  
+  end;
 
 procedure tsongplayerfo.ShowSpectrum(const Sender: TObject);
 var

@@ -420,7 +420,7 @@ begin
 if (tag = 0) and (panelwave.visible = true) then songplayerfo.InitDrawLivewav();
 if (tag = 1) and (panelwave.visible = true) then songplayer2fo.InitDrawLivewav();
 end;
-panelwave.invalidate;
+
 end;
 
 
