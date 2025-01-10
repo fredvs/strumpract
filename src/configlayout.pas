@@ -4,6 +4,7 @@ unit configlayout;
 interface
 
 uses
+  msefileutils,
   msetypes,
   mseglob,
   mseguiglob,
@@ -556,15 +557,20 @@ var
 begin
   if isactivated then
   begin
-    thedir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini/sys');
+    thedir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini');
     if inifile.Value then
     begin
-      if FileExists(thedir) = False then
-        FileClose(FileCreate(thedir));
+      if not finddir(thedir) then
+        createdir(thedir);
+      if FileExists(thedir + '/sys') = False then
+        FileClose(FileCreate(thedir + '/sys'));
     end
-    else if FileExists(thedir) then DeleteFile(thedir);
+    else
+    begin
+    if FileExists(thedir + '/sys') then DeleteFile(thedir + '/sys');
+    end;
   end;
-end;
+end;  
 
 end.
 
