@@ -164,9 +164,14 @@ begin
   tgroupbox4.font.color := font.color;
   tgroupbox4.left       := roundmath(440 * ratio);
   tgroupbox4.Width      := roundmath(125 * ratio);
+  {$ifdef mswindows}
+  tgroupbox4.Height     := roundmath(105 * ratio);
+  tgroupbox4.top        := roundmath(46 * ratio);
+  {$else}
   tgroupbox4.Height     := roundmath(128 * ratio);
   tgroupbox4.top        := roundmath(36 * ratio);
-
+  {$endif}
+  
   with tgroupbox4 do
     for i1 := 0 to childrencount - 1 do
       for i2 := 0 to length(boundchildscl) - 1 do
@@ -462,6 +467,10 @@ var
   x, i1, childn: integer;
 begin
   childn := 0;
+  
+  {$ifdef mswindows}
+  inifile.visible := false;
+  {$endif}
 
   setlength(boundchildscl, childrencount);
   childn := childrencount;

@@ -333,7 +333,7 @@ object configlayoutfo: tconfiglayoutfo
     bounds_x = 440
     bounds_y = 36
     bounds_cx = 125
-    bounds_cy = 129
+    bounds_cy = 127
     object focusplay: tbooleanedit
       color = -2147483645
       frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
