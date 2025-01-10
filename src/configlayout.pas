@@ -548,7 +548,6 @@ begin
   if isactivated then
   begin
     thedir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini/sys');
-    writeln(thedir);
     if inifile.Value then
     begin
       if FileExists(thedir) = False then
