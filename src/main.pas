@@ -2315,9 +2315,12 @@ begin
 
 {$ifdef mswindows}
   statdirname := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini');
+{$else}
+  if fileexists(msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini/sys')) then
+  statdirname := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini');
 {$endif}
 
-  ordir := filepath(statdirname);
+  ordir := statdirname;
 
   if not finddir(ordir) then
     createdir(ordir);

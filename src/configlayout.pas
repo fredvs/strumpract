@@ -56,6 +56,7 @@ type
     tbutton3: TButton;
     bbarbie: tbooleaneditradio;
     autoheight: tbooleanedit;
+    inifile: tbooleanedit;
     procedure onfontheight(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
     procedure onsetcolor(const Sender: TObject);
@@ -64,6 +65,7 @@ type
     procedure onbutsetfont(const Sender: TObject);
     procedure resizecl(fonth: integer);
     procedure oncrea(const Sender: TObject);
+    procedure onchangeini(const Sender: TObject);
   end;
 
 var
@@ -112,10 +114,10 @@ begin
 
   tbutton1.font.color  := font.color;
   tbutton1.font.Height := font.Height;
-  tbutton1.left        := roundmath(504 * ratio);
+  tbutton1.left        := roundmath(524 * ratio);
   tbutton1.Width       := roundmath(40 * ratio);
-  tbutton1.Height      := roundmath(34 * ratio);
-  tbutton1.top         := roundmath(13 * ratio);
+  tbutton1.Height      := roundmath(27 * ratio);
+  tbutton1.top         := roundmath(4 * ratio);
 
   autoheight.frame.font.color := font.color;
   autoheight.frame.font.Height := font.Height;
@@ -160,10 +162,10 @@ begin
         end;
 
   tgroupbox4.font.color := font.color;
-  tgroupbox4.left       := roundmath(438 * ratio);
+  tgroupbox4.left       := roundmath(440 * ratio);
   tgroupbox4.Width      := roundmath(125 * ratio);
-  tgroupbox4.Height     := roundmath(105 * ratio);
-  tgroupbox4.top        := roundmath(57 * ratio);
+  tgroupbox4.Height     := roundmath(128 * ratio);
+  tgroupbox4.top        := roundmath(36 * ratio);
 
   with tgroupbox4 do
     for i1 := 0 to childrencount - 1 do
@@ -537,6 +539,23 @@ begin
       boundchildscl[i1 + childn].Name   := children[i1].Name;
     end;
 
+end;
+
+procedure tconfiglayoutfo.onchangeini(const Sender: TObject);
+var
+  thedir: msestring;
+begin
+  if isactivated then
+  begin
+    thedir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini/sys');
+    writeln(thedir);
+    if inifile.Value then
+    begin
+      if FileExists(thedir) = False then
+        FileClose(FileCreate(thedir));
+    end
+    else if FileExists(thedir) then DeleteFile(thedir);
+  end;
 end;
 
 end.
