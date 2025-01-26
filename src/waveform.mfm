@@ -121,6 +121,36 @@ object wavefo: twavefo
   onshow = onvisiblech
   onhide = onvisiblech
   moduleclassname = 'tdockform'
+  object trackbar1: tslider
+    optionswidget1 = [ow1_autoscale, ow1_noclampinview]
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 1
+    hint = ' Click to change position of sound '
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 432
+    bounds_cy = 76
+    enabled = False
+    scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
+    scrollbar.buttonlength = 12
+    scrollbar.buttonminlength = 12
+    scrollbar.buttonendlength = -1
+    scrollbar.face.image.source = sliderimage
+    scrollbar.face.fade_direction = gd_down
+    scrollbar.face.localprops = [fal_fadirection, fal_image]
+    scrollbar.face1.localprops = []
+    scrollbar.face2.localprops = []
+    scrollbar.facebutton.localprops = []
+    scrollbar.facebutton.template = tfacebuttonslider
+    scrollbar.faceendbutton.localprops = []
+    scrollbar.faceendbutton.template = tfacebuttonslider
+    scrollbar.framebutton.colorclient = -2147483645
+    scrollbar.framebutton.localprops = [frl_colorframe, frl_hiddenedges, frl_optionsskin]
+    scrollbar.framebutton.localprops1 = []
+    scrollbar.color = -2147483645
+    scrollbar.onafterevent = onafterev
+  end
   object echelle: tstringgrid
     color = 13882323
     frame.levelo = 0
@@ -162,34 +192,6 @@ object wavefo: twavefo
     datarowheight = 17
     statpriority = 1
     reffontheight = 17
-  end
-  object trackbar1: tslider
-    optionswidget1 = [ow1_autoscale, ow1_noclampinview]
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 1
-    hint = ' Click to change position of sound '
-    bounds_x = 0
-    bounds_y = 0
-    bounds_cx = 432
-    bounds_cy = 76
-    enabled = False
-    scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
-    scrollbar.buttonlength = 12
-    scrollbar.buttonminlength = 12
-    scrollbar.buttonendlength = -1
-    scrollbar.face.image.source = sliderimage
-    scrollbar.face.fade_direction = gd_down
-    scrollbar.face.localprops = [fal_fadirection, fal_image]
-    scrollbar.face1.localprops = []
-    scrollbar.face2.localprops = []
-    scrollbar.facebutton.localprops = []
-    scrollbar.facebutton.template = tfacebuttonslider
-    scrollbar.framebutton.colorclient = -2147483645
-    scrollbar.framebutton.localprops = [frl_colorframe, frl_hiddenedges, frl_optionsskin]
-    scrollbar.framebutton.localprops1 = []
-    scrollbar.color = -2147483645
-    scrollbar.onafterevent = onafterev
   end
   object panelwave: tpaintbox
     optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]

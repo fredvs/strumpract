@@ -401,7 +401,7 @@ object infosdfo: tinfosdfo
     frame.font.height = 10
     frame.font.style = [fs_italic]
     frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_style, flp_height]
+    frame.font.localprops = [flp_style, flp_height, flp_width]
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist, frl1_captionoffset]
     frame.outerframe = (

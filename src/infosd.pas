@@ -98,22 +98,6 @@ begin
 
   font.Height := fontheight;
 
-  infofile.frame.font.Height   := roundmath(ratio * 10);
-  infoname.frame.font.Height   := infofile.frame.font.Height;
-  infoname.frame.font.Height   := infofile.frame.font.Height;
-  infoartist.frame.font.Height := infofile.frame.font.Height;
-  infoalbum.frame.font.Height  := infofile.frame.font.Height;
-  infocom.frame.font.Height    := infofile.frame.font.Height;
-  infoyear.frame.font.Height   := infofile.frame.font.Height;
-  infotag.frame.font.Height    := infofile.frame.font.Height;
-  tracktag.frame.font.Height   := infofile.frame.font.Height;
-  inforate.frame.font.Height   := infofile.frame.font.Height;
-  infochan.frame.font.Height   := infofile.frame.font.Height;
-  infolength.frame.font.Height := infofile.frame.font.Height;
-  infobpm.frame.font.Height    := infofile.frame.font.Height;
-
-  frame.grip_size := roundmath(8 * ratio);
-
   for i1 := 0 to childrencount - 1 do
     for i2 := 0 to length(boundchildin) - 1 do
       if children[i1].Name = boundchildin[i2].Name then
@@ -129,6 +113,22 @@ begin
   PimgPreview.left   := roundmath(217 * ratio);
   PimgPreview.Height := roundmath(216 * ratio);
   PimgPreview.Width  := roundmath(216 * ratio);
+  invalidate;
+  
+ // infofile.frame.font.Height := roundmath(20 * ratio);
+  infoname.frame.font.Height := roundmath(10 * ratio);
+  infoartist.frame.font.Height := roundmath(10 * ratio);
+  infoalbum.frame.font.Height := roundmath(10 * ratio);
+  infocom.frame.font.Height := roundmath(10 * ratio);
+  infoyear.frame.font.Height := roundmath(10 * ratio);
+  infotag.frame.font.Height := roundmath(10 * ratio);
+  tracktag.frame.font.Height := roundmath(10 * ratio);
+  infobpm.frame.font.Height := roundmath(10 * ratio);
+  inforate.frame.font.Height := roundmath(10 * ratio);
+  infochan.frame.font.Height := roundmath(10 * ratio);
+  infolength.frame.font.Height := roundmath(10 * ratio);
+  tbutton1.font.Height := roundmath(10 * ratio);
+  frame.grip_size := roundmath(8 * ratio);
 
 end;
 
@@ -229,65 +229,67 @@ end;
 
 procedure tinfosdfo.loadimagetag(aitag: TStream);
 var
-ordir : msestring;
+  ordir: msestring;
   {$if defined(darwin) and defined(macapp)}
   binPath: string;
-  {$ENDIF}  
+  {$ENDIF}
 begin
   ttimer1.Enabled  := False;
   tbutton1.Visible := False;
   if Assigned(aimage) then
     aimage.Free;
-    
-   if aitag = nil then
-   begin 
-     
+
+  if aitag = nil then
+  begin
+
   {$if defined(darwin) and defined(macapp)}
   binPath := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
   ordir := copy(binPath, 1, length(binPath) -6) + 'Resources/';
   {$else}
-  ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
-  {$ENDIF}  
-  
-  if fileexists(ordir  +'images' + directoryseparator + 'noimagetag.png')
-  then
-  begin
-  aimage := TBGRAAnimatedGif.Create(ordir +'images' + directoryseparator + 'noimagetag.png');  
-  
-  PimgPreview.Visible := True;
-  PimgPreview.invalidate;
-   if aimage.Count > 1 then
-  begin
-    tbutton1.Caption := '||';
-    tbutton1.Visible := True;
-    ttimer1.Enabled  := True;
-  end;
-  end;
+    ordir := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
+  {$ENDIF}
+
+    if fileexists(ordir + 'images' + directoryseparator + 'noimagetag.png') then
+    begin
+      aimage := TBGRAAnimatedGif.Create(ordir + 'images' + directoryseparator + 'noimagetag.png');
+
+      PimgPreview.Visible := True;
+      PimgPreview.invalidate;
+      if aimage.Count > 1 then
+      begin
+        tbutton1.Caption := '||';
+        tbutton1.Visible := True;
+        ttimer1.Enabled  := True;
+      end;
+    end;
   end
   else
   begin
-  aimage := TBGRAAnimatedGif.Create(aitag);
-  PimgPreview.Visible := True;
-  PimgPreview.invalidate;
-  if aimage.Count > 1 then
-  begin
-    tbutton1.Caption := '||';
-    tbutton1.Visible := True;
-    ttimer1.Enabled  := True;
-  end;
+    aimage := TBGRAAnimatedGif.Create(aitag);
+    PimgPreview.Visible := True;
+    PimgPreview.invalidate;
+    if aimage.Count > 1 then
+    begin
+      tbutton1.Caption := '||';
+      tbutton1.Visible := True;
+      ttimer1.Enabled  := True;
+    end;
   end;
 end;
 
 procedure tinfosdfo.ontime(Sender: TObject);
 var
-interva : integer;
+  interva: integer;
 begin
-  ttimer1.Enabled  := false;
+  ttimer1.Enabled := False;
   PimgPreview.invalidate;
-  interva := aImage.TimeUntilNextImageMs; 
-  if interva < 15 then interva := 15;
-  ttimer1.interval := interva;
-  if tbutton1.Caption = '||' then ttimer1.Enabled := True;
+  interva         := aImage.TimeUntilNextImageMs;
+  
+  if interva < 15 then
+    interva := 15;
+  ttimer1.interval  := interva;
+  if tbutton1.Caption = '||' then
+    ttimer1.Enabled := True;
 end;
 
 procedure tinfosdfo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
@@ -296,12 +298,12 @@ var
 begin
 
   theMemBitmap := aimage.MemBitmap.Resample(PimgPreview.Width, PimgPreview.Height, rmFineResample) as TBGRABitmap;
-  
+
   if mainfo.typecolor.Value = 2 then
-    theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(80, 80, 80, 255), dmDrawWithTransparency, 8192) 
-    else
-    theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(190, 190, 190, 255), dmDrawWithTransparency, 8192) ;
-  
+    theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(80, 80, 80, 255), dmDrawWithTransparency, 8192)
+  else
+    theMemBitmap.Rectangle(0, 0, PimgPreview.Width, PimgPreview.Height, BGRA(255, 192, 0), BGRA(190, 190, 190, 255), dmDrawWithTransparency, 8192);
+
   theMemBitmap.draw(acanvas, 0, 0, True);
   theMemBitmap.Free;
 end;
@@ -332,7 +334,7 @@ procedure tinfosdfo.ondest(const Sender: TObject);
 begin
   if Assigned(aimage) then
     aimage.Free;
-   
+
   ttimer1.Enabled := False;
   ttimer1.Free;
 end;

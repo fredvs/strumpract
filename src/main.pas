@@ -580,18 +580,18 @@ begin
     
     //tlabel2.font.name := 'Unifont' ;
     
-    infoname.frame.font.height := 12 ;
-    infoartist.frame.font.height := 12 ;
-    infoalbum.frame.font.height := 12 ;
-    infoyear.frame.font.height := 12 ;
-    infolength.frame.font.height := 12 ;
-    infotag.frame.font.height := 12 ;
-    tracktag.frame.font.height := 12 ;
-    infocom.frame.font.height := 12 ;
-    infofile.frame.font.height := 12 ;
-    inforate.frame.font.height := 12 ;
-    infochan.frame.font.height := 12 ;
-    infobpm.frame.font.height := 12 ;
+    infoname.frame.font.height := roundmath(12 * ratio); 
+    infoartist.frame.font.height := roundmath(12 * ratio) ;
+    infoalbum.frame.font.height := roundmath(12 * ratio) ;
+    infoyear.frame.font.height := roundmath(12 * ratio) ;
+    infolength.frame.font.height := roundmath(12 * ratio) ;
+    infotag.frame.font.height := roundmath(12 * ratio) ;
+    tracktag.frame.font.height := roundmath(12 * ratio) ;
+    infocom.frame.font.height := roundmath(12 * ratio) ;
+    infofile.frame.font.height := roundmath(12 * ratio) ;
+    inforate.frame.font.height := roundmath(12 * ratio) ;
+    infochan.frame.font.height := roundmath(12 * ratio) ;
+    infobpm.frame.font.height := roundmath(12 * ratio) ;
     end;
     
     with infosdfo2 do
@@ -625,28 +625,28 @@ begin
     infochan.font.name := 'Unifont' ;
     infobpm.font.name := 'Unifont' ;
     
-    infoname.frame.font.height := 12 ;
-    infoartist.frame.font.height := 12 ;
-    infoalbum.frame.font.height := 12 ;
-    infoyear.frame.font.height := 12 ;
-    infolength.frame.font.height := 12 ;
-    infotag.frame.font.height := 12 ;
-    tracktag.frame.font.height := 12 ;
+    infoname.frame.font.height := roundmath(12 * ratio) ;
+    infoartist.frame.font.height := roundmath(12 * ratio) ;
+    infoalbum.frame.font.height := roundmath(12 * ratio) ;
+    infoyear.frame.font.height := roundmath(12 * ratio) ;
+    infolength.frame.font.height := roundmath(12 * ratio) ;
+    infotag.frame.font.height := roundmath(12 * ratio) ;
+    tracktag.frame.font.height := roundmath(12 * ratio) ;
     
-    infocom.frame.font.height := 12 ;
-    infofile.frame.font.height := 12 ;
-    inforate.frame.font.height := 12 ;
-    infochan.frame.font.height := 12 ;
-    infobpm.frame.font.height := 12 ;
+    infocom.frame.font.height := roundmath(12 * ratio) ;
+    infofile.frame.font.height := roundmath(12 * ratio) ;
+    inforate.frame.font.height := roundmath(12 * ratio) ;
+    infochan.frame.font.height := roundmath(12 * ratio) ;
+    infobpm.frame.font.height := roundmath(12 * ratio) ;
     end;
                  
       commanderfo.font.name := 'Unifont' ;
-      commanderfo.font.height := 14;
+      commanderfo.font.height := roundmath(14 * ratio);
    
    with drumsfo do
     begin
       font.name := 'Unifont' ;
-      font.height := 14;
+      font.height := roundmath(14 * ratio);
       
       labpat.font.name := 'Unifont' ;
       lach.font.name := 'Unifont' ;
@@ -666,34 +666,34 @@ begin
      end;
       
       randomnotefo.font.name := 'Unifont' ;
-      randomnotefo.font.height := 20;
+      randomnotefo.font.height := roundmath(20 * ratio);
       
       randomnotefo.pconfigtext.font.name := 'Unifont' ;
-      randomnotefo.pconfigtext.font.height := 20;
+      randomnotefo.pconfigtext.font.height := roundmath(20 * ratio);
       
       randomnotefo.tstringdisp1.font.name := 'Unifont' ;
-      randomnotefo.tstringdisp1.font.height := 64;
+      randomnotefo.tstringdisp1.font.height := roundmath(64 * ratio);
       
        randomnotefo.tgroupbox1.frame.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox1.frame.font.height := 22;
+      randomnotefo.tgroupbox1.frame.font.height := roundmath(22 * ratio);
       
       randomnotefo.tgroupbox2.frame.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox2.frame.font.height := 22;
+      randomnotefo.tgroupbox2.frame.font.height := roundmath(22 * ratio);
       
       randomnotefo.tgroupbox3.frame.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox3.frame.font.height := 22;
+      randomnotefo.tgroupbox3.frame.font.height := roundmath(22 * ratio);
       
          randomnotefo.tgroupbox1.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox1.font.height := 22;
+      randomnotefo.tgroupbox1.font.height := roundmath(22 * ratio);
       
       randomnotefo.tgroupbox2.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox2.font.height := 22;
+      randomnotefo.tgroupbox2.font.height := roundmath(22 * ratio);
       
       randomnotefo.tgroupbox3.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox3.font.height := 22;
+      randomnotefo.tgroupbox3.font.height := roundmath(22 * ratio);
       
       randomnotefo.tmemoedit1.font.name := 'Unifont' ;
-      randomnotefo.tmemoedit1.font.height := 22;
+      randomnotefo.tmemoedit1.font.height := roundmath(22 * ratio);
             
       songplayerfo.font.name := 'Unifont' ;
       songplayer2fo.font.name := 'Unifont' ;
@@ -756,11 +756,11 @@ begin
       songplayer2fo.tstringdisp2.font.height := roundmath(14*ratio);
           
       spectrum1fo.spect1.frame.font.name := 'Unifont' ;
-      spectrum1fo.spect1.frame.font.height := 14;
+      spectrum1fo.spect1.frame.font.height := roundmath(14 * ratio);
       spectrum2fo.spect1.frame.font.name := 'Unifont' ;
-      spectrum2fo.spect1.frame.font.height := 14;
+      spectrum2fo.spect1.frame.font.height := roundmath(14 * ratio);
       spectrumrecfo.spect1.frame.font.name := 'Unifont' ;
-      spectrumrecfo.spect1.frame.font.height := 14;
+      spectrumrecfo.spect1.frame.font.height := roundmath(14 * ratio);
  
       filelistfo.font.name := 'Unifont' ;
       filelistfo.font.height := roundmath(14*ratio);;
@@ -782,30 +782,30 @@ begin
       mainfo.mainmenu.menu.font.name := 'stf_default' ;
       mainfo.mainmenu.menu.font.height := roundmath(12*ratio);
       commanderfo.font.name := 'stf_default' ;
-      commanderfo.font.height := 12;
+      commanderfo.font.height := roundmath(12*ratio);
       drumsfo.font.name := 'stf_default' ;
-      drumsfo.font.height := 12;
+      drumsfo.font.height := roundmath(12*ratio);
       songplayerfo.font.name := 'stf_default' ;
       songplayer2fo.font.name := 'stf_default' ;
       recorderfo.font.name := 'stf_default' ;
-      songplayerfo.font.height := 12;
-      songplayer2fo.font.height := 12;
-      recorderfo.font.height := 12;
+      songplayerfo.font.height := roundmath(12*ratio);
+      songplayer2fo.font.height := roundmath(12*ratio);
+      recorderfo.font.height := roundmath(12*ratio);
       conflangfo.font.name := 'stf_default' ;
-      conflangfo.font.height := 12;
+      conflangfo.font.height := roundmath(12*ratio);
       spectrum1fo.font.name := 'stf_default' ;
-      spectrum1fo.font.height := 12;
+      spectrum1fo.font.height := roundmath(12*ratio);
       spectrum2fo.font.name := 'stf_default' ;
-      spectrum2fo.font.height := 12;
+      spectrum2fo.font.height := roundmath(12*ratio);
       spectrumrecfo.font.name := 'stf_default' ;
-      spectrumrecfo.font.height := 12;
+      spectrumrecfo.font.height := roundmath(12*ratio);
    
       equalizerfo1.font.name := 'stf_default' ;
-      equalizerfo1.font.height := 10;
+      equalizerfo1.font.height := roundmath(10*ratio);
       equalizerfo2.font.name := 'stf_default' ;
-      equalizerfo2.font.height := 10;
+      equalizerfo2.font.height := roundmath(10*ratio);
       equalizerforec.font.name := 'stf_default' ;
-      equalizerforec.font.height := 10;
+      equalizerforec.font.height := roundmath(10*ratio);
       
       filelistfo.font.name := 'stf_default' ;
       filelistfo.font.height := roundmath(13*ratio);;
@@ -819,29 +819,29 @@ begin
       filelistfo.list_files.rowfonts[1].height := fontheightused;
           
       randomnotefo.font.name := 'stf_default' ;
-      randomnotefo.font.height := 24;
+      randomnotefo.font.height := roundmath(24*ratio);
       
       randomnotefo.tgroupbox1.frame.font.name := 'stf_default' ;
-      randomnotefo.tgroupbox1.frame.font.height := 20;
+      randomnotefo.tgroupbox1.frame.font.height := roundmath(20*ratio);
       
       randomnotefo.tgroupbox2.frame.font.name := 'stf_default' ;
-      randomnotefo.tgroupbox2.frame.font.height := 20;
+      randomnotefo.tgroupbox2.frame.font.height := roundmath(20*ratio);
       
       randomnotefo.tgroupbox3.frame.font.name := 'stf_default' ;
-      randomnotefo.tgroupbox3.frame.font.height := 20;
+      randomnotefo.tgroupbox3.frame.font.height := roundmath(20*ratio);
       
       
       randomnotefo.pconfigtext.font.name := 'stf_default' ;
-      randomnotefo.pconfigtext.font.height := 20;
+      randomnotefo.pconfigtext.font.height := roundmath(20*ratio);
       
       randomnotefo.tstringdisp1.font.name := 'stf_default' ;
-      randomnotefo.tstringdisp1.font.height := 62;
+      randomnotefo.tstringdisp1.font.height := roundmath(62*ratio);
       
       randomnotefo.tmemoedit1.font.name := 'Unifont' ;
-      randomnotefo.tmemoedit1.font.height := 20;
+      randomnotefo.tmemoedit1.font.height := roundmath(20*ratio);
         
       messagefontname := 'stf_default';
-      messagefontheight := 12;
+      messagefontheight := roundmath(12*ratio);
       
     with infosdfo do
     begin
@@ -872,18 +872,18 @@ begin
     inforate.font.name := 'stf_default' ;
     infochan.font.name := 'stf_default' ;
     infobpm.font.name := 'stf_default' ;
-    infoname.frame.font.height := 10 ;
-    infoartist.frame.font.height := 10 ;
-    infoalbum.frame.font.height := 10 ;
-    infoyear.frame.font.height := 10 ;
-    infolength.frame.font.height := 10 ;
-    tracktag.frame.font.height := 10 ;
-    infotag.frame.font.height := 10 ;
-    infocom.frame.font.height := 10 ;
-    infofile.frame.font.height := 10 ;
-    inforate.frame.font.height := 10 ;
-    infochan.frame.font.height := 10 ;
-    infobpm.frame.font.height := 10 ;
+    infoname.frame.font.height := roundmath(10*ratio) ;
+    infoartist.frame.font.height := roundmath(10*ratio) ;
+    infoalbum.frame.font.height := roundmath(10*ratio) ;
+    infoyear.frame.font.height := roundmath(10*ratio) ;
+    infolength.frame.font.height := roundmath(10*ratio) ;
+    tracktag.frame.font.height := roundmath(10*ratio) ;
+    infotag.frame.font.height := roundmath(10*ratio) ;
+    infocom.frame.font.height := roundmath(10*ratio) ;
+    infofile.frame.font.height := roundmath(10*ratio) ;
+    inforate.frame.font.height := roundmath(10*ratio) ;
+    infochan.frame.font.height := roundmath(10*ratio) ;
+    infobpm.frame.font.height := roundmath(10*ratio) ;
     end;
     
     with infosdfo2 do
@@ -915,24 +915,24 @@ begin
     inforate.font.name := 'stf_default' ;
     infochan.font.name := 'stf_default' ;
     infobpm.font.name := 'stf_default' ;
-     infoname.frame.font.height := 10 ;
-    infoartist.frame.font.height := 10 ;
-    infoalbum.frame.font.height := 10 ;
-    infoyear.frame.font.height := 10 ;
-    infolength.frame.font.height := 10 ;
-    infotag.frame.font.height := 10 ;
-    infocom.frame.font.height := 10 ;
-    infofile.frame.font.height := 10 ;
-    inforate.frame.font.height := 10 ;
-    infochan.frame.font.height := 10 ;
-    infobpm.frame.font.height := 10 ;
+     infoname.frame.font.height := roundmath(10*ratio) ;
+    infoartist.frame.font.height := roundmath(10*ratio) ;
+    infoalbum.frame.font.height := roundmath(10*ratio) ;
+    infoyear.frame.font.height := roundmath(10*ratio) ;
+    infolength.frame.font.height := roundmath(10*ratio) ;
+    infotag.frame.font.height := roundmath(10*ratio) ;
+    infocom.frame.font.height := roundmath(10*ratio) ;
+    infofile.frame.font.height := roundmath(10*ratio) ;
+    inforate.frame.font.height := roundmath(10*ratio) ;
+    infochan.frame.font.height := roundmath(10*ratio) ;
+    infobpm.frame.font.height := roundmath(10*ratio) ;
  
     end;
     
       with drumsfo do
     begin
       font.name := 'stf_default' ;
-      font.height := 12;
+      font.height := roundmath(12*ratio);
       
       labpat.font.name := 'stf_default' ;
       lach.font.name := 'stf_default' ;
@@ -996,11 +996,11 @@ begin
       songplayer2fo.tstringdisp1.font.height := roundmath(12*ratio);
              
       spectrum1fo.spect1.frame.font.name := 'stf_default' ;
-      spectrum1fo.spect1.frame.font.height := 14;
+      spectrum1fo.spect1.frame.font.height := roundmath(14*ratio);
       spectrum2fo.spect1.frame.font.name := 'stf_default' ;
-      spectrum2fo.spect1.frame.font.height := 14;
+      spectrum2fo.spect1.frame.font.height := roundmath(14*ratio);
       spectrumrecfo.spect1.frame.font.name := 'stf_default' ;
-      spectrumrecfo.spect1.frame.font.height := 14;
+      spectrumrecfo.spect1.frame.font.height := roundmath(14*ratio);
  
       dockpanel1fo.mainmenu.menu.font.name := 'stf_default' ;
       dockpanel1fo.mainmenu.menu.font.height := roundmath(12*ratio);

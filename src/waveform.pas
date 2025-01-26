@@ -94,7 +94,11 @@ begin
 end;
 
 procedure twavefo.onresiztimer(const Sender: TObject);
+var
+ratioft : double;
 begin
+
+ ratioft := fontheightused/12;
 
   if tag <> 2 then
     trackbar1.Width := Width - 15;
@@ -104,12 +108,12 @@ begin
     doechelle(fontheightused);
     echelle.Visible  := True;
     trackbar1.Height := Height - echelle.Height;
-    echelle.top := trackbar1.bottom;
+    echelle.top := trackbar1.bottom -1;
   end
   else if ((tag = 2) and (Assigned(recorderfo)) and (islive = True)) then
   begin
     trackbar1.Width  := waveforec.Width - 11;
-    trackbar1.Height := waveforec.Height - 18;
+    trackbar1.Height := waveforec.Height - round(18 * ratioft);
     echelle.Visible  := False;
   end;
 
@@ -265,7 +269,10 @@ end;
 procedure twavefo.onzoom(const Sender: TObject);
 var
   rect1: rectty;
+  ratioft : double;
 begin
+
+  ratioft := fontheightused/12;
 
   if as_checked in tmainmenu1.menu[0].state then
   begin
@@ -326,8 +333,10 @@ begin
 
           
   if trackbar1.width > width then
-   trackbar1.height := height - echelle.height - 30
-   else trackbar1.height := height - echelle.height -18;
+   trackbar1.height := height - echelle.height - round(30 * ratioft)
+   else trackbar1.height := height - echelle.height - round(18 * ratioft);;
+   
+   echelle.top := trackbar1.bottom -1;
 
 end;
 

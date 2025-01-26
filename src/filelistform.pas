@@ -109,6 +109,8 @@ begin
   list_files.font.Height        := fontheight;
   list_files.rowfonts[0].Height := fontheight;
   list_files.rowfonts[1].Height := fontheight;
+  
+  list_files.frame.sbvert.width := roundmath(10 * ratio);
 
   frame.grip_size := roundmath(8 * ratio);
   fowidthf        := roundmath(442 * ratio);
