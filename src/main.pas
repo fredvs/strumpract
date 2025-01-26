@@ -2348,6 +2348,7 @@ end;
 
 procedure tmainfo.onabout(const Sender: TObject);
 begin
+
   aboutfo.Caption          := lang_mainfo[Ord(ma_tmainmenu1_about_hint)];
   aboutfo.about_text.frame.colorclient := $DFFFB2;
   aboutfo.about_text.Value := c_linefeed + 'StrumPract ' + versiontext + ' ' + platformtext +

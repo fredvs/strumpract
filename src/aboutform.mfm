@@ -4,10 +4,6 @@ object about_form: taboutfo
   bounds_y = 239
   bounds_cx = 372
   bounds_cy = 320
-  bounds_cxmin = 372
-  bounds_cymin = 320
-  bounds_cxmax = 372
-  bounds_cymax = 320
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.bounds = (
@@ -116,11 +112,11 @@ object about_form: taboutfo
     bounds_x = 8
     bounds_y = 9
     bounds_cx = 357
-    bounds_cy = 298
+    bounds_cy = 300
     optionsedit = [oe_readonly, oe_closequery, oe_checkmrcancel, oe_linebreak, oe_eatreturn, oe_resetselectonexit, oe_nofirstarrownavig, oe_focusrectonreadonly]
     textflags = [tf_xcentered, tf_wordbreak, tf_noselect]
     textflagsactive = [tf_xcentered, tf_wordbreak]
     value = 'Drums Pract version 1.0.'
-    reffontheight = 15
+    reffontheight = 17
   end
 end
