@@ -25,7 +25,7 @@ type
     procedure ondock(const Sender: TObject);
     procedure onvisiblech(const Sender: TObject);
     procedure faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
-    procedure doechelle(const Sender: TObject);
+    procedure doechelle(fontsiz : integer);
     procedure onzoom(const Sender: TObject);
     procedure pageup(const Sender: TObject);
     procedure pagedown(const Sender: TObject);
@@ -34,6 +34,7 @@ type
     procedure oncreated(const Sender: TObject);
     procedure crea(const Sender: TObject);
     procedure onresiztimer(const Sender: TObject);
+    procedure onresizfont(fontsiz : integer);
     procedure onmouseevw(const sender: twidget;
                var ainfo: mouseeventinfoty);
 
@@ -59,6 +60,16 @@ uses
   uos_flat,
   dockpanel1,
   waveform_mfm;
+  
+procedure twavefo.onresizfont(fontsiz : integer);
+begin
+font.height := fontsiz;
+tmainmenu1.menu.font.height := fontsiz;
+tmainmenu1.menu.fontactive.height := fontsiz; 
+trackbar1.height := height - round(17 * fontsiz / 12) ;
+doechelle(fontsiz);
+invalidate;
+end;
 
 procedure twavefo.faceafterpaintbut(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
 var
@@ -90,9 +101,10 @@ begin
 
   if ((tag = 0) and (Assigned(songplayerfo))) or ((tag = 1) and (Assigned(songplayer2fo))) or ((tag = 2) and (Assigned(recorderfo)) and (islive = False)) then
   begin
-    doechelle(nil);
+    doechelle(fontheightused);
     echelle.Visible  := True;
     trackbar1.Height := Height - echelle.Height;
+    echelle.top := trackbar1.bottom;
   end
   else if ((tag = 2) and (Assigned(recorderfo)) and (islive = True)) then
   begin
@@ -105,7 +117,7 @@ begin
 
 end;
 
-procedure twavefo.doechelle(const Sender: TObject);
+procedure twavefo.doechelle(fontsiz : integer);
 var
   i, totsec: integer;
   milisec: string;
@@ -121,27 +133,29 @@ begin
     (hascue2 = True) and (totsec2 > 0) then
     totsec := totsec2;
 
-  echelle.Height   := 14;
+  echelle.height := round(17 * fontsiz / 12);
   echelle.Width    := trackbar1.Width;
-  trackbar1.Height := Height - echelle.Height - 18;
-
+  trackbar1.Height := Height - echelle.Height - round(18 * fontsiz / 12) ;
+  echelle.top := trackbar1.bottom -1;
   echelle.datacols.Width := 24;
   echelle.datarowheight  := echelle.Height;
   echelle.datacols.Count := (echelle.Width div 24) + 1;
-
+  echelle.font.height := round(9 * fontsiz / 12);
+  
   echsec := totsec / ((echelle.Width / 25.15)); // yes, I know, it is strange...
 
   i := 0;
 
   while i < echelle.datacols.Count do
   begin
-
+    echelle.datacols[i].font.height := round(9 * fontsiz / 12); 
+    echelle.datacols[i].fontselect.height := round(9 * fontsiz / 12);
+ 
     if trunc(echsec * (i + 1)) mod 60 > 9 then
 
       milisec := IntToStr((trunc(echsec * (i + 1)) mod 60))
     else
       milisec := '0' + IntToStr((trunc(echsec * (i + 1)) mod 60));
-
 
     echelle[i][0] := utf8decode(IntToStr(trunc(echsec * (i + 1) / 60)) + '.' + milisec);
 
@@ -302,7 +316,7 @@ begin
     end;
 
   if (tag = 0) or (tag = 1) then
-    doechelle(Sender);
+    doechelle(fontheightused);
 
   if (tag = 0) and (hascue = True) and (totsec1 > 0) and (Assigned(songplayerfo)) then
     songplayerfo.onwavform(Sender);

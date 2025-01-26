@@ -200,6 +200,7 @@ const
 
 var
   statdirname: msestring = '^/.strumpract';
+  oristatdirname: msestring = '^/.strumpract';
   dialoglive: Boolean = False;
   drumsfoheight: integer = 274;
   filelistfoheight: integer = 128;
@@ -425,6 +426,8 @@ procedure tmainfo.applyfont(fontval: integer);
 begin
   fontheightused := fontval;
   commanderfo.resizeco(fontval);
+  wavefo.onresizfont(fontval);
+  wavefo2.onresizfont(fontval);
   drumsfo.resizedr(fontval);
   equalizerfo1.resizeeq(fontval);
   equalizerfo2.resizeeq(fontval);

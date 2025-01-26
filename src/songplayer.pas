@@ -2501,7 +2501,7 @@ begin
             wavefo.trackbar1.Width := wavefo.Width - 10;
             wavefo.tmainmenu1.menu[2].Caption := ' Now=X1 ';
           end;
-          wavefo.doechelle(nil);
+          wavefo.doechelle(fontheightused);
 
           framewanted := Inputlength1 div (wavefo.trackbar1.Width - 7);
 
@@ -2548,7 +2548,7 @@ begin
             wavefo2.trackbar1.Width := wavefo.Width - 10;
             wavefo2.tmainmenu1.menu[2].Caption := ' Now=X1 ';
           end;
-          wavefo2.doechelle(nil);
+          wavefo2.doechelle(fontheightused);
           framewanted := Inputlength2 div (wavefo2.trackbar1.Width - 7);
 
           uos_InputSetFrameCount(theplayerinfoform2, 0, framewanted);

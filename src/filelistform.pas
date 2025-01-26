@@ -99,11 +99,13 @@ begin
    bounds_cymax := bounds_cymin
    else bounds_cymax := 0;
  //  bounds_cx    := bounds_cxmin;
+  
  
   font.Height  := fontheight;
   historyfn.font.Height  := fontheight;
   historyfn.font.color  := font.color;
 
+  list_files.datarowheight := round(18 * ratio);
   list_files.font.Height        := fontheight;
   list_files.rowfonts[0].Height := fontheight;
   list_files.rowfonts[1].Height := fontheight;
@@ -1019,6 +1021,8 @@ begin
 
   tfiledialog1.controller.filter    := '"*.mp3" "*.wav" "*.ogg" "*.flac" "*.it" "*.mod" "*.s3m" "*.xm"';
   tfiledialog1.controller.fontcolor := cl_black;
+  tfiledialog1.controller.fontheight := fontheightused;
+ 
 
   tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir, fdo_directory];
   

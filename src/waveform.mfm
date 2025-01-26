@@ -41,6 +41,8 @@ object wavefo: twavefo
   dragdock.onfloat = onfloat
   dragdock.ondock = ondock
   mainmenu = tmainmenu1
+  font.name = 'stf_default'
+  font.localprops = []
   statfile = mainfo.tstatfile1
   icon.origformat = 'png'
   icon.image = {
@@ -140,12 +142,17 @@ object wavefo: twavefo
     bounds_cx = 432
     bounds_cy = 16
     anchors = [an_left, an_bottom]
+    font.name = 'stf_default'
+    font.localprops = []
     datacols.linecolor = -1879048167
     datacols.width = 21
     datacols.font.colorbackground = -1610612732
-    datacols.font.height = 9
+    datacols.font.height = 10
     datacols.font.name = 'stf_default'
     datacols.font.localprops = [flp_color, flp_colorbackground, flp_height]
+    datacols.fontselect.name = 'stf_default'
+    datacols.fontselect.localprops = []
+    datacols.textflags = [tf_xcentered, tf_ycentered, tf_noselect]
     rowcount = 1
     rowcolors.count = 1
     rowcolors.items = (
@@ -273,6 +280,8 @@ object wavefo: twavefo
     menu.state = [as_localcolorglyph]
     menu.font.name = 'stf_menu'
     menu.font.localprops = []
+    menu.fontactive.name = 'stf_menu'
+    menu.fontactive.localprops = []
     left = 299
     top = 44
   end

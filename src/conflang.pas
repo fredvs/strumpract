@@ -94,6 +94,8 @@ begin
   gridlang.Width       := round(290 * ratio);
   gridlang.Height      := round(163 * ratio);
   gridlang.top         := round(48 * ratio);
+  gridlang.datarowheight         := round(17 * ratio);
+
 
   gridlang.datacols[0].Width := round(224 * ratio);
   gridlang.datacols[1].Width := round(44 * ratio);
