@@ -235,7 +235,7 @@ object mainfo: tmainfo
     bounds_cy = 23
     statfile = tstatfile1
     onchange = onchangevalcolor
-    value = -1
+    value = 2
     valuemin = -1
     valuemax = 10
     reffontheight = 17
@@ -882,8 +882,8 @@ object mainfo: tmainfo
     height = 24
     options = [bmo_masked, bmo_graymask]
     count = 38
-    left = 318
-    top = 5
+    left = 286
+    top = 2
     image = {
       0000000012000000A8000000A800000044A30000000000000000000000000000
       0000000000000000000000000000000000000000C0C0C01800000030D0D0D018

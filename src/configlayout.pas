@@ -4,35 +4,11 @@ unit configlayout;
 interface
 
 uses
-  msefileutils,
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msesimplewidgets,
-  mseact,
-  msecolordialog,
-  msedataedits,
-  msedropdownlist,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  SysUtils,
-  msegraphedits,
-  msescrollbar;
+ msefileutils,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,
+ msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,
+ mseforms,msesimplewidgets,mseact,msecolordialog,msedataedits,msedropdownlist,
+ mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
+ msegraphedits,msescrollbar, msedispwidgets, mserichstring;
 
 type
   tconfiglayoutfo = class(tmseform)
@@ -58,6 +34,9 @@ type
     bbarbie: tbooleaneditradio;
     autoheight: tbooleanedit;
     inifile: tbooleanedit;
+   tstringdisp1: tstringdisp;
+   tbutton2: tbutton;
+   tlabel1: tlabel;
     procedure onfontheight(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
     procedure onsetcolor(const Sender: TObject);
@@ -67,6 +46,8 @@ type
     procedure resizecl(fonth: integer);
     procedure oncrea(const Sender: TObject);
     procedure onchangeini(const Sender: TObject);
+   procedure onexebutini(const sender: TObject);
+   procedure onbutclose(const sender: TObject);
   end;
 
 var
@@ -457,9 +438,9 @@ var
 begin
   rect1 := application.screenrect(window);
    {$ifdef mswindows}
-  fontheight.Value := roundmath(rect1.cx / 1340 * 12);
+  fontheight.Value := roundmath(rect1.cy / 800 * 12);
    {$else}
-   fontheight.Value := roundmath(rect1.cx / 1368 * 12);
+   fontheight.Value := roundmath(rect1.cy / 800 * 12);
    {$endif}
 end;
 
@@ -564,13 +545,33 @@ begin
         createdir(thedir);
       if FileExists(thedir + '/sys') = False then
         FileClose(FileCreate(thedir + '/sys'));
+     tlabel1.caption := 'The ini file is set to ' + thedir + '/stat.ini';   
     end
     else
     begin
     if FileExists(thedir + '/sys') then DeleteFile(thedir + '/sys');
+    tlabel1.caption := 'The ini file is set to ' + oristatdirname + '/stat.ini';   ;
     end;
+   
+   tbutton2.top := (tstringdisp1.height - tbutton2.height) div 2;
+   tlabel1.width := tstringdisp1.width - tbutton2.width - 10;
+   tstringdisp1.right := tgroupbox4.right; 
+   tstringdisp1.visible := true;
+    
   end;
 end;  
+
+procedure tconfiglayoutfo.onexebutini(const sender: TObject);
+begin
+ tstringdisp1.visible := false;
+end;
+
+procedure tconfiglayoutfo.onbutclose(const sender: TObject);
+begin
+onchangestyle(nil);
+tstringdisp1.visible := false;
+close;
+end;
 
 end.
 

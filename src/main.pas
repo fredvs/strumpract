@@ -2444,7 +2444,7 @@ begin
     end;
     {$endif}
 
-    typecolor.Value := 2;
+  //  typecolor.Value := 2;
     ondockplayersx2(Sender);
 
     oktimer := 1;
@@ -8548,7 +8548,7 @@ begin
   onchangevalcolor(nil);
 
   configlayoutfo.onsetcolor(nil);
-
+  
   splashfo.Close;
 
   if fileexists(ParamStr(1)) then
