@@ -234,18 +234,18 @@ object spectrum1fo: tspectrum1fo
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
       0
-      1
-      103
-      1
+      2
+      95
+      2
     )
     face.localprops = []
     face.template = mainfo.tfaceplayer
     taborder = 1
     hint = 'Enable Spectrum rendering'
     bounds_x = 150
-    bounds_y = 2
-    bounds_cx = 116
-    bounds_cy = 17
+    bounds_y = 4
+    bounds_cx = 108
+    bounds_cy = 19
     statfile = mainfo.tstatfile1
     colorglyph = -1610612728
     value = True

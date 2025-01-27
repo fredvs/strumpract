@@ -89,7 +89,7 @@ begin
   Spect1.frame.font.Height := fontheight;
   Spect1.frame.font.color := font.color;
   Spect1.left := roundmath(150 * ratio);
-  Spect1.top  := roundmath(2 * ratio);
+  Spect1.top  := roundmath(3 * ratio);
 
   groupbox1.font.color := font.color;
   groupbox1.left       := roundmath(1 * ratio);

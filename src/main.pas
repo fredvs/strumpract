@@ -2363,7 +2363,7 @@ begin
     'https://github.com/bgrabitmap/bgrabitmap' + c_linefeed + c_linefeed +
     'Audio library: uos 1.8.0.' + c_linefeed +
     'https://github.com/fredvs/uos' + c_linefeed + c_linefeed +
-    '© 2017-2024' + c_linefeed +
+    '© 2017-2025' + c_linefeed +
     'Fred van Stappen <fiens@hotmail.com>';
   aboutfo.Show(True);
 end;
