@@ -109,9 +109,9 @@ object commanderfo: tcommanderfo
     face.template = mainfo.tfaceplayer
     taborder = 1
     bounds_x = 334
-    bounds_y = 0
+    bounds_y = 1
     bounds_cx = 58
-    bounds_cy = 126
+    bounds_cy = 127
     font.name = 'stf_default'
     font.localprops = []
     object loop_start: tbutton
@@ -126,7 +126,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       hint = 'Start Drums'
       bounds_x = 29
-      bounds_y = 90
+      bounds_y = 92
       bounds_cx = 26
       bounds_cy = 28
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -148,7 +148,7 @@ object commanderfo: tcommanderfo
       taborder = 1
       hint = 'Pause Drums'
       bounds_x = 29
-      bounds_y = 22
+      bounds_y = 24
       bounds_cx = 26
       bounds_cy = 28
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -170,7 +170,7 @@ object commanderfo: tcommanderfo
       taborder = 2
       hint = 'Resume Drums'
       bounds_x = 29
-      bounds_y = 56
+      bounds_y = 58
       bounds_cx = 26
       bounds_cy = 28
       state = [as_disabled, as_localdisabled, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
@@ -185,9 +185,9 @@ object commanderfo: tcommanderfo
       taborder = 3
       hint = 'General Volume of drums'
       bounds_x = 2
-      bounds_y = 17
+      bounds_y = 21
       bounds_cx = 25
-      bounds_cy = 90
+      bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onchangevoldrums
@@ -250,7 +250,7 @@ object commanderfo: tcommanderfo
       taborder = 5
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 2
-      bounds_y = 107
+      bounds_y = 109
       bounds_cx = 26
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -271,18 +271,18 @@ object commanderfo: tcommanderfo
     face.template = mainfo.tfaceplayer
     taborder = 2
     bounds_x = 393
-    bounds_y = 0
+    bounds_y = 1
     bounds_cx = 39
-    bounds_cy = 126
+    bounds_cy = 127
     font.name = 'stf_default'
     font.localprops = []
     object tslider3: tslider
       color = -2147483645
       hint = 'Volume of input (mic or input)'
       bounds_x = 3
-      bounds_y = 31
+      bounds_y = 37
       bounds_cx = 32
-      bounds_cy = 76
+      bounds_cy = 70
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onchangevolinput
@@ -353,12 +353,12 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayer
       taborder = 2
       hint = 'Enable Live Input'
-      bounds_x = 3
-      bounds_y = 15
+      bounds_x = 2
+      bounds_y = 18
       bounds_cx = 32
       bounds_cy = 19
       onchange = onsetinput
-      colorglyph = 4868682
+      colorglyph = -1610612728
     end
     object tslider3val: tbutton
       frame.optionsskin = [fso_flat]
@@ -369,7 +369,7 @@ object commanderfo: tcommanderfo
       taborder = 3
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 3
-      bounds_y = 107
+      bounds_y = 109
       bounds_cx = 32
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -387,10 +387,10 @@ object commanderfo: tcommanderfo
     frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
     frame.localprops1 = []
     taborder = 3
-    bounds_x = 0
-    bounds_y = 0
+    bounds_x = 1
+    bounds_y = 1
     bounds_cx = 51
-    bounds_cy = 126
+    bounds_cy = 127
     font.name = 'stf_default'
     font.localprops = []
     object genvolright: tslider
@@ -399,9 +399,9 @@ object commanderfo: tcommanderfo
       taborder = 2
       hint = 'Right Volume General in %'
       bounds_x = 33
-      bounds_y = 17
+      bounds_y = 21
       bounds_cx = 16
-      bounds_cy = 90
+      bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onchangegenvol
@@ -435,15 +435,16 @@ object commanderfo: tcommanderfo
       direction = gd_up
     end
     object genleftvolvalue: tbutton
+      frame.colorframe = -2147483645
       frame.optionsskin = [fso_flat]
-      frame.localprops = [frl_optionsskin]
+      frame.localprops = [frl_colorframe, frl_optionsskin]
       frame.localprops1 = []
       face.localprops = []
       face.template = mainfo.tfacebutltgray
       taborder = 3
       hint = 'General left volume. Click to reset to 100%.'
       bounds_x = 17
-      bounds_y = 107
+      bounds_y = 109
       bounds_cx = 16
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -462,7 +463,7 @@ object commanderfo: tcommanderfo
       taborder = 4
       hint = 'General right volume. Click to reset to 100%.'
       bounds_x = 33
-      bounds_y = 107
+      bounds_y = 109
       bounds_cx = 16
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -471,62 +472,13 @@ object commanderfo: tcommanderfo
       captiondist = 0
       onexecute = onresetgenvol
     end
-    object linkvolgenb: tbutton
-      Tag = 1
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        12779422
-        7255365
-      )
-      face.fade_direction = gd_down
-      face.localprops = []
-      taborder = 5
-      hint = 'Lock left and right volume General'
-      bounds_x = 30
-      bounds_y = 1
-      bounds_cx = 18
-      bounds_cy = 16
-      state = [as_localcaption, as_localhint, as_localonexecute]
-      caption = 'L'
-      textflags = [tf_xcentered, tf_ycentered]
-      captiondist = 0
-      font.name = 'stf_default'
-      font.localprops = []
-      onexecute = onexecbutlght
-    end
-    object namegen: tstringdisp
-      color = -2147483645
-      frame.levelo = 1
-      frame.colorhighlight = -1610612733
-      frame.localprops = [frl_levelo, frl_colorhighlight]
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 6
-      hint = 'General Volume in %'
-      bounds_x = 2
-      bounds_y = 1
-      bounds_cx = 28
-      bounds_cy = 18
-      textflags = [tf_xcentered, tf_ycentered]
-      value = 'Gen'
-      reffontheight = 17
-    end
     object sysvol: tslider
       color = -2147483645
       hint = 'System Master Volume'
       bounds_x = 1
-      bounds_y = 17
+      bounds_y = 21
       bounds_cx = 16
-      bounds_cy = 90
+      bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       value = 0.666666
@@ -569,7 +521,7 @@ object commanderfo: tcommanderfo
       hint = 'System Master Volume'
       onenter = resetsysvol
       bounds_x = 0
-      bounds_y = 107
+      bounds_y = 109
       bounds_cx = 16
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -582,9 +534,9 @@ object commanderfo: tcommanderfo
       taborder = 1
       hint = 'Left Volume General in %'
       bounds_x = 17
-      bounds_y = 17
+      bounds_y = 21
       bounds_cx = 16
-      bounds_cy = 90
+      bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = onchangegenvol
@@ -617,6 +569,55 @@ object commanderfo: tcommanderfo
       scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
+    object namegen: tstringdisp
+      color = -2147483645
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.localprops = [frl_levelo, frl_colorhighlight]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 6
+      hint = 'General Volume in %'
+      bounds_x = 2
+      bounds_y = 1
+      bounds_cx = 28
+      bounds_cy = 18
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Gen'
+      reffontheight = 17
+    end
+    object linkvolgenb: tbutton
+      Tag = 1
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        12779422
+        7255365
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      taborder = 5
+      hint = 'Lock left and right volume General'
+      bounds_x = 31
+      bounds_y = 1
+      bounds_cx = 18
+      bounds_cy = 18
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = 'L'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
+      onexecute = onexecbutlght
+    end
   end
   object tgroupboxplayers: tgroupbox
     color = -2147483645
@@ -627,10 +628,10 @@ object commanderfo: tcommanderfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    bounds_x = 48
+    bounds_x = 54
     bounds_y = 1
     bounds_cx = 280
-    bounds_cy = 125
+    bounds_cy = 127
     font.name = 'stf_default'
     font.localprops = []
     object timemix: trealspinedit
@@ -760,9 +761,9 @@ object commanderfo: tcommanderfo
       taborder = 4
       hint = 'Left Volume Player 1'
       bounds_x = 39
-      bounds_y = 16
+      bounds_y = 21
       bounds_cx = 25
-      bounds_cy = 90
+      bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = setvolume
@@ -803,9 +804,9 @@ object commanderfo: tcommanderfo
       taborder = 5
       hint = 'Right Volume Player 1'
       bounds_x = 65
-      bounds_y = 16
+      bounds_y = 21
       bounds_cx = 25
-      bounds_cy = 90
+      bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = setvolume
@@ -849,9 +850,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceorange
       hint = 'Start Player 1 --> MIX --> Stop Player 2'
       bounds_x = 99
-      bounds_y = 83
+      bounds_y = 84
       bounds_cx = 40
-      bounds_cy = 37
+      bounds_cy = 40
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = timagelist1
       imagenr = 0
@@ -870,9 +871,9 @@ object commanderfo: tcommanderfo
       taborder = 6
       hint = 'Start Player 2 --> MIX --> Stop Player 1'
       bounds_x = 141
-      bounds_y = 83
+      bounds_y = 84
       bounds_cx = 40
-      bounds_cy = 37
+      bounds_cy = 40
       state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = timagelist1
       imagenr = 1
@@ -886,9 +887,9 @@ object commanderfo: tcommanderfo
       taborder = 7
       hint = 'Right Volume Player 2'
       bounds_x = 215
-      bounds_y = 16
+      bounds_y = 21
       bounds_cx = 25
-      bounds_cy = 90
+      bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = setvolume
@@ -929,9 +930,9 @@ object commanderfo: tcommanderfo
       taborder = 8
       hint = 'Left Volume Player 2'
       bounds_x = 189
-      bounds_y = 16
+      bounds_y = 21
       bounds_cx = 25
-      bounds_cy = 90
+      bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
       onchange = setvolume
@@ -1156,8 +1157,8 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutltgray
       taborder = 18
       hint = 'Click to switch to 100% <> 0% '
-      bounds_x = 39
-      bounds_y = 106
+      bounds_x = 36
+      bounds_y = 109
       bounds_cx = 25
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -1175,7 +1176,7 @@ object commanderfo: tcommanderfo
       taborder = 19
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 65
-      bounds_y = 106
+      bounds_y = 109
       bounds_cx = 25
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -1193,7 +1194,7 @@ object commanderfo: tcommanderfo
       taborder = 20
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 215
-      bounds_y = 106
+      bounds_y = 109
       bounds_cx = 25
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -1211,7 +1212,7 @@ object commanderfo: tcommanderfo
       taborder = 21
       hint = 'Click to switch to 100% <> 0% '
       bounds_x = 189
-      bounds_y = 106
+      bounds_y = 109
       bounds_cx = 25
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -1298,9 +1299,9 @@ object commanderfo: tcommanderfo
       taborder = 24
       hint = 'Pause Mixing'
       bounds_x = 99
-      bounds_y = 83
+      bounds_y = 84
       bounds_cx = 40
-      bounds_cy = 37
+      bounds_cy = 40
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 37
@@ -1319,9 +1320,9 @@ object commanderfo: tcommanderfo
       taborder = 25
       hint = 'Pause Mixing'
       bounds_x = 141
-      bounds_y = 83
+      bounds_y = 84
       bounds_cx = 40
-      bounds_cy = 37
+      bounds_cy = 40
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 36
@@ -1338,9 +1339,9 @@ object commanderfo: tcommanderfo
       taborder = 23
       hint = 'Pause Mixing'
       bounds_x = 99
-      bounds_y = 83
+      bounds_y = 84
       bounds_cx = 82
-      bounds_cy = 37
+      bounds_cy = 40
       state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       imagelist = mainfo.buttonicons
       imagenr = 1
@@ -1369,38 +1370,7 @@ object commanderfo: tcommanderfo
       bounds_x = 80
       bounds_y = 1
       bounds_cx = 16
-      bounds_cy = 16
-      state = [as_localcaption, as_localhint, as_localonexecute]
-      caption = 'L'
-      textflags = [tf_xcentered, tf_ycentered]
-      captiondist = 0
-      font.name = 'stf_default'
-      font.localprops = []
-      onexecute = onexecbutlght
-    end
-    object linkvol2b: tbutton
-      Tag = 1
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        12779422
-        7255365
-      )
-      face.fade_direction = gd_down
-      face.localprops = []
-      taborder = 29
-      hint = 'Lock left and right volume Player 2'
-      bounds_x = 230
-      bounds_y = 1
-      bounds_cx = 16
-      bounds_cy = 16
+      bounds_cy = 18
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'L'
       textflags = [tf_xcentered, tf_ycentered]
@@ -1549,7 +1519,7 @@ object commanderfo: tcommanderfo
       hint = 'Direct MIX (0 second time)'
       bounds_x = 162
       bounds_y = 44
-      bounds_cx = 16
+      bounds_cx = 18
       bounds_cy = 36
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = 'DM'
@@ -1558,42 +1528,6 @@ object commanderfo: tcommanderfo
       font.name = 'stf_default'
       font.localprops = []
       onexecute = onexecbutlght
-    end
-    object nameplayers: tstringdisp
-      color = -2147483645
-      frame.levelo = 1
-      frame.colorhighlight = -1610612733
-      frame.localprops = [frl_levelo, frl_colorhighlight]
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 35
-      hint = 'Player 1'
-      bounds_x = 32
-      bounds_y = 1
-      bounds_cx = 45
-      bounds_cy = 18
-      textflags = [tf_xcentered, tf_ycentered]
-      value = 'Play1'
-      reffontheight = 17
-    end
-    object nameplayers2: tstringdisp
-      color = -2147483645
-      frame.levelo = 1
-      frame.colorhighlight = -1610612733
-      frame.localprops = [frl_levelo, frl_colorhighlight]
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 36
-      hint = 'Player 2'
-      bounds_x = 182
-      bounds_y = 1
-      bounds_cx = 45
-      bounds_cy = 18
-      textflags = [tf_xcentered, tf_ycentered]
-      value = 'Play2'
-      reffontheight = 17
     end
     object tstringdisp1: tstringdisp
       frame.localprops = []
@@ -1902,6 +1836,73 @@ object commanderfo: tcommanderfo
       font.localprops = []
       onexecute = onexecbutlght
     end
+    object linkvol2b: tbutton
+      Tag = 1
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        12779422
+        7255365
+      )
+      face.fade_direction = gd_down
+      face.localprops = []
+      taborder = 29
+      hint = 'Lock left and right volume Player 2'
+      bounds_x = 230
+      bounds_y = 1
+      bounds_cx = 16
+      bounds_cy = 18
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = 'L'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
+      onexecute = onexecbutlght
+    end
+    object nameplayers2: tstringdisp
+      color = -2147483645
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.localprops = [frl_levelo, frl_colorhighlight]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 36
+      hint = 'Player 2'
+      bounds_x = 182
+      bounds_y = 1
+      bounds_cx = 45
+      bounds_cy = 18
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Play2'
+      reffontheight = 17
+    end
+    object nameplayers: tstringdisp
+      color = -2147483645
+      frame.levelo = 1
+      frame.colorhighlight = -1610612733
+      frame.localprops = [frl_levelo, frl_colorhighlight]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 35
+      hint = 'Player 1'
+      bounds_x = 33
+      bounds_y = 1
+      bounds_cx = 45
+      bounds_cy = 18
+      textflags = [tf_xcentered, tf_ycentered]
+      value = 'Play1'
+      reffontheight = 17
+    end
   end
   object hintpanel: tgroupbox
     face.fade_pos.count = 2
@@ -1919,7 +1920,7 @@ object commanderfo: tcommanderfo
     taborder = 4
     visible = False
     bounds_x = 88
-    bounds_y = 44
+    bounds_y = 38
     bounds_cx = 221
     bounds_cy = 36
     font.name = 'stf_default'
@@ -1968,8 +1969,8 @@ object commanderfo: tcommanderfo
       7B7B73026F6F6F0192929201C6CECE01B1B1B1049292921B7B8C8C026F6F6F01
       C6CECE01
     }
-    left = 39
-    top = 34
+    left = 146
+    top = 26
   end
   object tfacegriptab: tfacecomp
     template.fade_pos.count = 2
@@ -1983,7 +1984,8 @@ object commanderfo: tcommanderfo
       13546198
     )
     template.fade_direction = gd_down
-    top = 49
+    left = 135
+    top = 44
   end
   object ttimer1: ttimer
     options = [to_single]
@@ -1995,7 +1997,7 @@ object commanderfo: tcommanderfo
     interval = 500000
     options = [to_single]
     ontimer = dotimercallback
-    left = 299
+    left = 180
     top = 9
   end
   object tframecomp2: tframecomp
@@ -2036,8 +2038,8 @@ object commanderfo: tcommanderfo
     }
   end
   object sliderimage: tbitmapcomp
-    left = 223
-    top = 34
+    left = 221
+    top = 26
   end
   object sliderimage2: tbitmapcomp
     left = 132
@@ -2387,11 +2389,11 @@ object commanderfo: tcommanderfo
   end
   object tframecompnul: tframecomp
     template.optionsskin = [fso_flat]
-    left = 293
-    top = 66
+    left = 219
+    top = 79
   end
   object sliderimage4: tbitmapcomp
-    left = 15
-    top = 12
+    left = 94
+    top = 39
   end
 end

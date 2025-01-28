@@ -839,9 +839,11 @@ begin
 
     end
     else
-      uos_Stop(theinput)// writeln('uos_Stop = ' + inttostr(theinput));
-      //  nameinput.face.template := recorderfo.tfacereclight;
-  ;
+    begin
+      uos_Stop(theinput);
+      nameinput.face.template := mainfo.tfaceplayerlight;
+    end;  
+ 
 
 end;
 

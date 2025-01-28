@@ -404,6 +404,21 @@ object filelistfo: tfilelistfo
       frame.sbvert.face1.template = mainfo.tfacebutltgray
       frame.sbvert.facebutton.localprops = []
       frame.sbvert.facebutton.template = mainfo.tfacebutgray
+      frame.sbvert.faceendbutton.fade_pos.count = 2
+      frame.sbvert.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      frame.sbvert.faceendbutton.fade_color.count = 2
+      frame.sbvert.faceendbutton.fade_color.items = (
+        13092807
+        10395294
+      )
+      frame.sbvert.faceendbutton.fade_direction = gd_down
+      frame.sbvert.faceendbutton.localprops = []
+      frame.sbvert.framebutton.localprops = []
+      frame.sbvert.framebutton.localprops1 = []
+      frame.sbvert.framebutton.template = commanderfo.tframecomp2
       frame.sbvert.onafterevent = onafterscroll
       frame.sbhorz.options = []
       frame.sbhorz.width = 0
