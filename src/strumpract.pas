@@ -30,7 +30,6 @@ ordir: string;
 
 begin
 {$ifdef unix}  
-  
   ordir := filepath(statdirname);
   if not finddir(ordir) then
       createdir(ordir);
