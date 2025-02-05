@@ -2270,6 +2270,8 @@ begin
       end;
 
     end;
+    
+    invalidatewidget;
 end;
 
 procedure tmainfo.oncreateform(const Sender: TObject);
