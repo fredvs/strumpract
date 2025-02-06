@@ -3012,7 +3012,7 @@ var
   x: integer;
   theint: integer;
   thestr, tmp: msestring;
-  ratio : double;
+ 
   {$ifdef windows}
   achar : char;
   {$endif}
@@ -3050,22 +3050,8 @@ begin
         fo.font.Height := fontheight;
     //  else
     //    fo.font.Height := 20;
-        
-     ratio := fo.font.Height/12;
-     
-     fo.width := round( 608* ratio );
-     fo.height := round( 484* ratio );
-     
-      fo.back.width := round( 50* ratio );
-     fo.back.height := round( 30* ratio );
-     fo.back.left := round( 2* ratio );
-       
-      fo.back.width := round( 50* ratio );
-     fo.back.height := round( 30* ratio );
-     fo.back.left := round( 2* ratio );
-             
-
-    fo.list_log.datacols[2].widthmax := fo.font.Height * 7;
+  
+   // fo.list_log.datacols[2].widthmax := fo.font.Height * 7;
 
     fo.font.color := fontcolor;
 
