@@ -4,7 +4,7 @@ unit songplayer;
 interface
 
 uses
-  ctypes,
+  ctypes, 
   uos_flat,
   msetypes,
   mseglob,
@@ -308,7 +308,13 @@ begin
   setmonob.font.Height     := playreverseb.font.Height;
   cbtempob.font.Height     := playreverseb.font.Height;
   button2.font.Height      := playreverseb.font.Height;
-
+  
+  edvolleft.font.Height := fontheight;
+  edvolleft.font.color  := font.color;
+  
+  edvolright.font.Height := fontheight;
+  edvolright.font.color  := font.color;
+  
   with tgroupbox1 do
     for i1 := 0 to childrencount - 1 do
       for i2 := 0 to length(boundchildsp) - 1 do

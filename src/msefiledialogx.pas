@@ -626,6 +626,7 @@ type
     procedure onmovesplit(const Sender: TObject);
     procedure onsetvalnoicon(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
    procedure afclosdropdir(const sender: TObject);
+   procedure onevloop(const sender: TObject);
   private
     fselectednames: filenamearty;
     finit: Boolean;
@@ -700,6 +701,9 @@ uses
   {$warn 6018 off}
   {$endif}
 {$endif}
+
+var
+boundchildsp: array of boundchild;
 
 type
   tdirtreefo1 = class(tdirtreefo);
@@ -2400,6 +2404,8 @@ begin
 end;
 
 procedure tfiledialogxfo.oncreat(const Sender: TObject);
+var
+i1 : integer;
 begin
 
  {$if defined(netbsd) or defined(darwin)}
@@ -2409,6 +2415,18 @@ begin
   theimagelist    := iconslist;
   fsplitterpanpos := tsplitter1.left;
   fisfixedrow     := False;
+  
+   setlength(boundchildsp, childrencount);
+
+    for i1 := 0 to childrencount - 1 do
+    begin
+      boundchildsp[i1].left   := children[i1].left;
+      boundchildsp[i1].top    := children[i1].top;
+      boundchildsp[i1].Width  := children[i1].Width;
+      boundchildsp[i1].Height := children[i1].Height;
+      boundchildsp[i1].Name   := children[i1].Name;
+    end;
+  
 end;
 
 procedure tfiledialogxfo.onbefdrop(const Sender: TObject);
@@ -2526,6 +2544,8 @@ begin
  fcourseid := -1;
 
      // caption := 'Select a file';
+     
+         
 
  {$ifdef mse_dynpo}
  if length(lang_stockcaption) > 0 then
@@ -2803,6 +2823,64 @@ begin
 dir.Value        := tosysfilepath(dir.Value,true);
 end;
 
+procedure tfiledialogxfo.onevloop(const sender: TObject);
+var
+ratio : double;
+i1, i2 : integer;
+begin
+ 
+     ratio := font.Height/12;
+         
+     width := round( 608* ratio );
+     height := round( 484* ratio );
+         
+     for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildsp) - 1 do
+        if children[i1].Name = boundchildsp[i2].Name then
+        begin
+          children[i1].left   := roundmath(boundchildsp[i2].left * ratio);
+          children[i1].top    := roundmath(boundchildsp[i2].top * ratio);
+          children[i1].Width  := roundmath(boundchildsp[i2].Width * ratio);
+          children[i1].Height := roundmath(boundchildsp[i2].Height * ratio);
+        end;
+        
+     listview.left := list_log.left;
+     listview.top := list_log.top;
+     listview.width := list_log.width;
+     listview.height := list_log.height;  
+     tsplitter3.top := round(242* ratio); 
+     tsplitter3.width := round(110* ratio); 
+      tsplitter3.height := round(2* ratio);    
+           
+     list_log.datacols[0].Width := round( 211* ratio);
+     list_log.datacols[1].Width := round( 45* ratio);
+     list_log.datacols[2].Width := round( 81* ratio);   
+     list_log.datacols[3].Width := round( 119* ratio);
+     
+     list_log.frame.sbvert.width := round(14* ratio); 
+     
+     list_log.invalidatewidget;
+     
+      tsplitter1.top := round(126* ratio); 
+      tsplitter1.left := round(126* ratio); 
+     tsplitter1.width := round(2* ratio); 
+      tsplitter1.height := round(290* ratio);   
+     
+      tsplitter2.top := round(70* ratio); 
+      tsplitter2.left := round(416* ratio); 
+      tsplitter2.width := round(4* ratio); 
+      tsplitter2.height := round(40* ratio); 
+            
+      filter.width := round(184* ratio); 
+        
+      filename.left := round(4* ratio); 
+      filename.width := round(600* ratio); 
+      filename.height := round(40* ratio); 
+       
+      invalidatewidget;
+     
+end;
+
 { tfiledialogxcontroller }
 
 constructor tfiledialogxcontroller.Create(const aowner: tmsecomponent = nil; const onchange: proceventty = nil);
@@ -2934,6 +3012,7 @@ var
   x: integer;
   theint: integer;
   thestr, tmp: msestring;
+  ratio : double;
   {$ifdef windows}
   achar : char;
   {$endif}
@@ -2967,10 +3046,24 @@ begin
       fo.font.Height := 12;
 
     if fontheight > 0 then
-      if fontheight < 21 then
-        fo.font.Height := fontheight
-      else
-        fo.font.Height := 20;
+    //  if fontheight < 21 then
+        fo.font.Height := fontheight;
+    //  else
+    //    fo.font.Height := 20;
+        
+     ratio := fo.font.Height/12;
+     
+     fo.width := round( 608* ratio );
+     fo.height := round( 484* ratio );
+     
+      fo.back.width := round( 50* ratio );
+     fo.back.height := round( 30* ratio );
+     fo.back.left := round( 2* ratio );
+       
+      fo.back.width := round( 50* ratio );
+     fo.back.height := round( 30* ratio );
+     fo.back.left := round( 2* ratio );
+             
 
     fo.list_log.datacols[2].widthmax := fo.font.Height * 7;
 
