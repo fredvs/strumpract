@@ -2416,6 +2416,7 @@ begin
     if tag = 1 then
       DrawWaveFormbusy2 := False;
   end;
+  trackbar1.invalidatewidget;
   application.processmessages;
 end;
 
@@ -2469,7 +2470,7 @@ begin
     end;
     buzywaveform2 := False;
     FormDrawWaveFormbusy2 := False;
-    wavefo.trackbar1.invalidate();
+    wavefo2.trackbar1.invalidate();
   end;
  application.processmessages;
 end;
