@@ -775,7 +775,9 @@ begin
     tfiledialogx2.controller.backcolor := cl_default;
 
   tfiledialogx2.controller.filter   := '"*.lis"';
-
+  
+  tfiledialogx2.controller.fontheight := fontheightused;
+  
   if tfiledialogx2.controller.filename = '' then
   tfiledialogx2.controller.filename := GetUserDir + directoryseparator;
 
@@ -813,7 +815,9 @@ begin
    if tfiledialogx2.controller.filename = '' then
    tfiledialogx2.controller.filename := GetUserDir + directoryseparator + 'mylist.lis' else
    tfiledialogx2.controller.filename :=   ExtractFilePath(tfiledialogx2.controller.filename) + 'mylist.lis' ;
-   
+  
+   tfiledialogx2.controller.fontheight := fontheightused;
+  
   tfiledialogx2.controller.icon := icon;
  
   tfiledialogx2.controller.captionsave := 'Save List as (must have ".lis" as extension).';
@@ -837,6 +841,8 @@ begin
   
   tfiledialogx2.controller.icon := icon;
   tfiledialogx2.controller.captionopen := '+ ' + lang_filelistfo[Ord(fi_filelistfo)];
+  
+  tfiledialogx2.controller.fontheight := fontheightused;
   
   if tfiledialogx2.controller.filename = '' then
   tfiledialogx2.controller.filename := GetUserDir + directoryseparator;
@@ -988,6 +994,8 @@ begin
   tfiledialog1.controller.nopanel    := False;
   tfiledialog1.controller.compact    := False;
 
+  tfiledialog1.controller.fontheight := fontheightused;
+   
   if mainfo.typecolor.Value = 2 then
     tfiledialog1.controller.backcolor := $A6A6A6
   else
@@ -1025,7 +1033,6 @@ begin
   tfiledialog1.controller.fontcolor := cl_black;
   tfiledialog1.controller.fontheight := fontheightused;
  
-
   tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir, fdo_directory];
   
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then

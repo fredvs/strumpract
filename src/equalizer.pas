@@ -876,6 +876,8 @@ begin
   tfiledialogx2.controller.filter   := '"*.equ"';
   tfiledialogx2.controller.filename := ordir;
   tfiledialogx2.controller.options  := [fdo_sysfilename, fdo_savelastdir];
+  
+  tfiledialogx2.controller.fontheight := fontheightused;
 
   if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
     if fileexists(tfiledialogx2.controller.filename) then
@@ -903,6 +905,8 @@ procedure tequalizerfo.savelist(const Sender: TObject);
 
   tfiledialog1.controller.filter  := '"*.equ"';
   tfiledialog1.controller.options := [fdo_sysfilename, fdo_savelastdir];
+  
+  tfiledialog1.controller.fontheight := fontheightused;
 
   if tfiledialog1.controller.Execute(fdk_save) = mr_ok then
     applylist(tfiledialog1.controller.filename, tag, True);

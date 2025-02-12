@@ -3356,6 +3356,8 @@ begin
   else
     tfiledialog1.controller.backcolor := cl_default;
 
+  tfiledialog1.controller.fontheight := fontheightused;
+  
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
   begin
     historyfn.Value := tfiledialog1.controller.filename;

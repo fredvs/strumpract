@@ -1140,6 +1140,8 @@ if tfiledialog1.controller.basedir = '' then
  // tfiledialog1.controller.captionopen := 'Open Audio File';
   tfiledialog1.controller.fontcolor   := cl_black;
   tfiledialog1.controller.filter      := '"*.wav" "*.ogg"';
+  
+  tfiledialog1.controller.fontheight := fontheightused;
 
   if tfiledialog1.controller.Execute(fdk_open) = mr_ok then
   begin

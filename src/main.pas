@@ -7983,6 +7983,8 @@ begin
   if tfiledialogx2.controller.filename = '' then
     tfiledialogx2.controller.filename := ordir;
   tfiledialogx2.controller.options := [fdo_sysfilename, fdo_savelastdir];
+  
+  tfiledialogx2.controller.fontheight := fontheightused;
 
   if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
     if fileexists(tfiledialogx2.controller.filename) then
@@ -8001,6 +8003,8 @@ begin
   if tfiledialogx2.controller.filename = '' then
     tfiledialogx2.controller.filename := GetUserDir + directoryseparator + 'mylayout.lay';
   tfiledialogx2.controller.options := [fdo_sysfilename, fdo_savelastdir];
+  
+  tfiledialogx2.controller.fontheight := fontheightused;
 
   if tfiledialogx2.controller.Execute(fdk_save) = mr_ok then
     tstatfile1.writestat(tfiledialogx2.controller.filename);
