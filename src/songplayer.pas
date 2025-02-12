@@ -2416,6 +2416,7 @@ begin
     if tag = 1 then
       DrawWaveFormbusy2 := False;
   end;
+  application.processmessages;
 end;
 
 procedure tsongplayerfo.FormDrawWaveForm();
@@ -2446,6 +2447,7 @@ begin
     end;
     buzywaveform1 := False;
     FormDrawWaveFormbusy1 := False;
+    wavefo.trackbar1.invalidate();
   end;
 
   if (tag = 1) and (FormDrawWaveFormbusy2 = False) and (as_checked in wavefo2.tmainmenu1.menu[0].state) then
@@ -2467,8 +2469,9 @@ begin
     end;
     buzywaveform2 := False;
     FormDrawWaveFormbusy2 := False;
+    wavefo.trackbar1.invalidate();
   end;
-
+ application.processmessages;
 end;
 
 procedure tsongplayerfo.onwavform(const Sender: TObject);
