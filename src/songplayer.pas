@@ -2922,6 +2922,7 @@ var
   binPath: string;
   {$ENDIF}
 begin
+visible := false;
  {$if defined(netbsd) or defined(darwin)}
   windowopacity := 1;
  {$else}
@@ -3027,7 +3028,7 @@ end;
 
 procedure tsongplayerfo.oncreated(const Sender: TObject);
 begin
-
+  visible := false;
   checksoundtouch(Sender);
 
   Equalizer_Bands[1].lo_freq  := 18;

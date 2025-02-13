@@ -2212,9 +2212,8 @@ begin
       bounds_cxmax := 0;
       bounds_cxmin := 0;
 
-      if not fileexists(tstatfile1.filename) then
-        top := 30;
-
+      if not findfileordir(tstatfile1.filename) then top := 30;
+       
       hasinit := 1;
 
       rect1 := application.screenrect(window);
@@ -2254,6 +2253,7 @@ var
   rect1: rectty;
   ordir: msestring;
 begin
+  splashfo.invalidatewidget;
 
 {$if defined(netbsd) or defined(darwin)}
    vievmenuicons.options := [bmo_masked]; 
@@ -2300,7 +2300,12 @@ begin
   statdirname := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) + 'ini');
 {$endif}
 
-  ordir := statdirname;
+  ordir := filepath(statdirname);
+  
+ // writeln('filepath(ordir) '+ordir);
+  
+ // if system.copy(ordir,1,1) = '^' then
+ // ordir := sys_getuserhomedir() + system.copy(ordir,3, length(ordir) -2);
 
   if not finddir(ordir) then
     createdir(ordir);
@@ -2309,6 +2314,8 @@ begin
   //  'ini' + directoryseparator + 'stat.ini');
 
   tstatfile1.filename := msestring(ordir + directoryseparator + 'stat.ini');
+  
+ // writeln('1 ' + tstatfile1.filename);
 
   Timerwait          := ttimer.Create(nil);
   Timerwait.interval := 400000;
@@ -2398,9 +2405,9 @@ begin
   oktimer := 1;
 
   commanderfo.guimix.Value := False;
-
+  
   if not fileexists(tstatfile1.filename) then
-  begin
+   begin
     {$if defined(cpuarm) or defined(cpuaarch64)}
     configfo.latdrums.Value := 0.08;
     configfo.latplay.Value  := 0.3;
@@ -2508,7 +2515,7 @@ begin
   end;
 
 
-  endlayout();
+ // endlayout();
 
   oktimer := 0;
 
@@ -8463,9 +8470,9 @@ begin
   rect1 := application.screenrect(window);
 
  {$ifdef mswindows}// to check
-  fontheightsugg := roundmath(rect1.cx / 1330 * 12);
+  fontheightsugg := roundmath(rect1.cy / 840 * 12);
  {$else}
- fontheightsugg := roundmath(rect1.cx / 1368 * 12);
+ fontheightsugg := roundmath(rect1.cy / 840 * 12);
  {$endif}
 
   configlayoutfo.autoheight.frame.Caption := 'Use at loading suggested font height: ' + IntToStr(fontheightsugg);
@@ -8476,7 +8483,6 @@ begin
   fontheightused := roundmath(configlayoutfo.fontheight.Value);
   resizema(fontheightused);
   applyfont(fontheightused);
-
   oncreatedform(Sender);
 
    conflangfo.Visible := False;
@@ -8525,8 +8531,6 @@ begin
 
   configlayoutfo.onsetcolor(nil);
   
-  splashfo.Close;
-
   if fileexists(ParamStr(1)) then
   begin
     songplayerfo.historyfn.Value   := ParamStr(1);
@@ -8541,7 +8545,7 @@ begin
     commanderfo.volumeleft2.Value  := 0;
     songplayerfo.doplayerstart(nil);
   end;
-  
+ endlayout();  
   ttimer3.enabled := true;
 end;
 
@@ -8706,6 +8710,7 @@ begin
   songplayer2fo.invalidatewidget;
   filelistfo.invalidatewidget;
   application.processmessages;
+  splashfo.Close;
   isactivated := True;
 end;
 

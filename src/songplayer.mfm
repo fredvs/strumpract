@@ -11,8 +11,8 @@ object songplayerfo: tsongplayerfo
   frame.grip_faceactive.template = mainfo.tfacegreen
   frame.grip_hint = ' Use that grip panel to drag/drop the window. '
   visible = False
-  bounds_x = 472
-  bounds_y = 29
+  bounds_x = 556
+  bounds_y = 63
   bounds_cx = 442
   bounds_cy = 128
   bounds_cxmin = 442
@@ -139,7 +139,7 @@ object songplayerfo: tsongplayerfo
       valuemax = 9999999
       step = 1
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 17
     end
     object tstringdisp1: tstringdisp
       optionswidget1 = [ow1_fontglyphheight]
@@ -155,7 +155,7 @@ object songplayerfo: tsongplayerfo
       font.name = 'stf_default'
       font.localprops = []
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 15
+      reffontheight = 17
     end
     object button1: tbutton
       Tag = 1
@@ -227,7 +227,7 @@ object songplayerfo: tsongplayerfo
       valuemax = 9999999
       step = 1
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 17
     end
     object edtempo: trealspinedit
       Tag = 9
@@ -267,7 +267,7 @@ object songplayerfo: tsongplayerfo
       valuemax = 9999999
       step = 0.01
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 17
     end
     object btinfos: tbutton
       Tag = 15
@@ -503,10 +503,9 @@ object songplayerfo: tsongplayerfo
       bounds_x = 334
       bounds_y = 52
       bounds_cx = 96
-      bounds_cy = 18
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 15
+      reffontheight = 17
     end
     object llength: tstringdisp
       optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_noclampinview]
@@ -520,10 +519,9 @@ object songplayerfo: tsongplayerfo
       bounds_x = 334
       bounds_y = 73
       bounds_cx = 96
-      bounds_cy = 18
       textflags = [tf_xcentered, tf_ycentered]
       value = '00:00:00.000'
-      reffontheight = 15
+      reffontheight = 17
     end
     object cbloopb: tbutton
       frame.localprops = [frl_optionsskin]
@@ -672,8 +670,8 @@ object songplayerfo: tsongplayerfo
       bounds_x = 125
       bounds_y = -2
       bounds_cx = 148
-      bounds_cy = 42
-      reffontheight = 15
+      bounds_cy = 44
+      reffontheight = 17
       object setmono: tbooleanedit
         color = -2147483645
         frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
@@ -688,7 +686,7 @@ object songplayerfo: tsongplayerfo
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
           18
-          1
+          2
           0
           2
         )
@@ -696,9 +694,9 @@ object songplayerfo: tsongplayerfo
         face.template = mainfo.tfaceplayerlight
         hint = 'Mono/Stereo'
         bounds_x = 97
-        bounds_y = 9
+        bounds_y = 8
         bounds_cx = 30
-        bounds_cy = 15
+        bounds_cy = 16
         onchange = ChangeStereo2Mono
         colorglyph = 4539717
       end
@@ -716,8 +714,8 @@ object songplayerfo: tsongplayerfo
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          18
-          1
+          17
+          2
           0
           2
         )
@@ -725,10 +723,10 @@ object songplayerfo: tsongplayerfo
         face.template = mainfo.tfaceplayerlight
         taborder = 1
         hint = ' Show wave form in slider '
-        bounds_x = 66
-        bounds_y = 9
-        bounds_cx = 30
-        bounds_cy = 15
+        bounds_x = 67
+        bounds_y = 8
+        bounds_cx = 29
+        bounds_cy = 16
         statfile = mainfo.tstatfile1
         onchange = onchachewav
         colorglyph = 4868682
@@ -747,8 +745,8 @@ object songplayerfo: tsongplayerfo
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          16
-          1
+          15
+          2
           0
           2
         )
@@ -756,10 +754,10 @@ object songplayerfo: tsongplayerfo
         face.template = mainfo.tfaceplayerlight
         taborder = 2
         hint = ' Enable playing reverse.'
-        bounds_x = 38
-        bounds_y = 9
-        bounds_cx = 28
-        bounds_cy = 15
+        bounds_x = 39
+        bounds_y = 8
+        bounds_cx = 27
+        bounds_cy = 16
         onchange = changereverse
         colorglyph = 4539717
       end
@@ -777,8 +775,8 @@ object songplayerfo: tsongplayerfo
         frame.localprops = [frl_hiddenedges, frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
         frame.outerframe = (
-          14
-          1
+          13
+          2
           0
           2
         )
@@ -786,10 +784,10 @@ object songplayerfo: tsongplayerfo
         face.template = mainfo.tfaceplayerlight
         taborder = 3
         hint = ' Enable looping the song. (Pause is not enabled with loop.) '
-        bounds_x = 38
-        bounds_y = 18
-        bounds_cx = 26
-        bounds_cy = 15
+        bounds_x = 39
+        bounds_y = 17
+        bounds_cx = 25
+        bounds_cy = 16
         statfile = mainfo.tstatfile1
         onchange = changeloop
         colorglyph = 4539717
@@ -808,8 +806,8 @@ object songplayerfo: tsongplayerfo
         frame.outerframe = (
           0
           2
-          17
-          2
+          16
+          3
         )
         face.localprops = []
         face.template = mainfo.tfaceplayerlight
@@ -817,8 +815,8 @@ object songplayerfo: tsongplayerfo
         hint = ' Enable stretching (changing tempo) '
         bounds_x = 58
         bounds_y = 21
-        bounds_cx = 30
-        bounds_cy = 15
+        bounds_cx = 29
+        bounds_cy = 16
         onchange = ChangePlugSetSoundTouch
         colorglyph = 4539717
       end
@@ -838,7 +836,7 @@ object songplayerfo: tsongplayerfo
       bounds_cx = 76
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Player 1'
-      reffontheight = 15
+      reffontheight = 17
     end
     object historyfn: thistoryedit
       optionswidget1 = [ow1_fontglyphheight]
@@ -887,7 +885,7 @@ object songplayerfo: tsongplayerfo
           colorselect = 16764303
         end>
       dropdown.historymaxcount = 50
-      reffontheight = 15
+      reffontheight = 17
     end
     object edpitch: trealspinedit
       Tag = 9
@@ -927,7 +925,7 @@ object songplayerfo: tsongplayerfo
       valuemax = 9999999
       step = 0.01
       wheelsensitivity = 1
-      reffontheight = 15
+      reffontheight = 17
     end
     object hintpanel: tgroupbox
       face.fade_pos.count = 2
@@ -951,24 +949,24 @@ object songplayerfo: tsongplayerfo
       object hintlabel: tlabel
         bounds_x = 21
         bounds_y = 6
-        bounds_cx = 169
-        bounds_cy = 15
+        bounds_cx = 151
+        bounds_cy = 17
         caption = 'Invalid value.  Reset to 100.'
         font.name = 'stf_default'
         font.localprops = []
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 15
+        reffontheight = 17
       end
       object hintlabel2: tlabel
         taborder = 1
         bounds_x = 7
         bounds_y = 27
-        bounds_cx = 215
-        bounds_cy = 15
+        bounds_cx = 198
+        bounds_cy = 17
         caption = 'Or press Esc key for previous value.'
         font.name = 'stf_default'
         font.localprops = []
-        reffontheight = 15
+        reffontheight = 17
       end
     end
     object panelwave: tpaintbox
@@ -981,7 +979,7 @@ object songplayerfo: tsongplayerfo
       face.template = tfaceslider
       taborder = 28
       bounds_x = 0
-      bounds_y = 97
+      bounds_y = 96
       bounds_cx = 434
       bounds_cy = 30
       onmouseevent = onmouseev

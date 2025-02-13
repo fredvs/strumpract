@@ -67,9 +67,9 @@ object mainfo: tmainfo
   container.face.template = tfacebutgray
   container.bounds = (
     0
-    18
+    19
     442
-    78
+    77
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -218,12 +218,12 @@ object mainfo: tmainfo
       bounds_x = 371
       bounds_y = 32
       bounds_cx = 29
-      bounds_cy = 19
+      bounds_cy = 23
       statfile = tstatfile1
       value = 1
       valuedefault = 1
       valuemax = 100
-      reffontheight = 13
+      reffontheight = 17
     end
     object drumsvisible: tintegeredit
       color = 1001216
@@ -234,10 +234,10 @@ object mainfo: tmainfo
       bounds_x = 396
       bounds_y = 39
       bounds_cx = 29
-      bounds_cy = 19
+      bounds_cy = 23
       statfile = tstatfile1
       valuemax = 100
-      reffontheight = 13
+      reffontheight = 17
     end
   end
   object typecolor: tintegeredit
@@ -246,16 +246,16 @@ object mainfo: tmainfo
     frame.localprops1 = []
     taborder = 1
     visible = False
-    bounds_x = 400
-    bounds_y = 7
+    bounds_x = 402
+    bounds_y = 6
     bounds_cx = 29
-    bounds_cy = 19
+    bounds_cy = 23
     statfile = tstatfile1
     onchange = onchangevalcolor
     value = 2
     valuemin = -1
     valuemax = 10
-    reffontheight = 13
+    reffontheight = 17
   end
   object tmainmenu1: tmainmenu
     popupfacetemplate = tfacebutltgray
@@ -3116,7 +3116,7 @@ object mainfo: tmainfo
     top = 12
   end
   object ttimer1: ttimer
-    interval = 80000
+    interval = 100000
     ontimer = ontimertransp
     enabled = True
     left = 210
@@ -3209,6 +3209,7 @@ object mainfo: tmainfo
     top = 33
   end
   object ttimer3: ttimer
+    interval = 1500000
     options = [to_single]
     ontimer = ontimerendloop
     left = 351
