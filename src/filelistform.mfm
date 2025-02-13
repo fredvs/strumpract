@@ -286,7 +286,7 @@ object filelistfo: tfilelistfo
       face.template = mainfo.tfaceorange
       taborder = 2
       hint = 'Sent selected song to cue for Player 1'
-      bounds_x = 354
+      bounds_x = 355
       bounds_y = 144
       bounds_cx = 38
       bounds_cy = 24
@@ -480,7 +480,7 @@ object filelistfo: tfilelistfo
         end      
         item
           colorselect = 16763002
-          width = 59
+          width = 58
           options = [co_readonly, co_nofocus, co_multiselect, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           textflags = [tf_xcentered, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -511,7 +511,7 @@ object filelistfo: tfilelistfo
         end      
         item
           colorselect = 16763002
-          width = 63
+          width = 64
           options = [co_readonly, co_nofocus, co_multiselect, co_rowselect, co_savevalue, co_savestate, co_mousescrollrow]
           textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
           optionsedit1 = [oe1_noselectall, oe1_keyexecute, oe1_readonlydialog, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread]
@@ -668,7 +668,7 @@ object filelistfo: tfilelistfo
       statfile = tstatfile1
       statpriority = 1
       oncellevent = oncellev
-      reffontheight = 17
+      reffontheight = 13
       object tbutton7: tbutton
         face.localprops = []
         bounds_x = 119
@@ -686,9 +686,9 @@ object filelistfo: tfilelistfo
       bounds_x = 259
       bounds_y = 41
       bounds_cx = 20
-      bounds_cy = 23
+      bounds_cy = 19
       statfile = mainfo.tstatfile1
-      reffontheight = 17
+      reffontheight = 13
     end
     object tbutton3: tbutton
       color = -2147483645
@@ -949,9 +949,9 @@ object filelistfo: tfilelistfo
       taborder = 1
       hint = 'History of Directories'
       bounds_x = 27
-      bounds_y = 142
+      bounds_y = 144
       bounds_cx = 226
-      bounds_cy = 26
+      bounds_cy = 22
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -969,7 +969,7 @@ object filelistfo: tfilelistfo
       dropdown.historymaxcount = 50
       onbeforedropdown = onbefdrop
       onafterclosedropdown = onaftdrop
-      reffontheight = 17
+      reffontheight = 13
     end
     object tbutton6: tbutton
       Tag = 1
@@ -1026,10 +1026,10 @@ object filelistfo: tfilelistfo
         CECECE01C6C6C601CFCECE01D0CFCF01D1D1D101D5D5D501D4D4D401A0A0A001
         00000007839688019FBAA301779A7C0165926E016B94740183978601858D8601
         7B7D7B0181818101878787018989890182808001888888018787870194949401
-        9C9C9C018A8A8A01000000340000000000000000F8FF0000FCFF0000FEFF0000
-        FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0700
-        FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00
-        F8FF0F000000000000000000
+        9C9C9C018A8A8A0100000034000000FF000000FFF8FF00FFFCFF00FFFEFF00FF
+        FCFF03FFFCFF03FFFCFF03FFFCFF03FFFCFF03FFFCFF03FFFCFF03FFFCFF07FF
+        FCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFF
+        F8FF0FFF000000FF000000FF
       }
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
@@ -1055,7 +1055,7 @@ object filelistfo: tfilelistfo
       taborder = 5
       visible = False
       bounds_x = 0
-      bounds_y = 79
+      bounds_y = 134
       bounds_cx = 434
       bounds_cy = 32
       anchors = [an_bottom]
@@ -1065,11 +1065,11 @@ object filelistfo: tfilelistfo
         bounds_x = 2
         bounds_y = 10
         bounds_cx = 430
-        bounds_cy = 17
+        bounds_cy = 13
         anchors = [an_top]
         caption = 'error'
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 17
+        reffontheight = 13
       end
     end
   end

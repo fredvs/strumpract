@@ -30,9 +30,9 @@ object wavefo: twavefo
   container.frame.sbvert.width = 1
   container.bounds = (
     0
-    19
+    15
     434
-    89
+    93
   )
   dragdock.splitter_grip = stb_default
   dragdock.facetab = mainfo.tfacebutgray
@@ -168,7 +168,7 @@ object wavefo: twavefo
     frame.localprops1 = []
     enabled = False
     bounds_x = 0
-    bounds_y = 73
+    bounds_y = 77
     bounds_cx = 432
     bounds_cy = 16
     anchors = [an_left, an_bottom]
@@ -189,9 +189,9 @@ object wavefo: twavefo
       -1610612732
     )
     datarowlinecolor = -1879048167
-    datarowheight = 17
+    datarowheight = 13
     statpriority = 1
-    reffontheight = 17
+    reffontheight = 13
   end
   object panelwave: tpaintbox
     optionswidget = [ow_mousefocus, ow_tabfocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
@@ -205,7 +205,7 @@ object wavefo: twavefo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 434
-    bounds_cy = 89
+    bounds_cy = 93
     anchors = []
     onmouseevent = onmouseevw
   end
@@ -282,8 +282,9 @@ object wavefo: twavefo
     menu.state = [as_localcolorglyph]
     menu.font.name = 'stf_menu'
     menu.font.localprops = []
+    menu.fontactive.color = 16745472
     menu.fontactive.name = 'stf_menu'
-    menu.fontactive.localprops = []
+    menu.fontactive.localprops = [flp_color]
     left = 299
     top = 44
   end

@@ -315,6 +315,8 @@ begin
   edvolright.font.Height := fontheight;
   edvolright.font.color  := font.color;
   
+  trackbar1.height := roundmath(30 * ratio); 
+  
   with tgroupbox1 do
     for i1 := 0 to childrencount - 1 do
       for i2 := 0 to length(boundchildsp) - 1 do

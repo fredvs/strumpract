@@ -86,10 +86,13 @@ uses
 
 var
   fowidthf: integer;
+  boundchildli: array of boundchild;
+  
 
 procedure tfilelistfo.resizefi(fontheight: integer);
 var
   ratio: float;
+  i1, i2 : integer;
 begin
   ratio        := fontheight / 12;
   bounds_cxmin := roundmath(442 * ratio);
@@ -99,13 +102,33 @@ begin
    bounds_cymax := bounds_cymin
    else bounds_cymax := 0;
  //  bounds_cx    := bounds_cxmin;
-  
  
+ with tgroupbox1 do
+  begin
+    for i1      := 0 to tgroupbox1.childrencount - 1 do
+      for i2 := 0 to length(boundchildli) - 1 do
+        if tgroupbox1.children[i1].Name = boundchildli[i2].Name then
+        begin
+          tgroupbox1.children[i1].left   := roundmath(boundchildli[i2].left * ratio);
+          tgroupbox1.children[i1].top    := roundmath(boundchildli[i2].top * ratio);
+          tgroupbox1.children[i1].Width  := roundmath(boundchildli[i2].Width * ratio);
+          tgroupbox1.children[i1].Height := roundmath(boundchildli[i2].Height * ratio);
+        end;
+  end;
+  
   font.Height  := fontheight;
   historyfn.font.Height  := fontheight;
   historyfn.font.color  := font.color;
-
+  
   list_files.datarowheight := round(18 * ratio);
+  list_files.fixrows[-1].height := round(18 * ratio);
+  list_files.fixcols[-1].width := round(36 * ratio);
+  
+  list_files[0].Width := round(216 * ratio);
+  list_files[1].Width := round(58 * ratio);
+  list_files[2].Width := round(64 * ratio);
+  list_files[3].Width := round(46 * ratio);
+  
   list_files.font.Height        := fontheight;
   list_files.rowfonts[0].Height := fontheight;
   list_files.rowfonts[1].Height := fontheight;
@@ -113,13 +136,11 @@ begin
   list_files.frame.sbvert.width := roundmath(10 * ratio);
 
   frame.grip_size := roundmath(8 * ratio);
-  fowidthf        := roundmath(442 * ratio);
-  list_files[0].Width :=
-    roundmath(list_files.Width - frame.grip_size - list_files.fixcols[-1].Width - list_files[1].Width - list_files[2].Width -
-    list_files[3].Width - list_files[4].Width);
-
+ 
   list_files.Height        := Height - historyfn.height - 4;
  
+  historyfn.top := height - historyfn.height -2;
+  
   tbutton6.top := historyfn.top;
   tbutton3.top := historyfn.top;
   tbutton4.top := historyfn.top;
@@ -127,15 +148,7 @@ begin
   tbutton11.top := historyfn.top;
   tbutton1.top := historyfn.top;
   tbutton2.top := historyfn.top;
-  
-  tbutton6.Height := historyfn.Height;
-  tbutton3.Height := historyfn.Height;
-  tbutton4.Height := historyfn.Height;
-  tbutton5.Height := historyfn.Height;
-  tbutton11.Height := historyfn.Height;
-  tbutton1.Height := historyfn.Height;
-  tbutton2.Height := historyfn.Height;
-   
+ 
 end;
 
 procedure tfilelistfo.formcreated(const Sender: TObject);
@@ -946,14 +959,26 @@ end;
 procedure tfilelistfo.oncreate(const Sender: TObject);
 var
 ordir : msestring;
-
+i1, childn: integer;
 begin
  {$if defined(netbsd) or defined(darwin)}
   windowopacity := 1;
  {$else}
   windowopacity := 0;  
  {$endif}
-  
+ 
+   setlength(boundchildli, tgroupbox1.childrencount);
+
+  with tgroupbox1 do
+   for i1 := 0 to tgroupbox1.childrencount - 1 do
+  begin
+    boundchildli[i1].left   := children[i1].left;
+    boundchildli[i1].top    := children[i1].top;
+    boundchildli[i1].Width  := children[i1].Width;
+    boundchildli[i1].Height := children[i1].Height;
+    boundchildli[i1].Name   := children[i1].Name;
+  end;
+   
  {$if defined(netbsd) or defined(darwin)}
 //  tbutton6.face.image :=  tbutton7.face.image; 
 //  tbutton6.caption := 'C';

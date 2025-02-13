@@ -67,9 +67,9 @@ object mainfo: tmainfo
   container.face.template = tfacebutgray
   container.bounds = (
     0
-    19
+    18
     442
-    77
+    78
   )
   mainmenu = tmainmenu1
   options = [fo_main, fo_terminateonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat, fo_savepos, fo_savezorder, fo_savestate]
@@ -218,12 +218,12 @@ object mainfo: tmainfo
       bounds_x = 371
       bounds_y = 32
       bounds_cx = 29
-      bounds_cy = 23
+      bounds_cy = 19
       statfile = tstatfile1
       value = 1
       valuedefault = 1
       valuemax = 100
-      reffontheight = 17
+      reffontheight = 13
     end
     object drumsvisible: tintegeredit
       color = 1001216
@@ -231,13 +231,13 @@ object mainfo: tmainfo
       frame.localprops1 = []
       taborder = 1
       visible = False
-      bounds_x = 367
-      bounds_y = 46
+      bounds_x = 396
+      bounds_y = 39
       bounds_cx = 29
-      bounds_cy = 23
+      bounds_cy = 19
       statfile = tstatfile1
       valuemax = 100
-      reffontheight = 17
+      reffontheight = 13
     end
   end
   object typecolor: tintegeredit
@@ -249,13 +249,13 @@ object mainfo: tmainfo
     bounds_x = 400
     bounds_y = 7
     bounds_cx = 29
-    bounds_cy = 23
+    bounds_cy = 19
     statfile = tstatfile1
     onchange = onchangevalcolor
     value = 2
     valuemin = -1
     valuemax = 10
-    reffontheight = 17
+    reffontheight = 13
   end
   object tmainmenu1: tmainmenu
     popupfacetemplate = tfacebutltgray
@@ -797,6 +797,9 @@ object mainfo: tmainfo
     menu.state = [as_localonexecute]
     menu.font.name = 'stf_default'
     menu.font.localprops = [flp_options]
+    menu.fontactive.color = 16743168
+    menu.fontactive.name = 'stf_default'
+    menu.fontactive.localprops = [flp_color]
     left = 7
   end
   object tstatfile1: tstatfile
@@ -3116,8 +3119,8 @@ object mainfo: tmainfo
     interval = 80000
     ontimer = ontimertransp
     enabled = True
-    left = 103
-    top = 32
+    left = 210
+    top = 33
   end
   object ttimer2: ttimer
     interval = 180000000
@@ -3204,5 +3207,11 @@ object mainfo: tmainfo
     controller.options = [fdo_sysfilename, fdo_savelastdir]
     left = 10
     top = 33
+  end
+  object ttimer3: ttimer
+    options = [to_single]
+    ontimer = ontimerendloop
+    left = 351
+    top = 47
   end
 end

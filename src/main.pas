@@ -11,59 +11,15 @@ unit main;
 interface
 
 uses
- {$ifdef windows}win_mixer,{$endif}msetypes,
-  msefileutils,
-  mseglob,
-  config,
-  configlayout,
-  BGRABitmap,
-  BGRABitmapTypes,
-  BGRAGradients,
-  BGRAGradientScanner,
-  mseguiglob,
-  po2arrays,
-  msegraphedits,
-  msescrollbar,
-  Process,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msechart,
-  msedock,
-  msedataedits,
-  mseedit,
-  msestatfile,
-  SysUtils,
-  Classes,
-  Math,
-  msebitmap,
-  synthe,
-  msesys,
-  msemenus,
-  msestream,
-  msegrids,
-  mselistbrowser,
-  mseact,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestrings,
-  msedatanodes,
-  msedragglob,
-  msedropdownlist,
-  msefiledialogx,
-  msegridsglob,
-  msetimer,{$IFDEF unix}dynlibs,
- {$ENDIF}msestockobjects,
-  mseconsts,
-  captionstrumpract,
-  mseimage;
+ {$ifdef windows}win_mixer,{$endif}msetypes,msefileutils,mseglob,config,
+ configlayout,BGRABitmap,BGRABitmapTypes,BGRAGradients,BGRAGradientScanner,
+ mseguiglob,po2arrays,msegraphedits,msescrollbar,Process,mseguiintf,
+ mseapplication,msestat,msegui,msegraphics,msegraphutils,mseclasses,msewidgets,
+ mseforms,msechart,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,
+ Math,msebitmap,synthe,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,
+ mseificomp,mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,
+ msedropdownlist,msefiledialogx,msegridsglob,msetimer,{$IFDEF unix}dynlibs,
+ {$ENDIF}msestockobjects,mseconsts,captionstrumpract,mseimage;
 
 type
   boundchild = record
@@ -100,6 +56,7 @@ type
     buttonicons: timagelist;
 
     tfiledialogx2: tfiledialogx;
+   ttimer3: ttimer;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -182,6 +139,7 @@ type
     procedure beforefaceplayer(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty; var handled: Boolean);
     procedure aftergreen(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
     procedure beforegreen(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty; var handled: Boolean);
+   procedure ontimerendloop(const sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -454,6 +412,8 @@ begin
   paintslider();
 
   resizema(fontval);
+  
+  messagefontheight := fontval; 
 
   if fontval < 12 then
   begin
@@ -467,6 +427,21 @@ begin
   end;
 
   updatelayoutstrum();
+  
+   dockpanel1fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel1fo.tmainmenu1.menu.fontactive.Height := fontval;
+   
+     dockpanel2fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel2fo.tmainmenu1.menu.fontactive.Height := fontval;
+
+  dockpanel3fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel3fo.tmainmenu1.menu.fontactive.Height := fontval;
+
+  dockpanel4fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel4fo.tmainmenu1.menu.fontactive.Height := fontval;
+
+  dockpanel5fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel5fo.tmainmenu1.menu.fontactive.Height := fontval;
 
   if dockpanel1fo.Visible then
     dockpanel1fo.updatelayoutpan();
@@ -504,7 +479,7 @@ begin
   commanderfoheight := roundmath(128 * ratio);
   equalizerfoheight := roundmath(142 * ratio);
   tmainmenu1.menu.font.Height := fontheight;
-
+  tmainmenu1.menu.fontactive.Height := fontheight;
 end;
 
 procedure tmainfo.setlangstrumpract(thelang: string);
@@ -7668,15 +7643,13 @@ begin
   commanderfo.tslider3.scrollbar.facebutton.image.alignment   :=
     [al_xcentered, al_stretchx, al_stretchy];
 
-
   songplayerfo.DrawWaveForm();
   songplayer2fo.DrawWaveForm();
 
   commanderfo.ontimerinit(nil);
   songplayerfo.ontimercheck(nil);
   songplayer2fo.ontimercheck(nil);
-
-end;
+ end;
 
 procedure tmainfo.onmenuaudio(const Sender: TObject);
 begin
@@ -8506,10 +8479,7 @@ begin
 
   oncreatedform(Sender);
 
-  if isactivated = False then
-  begin
-    isactivated := True;
-    conflangfo.Visible := False;
+   conflangfo.Visible := False;
     oldlang := MSEFallbackLang;
 
     if conflangfo.setasdefault.Value = True then
@@ -8525,7 +8495,7 @@ begin
       setlangstrumpract(MSEFallbackLang);
 
     configlayoutfo.onchangehint(Sender);
-  end;
+ 
   if mainfo.drumsvisible.Value = 1 then
     drumsfo.Visible := True;
 
@@ -8571,7 +8541,8 @@ begin
     commanderfo.volumeleft2.Value  := 0;
     songplayerfo.doplayerstart(nil);
   end;
-
+  
+  ttimer3.enabled := true;
 end;
 
 procedure tmainfo.showinfos1(const Sender: TObject);
@@ -8726,6 +8697,16 @@ begin
   image.Draw(Canvas, 0, 0, True);
   image.Free;
   grad.Free;
+end;
+
+procedure tmainfo.ontimerendloop(const sender: TObject);
+begin
+ commanderfo.invalidatewidget;
+  songplayerfo.invalidatewidget;
+  songplayer2fo.invalidatewidget;
+  filelistfo.invalidatewidget;
+  application.processmessages;
+  isactivated := True;
 end;
 
 
