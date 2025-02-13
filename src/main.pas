@@ -154,7 +154,7 @@ function RoundMath(aV: double): int64; overload;
 function RoundMath(aV: single): int64; overload;
 
 const
-  versiontext = '4.0.0';
+  versiontext = '4.2.0';
 
 var
   statdirname: msestring = '^/.strumpract';
