@@ -5,6 +5,8 @@ object commanderfo: tcommanderfo
   frame.localprops1 = []
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
+  frame.grip_colorbutton = 13948116
+  frame.grip_colorbuttonactive = 13948116
   frame.grip_options = [go_closebutton, go_buttonhints, go_vert]
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacebutgray

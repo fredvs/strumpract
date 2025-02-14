@@ -4,6 +4,7 @@ object songplayerfo: tsongplayerfo
   frame.localprops1 = []
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
+  frame.grip_colorbutton = 14013909
   frame.grip_options = [go_closebutton, go_buttonhints, go_vert]
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacebutgray

@@ -381,7 +381,10 @@ begin
 end;
 
 procedure tmainfo.applyfont(fontval: integer);
+var
+ratio : double;
 begin
+  ratio := fontval/12;
   fontheightused := fontval;
   commanderfo.resizeco(fontval);
   wavefo.onresizfont(fontval);
@@ -430,19 +433,24 @@ begin
   
    dockpanel1fo.tmainmenu1.menu.font.Height := fontval;
    dockpanel1fo.tmainmenu1.menu.fontactive.Height := fontval;
+   dockpanel1fo.container.frame.sbvert.width := roundmath(10 * ratio);
    
-     dockpanel2fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel2fo.tmainmenu1.menu.font.Height := fontval;
    dockpanel2fo.tmainmenu1.menu.fontactive.Height := fontval;
-
-  dockpanel3fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel2fo.container.frame.sbvert.width := roundmath(10 * ratio);
+  
+   dockpanel3fo.tmainmenu1.menu.font.Height := fontval;
    dockpanel3fo.tmainmenu1.menu.fontactive.Height := fontval;
-
-  dockpanel4fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel3fo.container.frame.sbvert.width := roundmath(10 * ratio);
+   
+   dockpanel4fo.tmainmenu1.menu.font.Height := fontval;
    dockpanel4fo.tmainmenu1.menu.fontactive.Height := fontval;
-
-  dockpanel5fo.tmainmenu1.menu.font.Height := fontval;
+   dockpanel4fo.container.frame.sbvert.width := roundmath(10 * ratio);
+   
+   dockpanel5fo.tmainmenu1.menu.font.Height := fontval;
    dockpanel5fo.tmainmenu1.menu.fontactive.Height := fontval;
-
+   dockpanel5fo.container.frame.sbvert.width := roundmath(10 * ratio);
+   
   if dockpanel1fo.Visible then
     dockpanel1fo.updatelayoutpan();
 
@@ -480,6 +488,7 @@ begin
   equalizerfoheight := roundmath(142 * ratio);
   tmainmenu1.menu.font.Height := fontheight;
   tmainmenu1.menu.fontactive.Height := fontheight;
+  container.frame.sbvert.width := roundmath(10 * ratio);
 end;
 
 procedure tmainfo.setlangstrumpract(thelang: string);
@@ -2219,12 +2228,15 @@ begin
       rect1 := application.screenrect(window);
 
       maxheightfo := rect1.cy - 70;
+      
+      scrollwidth := container.frame.sbvert.width;
 
       if (fs_sbverton in container.frame.state) then
-        Width := fowidth + scrollwidth//  writeln('Has scrollwidth');
+        Width := fowidth + scrollwidth +1 //  writeln('Has scrollwidth');
       else
-        Width := fowidth// writeln('Has NO scrollwidth');
-      ;
+        Width := fowidth;
+        // writeln('Has NO scrollwidth');
+    
 
       bounds_cx := Width;
 
@@ -3088,13 +3100,11 @@ begin
 
   wavefo2.bounds_cx := roundmath(300 * ratio);
   wavefo2.bounds_cy := roundmath(100 * ratio);
-  ;
-
+  
   wavefo.bounds_cx := roundmath(300 * ratio);
-  ;
+  
   wavefo.bounds_cy := roundmath(100 * ratio);
-  ;
-
+  
   waveforec.bounds_cx := roundmath(300 * ratio);
   waveforec.bounds_cy := roundmath(100 * ratio);
 
@@ -3108,7 +3118,7 @@ begin
   infosdfo2.bounds_cymax := 0;
 
   infosdfo.Height := roundmath(226 * ratio);
-  ;
+  
   infosdfo.Width  := fowidth;
 
   infosdfo2.Height := infosdfo.Height;

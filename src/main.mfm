@@ -52,17 +52,12 @@ object mainfo: tmainfo
   container.frame.sbvert.face1.localprops = []
   container.frame.sbvert.facebutton.localprops = []
   container.frame.sbvert.facebutton.template = tfacebutltgray
-  container.frame.sbvert.faceendbutton.localprops = []
-  container.frame.sbvert.faceendbutton.template = tfacebutgray
   container.frame.sbvert.framebutton.localprops = []
   container.frame.sbvert.framebutton.localprops1 = []
   container.frame.sbvert.framebutton.template = commanderfo.tframecomp2
   container.frame.sbvert.frameendbutton1.colorclient = -2147483645
   container.frame.sbvert.frameendbutton1.localprops = []
   container.frame.sbvert.frameendbutton1.localprops1 = []
-  container.frame.sbvert.frameendbutton2.localprops = []
-  container.frame.sbvert.frameendbutton2.localprops1 = []
-  container.frame.sbvert.frameendbutton2.template = commanderfo.tframecomp2
   container.face.localprops = []
   container.face.template = tfacebutgray
   container.bounds = (

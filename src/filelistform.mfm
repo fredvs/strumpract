@@ -4,6 +4,8 @@ object filelistfo: tfilelistfo
   frame.localprops1 = []
   frame.grip_size = 8
   frame.grip_grip = stb_dens0
+  frame.grip_colorbutton = 14013909
+  frame.grip_colorbuttonactive = 14013909
   frame.grip_options = [go_closebutton, go_buttonhints, go_vert]
   frame.grip_face.localprops = []
   frame.grip_face.template = mainfo.tfacebutgray
@@ -668,7 +670,7 @@ object filelistfo: tfilelistfo
       statfile = tstatfile1
       statpriority = 1
       oncellevent = oncellev
-      reffontheight = 13
+      reffontheight = 17
       object tbutton7: tbutton
         face.localprops = []
         bounds_x = 119
@@ -686,9 +688,9 @@ object filelistfo: tfilelistfo
       bounds_x = 259
       bounds_y = 41
       bounds_cx = 20
-      bounds_cy = 19
+      bounds_cy = 23
       statfile = mainfo.tstatfile1
-      reffontheight = 13
+      reffontheight = 17
     end
     object tbutton3: tbutton
       color = -2147483645
@@ -949,9 +951,9 @@ object filelistfo: tfilelistfo
       taborder = 1
       hint = 'History of Directories'
       bounds_x = 27
-      bounds_y = 144
+      bounds_y = 140
       bounds_cx = 226
-      bounds_cy = 22
+      bounds_cy = 26
       anchors = [an_left, an_right, an_bottom]
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate]
@@ -969,7 +971,7 @@ object filelistfo: tfilelistfo
       dropdown.historymaxcount = 50
       onbeforedropdown = onbefdrop
       onafterclosedropdown = onaftdrop
-      reffontheight = 13
+      reffontheight = 17
     end
     object tbutton6: tbutton
       Tag = 1
@@ -1026,10 +1028,10 @@ object filelistfo: tfilelistfo
         CECECE01C6C6C601CFCECE01D0CFCF01D1D1D101D5D5D501D4D4D401A0A0A001
         00000007839688019FBAA301779A7C0165926E016B94740183978601858D8601
         7B7D7B0181818101878787018989890182808001888888018787870194949401
-        9C9C9C018A8A8A0100000034000000FF000000FFF8FF00FFFCFF00FFFEFF00FF
-        FCFF03FFFCFF03FFFCFF03FFFCFF03FFFCFF03FFFCFF03FFFCFF03FFFCFF07FF
-        FCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFFFCFF0FFF
-        F8FF0FFF000000FF000000FF
+        9C9C9C018A8A8A01000000340000000000000000F8FF0000FCFF0000FEFF0000
+        FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0300FCFF0700
+        FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00FCFF0F00
+        F8FF0F000000000000000000
       }
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection, fal_image]
@@ -1065,11 +1067,11 @@ object filelistfo: tfilelistfo
         bounds_x = 2
         bounds_y = 10
         bounds_cx = 430
-        bounds_cy = 13
+        bounds_cy = 17
         anchors = [an_top]
         caption = 'error'
         textflags = [tf_xcentered, tf_ycentered]
-        reffontheight = 13
+        reffontheight = 17
       end
     end
   end
