@@ -422,14 +422,16 @@ end;
 procedure tconfiglayoutfo.onchangestyle(const Sender: TObject);
 begin
   if (isactivated = True) then
+   begin
     if bgold.Value then
       mainfo.typecolor.Value := 0
     else if bsilver.Value then
       mainfo.typecolor.Value := 1
     else if bcarbon.Value then
       mainfo.typecolor.Value := 2
-    else
+    else if bbarbie.Value then
       mainfo.typecolor.Value := 3;
+   end;    
 end;
 
 procedure tconfiglayoutfo.onbutsetfont(const Sender: TObject);
