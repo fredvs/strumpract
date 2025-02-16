@@ -1324,15 +1324,6 @@ begin
             // VolLeft : Left volume
             // VolRight : Right volume
             
-            uos_outputSetDSPVolume(theplayer, Outputindex1,
-              (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-            /// Set volume
-            // Playerindex1 : Index of a existing Player
-            // Inputindex1 : InputIndex of a existing Input
-            // VolLeft : Left volume
-            // VolRight : Right volume
-            // Enable : Enabled
-            
              if (configfo.benablemon.value = true) and (outputindexmon1 > 0) then
              begin
              uos_OutputSetLevelEnable(theplayer, outputindexmon1, 2);
@@ -1510,7 +1501,7 @@ begin
                uos_outputSetDSPVolume(theplayer, Outputindex1,
               (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, 
               (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-                       
+                      
               tstringdisp1.face.template := mainfo.tfacegreen;
               tstringdisp1.Value := msestring('Playing ' + theplaying1);
 
@@ -1765,7 +1756,6 @@ begin
 
             llength.Value := utf8decode(format('%.2d:%.2d:%.2d.%.3d', [ho, mi, se, ms]));
 
-
             DSPindex2 := uos_InputAddDSP(theplayer2, Inputindex2, @DSPReverseBefore2, @DSPReverseAfter, nil, nil);
             // add a custom DSP procedure for input
             // Playerindex2 : Index of a existing Player
@@ -1791,7 +1781,6 @@ begin
             begin
               trackbar1.Value   := 0;
               trackbar1.Enabled := True;
-
               wavefo2.trackbar1.Value   := 0;
               wavefo2.container.frame.scrollpos_x := 0;
               wavefo2.trackbar1.Enabled := True;
