@@ -109,7 +109,6 @@ object commanderfo: tcommanderfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    taborder = 1
     bounds_x = 334
     bounds_y = 1
     bounds_cx = 58
@@ -261,6 +260,352 @@ object commanderfo: tcommanderfo
       captiondist = 0
       onexecute = resetvolume
     end
+    object tstringdisp1: tstringdisp
+      frame.localprops = []
+      frame.localprops1 = []
+      taborder = 6
+      visible = False
+      bounds_x = 1
+      bounds_y = 27
+      bounds_cx = 84
+      bounds_cy = 85
+      reffontheight = 17
+      object directmix: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = '0s'
+        frame.captionpos = cp_top
+        frame.captiondist = 0
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          16
+          0
+          0
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        hint = 'Direct MIX (0 second time)'
+        bounds_x = 35
+        bounds_y = 40
+        bounds_cy = 27
+        statfile = mainfo.tstatfile1
+        onchange = onchangedirectmix
+        colorglyph = 4868682
+      end
+      object vuin: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'VU'
+        frame.captionpos = cp_left
+        frame.captiondist = 3
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          18
+          2
+          0
+          3
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        taborder = 1
+        hint = 'View Meters on/off'
+        bounds_x = 43
+        bounds_y = 33
+        bounds_cx = 31
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        onchange = onchangevuset
+        colorglyph = 4868682
+      end
+      object automix: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'AM'
+        frame.captiondist = 3
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          20
+          2
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        taborder = 2
+        hint = 'Auto Mixing on/off'
+        bounds_x = 9
+        bounds_y = 30
+        bounds_cx = 33
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        colorglyph = 4868682
+        value = True
+        valuedefault = True
+      end
+      object speccalc: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'SC'
+        frame.captionpos = cp_left
+        frame.captiondist = 3
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          16
+          2
+          0
+          2
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        taborder = 3
+        hint = 'Enable Spectrum Frequencies Calculation'
+        bounds_x = 45
+        bounds_y = 16
+        bounds_cx = 29
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        colorglyph = 4868682
+        value = True
+        valuedefault = True
+        object tbooleanedit2: tbooleanedit
+          color = -2147483645
+          frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+          frame.colorclient = 16580582
+          frame.caption = 'SC'
+          frame.captionpos = cp_left
+          frame.captiondist = 3
+          frame.font.color = 4013373
+          frame.font.height = 10
+          frame.font.name = 'stf_default'
+          frame.font.localprops = [flp_color, flp_height]
+          frame.localprops = [frl_hiddenedges, frl_colorclient]
+          frame.localprops1 = [frl1_captiondist]
+          frame.outerframe = (
+            16
+            2
+            0
+            2
+          )
+          face.localprops = []
+          face.template = mainfo.tfaceplayerlight
+          hint = 'Enable Spectrum Frequencies Calculation'
+          bounds_x = 16
+          bounds_y = 2
+          bounds_cx = 29
+          bounds_cy = 16
+          statfile = mainfo.tstatfile1
+          colorglyph = 4868682
+          value = True
+          valuedefault = True
+        end
+      end
+      object guimix: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'GM'
+        frame.captiondist = 2
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          20
+          3
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        taborder = 4
+        hint = 'Graphic-anim while mixing (if cpu too low set it off)'
+        bounds_x = 5
+        bounds_y = 17
+        bounds_cx = 33
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        colorglyph = 4868682
+      end
+      object linkvol2: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'L2'
+        frame.captionpos = cp_left
+        frame.captiondist = 3
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          16
+          2
+          0
+          2
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        taborder = 5
+        hint = 'Lock left and right volume Player 2'
+        bounds_x = 45
+        bounds_y = 0
+        bounds_cx = 29
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        colorglyph = 4868682
+        value = True
+      end
+      object linkvol: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'L1 '
+        frame.captiondist = 3
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          19
+          2
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        taborder = 6
+        hint = 'Lock left and right volume Player 1'
+        bounds_x = 16
+        bounds_y = 20
+        bounds_cx = 32
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        colorglyph = 4868682
+        value = True
+      end
+      object linkvolgen: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = '    '
+        frame.captionpos = cp_left
+        frame.captiondist = 3
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          17
+          2
+          0
+          2
+        )
+        face.localprops = []
+        face.template = mainfo.tfacebutltgray
+        taborder = 7
+        hint = 'Link left and right volume general'
+        bounds_x = 29
+        bounds_y = 66
+        bounds_cx = 30
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        colorglyph = 4868682
+        value = True
+      end
+      object randommix: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'VU'
+        frame.captionpos = cp_left
+        frame.captiondist = 3
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          18
+          2
+          0
+          3
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        taborder = 8
+        hint = 'View Meters on/off'
+        bounds_x = 45
+        bounds_y = 46
+        bounds_cx = 31
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        onchange = onchangevuset
+        colorglyph = 4868682
+      end
+      object bolmon: tbooleanedit
+        color = -2147483645
+        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
+        frame.colorclient = 16580582
+        frame.caption = 'AM'
+        frame.captiondist = 3
+        frame.font.color = 4013373
+        frame.font.height = 10
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color, flp_height]
+        frame.localprops = [frl_hiddenedges, frl_colorclient]
+        frame.localprops1 = [frl1_captiondist]
+        frame.outerframe = (
+          0
+          2
+          20
+          2
+        )
+        face.localprops = []
+        face.template = mainfo.tfaceplayerlight
+        taborder = 9
+        bounds_x = 3
+        bounds_y = 60
+        bounds_cx = 33
+        bounds_cy = 16
+        statfile = mainfo.tstatfile1
+        colorglyph = 4868682
+        valuedefault = True
+      end
+    end
   end
   object tgroupboxinput: tgroupbox
     color = -2147483645
@@ -271,7 +616,7 @@ object commanderfo: tcommanderfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    taborder = 2
+    taborder = 1
     bounds_x = 393
     bounds_y = 1
     bounds_cx = 39
@@ -388,10 +733,10 @@ object commanderfo: tcommanderfo
     frame.colorhighlight = -1610612733
     frame.localprops = [frl_levelo, frl_leveli, frl_colorhighlight]
     frame.localprops1 = []
-    taborder = 3
+    taborder = 2
     bounds_x = 1
     bounds_y = 1
-    bounds_cx = 51
+    bounds_cx = 74
     bounds_cy = 127
     font.name = 'stf_default'
     font.localprops = []
@@ -620,6 +965,130 @@ object commanderfo: tcommanderfo
       font.localprops = []
       onexecute = onexecbutlght
     end
+    object butmonvol: tbutton
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      face.localprops = []
+      face.template = mainfo.tfacebutltgray
+      taborder = 8
+      hint = 'System Master Volume'
+      bounds_x = 52
+      bounds_y = 109
+      bounds_cx = 20
+      bounds_cy = 17
+      state = [as_localcaption, as_localhint, as_localonexecute]
+      caption = '10'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+    end
+    object bmon: tbutton
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceplayerlight
+      taborder = 9
+      hint = 'Monitoring in second device. (enabled via config/audio)'
+      bounds_x = 50
+      bounds_y = 1
+      bounds_cx = 22
+      bounds_cy = 18
+      state = [as_disabled, as_localdisabled, as_localcaption, as_localhint, as_localonexecute]
+      caption = 'Mo'
+      textflags = [tf_xcentered, tf_ycentered]
+      captiondist = 0
+      font.height = 9
+      font.name = 'stf_default'
+      font.localprops = [flp_height]
+      onexecute = onexecbutlght
+    end
+    object monvol: tslider
+      color = -2147483645
+      taborder = 10
+      hint = 'Monitor Volume'
+      bounds_x = 54
+      bounds_y = 21
+      bounds_cx = 16
+      bounds_cy = 86
+      statfile = mainfo.tstatfile1
+      optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
+      value = 0.666666
+      scrollbar.options = [sbo_thumbtrack, sbo_clicktovalue, sbo_moveauto, sbo_showauto, sbo_valuekeys]
+      scrollbar.buttonlength = 17
+      scrollbar.buttonminlength = -1
+      scrollbar.buttonendlength = -1
+      scrollbar.face.image.source = sliderimage
+      scrollbar.face.localprops = [fal_image]
+      scrollbar.facebutton.image.origformat = 'png'
+      scrollbar.facebutton.image.alignment = [al_xcentered, al_stretchx, al_stretchy]
+      scrollbar.facebutton.localprops = [fal_image]
+      scrollbar.facebutton.template = equalizerfo.tfacebuttonslider
+      scrollbar.faceendbutton.fade_pos.count = 2
+      scrollbar.faceendbutton.fade_pos.items = (
+        0
+        1
+      )
+      scrollbar.faceendbutton.fade_color.count = 2
+      scrollbar.faceendbutton.fade_color.items = (
+        12237498
+        15592941
+      )
+      scrollbar.faceendbutton.fade_direction = gd_down
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.colorclient = -2147483645
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      onsetvalue = setmonvol
+      direction = gd_up
+    end
+  end
+  object hintpanel: tgroupbox
+    face.fade_pos.count = 2
+    face.fade_pos.items = (
+      0
+      1
+    )
+    face.fade_color.count = 2
+    face.fade_color.items = (
+      16775664
+      16751892
+    )
+    face.fade_direction = gd_down
+    face.localprops = []
+    taborder = 3
+    visible = False
+    bounds_x = 361
+    bounds_y = 59
+    bounds_cx = 221
+    bounds_cy = 36
+    font.name = 'stf_default'
+    font.localprops = []
+    object hintlabel: tlabel
+      color = -2147483645
+      bounds_x = 26
+      bounds_y = 1
+      bounds_cx = 151
+      bounds_cy = 17
+      caption = 'Invalid value.  Reset to 100.'
+      font.name = 'stf_default'
+      font.localprops = []
+      textflags = [tf_xcentered, tf_ycentered]
+      reffontheight = 17
+    end
+    object hintlabel2: tlabel
+      color = -2147483645
+      taborder = 1
+      bounds_x = 3
+      bounds_y = 17
+      bounds_cx = 198
+      bounds_cy = 17
+      caption = 'Or press Esc key for previous value.'
+      font.name = 'stf_default'
+      font.localprops = []
+      reffontheight = 17
+    end
   end
   object tgroupboxplayers: tgroupbox
     color = -2147483645
@@ -630,12 +1099,113 @@ object commanderfo: tcommanderfo
     frame.localprops1 = []
     face.localprops = []
     face.template = mainfo.tfaceplayer
-    bounds_x = 54
+    taborder = 4
+    bounds_x = 76
     bounds_y = 1
-    bounds_cx = 280
+    bounds_cx = 258
     bounds_cy = 127
     font.name = 'stf_default'
     font.localprops = []
+    object tbutton4: tbutton
+      color = 16754209
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfaceorange
+      taborder = 23
+      hint = 'Pause Mixing'
+      bounds_x = 92
+      bounds_y = 80
+      bounds_cx = 74
+      bounds_cy = 40
+      state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 1
+      focusrectdist = 0
+      onexecute = onpausemix
+    end
+    object tbutton3: tbutton
+      Tag = 4
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceplayerlight
+      taborder = 6
+      hint = 'Start Player 2 --> MIX --> Stop Player 1'
+      bounds_x = 128
+      bounds_y = 80
+      bounds_cx = 37
+      bounds_cy = 40
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = timagelist1
+      imagenr = 1
+      focusrectdist = 0
+      onexecute = onstartstop
+    end
+    object tbutton2: tbutton
+      color = -2147483645
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceorange
+      hint = 'Start Player 1 --> MIX --> Stop Player 2'
+      bounds_x = 92
+      bounds_y = 80
+      bounds_cx = 37
+      bounds_cy = 40
+      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = timagelist1
+      imagenr = 0
+      focusrectdist = 0
+      onexecute = onstartstop
+    end
+    object tbutton5: tbutton
+      color = -2147483645
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceorange
+      taborder = 24
+      hint = 'Pause Mixing'
+      bounds_x = 92
+      bounds_y = 80
+      bounds_cx = 37
+      bounds_cy = 40
+      state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 37
+      focusrectdist = 0
+      onexecute = onresumemix
+    end
+    object tbutton6: tbutton
+      Tag = 1
+      color = -2147483645
+      frame.localprops = [frl_frameimagelist, frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
+      face.template = mainfo.tfaceorange
+      taborder = 25
+      hint = 'Pause Mixing'
+      bounds_x = 128
+      bounds_y = 80
+      bounds_cx = 37
+      bounds_cy = 40
+      state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
+      imagelist = mainfo.buttonicons
+      imagenr = 36
+      focusrectdist = 0
+      onexecute = onresumemix
+    end
     object timemix: trealspinedit
       optionswidget = [ow_mousefocus, ow_arrowfocus, ow_mousewheel, ow_destroywidgets]
       color = -2147483645
@@ -667,11 +1237,11 @@ object commanderfo: tcommanderfo
       frame.buttonsize = 20
       face.localprops = []
       face.template = mainfo.tfaceplayer
-      taborder = 28
+      taborder = 27
       hint = 'Change mixing time in 1/100 second'
-      bounds_x = 99
-      bounds_y = 44
-      bounds_cx = 60
+      bounds_x = 95
+      bounds_y = 41
+      bounds_cx = 49
       bounds_cy = 36
       statfile = mainfo.tstatfile1
       textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
@@ -763,8 +1333,8 @@ object commanderfo: tcommanderfo
       taborder = 4
       hint = 'Left Volume Player 1'
       bounds_x = 39
-      bounds_y = 21
-      bounds_cx = 25
+      bounds_y = 20
+      bounds_cx = 22
       bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -805,9 +1375,9 @@ object commanderfo: tcommanderfo
       color = -2147483645
       taborder = 5
       hint = 'Right Volume Player 1'
-      bounds_x = 65
-      bounds_y = 21
-      bounds_cx = 25
+      bounds_x = 61
+      bounds_y = 20
+      bounds_cx = 22
       bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -842,55 +1412,15 @@ object commanderfo: tcommanderfo
       scrollbar.framebutton.localprops1 = []
       direction = gd_up
     end
-    object tbutton2: tbutton
-      color = -2147483645
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceorange
-      hint = 'Start Player 1 --> MIX --> Stop Player 2'
-      bounds_x = 99
-      bounds_y = 84
-      bounds_cx = 40
-      bounds_cy = 40
-      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = timagelist1
-      imagenr = 0
-      focusrectdist = 0
-      onexecute = onstartstop
-    end
-    object tbutton3: tbutton
-      Tag = 4
-      color = -2147483645
-      frame.localprops = [frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceplayerlight
-      taborder = 6
-      hint = 'Start Player 2 --> MIX --> Stop Player 1'
-      bounds_x = 141
-      bounds_y = 84
-      bounds_cx = 40
-      bounds_cy = 40
-      state = [as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = timagelist1
-      imagenr = 1
-      focusrectdist = 0
-      onexecute = onstartstop
-    end
     object volumeright2: tslider
       Tag = 3
       optionswidget1 = [ow1_autoscale, ow1_noclampinview]
       color = -2147483645
       taborder = 7
       hint = 'Right Volume Player 2'
-      bounds_x = 215
-      bounds_y = 21
-      bounds_cx = 25
+      bounds_x = 197
+      bounds_y = 20
+      bounds_cx = 22
       bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -931,9 +1461,9 @@ object commanderfo: tcommanderfo
       color = -2147483645
       taborder = 8
       hint = 'Left Volume Player 2'
-      bounds_x = 189
-      bounds_y = 21
-      bounds_cx = 25
+      bounds_x = 175
+      bounds_y = 20
+      bounds_cx = 22
       bounds_cy = 86
       statfile = mainfo.tstatfile1
       optionsedit1 = [oe1_autopopupmenu, oe1_keyexecute, oe1_savevalue, oe1_savestate, oe1_checkvalueafterstatread, oe1_thumbtrack]
@@ -1002,7 +1532,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 10
       hint = 'Load and Start Player'
-      bounds_x = 249
+      bounds_x = 228
       bounds_y = 62
       bounds_cx = 28
       bounds_cy = 29
@@ -1024,7 +1554,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 11
       hint = 'Cue-Load-Pause Player'
-      bounds_x = 249
+      bounds_x = 228
       bounds_y = 93
       bounds_cx = 28
       bounds_cy = 29
@@ -1046,7 +1576,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 12
       hint = 'Stop player'
-      bounds_x = 249
+      bounds_x = 228
       bounds_y = 0
       bounds_cx = 28
       bounds_cy = 29
@@ -1075,7 +1605,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 14
       hint = 'Resume player'
-      bounds_x = 249
+      bounds_x = 228
       bounds_y = 31
       bounds_cx = 28
       bounds_cy = 29
@@ -1087,10 +1617,10 @@ object commanderfo: tcommanderfo
     end
     object vuright: tprogressbar
       taborder = 15
-      bounds_x = 92
-      bounds_y = 15
+      bounds_x = 85
+      bounds_y = 20
       bounds_cx = 5
-      bounds_cy = 107
+      bounds_cy = 100
       direction = gd_up
       bar_face.fade_pos.count = 1
       bar_face.fade_pos.items = (
@@ -1109,10 +1639,10 @@ object commanderfo: tcommanderfo
     end
     object vuright2: tprogressbar
       taborder = 16
-      bounds_x = 242
-      bounds_y = 17
-      bounds_cx = 5
-      bounds_cy = 105
+      bounds_x = 222
+      bounds_y = 20
+      bounds_cx = 4
+      bounds_cy = 100
       direction = gd_up
       bar_face.fade_pos.count = 1
       bar_face.fade_pos.items = (
@@ -1131,8 +1661,8 @@ object commanderfo: tcommanderfo
     end
     object vuLeft2: tprogressbar
       taborder = 17
-      bounds_x = 182
-      bounds_y = 22
+      bounds_x = 168
+      bounds_y = 20
       bounds_cx = 5
       bounds_cy = 100
       direction = gd_up
@@ -1159,9 +1689,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutltgray
       taborder = 18
       hint = 'Click to switch to 100% <> 0% '
-      bounds_x = 36
-      bounds_y = 109
-      bounds_cx = 25
+      bounds_x = 39
+      bounds_y = 106
+      bounds_cx = 22
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = '100'
@@ -1177,9 +1707,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutltgray
       taborder = 19
       hint = 'Click to switch to 100% <> 0% '
-      bounds_x = 65
-      bounds_y = 109
-      bounds_cx = 25
+      bounds_x = 61
+      bounds_y = 106
+      bounds_cx = 22
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = '100'
@@ -1195,9 +1725,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutltgray
       taborder = 20
       hint = 'Click to switch to 100% <> 0% '
-      bounds_x = 215
-      bounds_y = 109
-      bounds_cx = 25
+      bounds_x = 197
+      bounds_y = 106
+      bounds_cx = 22
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = '100'
@@ -1213,9 +1743,9 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfacebutltgray
       taborder = 21
       hint = 'Click to switch to 100% <> 0% '
-      bounds_x = 189
-      bounds_y = 109
-      bounds_cx = 25
+      bounds_x = 175
+      bounds_y = 106
+      bounds_cx = 22
       bounds_cy = 17
       state = [as_localcaption, as_localhint, as_localonexecute]
       caption = '100'
@@ -1226,9 +1756,9 @@ object commanderfo: tcommanderfo
     object vuLeft: tprogressbar
       taborder = 22
       bounds_x = 32
-      bounds_y = 17
+      bounds_y = 20
       bounds_cx = 5
-      bounds_cy = 105
+      bounds_cy = 100
       direction = gd_up
       bar_face.fade_pos.count = 1
       bar_face.fade_pos.items = (
@@ -1256,7 +1786,7 @@ object commanderfo: tcommanderfo
       face.fade_direction = gd_down
       face.localprops = [fal_fadirection]
       face.template = mainfo.tfaceplayerlight
-      taborder = 38
+      taborder = 34
       hint = 'Pause player'
       bounds_x = 2
       bounds_y = 31
@@ -1280,7 +1810,7 @@ object commanderfo: tcommanderfo
       face.template = mainfo.tfaceplayerlight
       taborder = 13
       hint = 'Pause player'
-      bounds_x = 249
+      bounds_x = 228
       bounds_y = 31
       bounds_cx = 28
       bounds_cy = 29
@@ -1289,66 +1819,6 @@ object commanderfo: tcommanderfo
       imagenr = 1
       focusrectdist = 0
       onexecute = doplayerpause
-    end
-    object tbutton5: tbutton
-      color = -2147483645
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceorange
-      taborder = 24
-      hint = 'Pause Mixing'
-      bounds_x = 99
-      bounds_y = 84
-      bounds_cx = 40
-      bounds_cy = 40
-      state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 37
-      focusrectdist = 0
-      onexecute = onresumemix
-    end
-    object tbutton6: tbutton
-      Tag = 1
-      color = -2147483645
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.fade_direction = gd_down
-      face.localprops = [fal_fadirection]
-      face.template = mainfo.tfaceorange
-      taborder = 25
-      hint = 'Pause Mixing'
-      bounds_x = 141
-      bounds_y = 84
-      bounds_cx = 40
-      bounds_cy = 40
-      state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 36
-      focusrectdist = 0
-      onexecute = onresumemix
-    end
-    object tbutton4: tbutton
-      color = 16754209
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.localprops = []
-      face.template = mainfo.tfaceorange
-      taborder = 23
-      hint = 'Pause Mixing'
-      bounds_x = 99
-      bounds_y = 84
-      bounds_cx = 82
-      bounds_cy = 40
-      state = [as_invisible, as_localdisabled, as_localinvisible, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
-      imagelist = mainfo.buttonicons
-      imagenr = 1
-      focusrectdist = 0
-      onexecute = onpausemix
     end
     object linkvolb: tbutton
       Tag = 1
@@ -1367,9 +1837,9 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 27
+      taborder = 26
       hint = 'Lock left and right volume Player 1'
-      bounds_x = 80
+      bounds_x = 73
       bounds_y = 1
       bounds_cx = 16
       bounds_cy = 18
@@ -1399,11 +1869,11 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 30
+      taborder = 29
       hint = 'Enable Spectrum Frequencies Calculation'
-      bounds_x = 140
-      bounds_y = 4
-      bounds_cx = 40
+      bounds_x = 130
+      bounds_y = 0
+      bounds_cx = 36
       bounds_cy = 17
       state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
       caption = 'SCal'
@@ -1413,41 +1883,6 @@ object commanderfo: tcommanderfo
       font.localprops = []
       onexecute = onexecbutlght
     end
-    object guimixb: tbutton
-      frame.framei_left = 4
-      frame.framei_top = 2
-      frame.framei_right = 4
-      frame.framei_bottom = 2
-      frame.frameimage_left = -4
-      frame.frameimage_top = -4
-      frame.frameimage_right = -4
-      frame.frameimage_bottom = -4
-      frame.localprops = [frl_frameimagelist, frl_optionsskin]
-      frame.localprops1 = []
-      face.fade_pos.count = 2
-      face.fade_pos.items = (
-        0
-        1
-      )
-      face.fade_color.count = 2
-      face.fade_color.items = (
-        14935011
-        8750469
-      )
-      face.fade_direction = gd_down
-      face.localprops = []
-      taborder = 31
-      hint = 'Graphic-anim while mixing (if cpu too low set it off)'
-      bounds_x = 183
-      bounds_y = 3
-      bounds_cx = 40
-      bounds_cy = 17
-      state = [as_invisible, as_localinvisible, as_localcaption, as_localhint, as_localonexecute]
-      caption = 'GMix'
-      textflags = [tf_xcentered, tf_ycentered]
-      captiondist = 0
-      onexecute = onexecbutlght
-    end
     object vuinb: tbutton
       color = -2147483645
       frame.localprops = [frl_optionsskin]
@@ -1455,11 +1890,11 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 32
+      taborder = 30
       hint = 'View Meters on/off'
-      bounds_x = 99
-      bounds_y = 4
-      bounds_cx = 40
+      bounds_x = 93
+      bounds_y = 0
+      bounds_cx = 36
       bounds_cy = 17
       state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
       caption = 'VU'
@@ -1487,14 +1922,14 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 33
+      taborder = 31
       hint = 'Auto Mixing on/off'
-      bounds_x = 99
-      bounds_y = 24
-      bounds_cx = 40
+      bounds_x = 93
+      bounds_y = 20
+      bounds_cx = 36
       bounds_cy = 17
       state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
-      caption = 'AMix'
+      caption = 'Amix'
       textflags = [tf_xcentered, tf_ycentered]
       captiondist = 0
       font.name = 'stf_default'
@@ -1517,10 +1952,10 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 34
+      taborder = 32
       hint = 'Direct MIX (0 second time)'
-      bounds_x = 162
-      bounds_y = 44
+      bounds_x = 147
+      bounds_y = 41
       bounds_cx = 18
       bounds_cy = 36
       state = [as_localcaption, as_localhint, as_localonexecute]
@@ -1531,292 +1966,6 @@ object commanderfo: tcommanderfo
       font.localprops = []
       onexecute = onexecbutlght
     end
-    object tstringdisp1: tstringdisp
-      frame.localprops = []
-      frame.localprops1 = []
-      taborder = 26
-      visible = False
-      bounds_x = 288
-      bounds_y = 27
-      bounds_cx = 84
-      bounds_cy = 85
-      reffontheight = 17
-      object directmix: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = '0s'
-        frame.captionpos = cp_top
-        frame.captiondist = 0
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          16
-          0
-          0
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerlight
-        hint = 'Direct MIX (0 second time)'
-        bounds_x = 35
-        bounds_y = 40
-        bounds_cy = 27
-        statfile = mainfo.tstatfile1
-        onchange = onchangedirectmix
-        colorglyph = 4868682
-      end
-      object vuin: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = 'VU'
-        frame.captionpos = cp_left
-        frame.captiondist = 3
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          18
-          2
-          0
-          3
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerlight
-        taborder = 1
-        hint = 'View Meters on/off'
-        bounds_x = 43
-        bounds_y = 33
-        bounds_cx = 31
-        bounds_cy = 16
-        statfile = mainfo.tstatfile1
-        onchange = onchangevuset
-        colorglyph = 4868682
-      end
-      object automix: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = 'AM'
-        frame.captiondist = 3
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          20
-          2
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerlight
-        taborder = 2
-        hint = 'Auto Mixing on/off'
-        bounds_x = 9
-        bounds_y = 30
-        bounds_cx = 33
-        bounds_cy = 16
-        statfile = mainfo.tstatfile1
-        colorglyph = 4868682
-        value = True
-        valuedefault = True
-      end
-      object speccalc: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = 'SC'
-        frame.captionpos = cp_left
-        frame.captiondist = 3
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          16
-          2
-          0
-          2
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerlight
-        taborder = 3
-        hint = 'Enable Spectrum Frequencies Calculation'
-        bounds_x = 45
-        bounds_y = 16
-        bounds_cx = 29
-        bounds_cy = 16
-        statfile = mainfo.tstatfile1
-        colorglyph = 4868682
-        value = True
-        valuedefault = True
-      end
-      object guimix: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = 'GM'
-        frame.captiondist = 2
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          20
-          3
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerlight
-        taborder = 4
-        hint = 'Graphic-anim while mixing (if cpu too low set it off)'
-        bounds_x = 5
-        bounds_y = 17
-        bounds_cx = 33
-        bounds_cy = 16
-        statfile = mainfo.tstatfile1
-        colorglyph = 4868682
-      end
-      object linkvol2: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = 'L2'
-        frame.captionpos = cp_left
-        frame.captiondist = 3
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          16
-          2
-          0
-          2
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerlight
-        taborder = 5
-        hint = 'Lock left and right volume Player 2'
-        bounds_x = 45
-        bounds_y = 0
-        bounds_cx = 29
-        bounds_cy = 16
-        statfile = mainfo.tstatfile1
-        colorglyph = 4868682
-        value = True
-      end
-      object linkvol: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = 'L1 '
-        frame.captiondist = 3
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          0
-          2
-          19
-          2
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerlight
-        taborder = 6
-        hint = 'Lock left and right volume Player 1'
-        bounds_x = 16
-        bounds_y = 20
-        bounds_cx = 32
-        bounds_cy = 16
-        statfile = mainfo.tstatfile1
-        colorglyph = 4868682
-        value = True
-      end
-      object linkvolgen: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = '    '
-        frame.captionpos = cp_left
-        frame.captiondist = 3
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          17
-          2
-          0
-          2
-        )
-        face.localprops = []
-        face.template = mainfo.tfacebutltgray
-        taborder = 7
-        hint = 'Link left and right volume general'
-        bounds_x = 29
-        bounds_y = 66
-        bounds_cx = 30
-        bounds_cy = 16
-        statfile = mainfo.tstatfile1
-        colorglyph = 4868682
-        value = True
-      end
-      object randommix: tbooleanedit
-        color = -2147483645
-        frame.hiddenedges = [edg_right, edg_top, edg_left, edg_bottom]
-        frame.colorclient = 16580582
-        frame.caption = 'VU'
-        frame.captionpos = cp_left
-        frame.captiondist = 3
-        frame.font.color = 4013373
-        frame.font.height = 10
-        frame.font.name = 'stf_default'
-        frame.font.localprops = [flp_color, flp_height]
-        frame.localprops = [frl_hiddenedges, frl_colorclient]
-        frame.localprops1 = [frl1_captiondist]
-        frame.outerframe = (
-          18
-          2
-          0
-          3
-        )
-        face.localprops = []
-        face.template = mainfo.tfaceplayerlight
-        taborder = 8
-        hint = 'View Meters on/off'
-        bounds_x = 45
-        bounds_y = 46
-        bounds_cx = 31
-        bounds_cy = 16
-        statfile = mainfo.tstatfile1
-        onchange = onchangevuset
-        colorglyph = 4868682
-      end
-    end
     object Brandommix: tbutton
       color = -2147483645
       frame.localprops = [frl_optionsskin]
@@ -1824,11 +1973,11 @@ object commanderfo: tcommanderfo
       frame.template = tframecomp2
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
-      taborder = 37
+      taborder = 33
       hint = 'Randomize mixing list'
-      bounds_x = 140
-      bounds_y = 24
-      bounds_cx = 40
+      bounds_x = 130
+      bounds_y = 20
+      bounds_cx = 36
       bounds_cy = 17
       state = [as_localcaption, as_localcolor, as_localhint, as_localonexecute]
       caption = 'Ran'
@@ -1855,9 +2004,9 @@ object commanderfo: tcommanderfo
       )
       face.fade_direction = gd_down
       face.localprops = []
-      taborder = 29
+      taborder = 28
       hint = 'Lock left and right volume Player 2'
-      bounds_x = 230
+      bounds_x = 209
       bounds_y = 1
       bounds_cx = 16
       bounds_cy = 18
@@ -1869,87 +2018,49 @@ object commanderfo: tcommanderfo
       font.localprops = []
       onexecute = onexecbutlght
     end
-    object nameplayers2: tstringdisp
+    object bmon1: tbutton
+      Tag = 1
       color = -2147483645
-      frame.levelo = 1
-      frame.colorhighlight = -1610612733
-      frame.localprops = [frl_levelo, frl_colorhighlight]
+      frame.localprops = [frl_optionsskin]
       frame.localprops1 = []
+      frame.template = tframecomp2
       face.localprops = []
-      face.template = mainfo.tfaceplayerlight
-      taborder = 36
-      hint = 'Player 2'
-      bounds_x = 182
-      bounds_y = 1
-      bounds_cx = 45
-      bounds_cy = 18
-      textflags = [tf_xcentered, tf_ycentered]
-      value = 'Play2'
-      reffontheight = 17
-    end
-    object nameplayers: tstringdisp
-      color = -2147483645
-      frame.levelo = 1
-      frame.colorhighlight = -1610612733
-      frame.localprops = [frl_levelo, frl_colorhighlight]
-      frame.localprops1 = []
-      face.localprops = []
-      face.template = mainfo.tfaceplayerlight
+      face.template = mainfo.tfacebutltgray
       taborder = 35
-      hint = 'Player 1'
-      bounds_x = 33
+      hint = 'Enable monitoring of Player 1'
+      bounds_x = 35
       bounds_y = 1
-      bounds_cx = 45
+      bounds_cx = 36
       bounds_cy = 18
+      state = [as_disabled, as_localdisabled, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Mo1'
       textflags = [tf_xcentered, tf_ycentered]
-      value = 'Play1'
-      reffontheight = 17
+      captiondist = 0
+      font.name = 'stf_default'
+      font.localprops = []
+      onexecute = onexecbutlght
     end
-  end
-  object hintpanel: tgroupbox
-    face.fade_pos.count = 2
-    face.fade_pos.items = (
-      0
-      1
-    )
-    face.fade_color.count = 2
-    face.fade_color.items = (
-      16775664
-      16751892
-    )
-    face.fade_direction = gd_down
-    face.localprops = []
-    taborder = 4
-    visible = False
-    bounds_x = 88
-    bounds_y = 38
-    bounds_cx = 221
-    bounds_cy = 36
-    font.name = 'stf_default'
-    font.localprops = []
-    object hintlabel: tlabel
+    object bmon2: tbutton
+      Tag = 1
       color = -2147483645
-      bounds_x = 26
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = mainfo.tfacebutltgray
+      taborder = 36
+      hint = 'Enable monitoring of Player 2'
+      bounds_x = 170
       bounds_y = 1
-      bounds_cx = 151
-      bounds_cy = 17
-      caption = 'Invalid value.  Reset to 100.'
-      font.name = 'stf_default'
-      font.localprops = []
+      bounds_cx = 36
+      bounds_cy = 18
+      state = [as_disabled, as_localdisabled, as_localcaption, as_localcolor, as_localhint, as_localonexecute]
+      caption = 'Mo2'
       textflags = [tf_xcentered, tf_ycentered]
-      reffontheight = 17
-    end
-    object hintlabel2: tlabel
-      color = -2147483645
-      taborder = 1
-      bounds_x = 3
-      bounds_y = 17
-      bounds_cx = 198
-      bounds_cy = 17
-      caption = 'Or press Esc key for previous value.'
+      captiondist = 0
       font.name = 'stf_default'
       font.localprops = []
-      reffontheight = 17
+      onexecute = onexecbutlght
     end
   end
   object tfacebutton: tfacecomp

@@ -1789,7 +1789,7 @@ begin
 
     speccalcb.hint := lang_commanderfo[Ord(co_speccalcb_hint)];  {'Enable Spectrum Frequencies Calculation'}
 
-    guimixb.hint := lang_commanderfo[Ord(co_guimixb_hint)];  {'Graphic-anim while mixing (if cpu too low set it off)'}
+  //  guimixb.hint := lang_commanderfo[Ord(co_guimixb_hint)];  {'Graphic-anim while mixing (if cpu too low set it off)'}
 
     vuinb.hint := lang_commanderfo[Ord(co_vuinb_hint)];  {'View Meters on/off'}
 
@@ -1797,9 +1797,9 @@ begin
 
     directmixb.hint := lang_commanderfo[Ord(co_directmixb_hint)];  {'Direct MIX (0 second time)'}
 
-    nameplayers.hint := lang_commanderfo[Ord(co_nameplayers_hint)];  {'Player 1'}
+    //nameplayers.hint := lang_commanderfo[Ord(co_nameplayers_hint)];  {'Player 1'}
 
-    nameplayers2.hint := lang_commanderfo[Ord(co_nameplayers2_hint)];  {'Player 2'}
+    //nameplayers2.hint := lang_commanderfo[Ord(co_nameplayers2_hint)];  {'Player 2'}
 
     directmix.hint := lang_commanderfo[Ord(co_directmixb_hint)];  {'Direct MIX (0 second time)'}
 
@@ -4845,11 +4845,12 @@ begin
     songplayerfo.cbtempob.font.color  := cl_black;
     songplayer2fo.cbtempob.font.color := cl_black;
 
+    commanderfo.bmon.font.color  := cl_black;
     commanderfo.Brandommix.font.color  := cl_black;
     commanderfo.linkvolgenb.font.color := cl_black;
     commanderfo.linkvolb.font.color    := cl_black;
     commanderfo.speccalcb.font.color   := cl_black;
-    commanderfo.guimixb.font.color     := cl_black;
+   // commanderfo.guimixb.font.color     := cl_black;
     commanderfo.linkvol2b.font.color   := cl_black;
     commanderfo.automixb.font.color    := cl_black;
     commanderfo.vuinb.font.color       := cl_black;
@@ -5369,8 +5370,8 @@ begin
     end;
 
     // commander
-    commanderfo.nameplayers.font.color      := ltblack;
-    commanderfo.nameplayers2.font.color     := ltblack;
+    commanderfo.bmon1.font.color      := ltblack;
+    commanderfo.bmon2.font.color     := ltblack;
     commanderfo.namedrums.font.color        := ltblack;
     commanderfo.namegen.font.color          := ltblack;
     commanderfo.nameinput.font.color        := ltblack;
@@ -5580,12 +5581,13 @@ begin
 
     songplayerfo.historyfn.dropdown.cols[0].colorselect  := $FFCD8F;
     songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
-
+    
     commanderfo.Brandommix.font.color  := cl_black;
+    commanderfo.bmon.font.color  := cl_black;
     commanderfo.linkvolgenb.font.color := cl_black;
     commanderfo.linkvolb.font.color    := cl_black;
     commanderfo.speccalcb.font.color   := cl_black;
-    commanderfo.guimixb.font.color     := cl_black;
+   // commanderfo.guimixb.font.color     := cl_black;
     commanderfo.linkvol2b.font.color   := cl_black;
     commanderfo.automixb.font.color    := cl_black;
     commanderfo.vuinb.font.color       := cl_black;
@@ -6118,8 +6120,8 @@ begin
     end;
 
     // commander
-    commanderfo.nameplayers.font.color      := ltblack;
-    commanderfo.nameplayers2.font.color     := ltblack;
+    commanderfo.bmon1.font.color      := ltblack;
+    commanderfo.bmon2.font.color     := ltblack;
     commanderfo.namedrums.font.color        := ltblack;
     commanderfo.namegen.font.color          := ltblack;
     commanderfo.nameinput.font.color        := ltblack;
@@ -6329,10 +6331,11 @@ begin
     songplayer2fo.cbtempob.font.color := cl_black;
 
     commanderfo.Brandommix.font.color  := cl_black;
+    commanderfo.bmon.font.color  := cl_black;
     commanderfo.linkvolgenb.font.color := cl_black;
     commanderfo.linkvolb.font.color    := cl_black;
     commanderfo.speccalcb.font.color   := cl_black;
-    commanderfo.guimixb.font.color     := cl_black;
+  //  commanderfo.guimixb.font.color     := cl_black;
     commanderfo.linkvol2b.font.color   := cl_black;
     commanderfo.automixb.font.color    := cl_black;
     commanderfo.vuinb.font.color       := cl_black;
@@ -6809,8 +6812,8 @@ begin
     end;
 
     // commander
-    commanderfo.nameplayers.font.color      := ltblack;
-    commanderfo.nameplayers2.font.color     := ltblack;
+    commanderfo.bmon1.font.color      := ltblack;
+    commanderfo.bmon2.font.color     := ltblack;
     commanderfo.namedrums.font.color        := ltblack;
     commanderfo.namegen.font.color          := ltblack;
     commanderfo.nameinput.font.color        := ltblack;
@@ -6993,10 +6996,11 @@ begin
     songplayer2fo.cbtempob.font.color := cl_white;
 
     commanderfo.Brandommix.font.color  := cl_white;
+    commanderfo.bmon.font.color  := cl_white;
     commanderfo.linkvolgenb.font.color := cl_white;
     commanderfo.linkvolb.font.color    := cl_white;
     commanderfo.speccalcb.font.color   := cl_white;
-    commanderfo.guimixb.font.color     := cl_white;
+   // commanderfo.guimixb.font.color     := cl_white;
     commanderfo.linkvol2b.font.color   := cl_white;
     commanderfo.automixb.font.color    := cl_white;
     commanderfo.vuinb.font.color       := cl_white;
@@ -7566,8 +7570,8 @@ begin
     end;
 
     // commander
-    commanderfo.nameplayers.font.color  := ltblank;
-    commanderfo.nameplayers2.font.color := ltblank;
+    commanderfo.bmon1.font.color  := ltblank;
+    commanderfo.bmon2.font.color := ltblank;
     commanderfo.namedrums.font.color    := ltblank;
 
     commanderfo.namegen.font.color          := ltblank;

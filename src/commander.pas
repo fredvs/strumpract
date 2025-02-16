@@ -10,61 +10,18 @@ interface
 
 uses
  {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}alsa_mixer,
- {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,
-  Math,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  mseforms,
-  msedock,
-  msedragglob,
-  msesimplewidgets,
-  msewidgets,
-  mseact,
-  msebitmap,
-  msedataedits,
-  msedatanodes,
-  mseedit,
-  msefiledialogx,
-  msegrids,
-  mseificomp,
-  mseificompglob,
-  msefileutils,
-  mseifiglob,
-  mselistbrowser,
-  msestatfile,
-  msestream,
-  msestrings,
-  msesys,
-  SysUtils,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  msetimer,
-  mseimage;
+ {$endif}{$if defined(windows)}win_mixer,{$ENDIF}msetypes,Math,mseglob,
+ mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,msegraphics,
+ msegraphutils,mseevent,mseclasses,mseforms,msedock,msedragglob,
+ msesimplewidgets,msewidgets,mseact,msebitmap,msedataedits,msedatanodes,mseedit,
+ msefiledialogx,msegrids,mseificomp,mseificompglob,msefileutils,mseifiglob,
+ mselistbrowser,msestatfile,msestream,msestrings,msesys,SysUtils,msegraphedits,
+ msescrollbar,msedispwidgets,mserichstring,msetimer,mseimage, msedropdownlist;
 
 type
   tcommanderfo = class(tdockform)
     timermix: ttimer;
     Timersent: Ttimer;
-    tgroupboxplayers: tgroupbox;
-    btnStop: TButton;
-    btnResume: TButton;
-    btnStart: TButton;
-    volumeleft1: tslider;
-    volumeright1: tslider;
-    timemix: trealspinedit;
-    tbutton2: TButton;
-    tbutton3: TButton;
     tgroupboxdrums: tgroupbox;
     loop_start: TButton;
     loop_stop: TButton;
@@ -72,66 +29,27 @@ type
     tslider2: tslider;
     tgroupboxinput: tgroupbox;
     tslider3: tslider;
-    volumeright2: tslider;
-    volumeleft2: tslider;
     tfacebutton: tfacecomp;
-    btncue: TButton;
-    btnStart2: TButton;
-    btncue2: TButton;
-    btnStop2: TButton;
-    btnPause2: TButton;
-    btnResume2: TButton;
     namedrums: tstringdisp;
     tfacegriptab: tfacecomp;
-    vuright: tprogressbar;
-    vuright2: tprogressbar;
-    vuLeft2: tprogressbar;
     tgroupall: tgroupbox;
     genvolright: tslider;
     nameinput: tstringdisp;
     butinput: tbooleanedit;
     genleftvolvalue: TButton;
     genrightvolvalue: TButton;
-    volumeleft1val: TButton;
-    volumeright1val: TButton;
-    volumeright2val: TButton;
-    volumeleft2val: TButton;
     tslider2val: TButton;
     tslider3val: TButton;
-    vuLeft: tprogressbar;
     tfacecomp3: tfacecomp;
-    tbutton4: TButton;
-    tbutton5: TButton;
-    tbutton6: TButton;
-    tstringdisp1: tstringdisp;
-    directmix: tbooleanedit;
-    vuin: tbooleanedit;
-    automix: tbooleanedit;
-    speccalc: tbooleanedit;
-    guimix: tbooleanedit;
-    linkvol2: tbooleanedit;
-    linkvol: tbooleanedit;
-    linkvolb: TButton;
-    linkvol2b: TButton;
-    speccalcb: TButton;
-    guimixb: TButton;
-    vuinb: TButton;
-    automixb: TButton;
-    directmixb: TButton;
-    linkvolgen: tbooleanedit;
     linkvolgenb: TButton;
     tfacebutgray: tfacecomp;
     tfacegreen: tfacecomp;
     ttimer1: ttimer;
-    nameplayers: tstringdisp;
-    nameplayers2: tstringdisp;
     namegen: tstringdisp;
     tfaceorange: tfacecomp;
     sysvol: tslider;
     sysvolbut: TButton;
     timercallback: ttimer;
-    Brandommix: TButton;
-    randommix: tbooleanedit;
     tframecomp2: tframecomp;
     timagelist3: timagelist;
     hintpanel: tgroupbox;
@@ -144,8 +62,60 @@ type
     timagelist1: timagelist;
     tframecompnul: tframecomp;
 
-    btnPause: TButton;
     sliderimage4: tbitmapcomp;
+   tgroupboxplayers: tgroupbox;
+   tbutton3: tbutton;
+   tbutton2: tbutton;
+   tbutton6: tbutton;
+   tbutton5: tbutton;
+   tbutton4: tbutton;
+   timemix: trealspinedit;
+   btnStop: tbutton;
+   btnResume: tbutton;
+   btnStart: tbutton;
+   volumeleft1: tslider;
+   volumeright1: tslider;
+   volumeright2: tslider;
+   volumeleft2: tslider;
+   btncue: tbutton;
+   btnStart2: tbutton;
+   btncue2: tbutton;
+   btnStop2: tbutton;
+   btnResume2: tbutton;
+   vuright: tprogressbar;
+   vuright2: tprogressbar;
+   vuLeft2: tprogressbar;
+   volumeleft1val: tbutton;
+   volumeright1val: tbutton;
+   volumeright2val: tbutton;
+   volumeleft2val: tbutton;
+   vuLeft: tprogressbar;
+   btnPause: tbutton;
+   btnPause2: tbutton;
+   linkvolb: tbutton;
+   speccalcb: tbutton;
+   vuinb: tbutton;
+   automixb: tbutton;
+   directmixb: tbutton;
+   Brandommix: tbutton;
+   linkvol2b: tbutton;
+   butmonvol: tbutton;
+   bmon: tbutton;
+   monvol: tslider;
+   tstringdisp1: tstringdisp;
+   directmix: tbooleanedit;
+   vuin: tbooleanedit;
+   automix: tbooleanedit;
+   speccalc: tbooleanedit;
+   tbooleanedit2: tbooleanedit;
+   guimix: tbooleanedit;
+   linkvol2: tbooleanedit;
+   linkvol: tbooleanedit;
+   linkvolgen: tbooleanedit;
+   randommix: tbooleanedit;
+   bolmon: tbooleanedit;
+   bmon1: tbutton;
+   bmon2: tbutton;
     procedure formcreated(const Sender: TObject);
     procedure visiblechangeev(const Sender: TObject);
     procedure onplay(const Sender: TObject);
@@ -175,11 +145,14 @@ type
     procedure onchangedirectmix(const Sender: TObject);
     procedure onexecbutlght(const Sender: TObject);
     procedure ontimerinit(const Sender: TObject);
-    procedure onsetsysvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure onsetsysvol(const Sender: TObject; var avalue: realty;
+                   var accept: Boolean);
     procedure dotimercallback(const Sender: TObject);
     procedure onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
     procedure resizeco(fontheight: integer);
     procedure resetsysvol(const Sender: TObject);
+   procedure setmonvol(const sender: TObject; var avalue: realty;
+                   var accept: Boolean);
   end;
 
 var
@@ -275,6 +248,9 @@ begin
           tgroupall.children[i1].Height := roundmath(boundchildco[i2].Height * ratio);
         end;
   end;
+  
+  bmon.font.Height  := roundmath(9 * ratio);
+  
 
   tgroupboxplayers.font.Height := fontheight;
 
@@ -288,7 +264,10 @@ begin
           children[i1].Width  := roundmath(boundchildco[i2].Width * ratio);
           children[i1].Height := roundmath(boundchildco[i2].Height * ratio);
         end;
-
+        
+   bmon1.font.Height  := roundmath(10 * ratio);     
+   bmon2.font.Height  := roundmath(10 * ratio);   
+   
   tgroupboxdrums.font.Height := fontheight;
 
   with tgroupboxdrums do
@@ -314,7 +293,7 @@ begin
           children[i1].Width  := roundmath(boundchildco[i2].Width * ratio);
           children[i1].Height := roundmath(boundchildco[i2].Height * ratio);
         end;
-
+  
 end;
 
 procedure tcommanderfo.formcreated(const Sender: TObject);
@@ -1289,6 +1268,52 @@ begin
       TButton(Sender).tag     := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
+   
+    
+   if TButton(Sender).Name = 'bmon1' then
+    if TButton(Sender).tag = 0 then
+    begin
+      if mainfo.typecolor.Value = 2 then
+        bmon1.font.color := cl_black;
+      //bolmon.Value         := True;
+      TButton(Sender).tag     := 1;
+      if  outputindexmon1 > -1 then
+      uos_OutputSetEnable (theplayer,outputindexmon1, true);
+       TButton(Sender).face.template := mainfo.tfaceorange;
+    end
+    else
+    begin
+      if mainfo.typecolor.Value = 2 then
+        bmon1.font.color := cl_white;
+      //bolmon.Value         := False;
+      TButton(Sender).tag     := 0;
+      if  outputindexmon1 > -1 then
+      uos_OutputSetEnable (theplayer,outputindexmon1, false);
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
+    end;  
+
+    if TButton(Sender).Name = 'bmon2' then
+    if TButton(Sender).tag = 0 then
+    begin
+      if mainfo.typecolor.Value = 2 then
+        bmon2.font.color := cl_black;
+      //bolmon.Value         := True;
+      TButton(Sender).tag     := 1;
+      if  outputindexmon2 > -1 then
+      uos_OutputSetEnable (theplayer2,outputindexmon2, true);             
+      TButton(Sender).face.template := mainfo.tfaceorange;
+    end
+    else
+    begin
+      if mainfo.typecolor.Value = 2 then
+        bmon2.font.color := cl_white;
+      //bolmon.Value         := False;
+      TButton(Sender).tag     := 0;
+      if  outputindexmon2 > -1 then
+      uos_OutputSetEnable (theplayer2,outputindexmon2, false);             
+      TButton(Sender).face.template := mainfo.tfaceplayerlight;
+    end;  
+
 
   if TButton(Sender).Name = 'linkvolgenb' then
     if TButton(Sender).tag = 0 then
@@ -1325,7 +1350,7 @@ begin
       TButton(Sender).tag   := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
-
+{
   if TButton(Sender).Name = 'guimixb' then
     if TButton(Sender).tag = 0 then
     begin
@@ -1343,7 +1368,7 @@ begin
       TButton(Sender).tag  := 0;
       TButton(Sender).face.template := mainfo.tfaceplayerlight;
     end;
-
+}
   if TButton(Sender).Name = 'speccalcb' then
     if TButton(Sender).tag = 0 then
     begin
@@ -1469,6 +1494,7 @@ begin
     linkvolb.face.template := mainfo.tfaceplayerlight;
   end;
 
+{
   if guimix.Value then
   begin
     if mainfo.typecolor.Value = 2 then
@@ -1483,6 +1509,8 @@ begin
     guimixb.tag           := 0;
     guimixb.face.template := mainfo.tfaceplayerlight;
   end;
+  
+  }
 
   if speccalc.Value then
   begin
@@ -1576,7 +1604,8 @@ begin
 
 end;
 
-procedure tcommanderfo.onsetsysvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+procedure tcommanderfo.onsetsysvol(const Sender: TObject; var avalue: realty;
+               var accept: Boolean);
 begin
   sysvolbut.Caption := msestring(IntToStr(roundmath(avalue * 10)));
 {$if (defined(linux)) and (not defined(cpuaarch64)) and (not defined(cpuarm))}
@@ -1624,6 +1653,20 @@ end;
 procedure tcommanderfo.resetsysvol(const Sender: TObject);
 begin
   sysvol.Value := 0.666666;
+end;
+
+procedure tcommanderfo.setmonvol(const sender: TObject; var avalue: realty;
+               var accept: Boolean);
+begin
+ butmonvol.Caption := msestring(IntToStr(roundmath(avalue * 10)));
+ if configfo.benablemon.value = true then
+ begin
+  if outputindexmon1 > -1 then uos_outputSetDSPVolume(theplayer, outputindexmon1,
+             commanderfo.monvol.Value, commanderfo.monvol.Value, True);
+  if outputindexmon2 > -1 then uos_outputSetDSPVolume(theplayer2, outputindexmon2,
+             commanderfo.monvol.Value, commanderfo.monvol.Value, True);      
+ end;           
+         
 end;
 
 end.

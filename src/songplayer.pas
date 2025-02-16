@@ -214,6 +214,7 @@ var
   hasfocused2: Boolean = False;
   plugindex2, PluginIndex3: integer;
   Inputindex2, DSPIndex2, DSPIndex22, Outputindex2, Inputlength2: integer;
+  outputindexmon1, outputindexmon2 : integer;
   poswav2, chan2: integer;
   tickcount: integer = 0;
 
@@ -1139,10 +1140,10 @@ begin
       //     {$endif}
     then
     begin
-      ll1 := uos_InputGetLevelLeft(theplayer, Inputindex1);
-      lr1 := uos_InputGetLevelright(theplayer, Inputindex1);
-      ll2 := uos_InputGetLevelLeft(theplayer2, Inputindex2);
-      lr2 := uos_InputGetLevelright(theplayer2, Inputindex2);
+      ll1 := uos_outputGetLevelLeft(theplayer, outputindex1);
+      lr1 := uos_outputGetLevelright(theplayer, outputindex1);
+      ll2 := uos_outputGetLevelLeft(theplayer2, outputindex2);
+      lr2 := uos_outputGetLevelright(theplayer2, outputindex2);
 
       if (tag = 0) and (wavefo.panelwave.Visible = True) then
         if (xreclivewav1) > (wavefo.panelwave.Width) then
@@ -1218,6 +1219,7 @@ var
   ho, mi, se, ms: word;
   fileex: msestring;
   i: integer;
+  abool : boolean = false;
   temphistory: msestringarty;
 begin
   if filelistfo.list_files.rowcount > 0 then
@@ -1265,11 +1267,24 @@ begin
 
             if configfo.latplay.Value < 0 then
               configfo.latplay.Value := -1;
-
-            Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
-              //     uos_InputGetChannels(theplayer, Inputindex1), samformat,-1, -1);
+           // writeln('avant uos_AddIntoDevOut');
+            Outputindex1 := uos_AddIntoDevOut(theplayer, configfo.devoutcfg.Value,
+              configfo.latplay.Value, uos_InputGetSampleRate(theplayer, Inputindex1),
               uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8, -1);
-
+          
+            if configfo.benablemon.value = true then
+             begin
+            outputindexmon1 := uos_AddIntoDevOut(theplayer, configfo.deviceoutmon.Value,
+              configfo.monlatency.Value,uos_InputGetSampleRate(theplayer, Inputindex1),
+              uos_InputGetChannels(theplayer, Inputindex1), samformat, 1024 * 8, -1);
+              
+             if  outputindexmon1 > -1 then
+             begin 
+              if commanderfo.bmon1.tag = 1 then abool := true else abool := false;
+               uos_OutputSetEnable (theplayer,outputindexmon1, abool);
+              end; 
+             end; 
+            
               // Add a Output into Device Output
               // Device ( -1 is default device )
               // Latency  ( -1 is latency suggested )
@@ -1281,36 +1296,35 @@ begin
               //  result :  Output Index in array  -1 = error
 
             Inputlength1 := uos_Inputlength(theplayer, Inputindex1);
-
-            uos_InputSetLevelEnable(theplayer, Inputindex1, 2);
-            // set calculation of level/volume (usefull for showvolume procedure)
-            // set level calculation (default is 0)
-            // 0 => no calcul
-            // 1 => calcul before all DSP procedures.
-            // 2 => calcul after all DSP procedures.
-            // 3 => calcul before and after all DSP procedures.
-
-            //  if Inputlength1 > 0 then
+            
+             //  if Inputlength1 > 0 then
             uos_InputSetPositionEnable(theplayer, Inputindex1, 1);
             // set calculation of position (usefull for positions procedure)
             // set position calculation (default is 0)
             // 0 => no calcul
             // 1 => calcul position.
-
+          
             uos_LoopProcIn(theplayer, Inputindex1, @LoopProcPlayer1);
             // Assign the procedure of object to execute inside the loop
             // PlayerIndex : Index of a existing Player
             // Inputindex1 : Index of a existing Input
             // LoopProcPlayer1 : procedure of object to execute inside the loop
 
-            uos_InputAddDSPVolume(theplayer, Inputindex1, 1, 1);
+            uos_OutputSetLevelEnable(theplayer, Outputindex1, 2);
+            // set calculation of level/volume (usefull for showvolume procedure)
+            // set level calculation (default is 0)
+            // 0 => no calcul
+            // 1 => calcul before all DSP procedures.
+            // 2 => calcul after all DSP procedures.
+           
+            uos_outputAddDSPVolume(theplayer, Outputindex1, 0, 0);
             // DSP Volume changer
             // Playerindex1 : Index of a existing Player
             // Inputindex1 : Index of a existing input
             // VolLeft : Left volume
             // VolRight : Right volume
-
-            uos_InputSetDSPVolume(theplayer, Inputindex1,
+            
+            uos_outputSetDSPVolume(theplayer, Outputindex1,
               (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
             /// Set volume
             // Playerindex1 : Index of a existing Player
@@ -1318,8 +1332,19 @@ begin
             // VolLeft : Left volume
             // VolRight : Right volume
             // Enable : Enabled
-
-            // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
+            
+             if (configfo.benablemon.value = true) and (outputindexmon1 > 0) then
+             begin
+             uos_OutputSetLevelEnable(theplayer, outputindexmon1, 2);
+             uos_outputAddDSPVolume(theplayer, outputindexmon1, 0, 0);
+             uos_outputSetDSPVolume(theplayer, outputindexmon1,
+             commanderfo.monvol.Value, commanderfo.monvol.Value, True);
+             end;
+             
+            //   writeln('avant uos_InputAddDSP');
+         
+             
+          // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
             DSPindex11 := uos_InputAddDSP(theplayer, Inputindex1, nil, @DSPStereo2Mono, nil, nil);
             uos_InputSetDSP(theplayer, Inputindex1, DSPindex11, setmono.Value);
 
@@ -1336,8 +1361,7 @@ begin
                 uos_InputAddFilter(theplayer, InputIndex1,
                   3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1,
                   3, Equalizer_Bands[i].lo_freq, Equalizer_Bands[i].hi_freq, 1, False, nil);
-
-
+      
             /// add SoundTouch plugin with samplerate of input1 / default channels (2 = stereo)
             /// SoundTouch plugin should be the last added.
             if plugsoundtouch = True then
@@ -1451,7 +1475,7 @@ begin
             begin
               hassent := 0;
             end;
-
+   
             if hassent = 0 then
             begin
               iscue1 := False;
@@ -1466,7 +1490,14 @@ begin
               else
               begin
                 uos_Play(theplayer);  /// everything is ready, here we are, lets play it...
-
+           
+             /// Set volume
+            // Playerindex1 : Index of a existing Player
+            // Inputindex1 : InputIndex of a existing Input
+            // VolLeft : Left volume
+            // VolRight : Right volume
+            // Enable : Enabled
+     
                 temphistory := historyfn.dropdown.history;
                 setlength(temphistory, length(temphistory) + 1);
                 temphistory[length(temphistory) - 1] := historyfn.Value;
@@ -1475,6 +1506,11 @@ begin
                 btnpause.Enabled := True;
                 btnpause.Visible := True;
               end;
+              
+               uos_outputSetDSPVolume(theplayer, Outputindex1,
+              (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, 
+              (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+                       
               tstringdisp1.face.template := mainfo.tfacegreen;
               tstringdisp1.Value := msestring('Playing ' + theplaying1);
 
@@ -1589,14 +1625,32 @@ begin
             //   writeln('ok index');
             // Outputindex2 := uos_AddIntoDevOut(Playerindex2) ;
             // add a Output into device with default parameters
+          //  application.processmessages;        
 
             if configfo.latplay.Value < 0 then
               configfo.latplay.Value := -1;
+              
+         // writeln('avant uos_AddIntoDevOut 2');
 
-            Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.Value, configfo.latplay.Value, uos_InputGetSampleRate(theplayer2, Inputindex2),
+            Outputindex2 := uos_AddIntoDevOut(theplayer2, configfo.devoutcfg.Value, 
+              configfo.latplay.Value,
+              uos_InputGetSampleRate(theplayer2, Inputindex2),
               uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 8, -1);
-            //uos_InputGetChannels(theplayer2, Inputindex2), samformat, -1, -1);
-
+        
+             if configfo.benablemon.value = true then
+             begin
+             outputindexmon2 := uos_AddIntoDevOut(theplayer2, configfo.deviceoutmon.Value,
+              configfo.monlatency.Value,
+              uos_InputGetSampleRate(theplayer2, Inputindex2),
+              uos_InputGetChannels(theplayer2, Inputindex2), samformat, 1024 * 8, -1);
+              application.processmessages;
+              if  outputindexmon2 > -1 then
+              begin 
+              if commanderfo.bmon2.tag = 1 then abool := true else abool := false;
+              uos_OutputSetEnable (theplayer2,outputindexmon2, abool);    
+              end; 
+              end;
+                            
             // Add a Output into Device Output
             // Device ( -1 is default device )
             // Latency  ( -1 is latency suggested )
@@ -1605,19 +1659,17 @@ begin
             // SampleFormat : default : -1 (1:Int16) (0: Float32, 1:Int32, 2:Int16)
             // FramesCount : default : -1 (= 65536)
             // ChunkCount : default : -1 (= 512)
-
-            Inputlength2 := uos_Inputlength(theplayer2, Inputindex2);
-            // Length of Input in samples
-
-            uos_InputSetLevelEnable(theplayer2, Inputindex2, 2);
+            
+             uos_OutputSetLevelEnable(theplayer2, Outputindex2, 2);
             // set calculation of level/volume (usefull for showvolume procedure)
             // set level calculation (default is 0)
             // 0 => no calcul
             // 1 => calcul before all DSP procedures.
             // 2 => calcul after all DSP procedures.
-            // 3 => calcul before and after all DSP procedures.
+        
+            Inputlength2 := uos_Inputlength(theplayer2, Inputindex2);
+            // Length of Input in samples
 
-            //if Inputlength2 > 0 then
             uos_InputSetPositionEnable(theplayer2, Inputindex2, 1);
             // set calculation of position (usefull for positions procedure)
             // set position calculation (default is 0)
@@ -1631,23 +1683,26 @@ begin
             // Inputindex2 : Index of a existing Input
             // LoopProcPlayer1 : procedure of object to execute inside the loop
 
-            uos_InputAddDSPVolume(theplayer2, Inputindex2, 1, 1);
+            uos_OutputAddDSPVolume(theplayer2, Outputindex2, 0, 0);
             // DSP Volume changer
             // Playerindex2 : Index of a existing Player
             // Inputindex2 : Index of a existing input
             // VolLeft : Left volume
             // VolRight : Right volume
 
-            uos_InputSetDSPVolume(theplayer2, Inputindex2,
-              (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
-            /// Set volume
-            // Playerindex2 : Index of a existing Player
-            // Inputindex2 : InputIndex of a existing Input
-            // VolLeft : Left volume
-            // VolRight : Right volume
-            // Enable : Enabled
+           
+             if (configfo.benablemon.value = true) and (outputindexmon2 > 0) then
+             begin
+             uos_OutputSetLevelEnable(theplayer2, outputindexmon2, 2);
+             uos_outputAddDSPVolume(theplayer2, outputindexmon2, 0, 0);
+             uos_outputSetDSPVolume(theplayer2, outputindexmon2,
+             commanderfo.monvol.Value, commanderfo.monvol.Value, True);
+             end;
 
-            // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
+            // writeln('avant uos_InputAddDSP 2');
+
+       
+             // This is a other custom DSP...stereo to mono  to show how to do a DSP ;-)
             DSPindex22 := uos_InputAddDSP(theplayer2, Inputindex2, nil, @DSPStereo2Mono, nil, nil);
             uos_InputSetDSP(theplayer2, Inputindex2, DSPindex22, setmono.Value);
 
@@ -1722,7 +1777,6 @@ begin
 
             // set the parameters of custom DSP
             uos_InputSetDSP(theplayer2, Inputindex2, DSPindex2, playreverse.Value);
-
 
             uos_EndProc(theplayer2, @ClosePlayer1);
 
@@ -1808,6 +1862,16 @@ begin
                 historyfn.dropdown.history := temphistory;
 
               end;
+              
+               uos_outputSetDSPVolume(theplayer2, Outputindex2,
+              (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
+            /// Set volume
+            // Playerindex2 : Index of a existing Player
+            // Inputindex2 : InputIndex of a existing Input
+            // VolLeft : Left volume
+            // VolRight : Right volume
+            // Enable : Enabled
+        
               tstringdisp1.face.template := mainfo.tfacegreen;
               tstringdisp1.Value         := msestring('Playing ' + theplaying2);
 
@@ -2125,11 +2189,11 @@ begin
       timersent.Enabled := True;
 
     if tag = 0 then
-      uos_InputSetDSPVolume(theplayer, Inputindex1,
+      uos_outputSetDSPVolume(theplayer, outputindex1,
         (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
     if tag = 1 then
-      uos_InputSetDSPVolume(theplayer2, Inputindex2,
+      uos_outputSetDSPVolume(theplayer2, outputindex2,
         (edvolleft.Value / 100) * commanderfo.genvolleft.Value * 1.5, (edvolright.Value / 100) * commanderfo.genvolright.Value * 1.5, True);
 
   end;

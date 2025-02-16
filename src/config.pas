@@ -4,41 +4,12 @@ unit config;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  uos_flat,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  mseact,
-  msedataedits,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msestatfile,
-  msestream,
-  msestrings,
-  SysUtils,
-  msesimplewidgets,
-  msegraphedits,
-  msescrollbar,
-  msedragglob,
-  msegrids,
-  msegridsglob,
-  msedispwidgets,
-  mserichstring,
-  msedropdownlist,
-  msecolordialog;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ uos_flat,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
+ mseact,msedataedits,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
+ msestream,msestrings,SysUtils,msesimplewidgets,msegraphedits,msescrollbar,
+ msedragglob,msegrids,msegridsglob,msedispwidgets,mserichstring,msedropdownlist,
+ msecolordialog;
 
 type
   tconfigfo = class(tmseform)
@@ -59,11 +30,16 @@ type
     tlabel1: tlabel;
     syslib: tbooleanedit;
     tbutton2: TButton;
+   groupmonitor: tgroupbox;
+   deviceoutmon: tintegeredit;
+   benablemon: tbooleanedit;
+   monlatency: trealspinedit;
     procedure oncheckdevices(const Sender: TObject);
     procedure onchangelib(const Sender: TObject);
     procedure onexecmessage(const Sender: TObject);
     procedure oncrea(const Sender: TObject);
     procedure resizecs(fonth: integer);
+   procedure onenablemon(const sender: TObject);
   end;
 
 var
@@ -78,6 +54,7 @@ uses
   main,
   drums,
   songplayer,
+  commander,
   recorder,
   config_mfm;
 
@@ -132,8 +109,8 @@ begin
   infos_grid.font.color  := font.color;
   infos_grid.font.Height := font.Height;
   infos_grid.Width       := roundmath(1000 * ratio);
-  infos_grid.Height      := roundmath(480 * ratio);
-  infos_grid.top         := roundmath(104 * ratio);
+  infos_grid.Height      := roundmath(428 * ratio);
+  infos_grid.top         := roundmath(156 * ratio);
 
   for x := 0 to 12 do
     infos_grid[x].Width := roundmath(gridwidth[x] * ratio);
@@ -175,6 +152,23 @@ begin
           tgroupbox5.children[i1].top    := roundmath(boundchildscs[i2].top * ratio);
           tgroupbox5.children[i1].Width  := roundmath(boundchildscs[i2].Width * ratio);
           tgroupbox5.children[i1].Height := roundmath(boundchildscs[i2].Height * ratio);
+        end;
+
+  groupmonitor.font.color := font.color;
+  groupmonitor.left       := roundmath(204 * ratio);
+  groupmonitor.Width      := roundmath(552 * ratio);
+  groupmonitor.Height     := roundmath(50 * ratio);
+  groupmonitor.top        := roundmath(95 * ratio);;
+
+  with groupmonitor do
+    for i1 := 0 to childrencount - 1 do
+      for i2 := 0 to length(boundchildscs) - 1 do
+        if groupmonitor.children[i1].Name = boundchildscs[i2].Name then
+        begin
+          groupmonitor.children[i1].left   := roundmath(boundchildscs[i2].left * ratio);
+          groupmonitor.children[i1].top    := roundmath(boundchildscs[i2].top * ratio);
+          groupmonitor.children[i1].Width  := roundmath(boundchildscs[i2].Width * ratio);
+          groupmonitor.children[i1].Height := roundmath(boundchildscs[i2].Height * ratio);
         end;
 
 end;
@@ -310,7 +304,70 @@ begin
       boundchildscs[i1 + childn].Height := children[i1].Height;
       boundchildscs[i1 + childn].Name   := children[i1].Name;
     end;
+    
+ childn := length(boundchildscs);
+  setlength(boundchildscs, length(boundchildscs) + groupmonitor.childrencount);
 
+  with groupmonitor do
+    for i1 := 0 to groupmonitor.childrencount - 1 do
+    begin
+      boundchildscs[i1 + childn].left   := children[i1].left;
+      boundchildscs[i1 + childn].top    := children[i1].top;
+      boundchildscs[i1 + childn].Width  := children[i1].Width;
+      boundchildscs[i1 + childn].Height := children[i1].Height;
+      boundchildscs[i1 + childn].Name   := children[i1].Name;
+    end;    
+
+end;
+
+procedure tconfigfo.onenablemon(const sender: TObject);
+begin
+if (isactivated = True) then
+begin
+if benablemon.value then
+begin
+ commanderfo.bmon.enabled := true;
+ commanderfo.bmon1.enabled := true;
+ commanderfo.bmon2.enabled := true;
+ 
+if mainfo.typecolor.Value = 2 then
+  begin
+  commanderfo.bmon.font.color := cl_black;
+  commanderfo.bmon1.font.color := cl_black;
+  commanderfo.bmon2.font.color := cl_black;
+  end;      
+ 
+ commanderfo.bmon1.tag     := 1;
+ commanderfo.bmon2.tag     := 1;
+ commanderfo.bmon1.face.template := mainfo.tfaceorange;
+ commanderfo.bmon2.face.template := mainfo.tfaceorange;
+ commanderfo.bmon.face.template := mainfo.tfacegreen;
+
+end else
+begin
+ if mainfo.typecolor.Value = 2 then
+ begin
+  commanderfo.bmon.font.color := cl_white;
+  commanderfo.bmon1.font.color := cl_white;
+  commanderfo.bmon2.font.color := cl_white;
+ end else
+ begin
+  commanderfo.bmon.font.color := cl_black;
+  commanderfo.bmon1.font.color := cl_black;
+  commanderfo.bmon2.font.color := cl_black;
+ end;
+
+ commanderfo.bmon.enabled := false;
+ commanderfo.bmon1.enabled := false;
+ commanderfo.bmon2.enabled := false;
+ commanderfo.bmon1.tag     := 0;
+ commanderfo.bmon2.tag     := 0;
+ commanderfo.bmon1.face.template := mainfo.tfaceplayerlight;
+ commanderfo.bmon2.face.template := mainfo.tfaceplayerlight;
+ commanderfo.bmon.face.template := mainfo.tfaceplayerlight;
+end;
+
+end;
 end;
 
 end.
