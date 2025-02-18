@@ -2880,6 +2880,7 @@ begin
       filename.height := round(40* ratio); 
       dirval := dir.value;
       dironsetvalue(nil, dirval , abool);
+      invalidatewidget;
     end;
 
 { tfiledialogxcontroller }
