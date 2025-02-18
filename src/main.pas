@@ -465,8 +465,9 @@ begin
 
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayoutpan();
-
-  application.ProcessMessages;
+    
+   application.ProcessMessages;
+   
 end;
 
 procedure tmainfo.resizema(fontheight: integer);
@@ -8528,6 +8529,8 @@ begin
 
   if dockpanel1fo.Visible then
     dockpanel1fo.updatelayoutpan();
+    
+    dockpanel1fo.invalidatewidget;
 
   if dockpanel2fo.Visible then
     dockpanel2fo.updatelayoutpan();
@@ -8545,6 +8548,7 @@ begin
 
   configlayoutfo.onsetcolor(nil);
   
+ 
   if fileexists(ParamStr(1)) then
   begin
     songplayerfo.historyfn.Value   := ParamStr(1);
@@ -8560,7 +8564,7 @@ begin
     songplayerfo.doplayerstart(nil);
   end;
  endlayout();  
-  ttimer3.enabled := true;
+ttimer3.enabled := true;
 end;
 
 procedure tmainfo.showinfos1(const Sender: TObject);
@@ -8719,15 +8723,14 @@ end;
 
 procedure tmainfo.ontimerendloop(const sender: TObject);
 begin
- commanderfo.invalidatewidget;
+  commanderfo.invalidatewidget;
   songplayerfo.invalidatewidget;
   songplayer2fo.invalidatewidget;
   filelistfo.invalidatewidget;
   application.processmessages;
   splashfo.Close;
-  isactivated := True;
+  isactivated := True;  
 end;
-
 
 end.
 

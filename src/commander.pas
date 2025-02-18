@@ -481,6 +481,8 @@ begin
         hasmixed2 := True;
 
         timermix.Enabled := True;
+        
+        
 
       end
       else
