@@ -2827,6 +2827,8 @@ procedure tfiledialogxfo.onevloop(const sender: TObject);
 var
 ratio : double;
 i1, i2 : integer;
+abool : boolean = true;
+dirval : msestring;
 begin
  
      ratio := font.Height/12;
@@ -2876,10 +2878,9 @@ begin
       filename.left := round(4* ratio); 
       filename.width := round(600* ratio); 
       filename.height := round(40* ratio); 
-       
-      invalidatewidget;
-     
-end;
+      dirval := dir.value;
+      dironsetvalue(nil, dirval , abool);
+    end;
 
 { tfiledialogxcontroller }
 
