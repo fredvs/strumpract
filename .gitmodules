@@ -1,0 +1,6 @@
+[submodule "use/bgrabitmap"]
+	path = use/bgrabitmap
+	url = git@github.com:bgrabitmap/bgrabitmap.git
+[submodule "use/mseide-msegui"]
+	path = use/mseide-msegui
+	url = git@github.com:mse-org/mseide-msegui.git
