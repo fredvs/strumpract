@@ -11,7 +11,11 @@ esac
 declare -ar OPS=(
     -Fuuse/mseide-msegui/lib/common/{*,kernel/linux}
     -Fuuse/bgrabitmap/bgrabitmap
-)
+    -dmse_dynpo
+    -dclass_bridge
+    -dBGRABITMAP_USE_MSEGUI
+    -B
+    )
 declare -i exitCode=0
 while read -r; do
     if ! [[ ${REPLY} =~ /use/ ]]; then
