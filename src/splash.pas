@@ -5,6 +5,7 @@ interface
 
 uses
   msetypes,
+  sysutils,
   mseglob,
   mseguiglob,
   mseguiintf,
@@ -25,6 +26,7 @@ type
   tsplashfo = class(tmseform)
     procedure oneventloop(const Sender: TObject);
    procedure oncrea(const sender: TObject);
+   procedure oncreated(const sender: TObject);
   end;
 
 var
@@ -63,7 +65,9 @@ uses
 
 procedure tsplashfo.oneventloop(const Sender: TObject);
 begin
- // application.ProcessMessages;
+  application.ProcessMessages;
+  invalidatewidget;
+  sleep(100);
   application.createform(tconfigfo, configfo);
   application.createform(tconfiglayoutfo, configlayoutfo);
   configlayoutfo.icon := configfo.icon;
@@ -200,7 +204,11 @@ begin
  {$if defined(netbsd) or defined(darwin)}
  container.face.image.options := [bmo_masked]; 
  {$endif}
+end;
 
+procedure tsplashfo.oncreated(const sender: TObject);
+begin
+visible := false;
 end;
 
 end.
