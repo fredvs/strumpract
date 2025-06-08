@@ -4,6 +4,7 @@ object splashfo: tsplashfo
   face.image.origformat = 'png'
   face.image.alignment = [al_stretchx, al_stretchy]
   face.localprops = [fal_image]
+  visible = False
   bounds_x = 719
   bounds_y = 381
   bounds_cx = 129
@@ -3380,6 +3381,7 @@ object splashfo: tsplashfo
   }
   windowopacity = -Inf
   oncreate = oncrea
+  oncreated = oncreated
   oneventloopstart = oneventloop
   moduleclassname = 'tmseform'
 end
