@@ -19,7 +19,7 @@ object configlayoutfo: tconfiglayoutfo
   optionswindow = [wo_dialog]
   font.name = 'stf_default'
   font.localprops = []
-  statfile = mainfo.tstatfile1
+  statfile = filelistfo.tstatfile1
   caption = 'Config of Layout'
   windowopacity = -Inf
   oncreate = oncrea
@@ -84,6 +84,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 38
       bounds_cx = 172
       bounds_cy = 43
+      statfile = filelistfo.tstatfile1
       onchange = onsetcolor
       value = 13872086
       reffontheight = 17
@@ -129,6 +130,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 91
       bounds_cx = 172
       bounds_cy = 43
+      statfile = filelistfo.tstatfile1
       onchange = onsetcolor
       value = 13744312
       reffontheight = 17
@@ -195,6 +197,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 39
       bounds_cx = 172
       bounds_cy = 43
+      statfile = filelistfo.tstatfile1
       onchange = onsetcolor
       value = 11255766
       valuedefault = -1610612721
@@ -241,6 +244,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 92
       bounds_cx = 172
       bounds_cy = 43
+      statfile = filelistfo.tstatfile1
       onchange = onsetcolor
       value = 9424076
       valuedefault = -1610612720
@@ -353,7 +357,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 26
       bounds_cx = 88
       bounds_cy = 19
-      statfile = mainfo.tstatfile1
+      statfile = filelistfo.tstatfile1
       colorglyph = 4868682
     end
     object bnohint: tbooleanedit
@@ -376,7 +380,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 51
       bounds_cx = 58
       bounds_cy = 19
-      statfile = mainfo.tstatfile1
+      statfile = filelistfo.tstatfile1
       onchange = onchangehint
       colorglyph = 4868682
     end
@@ -400,7 +404,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 76
       bounds_cx = 95
       bounds_cy = 19
-      statfile = mainfo.tstatfile1
+      statfile = filelistfo.tstatfile1
       colorglyph = 4868682
     end
     object inifile: tbooleanedit
