@@ -193,6 +193,9 @@ uses
   captionstrumpract,
   randomnote_mfm,
   main,
+  commander,
+  songplayer,
+  filelistform,
   config,
   uos_flat,
   guitars,
@@ -5088,11 +5091,11 @@ end;
 
 procedure trandomnotefo.crea(const Sender: TObject);
 begin
- {$if defined(netbsd) or defined(darwin)}
+ //{$if defined(netbsd) or defined(darwin)}
   windowopacity := 1;
- {$else}
-  windowopacity := 0;  
- {$endif}
+ //{$else}
+//  windowopacity := 0;  
+// {$endif}
 
 end;
 
@@ -5153,7 +5156,26 @@ begin
   aimagepiano.Free; 
   aimageguit.Free;
   aimagebass.Free;
-end;
+  
+  
+  commanderfo.Visible := True;
+  filelistfo.Visible  := True;
+
+  songplayerfo.Visible  := True;
+  songplayer2fo.Visible := True;
+
+  oktimer := 1;
+
+  mainfo.ondockall(nil);
+
+  oktimer := 0;
+
+  if mainfo.timerwait.Enabled then
+    mainfo.timerwait.restart // to reset
+  else
+    mainfo.timerwait.Enabled := True;
+
+ end;
 
 end.
 

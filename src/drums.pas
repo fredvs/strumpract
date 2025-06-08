@@ -943,8 +943,9 @@ begin
   if hasinit = 1 then
     if wascreatedok then
     begin
-      if randomnotefo.Visible then
-        randomnotefo.bpm.Value := roundmath(edittempo.Value / 2);
+   // if assigned(randomnotefo) then
+     // if randomnotefo.Visible then
+       // randomnotefo.bpm.Value := roundmath(edittempo.Value / 2);
 
       //TimerTick.Interval := trunc(edittempo.Value * 1000);
       TimerTick.Interval := roundmath(60000 / 4 / edittempo.Value);

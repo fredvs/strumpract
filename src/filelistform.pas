@@ -77,6 +77,7 @@ implementation
 
 uses
   captionstrumpract,
+  msestockobjects,
   findmessage,
   songplayer,
   commander,
@@ -1080,6 +1081,9 @@ end;
 procedure tfilelistfo.onexecfind(const Sender: TObject);
 begin
   imessages := 0;
+  application.createform(tfindmessagefo, findmessagefo);
+  findmessagefo.resizefm(fontheightused);
+  findmessagefo.tbutton3.Caption := lang_stockcaption[Ord(sc_close)];
   findmessagefo.Show(True);
 end;
 

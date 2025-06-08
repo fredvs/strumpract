@@ -277,7 +277,7 @@ object configlayoutfo: tconfiglayoutfo
       bounds_y = 18
       bounds_cx = 82
       bounds_cy = 30
-      statfile = mainfo.tstatfile1
+      statfile = filelistfo.tstatfile1
       value = 12
       valuedefault = 12
       valuerange = 1
@@ -547,7 +547,7 @@ object configlayoutfo: tconfiglayoutfo
     bounds_y = 255
     bounds_cx = 220
     bounds_cy = 19
-    statfile = mainfo.tstatfile1
+    statfile = filelistfo.tstatfile1
     value = True
   end
   object tstringdisp1: tstringdisp

@@ -15,6 +15,7 @@ object findmessagefo: tfindmessagefo
   font.color = -1610612734
   font.name = 'stf_default'
   font.localprops = [flp_color]
+  options = [fo_freeonclose, fo_screencentered, fo_autoreadstat, fo_autowritestat]
   caption = 'Find in song list'
   icon.options = [bmo_masked, bmo_graymask]
   icon.origformat = 'png'
@@ -135,7 +136,7 @@ object findmessagefo: tfindmessagefo
     bounds_x = 6
     bounds_y = 32
     bounds_cx = 190
-    bounds_cy = 22
+    bounds_cy = 24
     anchors = [an_left, an_top, an_right]
     statfile = mainfo.tstatfile1
     optionsedit1 = [oe1_autopopupmenu, oe1_savevalue, oe1_savestate]
@@ -145,7 +146,7 @@ object findmessagefo: tfindmessagefo
     dropdown.cols.items = <    
       item
       end>
-    reffontheight = 15
+    reffontheight = 17
   end
   object casesensitive: tbooleanedit
     frame.caption = 'Case &Sensitive'
@@ -153,15 +154,15 @@ object findmessagefo: tfindmessagefo
     frame.localprops1 = []
     frame.outerframe = (
       0
-      2
-      89
-      2
+      3
+      84
+      3
     )
     taborder = 3
     bounds_x = 207
-    bounds_y = 34
-    bounds_cx = 104
-    bounds_cy = 17
+    bounds_y = 33
+    bounds_cx = 99
+    bounds_cy = 19
     anchors = [an_top, an_right]
     statfile = mainfo.tstatfile1
   end

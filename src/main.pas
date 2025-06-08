@@ -11,15 +11,59 @@ unit main;
 interface
 
 uses
- {$ifdef windows}win_mixer,{$endif}msetypes,msefileutils,mseglob,config,
- configlayout,BGRABitmap,BGRABitmapTypes,BGRAGradients,BGRAGradientScanner,
- mseguiglob,po2arrays,msegraphedits,msescrollbar,Process,mseguiintf,
- mseapplication,msestat,msegui,msegraphics,msegraphutils,mseclasses,msewidgets,
- mseforms,msechart,msedock,msedataedits,mseedit,msestatfile,SysUtils,Classes,
- Math,msebitmap,synthe,msesys,msemenus,msestream,msegrids,mselistbrowser,mseact,
- mseificomp,mseificompglob,mseifiglob,msestrings,msedatanodes,msedragglob,
- msedropdownlist,msefiledialogx,msegridsglob,msetimer,{$IFDEF unix}dynlibs,
- {$ENDIF}msestockobjects,mseconsts,captionstrumpract,mseimage;
+ {$ifdef windows}win_mixer,{$endif}msetypes,
+  msefileutils,
+  mseglob,
+  config,
+  configlayout,
+  BGRABitmap,
+  BGRABitmapTypes,
+  BGRAGradients,
+  BGRAGradientScanner,
+  mseguiglob,
+  po2arrays,
+  msegraphedits,
+  msescrollbar,
+  Process,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  msechart,
+  msedock,
+  msedataedits,
+  mseedit,
+  msestatfile,
+  SysUtils,
+  Classes,
+  Math,
+  msebitmap,
+  synthe,
+  msesys,
+  msemenus,
+  msestream,
+  msegrids,
+  mselistbrowser,
+  mseact,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestrings,
+  msedatanodes,
+  msedragglob,
+  msedropdownlist,
+  msefiledialogx,
+  msegridsglob,
+  msetimer,{$IFDEF unix}dynlibs,
+ {$ENDIF}msestockobjects,
+  mseconsts,
+  captionstrumpract,
+  mseimage;
 
 type
   boundchild = record
@@ -56,7 +100,7 @@ type
     buttonicons: timagelist;
 
     tfiledialogx2: tfiledialogx;
-   ttimer3: ttimer;
+    ttimer3: ttimer;
     procedure ontimerwait(const Sender: TObject);
     procedure ontimeract(const Sender: TObject);
     procedure oncreateform(const Sender: TObject);
@@ -139,7 +183,7 @@ type
     procedure beforefaceplayer(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty; var handled: Boolean);
     procedure aftergreen(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty);
     procedure beforegreen(const Sender: tcustomface; const Canvas: tcanvas; const arect: rectty; var handled: Boolean);
-   procedure ontimerendloop(const sender: TObject);
+    procedure ontimerendloop(const Sender: TObject);
   private
     flayoutlock: int32;
   protected
@@ -382,9 +426,9 @@ end;
 
 procedure tmainfo.applyfont(fontval: integer);
 var
-ratio : double;
+  ratio: double;
 begin
-  ratio := fontval/12;
+  ratio          := fontval / 12;
   fontheightused := fontval;
   commanderfo.resizeco(fontval);
   wavefo.onresizfont(fontval);
@@ -408,15 +452,15 @@ begin
   filelistfo.resizefi(fontval);
   configlayoutfo.resizecl(fontval);
   configfo.resizecs(fontval);
-  aboutfo.resizeab(fontval);
-  findmessagefo.resizefm(fontval);
+  // aboutfo.resizeab(fontval);
+  // findmessagefo.resizefm(fontval);
   conflangfo.resizecl(fontval);
 
   paintslider();
 
   resizema(fontval);
-  
-  messagefontheight := fontval; 
+
+  messagefontheight := fontval;
 
   if fontval < 12 then
   begin
@@ -430,27 +474,27 @@ begin
   end;
 
   updatelayoutstrum();
-  
-   dockpanel1fo.tmainmenu1.menu.font.Height := fontval;
-   dockpanel1fo.tmainmenu1.menu.fontactive.Height := fontval;
-   dockpanel1fo.container.frame.sbvert.width := roundmath(10 * ratio);
-   
-   dockpanel2fo.tmainmenu1.menu.font.Height := fontval;
-   dockpanel2fo.tmainmenu1.menu.fontactive.Height := fontval;
-   dockpanel2fo.container.frame.sbvert.width := roundmath(10 * ratio);
-  
-   dockpanel3fo.tmainmenu1.menu.font.Height := fontval;
-   dockpanel3fo.tmainmenu1.menu.fontactive.Height := fontval;
-   dockpanel3fo.container.frame.sbvert.width := roundmath(10 * ratio);
-   
-   dockpanel4fo.tmainmenu1.menu.font.Height := fontval;
-   dockpanel4fo.tmainmenu1.menu.fontactive.Height := fontval;
-   dockpanel4fo.container.frame.sbvert.width := roundmath(10 * ratio);
-   
-   dockpanel5fo.tmainmenu1.menu.font.Height := fontval;
-   dockpanel5fo.tmainmenu1.menu.fontactive.Height := fontval;
-   dockpanel5fo.container.frame.sbvert.width := roundmath(10 * ratio);
-   
+
+  dockpanel1fo.tmainmenu1.menu.font.Height       := fontval;
+  dockpanel1fo.tmainmenu1.menu.fontactive.Height := fontval;
+  dockpanel1fo.container.frame.sbvert.Width      := roundmath(10 * ratio);
+
+  dockpanel2fo.tmainmenu1.menu.font.Height       := fontval;
+  dockpanel2fo.tmainmenu1.menu.fontactive.Height := fontval;
+  dockpanel2fo.container.frame.sbvert.Width      := roundmath(10 * ratio);
+
+  dockpanel3fo.tmainmenu1.menu.font.Height       := fontval;
+  dockpanel3fo.tmainmenu1.menu.fontactive.Height := fontval;
+  dockpanel3fo.container.frame.sbvert.Width      := roundmath(10 * ratio);
+
+  dockpanel4fo.tmainmenu1.menu.font.Height       := fontval;
+  dockpanel4fo.tmainmenu1.menu.fontactive.Height := fontval;
+  dockpanel4fo.container.frame.sbvert.Width      := roundmath(10 * ratio);
+
+  dockpanel5fo.tmainmenu1.menu.font.Height       := fontval;
+  dockpanel5fo.tmainmenu1.menu.fontactive.Height := fontval;
+  dockpanel5fo.container.frame.sbvert.Width      := roundmath(10 * ratio);
+
   if dockpanel1fo.Visible then
     dockpanel1fo.updatelayoutpan();
 
@@ -465,9 +509,9 @@ begin
 
   if dockpanel5fo.Visible then
     dockpanel5fo.updatelayoutpan();
-    
-   application.ProcessMessages;
-   
+
+  application.ProcessMessages;
+
 end;
 
 procedure tmainfo.resizema(fontheight: integer);
@@ -489,7 +533,7 @@ begin
   equalizerfoheight := roundmath(142 * ratio);
   tmainmenu1.menu.font.Height := fontheight;
   tmainmenu1.menu.fontactive.Height := fontheight;
-  container.frame.sbvert.width := roundmath(10 * ratio);
+  container.frame.sbvert.Width := roundmath(10 * ratio);
 end;
 
 procedure tmainfo.setlangstrumpract(thelang: string);
@@ -649,37 +693,7 @@ begin
       nodrums.frame.font.name := 'Unifont' ;
       noanim.frame.font.name := 'Unifont' ;
      end;
-      
-      randomnotefo.font.name := 'Unifont' ;
-      randomnotefo.font.height := roundmath(20 * ratio);
-      
-      randomnotefo.pconfigtext.font.name := 'Unifont' ;
-      randomnotefo.pconfigtext.font.height := roundmath(20 * ratio);
-      
-      randomnotefo.tstringdisp1.font.name := 'Unifont' ;
-      randomnotefo.tstringdisp1.font.height := roundmath(64 * ratio);
-      
-       randomnotefo.tgroupbox1.frame.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox1.frame.font.height := roundmath(22 * ratio);
-      
-      randomnotefo.tgroupbox2.frame.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox2.frame.font.height := roundmath(22 * ratio);
-      
-      randomnotefo.tgroupbox3.frame.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox3.frame.font.height := roundmath(22 * ratio);
-      
-         randomnotefo.tgroupbox1.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox1.font.height := roundmath(22 * ratio);
-      
-      randomnotefo.tgroupbox2.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox2.font.height := roundmath(22 * ratio);
-      
-      randomnotefo.tgroupbox3.font.name := 'Unifont' ;
-      randomnotefo.tgroupbox3.font.height := roundmath(22 * ratio);
-      
-      randomnotefo.tmemoedit1.font.name := 'Unifont' ;
-      randomnotefo.tmemoedit1.font.height := roundmath(22 * ratio);
-            
+       
       songplayerfo.font.name := 'Unifont' ;
       songplayer2fo.font.name := 'Unifont' ;
       recorderfo.font.name := 'Unifont' ;
@@ -802,29 +816,7 @@ begin
   
       filelistfo.list_files.rowfonts[1].name := 'stf_default' ;
       filelistfo.list_files.rowfonts[1].height := fontheightused;
-          
-      randomnotefo.font.name := 'stf_default' ;
-      randomnotefo.font.height := roundmath(24*ratio);
       
-      randomnotefo.tgroupbox1.frame.font.name := 'stf_default' ;
-      randomnotefo.tgroupbox1.frame.font.height := roundmath(20*ratio);
-      
-      randomnotefo.tgroupbox2.frame.font.name := 'stf_default' ;
-      randomnotefo.tgroupbox2.frame.font.height := roundmath(20*ratio);
-      
-      randomnotefo.tgroupbox3.frame.font.name := 'stf_default' ;
-      randomnotefo.tgroupbox3.frame.font.height := roundmath(20*ratio);
-      
-      
-      randomnotefo.pconfigtext.font.name := 'stf_default' ;
-      randomnotefo.pconfigtext.font.height := roundmath(20*ratio);
-      
-      randomnotefo.tstringdisp1.font.name := 'stf_default' ;
-      randomnotefo.tstringdisp1.font.height := roundmath(62*ratio);
-      
-      randomnotefo.tmemoedit1.font.name := 'Unifont' ;
-      randomnotefo.tmemoedit1.font.height := roundmath(20*ratio);
-        
       messagefontname := 'stf_default';
       messagefontheight := roundmath(12*ratio);
       
@@ -1464,8 +1456,8 @@ begin
 
   end;
 
-  with findmessagefo do
-    tbutton3.Caption := lang_stockcaption[Ord(sc_close)];
+  // with findmessagefo do
+  //   tbutton3.Caption := lang_stockcaption[Ord(sc_close)];
 
   with infosdfo do
   begin
@@ -1790,7 +1782,7 @@ begin
 
     speccalcb.hint := lang_commanderfo[Ord(co_speccalcb_hint)];  {'Enable Spectrum Frequencies Calculation'}
 
-  //  guimixb.hint := lang_commanderfo[Ord(co_guimixb_hint)];  {'Graphic-anim while mixing (if cpu too low set it off)'}
+    //  guimixb.hint := lang_commanderfo[Ord(co_guimixb_hint)];  {'Graphic-anim while mixing (if cpu too low set it off)'}
 
     vuinb.hint := lang_commanderfo[Ord(co_vuinb_hint)];  {'View Meters on/off'}
 
@@ -2046,138 +2038,12 @@ begin
 
   end;
 
-
-  with randomnotefo do
-  begin
-    Caption := lang_randomnotefo[Ord(ra_randomnotefo)];  {'Chord Randomizer'}
-
-    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
-
-    keyb1pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse1_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse1_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse1_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
-
-    keyb2pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse2_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse2_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse2_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    keyb3pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];   {'Click to listen to piano chord'}
-
-    elipse3_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse3_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse3_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    chord1drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
-
-    chord2drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
-
-    chord3drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
-
-    tbutton4.hint := lang_randomnotefo[Ord(ra_tbutton4_hint)];  {'Close all StrumPract (Click the icon in corner of the form to close only Randomizer)'}
-
-    bnbchords.hint    := lang_randomnotefo[Ord(ra_bnbchords_hint)];  {'Randomize chords'}
-    bnbchords.Caption := lang_randomnotefo[Ord(ra_bnbchords)];  {'Randomize'}
-
-    btnfixed.hint    := lang_randomnotefo[Ord(ra_btnfixed_hint)];  {'Manual fixed chords'}
-    btnfixed.Caption := lang_randomnotefo[Ord(ra_btnfixed)];  {'Fixed'}
-
-    tbutton5.hint    := lang_randomnotefo[Ord(ra_tbutton5_hint)];  {' Tuned guitar string '}
-    tbutton5.Caption := lang_randomnotefo[Ord(ra_tbutton5)];  {'Tuned Guitars'}
-
-
-    keyb4pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse4_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse4_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse4_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    guitpb1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to the guitar chord'}
-
-    chord5drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
-
-    keyb5pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse5_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse5_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    elipse5_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
-
-    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
-
-    bchord1.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 1'}
-    bchord5.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 5'}
-    bchord4.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)]; {'Re-do a randomizer for chord 4'}
-    bchord3.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 3'}
-    bchord2.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 2'}
-    tbutton2.hint    := lang_randomnotefo[Ord(ra_tbutton2_hint)];  {'Clear chords'}
-    tbutton2.Caption := lang_randomnotefo[Ord(ra_tbutton2_hint)];  {'Clear'}
-
-    tbutton3.hint    := lang_randomnotefo[Ord(ra_nodrumsframe)];  {'Show drums set'}
-    tbutton3.Caption := lang_commanderfo[Ord(co_namedrums_hint)];  {'Drums'}
-
-    tgroupbox1.frame.Caption := lang_randomnotefo[Ord(ra_tgroupbox1frame)];  {'Chords'}
-
-    bool7th.frame.Caption := lang_randomnotefo[Ord(ra_bool7th)];  {' 7th'}
-    bool7th.hint          := lang_randomnotefo[Ord(ra_bool7th_hint)];  {'Enable 7th Chords'}
-
-    boolminor.frame.Caption := lang_randomnotefo[Ord(ra_boolminorframe)];  {' minor'}
-    boolminor.hint          := lang_randomnotefo[Ord(ra_boolminor_hint)];  {'Enable minor Chords'}
-
-    boolmajor.frame.Caption := lang_randomnotefo[Ord(ra_boolmajorframe)];  {' Major'}
-    boolmajor.hint          := lang_randomnotefo[Ord(ra_boolmajor_hint)];  {'Enable Major Chords'}
-
-    bool9th.frame.Caption := lang_randomnotefo[Ord(ra_bool9thframe)];  {' 9th'}
-    bool9th.hint          := lang_randomnotefo[Ord(ra_bool9th_hint)];  {'Enable 9th Chords'}
-
-    withsharp.frame.Caption := lang_randomnotefo[Ord(ra_withsharpframe)];  {' # (Sharp)'}
-    withsharp.hint          := lang_randomnotefo[Ord(ra_withsharp_hint)];  {'Enable Sharp-Chords #'}
-
-    bosound.frame.Caption := lang_randomnotefo[Ord(ra_bosoundframe)];  {' Sound'}
-    bosound.hint          := lang_randomnotefo[Ord(ra_bosound_hint)];  {'Enable Sound of Chords'}
-
-    tgroupbox2.frame.Caption := lang_randomnotefo[Ord(ra_tgroupbox2frame)];  {'Number'}
-
-    numchord.hint := lang_randomnotefo[Ord(ra_numchord_hint)];  {'Total chords'}
-
-    // maxnote.frame.caption := lang_randomnotefo[Ord(ra_maxnoteframe)];  {'Max'}
-    maxnote.hint := lang_randomnotefo[Ord(ra_maxnote_hint)];  {'Maximum number of chords'}
-
-    withrandom.frame.Caption := lang_randomnotefo[Ord(ra_withrandomframe)];  {' Random num'}
-    withrandom.hint          := lang_randomnotefo[Ord(ra_withrandom_hint)];  {'Randomize the number of chords'}
-
-    tgroupbox3.frame.Caption := lang_commanderfo[Ord(co_namedrums_hint)]; {'Drums'}
-
-    bpm.hint := lang_randomnotefo[Ord(ra_bpm_hint)];  {'Tempo of Drums in BPM'}
-
-    nodrums.frame.Caption := lang_randomnotefo[Ord(ra_nodrumsframe)];  {' Enable Drums'}
-    nodrums.hint          := lang_randomnotefo[Ord(ra_nodrums_hint)];  {'Enable random Drums tempo'}
-
-    bconfig.hint := lang_randomnotefo[Ord(ra_bconfig_hint)];  {'Configure the "Clear" message'}
-    //timage3.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
-
-  end;
-
 end;
 
 procedure tmainfo.ontimeract(const Sender: TObject);
 begin
-  if randomnotefo.Visible = False then
-    activate;
+  //if assigned(randomnotefo) then if randomnotefo.Visible = False then
+  //    activate;
 end;
 
 procedure tmainfo.ontimerwait(const Sender: TObject);
@@ -2222,22 +2088,23 @@ begin
       bounds_cxmax := 0;
       bounds_cxmin := 0;
 
-      if not findfileordir(tstatfile1.filename) then top := 30;
-       
+      if not findfileordir(tstatfile1.filename) then
+        top := 30;
+
       hasinit := 1;
 
       rect1 := application.screenrect(window);
 
       maxheightfo := rect1.cy - 70;
-      
-      scrollwidth := container.frame.sbvert.width;
+
+      scrollwidth := container.frame.sbvert.Width;
 
       if (fs_sbverton in container.frame.state) then
-        Width := fowidth + scrollwidth +1 //  writeln('Has scrollwidth');
+        Width := fowidth + scrollwidth + 1 //  writeln('Has scrollwidth');
       else
         Width := fowidth;
-        // writeln('Has NO scrollwidth');
-    
+      // writeln('Has NO scrollwidth');
+
 
       bounds_cx := Width;
 
@@ -2257,8 +2124,8 @@ begin
       end;
 
     end;
-    
-    invalidatewidget;
+
+  invalidatewidget;
 end;
 
 procedure tmainfo.oncreateform(const Sender: TObject);
@@ -2314,11 +2181,11 @@ begin
 {$endif}
 
   ordir := filepath(statdirname);
-  
- // writeln('filepath(ordir) '+ordir);
-  
- // if system.copy(ordir,1,1) = '^' then
- // ordir := sys_getuserhomedir() + system.copy(ordir,3, length(ordir) -2);
+
+  // writeln('filepath(ordir) '+ordir);
+
+  // if system.copy(ordir,1,1) = '^' then
+  // ordir := sys_getuserhomedir() + system.copy(ordir,3, length(ordir) -2);
 
   if not finddir(ordir) then
     createdir(ordir);
@@ -2327,8 +2194,8 @@ begin
   //  'ini' + directoryseparator + 'stat.ini');
 
   tstatfile1.filename := msestring(ordir + directoryseparator + 'stat.ini');
-  
- // writeln('1 ' + tstatfile1.filename);
+
+  // writeln('1 ' + tstatfile1.filename);
 
   Timerwait          := ttimer.Create(nil);
   Timerwait.interval := 400000;
@@ -2345,7 +2212,8 @@ end;
 
 procedure tmainfo.onabout(const Sender: TObject);
 begin
-
+  application.createform(taboutfo, aboutfo);
+  aboutfo.resizeab(fontheightused);
   aboutfo.Caption          := lang_mainfo[Ord(ma_tmainmenu1_about_hint)];
   aboutfo.about_text.frame.colorclient := $DFFFB2;
   aboutfo.about_text.Value := c_linefeed + 'StrumPract ' + versiontext + ' ' + platformtext +
@@ -2418,9 +2286,9 @@ begin
   oktimer := 1;
 
   commanderfo.guimix.Value := False;
-  
+
   if not fileexists(tstatfile1.filename) then
-   begin
+  begin
     {$if defined(cpuarm) or defined(cpuaarch64)}
     configfo.latdrums.Value := 0.08;
     configfo.latplay.Value  := 0.3;
@@ -2441,7 +2309,7 @@ begin
     end;
     {$endif}
 
-  //  typecolor.Value := 2;
+    //  typecolor.Value := 2;
     ondockplayersx2(Sender);
 
     oktimer := 1;
@@ -2528,7 +2396,7 @@ begin
   end;
 
 
- // endlayout();
+  // endlayout();
 
   oktimer := 0;
 
@@ -2633,11 +2501,6 @@ begin
 
   //  {$endif}  
 
-  if randomnotefo.Visible = True then
-  begin
-    randomnotefo.bringtofront;
-    randomnotefo.refreshform(Sender);
-  end;
   //visible := false;
 
 end;
@@ -3101,11 +2964,11 @@ begin
 
   wavefo2.bounds_cx := roundmath(300 * ratio);
   wavefo2.bounds_cy := roundmath(100 * ratio);
-  
+
   wavefo.bounds_cx := roundmath(300 * ratio);
-  
+
   wavefo.bounds_cy := roundmath(100 * ratio);
-  
+
   waveforec.bounds_cx := roundmath(300 * ratio);
   waveforec.bounds_cy := roundmath(100 * ratio);
 
@@ -3119,8 +2982,8 @@ begin
   infosdfo2.bounds_cymax := 0;
 
   infosdfo.Height := roundmath(226 * ratio);
-  
-  infosdfo.Width  := fowidth;
+
+  infosdfo.Width := fowidth;
 
   infosdfo2.Height := infosdfo.Height;
   infosdfo2.Width  := infosdfo.Width;
@@ -4846,12 +4709,12 @@ begin
     songplayerfo.cbtempob.font.color  := cl_black;
     songplayer2fo.cbtempob.font.color := cl_black;
 
-    commanderfo.bmon.font.color  := cl_black;
+    commanderfo.bmon.font.color        := cl_black;
     commanderfo.Brandommix.font.color  := cl_black;
     commanderfo.linkvolgenb.font.color := cl_black;
     commanderfo.linkvolb.font.color    := cl_black;
     commanderfo.speccalcb.font.color   := cl_black;
-   // commanderfo.guimixb.font.color     := cl_black;
+    // commanderfo.guimixb.font.color     := cl_black;
     commanderfo.linkvol2b.font.color   := cl_black;
     commanderfo.automixb.font.color    := cl_black;
     commanderfo.vuinb.font.color       := cl_black;
@@ -4908,22 +4771,15 @@ begin
 
     filelistfo.list_files.datacols.colorselect := $FFC87A;
 
-    tmainmenu1.menu.font.color := cl_black;
-    tmainmenu1.menu.colorglyph := cl_black;
-    tmainmenu1.menu.colorglyphactive := cl_black;
-    wavefo.tmainmenu1.menu.colorglyph := thecolor1;
+    tmainmenu1.menu.font.color           := cl_black;
+    tmainmenu1.menu.colorglyph           := cl_black;
+    tmainmenu1.menu.colorglyphactive     := cl_black;
+    wavefo.tmainmenu1.menu.colorglyph    := thecolor1;
     wavefo.tmainmenu1.menu.colorglyphactive := thecolor1;
     waveforec.tmainmenu1.menu.colorglyph := cl_black;
     waveforec.tmainmenu1.menu.colorglyphactive := cl_black;
-    wavefo2.tmainmenu1.menu.colorglyph := thecolor1;
+    wavefo2.tmainmenu1.menu.colorglyph   := thecolor1;
     wavefo2.tmainmenu1.menu.colorglyphactive := thecolor2;
-    randomnotefo.color := $DED9D1;
-    randomnotefo.tstringdisp1.font.color := cl_black;
-    randomnotefo.bchord1.font.color := cl_black;
-    randomnotefo.bchord2.font.color := cl_black;
-    randomnotefo.bchord3.font.color := cl_black;
-    randomnotefo.bchord4.font.color := cl_black;
-    randomnotefo.bchord5.font.color := cl_black;
 
     filelistfo.container.color := $FDB0FB;
     filelistfo.color           := $FDB0FB;
@@ -5035,26 +4891,6 @@ begin
       infochan.frame.font.color   := cl_black;
       infobpm.frame.font.color    := cl_black;
     end;
-
-
-    randomnotefo.withrandom.frame.font.color := cl_black;
-    randomnotefo.nodrums.frame.font.color    := cl_black;
-    randomnotefo.withsharp.frame.font.color  := cl_black;
-    randomnotefo.maxnote.frame.font.color    := cl_black;
-    randomnotefo.bpm.frame.font.color        := cl_black;
-    randomnotefo.boolmajor.frame.font.color  := cl_black;
-    randomnotefo.withrandom.frame.font.color := cl_black;
-    randomnotefo.boolmajor.frame.font.color  := cl_black;
-    randomnotefo.boolminor.frame.font.color  := cl_black;
-    randomnotefo.bosound.frame.font.color    := cl_black;
-    randomnotefo.tbutton3.font.color         := cl_black;
-    randomnotefo.tbutton5.font.color         := cl_black;
-    randomnotefo.tbutton2.font.color         := cl_black;
-    randomnotefo.bnbchords.font.color        := cl_black;
-    randomnotefo.btnfixed.font.color         := cl_black;
-    randomnotefo.tgroupbox1.frame.font.color := cl_black;
-    randomnotefo.tgroupbox2.frame.font.color := cl_black;
-    randomnotefo.tgroupbox3.frame.font.color := cl_black;
 
     // main
 
@@ -5371,14 +5207,14 @@ begin
     end;
 
     // commander
-    commanderfo.bmon1.font.color      := ltblack;
-    commanderfo.bmon2.font.color     := ltblack;
-    commanderfo.namedrums.font.color        := ltblack;
-    commanderfo.namegen.font.color          := ltblack;
-    commanderfo.nameinput.font.color        := ltblack;
-    commanderfo.genleftvolvalue.font.color  := ltblack;
+    commanderfo.bmon1.font.color           := ltblack;
+    commanderfo.bmon2.font.color           := ltblack;
+    commanderfo.namedrums.font.color       := ltblack;
+    commanderfo.namegen.font.color         := ltblack;
+    commanderfo.nameinput.font.color       := ltblack;
+    commanderfo.genleftvolvalue.font.color := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
-    commanderfo.sysvolbut.font.color        := ltblack;
+    commanderfo.sysvolbut.font.color       := ltblack;
 
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
@@ -5421,7 +5257,7 @@ begin
     filelistfo.list_files.datacols[1].colorselect := $FFC87A;
     filelistfo.list_files.datacols[2].colorselect := $FFC87A;
 
-    aboutfo.font.color := cl_black;
+    //   aboutfo.font.color := cl_black;
 
     with spectrum1fo do
     begin
@@ -5582,13 +5418,13 @@ begin
 
     songplayerfo.historyfn.dropdown.cols[0].colorselect  := $FFCD8F;
     songplayer2fo.historyfn.dropdown.cols[0].colorselect := $FFCD8F;
-    
+
     commanderfo.Brandommix.font.color  := cl_black;
-    commanderfo.bmon.font.color  := cl_black;
+    commanderfo.bmon.font.color        := cl_black;
     commanderfo.linkvolgenb.font.color := cl_black;
     commanderfo.linkvolb.font.color    := cl_black;
     commanderfo.speccalcb.font.color   := cl_black;
-   // commanderfo.guimixb.font.color     := cl_black;
+    // commanderfo.guimixb.font.color     := cl_black;
     commanderfo.linkvol2b.font.color   := cl_black;
     commanderfo.automixb.font.color    := cl_black;
     commanderfo.vuinb.font.color       := cl_black;
@@ -5645,22 +5481,15 @@ begin
 
     filelistfo.list_files.datacols.colorselect := $FFC87A;
 
-    tmainmenu1.menu.font.color := cl_black;
-    tmainmenu1.menu.colorglyph := cl_black;
-    tmainmenu1.menu.colorglyphactive := cl_black;
-    wavefo.tmainmenu1.menu.colorglyph := thecolor1;
+    tmainmenu1.menu.font.color           := cl_black;
+    tmainmenu1.menu.colorglyph           := cl_black;
+    tmainmenu1.menu.colorglyphactive     := cl_black;
+    wavefo.tmainmenu1.menu.colorglyph    := thecolor1;
     wavefo.tmainmenu1.menu.colorglyphactive := thecolor1;
     waveforec.tmainmenu1.menu.colorglyph := cl_black;
     waveforec.tmainmenu1.menu.colorglyphactive := cl_black;
-    wavefo2.tmainmenu1.menu.colorglyph := thecolor1;
+    wavefo2.tmainmenu1.menu.colorglyph   := thecolor1;
     wavefo2.tmainmenu1.menu.colorglyphactive := thecolor2;
-    randomnotefo.color := $DED9D1;
-    randomnotefo.tstringdisp1.font.color := cl_black;
-    randomnotefo.bchord1.font.color := cl_black;
-    randomnotefo.bchord2.font.color := cl_black;
-    randomnotefo.bchord3.font.color := cl_black;
-    randomnotefo.bchord4.font.color := cl_black;
-    randomnotefo.bchord5.font.color := cl_black;
 
     filelistfo.container.color := $D2D8A5;
     filelistfo.color           := $D2D8A5;
@@ -5764,27 +5593,6 @@ begin
       infochan.frame.font.color   := cl_black;
       infobpm.frame.font.color    := cl_black;
     end;
-
-
-    randomnotefo.withrandom.frame.font.color := cl_black;
-    randomnotefo.nodrums.frame.font.color    := cl_black;
-    randomnotefo.withsharp.frame.font.color  := cl_black;
-    randomnotefo.maxnote.frame.font.color    := cl_black;
-    randomnotefo.bpm.frame.font.color        := cl_black;
-    randomnotefo.boolmajor.frame.font.color  := cl_black;
-    randomnotefo.withrandom.frame.font.color := cl_black;
-    randomnotefo.boolmajor.frame.font.color  := cl_black;
-    randomnotefo.boolminor.frame.font.color  := cl_black;
-    randomnotefo.bosound.frame.font.color    := cl_black;
-    randomnotefo.tbutton3.font.color         := cl_black;
-    randomnotefo.tbutton5.font.color         := cl_black;
-    randomnotefo.tbutton2.font.color         := cl_black;
-    randomnotefo.bnbchords.font.color        := cl_black;
-    randomnotefo.btnfixed.font.color         := cl_black;
-    randomnotefo.tgroupbox1.frame.font.color := cl_black;
-    randomnotefo.tgroupbox2.frame.font.color := cl_black;
-    randomnotefo.tgroupbox3.frame.font.color := cl_black;
-
 
     // main
     songplayerfo.font.color  := thecolor1;
@@ -6121,14 +5929,14 @@ begin
     end;
 
     // commander
-    commanderfo.bmon1.font.color      := ltblack;
-    commanderfo.bmon2.font.color     := ltblack;
-    commanderfo.namedrums.font.color        := ltblack;
-    commanderfo.namegen.font.color          := ltblack;
-    commanderfo.nameinput.font.color        := ltblack;
-    commanderfo.genleftvolvalue.font.color  := ltblack;
+    commanderfo.bmon1.font.color           := ltblack;
+    commanderfo.bmon2.font.color           := ltblack;
+    commanderfo.namedrums.font.color       := ltblack;
+    commanderfo.namegen.font.color         := ltblack;
+    commanderfo.nameinput.font.color       := ltblack;
+    commanderfo.genleftvolvalue.font.color := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
-    commanderfo.sysvolbut.font.color        := ltblack;
+    commanderfo.sysvolbut.font.color       := ltblack;
 
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
@@ -6171,7 +5979,7 @@ begin
     filelistfo.list_files.datacols[1].colorselect := $FFC87A;
     filelistfo.list_files.datacols[2].colorselect := $FFC87A;
 
-    aboutfo.font.color := cl_black;
+    //    aboutfo.font.color := cl_black;
 
     with spectrum1fo do
     begin
@@ -6332,11 +6140,11 @@ begin
     songplayer2fo.cbtempob.font.color := cl_black;
 
     commanderfo.Brandommix.font.color  := cl_black;
-    commanderfo.bmon.font.color  := cl_black;
+    commanderfo.bmon.font.color        := cl_black;
     commanderfo.linkvolgenb.font.color := cl_black;
     commanderfo.linkvolb.font.color    := cl_black;
     commanderfo.speccalcb.font.color   := cl_black;
-  //  commanderfo.guimixb.font.color     := cl_black;
+    //  commanderfo.guimixb.font.color     := cl_black;
     commanderfo.linkvol2b.font.color   := cl_black;
     commanderfo.automixb.font.color    := cl_black;
     commanderfo.vuinb.font.color       := cl_black;
@@ -6400,33 +6208,7 @@ begin
     waveforec.tmainmenu1.menu.colorglyph       := cl_black;
     waveforec.tmainmenu1.menu.colorglyphactive := cl_black;
 
-    randomnotefo.color         := cl_ltgray;
     tmainmenu1.menu.font.color := cl_black;
-    randomnotefo.tstringdisp1.font.color := cl_black;
-    randomnotefo.bchord1.font.color := cl_black;
-    randomnotefo.bchord2.font.color := cl_black;
-    randomnotefo.bchord3.font.color := cl_black;
-    randomnotefo.bchord4.font.color := cl_black;
-    randomnotefo.bchord5.font.color := cl_black;
-
-    randomnotefo.withrandom.frame.font.color := cl_black;
-    randomnotefo.nodrums.frame.font.color    := cl_black;
-    randomnotefo.withsharp.frame.font.color  := cl_black;
-    randomnotefo.maxnote.frame.font.color    := cl_black;
-    randomnotefo.bpm.frame.font.color        := cl_black;
-    randomnotefo.boolmajor.frame.font.color  := cl_black;
-    randomnotefo.withrandom.frame.font.color := cl_black;
-    randomnotefo.boolmajor.frame.font.color  := cl_black;
-    randomnotefo.boolminor.frame.font.color  := cl_black;
-    randomnotefo.bosound.frame.font.color    := cl_black;
-    randomnotefo.tbutton3.font.color         := cl_black;
-    randomnotefo.tbutton5.font.color         := cl_black;
-    randomnotefo.tbutton2.font.color         := cl_black;
-    randomnotefo.bnbchords.font.color        := cl_black;
-    randomnotefo.btnfixed.font.color         := cl_black;
-    randomnotefo.tgroupbox1.frame.font.color := cl_black;
-    randomnotefo.tgroupbox2.frame.font.color := cl_black;
-    randomnotefo.tgroupbox3.frame.font.color := cl_black;
 
     filelistfo.container.color := $D0D0D0;
 
@@ -6813,14 +6595,14 @@ begin
     end;
 
     // commander
-    commanderfo.bmon1.font.color      := ltblack;
-    commanderfo.bmon2.font.color     := ltblack;
-    commanderfo.namedrums.font.color        := ltblack;
-    commanderfo.namegen.font.color          := ltblack;
-    commanderfo.nameinput.font.color        := ltblack;
-    commanderfo.genleftvolvalue.font.color  := ltblack;
+    commanderfo.bmon1.font.color           := ltblack;
+    commanderfo.bmon2.font.color           := ltblack;
+    commanderfo.namedrums.font.color       := ltblack;
+    commanderfo.namegen.font.color         := ltblack;
+    commanderfo.nameinput.font.color       := ltblack;
+    commanderfo.genleftvolvalue.font.color := ltblack;
     commanderfo.genrightvolvalue.font.color := ltblack;
-    commanderfo.sysvolbut.font.color        := ltblack;
+    commanderfo.sysvolbut.font.color       := ltblack;
 
     commanderfo.volumeleft1val.font.color := ltblack;
     commanderfo.volumeleft2val.font.color := ltblack;
@@ -6861,7 +6643,7 @@ begin
     filelistfo.list_files.datacols[1].colorselect := $FFC87A;
     filelistfo.list_files.datacols[2].colorselect := $FFC87A;
 
-    aboutfo.font.color := cl_black;
+    //   aboutfo.font.color := cl_black;
 
     songplayerfo.btnresume.imagenrdisabled  := -2;
     songplayer2fo.btnresume.imagenrdisabled := -2;
@@ -6997,11 +6779,11 @@ begin
     songplayer2fo.cbtempob.font.color := cl_white;
 
     commanderfo.Brandommix.font.color  := cl_white;
-    commanderfo.bmon.font.color  := cl_white;
+    commanderfo.bmon.font.color        := cl_white;
     commanderfo.linkvolgenb.font.color := cl_white;
     commanderfo.linkvolb.font.color    := cl_white;
     commanderfo.speccalcb.font.color   := cl_white;
-   // commanderfo.guimixb.font.color     := cl_white;
+    // commanderfo.guimixb.font.color     := cl_white;
     commanderfo.linkvol2b.font.color   := cl_white;
     commanderfo.automixb.font.color    := cl_white;
     commanderfo.vuinb.font.color       := cl_white;
@@ -7057,41 +6839,15 @@ begin
     filelistfo.list_files.fixcols[-1].font.color  := cl_white;
     filelistfo.list_files.fixcols[-1].colorselect := cl_dkgray;
 
-    randomnotefo.color         := cl_black;
-    tmainmenu1.menu.font.color := cl_white;
-    tmainmenu1.menu.colorglyph := cl_white;
-    tmainmenu1.menu.colorglyphactive := cl_white;
-    wavefo.tmainmenu1.menu.colorglyph := cl_white;
+    tmainmenu1.menu.font.color           := cl_white;
+    tmainmenu1.menu.colorglyph           := cl_white;
+    tmainmenu1.menu.colorglyphactive     := cl_white;
+    wavefo.tmainmenu1.menu.colorglyph    := cl_white;
     wavefo.tmainmenu1.menu.colorglyphactive := cl_white;
-    wavefo2.tmainmenu1.menu.colorglyph := cl_white;
+    wavefo2.tmainmenu1.menu.colorglyph   := cl_white;
     wavefo2.tmainmenu1.menu.colorglyphactive := cl_white;
     waveforec.tmainmenu1.menu.colorglyph := cl_white;
     waveforec.tmainmenu1.menu.colorglyphactive := cl_white;
-
-    randomnotefo.tstringdisp1.font.color     := cl_white;
-    randomnotefo.bchord1.font.color          := cl_white;
-    randomnotefo.bchord2.font.color          := cl_white;
-    randomnotefo.bchord3.font.color          := cl_white;
-    randomnotefo.bchord4.font.color          := cl_white;
-    randomnotefo.bchord5.font.color          := cl_white;
-    randomnotefo.withrandom.frame.font.color := cl_white;
-    randomnotefo.nodrums.frame.font.color    := cl_white;
-    randomnotefo.withsharp.frame.font.color  := cl_white;
-    randomnotefo.maxnote.frame.font.color    := cl_white;
-    randomnotefo.bpm.frame.font.color        := cl_white;
-    randomnotefo.boolmajor.frame.font.color  := cl_white;
-    randomnotefo.withrandom.frame.font.color := cl_white;
-    randomnotefo.boolmajor.frame.font.color  := cl_white;
-    randomnotefo.boolminor.frame.font.color  := cl_white;
-    randomnotefo.bosound.frame.font.color    := cl_white;
-    randomnotefo.tbutton3.font.color         := cl_white;
-    randomnotefo.tbutton5.font.color         := cl_white;
-    randomnotefo.tbutton2.font.color         := cl_white;
-    randomnotefo.bnbchords.font.color        := cl_white;
-    randomnotefo.btnfixed.font.color         := cl_white;
-    randomnotefo.tgroupbox1.frame.font.color := cl_white;
-    randomnotefo.tgroupbox2.frame.font.color := cl_white;
-    randomnotefo.tgroupbox3.frame.font.color := cl_white;
 
     filelistfo.container.color := $474747;
 
@@ -7571,9 +7327,9 @@ begin
     end;
 
     // commander
-    commanderfo.bmon1.font.color  := ltblank;
-    commanderfo.bmon2.font.color := ltblank;
-    commanderfo.namedrums.font.color    := ltblank;
+    commanderfo.bmon1.font.color     := ltblank;
+    commanderfo.bmon2.font.color     := ltblank;
+    commanderfo.namedrums.font.color := ltblank;
 
     commanderfo.namegen.font.color          := ltblank;
     commanderfo.nameinput.font.color        := ltblank;
@@ -7625,7 +7381,7 @@ begin
     filelistfo.list_files.datacols.colorselect    := $B55B00;
     filelistfo.list_files.datacols[3].colorselect := $707070;
 
-    aboutfo.font.color := cl_black;
+    //    aboutfo.font.color := cl_black;
   end;
 
   if lastrowplayed <> -1 then
@@ -7671,7 +7427,7 @@ begin
   commanderfo.ontimerinit(nil);
   songplayerfo.ontimercheck(nil);
   songplayer2fo.ontimercheck(nil);
- end;
+end;
 
 procedure tmainfo.onmenuaudio(const Sender: TObject);
 begin
@@ -7978,7 +7734,7 @@ begin
   if tfiledialogx2.controller.filename = '' then
     tfiledialogx2.controller.filename := ordir;
   tfiledialogx2.controller.options := [fdo_sysfilename, fdo_savelastdir];
-  
+
   tfiledialogx2.controller.fontheight := fontheightused;
 
   if tfiledialogx2.controller.Execute(fdk_open) = mr_ok then
@@ -7998,7 +7754,7 @@ begin
   if tfiledialogx2.controller.filename = '' then
     tfiledialogx2.controller.filename := GetUserDir + directoryseparator + 'mylayout.lay';
   tfiledialogx2.controller.options := [fdo_sysfilename, fdo_savelastdir];
-  
+
   tfiledialogx2.controller.fontheight := fontheightused;
 
   if tfiledialogx2.controller.Execute(fdk_save) = mr_ok then
@@ -8008,10 +7764,12 @@ end;
 
 procedure tmainfo.onshowrandom(const Sender: TObject);
 begin
-  randomnotefo.Visible := not randomnotefo.Visible;
+  //if assigned(randomnotefo) then randomnotefo.Visible := not randomnotefo.Visible;
 end;
 
 procedure tmainfo.onrandomlayout(const Sender: TObject);
+var
+  ratio: float;
 begin
   //  {$if not defined(darwin)}  
   statusanim           := 0;
@@ -8030,27 +7788,294 @@ begin
   synthefo.Visible := False;
   pianofo.Visible  := False;
 
+  infosdfo.ttimer1.Enabled  := False;
+  infosdfo2.ttimer1.Enabled := False;
+
+  uos_Stop(theplayer);
+  uos_Stop(theplayer2);
+  //  {$if not defined(darwin)}  
+  statusanim := 0;
+  //  {$endif}
+  songplayerfo.Timerwait.Enabled := False;
+  songplayerfo.Timersent.Enabled := False;
+  songplayer2fo.Timerwait.Enabled := False;
+  songplayer2fo.Timersent.Enabled := False;
+
   hideall(nil);
 
-  commanderfo.Visible := True;
-  filelistfo.Visible  := True;
+  application.ProcessMessages;
 
-  songplayerfo.Visible  := True;
-  songplayer2fo.Visible := True;
+  ratio := fontheightused / 12;
 
-  oktimer := 1;
+  application.createform(trandomnotefo, randomnotefo);
 
-  ondockall(nil);
+  randomnotefo.font.Name   := 'stf_default';
+  randomnotefo.font.Height := roundmath(24 * ratio);
 
-  oktimer := 0;
+  randomnotefo.tgroupbox1.frame.font.Name   := 'stf_default';
+  randomnotefo.tgroupbox1.frame.font.Height := roundmath(20 * ratio);
 
-  if timerwait.Enabled then
-    timerwait.restart // to reset
-  else
-    timerwait.Enabled := True;
+  randomnotefo.tgroupbox2.frame.font.Name   := 'stf_default';
+  randomnotefo.tgroupbox2.frame.font.Height := roundmath(20 * ratio);
 
-  sleep(200);
-  randomnotefo.Visible := True;
+  randomnotefo.tgroupbox3.frame.font.Name   := 'stf_default';
+  randomnotefo.tgroupbox3.frame.font.Height := roundmath(20 * ratio);
+
+
+  randomnotefo.pconfigtext.font.Name   := 'stf_default';
+  randomnotefo.pconfigtext.font.Height := roundmath(20 * ratio);
+
+  randomnotefo.tstringdisp1.font.Name   := 'stf_default';
+  randomnotefo.tstringdisp1.font.Height := roundmath(62 * ratio);
+
+  randomnotefo.tmemoedit1.font.Name   := 'Unifont';
+  randomnotefo.tmemoedit1.font.Height := roundmath(20 * ratio);
+
+  with randomnotefo do
+  begin
+    Caption := lang_randomnotefo[Ord(ra_randomnotefo)];  {'Chord Randomizer'}
+
+    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+
+    keyb1pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse1_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse1_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse1_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+
+    keyb2pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse2_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse2_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse2_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    keyb3pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];   {'Click to listen to piano chord'}
+
+    elipse3_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse3_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse3_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    chord1drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
+
+    chord2drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
+
+    chord3drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
+
+    tbutton4.hint := lang_randomnotefo[Ord(ra_tbutton4_hint)];  {'Close all StrumPract (Click the icon in corner of the form to close only Randomizer)'}
+
+    bnbchords.hint    := lang_randomnotefo[Ord(ra_bnbchords_hint)];  {'Randomize chords'}
+    bnbchords.Caption := lang_randomnotefo[Ord(ra_bnbchords)];  {'Randomize'}
+
+    btnfixed.hint    := lang_randomnotefo[Ord(ra_btnfixed_hint)];  {'Manual fixed chords'}
+    btnfixed.Caption := lang_randomnotefo[Ord(ra_btnfixed)];  {'Fixed'}
+
+    tbutton5.hint    := lang_randomnotefo[Ord(ra_tbutton5_hint)];  {' Tuned guitar string '}
+    tbutton5.Caption := lang_randomnotefo[Ord(ra_tbutton5)];  {'Tuned Guitars'}
+
+
+    keyb4pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse4_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse4_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse4_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    guitpb1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to the guitar chord'}
+
+    chord5drop.hint := lang_randomnotefo[Ord(ra_chord1drop_hint)];  {'Select a chord'}
+
+    keyb5pb.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse5_1.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse5_2.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    elipse5_3.hint := lang_randomnotefo[Ord(ra_keyb1_hint)];  {'Click to listen to piano chord'}
+
+    guitpb1.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+
+    bchord1.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 1'}
+    bchord5.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 5'}
+    bchord4.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)]; {'Re-do a randomizer for chord 4'}
+    bchord3.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 3'}
+    bchord2.hint     := lang_randomnotefo[Ord(ra_bchord1_hint)];  {'Re-do a randomizer for chord 2'}
+    tbutton2.hint    := lang_randomnotefo[Ord(ra_tbutton2_hint)];  {'Clear chords'}
+    tbutton2.Caption := lang_randomnotefo[Ord(ra_tbutton2_hint)];  {'Clear'}
+
+    tbutton3.hint    := lang_randomnotefo[Ord(ra_nodrumsframe)];  {'Show drums set'}
+    tbutton3.Caption := lang_commanderfo[Ord(co_namedrums_hint)];  {'Drums'}
+
+    tgroupbox1.frame.Caption := lang_randomnotefo[Ord(ra_tgroupbox1frame)];  {'Chords'}
+
+    bool7th.frame.Caption := lang_randomnotefo[Ord(ra_bool7th)];  {' 7th'}
+    bool7th.hint          := lang_randomnotefo[Ord(ra_bool7th_hint)];  {'Enable 7th Chords'}
+
+    boolminor.frame.Caption := lang_randomnotefo[Ord(ra_boolminorframe)];  {' minor'}
+    boolminor.hint          := lang_randomnotefo[Ord(ra_boolminor_hint)];  {'Enable minor Chords'}
+
+    boolmajor.frame.Caption := lang_randomnotefo[Ord(ra_boolmajorframe)];  {' Major'}
+    boolmajor.hint          := lang_randomnotefo[Ord(ra_boolmajor_hint)];  {'Enable Major Chords'}
+
+    bool9th.frame.Caption := lang_randomnotefo[Ord(ra_bool9thframe)];  {' 9th'}
+    bool9th.hint          := lang_randomnotefo[Ord(ra_bool9th_hint)];  {'Enable 9th Chords'}
+
+    withsharp.frame.Caption := lang_randomnotefo[Ord(ra_withsharpframe)];  {' # (Sharp)'}
+    withsharp.hint          := lang_randomnotefo[Ord(ra_withsharp_hint)];  {'Enable Sharp-Chords #'}
+
+    bosound.frame.Caption := lang_randomnotefo[Ord(ra_bosoundframe)];  {' Sound'}
+    bosound.hint          := lang_randomnotefo[Ord(ra_bosound_hint)];  {'Enable Sound of Chords'}
+
+    tgroupbox2.frame.Caption := lang_randomnotefo[Ord(ra_tgroupbox2frame)];  {'Number'}
+
+    numchord.hint := lang_randomnotefo[Ord(ra_numchord_hint)];  {'Total chords'}
+
+    // maxnote.frame.caption := lang_randomnotefo[Ord(ra_maxnoteframe)];  {'Max'}
+    maxnote.hint := lang_randomnotefo[Ord(ra_maxnote_hint)];  {'Maximum number of chords'}
+
+    withrandom.frame.Caption := lang_randomnotefo[Ord(ra_withrandomframe)];  {' Random num'}
+    withrandom.hint          := lang_randomnotefo[Ord(ra_withrandom_hint)];  {'Randomize the number of chords'}
+
+    tgroupbox3.frame.Caption := lang_commanderfo[Ord(co_namedrums_hint)]; {'Drums'}
+
+    bpm.hint := lang_randomnotefo[Ord(ra_bpm_hint)];  {'Tempo of Drums in BPM'}
+
+    nodrums.frame.Caption := lang_randomnotefo[Ord(ra_nodrumsframe)];  {' Enable Drums'}
+    nodrums.hint          := lang_randomnotefo[Ord(ra_nodrums_hint)];  {'Enable random Drums tempo'}
+
+    bconfig.hint := lang_randomnotefo[Ord(ra_bconfig_hint)];  {'Configure the "Clear" message'}
+    //timage3.hint := lang_randomnotefo[Ord(ra_timage8_hint)];  {'Click to listen to the guitar chord'}
+
+  end;
+
+  if typecolor.Value = 3 then
+  begin
+    randomnotefo.color := $DED9D1;
+    randomnotefo.tstringdisp1.font.color := cl_black;
+    randomnotefo.bchord1.font.color := cl_black;
+    randomnotefo.bchord2.font.color := cl_black;
+    randomnotefo.bchord3.font.color := cl_black;
+    randomnotefo.bchord4.font.color := cl_black;
+    randomnotefo.bchord5.font.color := cl_black;
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.nodrums.frame.font.color := cl_black;
+    randomnotefo.withsharp.frame.font.color := cl_black;
+    randomnotefo.maxnote.frame.font.color := cl_black;
+    randomnotefo.bpm.frame.font.color := cl_black;
+    randomnotefo.boolmajor.frame.font.color := cl_black;
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.boolmajor.frame.font.color := cl_black;
+    randomnotefo.boolminor.frame.font.color := cl_black;
+    randomnotefo.bosound.frame.font.color := cl_black;
+    randomnotefo.tbutton3.font.color := cl_black;
+    randomnotefo.tbutton5.font.color := cl_black;
+    randomnotefo.tbutton2.font.color := cl_black;
+    randomnotefo.bnbchords.font.color := cl_black;
+    randomnotefo.btnfixed.font.color := cl_black;
+    randomnotefo.tgroupbox1.frame.font.color := cl_black;
+    randomnotefo.tgroupbox2.frame.font.color := cl_black;
+    randomnotefo.tgroupbox3.frame.font.color := cl_black;
+
+  end;
+
+  if typecolor.Value = 0 then
+  begin
+    randomnotefo.color := $DED9D1;
+    randomnotefo.tstringdisp1.font.color := cl_black;
+    randomnotefo.bchord1.font.color := cl_black;
+    randomnotefo.bchord2.font.color := cl_black;
+    randomnotefo.bchord3.font.color := cl_black;
+    randomnotefo.bchord4.font.color := cl_black;
+    randomnotefo.bchord5.font.color := cl_black;
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.nodrums.frame.font.color := cl_black;
+    randomnotefo.withsharp.frame.font.color := cl_black;
+    randomnotefo.maxnote.frame.font.color := cl_black;
+    randomnotefo.bpm.frame.font.color := cl_black;
+    randomnotefo.boolmajor.frame.font.color := cl_black;
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.boolmajor.frame.font.color := cl_black;
+    randomnotefo.boolminor.frame.font.color := cl_black;
+    randomnotefo.bosound.frame.font.color := cl_black;
+    randomnotefo.tbutton3.font.color := cl_black;
+    randomnotefo.tbutton5.font.color := cl_black;
+    randomnotefo.tbutton2.font.color := cl_black;
+    randomnotefo.bnbchords.font.color := cl_black;
+    randomnotefo.btnfixed.font.color := cl_black;
+    randomnotefo.tgroupbox1.frame.font.color := cl_black;
+    randomnotefo.tgroupbox2.frame.font.color := cl_black;
+    randomnotefo.tgroupbox3.frame.font.color := cl_black;
+  end;
+
+  if typecolor.Value = 1 then
+  begin
+    randomnotefo.color := cl_ltgray;
+    randomnotefo.tstringdisp1.font.color := cl_black;
+    randomnotefo.bchord1.font.color := cl_black;
+    randomnotefo.bchord2.font.color := cl_black;
+    randomnotefo.bchord3.font.color := cl_black;
+    randomnotefo.bchord4.font.color := cl_black;
+    randomnotefo.bchord5.font.color := cl_black;
+
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.nodrums.frame.font.color    := cl_black;
+    randomnotefo.withsharp.frame.font.color  := cl_black;
+    randomnotefo.maxnote.frame.font.color    := cl_black;
+    randomnotefo.bpm.frame.font.color        := cl_black;
+    randomnotefo.boolmajor.frame.font.color  := cl_black;
+    randomnotefo.withrandom.frame.font.color := cl_black;
+    randomnotefo.boolmajor.frame.font.color  := cl_black;
+    randomnotefo.boolminor.frame.font.color  := cl_black;
+    randomnotefo.bosound.frame.font.color    := cl_black;
+    randomnotefo.tbutton3.font.color         := cl_black;
+    randomnotefo.tbutton5.font.color         := cl_black;
+    randomnotefo.tbutton2.font.color         := cl_black;
+    randomnotefo.bnbchords.font.color        := cl_black;
+    randomnotefo.btnfixed.font.color         := cl_black;
+    randomnotefo.tgroupbox1.frame.font.color := cl_black;
+    randomnotefo.tgroupbox2.frame.font.color := cl_black;
+    randomnotefo.tgroupbox3.frame.font.color := cl_black;
+  end;
+
+  if typecolor.Value = 2 then
+  begin
+    randomnotefo.color := cl_black;
+    randomnotefo.tstringdisp1.font.color := cl_white;
+    randomnotefo.bchord1.font.color := cl_white;
+    randomnotefo.bchord2.font.color := cl_white;
+    randomnotefo.bchord3.font.color := cl_white;
+    randomnotefo.bchord4.font.color := cl_white;
+    randomnotefo.bchord5.font.color := cl_white;
+    randomnotefo.withrandom.frame.font.color := cl_white;
+    randomnotefo.nodrums.frame.font.color := cl_white;
+    randomnotefo.withsharp.frame.font.color := cl_white;
+    randomnotefo.maxnote.frame.font.color := cl_white;
+    randomnotefo.bpm.frame.font.color := cl_white;
+    randomnotefo.boolmajor.frame.font.color := cl_white;
+    randomnotefo.withrandom.frame.font.color := cl_white;
+    randomnotefo.boolmajor.frame.font.color := cl_white;
+    randomnotefo.boolminor.frame.font.color := cl_white;
+    randomnotefo.bosound.frame.font.color := cl_white;
+    randomnotefo.tbutton3.font.color := cl_white;
+    randomnotefo.tbutton5.font.color := cl_white;
+    randomnotefo.tbutton2.font.color := cl_white;
+    randomnotefo.bnbchords.font.color := cl_white;
+    randomnotefo.btnfixed.font.color := cl_white;
+    randomnotefo.tgroupbox1.frame.font.color := cl_white;
+    randomnotefo.tgroupbox2.frame.font.color := cl_white;
+    randomnotefo.tgroupbox3.frame.font.color := cl_white;
+  end;
+
+  randomnotefo.windowopacity := 1;
+  randomnotefo.Show;
   randomnotefo.bringtofront;
 end;
 
@@ -8325,7 +8350,7 @@ begin
     equalizerfo2.windowopacity   := equalizerfo2.windowopacity + 0.1;
     equalizerforec.windowopacity := equalizerforec.windowopacity + 0.1;
     drumsfo.windowopacity        := drumsfo.windowopacity + 0.1;
-    randomnotefo.windowopacity   := randomnotefo.windowopacity + 0.1;
+    // randomnotefo.windowopacity   := randomnotefo.windowopacity + 0.1;
     guitarsfo.windowopacity      := guitarsfo.windowopacity + 0.1;
     recorderfo.windowopacity     := recorderfo.windowopacity + 0.1;
 
@@ -8450,17 +8475,14 @@ begin
     AProcess.Execute;
     AProcess.Free;
   end;
-
 end;
 
 procedure tmainfo.onmouse(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
-
   if ttimer2.Enabled then
     ttimer2.restart // to reset
   else
     ttimer2.Enabled := True;
-
 end;
 
 procedure tmainfo.onlangset(const Sender: TObject);
@@ -8485,9 +8507,9 @@ begin
   rect1 := application.screenrect(window);
 
  {$ifdef mswindows}// to check
-  fontheightsugg := roundmath(rect1.cy / 840 * 12);
+  fontheightsugg := roundmath(rect1.cy / 900 * 12);
  {$else}
- fontheightsugg := roundmath(rect1.cy / 840 * 12);
+ fontheightsugg := roundmath(rect1.cy / 900 * 12);
  {$endif}
 
   configlayoutfo.autoheight.frame.Caption := 'Use at loading suggested font height: ' + IntToStr(fontheightsugg);
@@ -8496,27 +8518,30 @@ begin
     configlayoutfo.fontheight.Value := fontheightsugg;
 
   fontheightused := roundmath(configlayoutfo.fontheight.Value);
+
   resizema(fontheightused);
+
   applyfont(fontheightused);
+
   oncreatedform(Sender);
 
-   conflangfo.Visible := False;
-    oldlang := MSEFallbackLang;
+  conflangfo.Visible := False;
+  oldlang := MSEFallbackLang;
 
-    if conflangfo.setasdefault.Value = True then
-    begin
-      for x := 0 to conflangfo.gridlang.rowcount - 1 do
-        if conflangfo.gridlangbool[x] = True then
-          MSEFallbackLang := conflangfo.gridlangcode[x];
+  if conflangfo.setasdefault.Value = True then
+  begin
+    for x := 0 to conflangfo.gridlang.rowcount - 1 do
+      if conflangfo.gridlangbool[x] = True then
+        MSEFallbackLang := conflangfo.gridlangcode[x];
 
-      if oldlang <> MSEFallbackLang then
-        setlangstrumpract(MSEFallbackLang);
-    end
-    else
+    if oldlang <> MSEFallbackLang then
       setlangstrumpract(MSEFallbackLang);
+  end
+  else
+    setlangstrumpract(MSEFallbackLang);
 
-    configlayoutfo.onchangehint(Sender);
- 
+  configlayoutfo.onchangehint(Sender);
+
   if mainfo.drumsvisible.Value = 1 then
     drumsfo.Visible := True;
 
@@ -8529,8 +8554,8 @@ begin
 
   if dockpanel1fo.Visible then
     dockpanel1fo.updatelayoutpan();
-    
-    dockpanel1fo.invalidatewidget;
+
+  dockpanel1fo.invalidatewidget;
 
   if dockpanel2fo.Visible then
     dockpanel2fo.updatelayoutpan();
@@ -8547,8 +8572,8 @@ begin
   onchangevalcolor(nil);
 
   configlayoutfo.onsetcolor(nil);
-  
- 
+
+
   if fileexists(ParamStr(1)) then
   begin
     songplayerfo.historyfn.Value   := ParamStr(1);
@@ -8563,8 +8588,8 @@ begin
     commanderfo.volumeleft2.Value  := 0;
     songplayerfo.doplayerstart(nil);
   end;
- endlayout();  
-ttimer3.enabled := true;
+  endlayout();
+  ttimer3.Enabled := True;
 end;
 
 procedure tmainfo.showinfos1(const Sender: TObject);
@@ -8721,15 +8746,15 @@ begin
   grad.Free;
 end;
 
-procedure tmainfo.ontimerendloop(const sender: TObject);
+procedure tmainfo.ontimerendloop(const Sender: TObject);
 begin
   commanderfo.invalidatewidget;
   songplayerfo.invalidatewidget;
   songplayer2fo.invalidatewidget;
   filelistfo.invalidatewidget;
-  application.processmessages;
+  application.ProcessMessages;
   splashfo.Close;
-  isactivated := True;  
+  isactivated := True;
 end;
 
 end.

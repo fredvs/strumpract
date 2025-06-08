@@ -832,8 +832,8 @@ object mainfo: tmainfo
       16742520
     )
     template.fade_direction = gd_down
-    left = 300
-    top = 36
+    left = 138
+    top = 8
   end
   object tfacegreen: tfacecomp
     template.fade_pos.count = 2
@@ -889,16 +889,15 @@ object mainfo: tmainfo
       13750737
     )
     template.fade_direction = gd_down
-    left = 285
-    top = 9
+    left = 141
   end
   object buttonicons: timagelist
     width = 24
     height = 24
     options = [bmo_masked, bmo_graymask]
     count = 38
-    left = 286
-    top = 2
+    left = 153
+    top = 14
     image = {
       0000000012000000A8000000A800000044A30000000000000000000000000000
       0000000000000000000000000000000000000000C0C0C01800000030D0D0D018
@@ -3207,7 +3206,7 @@ object mainfo: tmainfo
     interval = 1500000
     options = [to_single]
     ontimer = ontimerendloop
-    left = 351
-    top = 47
+    left = 192
+    top = 28
   end
 end

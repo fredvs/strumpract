@@ -146,7 +146,7 @@ begin
 
   guitarsfo.dragdock.Caption := 'Gui';
 
-  application.createform(taboutfo, aboutfo);
+  //application.createform(taboutfo, aboutfo);
   application.createform(tinfosdfo, infosdfo);
   application.createform(tinfosdfo, infosdfo2);
 
@@ -168,7 +168,7 @@ begin
   dockpanel4fo.tag := 3;
   dockpanel5fo.tag := 4;
 
-  application.createform(trandomnotefo, randomnotefo);
+ // application.createform(trandomnotefo, randomnotefo);
   
  // {$if not defined(darwin)}
   application.createform(timagedancerfo, imagedancerfo);
@@ -176,7 +176,8 @@ begin
   imagedancerfo.dragdock.Caption := 'Dan';
  // {$endif}
   
-  application.createform(tfindmessagefo, findmessagefo);
+ // application.createform(tfindmessagefo, findmessagefo);
+  
   application.createform(tdialogfilesfo, dialogfilesfo);
 
   application.createform(tconflangfo, conflangfo);

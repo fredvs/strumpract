@@ -4,11 +4,37 @@ unit configlayout;
 interface
 
 uses
- msefileutils,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,
- msemenus,msegui,msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,
- mseforms,msesimplewidgets,mseact,msecolordialog,msedataedits,msedropdownlist,
- mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
- msegraphedits,msescrollbar, msedispwidgets, mserichstring;
+  msefileutils,
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  msesimplewidgets,
+  mseact,
+  msecolordialog,
+  msedataedits,
+  msedropdownlist,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msestatfile,
+  msestream,
+  SysUtils,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring;
 
 type
   tconfiglayoutfo = class(tmseform)
@@ -34,9 +60,9 @@ type
     bbarbie: tbooleaneditradio;
     autoheight: tbooleanedit;
     inifile: tbooleanedit;
-   tstringdisp1: tstringdisp;
-   tbutton2: tbutton;
-   tlabel1: tlabel;
+    tstringdisp1: tstringdisp;
+    tbutton2: TButton;
+    tlabel1: tlabel;
     procedure onfontheight(const Sender: TObject);
     procedure onchangehint(const Sender: TObject);
     procedure onsetcolor(const Sender: TObject);
@@ -46,8 +72,8 @@ type
     procedure resizecl(fonth: integer);
     procedure oncrea(const Sender: TObject);
     procedure onchangeini(const Sender: TObject);
-   procedure onexebutini(const sender: TObject);
-   procedure onbutclose(const sender: TObject);
+    procedure onexebutini(const Sender: TObject);
+    procedure onbutclose(const Sender: TObject);
   end;
 
 var
@@ -153,7 +179,7 @@ begin
   tgroupbox4.Height     := roundmath(128 * ratio);
   tgroupbox4.top        := roundmath(36 * ratio);
   {$endif}
-  
+
   with tgroupbox4 do
     for i1 := 0 to childrencount - 1 do
       for i2 := 0 to length(boundchildscl) - 1 do
@@ -203,7 +229,7 @@ end;
 
 procedure tconfiglayoutfo.onfontheight(const Sender: TObject);
 begin
-  mainfo.applyfont(roundmath(fontheight.Value));
+  mainfo.applyfont(round(fontheight.Value));
 end;
 
 procedure tconfiglayoutfo.onsetfontres(const Sender: TObject);
@@ -214,9 +240,9 @@ begin
   tbutton3.Caption := 'Resolution: ' + IntToStr(rect1.cx) + 'x' +
     IntToStr(rect1.cy) + lineend + 'Font height suggested: ' +
   {$ifdef mswindows}
-    IntToStr(roundmath(rect1.cy / 840 * 12));
+    IntToStr(roundmath(rect1.cy / 900 * 12));
   {$else}
-   IntToStr(roundmath(rect1.cy/ 840 * 12));
+   IntToStr(roundmath(rect1.cy/ 900 * 12));
   {$endif}
 end;
 
@@ -294,9 +320,9 @@ begin
         [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
         ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
 
-      randomnotefo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+      //   randomnotefo.optionswidget :=
+      //     [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+      //     ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
 
     end
     else
@@ -370,9 +396,9 @@ begin
         [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
         ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
 
-      randomnotefo.optionswidget :=
-        [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
-        ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
+      //  randomnotefo.optionswidget :=
+      //    [ow_mousefocus, ow_tabfocus, ow_arrowfocus,
+      //    ow_subfocus, ow_mousewheel, ow_destroywidgets, ow_hintoff];
 
     end;
 end;
@@ -422,7 +448,6 @@ end;
 procedure tconfiglayoutfo.onchangestyle(const Sender: TObject);
 begin
   if (isactivated = True) then
-   begin
     if bgold.Value then
       mainfo.typecolor.Value := 0
     else if bsilver.Value then
@@ -431,7 +456,6 @@ begin
       mainfo.typecolor.Value := 2
     else if bbarbie.Value then
       mainfo.typecolor.Value := 3;
-   end;    
 end;
 
 procedure tconfiglayoutfo.onbutsetfont(const Sender: TObject);
@@ -440,9 +464,9 @@ var
 begin
   rect1 := application.screenrect(window);
    {$ifdef mswindows}
-  fontheight.Value := roundmath(rect1.cy / 840 * 12);
+  fontheight.Value := roundmath(rect1.cy / 900 * 12);
    {$else}
-   fontheight.Value := roundmath(rect1.cy / 840 * 12);
+   fontheight.Value := roundmath(rect1.cy / 900 * 12);
    {$endif}
 end;
 
@@ -451,9 +475,9 @@ var
   x, i1, childn: integer;
 begin
   childn := 0;
-  
+
   {$ifdef mswindows}
-  inifile.visible := false;
+  inifile.Visible := False;
   {$endif}
 
   setlength(boundchildscl, childrencount);
@@ -547,32 +571,34 @@ begin
         createdir(thedir);
       if FileExists(thedir + '/sys') = False then
         FileClose(FileCreate(thedir + '/sys'));
-     tlabel1.caption := 'The ini file is set to ' + thedir + '/stat.ini';   
+      tlabel1.Caption := 'The ini file is set to ' + thedir + '/stat.ini';
     end
     else
     begin
-    if FileExists(thedir + '/sys') then DeleteFile(thedir + '/sys');
-    tlabel1.caption := 'The ini file is set to ' + oristatdirname + '/stat.ini';   ;
+      if FileExists(thedir + '/sys') then
+        DeleteFile(thedir + '/sys');
+      tlabel1.Caption := 'The ini file is set to ' + oristatdirname + '/stat.ini';
+      ;
     end;
-   
-   tbutton2.top := (tstringdisp1.height - tbutton2.height) div 2;
-   tlabel1.width := tstringdisp1.width - tbutton2.width - 10;
-   tstringdisp1.right := tgroupbox4.right; 
-   tstringdisp1.visible := true;
-    
-  end;
-end;  
 
-procedure tconfiglayoutfo.onexebutini(const sender: TObject);
-begin
- tstringdisp1.visible := false;
+    tbutton2.top         := (tstringdisp1.Height - tbutton2.Height) div 2;
+    tlabel1.Width        := tstringdisp1.Width - tbutton2.Width - 10;
+    tstringdisp1.right   := tgroupbox4.right;
+    tstringdisp1.Visible := True;
+
+  end;
 end;
 
-procedure tconfiglayoutfo.onbutclose(const sender: TObject);
+procedure tconfiglayoutfo.onexebutini(const Sender: TObject);
 begin
-onchangestyle(nil);
-tstringdisp1.visible := false;
-close;
+  tstringdisp1.Visible := False;
+end;
+
+procedure tconfiglayoutfo.onbutclose(const Sender: TObject);
+begin
+  onchangestyle(nil);
+  tstringdisp1.Visible := False;
+  Close;
 end;
 
 end.
