@@ -8540,8 +8540,6 @@ begin
   else
     setlangstrumpract(MSEFallbackLang);
 
-  configlayoutfo.onchangehint(Sender);
-
   if mainfo.drumsvisible.Value = 1 then
     drumsfo.Visible := True;
 
@@ -8755,6 +8753,7 @@ begin
   application.ProcessMessages;
   splashfo.Close;
   isactivated := True;
+  configlayoutfo.onchangehint(Sender);
 end;
 
 end.
