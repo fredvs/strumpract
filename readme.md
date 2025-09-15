@@ -14,7 +14,7 @@ Like:
 -   Tag infos with images.
 -   Many Layout and Styles.
 
-There are compiled executable for Linux 32/64, Windows 32/64, FreeBSD 64, MacOS X
+There are compiled executable for Linux 32/64, Windows 32/64, FreeBSD 64, OpenBSD, DragonFlyBSD MacOS X
 and arm-aarch64 Rpi 32/64. =\> https://github.com/fredvs/strumpract/releases/
 
 StrumPract was compiled with: FPC 3.2.2: http://www.freepascal.org
