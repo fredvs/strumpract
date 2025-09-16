@@ -1910,6 +1910,7 @@ begin
             //  lposition.face.template := mainfo.tfaceplayerlight;
 
             hascue2 := True;
+         
             oninfowav(Sender);
 
             infosdfo2.infolength.Caption := copy(llength.Value, 1, 8);
@@ -2648,7 +2649,7 @@ var
 
     tagClass  := IdentifyKind(FileName);
     TagReader := tagClass.Create;
-
+   
     TagReader.LoadFromFile(FileName);
 
     if TagReader.Tags.ImageCount > 0 then
@@ -2656,10 +2657,11 @@ var
       Result := 0;
       TagReader.Tags.Images[0].Image.Position := 0;
     end;
-
+ 
   end;
 
 begin
+
   fileex := fileext(PChar(ansistring(historyfn.Value)));
 
   if (lowercase(fileex) = 'wav') or (lowercase(fileex) = 'ogg') or
@@ -2688,9 +2690,15 @@ begin
           infosdfo.infofile.Caption := copy(trim(extractfilename(historyfn.Value)), 1, 60);
           infosdfo.infofile.hint    := ' ' + trim(extractfilename(historyfn.Value)) + ' ';
 
+         {$ifndef netbsd} 
           if (lowercase(fileex) <> 'mp3') then
+         {$else} 
+          if true then
+          {$endif}
           begin
+           {$ifndef netbsd} 
             infosdfo.loadimagetag(nil);
+            {$endif}
 
             infosdfo.infoname.Caption   :=
               uos_InputGetTagTitle(theplayer, Inputindex1);
@@ -2712,11 +2720,13 @@ begin
           end
           else
           begin
+         
             if readtag(ansistring(historyfn.Value)) = 0 then
               infosdfo.loadimagetag(TagReader.Tags.Images[0].Image)
             else
               infosdfo.loadimagetag(nil);
-
+           
+           
             CommonTags := TagReader.GetCommonTags;
 
             infosdfo.infoname.Caption := copy(trim(CommonTags.Title), 1, 60) + ' ';
@@ -2743,7 +2753,7 @@ begin
               infosdfo.infochan.Caption := 'Stereo '
             else
               infosdfo.infochan.Caption := trim(TagReader.MediaProperty.ChannelMode) + ' ';
-
+        
           end;
           // BPM
 
@@ -2781,9 +2791,15 @@ begin
 
           infosdfo2.infofile.Caption := copy(trim(extractfilename(historyfn.Value)), 1, 60);
 
+        {$ifndef netbsd} 
           if (lowercase(fileex) <> 'mp3') then
+         {$else} 
+          if true then
+          {$endif}
           begin
+           {$ifndef netbsd} 
             infosdfo2.loadimagetag(nil);
+            {$endif}
             infosdfo2.infoname.Caption   :=
               uos_InputGetTagTitle(theplayer2, Inputindex1);
             infosdfo2.infoartist.Caption :=
@@ -2800,16 +2816,15 @@ begin
               uos_InputGetTagTrack(theplayer2, Inputindex1);
             infosdfo2.infochan.Caption   :=
               uos_InputGetTagGenre(theplayer2, Inputindex1);
-
           end
           else
           begin
-
+         
             if readtag(ansistring(historyfn.Value)) = 0 then
               infosdfo2.loadimagetag(TagReader.Tags.Images[0].Image)
             else
               infosdfo2.loadimagetag(nil);
-
+          
             CommonTags := TagReader.GetCommonTags;
 
             infosdfo2.infoname.Caption   := copy(trim(CommonTags.Title), 1, 60) + ' ';
@@ -2865,8 +2880,11 @@ begin
             ttimerwavdata.Enabled := True;
          end;   
       end;
-      if (lowercase(fileex) = 'mp3') then
-        TagReader.Free;
+      {$ifndef netbsd} 
+       if (lowercase(fileex) = 'mp3') then
+       TagReader.Free;
+      {$endif}
+     
     end
     else
       ShowMessage(historyfn.Value + ' does not exist or not mounted...');

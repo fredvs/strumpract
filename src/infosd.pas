@@ -296,7 +296,7 @@ procedure tinfosdfo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
 var
   theMemBitmap: TBGRABitmap;
 begin
-
+{$ifndef netbsd} 
   theMemBitmap := aimage.MemBitmap.Resample(PimgPreview.Width, PimgPreview.Height, rmFineResample) as TBGRABitmap;
 
   if mainfo.typecolor.Value = 2 then
@@ -306,6 +306,7 @@ begin
 
   theMemBitmap.draw(acanvas, 0, 0, True);
   theMemBitmap.Free;
+ {$endif}  
 end;
 
 procedure tinfosdfo.oncre(const Sender: TObject);

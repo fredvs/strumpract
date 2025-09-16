@@ -202,30 +202,35 @@ uses
   drums;
   
 procedure trandomnotefo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
+{$ifndef netbsd} 
 var
   theMemBitmap: TBGRABitmap;
 begin
-
   theMemBitmap := aimagepiano.MemBitmap.Resample(keyb1pb.Width, keyb1pb.Height, rmFineResample) as TBGRABitmap;
   theMemBitmap.Rectangle(0, 0, keyb1pb.Width, keyb1pb.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
   theMemBitmap.draw(acanvas, 0, 0, True);
   theMemBitmap.Free;
-
-end;  
+{$else}
+begin
+{$endif}
+end;
 
 procedure trandomnotefo.onpaintguit(const Sender: twidget; const acanvas: tcanvas);
+{$ifndef netbsd} 
 var
   theMemBitmap : TBGRABitmap;
 begin
-
   theMemBitmap:= aimageguit.MemBitmap.Resample(guitpb1.Width, guitpb1.Height, rmFineResample) as TBGRABitmap;
   theMemBitmap.Rectangle(0, 0, guitpb1.Width, guitpb1.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
   theMemBitmap.draw(acanvas, 0, 0, True);
   theMemBitmap.Free;
-
+{$else}
+begin
+{$endif}
 end; 
 
 procedure trandomnotefo.onpaintbass(const Sender: twidget; const acanvas: tcanvas);
+{$ifndef netbsd} 
 var
   theMemBitmap : TBGRABitmap;
 begin
@@ -234,7 +239,9 @@ begin
   theMemBitmap.Rectangle(0, 0, basspb1.Width, basspb1.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
   theMemBitmap.draw(acanvas, 0, 0, True);
   theMemBitmap.Free;
-
+{$else}
+begin
+{$endif}
 end; 
 
 procedure trandomnotefo.guitarchord(num, ranchord, ismin, isseven: integer);
@@ -4008,6 +4015,7 @@ begin
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
   {$ENDIF}  
    
+  {$ifndef netbsd}  
   if fileexists(ordir + 'images' + directoryseparator + 'piano1oct.png')
   then
   begin
@@ -4028,7 +4036,8 @@ begin
   aimagebass := TBGRAAnimatedGif.Create(ordir + 'images' + directoryseparator + 'basstab.png');  
   basspb1.invalidate;
   end;
-
+  {$ENDIF}  
+  
   elipse1_2.bitmap := elipse1_1.bitmap;
   elipse1_3.bitmap := elipse1_1.bitmap;
   elipse2_1.bitmap := elipse1_1.bitmap;

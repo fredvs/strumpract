@@ -53,18 +53,22 @@ main, dockpanel1, captionstrumpract, piano_mfm;
 
 var
   boundchildpi: array of boundchild;
+  {$ifndef netbsd} 
   aimagepiano4oct : TBGRAAnimatedGif;
+  {$endif}
   
 procedure tpianofo.onpaintimg(const Sender: twidget; const acanvas: tcanvas);
+{$ifndef netbsd} 
 var
   theMemBitmap: TBGRABitmap;
 begin
-
   theMemBitmap := aimagepiano4oct.MemBitmap.Resample(keyb1pb.Width, keyb1pb.Height, rmFineResample) as TBGRABitmap;
   theMemBitmap.Rectangle(0, 0, keyb1pb.Width, keyb1pb.Height, BGRA(255, 192, 0), BGRA(180, 180, 180, 255), dmDrawWithTransparency, 8192);
   theMemBitmap.draw(acanvas, 0, 0, True);
   theMemBitmap.Free;
-
+{$else}  
+begin
+{$endif}
 end;    
   
 procedure tpianofo.resizepi(fontheight :  integer );
@@ -104,6 +108,7 @@ end;
 
 procedure tpianofo.oncreated(const sender: TObject);
 begin
+
   tsigkeyboard1.keywidth := tsigkeyboard1.Width div 32;
    tsigcontroller1.inputtype := 0; // from synth/piano
    Caption := 'Piano Synthesizer' ;
@@ -265,18 +270,22 @@ begin
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)))) ;
   {$ENDIF}  
   
+  {$ifndef netbsd} 
   if fileexists(ordir +'images' + directoryseparator + 'piano4oct.png')
   then
   begin
-  aimagepiano4oct := TBGRAAnimatedGif.Create(ordir + 'images' + directoryseparator + 'piano4oct.png');  
-  keyb1pb.invalidate;
+   aimagepiano4oct := TBGRAAnimatedGif.Create(ordir + 'images' + directoryseparator + 'piano4oct.png');  
+   keyb1pb.invalidate;
   end;
+  {$endif}
 
 end;
 
 procedure tpianofo.ondestro(const sender: TObject);
 begin
- aimagepiano4oct.Free; 
+{$ifndef netbsd} 
+ aimagepiano4oct.Free;
+{$endif}
 end;
 
 end.

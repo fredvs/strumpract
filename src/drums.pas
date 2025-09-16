@@ -1315,7 +1315,7 @@ begin
   {$else}
   ordir   := msestring(IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))));
   {$ENDIF}
-
+  
   lib5 := '';
 
   {$IFDEF Windows}
@@ -1349,6 +1349,13 @@ begin
   lib3 := AnsiString(ordir + 'lib/OpenBSD/64bit/LibMpg123-64.so');
   lib4 := AnsiString(ordir + 'lib/OpenBSD/64bit/LibSoundTouch-64.so');
      {$ENDIF}
+     
+  {$if defined(CPUAMD64) and defined(netbsd) }
+  lib1 := AnsiString(ordir + 'lib/NetBSD/64bit/LibPortaudio-64.so');
+  lib2 := AnsiString(ordir + 'lib/NetBSD/64bit/LibSndFile-64.so');
+  lib3 := AnsiString(ordir + 'lib/NetBSD/64bit/LibMpg123-64.so');
+  lib4 := AnsiString(ordir + 'lib/NetBSD/64bit/LibSoundTouch-64.so');
+     {$ENDIF}    
 
    {$if defined(CPUAMD64) and defined(dragonfly) }
   lib1 := AnsiString(ordir + 'lib/DragonFlyBSD/64bit/LibPortaudio-64.so');
