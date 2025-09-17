@@ -2698,6 +2698,8 @@ begin
           begin
            {$ifndef netbsd} 
             infosdfo.loadimagetag(nil);
+            {$else}
+            infosdfo.PimgPreview.visible := true;
             {$endif}
 
             infosdfo.infoname.Caption   :=
@@ -2799,6 +2801,8 @@ begin
           begin
            {$ifndef netbsd} 
             infosdfo2.loadimagetag(nil);
+             {$else}
+            infosdfo2.PimgPreview.visible := true;
             {$endif}
             infosdfo2.infoname.Caption   :=
               uos_InputGetTagTitle(theplayer2, Inputindex1);

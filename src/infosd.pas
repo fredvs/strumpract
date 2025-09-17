@@ -329,6 +329,9 @@ begin
   ttimer1.interval := 15;
   ttimer1.Enabled  := False;
 
+  {$ifndef netbsd} 
+  PimgPreview.face := nil;
+  {$endif} 
 end;
 
 procedure tinfosdfo.ondest(const Sender: TObject);
