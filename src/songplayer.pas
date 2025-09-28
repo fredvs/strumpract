@@ -50,6 +50,7 @@ uses
   mse_ovoaudiotag,
   msegridsglob,
   msetimer,
+  BGRABitmapTypes,
   mseimage;
 
 type
@@ -1496,6 +1497,7 @@ begin
 
                 btnpause.Enabled := True;
                 btnpause.Visible := True;
+                          
               end;
               
                uos_outputSetDSPVolume(theplayer, Outputindex1,
@@ -1934,6 +1936,12 @@ begin
       else
         ShowMessage(historyfn.Value + ' is not a audio file...');
     end;
+      
+                if (dancernum = 13)  then
+                begin
+                 imagedancerfo.init2;        
+                 imagedancerfo.bitmap.Fill(CSSblack);
+                end;
   end
   else
     ShowMessage('There is no audio file in the list...');

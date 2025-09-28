@@ -10,7 +10,7 @@ unit imagedancer;
 interface
 
 uses
- msepointer,bgragraphics,BGRABitmap,BGRADefaultBitmap,BGRABitmapTypes,msethread,
+ msepointer,bgragraphics,BGRABitmap,BGRADefaultBitmap,BGRABitmapTypes,BGRACanvas2D, msethread,
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,Classes,mseclasses,mseforms,msedock,Math,
  msesimplewidgets,msewidgets,mseact,msedataedits,msedropdownlist,mseedit,
@@ -84,8 +84,11 @@ type
    procedure onfloat(const sender: TObject);
    procedure ondock(const sender: TObject);
    procedure resizeda(fontheight: integer);
-
+   procedure init1;
+   procedure init2;
+   procedure SubDraw;  
    
+   procedure onresiz(const sender: TObject);
   protected
   
    {$IF DEFINED(msethread)}
@@ -101,10 +104,17 @@ type
     decrease: boolean;
      thecolor: Byte;
     myData: TData;
-    x2, y2: single;  
+    x2, y2, xbf, ybf, ang, deg, degacc, acc, speedX, speedY, colBase: single;  
     rendercount: integer;
     renderstart: longword;
     frotx, froty, frotz: real;
+    count, count2: Integer;
+    angs: array of Integer;   
+    
+  public
+  Bitmap: tbgrabitmap;
+  ctx: TBGRACanvas2D;   
+    
   end;
 
 type
@@ -170,8 +180,6 @@ uses
   msesysutils,
   imagedancer_mfm;
 
-var
-  Bitmap: tbgrabitmap;
   
 procedure timagedancerfo.resizeda(fontheight: integer);
 var
@@ -510,7 +518,7 @@ begin
  rot := False;
 
  spiral := createSpiral(center, -10 * Turn, imagedancerfo.Width div 30, imagedancerfo.Width, 0, rot);
-  bitmap.DrawPolyLineAntialias(spiral, getRandomHue(40), roundmath(1 * 14));
+  imagedancerfo.bitmap.DrawPolyLineAntialias(spiral, getRandomHue(40), roundmath(1 * 14));
 
 end;
 
@@ -705,7 +713,75 @@ begin
   Bitmap.Canvas2D.strokeStyle(BGRA(r, g, b, a));
 end;     
 
-/////
+// Barok Flowers
+
+function HSVtoBGRA(myH, S, V: Double): TBGRAPixel;
+var
+  C, X, m: Double;
+  r_, g_, b_: Double;
+  h: Double;
+begin
+  h := myH;                  // expects H in [0..360], S and V in [0..1]
+
+  if h < 0 then h := h - Floor(h / 360) * 360;            // normalize hue to [0..360)
+  if h >= 360 then h := h - Floor(h / 360) * 360;
+
+  C := V * S;
+  X := C * (1 - Abs(Frac(h / 60) * 2 - 1));
+  m := V - C;
+
+  if h < 60 then
+  begin r_ := C; g_ := X; b_ := 0; end
+  else if h < 120 then
+  begin r_ := X; g_ := C; b_ := 0; end
+  else if h < 180 then
+  begin r_ := 0; g_ := C; b_ := X; end
+  else if h < 240 then
+  begin r_ := 0; g_ := X; b_ := C; end
+  else if h < 300 then
+  begin r_ := X; g_ := 0; b_ := C; end
+  else
+  begin r_ := C; g_ := 0; b_ := X; end;
+
+  Result := BGRA(
+    Round((r_ + m) * 255),
+    Round((g_ + m) * 255),
+    Round((b_ + m) * 255),
+    255);
+end;       
+
+procedure timagedancerfo.Init1;
+begin
+  deg := Random * 360;
+  degacc := Random * 2 - 1;
+  acc := Random * 2 - 1;
+  speedX := Random * 4 + 2;
+  speedY := Random * 4 + 2;
+  colBase := Random * 360;
+end;
+
+procedure timagedancerfo.Init2;
+begin
+  Init1;
+  xbf := 0;
+  ybf := 0;
+  Bitmap.FillTransparent;
+end;  
+
+procedure timagedancerfo.SubDraw;
+var
+  rx, ry: Single;
+begin
+  rx := 3; //seXRadius.Value;
+//  if chkSameRadius.Checked then
+    ry := rx;
+//  else ry := seYRadius.Value;
+
+  ctx.beginPath;
+  ctx.ellipse(xbf, ybf, rx, ry);
+  ctx.fill;
+  ctx.stroke;
+end;        
 
 procedure timagedancerfo.onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
 var
@@ -718,6 +794,8 @@ var
   start, stop: single;
   LocalSpeed, Delta: single;
   spi : ArrayOfTPointF;   
+  steps: Integer;
+  alphaValue: Single;   
 begin
 
   if isbuzy = False then
@@ -927,8 +1005,55 @@ begin
    if (zoom > 2) then zoom := 1;
   
    FractalcirclesRedraw(Sender, Bitmap);        
-       end;
+       end else
+       
+    if dancernum = 13 then // barok flowers
+    begin
+   //  bitmap.Fill(CSSblack);
+   // init1;
+    ctx.save;
+  try
+    ctx.translate(bitmap.Width / 2, bitmap.Height / 2);
 
+    colBase := colBase + 10;
+    if colBase >= 360 then colBase := colBase - 360;
+
+    alphaValue :=  multiplier * 255.0;              // convert seAlpha (0..255) into 0..1
+    ctx.globalAlpha := alphaValue;
+
+    ctx.lineWidth :=   1.2 * multiplier ; //seLinewidth.Value;
+
+    ctx.fillStyle(HSVtoBGRA(colBase, 1.0, 1.0));
+
+    steps := Max(1, Round(360 / ang));
+    for i := 0 to steps - 1 do
+    begin
+      SubDraw;
+      ctx.rotate(DegToRad(ang));
+      ctx.scale(1, -1);
+      SubDraw;
+      ctx.scale(1, -1);
+    end;
+
+  finally
+    ctx.restore;
+  end;
+
+  xbf := xbf + cos(DegToRad(deg)) * speedX * multiplier;
+  ybf := ybf + sin(DegToRad(deg)) * speedY * multiplier;
+  deg := deg + degacc;
+  degacc := degacc - acc;
+  acc := (acc + 0.0001) * multiplier;
+
+  Inc(count);
+  if multiplier < 0.5 then
+  begin
+    count := 0;
+    Init1;
+    Inc(count2);
+  end;        
+  end ;    
+       
   if visible then Bitmap.draw(acanvas, 0, 0, true);
     isbuzy := False;
   end;
@@ -1013,6 +1138,19 @@ begin
  
   RTLeventResetEvent(evPauseImage);
   Bitmap       := tbgrabitmap.Create(1000, 600);
+  
+  ctx := Bitmap.Canvas2D;
+
+  SetLength(angs, 12);
+  angs[0] := 15; angs[1] := 18; angs[2] := 20; angs[3] := 24;
+  angs[4] := 30; angs[5] := 36; angs[6] := 40; angs[7] := 45;
+  angs[8] := 60; angs[9] := 72; angs[10] := 90; angs[11] := 120;
+
+  ang := 30;
+  count := 0;
+  count2 := 0;
+
+  Init2;          
   
   InitRings;
   center       := PointF(Width / 2, Height / 2);
@@ -1300,5 +1438,12 @@ begin
 if parentwidget = nil then onfloat(sender) else ondock(sender);
 end;
 
+procedure timagedancerfo.onresiz(const sender: TObject);
+begin
+ if (dancernum = 13)  then
+    begin
+    imagedancerfo.init2;        
+    imagedancerfo.bitmap.Fill(CSSblack);
+    end;
+end;
 end.
-

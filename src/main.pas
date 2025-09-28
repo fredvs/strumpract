@@ -2406,6 +2406,13 @@ begin
     timerwait.Enabled := True;
 
   //   {$if not defined(darwin)}  
+ if dancnum.Value = 13 then
+  begin
+    imagedancerfo.Caption := 'Barok Flowers by Boleeman';
+    imagedancerfo.openglwidget.Visible := False;
+    dancernum := 13;
+  end
+  else
 
   if dancnum.Value = 12 then
   begin
@@ -8103,6 +8110,16 @@ begin
   if bo then    DynLibs.UnloadLibrary(gl_Handle);
  {$ENDIF}
 
+ if (tmenuitem(Sender).tag = 13) then
+  begin
+    imagedancerfo.Caption := 'Barok Flowers by Boleeman';
+    imagedancerfo.openglwidget.Visible := False;
+    dancernum     := 13;
+    dancnum.Value := 13;
+    imagedancerfo.init2;
+    imagedancerfo.bitmap.Fill(CSSblack);
+  end
+  else
   if (tmenuitem(Sender).tag = 12) then
   begin
     imagedancerfo.Caption := 'Dancing Fractal Circles by Lainz';
@@ -8406,9 +8423,16 @@ begin
     imagedancerfo.frame.grip_size := 0;
   end;
 
+    if (dancernum = 13)  then
+    begin
+    imagedancerfo.init2;        
+    imagedancerfo.bitmap.Fill(CSSblack);
+    end;
+
   imagedancerfo.Window.RecreateWindow;
   statusanim := 1;
 
+  
   if alwaystop = 0 then
     imagedancerfo.bringtofront;
   //    {$endif}  
