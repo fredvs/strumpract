@@ -784,7 +784,7 @@ begin
   Bitmap.Canvas2D.stroke;
   
   if xbf < 0 then tx := round(xbf * -1) else tx := round(xbf);
-  if ybf < 0 then ty := round(ybf * -1) else tx := round(ybf);
+  if ybf < 0 then ty := round(ybf * -1) else ty := round(ybf);
   if (tx > round(bitmap.width /2)) or (ty > round(bitmap.Height /2)) then Init2;
  
 end;        
