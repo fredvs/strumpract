@@ -113,8 +113,7 @@ type
     
   public
   Bitmap: tbgrabitmap;
-  ctx: TBGRACanvas2D;   
-    
+     
   end;
 
 type
@@ -772,15 +771,16 @@ procedure timagedancerfo.SubDraw;
 var
   rx, ry: Single;
 begin
-  rx := 3; //seXRadius.Value;
-//  if chkSameRadius.Checked then
-    ry := rx;
-//  else ry := seYRadius.Value;
-
-  ctx.beginPath;
-  ctx.ellipse(xbf, ybf, rx, ry);
-  ctx.fill;
-  ctx.stroke;
+  rx := 8 * multiplier; 
+  
+  if (dancernum = 13) then ry := rx;
+  if (dancernum = 14) then ry := rx * multiplier;
+  if (dancernum = 15) then ry := rx;
+ 
+  Bitmap.Canvas2D.beginPath;
+  Bitmap.Canvas2D.ellipse(xbf, ybf, rx, ry);
+  Bitmap.Canvas2D.fill;
+  Bitmap.Canvas2D.stroke;
 end;        
 
 procedure timagedancerfo.onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
@@ -1011,9 +1011,10 @@ begin
     begin
    //  bitmap.Fill(CSSblack);
    // init1;
-    ctx.save;
+    Bitmap.Canvas2D.resetTransform;
+    Bitmap.Canvas2D.save;
   try
-    ctx.translate(bitmap.Width / 2, bitmap.Height / 2);
+    Bitmap.Canvas2D.translate(bitmap.Width / 2, bitmap.Height / 2);
 
     if (dancernum = 13) then
     begin
@@ -1034,24 +1035,24 @@ begin
      end;
      
     alphaValue :=  multiplier * 255.0;              // convert seAlpha (0..255) into 0..1
-    ctx.globalAlpha := alphaValue;
+    Bitmap.Canvas2D.globalAlpha := alphaValue;
 
-    ctx.lineWidth :=   1.2 * multiplier ; //seLinewidth.Value;
+    Bitmap.Canvas2D.lineWidth :=   1.2 * multiplier ; //seLinewidth.Value;
 
-    ctx.fillStyle(HSVtoBGRA(colBase, 1.0, 1.0));
+    Bitmap.Canvas2D.fillStyle(HSVtoBGRA(colBase, 1.0, 1.0));
 
     steps := Max(1, Round(360 / ang));
     for i := 0 to steps - 1 do
     begin
       SubDraw;
-      ctx.rotate(DegToRad(ang));
-      ctx.scale(1, -1);
+      Bitmap.Canvas2D.rotate(DegToRad(ang));
+      Bitmap.Canvas2D.scale(1, -1);
       SubDraw;
-      ctx.scale(1, -1);
+      Bitmap.Canvas2D.scale(1, -1);
     end;
 
   finally
-    ctx.restore;
+    Bitmap.Canvas2D.restore;
   end;
 
   xbf := xbf + cos(DegToRad(deg)) * speedX * multiplier * 1.5;
@@ -1077,12 +1078,11 @@ begin
   
  // if ybf > bitmap.Height * 2 / 3 then
   
-  if count2 > 200 then
+  if count2 > 300 then
   begin
     count2 := 0;
     Init2;
   end; 
-  
          
   end ;    
        
@@ -1170,8 +1170,6 @@ begin
  
   RTLeventResetEvent(evPauseImage);
   Bitmap       := tbgrabitmap.Create(1000, 600);
-  
-  ctx := Bitmap.Canvas2D;
 
   SetLength(angs, 12);
   angs[0] := 15; angs[1] := 18; angs[2] := 20; angs[3] := 24;

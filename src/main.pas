@@ -8135,7 +8135,7 @@ begin
     dancnum.Value := 15;
     imagedancerfo.init2;
     imagedancerfo.bitmap.Fill(CSSblack);
-  end
+   end
   else
   
    if (tmenuitem(Sender).tag = 14) then
