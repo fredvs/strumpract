@@ -1937,7 +1937,7 @@ begin
         ShowMessage(historyfn.Value + ' is not a audio file...');
     end;
       
-                if (dancernum = 13)  then
+                if (dancernum = 13) or (dancernum = 14) or (dancernum = 15) then
                 begin
                  imagedancerfo.init2;        
                  imagedancerfo.bitmap.Fill(CSSblack);

@@ -1007,7 +1007,7 @@ begin
    FractalcirclesRedraw(Sender, Bitmap);        
        end else
        
-    if dancernum = 13 then // barok flowers
+    if (dancernum = 13) or (dancernum = 14) or (dancernum = 15) then // barok flowers
     begin
    //  bitmap.Fill(CSSblack);
    // init1;
@@ -1015,9 +1015,24 @@ begin
   try
     ctx.translate(bitmap.Width / 2, bitmap.Height / 2);
 
-    colBase := colBase + 10;
-    if colBase >= 360 then colBase := colBase - 360;
-
+    if (dancernum = 13) then
+    begin
+     colBase := colBase + 10;
+     if colBase >= 360 then colBase := colBase - 360;
+     end;
+     
+     if (dancernum = 14) then 
+     begin
+     colBase := colBase + (10 * multiplier);
+     if colBase >= 360 then colBase := 0;
+     end;
+     
+     if (dancernum = 15) then 
+     begin
+     colBase := colBase + (5 * multiplier);
+     if colBase >= 360 then colBase := 0;
+     end;
+     
     alphaValue :=  multiplier * 255.0;              // convert seAlpha (0..255) into 0..1
     ctx.globalAlpha := alphaValue;
 
@@ -1039,19 +1054,36 @@ begin
     ctx.restore;
   end;
 
-  xbf := xbf + cos(DegToRad(deg)) * speedX * multiplier;
-  ybf := ybf + sin(DegToRad(deg)) * speedY * multiplier;
+  xbf := xbf + cos(DegToRad(deg)) * speedX * multiplier * 1.5;
+  ybf := ybf + sin(DegToRad(deg)) * speedY * multiplier * 1.5;
   deg := deg + degacc;
   degacc := degacc - acc;
+  if (dancernum = 15) then
+  acc := acc + (0.0001 * multiplier);
+  
+  if (dancernum = 14) then
   acc := (acc + 0.0001) * multiplier;
+  
+   if (dancernum = 13) then
+  acc := acc + (0.0001);
 
   Inc(count);
-  if multiplier < 0.5 then
+  Inc(count2);
+  if count > 30 then
   begin
     count := 0;
     Init1;
-    Inc(count2);
-  end;        
+  end; 
+  
+ // if ybf > bitmap.Height * 2 / 3 then
+  
+  if count2 > 200 then
+  begin
+    count2 := 0;
+    Init2;
+  end; 
+  
+         
   end ;    
        
   if visible then Bitmap.draw(acanvas, 0, 0, true);
@@ -1149,7 +1181,7 @@ begin
   ang := 30;
   count := 0;
   count2 := 0;
-
+  
   Init2;          
   
   InitRings;
@@ -1440,7 +1472,7 @@ end;
 
 procedure timagedancerfo.onresiz(const sender: TObject);
 begin
- if (dancernum = 13)  then
+ if (dancernum = 13) or (dancernum = 14) or (dancernum = 15)  then
     begin
     imagedancerfo.init2;        
     imagedancerfo.bitmap.Fill(CSSblack);

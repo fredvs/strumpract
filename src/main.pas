@@ -2406,9 +2406,25 @@ begin
     timerwait.Enabled := True;
 
   //   {$if not defined(darwin)}  
+ if dancnum.Value = 15 then
+  begin
+    imagedancerfo.Caption := 'Barok Flowers 3 by Boleeman';
+    imagedancerfo.openglwidget.Visible := False;
+    dancernum := 15;
+  end
+  else
+  
+  if dancnum.Value = 14 then
+  begin
+    imagedancerfo.Caption := 'Barok Flowers 2 by Boleeman';
+    imagedancerfo.openglwidget.Visible := False;
+    dancernum := 14;
+  end
+  else   
+  
  if dancnum.Value = 13 then
   begin
-    imagedancerfo.Caption := 'Barok Flowers by Boleeman';
+    imagedancerfo.Caption := 'Barok Flowers 1 by Boleeman';
     imagedancerfo.openglwidget.Visible := False;
     dancernum := 13;
   end
@@ -8110,9 +8126,32 @@ begin
   if bo then    DynLibs.UnloadLibrary(gl_Handle);
  {$ENDIF}
 
+
+ if (tmenuitem(Sender).tag = 15) then
+  begin
+    imagedancerfo.Caption := 'Barok Flowers 3 by Boleeman';
+    imagedancerfo.openglwidget.Visible := False;
+    dancernum     := 15;
+    dancnum.Value := 15;
+    imagedancerfo.init2;
+    imagedancerfo.bitmap.Fill(CSSblack);
+  end
+  else
+  
+   if (tmenuitem(Sender).tag = 14) then
+  begin
+    imagedancerfo.Caption := 'Barok Flowers 2 by Boleeman';
+    imagedancerfo.openglwidget.Visible := False;
+    dancernum     := 14;
+    dancnum.Value := 14;
+    imagedancerfo.init2;
+    imagedancerfo.bitmap.Fill(CSSblack);
+  end
+  else
+
  if (tmenuitem(Sender).tag = 13) then
   begin
-    imagedancerfo.Caption := 'Barok Flowers by Boleeman';
+    imagedancerfo.Caption := 'Barok Flowers 1 by Boleeman';
     imagedancerfo.openglwidget.Visible := False;
     dancernum     := 13;
     dancnum.Value := 13;
@@ -8423,7 +8462,7 @@ begin
     imagedancerfo.frame.grip_size := 0;
   end;
 
-    if (dancernum = 13)  then
+    if (dancernum = 13) or (dancernum = 14) or (dancernum = 15)  then
     begin
     imagedancerfo.init2;        
     imagedancerfo.bitmap.Fill(CSSblack);
