@@ -571,7 +571,7 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localhint, as_localonexecute]
       end    
       item
-        submenu.count = 26
+        submenu.count = 29
         submenu.items = <        
           item
             caption = 'Square'
@@ -661,6 +661,27 @@ object mainfo: tmainfo
             name = 'fractalcircles'
             state = [as_localcaption, as_localtag, as_localonexecute]
             tag = 12
+            onexecute = onimagedancer
+          end        
+          item
+            caption = 'Barok Flowers 1'
+            name = 'barokflowers1'
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 13
+            onexecute = onimagedancer
+          end        
+          item
+            caption = 'Barok Flowers 2'
+            name = 'BarokFlowers2'
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 14
+            onexecute = onimagedancer
+          end        
+          item
+            caption = 'Barok Flowers 3'
+            name = 'BarokFlowers3'
+            state = [as_localcaption, as_localtag, as_localonexecute]
+            tag = 15
             onexecute = onimagedancer
           end        
           item

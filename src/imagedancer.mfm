@@ -9,16 +9,16 @@ object imagedancerfo: timagedancerfo
   frame.grip_faceactive.localprops = []
   frame.grip_faceactive.template = mainfo.tfacegreen
   visible = False
-  bounds_x = 318
-  bounds_y = 252
+  bounds_x = 465
+  bounds_y = 250
   bounds_cx = 442
   bounds_cy = 206
   bounds_cxmin = 442
   bounds_cymin = 206
+  container.color = -2147483645
   container.frame.localprops = []
   container.frame.localprops1 = []
-  container.face.localprops = []
-  container.face.template = mainfo.tfacebutgray
+  container.onresize = onresiz
   container.bounds = (
     0
     0
@@ -116,6 +116,7 @@ object imagedancerfo: timagedancerfo
   oncreated = oncreat
   oneventloopstart = onevstart
   ondestroy = ondestroy
+  onresize = onresiz
   onshow = onshow
   onhide = onhide
   moduleclassname = 'tdockform'

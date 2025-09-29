@@ -108,7 +108,7 @@ type
     rendercount: integer;
     renderstart: longword;
     frotx, froty, frotz: real;
-    count, count2: Integer;
+    count: Integer;
     angs: array of Integer;   
     
   public
@@ -769,10 +769,11 @@ end;
 
 procedure timagedancerfo.SubDraw;
 var
-  rx, ry: Single;
+  rx, ry : Single;
+   tx, ty: integer;
 begin
   rx := 8 * multiplier; 
-  
+   
   if (dancernum = 13) then ry := rx;
   if (dancernum = 14) then ry := rx * multiplier;
   if (dancernum = 15) then ry := rx;
@@ -781,6 +782,11 @@ begin
   Bitmap.Canvas2D.ellipse(xbf, ybf, rx, ry);
   Bitmap.Canvas2D.fill;
   Bitmap.Canvas2D.stroke;
+  
+  if xbf < 0 then tx := round(xbf * -1) else tx := round(xbf);
+  if ybf < 0 then ty := round(ybf * -1) else tx := round(ybf);
+  if (tx > round(bitmap.width /2)) or (ty > round(bitmap.Height /2)) then Init2;
+ 
 end;        
 
 procedure timagedancerfo.onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
@@ -1009,9 +1015,6 @@ begin
        
     if (dancernum = 13) or (dancernum = 14) or (dancernum = 15) then // barok flowers
     begin
-   //  bitmap.Fill(CSSblack);
-   // init1;
-    Bitmap.Canvas2D.resetTransform;
     Bitmap.Canvas2D.save;
   try
     Bitmap.Canvas2D.translate(bitmap.Width / 2, bitmap.Height / 2);
@@ -1069,22 +1072,12 @@ begin
   acc := acc + (0.0001);
 
   Inc(count);
-  Inc(count2);
   if count > 30 then
   begin
     count := 0;
     Init1;
   end; 
-  
- // if ybf > bitmap.Height * 2 / 3 then
-  
-  if count2 > 300 then
-  begin
-    count2 := 0;
-    Init2;
-  end; 
-         
-  end ;    
+ end ;    
        
   if visible then Bitmap.draw(acanvas, 0, 0, true);
     isbuzy := False;
@@ -1178,8 +1171,6 @@ begin
 
   ang := 30;
   count := 0;
-  count2 := 0;
-  
   Init2;          
   
   InitRings;
@@ -1472,8 +1463,15 @@ procedure timagedancerfo.onresiz(const sender: TObject);
 begin
  if (dancernum = 13) or (dancernum = 14) or (dancernum = 15)  then
     begin
-    imagedancerfo.init2;        
-    imagedancerfo.bitmap.Fill(CSSblack);
+    //bitmap.Canvas2D.resetTransform;
+    //Bitmap.Canvas2D.save; 
+    isbuzy := true;
+    bitmap.Canvas2D.resetTransform;
+    Bitmap.Canvas2D.save;                
+    init2;        
+    bitmap.Fill(CSSblack);
+    Bitmap.draw(pb.getcanvas, 0, 0, true);
+    isbuzy := false;
     end;
 end;
 end.

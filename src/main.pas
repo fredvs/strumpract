@@ -8133,6 +8133,8 @@ begin
     imagedancerfo.openglwidget.Visible := False;
     dancernum     := 15;
     dancnum.Value := 15;
+    imagedancerfo.bitmap.Canvas2D.resetTransform;
+    imagedancerfo.Bitmap.Canvas2D.save;                
     imagedancerfo.init2;
     imagedancerfo.bitmap.Fill(CSSblack);
    end
@@ -8144,6 +8146,8 @@ begin
     imagedancerfo.openglwidget.Visible := False;
     dancernum     := 14;
     dancnum.Value := 14;
+    imagedancerfo.bitmap.Canvas2D.resetTransform;
+    imagedancerfo.Bitmap.Canvas2D.save;                
     imagedancerfo.init2;
     imagedancerfo.bitmap.Fill(CSSblack);
   end
@@ -8155,6 +8159,8 @@ begin
     imagedancerfo.openglwidget.Visible := False;
     dancernum     := 13;
     dancnum.Value := 13;
+    imagedancerfo.bitmap.Canvas2D.resetTransform;
+    imagedancerfo.Bitmap.Canvas2D.save;                
     imagedancerfo.init2;
     imagedancerfo.bitmap.Fill(CSSblack);
   end

@@ -1939,6 +1939,8 @@ begin
       
                 if (dancernum = 13) or (dancernum = 14) or (dancernum = 15) then
                 begin
+                 imagedancerfo.bitmap.Canvas2D.resetTransform;
+                 imagedancerfo.Bitmap.Canvas2D.save;
                  imagedancerfo.init2;        
                  imagedancerfo.bitmap.Fill(CSSblack);
                 end;
