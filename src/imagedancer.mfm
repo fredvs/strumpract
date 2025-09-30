@@ -15,7 +15,7 @@ object imagedancerfo: timagedancerfo
   bounds_cy = 206
   bounds_cxmin = 442
   bounds_cymin = 206
-  container.color = -2147483645
+  container.color = -1610612734
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.onresize = onresiz
@@ -149,5 +149,12 @@ object imagedancerfo: timagedancerfo
     fpsmax = 30
     oncreatewinid = createwinidexe
     onclientrectchanged = clientrectchangedexe
+  end
+  object ttimer1: ttimer
+    interval = 50000
+    options = [to_single]
+    ontimer = ontim
+    left = 121
+    top = 48
   end
 end

@@ -10,12 +10,12 @@ unit imagedancer;
 interface
 
 uses
- msepointer,bgragraphics,BGRABitmap,BGRADefaultBitmap,BGRABitmapTypes,BGRACanvas2D, msethread,
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,Classes,mseclasses,mseforms,msedock,Math,
- msesimplewidgets,msewidgets,mseact,msedataedits,msedropdownlist,mseedit,
- mseificomp,mseificompglob,mseifiglob,msestatfile,msestream,SysUtils,
- mseopenglwidget,msewindowwidget, msebitmap;
+ msepointer,bgragraphics,BGRABitmap,BGRADefaultBitmap,BGRABitmapTypes,
+ BGRACanvas2D, msethread,msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,
+ msestat,msemenus,msegui,msegraphics,msegraphutils,mseevent,Classes,mseclasses,
+ mseforms,msedock,Math,msesimplewidgets,msewidgets,mseact,msedataedits,
+ msedropdownlist,mseedit,mseificomp,mseificompglob,mseifiglob,msestatfile,
+ msestream,SysUtils,mseopenglwidget,msewindowwidget, msebitmap, msetimer;
   
 type
   TProp = record
@@ -59,6 +59,7 @@ type
 
     openglwidget: topenglwidget;
     pb: tpaintbox;
+   ttimer1: ttimer;
     procedure onpaint_imagedancerfo(const Sender: twidget; const acanvas: tcanvas);
     procedure InvalidateImage;
     procedure ondestroy(const Sender: TObject);
@@ -89,6 +90,7 @@ type
    procedure SubDraw;  
    
    procedure onresiz(const sender: TObject);
+   procedure ontim(const sender: TObject);
   protected
   
    {$IF DEFINED(msethread)}
@@ -1463,15 +1465,18 @@ procedure timagedancerfo.onresiz(const sender: TObject);
 begin
  if (dancernum = 13) or (dancernum = 14) or (dancernum = 15)  then
     begin
-    //bitmap.Canvas2D.resetTransform;
-    //Bitmap.Canvas2D.save; 
-    isbuzy := true;
-    bitmap.Canvas2D.resetTransform;
-    Bitmap.Canvas2D.save;                
     init2;        
-    bitmap.Fill(CSSblack);
+    bitmap.Fill(CSSblack);  
     Bitmap.draw(pb.getcanvas, 0, 0, true);
-    isbuzy := false;
+    invalidatewidget;
+    ttimer1.enabled := true;
     end;
 end;
+
+procedure timagedancerfo.ontim(const sender: TObject);
+begin
+    init2;        
+    bitmap.Fill(CSSblack);
+end;
+
 end.
