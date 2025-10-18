@@ -8352,7 +8352,7 @@ begin
   else
     drumsvisible.Value := 0;
 
-  imagedancerfo.Visible := False;
+ // imagedancerfo.Visible := False;
 
   infosdfo.ttimer1.Enabled  := False;
   infosdfo2.ttimer1.Enabled := False;
