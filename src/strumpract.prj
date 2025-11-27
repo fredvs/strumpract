@@ -85,8 +85,6 @@ order16=0
 order17=0
 order18=0
 [projectoptions]
-projectdir=/home/fred/strumpract_work/src
-projectfilename=/home/fred/strumpract_work/src/strumpract.prj
 finddialog=8
  [finddialogfo.selectedonly]
  value=0
@@ -1976,29 +1974,6 @@ windowlayout=527
  value=0
  [debuggerfo.edit_compiler]
  value=Pascal
- [debuggerfo.file_history]
- value=/home/fred/strumpract_work/src/infosd.pas
- history=20
-  /home/fred/strumpract/src/strumpract.pas
-  /home/fred/strumpract/src/config.pas
-  /home/fred/strumpract/src/infosd.pas
-  /home/fred/SimpleWebStreamer/uos_soundtouch.pas
-  /home/fred/strumpract_work/src/msefiledialogx.pas
-  /home/fred/strumpract/src/msefiledialogx.pas
-  /home/fred/strumpract/src/splash.pas
-  /home/fred/strumpract/src/uos_flat.pas
-  /home/fred/SimpleWebStreamer/uos.pas
-  /home/fred/SimpleWebStreamer/uos_httpgetthread.pas
-  /home/fred/SimpleWebStreamer/uos_define.inc
-  /home/fred/SimpleWebStreamer/simplewebplayer.prj
-  /home/fred/SimpleWebStreamer/simplewebplayer.pas
-  /home/fred/strumpract/src/drums.pas
-  /home/fred/strumpract/src/waveform.pas
-  /home/fred/Downloads/sinewave/sine.pas
-  /home/fred/strumpract/src/uos_define.inc
-  /home/fred/mseide-msegui/lib/common/kernel/mselibc.pas
-  /home/fred/mseide-msegui/lib/common/kernel/linux/msesysintf.pas
-  /home/fred/mseide-msegui/lib/common/kernel/mseclasses.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
