@@ -12,14 +12,14 @@ object guitarsfo: tguitarsfo
   frame.grip_hint = ' Use that grip panel to drag/drop Guitars form. '
   hint = '  Use this to drag the form. It is disabled if something is playing. '
   visible = False
-  bounds_x = 524
-  bounds_y = 292
+  bounds_x = 430
+  bounds_y = 548
   bounds_cx = 442
-  bounds_cy = 64
+  bounds_cy = 80
   bounds_cxmin = 442
-  bounds_cymin = 64
+  bounds_cymin = 80
   bounds_cxmax = 442
-  bounds_cymax = 64
+  bounds_cymax = 80
   container.frame.framei_left = 0
   container.frame.framei_top = 0
   container.frame.framei_right = 0
@@ -32,7 +32,7 @@ object guitarsfo: tguitarsfo
     0
     0
     434
-    64
+    80
   )
   dragdock.splitter_grip = stb_dens0
   dragdock.facetab = mainfo.tfacebutgray
@@ -155,8 +155,7 @@ object guitarsfo: tguitarsfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 434
-    bounds_cy = 32
-    anchors = [an_top, an_bottom]
+    bounds_cy = 40
     font.name = 'stf_default'
     font.localprops = []
     object tbutton9: tbutton
@@ -170,9 +169,9 @@ object guitarsfo: tguitarsfo
       face.template = mainfo.tfaceplayerlight
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 89
-      bounds_y = 4
+      bounds_y = 5
       bounds_cx = 54
-      bounds_cy = 23
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '6 Mi/E'
       imagenr = 27
@@ -191,9 +190,9 @@ object guitarsfo: tguitarsfo
       taborder = 1
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 146
-      bounds_y = 4
+      bounds_y = 5
       bounds_cx = 54
-      bounds_cy = 23
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '5 La/A'
       imagenr = 27
@@ -212,9 +211,9 @@ object guitarsfo: tguitarsfo
       taborder = 2
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 203
-      bounds_y = 4
+      bounds_y = 5
       bounds_cx = 54
-      bounds_cy = 23
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '4 Re/D'
       imagenr = 27
@@ -233,9 +232,9 @@ object guitarsfo: tguitarsfo
       taborder = 3
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 260
-      bounds_y = 4
+      bounds_y = 5
       bounds_cx = 54
-      bounds_cy = 23
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '3 Sol/G'
       imagenr = 27
@@ -254,9 +253,9 @@ object guitarsfo: tguitarsfo
       taborder = 4
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 317
-      bounds_y = 4
+      bounds_y = 5
       bounds_cx = 54
-      bounds_cy = 23
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '2 Si/B'
       imagenr = 27
@@ -275,9 +274,9 @@ object guitarsfo: tguitarsfo
       taborder = 5
       hint = ' Tuned guitar string.  If loop enabled, click again to stop. '
       bounds_x = 374
-      bounds_y = 4
+      bounds_y = 5
       bounds_cx = 54
-      bounds_cy = 23
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '1 Mi/E'
       imagenr = 27
@@ -291,26 +290,22 @@ object guitarsfo: tguitarsfo
       frame.caption = 'Loop'
       frame.captionpos = cp_left
       frame.captiondist = 2
-      frame.font.color = 4013373
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        28
-        2
+        31
+        5
         0
-        2
+        5
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
       taborder = 6
       hint = ' Enable looping the string. '
       bounds_x = 20
-      bounds_y = 16
-      bounds_cx = 44
-      bounds_cy = 15
+      bounds_y = 18
+      bounds_cx = 58
+      bounds_cy = 19
       statfile = mainfo.tstatfile1
     end
     object tstringdisp2: tstringdisp
@@ -325,16 +320,12 @@ object guitarsfo: tguitarsfo
       taborder = 7
       hint = ' Tuned Guitar strings '
       bounds_x = 2
-      bounds_y = 2
+      bounds_y = 0
       bounds_cx = 86
-      bounds_cy = 15
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_cy = 19
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Guitar strings'
-      reffontheight = 13
+      reffontheight = 17
     end
   end
   object tgroupbox2: tgroupbox
@@ -343,10 +334,9 @@ object guitarsfo: tguitarsfo
     face.template = mainfo.tfaceplayer
     taborder = 1
     bounds_x = 0
-    bounds_y = 32
+    bounds_y = 40
     bounds_cx = 434
-    bounds_cy = 32
-    anchors = [an_top, an_bottom]
+    bounds_cy = 40
     font.name = 'stf_default'
     font.localprops = []
     object tbutton16: tbutton
@@ -360,9 +350,9 @@ object guitarsfo: tguitarsfo
       face.template = mainfo.tfaceplayerlight
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 158
-      bounds_y = 4
-      bounds_cx = 56
-      bounds_cy = 23
+      bounds_y = 5
+      bounds_cx = 54
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '4 Mi/E'
       imagenr = 27
@@ -381,9 +371,9 @@ object guitarsfo: tguitarsfo
       taborder = 1
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 215
-      bounds_y = 4
-      bounds_cx = 56
-      bounds_cy = 23
+      bounds_y = 5
+      bounds_cx = 54
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '3 La/A'
       imagenr = 27
@@ -402,9 +392,9 @@ object guitarsfo: tguitarsfo
       taborder = 2
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 272
-      bounds_y = 4
-      bounds_cx = 56
-      bounds_cy = 23
+      bounds_y = 5
+      bounds_cx = 54
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '2 Re/D'
       imagenr = 27
@@ -423,9 +413,9 @@ object guitarsfo: tguitarsfo
       taborder = 3
       hint = ' Tuned bass guitar string.  If loop enabled, click again to stop. '
       bounds_x = 329
-      bounds_y = 4
-      bounds_cx = 56
-      bounds_cy = 23
+      bounds_y = 5
+      bounds_cx = 54
+      bounds_cy = 30
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '1 Sol/G'
       imagenr = 27
@@ -439,17 +429,13 @@ object guitarsfo: tguitarsfo
       frame.caption = 'Loop'
       frame.captionpos = cp_left
       frame.captiondist = 2
-      frame.font.color = 4013373
-      frame.font.height = 10
-      frame.font.name = 'stf_default'
-      frame.font.localprops = [flp_height]
       frame.localprops = [frl_hiddenedges, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
       frame.outerframe = (
-        28
-        2
+        31
+        4
         0
-        2
+        4
       )
       face.localprops = []
       face.template = mainfo.tfaceplayerlight
@@ -457,8 +443,8 @@ object guitarsfo: tguitarsfo
       hint = ' Enable looping the string. '
       bounds_x = 20
       bounds_y = 16
-      bounds_cx = 44
-      bounds_cy = 15
+      bounds_cx = 58
+      bounds_cy = 19
       statfile = mainfo.tstatfile1
     end
     object tstringdisp3: tstringdisp
@@ -473,16 +459,12 @@ object guitarsfo: tguitarsfo
       taborder = 5
       hint = ' Tuned Bass strings '
       bounds_x = 2
-      bounds_y = 2
+      bounds_y = 0
       bounds_cx = 86
-      bounds_cy = 15
-      font.color = 3881787
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_color, flp_style, flp_height]
+      bounds_cy = 19
       textflags = [tf_xcentered, tf_ycentered]
       value = 'Bass strings'
-      reffontheight = 13
+      reffontheight = 17
     end
   end
 end

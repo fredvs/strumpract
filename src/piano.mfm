@@ -15,6 +15,7 @@ object pianofo: tpianofo
   bounds_cy = 284
   bounds_cxmin = 442
   bounds_cymin = 284
+  bounds_cxmax = 442
   bounds_cymax = 284
   container.frame.localprops = []
   container.frame.localprops1 = []
@@ -77,19 +78,19 @@ object pianofo: tpianofo
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
-      99
-      1
-      0
+      91
       2
+      0
+      3
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
     hint = 'Activate Piano'
-    bounds_x = 17
-    bounds_y = 20
-    bounds_cx = 112
-    bounds_cy = 17
+    bounds_x = 25
+    bounds_y = 19
+    bounds_cx = 104
+    bounds_cy = 19
     colorglyph = -1610612728
     onsetvalue = onpianoactivate
   end
@@ -101,16 +102,16 @@ object pianofo: tpianofo
     frame.localprops1 = []
     frame.outerframe = (
       0
-      18
+      20
       0
       0
     )
     taborder = 1
     hint = 'Envelope of Piano: Attack, Decay and Release.'
     bounds_x = 151
-    bounds_y = 5
+    bounds_y = 3
     bounds_cx = 277
-    bounds_cy = 148
+    bounds_cy = 150
     attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
     attack.frame.framei_right = 0
     attack.frame.framei_bottom = 0
@@ -118,7 +119,7 @@ object pianofo: tpianofo
     attack.frame.localprops1 = []
     attack.frame.zoomwidthstep = 1.5
     attack.bounds_x = 0
-    attack.bounds_y = 18
+    attack.bounds_y = 20
     attack.bounds_cx = 92
     attack.bounds_cy = 130
     attack.traces.count = 2
@@ -158,7 +159,7 @@ object pianofo: tpianofo
     decay.frame.zoomwidthstep = 1.5
     decay.taborder = 1
     decay.bounds_x = 96
-    decay.bounds_y = 18
+    decay.bounds_y = 20
     decay.bounds_cx = 94
     decay.bounds_cy = 130
     decay.traces.count = 2
@@ -212,7 +213,7 @@ object pianofo: tpianofo
     release.frame.zoomwidthstep = 1.5
     release.taborder = 2
     release.bounds_x = 194
-    release.bounds_y = 18
+    release.bounds_y = 20
     release.bounds_cx = 83
     release.bounds_cy = 130
     release.traces.count = 2
@@ -247,13 +248,13 @@ object pianofo: tpianofo
     splitter1.color = -2147483645
     splitter1.taborder = 3
     splitter1.bounds_x = 92
-    splitter1.bounds_y = 18
+    splitter1.bounds_y = 20
     splitter1.bounds_cx = 4
     splitter1.bounds_cy = 130
     splitter2.color = -2147483645
     splitter2.taborder = 4
     splitter2.bounds_x = 190
-    splitter2.bounds_y = 18
+    splitter2.bounds_y = 20
     splitter2.bounds_cx = 4
     splitter2.bounds_cy = 130
     statfile = mainfo.tstatfile1
@@ -312,20 +313,20 @@ object pianofo: tpianofo
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.outerframe = (
-      100
-      1
-      0
+      90
       2
+      0
+      3
     )
     face.fade_direction = gd_down
     face.localprops = [fal_fadirection]
     face.template = mainfo.tfaceplayer
     taborder = 3
     hint = 'Link Left+Right Channels'
-    bounds_x = 19
-    bounds_y = 113
-    bounds_cx = 113
-    bounds_cy = 17
+    bounds_x = 29
+    bounds_y = 112
+    bounds_cx = 103
+    bounds_cy = 19
     statfile = mainfo.tstatfile1
     colorglyph = 54784
     value = True
@@ -349,10 +350,10 @@ object pianofo: tpianofo
     bounds_x = 110
     bounds_y = 77
     bounds_cx = 34
-    bounds_cy = 21
+    bounds_cy = 23
     textflags = [tf_xcentered, tf_right, tf_ycentered]
     value = 50
-    reffontheight = 15
+    reffontheight = 17
   end
   object tsigslider32: tsigslider
     color = -2147483645
@@ -362,7 +363,7 @@ object pianofo: tpianofo
     frame.localprops = [frl_levelo]
     frame.localprops1 = []
     frame.outerframe = (
-      23
+      21
       0
       0
       0
@@ -370,9 +371,9 @@ object pianofo: tpianofo
     face.localprops = []
     taborder = 5
     hint = 'Volume Right of Piano'
-    bounds_x = 7
+    bounds_x = 9
     bounds_y = 77
-    bounds_cx = 100
+    bounds_cx = 98
     bounds_cy = 21
     statfile = mainfo.tstatfile1
     value = 0.5
@@ -411,10 +412,10 @@ object pianofo: tpianofo
     bounds_x = 110
     bounds_y = 52
     bounds_cx = 34
-    bounds_cy = 21
+    bounds_cy = 23
     textflags = [tf_xcentered, tf_right, tf_ycentered]
     value = 50
-    reffontheight = 15
+    reffontheight = 17
   end
   object tsigslider3: tsigslider
     color = -2147483645
@@ -424,7 +425,7 @@ object pianofo: tpianofo
     frame.localprops = [frl_levelo]
     frame.localprops1 = []
     frame.outerframe = (
-      22
+      20
       0
       0
       0
@@ -432,9 +433,9 @@ object pianofo: tpianofo
     face.localprops = []
     taborder = 7
     hint = 'Volume Left of piano'
-    bounds_x = 7
+    bounds_x = 9
     bounds_y = 52
-    bounds_cx = 100
+    bounds_cx = 98
     bounds_cy = 21
     statfile = mainfo.tstatfile1
     value = 0.5

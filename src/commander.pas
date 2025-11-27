@@ -206,25 +206,30 @@ begin
   bounds_cxmin := 0;
   bounds_cymax := 0;
   bounds_cymin := 0;
-  bounds_cxmax := roundmath(442 * ratio);
+  bounds_cxmax := round(442 * ratio);
   bounds_cxmin := bounds_cxmax;
-  bounds_cymax := roundmath(128 * ratio);
+  bounds_cymax := round(128 * ratio);
   bounds_cymin := bounds_cymax;
   font.Height  := fontheight;
 
   tgroupall.font.Height := fontheight;
-  frame.grip_size       := roundmath(8 * ratio);
+  frame.grip_size       := round(8 * ratio);
 
   for i1 := 0 to childrencount - 1 do
     for i2 := 0 to length(boundchildco) - 1 do
       if children[i1].Name = boundchildco[i2].Name then
       begin
-        children[i1].left   := roundmath(boundchildco[i2].left * ratio);
-        children[i1].top    := roundmath(boundchildco[i2].top * ratio);
-        children[i1].Width  := roundmath(boundchildco[i2].Width * ratio);
-        children[i1].Height := roundmath(boundchildco[i2].Height * ratio);
+        children[i1].left   := round(boundchildco[i2].left * ratio);
+        children[i1].top    := round(boundchildco[i2].top * ratio);
+        children[i1].Width  := round(boundchildco[i2].Width * ratio);
+        children[i1].Height := round(boundchildco[i2].Height * ratio);
       end;
-
+      
+  namegen.left := round(2*ratio);    
+  namegen.top := round(1* ratio); 
+  namegen.Width := round(28* ratio); 
+  namegen.Height := round(18* ratio); 
+  
   linkvolgenb.font.Height := roundmath(10 * ratio);
   linkvol2b.font.Height   := linkvolgenb.font.Height;
   linkvolb.font.Height    := linkvolgenb.font.Height;
@@ -242,15 +247,16 @@ begin
       for i2 := 0 to length(boundchildco) - 1 do
         if tgroupall.children[i1].Name = boundchildco[i2].Name then
         begin
-          tgroupall.children[i1].left   := roundmath(boundchildco[i2].left * ratio);
-          tgroupall.children[i1].top    := roundmath(boundchildco[i2].top * ratio);
-          tgroupall.children[i1].Width  := roundmath(boundchildco[i2].Width * ratio);
-          tgroupall.children[i1].Height := roundmath(boundchildco[i2].Height * ratio);
+          tgroupall.children[i1].left   := round(boundchildco[i2].left * ratio);
+          tgroupall.children[i1].top    := round(boundchildco[i2].top * ratio);
+          tgroupall.children[i1].Width  := round(boundchildco[i2].Width * ratio);
+          tgroupall.children[i1].Height := round(boundchildco[i2].Height * ratio);
         end;
   end;
   
-  bmon.font.Height  := roundmath(9 * ratio);
-  
+  bmon.font.Height  := round(9 * ratio);
+  bmon1.font.Height  := round(10 * ratio);
+  bmon2.font.Height  := round(10 * ratio);
 
   tgroupboxplayers.font.Height := fontheight;
 
@@ -259,15 +265,12 @@ begin
       for i2 := 0 to length(boundchildco) - 1 do
         if children[i1].Name = boundchildco[i2].Name then
         begin
-          children[i1].left   := roundmath(boundchildco[i2].left * ratio);
-          children[i1].top    := roundmath(boundchildco[i2].top * ratio);
-          children[i1].Width  := roundmath(boundchildco[i2].Width * ratio);
-          children[i1].Height := roundmath(boundchildco[i2].Height * ratio);
+          children[i1].left   := round(boundchildco[i2].left * ratio);
+          children[i1].top    := round(boundchildco[i2].top * ratio);
+          children[i1].Width  := round(boundchildco[i2].Width * ratio);
+          children[i1].Height := round(boundchildco[i2].Height * ratio);
         end;
         
-   bmon1.font.Height  := roundmath(10 * ratio);     
-   bmon2.font.Height  := roundmath(10 * ratio);   
-   
   tgroupboxdrums.font.Height := fontheight;
 
   with tgroupboxdrums do
@@ -275,10 +278,10 @@ begin
       for i2 := 0 to length(boundchildco) - 1 do
         if children[i1].Name = boundchildco[i2].Name then
         begin
-          children[i1].left   := roundmath(boundchildco[i2].left * ratio);
-          children[i1].top    := roundmath(boundchildco[i2].top * ratio);
-          children[i1].Width  := roundmath(boundchildco[i2].Width * ratio);
-          children[i1].Height := roundmath(boundchildco[i2].Height * ratio);
+          children[i1].left   := round(boundchildco[i2].left * ratio);
+          children[i1].top    := round(boundchildco[i2].top * ratio);
+          children[i1].Width  := round(boundchildco[i2].Width * ratio);
+          children[i1].Height := round(boundchildco[i2].Height * ratio);
         end;
 
   tgroupboxinput.font.Height := fontheight;
@@ -288,10 +291,10 @@ begin
       for i2 := 0 to length(boundchildco) - 1 do
         if children[i1].Name = boundchildco[i2].Name then
         begin
-          children[i1].left   := roundmath(boundchildco[i2].left * ratio);
-          children[i1].top    := roundmath(boundchildco[i2].top * ratio);
-          children[i1].Width  := roundmath(boundchildco[i2].Width * ratio);
-          children[i1].Height := roundmath(boundchildco[i2].Height * ratio);
+          children[i1].left   := round(boundchildco[i2].left * ratio);
+          children[i1].top    := round(boundchildco[i2].top * ratio);
+          children[i1].Width  := round(boundchildco[i2].Width * ratio);
+          children[i1].Height := round(boundchildco[i2].Height * ratio);
         end;
   
 end;

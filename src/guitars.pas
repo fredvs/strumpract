@@ -83,19 +83,24 @@ begin
   bounds_cxmin := 0;
   bounds_cymax := 0;
   bounds_cymin := 0;
-  bounds_cxmax := roundmath(442 * ratio);
+  bounds_cxmax := round(442 * ratio);
   bounds_cxmin := bounds_cxmax;
-  bounds_cymax := roundmath(64 * ratio);
+  bounds_cymax := round(80 * ratio);
   bounds_cymin := bounds_cymax;
   font.Height  := fontheight;
 
-  frame.grip_size := roundmath(8 * ratio);
+  frame.grip_size := round(8 * ratio);
 
   tgroupbox1.font.Height := fontheight;
   tgroupbox1.font.color  := font.color;
   tgroupbox2.font.Height := fontheight;
   tgroupbox2.font.color  := font.color;
   
+  tgroupbox1.left   := 0;
+  tgroupbox1.top    := 0;
+  tgroupbox1.Width  := round(434* ratio);
+  tgroupbox1.Height := round(40 * ratio);
+   
   with tgroupbox1 do
     for i1 := 0 to childrencount - 1 do
       for i2 := 0 to length(boundchildgu) - 1 do
@@ -106,6 +111,11 @@ begin
           children[i1].Width  := roundmath(boundchildgu[i2].Width * ratio);
           children[i1].Height := roundmath(boundchildgu[i2].Height * ratio);
         end;
+
+  tgroupbox2.left   := 0;
+  tgroupbox2.top    := round(40* ratio);
+  tgroupbox2.Width  := round(434* ratio);
+  tgroupbox2.Height := round(40 * ratio);
 
   with tgroupbox2 do
     for i1 := 0 to childrencount - 1 do

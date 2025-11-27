@@ -115,7 +115,7 @@ begin
   PimgPreview.Width  := roundmath(216 * ratio);
   invalidate;
   
- // infofile.frame.font.Height := roundmath(20 * ratio);
+  infofile.frame.font.Height := roundmath(10 * ratio);
   infoname.frame.font.Height := roundmath(10 * ratio);
   infoartist.frame.font.Height := roundmath(10 * ratio);
   infoalbum.frame.font.Height := roundmath(10 * ratio);

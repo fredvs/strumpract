@@ -174,9 +174,6 @@ object songplayerfo: tsongplayerfo
       bounds_cy = 15
       state = [as_localcaption, as_localimagelist, as_localimagenr, as_localimagenrdisabled, as_localcolor, as_localhint, as_localonexecute]
       caption = '=1'
-      font.height = 10
-      font.name = 'stf_default'
-      font.localprops = [flp_height]
       imagenr = 27
       focusrectdist = 0
       onexecute = onreset
@@ -943,8 +940,8 @@ object songplayerfo: tsongplayerfo
       face.localprops = []
       taborder = 23
       visible = False
-      bounds_x = 117
-      bounds_y = 47
+      bounds_x = 87
+      bounds_y = 49
       bounds_cx = 228
       bounds_cy = 50
       object hintlabel: tlabel
