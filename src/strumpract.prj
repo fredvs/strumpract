@@ -85,8 +85,8 @@ order16=0
 order17=0
 order18=0
 [projectoptions]
-projectdir=/home/fred/strumpract/src
-projectfilename=/home/fred/strumpract/src/strumpract.prj
+projectdir=/home/fred/strumpract_work/src
+projectfilename=/home/fred/strumpract_work/src/strumpract.prj
 finddialog=8
  [finddialogfo.selectedonly]
  value=0
@@ -137,33 +137,33 @@ options=109
   70
   70
  [projectoptionsfo.twidgetgrid3]
- propcolwidthref=771
+ propcolwidthref=839
  sortdescend0=0
  sortdescend1=0
  sortdescend2=0
  sortdescend3=0
- width4=280
+ width4=305
  sortdescend4=0
- width5=127
+ width5=138
  sortdescend5=0
- width6=315
+ width6=343
  sortdescend6=0
- width7=53
+ width7=58
  sortdescend7=0
  width8=1
  sortdescend8=0
- width9=316
+ width9=344
  sortdescend9=0
  [projectoptionsfo.twidgetgrid4]
- propcolwidthref=626
+ propcolwidthref=694
  width0=96
  sortdescend0=0
  sortdescend1=0
  width2=73
  sortdescend2=0
- width3=300
+ width3=333
  sortdescend3=0
- width4=317
+ width4=352
  sortdescend4=0
  sorted=0
  col=-1073741823
@@ -173,10 +173,10 @@ options=109
  firsttab=1
  index=2
  [projectoptionsfo.fontaliasgrid]
- propcolwidthref=472
+ propcolwidthref=540
  width0=98
  sortdescend0=0
- width1=461
+ width1=529
  sortdescend1=0
  width2=30
  sortdescend2=0
@@ -190,11 +190,11 @@ options=109
  sortdescend6=0
  [projectoptionsfo.macrosplitter]
  x=0
- y=183
+ y=184
  xprop=1
- yprop=0.3463687150838
+ yprop=0.3462962962963
  [projectoptionsfo.macrogrid]
- propcolwidthref=544
+ propcolwidthref=612
  sortdescend0=0
  sortdescend1=0
  sortdescend2=0
@@ -207,7 +207,7 @@ options=109
  sortdescend9=0
  width10=146
  sortdescend10=0
- width11=528
+ width11=596
  sortdescend11=0
  [projectoptionsfo.comment_1]
  value=
@@ -219,19 +219,19 @@ options=109
  firsttab=0
  index=2
  [projectoptionsfo.exceptionsgrid]
- propcolwidthref=762
+ propcolwidthref=830
  width0=47
  sortdescend0=0
- width1=756
+ width1=824
  sortdescend1=0
  [projectoptionsfo.ttabwidget1]
  firsttab=0
  index=0
  [projectoptionsfo.filefiltergrid]
- propcolwidthref=734
+ propcolwidthref=636
  width0=112
  sortdescend0=0
- width1=727
+ width1=629
  sortdescend1=0
  [projectoptionsfo.ttabwidget2]
  firsttab=0
@@ -595,6 +595,18 @@ newfisources=3
  ${TEMPLATEDIR}fpc_mse/default/program.pas
  ${TEMPLATEDIR}fpc_mse/default/unit.pas
  
+newfoformsuffixes=11
+ fo
+ fo
+ fo
+ mo
+ fo
+ fo
+ fo
+ fo
+ re
+ sc
+ fo
 newfonames=11
  Mainform
  Simple Form
@@ -725,6 +737,15 @@ settingsstorage=0
 settingsprojecttree=0
 settingsautoload=0
 settingsautosave=0
+settingsmake=0
+settingsmacros=0
+settingsfontalias=0
+settingsusercolors=0
+settingsformatmacros=0
+settingstemplates=0
+settingstools=0
+settingscomponentstore=0
+settingslayout=0
 modulenames=0
 moduletypes=0
 modulefiles=0
@@ -735,7 +756,7 @@ makeoptionson=20
  0
  192
  0
- 763
+ 767
  4095
  4
  4095
@@ -1494,24 +1515,14 @@ findhistory=20
  timerwait
  timeract
 findoptions=1
-editpos=3
+editpos=1
  0,5
- 0,-1073741823
- 0,-1073741823
 bookmarks0=0
-bookmarks1=0
-bookmarks2=0
-sourcefiles=3
+sourcefiles=1
  ${PROJECTDIR}/strumpract.pas
- ${PROJECTDIR}/infosd.pas
- ${PROJECTDIR}/config.pas
-relpaths=3
+relpaths=1
  strumpract.pas
- infosd.pas
- config.pas
-ismoduletexts=3
- 0
- 0
+ismoduletexts=1
  0
 modules=0
 moduleoptions=0
@@ -1742,10 +1753,10 @@ windowlayout=527
  [breakpointsfo.bkptson]
  value=1
  [objectinspectorfo.grid]
- propcolwidthref=414
- width0=184
+ propcolwidthref=448
+ width0=199
  sortdescend0=0
- width1=224
+ width1=243
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1966,7 +1977,7 @@ windowlayout=527
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/strumpract/src/strumpract.pas
+ value=/home/fred/strumpract_work/src/infosd.pas
  history=20
   /home/fred/strumpract/src/strumpract.pas
   /home/fred/strumpract/src/config.pas
