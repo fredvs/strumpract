@@ -1427,7 +1427,11 @@ begin
      {$if defined(CPUAMD64) and defined(linux) }      
       if (lib2 <> 'system') and (lib2 <> '') then     
       if uos_TestLoadLibrary(PChar(lib2)) = false then lib2 := lib2 + '.2';
-     {$endif}        
+      
+       if (lib1 <> 'system') and (lib1 <> '') then     
+      if uos_TestLoadLibrary(PChar(lib1)) = false then lib1 := lib1 + '.2';
+      {$endif}  
+            
       resulib := -1;
       resu    := uos_LoadLib(PChar(lib1), PChar(lib2), PChar(lib3), nil, nil, nil, PChar(lib5));
       configfo.syslib.Value := False;
@@ -1880,11 +1884,10 @@ begin
   adrums[0] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'HH.mp3');
   adrums[1] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'OH.mp3');
   adrums[2] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'SD.mp3');
-  adrums[3] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.mp3');
+  adrums[3] := ansistring(ordir + 'sound' + directoryseparator + 'drums' + directoryseparator + 'BD.wav');
 
   posi         := 1;
   bounds_cxmax := 0;
-
 end;
 
 procedure tdrumsfo.onmousewindow(const Sender: twidget; var ainfo: mouseeventinfoty);
