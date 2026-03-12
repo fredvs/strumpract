@@ -11,9 +11,7 @@ program strumpract;
  {$PACKRECORDS C}
 
 uses
-  mormot.core.fpcx64mm,
-
- {$ifdef FPC} {$ifdef unix} cthreads, BaseUnix, {$endif} {$endif}
+  {$ifdef FPC} {$ifdef unix} cthreads, BaseUnix, {$endif} {$endif}
 
   Classes, 
   Math,
@@ -30,8 +28,6 @@ fs: TFileStream;
 ordir: string;
 {$endif}
 
-me : QWord;
-
 begin
 {$ifdef unix}  
   ordir := filepath(statdirname);
@@ -43,10 +39,6 @@ begin
   fs := TFileStream.Create(ordir, fmOpenReadWrite or fmCreate);
   FpDup2(fs.Handle, StdErrorHandle);   
 {$endif}
-
- // mormot.core.fpcx64mm._GetMem(me);
-  
-  // main.RoundMath(0.5);
 
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);

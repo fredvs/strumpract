@@ -19,11 +19,11 @@ and arm-aarch64 Rpi 32/64. =\> https://github.com/fredvs/strumpract/releases/
 
 StrumPract was compiled with: FPC 3.2.2: http://www.freepascal.org
 
-Graphic widgetset: MSEgui 5.10.4: https://github.com/mse-org/mseide-msegui
+Graphic widgetset: MSEgui 5.12.0: https://github.com/mse-org/mseide-msegui
 
 Graphic library: BGRABitmap v11.5.8: https://github.com/bgrabitmap/bgrabitmap
 
-Audio library: uos 1.8.0: https://github.com/fredvs/uos
+Audio library: uos 2.0.0: https://github.com/fredvs/uos
   
 
 DJ Wave Layout Gold Style:
