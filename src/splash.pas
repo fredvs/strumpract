@@ -4,26 +4,13 @@ unit splash;
 interface
 
 uses
-  msetypes,
-  sysutils,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msebitmap,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  msesimplewidgets;
+ msetypes,sysutils,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,
+ msemenus,msegui,msegraphics,msebitmap,msegraphutils,mseevent,mseclasses,
+ msewidgets,mseforms,msesimplewidgets, mseimage;
 
 type
   tsplashfo = class(tmseform)
+   timage1: timage;
     procedure oneventloop(const Sender: TObject);
    procedure oncrea(const sender: TObject);
    procedure oncreated(const sender: TObject);
@@ -65,9 +52,9 @@ uses
 
 procedure tsplashfo.oneventloop(const Sender: TObject);
 begin
-  application.ProcessMessages;
-  invalidatewidget;
-  sleep(100);
+ application.ProcessMessages;
+ invalidatewidget;
+ sleep(100);
   application.createform(tconfigfo, configfo);
   application.createform(tconfiglayoutfo, configlayoutfo);
   configlayoutfo.icon := configfo.icon;
@@ -201,14 +188,19 @@ end;
 
 procedure tsplashfo.oncrea(const sender: TObject);
 begin
- {$if defined(netbsd) or defined(darwin)}
+{$if defined(netbsd) or defined(darwin)}
  container.face.image.options := [bmo_masked]; 
  {$endif}
+ mse_shapebmp := timage1.bitmap;
+ optionswindow := [wo_alwaysontop,wo_noframe,wo_customshape];
+ height := 134;
+ width := 129;
+ visible := false;
 end;
 
 procedure tsplashfo.oncreated(const sender: TObject);
 begin
-visible := false;
+
 end;
 
 end.
