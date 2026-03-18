@@ -190,7 +190,7 @@ procedure tsplashfo.oncrea(const sender: TObject);
 begin
 {$if defined(netbsd) or defined(darwin)}
  container.face.image.options := [bmo_masked]; 
- {$endif}
+{$endif}
  mse_shapebmp := timage1.bitmap;
  optionswindow := [wo_alwaysontop,wo_noframe,wo_customshape];
  height := 134;
