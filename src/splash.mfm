@@ -430,7 +430,7 @@ object splashfo: tsplashfo
     1
     1
   )
-  optionswindow = [wo_splash, wo_noframe, wo_notaskbar, wo_alwaysontop]
+  optionswindow = [wo_splash, wo_noframe, wo_notaskbar, wo_alwaysontop, wo_ellipse]
   options = [fo_freeonclose, fo_screencentered]
   caption = 'Splash'
   icon.options = [bmo_masked, bmo_graymask]

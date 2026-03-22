@@ -1,6 +1,7 @@
 unit splash;
 
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
+{.$define shapedform}
 interface
 
 uses
@@ -188,14 +189,16 @@ end;
 
 procedure tsplashfo.oncrea(const sender: TObject);
 begin
+ visible := false;
 {$if defined(netbsd) or defined(darwin)}
  container.face.image.options := [bmo_masked]; 
 {$endif}
+{$ifdef shapedform}
  mse_shapebmp := timage1.bitmap;
  optionswindow := [wo_alwaysontop,wo_noframe,wo_customshape];
+{$endif}
  height := 134;
  width := 129;
- visible := false;
 end;
 
 procedure tsplashfo.oncreated(const sender: TObject);
