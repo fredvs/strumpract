@@ -9,7 +9,7 @@ unit uos_flat;
 
 {$mode objfpc}{$H+}{$inline on}
 {$PACKRECORDS C}
-
+{$R-}{$Q-}
 // For custom configuration of directive to compiler ---> uos_define.inc
 {$I uos_define.inc}
 

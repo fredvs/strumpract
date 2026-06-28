@@ -1,5 +1,5 @@
 unit imagedancer;
-
+{$R-}{$Q-}
 {$mode objfpc}{$H+}{$inline on}
 {$modeswitch advancedrecords} 
 
@@ -20,7 +20,7 @@ uses
 type
   TProp = record
     thecolor: integer;
-    x, y: single;
+    x, y: double;
   end;
 
 {$IF DEFINED(msethread)}
@@ -70,9 +70,9 @@ type
     procedure createwinidexe(const Sender: tcustomwindowwidget; const aparent: winidty; const awidgetrect: rectty; var aid: winidty);
     procedure onrenderexe(const Sender: tcustomopenglwidget; const aupdaterect: rectty);
     procedure FractalcirclesRedraw(Sender: TObject; Bitmap: TBGRABitmap);
-    procedure move(Bitmap: TBGRABitmap; distance: single);
-    procedure rotate(Bitmap: TBGRABitmap; angle: single);
-    procedure translate(Bitmap: TBGRABitmap; x: single; y: single);
+    procedure move(Bitmap: TBGRABitmap; distance: double);
+    procedure rotate(Bitmap: TBGRABitmap; angle: double);
+    procedure translate(Bitmap: TBGRABitmap; x: double; y: double);
     procedure reset(Bitmap: TBGRABitmap);
     procedure set_color(Bitmap: TBGRABitmap; r, g, b, a: byte);
  
@@ -101,12 +101,12 @@ type
    {$endif}
   
   private
-    zoom: single; 
+    zoom: double; 
     increase: byte;
     decrease: boolean;
      thecolor: Byte;
     myData: TData;
-    x2, y2, xbf, ybf, ang, deg, degacc, acc, speedX, speedY, colBase: single;  
+    x2, y2, xbf, ybf, ang, deg, degacc, acc, speedX, speedY, colBase: double;  
     rendercount: integer;
     renderstart: longword;
     frotx, froty, frotz: real;
@@ -152,7 +152,7 @@ var
   Rings: array[0..MaxRing] of TRing;
   Center: TPointF;
   TimerTic: integer = 0;
-  gAngle : single = 0;
+  gAngle : double = 0.0;
   centerX:   integer = 0;
   centery:   integer = 0;
   TimerTicinterval: integer = 0;
@@ -337,12 +337,12 @@ begin
 end;
 
 
-procedure incF(var f: single; Increment: single); inline;
+procedure incF(var f: double; Increment: double); inline;
 begin
   f := f + Increment;
 end;
 
-procedure rangeToCircle(var start, stop: single); inline;
+procedure rangeToCircle(var start, stop: double); inline;
 var
   tmp: integer;
 begin
@@ -361,9 +361,9 @@ begin
 end;
 
 
-function rotatePoly(Poly: ArrayOfTPointF; angleDegrees: single; Center: TPointF): ArrayOfTPointF; inline;
+function rotatePoly(Poly: ArrayOfTPointF; angleDegrees: double; Center: TPointF): ArrayOfTPointF; inline;
 var
-  Sinus, Cosinus: single;
+  Sinus, Cosinus: double;
   P: TPointF;
   i: integer;
 begin
@@ -390,7 +390,7 @@ const
 var
   Poly, Poly1: ArrayOfTPointF;
   angle, turn: integer;
-  sinus, cosinus: single;
+  sinus, cosinus: double;
 begin
   turn := roundmath(TimerTic * multiplier * 10) mod 360;
 
@@ -423,8 +423,8 @@ end;
 // Spiral
 
 function createSpiral (Center: TPointF; AngleOffset,rotations,MaxRadius,
-                       MinRadius: Single;clockwise: Boolean) : ArrayOfTPointF;
-var sinus,cosinus,RadiusStep,ro : Single;
+                       MinRadius: double;clockwise: Boolean) : ArrayOfTPointF;
+var sinus,cosinus,RadiusStep,ro : double;
     Steps,i,sign : integer;
 begin
    Steps := round (rotations*360);
@@ -444,7 +444,7 @@ end;
 procedure DrawIncreasing(img:TBGRABitmap; ar:ArrayOfTPointF; Lmax,Lmin: Integer;
                          Col:TBGRAPixel);
 var step : integer;
-    L, Lstep : single;
+    L, Lstep : double;
     done : boolean = false;
     i : Integer = 0;
     hi : Integer;
@@ -475,7 +475,7 @@ end;
 
 procedure DrawIncreasing2(img:TBGRABitmap; ar:ArrayOfTPointF; Lmax,Lmin: Integer);
 var step : integer;
-    L, Lstep : single;
+    L, Lstep : double;
     done : boolean = false;
     i : Integer = 0;
     hi, hue : Integer;
@@ -587,9 +587,9 @@ end;
 
 // Fractal Tree
 
-procedure drawTree(x1, y1, angle, depth, multiplierdraw: single; bgra: tbgrabitmap);
+procedure drawTree(x1, y1, angle, depth, multiplierdraw: double; bgra: tbgrabitmap);
 var
-  x2, y2: single;
+  x2, y2: double;
 begin
   if (depth > 0) then
   begin
@@ -610,7 +610,7 @@ end;
 // Fractal circles
 procedure timagedancerfo.fractalcirclesRedraw(Sender: TObject; Bitmap: TBGRABitmap);
 
-procedure Translatefc(toX, toY: single);
+procedure Translatefc(toX, toY: double);
 begin
   x2 := x2 + toX;
   y2 := y2 + toY;
@@ -638,9 +638,9 @@ end;
 
 
 
-procedure Circles(w: single);
+procedure Circles(w: double);
 
-procedure Ellipse(ax, ay, aw, ah: single);
+procedure Ellipse(ax, ay, aw, ah: double);
 begin
   ax := ax + x2;
   ay := ay + y2;
@@ -685,7 +685,7 @@ end;
 
 // Turtle
 
-procedure timagedancerfo.move(Bitmap: TBGRABitmap; distance: single);
+procedure timagedancerfo.move(Bitmap: TBGRABitmap; distance: double);
 begin
   Bitmap.Canvas2D.beginPath;
   Bitmap.Canvas2D.moveTo(0, 0);
@@ -694,12 +694,12 @@ begin
   Bitmap.Canvas2D.stroke;
 end;
 
-procedure timagedancerfo.rotate(Bitmap: TBGRABitmap; angle: single);
+procedure timagedancerfo.rotate(Bitmap: TBGRABitmap; angle: double);
 begin
   Bitmap.Canvas2D.rotate(angle * pi / 180);
 end;
 
-procedure timagedancerfo.translate(Bitmap: TBGRABitmap; x: single; y: single);
+procedure timagedancerfo.translate(Bitmap: TBGRABitmap; x: double; y: double);
 begin
   Bitmap.Canvas2D.translate(x, y);
 end;
@@ -771,7 +771,7 @@ end;
 
 procedure timagedancerfo.SubDraw;
 var
-  rx, ry : Single;
+  rx, ry : double;
    tx, ty: integer;
 begin
   rx := 8 * multiplier; 
@@ -799,11 +799,11 @@ var
   y: double = 0;
   i, k, m, offset: integer;
   col: TBGRAPixel;
-  start, stop: single;
-  LocalSpeed, Delta: single;
+  start, stop: double;
+  LocalSpeed, Delta: double;
   spi : ArrayOfTPointF;   
   steps: Integer;
-  alphaValue: Single;   
+  alphaValue: double;   
 begin
 
   if isbuzy = False then

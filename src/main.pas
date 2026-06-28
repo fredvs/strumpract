@@ -7,7 +7,7 @@ unit main;
 {$if defined(netbsd) or defined(darwin)}
  {$define nofade}
 {$endif}
-
+{$R-}{$Q-}
 interface
 
 uses

@@ -9,6 +9,7 @@
 }
 unit msememodialog;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
+{$R-}{$Q-}
 interface
 uses
  mseglob,mseguiglob,mseapplication,msestat,msemenus,msegui,msegraphics,
