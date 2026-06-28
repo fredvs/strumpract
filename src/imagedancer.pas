@@ -1,5 +1,5 @@
 unit imagedancer;
-{$R-}{$Q-}
+
 {$mode objfpc}{$H+}{$inline on}
 {$modeswitch advancedrecords} 
 

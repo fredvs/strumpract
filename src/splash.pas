@@ -2,7 +2,7 @@ unit splash;
 
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 {$define shapedform}
-{$R-}{$Q-}
+
 interface
 
 uses

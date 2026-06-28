@@ -1,5 +1,4 @@
 unit config;
-{$R-}{$Q-}
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 

@@ -1,5 +1,5 @@
 unit recorder;
-{$R-}{$Q-}
+
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 
