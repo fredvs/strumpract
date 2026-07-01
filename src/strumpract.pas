@@ -9,7 +9,7 @@ program strumpract;
 {$endif}
 
  {$PACKRECORDS C}
-{$R-}{$Q-}
+
 uses
   {$ifdef FPC} {$ifdef unix} cthreads, BaseUnix, {$endif} {$endif}
 

@@ -7,6 +7,8 @@ unit imagedancer;
  {$define msethread}
  //{$endif}
 
+{$R-}{$Q-}
+
 interface
 
 uses
