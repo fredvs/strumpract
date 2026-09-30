@@ -1,21 +1,35 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
+# 1. Install pure FPC on Debian/Ubuntu systems instead of Lazarus
 if [[ -f '/etc/os-release' ]]; then
     source '/etc/os-release'
 fi
-case ${ID:?} in
-    debian | ubuntu) sudo bash -c '
-        apt-get update; apt-get -y install lazarus
-    ' >/dev/null ;;
-esac
+
+if [[ "${ID:-}" == "debian" || "${ID:-}" == "ubuntu" ]]; then
+    sudo bash -c '
+        apt-get update; apt-get -y install fpc
+    ' >/dev/null
+fi
+
+# 2. Dynamically swap the target kernel path depending on the runner platform
+if [[ "${OSTYPE:-}" == "msys" || "${OS:-}" == "Windows_NT" ]]; then
+    KERNEL_DIR="windows"
+else
+    KERNEL_DIR="linux"
+fi
+
+# 3. Apply cross-platform array configurations for the compiler search paths
 declare -ar OPS=(
-    -Fuuse/mseide-msegui/lib/common/{*,kernel/linux}
-    -Fuuse/bgrabitmap/bgrabitmap
+    -Fu"use/mseide-msegui/lib/common/*"
+    -Fu"use/mseide-msegui/lib/common/kernel/${KERNEL_DIR}"
+    -Fu"use/bgrabitmap/bgrabitmap"
     -dmse_dynpo
     -dclass_bridge
     -dBGRABITMAP_USE_MSEGUI
     -B
-    )
+)
+
 declare -i exitCode=0
 while read -r; do
     if ! [[ ${REPLY} =~ /use/ ]]; then
